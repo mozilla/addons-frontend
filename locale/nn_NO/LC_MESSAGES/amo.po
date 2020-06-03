@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-03 10:06+0000\n"
+"PO-Revision-Date: 2020-06-03 11:27+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1776,6 +1776,9 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Når Mozilla blir kjend med utvidingar, programtillegg eller annan tredjeparts programvare som kompromitterer sikkerheita til Firefox, stabilitet eller yting, og samtidig er innanfor "
+"%(criteriaStartLink)sforskjellige kriterium%(criteriaEndLink)s, kan programmet bli blokkert frå generell bruk. For meir informasjon om dette, les %(supportStartLink)sdenne "
+"brukarstøtteartikkelen%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
@@ -1864,6 +1867,7 @@ msgstr "Stopp online-sporfølgjarar frå å følgje etter deg"
 #: src/amo/pages/Guides/index.js:118
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
 msgstr ""
+"Annonsørar på nettet kan spore aktiviteten din frå det eine nettstedet til det neste, og samle informasjon om deg og interessene dine. Utvidingar kan hjelpe deg med å skjule dei digitale spora dine."
 
 #: src/amo/pages/Guides/index.js:123
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
