@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-03 05:33+0000\n"
+"PO-Revision-Date: 2020-06-03 05:42+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -777,6 +777,8 @@ msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla fjerna det. Dette kan hende når eit problem blir oppdaga under gjenomgangen av utvidinga eller temaet, eller utvidinga eller temaet har misbrukt vilkåra for addons.mozilla.org. Utviklaren "
+"har moglegheit til å løyse problemene og gjere tillegget tilgjengeleg igjen."
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
@@ -956,7 +958,7 @@ msgstr "Vurderingsverktøy"
 
 #: src/amo/components/Header/index.js:139 src/core/components/AuthenticateButton/index.js:91
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Denne handlinga er for tida ikkje tilgjengeleg. Last sida på nytt om ei stund."
 
 #: src/amo/components/Header/index.js:144 src/core/components/AuthenticateButton/index.js:87
 msgid "Log out"
@@ -2590,7 +2592,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:880
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sMERK:%(strongEnd)s Du kan ikkje slette profilen til ein brukar dersom brukaren%(linkStart)sstår som eigar av eitt eller fleire tillegg%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -2603,7 +2605,7 @@ msgstr "E-postadressa %(strongStart)s%(email)s%(strongEnd)s vil ikkje lenger få
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Du kan redigere varslingsinnstillingane ved å %(linkStart)sredigere profilen din%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
@@ -2611,7 +2613,7 @@ msgstr "Avbryt abonnementet"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "hald deg oppdatert med nyheiter og hendingar som er relevante for tilleggsutviklarar (inkludert nyheitsbrevet about:addons)"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -2635,11 +2637,11 @@ msgstr "tillegget mitt er vurdert av ein vurderar"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "tilleggskompatibiliteten til innlegget mitt kan ikkje oppgraderast"
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "tilleggskompatibilitetn til innlegget mitt har blitt oppgradert"
 
 #: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
