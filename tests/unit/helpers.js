@@ -128,7 +128,6 @@ export const fakeAddon = Object.freeze({
   last_updated: '2018-11-22T10:09:01Z',
   name: 'Chill Out',
   previews: [fakePreview],
-  public_stats: true,
   ratings: {
     average: 3.5,
     count: 10,

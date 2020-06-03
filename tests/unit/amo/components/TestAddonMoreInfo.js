@@ -401,7 +401,6 @@ describe(__filename, () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       slug: 'coolio',
-      public_stats: false,
       authors: [
         {
           ...fakeAddon.authors[0],
@@ -420,21 +419,6 @@ describe(__filename, () => {
 
     const statsLink = root.find('.AddonMoreInfo-stats-link');
     expect(statsLink).toHaveLength(0);
-  });
-
-  it('links to stats if add-on public_stats is true', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      public_stats: true,
-    });
-    const root = render({
-      addon,
-      // Make sure no user is signed in.
-      store: dispatchClientMetadata().store,
-    });
-
-    const statsLink = root.find('.AddonMoreInfo-stats-link');
-    expect(statsLink).toHaveLength(1);
   });
 
   it('links to stats if add-on author is viewing the page', () => {
@@ -495,10 +479,7 @@ describe(__filename, () => {
   });
 
   it('links to stats if user has STATS_VIEW permission', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      public_stats: false,
-    });
+    const addon = createInternalAddon(fakeAddon);
     const root = render({
       addon,
       store: dispatchSignInActions({

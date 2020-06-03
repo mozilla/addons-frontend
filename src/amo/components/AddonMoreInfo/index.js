@@ -94,11 +94,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     }
 
     let statsLink = null;
-    if (
-      isAddonAuthor({ addon, userId }) ||
-      addon.public_stats ||
-      hasStatsPermission
-    ) {
+    if (isAddonAuthor({ addon, userId }) || hasStatsPermission) {
       statsLink = (
         <Link
           className="AddonMoreInfo-stats-link"

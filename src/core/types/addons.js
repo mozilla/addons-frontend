@@ -80,7 +80,6 @@ export type ExternalAddonType = {|
   locale_disambiguation?: string,
   name: string,
   previews?: Array<Object>,
-  public_stats?: boolean,
   ratings?: {|
     average: number,
     bayesian_average: number,
