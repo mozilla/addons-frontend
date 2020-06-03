@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-03 10:04+0000\n"
+"PO-Revision-Date: 2020-06-03 10:06+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1835,7 +1835,7 @@ msgstr "Logg inn for å sjå samlingane dine"
 
 #: src/amo/pages/CollectionList/index.js:124
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Samlingar gjer det lett å halde følgje med favorit-tillegg og dele den perfekt tilpassa nettlesaren din med andre."
 
 #: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
@@ -1851,7 +1851,7 @@ msgstr "Mine samlingar"
 
 #: src/amo/pages/Guides/index.js:105
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Ein lett og svært effektiv annonseblokkerar. uBlock Origin brukar titusentalls filter utan å bruke masse minne."
 
 #: src/amo/pages/Guides/index.js:109
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
