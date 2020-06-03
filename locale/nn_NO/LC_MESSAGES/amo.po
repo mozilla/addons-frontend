@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-03 11:27+0000\n"
+"PO-Revision-Date: 2020-06-03 11:43+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1871,7 +1871,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:123
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Isoler Facebook-identiteten din i ein eigen «behaldar» for å hindre Facebook i å spore aktiviteten din utanfor den sosiale plattforma."
 
 #: src/amo/pages/Guides/index.js:127
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
