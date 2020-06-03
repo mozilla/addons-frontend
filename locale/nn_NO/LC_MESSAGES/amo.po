@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-03 05:52+0000\n"
+"PO-Revision-Date: 2020-06-03 10:04+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1653,11 +1653,11 @@ msgstr "Denne oppføringa er ikkje tiltenkt for denne plattforma. <a href=\"%(ne
 
 #: src/amo/pages/Addon/index.js:509
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Denne oppføringea er ikkje meint for denne plattforma. <a href=\"%(newLocation)s\">Sjå gjennom tillegg for Firefox for datamaskiner</a>."
 
 #: src/amo/pages/Addon/index.js:513
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Ikkj tilgjengeleg på Firefox for Android. Du kan bruke dette tillegget med Firefox for datamaskiner. Les meir om <a href=\"%(newLocation)s\">tillegg for Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
@@ -1725,7 +1725,7 @@ msgstr[1] "%(addonName)s versjonshistorikk - %(total)s versjonar"
 
 #: src/amo/pages/AddonVersions/index.js:176
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Ver forsiktig med eldre versjonar! Desse versjonane er vist som referanse og testformål."
 
 #: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
@@ -1757,11 +1757,11 @@ msgstr "Dette tillegget er fjerna for å verne deg."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Kvifor vart det blokkert?"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Dette tillegget bryt med %(startLink)sMozillas retningslinjer for tillegg%(endLink)s."
 
 #: src/amo/pages/Block/index.js:173
 msgid "What does this mean?"
@@ -1769,7 +1769,7 @@ msgstr "Kva tyer dette?"
 
 #: src/amo/pages/Block/index.js:175
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Det problematiske tillegget eller programtillegget vil automatisk slåast av, og ikkje lenger kunne brukast."
 
 #: src/amo/pages/Block/index.js:182
 msgid ""
@@ -1819,11 +1819,11 @@ msgstr "Søk etter utvidingar og tema som skal leggast til i samlinga di."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Last ned og lag samlingar for Firefox, og hald styr på favorittutvidingar og tema. Utforsk %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Last ned og lag samlingar for Firefox, og hald styr på favorittutvidingar og tema. Utforsk %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:114
 msgid "Collections"
