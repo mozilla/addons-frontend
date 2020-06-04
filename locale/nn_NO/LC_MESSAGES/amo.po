@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-04 10:07+0000\n"
+"PO-Revision-Date: 2020-06-04 11:53+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1886,6 +1886,8 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Dersom du vanlegvis jobbar med mange opne faner, er du sannsynlegvis kjend med frustrasjonen over å søkje gjennom ei rad med uidentifiserbare faner på jakt etter akkurat den du treng. Utvidingar kan"
+" tilby kreative løysingar for effektivisering av fanehandtering."
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
@@ -1941,13 +1943,15 @@ msgstr "Få meir ut av media"
 
 #: src/amo/pages/Guides/index.js:218
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "Utvidingar kan adressere eit breitt utval av nisje-mediebehov og interesser, for etil dømes bildesøk, nedlastningshandtering og tekstlesarar, for å nemne nokre."
 
 #: src/amo/pages/Guides/index.js:223
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Har du nokon gong snubla over eit spennande bilde på nettet og vil lære meir om det, som t.d. kven personen på bildet er? Finst det liknande bilde? Denne utvidinga lar deg utføre raske og enkle "
+"omvende bildesøk via ei rekkje ulike søkjemotorar."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
