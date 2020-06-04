@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-04 09:50+0000\n"
+"PO-Revision-Date: 2020-06-04 10:07+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1955,11 +1955,11 @@ msgstr "Ta med media direkte inn i nettlesaren"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Utvidingar kan gjere Firefox til ditt heilt eige underhaldningssenter som gir deg direkte tilgang til musikk, bildefangst, spel og meir."
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Få tilgang til over 30 000 radiostasjonar frå heile verda, berre eit klikk unna."
 
 #: src/amo/pages/Guides/index.js:268
 msgid ""
@@ -1987,7 +1987,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:86
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Fullstendig kryptert passordvern. Lagre dataa dine trygt og få tilgang til innloggingar mellom einingar."
 
 #: src/amo/pages/Guides/index.js:90
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
@@ -2001,6 +2001,7 @@ msgstr "Blokker irriterande reklame"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Dagens nett er fult av uønskte annonsar som kjem i vegen og bremsar deg. Annonse-blokkerande utvidingar kan blokkere eller filtrere desse annonsane slik at du kan surfe igjen utan å bli forstyrra."
 
 #: src/amo/pages/Home/index.js:138
 msgid "Abstract"
@@ -2032,7 +2033,7 @@ msgstr "Endre korleis Firefox ser ut med tema."
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Last ned Firefox-utvidingar og -tema. Dei er som appar for nettlesaren din. Dei kan blokkere irriterande annonsar, beskytte passord, endre utsjånad på nettlesaren og meir."
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
@@ -2084,11 +2085,11 @@ msgstr "Vis fleire høgast vurderte tema"
 
 #: src/amo/pages/LandingPage/index.js:206
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Last ned tema for å endre korleis Firefox ser ut. Skreddasy oppleveinga di etter din smak. Søte smådyr, vonde robotar, vakre landskap — tusenvis av alternativ."
 
 #: src/amo/pages/LandingPage/index.js:211
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr ""
+msgstr "Last ned Firefox-utvidingar for å leggje til funksjonar som tilpassar surfing. Beskytt passord, finn tilbod, forbetre video og blokker irriterande annonsar med nettlesar-appar."
 
 #: src/amo/pages/LandingPage/index.js:233
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2192,7 +2193,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:215
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sInformasjon om korleis du kan kontakte Mozillas tilleggs-gruppe, finn du her%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
@@ -2238,11 +2239,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Inkludere di eiga eller e-postadressa til nokon anan, telefonnummer, eller andre personlege detaljar."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Å legge ut omtalar for ei utviding som du eller firmaet ditt skreiv eller representerer."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
