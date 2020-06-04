@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-04-11 13:55+0000\n"
+"PO-Revision-Date: 2020-06-04 20:13+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1580,11 +1580,11 @@ msgstr "Vyberte fotografiu…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:101
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Doplnky kompatibilné s Firefoxom pre počítače nájdete vo <a href=\"%(newLocation)s\">verzii stránky pre počítače</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Tento doplnok nie je dostupný pre Firefox pre Android ale môžete ho používať vo Firefoxe pre počítače. Alebo pohľadajte podobný <a href=\"%(newLocation)s\">doplnok pre Android</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
@@ -2046,7 +2046,7 @@ msgstr "Prevezmite si rozšírenia a témy vzhľadu pre Firefox. Sú to aplikác
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
-msgstr ""
+msgstr "Ďalšie odporúčané rozšírenia"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
@@ -2058,7 +2058,7 @@ msgstr "Ďalšie populárne rozšírenia"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
 msgid "See more recommended themes"
-msgstr ""
+msgstr "Ďalšie odporúčané témy vzhľadu"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
@@ -2687,7 +2687,7 @@ msgstr "Povoľujem"
 
 #: src/core/components/AMInstallButton/index.js:209
 msgid "Disabling"
-msgstr ""
+msgstr "Zakazujem"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
