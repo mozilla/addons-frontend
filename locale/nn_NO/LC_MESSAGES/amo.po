@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-04 11:53+0000\n"
+"PO-Revision-Date: 2020-06-04 11:59+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1970,16 +1970,20 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"Internett er ein fantastisk, men vil stad. Personopplysningane dine kan brukast utan ditt samtykket, aktiviteteane dine vert spionerte på, og passorda dine stolne. Heldigvis kan utvidingar bidra til"
+" å styrke personvernet og sikkerheita di på nettet."
 
 #: src/amo/pages/Guides/index.js:281
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Handterer du for mange opne faner eller et svimlande mengder bokmerke? Utvidingar kan hjelpe til! Frå organisasjonshjelp til å tilby morosame nye funksjonar, kan utvidingar dramatisk endre måten du "
+"handterer faner og bokmerke."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Utvidingar kan forsterke media på nett på alle slags interessante måtar, frå å sjå videoar til handtering av bilde, musikk og meir."
 
 #: src/amo/pages/Guides/index.js:80
 msgid "Create and manage strong passwords"
