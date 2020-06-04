@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-22 17:56+0000\n"
+"POT-Creation-Date: 2020-06-04 16:20+0000\n"
 "PO-Revision-Date: 2020-04-23 02:54+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -216,68 +216,68 @@ msgstr "리뷰 없음"
 msgid "Used by"
 msgstr "사용됨"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr "통계 대시보드 방문"
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Custom License"
 msgstr "사용자 지정 라이선스"
 
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "이 부가 기능에 대한 개인 정보 보호 정책 읽기"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "이 부가 기능에 대한 사용권 계약 읽기"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 msgid "See all versions"
 msgstr "모든 버전 보기"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "부가 기능 링크"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "버전"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr "크기"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "마지막 업데이트"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "라이선스"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "개인 정보 보호 정책"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "사용자 라이선스 동의서"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Version History"
 msgstr "버전 목록"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr "사용 통계"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "추가 정보"
 
@@ -803,7 +803,7 @@ msgstr "저장"
 msgid "Edit"
 msgstr "수정"
 
-#: src/amo/components/Errors/NotAuthorized/index.js:26
+#: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
@@ -813,11 +813,11 @@ msgstr ""
 "올려</a>주세요. 어디에서 접근했으며 어디에 접근하려 했는지 알려주시면 이슈를 "
 "고치도록 하겠습니다."
 
-#: src/amo/components/Errors/NotAuthorized/index.js:40
+#: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
 msgstr "인증되지 않음"
 
-#: src/amo/components/Errors/NotAuthorized/index.js:43
+#: src/amo/components/Errors/NotAuthorized/index.js:36
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
@@ -825,7 +825,7 @@ msgstr ""
 "죄송하지만, 이 페이지에 접근할 권한이 없습니다. 로그인 하지 않으셨다면, 페이"
 "지 상단의 링크를 통해 로그인하십시오."
 
-#: src/amo/components/Errors/NotFound/index.js:28
+#: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
@@ -834,11 +834,11 @@ msgid ""
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 
-#: src/amo/components/Errors/NotFound/index.js:82
+#: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
 msgstr "이런! 페이지를 찾을 수 없습니다."
 
-#: src/amo/components/Errors/NotFound/index.js:85
+#: src/amo/components/Errors/NotFound/index.js:81
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -846,7 +846,7 @@ msgstr ""
 "다른 웹사이트에서 부가 기능이나 테마 링크로 오신 경우, 해당 항목은 더이상 사"
 "용할 수 없습니다. 이는 다음과 같은 이유일 수 있습니다:"
 
-#: src/amo/components/Errors/NotFound/index.js:91
+#: src/amo/components/Errors/NotFound/index.js:87
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -854,7 +854,7 @@ msgstr ""
 "개발자가 항목을 제거하였습니다. 개발자들은 일반적으로 부가 기능이나 테마를 더"
 "이상 지원하지 않거나 대체하기 위해서 이렇게 합니다."
 
-#: src/amo/components/Errors/NotFound/index.js:96
+#: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -865,7 +865,7 @@ msgstr ""
 "생했거나, addons.mozilla.org의 이용 약관을 위반한 경우입니다. 개발자는 문제"
 "를 해결하고 부가 기능을 다시 내려받을 수 있도록 할 수 있습니다."
 
-#: src/amo/components/Errors/ServerError/index.js:21
+#: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href="
 "\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
@@ -873,12 +873,12 @@ msgid ""
 "to fix it."
 msgstr ""
 
-#: src/amo/components/Errors/ServerError/index.js:32
+#: src/amo/components/Errors/ServerError/index.js:30
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "서버 에러"
 
-#: src/amo/components/Errors/ServerError/index.js:35
+#: src/amo/components/Errors/ServerError/index.js:32
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
