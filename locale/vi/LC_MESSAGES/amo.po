@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-22 17:56+0000\n"
+"POT-Creation-Date: 2020-06-04 16:20+0000\n"
 "PO-Revision-Date: 2020-04-24 15:13+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -217,68 +217,68 @@ msgstr "Không có bài đánh giá nào"
 msgid "Used by"
 msgstr "Được sử dụng bởi"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr "Xem số liệu thống kê"
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Custom License"
 msgstr "Giấy phép tùy biến"
 
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "Đọc chính sách riêng tư của tiện ích này"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "Đọc thỏa thuận cấp phép cho tiện ích này"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 msgid "See all versions"
 msgstr "Xem tất cả phiên bản"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "Liên kết tiện ích"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "Phiên bản"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr "Kích cỡ"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Cập nhật gần nhất"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "Giấy phép"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "Chính sách riêng tư"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "Giấy phép người dùng cuối"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Version History"
 msgstr "Lịch sử các phiên bản"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr "Thống kê sử dụng"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "Thêm thông tin"
 
@@ -807,7 +807,7 @@ msgstr "Lưu lại"
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
-#: src/amo/components/Errors/NotAuthorized/index.js:26
+#: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
@@ -817,11 +817,11 @@ msgstr ""
 "\"%(url)s\">thông báo sự cố</a>. Cho chúng tôi biết bạn đến từ đâu và bạn "
 "đang cố truy cập vào cái gì, chúng tôi sẽ khắc phục lỗi đó."
 
-#: src/amo/components/Errors/NotAuthorized/index.js:40
+#: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
 msgstr "Không có quyền"
 
-#: src/amo/components/Errors/NotAuthorized/index.js:43
+#: src/amo/components/Errors/NotAuthorized/index.js:36
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
@@ -829,7 +829,7 @@ msgstr ""
 "Xin lỗi, nhưng bạn không được phép truy cập trang này. Nếu bạn chưa đăng "
 "nhập, hãy thử đăng nhập bằng liên kết ở đầu trang."
 
-#: src/amo/components/Errors/NotFound/index.js:28
+#: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
@@ -843,11 +843,11 @@ msgstr ""
 "%(themeStart)schủ đề%(themeEnd)s có sẵn, hoặc yêu cầu giúp đỡ từ "
 "%(communityStart)scác diễn đàn cộng đồng%(communityEnd)s của chúng tôi."
 
-#: src/amo/components/Errors/NotFound/index.js:82
+#: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
 msgstr "Rất tiếc! Chúng tôi không thể tìm thấy trang đó"
 
-#: src/amo/components/Errors/NotFound/index.js:85
+#: src/amo/components/Errors/NotFound/index.js:81
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -855,7 +855,7 @@ msgstr ""
 "Nếu bạn đã truy cập một liên kết từ một trang web khác đến tiện ích mở rộng "
 "hoặc chủ đề, mục đó không còn nữa. Điều này có thể là do:"
 
-#: src/amo/components/Errors/NotFound/index.js:91
+#: src/amo/components/Errors/NotFound/index.js:87
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -863,7 +863,7 @@ msgstr ""
 "Các nhà phát triển đã loại bỏ nó. Các nhà phát triển thường làm điều này bởi "
 "vì họ không còn hỗ trợ tiện ích mở rộng hoặc chủ đề hoặc đã thay thế nó."
 
-#: src/amo/components/Errors/NotFound/index.js:96
+#: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -876,7 +876,7 @@ msgstr ""
 "Nhà phát triển có cơ hội giải quyết các vấn đề và cung cấp tiện ích bổ sung "
 "một lần nữa."
 
-#: src/amo/components/Errors/ServerError/index.js:21
+#: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href="
 "\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
@@ -888,12 +888,12 @@ msgstr ""
 "a>. Hãy cho chúng tôi biết những bước bạn đã thực hiện dẫn đến lỗi và chúng "
 "tôi sẽ cố gắng hết sức để khắc phục."
 
-#: src/amo/components/Errors/ServerError/index.js:32
+#: src/amo/components/Errors/ServerError/index.js:30
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Lỗi máy chủ"
 
-#: src/amo/components/Errors/ServerError/index.js:35
+#: src/amo/components/Errors/ServerError/index.js:32
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-22 17:56+0000\n"
+"POT-Creation-Date: 2020-06-04 16:20+0000\n"
 "PO-Revision-Date: 2020-04-22 13:01+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -229,68 +229,68 @@ msgstr "Geen beoordelingen"
 msgid "Used by"
 msgstr "Gebruikt door"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr "Statistiekendashboard bekijken"
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Custom License"
 msgstr "Aangepaste licentie"
 
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "Het privacybeleid voor deze add-on lezen"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "De licentieovereenkomst voor deze add-on lezen"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 msgid "See all versions"
 msgstr "Alle versies bekijken"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "Add-on-koppelingen"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "Versie"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr "Grootte"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Laatst bijgewerkt"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "Licentie"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "Privacybeleid"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "Eindgebruikerslicentieovereenkomst"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Version History"
 msgstr "Versiegeschiedenis"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr "Gebruiksstatistieken"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "Meer informatie"
 
@@ -818,7 +818,7 @@ msgstr "Opslaan"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: src/amo/components/Errors/NotAuthorized/index.js:26
+#: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
@@ -828,11 +828,11 @@ msgstr ""
 "\"%(url)s\">meld dan een probleem</a>. Vertel ons waar u vandaan kwam en wat "
 "u probeerde te openen, en we zullen het verhelpen."
 
-#: src/amo/components/Errors/NotAuthorized/index.js:40
+#: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
 msgstr "Niet geautoriseerd"
 
-#: src/amo/components/Errors/NotAuthorized/index.js:43
+#: src/amo/components/Errors/NotAuthorized/index.js:36
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
@@ -840,7 +840,7 @@ msgstr ""
 "Sorry, maar u hebt geen toegang tot deze pagina. Als u niet bent aangemeld, "
 "probeer u dan aan te melden via de koppeling boven in de pagina."
 
-#: src/amo/components/Errors/NotFound/index.js:28
+#: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
@@ -854,11 +854,11 @@ msgstr ""
 "%(themeStart)sthema’s%(themeEnd)s vinden, of door om hulp te vragen op onze "
 "%(communityStart)sgemeenschapsfora%(communityEnd)s."
 
-#: src/amo/components/Errors/NotFound/index.js:82
+#: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
 msgstr "Oeps! We kunnen die pagina niet vinden"
 
-#: src/amo/components/Errors/NotFound/index.js:85
+#: src/amo/components/Errors/NotFound/index.js:81
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -867,7 +867,7 @@ msgstr ""
 "gevolgd, is dat item niet meer beschikbaar. Dit kan het geval zijn om de "
 "volgende reden:"
 
-#: src/amo/components/Errors/NotFound/index.js:91
+#: src/amo/components/Errors/NotFound/index.js:87
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -876,7 +876,7 @@ msgstr ""
 "omdat ze de extensie of het thema niet meer ondersteunen, of hebben "
 "vervangen."
 
-#: src/amo/components/Errors/NotFound/index.js:96
+#: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -889,7 +889,7 @@ msgstr ""
 "ontwikkelaar heeft de mogelijkheid de problemen op te lossen en de add-on "
 "weer beschikbaar te maken."
 
-#: src/amo/components/Errors/ServerError/index.js:21
+#: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href="
 "\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
@@ -901,12 +901,12 @@ msgstr ""
 "melden</a>. Vertel ons welke stappen u volgde die naar de fout leidden, en "
 "we zullen proberen het op te lossen."
 
-#: src/amo/components/Errors/ServerError/index.js:32
+#: src/amo/components/Errors/ServerError/index.js:30
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Serverfout"
 
-#: src/amo/components/Errors/ServerError/index.js:35
+#: src/amo/components/Errors/ServerError/index.js:32
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."

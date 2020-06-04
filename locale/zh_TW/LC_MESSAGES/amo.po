@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-22 17:56+0000\n"
+"POT-Creation-Date: 2020-06-04 16:20+0000\n"
 "PO-Revision-Date: 2020-05-21 07:38+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -217,68 +217,68 @@ msgstr "沒有評論"
 msgid "Used by"
 msgstr "可用於"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr "造訪統計儀錶板"
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Custom License"
 msgstr "自訂授權"
 
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "閱讀此附加元件的隱私權保護政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "閱讀此附加元件的授權協議"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 msgid "See all versions"
 msgstr "瀏覽所有版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "附加元件網址"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr "大小"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "最近更新"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "授權條款"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "隱私權保護政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "終端使用者授權協議"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Version History"
 msgstr "版本紀錄"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr "使用統計"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "更多資訊"
 
@@ -790,7 +790,7 @@ msgstr "儲存"
 msgid "Edit"
 msgstr "編輯"
 
-#: src/amo/components/Errors/NotAuthorized/index.js:26
+#: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
@@ -799,17 +799,17 @@ msgstr ""
 "若您已登入，認為訊息有誤，請<a href=\"%(url)s\">回報問題</a>。請在回報的資料"
 "當中包含您是從哪個網址過來、想要存取什麼知道，我們將修正此問題。"
 
-#: src/amo/components/Errors/NotAuthorized/index.js:40
+#: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
 msgstr "未授權"
 
-#: src/amo/components/Errors/NotAuthorized/index.js:43
+#: src/amo/components/Errors/NotAuthorized/index.js:36
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
 msgstr "抱歉，您無權存取此頁面。若您並未登入，請先使用頁面頂端的鏈結登入。"
 
-#: src/amo/components/Errors/NotFound/index.js:28
+#: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
@@ -822,11 +822,11 @@ msgstr ""
 "題%(themeEnd)s頁面中，尋找是否有您要的內容。也可以到我們的%(communityStart)s"
 "社群討論區%(communityEnd)s發問。"
 
-#: src/amo/components/Errors/NotFound/index.js:82
+#: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
 msgstr "哎呀！找不到這一頁"
 
-#: src/amo/components/Errors/NotFound/index.js:85
+#: src/amo/components/Errors/NotFound/index.js:81
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -834,7 +834,7 @@ msgstr ""
 "若您從其他網站上過來，想尋找某套擴充套件或佈景主題，該項目已經無法使用。這可"
 "能是因為:"
 
-#: src/amo/components/Errors/NotFound/index.js:91
+#: src/amo/components/Errors/NotFound/index.js:87
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -842,7 +842,7 @@ msgstr ""
 "開發者主動下架。他們通常會因為不再支援該套件或佈景主題，或推出取代的版本而這"
 "麼做。"
 
-#: src/amo/components/Errors/NotFound/index.js:96
+#: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -853,7 +853,7 @@ msgstr ""
 "是該套件或主題違反了 addons.mozilla.org 的使用條款。開發者會有機會解決問題，"
 "並重新上架。"
 
-#: src/amo/components/Errors/ServerError/index.js:21
+#: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href="
 "\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
@@ -864,12 +864,12 @@ msgstr ""
 "addons-frontend/issues/new/\">回報問題</a>。請告訴我們您做了哪些事情後錯誤發"
 "生，我們會盡力修正。"
 
-#: src/amo/components/Errors/ServerError/index.js:32
+#: src/amo/components/Errors/ServerError/index.js:30
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "伺服器錯誤"
 
-#: src/amo/components/Errors/ServerError/index.js:35
+#: src/amo/components/Errors/ServerError/index.js:32
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
