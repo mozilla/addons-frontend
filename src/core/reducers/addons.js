@@ -177,7 +177,6 @@ export function createInternalAddon(
     locale_disambiguation: apiAddon.locale_disambiguation,
     name: apiAddon.name,
     previews: apiAddon.previews,
-    public_stats: apiAddon.public_stats,
     ratings: apiAddon.ratings,
     requires_payment: apiAddon.requires_payment,
     review_url: apiAddon.review_url,
