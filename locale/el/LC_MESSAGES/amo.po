@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-05 08:53+0000\n"
+"PO-Revision-Date: 2020-06-05 09:43+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1742,11 +1742,11 @@ msgstr "Αποκλεισμένες εκδόσεις: όλες οι εκδόσε�
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Αποκλεισμένες εκδόσεις: %(min)s ως %(max)s."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "Το %(addonName)s έχει αποκλειστεί για την προστασία σας."
 
 #: src/amo/pages/Block/index.js:145
 msgid "This add-on has been blocked for your protection."
@@ -1754,19 +1754,19 @@ msgstr "Αυτό το πρόσθετο έχει αποκλειστεί για τ
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Γιατί αποκλείστηκε;"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Αυτό το πρόσθετο παραβιάζει τις %(startLink)sπολιτικές προσθέτων της Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:173
 msgid "What does this mean?"
-msgstr ""
+msgstr "Τι σημαίνει αυτό;"
 
 #: src/amo/pages/Block/index.js:175
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Το προβληματικό αυτό πρόσθετο ή άρθρωμα θα απενεργοποιηθεί αυτόματα και δεν θα λειτουργεί πλέον."
 
 #: src/amo/pages/Block/index.js:182
 msgid ""
@@ -1776,11 +1776,11 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Αποκλείστηκε στις %(date)s."
 
 #: src/amo/pages/Block/index.js:98
 msgid "View block request"
-msgstr ""
+msgstr "Προβολή αιτήματος αποκλεισμού"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
