@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-06 09:08+0000\n"
+"PO-Revision-Date: 2020-06-06 09:54+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2149,7 +2149,7 @@ msgstr "Ordbøker"
 
 #: src/amo/pages/SearchTools/index.js:60
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Last ned Firefox-utvidingar for å tilpasse måten du søkjer—på alt frå personvernforbetra søk til nettstad-spesifikke søk, bildesøk og meir."
 
 #: src/amo/pages/SearchTools/index.js:63
 msgid "Search Tools"
@@ -2160,6 +2160,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Vil du kommunisere med addons.mozilla.org (AMO) programmatisk? Sjekk ut %(startAddonsServerDocumentation)sserver-dokumentasjonen for tillegg%(endAddonsServerDocumentation)s for detaljar om bruken av"
+" API-er som vert brukt av AMO og %(startAddonsManager)stilleggshandteraren%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
