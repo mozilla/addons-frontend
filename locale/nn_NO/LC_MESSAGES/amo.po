@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-06 09:54+0000\n"
+"PO-Revision-Date: 2020-06-06 10:53+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2199,7 +2199,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Den offisielle Mozilla-nettststaden for nedlasting av Firefox-utvidingar og -tema. Legg til nye funksjonar og endre utsjånad til nettlesaren for å tilpasse nettopplevinga."
 
 #: src/amo/pages/StaticPages/About/index.js:215
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
