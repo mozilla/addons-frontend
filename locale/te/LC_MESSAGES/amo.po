@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-08 06:40+0000\n"
+"PO-Revision-Date: 2020-06-08 07:00+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:176
 msgid "Loading…"
-msgstr "లోడుచేస్తోంది…"
+msgstr "వస్తోంది…"
 
 #: src/amo/components/AddAddonToCollection/index.js:178
 msgid "Adding…"
-msgstr "జోడిస్తున్నాము…"
+msgstr "చేరుస్తున్నాం…"
 
 #: src/amo/components/AddAddonToCollection/index.js:194
 msgid "Select a collection…"
