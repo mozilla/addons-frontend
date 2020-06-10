@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-10 14:41+0000\n"
+"PO-Revision-Date: 2020-06-10 14:51+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -871,9 +871,8 @@ msgid "Site Status"
 msgstr "Estat del lloc"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "Navegador per a l’iOS"
+msgstr "Navegadors"
 
 #: src/amo/components/Footer/index.js:169
 msgid "Products"
@@ -1457,14 +1456,12 @@ msgid "Recommended add-ons only"
 msgstr "Només complements recomanats"
 
 #: src/amo/components/SearchForm/index.js:57
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Complements per a Android"
+msgstr "Complements del Firefox per a l'Android"
 
 #: src/amo/components/SearchForm/index.js:58
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Quant als complements del Firefox"
+msgstr "Complements del Firefox"
 
 #: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
@@ -1585,9 +1582,8 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Aquest complement no és compatible amb la versió del Firefox."
+msgstr "Aquest complement no és compatible amb aquest navegador. Proveu d'instal·lar-lo al Firefox per a l'escriptori."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 #, fuzzy
