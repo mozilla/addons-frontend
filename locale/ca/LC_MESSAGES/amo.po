@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-10 14:14+0000\n"
+"PO-Revision-Date: 2020-06-10 14:23+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -900,8 +900,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
-"Si no s'%(startNotedLink)sindica el contrari%(endNotedLink)s, el contingut d'aquest lloc està publicat a l'empara de la llicència %(startLicenseLink)sAtribució-Compartir sota la mateixa llicència "
-"Creative Commons 3.0%(endLicenseLink)s%(endLicenseLink)s o qualsevol versió més nova."
+"Si no s'%(startNotedLink)sindica el contrari%(endNotedLink)s, el contingut d'aquest lloc està publicat a l'empara de la %(startLicenseLink)ssllicència Creative Commons Reconeixement - Compartir "
+"igual v3.0%(endLicenseLink)s o qualsevol versió més nova."
 
 #: src/amo/components/Footer/index.js:53
 msgid "About"
@@ -1360,7 +1360,7 @@ msgstr "Cerca de «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:160
 msgid "Searching for add-ons"
-msgstr "S'està cercant complements"
+msgstr "S'estan cercant complements"
 
 #: src/amo/components/SearchContextCard/index.js:55
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -2142,7 +2142,7 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:169
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "Afegiu una nova opció d'idioma al vostre corrector ortogràfic mitjançant un complement, comprovarà l'ortografia a mesura que escriviu al Firefox."
+msgstr "Afegiu una nova opció de llengua al vostre corrector ortogràfic mitjançant un complement, que comprovarà l'ortografia a mesura que escriviu al Firefox."
 
 #: src/amo/pages/LanguageTools/index.js:174
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -2154,11 +2154,11 @@ msgstr "Totes les llengües"
 
 #: src/amo/pages/LanguageTools/index.js:188
 msgid "Locale Name"
-msgstr "Nom de llengua"
+msgstr "Nom de la llengua"
 
 #: src/amo/pages/LanguageTools/index.js:191
 msgid "Language Packs"
-msgstr "Paquets d'idioma"
+msgstr "Paquets de llengua"
 
 #: src/amo/pages/LanguageTools/index.js:194
 msgid "Dictionaries"
