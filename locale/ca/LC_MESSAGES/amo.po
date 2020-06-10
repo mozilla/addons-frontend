@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-10 12:44+0000\n"
+"PO-Revision-Date: 2020-06-10 13:18+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -2013,7 +2013,7 @@ msgstr "Protecció de contrasenya totalment xifrada. Emmagatzemeu les dades de m
 
 #: src/amo/pages/Guides/index.js:90
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Descobriu més %(linkStart)sgestors de constrasenyes%(linkEnd)s."
+msgstr "Descobriu més %(linkStart)sgestors de contrasenyes%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
@@ -2480,7 +2480,7 @@ msgstr "Edita el perfil"
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:448
 msgid "Admin user"
-msgstr "Usuari admistrador"
+msgstr "Usuari administrador"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
