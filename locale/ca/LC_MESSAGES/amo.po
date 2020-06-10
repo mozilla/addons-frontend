@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-10 14:27+0000\n"
+"PO-Revision-Date: 2020-06-10 14:41+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -2338,8 +2338,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
-"Els comentaris addicionals són una manera de compartir les vostres opinions sobre els complements que heu instal·lat i utilitzat. L'equip de moderació de ressenyes es reserva el dret a rebutjar-ne o"
-" eliminar-ne qualsevol que no compleixi aquestes directrius."
+"Les ressenyes dels complements són una manera de compartir les vostres opinions sobre els complements que heu instal·lat i utilitzat. L'equip de moderació de ressenyes es reserva el dret a rebutjar-"
+"ne o eliminar-ne qualsevol que no compleixi aquestes directrius."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
@@ -2787,7 +2787,7 @@ msgstr "Feu una enquesta breu"
 
 #: src/core/components/SurveyNotice/index.js:136
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr "Gràcies per visitar-nos! Comenteu la vostra experiència Firefox."
+msgstr "Gràcies per visitar-nos! Feu-nos saber la vostra experiència a l'equip del Firefox."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
