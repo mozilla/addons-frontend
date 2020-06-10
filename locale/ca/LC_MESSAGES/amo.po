@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-10 14:05+0000\n"
+"PO-Revision-Date: 2020-06-10 14:14+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -135,7 +135,7 @@ msgstr "%(addonName)s – Obteniu aquesta extensió per al 🦊 Firefox Android 
 
 #: src/amo/components/AddonHead/index.js:71
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obteniu aquest paquet d'idiomes per al 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Obteniu aquest paquet de llengua per al 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:76
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
@@ -158,7 +158,7 @@ msgstr "%(addonName)s – Obteniu aquesta extensió per al 🦊 Firefox (%(local
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:99
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obteniu aquest paquet d'idiomes per al 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Obteniu aquest paquet de llengua per al 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
@@ -461,19 +461,19 @@ msgstr "Extensions d'aquests desenvolupadors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
-msgstr "Més paquets d'idioma de: %(author)s"
+msgstr "Més paquets de llengua de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
-msgstr "Més paquets d'idioma d'aquests traductors"
+msgstr "Més paquets de llengua d'aquests traductors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
-msgstr "Paquets d'idioma de: %(author)s"
+msgstr "Paquets de llengua de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "Language packs by these translators"
-msgstr "Paquets d'idioma d'aquests traductors"
+msgstr "Paquets de llengua d'aquests traductors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
@@ -1040,7 +1040,7 @@ msgstr "Aquesta no és una extensió recomanada. Assegureu-vos que hi confieu ab
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
-msgstr "Canvia l'idioma"
+msgstr "Canvia la llengua"
 
 #: src/amo/components/PermissionsCard/index.js:49
 msgid "Permissions"
@@ -1148,7 +1148,7 @@ msgstr "Inicieu la sessió per puntuar aquest diccionari"
 
 #: src/amo/components/RatingManager/index.js:120
 msgid "Log in to rate this language pack"
-msgstr "Inicieu la sessió per puntuar aquest paquet d'idioma"
+msgstr "Inicieu la sessió per puntuar aquest paquet de llengua"
 
 #: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this theme"
@@ -1534,7 +1534,7 @@ msgstr "per a Android"
 
 #: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"
-msgstr "Diccionaris i paquets d'idioma"
+msgstr "Diccionaris i paquets de llengua"
 
 #: src/amo/components/SectionLinks/index.js:98
 msgid "Explore"
@@ -2133,12 +2133,12 @@ msgstr "Disponible per a la vostra llengua"
 
 #: src/amo/pages/LanguageTools/index.js:148
 msgid "Dictionaries and Language Packs"
-msgstr "Diccionaris i paquets d'idioma"
+msgstr "Diccionaris i paquets de llengua"
 
 #: src/amo/pages/LanguageTools/index.js:158
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
 msgstr ""
-"Baixeu els diccionaris i extensions del paquet d’idiomes del Firefox. Afegiu una opció d'idioma nova al corrector ortogràfic del vostre navegador o canvieu l'idioma d'interfície del navegador."
+"Baixeu diccionaris i extensions de paquet de llengua del Firefox. Afegiu una opció de llengua nova al corrector ortogràfic del vostre navegador o canvieu la llengua d'interfície del navegador."
 
 #: src/amo/pages/LanguageTools/index.js:169
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2146,15 +2146,15 @@ msgstr "Afegiu una nova opció d'idioma al vostre corrector ortogràfic mitjanç
 
 #: src/amo/pages/LanguageTools/index.js:174
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr "Els paquets d’idiomes canvien l’idioma de la interfície del navegador, incloses les opcions i la configuració del menú."
+msgstr "Els paquets de llengua canvien la llengua de la interfície del navegador, incloses les opcions i la configuració del menú."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "All Locales"
-msgstr "Tots els idiomes"
+msgstr "Totes les llengües"
 
 #: src/amo/pages/LanguageTools/index.js:188
 msgid "Locale Name"
-msgstr "Nom de l'idioma"
+msgstr "Nom de llengua"
 
 #: src/amo/pages/LanguageTools/index.js:191
 msgid "Language Packs"
