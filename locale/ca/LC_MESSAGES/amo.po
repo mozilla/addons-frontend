@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-10 13:48+0000\n"
+"PO-Revision-Date: 2020-06-10 14:05+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -779,7 +779,7 @@ msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
-"Mozilla l'ha suprimit. Això succeeix quan es troben problemes durant la revisió de l’extensió o el tema, o si l’extensió o el tema incompleixen els termes i condicions d'addons.mozilla.org. El "
+"Mozilla l’ha suprimit. Això succeeix quan es troben problemes durant la revisió de l’extensió o el tema, o si l’extensió o el tema incompleixen els termes i condicions d’addons.mozilla.org. El "
 "desenvolupador té l'oportunitat de resoldre els problemes i tornar a publicar el complement."
 
 #: src/amo/components/Errors/ServerError/index.js:22
@@ -1490,11 +1490,11 @@ msgstr "S'està cercant…"
 
 #: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
-msgstr "No s'han trobat resultats per a «%(query)s»."
+msgstr "No s'ha trobat cap resultat per a «%(query)s»."
 
 #: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
-msgstr "No s'han trobat resultats."
+msgstr "No s'ha trobat cap resultat."
 
 #: src/amo/components/SearchSuggestion/index.js:52 src/ui/components/RecommendedBadge/index.js:28
 msgid "Recommended"
