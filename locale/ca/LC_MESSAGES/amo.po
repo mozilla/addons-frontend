@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-10 13:18+0000\n"
+"PO-Revision-Date: 2020-06-10 13:27+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -421,7 +421,7 @@ msgstr "S'ha desat"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Seguiu la nostra %(linkStart)sDirectrius per a fer ressenyes%(linkEnd)s."
+msgstr "Seguiu les nostres %(linkStart)sDirectrius per a fer ressenyes%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -2274,7 +2274,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr "Afegir cap adreça de correu electrònic pesonal o d'una altra persona, el número de telèfon o cap altra dada personal."
+msgstr "Afegir cap adreça electrònica personal o d'una altra persona, el número de telèfon o cap altra dada personal."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
@@ -2371,7 +2371,7 @@ msgstr "Quines funcions us ha agradat més? I quines menys?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
-msgstr "Us ha estat últil?"
+msgstr "Us ha estat útil?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
