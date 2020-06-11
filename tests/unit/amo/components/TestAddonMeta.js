@@ -9,6 +9,7 @@ import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { createInternalAddon } from 'core/reducers/addons';
+import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
@@ -85,6 +86,54 @@ describe(__filename, () => {
       });
       expect(getUserCount(root).content).toMatch(/^1\.000/);
     });
+
+    it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+      'renders the download count for %s',
+      (addonType) => {
+        const root = render({
+          addon: createInternalAddon({
+            ...fakeAddon,
+            type: addonType,
+            average_daily_users: 2,
+          }),
+        });
+
+        expect(getUserCount(root).content).toEqual('2');
+        expect(getUserCount(root).title).toEqual('Downloads');
+      },
+    );
+
+    it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+      'renders one download for %s',
+      (addonType) => {
+        const root = render({
+          addon: createInternalAddon({
+            ...fakeAddon,
+            type: addonType,
+            average_daily_users: 1,
+          }),
+        });
+
+        expect(getUserCount(root).content).toEqual('1');
+        expect(getUserCount(root).title).toEqual('Download');
+      },
+    );
+
+    it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+      'renders no downloads for %s',
+      (addonType) => {
+        const root = render({
+          addon: createInternalAddon({
+            ...fakeAddon,
+            type: addonType,
+            average_daily_users: 0,
+          }),
+        });
+
+        expect(getUserCount(root).content).toEqual('');
+        expect(getUserCount(root).title).toEqual('No Downloads');
+      },
+    );
   });
 
   describe('ratings', () => {
