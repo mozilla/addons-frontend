@@ -448,6 +448,35 @@ describe(__filename, () => {
     expect(statsLink).toHaveProp('href', '/addon/coolio/statistics/');
   });
 
+  it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+    'does not link to stats if add-on is a %s',
+    (addonType) => {
+      const authorUserId = 11;
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        type: addonType,
+        slug: 'coolio',
+        authors: [
+          {
+            ...fakeAddon.authors[0],
+            id: authorUserId,
+            name: 'tofumatt',
+            picture_url: 'http://cdn.a.m.o/myphoto.jpg',
+            url: 'http://a.m.o/en-GB/firefox/user/tofumatt/',
+            username: 'tofumatt',
+          },
+        ],
+      });
+      const root = render({
+        addon,
+        store: dispatchSignInActions({ userId: authorUserId }).store,
+      });
+
+      const statsLink = root.find('.AddonMoreInfo-stats-link');
+      expect(statsLink).toHaveLength(0);
+    },
+  );
+
   it('adds a `src` query parameter to the stats link if available in the location', () => {
     const src = 'some-src';
     const authorUserId = 11;
