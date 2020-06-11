@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-09 22:38+0000\n"
+"PO-Revision-Date: 2020-06-11 23:01+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2388,7 +2388,7 @@ msgstr "Inkluder HTML, lenker, kjeldekode eller kodesnuttar. Vurderingar er mein
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Uttale seg falskt, nedverdige utviklarar av tillegg eller fornærme dei personleg."
 
 #: src/amo/pages/UserProfile/index.js:241
 msgid "My reviews"
@@ -2460,7 +2460,7 @@ msgstr "Bildet er sletta"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Fortel brukarane litt meir om deg sjølv. Dei fleste felta er valfrie, men det vil hjelpe andre brukarar å bli betre kjent med deg."
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
