@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-12 13:43+0000\n"
+"PO-Revision-Date: 2020-06-12 13:45+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -1766,7 +1766,7 @@ msgstr "Per què s'ha blocat?"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Aquest complement incompleix les %(startLink)spolítiques de complements de Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:173
 msgid "What does this mean?"
