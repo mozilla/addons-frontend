@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-12 14:36+0000\n"
+"PO-Revision-Date: 2020-06-12 14:37+0000\n"
 "Last-Translator: Md Aamir Raza <aamir.raza.md@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -124,7 +124,7 @@ msgstr ""
 
 #: src/amo/components/AddonHead/index.js:123
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Firefox کے لئے%(addonName)s ڈاؤن لوڈ کریں۔ %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
@@ -1202,7 +1202,7 @@ msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "تمام پانچ اسٹار ریویو پڑھیں"
 
 #: src/amo/components/RatingsByStar/index.js:96
 #, fuzzy
@@ -1211,7 +1211,7 @@ msgstr "%(count)s جائزے پڑھیں"
 
 #: src/amo/components/RatingsByStar/index.js:97
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "تمام تین اسٹار ریویو پڑھیں"
 
 #: src/amo/components/RatingsByStar/index.js:98
 #, fuzzy
