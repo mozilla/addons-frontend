@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-12 00:09+0000\n"
+"PO-Revision-Date: 2020-06-12 00:33+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2270,6 +2270,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Å kritisere eit tillegg for noko som det er meint å gjere. Til dømes å leggje ut ein negativ omtale av eit tillegg for å vise reklamer eller å kreve datainnsamling, når det er det uttrykte formålet "
+"til tillegget eller når tillegget krev innsamling av data for å fungere."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
@@ -2284,6 +2286,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Rapporter eller flagg all tvilsam omtale ved å klikke på «Rapporter denne omtalen», og han vil bli sendt inn til nettstaden for moderering. Moderatorlaget vårt vil bruke retningslinjer for omtalar "
+"for å evaluere om omtalen skal slettast eller gjenopprettast."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -2292,6 +2296,8 @@ msgstr "Eg er utvidingsutviklar, kan eg svare på vurderingar?"
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Ja, tilleggsutviklarar kan skrive eitt enkelt svar til ein omtale. Du kan setje opp eit diskusjonstema i %(startLink)sforumet%(endLink)s vårt for å engasjere til ytterlegare diskusjon eller "
+"oppfølgjing."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
