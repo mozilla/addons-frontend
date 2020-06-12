@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-12 13:34+0000\n"
+"PO-Revision-Date: 2020-06-12 13:43+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -1032,9 +1032,8 @@ msgid "Learn more"
 msgstr "Més informació"
 
 #: src/amo/components/InstallWarning/index.js:85
-#, fuzzy
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr "Aquesta no és una extensió recomanada. Assegureu-vos que hi confieu abans d’instal·lar-la."
+msgstr "La seguretat d'aquesta extensió no està controlada mitjançant el programa d'Extensions recomanades de Mozilla. Assegureu-vos que hi confieu abans d’instal·lar-la."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1579,15 +1578,15 @@ msgstr "Per trobar complements compatibles amb el Firefox a l'escriptori, <a hre
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
 msgstr ""
+"No està disponible en el Firefox per a l'Android. Podeu utilitzar aquest complement amb el Firefox per a l'escriptori o cercar <a href=\"%(newLocation)s\">complements similars per a l'Android</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
 msgstr "Aquest complement no és compatible amb aquest navegador. Proveu d'instal·lar-lo al Firefox per a l'escriptori."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
-#, fuzzy
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "Per trobar complements compatibles amb el Firefox a Android, <a href=\"%(newLocation)s\">visiteu el nostre lloc per a mòbil</a>."
+msgstr "Per veure més informació sobre els complements compatibles amb el Firefox per a l'Android, <a href=\"%(newLocation)s\">feu clic aquí</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
@@ -1636,9 +1635,8 @@ msgid "About this add-on"
 msgstr "Quant a aquest complement"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Polítiques de desenvolupament"
+msgstr "Comentaris del desenvolupador"
 
 #: src/amo/pages/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
@@ -1663,6 +1661,8 @@ msgstr "Aquest llistat no està destinat a aquesta plataforma. <a href=\"%(newLo
 #: src/amo/pages/Addon/index.js:513
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr ""
+"No està disponible en el Firefox per a l'Android. Podeu utilitzar aquest complement amb el Firefox per a l'escriptori. Més informació sobre els <a href=\"%(newLocation)s\">complements per a "
+"l'Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
@@ -1754,7 +1754,7 @@ msgstr "Versions blocades: %(min)s a %(max)s."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s s'ha blocat per a la vostra protecció."
 
 #: src/amo/pages/Block/index.js:145
 msgid "This add-on has been blocked for your protection."
@@ -1762,7 +1762,7 @@ msgstr "S'ha blocat aquest complement per a la vostra protecció."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Per què s'ha blocat?"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
