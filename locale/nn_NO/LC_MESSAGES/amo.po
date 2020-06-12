@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-12 00:33+0000\n"
+"PO-Revision-Date: 2020-06-12 00:44+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2324,6 +2324,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Omtalar av tillegg er ein måte for deg å dele meiningane dine om tillegga som du har installert og brukt. Moderatorlaget vårt for omtalar for reserverer seg retten til å avslå eller fjerne all "
+"omtale som ikkje samsvarar med desse retningslinjene."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
@@ -2382,6 +2384,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Skriv om tekniske probleme be om hjelp, eller foreslå funksjonar. Bruk dei tilgjengelege brukarstøttemoglegheitene for individuelle tillegg, dersom dei er tilgjengelege. Du kan finne dei i «Meir "
+"informasjon»-seksjonen i sidestolpen på sida med detaljer om tillegget."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
@@ -2405,15 +2409,15 @@ msgstr "Mine vurderingar"
 
 #: src/amo/pages/UserProfile/index.js:269
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profilen til %(user)s, ein Firefox utviding- og temautviklar. Finn andre appar av %(user)s, inkludert gjennomsnittleg vurdering, medlemsskapsperiode og moglegheita til å rapportere problem."
 
 #: src/amo/pages/UserProfile/index.js:273
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profilen til %(user)s, ein Firefox utvidingsutviklar. Finn andre appar av %(user)s, inkludert gjennomsnittleg vurdering, medlemsskapsperiode og moglegheita til å rapportere problem."
 
 #: src/amo/pages/UserProfile/index.js:277
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profilen til %(user)s, ein temautviklar. Finn andre appar av %(user)s, inkludert gjennomsnittleg vurdering, medlemsskapsperiode og moglegheita til å rapportere problem."
 
 #: src/amo/pages/UserProfile/index.js:316
 msgid "Add-ons developer"
@@ -2473,7 +2477,7 @@ msgstr "Fortel brukarane litt meir om deg sjølv. Dei fleste felta er valfrie, m
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "Fortell andre brukarar litt meir om denne brukaren. Dei fleste felt er valfrie, men dei vil hjelpe andre brukarar å bli betre kjende med %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
@@ -2565,7 +2569,7 @@ msgstr "Denne URL-en vil berre vere synleg for brukarar som er utviklarar."
 
 #: src/amo/pages/UserProfileEdit/index.js:744
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Noko HTML er støtta: %(htmlTags)s. Lenker er ikkje tillatne."
 
 #: src/amo/pages/UserProfileEdit/index.js:768
 msgid "Notifications"
@@ -2573,15 +2577,15 @@ msgstr "Varsel"
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Frå tid til annan kan Mozilla sende deg ein e-post om komande utgivingar og arrangement som har med tillegg å gjere. Vel emne som du er interessert i."
 
 #: src/amo/pages/UserProfileEdit/index.js:777
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Av og til kan Mozilla sende denne brukaren ein e-post om komande utgivingar og arrangementer som har med tillegg å gjere. Vel emne som denne brukaren kan vere interessert i."
 
 #: src/amo/pages/UserProfileEdit/index.js:792
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla reserverer seg retten til å kontakte deg individuelt når det gjeld tillegga dine som er lasta opp her."
 
 #: src/amo/pages/UserProfileEdit/index.js:818 src/amo/pages/UserProfileEdit/index.js:907
 msgid "Delete My Profile"
