@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-11 21:16+0000\n"
+"PO-Revision-Date: 2020-06-12 13:34+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -1745,9 +1745,8 @@ msgid "Older versions"
 msgstr "Versions més antigues"
 
 #: src/amo/pages/Block/index.js:115
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Mostra totes les versions"
+msgstr "Versions blocades: totes les versions."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1758,9 +1757,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:145
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Quant a aquest complement"
+msgstr "S'ha blocat aquest complement per a la vostra protecció."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
@@ -2704,9 +2702,8 @@ msgid "Enabling"
 msgstr "S'està habilitant"
 
 #: src/core/components/AMInstallButton/index.js:209
-#, fuzzy
 msgid "Disabling"
-msgstr "S'està habilitant"
+msgstr "S'està inhabilitant"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
