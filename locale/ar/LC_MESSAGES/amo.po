@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-15 13:05+0000\n"
+"PO-Revision-Date: 2020-06-15 13:07+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -2215,14 +2215,12 @@ msgid "Enhanced privacy extensions"
 msgstr "الامتدادات الأعلى تقييما"
 
 #: src/amo/pages/Home/index.js:64
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "طالع المزيد من السمات المُتداولة"
+msgstr "شاهد المزيد من مديري كلمات السر المُقترحة"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "مدراء كلمات السر"
+msgstr "مديري كلمات السر المُقترحة"
 
 #: src/amo/pages/LandingPage/index.js:152
 msgid "See more top rated extensions"
