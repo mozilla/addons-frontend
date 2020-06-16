@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-16 06:47+0000\n"
+"PO-Revision-Date: 2020-06-16 06:53+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -101,9 +101,8 @@ msgid "This add-on is not compatible with your version of Firefox."
 msgstr "هذه الإضافة غير متوافقة مع إصدارتك من فَيَرفُكس."
 
 #: src/amo/components/AddonCompatibilityError/index.js:116
-#, fuzzy
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "إصدارة فَيَرفُكس هذه لا تدعم ملحقات البحث."
+msgstr "إصدارة فيرفكس هذه لا تدعم هذه الإضافة لأنها تحتاج لإعادة تشغيل."
 
 #: src/amo/components/AddonCompatibilityError/index.js:119
 msgid "This add-on is not available on your platform."
@@ -596,24 +595,20 @@ msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "صدرت في %(dateReleased)s - ‏%(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "إضافات فَيَرفُكس"
+msgstr "إضافات فيرفكس (%(locale)s)"
 
 #: src/amo/components/App/index.js:189 src/amo/components/HeadMetaTags/index.js:73
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – إضافات فَيَرفُكس"
+msgstr "%(title)s – إضافات فيرفكس (%(locale)s)"
 
 #: src/amo/components/App/index.js:197 src/amo/components/HeadMetaTags/index.js:78
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "إضافات فَيَرفُكس"
+msgstr "إضافات فيرفكس للإندرويد (%(locale)s)"
 
 #: src/amo/components/App/index.js:201 src/amo/components/HeadMetaTags/index.js:72
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s – إضافات فَيَرفُكس"
+msgstr "%(title)s – إضافات فيرفكس للإندرويد (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
@@ -1011,9 +1006,8 @@ msgid "Log out"
 msgstr "اخرج"
 
 #: src/amo/components/Header/index.js:169
-#, fuzzy
 msgid "Firefox Browser Add-ons"
-msgstr "إضافات فَيَرفُكس"
+msgstr "إضافات متصفح فيرفكس"
 
 #: src/amo/components/Header/index.js:205
 #, fuzzy
@@ -1556,14 +1550,12 @@ msgid "Recommended add-ons only"
 msgstr "الإضافات المُقترحة فقط"
 
 #: src/amo/components/SearchForm/index.js:57
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "إضافات إصدارة أندرويد"
+msgstr "إضافات فيرفكس للإندرويد"
 
 #: src/amo/components/SearchForm/index.js:58
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "عن إضافات فَيَرفُكس"
+msgstr "إضافات فيرفكس"
 
 #: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
@@ -1629,7 +1621,7 @@ msgstr "إضافات فَيَرفُكس"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
-msgstr "لمتصفح فَيَرفُكس"
+msgstr "لفيرفكس"
 
 #: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
@@ -1692,9 +1684,8 @@ msgid "This add-on is not compatible with this browser. Try installing it on Fir
 msgstr "هذه الإضافة غير متوافقة مع هذا المتصفح. حاول تثبيتها على فيرفكس لسطح المكتب."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
-#, fuzzy
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "<a href=\"%(newLocation)s\">زُر موقعنا بنسخة المحمول</a> لتعرف الإضافات المتوافقة مع Firefox على أندرويد."
+msgstr "للتعرف على الإضافات المتوافقة مع فيرفكس لنظام أندرويد ، <a href=\"٪(newLocation)s\">انقر هنا</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
