@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-08 13:06+0000\n"
+"PO-Revision-Date: 2020-06-16 08:10+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2757,7 +2757,7 @@ msgstr "Side %(currentPage)s av %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:66
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr "Noen funksjoner er midlertidig utilgjengelig mens vi utfører rutinemessig vedlikehold. Vi kommer tilbake med full kapasitet om kort tid."
+msgstr "Noen funksjoner er midlertidig utilgjengelig mens vi utfører rutinemessig vedlikehold av nettstedet. Vi kommer tilbake med full kapasitet om kort tid."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
