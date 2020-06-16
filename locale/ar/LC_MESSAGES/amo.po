@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-16 06:33+0000\n"
+"PO-Revision-Date: 2020-06-16 06:47+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -915,14 +915,12 @@ msgid "Site Status"
 msgstr "حالة الموقع"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "متصفح آي أو إس"
+msgstr "المُتصفحات"
 
 #: src/amo/components/Footer/index.js:169
-#, fuzzy
 msgid "Products"
-msgstr "الإنتاجية"
+msgstr "المنتجات"
 
 #: src/amo/components/Footer/index.js:266
 msgid "Privacy"
@@ -957,18 +955,16 @@ msgid "Blog"
 msgstr "المدونة"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:207
-#, fuzzy
 msgid "Extension Workshop"
-msgstr "الامتدادات"
+msgstr "ورشة عمل الامتدادات"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:217
 msgid "Developer Hub"
 msgstr "مركز المطورين"
 
 #: src/amo/components/Footer/index.js:81
-#, fuzzy
 msgid "Developer Policies"
-msgstr "رد المطور"
+msgstr "سياسات المطور"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
@@ -1369,7 +1365,7 @@ msgstr "امتدادات شعبية"
 
 #: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
 msgid "Popular themes"
-msgstr "سمات شعبية"
+msgstr "سمات شائعة"
 
 #: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
@@ -1621,7 +1617,7 @@ msgstr "أكثر…"
 
 #: src/amo/components/SectionLinks/index.js:139
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "مواقع المتصفح الأخرى"
 
 #: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Android"
@@ -1685,16 +1681,15 @@ msgstr "اختر صورة…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:101
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr "<a href=\"%(newLocation)s\">زُر موقعنا بنسخة سطح المكتب</a> لتعرف الإضافات المتوافقة مع Firefox على سطح المكتب."
+msgstr "<a href=\"%(newLocation)s\">زُر موقعنا بنسخة سطح المكتب</a> لتعرف الإضافات المتوافقة مع فيرفكس على سطح المكتب."
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "غير متوفر على فيرفكس لنظام أندرويد. يمكنك استخدام هذه الوظيفة الإضافية مع فيرفكس لسطح المكتب ، أو البحث عن <a href=\"٪(newLocation)s\">إضافات أندرويد مماثلة</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "هذه الإضافة غير متوافقة مع إصدارتك من فَيَرفُكس."
+msgstr "هذه الإضافة غير متوافقة مع هذا المتصفح. حاول تثبيتها على فيرفكس لسطح المكتب."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 #, fuzzy
@@ -1774,11 +1769,11 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:509
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "هذه القائمة غير مخصصة لهذه المنصة. <a href=\"٪(newLocation)s\">تصفح الإضافات لمتصفح فيرفكس على سطح المكتب</a>."
 
 #: src/amo/pages/Addon/index.js:513
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "غير متوفر على فيرفكس لنظام أندرويد. يمكنك استخدام هذه الوظيفة الإضافية مع فيرفكس لسطح المكتب. تعرف على مزيد من المعلومات حول <a href=\"٪(newLocation)s\">الوظائف الإضافية لنظام أندرويد</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
@@ -1801,7 +1796,7 @@ msgstr "مراجعات %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "مراجعات وتقييمات ٪ (addonName)s. تعرف على رأي المستخدمين الآخرين حول٪ (addonName)s وأضفه إلى متصفح فيرفكس."
 
 #: src/amo/pages/AddonReviewList/index.js:231
 #, fuzzy
@@ -2017,9 +2012,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:127
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "رجاءً اتبع %(linkStart)sإرشادات المراجعات%(linkEnd)s."
+msgstr "استكشف المزيد من امتدادات %(linkStart)sالخصوصية والأمان%(linkEnd)s المُقترحة"
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -2187,9 +2181,8 @@ msgid "See more recommended extensions"
 msgstr "شاهد المزيد من السمات المُقترحة"
 
 #: src/amo/pages/Home/index.js:290
-#, fuzzy
 msgid "See more popular themes"
-msgstr "تصفّح كل الامتدادات"
+msgstr "شاهد المزيد من السمات الشائعة"
 
 #: src/amo/pages/Home/index.js:309
 #, fuzzy
@@ -2205,14 +2198,12 @@ msgid "See more trending extensions"
 msgstr "طالع المزيد من الامتدادات المُتداولة"
 
 #: src/amo/pages/Home/index.js:58
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "طالع المزيد من الامتدادات المُختارة"
+msgstr "شاهد المزيد من امتدادات تحسين الخصوصية"
 
 #: src/amo/pages/Home/index.js:59
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "الامتدادات الأعلى تقييما"
+msgstr "امتدادات تحسين الخصوصية"
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
