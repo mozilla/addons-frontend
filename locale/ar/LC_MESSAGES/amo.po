@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-15 13:07+0000\n"
+"PO-Revision-Date: 2020-06-16 06:33+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1056,7 +1056,7 @@ msgstr "احصل على الامتداد"
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "RECOMMENDED"
-msgstr "مُقترح"
+msgstr "مُقترحة"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1086,7 +1086,7 @@ msgstr "اطّلع على المزيد"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr ""
+msgstr "هذه غير مُراقبة من خلال برنامج موزيلا للامتدادات المُقترحة. تأكد من ثقتك بها قبل التثبيت."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
