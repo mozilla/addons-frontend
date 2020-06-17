@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-16 06:54+0000\n"
+"PO-Revision-Date: 2020-06-17 06:22+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -429,11 +429,11 @@ msgstr "تكتب عن تجربتك مع هذه الإضافة."
 
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
-msgstr "أرسِل المراجعة"
+msgstr "قدّم المراجعة"
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submitting review"
-msgstr "يُرسِل المراجعة"
+msgstr "يقدّم المراجعة"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 #, fuzzy
@@ -983,15 +983,15 @@ msgstr "نزّل فَيَرفُكس"
 
 #: src/amo/components/Header/index.js:103
 msgid "Submit a New Add-on"
-msgstr "أرسِل إضافة جديدة"
+msgstr "تقديم إضافة جديدة"
 
 #: src/amo/components/Header/index.js:108
 msgid "Submit a New Theme"
-msgstr "أرسِل سمة جديدة"
+msgstr "تقديم سمة جديدة"
 
 #: src/amo/components/Header/index.js:117
 msgid "Manage My Submissions"
-msgstr "أدِر ما أرسلت"
+msgstr "إدارة تقديماتي"
 
 #: src/amo/components/Header/index.js:127
 msgid "Reviewer Tools"
@@ -1068,7 +1068,7 @@ msgstr "تُشبه الامتدادات التطبيقات، ولكنّها لل
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr "وهي تُضيف مزايا على متصفّح فيرفكس فيصير أسرع وأذكى أو حتّى أمتع."
+msgstr "وهي تُضيف مزايا لفيرفكس لجعل التصفح أسرع وأذكى أو لمجرد المتعة."
 
 #: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
@@ -2230,7 +2230,7 @@ msgstr "غيّر مظهر متصفحك. اختر من بين آلاف السما
 
 #: src/amo/pages/LandingPage/index.js:235
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "استكشِف أعتى الأدوات والميزات لتُخصّص فَيَرفُكس فيصبح المتصفح ملكك أنت."
+msgstr "استكشِف أعتى الأدوات والميزات لتخصيص فَيَرفُكس ليصبح المتصفح ملكك أنت."
 
 #: src/amo/pages/LandingPage/index.js:275
 msgid "Explore all categories"
@@ -2238,7 +2238,7 @@ msgstr "استكشِف كل الأقسام"
 
 #: src/amo/pages/LanguageTools/index.js:110
 msgid "Available for your locale"
-msgstr "مُتاحة لمحليتك"
+msgstr "مُتاحة للغة منطقتك"
 
 #: src/amo/pages/LanguageTools/index.js:148
 msgid "Dictionaries and Language Packs"
@@ -2258,7 +2258,7 @@ msgstr "تُغيّر حزم اللغات لغة واجهة المتصفح، بم
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "All Locales"
-msgstr "كل المحليات"
+msgstr "كل اللغات"
 
 #: src/amo/pages/LanguageTools/index.js:188
 msgid "Locale Name"
@@ -2967,11 +2967,11 @@ msgstr "أدخِل نصًا."
 
 #: src/ui/components/DismissibleTextForm/index.js:188
 msgid "Submit"
-msgstr "أرسِل"
+msgstr "قدّم"
 
 #: src/ui/components/DismissibleTextForm/index.js:190
 msgid "Submitting"
-msgstr "يُرسل"
+msgstr "يقدّم"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
