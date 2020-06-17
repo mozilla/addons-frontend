@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-17 06:28+0000\n"
+"PO-Revision-Date: 2020-06-17 06:44+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -308,7 +308,7 @@ msgstr "المستخدمون الآخرون الذين ثبّتوا هذا ال�
 
 #: src/amo/components/AddonRecommendations/index.js:142
 msgid "Other popular extensions"
-msgstr "امتدادات شعبية أخرى"
+msgstr "امتدادات شائعة أخرى"
 
 #: src/amo/components/AddonReviewCard/index.js:199
 #, fuzzy
@@ -703,7 +703,7 @@ msgstr "الاسم"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Popularity"
-msgstr "الشعبية"
+msgstr "الأكثر شيوعا"
 
 #: src/amo/components/ContributeCard/index.js:108
 msgid "Contribute now"
@@ -1354,7 +1354,7 @@ msgstr "أعلى الإضافات تقييما"
 
 #: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
 msgid "Popular extensions"
-msgstr "امتدادات شعبية"
+msgstr "امتدادات شائعة"
 
 #: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
 msgid "Popular themes"
@@ -1362,7 +1362,7 @@ msgstr "سمات شائعة"
 
 #: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
-msgstr "إضافات شعبية"
+msgstr "إضافات شائعة"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
@@ -2173,9 +2173,8 @@ msgid "See more popular themes"
 msgstr "شاهد المزيد من السمات الشائعة"
 
 #: src/amo/pages/Home/index.js:309
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "طالع المزيد من الامتدادات الأعلى تقييما"
+msgstr "طالع المزيد من الامتدادات الشائعة"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
 msgid "See more recommended themes"
