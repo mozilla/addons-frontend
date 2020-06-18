@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-08 07:00+0000\n"
+"PO-Revision-Date: 2020-06-18 13:35+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -442,7 +442,7 @@ msgstr "%(author)s నిఘంటువులు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "Dictionaries by these translators"
-msgstr ""
+msgstr "ఈ అనువాదకుల నుండి నిఘంటువులు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
@@ -795,7 +795,7 @@ msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
-msgstr ""
+msgstr "%(userName)s ప్రతిస్పందన"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
 msgid "Review by %(userName)s"
