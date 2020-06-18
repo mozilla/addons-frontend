@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-18 13:35+0000\n"
+"PO-Revision-Date: 2020-06-18 14:05+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -75,9 +75,8 @@ msgid "Admin add-on status"
 msgstr "నిర్వహణ పొడగింత స్థితి"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
-#, fuzzy
 msgid "Author Links"
-msgstr "పొడిగింత లంకెలు"
+msgstr "రచయిత లంకెలు"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
@@ -1637,9 +1636,8 @@ msgid "About this add-on"
 msgstr "ఈ పొడిగింత గురించి"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "డెవలపర్ విధానాలు"
+msgstr "డెవలపర్ వ్యాఖ్యలు"
 
 #: src/amo/pages/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
