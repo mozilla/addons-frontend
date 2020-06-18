@@ -1376,19 +1376,18 @@ describe(__filename, () => {
     expect(modal.find('p').at(0)).toHaveText(
       oneLine`Your data will be permanently removed, including profile details
       (picture, user name, display name, location, home page, biography,
-      occupation) and notification preferences. Your reviews and ratings will
-      be anonymised and no longer editable.`,
+      occupation), notification preferences, reviews, and collections.`,
     );
 
-    expect(modal.find('p').at(1).text()).toContain(
+    expect(modal.find('p').at(1)).toHaveText(
+      oneLine`If you authored any add-ons they will also be deleted, unless you
+      share ownership with other authors. In that case, you will be removed as
+      an author and the remaining authors will maintain ownership of the
+      add-on.`,
+    );
+
+    expect(modal.find('p').at(2).text()).toContain(
       'When you use this email address to log in again to',
-    );
-
-    expect(modal.find('p').at(2)).toHaveHTML(
-      oneLine`<p><strong>NOTE:</strong> You cannot delete your profile if you
-      are the <a href="/user/${userId}/">author of any add-ons</a>. You must
-      <a href="https://developer.mozilla.org/Add-ons/Distribution#More_information_about_AMO">transfer ownership</a>
-      or delete the add-ons before you can delete your profile.</p>`,
     );
 
     expect(root.find('.UserProfileEdit-confirm-button')).toHaveLength(1);
@@ -1436,9 +1435,10 @@ describe(__filename, () => {
     );
 
     expect(root.find('.UserProfileEdit-deletion-modal').find('p').at(1))
-      .toHaveHTML(oneLine`<p><strong>NOTE:</strong> You cannot delete a user’s
-    profile if the user is the <a href="/user/${params.userId}/">author of any
-    add-ons</a>.</p>`);
+      .toHaveHTML(oneLine`<p>If the user authored any add-ons they will also be
+      deleted, unless ownership is shared with other authors. In that case, the
+      user will be removed as an author and the remaining authors will maintain
+      ownership of the add-on.</p>`);
 
     expect(root.find('.UserProfileEdit-confirm-button').children()).toHaveText(
       'Delete Profile',

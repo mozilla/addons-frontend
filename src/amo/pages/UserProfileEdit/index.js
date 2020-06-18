@@ -841,60 +841,44 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 <p>
                   {isEditingCurrentUser
                     ? i18n.gettext(
-                        `Your data will be permanently removed, including profile
-                    details (picture, user name, display name, location, home
-                    page, biography, occupation) and notification preferences.
-                    Your reviews and ratings will be anonymised and no longer
-                    editable.`,
+                        `Your data will be permanently removed, including
+                    profile details (picture, user name, display name,
+                    location, home page, biography, occupation), notification
+                    preferences, reviews, and collections.`,
                       )
                     : i18n.gettext(
                         `The user’s data will be permanently removed, including
                     profile details (picture, user name, display name,
-                    location, home page, biography, occupation) and
-                    notification preferences. Reviews and ratings will be
-                    anonymised and no longer editable.`,
+                    location, home page, biography, occupation), notification
+                    preferences, reviews, and collections.`,
                       )}
                 </p>
+                <p>
+                  {isEditingCurrentUser
+                    ? i18n.gettext(
+                        `If you authored any add-ons they will also be deleted,
+                    unless you share ownership with other authors. In that
+                    case, you will be removed as an author and the remaining
+                    authors will maintain ownership of the add-on.`,
+                      )
+                    : i18n.gettext(
+                        `If the user authored any add-ons they will also be
+                    deleted, unless ownership is shared with other authors. In
+                    that case, the user will be removed as an author and the
+                    remaining authors will maintain ownership of the add-on.`,
+                      )}
+                </p>
+
                 {isEditingCurrentUser && (
                   <p>
                     {i18n.gettext(
                       `When you use this email address to log in again to
-                  addons.mozilla.org, you will create a new Firefox Add-ons
-                  profile that is in no way associated with the profile you
-                  deleted.`,
+                    addons.mozilla.org, your profile on Firefox Add-ons will
+                    not have access to any of its previous content.`,
                     )}
                   </p>
                 )}
-                <p
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={sanitizeHTML(
-                    i18n.sprintf(
-                      isEditingCurrentUser
-                        ? i18n.gettext(
-                            `%(strongStart)sNOTE:%(strongEnd)s You cannot delete
-                        your profile if you are the %(linkStart)sauthor of any
-                        add-ons%(linkEnd)s. You must %(docLinkStart)stransfer
-                        ownership%(docLinkEnd)s or delete the add-ons before
-                        you can delete your profile.`,
-                          )
-                        : i18n.gettext(
-                            `%(strongStart)sNOTE:%(strongEnd)s You cannot delete a
-                        user’s profile if the user is the %(linkStart)sauthor
-                        of any add-ons%(linkEnd)s.`,
-                          ),
-                      {
-                        linkStart: `<a href="${userProfileURL}">`,
-                        linkEnd: '</a>',
-                        docLinkStart:
-                          '<a href="https://developer.mozilla.org/Add-ons/Distribution#More_information_about_AMO">',
-                        docLinkEnd: '</a>',
-                        strongStart: '<strong>',
-                        strongEnd: '</strong>',
-                      },
-                    ),
-                    ['a', 'strong'],
-                  )}
-                />
+
                 <div className="UserProfileEdit-buttons-wrapper">
                   <Button
                     buttonType="alert"
