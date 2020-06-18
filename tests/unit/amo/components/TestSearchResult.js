@@ -5,6 +5,8 @@ import * as React from 'react';
 import SearchResult, { SearchResultBase } from 'amo/components/SearchResult';
 import { getAddonURL } from 'amo/utils';
 import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -141,6 +143,17 @@ describe(__filename, () => {
     ).toContain('6 233');
   });
 
+  it('renders 0 users', () => {
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        average_daily_users: 0,
+      }),
+    });
+
+    expect(root.find('.SearchResult-users')).toIncludeText('0 users');
+  });
+
   it('renders the user count as singular', () => {
     const root = render({
       addon: createInternalAddon({
@@ -151,6 +164,51 @@ describe(__filename, () => {
 
     expect(root.find('.SearchResult-users')).toIncludeText('1 user');
   });
+
+  it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+    'renders 0 downloads for %s',
+    (addonType) => {
+      const root = render({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          type: addonType,
+          average_daily_users: 0,
+        }),
+      });
+
+      expect(root.find('.SearchResult-users')).toIncludeText('0 downloads');
+    },
+  );
+
+  it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+    'renders 1 download for %s',
+    (addonType) => {
+      const root = render({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          type: addonType,
+          average_daily_users: 1,
+        }),
+      });
+
+      expect(root.find('.SearchResult-users')).toIncludeText('1 download');
+    },
+  );
+
+  it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+    'renders the number of downloads for %s',
+    (addonType) => {
+      const root = render({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          type: addonType,
+          average_daily_users: 3,
+        }),
+      });
+
+      expect(root.find('.SearchResult-users')).toIncludeText('3 downloads');
+    },
+  );
 
   it('links the li element to the detail page', () => {
     const slug = 'some-addon-slug';
