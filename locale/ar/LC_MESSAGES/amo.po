@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-17 06:27+0000\n"
+"PO-Revision-Date: 2020-06-18 09:07+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1464,12 +1464,12 @@ msgstr[5] "عُثر على %(count)s امتداد عند البحث عن ”⁨%
 #: src/amo/components/SearchContextCard/index.js:83
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "تم العثور على %(count)s امتداد."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لم يُعثر على إضافات"
+msgstr[1] "عُثر على إضافة واحدة"
+msgstr[2] "عُثر على إضافتين"
+msgstr[3] "عُثر على %(count)s إضافات"
+msgstr[4] "عُثر على %(count)s إضافة"
+msgstr[5] "عُثر على %(count)s إضافة"
 
 #: src/amo/components/SearchContextCard/index.js:96
 #, fuzzy
