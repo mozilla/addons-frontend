@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-18 14:05+0000\n"
+"PO-Revision-Date: 2020-06-18 14:06+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1459,9 +1459,8 @@ msgstr "Android యొక్క పొడిగింతలు"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/SearchForm/index.js:58
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Firefox పొడగింతల గురించి"
+msgstr "Firefox పొడగింతలు"
 
 #: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
