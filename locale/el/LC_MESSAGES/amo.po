@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-19 13:30+0000\n"
+"PO-Revision-Date: 2020-06-19 13:44+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -979,7 +979,7 @@ msgstr "Ο λογαριασμός μου"
 
 #: src/amo/components/Header/index.js:77
 msgid "View My Collections"
-msgstr "Προβολή των συλλογών μου"
+msgstr "Προβολή συλλογών"
 
 #: src/amo/components/Header/index.js:85 src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
@@ -2498,7 +2498,7 @@ msgstr "Επιτυχής διαγραφή εικόνας"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με εσάς. Τα περισσότερα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να σάς γνωρίσουν καλύτερα."
+msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με εσάς. Τα περισσότερα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν άλλους χρήστες να σας γνωρίσουν καλύτερα."
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
@@ -2567,7 +2567,7 @@ msgstr "Η διεύθυνση email δεν μπορεί να αλλαχθεί ε
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "Μπορείτε να αλλάξετε τη διεύθυνση email σας στους Λογαριασμούς Firefox. %(startLink)sΧρειάζεστε βοήθεια;%(endLink)s"
+msgstr "Μπορείτε να αλλάξετε τη διεύθυνση email του λογαριασμού Firefox σας. %(startLink)sΧρειάζεστε βοήθεια;%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
@@ -2603,7 +2603,7 @@ msgstr "Ειδοποιήσεις"
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr "Η Mozilla ενδέχεται να σάς στέλνει, περιστασιακά, email σχετικά με ανερχόμενες κυκλοφορίες και εκδηλώσεις προσθέτων. Παρακαλούμε επιλέξτε τα θέματα που σάς ενδιαφέρουν."
+msgstr "Η Mozilla ενδέχεται να στέλνει περιστασιακά email σχετικά με ανερχόμενες κυκλοφορίες και εκδηλώσεις προσθέτων. Παρακαλούμε επιλέξτε τα θέματα που σας ενδιαφέρουν."
 
 #: src/amo/pages/UserProfileEdit/index.js:777
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
