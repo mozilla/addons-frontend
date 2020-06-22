@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-22 06:02+0000\n"
+"PO-Revision-Date: 2020-06-22 07:07+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -106,7 +106,7 @@ msgstr "إصدارة فيرفكس هذه لا تدعم هذه الإضافة ل�
 
 #: src/amo/components/AddonCompatibilityError/index.js:119
 msgid "This add-on is not available on your platform."
-msgstr "هذه الإضافة غير متوفرة على المنصة لديك."
+msgstr "هذه الإضافة غير متوفرة على منصّتك."
 
 #: src/amo/components/AddonCompatibilityError/index.js:123
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -119,31 +119,28 @@ msgstr "لا يدعم متصفحك الإضافات. يمكنك <a href=\"%(down
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:104
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – نزّل هذه السمة لمتصفّح  ‎🦊 Firefox ‏(%(locale)s)"
+msgstr "%(addonName)s – نزّل هذه السمة لمتصفّح ‎🦊 فيرفكس ‏(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:109
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – نزّل هذه الإضافة لمتصفّح  ‎🦊 Firefox ‏(%(locale)s)"
+msgstr "%(addonName)s – نزّل هذه الإضافة لمتصفّح ‎🦊 فيرفكس (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:123
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr "نزّل %(addonName)s لمتصفّح Firefox. ‏%(summary)s"
+msgstr "نزّل %(addonName)s لمتصفّح فيرفكس. ‏%(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – إضافات فَيَرفُكس"
+msgstr "%(addonName)s - احصل على هذا القاموس لـ 🦊 فيرفكس أندرويد (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:66
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – إضافات فَيَرفُكس"
+msgstr "%(addonName)s - احصل على هذا الامتداد لـ 🦊 فيرفكس أندرويد (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – إضافات فَيَرفُكس"
+msgstr "%(addonName)s - احصل على حزمة اللغة هذه لـ 🦊 فيرفكس أندروريد (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:76
 #, fuzzy
