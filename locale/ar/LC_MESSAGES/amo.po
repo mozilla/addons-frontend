@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-22 07:16+0000\n"
+"PO-Revision-Date: 2020-06-22 07:33+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -224,9 +224,8 @@ msgid "Visit stats dashboard"
 msgstr "زُر لوحة الإحصاءات"
 
 #: src/amo/components/AddonMoreInfo/index.js:123
-#, fuzzy
 msgid "Custom License"
-msgstr "الرخصة"
+msgstr "رخصة مخصصة"
 
 #: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
@@ -289,7 +288,6 @@ msgid "Homepage"
 msgstr "صفحة البداية"
 
 #: src/amo/components/AddonMoreInfo/index.js:74
-#, fuzzy
 msgid "Support site"
 msgstr "موقع الدعم"
 
@@ -306,38 +304,32 @@ msgid "Other popular extensions"
 msgstr "امتدادات شائعة أخرى"
 
 #: src/amo/components/AddonReviewCard/index.js:199
-#, fuzzy
 msgid "Edit reply"
-msgstr "حرّر ردي"
+msgstr "عدّل الرد"
 
 #: src/amo/components/AddonReviewCard/index.js:202
-#, fuzzy
 msgid "Edit review"
-msgstr "حرّر مراجعتي"
+msgstr "عدّل المراجعة"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
 msgid "Delete reply"
-msgstr "احذف ردّي"
+msgstr "احذف الرد"
 
 #: src/amo/components/AddonReviewCard/index.js:213 src/amo/components/AddonReviewCard/index.js:245
-#, fuzzy
 msgid "Delete rating"
-msgstr "احذف مراجعتي"
+msgstr "احذف التقييم"
 
 #: src/amo/components/AddonReviewCard/index.js:216 src/amo/components/AddonReviewCard/index.js:248
-#, fuzzy
 msgid "Delete review"
-msgstr "احذف مراجعتي"
+msgstr "احذف المراجعة"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this reply?"
 msgstr "أمتأكد من حذف هذا الرد؟"
 
 #: src/amo/components/AddonReviewCard/index.js:227
-#, fuzzy
 msgid "Do you really want to delete this rating?"
-msgstr "أمتأكد من حذف هذه المراجعة؟"
+msgstr "أمتأكد من حذف هذا التقييم؟"
 
 #: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this review?"
@@ -353,19 +345,16 @@ msgid "Cancel"
 msgstr "ألغِ"
 
 #: src/amo/components/AddonReviewCard/index.js:259
-#, fuzzy
 msgid "Keep reply"
-msgstr "احذف ردّي"
+msgstr "احتفظ بالرد"
 
 #: src/amo/components/AddonReviewCard/index.js:263
-#, fuzzy
 msgid "Keep rating"
-msgstr "احذف مراجعتي"
+msgstr "احتفظ بالتقييم"
 
 #: src/amo/components/AddonReviewCard/index.js:266
-#, fuzzy
 msgid "Keep review"
-msgstr "احذف مراجعتي"
+msgstr "احتفظ بالمراجعة"
 
 #: src/amo/components/AddonReviewCard/index.js:302
 msgid "Write a reply to this review."
@@ -388,19 +377,16 @@ msgid "Publishing reply"
 msgstr "يُرسل الرد"
 
 #: src/amo/components/AddonReviewCard/index.js:357
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "نُشرت %(timestamp)s"
+msgstr "نُشرت %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:360
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "كتبها ⁨%(authorName)s⁩، %(timestamp)s"
+msgstr "كتبها %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:363
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "كتبها ⁨%(authorName)s⁩، %(timestamp)s"
+msgstr "كتبها %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:478
 msgid "Deleting…"
@@ -412,7 +398,7 @@ msgstr "رُد على هذه المراجعة"
 
 #: src/amo/components/AddonReviewCard/index.js:539
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "تم حذف هذا التقييم أو هذه المراجعة. أنت تراه فقط بسبب صلاحيات مرتفعة."
 
 #: src/amo/components/AddonReviewCard/index.js:585
 msgid "Write a review"
@@ -428,17 +414,15 @@ msgstr "قدّم المراجعة"
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submitting review"
-msgstr "يقدّم المراجعة"
+msgstr "تقديم المراجعة"
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Update review"
-msgstr "حدّث الملف الشخصي"
+msgstr "حدّث المراجعة"
 
 #: src/amo/components/AddonReviewManager/index.js:123
-#, fuzzy
 msgid "Updating review"
-msgstr "يُحدّث الرد"
+msgstr "تحديث المراجعة"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
@@ -454,7 +438,7 @@ msgstr "رجاءً اتبع %(linkStart)sإرشادات المراجعات%(link
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "تقييمك بالنجوم:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
@@ -541,20 +525,19 @@ msgid "Add-on icon"
 msgstr "أيقونة الإضافة"
 
 #: src/amo/components/AddonSummaryCard/index.js:70
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "مقيّمة بِ‍ %(rating)s من ٥"
-msgstr[1] "مقيّمة بِ‍ %(rating)s من ٥"
-msgstr[2] "مقيّمة بِ‍ %(rating)s من ٥"
-msgstr[3] "مقيّمة بِ‍ %(rating)s من ٥"
-msgstr[4] "مقيّمة بِ‍ %(rating)s من ٥"
-msgstr[5] "مقيّمة بِ‍ %(rating)s من ٥"
+msgstr[0] "%(rating)s نجمة من 5"
+msgstr[1] "%(rating)s نجمة من 5"
+msgstr[2] "%(rating)s نجمة من 5"
+msgstr[3] "%(rating)s نجمة من 5"
+msgstr[4] "%(rating)s نجمة من 5"
+msgstr[5] "%(rating)s نجمة من 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:45
 msgid ","
-msgstr ""
+msgstr "،"
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:86 src/amo/components/AddonTitle/index.js:91
