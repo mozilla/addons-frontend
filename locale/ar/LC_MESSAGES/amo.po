@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-18 09:07+0000\n"
+"PO-Revision-Date: 2020-06-22 06:02+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1757,7 +1757,7 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:509
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr "هذه القائمة غير مخصصة لهذه المنصة. <a href=\"٪(newLocation)s\">تصفح الإضافات لمتصفح فيرفكس على سطح المكتب</a>."
+msgstr "هذه القائمة غير مخصصة لهذه المنصة. <a href=\"٪(newLocation)s\">تصفح الإضافات على فيرفكس لسطح المكتب</a>."
 
 #: src/amo/pages/Addon/index.js:513
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
