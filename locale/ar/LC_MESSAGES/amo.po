@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-22 07:33+0000\n"
+"PO-Revision-Date: 2020-06-22 07:37+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -56,29 +56,24 @@ msgid "Review theme"
 msgstr "راجِع السمة"
 
 #: src/amo/components/AddonAdminLinks/index.js:129
-#, fuzzy
 msgid "Review add-on code"
-msgstr "مراجعات %(addonName)s"
+msgstr "مراجعة كود الإضافة"
 
 #: src/amo/components/AddonAdminLinks/index.js:149
-#, fuzzy
 msgid "Admin Links"
-msgstr "روابط الإضافات"
+msgstr "روابط المسؤول"
 
 #: src/amo/components/AddonAdminLinks/index.js:76 src/amo/components/AddonAuthorLinks/index.js:46
-#, fuzzy
 msgid "Edit add-on"
-msgstr "ابحث في الإضافات"
+msgstr "عدّل الإضافة"
 
 #: src/amo/components/AddonAdminLinks/index.js:90
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "يُحمّل الإضافات"
+msgstr "حالة إضافة المسؤول"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
-#, fuzzy
 msgid "Author Links"
-msgstr "روابط الإضافات"
+msgstr "روابط المؤلف"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
@@ -813,14 +808,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "نأسف ولكن حدث عطل في الخادوم ولم نقدر على إكمال طلبك. لقد سجلنا هذا الخطأ وسننظر فيه."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "مراجعات %(addonName)s"
+msgstr "رد من %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "مراجعات %(addonName)s"
+msgstr "مراجعة %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -987,14 +980,12 @@ msgid "Firefox Browser Add-ons"
 msgstr "إضافات متصفح فيرفكس"
 
 #: src/amo/components/Header/index.js:205
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "مراقبة استخدام الامتدادات وإدارة السمات"
+msgstr "تعرف على كيفية إنشاء الإضافات والسمات"
 
 #: src/amo/components/Header/index.js:215
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "مراقبة استخدام الامتدادات وإدارة السمات"
+msgstr "تقديم وإدارة الامتدادات والسمات"
 
 #: src/amo/components/Header/index.js:71
 msgid "My Account"
@@ -1027,17 +1018,15 @@ msgstr "مُقترحة"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "ابق آمنًا على الإنترنت"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "العلامات"
+msgstr "تنظيم الألسنة والعلامات المرجعية"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "قيّم تجربتك"
+msgstr "تحسين تجربة الوسائط الخاصة بك"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
