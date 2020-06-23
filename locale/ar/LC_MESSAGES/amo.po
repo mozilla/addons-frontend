@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-23 08:14+0000\n"
+"PO-Revision-Date: 2020-06-23 08:17+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -540,18 +540,16 @@ msgid "by"
 msgstr "طوّرها"
 
 #: src/amo/components/AddonVersionCard/index.js:103
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "نُشرت %(timestamp)s"
+msgstr "تم إصدار كود المصدر تحت %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "تم إصدار كود المصدر تحت %(linkStart)sترخيص مخصص%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:141
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "نُشرت %(timestamp)s"
+msgstr "تم إصدار كود المصدر تحت %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:51
 msgid "No version found"
@@ -860,7 +858,7 @@ msgstr "لا يمكنك وضع إشارة على مراجعة منك"
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "This is spam"
-msgstr "هذا سخام"
+msgstr "هذا مزعج"
 
 #: src/amo/components/FlagReviewMenu/index.js:79
 msgid "Flagged as spam"
