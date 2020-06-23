@@ -1401,24 +1401,6 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-cancel-button')).toHaveLength(1);
   });
 
-  it('disables the confirm button if user has listed add-ons', () => {
-    const { params, store } = signInUserWithProps({
-      num_addons_listed: 1,
-    });
-
-    const root = renderUserProfileEdit({ params, store });
-
-    // Open the modal.
-    root
-      .find('.UserProfileEdit-delete-button')
-      .simulate('click', createFakeEvent());
-
-    expect(root.find('.UserProfileEdit-confirm-button')).toHaveProp(
-      'disabled',
-      true,
-    );
-  });
-
   it('renders different information in the modal when user to be deleted is not the current logged-in user', () => {
     const { store } = signInUserWithUserId(13);
     const params = { userId: 9999 };
