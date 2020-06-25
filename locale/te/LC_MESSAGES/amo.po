@@ -367,9 +367,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:360
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(authorName)s చే, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:363
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -1895,9 +1894,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "ఈ పొడగింత అద్భుతమని ఎందుకు అనుకుంటున్నారో ప్రపంచానికి చెప్పండి! దయచేసి మా %(linkStart)sసమీక్షా నియమావళి%(linkEnd)sని పాఠించండి."
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
