@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-04 16:20+0000\n"
-"PO-Revision-Date: 2020-06-23 08:17+0000\n"
+"PO-Revision-Date: 2020-06-27 08:14+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1333,15 +1333,14 @@ msgid "Search results for \"%(query)s\""
 msgstr "نتائج البحث عن ”⁨%(query)s⁩“"
 
 #: src/amo/components/SearchContextCard/index.js:105
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "لم يُعثر على أية سمة عند البحث عن ”⁨%(query)s⁩“"
-msgstr[1] "عُثر على سمة واحدة عند البحث عن ”⁨%(query)s⁩“"
-msgstr[2] "عُثر على سمتين اثنتين عند البحث عن ”⁨%(query)s⁩“"
-msgstr[3] "عُثر على %(count)s سمات عند البحث عن ”⁨%(query)s⁩“"
-msgstr[4] "عُثر على %(count)s سمة عند البحث عن ”⁨%(query)s⁩“"
-msgstr[5] "عُثر على %(count)s سمة عند البحث عن ”⁨%(query)s⁩“"
+msgstr[0] "لم يُعثر على أية سمة عند البحث في %(categoryName)s"
+msgstr[1] "عُثر على سمة واحدة عند البحث في %(categoryName)s"
+msgstr[2] "عُثر على سمتين اثنتين عند البحث في %(categoryName)s"
+msgstr[3] "عُثر على %(count)s سمات عند البحث في %(categoryName)s"
+msgstr[4] "عُثر على %(count)s سمة عند البحث في %(categoryName)s"
+msgstr[5] "عُثر على %(count)s سمة عند البحث في %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:115
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1354,15 +1353,14 @@ msgstr[4] "عُثر على %(count)s سمة عند البحث عن ”⁨%(query
 msgstr[5] "عُثر على %(count)s سمة عند البحث عن ”⁨%(query)s⁩“"
 
 #: src/amo/components/SearchContextCard/index.js:124
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "لم يُعثر على أية إضافة"
-msgstr[1] "عُثر على إضافة واحدة"
-msgstr[2] "عُثر على إضافتين"
-msgstr[3] "عُثر على %(count)s إضافات"
-msgstr[4] "عُثر على %(count)s إضافة"
-msgstr[5] "عُثر على %(count)s إضافة"
+msgstr[0] "لم يُعثر على أية سمات"
+msgstr[1] "عُثر على سمة واحدة"
+msgstr[2] "عُثر على سمتين"
+msgstr[3] "عُثر على %(count)s سمات"
+msgstr[4] "عُثر على %(count)s سمة"
+msgstr[5] "عُثر على %(count)s سمة"
 
 #: src/amo/components/SearchContextCard/index.js:136
 msgid "%(count)s result found for \"%(query)s\""
@@ -1436,15 +1434,14 @@ msgstr[4] "عُثر على %(count)s إضافة"
 msgstr[5] "عُثر على %(count)s إضافة"
 
 #: src/amo/components/SearchContextCard/index.js:96
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "لم يُعثر على أية سمة عند البحث عن ”⁨%(query)s⁩“"
-msgstr[1] "عُثر على سمة واحدة عند البحث عن ”⁨%(query)s⁩“"
-msgstr[2] "عُثر على سمتين اثنتين عند البحث عن ”⁨%(query)s⁩“"
-msgstr[3] "عُثر على %(count)s سمات عند البحث عن ”⁨%(query)s⁩“"
-msgstr[4] "عُثر على %(count)s سمة عند البحث عن ”⁨%(query)s⁩“"
-msgstr[5] "عُثر على %(count)s سمة عند البحث عن ”⁨%(query)s⁩“"
+msgstr[0] "لم يُعثر على أية سمة عند البحث في %(categoryName)s"
+msgstr[1] "عُثر على سمة واحدة عند البحث في %(categoryName)s"
+msgstr[2] "عُثر على سمتين اثنتين عند البحث في %(categoryName)s"
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 #: src/amo/components/SearchFilters/index.js:128 src/amo/components/SearchFilters/index.js:144
 msgid "All"
