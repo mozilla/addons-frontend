@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-06-27 08:24+0000\n"
+"PO-Revision-Date: 2020-06-27 08:29+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -84,42 +84,42 @@ msgstr "حسنًا"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s بايت"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s ك. بايت"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s م. بايت"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s ج. بايت"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s ت. بايت"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s وما بعد ذلك"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s إلى %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "يعمل مع %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "تم إحباط عملية التثبيت لأن الإضافة تبدو تالفة."
 
 #: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
@@ -166,19 +166,20 @@ msgid "Privacy Policy"
 msgstr "سياسة الخصوصية"
 
 #: src/disco/pages/DiscoPane/index.js:166
-#, fuzzy
 msgid "Find more add-ons"
-msgstr "اطّلع على المزيد من الإضافات!"
+msgstr "اعثر على المزيد من الإضافات"
 
 #: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
-msgstr "خصّص فَيَرفُكس لديك"
+msgstr "خصّص فيرفُكس"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
+"هناك الآلاف من الإضافات المجانية ، التي أنشأها المطورون في جميع أنحاء العالم ، والتي يمكنك تثبيتها لتخصيص متصفح فيرفكس الخاص بك. من السمات المرئية الممتعة إلى الأدوات القوية التي تجعل التصفح أسرع "
+"وأكثر أمانًا ، فتجعل الإضافات متصفحك ملكا لك أنت. لمساعدتك على البدء ، إليك بعض التوصيات التي نوصي بها لأدائها ووظائفها المتميزة."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
