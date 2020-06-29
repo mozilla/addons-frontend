@@ -1,7 +1,6 @@
 // Config for the -dev server.
 import { addonsServerDevCDN, analyticsHost, apiDevHost, sentryHost } from './lib/shared';
 
-
 module.exports = {
   apiHost: apiDevHost,
   amoCDN: addonsServerDevCDN,

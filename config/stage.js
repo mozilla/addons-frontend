@@ -1,7 +1,6 @@
 // Config for the stage server.
 import { addonsServerStageCDN, analyticsHost, apiStageHost, sentryHost } from './lib/shared';
 
-
 module.exports = {
   apiHost: apiStageHost,
   amoCDN: addonsServerStageCDN,

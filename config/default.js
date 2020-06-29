@@ -368,7 +368,6 @@ module.exports = {
   // addons-server).
   mozillaUserId: 4757633,
 
-
   // Feature flags.
   // Please use the `enableFeature` prefix, see:
   // https://github.com/mozilla/addons-frontend/issues/6362.
