@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 19:52+0000\n"
+"PO-Revision-Date: 2020-06-30 20:03+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2620,21 +2620,17 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "VIKTIG: Sletting av Firefox-tilleggsprofilen din kan ikkje angrast."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr ""
-"Dine data vil bli fjerna permanent, inkludert brukarinformasjon (bilde, brukarnamn, visingsnamn, stad, heimeside, biografi og yrke) og varslingsinnstillingar. Omtalane og vurderingane dine vil bli "
-"anonymisert og kan ikkje lenger redigerast."
+msgstr "Dine data vil bli fjerna permanent, inkludert brukarinformasjon (bilde, brukarnamn, visingsnmn, stad, heimeside, biografi og yrke), varslingsinnstillingar, omtalar, vurderingar og samlingar."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Dataa til brukaren vil bli fjernapermanent, inkludert brukarinformasjon (bilde, brukarnamn, visingsnavn, stad, heimeside, biografi og yrke) og varslingsinnstillingar. Omtalane og vurderingane dine "
-"vil bli anonymisert og kan ikkje lenger redigerast."
+"Dataa til brukaren vil bli fjerna permanent, inkludert brukarinformasjon (bilde, brukarnamn, visingsnamn, stad, heimeside, biografi og yrke), varslingsinnstillingar, omtalar, vurderingar og "
+"samlingar."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
@@ -2653,10 +2649,8 @@ msgstr ""
 "opphavsmennene vil oppretthalde eigarskapet til tillegget."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr ""
-"Når du brukar denne e-postadressa for å logge inn igjen på addons.mozilla.org, vil du få oppretta ein heilt ny profil på nettstaden. Den vil ikkje innehalde opplysningar frå den gamle profilen."
+msgstr "Når du brukar denne e-postadressa for å logge inn igjen på addons.mozilla.org, vil profilen din i Firefox Add-ons ikkje ha tilgang til noko av det tidlegare innhaldet."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
