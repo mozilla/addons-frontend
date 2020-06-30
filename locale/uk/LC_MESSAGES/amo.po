@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 16:47+0000\n"
+"PO-Revision-Date: 2020-06-30 20:17+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -189,7 +189,7 @@ msgid "Download"
 msgid_plural "Downloads"
 msgstr[0] "Завантаження"
 msgstr[1] "Завантаження"
-msgstr[2] ""
+msgstr[2] "Завантажень"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -199,9 +199,8 @@ msgstr[1] "Користувача"
 msgstr[2] "Користувачів"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "Завантаження"
+msgstr "Немає завантажень"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1500,12 +1499,11 @@ msgid "Add-on note"
 msgstr "Примітка додатка"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s додаток"
-msgstr[1] "%(total)s додатки"
-msgstr[2] "%(total)s додатків"
+msgstr[0] "%(total)s завантаження"
+msgstr[1] "%(total)s завантаження"
+msgstr[2] "%(total)s завантажень"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -2641,21 +2639,19 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "ВАЖЛИВО: Видалення цього профілю на сайті додатків Firefox є незворотною дією."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Ваші дані будуть незворотно вилучені, разом з подробицями профілю (зображенням, іменем користувача, загальнодоступним ім'ям, розташуванням, домівкою, інформацією про себе, заняттям) і налаштуваннями"
-" сповіщень. Ваші оцінки та відгуки стануть анонімними й недоступними для редагування."
+"Ваші дані буде незворотно вилучено разом з подробицями профілю (зображенням, іменем користувача, загальнодоступним ім'ям, розташуванням, домівкою, інформацією про себе, заняттям), налаштуваннями "
+"сповіщень, вашими відгуками та збірками."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Користувацькі дані будуть незворотно вилучені, разом з подробицями профілю (зображенням, іменем користувача, загальнодоступним ім'ям, розташуванням, домівкою, інформацією про себе, заняттям) і "
-"налаштуваннями сповіщень. Оцінки та відгуки стануть анонімними й недоступними для редагування."
+"Дані користувача буде незворотно вилучено разом з подробицями профілю (зображенням, іменем користувача, загальнодоступним ім'ям, розташуванням, домівкою, інформацією про себе, заняттям), "
+"налаштуваннями сповіщень, відгуками та збірками."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
@@ -2674,11 +2670,8 @@ msgstr ""
 "авторів збережуть право власності на додаток."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr ""
-"Якщо ви знову використаєте цю адресу електронної пошти для входу на addons.mozilla.org, ви створите новий профіль на сайті додатків Firefox, який жодним чином не буде пов'язаний з видаленим вами "
-"профілем."
+msgstr "Коли ви знову скористаєтеся цією адресою електронної пошти для входу на addons.mozilla.org, ваш профіль на Firefox Add-ons не матиме доступу до будь-якого раніше створеного вмісту."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
