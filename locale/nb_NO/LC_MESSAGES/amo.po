@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 17:14+0000\n"
+"PO-Revision-Date: 2020-06-30 17:46+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -179,11 +179,10 @@ msgid "Users"
 msgstr "Brukere"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] "Laster ned"
-msgstr[1] "Laster ned"
+msgstr[0] "Nedlasting"
+msgstr[1] "Nedlastinger"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -192,9 +191,8 @@ msgstr[0] "Bruker"
 msgstr[1] "Brukere"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "Laster ned"
+msgstr "Ingen nedlastinger"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1480,11 +1478,10 @@ msgid "Add-on note"
 msgstr "Tilleggsmerknad"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s tillegg"
-msgstr[1] "%(total)s tillegg"
+msgstr[0] "%(total)s nedlasting"
+msgstr[1] "%(total)s nedlastinger"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -2617,21 +2614,18 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "VIKTIG: Sletting av denne Firefox-tilleggsprofilen kan ikke reverseres."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Dine data vil bli fjernet permanent, inkludert brukerinformasjon (bilder, brukernavn, visningsnavn, sted, hjemmeside, biografi og yrke) og varslingsinnstillinger. Dine omtaler og vurderinger vil bli"
-" anonymisert og kan ikke lenger redigeres."
+"Dine data vil bli fjernet permanent, inkludert brukerinformasjon (bilder, brukernavn, visningsnavn, sted, hjemmeside, biografi og yrke), varslingsinnstillinger, omtaler, vurderinger og samlinger."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Brukerens data vil bli fjernet permanent, inkludert brukerinformasjon (bilder, brukernavn, visningsnavn, sted, hjemmeside, biografi og yrke) og varslingsinnstillinger. Dine omtaler og vurderinger "
-"vil bli anonymisert og kan ikke lenger redigeres."
+"Brukerens data vil bli fjernet permanent, inkludert brukerinformasjon (bilder, brukernavn, visningsnavn, sted, hjemmeside, biografi og yrke), varslingsinnstillinger, omtaler, vurderinger og "
+"samlinger."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
