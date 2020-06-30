@@ -122,18 +122,16 @@ describe(__filename, () => {
 
       let state = store.getState().users;
       expect(state.currentUserWasLoggedOut).toEqual(true);
-      expect(state.resetStateOnNextChange).toEqual(false);
 
       // Perform two client-side location changes.
       state = reducer(state, { type: LOCATION_CHANGE }, _config);
-      expect(state.resetStateOnNextChange).toEqual(true);
+      expect(state.currentUserWasLoggedOut).toEqual(true);
 
       state = reducer(state, { type: LOCATION_CHANGE }, _config);
       expect(state.currentUserWasLoggedOut).toEqual(false);
-      expect(state.resetStateOnNextChange).toEqual(false);
     });
 
-    it('does not reset `currentUserWasLoggedOut` after only one location changes on the client', () => {
+    it('does not reset `currentUserWasLoggedOut` after only one location change on the client', () => {
       const _config = getFakeConfig({ server: false });
       const { store } = dispatchSignInActions();
       store.dispatch(logOutUser());
@@ -141,12 +139,9 @@ describe(__filename, () => {
       const state = store.getState().users;
       expect(state.currentUserWasLoggedOut).toEqual(true);
 
-      const newState = reducer(state, { type: LOCATION_CHANGE }, _config);
+      reducer(state, { type: LOCATION_CHANGE }, _config);
 
-      expect(newState).toEqual({
-        ...state,
-        resetStateOnNextChange: true,
-      });
+      expect(state.currentUserWasLoggedOut).toEqual(true);
     });
   });
 

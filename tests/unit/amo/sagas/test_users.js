@@ -99,6 +99,24 @@ describe(__filename, () => {
         });
     });
 
+    it('throws api errors when status is not 401', async () => {
+      const expectedError = createApiError({ response: { status: 400 } });
+      mockApi
+        .expects('currentUserAccount')
+        .returns(Promise.reject(expectedError));
+
+      sagaTester.dispatch(setAuthToken(userAuthToken()));
+
+      return rootTask.done
+        .then(() => {
+          throw new Error('unexpected success');
+        })
+        .catch((error) => {
+          mockApi.verify();
+          expect(error).toBe(expectedError);
+        });
+    });
+
     it('handles 401 responses', async () => {
       const expectedError = createApiError({ response: { status: 401 } });
       mockApi

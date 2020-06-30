@@ -85,6 +85,14 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(2);
   });
 
+  it('does not render the "logged out" notice when user is logged in', () => {
+    const { store } = dispatchSignInActions();
+
+    const root = render({ store });
+
+    expect(root.find(Notice)).toHaveLength(0);
+  });
+
   it('renders a notice when user has been logged out', () => {
     const { store } = dispatchSignInActions();
     store.dispatch(logOutUser());
