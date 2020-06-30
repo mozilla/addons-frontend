@@ -1,3 +1,5 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
+
 import reducer, {
   LOAD_USER_ACCOUNT,
   abortUnsubscribeNotification,
@@ -37,6 +39,7 @@ import {
   createUserNotificationsResponse,
   dispatchClientMetadata,
   dispatchSignInActions,
+  getFakeConfig,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -65,9 +68,13 @@ describe(__filename, () => {
           user: createUserAccountResponse({ id: 12345, username: 'john' }),
         }),
       );
-      const { currentUserID } = reducer(state, logOutUser());
+      const { currentUserID, currentUserWasLoggedOut } = reducer(
+        state,
+        logOutUser(),
+      );
 
       expect(currentUserID).toEqual(null);
+      expect(currentUserWasLoggedOut).toEqual(true);
     });
 
     it('stores a loaded user ID by username in lowercase', () => {
@@ -90,6 +97,56 @@ describe(__filename, () => {
       );
 
       expect(state.byUsername).toHaveProperty('john', 12345);
+    });
+
+    it('sets `resetStateOnNextChange` to `true` after a location change on the client', () => {
+      const _config = getFakeConfig({ server: false });
+
+      const state = reducer(undefined, { type: LOCATION_CHANGE }, _config);
+
+      expect(state.resetStateOnNextChange).toEqual(true);
+    });
+
+    it('does not set `resetStateOnNextChange` to `true` after a location change on the server', () => {
+      const _config = getFakeConfig({ server: true });
+
+      const state = reducer(undefined, { type: LOCATION_CHANGE }, _config);
+
+      expect(state.resetStateOnNextChange).toEqual(false);
+    });
+
+    it('resets `currentUserWasLoggedOut` after two location changes on the client', () => {
+      const _config = getFakeConfig({ server: false });
+      const { store } = dispatchSignInActions();
+      store.dispatch(logOutUser());
+
+      let state = store.getState().users;
+      expect(state.currentUserWasLoggedOut).toEqual(true);
+      expect(state.resetStateOnNextChange).toEqual(false);
+
+      // Perform two client-side location changes.
+      state = reducer(state, { type: LOCATION_CHANGE }, _config);
+      expect(state.resetStateOnNextChange).toEqual(true);
+
+      state = reducer(state, { type: LOCATION_CHANGE }, _config);
+      expect(state.currentUserWasLoggedOut).toEqual(false);
+      expect(state.resetStateOnNextChange).toEqual(false);
+    });
+
+    it('does not reset `currentUserWasLoggedOut` after only one location changes on the client', () => {
+      const _config = getFakeConfig({ server: false });
+      const { store } = dispatchSignInActions();
+      store.dispatch(logOutUser());
+
+      const state = store.getState().users;
+      expect(state.currentUserWasLoggedOut).toEqual(true);
+
+      const newState = reducer(state, { type: LOCATION_CHANGE }, _config);
+
+      expect(newState).toEqual({
+        ...state,
+        resetStateOnNextChange: true,
+      });
     });
   });
 

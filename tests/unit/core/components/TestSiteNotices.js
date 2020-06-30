@@ -1,10 +1,12 @@
 import * as React from 'react';
 
 import SiteNotices, { SiteNoticesBase } from 'core/components/SiteNotices';
+import { logOutUser } from 'amo/reducers/users';
 import { loadSiteStatus } from 'core/reducers/site';
 import Notice from 'ui/components/Notice';
 import {
   dispatchClientMetadata,
+  dispatchSignInActions,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -81,5 +83,15 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find(Notice)).toHaveLength(2);
+  });
+
+  it('renders a notice when user has been logged out', () => {
+    const { store } = dispatchSignInActions();
+    store.dispatch(logOutUser());
+
+    const root = render({ store });
+
+    expect(root.find(Notice)).toHaveLength(1);
+    expect(root.find(Notice)).toHaveProp('id', 'user-was-logged-out');
   });
 });

@@ -447,12 +447,19 @@ function baseServer(
 
         const finalHTML = renderHTML({ props, pageProps, store });
 
+        const { redirectTo, users } = store.getState();
+
         // A redirection has been requested, let's do it.
-        const { redirectTo } = store.getState();
         if (redirectTo && redirectTo.url) {
           _log.debug(oneLine`Redirection requested:
             url=${redirectTo.url} status=${redirectTo.status}`);
           return res.redirect(redirectTo.status, redirectTo.url);
+        }
+
+        // See: https://github.com/mozilla/addons-frontend/issues/9482
+        if (users && users.currentUserWasLoggedOut === true) {
+          req.universalCookies.remove(config.get('cookieName'));
+          _log.debug('Cleared auth cookie');
         }
 
         return sendHTML({ res, html: finalHTML });
