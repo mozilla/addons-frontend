@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-04 16:20+0000\n"
+"POT-Creation-Date: 2020-06-30 16:28+0000\n"
 "PO-Revision-Date: 2020-03-01 10:44+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
@@ -177,107 +177,118 @@ msgstr "%(addonName)s – 🦊 Firefox (%(locale)s) 向け拡張機能を入手"
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – 🦊 Firefox (%(locale)s) 向け言語パックを入手"
 
-#: src/amo/components/AddonMeta/index.js:119
+#: src/amo/components/AddonMeta/index.js:100
+msgid "Used by"
+msgstr "使用者:"
+
+#: src/amo/components/AddonMeta/index.js:127
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s つ星"
 
-#: src/amo/components/AddonMeta/index.js:128
+#: src/amo/components/AddonMeta/index.js:136
 msgid "Not rated yet"
 msgstr "まだ評価されていません"
 
-#: src/amo/components/AddonMeta/index.js:49
+#: src/amo/components/AddonMeta/index.js:50
 msgid "Users"
 msgstr "ユーザー"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:57
+#, fuzzy
+msgid "Download"
+msgid_plural "Downloads"
+msgstr[0] "ダウンロード中"
+
+#: src/amo/components/AddonMeta/index.js:58
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "ユーザー"
 
-#: src/amo/components/AddonMeta/index.js:54
+#: src/amo/components/AddonMeta/index.js:61
+#, fuzzy
+msgid "No Downloads"
+msgstr "ダウンロード中"
+
+#: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
 msgstr "ユーザーなし"
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:69
 msgid "Reviews"
 msgstr "レビュー"
 
-#: src/amo/components/AddonMeta/index.js:64
+#: src/amo/components/AddonMeta/index.js:72
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "レビュー"
 
-#: src/amo/components/AddonMeta/index.js:66
+#: src/amo/components/AddonMeta/index.js:74
 msgid "No Reviews"
 msgstr "レビューなし"
 
-#: src/amo/components/AddonMeta/index.js:92
-msgid "Used by"
-msgstr "使用者:"
-
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:109
 msgid "Visit stats dashboard"
 msgstr "統計ダッシュボードへ"
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Custom License"
 msgstr "独自のライセンス"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:149
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:164
 msgid "Read the privacy policy for this add-on"
 msgstr "このアドオンのプライバシーポリシーを読む"
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the license agreement for this add-on"
 msgstr "このアドオンの使用許諾契約を読む"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "See all versions"
 msgstr "すべてのバージョンを見る"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Add-on Links"
 msgstr "アドオンリンク"
 
-#: src/amo/components/AddonMoreInfo/index.js:220
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Version"
 msgstr "バージョン"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Size"
 msgstr "サイズ"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:240
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "最終更新日"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "License"
 msgstr "ライセンス"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:256
 msgid "Privacy Policy"
 msgstr "プライバシーポリシー"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "End-User License Agreement"
 msgstr "エンドユーザー使用許諾契約"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Version History"
 msgstr "バージョン履歴"
 
-#: src/amo/components/AddonMoreInfo/index.js:278
+#: src/amo/components/AddonMoreInfo/index.js:282
 msgid "Usage Statistics"
 msgstr "使用統計"
 
-#: src/amo/components/AddonMoreInfo/index.js:294
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "More information"
 msgstr "詳しい情報"
 
@@ -347,7 +358,7 @@ msgstr "削除"
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
-#: src/amo/pages/UserProfileEdit/index.js:915
+#: src/amo/pages/UserProfileEdit/index.js:898
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -1607,15 +1618,21 @@ msgstr "Firefox Add-ons について"
 msgid "Go to the add-on page"
 msgstr "アドオンのページへ"
 
-#: src/amo/components/SearchResult/index.js:145
+#: src/amo/components/SearchResult/index.js:154
 msgid "No theme preview available"
 msgstr "テーマのプレビューがありません"
 
-#: src/amo/components/SearchResult/index.js:182
+#: src/amo/components/SearchResult/index.js:191
 msgid "Add-on note"
 msgstr "アドオンのメモ"
 
-#: src/amo/components/SearchResult/index.js:200
+#: src/amo/components/SearchResult/index.js:210
+#, fuzzy
+msgid "%(total)s download"
+msgid_plural "%(total)s downloads"
+msgstr[0] "%(total)s 個のアドオン"
+
+#: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 人のユーザー"
@@ -2987,12 +3004,12 @@ msgstr ""
 "たに個別に連絡を取る権利を留保します。"
 
 #: src/amo/pages/UserProfileEdit/index.js:818
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete My Profile"
 msgstr "自分のプロファイルを削除"
 
 #: src/amo/pages/UserProfileEdit/index.js:819
-#: src/amo/pages/UserProfileEdit/index.js:908
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete Profile"
 msgstr "プロファイルを削除"
 
@@ -3005,56 +3022,51 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "重要: この Firefox Add-ons プロファイルの削除は元に戻せません。"
 
 #: src/amo/pages/UserProfileEdit/index.js:843
+#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation) and "
-"notification preferences. Your reviews and ratings will be anonymised and no "
-"longer editable."
+"user name, display name, location, home page, biography, occupation), "
+"notification preferences, reviews, and collections."
 msgstr ""
 "プロファイル情報 (写真、ユーザー名、表示名、所在地、ホームページ、経歴、職"
 "業) や通知設定を含め、あなたのデータは永久に削除されます。レビューや評価は匿"
 "名化され、以後編集不可となります。"
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:849
+#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
-"occupation) and notification preferences. Reviews and ratings will be "
-"anonymised and no longer editable."
+"occupation), notification preferences, reviews, and collections."
 msgstr ""
 "プロファイル情報 (写真、ユーザー名、表示名、所在地、ホームページ、経歴、職"
 "業) や通知設定を含め、このユーザーのデータは永久に削除されます。レビューや評"
 "価は匿名化され、以後編集不可となります。"
 
-#: src/amo/pages/UserProfileEdit/index.js:860
+#: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
-"When you use this email address to log in again to addons.mozilla.org, you "
-"will create a new Firefox Add-ons profile that is in no way associated with "
-"the profile you deleted."
+"If you authored any add-ons they will also be deleted, unless you share "
+"ownership with other authors. In that case, you will be removed as an author "
+"and the remaining authors will maintain ownership of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:864
+msgid ""
+"If the user authored any add-ons they will also be deleted, unless ownership "
+"is shared with other authors. In that case, the user will be removed as an "
+"author and the remaining authors will maintain ownership of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:874
+#, fuzzy
+msgid ""
+"When you use this email address to log in again to addons.mozilla.org, your "
+"profile on Firefox Add-ons will not have access to any of its previous "
+"content."
 msgstr ""
 "このメールアドレスを使って addons.mozilla.org へ再度ログインする場合、削除し"
 "たプロファイルとまったく関係のない Firefox Add-ons プロファイルを新たに作成す"
 "ることになります。"
-
-#: src/amo/pages/UserProfileEdit/index.js:873
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
-"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-"before you can delete your profile."
-msgstr ""
-"%(strongStart)s注:%(strongEnd)s あなたが %(linkStart)sいずれかのアドオンの作"
-"者%(linkEnd)s である場合、プロファイルを削除することはできません。プロファイ"
-"ルを削除するには、事前にそれらのアドオンの %(docLinkStart)s所有権を移"
-"譲%(docLinkEnd)s するかアドオン自体を削除する必要があります。"
-
-#: src/amo/pages/UserProfileEdit/index.js:880
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
-"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
-"%(strongStart)s注:%(strongEnd)s ユーザーが %(linkStart)sいずれかのアドオンの"
-"作者%(linkEnd)s である場合、そのプロファイルを削除することはできません。"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -3199,10 +3211,14 @@ msgstr "次へ"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "%(totalPages)s ページ中 %(currentPage)s ページ目"
 
-#: src/core/components/SiteNotices/index.js:66
+#: src/core/components/SiteNotices/index.js:72
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."
+msgstr ""
+
+#: src/core/components/SiteNotices/index.js:87
+msgid "You have been logged out."
 msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:128
@@ -3362,6 +3378,24 @@ msgstr[0] "%(total)s 個のアドオン"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "開発者の返信"
+
+#~ msgid ""
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you "
+#~ "are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
+#~ "%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
+#~ "before you can delete your profile."
+#~ msgstr ""
+#~ "%(strongStart)s注:%(strongEnd)s あなたが %(linkStart)sいずれかのアドオンの"
+#~ "作者%(linkEnd)s である場合、プロファイルを削除することはできません。プロ"
+#~ "ファイルを削除するには、事前にそれらのアドオンの %(docLinkStart)s所有権を"
+#~ "移譲%(docLinkEnd)s するかアドオン自体を削除する必要があります。"
+
+#~ msgid ""
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if "
+#~ "the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+#~ msgstr ""
+#~ "%(strongStart)s注:%(strongEnd)s ユーザーが %(linkStart)sいずれかのアドオン"
+#~ "の作者%(linkEnd)s である場合、そのプロファイルを削除することはできません。"
 
 #~ msgid "Access your data in %(param)s other domain"
 #~ msgid_plural "Access your data in %(param)s other domains"

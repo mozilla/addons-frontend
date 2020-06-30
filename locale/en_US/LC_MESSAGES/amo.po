@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-04 16:20+0000\n"
+"POT-Creation-Date: 2020-06-30 16:28+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -184,119 +184,131 @@ msgstr ""
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:119
+#: src/amo/components/AddonMeta/index.js:100
+msgid "Used by"
+msgstr "Used by"
+
+#: src/amo/components/AddonMeta/index.js:127
 #, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(users)s user"
 msgstr[1] "%(users)s users"
 
-#: src/amo/components/AddonMeta/index.js:128
+#: src/amo/components/AddonMeta/index.js:136
 #, fuzzy
 msgid "Not rated yet"
 msgstr "Browse all themes"
 
-#: src/amo/components/AddonMeta/index.js:49
+#: src/amo/components/AddonMeta/index.js:50
 msgid "Users"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:57
+#, fuzzy
+msgid "Download"
+msgid_plural "Downloads"
+msgstr[0] "Downloading %(name)s."
+msgstr[1] "Downloading %(name)s."
+
+#: src/amo/components/AddonMeta/index.js:58
 msgid "User"
 msgid_plural "Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/AddonMeta/index.js:54
+#: src/amo/components/AddonMeta/index.js:61
+#, fuzzy
+msgid "No Downloads"
+msgstr "Downloading %(name)s."
+
+#: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:69
 #, fuzzy
 msgid "Reviews"
 msgstr "Write a review"
 
-#: src/amo/components/AddonMeta/index.js:64
+#: src/amo/components/AddonMeta/index.js:72
 #, fuzzy
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Write a review"
 msgstr[1] "Write a review"
 
-#: src/amo/components/AddonMeta/index.js:66
+#: src/amo/components/AddonMeta/index.js:74
 #, fuzzy
 msgid "No Reviews"
 msgstr "Write a review"
 
-#: src/amo/components/AddonMeta/index.js:92
-msgid "Used by"
-msgstr "Used by"
-
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:109
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:127
 #, fuzzy
 msgid "Custom License"
 msgstr "No results were found for \"%(query)s\"."
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:149
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:164
 msgid "Read the privacy policy for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the license agreement for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:185
 #, fuzzy
 msgid "See all versions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:212
 #, fuzzy
 msgid "Add-on Links"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/AddonMoreInfo/index.js:220
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Version"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:240
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:244
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "License"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:256
 #, fuzzy
 msgid "Privacy Policy"
 msgstr "Privacy policy"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "End-User License Agreement"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Version History"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:278
+#: src/amo/components/AddonMoreInfo/index.js:282
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:294
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "More information"
 msgstr ""
 
@@ -375,7 +387,7 @@ msgstr ""
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
-#: src/amo/pages/UserProfileEdit/index.js:915
+#: src/amo/pages/UserProfileEdit/index.js:898
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 #, fuzzy
@@ -1679,16 +1691,23 @@ msgstr "Firefox Add-ons"
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:145
+#: src/amo/components/SearchResult/index.js:154
 msgid "No theme preview available"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:182
+#: src/amo/components/SearchResult/index.js:191
 #, fuzzy
 msgid "Add-on note"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/SearchResult/index.js:200
+#: src/amo/components/SearchResult/index.js:210
+#, fuzzy
+msgid "%(total)s download"
+msgid_plural "%(total)s downloads"
+msgstr[0] "No ratings"
+msgstr[1] "No ratings"
+
+#: src/amo/components/SearchResult/index.js:215
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
@@ -3027,13 +3046,13 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:818
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:890
 #, fuzzy
 msgid "Delete My Profile"
 msgstr "Write a review"
 
 #: src/amo/pages/UserProfileEdit/index.js:819
-#: src/amo/pages/UserProfileEdit/index.js:908
+#: src/amo/pages/UserProfileEdit/index.js:891
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Write a review"
@@ -3049,38 +3068,36 @@ msgstr ""
 #: src/amo/pages/UserProfileEdit/index.js:843
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation) and "
-"notification preferences. Your reviews and ratings will be anonymised and no "
-"longer editable."
+"user name, display name, location, home page, biography, occupation), "
+"notification preferences, reviews, and collections."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:849
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
-"occupation) and notification preferences. Reviews and ratings will be "
-"anonymised and no longer editable."
+"occupation), notification preferences, reviews, and collections."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:860
+#: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
-"When you use this email address to log in again to addons.mozilla.org, you "
-"will create a new Firefox Add-ons profile that is in no way associated with "
-"the profile you deleted."
+"If you authored any add-ons they will also be deleted, unless you share "
+"ownership with other authors. In that case, you will be removed as an author "
+"and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:873
+#: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
-"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-"before you can delete your profile."
+"If the user authored any add-ons they will also be deleted, unless ownership "
+"is shared with other authors. In that case, the user will be removed as an "
+"author and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:880
+#: src/amo/pages/UserProfileEdit/index.js:874
 msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
-"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+"When you use this email address to log in again to addons.mozilla.org, your "
+"profile on Firefox Add-ons will not have access to any of its previous "
+"content."
 msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
@@ -3224,10 +3241,14 @@ msgstr "Next"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Page %(currentPage)s of %(totalPages)s"
 
-#: src/core/components/SiteNotices/index.js:66
+#: src/core/components/SiteNotices/index.js:72
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."
+msgstr ""
+
+#: src/core/components/SiteNotices/index.js:87
+msgid "You have been logged out."
 msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:128
