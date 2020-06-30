@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-04 16:20+0000\n"
+"POT-Creation-Date: 2020-06-30 16:28+0000\n"
 "PO-Revision-Date: 2020-04-22 19:45+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
@@ -188,113 +188,126 @@ msgstr "%(addonName)s – Отримати це розширення для 🦊
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Отримати цей мовний пакунок для 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:119
+#: src/amo/components/AddonMeta/index.js:100
+msgid "Used by"
+msgstr "Використовується"
+
+#: src/amo/components/AddonMeta/index.js:127
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s зірка"
 msgstr[1] "%(total)s зірки"
 msgstr[2] "%(total)s зірок"
 
-#: src/amo/components/AddonMeta/index.js:128
+#: src/amo/components/AddonMeta/index.js:136
 msgid "Not rated yet"
 msgstr "Ще не оцінено"
 
-#: src/amo/components/AddonMeta/index.js:49
+#: src/amo/components/AddonMeta/index.js:50
 msgid "Users"
 msgstr "Користувачі"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:57
+#, fuzzy
+msgid "Download"
+msgid_plural "Downloads"
+msgstr[0] "Завантаження"
+msgstr[1] "Завантаження"
+msgstr[2] "Завантаження"
+
+#: src/amo/components/AddonMeta/index.js:58
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Користувач"
 msgstr[1] "Користувача"
 msgstr[2] "Користувачів"
 
-#: src/amo/components/AddonMeta/index.js:54
+#: src/amo/components/AddonMeta/index.js:61
+#, fuzzy
+msgid "No Downloads"
+msgstr "Завантаження"
+
+#: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
 msgstr "Немає користувачів"
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:69
 msgid "Reviews"
 msgstr "Відгуки"
 
-#: src/amo/components/AddonMeta/index.js:64
+#: src/amo/components/AddonMeta/index.js:72
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "відгук"
 msgstr[1] "відгуки"
 msgstr[2] "відгуків"
 
-#: src/amo/components/AddonMeta/index.js:66
+#: src/amo/components/AddonMeta/index.js:74
 msgid "No Reviews"
 msgstr "Немає відгуків"
 
-#: src/amo/components/AddonMeta/index.js:92
-msgid "Used by"
-msgstr "Використовується"
-
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:109
 msgid "Visit stats dashboard"
 msgstr "Відвідати панель статистики"
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Custom License"
 msgstr "Ліцензія розробника"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:149
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:164
 msgid "Read the privacy policy for this add-on"
 msgstr "Ознайомитись з політикою приватності для цього додатка"
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the license agreement for this add-on"
 msgstr "Ознайомитись з ліцензійною угодою для цього додатка"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "See all versions"
 msgstr "Переглянути всі версії"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Add-on Links"
 msgstr "Посилання додатка"
 
-#: src/amo/components/AddonMoreInfo/index.js:220
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Version"
 msgstr "Версія"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Size"
 msgstr "Розмір"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:240
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Востаннє оновлено"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "License"
 msgstr "Ліцензія"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:256
 msgid "Privacy Policy"
 msgstr "Політика приватності"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "End-User License Agreement"
 msgstr "Ліцензійна угода з кінцевим користувачем"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Version History"
 msgstr "Історія версій"
 
-#: src/amo/components/AddonMoreInfo/index.js:278
+#: src/amo/components/AddonMoreInfo/index.js:282
 msgid "Usage Statistics"
 msgstr "Статистика використання"
 
-#: src/amo/components/AddonMoreInfo/index.js:294
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "More information"
 msgstr "Більше інформації"
 
@@ -364,7 +377,7 @@ msgstr "Видалити"
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
-#: src/amo/pages/UserProfileEdit/index.js:915
+#: src/amo/pages/UserProfileEdit/index.js:898
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -1667,15 +1680,23 @@ msgstr "Додатки Firefox"
 msgid "Go to the add-on page"
 msgstr "Перейти на сторінку додатка"
 
-#: src/amo/components/SearchResult/index.js:145
+#: src/amo/components/SearchResult/index.js:154
 msgid "No theme preview available"
 msgstr "Попередній перегляд теми недоступний"
 
-#: src/amo/components/SearchResult/index.js:182
+#: src/amo/components/SearchResult/index.js:191
 msgid "Add-on note"
 msgstr "Примітка додатка"
 
-#: src/amo/components/SearchResult/index.js:200
+#: src/amo/components/SearchResult/index.js:210
+#, fuzzy
+msgid "%(total)s download"
+msgid_plural "%(total)s downloads"
+msgstr[0] "%(total)s додаток"
+msgstr[1] "%(total)s додатки"
+msgstr[2] "%(total)s додатків"
+
+#: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s користувач"
@@ -3179,12 +3200,12 @@ msgstr ""
 "питаннями щодо розміщених вами додатків."
 
 #: src/amo/pages/UserProfileEdit/index.js:818
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete My Profile"
 msgstr "Видалити мій профіль"
 
 #: src/amo/pages/UserProfileEdit/index.js:819
-#: src/amo/pages/UserProfileEdit/index.js:908
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete Profile"
 msgstr "Видалити профіль"
 
@@ -3201,58 +3222,53 @@ msgstr ""
 "дією."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
+#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation) and "
-"notification preferences. Your reviews and ratings will be anonymised and no "
-"longer editable."
+"user name, display name, location, home page, biography, occupation), "
+"notification preferences, reviews, and collections."
 msgstr ""
 "Ваші дані будуть незворотно вилучені, разом з подробицями профілю "
 "(зображенням, іменем користувача, загальнодоступним ім'ям, розташуванням, "
 "домівкою, інформацією про себе, заняттям) і налаштуваннями сповіщень. Ваші "
 "оцінки та відгуки стануть анонімними й недоступними для редагування."
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:849
+#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
-"occupation) and notification preferences. Reviews and ratings will be "
-"anonymised and no longer editable."
+"occupation), notification preferences, reviews, and collections."
 msgstr ""
 "Користувацькі дані будуть незворотно вилучені, разом з подробицями профілю "
 "(зображенням, іменем користувача, загальнодоступним ім'ям, розташуванням, "
 "домівкою, інформацією про себе, заняттям) і налаштуваннями сповіщень. Оцінки "
 "та відгуки стануть анонімними й недоступними для редагування."
 
-#: src/amo/pages/UserProfileEdit/index.js:860
+#: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
-"When you use this email address to log in again to addons.mozilla.org, you "
-"will create a new Firefox Add-ons profile that is in no way associated with "
-"the profile you deleted."
+"If you authored any add-ons they will also be deleted, unless you share "
+"ownership with other authors. In that case, you will be removed as an author "
+"and the remaining authors will maintain ownership of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:864
+msgid ""
+"If the user authored any add-ons they will also be deleted, unless ownership "
+"is shared with other authors. In that case, the user will be removed as an "
+"author and the remaining authors will maintain ownership of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:874
+#, fuzzy
+msgid ""
+"When you use this email address to log in again to addons.mozilla.org, your "
+"profile on Firefox Add-ons will not have access to any of its previous "
+"content."
 msgstr ""
 "Якщо ви знову використаєте цю адресу електронної пошти для входу на addons."
 "mozilla.org, ви створите новий профіль на сайті додатків Firefox, який "
 "жодним чином не буде пов'язаний з видаленим вами профілем."
-
-#: src/amo/pages/UserProfileEdit/index.js:873
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
-"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-"before you can delete your profile."
-msgstr ""
-"%(strongStart)sПРИМІТКА:%(strongEnd)s Ви не можете видалити свій профіль, "
-"якщо ви є %(linkStart)sавтором будь-якого додатку%(linkEnd)s. Для можливості "
-"видалення профілю ви повинні %(docLinkStart)sпередати власність"
-"%(docLinkEnd)s або видалити додатки."
-
-#: src/amo/pages/UserProfileEdit/index.js:880
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
-"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
-"%(strongStart)sПРИМІТКА:%(strongEnd)s Ви не можете видалити профіль "
-"користувача, якщо він є %(linkStart)sавтором будь-якого додатку%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -3397,13 +3413,17 @@ msgstr "Далі"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Сторінка %(currentPage)s із %(totalPages)s"
 
-#: src/core/components/SiteNotices/index.js:66
+#: src/core/components/SiteNotices/index.js:72
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."
 msgstr ""
 "Деякі функції тимчасово недоступні, поки ми проводимо обслуговування сайту. "
 "Незабаром ми повернемо повну функціональність."
+
+#: src/core/components/SiteNotices/index.js:87
+msgid "You have been logged out."
+msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -3566,6 +3586,25 @@ msgstr[2] "%(total)s додатків"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Відповідь розробника"
+
+#~ msgid ""
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you "
+#~ "are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
+#~ "%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
+#~ "before you can delete your profile."
+#~ msgstr ""
+#~ "%(strongStart)sПРИМІТКА:%(strongEnd)s Ви не можете видалити свій профіль, "
+#~ "якщо ви є %(linkStart)sавтором будь-якого додатку%(linkEnd)s. Для "
+#~ "можливості видалення профілю ви повинні %(docLinkStart)sпередати власність"
+#~ "%(docLinkEnd)s або видалити додатки."
+
+#~ msgid ""
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if "
+#~ "the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+#~ msgstr ""
+#~ "%(strongStart)sПРИМІТКА:%(strongEnd)s Ви не можете видалити профіль "
+#~ "користувача, якщо він є %(linkStart)sавтором будь-якого додатку"
+#~ "%(linkEnd)s."
 
 #~ msgid "Access your data in %(param)s other domain"
 #~ msgid_plural "Access your data in %(param)s other domains"

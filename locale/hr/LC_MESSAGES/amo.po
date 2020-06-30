@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-04 16:20+0000\n"
+"POT-Creation-Date: 2020-06-30 16:28+0000\n"
 "PO-Revision-Date: 2020-04-26 11:09+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
@@ -183,114 +183,127 @@ msgstr "%(addonName)s – Nabavi ovo proširenje za 🦊 Firefox (%(locale)s)"
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Nabavi ovaj jezični paket za 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:119
+#: src/amo/components/AddonMeta/index.js:100
+msgid "Used by"
+msgstr "Korišteno od"
+
+#: src/amo/components/AddonMeta/index.js:127
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s zvijezda"
 msgstr[1] "%(total)s zvijezde"
 msgstr[2] "%(total)s zvijezda"
 
-#: src/amo/components/AddonMeta/index.js:128
+#: src/amo/components/AddonMeta/index.js:136
 msgid "Not rated yet"
 msgstr "Još nije ocijenjeno"
 
-#: src/amo/components/AddonMeta/index.js:49
+#: src/amo/components/AddonMeta/index.js:50
 msgid "Users"
 msgstr "Korisnici"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:57
+#, fuzzy
+msgid "Download"
+msgid_plural "Downloads"
+msgstr[0] "Preuzimanje"
+msgstr[1] "Preuzimanje"
+msgstr[2] "Preuzimanje"
+
+#: src/amo/components/AddonMeta/index.js:58
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Korisnik"
 msgstr[1] "Korisnici"
 msgstr[2] "Korisnici"
 
-#: src/amo/components/AddonMeta/index.js:54
+#: src/amo/components/AddonMeta/index.js:61
+#, fuzzy
+msgid "No Downloads"
+msgstr "Preuzimanje"
+
+#: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
 msgstr "Nijedan korisnik"
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:69
 msgid "Reviews"
 msgstr "Recenzije"
 
-#: src/amo/components/AddonMeta/index.js:64
+#: src/amo/components/AddonMeta/index.js:72
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Recenzija"
 msgstr[1] "Recenzije"
 msgstr[2] "Recenzije"
 
-#: src/amo/components/AddonMeta/index.js:66
+#: src/amo/components/AddonMeta/index.js:74
 msgid "No Reviews"
 msgstr "Nema recenzija"
 
-#: src/amo/components/AddonMeta/index.js:92
-msgid "Used by"
-msgstr "Korišteno od"
-
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:109
 msgid "Visit stats dashboard"
 msgstr "Posjeti nadzornu ploču statistike"
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Custom License"
 msgstr "Prilagođena licenca"
 
 # This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:149
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:164
 msgid "Read the privacy policy for this add-on"
 msgstr "Pročitaj pravila o privatnosti za ovaj dodatak"
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the license agreement for this add-on"
 msgstr "Pročitaj licencni ugovor za ovaj dodatak"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "See all versions"
 msgstr "Pogledaj sve verzije"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Add-on Links"
 msgstr "Poveznice dodatka"
 
-#: src/amo/components/AddonMoreInfo/index.js:220
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Version"
 msgstr "Verzija"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Size"
 msgstr "Veličina"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:240
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Zadnje aktualiziranje"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "License"
 msgstr "Licenca"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:256
 msgid "Privacy Policy"
 msgstr "Politika privatnosti"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "End-User License Agreement"
 msgstr "Licencni ugovor za krajnjeg korisnika"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Version History"
 msgstr "Povijest verzija"
 
-#: src/amo/components/AddonMoreInfo/index.js:278
+#: src/amo/components/AddonMoreInfo/index.js:282
 msgid "Usage Statistics"
 msgstr "Statistika korištenja"
 
-#: src/amo/components/AddonMoreInfo/index.js:294
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "More information"
 msgstr "Daljnje informacije"
 
@@ -360,7 +373,7 @@ msgstr "Izbriši"
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
-#: src/amo/pages/UserProfileEdit/index.js:915
+#: src/amo/pages/UserProfileEdit/index.js:898
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -1665,15 +1678,23 @@ msgstr "Firefox dodaci"
 msgid "Go to the add-on page"
 msgstr "Idi na stranicu s dodacima"
 
-#: src/amo/components/SearchResult/index.js:145
+#: src/amo/components/SearchResult/index.js:154
 msgid "No theme preview available"
 msgstr "Nema pregleda za motiv"
 
-#: src/amo/components/SearchResult/index.js:182
+#: src/amo/components/SearchResult/index.js:191
 msgid "Add-on note"
 msgstr "Napomena za dodatak"
 
-#: src/amo/components/SearchResult/index.js:200
+#: src/amo/components/SearchResult/index.js:210
+#, fuzzy
+msgid "%(total)s download"
+msgid_plural "%(total)s downloads"
+msgstr[0] "%(total)s dodatak"
+msgstr[1] "%(total)s dodatka"
+msgstr[2] "%(total)s dodataka"
+
+#: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s korisnik"
@@ -3043,12 +3064,12 @@ msgstr ""
 "tvojim dodacima."
 
 #: src/amo/pages/UserProfileEdit/index.js:818
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete My Profile"
 msgstr "Izbriši moj profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:819
-#: src/amo/pages/UserProfileEdit/index.js:908
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete Profile"
 msgstr "Izbriši profil"
 
@@ -3063,38 +3084,36 @@ msgstr "VAŽNO: Brisanje ovog profila u Firefox dodacima je nepovratna radnja."
 #: src/amo/pages/UserProfileEdit/index.js:843
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation) and "
-"notification preferences. Your reviews and ratings will be anonymised and no "
-"longer editable."
+"user name, display name, location, home page, biography, occupation), "
+"notification preferences, reviews, and collections."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:849
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
-"occupation) and notification preferences. Reviews and ratings will be "
-"anonymised and no longer editable."
+"occupation), notification preferences, reviews, and collections."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:860
+#: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
-"When you use this email address to log in again to addons.mozilla.org, you "
-"will create a new Firefox Add-ons profile that is in no way associated with "
-"the profile you deleted."
+"If you authored any add-ons they will also be deleted, unless you share "
+"ownership with other authors. In that case, you will be removed as an author "
+"and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:873
+#: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
-"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-"before you can delete your profile."
+"If the user authored any add-ons they will also be deleted, unless ownership "
+"is shared with other authors. In that case, the user will be removed as an "
+"author and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:880
+#: src/amo/pages/UserProfileEdit/index.js:874
 msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
-"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+"When you use this email address to log in again to addons.mozilla.org, your "
+"profile on Firefox Add-ons will not have access to any of its previous "
+"content."
 msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
@@ -3237,13 +3256,17 @@ msgstr "Sljedeća"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Stranica %(currentPage)s od %(totalPages)s"
 
-#: src/core/components/SiteNotices/index.js:66
+#: src/core/components/SiteNotices/index.js:72
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."
 msgstr ""
 "Tijekom održavanja naših web-stranica, neke su funkcije privremeno "
 "deaktivirane. Uskoro ćemo uspostaviti puni kapacitet."
+
+#: src/core/components/SiteNotices/index.js:87
+msgid "You have been logged out."
+msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-04 16:20+0000\n"
+"POT-Creation-Date: 2020-06-30 16:28+0000\n"
 "PO-Revision-Date: 2020-04-22 13:41+0000\n"
 "Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
@@ -178,107 +178,118 @@ msgstr "%(addonName)s – 下载 🦊 Firefox 扩展（%(locale)s）"
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – 下载 🦊 Firefox 语言包（%(locale)s）"
 
-#: src/amo/components/AddonMeta/index.js:119
+#: src/amo/components/AddonMeta/index.js:100
+msgid "Used by"
+msgstr "用户："
+
+#: src/amo/components/AddonMeta/index.js:127
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s 星"
 
-#: src/amo/components/AddonMeta/index.js:128
+#: src/amo/components/AddonMeta/index.js:136
 msgid "Not rated yet"
 msgstr "尚无评分"
 
-#: src/amo/components/AddonMeta/index.js:49
+#: src/amo/components/AddonMeta/index.js:50
 msgid "Users"
 msgstr "用户"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:57
+#, fuzzy
+msgid "Download"
+msgid_plural "Downloads"
+msgstr[0] "正在下载"
+
+#: src/amo/components/AddonMeta/index.js:58
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "用户"
 
-#: src/amo/components/AddonMeta/index.js:54
+#: src/amo/components/AddonMeta/index.js:61
+#, fuzzy
+msgid "No Downloads"
+msgstr "正在下载"
+
+#: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
 msgstr "尚无用户"
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:69
 msgid "Reviews"
 msgstr "评价"
 
-#: src/amo/components/AddonMeta/index.js:64
+#: src/amo/components/AddonMeta/index.js:72
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "评价"
 
-#: src/amo/components/AddonMeta/index.js:66
+#: src/amo/components/AddonMeta/index.js:74
 msgid "No Reviews"
 msgstr "尚无评价"
 
-#: src/amo/components/AddonMeta/index.js:92
-msgid "Used by"
-msgstr "用户："
-
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:109
 msgid "Visit stats dashboard"
 msgstr "前往统计面板"
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Custom License"
 msgstr "自定义许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:149
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:164
 msgid "Read the privacy policy for this add-on"
 msgstr "阅读此附加组件的隐私政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the license agreement for this add-on"
 msgstr "阅读此附加组件的许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "See all versions"
 msgstr "查看所有版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Add-on Links"
 msgstr "附加组件链接"
 
-#: src/amo/components/AddonMoreInfo/index.js:220
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Version"
 msgstr "版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Size"
 msgstr "大小"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:240
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "上次更新"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "License"
 msgstr "许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:256
 msgid "Privacy Policy"
 msgstr "隐私政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "End-User License Agreement"
 msgstr "最终用户许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Version History"
 msgstr "版本历史"
 
-#: src/amo/components/AddonMoreInfo/index.js:278
+#: src/amo/components/AddonMoreInfo/index.js:282
 msgid "Usage Statistics"
 msgstr "使用统计"
 
-#: src/amo/components/AddonMoreInfo/index.js:294
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "More information"
 msgstr "更多信息"
 
@@ -348,7 +359,7 @@ msgstr "删除"
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
-#: src/amo/pages/UserProfileEdit/index.js:915
+#: src/amo/pages/UserProfileEdit/index.js:898
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -1581,15 +1592,21 @@ msgstr "Firefox 附加组件"
 msgid "Go to the add-on page"
 msgstr "访问附加组件页面"
 
-#: src/amo/components/SearchResult/index.js:145
+#: src/amo/components/SearchResult/index.js:154
 msgid "No theme preview available"
 msgstr "无主题预览可用"
 
-#: src/amo/components/SearchResult/index.js:182
+#: src/amo/components/SearchResult/index.js:191
 msgid "Add-on note"
 msgstr "附加组件说明"
 
-#: src/amo/components/SearchResult/index.js:200
+#: src/amo/components/SearchResult/index.js:210
+#, fuzzy
+msgid "%(total)s download"
+msgid_plural "%(total)s downloads"
+msgstr[0] "共 %(total)s 个附加组件"
+
+#: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 个用户"
@@ -2981,12 +2998,12 @@ msgid ""
 msgstr "Mozilla 保留使用此信息与您联络，就您上架的附加组件进行询问的权利。"
 
 #: src/amo/pages/UserProfileEdit/index.js:818
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete My Profile"
 msgstr "删除我的个人资料"
 
 #: src/amo/pages/UserProfileEdit/index.js:819
-#: src/amo/pages/UserProfileEdit/index.js:908
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete Profile"
 msgstr "删除个人资料"
 
@@ -3001,54 +3018,50 @@ msgstr ""
 "重要：此操作无法撤销，您将删除在 Firefox 附加组件网站的个人资料（账号）。"
 
 #: src/amo/pages/UserProfileEdit/index.js:843
+#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation) and "
-"notification preferences. Your reviews and ratings will be anonymised and no "
-"longer editable."
+"user name, display name, location, home page, biography, occupation), "
+"notification preferences, reviews, and collections."
 msgstr ""
 "将永久移除您的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首"
 "页、自传、工作），以及通知偏好设置。您的评价与评分数据将被匿名化处理，并且无"
 "法再编辑。"
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:849
+#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
-"occupation) and notification preferences. Reviews and ratings will be "
-"anonymised and no longer editable."
+"occupation), notification preferences, reviews, and collections."
 msgstr ""
 "将永久移除该用户的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、"
 "首页、自传、工作），以及通知偏好设置。评价与评分数据将被匿名化处理，并且无法"
 "再编辑。"
 
-#: src/amo/pages/UserProfileEdit/index.js:860
+#: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
-"When you use this email address to log in again to addons.mozilla.org, you "
-"will create a new Firefox Add-ons profile that is in no way associated with "
-"the profile you deleted."
+"If you authored any add-ons they will also be deleted, unless you share "
+"ownership with other authors. In that case, you will be removed as an author "
+"and the remaining authors will maintain ownership of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:864
+msgid ""
+"If the user authored any add-ons they will also be deleted, unless ownership "
+"is shared with other authors. In that case, the user will be removed as an "
+"author and the remaining authors will maintain ownership of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:874
+#, fuzzy
+msgid ""
+"When you use this email address to log in again to addons.mozilla.org, your "
+"profile on Firefox Add-ons will not have access to any of its previous "
+"content."
 msgstr ""
 "当您再次使用此电子邮件地址登录 addons.mozilla.org 时，您将需要为 Firefox 附加"
 "组件网站创建新的个人资料，它与现有将要删除的个人资料毫无关联。"
-
-#: src/amo/pages/UserProfileEdit/index.js:873
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
-"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-"before you can delete your profile."
-msgstr ""
-"%(strongStart)s注意：%(strongEnd)s如果您是%(linkStart)s任何附加组件的作"
-"者%(linkEnd)s，则无法删除您的个人资料。 要删除个人资料，您必须"
-"先%(docLinkStart)s转移附加组件的所有权%(docLinkEnd)s或删除附加组件。"
-
-#: src/amo/pages/UserProfileEdit/index.js:880
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
-"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
-"%(strongStart)s注意：%(strongEnd)s您无法注销%(linkStart)s任何附加组件之作"
-"者%(linkEnd)s的个人资料。"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -3188,11 +3201,15 @@ msgstr "下一页"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "第 %(currentPage)s 页，共 %(totalPages)s 页"
 
-#: src/core/components/SiteNotices/index.js:66
+#: src/core/components/SiteNotices/index.js:72
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."
 msgstr "在我们进行网站维护时，某些功能会被暂时禁用。我们将很快恢复全部功能。"
+
+#: src/core/components/SiteNotices/index.js:87
+msgid "You have been logged out."
+msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -3349,6 +3366,23 @@ msgstr[0] "共 %(total)s 个附加组件"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "开发者回应"
+
+#~ msgid ""
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you "
+#~ "are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
+#~ "%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
+#~ "before you can delete your profile."
+#~ msgstr ""
+#~ "%(strongStart)s注意：%(strongEnd)s如果您是%(linkStart)s任何附加组件的作"
+#~ "者%(linkEnd)s，则无法删除您的个人资料。 要删除个人资料，您必须"
+#~ "先%(docLinkStart)s转移附加组件的所有权%(docLinkEnd)s或删除附加组件。"
+
+#~ msgid ""
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if "
+#~ "the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+#~ msgstr ""
+#~ "%(strongStart)s注意：%(strongEnd)s您无法注销%(linkStart)s任何附加组件之作"
+#~ "者%(linkEnd)s的个人资料。"
 
 #~ msgid "Access your data in %(param)s other domain"
 #~ msgid_plural "Access your data in %(param)s other domains"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-04 16:20+0000\n"
+"POT-Creation-Date: 2020-06-30 16:28+0000\n"
 "PO-Revision-Date: 2020-04-23 13:43+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
@@ -194,110 +194,122 @@ msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 "%(addonName)s – Szerezze be ezt a nyelvi csomagot a 🦊 Firefoxhoz (%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:119
+#: src/amo/components/AddonMeta/index.js:100
+msgid "Used by"
+msgstr "Használja"
+
+#: src/amo/components/AddonMeta/index.js:127
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s csillag"
 msgstr[1] "%(total)s csillag"
 
-#: src/amo/components/AddonMeta/index.js:128
+#: src/amo/components/AddonMeta/index.js:136
 msgid "Not rated yet"
 msgstr "Még nincs értékelve"
 
-#: src/amo/components/AddonMeta/index.js:49
+#: src/amo/components/AddonMeta/index.js:50
 msgid "Users"
 msgstr "Felhasználók"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:57
+#, fuzzy
+msgid "Download"
+msgid_plural "Downloads"
+msgstr[0] "Letöltés"
+msgstr[1] "Letöltés"
+
+#: src/amo/components/AddonMeta/index.js:58
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Felhasználó"
 msgstr[1] "Felhasználók"
 
-#: src/amo/components/AddonMeta/index.js:54
+#: src/amo/components/AddonMeta/index.js:61
+#, fuzzy
+msgid "No Downloads"
+msgstr "Letöltés"
+
+#: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
 msgstr "Nincsenek felhasználók"
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:69
 msgid "Reviews"
 msgstr "Értékelések"
 
-#: src/amo/components/AddonMeta/index.js:64
+#: src/amo/components/AddonMeta/index.js:72
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Értékelés"
 msgstr[1] "Értékelések"
 
-#: src/amo/components/AddonMeta/index.js:66
+#: src/amo/components/AddonMeta/index.js:74
 msgid "No Reviews"
 msgstr "Nincsenek értékelések"
 
-#: src/amo/components/AddonMeta/index.js:92
-msgid "Used by"
-msgstr "Használja"
-
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:109
 msgid "Visit stats dashboard"
 msgstr "Statisztikai vezérlőpult felkeresése"
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Custom License"
 msgstr "Egyéni licenc"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:149
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:164
 msgid "Read the privacy policy for this add-on"
 msgstr "Olvassa el a kiegészítő adatvédelmi irányelveit"
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the license agreement for this add-on"
 msgstr "Olvassa el a kiegészítő licencmegállapodását"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "See all versions"
 msgstr "Összes verzió megtekintése"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Add-on Links"
 msgstr "Kiegészítő hivatkozásai"
 
-#: src/amo/components/AddonMoreInfo/index.js:220
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Version"
 msgstr "Verzió"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Size"
 msgstr "Méret"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:240
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Legutóbb frissítve"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "License"
 msgstr "Licenc"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:256
 msgid "Privacy Policy"
 msgstr "Adatvédelmi irányelvek"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "End-User License Agreement"
 msgstr "Végfelhasználói licencmegállapodás"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Version History"
 msgstr "Verziótörténet"
 
-#: src/amo/components/AddonMoreInfo/index.js:278
+#: src/amo/components/AddonMoreInfo/index.js:282
 msgid "Usage Statistics"
 msgstr "Használati statisztika"
 
-#: src/amo/components/AddonMoreInfo/index.js:294
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "More information"
 msgstr "További információk"
 
@@ -367,7 +379,7 @@ msgstr "Törlés"
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
-#: src/amo/pages/UserProfileEdit/index.js:915
+#: src/amo/pages/UserProfileEdit/index.js:898
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -1656,15 +1668,22 @@ msgstr "Firefox kiegészítők"
 msgid "Go to the add-on page"
 msgstr "Ugrás a kiegészítő oldalára"
 
-#: src/amo/components/SearchResult/index.js:145
+#: src/amo/components/SearchResult/index.js:154
 msgid "No theme preview available"
 msgstr "Nincs elérhető téma előnézet"
 
-#: src/amo/components/SearchResult/index.js:182
+#: src/amo/components/SearchResult/index.js:191
 msgid "Add-on note"
 msgstr "Kiegészítő megjegyzése"
 
-#: src/amo/components/SearchResult/index.js:200
+#: src/amo/components/SearchResult/index.js:210
+#, fuzzy
+msgid "%(total)s download"
+msgid_plural "%(total)s downloads"
+msgstr[0] "%(total)s kiegészítő"
+msgstr[1] "%(total)s kiegészítő"
+
+#: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s felhasználó"
@@ -3176,12 +3195,12 @@ msgstr ""
 "ha aggasztónak találja az Ön által beküldött kiegészítőket."
 
 #: src/amo/pages/UserProfileEdit/index.js:818
-#: src/amo/pages/UserProfileEdit/index.js:907
+#: src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete My Profile"
 msgstr "Saját profil törlése"
 
 #: src/amo/pages/UserProfileEdit/index.js:819
-#: src/amo/pages/UserProfileEdit/index.js:908
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Delete Profile"
 msgstr "Profil törlése"
 
@@ -3194,11 +3213,11 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "FONTOS: A Firefox kiegészítők fiókja törlése nem vonható vissza."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
+#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation) and "
-"notification preferences. Your reviews and ratings will be anonymised and no "
-"longer editable."
+"user name, display name, location, home page, biography, occupation), "
+"notification preferences, reviews, and collections."
 msgstr ""
 "Az adatai véglegesen törlődnek, beleértve a profiladatokat "
 "(felhasználónevet, e-mail címet, megjelenítési nevet, helyet, weboldalt, "
@@ -3206,12 +3225,12 @@ msgstr ""
 "mint a minősítések és értékelések anonimizálásra kerülnek, és többé nem "
 "szerkeszthetőek."
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:849
+#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
-"occupation) and notification preferences. Reviews and ratings will be "
-"anonymised and no longer editable."
+"occupation), notification preferences, reviews, and collections."
 msgstr ""
 "A felhasználó adatai véglegesen törlődnek, beleértve a profiladatokat "
 "(felhasználónevet, e-mail címet, megjelenítési nevet, helyet, weboldalt, "
@@ -3219,35 +3238,30 @@ msgstr ""
 "mint a minősítések és értékelések anonimizálásra kerülnek, és többé nem "
 "szerkeszthetőek."
 
-#: src/amo/pages/UserProfileEdit/index.js:860
+#: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
-"When you use this email address to log in again to addons.mozilla.org, you "
-"will create a new Firefox Add-ons profile that is in no way associated with "
-"the profile you deleted."
+"If you authored any add-ons they will also be deleted, unless you share "
+"ownership with other authors. In that case, you will be removed as an author "
+"and the remaining authors will maintain ownership of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:864
+msgid ""
+"If the user authored any add-ons they will also be deleted, unless ownership "
+"is shared with other authors. In that case, the user will be removed as an "
+"author and the remaining authors will maintain ownership of the add-on."
+msgstr ""
+
+#: src/amo/pages/UserProfileEdit/index.js:874
+#, fuzzy
+msgid ""
+"When you use this email address to log in again to addons.mozilla.org, your "
+"profile on Firefox Add-ons will not have access to any of its previous "
+"content."
 msgstr ""
 "Ha ezt az e-mail címet újra az addons.mozilla.org oldalon történő "
 "bejelentkezéshez használja, akkor egy új Firefox kiegészítők profilt hoz "
 "létre, amely semmilyen módon nem kapcsolódik a törölt profilhoz."
-
-#: src/amo/pages/UserProfileEdit/index.js:873
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
-"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-"before you can delete your profile."
-msgstr ""
-"%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a profilját, ha "
-"%(linkStart)skiegészítők szerzője%(linkEnd)s. %(docLinkStart)sÁt kell adnia "
-"a tulajdonjogukat%(docLinkEnd)s, vagy törölnie kell a kiegészítőit, mielőtt "
-"törölheti a profiljét."
-
-#: src/amo/pages/UserProfileEdit/index.js:880
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
-"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
-"%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a felhasználói "
-"profilt, ha a felhasználó %(linkStart)skiegészítők szerzője%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -3391,13 +3405,17 @@ msgstr "Következő"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "%(currentPage)s. oldal / %(totalPages)s"
 
-#: src/core/components/SiteNotices/index.js:66
+#: src/core/components/SiteNotices/index.js:72
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."
 msgstr ""
 "Néhány funkció a karbantartás ideje alatt átmenetileg le van tiltva. "
 "Hamarosan újra teljes kapacitással fog működni az oldal."
+
+#: src/core/components/SiteNotices/index.js:87
+msgid "You have been logged out."
+msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -3559,6 +3577,24 @@ msgstr[1] "%(total)s kiegészítő"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Fejlesztői válasz"
+
+#~ msgid ""
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you "
+#~ "are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
+#~ "%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
+#~ "before you can delete your profile."
+#~ msgstr ""
+#~ "%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a profilját, ha "
+#~ "%(linkStart)skiegészítők szerzője%(linkEnd)s. %(docLinkStart)sÁt kell "
+#~ "adnia a tulajdonjogukat%(docLinkEnd)s, vagy törölnie kell a kiegészítőit, "
+#~ "mielőtt törölheti a profiljét."
+
+#~ msgid ""
+#~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if "
+#~ "the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+#~ msgstr ""
+#~ "%(strongStart)sMEGJEGYZÉS:%(strongEnd)s Nem törölheti a felhasználói "
+#~ "profilt, ha a felhasználó %(linkStart)skiegészítők szerzője%(linkEnd)s."
 
 #~ msgid "Access your data in %(param)s other domain"
 #~ msgid_plural "Access your data in %(param)s other domains"
