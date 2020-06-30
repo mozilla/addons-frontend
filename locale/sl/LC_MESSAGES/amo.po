@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 17:00+0000\n"
-"Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
+"PO-Revision-Date: 2020-06-30 20:31+0000\n"
+"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -186,13 +186,12 @@ msgid "Users"
 msgstr "uporabnikov"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] "Prenašanje"
-msgstr[1] "Prenašanje"
-msgstr[2] "Prenašanje"
-msgstr[3] "Prenašanje"
+msgstr[0] "Prenos"
+msgstr[1] "Prenosa"
+msgstr[2] "Prenosi"
+msgstr[3] "Prenosi"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -203,9 +202,8 @@ msgstr[2] "Uporabniki"
 msgstr[3] "Uporabniki"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "Prenašanje"
+msgstr "Ni prenosov"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1514,13 +1512,12 @@ msgid "Add-on note"
 msgstr "Opomba dodatka"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s dodatek"
-msgstr[1] "%(total)s dodatka"
-msgstr[2] "%(total)s dodatki"
-msgstr[3] "%(total)s dodatkov"
+msgstr[0] "%(total)s prenos"
+msgstr[1] "%(total)s prenosa"
+msgstr[2] "%(total)s prenosi"
+msgstr[3] "%(total)s prenosov"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -2822,7 +2819,7 @@ msgstr "Nekatere funkcije so začasno onemogočene, medtem ko na spletnem mestu 
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Odjavljeni ste."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
