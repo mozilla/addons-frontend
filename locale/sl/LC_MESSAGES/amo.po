@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 20:31+0000\n"
+"PO-Revision-Date: 2020-06-30 20:43+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -2676,17 +2676,20 @@ msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Če ste avtor katerega od dodatkov, bo tudi ta izbrisan, razen če si lastništvo delite z drugimi avtorji. V tem primeru boste odstranjeni kot avtor, drugi avtorji pa bodo ohranili lastništvo nad "
+"dodatkom."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Če je uporabnik avtor katerega od dodatkov, bo tudi ta izbrisan, razen če si lastništvo deli z drugimi avtorji. V tem primeru bo uporabnik odstranjen kot avtor, drugi avtorji pa bodo ohranili "
+"lastništvo nad dodatkom."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "Ko uporabite ta e-poštni naslov za ponovno prijavo v addons.mozilla.org, ustvarite nov profil Dodatkov Firefox, ki ne bo na noben način povezan s profilom, ki ste ga izbrisali."
+msgstr "Ko uporabite ta e-poštni naslov za ponovno prijavo v addons.mozilla.org, vaš profil Dodatkov Firefox ne bo imel dostopa do svoje prejšnje vsebine."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
