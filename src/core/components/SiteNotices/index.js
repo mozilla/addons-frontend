@@ -16,6 +16,7 @@ type Props = {||};
 type MappedProps = {|
   siteIsReadOnly: boolean,
   siteNotice: string | null,
+  currentUserWasLoggedOut: boolean,
 |};
 
 type InternalProps = {|
@@ -35,7 +36,12 @@ const sanitizeNoticeHTML = (text: string): string => {
 
 export class SiteNoticesBase extends React.Component<InternalProps> {
   render() {
-    const { i18n, siteIsReadOnly, siteNotice } = this.props;
+    const {
+      i18n,
+      siteIsReadOnly,
+      siteNotice,
+      currentUserWasLoggedOut,
+    } = this.props;
 
     const notices = [];
 
@@ -70,6 +76,19 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
       );
     }
 
+    if (currentUserWasLoggedOut) {
+      notices.push(
+        <Notice
+          className="SiteNotices"
+          id="user-was-logged-out"
+          type="warning"
+          key="user-was-logged-out"
+        >
+          {i18n.gettext('You have been logged out.')}
+        </Notice>,
+      );
+    }
+
     return notices;
   }
 }
@@ -78,6 +97,7 @@ const mapStateToProps = (state: AppState): MappedProps => {
   return {
     siteIsReadOnly: state.site.readOnly,
     siteNotice: state.site.notice,
+    currentUserWasLoggedOut: state.users.currentUserWasLoggedOut,
   };
 };
 

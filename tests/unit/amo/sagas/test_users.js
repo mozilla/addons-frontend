@@ -12,11 +12,13 @@ import usersReducer, {
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
+  logOutUser,
   unloadUserAccount,
   unsubscribeNotification,
   updateUserAccount,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
+import { createApiError } from 'core/api';
 import { setAuthToken } from 'core/actions';
 import apiReducer from 'core/reducers/api';
 import { loadSiteStatus } from 'core/reducers/site';
@@ -95,6 +97,39 @@ describe(__filename, () => {
           mockApi.verify();
           expect(error).toBe(expectedError);
         });
+    });
+
+    it('throws api errors when status is not 401', async () => {
+      const expectedError = createApiError({ response: { status: 400 } });
+      mockApi
+        .expects('currentUserAccount')
+        .returns(Promise.reject(expectedError));
+
+      sagaTester.dispatch(setAuthToken(userAuthToken()));
+
+      return rootTask.done
+        .then(() => {
+          throw new Error('unexpected success');
+        })
+        .catch((error) => {
+          mockApi.verify();
+          expect(error).toBe(expectedError);
+        });
+    });
+
+    it('handles 401 responses', async () => {
+      const expectedError = createApiError({ response: { status: 401 } });
+      mockApi
+        .expects('currentUserAccount')
+        .returns(Promise.reject(expectedError));
+
+      sagaTester.dispatch(setAuthToken(userAuthToken()));
+
+      const expectedAction = logOutUser();
+      const calledAction = await sagaTester.waitFor(expectedAction.type);
+      expect(calledAction).toEqual(expectedAction);
+
+      mockApi.verify();
     });
   });
 

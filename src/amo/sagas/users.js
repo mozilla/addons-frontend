@@ -14,6 +14,7 @@ import {
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
+  logOutUser,
   unloadUserAccount,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
@@ -41,9 +42,9 @@ import type { SetAuthTokenAction } from 'core/actions';
 import type { Saga } from 'core/types/sagas';
 
 // This saga is not triggered by the UI but on the server side, hence do not
-// have a `errorHandler`. We do not want to miss any error because it would
-// mean no ways for the users to log in, so we let this saga throw errors
-// without catching them.
+// have a `errorHandler`. We handle 401s here but other errors are re-thrown so
+// that we don't miss any errors (these errors will be handled by the node
+// server).
 export function* fetchCurrentUserAccount({
   payload,
 }: SetAuthTokenAction): Saga {
@@ -58,16 +59,29 @@ export function* fetchCurrentUserAccount({
     },
   };
 
-  const response: CurrentUserAccountResponse = yield call(
-    api.currentUserAccount,
-    params,
-  );
-  yield put(loadCurrentUserAccount({ user: response }));
+  try {
+    const response: CurrentUserAccountResponse = yield call(
+      api.currentUserAccount,
+      params,
+    );
+    yield put(loadCurrentUserAccount({ user: response }));
 
-  const {
-    site_status: { read_only: readOnly, notice },
-  } = response;
-  yield put(loadSiteStatus({ readOnly, notice }));
+    const {
+      site_status: { read_only: readOnly, notice },
+    } = response;
+    yield put(loadSiteStatus({ readOnly, notice }));
+  } catch (error) {
+    if (
+      error.response &&
+      error.response.status &&
+      error.response.status === 401
+    ) {
+      log.warn(`Could not load user profile: ${error}, logging out user`);
+      yield put(logOutUser());
+    } else {
+      throw error;
+    }
+  }
 }
 
 export function* updateUserAccount({

@@ -12,6 +12,7 @@ import defaultConfig from 'config';
 import cheerio from 'cheerio';
 
 import { setRequestId } from 'core/actions';
+import { createApiError } from 'core/api';
 import {
   AMO_REQUEST_ID_HEADER,
   DISCO_TAAR_CLIENT_ID_HEADER,
@@ -567,6 +568,32 @@ describe(__filename, () => {
 
       const { site } = store.getState();
       expect(site.loadedPageIsAnonymous).toEqual(false);
+    });
+
+    it('removes the cookie when user has been logged out', async () => {
+      const token = userAuthToken();
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const apiError = createApiError({ response: { status: 401 } });
+      mockUsersApi.expects('currentUserAccount').once().rejects(apiError);
+
+      const response = await testClient({
+        store,
+        sagaMiddleware,
+        appSagas: usersSaga,
+      })
+        .get('/en-US/firefox/')
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
+        .end();
+
+      const { api, users } = store.getState();
+
+      expect(response.statusCode).toEqual(200);
+      expect(response.headers['set-cookie'][0]).toContain(
+        `${defaultConfig.get('cookieName')}=; Max-Age=0;`,
+      );
+      expect(api.token).toEqual(null);
+      expect(users.currentUserWasLoggedOut).toEqual(true);
+      mockUsersApi.verify();
     });
   });
 

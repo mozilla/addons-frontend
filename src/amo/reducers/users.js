@@ -1,5 +1,7 @@
 /* @flow */
+import config from 'config';
 import invariant from 'invariant';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 import {
   ADDONS_CONTENT_REVIEW,
@@ -113,6 +115,8 @@ export type UsersState = {
     // `true`: user is unsubscribed
     [key: string]: boolean | null,
   },
+  currentUserWasLoggedOut: boolean,
+  resetStateOnNextChange: boolean,
 };
 
 export type UserEditableFieldsType = {|
@@ -135,6 +139,8 @@ export const initialState: UsersState = {
     userId: null,
   },
   isUnsubscribedFor: {},
+  currentUserWasLoggedOut: false,
+  resetStateOnNextChange: false,
 };
 
 type FetchUserAccountParams = {|
@@ -648,6 +654,7 @@ type Action =
 const reducer = (
   state: UsersState = initialState,
   action: Action,
+  _config: typeof config = config,
 ): UsersState => {
   switch (action.type) {
     case UPDATE_USER_ACCOUNT:
@@ -700,6 +707,7 @@ const reducer = (
       return {
         ...state,
         currentUserID: null,
+        currentUserWasLoggedOut: true,
       };
     case UNLOAD_USER_ACCOUNT: {
       const { userId } = action.payload;
@@ -755,6 +763,27 @@ const reducer = (
           ...state.isUnsubscribedFor,
           [getUnsubscribeKey({ hash, notification, token })]: true,
         },
+      };
+    }
+    case LOCATION_CHANGE: {
+      if (_config.get('server')) {
+        // We only care about client side navigation.
+        return state;
+      }
+
+      // When the client initializes, it updates its location. On next location
+      // change, we want to reset `currentUserWasLoggedOut`.
+      if (state.resetStateOnNextChange) {
+        return {
+          ...state,
+          resetStateOnNextChange: false,
+          currentUserWasLoggedOut: false,
+        };
+      }
+      return {
+        ...state,
+        // This will only be set *after* a single location change on the client.
+        resetStateOnNextChange: true,
       };
     }
     default:
