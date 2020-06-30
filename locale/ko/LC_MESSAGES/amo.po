@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 20:11+0000\n"
+"PO-Revision-Date: 2020-06-30 20:12+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -573,7 +573,7 @@ msgstr "%(title)s – Firefox Android용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
-msgstr "로딩"
+msgstr "로드 중"
 
 #: src/amo/components/AutoSearchInput/index.js:312
 msgid "Find add-ons"
