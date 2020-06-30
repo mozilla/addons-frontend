@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 17:03+0000\n"
+"PO-Revision-Date: 2020-06-30 17:14+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2638,12 +2638,16 @@ msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Hvis du var opphavsmann for noen tillegg, blir de også slettet, med mindre du deler eierskap med andre opphavsmenn. I så fall blir du fjernet som opphavsmann, og de gjenværende opphavsmennene vil "
+"opprettholde eierskapet til tillegget."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Hvis brukeren var opphavsmann for noen tillegg, blir de også slettet, med mindre eierskapet deles med andre opphavsmenn. I så fall blir brukeren fjernet som opphavsmann, og de gjenværende "
+"opphavsmennene vil opprettholde eierskapet til tillegget."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 #, fuzzy
