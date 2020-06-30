@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 17:35+0000\n"
+"PO-Revision-Date: 2020-06-30 16:47+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -185,12 +185,11 @@ msgid "Users"
 msgstr "Користувачі"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
 msgstr[0] "Завантаження"
 msgstr[1] "Завантаження"
-msgstr[2] "Завантаження"
+msgstr[2] ""
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
