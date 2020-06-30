@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 20:04+0000\n"
+"PO-Revision-Date: 2020-06-30 20:11+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:176
 msgid "Loading…"
-msgstr "읽는 중…"
+msgstr "로드 중…"
 
 #: src/amo/components/AddAddonToCollection/index.js:178
 msgid "Adding…"
-msgstr "추가하는 중…"
+msgstr "추가 중…"
 
 #: src/amo/components/AddAddonToCollection/index.js:194
 msgid "Select a collection…"
