@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 19:43+0000\n"
+"PO-Revision-Date: 2020-06-30 19:52+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -182,11 +182,10 @@ msgid "Users"
 msgstr "Brukarar"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] "Lastar ned"
-msgstr[1] "Lastar ned"
+msgstr[0] "Nedlasting"
+msgstr[1] "Nedlastingar"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -195,9 +194,8 @@ msgstr[0] "Brukar"
 msgstr[1] "Brukarar"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "Lastar ned"
+msgstr "Ingen nedlastingar"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1484,11 +1482,10 @@ msgid "Add-on note"
 msgstr "Tilleggsmerknad"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s tillegg"
-msgstr[1] "%(total)s tillegg"
+msgstr[0] "%(total)s nedlasting"
+msgstr[1] "%(total)s nedlasting"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -2652,6 +2649,8 @@ msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Dersom brukaren var opphavsmann for nokre tillegg, blir dei også sletta, med mindre eigarskapet vert delt med andre opphavsmenn. I så fall blir brukaren fjerna som opphavsmann, og dei attståande "
+"opphavsmennene vil oppretthalde eigarskapet til tillegget."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 #, fuzzy
