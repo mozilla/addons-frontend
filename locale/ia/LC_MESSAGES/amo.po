@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 12:15+0000\n"
+"PO-Revision-Date: 2020-07-01 12:21+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2625,21 +2625,19 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANTE: Deler iste profilo de additivos de Firefox es irreversibile."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Tu datos essera permanentemente removite, incluse le detalios del profilo (imagine, nomine de usator, nomine a monstrar, position, pagina de initio, biographia, occupation) e optiones de "
-"notification. Tu recensiones e evalutationes essera rendite anonyme e non plus modificabile."
+"Tu datos essera permanentemente removite, incluse le detalios del profilo (imagine, nomine de usator, nomine a monstrar, position, pagina de initio, biographia, occupation), optiones de "
+"notification, e collectiones."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Le datos del usator essera permanentemente removite, incluse le detalios del profilo (imagine, nomine de usator, nomine a monstrar, position, pagina de initio, biographia, occupation) e optiones de "
-"notification. Su recensiones e evalutationes essera rendite anonyme e non plus modificabile."
+"Le datos del usator essera permanentemente removite, incluse le detalios del profilo (imagine, nomine de usator, nomine a monstrar, position, pagina de initio, biographia, occupation), optiones de "
+"notification e collectiones."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
@@ -2654,10 +2652,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr ""
-"Quando tu usa iste adresse de e-mail pro acceder de novo a addons.mozilla.org, tu creara un nove profilo de additivos de Firefox que non es in alcun maniera associate al profilo que tu ha delite."
+msgstr "Quando tu usa iste adresse de e-mail pro acceder de novo a addons.mozilla.org, tu profilo sur additivos de Firefox non habera accesso a ulle su previe contento."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
