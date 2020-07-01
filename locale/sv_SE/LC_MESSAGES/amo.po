@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 09:07+0000\n"
+"PO-Revision-Date: 2020-07-01 15:42+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -2620,21 +2620,19 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "VIKTIGT: Att ta bort Firefox tilläggsprofil är oåterkallelig."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Dina uppgifter kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke) och aviseringsinställningar. Dina recensioner och betyg "
-"kommer att bli anonymiserade och inte längre redigerbara."
+"Dina uppgifter kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke), aviseringsinställningar. Dina recensioner, och "
+"samlingar."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Användarens data kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke) och aviseringsinställningar. Recensioner och betyg "
-"kommer att anonymiseras och kan inte redigeras längre."
+"Användarens data kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke), aviseringsinställningar. Dina recensioner, och "
+"samlingar."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
@@ -2784,7 +2782,7 @@ msgstr "Vissa funktioner är tillfälligt inaktiverade medan vi utför webbplats
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Du har loggats ut."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
