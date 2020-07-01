@@ -592,9 +592,9 @@ describe(__filename, () => {
       expect(auth_cookie).toContain(
         `${defaultConfig.get('cookieName')}=; Max-Age=0;`,
       );
-      expect(auth_cookie).toContain('HttpOnly');
-      expect(auth_cookie).toContain('Secure');
-      expect(auth_cookie).toContain('Lax');
+      expect(auth_cookie).toContain('Domain=.addons.mozilla.org;');
+      expect(auth_cookie).toContain('Path=/;');
+      expect(auth_cookie).toContain('HttpOnly; Secure; SameSite=Lax');
       expect(api.token).toEqual(null);
       expect(users.currentUserWasLoggedOut).toEqual(true);
       mockUsersApi.verify();
