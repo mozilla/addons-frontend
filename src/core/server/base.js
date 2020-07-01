@@ -460,6 +460,7 @@ function baseServer(
         if (users && users.currentUserWasLoggedOut === true) {
           req.universalCookies.remove(config.get('cookieName'), {
             httpOnly: true,
+            sameSite: 'lax',
             secure: true,
           });
           _log.debug('Cleared auth cookie');

@@ -588,10 +588,13 @@ describe(__filename, () => {
       const { api, users } = store.getState();
 
       expect(response.statusCode).toEqual(200);
-      expect(response.headers['set-cookie'][0]).toContain(
+      const auth_cookie = response.headers['set-cookie'][0];
+      expect(auth_cookie).toContain(
         `${defaultConfig.get('cookieName')}=; Max-Age=0;`,
       );
-      expect(response.headers['set-cookie'][0]).toContain('HttpOnly');
+      expect(auth_cookie).toContain('HttpOnly');
+      expect(auth_cookie).toContain('Secure');
+      expect(auth_cookie).toContain('Lax');
       expect(api.token).toEqual(null);
       expect(users.currentUserWasLoggedOut).toEqual(true);
       mockUsersApi.verify();
