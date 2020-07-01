@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 12:21+0000\n"
+"PO-Revision-Date: 2020-07-01 14:29+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1487,7 +1487,7 @@ msgstr "Nota del additivo"
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
 msgstr[0] "%(total)s discargamento"
-msgstr[1] ""
+msgstr[1] "%(total)s discargamentos"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -2786,7 +2786,7 @@ msgstr "Alcun functionalitates es temporarimente disactivate durante que nos exe
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Tu ha essite disconnexe"
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
