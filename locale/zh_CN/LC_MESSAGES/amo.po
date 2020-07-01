@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 12:44+0000\n"
+"PO-Revision-Date: 2020-07-01 12:51+0000\n"
 "Last-Translator: πάθοςγιατηζωή <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -183,10 +183,9 @@ msgid "Users"
 msgstr "用户"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] "正在下载"
+msgstr[0] "下载项"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -194,9 +193,8 @@ msgid_plural "Users"
 msgstr[0] "用户"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "正在下载"
+msgstr "没有下载项"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1459,10 +1457,9 @@ msgid "Add-on note"
 msgstr "附加组件说明"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "共 %(total)s 个附加组件"
+msgstr[0] "共 %(total)s 个下载项"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -2556,17 +2553,15 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "重要：此操作无法撤销，您将删除在 Firefox 附加组件网站的个人资料（账号）。"
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr "将永久移除您的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。您的评价与评分数据将被匿名化处理，并且无法再编辑。"
+msgstr "将永久移除您的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、职业）、通知首选项、评论和收集。"
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
-msgstr "将永久移除该用户的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、工作），以及通知偏好设置。评价与评分数据将被匿名化处理，并且无法再编辑。"
+msgstr "将永久移除该用户的数据，包括详细个人资料（头像、用户名、显示名称、地理位置、首页、自传、职业）、通知首选项、评论和收集。"
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
@@ -2581,9 +2576,8 @@ msgid ""
 msgstr "若用户是任何附加组件的唯一作者，这些附加组件也将被删除。若该用户与其他作者共享附加组件的所有权，则将从该附加组件的作者名单中移除，其他的作者将继续拥有该附加组件。"
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "当您再次使用此电子邮件地址登录 addons.mozilla.org 时，您将需要为 Firefox 附加组件网站创建新的个人资料，它与现有将要删除的个人资料毫无关联。"
+msgstr "当您再次使用此电子邮件地址登录 addons.mozilla.org 时，也将无法访问 Firefox 附加组件网站原账户的内容。"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
