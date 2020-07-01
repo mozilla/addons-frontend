@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 08:43+0000\n"
+"PO-Revision-Date: 2020-07-01 08:49+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1041,9 +1041,8 @@ msgid "Learn more"
 msgstr "מידע נוסף"
 
 #: src/amo/components/InstallWarning/index.js:85
-#, fuzzy
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr "זוהי אינה הרחבה מומלצת. מומלץ לוודא שההרחבה מהימנה טרם ההתקנה."
+msgstr "הרחבה זו אינה מנוטרת לטובת אבטחה דרך התוכנית של Mozilla להרחבות מומלצות. מומלץ לוודא שההרחבה מהימנה טרם ההתקנה."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -2018,7 +2017,7 @@ msgstr "חסימת פרסומות מעצבנות"
 #: src/amo/pages/Guides/index.js:99
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
-msgstr ""
+msgstr "האינטרנט של היום משולב בפרסומות בלתי רצויות שמפריעות לך ומאטות אותך. הרחבות לחסימת פרסומות יכולות לחסום או לסנן פרסומות אלה כך שניתן יהיה לחזור לגלישה ללא הסחת דעת."
 
 #: src/amo/pages/Home/index.js:138
 msgid "Abstract"
@@ -2620,9 +2619,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "כאשר ייעשה שימוש בכתובת דוא״ל זו כדי להתחבר שוב ל־addons.mozilla.org, יווצר פרופיל Firefox Add-ons חדש שלא יהיה משוייך בשום צורה לפרופיל שמחקת."
+msgstr "כאשר ייעשה שימוש בכתובת דוא״ל זו כדי להתחבר שוב ל־addons.mozilla.org, לפרופיל שלך ב־Firefox Add-ons לא תהיה גישה לתוכן הקודם שלו."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
