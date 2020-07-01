@@ -2573,7 +2573,7 @@ msgstr "若您是任何附加元件的唯一作者，這些附加元件也將被
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
-msgstr ""
+msgstr "若該使用者是任何附加元件的唯一作者，其附加元件也將被刪除。若該使用者與其他作者共享附加元件的所有權，則將從該元件的作者名單中移除，其餘的作者將繼續擁有該附加元件。"
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
@@ -2710,7 +2710,7 @@ msgstr "我們正在進行網站維護，部分功能暫時無法使用。我們
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "您已登出。"
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
