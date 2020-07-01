@@ -458,7 +458,11 @@ function baseServer(
 
         // See: https://github.com/mozilla/addons-frontend/issues/9482
         if (users && users.currentUserWasLoggedOut === true) {
-          req.universalCookies.remove(config.get('cookieName'));
+          req.universalCookies.remove(config.get('cookieName'), {
+            httpOnly: true,
+            sameSite: 'lax',
+            secure: true,
+          });
           _log.debug('Cleared auth cookie');
         }
 
