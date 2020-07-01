@@ -4,7 +4,7 @@
 
 import path from 'path';
 
-import { addonsServerProdCDN, analyticsHost, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
+import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
 
 const appName = process.env.NODE_APP_INSTANCE || null;
 const validAppNames = [
@@ -44,6 +44,8 @@ module.exports = {
   cookieMaxAge: 2592000,
   cookieName: 'frontend_auth_token',
   cookieSecure: true,
+  cookieDomain: `.${prodDomain}`,
+  cookieSameSite: 'lax',
 
   // Enable devtools for: Redux.
   enableDevTools: false,

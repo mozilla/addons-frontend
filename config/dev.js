@@ -1,10 +1,12 @@
 // Config for the -dev server.
-import { addonsServerDevCDN, analyticsHost, apiDevHost, sentryHost } from './lib/shared';
+import { addonsServerDevCDN, analyticsHost, apiDevHost, sentryHost, devDomain } from './lib/shared';
 
 module.exports = {
   apiHost: apiDevHost,
   amoCDN: addonsServerDevCDN,
   staticHost: addonsServerDevCDN,
+
+  cookieDomain: `.${devDomain}`,
 
   enableDevTools: true,
 
