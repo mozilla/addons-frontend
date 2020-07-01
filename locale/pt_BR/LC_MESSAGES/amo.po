@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 13:32+0000\n"
+"PO-Revision-Date: 2020-07-01 13:43+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -2047,7 +2047,7 @@ msgstr "Música"
 
 #: src/amo/pages/Home/index.js:163
 msgid "Seasonal"
-msgstr "Estações"
+msgstr "Estações do ano"
 
 #: src/amo/pages/Home/index.js:201
 msgid "Change the way Firefox looks with themes."
@@ -2063,7 +2063,7 @@ msgstr "Mais extensões recomendadas"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
-msgstr "Ver mais temas populares"
+msgstr "Mais temas populares"
 
 #: src/amo/pages/Home/index.js:309
 msgid "See more popular extensions"
@@ -2645,9 +2645,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "Quando você usar esse endereço de e-mail para entrar novamente em addons.mozilla.org, irá criar um novo perfil no Firefox Add-ons que não estará associado ao perfil que você excluiu."
+msgstr "Quando você usar esse endereço de e-mail para acessar sua conta novamente em addons.mozilla.org, seu perfil no Firefox Add-ons não terá acesso a nenhum conteúdo seu anterior."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
