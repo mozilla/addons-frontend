@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 15:42+0000\n"
+"PO-Revision-Date: 2020-07-01 15:56+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -184,11 +184,10 @@ msgid "Users"
 msgstr "Användare"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] "Hämtar"
-msgstr[1] "Hämtar"
+msgstr[0] "Ladda ner"
+msgstr[1] "Ladda ner"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -1485,11 +1484,10 @@ msgid "Add-on note"
 msgstr "Tilläggsanteckning"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s tillägg"
-msgstr[1] "%(total)s tillägg"
+msgstr[0] "%(total)s nedladdning"
+msgstr[1] "%(total)s nedladdningar"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
