@@ -591,6 +591,7 @@ describe(__filename, () => {
       expect(response.headers['set-cookie'][0]).toContain(
         `${defaultConfig.get('cookieName')}=; Max-Age=0;`,
       );
+      expect(response.headers['set-cookie'][0]).toContain('HttpOnly');
       expect(api.token).toEqual(null);
       expect(users.currentUserWasLoggedOut).toEqual(true);
       mockUsersApi.verify();
