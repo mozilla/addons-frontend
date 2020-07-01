@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 10:33+0000\n"
+"PO-Revision-Date: 2020-07-01 10:34+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -2676,9 +2676,8 @@ msgstr ""
 "verbleibenden Autoren bleiben Eigentümer des Add-ons."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "Wenn Sie diese E-Mail-Adresse erneut zur Anmeldung auf addons.mozilla.org verwenden, wird ein neues Firefox-Add-ons-Profil erstellt, das mit dem gelöschten Profil nicht verknüpft wird."
+msgstr "Wenn Sie diese E-Mail-Adresse erneut zur Anmeldung auf addons.mozilla.org verwenden, hat Ihr Firefox-Add-ons-Profil keinen Zugriff auf seine früheren Inhalte."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
