@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 07:11+0000\n"
+"PO-Revision-Date: 2020-07-01 07:22+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -191,9 +191,8 @@ msgstr[0] "Aseqdac"
 msgstr[1] "Iseqdacen"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "Asader"
+msgstr "Ulac isidar"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1476,11 +1475,10 @@ msgid "Add-on note"
 msgstr "Tazmilt n uzegrir"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s n uzegrir"
-msgstr[1] "%(total)s n yizegrar"
+msgstr[0] "%(total)s n usider"
+msgstr[1] "%(total)s n yisiar"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
