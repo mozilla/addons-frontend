@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 16:46+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2020-07-01 08:37+0000\n"
+"Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr[1] "Gebruikers"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "No Downloads"
-msgstr ""
+msgstr "Geen downloads"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1485,8 +1485,8 @@ msgstr "Add-on-notitie"
 #: src/amo/components/SearchResult/index.js:210
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s download"
+msgstr[1] "%(total)s downloads"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -2629,6 +2629,8 @@ msgstr "BELANGRIJK: het verwijderen van dit Firefox Add-ons-profiel is onomkeerb
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
+"Uw gegevens, waaronder profieldetails (afbeelding, gebruikersnaam, weergavenaam, locatie, startpagina, biografie, beroep), notificatievoorkeuren, beoordelingen en collecties worden definitief "
+"verwijderd."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
 msgid ""
@@ -2641,12 +2643,16 @@ msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Als u add-ons heeft geschreven, worden deze ook verwijderd, tenzij u het eigendom deelt met andere auteurs. In dat geval wordt u verwijderd als auteur en behouden de overige auteurs het eigendom van"
+" de add-on."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Als de gebruiker add-ons heeft geschreven, worden deze ook verwijderd, tenzij het eigendom wordt gedeeld met andere auteurs. In dat geval wordt de gebruiker verwijderd als auteur en behouden de "
+"overige auteurs het eigendom van de add-on."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 #, fuzzy
@@ -2784,7 +2790,7 @@ msgstr "Enkele functies zijn tijdelijk uitgeschakeld vanwege onderhoud aan de we
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "U bent afgemeld."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
