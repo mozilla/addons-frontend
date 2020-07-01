@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 07:33+0000\n"
-"Last-Translator: Philipp Fischbeck <pfischbeck@googlemail.com>\n"
+"PO-Revision-Date: 2020-07-01 10:33+0000\n"
+"Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -2645,33 +2645,35 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "WICHTIG: Die Löschung dieses Firefox-Add-ons-Profils kann nicht rückgängig gemacht werden."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Ihre Daten werden dauerhaft entfernt, einschließlich Details aus Ihrem Profil (Profilbild, Benutzername, Anzeigename, Ort, Homepage, Biografie, Beruf) und Benachrichtigungseinstellungen. Ihre "
-"Bewertungen und Beurteilungen werden anonymisiert und können nicht mehr bearbeitet werden."
+"Ihre Daten werden dauerhaft entfernt, einschließlich Details aus Ihrem Profil (Profilbild, Benutzername, Anzeigename, Ort, Homepage, Biografie, Beruf), Benachrichtigungseinstellungen, Bewertungen "
+"und Sammlungen."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Die Daten dieses Benutzers werden dauerhaft entfernt, einschließlich Details aus seinem Profil (Profilbild, Benutzername, Anzeigename, Ort, Homepage, Biografie, Beruf) und "
-"Benachrichtigungseinstellungen. Seine Bewertungen und Beurteilungen werden anonymisiert und können nicht mehr bearbeitet werden."
+"Die daten dieses Benutzeres Daten werden dauerhaft entfernt, einschließlich Details aus seinem Profil (Profilbild, Benutzername, Anzeigename, Ort, Homepage, Biografie, Beruf), "
+"Benachrichtigungseinstellungen, Bewertungen und Sammlungen."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Wenn Sie Add-ons erstellt haben, werden diese ebenfalls gelöscht, es sei denn, auch andere Autoren sind die Eigentümer. In diesem Fall werden Sie als Autor entfernt und die verbleibenden Autoren "
+"bleiben Eigentümer des Add-ons."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Wenn der Benutzer Add-ons erstellt habt, werden diese ebenfalls gelöscht, es sei denn, auch andere Autoren sind die Eigentümer. In diesem Fall wird der Benutzer als Autor entfernt und die "
+"verbleibenden Autoren bleiben Eigentümer des Add-ons."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 #, fuzzy
@@ -2809,7 +2811,7 @@ msgstr "Einige Funktionen sind während der Wartungsarbeiten an dieser Website v
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Sie wurden abgemeldet."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
