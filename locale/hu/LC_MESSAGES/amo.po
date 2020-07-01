@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 17:22+0000\n"
+"PO-Revision-Date: 2020-07-01 17:26+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -2624,21 +2624,17 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "FONTOS: A Firefox kiegészítők fiókja törlése nem vonható vissza."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr ""
-"Az adatai véglegesen törlődnek, beleértve a profiladatokat (felhasználónevet, e-mail címet, megjelenítési nevet, helyet, weboldalt, életrajzot, foglalkozás) és az értesítési beállításokat. Az egyéb "
-"adatok, mint a minősítések és értékelések anonimizálásra kerülnek, és többé nem szerkeszthetőek."
+msgstr "Az adatai véglegesen törlődnek, beleértve a profiladatokat (felhasználónevet, e-mail-címet, megjelenítési nevet, helyet, weboldalt, életrajzot, foglalkozást) és az értesítési beállításokat."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"A felhasználó adatai véglegesen törlődnek, beleértve a profiladatokat (felhasználónevet, e-mail címet, megjelenítési nevet, helyet, weboldalt, életrajzot, foglalkozás) és az értesítési "
-"beállításokat. Az egyéb adatok, mint a minősítések és értékelések anonimizálásra kerülnek, és többé nem szerkeszthetőek."
+"A felhasználói adatai véglegesen törlődnek, beleértve a profiladatokat (képet, felhasználónevet, e-mail-címet, megjelenítési nevet, helyet, weboldalt, életrajzot, foglalkozást), az értesítési "
+"beállításokat, az értékeléseket és a gyűjteményeket."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
@@ -2653,11 +2649,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr ""
-"Ha ezt az e-mail címet újra az addons.mozilla.org oldalon történő bejelentkezéshez használja, akkor egy új Firefox kiegészítők profilt hoz létre, amely semmilyen módon nem kapcsolódik a törölt "
-"profilhoz."
+msgstr "Ha ezt az e-mail-címet újra az addons.mozilla.org-ra történő bejelentkezéshez használja, akkor a Firefox kiegészítők profilján nem fog hozzáférni a korábbi tartalmakhoz."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -2790,7 +2783,7 @@ msgstr "Néhány funkció a karbantartás ideje alatt átmenetileg le van tiltva
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Kijelentkezett."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
