@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 07:22+0000\n"
+"PO-Revision-Date: 2020-07-01 12:40+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -2600,21 +2600,19 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANT: Ma tekseḍ izegrar n Firefox-agi, aya ad yili i lebda."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Isefka-ik ad ttwaksen i lebda, ula d talqayt n umaɣnu (tugna, isem n useqdec, isem ittwaseknen, adig, asebter agejdan, tabiugrafit, axeddim) akked isemnyifen n yilɣa. Iceggiren-ik akked usezmel ad "
-"uɣalen d udrigen, wurgin ad ttwabeddlen."
+"Isefka-inek/inem ad ttwaksen i lebda, ula d telqayt n umaɣnu (tugna, isem n useqdec, isem ittwaseknen, adig, asebter agejdan, tabiyugrafit, axeddim) d isemnyifen n yilɣa, isenqaden-inek/inem d wayen"
+" i d-tleqḍeḍ."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Isefka n useqdac ad ttwaksen i lebda, ula d talqayt n umaɣnu (tugna, isem n useqdec, isem ittwaseknen, adig, asebter agejdan, tabiugrafit, axeddim) akked isemnyifen n yilɣa. Iceggiren-ik akked "
-"usezmel ad uɣalen d udrigen, wurgin ad ttwabeddlen."
+"Isefka n useqdac ad ttwaksen i lebda, ula d telqayt n umaɣnu (tugna, isem n useqdec, isem ittwaseknen, adig, asebter agejdan, tabiyugrafit, axeddim) d isemnyifen n yilɣa, isenqaden-ines d wayen i "
+"d-yelqeḍ."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
