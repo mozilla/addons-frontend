@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 12:51+0000\n"
+"PO-Revision-Date: 2020-07-01 13:02+0000\n"
 "Last-Translator: πάθοςγιατηζωή <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2577,7 +2577,7 @@ msgstr "若用户是任何附加组件的唯一作者，这些附加组件也将
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "当您再次使用此电子邮件地址登录 addons.mozilla.org 时，也将无法访问 Firefox 附加组件网站原账户的内容。"
+msgstr "当您再次使用此电子邮件地址登录 addons.mozilla.org 时，也将无法访问 Firefox 附加组件网站先前账户的内容。"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
