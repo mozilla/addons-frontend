@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-02 06:34+0000\n"
+"PO-Revision-Date: 2020-07-02 06:42+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1182,9 +1182,8 @@ msgid "Log in to rate this add-on"
 msgstr "لِج لتقييم الإضافة هذه"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "أمتأكد من حذف هذه المراجعة؟"
+msgstr "أمتأكد من رغبتك بحذف مراجعتك لـ %(addonName)s ؟"
 
 #: src/amo/components/RatingManager/index.js:178
 #, fuzzy
@@ -1206,7 +1205,7 @@ msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "اقرأ جميع المراجعات ذات الخمس نجوم"
 
 #: src/amo/components/RatingsByStar/index.js:96
 msgid "Read all four-star reviews"
@@ -1214,12 +1213,11 @@ msgstr "اقرأ جميع المراجعات ذات الأربع نجوم"
 
 #: src/amo/components/RatingsByStar/index.js:97
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "اقرأ جميع المراجعات ذات الثلاث نجوم"
 
 #: src/amo/components/RatingsByStar/index.js:98
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "رُد على هذه المراجعة"
+msgstr "اقرأ جميع المراجعات ذات النجمتين"
 
 #: src/amo/components/RatingsByStar/index.js:99
 msgid "Read all one-star reviews"
@@ -1771,54 +1769,46 @@ msgid "Reviews and ratings for %(addonName)s. Find out what other users think ab
 msgstr "مراجعات وتقييمات ٪ (addonName)s. تعرف على رأي المستخدمين الآخرين حول٪ (addonName)s وأضفه إلى متصفح فيرفكس."
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show all reviews"
-msgstr "مراجعاتي"
+msgstr "اعرض جميع المراجعات"
 
 #: src/amo/pages/AddonReviewList/index.js:233
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "لا شيء لقراءته"
+msgstr "اعرض مراجعات الخمس نجوم فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:234
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "لا شيء لقراءته"
+msgstr "اعرض مراجعات الأربع نجوم فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:236
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "لا شيء لقراءته"
+msgstr "اعرض مراجعات الثلاث نجوم فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:238
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "رُد على هذه المراجعة"
+msgstr "اعرض مراجعات النجمتين فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:239
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "لا شيء لقراءته"
+msgstr "اعرض مراجعات النجمة الواحدة فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:279
 msgid "Reviews for %(addonName)s"
 msgstr "مراجعات %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:289
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "لا نجوم"
-msgstr[1] "نجمة واحدة"
-msgstr[2] "نجمتان"
-msgstr[3] "%(total)s نجوم"
-msgstr[4] "%(total)s نجمة"
-msgstr[5] "%(total)s نجمة"
+msgstr[0] "لا مراجعات"
+msgstr[1] "مراجعة واحدة"
+msgstr[2] "مراجعتان"
+msgstr[3] "%(total)s مراجعات"
+msgstr[4] "%(total)s مراجعة"
+msgstr[5] "%(total)s مراجعة"
 
 #: src/amo/pages/AddonReviewList/index.js:388
-#, fuzzy
 msgid "There are no reviews"
-msgstr "لا تقييمات بعد"
+msgstr "لا توجد مراجعات بعد"
 
 #: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
