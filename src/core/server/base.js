@@ -465,7 +465,17 @@ function baseServer(
             sameSite: config.get('cookieSameSite'),
             secure: config.get('cookieSecure'),
           });
-          _log.debug('Cleared auth cookie');
+          // This is the Django session cookie, it needs to be removed to allow
+          // users to log in again successfully after account deletion.
+          // See: https://github.com/mozilla/addons-frontend/issues/9495
+          req.universalCookies.remove('sessionid', {
+            domain: config.get('cookieDomain'),
+            httpOnly: true,
+            path: '/',
+            sameSite: config.get('cookieSameSite'),
+            secure: config.get('cookieSecure'),
+          });
+          _log.debug('Cleared cookies');
         }
 
         return sendHTML({ res, html: finalHTML });

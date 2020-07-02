@@ -588,13 +588,17 @@ describe(__filename, () => {
       const { api, users } = store.getState();
 
       expect(response.statusCode).toEqual(200);
-      const auth_cookie = response.headers['set-cookie'][0];
+      const [auth_cookie, session_cookie] = response.headers['set-cookie'];
       expect(auth_cookie).toContain(
         `${defaultConfig.get('cookieName')}=; Max-Age=0;`,
       );
       expect(auth_cookie).toContain('Domain=.addons.mozilla.org;');
       expect(auth_cookie).toContain('Path=/;');
       expect(auth_cookie).toContain('HttpOnly; Secure; SameSite=Lax');
+      expect(session_cookie).toContain(`sessionid=; Max-Age=0;`);
+      expect(session_cookie).toContain('Domain=.addons.mozilla.org;');
+      expect(session_cookie).toContain('Path=/;');
+      expect(session_cookie).toContain('HttpOnly; Secure; SameSite=Lax');
       expect(api.token).toEqual(null);
       expect(users.currentUserWasLoggedOut).toEqual(true);
       mockUsersApi.verify();
