@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-02 21:20+0000\n"
+"PO-Revision-Date: 2020-07-02 21:23+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2689,9 +2689,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "Hdyž tutu e-mejlowu adresu wužiwaće, zo byšće so zaso pola addons.mozilla.org přizjewił, wutworiće nowy profil za přidatki Firefox, kotryž njeje zwjazany z profilom, kotryž sće zhašał."
+msgstr "Hdyž tutu e-mejlowu adresu wužiwaće, zo byšće so zaso pola addons.mozilla.org přizjewił, waš profil za přidatki Firefox přistup k prjedawšemu wobsahej njezměje."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
