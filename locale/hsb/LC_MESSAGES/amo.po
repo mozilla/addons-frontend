@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 18:01+0000\n"
+"PO-Revision-Date: 2020-07-02 21:20+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -186,13 +186,12 @@ msgid "Users"
 msgstr "Wužiwarjo"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] "So sćahuje"
-msgstr[1] "So sćahuje"
-msgstr[2] "So sćahuje"
-msgstr[3] "So sćahuje"
+msgstr[0] "Sćehnjenje"
+msgstr[1] "Sćehnjeni"
+msgstr[2] "Sćehnjenja"
+msgstr[3] "Sćehnjenja"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -203,9 +202,8 @@ msgstr[2] "wužiwarjo"
 msgstr[3] "wužiwarjow"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "So sćahuje"
+msgstr "Žane sćehnjenja"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1516,13 +1514,12 @@ msgid "Add-on note"
 msgstr "Přidatkowa notica"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s přidatk"
-msgstr[1] "%(total)s přidatkaj"
-msgstr[2] "%(total)s přidatki"
-msgstr[3] "%(total)s přidatkow"
+msgstr[0] "%(total)s sćehnjenje"
+msgstr[1] "%(total)s sćehnjeni"
+msgstr[2] "%(total)s sćehnjenja"
+msgstr[3] "%(total)s sćehnjenjow"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -2665,21 +2662,19 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "WAŽNY: Zhašenje tutoho profila za přidatki Firefox njeda so cofnyć."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Waše daty budu so na přeco wotstronjeć, inkluziwnje profilowe podrobnosće (wobraz, wužiwarske mjeno, zwobraznjenske mjeno, městno, startowa strona, žiwjenjoběh, powołanje) a zdźělenske nastajenja. "
-"Waše přepruwowanja a pohódnoćenja budu so anonymizować a njebudu hižo wobdźěłujomne."
+"Waše daty budu so na přeco wotstronjeć, inkluziwnje profilowe podrobnosće (wobraz, wužiwarske mjeno, zwobraznjenske mjeno, městno, startowa strona, žiwjenjoběh, powołanje), zdźělenske nastajenja, "
+"pohódnoćenja a zběrki."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Daty wužiwarja budu so na přeco wotstronjeć, inkluziwnje profilowe podrobnosće (wobraz, wužiwarske mjeno, zwobraznjenske mjeno, městno, startowa strona, žiwjenjoběh, powołanje) a zdźělenske "
-"nastajenja. Waše přepruwowanja a pohódnoćenja budu so anonymizować a njebudu hižo wobdźěłujomne."
+"Daty wužiwarja budu so na přeco wotstronjeć, inkluziwnje profilowe podrobnosće (wobraz, wužiwarske mjeno, zwobraznjenske mjeno, městno, startowa strona, žiwjenjoběh, powołanje), zdźělenske "
+"nastajenja, pohódnoćenja a zběrki."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
