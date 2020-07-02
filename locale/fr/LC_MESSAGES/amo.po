@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 12:20+0000\n"
+"PO-Revision-Date: 2020-07-02 08:24+0000\n"
 "Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -186,8 +186,8 @@ msgstr "Utilisateurs"
 #: src/amo/components/AddonMeta/index.js:57
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Téléchargement"
+msgstr[1] "Téléchargements"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -197,7 +197,7 @@ msgstr[1] "Utilisateurs"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "No Downloads"
-msgstr ""
+msgstr "Aucun téléchargement"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1486,8 +1486,8 @@ msgstr "Notes"
 #: src/amo/components/SearchResult/index.js:210
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s téléchargement"
+msgstr[1] "%(total)s téléchargements"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
