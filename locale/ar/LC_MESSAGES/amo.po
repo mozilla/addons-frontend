@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-02 06:42+0000\n"
+"PO-Revision-Date: 2020-07-02 06:47+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -2318,13 +2318,12 @@ msgid "A community of creators"
 msgstr "مجتمع مبدعين"
 
 #: src/amo/pages/StaticPages/About/index.js:56
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"طوّر الإضافات الموجودة في هذه الصفحة آلاف المطوّرين ومصمّمي السمات من جميع أصقاع الأرض، بدءا من الهاوين الصغار وحتى الشركات الكبيرة. بضع الإضافات الموجودة في موقع الإضافات نُشرت تلقائيا وقد يراجعها "
-"فريق من المحررين ما إن نُشرت للعامة."
+"طوّر الإضافات الموجودة في هذه الصفحة آلاف المطوّرين ومصمّمي السمات من جميع أصقاع الأرض، بدءا من الهاوين الصغار وحتى الشركات الكبيرة. بعض الإضافات الموجودة في موقع الإضافات نُشرت تلقائيا وقد تخضع "
+"للمراجعة من قِبل فريق من المحررين ما إن نُشرت للعامة."
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
@@ -2650,9 +2649,8 @@ msgid "Display Name *"
 msgstr "اسم العرض"
 
 #: src/amo/pages/UserProfileEdit/index.js:654
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "نص المراجعة"
+msgstr "اسم المراجع"
 
 #: src/amo/pages/UserProfileEdit/index.js:687
 msgid "This URL will only be visible for users who are developers."
@@ -2695,21 +2693,17 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "هام: حذف ملف إضافات فَيَرفُكس الشخصي إجراء لا عودة فيه."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr ""
-"سوف تُحذف بياناتك نهائيا، بما في ذلك تفاصيل الملف الشخصي (الصورة واسم المستخدم واسم العرض والمكان والصفحة الرئيسية والسيرة الذاتية والمهنة) وتفضيلات التنبيهات. سوف تُجهّل مراجعاتك وتقييماتك ولن تقدر"
-" على تحريرها بعد الآن."
+msgstr "سوف تُحذف بياناتك نهائيا، بما في ذلك تفاصيل الملف الشخصي (الصورة، واسم المستخدم، واسم العرض، والمكان، والصفحة الرئيسية، والسيرة الذاتية، والمهنة) وتفضيلات التنبيهات، ومراجعاتك، ومجموعاتك."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"سوف تُحذف بيانات هذا المستخدم نهائيا، بما في ذلك تفاصيل الملف الشخصي (الصورة واسم المستخدم واسم العرض والمكان والصفحة الرئيسية والسيرة الذاتية والمهنة) وتفضيلات التنبيهات. سوف تُجهّل المراجعات "
-"والتقييمات ولن يقدر المستخدم على تحريرها بعد الآن."
+"سوف تُحذف بيانات هذا المستخدم نهائيا، بما في ذلك تفاصيل الملف الشخصي (الصورة، واسم المستخدم، واسم العرض، والمكان، والصفحة الرئيسية، والسيرة الذاتية، والمهنة) وتفضيلات التنبيهات، والمراجعات، "
+"والمجموعات."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
