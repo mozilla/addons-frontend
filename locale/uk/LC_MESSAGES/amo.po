@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-06-30 20:17+0000\n"
-"Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
+"PO-Revision-Date: 2020-07-03 08:58+0000\n"
+"Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1124,7 +1124,7 @@ msgstr "Показувати сповіщення"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr "Надавати служби криптографічної авторизації"
+msgstr "Надання послуг криптографічної автентифікації"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
