@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-03 12:23+0000\n"
+"PO-Revision-Date: 2020-07-03 12:30+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2680,13 +2680,13 @@ msgstr ""
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
-msgstr "Jeli sće přidatki wuwił, so te tež zhašeja, chibazo druzy awtrorojo su tež wobsedźerjo. W tutym padźe was jako awtora wotstronja a zbytni awtorojo wobsedźerjo přidatka wostanu."
+msgstr "Jeli sće přidatki wuwił, so te tež zhašeja, chibazo druzy awtorojo su tež wobsedźerjo. W tutym padźe was jako awtora wotstronja a zbytni awtorojo wobsedźerjo přidatka wostanu."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
-msgstr "Jeli je wužiwar přidatki wuwił, so te tež zhašeja, chibazo druzy awtrorojo su tež wobsedźerjo. W tutym padźe wužiwarja jako awtora wotstronja a zbytni awtorojo wobsedźerjo přidatka wostanu."
+msgstr "Jeli je wužiwar přidatki wuwił, so te tež zhašeja, chibazo druzy awtorojo su tež wobsedźerjo. W tutym padźe wužiwarja jako awtora wotstronja a zbytni awtorojo wobsedźerjo přidatka wostanu."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
@@ -2823,7 +2823,7 @@ msgstr "Někotre funkcije su nachwilu znjemóžnjene, mjeztym zo websydło wothl
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr "Sće přizjewjeny."
+msgstr "Sće wotzjewjeny."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
