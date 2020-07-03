@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 17:41+0000\n"
+"PO-Revision-Date: 2020-07-03 12:57+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2048,23 +2048,20 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr ""
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
-#, fuzzy
 msgid "See more recommended extensions"
-msgstr "మరిన్ని ట్రెండవుతూన్న పొడగింతలను చూడండి"
+msgstr "మరిన్ని సిఫారసు చేయబడ్డ పొడగింతలను చూడండి"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
 msgstr "పొడిగింతలను శోధించు"
 
 #: src/amo/pages/Home/index.js:309
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "ఇతర ప్రాచుర్య పొడిగింతలు"
+msgstr "మరిన్ని ప్రాచుర్య పొడగింతలను చూడండి"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
-#, fuzzy
 msgid "See more recommended themes"
-msgstr "మరిన్ని ట్రెండవుతూన్న అలంకారాలను చూడండి"
+msgstr "మరిన్ని సిఫారసు చేయబడ్డ అలంకారాలను చూడండి"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
