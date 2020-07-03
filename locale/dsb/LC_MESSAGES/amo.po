@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-03 12:31+0000\n"
+"PO-Revision-Date: 2020-07-03 12:40+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -186,13 +186,12 @@ msgid "Users"
 msgstr "Wužywarje"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] "Se ześěgujo"
-msgstr[1] "Se ześěgujo"
-msgstr[2] "Se ześěgujo"
-msgstr[3] "Se ześěgujo"
+msgstr[0] "Ześěgnjenje"
+msgstr[1] "Ześěgnjeni"
+msgstr[2] "Ześěgnjenja"
+msgstr[3] "Ześěgnjenja"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -203,9 +202,8 @@ msgstr[2] "wužywarje"
 msgstr[3] "wužywarjow"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "Se ześěgujo"
+msgstr "Žedne ześěgnjenja"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1516,13 +1514,12 @@ msgid "Add-on note"
 msgstr "Dodankowa notica"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s dodank"
-msgstr[1] "%(total)s dodanka"
-msgstr[2] "%(total)s dodanki"
-msgstr[3] "%(total)s dodankow"
+msgstr[0] "%(total)s ześěgnjenje"
+msgstr[1] "%(total)s ześěgnjeni"
+msgstr[2] "%(total)s ześěgnjenja"
+msgstr[3] "%(total)s ześěgnjenjow"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -2662,21 +2659,19 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "WAŽNY: Lašowanje toś togo profila za dodanki Firefox njedajo se anulěrowaś."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Waše daty budu se na pśecej wótwónoźowaś, inkluziwnje profilowe drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, žywjenjoběg, pówołanje) a nastajenja powěźeńkow. Waše "
-"pśeglědanja a pógódnośenja budu se anonymizěrowaś a njebudu wěcej wobźěłujobne."
+"Waše daty budu se na pśecej wótwónoźowaś, inkluziwnje profilowe drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, žywjenjoběg, pówołanje), nastajenja powěźeńkow, "
+"pógódnośenja a zběrki."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Daty wužywarjow budu se na pśecej wótwónoźowaś, inkluziwnje profilowe drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, žywjenjoběg, pówołanje) a nastajenja powěźeńkow. "
-"Waše pśeglědanja a pógódnośenja budu se anonymizěrowaś a njebudu wěcej wobźěłujobne."
+"Daty wužywarja budu se na pśecej wótwónoźowaś, inkluziwnje profilowe drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, žywjenjoběg, pówołanje), nastajenja powěźeńkow, "
+"pógódnośenja a zběrki."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
@@ -2691,9 +2686,8 @@ msgid ""
 msgstr "Jolic wužywaŕ jo wuwił dodanki, se te teke wulašuju, snaźkuli druge awtory su teke wobsejźarje. W toś tom paźe wužywarja ako awtora wótwónoźiju a zbytne awtory wobsejźarje dodanka wóstanu."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "Gaž toś tu e-mailowu adresu wužywaśo, aby se zasej pla addons.mozilla.org pśizjawił, napórajośo nowy profil za dodanki Firefox, kótaryž njejo zwězany z profilom, kótaryž sćo wulašował."
+msgstr "Gaž toś tu e-mailowu adresu wužywaśo, aby se zasej pla addons.mozilla.org pśizjawił, waš profil za dodanki Firefox pśistup k swójomu pjerwjejšnemu wopśimjeśeju njezmějo."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
