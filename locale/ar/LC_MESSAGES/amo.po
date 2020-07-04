@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-02 06:47+0000\n"
+"PO-Revision-Date: 2020-07-04 09:53+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -183,15 +183,14 @@ msgid "Users"
 msgstr "عدد المستخدمين"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] "يُنزّل"
-msgstr[1] "يُنزّل"
-msgstr[2] "يُنزّل"
-msgstr[3] "يُنزّل"
-msgstr[4] "يُنزّل"
-msgstr[5] "يُنزّل"
+msgstr[0] "لا تنزيلات"
+msgstr[1] "تنزيل واحد"
+msgstr[2] "تنزيلان"
+msgstr[3] "تنزيلات"
+msgstr[4] "تنزيلات"
+msgstr[5] "تنزيلات"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -204,9 +203,8 @@ msgstr[4] "مستخدمًا"
 msgstr[5] "مستخدم"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "يُنزّل"
+msgstr "لا تنزيلات"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -2132,7 +2130,7 @@ msgstr "موسميّات"
 
 #: src/amo/pages/Home/index.js:201
 msgid "Change the way Firefox looks with themes."
-msgstr "غيّر شكل فَيَرفُكس باستخدامك السمات."
+msgstr "غيّر شكل فَيَرفُكس باستخدام السِمات."
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
@@ -2993,7 +2991,7 @@ msgstr "لا تقييمات بعد"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "يوصي فيرفكس ويقترح الامتدادات التي تلبي معاييرنا للأمان والأداء."
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"
