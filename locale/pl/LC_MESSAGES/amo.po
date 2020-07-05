@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-05 10:45+0000\n"
+"PO-Revision-Date: 2020-07-05 10:48+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -2657,12 +2657,16 @@ msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Wszelkie opublikowane dodatki także zostaną usunięte, chyba że autorstwo jest dzielone z innymi użytkownikami. W takim przypadku Twoje autorstwo zostanie usunięte, a pozostali autorzy zachowają "
+"własność dodatku."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Wszelkie opublikowane dodatki także zostaną usunięte, chyba że autorstwo jest dzielone z innymi użytkownikami. W takim przypadku autorstwo użytkownika zostanie usunięte, a pozostali autorzy "
+"zachowają własność dodatku."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
@@ -2799,7 +2803,7 @@ msgstr "W trakcie prac konserwacyjnych niektóre funkcje strony są tymczasowo 
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Wylogowano."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
