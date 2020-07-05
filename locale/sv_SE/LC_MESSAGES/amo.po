@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 15:56+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
+"PO-Revision-Date: 2020-07-05 11:53+0000\n"
+"Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -186,8 +186,8 @@ msgstr "Användare"
 #: src/amo/components/AddonMeta/index.js:57
 msgid "Download"
 msgid_plural "Downloads"
-msgstr[0] "Ladda ner"
-msgstr[1] "Ladda ner"
+msgstr[0] "Nedladdning"
+msgstr[1] "Nedladdningar"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -197,7 +197,7 @@ msgstr[1] "Användare"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "No Downloads"
-msgstr "Inga hämtningar"
+msgstr "Inga nedladdningar"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -2621,33 +2621,32 @@ msgstr "VIKTIGT: Att ta bort Firefox tilläggsprofil är oåterkallelig."
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Dina uppgifter kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke), aviseringsinställningar. Dina recensioner, och "
-"samlingar."
+"Dina uppgifter kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke), aviseringsinställningar, recensioner och samlingar."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Användarens data kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke), aviseringsinställningar. Dina recensioner, och "
-"samlingar."
+"Användarens data kommer att tas bort permanent, inklusive profilinformation (bild, användarnamn, visningsnamn, plats, hemsida, biografi, yrke), aviseringsinställningar, recensioner och samlingar."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Om du har skapat tillägg raderas de också om inte andra författare är ägare. I detta fall kommer du att tas bort som författare och de återstående författarna kommer att förbli ägare av tillägget."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Om användaren har skapat tillägg raderas de också om inte andra författare är ägare. I det här fallet tas användaren bort som författare och de återstående författarna förblir ägare av tillägget."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "När du använder den här e-postadressen för att logga in igen till addons.mozilla.org, skapar du en ny Firefox tilläggsprofil som inte på något sätt är associerad med den profil du raderade."
+msgstr "Om du använder den här e-postadressen för att logga in på addons.mozilla.org igen, har din Firefox-tilläggsprofil inte åtkomst till dess tidigare innehåll."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
