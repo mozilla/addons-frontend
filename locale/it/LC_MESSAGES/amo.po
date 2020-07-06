@@ -2674,11 +2674,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
 msgstr ""
-"Anche in caso riprovassi ad autenticarti su addons.mozilla.org con lo stesso indirizzo email, non sarai più in grado di accedere al profilo eliminato, ma semplicemente verrà registrato per te un "
-"nuovo profilo."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -2811,7 +2808,7 @@ msgstr "Alcune funzioni sono momentaneamente disattivate per lavori di manutenzi
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Sei stato disconnesso."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
