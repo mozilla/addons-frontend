@@ -70,7 +70,7 @@ $theme-height-legacy: 100px;
 // Instead of adding a rule for only mobile, add a mobile rule and override
 // it with `@include respond-to(medium) { [...] }`.
 $breakpoints: (
-  mediumOnly: only screen and
+  mediumOnly: screen and
     (
       min-width: 500px,
     )
@@ -78,19 +78,19 @@ $breakpoints: (
     (
       max-width: 719px,
     ),
-  medium: only screen and
+  medium: screen and
     (
       min-width: 500px,
     ),
-  large: only screen and
+  large: screen and
     (
       min-width: 720px,
     ),
-  extraLarge: only screen and
+  extraLarge: screen and
     (
       min-width: 900px,
     ),
-  extraExtraLarge: only screen and
+  extraExtraLarge: screen and
     (
       min-width: 1150px,
     ),
