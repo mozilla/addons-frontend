@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-04 09:53+0000\n"
+"PO-Revision-Date: 2020-07-08 06:34+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -956,7 +956,7 @@ msgstr "دليل المراجعات"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "فقط في فَيَرفُكس—نزِّل فَيَرفُكس الآن"
+msgstr "فقط مع فَيَرفُكس—نزِّل فَيَرفُكس الآن"
 
 #: src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -1184,14 +1184,12 @@ msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "أمتأكد من رغبتك بحذف مراجعتك لـ %(addonName)s ؟"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "أمتأكد من حذف هذه المراجعة؟"
+msgstr "أمتأكد من حذف تقييمك لـ %(addonName)s ؟"
 
 #: src/amo/components/RatingManager/index.js:183
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
-msgstr "أأنت مستمع بتجربتك مع %(addonName)s؟"
+msgstr "كيف تستمتع بتجربتك لـ %(addonName)s ؟"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
@@ -1536,15 +1534,14 @@ msgid "Add-on note"
 msgstr "ملاحظة على الإضافة"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "لا إضافات"
-msgstr[1] "إضافة واحدة"
-msgstr[2] "إضافتان"
-msgstr[3] "%(total)s إضافات"
-msgstr[4] "%(total)s إضافة"
-msgstr[5] "%(total)s إضافة"
+msgstr[0] "لا تنزيلات"
+msgstr[1] "تنزيل واحد"
+msgstr[2] "تنزيلان"
+msgstr[3] "%(total)s تنزيلات"
+msgstr[4] "%(total)s تنزيل"
+msgstr[5] "%(total)s تنزيل"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
@@ -1715,9 +1712,8 @@ msgid "About this add-on"
 msgstr "عن الإضافة هذه"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "رد المطور"
+msgstr "تعليقات المطوّر"
 
 #: src/amo/pages/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
@@ -1748,19 +1744,16 @@ msgid "Screenshots"
 msgstr "لقطات الشاشة"
 
 #: src/amo/pages/AddonInfo/index.js:154
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "مراجعات %(addonName)s"
+msgstr "ترخيص مخصص لـ %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:161
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "اتفاقية ترخيص المستخدم"
+msgstr "اتفاقية ترخيص المستخدم النهائي لـ %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:165
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "مراجعات %(addonName)s"
+msgstr "سياسة الخصوصية لـ %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1827,19 +1820,16 @@ msgid "You should always use the latest version of an add-on."
 msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:190
-#, fuzzy
 msgid "Latest version"
-msgstr "إصدارات بيتا"
+msgstr "احدث إصدار"
 
 #: src/amo/pages/AddonVersions/index.js:199
-#, fuzzy
 msgid "Older versions"
-msgstr "اطّلع على كل الإصدارات"
+msgstr "إصدارات أقدم"
 
 #: src/amo/pages/Block/index.js:115
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "اطّلع على كل الإصدارات"
+msgstr "إصدارات ممنوعة: جميع الإصدارات."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -2991,7 +2981,7 @@ msgstr "لا تقييمات بعد"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr "يوصي فيرفكس ويقترح الامتدادات التي تلبي معاييرنا للأمان والأداء."
+msgstr "يوصي فيرفكس ويقترح فقط الامتدادات التي تلبي معاييرنا للأمان والأداء."
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"
