@@ -11,6 +11,7 @@ INITIAL_GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 GIT_CHANGES=$(git status --porcelain)
 DIFF_WITH_ONE_LINE_CHANGE="1 file changed, 1 insertion(+), 1 deletion(-)"
 GIT_REMOTE="${GIT_REMOTE:-git@github.com:mozilla/addons-frontend.git}"
+LOG_FILE="l10n-extraction.log"
 
 info() {
   local message="$1"
@@ -31,6 +32,8 @@ run_l10n_extraction() {
   local app="$1"
   local branch="$app-locales"
 
+  info "Starting l10n extraction for: $app"
+
   # Detect local (uncommitted) changes.
   if [[ ! -z "$GIT_CHANGES" ]]; then
     error "You have local changes, therefore this script cannot continue."
@@ -44,6 +47,9 @@ run_l10n_extraction() {
   # Make sure the 'master' branch is up-to-date.
   git pull "$GIT_REMOTE" master
 
+  # Update dependencies
+  yarn >> "$LOG_FILE" 2>&1
+
   # Ensure the branch to extract the locales is clean.
   if [[ $(git branch --list "$branch") ]]; then
     info "Deleting branch '$branch' because it already exists"
@@ -53,13 +59,14 @@ run_l10n_extraction() {
   info "Creating and switching to branch '$branch'"
   git checkout -b "$branch"
 
-  NODE_APP_INSTANCE="$app" bin/extract-locales
+  info "Extracting locales (this can take several minutes)"
+  NODE_APP_INSTANCE="$app" bin/extract-locales >> "$LOG_FILE" 2>&1
 
   local git_diff_stat
   git_diff_stat=$(git diff --shortstat)
 
   if [[ -z "$git_diff_stat" ]] || [[ "$git_diff_stat" == *"$DIFF_WITH_ONE_LINE_CHANGE"* ]]; then
-    info "No changes, aborting"
+    info "No locale changes for $app, aborting"
     git checkout -- .
     git checkout "$INITIAL_GIT_BRANCH"
     git branch -d "$branch"
@@ -68,7 +75,8 @@ run_l10n_extraction() {
 
   git commit -a -m "Extract $app locales"
 
-  NODE_APP_INSTANCE="$app" bin/merge-locales
+  info "Merging locales"
+  NODE_APP_INSTANCE="$app" bin/merge-locales >> "$LOG_FILE" 2>&1
 
   git commit -a -m "Merge $app locales"
 
@@ -86,6 +94,9 @@ run_l10n_extraction() {
   echo ""
   echo "----------------------------------------------------------------------"
 }
+
+# Clear log file
+echo "" > "$LOG_FILE"
 
 run_l10n_extraction "amo"
 run_l10n_extraction "disco"
