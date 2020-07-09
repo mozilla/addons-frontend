@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-08 06:34+0000\n"
+"PO-Revision-Date: 2020-07-09 08:15+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1875,14 +1875,12 @@ msgid "View block request"
 msgstr ""
 
 #: src/amo/pages/CategoriesPage/index.js:35
-#, fuzzy
 msgid "All extension categories"
-msgstr "تصفح كل الامتدادات في هذه الفئة."
+msgstr "جميع فئات الامتدادات"
 
 #: src/amo/pages/CategoriesPage/index.js:37
-#, fuzzy
 msgid "All theme categories"
-msgstr "استكشِف كل الأقسام"
+msgstr "جميع فئات السمات"
 
 #: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
@@ -2085,9 +2083,8 @@ msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
 msgstr "رجاءً اتبع %(linkStart)sإرشادات المراجعات%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:98
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "احجب الإعلانات"
+msgstr "حجب الإعلانات المزعجة"
 
 #: src/amo/pages/Guides/index.js:99
 msgid ""
