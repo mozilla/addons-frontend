@@ -13,7 +13,7 @@ import InstallWarning from 'amo/components/InstallWarning';
 import { INSTALL_SOURCE_GUIDES_PAGE } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
 import Card from 'ui/components/Card';
-import RecommendedBadge from 'ui/components/RecommendedBadge';
+import PromotedBadge from 'ui/components/PromotedBadge';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
 
@@ -65,7 +65,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                     />
                   </span>
                   {addon && addon.is_recommended && (
-                    <RecommendedBadge size="small" />
+                    <PromotedBadge category="recommended" size="small" />
                   )}
                 </div>
               </div>

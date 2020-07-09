@@ -20,7 +20,7 @@ import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
-import RecommendedBadge from 'ui/components/RecommendedBadge';
+import PromotedBadge from 'ui/components/PromotedBadge';
 import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -163,7 +163,8 @@ export class SearchResultBase extends React.Component<InternalProps> {
               addon &&
               addon.is_recommended &&
               clientApp !== CLIENT_APP_ANDROID ? (
-                <RecommendedBadge
+                <PromotedBadge
+                  category="recommended"
                   onClick={(e) => e.stopPropagation()}
                   size="small"
                 />

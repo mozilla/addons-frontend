@@ -7,7 +7,7 @@ import { ADDON_TYPE_EXTENSION, CLIENT_APP_ANDROID } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { isQuantumCompatible } from 'core/utils/compatibility';
 import Badge from 'ui/components/Badge';
-import RecommendedBadge from 'ui/components/RecommendedBadge';
+import PromotedBadge from 'ui/components/PromotedBadge';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -39,7 +39,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
     return (
       <div className="AddonBadges">
         {addon.is_recommended && clientApp !== CLIENT_APP_ANDROID ? (
-          <RecommendedBadge size="large" />
+          <PromotedBadge category="recommended" size="large" />
         ) : null}
         {addon.isRestartRequired ? (
           <Badge

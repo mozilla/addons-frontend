@@ -27,7 +27,7 @@ import {
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
-import RecommendedBadge from 'ui/components/RecommendedBadge';
+import PromotedBadge from 'ui/components/PromotedBadge';
 
 describe(__filename, () => {
   const baseAddon = createInternalAddon({
@@ -461,10 +461,10 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find(RecommendedBadge)).toHaveLength(1);
+    expect(root.find(PromotedBadge)).toHaveLength(1);
   });
 
-  it('passes an onClick function which stops propagation to RecommendedBadge', () => {
+  it('passes an onClick function which stops propagation to PromotedBadge', () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeAddon,
@@ -473,7 +473,7 @@ describe(__filename, () => {
     });
 
     const clickEvent = createFakeEvent();
-    root.find(RecommendedBadge).simulate('click', clickEvent);
+    root.find(PromotedBadge).simulate('click', clickEvent);
 
     sinon.assert.called(clickEvent.stopPropagation);
   });
@@ -487,7 +487,7 @@ describe(__filename, () => {
       showRecommendedBadge: false,
     });
 
-    expect(root.find(RecommendedBadge)).toHaveLength(0);
+    expect(root.find(PromotedBadge)).toHaveLength(0);
   });
 
   it('does not display a recommended badge on Android', () => {
@@ -503,7 +503,7 @@ describe(__filename, () => {
       store,
     });
 
-    expect(root.find(RecommendedBadge)).toHaveLength(0);
+    expect(root.find(PromotedBadge)).toHaveLength(0);
   });
 
   it('does not display a recommended badge when the addon is not recommended', () => {
@@ -514,7 +514,7 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find(RecommendedBadge)).toHaveLength(0);
+    expect(root.find(PromotedBadge)).toHaveLength(0);
   });
 
   it('sets an extra css class to the icon wrapper when there is no theme image', () => {

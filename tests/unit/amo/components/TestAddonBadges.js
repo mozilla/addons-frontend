@@ -16,7 +16,7 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Badge from 'ui/components/Badge';
-import RecommendedBadge from 'ui/components/RecommendedBadge';
+import PromotedBadge from 'ui/components/PromotedBadge';
 
 describe(__filename, () => {
   function shallowRender(props) {
@@ -51,7 +51,7 @@ describe(__filename, () => {
     });
     const root = shallowRender({ addon });
 
-    expect(root.find(RecommendedBadge)).toHaveLength(1);
+    expect(root.find(PromotedBadge)).toHaveLength(1);
   });
 
   it('does not display a recommended badge on Android', () => {
@@ -66,7 +66,7 @@ describe(__filename, () => {
     });
     const root = shallowRender({ addon, store });
 
-    expect(root.find(RecommendedBadge)).toHaveLength(0);
+    expect(root.find(PromotedBadge)).toHaveLength(0);
   });
 
   it('displays a badge when the addon needs restart', () => {

@@ -9,6 +9,6 @@ import './amo/HeroRecommendation';
 import './core/AMInstallButton';
 import './ui/Badge';
 import './ui/Button';
-import './ui/IconRecommendedBadge';
+import './ui/IconPromotedBadge';
 import './ui/Rating';
-import './ui/RecommendedBadge';
+import './ui/PromotedBadge';
