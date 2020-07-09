@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-09 08:15+0000\n"
+"PO-Revision-Date: 2020-07-09 08:16+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -2497,9 +2497,8 @@ msgid "User Profile for %(user)s"
 msgstr "ملف المستخدم %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:339
-#, fuzzy
 msgid "User Profile"
-msgstr "حدّث الملف الشخصي"
+msgstr "الملف الشخصي للمستخدم"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:692
 msgid "Location"
