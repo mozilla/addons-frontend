@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-03 12:57+0000\n"
+"PO-Revision-Date: 2020-07-10 18:20+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2477,9 +2477,8 @@ msgid "Creating your profile…"
 msgstr "మీ ప్రొఫైలును తాజాకరిస్తోంది…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "నా ప్రొఫైలును తాజాకరించు"
+msgstr "నా ప్రొఫైలును సృష్టించు"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
