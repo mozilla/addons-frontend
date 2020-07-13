@@ -687,6 +687,7 @@ describe(__filename, () => {
     expect(button).toHaveLength(1);
     expect(button.dive()).toHaveText('Delete My Profile');
     expect(button).toHaveProp('disabled', false);
+    expect(button).toHaveProp('buttonType', 'alert');
   });
 
   it('renders an update button with a different text when user is not the logged-in user', () => {

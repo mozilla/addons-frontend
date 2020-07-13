@@ -807,7 +807,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     {submitButtonText}
                   </Button>
                   <Button
-                    buttonType="neutral"
+                    buttonType="alert"
                     className="UserProfileEdit-button UserProfileEdit-delete-button"
                     disabled={!user}
                     onClick={this.onDeleteProfile}
