@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-03 08:58+0000\n"
-"Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
+"PO-Revision-Date: 2020-07-13 22:12+0000\n"
+"Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -2102,11 +2102,11 @@ msgstr "Більше популярних розширень"
 
 #: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
-msgstr "Більше розширень для покращення приватності"
+msgstr "Більше розширень для поліпшення приватності"
 
 #: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
-msgstr "Розширення для покращення приватності"
+msgstr "Розширення для поліпшення приватності"
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
@@ -2134,7 +2134,7 @@ msgstr "Завантажуйте теми, щоб змінити зовнішн�
 
 #: src/amo/pages/LandingPage/index.js:211
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr "Завантажуйте розширення для Firefox, щоб додати функції та покращити роботу. Зберігайте паролі, знаходьте пропозиції, вдосконалюйте відео, а також блокуйте надокучливу рекламу."
+msgstr "Завантажуйте розширення для Firefox, щоб додати функції та поліпшити роботу. Зберігайте паролі, знаходьте пропозиції, вдосконалюйте відео, а також блокуйте надокучливу рекламу."
 
 #: src/amo/pages/LandingPage/index.js:233
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2289,7 +2289,7 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
-"Допоможіть покращити цей вебсайт. Він має відкритий код і ви можете повідомляти про проблеми та надсилати виправлення. Ви можете почати з %(startGoodFirstBugLink)sкорисного першого "
+"Допоможіть поліпшити цей вебсайт. Він має відкритий код і ви можете повідомляти про проблеми та надсилати виправлення. Ви можете почати з %(startGoodFirstBugLink)sкорисного першого "
 "звіту%(endGoodFirstBugLink)s, або переглянути всі відкриті звіти для %(startAddonsServerRepoLink)sсервера%(endAddonsServerRepoLink)s та "
 "%(startAddonsFrontendRepoLink)sінтерфейсу%(endAddonsFrontendRepoLink)s AMO на Github."
 
