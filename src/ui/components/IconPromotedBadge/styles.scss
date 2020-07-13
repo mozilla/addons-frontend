@@ -1,0 +1,87 @@
+@import '~ui/css/styles';
+@import '~ui/components/Icon/vars';
+
+$icon-promoted-large-size: 24px;
+$icon-promoted-small-size: 16px;
+
+.IconPromotedBadge {
+  box-sizing: border-box;
+  display: flex;
+  height: auto;
+  width: auto;
+}
+
+.IconPromotedBadge-svg {
+  box-sizing: border-box;
+  height: $default-icon-size;
+  width: $default-icon-size;
+}
+
+.IconPromotedBadge-shellPath--line {
+  fill: $grey-40;
+}
+
+.IconPromotedBadge-shellPath--recommended {
+  fill: $orange-50;
+}
+
+.IconPromotedBadge-shellPath--verified {
+  fill: $green-70;
+}
+
+.IconPromotedBadge-iconPath {
+  transform-origin: 50% 50%;
+}
+
+.IconPromotedBadge-iconPath--line {
+  fill: $black;
+}
+
+.IconPromotedBadge-iconPath--recommended,
+.IconPromotedBadge-iconPath--verified {
+  fill: $white;
+}
+
+.IconPromotedBadge-large {
+  .IconPromotedBadge-svg {
+    height: $icon-promoted-large-size;
+    width: $icon-promoted-large-size;
+  }
+
+  .IconPromotedBadge-iconPath--line {
+    // Nudge the logo into the center of the circle.
+    transform: translate(5px, 5px) scale(1.2);
+  }
+
+  .IconPromotedBadge-iconPath--recommended {
+    // Nudge the trophy into the center of the circle.
+    transform: translate(2px, 2.5px) scale(1.1);
+  }
+
+  .IconPromotedBadge-iconPath--verified {
+    // Nudge the checkmark into the center of the circle.
+    transform: translate(4px, 4px) scale(1.1);
+  }
+}
+
+.IconPromotedBadge-small {
+  .IconPromotedBadge-svg {
+    height: $icon-promoted-small-size;
+    width: $icon-promoted-small-size;
+  }
+
+  .IconPromotedBadge-iconPath--line {
+    // Nudge the logo into the center of the circle.
+    transform: scale(0.75);
+  }
+
+  .IconPromotedBadge-iconPath--recommended {
+    // Nudge the trophy into the center of the circle.
+    transform: translate(-1.5px, -1.5px) scale(0.8);
+  }
+
+  .IconPromotedBadge-iconPath--verified {
+    // Nudge the checkmark into the center of the circle.
+    transform: translate(-0.5px, 0) scale(0.8);
+  }
+}

@@ -16,7 +16,7 @@ import {
   fakeAddon,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import RecommendedBadge from 'ui/components/RecommendedBadge';
+import PromotedBadge from 'ui/components/PromotedBadge';
 
 describe(__filename, () => {
   const _loadAddonResults = ({ addon = fakeAddon }) => {
@@ -104,18 +104,18 @@ describe(__filename, () => {
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
   });
 
-  it('renders a RecommendedBadge when the add-on is recommended', () => {
+  it('renders a PromotedBadge when the add-on is recommended', () => {
     const root = render({
       addon: createInternalAddon({ ...fakeAddon, is_recommended: true }),
     });
-    expect(root.find(RecommendedBadge)).toHaveLength(1);
+    expect(root.find(PromotedBadge)).toHaveLength(1);
   });
 
-  it('does not render a RecommendedBadge when the add-on is not recommended', () => {
+  it('does not render a PromotedBadge when the add-on is not recommended', () => {
     const root = render({
       addon: createInternalAddon({ ...fakeAddon, is_recommended: false }),
     });
-    expect(root.find(RecommendedBadge)).toHaveLength(0);
+    expect(root.find(PromotedBadge)).toHaveLength(0);
   });
 
   it('passes the addon to AddonTitle', () => {

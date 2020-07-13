@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import { CLIENT_APP_ANDROID } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Icon from 'ui/components/Icon';
-import IconRecommendedBadge from 'ui/components/IconRecommendedBadge';
+import IconPromotedBadge from 'ui/components/IconPromotedBadge';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
@@ -48,8 +48,9 @@ export const SearchSuggestionBase = ({
         {loading ? <LoadingText minWidth={20} range={12} /> : name}
       </span>
       {isRecommended && clientApp !== CLIENT_APP_ANDROID && (
-        <IconRecommendedBadge
+        <IconPromotedBadge
           alt={i18n.gettext('Recommended')}
+          category="recommended"
           className="SearchSuggestion-icon-recommended"
           size="small"
         />
