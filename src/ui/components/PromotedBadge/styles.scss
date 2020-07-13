@@ -120,12 +120,8 @@
 }
 
 .PromotedBadge-label {
-  @include margin-start(2px);
+  @include margin-start(6px);
   @include margin-end(8px);
-
-  .PromotedBadge-large & {
-    @include margin-start(6px);
-  }
 }
 
 .PromotedBadge-label--line {
@@ -133,13 +129,7 @@
 }
 
 .PromotedBadge-label--recommended {
-  color: $orange-50;
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: $orange-60;
-  }
+  color: $orange-80;
 }
 
 .PromotedBadge-label--verified {
