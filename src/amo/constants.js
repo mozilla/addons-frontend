@@ -15,8 +15,9 @@ export type FlagReviewReasonType =
   | typeof REVIEW_FLAG_REASON_OTHER;
 
 // Number of add-ons in the recommended, trending, and highest rated landing page
-// sections.
+// sections, as well as the promoted shelf.
 export const LANDING_PAGE_EXTENSION_COUNT = 4;
 export const LANDING_PAGE_THEME_COUNT = 3;
+export const LANDING_PAGE_PROMOTED_EXTENSION_COUNT = 6;
 
 export const DOWNLOAD_FIREFOX_BASE_URL = 'https://www.mozilla.org/firefox/new/';
