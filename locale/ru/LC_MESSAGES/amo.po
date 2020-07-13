@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-01 14:35+0000\n"
-"Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
+"PO-Revision-Date: 2020-07-12 17:17+0000\n"
+"Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -185,12 +185,11 @@ msgid "Users"
 msgstr "Пользователей"
 
 #: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
 msgid "Download"
 msgid_plural "Downloads"
 msgstr[0] "Загрузка"
-msgstr[1] "Загрузка"
-msgstr[2] "Загрузка"
+msgstr[1] "Загрузки"
+msgstr[2] "Загрузок"
 
 #: src/amo/components/AddonMeta/index.js:58
 msgid "User"
@@ -200,9 +199,8 @@ msgstr[1] "Пользователя"
 msgstr[2] "Пользователей"
 
 #: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
 msgid "No Downloads"
-msgstr "Загрузка"
+msgstr "Нет загрузок"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "No Users"
@@ -1501,12 +1499,11 @@ msgid "Add-on note"
 msgstr "Замечание к дополнению"
 
 #: src/amo/components/SearchResult/index.js:210
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s дополнение"
-msgstr[1] "%(total)s дополнения"
-msgstr[2] "%(total)s дополнений"
+msgstr[0] "%(total)s загрузка"
+msgstr[1] "%(total)s загрузки"
+msgstr[2] "%(total)s загрузок"
 
 #: src/amo/components/SearchResult/index.js:215
 msgid "%(total)s user"
