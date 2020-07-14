@@ -31,6 +31,8 @@ import './styles.scss';
 type Props = {|
   addon?: AddonType | CollectionAddonType,
   addonInstallSource?: string,
+  onClick?: (addon: AddonType | CollectionAddonType) => void,
+  onImpression?: (addon: AddonType | CollectionAddonType) => void,
   showMetadata?: boolean,
   showRecommendedBadge?: boolean,
   showSummary?: boolean,
@@ -70,11 +72,16 @@ export class SearchResultBase extends React.Component<InternalProps> {
       addonInstallSource,
       clientApp,
       i18n,
+      onImpression,
       showMetadata,
       showRecommendedBadge,
       showSummary,
       useThemePlaceholder,
     } = this.props;
+
+    if (addon && onImpression) {
+      onImpression(addon);
+    }
 
     const averageDailyUsers = addon ? addon.average_daily_users : null;
 
@@ -231,12 +238,23 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 
   onClickResult = () => {
-    const { addon, addonInstallSource, clientApp, history, lang } = this.props;
+    const {
+      addon,
+      addonInstallSource,
+      clientApp,
+      history,
+      lang,
+      onClick,
+    } = this.props;
 
     if (addon) {
       history.push(
         `/${lang}/${clientApp}${this.getAddonLink(addon, addonInstallSource)}`,
       );
+
+      if (onClick) {
+        onClick(addon);
+      }
     }
   };
 

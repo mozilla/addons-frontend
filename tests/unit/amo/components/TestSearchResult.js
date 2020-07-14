@@ -43,6 +43,7 @@ describe(__filename, () => {
     addon = baseAddon,
     history = createFakeHistory(),
     lang = 'en-GB',
+    noAddon = false,
     store = dispatchClientMetadata({
       clientApp: CLIENT_APP_FIREFOX,
     }).store,
@@ -50,7 +51,7 @@ describe(__filename, () => {
   } = {}) {
     return shallowUntilTarget(
       <SearchResult
-        addon={addon}
+        addon={noAddon ? undefined : addon}
         i18n={fakeI18n({ lang })}
         store={store}
         {...props}
@@ -229,6 +230,43 @@ describe(__filename, () => {
     );
   });
 
+  it('calls the custom onClick handler, passing the addon', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const onClick = sinon.spy();
+
+    const root = render({ addon, onClick });
+
+    const clickHandler = root.find('.SearchResult').prop('onClick');
+    clickHandler();
+
+    sinon.assert.calledWith(onClick, addon);
+  });
+
+  it('does not call the custom onClick handler without an addon', () => {
+    const onClick = sinon.spy();
+
+    render({ noAddon: true, onClick });
+
+    sinon.assert.notCalled(onClick);
+  });
+
+  it('calls the custom onImpression handler, passing the addon', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const onImpression = sinon.spy();
+
+    render({ addon, onImpression });
+
+    sinon.assert.calledWith(onImpression, addon);
+  });
+
+  it('does not call the custom onImpression handler without an addon', () => {
+    const onImpression = sinon.spy();
+
+    render({ noAddon: true, onImpression });
+
+    sinon.assert.notCalled(onImpression);
+  });
+
   it('renders the star ratings', () => {
     const root = render();
 
@@ -267,7 +305,7 @@ describe(__filename, () => {
   });
 
   it('adds a theme-specific class when useThemePlaceholder is true and it is loading', () => {
-    const root = render({ addon: null, useThemePlaceholder: true });
+    const root = render({ noAddon: true, useThemePlaceholder: true });
 
     expect(root).toHaveClassName('SearchResult--theme');
   });
@@ -298,15 +336,13 @@ describe(__filename, () => {
   });
 
   it('renders an empty string for the image alt tag while there is no addon', () => {
-    const root = render({
-      addon: {},
-    });
+    const root = render({ noAddon: true });
 
-    expect(root.find('.SearchResult-icon')).not.toHaveProp('alt', '');
+    expect(root.find('.SearchResult-icon')).toHaveProp('alt', '');
   });
 
   it('renders a loading class name while there is no addon', () => {
-    const root = render({ addon: null });
+    const root = render({ noAddon: true });
 
     expect(root.find('.SearchResult-icon')).toHaveClassName(
       '.SearchResult-icon--loading',
@@ -381,7 +417,7 @@ describe(__filename, () => {
   });
 
   it('renders placeholders without an addon', () => {
-    const root = render({ addon: null });
+    const root = render({ noAddon: true });
 
     // Since there's no add-on, there shouldn't be a link.
     expect(root.find('.SearchResult-link')).toHaveLength(0);
@@ -533,7 +569,7 @@ describe(__filename, () => {
   });
 
   it('sets an extra css class to the icon wrapper when there is no add-on and we want to use a theme placeholder', () => {
-    const root = render({ addon: null, useThemePlaceholder: true });
+    const root = render({ noAddon: true, useThemePlaceholder: true });
 
     expect(root.find('.SearchResult-icon-wrapper')).toHaveLength(1);
     expect(
@@ -542,7 +578,7 @@ describe(__filename, () => {
   });
 
   it('does not set an extra css class to the icon wrapper when there is no add-on and we do not want to use a theme placeholder', () => {
-    const root = render({ addon: null, useThemePlaceholder: false });
+    const root = render({ noAddon: true, useThemePlaceholder: false });
 
     expect(root.find('.SearchResult-icon-wrapper')).toHaveLength(1);
     expect(
@@ -551,7 +587,7 @@ describe(__filename, () => {
   });
 
   it('renders a "notheme" placeholder when there is no add-on and we want to use a theme placeholder', () => {
-    const root = render({ addon: null, useThemePlaceholder: true });
+    const root = render({ noAddon: true, useThemePlaceholder: true });
 
     expect(root.find('.SearchResult-notheme')).toIncludeText(
       'No theme preview available',
@@ -559,7 +595,7 @@ describe(__filename, () => {
   });
 
   it('does not render a "notheme" placeholder when there is no add-on and we do not want to use a theme placeholder', () => {
-    const root = render({ addon: null, useThemePlaceholder: false });
+    const root = render({ noAddon: true, useThemePlaceholder: false });
 
     expect(root.find('.SearchResult-notheme')).not.toIncludeText(
       'No theme preview available',
