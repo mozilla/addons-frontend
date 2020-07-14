@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-06-30 16:28+0000\n"
-"PO-Revision-Date: 2020-07-09 08:16+0000\n"
+"PO-Revision-Date: 2020-07-14 06:20+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -1761,27 +1761,27 @@ msgstr "مراجعات وتقييمات ٪ (addonName)s. تعرف على رأي 
 
 #: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show all reviews"
-msgstr "اعرض جميع المراجعات"
+msgstr "عرض جميع المراجعات"
 
 #: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only five-star reviews"
-msgstr "اعرض مراجعات الخمس نجوم فقط"
+msgstr "عرض مراجعات الخمس نجوم فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show only four-star reviews"
-msgstr "اعرض مراجعات الأربع نجوم فقط"
+msgstr "عرض مراجعات الأربع نجوم فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only three-star reviews"
-msgstr "اعرض مراجعات الثلاث نجوم فقط"
+msgstr "عرض مراجعات الثلاث نجوم فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only two-star reviews"
-msgstr "اعرض مراجعات النجمتين فقط"
+msgstr "عرض مراجعات النجمتين فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only one-star reviews"
-msgstr "اعرض مراجعات النجمة الواحدة فقط"
+msgstr "عرض مراجعات النجمة الواحدة فقط"
 
 #: src/amo/pages/AddonReviewList/index.js:279
 msgid "Reviews for %(addonName)s"
