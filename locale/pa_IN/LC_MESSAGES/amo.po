@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-30 16:28+0000\n"
+"POT-Creation-Date: 2020-07-14 17:06+0000\n"
 "PO-Revision-Date: 2020-06-21 19:57+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -934,11 +934,11 @@ msgid "Flagged as a bug report or support request"
 msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1637,18 +1637,18 @@ msgstr "ਐਡ-ਆਨ ਪੇਜ ਤੇ ਜਾਓ"
 msgid "No theme preview available"
 msgstr "ਕੋਈ ਥੀਮ ਝਲਕ ਨਹੀਂ ਹੈ"
 
-#: src/amo/components/SearchResult/index.js:191
+#: src/amo/components/SearchResult/index.js:192
 msgid "Add-on note"
 msgstr "ਐਡ-ਆਨ ਨੋਟ"
 
-#: src/amo/components/SearchResult/index.js:210
+#: src/amo/components/SearchResult/index.js:211
 #, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
 msgstr[0] "%(total)s ਐਡ-ਆਨ"
 msgstr[1] "%(total)s ਐਡ-ਆਨ"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:216
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ਵਰਤੋਂਕਾਰ"
@@ -1667,7 +1667,7 @@ msgid "No results were found."
 msgstr "ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ।"
 
 #: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/RecommendedBadge/index.js:28
+#: src/ui/components/PromotedBadge/index.js:49
 msgid "Recommended"
 msgstr "ਸਿਫ਼ਾਰਸ਼ੀ"
 
@@ -3429,6 +3429,29 @@ msgstr "%(param)s ਲਈ ਆਪਣਾ ਡੇਟਾ ਐਕਸੈਸ ਕਰੋ"
 msgid "Dismiss this notice"
 msgstr "ਇਸ ਨੋਟਿਸ ਨੂੰ ਖਾਰਜ ਕਰੋ"
 
+#: src/ui/components/PromotedBadge/index.js:40
+#, fuzzy
+msgid "By Firefox"
+msgstr "ਫਾਇਰਫਾਕਸ ਲਈ"
+
+#: src/ui/components/PromotedBadge/index.js:42
+#: src/ui/components/PromotedBadge/index.js:50
+#: src/ui/components/PromotedBadge/index.js:62
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ "
+"ਹਨ।"
+
+#: src/ui/components/PromotedBadge/index.js:59
+msgid "Verified Sponsor"
+msgstr ""
+
+#: src/ui/components/PromotedBadge/index.js:60
+msgid "Verified"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "ਆਪਣੀ ਰੇਟਿੰਗ ਨੂੰ 5 ਤੋਂ ਬਾਹਰ %(starRating)s ਦੇ ਅਨੁਸਾਰ ਅਪਡੇਟ ਕਰੋ"
@@ -3444,14 +3467,6 @@ msgstr "5 ਵਿੱਚੋਂ %(rating)s ਦਰਜਾ ਦਿੱਤਾ"
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr "ਹਾਲੇ ਤੱਕ ਕੋਈ ਰੇਟਿੰਗ ਨਹੀਂ ਹਨ"
-
-#: src/ui/components/RecommendedBadge/index.js:43
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ "
-"ਹਨ।"
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"

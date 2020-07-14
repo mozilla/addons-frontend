@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-30 16:28+0000\n"
+"POT-Creation-Date: 2020-07-14 17:06+0000\n"
 "PO-Revision-Date: 2020-06-04 03:50+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
@@ -946,12 +946,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Semnalat(ă) ca raport de eroare sau cerere de asistență"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Semnalat(ă)"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Semnalează"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Semnalat(ă)"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1674,11 +1674,11 @@ msgstr "Mergi pe pagina suplimentului"
 msgid "No theme preview available"
 msgstr "Nu este disponibilă nicio previzualizare a temei"
 
-#: src/amo/components/SearchResult/index.js:191
+#: src/amo/components/SearchResult/index.js:192
 msgid "Add-on note"
 msgstr "Notă la supliment"
 
-#: src/amo/components/SearchResult/index.js:210
+#: src/amo/components/SearchResult/index.js:211
 #, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
@@ -1686,7 +1686,7 @@ msgstr[0] "%(total)s supliment"
 msgstr[1] "%(total)s suplimente"
 msgstr[2] "%(total)s de suplimente"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:216
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s utilizator"
@@ -1706,7 +1706,7 @@ msgid "No results were found."
 msgstr "Niciun rezultat găsit."
 
 #: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/RecommendedBadge/index.js:28
+#: src/ui/components/PromotedBadge/index.js:49
 msgid "Recommended"
 msgstr "Recomandate"
 
@@ -3552,6 +3552,29 @@ msgstr "Să îți acceseze datele pentru %(param)s"
 msgid "Dismiss this notice"
 msgstr "Respinge această notificare"
 
+#: src/ui/components/PromotedBadge/index.js:40
+#, fuzzy
+msgid "By Firefox"
+msgstr "pentru Firefox"
+
+#: src/ui/components/PromotedBadge/index.js:42
+#: src/ui/components/PromotedBadge/index.js:50
+#: src/ui/components/PromotedBadge/index.js:62
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox recomandă numai extensii care respectă standardele noastre de "
+"securitate și performanță."
+
+#: src/ui/components/PromotedBadge/index.js:59
+msgid "Verified Sponsor"
+msgstr ""
+
+#: src/ui/components/PromotedBadge/index.js:60
+msgid "Verified"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Actualizează-ți evaluarea la %(starRating)s din 5"
@@ -3567,14 +3590,6 @@ msgstr "Evaluat(ă) cu %(rating)s din 5 stele"
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr "Nu există încă evaluări"
-
-#: src/ui/components/RecommendedBadge/index.js:43
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox recomandă numai extensii care respectă standardele noastre de "
-"securitate și performanță."
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"
