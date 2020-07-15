@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-07-15 18:37+0000\n"
+"PO-Revision-Date: 2020-07-15 19:01+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -68,7 +68,7 @@ msgstr "పేజ్ కనబడలేదు"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "క్షమించండి, కానీ మీరు ఎంటర్ చేసిన URL లో దేన్నీ కనుగొనలేకపోయాము."
+msgstr "క్షమించండి, కానీ మీరు ఇచ్చిన URL వద్ద ఏమీ కనబడలేదు."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
