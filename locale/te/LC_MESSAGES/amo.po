@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-14 17:06+0000\n"
-"PO-Revision-Date: 2020-07-15 19:10+0000\n"
+"PO-Revision-Date: 2020-07-15 19:11+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2064,14 +2064,12 @@ msgid "See more trending extensions"
 msgstr "మరిన్ని ట్రెండవుతూన్న పొడగింతలను చూడండి"
 
 #: src/amo/pages/Home/index.js:58
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "మరిన్ని విశేష పొడిగింతలను చూడండి"
+msgstr "మెరుగైన గోప్యత పొడగింతలను ఇంకా చూడండి"
 
 #: src/amo/pages/Home/index.js:59
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
+msgstr "మెరుగైన గోప్యతా పొడగింతలు"
 
 #: src/amo/pages/Home/index.js:64
 #, fuzzy
