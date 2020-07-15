@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-30 16:28+0000\n"
+"POT-Creation-Date: 2020-07-14 17:06+0000\n"
 "PO-Revision-Date: 2019-12-22 18:01+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
@@ -941,12 +941,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Marcado como informe de error o solicitud de ayuda"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Etiquetado"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Etiquetar"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Etiquetado"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1664,18 +1664,18 @@ msgstr "Ir a la página del complemento"
 msgid "No theme preview available"
 msgstr "Vista previa del tema no disponible"
 
-#: src/amo/components/SearchResult/index.js:191
+#: src/amo/components/SearchResult/index.js:192
 msgid "Add-on note"
 msgstr "Nota del complemento"
 
-#: src/amo/components/SearchResult/index.js:210
+#: src/amo/components/SearchResult/index.js:211
 #, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
 msgstr[0] "%(total)s complemento"
 msgstr[1] "%(total)s complementos"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:216
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s usuario"
@@ -1694,7 +1694,7 @@ msgid "No results were found."
 msgstr "No se encontró ningún resultado."
 
 #: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/RecommendedBadge/index.js:28
+#: src/ui/components/PromotedBadge/index.js:49
 msgid "Recommended"
 msgstr "Recomendados"
 
@@ -3520,6 +3520,29 @@ msgstr "Acceder a tus datos para %(param)s"
 msgid "Dismiss this notice"
 msgstr "Ignorar este aviso"
 
+#: src/ui/components/PromotedBadge/index.js:40
+#, fuzzy
+msgid "By Firefox"
+msgstr "para Firefox"
+
+#: src/ui/components/PromotedBadge/index.js:42
+#: src/ui/components/PromotedBadge/index.js:50
+#: src/ui/components/PromotedBadge/index.js:62
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox solo recomienda extensiones que cumplen nuestros estándares de "
+"seguridad y rendimiento."
+
+#: src/ui/components/PromotedBadge/index.js:59
+msgid "Verified Sponsor"
+msgstr ""
+
+#: src/ui/components/PromotedBadge/index.js:60
+msgid "Verified"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Actualizar tu valoración a %(starRating)s de 5"
@@ -3535,14 +3558,6 @@ msgstr "Se valoró con %(rating)s de 5"
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr "Todavía no hay valoraciones"
-
-#: src/ui/components/RecommendedBadge/index.js:43
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox solo recomienda extensiones que cumplen nuestros estándares de "
-"seguridad y rendimiento."
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"

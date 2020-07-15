@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-30 16:28+0000\n"
+"POT-Creation-Date: 2020-07-14 17:06+0000\n"
 "PO-Revision-Date: 2018-11-21 10:22+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -934,12 +934,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ditanda sebagai laporan pepijat atau permintaan sokongan"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Ditanda"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Tanda"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Ditanda"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1660,17 +1660,17 @@ msgstr "Pergi ke halaman add-on"
 msgid "No theme preview available"
 msgstr "Tiada previu tema tersedia"
 
-#: src/amo/components/SearchResult/index.js:191
+#: src/amo/components/SearchResult/index.js:192
 msgid "Add-on note"
 msgstr "Nota add-on"
 
-#: src/amo/components/SearchResult/index.js:210
+#: src/amo/components/SearchResult/index.js:211
 #, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
 msgstr[0] "%(total)s add-on"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:216
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s pengguna"
@@ -1688,7 +1688,7 @@ msgid "No results were found."
 msgstr "Tiada hasil ditemukan."
 
 #: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/RecommendedBadge/index.js:28
+#: src/ui/components/PromotedBadge/index.js:49
 #, fuzzy
 msgid "Recommended"
 msgstr "Komen pengguna"
@@ -3507,6 +3507,27 @@ msgstr "Akses data anda untuk %(param)s"
 msgid "Dismiss this notice"
 msgstr "Abaikan notis ini"
 
+#: src/ui/components/PromotedBadge/index.js:40
+#, fuzzy
+msgid "By Firefox"
+msgstr "untuk Firefox"
+
+#: src/ui/components/PromotedBadge/index.js:42
+#: src/ui/components/PromotedBadge/index.js:50
+#: src/ui/components/PromotedBadge/index.js:62
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+
+#: src/ui/components/PromotedBadge/index.js:59
+msgid "Verified Sponsor"
+msgstr ""
+
+#: src/ui/components/PromotedBadge/index.js:60
+msgid "Verified"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Kemaskini tahap anda ke %(starRating)s daripada 5"
@@ -3522,12 +3543,6 @@ msgstr "Tahap %(rating)s daripada 5"
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr "Tiada penarafan lagi"
-
-#: src/ui/components/RecommendedBadge/index.js:43
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"

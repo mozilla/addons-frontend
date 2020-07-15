@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-30 16:28+0000\n"
+"POT-Creation-Date: 2020-07-14 17:06+0000\n"
 "PO-Revision-Date: 2020-03-07 19:18+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
@@ -939,12 +939,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Anmeldt som fejlrapport eller support-spørgsmål"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Anmeldt"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Anmeld"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Anmeldt"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1660,18 +1660,18 @@ msgstr "Gå til tilføjelsens side"
 msgid "No theme preview available"
 msgstr "Det er ikke muligt, at forhåndsvise tema"
 
-#: src/amo/components/SearchResult/index.js:191
+#: src/amo/components/SearchResult/index.js:192
 msgid "Add-on note"
 msgstr "Tilføjelses-note"
 
-#: src/amo/components/SearchResult/index.js:210
+#: src/amo/components/SearchResult/index.js:211
 #, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
 msgstr[0] "%(total)s tilføjelse"
 msgstr[1] "%(total)s tilføjelser"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:216
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s bruger"
@@ -1690,7 +1690,7 @@ msgid "No results were found."
 msgstr "Der blev ikke fundet nogen."
 
 #: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/RecommendedBadge/index.js:28
+#: src/ui/components/PromotedBadge/index.js:49
 msgid "Recommended"
 msgstr "Anbefalet"
 
@@ -3402,6 +3402,29 @@ msgstr "Tilgå dine data for %(param)s"
 msgid "Dismiss this notice"
 msgstr "Afvis denne meddelelse"
 
+#: src/ui/components/PromotedBadge/index.js:40
+#, fuzzy
+msgid "By Firefox"
+msgstr "til Firefox"
+
+#: src/ui/components/PromotedBadge/index.js:42
+#: src/ui/components/PromotedBadge/index.js:50
+#: src/ui/components/PromotedBadge/index.js:62
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox anbefaler kun udvidelser, der opfylder vores standarder for "
+"sikkerhed og ydelse."
+
+#: src/ui/components/PromotedBadge/index.js:59
+msgid "Verified Sponsor"
+msgstr ""
+
+#: src/ui/components/PromotedBadge/index.js:60
+msgid "Verified"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Opdater din bedømmelse til %(starRating)s ud af 5"
@@ -3417,14 +3440,6 @@ msgstr "Bedømt til %(rating)s ud af 5"
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr "Der er ingen bedømmelser endnu"
-
-#: src/ui/components/RecommendedBadge/index.js:43
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox anbefaler kun udvidelser, der opfylder vores standarder for "
-"sikkerhed og ydelse."
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"

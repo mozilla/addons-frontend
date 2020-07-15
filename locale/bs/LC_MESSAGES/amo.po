@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-30 16:28+0000\n"
+"POT-Creation-Date: 2020-07-14 17:06+0000\n"
 "PO-Revision-Date: 2018-07-02 12:25+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -981,12 +981,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Označeno kao bug prijava ili zahtjev za podršku"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Označeno"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Oznaka"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Označeno"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1730,12 +1730,12 @@ msgstr "Idite na stranicu dodatka"
 msgid "No theme preview available"
 msgstr "Nije dostupan pregled teme"
 
-#: src/amo/components/SearchResult/index.js:191
+#: src/amo/components/SearchResult/index.js:192
 #, fuzzy
 msgid "Add-on note"
 msgstr "Ikona dodatka"
 
-#: src/amo/components/SearchResult/index.js:210
+#: src/amo/components/SearchResult/index.js:211
 #, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
@@ -1743,7 +1743,7 @@ msgstr[0] "%(count)s dodatak pronađen"
 msgstr[1] "%(count)s dodataka pronađena"
 msgstr[2] "%(count)s dodataka pronađeno"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:216
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s korisnik"
@@ -1763,7 +1763,7 @@ msgid "No results were found."
 msgstr "Nisu pronađeni rezultati."
 
 #: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/RecommendedBadge/index.js:28
+#: src/ui/components/PromotedBadge/index.js:49
 #, fuzzy
 msgid "Recommended"
 msgstr "Korisnik od"
@@ -3504,6 +3504,27 @@ msgstr "Pristupite vašim podacima za %(param)s"
 msgid "Dismiss this notice"
 msgstr ""
 
+#: src/ui/components/PromotedBadge/index.js:40
+#, fuzzy
+msgid "By Firefox"
+msgstr "za Firefox"
+
+#: src/ui/components/PromotedBadge/index.js:42
+#: src/ui/components/PromotedBadge/index.js:50
+#: src/ui/components/PromotedBadge/index.js:62
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+
+#: src/ui/components/PromotedBadge/index.js:59
+msgid "Verified Sponsor"
+msgstr ""
+
+#: src/ui/components/PromotedBadge/index.js:60
+msgid "Verified"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Ažurirajte vašu ocjenu za %(starRating)s od 5"
@@ -3519,12 +3540,6 @@ msgstr "Ocjenjeno %(rating)s od 5"
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr "Još nema nikakvih ocjena"
-
-#: src/ui/components/RecommendedBadge/index.js:43
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"
