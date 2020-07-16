@@ -6,7 +6,6 @@
 
   .SearchResult-name {
     font-size: $font-size-promoted-addons-name;
-    font-weight: 500;
   }
 }
 
@@ -16,8 +15,7 @@
 }
 
 .PromotedAddonsCard-headerLink {
-  font-size: $font-size-promoted-addons-link;
-  font-weight: 400;
+  font-size: $font-size-micro;
   @include margin-start(12px);
 
   &,
