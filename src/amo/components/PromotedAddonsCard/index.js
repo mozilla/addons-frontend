@@ -29,9 +29,9 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
 
     const header = (
       <>
-        <span className="PromotedAddonsCard-headerText">
+        <div className="PromotedAddonsCard-headerText">
           {i18n.gettext('Sponsored extensions')}
-        </span>
+        </div>
         <a
           className="PromotedAddonsCard-headerLink"
           href="https://support.mozilla.org/kb/recommended-extensions-program"

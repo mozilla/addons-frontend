@@ -57,4 +57,10 @@ describe(__filename, () => {
       addonInstallSource,
     );
   });
+
+  it('uses the proper `rel` property for the header link in AddonsCard', () => {
+    const root = render();
+
+    expect(root.find(AddonsCard).html()).toContain('rel="noopener noreferrer"');
+  });
 });
