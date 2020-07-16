@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-06-19 11:31+0000\n"
+"PO-Revision-Date: 2020-07-16 14:11+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -27,9 +27,8 @@ msgid "Enabling"
 msgstr "Включване"
 
 #: src/core/components/AMInstallButton/index.js:209
-#, fuzzy
 msgid "Disabling"
-msgstr "Включване"
+msgstr "Изключване"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
@@ -207,9 +206,8 @@ msgid "Dismiss this notice"
 msgstr "Скриване на известието"
 
 #: src/ui/components/ThemeImage/index.js:31
-#, fuzzy
 msgid "Preview of %(title)s"
-msgstr "Преглед на %(name)s"
+msgstr "Преглед на %(title)s"
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "Изтегляне на %(name)s."

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-14 17:06+0000\n"
-"PO-Revision-Date: 2020-07-16 13:53+0000\n"
+"PO-Revision-Date: 2020-07-16 14:19+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -60,14 +60,12 @@ msgid "Review add-on code"
 msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:149
-#, fuzzy
 msgid "Admin Links"
-msgstr "Препратки"
+msgstr "Администраторски препратки"
 
 #: src/amo/components/AddonAdminLinks/index.js:76 src/amo/components/AddonAuthorLinks/index.js:46
-#, fuzzy
 msgid "Edit add-on"
-msgstr "Търсене на добавки"
+msgstr "Промяна на добавката"
 
 #: src/amo/components/AddonAdminLinks/index.js:90
 #, fuzzy
@@ -303,24 +301,20 @@ msgid "Other popular extensions"
 msgstr "Други известни разширения"
 
 #: src/amo/components/AddonReviewCard/index.js:199
-#, fuzzy
 msgid "Edit reply"
-msgstr "Редактиране на моя отговор"
+msgstr "Промяна на отговор"
 
 #: src/amo/components/AddonReviewCard/index.js:202
-#, fuzzy
 msgid "Edit review"
-msgstr "Редактиране на отзив"
+msgstr "Промяна на отзив"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
 msgid "Delete reply"
-msgstr "Редактиране на моя отговор"
+msgstr "Изтриване на отговор"
 
 #: src/amo/components/AddonReviewCard/index.js:213 src/amo/components/AddonReviewCard/index.js:245
-#, fuzzy
 msgid "Delete rating"
-msgstr "Редактиране на отзив"
+msgstr "Изтриване на оценка"
 
 #: src/amo/components/AddonReviewCard/index.js:216 src/amo/components/AddonReviewCard/index.js:248
 msgid "Delete review"
@@ -348,19 +342,16 @@ msgid "Cancel"
 msgstr "Отказ"
 
 #: src/amo/components/AddonReviewCard/index.js:259
-#, fuzzy
 msgid "Keep reply"
-msgstr "Редактиране на моя отговор"
+msgstr "Запазване на отговор"
 
 #: src/amo/components/AddonReviewCard/index.js:263
-#, fuzzy
 msgid "Keep rating"
-msgstr "Редактиране на отзив"
+msgstr "Запазване на оценка"
 
 #: src/amo/components/AddonReviewCard/index.js:266
-#, fuzzy
 msgid "Keep review"
-msgstr "Редактиране на отзив"
+msgstr "Запазване на отзив"
 
 #: src/amo/components/AddonReviewCard/index.js:302
 msgid "Write a reply to this review."
@@ -420,19 +411,16 @@ msgid "Submit review"
 msgstr "Писане на отзив"
 
 #: src/amo/components/AddonReviewManager/index.js:116
-#, fuzzy
 msgid "Submitting review"
-msgstr "Писане на отзив"
+msgstr "Изпращане на отзив"
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Update review"
-msgstr "Обновяване на отговора"
+msgstr "Обновяване на отзив"
 
 #: src/amo/components/AddonReviewManager/index.js:123
-#, fuzzy
 msgid "Updating review"
-msgstr "Обновяване на отговора"
+msgstr "Обновяване на отзив"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
@@ -1208,14 +1196,12 @@ msgid "Read all three-star reviews"
 msgstr "Прочетете всички отзиви с три звезди"
 
 #: src/amo/components/RatingsByStar/index.js:98
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Отговаряне на отзива"
+msgstr "Прочетете всички отзиви с две звезди"
 
 #: src/amo/components/RatingsByStar/index.js:99
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Прочетете %(count)s отзив"
+msgstr "Прочетете всички отзиви с една звезда"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1297,9 +1283,8 @@ msgid "Recommended themes"
 msgstr "Препоръчани теми"
 
 #: src/amo/components/Search/index.js:127
-#, fuzzy
 msgid "Recommended add-ons"
-msgstr "Търсене на добавки"
+msgstr "Препоръчани добавки"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348 src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
@@ -1342,24 +1327,22 @@ msgid "Search results for \"%(query)s\""
 msgstr "Резултати от търсене на „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:105
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "намерена е %(count)s тема при търсене на „%(query)s“"
-msgstr[1] "намерени са %(count)s теми при търсене на „%(query)s“"
+msgstr[0] "Намерена е %(count)s тема в %(categoryName)s"
+msgstr[1] "Намерени са %(count)s теми в %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:115
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "намерена е %(count)s тема при търсене на „%(query)s“"
-msgstr[1] "намерени са %(count)s теми при търсене на „%(query)s“"
+msgstr[0] "Намерена е %(count)s тема при търсене на „%(query)s“"
+msgstr[1] "Намерени са %(count)s теми при търсене на „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:124
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "намерена %(count)s добавка"
-msgstr[1] "намерени %(count)s добавки"
+msgstr[0] "Намерена е %(count)s добавка"
+msgstr[1] "Намерени са %(count)s добавки"
 
 #: src/amo/components/SearchContextCard/index.js:136
 msgid "%(count)s result found for \"%(query)s\""
@@ -1388,11 +1371,10 @@ msgstr[0] "Намерена е %(count)s добавка при търсене н
 msgstr[1] "Намерени са %(count)s добавки при търсене на „%(query)s“ в %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "намерена е %(count)s добавка при търсене на „%(query)s“"
-msgstr[1] "намерени са %(count)s добавки при търсене на „%(query)s“"
+msgstr[0] "Намерена е %(count)s добавка при в %(categoryName)s"
+msgstr[1] "Намерени са %(count)s добавки при търсене в %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:74
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1401,18 +1383,16 @@ msgstr[0] "намерена е %(count)s добавка при търсене н
 msgstr[1] "намерени са %(count)s добавки при търсене на „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:83
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "намерена %(count)s добавка"
-msgstr[1] "намерени %(count)s добавки"
+msgstr[0] "Намерена е %(count)s добавка"
+msgstr[1] "Намерени са %(count)s добавки"
 
 #: src/amo/components/SearchContextCard/index.js:96
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "намерена е %(count)s тема при търсене на „%(query)s“"
-msgstr[1] "намерени са %(count)s теми при търсене на „%(query)s“"
+msgstr[0] "Намерена е %(count)s тема при търсене на „%(query)s“ в %(categoryName)s"
+msgstr[1] "Намерени са %(count)s теми при търсене на „%(query)s“ в %(categoryName)s"
 
 #: src/amo/components/SearchFilters/index.js:128 src/amo/components/SearchFilters/index.js:144
 msgid "All"
@@ -1475,19 +1455,16 @@ msgid "Operating System"
 msgstr "Операционна система"
 
 #: src/amo/components/SearchFilters/index.js:253
-#, fuzzy
 msgid "Recommended add-ons only"
 msgstr "Само препоръчани добавки"
 
 #: src/amo/components/SearchForm/index.js:57
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Добавки за Android"
+msgstr "Добавки за Firefox на Android"
 
 #: src/amo/components/SearchForm/index.js:58
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Относно Добавки за Firefox"
+msgstr "Добавки за Firefox"
 
 #: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
@@ -1498,16 +1475,14 @@ msgid "No theme preview available"
 msgstr "Темата няма преглед"
 
 #: src/amo/components/SearchResult/index.js:192
-#, fuzzy
 msgid "Add-on note"
-msgstr "Пиктограма на добавката"
+msgstr "Бележка към добавката"
 
 #: src/amo/components/SearchResult/index.js:211
-#, fuzzy
 msgid "%(total)s download"
 msgid_plural "%(total)s downloads"
-msgstr[0] "намерена %(count)s добавка"
-msgstr[1] "намерени %(count)s добавки"
+msgstr[0] "%(total)s изтегляне"
+msgstr[1] "%(total)s изтегляния"
 
 #: src/amo/components/SearchResult/index.js:216
 msgid "%(total)s user"
@@ -1596,9 +1571,8 @@ msgid "Delete This Picture"
 msgstr "Изтриване на тази снимка"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Профил на %(user)s"
+msgstr "Изображение за профила на %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
 msgid "Profile photo"
@@ -1617,9 +1591,8 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Добавката е несъвместима с това издание на Firefox."
+msgstr "Добавката е несъвместима с този четец. Пробвайте да я инсталирате на Firefox за настолен компютър."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
@@ -1672,9 +1645,8 @@ msgid "About this add-on"
 msgstr "Относно добавката"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Отговор от разработчика"
+msgstr "Коментари от разработчика"
 
 #: src/amo/pages/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
@@ -1709,9 +1681,8 @@ msgid "Custom License for %(addonName)s"
 msgstr "Потребителски лиценз на %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:161
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Лицензно споразумение на крайния потребител"
+msgstr "Лицензно споразумение на крайния потребител на %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
@@ -1782,22 +1753,20 @@ msgid "Older versions"
 msgstr "Стари версии"
 
 #: src/amo/pages/Block/index.js:115
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Всички издания"
+msgstr "Спрени издания: всички издания."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Спрени издания: %(min)s до %(max)s."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:145
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Тази добавка е премахната от автора ѝ."
+msgstr "Тази добавка е спряна с цел вашата безопасност."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
@@ -1830,14 +1799,12 @@ msgid "View block request"
 msgstr ""
 
 #: src/amo/pages/CategoriesPage/index.js:35
-#, fuzzy
 msgid "All extension categories"
-msgstr "Всички разширения в категорията."
+msgstr "Всички категории разширения"
 
 #: src/amo/pages/CategoriesPage/index.js:37
-#, fuzzy
 msgid "All theme categories"
-msgstr "Всички категории"
+msgstr "Всички категории теми"
 
 #: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
@@ -1888,9 +1855,8 @@ msgid "Create a collection"
 msgstr "Създаване на списък"
 
 #: src/amo/pages/CollectionList/index.js:62
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "Впишете се, за да създавате списъци"
+msgstr "Нямате списъци."
 
 #: src/amo/pages/CollectionList/index.js:96
 msgid "My collections"
@@ -2439,14 +2405,12 @@ msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(use
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:316
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Повече добавки от тези разработчици"
+msgstr "Разработчик на добавки"
 
 #: src/amo/pages/UserProfile/index.js:322
-#, fuzzy
 msgid "Theme artist"
-msgstr "Повече теми от тези художници"
+msgstr "Създател на теми"
 
 #: src/amo/pages/UserProfile/index.js:336 src/amo/pages/UserProfileEdit/index.js:536
 msgid "User Profile for %(user)s"
@@ -2481,9 +2445,8 @@ msgid "Biography"
 msgstr "Биография"
 
 #: src/amo/pages/UserProfile/index.js:435
-#, fuzzy
 msgid "Edit profile"
-msgstr "Редактиране на профила"
+msgstr "Промяна на профила"
 
 #: src/amo/pages/UserProfile/index.js:448
 msgid "Admin user"
@@ -2510,14 +2473,12 @@ msgid "Introduce %(userName)s to the community"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:490
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "Впишете се, за да промените списъка"
+msgstr "Впишете се, за да променяте профил"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
-#, fuzzy
 msgid "Creating your profile…"
-msgstr "Обновяване на отговора"
+msgstr "Създаване на профила…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
 #, fuzzy
@@ -2538,14 +2499,12 @@ msgid "Updating profile…"
 msgstr "Обновяване на профила…"
 
 #: src/amo/pages/UserProfileEdit/index.js:522
-#, fuzzy
 msgid "Update Profile"
-msgstr "Обновяване на отговора"
+msgstr "Обновяване на профила"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
-#, fuzzy
 msgid "View user's profile"
-msgstr "Преглед на профила"
+msgstr "Преглед на потребителския профил"
 
 #: src/amo/pages/UserProfileEdit/index.js:555
 msgid "Edit user's profile"
@@ -2572,9 +2531,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:616
-#, fuzzy
 msgid "Manage Firefox Accounts…"
-msgstr "Обновяване на отговора"
+msgstr "Управление на Firefox Accounts…"
 
 #: src/amo/pages/UserProfileEdit/index.js:624
 msgid "Profile"
@@ -2585,14 +2543,12 @@ msgid "This field is required"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:637
-#, fuzzy
 msgid "Display Name *"
-msgstr "Показвано име"
+msgstr "Показвано име *"
 
 #: src/amo/pages/UserProfileEdit/index.js:654
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Текст на отзива"
+msgstr "Име на рецензент"
 
 #: src/amo/pages/UserProfileEdit/index.js:687
 msgid "This URL will only be visible for users who are developers."
@@ -2700,7 +2656,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "добавката ми е прегледана от рецензент"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
@@ -2913,9 +2869,8 @@ msgid "Dismiss this notice"
 msgstr "Скриване на известието"
 
 #: src/ui/components/PromotedBadge/index.js:40
-#, fuzzy
 msgid "By Firefox"
-msgstr "за Firefox"
+msgstr "От Firefox"
 
 #: src/ui/components/PromotedBadge/index.js:42 src/ui/components/PromotedBadge/index.js:50 src/ui/components/PromotedBadge/index.js:62
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
@@ -2955,11 +2910,10 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Отваряне за </span>Повече информация"
 
 #: src/ui/components/UserCollection/index.js:46
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "намерена %(count)s добавка"
-msgstr[1] "намерени %(count)s добавки"
+msgstr[0] "%(total)s добавка"
+msgstr[1] "%(total)s добавки"
 
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
