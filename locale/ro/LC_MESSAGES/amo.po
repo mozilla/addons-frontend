@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-14 17:06+0000\n"
-"PO-Revision-Date: 2020-07-17 05:56+0000\n"
+"PO-Revision-Date: 2020-07-17 07:00+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -2667,12 +2667,16 @@ msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Dacă ai creat orice suplimente, vor fi și ele șterse, dacă nu partajezi drepturile de autor cu alți autori. În acest caz, vei fi șters (ștearsă) ca autor, iar ceilalți autori își vor păstra "
+"drepturile de autor asupra suplimentelor."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Dacă utilizatorul a creat orice suplimente, vor fi și ele șterse, dacă drepturile de autor nu sunt partajate cu alți autori. În acest caz, utilizatorul va fi șters ca autor, iar ceilalți autori își "
+"vor păstra drepturile de autor asupra suplimentelor."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
@@ -2809,7 +2813,7 @@ msgstr "Unele funcționalități sunt temporar dezactivate în timp ce efectuăm
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Ai fost deconectat(ă)."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2936,11 +2940,11 @@ msgstr "Firefox recomandă numai extensii care respectă standardele noastre de 
 
 #: src/ui/components/PromotedBadge/index.js:59
 msgid "Verified Sponsor"
-msgstr ""
+msgstr "Sponsor verificat"
 
 #: src/ui/components/PromotedBadge/index.js:60
 msgid "Verified"
-msgstr ""
+msgstr "Verificat"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
