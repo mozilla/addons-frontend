@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-14 17:06+0000\n"
-"PO-Revision-Date: 2020-07-15 19:11+0000\n"
+"PO-Revision-Date: 2020-07-17 11:24+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2072,14 +2072,12 @@ msgid "Enhanced privacy extensions"
 msgstr "మెరుగైన గోప్యతా పొడగింతలు"
 
 #: src/amo/pages/Home/index.js:64
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "మరిన్ని ట్రెండవుతూన్న అలంకారాలను చూడండి"
+msgstr "మరిన్ని సిఫారసుచేయబడ్డ సంకేతపద నిర్వహణ పొడగింతలను చూడండి"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "సంకేతపదాల నిర్వాహణ"
+msgstr "సిఫారసుచేయబడ్డ సంకేతపదాల నిర్వాహకాలు"
 
 #: src/amo/pages/LandingPage/index.js:152
 msgid "See more top rated extensions"
