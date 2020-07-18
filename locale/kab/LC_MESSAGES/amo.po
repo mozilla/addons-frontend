@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-14 17:06+0000\n"
-"PO-Revision-Date: 2020-07-15 15:14+0000\n"
-"Last-Translator: K_ahina <kahinamessaoudi03@gmail.com>\n"
+"PO-Revision-Date: 2020-07-18 08:24+0000\n"
+"Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -2880,9 +2880,8 @@ msgid "Dismiss this notice"
 msgstr "Fer izen-agi"
 
 #: src/ui/components/PromotedBadge/index.js:40
-#, fuzzy
 msgid "By Firefox"
-msgstr "I Firefox"
+msgstr "S Firefox"
 
 #: src/ui/components/PromotedBadge/index.js:42 src/ui/components/PromotedBadge/index.js:50 src/ui/components/PromotedBadge/index.js:62
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
