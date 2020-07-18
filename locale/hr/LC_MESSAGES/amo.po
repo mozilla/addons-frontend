@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-14 17:06+0000\n"
-"PO-Revision-Date: 2020-07-18 21:53+0000\n"
+"PO-Revision-Date: 2020-07-18 21:56+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2767,7 +2767,7 @@ msgstr "Tijekom održavanja naših web-stranica, neke su funkcije privremeno dea
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Odjavljen/a si."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2894,11 +2894,11 @@ msgstr "Firefox preporučuje samo proširenja, koja udovoljavaju našim standard
 
 #: src/ui/components/PromotedBadge/index.js:59
 msgid "Verified Sponsor"
-msgstr ""
+msgstr "Provjereni sponzor"
 
 #: src/ui/components/PromotedBadge/index.js:60
 msgid "Verified"
-msgstr ""
+msgstr "Provjereno"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
