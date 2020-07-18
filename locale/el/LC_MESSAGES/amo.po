@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-14 17:06+0000\n"
-"PO-Revision-Date: 2020-07-18 21:22+0000\n"
+"PO-Revision-Date: 2020-07-18 22:13+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -2647,39 +2647,39 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "ΣΗΜΑΝΤΙΚΟ: Η διαγραφή αυτού του προφίλ προσθέτων του Firefox δεν αναιρείται."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Τα δεδομένα σας θα διαγραφούν οριστικά, συμπεριλαμβανομένων και των λεπτομερειών προφίλ (εικόνα, όνομα χρήστη, προβαλλόμενο όνομα, τοποθεσία, αρχική σελίδα, βιογραφία, επάγγελμα) και των προτιμήσεων"
-" ειδοποιήσεων. Οι κριτικές και οι βαθμολογίες σας θα γίνουν ανώνυμες και μη τροποποιήσιμες."
+"Θα διαγραφούν οριστικά τα δεδομένα σας, όπως λεπτομέρειες προφίλ (εικόνα, όνομα χρήστη, προβαλλόμενο όνομα, τοποθεσία, αρχική σελίδα, βιογραφία, επάγγελμα), προτιμήσεις ειδοποιήσεων, κριτικές και "
+"συλλογές."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Τα δεδομένα αυτού του χρήστη θα διαγραφούν οριστικά, συμπεριλαμβανομένων και των λεπτομερειών προφίλ (εικόνα, όνομα χρήστη, προβαλλόμενο όνομα, τοποθεσία, αρχική σελίδα, βιογραφία, επάγγελμα) και "
-"των προτιμήσεων ειδοποιήσεων. Οι κριτικές και οι βαθμολογίες θα γίνουν ανώνυμες και μη τροποποιήσιμες."
+"Θα διαγραφούν οριστικά τα δεδομένα αυτού του χρήστη, όπως λεπτομέρειες προφίλ (εικόνα, όνομα χρήστη, προβαλλόμενο όνομα, τοποθεσία, αρχική σελίδα, βιογραφία, επάγγελμα), προτιμήσεις ειδοποιήσεων, "
+"κριτικές και συλλογές."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Εάν είστε κάτοχος κάποιου προσθέτου, θα διαγραφεί και αυτό, εκτός αν υπάρχει συνιδιοκτησία με άλλους δημιουργούς. Σε αυτή την περίπτωση, θα αφαιρεθείτε από δημιουργός και οι υπόλοιποι θα διατηρήσουν"
+" τα δικαιώματα του προσθέτου."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Εάν ο χρήστης είναι κάτοχος κάποιου προσθέτου, θα διαγραφεί και αυτό, εκτός αν υπάρχει συνιδιοκτησία με άλλους δημιουργούς. Σε αυτή την περίπτωση, θα αφαιρεθεί από δημιουργός και οι υπόλοιποι θα "
+"διατηρήσουν τα δικαιώματα του προσθέτου."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr ""
-"Όταν χρησιμοποιήσετε αυτή τη διεύθυνση email για νέα σύνδεση στο addons.mozilla.org, θα δημιουργήσετε ένα νέο προφίλ \"Πρόσθετα Firefox\", το οποίο δεν έχει καμία σχέση με το προφίλ που διαγράψατε."
+msgstr "Όταν χρησιμοποιήσετε αυτή τη διεύθυνση email για να συνδεθείτε ξανά στο addons.mozilla.org, το προφίλ σας στα Πρόσθετα Firefox δεν θα έχει πρόσβαση στο προηγούμενο περιεχόμενο."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -2943,7 +2943,7 @@ msgstr "Επαληθευμένος χορηγός"
 
 #: src/ui/components/PromotedBadge/index.js:60
 msgid "Verified"
-msgstr ""
+msgstr "Επαληθευμένο"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
