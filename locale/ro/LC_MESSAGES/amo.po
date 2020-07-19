@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-14 17:06+0000\n"
-"PO-Revision-Date: 2020-07-17 07:00+0000\n"
+"PO-Revision-Date: 2020-07-19 16:28+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -114,12 +114,12 @@ msgstr "Browserul tău nu are suport pentru suplimente. Poți <a href=\"%(downlo
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:104
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obține această temă pentru 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Descarcă această temă pentru 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:109
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obține acest supliment pentru 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Descarcă acest supliment pentru 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:123
 msgid "Download %(addonName)s for Firefox. %(summary)s"
@@ -127,38 +127,38 @@ msgstr "Descarcă %(addonName)s pentru Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obține acest dicționar pentru 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Descarcă acest dicționar pentru 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:66
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obține această extensie pentru 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Descarcă această extensie pentru 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obține acest pachet lingvistic pentru 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Descarcă acest pachet lingvistic pentru 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:76
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obține această temă pentru 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Descarcă această temă pentru 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:82
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obține acest supliment pentru 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Descarcă acest supliment pentru 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obține acest dicționar pentru 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Descarcă acest dicționar pentru 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:94
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obține această extensie pentru 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Descarcă această extensie pentru 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:99
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obține acest pachet lingvistic pentru 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Descarcă acest pachet lingvistic pentru 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:100
 msgid "Used by"
@@ -946,7 +946,7 @@ msgstr "Ghid pentru recenzii"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "Numai cu Firefox — Obține Firefox acum"
+msgstr "Numai cu Firefox — Descarcă Firefox acum"
 
 #: src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -1010,7 +1010,7 @@ msgstr "Unelte"
 
 #: src/amo/components/HeroRecommendation/index.js:107
 msgid "Get the extension"
-msgstr "Obține extensia"
+msgstr "Descarcă extensia"
 
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
