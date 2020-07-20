@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-14 17:06+0000\n"
-"PO-Revision-Date: 2020-07-19 22:57+0000\n"
+"PO-Revision-Date: 2020-07-20 19:39+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2913,11 +2913,11 @@ msgstr "Firefox recommenda solmente le extensiones que satisface nostre normas d
 
 #: src/ui/components/PromotedBadge/index.js:59
 msgid "Verified Sponsor"
-msgstr ""
+msgstr "Sponsor verificate"
 
 #: src/ui/components/PromotedBadge/index.js:60
 msgid "Verified"
-msgstr ""
+msgstr "Verificate"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
