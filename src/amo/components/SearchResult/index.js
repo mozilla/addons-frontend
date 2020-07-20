@@ -8,12 +8,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
-import {
-  ADDON_TYPE_DICT,
-  ADDON_TYPE_LANG,
-  ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_ANDROID,
-} from 'core/constants';
+import { CLIENT_APP_ANDROID, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { nl2br, sanitizeHTML } from 'core/utils';
 import { addQueryParams } from 'core/utils/url';
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
@@ -140,10 +135,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
       summary = <p className="SearchResult-summary" {...summaryProps} />;
     }
 
-    // This is needed for https://github.com/mozilla/addons-frontend/issues/9472
-    const useDownloadsInsteadOfUsers =
-      addon && [ADDON_TYPE_LANG, ADDON_TYPE_DICT].includes(addon.type);
-
     return (
       <div className="SearchResult-wrapper">
         <div className="SearchResult-result">
@@ -214,17 +205,11 @@ export class SearchResultBase extends React.Component<InternalProps> {
             <span className="SearchResult-users-text">
               {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
                 i18n.sprintf(
-                  useDownloadsInsteadOfUsers
-                    ? i18n.ngettext(
-                        '%(total)s download',
-                        '%(total)s downloads',
-                        averageDailyUsers,
-                      )
-                    : i18n.ngettext(
-                        '%(total)s user',
-                        '%(total)s users',
-                        averageDailyUsers,
-                      ),
+                  i18n.ngettext(
+                    '%(total)s user',
+                    '%(total)s users',
+                    averageDailyUsers,
+                  ),
                   { total: i18n.formatNumber(averageDailyUsers) },
                 )
               ) : (

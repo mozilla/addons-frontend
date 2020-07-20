@@ -10,7 +10,6 @@ import type { AddonType } from 'core/types/addons';
 import MetadataCard from 'ui/components/MetadataCard';
 import Rating from 'ui/components/Rating';
 import RatingsByStar from 'amo/components/RatingsByStar';
-import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
 
@@ -50,16 +49,9 @@ export class AddonMetaBase extends React.Component<InternalProps> {
       userTitle = i18n.gettext('Users');
     } else if (averageDailyUsers) {
       userCount = i18n.formatNumber(averageDailyUsers);
-      userTitle =
-        // This is needed because of
-        // https://github.com/mozilla/addons-frontend/issues/9472
-        [ADDON_TYPE_DICT, ADDON_TYPE_LANG].includes(addon.type)
-          ? i18n.ngettext('Download', 'Downloads', averageDailyUsers)
-          : i18n.ngettext('User', 'Users', averageDailyUsers);
+      userTitle = i18n.ngettext('User', 'Users', averageDailyUsers);
     } else {
-      userTitle = [ADDON_TYPE_DICT, ADDON_TYPE_LANG].includes(addon.type)
-        ? i18n.gettext('No Downloads')
-        : i18n.gettext('No Users');
+      userTitle = i18n.gettext('No Users');
     }
 
     let reviewCount = '';
