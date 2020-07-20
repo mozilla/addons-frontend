@@ -43,6 +43,10 @@ type Props = {|
   deleteNote?: DeleteAddonNoteFunc,
   removeAddon?: RemoveCollectionAddonFunc,
   saveNote?: SaveAddonNoteFunc,
+
+  // These are passed through to SearchResult.
+  onAddonClick?: (addon: AddonType | CollectionAddonType) => void,
+  onAddonImpression?: (addon: AddonType | CollectionAddonType) => void,
 |};
 
 export default class AddonsCard extends React.Component<Props> {
@@ -65,6 +69,8 @@ export default class AddonsCard extends React.Component<Props> {
       loading,
       removeAddon,
       saveNote,
+      onAddonClick,
+      onAddonImpression,
       placeholderCount,
       useThemePlaceholder,
       showMetadata,
@@ -100,6 +106,8 @@ export default class AddonsCard extends React.Component<Props> {
               addonInstallSource={addonInstallSource}
               addon={addon}
               key={`${addon.slug}-${addon.type}`}
+              onClick={onAddonClick}
+              onImpression={onAddonImpression}
               showMetadata={showMetadata}
               showRecommendedBadge={showRecommendedBadge}
               showSummary={

@@ -172,7 +172,7 @@ describe(__filename, () => {
     );
   });
 
-  it('calls the custom onClick handler, passing the addon', () => {
+  it('calls the custom onClick handler for the li element, passing the addon', () => {
     const addon = createInternalAddon(fakeAddon);
     const onClick = sinon.spy();
 
@@ -184,10 +184,37 @@ describe(__filename, () => {
     sinon.assert.calledWith(onClick, addon);
   });
 
-  it('does not call the custom onClick handler without an addon', () => {
+  it('does not call the custom onClick handler for the li element without an addon', () => {
     const onClick = sinon.spy();
 
-    render({ noAddon: true, onClick });
+    const root = render({ noAddon: true, onClick });
+
+    const clickHandler = root.find('.SearchResult').prop('onClick');
+    clickHandler();
+
+    sinon.assert.notCalled(onClick);
+  });
+
+  it('calls the custom onClick handler for the anchor element, passing the addon', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const clickEvent = createFakeEvent();
+    const onClick = sinon.spy();
+
+    const root = render({ addon, onClick });
+
+    const clickHandler = root.find('.SearchResult-link').prop('onClick');
+    clickHandler(clickEvent);
+
+    sinon.assert.calledWith(onClick, addon);
+  });
+
+  it('does not call the custom onClick handler for the anchor element without an addon', () => {
+    const onClick = sinon.spy();
+
+    const root = render({ noAddon: true, onClick });
+
+    const clickHandler = root.find('.SearchResult').prop('onClick');
+    clickHandler();
 
     sinon.assert.notCalled(onClick);
   });

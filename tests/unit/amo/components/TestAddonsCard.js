@@ -6,6 +6,7 @@ import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 import CardList from 'ui/components/CardList';
 import { fakeAddon } from 'tests/unit/helpers';
 
@@ -184,6 +185,31 @@ describe(__filename, () => {
     expect(results.at(0)).toHaveProp(
       'useThemePlaceholder',
       useThemePlaceholder,
+    );
+  });
+
+  it('passes the custom onAddonClick handler to the SearchResult', () => {
+    const onAddonClick = sinon.spy();
+
+    const root = render({
+      addons: [createInternalAddon(fakeAddon)],
+      onAddonClick,
+    });
+
+    expect(root.find(SearchResult)).toHaveProp('onClick', onAddonClick);
+  });
+
+  it('passes the custom onAddonImpression handler to the SearchResult', () => {
+    const onAddonImpression = sinon.spy();
+
+    const root = render({
+      addons: [createInternalAddon(fakeAddon)],
+      onAddonImpression,
+    });
+
+    expect(root.find(SearchResult)).toHaveProp(
+      'onImpression',
+      onAddonImpression,
     );
   });
 });
