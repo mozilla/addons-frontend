@@ -1,0 +1,34 @@
+@import '~ui/css/styles';
+@import '~core/css/inc/vars';
+
+.PromotedAddonsCard {
+  margin-bottom: 0;
+
+  .SearchResult-name {
+    font-size: $font-size-promoted-addons-name;
+  }
+}
+
+.PromotedAddonsCard .Card-contents .AddonsCard-list {
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(3, 33%);
+}
+
+.PromotedAddonsCard-headerText {
+  display: inline;
+}
+
+.PromotedAddonsCard-headerLink {
+  font-size: $font-size-micro;
+  @include margin-start(12px);
+
+  &,
+  &:active,
+  &:hover,
+  &:link,
+  &:visited {
+    color: $link-color;
+    font-weight: normal;
+    text-decoration: none;
+  }
+}
