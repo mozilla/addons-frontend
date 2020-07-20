@@ -8,7 +8,7 @@ import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
 import Link from 'amo/components/Link';
 import { getVersionById, getVersionInfo } from 'core/reducers/versions';
-import { STATS_VIEW, ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
+import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
@@ -94,11 +94,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     }
 
     let statsLink = null;
-    const addonType = addon ? addon.type : null;
-    if (
-      ![ADDON_TYPE_DICT, ADDON_TYPE_LANG].includes(addonType) &&
-      (isAddonAuthor({ addon, userId }) || hasStatsPermission)
-    ) {
+    if (isAddonAuthor({ addon, userId }) || hasStatsPermission) {
       statsLink = (
         <Link
           className="AddonMoreInfo-stats-link"
