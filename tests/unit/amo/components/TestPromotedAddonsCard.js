@@ -1,3 +1,4 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
@@ -60,7 +61,12 @@ describe(__filename, () => {
 
   it('uses the proper `rel` property for the header link in AddonsCard', () => {
     const root = render();
+    const headerProp = root.find(AddonsCard).prop('header');
+    const header = shallow(<div>{headerProp}</div>);
 
-    expect(root.find(AddonsCard).html()).toContain('rel="noopener noreferrer"');
+    expect(header.find('.PromotedAddonsCard-headerLink')).toHaveProp(
+      'rel',
+      'noopener noreferrer',
+    );
   });
 });
