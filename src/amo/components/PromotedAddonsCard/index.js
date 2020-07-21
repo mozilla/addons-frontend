@@ -37,7 +37,7 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
     _tracking: tracking,
   };
 
-  handler = (
+  sendTrackingEvent = (
     addon: AddonType | CollectionAddonType,
     action: string,
     category: string,
@@ -52,7 +52,7 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
   };
 
   onAddonClick = (addon: AddonType | CollectionAddonType) => {
-    this.handler(
+    this.sendTrackingEvent(
       addon,
       PROMOTED_ADDON_CLICK_ACTION,
       PROMOTED_ADDON_HOMEPAGE_CLICK_CATEGORY,
@@ -60,7 +60,7 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
   };
 
   onAddonImpression = (addon: AddonType | CollectionAddonType) => {
-    this.handler(
+    this.sendTrackingEvent(
       addon,
       PROMOTED_ADDON_IMPRESSION_ACTION,
       PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
