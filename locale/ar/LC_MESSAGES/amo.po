@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-14 17:06+0000\n"
+"POT-Creation-Date: 2020-07-21 16:19+0000\n"
 "PO-Revision-Date: 2020-07-14 06:20+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
@@ -175,11 +175,7 @@ msgstr "%(addonName)s – نزّل هذا الامتداد لمتصفّح  ‎�
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – نزّل حزمة اللغة هذه لمتصفّح  ‎🦊 Firefox ‏(%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:100
-msgid "Used by"
-msgstr "يستخدمُها"
-
-#: src/amo/components/AddonMeta/index.js:127
+#: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "لا نجوم"
@@ -189,25 +185,15 @@ msgstr[3] "%(total)s نجوم"
 msgstr[4] "%(total)s نجمة"
 msgstr[5] "%(total)s نجمة"
 
-#: src/amo/components/AddonMeta/index.js:136
+#: src/amo/components/AddonMeta/index.js:128
 msgid "Not rated yet"
 msgstr "لم يُقيّم بعد"
 
-#: src/amo/components/AddonMeta/index.js:50
+#: src/amo/components/AddonMeta/index.js:49
 msgid "Users"
 msgstr "عدد المستخدمين"
 
-#: src/amo/components/AddonMeta/index.js:57
-msgid "Download"
-msgid_plural "Downloads"
-msgstr[0] "لا تنزيلات"
-msgstr[1] "تنزيل واحد"
-msgstr[2] "تنزيلان"
-msgstr[3] "تنزيلات"
-msgstr[4] "تنزيلات"
-msgstr[5] "تنزيلات"
-
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:52
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "لا مستخدمين"
@@ -217,19 +203,15 @@ msgstr[3] "مستخدمون"
 msgstr[4] "مستخدمًا"
 msgstr[5] "مستخدم"
 
-#: src/amo/components/AddonMeta/index.js:61
-msgid "No Downloads"
-msgstr "لا تنزيلات"
-
-#: src/amo/components/AddonMeta/index.js:62
+#: src/amo/components/AddonMeta/index.js:54
 msgid "No Users"
 msgstr "لا مستخدمين"
 
-#: src/amo/components/AddonMeta/index.js:69
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
 msgstr "المراجعات"
 
-#: src/amo/components/AddonMeta/index.js:72
+#: src/amo/components/AddonMeta/index.js:64
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "لا مراجعات"
@@ -239,72 +221,76 @@ msgstr[3] "لا مراجعات"
 msgstr[4] "لا مراجعات"
 msgstr[5] "لا مراجعات"
 
-#: src/amo/components/AddonMeta/index.js:74
+#: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
 msgstr "لا مراجعات"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMeta/index.js:92
+msgid "Used by"
+msgstr "يستخدمُها"
+
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr "زُر لوحة الإحصاءات"
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Custom License"
 msgstr "رخصة مخصصة"
 
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "اقرأ سياسة الخصوصية لهذه الإضافة"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "اقرأ اتفاقية الترخيص لهذه الإضافة"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 msgid "See all versions"
 msgstr "اطّلع على كل الإصدارات"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "روابط الإضافات"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "الإصدارة"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr "الحجم"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "آخر تحديث"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "الرخصة"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "سياسة الخصوصية"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "اتفاقية ترخيص المستخدم"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Version History"
 msgstr "تأريخ الإصدار"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr "إحصائيات الاستخدام"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "معلومات أكثر"
 
@@ -934,12 +920,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "وُضع عليها إشارة بأنها تبليغ عن علّة أو طلب دعم"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "ضع عليها إشارة"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "وُضع عليها إشارة"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "ضع عليها إشارة"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1680,25 +1666,15 @@ msgstr "إضافات فيرفكس"
 msgid "Go to the add-on page"
 msgstr "انتقل إلى صفحة الإضافة"
 
-#: src/amo/components/SearchResult/index.js:154
+#: src/amo/components/SearchResult/index.js:152
 msgid "No theme preview available"
 msgstr "لا تتوفر معاينة للسمة"
 
-#: src/amo/components/SearchResult/index.js:192
+#: src/amo/components/SearchResult/index.js:190
 msgid "Add-on note"
 msgstr "ملاحظة على الإضافة"
 
-#: src/amo/components/SearchResult/index.js:211
-msgid "%(total)s download"
-msgid_plural "%(total)s downloads"
-msgstr[0] "لا تنزيلات"
-msgstr[1] "تنزيل واحد"
-msgstr[2] "تنزيلان"
-msgstr[3] "%(total)s تنزيلات"
-msgstr[4] "%(total)s تنزيل"
-msgstr[5] "%(total)s تنزيل"
-
-#: src/amo/components/SearchResult/index.js:216
+#: src/amo/components/SearchResult/index.js:208
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "لا مستخدمين"
@@ -3460,6 +3436,27 @@ msgstr[5] "%(total)s إضافة"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "رد المطور"
+
+#~ msgid "Download"
+#~ msgid_plural "Downloads"
+#~ msgstr[0] "لا تنزيلات"
+#~ msgstr[1] "تنزيل واحد"
+#~ msgstr[2] "تنزيلان"
+#~ msgstr[3] "تنزيلات"
+#~ msgstr[4] "تنزيلات"
+#~ msgstr[5] "تنزيلات"
+
+#~ msgid "No Downloads"
+#~ msgstr "لا تنزيلات"
+
+#~ msgid "%(total)s download"
+#~ msgid_plural "%(total)s downloads"
+#~ msgstr[0] "لا تنزيلات"
+#~ msgstr[1] "تنزيل واحد"
+#~ msgstr[2] "تنزيلان"
+#~ msgstr[3] "%(total)s تنزيلات"
+#~ msgstr[4] "%(total)s تنزيل"
+#~ msgstr[5] "%(total)s تنزيل"
 
 #~ msgid ""
 #~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you "
