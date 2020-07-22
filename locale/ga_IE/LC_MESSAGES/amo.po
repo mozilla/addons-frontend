@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-14 17:06+0000\n"
+"POT-Creation-Date: 2020-07-21 16:19+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -193,11 +193,7 @@ msgstr ""
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:100
-msgid "Used by"
-msgstr "Úsáidte ag"
-
-#: src/amo/components/AddonMeta/index.js:127
+#: src/amo/components/AddonMeta/index.js:119
 #, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
@@ -207,27 +203,17 @@ msgstr[2] "%(total)s úsáideoir"
 msgstr[3] "%(total)s n-úsáideoir"
 msgstr[4] "%(total)s úsáideoir"
 
-#: src/amo/components/AddonMeta/index.js:136
+#: src/amo/components/AddonMeta/index.js:128
 #, fuzzy
 msgid "Not rated yet"
 msgstr "Níl aon léirmheas ann"
 
-#: src/amo/components/AddonMeta/index.js:50
+#: src/amo/components/AddonMeta/index.js:49
 #, fuzzy
 msgid "Users"
 msgstr "Líon is mó úsáideoirí"
 
-#: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
-msgid "Download"
-msgid_plural "Downloads"
-msgstr[0] "%(name)s á íoslódáil."
-msgstr[1] "%(name)s á íoslódáil."
-msgstr[2] "%(name)s á íoslódáil."
-msgstr[3] "%(name)s á íoslódáil."
-msgstr[4] "%(name)s á íoslódáil."
-
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:52
 msgid "User"
 msgid_plural "Users"
 msgstr[0] ""
@@ -236,22 +222,17 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
-msgid "No Downloads"
-msgstr "%(name)s á íoslódáil."
-
-#: src/amo/components/AddonMeta/index.js:62
+#: src/amo/components/AddonMeta/index.js:54
 #, fuzzy
 msgid "No Users"
 msgstr "Líon is mó úsáideoirí"
 
-#: src/amo/components/AddonMeta/index.js:69
+#: src/amo/components/AddonMeta/index.js:61
 #, fuzzy
 msgid "Reviews"
 msgstr "Téacs an léirmheasa"
 
-#: src/amo/components/AddonMeta/index.js:72
+#: src/amo/components/AddonMeta/index.js:64
 #, fuzzy
 msgid "Review"
 msgid_plural "Reviews"
@@ -261,76 +242,80 @@ msgstr[2] "Téacs an léirmheasa"
 msgstr[3] "Téacs an léirmheasa"
 msgstr[4] "Téacs an léirmheasa"
 
-#: src/amo/components/AddonMeta/index.js:74
+#: src/amo/components/AddonMeta/index.js:66
 #, fuzzy
 msgid "No Reviews"
 msgstr "Níl aon léirmheas ann"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMeta/index.js:92
+msgid "Used by"
+msgstr "Úsáidte ag"
+
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 #, fuzzy
 msgid "Custom License"
 msgstr "Ceadúnas"
 
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "Léigh an polasaí príobháideachais don bhreiseán seo"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "Léigh ceadúnas an bhreiseáin seo"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 #, fuzzy
 msgid "See all versions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "Nascanna an Bhreiseáin"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "Leagan"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Nuashonrú is déanaí"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "Ceadúnas"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "Polasaí Príobháideachais"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "Comhaontú Ceadúnais an Úsáideora Deiridh"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 #, fuzzy
 msgid "Version History"
 msgstr "Leagan"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "Tuilleadh eolais"
 
@@ -1017,11 +1002,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1791,26 +1776,16 @@ msgstr "Breiseáin Firefox"
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:154
+#: src/amo/components/SearchResult/index.js:152
 msgid "No theme preview available"
 msgstr "Níl réamhamharc ar an téama seo le fáil"
 
-#: src/amo/components/SearchResult/index.js:192
+#: src/amo/components/SearchResult/index.js:190
 #, fuzzy
 msgid "Add-on note"
 msgstr "Deilbhín an bhreiseáin"
 
-#: src/amo/components/SearchResult/index.js:211
-#, fuzzy
-msgid "%(total)s download"
-msgid_plural "%(total)s downloads"
-msgstr[0] "Níor aimsíodh aon chatagóirí."
-msgstr[1] "Níor aimsíodh aon chatagóirí."
-msgstr[2] "Níor aimsíodh aon chatagóirí."
-msgstr[3] "Níor aimsíodh aon chatagóirí."
-msgstr[4] "Níor aimsíodh aon chatagóirí."
-
-#: src/amo/components/SearchResult/index.js:216
+#: src/amo/components/SearchResult/index.js:208
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s úsáideoir"
@@ -3568,6 +3543,28 @@ msgstr[4] "Níor aimsíodh aon chatagóirí."
 #, fuzzy
 msgid "Developer response"
 msgstr "Lárionad na bhForbróirí"
+
+#, fuzzy
+#~ msgid "Download"
+#~ msgid_plural "Downloads"
+#~ msgstr[0] "%(name)s á íoslódáil."
+#~ msgstr[1] "%(name)s á íoslódáil."
+#~ msgstr[2] "%(name)s á íoslódáil."
+#~ msgstr[3] "%(name)s á íoslódáil."
+#~ msgstr[4] "%(name)s á íoslódáil."
+
+#, fuzzy
+#~ msgid "No Downloads"
+#~ msgstr "%(name)s á íoslódáil."
+
+#, fuzzy
+#~ msgid "%(total)s download"
+#~ msgid_plural "%(total)s downloads"
+#~ msgstr[0] "Níor aimsíodh aon chatagóirí."
+#~ msgstr[1] "Níor aimsíodh aon chatagóirí."
+#~ msgstr[2] "Níor aimsíodh aon chatagóirí."
+#~ msgstr[3] "Níor aimsíodh aon chatagóirí."
+#~ msgstr[4] "Níor aimsíodh aon chatagóirí."
 
 #, fuzzy
 #~ msgid "Firefox Add-ons (%(locale)s)"

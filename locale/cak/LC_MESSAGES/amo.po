@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-14 17:06+0000\n"
+"POT-Creation-Date: 2020-07-21 16:19+0000\n"
 "PO-Revision-Date: 2020-03-19 00:18+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,123 +187,111 @@ msgstr ""
 "%(addonName)s – Tak'ulu' re Rupisaj Ch'ab'äl re' richin 🦊 Firefox "
 "(%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:100
-msgid "Used by"
-msgstr "Okisan ruma"
-
-#: src/amo/components/AddonMeta/index.js:127
+#: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s Ch'umil"
 msgstr[1] "%(total)s Taq ch'umil"
 
-#: src/amo/components/AddonMeta/index.js:136
+#: src/amo/components/AddonMeta/index.js:128
 msgid "Not rated yet"
 msgstr "K'a majun rajilab'al"
 
-#: src/amo/components/AddonMeta/index.js:50
+#: src/amo/components/AddonMeta/index.js:49
 msgid "Users"
 msgstr "Okisanela'"
 
-#: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
-msgid "Download"
-msgid_plural "Downloads"
-msgstr[0] "Niqasäx %(name)s."
-msgstr[1] "Niqasäx %(name)s."
-
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:52
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Okisanel"
 msgstr[1] "Okisanela'"
 
-#: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
-msgid "No Downloads"
-msgstr "Niqasäx %(name)s."
-
-#: src/amo/components/AddonMeta/index.js:62
+#: src/amo/components/AddonMeta/index.js:54
 msgid "No Users"
 msgstr "Majun okisanela'"
 
-#: src/amo/components/AddonMeta/index.js:69
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
 msgstr "Taq tzijoxïk"
 
-#: src/amo/components/AddonMeta/index.js:72
+#: src/amo/components/AddonMeta/index.js:64
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Tzijoxïk"
 msgstr[1] "Taq tzijoxïk"
 
-#: src/amo/components/AddonMeta/index.js:74
+#: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
 msgstr "Majun taq Tzijoxïk"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMeta/index.js:92
+msgid "Used by"
+msgstr "Okisan ruma"
+
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr "Titz'et ri kipas molob'a'"
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Custom License"
 msgstr "Ichinan Ya'oj Q'ij"
 
 # This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "Tisik'ïx ri richinanem na'oj re tz'aqat re'"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "Tisik'ïx ri ruch'ob'on tzij ya'oj q'ij re tz'aqat re'"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 msgid "See all versions"
 msgstr "Ke'atz'eta' ronojel ri kiwäch"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "Kiximonel Tz'aqat"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "Ruwäch"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Ruk'isib'äl k'exoj"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "Ya'oj q'ij"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "Ichinanem Na'oj"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "Taq Rutzij Ya'oj Q'ij kichin ri Ruk'isib'äl okisanel"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Version History"
 msgstr "Runatab'al Ruwäch"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr "Kimolob'a' okisanïk"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "Ch'aqa' chik etamab'äl"
 
@@ -968,12 +956,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ya'on retal achi'el jun rutzijol sachoj o ruk'utuxik to'ïk"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Tiya' retal"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Xya' retal"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Tiya' retal"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1710,23 +1698,16 @@ msgstr "Chi rij Kitz'aqat Firefox"
 msgid "Go to the add-on page"
 msgstr "Tib'e pa ruxaq tz'aqat"
 
-#: src/amo/components/SearchResult/index.js:154
+#: src/amo/components/SearchResult/index.js:152
 msgid "No theme preview available"
 msgstr "Majun nab'ey rutzub'al wachinïk okel"
 
-#: src/amo/components/SearchResult/index.js:192
+#: src/amo/components/SearchResult/index.js:190
 #, fuzzy
 msgid "Add-on note"
 msgstr "Ruwachib'al tz'aqat"
 
-#: src/amo/components/SearchResult/index.js:211
-#, fuzzy
-msgid "%(total)s download"
-msgid_plural "%(total)s downloads"
-msgstr[0] "%(count)s tz'aqat xilitäj"
-msgstr[1] "%(count)s taq tz'aqat xe'ilitäj"
-
-#: src/amo/components/SearchResult/index.js:216
+#: src/amo/components/SearchResult/index.js:208
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s okisanel"
@@ -3555,6 +3536,22 @@ msgstr[1] "%(count)s taq tz'aqat xe'ilitäj"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Tzolin rutzij b'anonel"
+
+#, fuzzy
+#~ msgid "Download"
+#~ msgid_plural "Downloads"
+#~ msgstr[0] "Niqasäx %(name)s."
+#~ msgstr[1] "Niqasäx %(name)s."
+
+#, fuzzy
+#~ msgid "No Downloads"
+#~ msgstr "Niqasäx %(name)s."
+
+#, fuzzy
+#~ msgid "%(total)s download"
+#~ msgid_plural "%(total)s downloads"
+#~ msgstr[0] "%(count)s tz'aqat xilitäj"
+#~ msgstr[1] "%(count)s taq tz'aqat xe'ilitäj"
 
 #~ msgid "Access your data in %(param)s other domain"
 #~ msgid_plural "Access your data in %(param)s other domains"

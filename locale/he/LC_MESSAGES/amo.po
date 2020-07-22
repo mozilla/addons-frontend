@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-14 17:06+0000\n"
+"POT-Creation-Date: 2020-07-21 16:19+0000\n"
 "PO-Revision-Date: 2020-07-01 08:49+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -182,120 +182,110 @@ msgstr "‏%(addonName)s – קבלת הרחבה זו עבור 🦊 Firefox ‏(
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "‏%(addonName)s – קבלת חבילת שפה זו עבור 🦊 Firefox ‏(%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:100
-msgid "Used by"
-msgstr "בשימוש ע״י"
-
-#: src/amo/components/AddonMeta/index.js:127
+#: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "כוכב אחד"
 msgstr[1] "%(total)s כוכבים"
 
-#: src/amo/components/AddonMeta/index.js:136
+#: src/amo/components/AddonMeta/index.js:128
 msgid "Not rated yet"
 msgstr "לא דורג עדיין"
 
-#: src/amo/components/AddonMeta/index.js:50
+#: src/amo/components/AddonMeta/index.js:49
 msgid "Users"
 msgstr "משתמשים"
 
-#: src/amo/components/AddonMeta/index.js:57
-msgid "Download"
-msgid_plural "Downloads"
-msgstr[0] "הורדה"
-msgstr[1] "הורדות"
-
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:52
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "משתמש"
 msgstr[1] "משתמשים"
 
-#: src/amo/components/AddonMeta/index.js:61
-msgid "No Downloads"
-msgstr "אין הורדות"
-
-#: src/amo/components/AddonMeta/index.js:62
+#: src/amo/components/AddonMeta/index.js:54
 msgid "No Users"
 msgstr "אין משתמשים"
 
-#: src/amo/components/AddonMeta/index.js:69
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
 msgstr "סקירות"
 
-#: src/amo/components/AddonMeta/index.js:72
+#: src/amo/components/AddonMeta/index.js:64
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "סקירה"
 msgstr[1] "סקירות"
 
-#: src/amo/components/AddonMeta/index.js:74
+#: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
 msgstr "אין סקירות"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMeta/index.js:92
+msgid "Used by"
+msgstr "בשימוש ע״י"
+
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr "ביקור בלוח בקרת הסטטיסטיקה"
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Custom License"
 msgstr "רישיון מותאם אישית"
 
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "קריאת מדיניות הפרטיות עבור תוספת זו"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "קריאת הסכם הרישיון עבור תוספת זו"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 msgid "See all versions"
 msgstr "הצגת כל הגרסאות"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "קישורים לתוספת"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "גרסה"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr "גודל"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "עדכון אחרון"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "רישיון"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "מדיניות פרטיות"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "הסכם רישיון למשתמש קצה"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Version History"
 msgstr "היסטוריית הגרסאות"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr "סטטיסטיקת שימוש"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "מידע נוסף"
 
@@ -922,12 +912,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "סומן כדיווח על תקלה או בקשת תמיכה"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "סימון בדגל"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "מסומן בדגל"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "סימון בדגל"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1620,21 +1610,15 @@ msgstr "תוספות ל־Firefox"
 msgid "Go to the add-on page"
 msgstr "מעבר לדף התוספת"
 
-#: src/amo/components/SearchResult/index.js:154
+#: src/amo/components/SearchResult/index.js:152
 msgid "No theme preview available"
 msgstr "תצוגה מקדימה של ערכת נושא אינה זמינה"
 
-#: src/amo/components/SearchResult/index.js:192
+#: src/amo/components/SearchResult/index.js:190
 msgid "Add-on note"
 msgstr "הערת תוספת"
 
-#: src/amo/components/SearchResult/index.js:211
-msgid "%(total)s download"
-msgid_plural "%(total)s downloads"
-msgstr[0] "הורדה אחת"
-msgstr[1] "%(total)s הורדות"
-
-#: src/amo/components/SearchResult/index.js:216
+#: src/amo/components/SearchResult/index.js:208
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "משתמש אחד"
@@ -3421,6 +3405,19 @@ msgstr[1] "%(total)s תוספות"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "תגובת המפתח"
+
+#~ msgid "Download"
+#~ msgid_plural "Downloads"
+#~ msgstr[0] "הורדה"
+#~ msgstr[1] "הורדות"
+
+#~ msgid "No Downloads"
+#~ msgstr "אין הורדות"
+
+#~ msgid "%(total)s download"
+#~ msgid_plural "%(total)s downloads"
+#~ msgstr[0] "הורדה אחת"
+#~ msgstr[1] "%(total)s הורדות"
 
 #~ msgid ""
 #~ "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you "

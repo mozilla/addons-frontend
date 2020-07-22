@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-14 17:06+0000\n"
+"POT-Creation-Date: 2020-07-21 16:19+0000\n"
 "PO-Revision-Date: 2020-05-20 02:51+0000\n"
 "Last-Translator: Chengings <chengings@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -173,118 +173,107 @@ msgstr "%(addonName)s – รับส่วนขยายนี้สำหร
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับชุดภาษานี้สำหรับ 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:100
-msgid "Used by"
-msgstr "ใช้โดย"
-
-#: src/amo/components/AddonMeta/index.js:127
+#: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s ดาว"
 
-#: src/amo/components/AddonMeta/index.js:136
+#: src/amo/components/AddonMeta/index.js:128
 msgid "Not rated yet"
 msgstr "ยังไม่ได้จัดอันดับ"
 
-#: src/amo/components/AddonMeta/index.js:50
+#: src/amo/components/AddonMeta/index.js:49
 msgid "Users"
 msgstr "ผู้ใช้"
 
-#: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
-msgid "Download"
-msgid_plural "Downloads"
-msgstr[0] "กำลังดาวน์โหลด"
-
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:52
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "ผู้ใช้"
 
-#: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
-msgid "No Downloads"
-msgstr "กำลังดาวน์โหลด"
-
-#: src/amo/components/AddonMeta/index.js:62
+#: src/amo/components/AddonMeta/index.js:54
 msgid "No Users"
 msgstr "ไม่มีผู้ใช้"
 
-#: src/amo/components/AddonMeta/index.js:69
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
 msgstr "บทวิจารณ์"
 
-#: src/amo/components/AddonMeta/index.js:72
+#: src/amo/components/AddonMeta/index.js:64
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "บทวิจารณ์"
 
-#: src/amo/components/AddonMeta/index.js:74
+#: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
 msgstr "ไม่มีบทวิจารณ์"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMeta/index.js:92
+msgid "Used by"
+msgstr "ใช้โดย"
+
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr "เยี่ยมชมแดชบอร์ดสถิติ"
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Custom License"
 msgstr "สัญญาอนุญาตที่กำหนดเอง"
 
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "อ่านนโยบายความเป็นส่วนตัวสำหรับส่วนเสริมนี้"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "อ่านข้อตกลงสัญญาอนุญาตสำหรับส่วนเสริมนี้"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 msgid "See all versions"
 msgstr "ดูรุ่นทั้งหมด"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "ลิงก์ส่วนเสริม"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "รุ่น"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr "ขนาด"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "อัปเดตล่าสุด"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "สัญญาอนุญาต"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "นโยบายความเป็นส่วนตัว"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "ข้อตกลงสัญญาอนุญาตผู้ใช้"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Version History"
 msgstr "ประวัติรุ่น"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr "สถิติการใช้งาน"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "ข้อมูลเพิ่มเติม"
 
@@ -898,12 +887,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "ตั้งค่าสถานะว่าเป็นการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "ตั้งค่าสถานะ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "ตั้งค่าสถานะแล้ว"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "ตั้งค่าสถานะ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1585,21 +1574,15 @@ msgstr "Firefox Add-ons"
 msgid "Go to the add-on page"
 msgstr "ไปยังหน้าของส่วนเสริม"
 
-#: src/amo/components/SearchResult/index.js:154
+#: src/amo/components/SearchResult/index.js:152
 msgid "No theme preview available"
 msgstr "ไม่มีตัวอย่างชุดตกแต่ง"
 
-#: src/amo/components/SearchResult/index.js:192
+#: src/amo/components/SearchResult/index.js:190
 msgid "Add-on note"
 msgstr "หมายเหตุส่วนเสริม"
 
-#: src/amo/components/SearchResult/index.js:211
-#, fuzzy
-msgid "%(total)s download"
-msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s ส่วนเสริม"
-
-#: src/amo/components/SearchResult/index.js:216
+#: src/amo/components/SearchResult/index.js:208
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ผู้ใช้"
@@ -3254,6 +3237,20 @@ msgstr[0] "%(total)s ส่วนเสริม"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "การตอบกลับของนักพัฒนา"
+
+#, fuzzy
+#~ msgid "Download"
+#~ msgid_plural "Downloads"
+#~ msgstr[0] "กำลังดาวน์โหลด"
+
+#, fuzzy
+#~ msgid "No Downloads"
+#~ msgstr "กำลังดาวน์โหลด"
+
+#, fuzzy
+#~ msgid "%(total)s download"
+#~ msgid_plural "%(total)s downloads"
+#~ msgstr[0] "%(total)s ส่วนเสริม"
 
 #~ msgid "Access your data in %(param)s other domain"
 #~ msgid_plural "Access your data in %(param)s other domains"

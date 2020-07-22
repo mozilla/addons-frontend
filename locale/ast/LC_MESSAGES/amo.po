@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-14 17:06+0000\n"
+"POT-Creation-Date: 2020-07-21 16:19+0000\n"
 "PO-Revision-Date: 2020-02-14 02:25+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
@@ -177,122 +177,110 @@ msgstr ""
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:100
-msgid "Used by"
-msgstr ""
-
-#: src/amo/components/AddonMeta/index.js:127
+#: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s estrella"
 msgstr[1] "%(total)s estrelles"
 
-#: src/amo/components/AddonMeta/index.js:136
+#: src/amo/components/AddonMeta/index.js:128
 msgid "Not rated yet"
 msgstr "Entá nun se valoró"
 
-#: src/amo/components/AddonMeta/index.js:50
+#: src/amo/components/AddonMeta/index.js:49
 msgid "Users"
 msgstr "Usuarios"
 
-#: src/amo/components/AddonMeta/index.js:57
-#, fuzzy
-msgid "Download"
-msgid_plural "Downloads"
-msgstr[0] "Baxando"
-msgstr[1] "Baxando"
-
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:52
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Usuariu"
 msgstr[1] "Usuarios"
 
-#: src/amo/components/AddonMeta/index.js:61
-#, fuzzy
-msgid "No Downloads"
-msgstr "Baxando"
-
-#: src/amo/components/AddonMeta/index.js:62
+#: src/amo/components/AddonMeta/index.js:54
 msgid "No Users"
 msgstr "Nun hai usuarios"
 
-#: src/amo/components/AddonMeta/index.js:69
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
 msgstr "Reseñes"
 
-#: src/amo/components/AddonMeta/index.js:72
+#: src/amo/components/AddonMeta/index.js:64
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Reseña"
 msgstr[1] "Reseñes"
 
-#: src/amo/components/AddonMeta/index.js:74
+#: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
 msgstr "Nun hai reseñes"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMeta/index.js:92
+msgid "Used by"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:105
 msgid "Visit stats dashboard"
 msgstr "Visitar el panel d'estadístiques"
 
-#: src/amo/components/AddonMoreInfo/index.js:127
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Custom License"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:149
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
 msgstr "Lleer la política de privacidá d'esti complementu"
 
-#: src/amo/components/AddonMoreInfo/index.js:174
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
 msgstr "Lleer l'alcuerdu de llicencia d'esi complementu"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:181
 msgid "See all versions"
 msgstr "Ver toles versiones"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Add-on Links"
 msgstr "Enllaces del complementu"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "Version"
 msgstr "Versión"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Size"
 msgstr "Tamañu"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:236
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Últimu anovamientu"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "License"
 msgstr "Llicencia"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
 msgstr "Política de privacidá"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
 msgstr "Alcuerdu de llicencia d'usuariu final"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Version History"
 msgstr "Historial de versiones"
 
-#: src/amo/components/AddonMoreInfo/index.js:282
+#: src/amo/components/AddonMoreInfo/index.js:278
 msgid "Usage Statistics"
 msgstr "Estadístiques d'usu"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "More information"
 msgstr "Más información"
 
@@ -895,11 +883,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1580,22 +1568,15 @@ msgstr "Complementu destacáu"
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:154
+#: src/amo/components/SearchResult/index.js:152
 msgid "No theme preview available"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:192
+#: src/amo/components/SearchResult/index.js:190
 msgid "Add-on note"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:211
-#, fuzzy
-msgid "%(total)s download"
-msgid_plural "%(total)s downloads"
-msgstr[0] "%(total)s complementu"
-msgstr[1] "%(total)s complementos"
-
-#: src/amo/components/SearchResult/index.js:216
+#: src/amo/components/SearchResult/index.js:208
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s usuariu"
@@ -3238,6 +3219,22 @@ msgstr[1] "%(total)s complementos"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Download"
+#~ msgid_plural "Downloads"
+#~ msgstr[0] "Baxando"
+#~ msgstr[1] "Baxando"
+
+#, fuzzy
+#~ msgid "No Downloads"
+#~ msgstr "Baxando"
+
+#, fuzzy
+#~ msgid "%(total)s download"
+#~ msgid_plural "%(total)s downloads"
+#~ msgstr[0] "%(total)s complementu"
+#~ msgstr[1] "%(total)s complementos"
 
 #~ msgid "Your version of Firefox does not support search plugins."
 #~ msgstr "La to versión de Firefox nun sofita los plugins de gueta."
