@@ -20,4 +20,5 @@ export const LANDING_PAGE_EXTENSION_COUNT = 4;
 export const LANDING_PAGE_THEME_COUNT = 3;
 export const LANDING_PAGE_PROMOTED_EXTENSION_COUNT = 6;
 
-export const DOWNLOAD_FIREFOX_BASE_URL = 'https://www.mozilla.org/firefox/new/';
+export const DOWNLOAD_FIREFOX_BASE_URL =
+  'https://www.mozilla.org/firefox/download/thanks/';
