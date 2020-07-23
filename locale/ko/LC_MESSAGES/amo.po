@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-21 16:19+0000\n"
-"PO-Revision-Date: 2020-07-23 22:22+0000\n"
+"PO-Revision-Date: 2020-07-23 22:33+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1554,11 +1554,11 @@ msgstr "이 부가 기능은 이 브라우저와 호환되지 않습니다. 데�
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr ""
+msgstr "Android용 Firefox와 호환되는 부가 기능에 대해 알아보려면, <a href=\"%(newLocation)s\">여기를 클릭</a>하세요."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Android에서 Firefox와 호환되는 부가 기능을 찾으려면, <a href=\"%(newLocation)s\">모바일 사이트를 방문</a>하세요."
 
 #: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1996,7 +1996,7 @@ msgstr "테마로 Firefox 외양을 바꿔보세요."
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Firefox 확장 기능 및 테마를 다운로드하세요. 브라우저용 앱과 같습니다. 성가신 광고를 차단하고, 비밀번호를 보호하며, 브라우저 외양 변경과 더 많은 것들을 할 수 있습니다."
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
@@ -2526,11 +2526,11 @@ msgstr "프로필 삭제"
 
 #: src/amo/pages/UserProfileEdit/index.js:831
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "중요: Firefox 부가 기능 프로필을 삭제하면 되돌릴 수 없습니다."
 
 #: src/amo/pages/UserProfileEdit/index.js:834
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "중요: 이 Firefox 부가 기능 프로필을 삭제하면 되돌릴 수 없습니다."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
 msgid ""
@@ -2586,7 +2586,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "새 부가 기능 또는 Firefox 기능을 사용할 수 있습니다"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
