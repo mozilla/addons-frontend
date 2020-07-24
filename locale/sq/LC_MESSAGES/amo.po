@@ -2651,6 +2651,8 @@ msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Nëse përdoruesi krijoi çfarëdo shtese, edhe ato do të fshihen, veç nëse pronësinë e ka të përbashkët me autorë të tjerë. Në rast të tillë, përdoruesi do të hiqet si autor dhe autorët e tjerët do të "
+"ruajnë autorësinë e shtesës."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
