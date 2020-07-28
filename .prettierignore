@@ -15,7 +15,7 @@ Dockerfile
 /src/locale/
 /tests/ui/
 /tests/frontend
-coverage
+/coverage/
 # safe-list files we want to process
 !*.js
 !*.md
