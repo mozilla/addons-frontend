@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-21 16:19+0000\n"
-"PO-Revision-Date: 2020-06-04 20:13+0000\n"
+"PO-Revision-Date: 2020-07-28 19:39+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -49,19 +49,19 @@ msgstr "Spravovať doplnok"
 
 #: src/amo/components/AddonAdminLinks/index.js:119
 msgid "Content review add-on"
-msgstr ""
+msgstr "Kontrola obsahu doplnku"
 
 #: src/amo/components/AddonAdminLinks/index.js:127
 msgid "Review theme"
-msgstr ""
+msgstr "Kontrola témy vzhľadu"
 
 #: src/amo/components/AddonAdminLinks/index.js:129
 msgid "Review add-on code"
-msgstr ""
+msgstr "Kontrola kódu doplnku"
 
 #: src/amo/components/AddonAdminLinks/index.js:149
 msgid "Admin Links"
-msgstr ""
+msgstr "Spravovať odkazy"
 
 #: src/amo/components/AddonAdminLinks/index.js:76 src/amo/components/AddonAuthorLinks/index.js:46
 msgid "Edit add-on"
@@ -69,7 +69,7 @@ msgstr "Upraviť doplnok"
 
 #: src/amo/components/AddonAdminLinks/index.js:90
 msgid "Admin add-on status"
-msgstr ""
+msgstr "Spravovať stav doplnku"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
 msgid "Author Links"
@@ -725,7 +725,7 @@ msgstr "Odstrániť"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Collector's note"
-msgstr ""
+msgstr "Poznámka autora kolekcie"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -757,6 +757,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Skúste túto stránku navštíviť neskôr. Téma vzhľadu alebo rozšírenie totižto môže byť opäť k dispozícii. Môžete taktiež skúsiť vyhľadávanie medzi ostatnými "
+"%(extensionStart)srozšíreniami%(extensionEnd)s alebo %(themeStart)stémami vzhľadu%(themeEnd)s. Môžete taktiež požiadať o pomoc na našom %(communityStart)skomunitnom fóre%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
@@ -908,7 +910,7 @@ msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:207
 msgid "Extension Workshop"
-msgstr ""
+msgstr "Workshop tvorby rozšírenia"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:217
 msgid "Developer Hub"
@@ -956,7 +958,7 @@ msgstr "Nástroje recenzenta"
 
 #: src/amo/components/Header/index.js:139 src/core/components/AuthenticateButton/index.js:91
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Táto akcia momentálne nie je dostupná. Prosím, načítajte znova stránku."
 
 #: src/amo/components/Header/index.js:144 src/core/components/AuthenticateButton/index.js:87
 msgid "Log out"
@@ -972,7 +974,7 @@ msgstr "Naučte sa tvoriť rozšírenia a témy vzhľadu"
 
 #: src/amo/components/Header/index.js:215
 msgid "Submit and manage extensions and themes"
-msgstr ""
+msgstr "Pridanie a správa rozšírení a tém vzhľadu"
 
 #: src/amo/components/Header/index.js:71
 msgid "My Account"
@@ -1177,23 +1179,23 @@ msgstr "Hodnotenie bolo uložené"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Všetky recenzie s 5 hviezdičkami"
 
 #: src/amo/components/RatingsByStar/index.js:96
 msgid "Read all four-star reviews"
-msgstr ""
+msgstr "Všetky recenzie s 4 hviezdičkami"
 
 #: src/amo/components/RatingsByStar/index.js:97
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Všetky recenzie s 3 hviezdičkami"
 
 #: src/amo/components/RatingsByStar/index.js:98
 msgid "Read all two-star reviews"
-msgstr ""
+msgstr "Všetky recenzie s 2 hviezdičkami"
 
 #: src/amo/components/RatingsByStar/index.js:99
 msgid "Read all one-star reviews"
-msgstr ""
+msgstr "Všetky recenzie s 1 hviezdičkou"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1320,9 +1322,9 @@ msgstr "Výsledky vyhľadávania pre „%(query)s“"
 #: src/amo/components/SearchContextCard/index.js:105
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "V kategórii „%(categoryName)s“ bola nájdená %(count)s téma vzhľadu"
+msgstr[1] "V kategórii „%(categoryName)s“ boli nájdené %(count)s témy vzhľadu"
+msgstr[2] "V kategórii „%(categoryName)s“ bolo nájdených %(count)s tém vzhľadu"
 
 #: src/amo/components/SearchContextCard/index.js:115
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1363,16 +1365,16 @@ msgstr "Vyhľadávanie doplnkov"
 #: src/amo/components/SearchContextCard/index.js:55
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bolo v kategórii „%(categoryName)s“ nájdené %(count)s rozšírenie"
+msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli v kategórii „%(categoryName)s“ nájdené %(count)s rozšírenia"
+msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo v kategórii „%(categoryName)s“ nájdených %(count)s rozšírení"
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "V kategórii „%(categoryName)s“ bolo nájdené %(count)s rozšírenie"
+msgstr[1] "V kategórii „%(categoryName)s“ boli nájdené %(count)s rozšírenia"
+msgstr[2] "V kategórii „%(categoryName)s“ bolo nájdených %(count)s rozšírení"
 
 #: src/amo/components/SearchContextCard/index.js:74
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1391,9 +1393,9 @@ msgstr[2] "Bolo nájdených %(count)s rozšírení"
 #: src/amo/components/SearchContextCard/index.js:96
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "V kategórii „%(categoryName)s“ bola pre výraz „%(query)s“ nájdená %(count)s téma vzhľadu"
+msgstr[1] "V kategórii „%(categoryName)s“ boli pre výraz „%(query)s“ nájdené %(count)s témy vzhľadu"
+msgstr[2] "V kategórii „%(categoryName)s“ bolo pre výraz „%(query)s“ nájdených %(count)s tém vzhľadu"
 
 #: src/amo/components/SearchFilters/index.js:128 src/amo/components/SearchFilters/index.js:144
 msgid "All"
@@ -1592,11 +1594,11 @@ msgstr "Tento doplnok nie je kompatibilný s týmto prehliadačom. Vyskúšajte 
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr ""
+msgstr "Ďalšie informácie o doplnkoch kompatibilných s Firefoxom pre Android nájdete <a href=\"%(newLocation)s\">tu</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Doplnky kompatibilné s Firefoxom pre Android nájdete na <a href=\"%(newLocation)s\">mobilnej verzii stránky</a>."
 
 #: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1651,7 +1653,7 @@ msgstr "Poznámky k vydaniu pre verziu %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:470
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Toto nie je verejná stránka. Vidíte ju len vďaka svojim oprávneniam."
 
 #: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
@@ -1659,15 +1661,15 @@ msgstr "Metadáta rozšírenia"
 
 #: src/amo/pages/Addon/index.js:505
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Tento zoznam nie je určený pre túto platformu. <a href=\"%(newLocation)s\">Doplnky pre Firefox pre Android nájdete tu</a>."
 
 #: src/amo/pages/Addon/index.js:509
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Tento zoznam nie je určený pre túto platformu. <a href=\"%(newLocation)s\">Doplnky pre Firefox pre počítače nájdete tu</a>."
 
 #: src/amo/pages/Addon/index.js:513
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Tento doplnok nie je dostupný pre Firefox pre Android ale môžete ho používať vo Firefoxe pre počítač. Ďalšie informácie o <a href=\"%(newLocation)s\">doplnkoch pre Android nájdete tu</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
@@ -1687,7 +1689,7 @@ msgstr "Zásady ochrany súkromia doplnku %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Recenzie a hodnotenie doplnku %(addonName)s. Zistite, čo si ostatní používatelia myslia o doplnku %(addonName)s a pridajte si ho do svojho Firefoxu."
 
 #: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show all reviews"
@@ -1753,11 +1755,11 @@ msgstr "Staršie verzie"
 
 #: src/amo/pages/Block/index.js:115
 msgid "Versions blocked: all versions."
-msgstr ""
+msgstr "Zablokované verzie: všetky."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Zablokované verzie: od %(min)s do %(max)s."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
@@ -1773,7 +1775,7 @@ msgstr "Prečo bol zablokovaný?"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Tento doplnok porušuje %(startLink)spravidlá Mozilly pre doplnky%(endLink)s."
 
 #: src/amo/pages/Block/index.js:173
 msgid "What does this mean?"
@@ -1833,11 +1835,11 @@ msgstr "Nájdite rozšírenia a témy vzhľadu, ktoré si pridáte do svojej kol
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Preberajte a tvorte kolekcie a by ste si udržiavali prehľad o obľúbených rozšíreniach a témach vzhľadu. Preskúmajte zbierku %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Preberajte a tvorte kolekcie a by ste si udržiavali prehľad o obľúbených rozšíreniach a témach vzhľadu. Preskúmajte zbierku %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:114
 msgid "Collections"
@@ -1869,15 +1871,16 @@ msgstr "Jednoduchý a vysoko účinný blokovač reklám. uBlock Origin dokáže
 
 #: src/amo/pages/Guides/index.js:109
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr ""
+msgstr "Preskúmajte ďalšie skvelé %(linkStart)sblokovače reklám%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Zabráňte sledovacím prvkom vo vašom sledovaní"
 
 #: src/amo/pages/Guides/index.js:118
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
 msgstr ""
+"Prevádzkovatelia internetových reklamných sietí môžu sledovať vašu aktivitu na internete a zhromažďovať informácie o vás a vašich záujmoch. Rozšírenia vám môžu pomôcť zakryť vašu digitálnu stopu."
 
 #: src/amo/pages/Guides/index.js:123
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
@@ -1889,7 +1892,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Nové spôsoby správy kariet"
 
 #: src/amo/pages/Guides/index.js:139
 msgid ""
@@ -2066,15 +2069,15 @@ msgstr "Pozrite si viac populárnych rozšírení"
 
 #: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
-msgstr ""
+msgstr "Ďalšie rozšírenia zamerané na zvýšenie súkromia"
 
 #: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
-msgstr ""
+msgstr "Rozšírenia zamerané na zvýšenie súkromia"
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
-msgstr ""
+msgstr "Ďalší odporúčaní správcovia hesiel"
 
 #: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
@@ -2094,7 +2097,7 @@ msgstr "Ďalšie dobre hodnotené témy vzhľadu"
 
 #: src/amo/pages/LandingPage/index.js:206
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Pomocou tém vzhľadu môžete zmeniť vzhľad svojho Firefoxu. Upravte si jeho podobu podľa seba. Na výber máte z tisícok možností."
 
 #: src/amo/pages/LandingPage/index.js:211
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
@@ -2460,7 +2463,7 @@ msgstr "Upraviť profil"
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:448
 msgid "Admin user"
-msgstr ""
+msgstr "Správca"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
@@ -2556,7 +2559,7 @@ msgstr "Zobrazované meno *"
 
 #: src/amo/pages/UserProfileEdit/index.js:654
 msgid "Reviewer Name"
-msgstr ""
+msgstr "Meno redaktora"
 
 #: src/amo/pages/UserProfileEdit/index.js:687
 msgid "This URL will only be visible for users who are developers."
@@ -2639,11 +2642,11 @@ msgstr "Boli ste úspešne odhlásení!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "Na e-mailovú adresu %(strongStart)s%(email)s%(strongEnd)s už nebudú odosielané správy, ak:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Nastavenia upozornení môžete upraviť vo %(linkStart)ssvojom profile%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
@@ -2763,7 +2766,7 @@ msgstr "Niektoré funkcie sú dočasne vypnuté kvôli údržbe stránok. Strán
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Boli ste odhlásení."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2882,7 +2885,7 @@ msgstr "Zavrieť toto oznámenie"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "By Firefox"
-msgstr ""
+msgstr "Od Firefoxu"
 
 #: src/ui/components/PromotedBadge/index.js:42 src/ui/components/PromotedBadge/index.js:50 src/ui/components/PromotedBadge/index.js:62
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
@@ -2890,11 +2893,11 @@ msgstr "Firefox odporúča len rozšírenia, ktoré spĺňajú naše štandardy 
 
 #: src/ui/components/PromotedBadge/index.js:59
 msgid "Verified Sponsor"
-msgstr ""
+msgstr "Overený spoznor"
 
 #: src/ui/components/PromotedBadge/index.js:60
 msgid "Verified"
-msgstr ""
+msgstr "Overené"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
