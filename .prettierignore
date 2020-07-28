@@ -15,7 +15,8 @@ Dockerfile
 /src/locale/
 /tests/ui/
 /tests/frontend
-# white-list files we want to process
+coverage
+# safe-list files we want to process
 !*.js
 !*.md
 !*.scss
