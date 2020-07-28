@@ -9,12 +9,14 @@
   }
 }
 
-.PermissionsCard-subhead {
+.PermissionsCard-subhead--optional,
+.PermissionsCard-subhead--required {
   color: $grey-50;
   margin: 0;
 }
 
-.PermissionsCard-list {
+.PermissionsCard-list--optional,
+.PermissionsCard-list--required {
   list-style: none;
   padding: 0;
 

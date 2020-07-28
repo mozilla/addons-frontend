@@ -35,22 +35,39 @@ describe(__filename, () => {
     };
 
     it('returns permissions from a found file', () => {
+      const optionalPermissions = ['webRequest'];
       const permissions = ['bookmarks'];
-      findFileForPlatformStub.returns({ permissions });
+      findFileForPlatformStub.returns({
+        optional_permissions: optionalPermissions,
+        permissions,
+      });
 
-      expect(_getCurrentPermissions()).toEqual(permissions);
+      expect(_getCurrentPermissions()).toEqual({
+        optional: optionalPermissions,
+        required: permissions,
+      });
     });
 
-    it('returns an empty array if no file was found', () => {
+    it('returns empty arrays if no file was found', () => {
       findFileForPlatformStub.returns(undefined);
 
-      expect(_getCurrentPermissions()).toEqual([]);
+      expect(_getCurrentPermissions()).toEqual({
+        optional: [],
+        required: [],
+      });
     });
 
-    it('returns an empty array if no permissions were found', () => {
-      findFileForPlatformStub.returns({ permissions: undefined });
+    it('returns an empty array of required permissions if none exist', () => {
+      const optionalPermissions = ['webRequest'];
+      findFileForPlatformStub.returns({
+        optional_permissions: optionalPermissions,
+        permissions: undefined,
+      });
 
-      expect(_getCurrentPermissions()).toEqual([]);
+      expect(_getCurrentPermissions()).toEqual({
+        optional: optionalPermissions,
+        required: [],
+      });
     });
   });
 
