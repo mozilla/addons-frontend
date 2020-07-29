@@ -2602,12 +2602,9 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "DÔLEŽITÉ: Odstránenie tohto profilu je nenavrátiteľné."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Vaše údaje, vrátane podrobností o profile (obrázku, používateľského mena, polohy či domovskej stránky) a nastavení upozornení budú natrvalo odstránené. Vaše recenzie a hodnotenia budú anonymizované "
-"a už ich nebude možné upraviť."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
 #, fuzzy
