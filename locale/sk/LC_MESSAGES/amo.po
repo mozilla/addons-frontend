@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-21 16:19+0000\n"
-"PO-Revision-Date: 2020-07-28 19:40+0000\n"
+"PO-Revision-Date: 2020-07-29 19:43+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:176
 msgid "Loading…"
-msgstr "Načítava sa..."
+msgstr "Načítava sa…"
 
 #: src/amo/components/AddAddonToCollection/index.js:178
 msgid "Adding…"
@@ -2154,6 +2154,7 @@ msgstr "Slovníky"
 #: src/amo/pages/SearchTools/index.js:60
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
 msgstr ""
+"Prevezmite si rozšírenia pre Firefox a prispôsobte si vyhľadávanie - od vyhľadávaní zameraných na zachovanie súkromia až po vyhľadávanie len na konkrétnych stránkach, vyhľadávanie obrázkov a pod."
 
 #: src/amo/pages/SearchTools/index.js:63
 msgid "Search Tools"
@@ -2164,6 +2165,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Chcete interagovať s webom addons.mozilla.org (AMO) prostredníctvom programu? Pozrite sa do %(startAddonsServerDocumentation)sdokumentácie pre servery doplnkov%(endAddonsServerDocumentation)s, kde "
+"nájdete podrobnosti o API používaných na AMO a v %(startAddonsManager)sSprávcovi doplnkov%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2315,7 +2318,7 @@ msgstr "Pokyny pre recenzentov"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Pokyny, tipy a najčastejšie kladené otázky ohľadom písania recenzii pre rozšírenia a témy vzhľadu, ktoré ste používali vo Firefoxe."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
@@ -2604,19 +2607,21 @@ msgstr "DÔLEŽITÉ: Odstránenie tohto profilu je nenavrátiteľné."
 #: src/amo/pages/UserProfileEdit/index.js:843
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr ""
+msgstr "Vaše údaje, vrátane podrobností o profile (obrázku, používateľského mena, polohy či domovskej stránky) a nastavení upozornení, recenzií a kolekcií budú natrvalo odstránené."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
-msgstr ""
+msgstr "Údaje o používateľovi, vrátane podrobností o profile (obrázku, používateľského mena, polohy či domovskej stránky) a nastavení upozornení, recenzií a kolekcií budú natrvalo odstránené."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Ak ste vytvorili nejaké doplnky, budú taktiež odstránené - ak teda nezdieľate vlastníctvo s inými autormi. V takom prípade budete odstránení ako autor a zostávajúci autori si ponechajú vlastníctvo "
+"doplnku."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
