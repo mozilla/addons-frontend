@@ -60,7 +60,8 @@
   }
 
   .ShowMoreCard-contents {
-    max-height: 300px;
+    // Chnaged this value for Issue #9411
+    max-height: 450px;
   }
 
   &.ShowMoreCard--expanded .ShowMoreCard-contents {
