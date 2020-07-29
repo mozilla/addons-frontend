@@ -173,8 +173,6 @@ export class FooterBase extends React.Component {
                   className="Footer-lockwise-link"
                   href={`https://www.mozilla.org/firefox/lockwise/${makeQueryStringWithUTM(
                     {
-                      utm_source: 'addons.mozilla.org',
-                      utm_medium: 'referral',
                       utm_content: 'footer-link',
                       utm_campaign: null,
                     },
@@ -187,8 +185,6 @@ export class FooterBase extends React.Component {
                 <a
                   className="Footer-monitor-link"
                   href={`https://monitor.firefox.com/${makeQueryStringWithUTM({
-                    utm_source: 'addons.mozilla.org',
-                    utm_medium: 'referral',
                     utm_content: 'footer-link',
                     utm_campaign: null,
                   })}`}
@@ -200,8 +196,6 @@ export class FooterBase extends React.Component {
                 <a
                   className="Footer-send-link"
                   href={`https://send.firefox.com${makeQueryStringWithUTM({
-                    utm_source: 'addons.mozilla.org',
-                    utm_medium: 'referral',
                     utm_content: 'footer-link',
                     utm_campaign: null,
                   })}`}
@@ -214,8 +208,6 @@ export class FooterBase extends React.Component {
                   className="Footer-browsers-link"
                   href={`https://www.mozilla.org/firefox/browsers/${makeQueryStringWithUTM(
                     {
-                      utm_source: 'addons.mozilla.org',
-                      utm_medium: 'referral',
                       utm_content: 'footer-link',
                       utm_campaign: null,
                     },
@@ -228,8 +220,6 @@ export class FooterBase extends React.Component {
                 <a
                   className="Footer-pocket-link"
                   href={`https://getpocket.com${makeQueryStringWithUTM({
-                    utm_source: 'addons.mozilla.org',
-                    utm_medium: 'referral',
                     utm_content: 'footer-link',
                     utm_campaign: null,
                   })}`}

@@ -21,7 +21,11 @@ import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
-import { ALL_SUPER_POWERS } from 'core/constants';
+import {
+  ALL_SUPER_POWERS,
+  DEFAULT_UTM_SOURCE,
+  DEFAULT_UTM_MEDIUM,
+} from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -34,6 +38,7 @@ import {
   fakeAddon,
   fakeI18n,
   fakeReview,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
@@ -1071,22 +1076,43 @@ describe(__filename, () => {
     });
 
     it('adds a `src` query parameter to the link in the byLine if available in the location', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+      const slug = 'some-slug';
+      const review = signInAndDispatchSavedReview({
+        externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
+      });
+      const location = createFakeLocation({ query: { src: 'some-src' } });
+
+      const root = render({ _config, review, store, location });
+
+      expect(renderByLine(root).find(Link)).toHaveProp(
+        'to',
+        reviewListURL({ _config, addonSlug: slug, id: review.id, location }),
+      );
+    });
+
+    it('renders links with UTM query parameters when the location has a `src` param and the UTM flag is enabled', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
       const slug = 'some-slug';
       const review = signInAndDispatchSavedReview({
         externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
       });
       const src = 'some-src';
+      const location = createFakeLocation({ query: { src } });
 
-      const root = render({
-        review,
-        store,
-        location: createFakeLocation({ query: { src } }),
-      });
+      const root = render({ _config, review, store, location });
 
-      expect(renderByLine(root).find(Link)).toHaveProp(
-        'to',
-        reviewListURL({ addonSlug: slug, id: review.id, src }),
-      );
+      // Use hardcoded value to ensure that expectations are correct. We don't
+      // want to test that `reviewListURL()` was called but that the URLs are
+      // correct. This is why we use static values in the test cases involving
+      // `enableFeatureUseUtmParams`.
+      const expectedURL = [
+        `/addon/${slug}/reviews/${review.id}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+        `utm_medium=${DEFAULT_UTM_MEDIUM}`,
+        `utm_content=${src}`,
+      ].join('&');
+
+      expect(renderByLine(root).find(Link)).toHaveProp('to', expectedURL);
     });
 
     it('uses the addonId for the byLine link when the reviewAddon has an empty slug', () => {

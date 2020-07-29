@@ -306,3 +306,6 @@ export const LTR = 'ltr';
 
 export const AMO_REQUEST_ID_HEADER = 'amo-request-id';
 export const DISCO_TAAR_CLIENT_ID_HEADER = 'moz-client-id';
+
+export const DEFAULT_UTM_SOURCE = 'addons.mozilla.org';
+export const DEFAULT_UTM_MEDIUM = 'referral';

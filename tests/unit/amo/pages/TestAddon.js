@@ -45,6 +45,8 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
+  DEFAULT_UTM_SOURCE,
+  DEFAULT_UTM_MEDIUM,
   FATAL_ERROR,
   INSTALLING,
   UNKNOWN,
@@ -63,6 +65,7 @@ import {
   fakeI18n,
   fakeTheme,
   fakeVersion,
+  getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -1144,18 +1147,88 @@ describe(__filename, () => {
     });
 
     it('adds a `src` query parameter to the all reviews link when available in the location', () => {
+      const config = getFakeConfig({ enableFeatureUseUtmParams: false });
       const src = 'some-src';
       const location = createFakeLocation({ query: { src } });
       const addonSlug = 'adblock-plus';
+
       const card = readReviewsCard({
+        config,
         addonSlug,
         ratingsCount: 2,
         location,
       });
 
-      const link = allReviewsLink(card);
+      // Use hardcoded value to ensure that expectations are correct. We don't
+      // want to test that `reviewListURL()` was called but that the URLs are
+      // correct. This is why we use static values in the test cases involving
+      // `enableFeatureUseUtmParams`.
+      expect(allReviewsLink(card)).toHaveProp(
+        'to',
+        `${getAddonURL(addonSlug)}reviews/?src=${src}`,
+      );
+    });
 
-      expect(link).toHaveProp('to', reviewListURL({ addonSlug, src }));
+    it('adds UTM query parameters to the all reviews link when `src` exists and UTM flag is enabled', () => {
+      const config = getFakeConfig({ enableFeatureUseUtmParams: true });
+      const src = 'some-src';
+      const location = createFakeLocation({ query: { src } });
+      const addonSlug = 'adblock-plus';
+
+      const card = readReviewsCard({
+        config,
+        addonSlug,
+        ratingsCount: 2,
+        location,
+      });
+
+      const expectedQueryString = [
+        `utm_source=${DEFAULT_UTM_SOURCE}`,
+        `utm_medium=${DEFAULT_UTM_MEDIUM}`,
+        `utm_content=${src}`,
+      ].join('&');
+      expect(allReviewsLink(card)).toHaveProp(
+        'to',
+        `${getAddonURL(addonSlug)}reviews/?${expectedQueryString}`,
+      );
+    });
+
+    it('does not add UTM query parameters to the all reviews link when there are some but UTM flag is disabled', () => {
+      const config = getFakeConfig({ enableFeatureUseUtmParams: false });
+      const utm_campaign = 'some-utm-campaign';
+      const location = createFakeLocation({ query: { utm_campaign } });
+      const addonSlug = 'adblock-plus';
+
+      const card = readReviewsCard({
+        config,
+        addonSlug,
+        ratingsCount: 2,
+        location,
+      });
+
+      expect(allReviewsLink(card)).toHaveProp(
+        'to',
+        `${getAddonURL(addonSlug)}reviews/`,
+      );
+    });
+
+    it('adds UTM query parameters to the all reviews link when there are some and UTM flag is enabled', () => {
+      const config = getFakeConfig({ enableFeatureUseUtmParams: true });
+      const utm_campaign = 'some-utm-campaign';
+      const location = createFakeLocation({ query: { utm_campaign } });
+      const addonSlug = 'adblock-plus';
+
+      const card = readReviewsCard({
+        config,
+        addonSlug,
+        ratingsCount: 2,
+        location,
+      });
+
+      expect(allReviewsLink(card)).toHaveProp(
+        'to',
+        `${getAddonURL(addonSlug)}reviews/?utm_campaign=${utm_campaign}`,
+      );
     });
   });
 

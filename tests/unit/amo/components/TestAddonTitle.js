@@ -5,10 +5,12 @@ import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
 import { createInternalAddon } from 'core/reducers/addons';
 import LoadingText from 'ui/components/LoadingText';
+import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -202,14 +204,30 @@ describe(__filename, () => {
   });
 
   it('accepts a linkSource prop to append to the add-on URL', () => {
+    const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
     const linkSource = 'some-src';
     const addon = createInternalAddon(fakeAddon);
 
-    const root = render({ addon, linkToAddon: true, linkSource });
+    const root = render({ _config, addon, linkToAddon: true, linkSource });
 
     expect(root.find(Link).at(0)).toHaveProp(
       'to',
       `${getAddonURL(addon.slug)}?src=${linkSource}`,
+    );
+  });
+
+  it('accepts a linkSource prop to append to the add-on URL when UTM flag is enabled', () => {
+    const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+    const linkSource = 'some-src';
+    const addon = createInternalAddon(fakeAddon);
+
+    const root = render({ _config, addon, linkToAddon: true, linkSource });
+
+    expect(root.find(Link).at(0)).toHaveProp(
+      'to',
+      `${getAddonURL(
+        addon.slug,
+      )}?utm_source=${DEFAULT_UTM_SOURCE}&utm_medium=${DEFAULT_UTM_MEDIUM}&utm_content=${linkSource}`,
     );
   });
 });

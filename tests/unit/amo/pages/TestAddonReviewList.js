@@ -27,6 +27,8 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
+  DEFAULT_UTM_MEDIUM,
+  DEFAULT_UTM_SOURCE,
   SET_VIEW_CONTEXT,
 } from 'core/constants';
 import {
@@ -47,6 +49,7 @@ import {
   fakeAddon,
   fakeI18n,
   fakeReview,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -831,25 +834,97 @@ describe(__filename, () => {
       });
 
       it('adds a `src` query parameter to the reviews URL when available in the location', () => {
+        const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
         const src = 'some-src';
         const location = createFakeLocation({ query: { src } });
         const addonSlug = 'adblock-plus';
         const addon = { ...fakeAddon, id: 8765, slug: addonSlug };
         loadAddon(addon);
+
         const root = renderWithPagination({
+          _config,
           addon,
           params: { addonSlug },
           location,
         });
 
-        const paginator = renderFooter(root);
-
-        expect(paginator).toHaveProp(
+        // Use hardcoded value to ensure that expectations are correct. We
+        // don't want to test that `reviewListURL()` was called but that the
+        // URLs are correct. This is why we use static values in the test cases
+        // involving `enableFeatureUseUtmParams`.
+        expect(renderFooter(root)).toHaveProp(
           'pathname',
-          reviewListURL({ addonSlug, src }),
+          `${getAddonURL(addonSlug)}reviews/?src=${src}`,
         );
       });
 
+      it('adds UTM query parameters to the reviews URL when `src` exists and UTM flag is enabled', () => {
+        const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+        const src = 'some-src';
+        const location = createFakeLocation({ query: { src } });
+        const addonSlug = 'adblock-plus';
+        const addon = { ...fakeAddon, id: 8765, slug: addonSlug };
+        loadAddon(addon);
+
+        const root = renderWithPagination({
+          _config,
+          addon,
+          params: { addonSlug },
+          location,
+        });
+
+        const expectedQueryString = [
+          `utm_source=${DEFAULT_UTM_SOURCE}`,
+          `utm_medium=${DEFAULT_UTM_MEDIUM}`,
+          `utm_content=${src}`,
+        ].join('&');
+        expect(renderFooter(root)).toHaveProp(
+          'pathname',
+          `${getAddonURL(addonSlug)}reviews/?${expectedQueryString}`,
+        );
+      });
+
+      it('adds UTM query parameters to the reviews URL when there are some and UTM flag is enabled', () => {
+        const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+        const utm_campaign = 'some-utm-campaign';
+        const location = createFakeLocation({ query: { utm_campaign } });
+        const addonSlug = 'adblock-plus';
+        const addon = { ...fakeAddon, id: 8765, slug: addonSlug };
+        loadAddon(addon);
+
+        const root = renderWithPagination({
+          _config,
+          addon,
+          params: { addonSlug },
+          location,
+        });
+
+        expect(renderFooter(root)).toHaveProp(
+          'pathname',
+          `${getAddonURL(addonSlug)}reviews/?utm_campaign=${utm_campaign}`,
+        );
+      });
+
+      it('does not add UTM query parameters to the reviews URL when there are some but UTM flag is disabled', () => {
+        const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
+        const utm_campaign = 'some-utm-campaign';
+        const location = createFakeLocation({ query: { utm_campaign } });
+        const addonSlug = 'adblock-plus';
+        const addon = { ...fakeAddon, id: 8765, slug: addonSlug };
+        loadAddon(addon);
+
+        const root = renderWithPagination({
+          _config,
+          addon,
+          params: { addonSlug },
+          location,
+        });
+
+        expect(renderFooter(root)).toHaveProp(
+          'pathname',
+          `${getAddonURL(addonSlug)}reviews/`,
+        );
+      });
       it('configures a paginator with the right Link', () => {
         const root = renderWithPagination();
 

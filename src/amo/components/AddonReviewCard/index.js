@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -66,6 +67,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
   dispatch: DispatchFunc,
@@ -82,6 +84,7 @@ type InternalProps = {|
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
     flaggable: true,
     shortByLine: false,
     showControls: true,
@@ -327,6 +330,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
   render() {
     const {
+      _config,
       beginningToDeleteReview,
       className,
       deletingReview,
@@ -389,9 +393,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 title={i18n.moment(review.created).format('lll')}
                 key={review.id}
                 to={reviewListURL({
+                  _config,
                   addonSlug: String(slugForReviewLink),
                   id: review.id,
-                  src: location.query.src,
+                  location,
                 })}
               >
                 {text}

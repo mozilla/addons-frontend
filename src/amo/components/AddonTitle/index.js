@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -24,11 +25,13 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   i18n: I18nType,
   isRTL: boolean,
 |};
 
 export const AddonTitleBase = ({
+  _config = config,
   as: Component = 'h1',
   addon,
   i18n,
@@ -68,7 +71,11 @@ export const AddonTitleBase = ({
         <>
           {linkToAddon ? (
             <Link
-              to={addQueryParams(getAddonURL(addon.slug), { src: linkSource })}
+              to={addQueryParams(
+                getAddonURL(addon.slug),
+                { src: linkSource },
+                _config,
+              )}
             >
               {addon.name}
             </Link>

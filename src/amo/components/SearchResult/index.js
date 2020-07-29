@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -36,6 +37,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   clientApp: string,
   history: ReactRouterHistoryType,
   i18n: I18nType,
@@ -44,6 +46,7 @@ type InternalProps = {|
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
     showMetadata: true,
     showRecommendedBadge: true,
     showSummary: true,
@@ -55,9 +58,15 @@ export class SearchResultBase extends React.Component<InternalProps> {
     addonInstallSource?: string,
   ) {
     let linkTo = getAddonURL(addon.slug);
+
     if (addonInstallSource) {
-      linkTo = addQueryParams(linkTo, { src: addonInstallSource });
+      linkTo = addQueryParams(
+        linkTo,
+        { src: addonInstallSource },
+        this.props._config,
+      );
     }
+
     return linkTo;
   }
 

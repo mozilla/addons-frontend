@@ -65,8 +65,6 @@ describe(__filename, () => {
     expect(root.find('.Footer-lockwise-link')).toHaveProp(
       'href',
       `https://www.mozilla.org/firefox/lockwise/${makeQueryStringWithUTM({
-        utm_source: 'addons.mozilla.org',
-        utm_medium: 'referral',
         utm_content: 'footer-link',
         utm_campaign: null,
       })}`,
@@ -76,8 +74,6 @@ describe(__filename, () => {
     expect(root.find('.Footer-monitor-link')).toHaveProp(
       'href',
       `https://monitor.firefox.com/${makeQueryStringWithUTM({
-        utm_source: 'addons.mozilla.org',
-        utm_medium: 'referral',
         utm_content: 'footer-link',
         utm_campaign: null,
       })}`,
@@ -87,8 +83,6 @@ describe(__filename, () => {
     expect(root.find('.Footer-send-link')).toHaveProp(
       'href',
       `https://send.firefox.com${makeQueryStringWithUTM({
-        utm_source: 'addons.mozilla.org',
-        utm_medium: 'referral',
         utm_content: 'footer-link',
         utm_campaign: null,
       })}`,
@@ -98,8 +92,6 @@ describe(__filename, () => {
     expect(root.find('.Footer-browsers-link')).toHaveProp(
       'href',
       `https://www.mozilla.org/firefox/browsers/${makeQueryStringWithUTM({
-        utm_source: 'addons.mozilla.org',
-        utm_medium: 'referral',
         utm_content: 'footer-link',
         utm_campaign: null,
       })}`,
@@ -109,8 +101,6 @@ describe(__filename, () => {
     expect(root.find('.Footer-pocket-link')).toHaveProp(
       'href',
       `https://getpocket.com${makeQueryStringWithUTM({
-        utm_source: 'addons.mozilla.org',
-        utm_medium: 'referral',
         utm_content: 'footer-link',
         utm_campaign: null,
       })}`,

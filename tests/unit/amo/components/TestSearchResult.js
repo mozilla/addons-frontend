@@ -8,6 +8,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  DEFAULT_UTM_SOURCE,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -19,6 +20,7 @@ import {
   fakeI18n,
   fakePreview,
   fakeTheme,
+  getFakeConfig,
   normalizeSpaces,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -95,6 +97,19 @@ describe(__filename, () => {
     const link = root.find('.SearchResult-link');
     expect(url.parse(link.prop('to'), true).query).toMatchObject({
       src: addonInstallSource,
+    });
+  });
+
+  it('links the heading to the detail page with UTM params when UTM flag is enabled', () => {
+    const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+    const addonInstallSource = 'home-page-featured';
+
+    const root = render({ _config, addonInstallSource });
+
+    const link = root.find('.SearchResult-link');
+    expect(url.parse(link.prop('to'), true).query).toMatchObject({
+      utm_source: DEFAULT_UTM_SOURCE,
+      utm_content: addonInstallSource,
     });
   });
 

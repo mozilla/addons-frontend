@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import { oneLine } from 'common-tags';
 import deepcopy from 'deepcopy';
 import invariant from 'invariant';
@@ -32,7 +33,10 @@ import {
   UPDATE_RATING_COUNTS,
   createInternalReview,
 } from 'amo/actions/reviews';
-import { addQueryParams } from 'core/utils/url';
+import {
+  addQueryParams,
+  getQueryParametersForAttribution,
+} from 'core/utils/url';
 import type {
   BeginDeleteAddonReviewAction,
   CancelDeleteAddonReviewAction,
@@ -65,22 +69,34 @@ import type {
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { AppState } from 'amo/store';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 export function reviewListURL({
+  _config = config,
   addonSlug,
   id,
+  location,
   score,
-  src,
 }: {|
+  _config?: typeof config,
   addonSlug: string,
   id?: number,
+  location?: ReactRouterLocationType,
   score?: number | string,
-  src?: string,
 |}) {
   invariant(addonSlug, 'addonSlug is required');
   const path = `/addon/${addonSlug}/reviews/${id ? `${id}/` : ''}`;
 
-  return addQueryParams(path, { src, score });
+  let queryParams = { score };
+
+  if (location) {
+    queryParams = {
+      ...queryParams,
+      ...getQueryParametersForAttribution(location, _config),
+    };
+  }
+
+  return addQueryParams(path, queryParams, _config);
 }
 
 type ReviewsById = {

@@ -9,6 +9,8 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
+  DEFAULT_UTM_SOURCE,
+  DEFAULT_UTM_MEDIUM,
   STATS_VIEW,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -19,10 +21,11 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
-  fakeTheme,
   fakeI18n,
-  fakeVersion,
   fakePlatformFile,
+  fakeTheme,
+  fakeVersion,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
@@ -609,5 +612,149 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find(AddonAuthorLinks)).toHaveProp('addon', addon);
+  });
+
+  describe('enableFeatureUseUtmParams', () => {
+    const authorUserId = 11;
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      has_privacy_policy: true,
+      has_eula: true,
+      authors: [
+        {
+          ...fakeAddon.authors[0],
+          id: authorUserId,
+          name: 'tofumatt',
+          picture_url: 'http://cdn.a.m.o/myphoto.jpg',
+          url: 'http://a.m.o/en-GB/firefox/user/tofumatt/',
+          username: 'tofumatt',
+        },
+      ],
+    });
+
+    beforeEach(() => {
+      store = dispatchSignInActions({ userId: authorUserId }).store;
+
+      _loadVersions({
+        license: {
+          is_custom: true,
+          name: 'tofulicense',
+          url: 'www.license.com',
+        },
+      });
+    });
+
+    describe('with enableFeatureUseUtmParams = true', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+
+      it('renders links with UTM query parameters when the location has a `src` param', () => {
+        const src = 'some-src';
+
+        const root = render({
+          _config,
+          addon,
+          location: createFakeLocation({ query: { src } }),
+        });
+
+        const expectedQueryString = [
+          `utm_source=${DEFAULT_UTM_SOURCE}`,
+          `utm_medium=${DEFAULT_UTM_MEDIUM}`,
+          `utm_content=${src}`,
+        ].join('&');
+        expect(root.find('.AddonMoreInfo-stats-link')).toHaveProp(
+          'href',
+          `/addon/${addon.slug}/statistics/?${expectedQueryString}`,
+        );
+        expect(root.find('.AddonMoreInfo-license-link')).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/license/?${expectedQueryString}`,
+        );
+        expect(
+          root.find('.AddonMoreInfo-privacy-policy').find(Link),
+        ).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/privacy/?${expectedQueryString}`,
+        );
+        expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/eula/?${expectedQueryString}`,
+        );
+        expect(
+          root.find('.AddonMoreInfo-version-history-link').find(Link),
+        ).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/versions/?${expectedQueryString}`,
+        );
+      });
+
+      it('renders links with UTM query params when there are some', () => {
+        const utm_medium = 'referral';
+
+        const root = render({
+          _config,
+          addon,
+          location: createFakeLocation({ query: { utm_medium } }),
+        });
+
+        const expectedQueryString = `utm_medium=${utm_medium}`;
+        expect(root.find('.AddonMoreInfo-stats-link')).toHaveProp(
+          'href',
+          `/addon/${addon.slug}/statistics/?${expectedQueryString}`,
+        );
+        expect(root.find('.AddonMoreInfo-license-link')).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/license/?${expectedQueryString}`,
+        );
+        expect(
+          root.find('.AddonMoreInfo-privacy-policy').find(Link),
+        ).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/privacy/?${expectedQueryString}`,
+        );
+        expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/eula/?${expectedQueryString}`,
+        );
+        expect(
+          root.find('.AddonMoreInfo-version-history-link').find(Link),
+        ).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/versions/?${expectedQueryString}`,
+        );
+      });
+    });
+
+    describe('with enableFeatureUseUtmParams = false', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
+
+      it('renders links without UTM query params when there are some', () => {
+        const utm_medium = 'referral';
+
+        const root = render({
+          _config,
+          addon,
+          location: createFakeLocation({ query: { utm_medium } }),
+        });
+
+        expect(root.find('.AddonMoreInfo-stats-link')).toHaveProp(
+          'href',
+          `/addon/${addon.slug}/statistics/`,
+        );
+        expect(root.find('.AddonMoreInfo-license-link')).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/license/`,
+        );
+        expect(
+          root.find('.AddonMoreInfo-privacy-policy').find(Link),
+        ).toHaveProp('to', `/addon/${addon.slug}/privacy/`);
+        expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
+          'to',
+          `/addon/${addon.slug}/eula/`,
+        );
+        expect(
+          root.find('.AddonMoreInfo-version-history-link').find(Link),
+        ).toHaveProp('to', `/addon/${addon.slug}/versions/`);
+      });
+    });
   });
 });

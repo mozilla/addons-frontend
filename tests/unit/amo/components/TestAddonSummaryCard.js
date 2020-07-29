@@ -14,19 +14,22 @@ import {
   createFakeLocation,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { getAddonURL } from 'amo/utils';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
+import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 
 describe(__filename, () => {
-  const render = ({ addon, headerText, location }) => {
+  const render = ({ addon, headerText, location, ...props }) => {
     return shallowUntilTarget(
       <AddonSummaryCard
         addon={addon ? createInternalAddon(addon) : addon}
         headerText={headerText}
         i18n={fakeI18n()}
+        {...props}
       />,
       AddonSummaryCardBase,
       {
@@ -72,11 +75,13 @@ describe(__filename, () => {
       expect(header.find(Link)).toHaveProp('to', getAddonURL(addon.slug));
     });
 
-    it('adds a `src` query parameter to the link on the icon when there is an add-on', () => {
+    it('adds a `src` query parameter to the link on the icon when there is a `src` query param', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
       const src = 'some-src';
       const addon = fakeAddon;
 
       const header = renderAddonHeader({
+        _config,
         addon,
         location: createFakeLocation({ query: { src } }),
       });
@@ -85,6 +90,59 @@ describe(__filename, () => {
         'to',
         `${getAddonURL(addon.slug)}?src=${src}`,
       );
+    });
+
+    it('adds UTM query parameters to the link on the icon when there is a `src` query param and UTM flag is enabled', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+      const src = 'some-src';
+      const addon = fakeAddon;
+
+      const header = renderAddonHeader({
+        _config,
+        addon,
+        location: createFakeLocation({ query: { src } }),
+      });
+
+      const expectedQueryString = [
+        `utm_source=${DEFAULT_UTM_SOURCE}`,
+        `utm_medium=${DEFAULT_UTM_MEDIUM}`,
+        `utm_content=${src}`,
+      ].join('&');
+      expect(header.find(Link)).toHaveProp(
+        'to',
+        `${getAddonURL(addon.slug)}?${expectedQueryString}`,
+      );
+    });
+
+    it('adds UTM query parameters to the link on the icon when there are some and UTM flag is enabled', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+      const addon = fakeAddon;
+      const utm_medium = 'some-utm-medium';
+
+      const header = renderAddonHeader({
+        _config,
+        addon,
+        location: createFakeLocation({ query: { utm_medium } }),
+      });
+
+      expect(header.find(Link)).toHaveProp(
+        'to',
+        `${getAddonURL(addon.slug)}?utm_medium=${utm_medium}`,
+      );
+    });
+
+    it('does not add UTM query parameters to the link on the icon when there are some but UTM flag is disabled', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
+      const addon = fakeAddon;
+      const utm_medium = 'some-utm-medium';
+
+      const header = renderAddonHeader({
+        _config,
+        addon,
+        location: createFakeLocation({ query: { utm_medium } }),
+      });
+
+      expect(header.find(Link)).toHaveProp('to', getAddonURL(addon.slug));
     });
 
     it('renders the fallback icon if the origin is not allowed', () => {
@@ -119,14 +177,42 @@ describe(__filename, () => {
     });
 
     it('sets the linkSource to the value of `location.query.src`', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
       const src = 'some-src';
 
       const header = renderAddonHeader({
+        _config,
         addon: fakeAddon,
         location: createFakeLocation({ query: { src } }),
       });
 
       expect(header.find(AddonTitle)).toHaveProp('linkSource', src);
+    });
+
+    it('sets the linkSource to the value of `src` when UTM flag is enabled', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+      const src = 'some-src';
+
+      const header = renderAddonHeader({
+        _config,
+        addon: fakeAddon,
+        location: createFakeLocation({ query: { src } }),
+      });
+
+      expect(header.find(AddonTitle)).toHaveProp('linkSource', src);
+    });
+
+    it('sets the linkSource to the value of `utm_conetnt` if available when UTM flag is enabled', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+      const utm_content = 'some-src';
+
+      const header = renderAddonHeader({
+        _config,
+        addon: fakeAddon,
+        location: createFakeLocation({ query: { utm_content } }),
+      });
+
+      expect(header.find(AddonTitle)).toHaveProp('linkSource', utm_content);
     });
   });
 

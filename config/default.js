@@ -125,10 +125,11 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
-    'enableFeatureBlockPage',
     'enableDevTools',
+    'enableFeatureBlockPage',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
+    'enableFeatureUseUtmParams',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -380,6 +381,8 @@ module.exports = {
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
+
+  enableFeatureUseUtmParams: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

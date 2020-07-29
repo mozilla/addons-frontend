@@ -185,7 +185,14 @@ export class AddonBase extends React.Component {
   }
 
   renderRatingsCard() {
-    const { RatingManager, addon, i18n, location, currentVersion } = this.props;
+    const {
+      RatingManager,
+      addon,
+      config,
+      i18n,
+      location,
+      currentVersion,
+    } = this.props;
     let content;
     let footerPropName = 'footerText';
 
@@ -224,7 +231,11 @@ export class AddonBase extends React.Component {
       content = (
         <Link
           className="Addon-all-reviews-link"
-          to={reviewListURL({ addonSlug: addon.slug, src: location.query.src })}
+          to={reviewListURL({
+            _config: config,
+            addonSlug: addon.slug,
+            location,
+          })}
         >
           {linkText}
         </Link>
