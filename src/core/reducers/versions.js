@@ -41,7 +41,7 @@ export type AddonFileType = {|
   is_restart_required: boolean,
   is_webextension: boolean,
   optional_permissions: Array<string>,
-  permissions?: Array<string>,
+  permissions: Array<string>,
   platform: 'all' | 'android' | 'mac' | 'linux' | 'windows',
   size: number,
   status: AddonStatusType,

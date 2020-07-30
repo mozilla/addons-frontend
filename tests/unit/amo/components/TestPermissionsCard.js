@@ -21,7 +21,10 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  const createVersionWithPermissions = (optional, required) => {
+  const createVersionWithPermissions = ({
+    optional = [],
+    required = [],
+  } = {}) => {
     return createInternalVersion({
       ...fakeVersion,
       files: [
@@ -53,13 +56,16 @@ describe(__filename, () => {
     });
 
     it('renders nothing for a version with no permissions', () => {
-      const root = render({ version: createVersionWithPermissions([], []) });
+      const root = render({ version: createVersionWithPermissions() });
       expect(root).not.toHaveClassName('PermissionsCard');
     });
 
     it('renders nothing for a version with no displayable permissions', () => {
       const root = render({
-        version: createVersionWithPermissions(['activeTab'], ['activeTab']),
+        version: createVersionWithPermissions({
+          optional: ['activeTab'],
+          required: ['activeTab'],
+        }),
       });
       expect(root).not.toHaveClassName('PermissionsCard');
     });
@@ -69,7 +75,7 @@ describe(__filename, () => {
     it('renders learn more button', () => {
       const permission = 'bookmarks';
       const root = render({
-        version: createVersionWithPermissions([], [permission]),
+        version: createVersionWithPermissions({ required: [permission] }),
       });
       expect(root).toHaveClassName('PermissionsCard');
       expect(root.find(Button)).toHaveClassName('PermissionCard-learn-more');
@@ -79,7 +85,7 @@ describe(__filename, () => {
     it('renders required permissions only', () => {
       const permission = 'bookmarks';
       const root = render({
-        version: createVersionWithPermissions([], [permission]),
+        version: createVersionWithPermissions({ required: [permission] }),
       });
       expect(root).toHaveClassName('PermissionsCard');
       expect(root.find('p')).toHaveClassName(
@@ -94,7 +100,7 @@ describe(__filename, () => {
     it('renders optional permissions only', () => {
       const permission = 'bookmarks';
       const root = render({
-        version: createVersionWithPermissions([permission], []),
+        version: createVersionWithPermissions({ optional: [permission] }),
       });
       expect(root).toHaveClassName('PermissionsCard');
       expect(root.find('p')).toHaveClassName(
@@ -110,10 +116,10 @@ describe(__filename, () => {
       const optionalPermission = 'bookmarks';
       const requiredPermission = 'history';
       const root = render({
-        version: createVersionWithPermissions(
-          [optionalPermission],
-          [requiredPermission],
-        ),
+        version: createVersionWithPermissions({
+          optional: [optionalPermission],
+          required: [requiredPermission],
+        }),
       });
       expect(root).toHaveClassName('PermissionsCard');
       expect(root.find('p').at(0)).toHaveClassName(

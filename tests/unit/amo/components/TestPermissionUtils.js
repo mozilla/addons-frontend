@@ -56,19 +56,6 @@ describe(__filename, () => {
         required: [],
       });
     });
-
-    it('returns an empty array of required permissions if none exist', () => {
-      const optionalPermissions = ['webRequest'];
-      findFileForPlatformStub.returns({
-        optional_permissions: optionalPermissions,
-        permissions: undefined,
-      });
-
-      expect(_getCurrentPermissions()).toEqual({
-        optional: optionalPermissions,
-        required: [],
-      });
-    });
   });
 
   describe('classifyPermission', () => {

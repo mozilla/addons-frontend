@@ -95,7 +95,7 @@ export class PermissionUtils {
     }
 
     permissions.optional = file.optional_permissions;
-    permissions.required = file.permissions || [];
+    permissions.required = file.permissions;
     return permissions;
   }
 
