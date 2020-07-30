@@ -35,12 +35,22 @@ export class PermissionsCardBase extends React.Component<Props> {
       platformFiles: version.platformFiles,
       userAgentInfo,
     });
-    if (!addonPermissions.length) {
+
+    if (
+      !addonPermissions.optional.length &&
+      !addonPermissions.required.length
+    ) {
       return null;
     }
 
-    const content = permissionUtils.formatPermissions(addonPermissions);
-    if (!content.length) {
+    const optionalContent = permissionUtils.formatPermissions(
+      addonPermissions.optional,
+    );
+    const requiredContent = permissionUtils.formatPermissions(
+      addonPermissions.required,
+    );
+
+    if (!optionalContent.length && !requiredContent.length) {
       return null;
     }
 
@@ -51,10 +61,26 @@ export class PermissionsCardBase extends React.Component<Props> {
         id="AddonDescription-permissions-card"
         maxHeight={300}
       >
-        <p className="PermissionsCard-subhead">
-          {i18n.gettext('This add-on can:')}
-        </p>
-        <ul className="PermissionsCard-list">{content}</ul>
+        {requiredContent.length ? (
+          <>
+            <p className="PermissionsCard-subhead--required">
+              {i18n.gettext('This add-on needs to:')}
+            </p>
+            <ul className="PermissionsCard-list--required">
+              {requiredContent}
+            </ul>
+          </>
+        ) : null}
+        {optionalContent.length ? (
+          <>
+            <p className="PermissionsCard-subhead--optional">
+              {i18n.gettext('This add-on may also ask to:')}
+            </p>
+            <ul className="PermissionsCard-list--optional">
+              {optionalContent}
+            </ul>
+          </>
+        ) : null}
         <Button
           buttonType="neutral"
           className="PermissionCard-learn-more"

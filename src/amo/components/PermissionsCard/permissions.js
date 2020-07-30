@@ -66,16 +66,23 @@ export class PermissionUtils {
     };
   }
 
-  // Get a list of permissions from the correct platform file.
+  // Get lists of optional and required permissions from the correct platform file.
   getCurrentPermissions({
     platformFiles,
     userAgentInfo,
     _findFileForPlatform = findFileForPlatform,
-  }: GetCurrentPermissionsParams): Array<string> {
+  }: GetCurrentPermissionsParams): {
+    optional: Array<string>,
+    required: Array<string>,
+  } {
     const file = _findFileForPlatform({
       userAgentInfo,
       platformFiles,
     });
+    const permissions = {
+      optional: [],
+      required: [],
+    };
 
     if (!file) {
       log.debug(
@@ -84,9 +91,12 @@ export class PermissionUtils {
         platformFiles,
       );
 
-      return [];
+      return permissions;
     }
-    return file.permissions || [];
+
+    permissions.optional = file.optional_permissions;
+    permissions.required = file.permissions;
+    return permissions;
   }
 
   // Classify a permission as a host permission or a regular permission.
