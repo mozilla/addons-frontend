@@ -3,10 +3,19 @@ import * as React from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import PromotedAddonsCard, {
+  PROMOTED_ADDON_CLICK_ACTION,
+  PROMOTED_ADDON_HOMEPAGE_CLICK_CATEGORY,
+  PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
+  PROMOTED_ADDON_IMPRESSION_ACTION,
   PromotedAddonsCardBase,
 } from 'amo/components/PromotedAddonsCard';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createFakeTracking,
+  fakeAddon,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = (customProps = {}) => {
@@ -68,5 +77,37 @@ describe(__filename, () => {
       'rel',
       'noopener noreferrer',
     );
+  });
+
+  it('configures AddonsCard to send a tracking event when an add-on is clicked', () => {
+    const _tracking = createFakeTracking();
+    const guid = 'some-guid';
+    const addon = createInternalAddon({ ...fakeAddon, guid });
+
+    const root = render({ _tracking, addons: [addon] });
+    const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
+    onAddonClick(addon);
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: PROMOTED_ADDON_CLICK_ACTION,
+      category: PROMOTED_ADDON_HOMEPAGE_CLICK_CATEGORY,
+      label: guid,
+    });
+  });
+
+  it('configures AddonsCard to send a tracking event when an add-on is displayed', () => {
+    const _tracking = createFakeTracking();
+    const guid = 'some-guid';
+    const addon = createInternalAddon({ ...fakeAddon, guid });
+
+    const root = render({ _tracking, addons: [addon] });
+    const onAddonImpression = root.find(AddonsCard).prop('onAddonImpression');
+    onAddonImpression(addon);
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: PROMOTED_ADDON_IMPRESSION_ACTION,
+      category: PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
+      label: guid,
+    });
   });
 });

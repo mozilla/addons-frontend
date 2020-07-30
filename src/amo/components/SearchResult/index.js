@@ -61,6 +61,15 @@ export class SearchResultBase extends React.Component<InternalProps> {
     return linkTo;
   }
 
+  onClickAddon = (e: SyntheticEvent<HTMLAnchorElement>) => {
+    const { addon, onClick } = this.props;
+
+    e.stopPropagation();
+    if (addon && onClick) {
+      onClick(addon);
+    }
+  };
+
   renderResult() {
     const {
       addon,
@@ -91,7 +100,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
         <Link
           className="SearchResult-link"
           to={this.getAddonLink(addon, addonInstallSource)}
-          onClick={(e) => e.stopPropagation()}
+          onClick={this.onClickAddon}
         >
           {addon.name}
         </Link>
