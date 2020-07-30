@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-21 16:19+0000\n"
-"PO-Revision-Date: 2020-07-29 19:43+0000\n"
+"PO-Revision-Date: 2020-07-30 13:23+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1884,11 +1884,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:123
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Izolujte svoju facebookovú identitu do samostatného „kontajnera“ a zabráňte tak Facebooku v sledovaní vašej aktivity mimo jeho platformy."
 
 #: src/amo/pages/Guides/index.js:127
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr ""
+msgstr "Preskúmajte ďalšie odporúčané %(linkStart)srozšírenia z oblasti súkromia a bezpečnosti%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -1906,11 +1906,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr ""
+msgstr "Preskúmajte ďalšie %(linkStart)srozšírenia zamerané na karty%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Lepšie prehliadanie s vylepšenými záložkami"
 
 #: src/amo/pages/Guides/index.js:161
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -1922,7 +1922,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:168
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr ""
+msgstr "Preskúmajte ďalšie %(linkStart)srozšírenia zamerané na záložky%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
@@ -1938,7 +1938,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
-msgstr ""
+msgstr "Vylepšenie videí"
 
 #: src/amo/pages/Guides/index.js:203
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -2004,7 +2004,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:90
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr ""
+msgstr "Preskúmajte ďalších skvelých %(linkStart)ssprávcov hesiel%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
@@ -2628,6 +2628,8 @@ msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Ak používateľ vytvoril nejaké doplnky, budú taktiež odstránené - ak teda nezdieľa vlastníctvo s inými autormi. V takom prípade bude používateľ odstránený ako autor a zostávajúci autori si ponechajú "
+"vlastníctvo doplnku."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 #, fuzzy
