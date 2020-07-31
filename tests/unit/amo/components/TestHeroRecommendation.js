@@ -168,6 +168,17 @@ describe(__filename, () => {
     expect(root.find('.HeroRecommendation-body').html()).toContain(description);
   });
 
+  // See https://github.com/mozilla/addons-frontend/issues/9557
+  it('can render an empty description', () => {
+    const description = '';
+    const shelfData = createShelfData({ addon: fakeAddon, description });
+
+    const root = render({ shelfData });
+
+    expect(root.find('.HeroRecommendation-body').html()).toContain(description);
+    expect(root.find(LoadingText)).toHaveLength(0);
+  });
+
   it('allows some html tags in the body', () => {
     const description = '<blockquote><b>Some body text</b></blockquote>';
     const shelfData = createShelfData({ addon: fakeAddon, description });
