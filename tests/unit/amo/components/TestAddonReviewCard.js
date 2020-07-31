@@ -1075,24 +1075,8 @@ describe(__filename, () => {
       });
     });
 
-    it('adds a `src` query parameter to the link in the byLine if available in the location', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
-      const slug = 'some-slug';
-      const review = signInAndDispatchSavedReview({
-        externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
-      });
-      const location = createFakeLocation({ query: { src: 'some-src' } });
-
-      const root = render({ _config, review, store, location });
-
-      expect(renderByLine(root).find(Link)).toHaveProp(
-        'to',
-        reviewListURL({ _config, addonSlug: slug, id: review.id, location }),
-      );
-    });
-
-    it('renders links with UTM query parameters when the location has a `src` param and the UTM flag is enabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+    it('adds a `src` query parameter to the link in the byLine if available in the location when the UTM flag is disabled', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
       const slug = 'some-slug';
       const review = signInAndDispatchSavedReview({
         externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
@@ -1106,6 +1090,22 @@ describe(__filename, () => {
       // want to test that `reviewListURL()` was called but that the URLs are
       // correct. This is why we use static values in the test cases involving
       // `enableFeatureUseUtmParams`.
+      const expectedURL = `/addon/${slug}/reviews/${review.id}/?src=${src}`;
+
+      expect(renderByLine(root).find(Link)).toHaveProp('to', expectedURL);
+    });
+
+    it('renders links with UTM query parameters when the location has a `src` param and the UTM flag is enabled', () => {
+      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+      const slug = 'some-slug';
+      const review = signInAndDispatchSavedReview({
+        externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
+      });
+      const src = 'some-src';
+      const location = createFakeLocation({ query: { src } });
+
+      const root = render({ _config, review, store, location });
+
       const expectedURL = [
         `/addon/${slug}/reviews/${review.id}/?utm_source=${DEFAULT_UTM_SOURCE}`,
         `utm_medium=${DEFAULT_UTM_MEDIUM}`,
