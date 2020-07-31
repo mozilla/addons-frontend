@@ -62,26 +62,14 @@ export function getQueryParametersForAttribution(
   location: ReactRouterLocationType,
   _config: typeof config = config,
 ): Object {
-  let params = { src: location.query.src };
-
   if (_config.get('enableFeatureUseUtmParams')) {
-    if (typeof location.query.src !== 'undefined') {
-      params = {
-        // Use UTM parameters instead of `src`. This allows us to easily update
-        // all query parameters for attribution.
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: location.query.src,
-      };
-    } else {
-      params = {
-        utm_campaign: location.query.utm_campaign,
-        utm_content: location.query.utm_content,
-        utm_medium: location.query.utm_medium,
-        utm_source: location.query.utm_source,
-      };
-    }
+    return {
+      utm_campaign: location.query.utm_campaign,
+      utm_content: location.query.utm_content,
+      utm_medium: location.query.utm_medium,
+      utm_source: location.query.utm_source,
+    };
   }
 
-  return params;
+  return { src: location.query.src };
 }

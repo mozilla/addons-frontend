@@ -117,19 +117,7 @@ describe(__filename, () => {
       });
     });
 
-    it('returns some UTM parameters when UTM flag is enabled and `src` exists in the location', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
-      const src = 'some-src';
-      const location = createFakeLocation({ query: { src } });
-
-      expect(getQueryParametersForAttribution(location, _config)).toEqual({
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: src,
-      });
-    });
-
-    it('returns the UTM parameters in the location when UTM flag is enabled and there is no `src`', () => {
+    it('returns the UTM parameters in the location when UTM flag is enabled', () => {
       const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
       const utm_campaign = 'some-utm-campaign';
       const location = createFakeLocation({ query: { utm_campaign } });

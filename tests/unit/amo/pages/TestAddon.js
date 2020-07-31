@@ -45,8 +45,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
-  DEFAULT_UTM_SOURCE,
-  DEFAULT_UTM_MEDIUM,
   FATAL_ERROR,
   INSTALLING,
   UNKNOWN,
@@ -1166,30 +1164,6 @@ describe(__filename, () => {
       expect(allReviewsLink(card)).toHaveProp(
         'to',
         `${getAddonURL(addonSlug)}reviews/?src=${src}`,
-      );
-    });
-
-    it('adds UTM query parameters to the all reviews link when `src` exists and UTM flag is enabled', () => {
-      const config = getFakeConfig({ enableFeatureUseUtmParams: true });
-      const src = 'some-src';
-      const location = createFakeLocation({ query: { src } });
-      const addonSlug = 'adblock-plus';
-
-      const card = readReviewsCard({
-        config,
-        addonSlug,
-        ratingsCount: 2,
-        location,
-      });
-
-      const expectedQueryString = [
-        `utm_source=${DEFAULT_UTM_SOURCE}`,
-        `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-        `utm_content=${src}`,
-      ].join('&');
-      expect(allReviewsLink(card)).toHaveProp(
-        'to',
-        `${getAddonURL(addonSlug)}reviews/?${expectedQueryString}`,
       );
     });
 

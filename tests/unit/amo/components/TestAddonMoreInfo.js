@@ -9,8 +9,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  DEFAULT_UTM_SOURCE,
-  DEFAULT_UTM_MEDIUM,
   STATS_VIEW,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -646,46 +644,6 @@ describe(__filename, () => {
 
     describe('with enableFeatureUseUtmParams = true', () => {
       const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
-
-      it('renders links with UTM query parameters when the location has a `src` param', () => {
-        const src = 'some-src';
-
-        const root = render({
-          _config,
-          addon,
-          location: createFakeLocation({ query: { src } }),
-        });
-
-        const expectedQueryString = [
-          `utm_source=${DEFAULT_UTM_SOURCE}`,
-          `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-          `utm_content=${src}`,
-        ].join('&');
-        expect(root.find('.AddonMoreInfo-stats-link')).toHaveProp(
-          'href',
-          `/addon/${addon.slug}/statistics/?${expectedQueryString}`,
-        );
-        expect(root.find('.AddonMoreInfo-license-link')).toHaveProp(
-          'to',
-          `/addon/${addon.slug}/license/?${expectedQueryString}`,
-        );
-        expect(
-          root.find('.AddonMoreInfo-privacy-policy').find(Link),
-        ).toHaveProp(
-          'to',
-          `/addon/${addon.slug}/privacy/?${expectedQueryString}`,
-        );
-        expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
-          'to',
-          `/addon/${addon.slug}/eula/?${expectedQueryString}`,
-        );
-        expect(
-          root.find('.AddonMoreInfo-version-history-link').find(Link),
-        ).toHaveProp(
-          'to',
-          `/addon/${addon.slug}/versions/?${expectedQueryString}`,
-        );
-      });
 
       it('renders links with UTM query params when there are some', () => {
         const utm_medium = 'referral';

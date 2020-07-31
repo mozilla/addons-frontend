@@ -9,7 +9,6 @@ import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { createInternalAddon } from 'core/reducers/addons';
-import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
@@ -170,39 +169,6 @@ describe(__filename, () => {
       const reviewCountLink = getReviewCount(root).find(Link);
 
       const listURL = reviewListURL({ addonSlug: slug, src, location });
-
-      expect(reviewTitleLink).toHaveProp('to', listURL);
-      expect(reviewCountLink).toHaveProp('to', listURL);
-    });
-
-    it('renders links with UTM query parameters when the location has a `src` param and the UTM flag is enabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
-      const slug = 'some-slug';
-      const src = 'some-value-for-src';
-      const location = createFakeLocation({ query: { src } });
-
-      const root = render({
-        _config,
-        addon: createInternalAddon({
-          ...fakeAddon,
-          ratings: { text_count: 3, count: 123 },
-          slug,
-        }),
-        location,
-      });
-
-      const reviewTitleLink = getReviewTitle(root).find(Link);
-      const reviewCountLink = getReviewCount(root).find(Link);
-
-      // Use hardcoded value to ensure that expectations are correct. We don't
-      // want to test that `reviewListURL()` was called but that the URLs are
-      // correct. This is why we use static values in the test cases involving
-      // `enableFeatureUseUtmParams`.
-      const listURL = [
-        `/addon/${slug}/reviews/?utm_source=${DEFAULT_UTM_SOURCE}`,
-        `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-        `utm_content=${src}`,
-      ].join('&');
 
       expect(reviewTitleLink).toHaveProp('to', listURL);
       expect(reviewCountLink).toHaveProp('to', listURL);

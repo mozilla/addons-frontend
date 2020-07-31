@@ -27,8 +27,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
-  DEFAULT_UTM_MEDIUM,
-  DEFAULT_UTM_SOURCE,
   SET_VIEW_CONTEXT,
 } from 'core/constants';
 import {
@@ -855,32 +853,6 @@ describe(__filename, () => {
         expect(renderFooter(root)).toHaveProp(
           'pathname',
           `${getAddonURL(addonSlug)}reviews/?src=${src}`,
-        );
-      });
-
-      it('adds UTM query parameters to the reviews URL when `src` exists and UTM flag is enabled', () => {
-        const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
-        const src = 'some-src';
-        const location = createFakeLocation({ query: { src } });
-        const addonSlug = 'adblock-plus';
-        const addon = { ...fakeAddon, id: 8765, slug: addonSlug };
-        loadAddon(addon);
-
-        const root = renderWithPagination({
-          _config,
-          addon,
-          params: { addonSlug },
-          location,
-        });
-
-        const expectedQueryString = [
-          `utm_source=${DEFAULT_UTM_SOURCE}`,
-          `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-          `utm_content=${src}`,
-        ].join('&');
-        expect(renderFooter(root)).toHaveProp(
-          'pathname',
-          `${getAddonURL(addonSlug)}reviews/?${expectedQueryString}`,
         );
       });
 

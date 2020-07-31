@@ -20,7 +20,6 @@ import {
 import { getAddonURL } from 'amo/utils';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
-import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 
 describe(__filename, () => {
   const render = ({ addon, headerText, location, ...props }) => {
@@ -89,28 +88,6 @@ describe(__filename, () => {
       expect(header.find(Link)).toHaveProp(
         'to',
         `${getAddonURL(addon.slug)}?src=${src}`,
-      );
-    });
-
-    it('adds UTM query parameters to the link on the icon when there is a `src` query param and UTM flag is enabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
-      const src = 'some-src';
-      const addon = fakeAddon;
-
-      const header = renderAddonHeader({
-        _config,
-        addon,
-        location: createFakeLocation({ query: { src } }),
-      });
-
-      const expectedQueryString = [
-        `utm_source=${DEFAULT_UTM_SOURCE}`,
-        `utm_medium=${DEFAULT_UTM_MEDIUM}`,
-        `utm_content=${src}`,
-      ].join('&');
-      expect(header.find(Link)).toHaveProp(
-        'to',
-        `${getAddonURL(addon.slug)}?${expectedQueryString}`,
       );
     });
 
@@ -194,7 +171,7 @@ describe(__filename, () => {
       });
     });
 
-    it('passes queryParamsForAttribution with the value of `src` when UTM flag is enabled', () => {
+    it('passes an empty queryParamsForAttribution when UTM flag is enabled and there is no UTM parameter', () => {
       const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
       const src = 'some-src';
 
@@ -204,11 +181,10 @@ describe(__filename, () => {
         location: createFakeLocation({ query: { src } }),
       });
 
-      expect(header.find(AddonTitle)).toHaveProp('queryParamsForAttribution', {
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: src,
-      });
+      expect(header.find(AddonTitle)).toHaveProp(
+        'queryParamsForAttribution',
+        {},
+      );
     });
 
     it('passes queryParamsForAttribution with the value of `utm_content` if available when UTM flag is enabled', () => {
