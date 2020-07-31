@@ -16,10 +16,10 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  as?: string,
   addon: AddonType | null,
+  as?: string,
   linkToAddon?: boolean,
-  linkSource?: string,
+  queryParamsForAttribution?: { [name: string]: ?string | number },
 |};
 
 type InternalProps = {|
@@ -29,12 +29,12 @@ type InternalProps = {|
 |};
 
 export const AddonTitleBase = ({
-  as: Component = 'h1',
   addon,
+  as: Component = 'h1',
   i18n,
   isRTL,
   linkToAddon = false,
-  linkSource,
+  queryParamsForAttribution = {},
 }: InternalProps) => {
   const authors = [];
 
@@ -68,7 +68,10 @@ export const AddonTitleBase = ({
         <>
           {linkToAddon ? (
             <Link
-              to={addQueryParams(getAddonURL(addon.slug), { src: linkSource })}
+              to={addQueryParams(
+                getAddonURL(addon.slug),
+                queryParamsForAttribution,
+              )}
             >
               {addon.name}
             </Link>

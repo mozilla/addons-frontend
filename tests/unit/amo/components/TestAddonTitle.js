@@ -201,15 +201,19 @@ describe(__filename, () => {
     expect(root.find('span.AddonTitle')).toHaveLength(1);
   });
 
-  it('accepts a linkSource prop to append to the add-on URL', () => {
-    const linkSource = 'some-src';
+  it('accepts some query params for attribution to append to the add-on URL', () => {
+    const queryParamsForAttribution = { some: 'value' };
     const addon = createInternalAddon(fakeAddon);
 
-    const root = render({ addon, linkToAddon: true, linkSource });
+    const root = render({
+      addon,
+      linkToAddon: true,
+      queryParamsForAttribution,
+    });
 
     expect(root.find(Link).at(0)).toHaveProp(
       'to',
-      `${getAddonURL(addon.slug)}?src=${linkSource}`,
+      `${getAddonURL(addon.slug)}?some=value`,
     );
   });
 });

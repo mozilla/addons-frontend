@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import * as React from 'react';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -8,7 +9,10 @@ import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import translate from 'core/i18n/translate';
 import { getAddonIconUrl } from 'core/imageUtils';
-import { addQueryParams } from 'core/utils/url';
+import {
+  addQueryParams,
+  getQueryParametersForAttribution,
+} from 'core/utils/url';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
@@ -27,18 +31,28 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
 
 export const AddonSummaryCardBase = ({
+  _config = config,
   addon,
   headerText,
   i18n,
   location,
 }: InternalProps) => {
+  const queryParamsForAttribution = getQueryParametersForAttribution(
+    location,
+    _config,
+  );
   const addonUrl = addon
-    ? addQueryParams(getAddonURL(addon.slug), { src: location.query.src })
+    ? addQueryParams(
+        getAddonURL(addon.slug),
+        queryParamsForAttribution,
+        _config,
+      )
     : '';
   const iconUrl = getAddonIconUrl(addon);
   const iconImage = (
@@ -56,7 +70,11 @@ export const AddonSummaryCardBase = ({
       </div>
       <div className="AddonSummaryCard-header-text">
         <h1 className="visually-hidden">{headerText}</h1>
-        <AddonTitle addon={addon} linkToAddon linkSource={location.query.src} />
+        <AddonTitle
+          addon={addon}
+          linkToAddon
+          queryParamsForAttribution={queryParamsForAttribution}
+        />
       </div>
     </div>
   );

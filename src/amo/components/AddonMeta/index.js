@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import * as React from 'react';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -6,10 +7,10 @@ import { withRouter } from 'react-router-dom';
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
 import translate from 'core/i18n/translate';
-import type { AddonType } from 'core/types/addons';
 import MetadataCard from 'ui/components/MetadataCard';
 import Rating from 'ui/components/Rating';
 import RatingsByStar from 'amo/components/RatingsByStar';
+import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
 
@@ -21,6 +22,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
@@ -30,8 +32,12 @@ export const roundToOneDigit = (value: number | null): number => {
 };
 
 export class AddonMetaBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _config: config,
+  };
+
   render() {
-    const { addon, i18n, location } = this.props;
+    const { _config, addon, i18n, location } = this.props;
 
     let averageRating;
     if (addon) {
@@ -68,7 +74,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
 
     const reviewsLink =
       addon && reviewCount
-        ? reviewListURL({ addonSlug: addon.slug, src: location.query.src })
+        ? reviewListURL({ _config, addonSlug: addon.slug, location })
         : null;
 
     const reviewsContent = reviewsLink ? (

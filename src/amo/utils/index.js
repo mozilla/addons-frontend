@@ -7,6 +7,7 @@ import config from 'config';
 
 import { makeQueryString } from 'core/api';
 import { addQueryParams } from 'core/utils/url';
+import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 
 /*
  * Return a base62 object that encodes/decodes just like how Django does it
@@ -28,8 +29,8 @@ export function getAddonURL(slug: string) {
 }
 
 export const makeQueryStringWithUTM = ({
-  utm_source = 'addons.mozilla.org',
-  utm_medium = 'referral',
+  utm_source = DEFAULT_UTM_SOURCE,
+  utm_medium = DEFAULT_UTM_MEDIUM,
   utm_campaign = 'non-fx-button',
   utm_content,
 }: {|
