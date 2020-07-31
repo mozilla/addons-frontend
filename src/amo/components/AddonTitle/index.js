@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -17,27 +16,25 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  as?: string,
   addon: AddonType | null,
+  as?: string,
   linkToAddon?: boolean,
-  linkSource?: string,
+  queryParamsForAttribution?: { [name: string]: ?string | number },
 |};
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   i18n: I18nType,
   isRTL: boolean,
 |};
 
 export const AddonTitleBase = ({
-  _config = config,
-  as: Component = 'h1',
   addon,
+  as: Component = 'h1',
   i18n,
   isRTL,
   linkToAddon = false,
-  linkSource,
+  queryParamsForAttribution = {},
 }: InternalProps) => {
   const authors = [];
 
@@ -73,8 +70,7 @@ export const AddonTitleBase = ({
             <Link
               to={addQueryParams(
                 getAddonURL(addon.slug),
-                { src: linkSource },
-                _config,
+                queryParamsForAttribution,
               )}
             >
               {addon.name}

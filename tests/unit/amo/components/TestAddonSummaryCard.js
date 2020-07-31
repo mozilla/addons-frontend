@@ -173,10 +173,13 @@ describe(__filename, () => {
         'addon',
         createInternalAddon(addon),
       );
-      expect(header.find(AddonTitle)).toHaveProp('linkSource', undefined);
+      expect(header.find(AddonTitle)).toHaveProp(
+        'queryParamsForAttribution',
+        {},
+      );
     });
 
-    it('sets the linkSource to the value of `location.query.src`', () => {
+    it('passes queryParamsForAttribution with the value of `location.query.src` when UTM flag is disabled', () => {
       const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
       const src = 'some-src';
 
@@ -186,10 +189,12 @@ describe(__filename, () => {
         location: createFakeLocation({ query: { src } }),
       });
 
-      expect(header.find(AddonTitle)).toHaveProp('linkSource', src);
+      expect(header.find(AddonTitle)).toHaveProp('queryParamsForAttribution', {
+        src,
+      });
     });
 
-    it('sets the linkSource to the value of `src` when UTM flag is enabled', () => {
+    it('passes queryParamsForAttribution with the value of `src` when UTM flag is enabled', () => {
       const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
       const src = 'some-src';
 
@@ -199,10 +204,14 @@ describe(__filename, () => {
         location: createFakeLocation({ query: { src } }),
       });
 
-      expect(header.find(AddonTitle)).toHaveProp('linkSource', src);
+      expect(header.find(AddonTitle)).toHaveProp('queryParamsForAttribution', {
+        utm_source: DEFAULT_UTM_SOURCE,
+        utm_medium: DEFAULT_UTM_MEDIUM,
+        utm_content: src,
+      });
     });
 
-    it('sets the linkSource to the value of `utm_conetnt` if available when UTM flag is enabled', () => {
+    it('passes queryParamsForAttribution with the value of `utm_content` if available when UTM flag is enabled', () => {
       const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
       const utm_content = 'some-src';
 
@@ -212,7 +221,9 @@ describe(__filename, () => {
         location: createFakeLocation({ query: { utm_content } }),
       });
 
-      expect(header.find(AddonTitle)).toHaveProp('linkSource', utm_content);
+      expect(header.find(AddonTitle)).toHaveProp('queryParamsForAttribution', {
+        utm_content,
+      });
     });
   });
 

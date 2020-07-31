@@ -73,13 +73,7 @@ export const AddonSummaryCardBase = ({
         <AddonTitle
           addon={addon}
           linkToAddon
-          linkSource={
-            // `queryParamsForAttribution` is the return value of
-            // `getQueryParametersForAttribution()`, which can either return
-            // `utm_content` or `src`.
-            queryParamsForAttribution.utm_content ||
-            queryParamsForAttribution.src
-          }
+          queryParamsForAttribution={queryParamsForAttribution}
         />
       </div>
     </div>
