@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-21 16:19+0000\n"
-"PO-Revision-Date: 2020-08-01 23:23+0000\n"
+"PO-Revision-Date: 2020-08-01 23:33+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -755,6 +755,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Coba kunjungi laman nanti, karena tema atau ekstensi mungkin tersedia kembali. Atau, Anda mungkin dapat menemukan apa yang Anda cari di salah satu %(extensionStart)sekstensi%(extensionEnd)s atau "
+"%(themeStart)stema%(themeEnd)s yang tersedia, atau dengan meminta bantuan pada %(communityStart)sforum komunitas%(communityEnd)s kami."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
@@ -762,11 +764,11 @@ msgstr "Ups! Kami tidak dapat menemukan halamannya"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Jika Anda telah mengikuti tautan dari situs lain untuk ekstensi atau tema, item itu tidak lagi tersedia. Ini bisa jadi karena:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Pengembang menghapusnya. Pengembang biasanya melakukan ini karena mereka tidak lagi mendukung ekstensi atau tema, atau telah menggantinya."
 
 #: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
@@ -954,7 +956,7 @@ msgstr "Perangkat untuk Pengulas"
 
 #: src/amo/components/Header/index.js:139 src/core/components/AuthenticateButton/index.js:91
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Tindakan ini saat ini tidak tersedia. Harap muat kembali halaman ini sebentar lagi."
 
 #: src/amo/components/Header/index.js:144 src/core/components/AuthenticateButton/index.js:87
 msgid "Log out"
@@ -1019,15 +1021,15 @@ msgstr "Ekstensi layaknya aplikasi untuk peramban Anda."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Mereka menambahkan fitur ke Firefox untuk membuat penjelajahan lebih cepat, lebih cerdas, atau sekadar kesenangan."
 
 #: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
-msgstr ""
+msgstr "Pelajari lebih lanjut"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr ""
+msgstr "Ini tidak dimonitor untuk keamanan melalui program Ekstensi yang Disarankan Mozilla. Pastikan Anda memercayainya sebelum menginstal."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1556,11 +1558,11 @@ msgstr "Pilih Foto…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:101
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Untuk menemukan pengaya yang kompatibel dengan Firefox di desktop, <a href=\"%(newLocation)s\">kunjungi situs desktop kami</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Tidak tersedia di Firefox untuk Android. Anda dapat menggunakan pengaya ini dengan Firefox untuk Desktop,  atau cari <a href=\"%(newLocation)s\">pengaya Android</a> yang serupa."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
@@ -1568,11 +1570,11 @@ msgstr "Pengaya ini tidak kompatibel dengan peramban ini. Coba pasang di Firefox
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr ""
+msgstr "Untuk mempelajari tentang pengaya yang kompatibel dengan Firefox untuk Android, <a href=\"%(newLocation)s\">klik di sini</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Untuk menemukan pengaya yang kompatibel dengan Firefox di Android, <a href=\"%(newLocation)s\">kunjungi situs seluler kami</a>."
 
 #: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1625,7 +1627,7 @@ msgstr "Catatan rilis untuk %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:470
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Ini bukan daftar publik. Anda hanya melihatnya karena izin yang lebih tinggi."
 
 #: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
@@ -1633,15 +1635,15 @@ msgstr "Metadata Ekstensi"
 
 #: src/amo/pages/Addon/index.js:505
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Daftar ini tidak dimaksudkan untuk platform ini. <a href=\"%(newLocation)s\">Jelajahi pengaya untuk Firefox di Android</a>."
 
 #: src/amo/pages/Addon/index.js:509
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Daftar ini tidak dimaksudkan untuk platform ini. <a href=\"%(newLocation)s\">Jelajahi pengaya untuk Firefox di desktop</a>."
 
 #: src/amo/pages/Addon/index.js:513
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Tidak tersedia di Firefox untuk Android. Anda dapat menggunakan pengaya ini dengan Firefox untuk Desktop. Pelajari lebih lanjut tentang <a href=\"%(newLocation)s\">pengaya untuk Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
@@ -1661,7 +1663,7 @@ msgstr "Kebijakan privasi untuk %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Ulasan dan peringkat untuk %(addonName)s. Cari tahu pendapat pengguna lain tentang %(addonName)s dan tambahkan ke Peramban Firefox Anda."
 
 #: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show all reviews"
@@ -1727,11 +1729,11 @@ msgstr "Versi yang diblokir: semua versi."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Versi yang diblokir: %(min)s hingga %(max)s."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s telah diblokir untuk melindungi Anda."
 
 #: src/amo/pages/Block/index.js:145
 msgid "This add-on has been blocked for your protection."
@@ -1739,15 +1741,15 @@ msgstr "Pengaya ini telah diblokir untuk melindungi Anda."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Mengapa diblokir?"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Pengaya ini melanggar %(startLink)sKebijakan Pengaya Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:173
 msgid "What does this mean?"
-msgstr ""
+msgstr "Apa artinya?"
 
 #: src/amo/pages/Block/index.js:175
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
@@ -2581,13 +2583,11 @@ msgid ""
 msgstr "Data Anda akan dihapus secara permanen, termasuk rincian profil (gambar, nama pengguna, nama tampilan, lokasi, laman beranda, biografi, pekerjaan), preferensi notifikasi, ulasan, dan koleksi."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Data pengguna akan dihapus secara permanen, termasuk detail profil (gambar, nama pengguna, nama tampilan, lokasi, beranda, biografi, pekerjaan) dan preferensi notifikasi. Ulasan dan pemeringkatan "
-"akan diawanamakan dan tidak dapat diubah lagi."
+"Data pengguna akan dihapus secara permanen, termasuk rincian profil (gambar, nama pengguna, nama tampilan, lokasi, laman beranda, biografi, pekerjaan), preferensi notifikasi, ulasan, dan koleksi."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
@@ -2602,9 +2602,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "Saat Anda menggunakan alamat surel untuk masuk kembali ke addons.mozilla.org, Anda akan membuat profil pengaya Firefox baru yang tidak terhubung dengan profil yang Anda hapus sebelumnya."
+msgstr "Saat Anda menggunakan alamat surel ini untuk masuk lagi ke addons.mozilla.org, profil Anda untuk Pengaya Firefox tidak akan mendapatkan akses ke berbagai konten sebelumnya."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -2664,9 +2663,8 @@ msgid "Enabling"
 msgstr "Mengaktifkan"
 
 #: src/core/components/AMInstallButton/index.js:209
-#, fuzzy
 msgid "Disabling"
-msgstr "Mengaktifkan"
+msgstr "Menonaktifkan"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
@@ -2856,9 +2854,8 @@ msgid "Dismiss this notice"
 msgstr "Abaikan pernyataan ini"
 
 #: src/ui/components/PromotedBadge/index.js:40
-#, fuzzy
 msgid "By Firefox"
-msgstr "untuk Firefox"
+msgstr "Oleh Firefox"
 
 #: src/ui/components/PromotedBadge/index.js:42 src/ui/components/PromotedBadge/index.js:50 src/ui/components/PromotedBadge/index.js:62
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
