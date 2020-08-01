@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-21 16:19+0000\n"
-"PO-Revision-Date: 2020-08-01 23:33+0000\n"
+"PO-Revision-Date: 2020-08-01 23:43+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -2736,7 +2736,7 @@ msgstr "Beberapa fitur sedang dimatikan sementara karena kami sedang melakukan p
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Anda telah keluar."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2863,11 +2863,11 @@ msgstr "Firefox hanya menyarankan ekstensi yang memenuhi standar keamanan dan ki
 
 #: src/ui/components/PromotedBadge/index.js:59
 msgid "Verified Sponsor"
-msgstr ""
+msgstr "Sponsor Terverifikasi"
 
 #: src/ui/components/PromotedBadge/index.js:60
 msgid "Verified"
-msgstr ""
+msgstr "Diverifikasi"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
