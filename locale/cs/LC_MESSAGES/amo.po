@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-21 16:19+0000\n"
-"PO-Revision-Date: 2020-08-03 08:34+0000\n"
+"PO-Revision-Date: 2020-08-03 08:39+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2636,13 +2636,14 @@ msgstr ""
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
-msgstr ""
+msgstr "Pokud jste jediným autorem některého doplňku, bude tento také smazán. Pokud autorství s někým sdílíte, budete jen odebráni ze seznamu jeho autorů a doplněk jako takový smazán nebude."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Pokud je uživatel jediným autorem některého doplňku, bude tento také smazán. Pokud uživatel autorství s někým sdílí, bude jen odebrán ze seznamu jeho autorů a doplněk jako takový smazán nebude."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
@@ -2779,7 +2780,7 @@ msgstr "Některá funkčnost je během údržby webu dočasně nedostupná. Brzy
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Byli jste odhlášeni."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2898,7 +2899,7 @@ msgstr "Skrýt"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "By Firefox"
-msgstr ""
+msgstr "Od Firefoxu"
 
 #: src/ui/components/PromotedBadge/index.js:42 src/ui/components/PromotedBadge/index.js:50 src/ui/components/PromotedBadge/index.js:62
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
@@ -2906,11 +2907,11 @@ msgstr "Firefox doporučuje jen rozšíření, která splňují naše standardy 
 
 #: src/ui/components/PromotedBadge/index.js:59
 msgid "Verified Sponsor"
-msgstr ""
+msgstr "Ověřený partner"
 
 #: src/ui/components/PromotedBadge/index.js:60
 msgid "Verified"
-msgstr ""
+msgstr "Ověřeno"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
