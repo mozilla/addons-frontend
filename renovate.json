@@ -29,6 +29,13 @@
     {
       "packagePatterns": ["@loadable/*"],
       "groupName": "loadable components"
+    },
+    {
+      "packagePatterns": [
+        "history",
+        "qhistory"
+      ],
+      "groupName": "history"
     }
   ]
 }
