@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-21 16:19+0000\n"
-"PO-Revision-Date: 2020-07-23 22:33+0000\n"
+"PO-Revision-Date: 2020-08-03 00:51+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -214,7 +214,7 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:160
 msgid "Read the privacy policy for this add-on"
-msgstr "이 부가 기능에 대한 개인정보 보호정책 읽기"
+msgstr "이 부가 기능에 대한 개인정보처리방침 읽기"
 
 #: src/amo/components/AddonMoreInfo/index.js:170
 msgid "Read the license agreement for this add-on"
@@ -246,7 +246,7 @@ msgstr "라이선스"
 
 #: src/amo/components/AddonMoreInfo/index.js:252
 msgid "Privacy Policy"
-msgstr "개인정보 보호정책"
+msgstr "개인정보처리방침"
 
 #: src/amo/components/AddonMoreInfo/index.js:260
 msgid "End-User License Agreement"
@@ -1643,7 +1643,7 @@ msgstr "%(addonName)s에 대한 최종 사용자 라이선스 계약"
 
 #: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
-msgstr "%(addonName)s에 대한 개인정보 보호정책"
+msgstr "%(addonName)s에 대한 개인정보처리방침"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
