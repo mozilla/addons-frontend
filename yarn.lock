@@ -12333,10 +12333,10 @@ q@^1.1.2:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-qhistory@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/qhistory/-/qhistory-1.0.3.tgz#f8f0fb8f5610304ca44be7ced87c74e1ea606a8f"
-  integrity sha512-fEihc5VureL8SOomljbKRVYUKAVmLce7xk5FUWMXHJ56Yb/9LG6SufsFX7n0rWaIy4xi2fZUfSjYMo5Us9d9fQ==
+qhistory@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/qhistory/-/qhistory-1.1.0.tgz#aaede44588cd501fbbe493ad5feeae7f540ef5ba"
+  integrity sha512-mb5x+kKmEVSnUAX/loL20Y0kr1l4RZf7Al0Z1aNlwRL7nZo/QE46lRzLDro6CTNKcSUjiTOSQuFGRk4sU+FRUQ==
   dependencies:
     invariant "^2.2.2"
 
