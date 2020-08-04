@@ -1794,7 +1794,7 @@ msgid ""
 "ons</a>."
 msgstr ""
 "غير متوفر على فيرفكس لنظام أندرويد. يمكنك استخدام هذه الوظيفة الإضافية مع "
-"فيرفكس لسطح المكتب ، أو البحث عن <a href=\"٪(newLocation)s\">إضافات أندرويد "
+"فيرفكس لسطح المكتب ، أو البحث عن <a href=\"%(newLocation)s\">إضافات أندرويد "
 "مماثلة</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
@@ -1810,7 +1810,7 @@ msgid ""
 "\"%(newLocation)s\">click here</a>."
 msgstr ""
 "للتعرف على الإضافات المتوافقة مع فيرفكس لنظام أندرويد ، <a href="
-"\"٪(newLocation)s\">انقر هنا</a>."
+"\"%(newLocation)s\">انقر هنا</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid ""
@@ -1895,7 +1895,7 @@ msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
 msgstr ""
-"هذه القائمة غير مخصصة لهذه المنصة. <a href=\"٪(newLocation)s\">تصفح الإضافات "
+"هذه القائمة غير مخصصة لهذه المنصة. <a href=\"%(newLocation)s\">تصفح الإضافات "
 "على فيرفكس لسطح المكتب</a>."
 
 #: src/amo/pages/Addon/index.js:513
@@ -1905,7 +1905,7 @@ msgid ""
 "Android</a>."
 msgstr ""
 "غير متوفر على فيرفكس لنظام أندرويد. يمكنك استخدام هذه الوظيفة الإضافية مع "
-"فيرفكس لسطح المكتب. تعرف على مزيد من المعلومات حول <a href=\"٪(newLocation)s"
+"فيرفكس لسطح المكتب. تعرف على مزيد من المعلومات حول <a href=\"%(newLocation)s"
 "\">الوظائف الإضافية لنظام أندرويد</a>."
 
 #: src/amo/pages/Addon/index.js:533
@@ -1929,8 +1929,8 @@ msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
-"مراجعات وتقييمات ٪ (addonName)s. تعرف على رأي المستخدمين الآخرين حول٪ "
-"(addonName)s وأضفه إلى متصفح فيرفكس."
+"مراجعات وتقييمات %(addonName)s. تعرف على رأي المستخدمين الآخرين حول "
+"%(addonName)s وأضفه إلى متصفح فيرفكس."
 
 #: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show all reviews"

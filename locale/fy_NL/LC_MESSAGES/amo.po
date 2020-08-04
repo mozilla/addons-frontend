@@ -408,8 +408,8 @@ msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
-"troch %(linkUserProfileStart)s%(linkUserProfileEnd)s, %(linkStart)s"
-"%(linkEnd)s"
+"troch %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
+"%(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:363
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
