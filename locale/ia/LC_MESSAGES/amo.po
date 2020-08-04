@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-04 19:51+0000\n"
+"PO-Revision-Date: 2020-08-04 22:05+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1048,9 +1048,8 @@ msgid "This add-on needs to:"
 msgstr "Iste additivo besonia de:"
 
 #: src/amo/components/PermissionsCard/index.js:77
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Iste additivo pote:"
+msgstr "Iste additivo pote alsi demandar de:"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
