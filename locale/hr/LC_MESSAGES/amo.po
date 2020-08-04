@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-04 20:03+0000\n"
+"PO-Revision-Date: 2020-08-04 20:51+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1049,14 +1049,12 @@ msgid "Permissions"
 msgstr "Dozvole"
 
 #: src/amo/components/PermissionsCard/index.js:67
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "Ovaj dodatak može:"
+msgstr "Ovaj dodatak mora:"
 
 #: src/amo/components/PermissionsCard/index.js:77
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Ovaj dodatak može:"
+msgstr "Ovaj dodatak može zatražiti i:"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
