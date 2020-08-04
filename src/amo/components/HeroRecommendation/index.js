@@ -92,6 +92,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     let gradientsClassName;
     let heading;
     let link;
+    let loading = false;
 
     const heightClassName =
       siteIsReadOnly || siteNotice
@@ -137,6 +138,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       }
     } else {
       gradientsClassName = `HeroRecommendation--loading`;
+      loading = true;
     }
 
     return (
@@ -174,24 +176,18 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
             )}
             <div className="HeroRecommendation-info">
               <div className="HeroRecommendation-recommended">
-                {shelfData ? (
+                {loading ? (
+                  <LoadingText width={20} />
+                ) : (
                   // translators: If uppercase does not work in your locale,
                   // change it to lowercase. This is used as a secondary heading.
                   i18n.gettext('RECOMMENDED')
-                ) : (
-                  <LoadingText width={20} />
                 )}
               </div>
               <h2 className="HeroRecommendation-heading">
-                {heading || <LoadingText width={60} />}
+                {loading ? <LoadingText width={60} /> : heading}
               </h2>
-              {description ? (
-                <div
-                  className="HeroRecommendation-body"
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={sanitizeUserHTML(description)}
-                />
-              ) : (
+              {loading ? (
                 <div className="HeroRecommendation-body">
                   <>
                     <LoadingText width={100} />
@@ -199,6 +195,12 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
                     <LoadingText width={80} />
                   </>
                 </div>
+              ) : (
+                <div
+                  className="HeroRecommendation-body"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={sanitizeUserHTML(description)}
+                />
               )}
               {link}
             </div>
