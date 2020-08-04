@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-21 16:19+0000\n"
+"POT-Creation-Date: 2020-08-04 16:32+0000\n"
 "PO-Revision-Date: 2020-07-20 19:50+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,126 +187,126 @@ msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 "%(addonName)s – Obtene iste pacchetto de lingua pro 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:119
+#: src/amo/components/AddonMeta/index.js:125
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s stella"
 msgstr[1] "%(total)s stellas"
 
-#: src/amo/components/AddonMeta/index.js:128
+#: src/amo/components/AddonMeta/index.js:134
 msgid "Not rated yet"
 msgstr "Non ancora evalutate"
 
-#: src/amo/components/AddonMeta/index.js:49
+#: src/amo/components/AddonMeta/index.js:55
 msgid "Users"
 msgstr "Usatores"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:58
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Usator"
 msgstr[1] "Usatores"
 
-#: src/amo/components/AddonMeta/index.js:54
+#: src/amo/components/AddonMeta/index.js:60
 msgid "No Users"
 msgstr "Nulle usatores"
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:67
 msgid "Reviews"
 msgstr "Revisiones"
 
-#: src/amo/components/AddonMeta/index.js:64
+#: src/amo/components/AddonMeta/index.js:70
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Revision"
 msgstr[1] "Revisiones"
 
-#: src/amo/components/AddonMeta/index.js:66
+#: src/amo/components/AddonMeta/index.js:72
 msgid "No Reviews"
 msgstr "Nulle recensiones"
 
-#: src/amo/components/AddonMeta/index.js:92
+#: src/amo/components/AddonMeta/index.js:98
 msgid "Used by"
 msgstr "Usate per"
 
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:117
 msgid "Visit stats dashboard"
 msgstr "Visita le pannello de controlo del statistica"
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:137
 msgid "Custom License"
 msgstr "Licentia personalisate"
 
 # This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:159
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:176
 msgid "Read the privacy policy for this add-on"
 msgstr "Lege le politica de confidentialitate pro iste additivo"
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:188
 msgid "Read the license agreement for this add-on"
 msgstr "Lege le accordo de licentia pro iste additivo"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:201
 msgid "See all versions"
 msgstr "Vide tote le versiones"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Add-on Links"
 msgstr "Ligamines del additivo"
 
-#: src/amo/components/AddonMoreInfo/index.js:220
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Size"
 msgstr "Dimension"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:256
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Ultime actualisation"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "License"
 msgstr "Licentia"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Privacy Policy"
 msgstr "Politica de confidentialitate"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:280
 msgid "End-User License Agreement"
 msgstr "Accordo de licentia pro usator final (EULA)"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:288
 msgid "Version History"
 msgstr "Historia de versiones"
 
-#: src/amo/components/AddonMoreInfo/index.js:278
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "Usage Statistics"
 msgstr "Statistica de uso"
 
-#: src/amo/components/AddonMoreInfo/index.js:294
+#: src/amo/components/AddonMoreInfo/index.js:314
 msgid "More information"
 msgstr "Plus de informationes"
 
-#: src/amo/components/AddonMoreInfo/index.js:63
+#: src/amo/components/AddonMoreInfo/index.js:73
 #: src/amo/pages/UserProfile/index.js:357
 #: src/amo/pages/UserProfile/index.js:359
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "Pagina principal"
 
-#: src/amo/components/AddonMoreInfo/index.js:74
+#: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support site"
 msgstr "Sito de supporto"
 
-#: src/amo/components/AddonMoreInfo/index.js:88
+#: src/amo/components/AddonMoreInfo/index.js:98
 msgid "Support Email"
 msgstr "Email de supporto"
 
@@ -318,47 +318,47 @@ msgstr "Altere usatores con iste extension alsi installate"
 msgid "Other popular extensions"
 msgstr "Altere extensiones popular"
 
-#: src/amo/components/AddonReviewCard/index.js:199
+#: src/amo/components/AddonReviewCard/index.js:202
 msgid "Edit reply"
 msgstr "Rediger le responsa"
 
-#: src/amo/components/AddonReviewCard/index.js:202
+#: src/amo/components/AddonReviewCard/index.js:205
 msgid "Edit review"
 msgstr "Modificar recension"
 
-#: src/amo/components/AddonReviewCard/index.js:209
-#: src/amo/components/AddonReviewCard/index.js:241
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete reply"
 msgstr "Deler responsa"
 
-#: src/amo/components/AddonReviewCard/index.js:213
-#: src/amo/components/AddonReviewCard/index.js:245
+#: src/amo/components/AddonReviewCard/index.js:216
+#: src/amo/components/AddonReviewCard/index.js:248
 msgid "Delete rating"
 msgstr "Deler classification"
 
-#: src/amo/components/AddonReviewCard/index.js:216
-#: src/amo/components/AddonReviewCard/index.js:248
+#: src/amo/components/AddonReviewCard/index.js:219
+#: src/amo/components/AddonReviewCard/index.js:251
 msgid "Delete review"
 msgstr "Deler recension"
 
-#: src/amo/components/AddonReviewCard/index.js:223
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this reply?"
 msgstr "Vole tu vermente deler iste responsa?"
 
-#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this rating?"
 msgstr "Vole tu vermente deler iste classification?"
 
-#: src/amo/components/AddonReviewCard/index.js:230
+#: src/amo/components/AddonReviewCard/index.js:233
 msgid "Do you really want to delete this review?"
 msgstr "Vole tu vermente deler iste recension?"
 
-#: src/amo/components/AddonReviewCard/index.js:237
+#: src/amo/components/AddonReviewCard/index.js:240
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Deler"
 
-#: src/amo/components/AddonReviewCard/index.js:255
+#: src/amo/components/AddonReviewCard/index.js:258
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:898
@@ -367,45 +367,45 @@ msgstr "Deler"
 msgid "Cancel"
 msgstr "Cancellar"
 
-#: src/amo/components/AddonReviewCard/index.js:259
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep reply"
 msgstr "Retener responsa"
 
-#: src/amo/components/AddonReviewCard/index.js:263
+#: src/amo/components/AddonReviewCard/index.js:266
 msgid "Keep rating"
 msgstr "Retener classification"
 
-#: src/amo/components/AddonReviewCard/index.js:266
+#: src/amo/components/AddonReviewCard/index.js:269
 msgid "Keep review"
 msgstr "Retener revision"
 
-#: src/amo/components/AddonReviewCard/index.js:302
+#: src/amo/components/AddonReviewCard/index.js:305
 msgid "Write a reply to this review."
 msgstr "Scribe un responsa a iste recension."
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:308
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr "Actualisar responsa"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:309
 msgid "Publish reply"
 msgstr "Publicar responsa"
 
-#: src/amo/components/AddonReviewCard/index.js:310
+#: src/amo/components/AddonReviewCard/index.js:313
 #: src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr "Actualisante responsa"
 
-#: src/amo/components/AddonReviewCard/index.js:311
+#: src/amo/components/AddonReviewCard/index.js:314
 msgid "Publishing reply"
 msgstr "Publicante responsa"
 
-#: src/amo/components/AddonReviewCard/index.js:357
+#: src/amo/components/AddonReviewCard/index.js:361
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "publicate %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:360
+#: src/amo/components/AddonReviewCard/index.js:364
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -413,19 +413,19 @@ msgstr ""
 "per %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:363
+#: src/amo/components/AddonReviewCard/index.js:367
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "per %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:478
+#: src/amo/components/AddonReviewCard/index.js:483
 msgid "Deleting…"
 msgstr "Deletion…"
 
-#: src/amo/components/AddonReviewCard/index.js:509
+#: src/amo/components/AddonReviewCard/index.js:514
 msgid "Reply to this review"
 msgstr "Responder a iste recension"
 
-#: src/amo/components/AddonReviewCard/index.js:539
+#: src/amo/components/AddonReviewCard/index.js:544
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
@@ -433,7 +433,7 @@ msgstr ""
 "Iste evalutation o recension ha essite delite. Tu lo vide solmente a causa "
 "de permissiones elevate."
 
-#: src/amo/components/AddonReviewCard/index.js:585
+#: src/amo/components/AddonReviewCard/index.js:590
 msgid "Write a review"
 msgstr "Scribe un recension"
 
@@ -554,11 +554,11 @@ msgstr "Additivos ex %(author)s"
 msgid "Add-ons by these developers"
 msgstr "Additivos ex iste disveloppatores"
 
-#: src/amo/components/AddonSummaryCard/index.js:48
+#: src/amo/components/AddonSummaryCard/index.js:62
 msgid "Add-on icon"
 msgstr "Icone del additivo"
 
-#: src/amo/components/AddonSummaryCard/index.js:70
+#: src/amo/components/AddonSummaryCard/index.js:88
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "%(rating)s Stella de 5"
@@ -570,8 +570,8 @@ msgid ","
 msgstr ","
 
 # Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:86
-#: src/amo/components/AddonTitle/index.js:91
+#: src/amo/components/AddonTitle/index.js:89
+#: src/amo/components/AddonTitle/index.js:94
 msgid "by"
 msgstr "per"
 
@@ -994,23 +994,23 @@ msgstr "Navigatores"
 msgid "Products"
 msgstr "Productos"
 
-#: src/amo/components/Footer/index.js:266
+#: src/amo/components/Footer/index.js:256
 msgid "Privacy"
 msgstr "Confidentialitate"
+
+#: src/amo/components/Footer/index.js:264
+msgid "Cookies"
+msgstr "Cookies"
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
 msgstr "Ir al pagina principal de Mozilla"
 
-#: src/amo/components/Footer/index.js:274
-msgid "Cookies"
-msgstr "Cookies"
-
-#: src/amo/components/Footer/index.js:282
+#: src/amo/components/Footer/index.js:272
 msgid "Legal"
 msgstr "Legal"
 
-#: src/amo/components/Footer/index.js:292
+#: src/amo/components/Footer/index.js:282
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1125,12 +1125,12 @@ msgstr "Rediger mi profilo"
 msgid "Tools"
 msgstr "Utensiles"
 
-#: src/amo/components/HeroRecommendation/index.js:107
+#: src/amo/components/HeroRecommendation/index.js:108
 msgid "Get the extension"
 msgstr "Installa le extension"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:180
+#: src/amo/components/HeroRecommendation/index.js:184
 msgid "RECOMMENDED"
 msgstr "RECOMMENDATE"
 
@@ -1178,15 +1178,21 @@ msgstr ""
 msgid "Change language"
 msgstr "Cambia lingua"
 
-#: src/amo/components/PermissionsCard/index.js:49
+#: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
 msgstr "Permissiones"
 
-#: src/amo/components/PermissionsCard/index.js:55
-msgid "This add-on can:"
+#: src/amo/components/PermissionsCard/index.js:67
+#, fuzzy
+msgid "This add-on needs to:"
 msgstr "Iste additivo pote:"
 
-#: src/amo/components/PermissionsCard/index.js:66
+#: src/amo/components/PermissionsCard/index.js:77
+#, fuzzy
+msgid "This add-on may also ask to:"
+msgstr "Iste additivo pote:"
+
+#: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
 msgstr "Saper plus sur le permissiones"
 
@@ -1323,23 +1329,23 @@ msgstr "Salvamento del classification per stellas"
 msgid "Star rating saved"
 msgstr "Evalutation de stellas salvate"
 
-#: src/amo/components/RatingsByStar/index.js:95
+#: src/amo/components/RatingsByStar/index.js:108
 msgid "Read all five-star reviews"
 msgstr "Lege tote le revisiones a cinque stellas"
 
-#: src/amo/components/RatingsByStar/index.js:96
+#: src/amo/components/RatingsByStar/index.js:109
 msgid "Read all four-star reviews"
 msgstr "Lege tote le revisiones a quatro stellas"
 
-#: src/amo/components/RatingsByStar/index.js:97
+#: src/amo/components/RatingsByStar/index.js:110
 msgid "Read all three-star reviews"
 msgstr "Lege tote le revisiones a tres stellas"
 
-#: src/amo/components/RatingsByStar/index.js:98
+#: src/amo/components/RatingsByStar/index.js:111
 msgid "Read all two-star reviews"
 msgstr "Lege tote le revisiones a duo stellas"
 
-#: src/amo/components/RatingsByStar/index.js:99
+#: src/amo/components/RatingsByStar/index.js:112
 msgid "Read all one-star reviews"
 msgstr "Lege tote le revisiones a un stella"
 
@@ -1650,15 +1656,15 @@ msgstr "Additivos de Firefox"
 msgid "Go to the add-on page"
 msgstr "Ir al pagina del additivo"
 
-#: src/amo/components/SearchResult/index.js:152
+#: src/amo/components/SearchResult/index.js:170
 msgid "No theme preview available"
 msgstr "Nulle vista preliminar del thema disponibile"
 
-#: src/amo/components/SearchResult/index.js:190
+#: src/amo/components/SearchResult/index.js:208
 msgid "Add-on note"
 msgstr "Nota del additivo"
 
-#: src/amo/components/SearchResult/index.js:208
+#: src/amo/components/SearchResult/index.js:226
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s usator"
@@ -1805,55 +1811,55 @@ msgstr ""
 msgid "Preview of %(title)s"
 msgstr "Vista preliminar de %(title)s"
 
-#: src/amo/pages/Addon/index.js:204
+#: src/amo/pages/Addon/index.js:211
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Iste additivo non pote esser evalutate perque nulle version ha essite "
 "publicate."
 
-#: src/amo/pages/Addon/index.js:215
+#: src/amo/pages/Addon/index.js:222
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Leger %(count)s recension"
 msgstr[1] "Leger %(count)s recensiones"
 
-#: src/amo/pages/Addon/index.js:233
+#: src/amo/pages/Addon/index.js:244
 msgid "No reviews yet"
 msgstr "Ancora nulle recensiones"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:254
 msgid "Rate your experience"
 msgstr "Evaluta tu experientia"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:273
 msgid "About this dictionary"
 msgstr "A proposito de iste dictionario"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:276
 msgid "About this extension"
 msgstr "A proposito de iste extension"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:279
 msgid "About this language pack"
 msgstr "A proposito de iste pacchetto de lingua"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:282
 msgid "About this theme"
 msgstr "A proposito de iste thema"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:285
 msgid "About this add-on"
 msgstr "A proposito de iste additivo"
 
-#: src/amo/pages/Addon/index.js:316
+#: src/amo/pages/Addon/index.js:327
 msgid "Developer comments"
 msgstr "Commentos del disveloppatores"
 
-#: src/amo/pages/Addon/index.js:339
+#: src/amo/pages/Addon/index.js:350
 msgid "Release notes for %(addonVersion)s"
 msgstr "Notas de version pro %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:470
+#: src/amo/pages/Addon/index.js:481
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1861,11 +1867,11 @@ msgstr ""
 "Iste entrata non es public. Tu lo vide solmente a causa de permissiones "
 "elevate."
 
-#: src/amo/pages/Addon/index.js:498
+#: src/amo/pages/Addon/index.js:509
 msgid "Extension Metadata"
 msgstr "Metadatos del extension"
 
-#: src/amo/pages/Addon/index.js:505
+#: src/amo/pages/Addon/index.js:516
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1873,7 +1879,7 @@ msgstr ""
 "Iste lista de presentation non es destinate pro iste systema operative. <a "
 "href=\"%(newLocation)s\">Folietta le additivos de Firefox pro Android</a>."
 
-#: src/amo/pages/Addon/index.js:509
+#: src/amo/pages/Addon/index.js:520
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1881,7 +1887,7 @@ msgstr ""
 "Iste lista de presentation non es destinate pro iste systema operative. <a "
 "href=\"%(newLocation)s\">Folietta le additivos de Firefox pro scriptorio</a>."
 
-#: src/amo/pages/Addon/index.js:513
+#: src/amo/pages/Addon/index.js:524
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
@@ -1891,7 +1897,7 @@ msgstr ""
 "Firefox pro scriptorio. Saper plus re <a href=\"%(newLocation)s\">additivos "
 "pro Android</a>."
 
-#: src/amo/pages/Addon/index.js:533
+#: src/amo/pages/Addon/index.js:544
 msgid "Screenshots"
 msgstr "Capturas de schermo"
 
@@ -1907,7 +1913,7 @@ msgstr "Accordo de licentia pro usator final %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Politica de confidentialitate pro %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:204
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1915,41 +1921,41 @@ msgstr ""
 "Recensiones e evalutationes de %(addonName)s. Discoperi lo que altere "
 "usatores pensa de %(addonName)s e adde lo a tu navigator Firefox."
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show all reviews"
 msgstr "Monstrar tote le recensiones"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only five-star reviews"
 msgstr "Monstrar solo recensiones a cinque stellas"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only four-star reviews"
 msgstr "Monstrar solo recensiones a quatro stellas"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:243
 msgid "Show only three-star reviews"
 msgstr "Monstrar solo recensiones a tres stellas"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:245
 msgid "Show only two-star reviews"
 msgstr "Monstrar solo recensiones a duo stellas"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:246
 msgid "Show only one-star reviews"
 msgstr "Monstrar solo recensiones a un stella"
 
-#: src/amo/pages/AddonReviewList/index.js:279
+#: src/amo/pages/AddonReviewList/index.js:287
 msgid "Reviews for %(addonName)s"
 msgstr "Recensiones de %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:289
+#: src/amo/pages/AddonReviewList/index.js:297
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s revision"
 msgstr[1] "%(total)s revisiones"
 
-#: src/amo/pages/AddonReviewList/index.js:388
+#: src/amo/pages/AddonReviewList/index.js:397
 msgid "There are no reviews"
 msgstr "Il non ha recensiones"
 
@@ -3427,17 +3433,17 @@ msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:334
+#: src/core/reducers/versions.js:335
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s e plus recente"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:338
+#: src/core/reducers/versions.js:339
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s a %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:358
+#: src/core/reducers/versions.js:359
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Functiona con %(listOfApplicatonsAndVersions)s"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-21 16:19+0000\n"
+"POT-Creation-Date: 2020-08-04 16:32+0000\n"
 "PO-Revision-Date: 2020-07-15 08:22+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -187,125 +187,125 @@ msgstr "%(addonName)s – Deze extensie downloaden voor 🦊 Firefox (%(locale)s
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Dit taalpakket downloaden voor 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:119
+#: src/amo/components/AddonMeta/index.js:125
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s ster"
 msgstr[1] "%(total)s sterren"
 
-#: src/amo/components/AddonMeta/index.js:128
+#: src/amo/components/AddonMeta/index.js:134
 msgid "Not rated yet"
 msgstr "Nog niet gewaardeerd"
 
-#: src/amo/components/AddonMeta/index.js:49
+#: src/amo/components/AddonMeta/index.js:55
 msgid "Users"
 msgstr "Gebruikers"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:58
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Gebruiker"
 msgstr[1] "Gebruikers"
 
-#: src/amo/components/AddonMeta/index.js:54
+#: src/amo/components/AddonMeta/index.js:60
 msgid "No Users"
 msgstr "Geen gebruikers"
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:67
 msgid "Reviews"
 msgstr "Beoordelingen"
 
-#: src/amo/components/AddonMeta/index.js:64
+#: src/amo/components/AddonMeta/index.js:70
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Beoordeling"
 msgstr[1] "Beoordelingen"
 
-#: src/amo/components/AddonMeta/index.js:66
+#: src/amo/components/AddonMeta/index.js:72
 msgid "No Reviews"
 msgstr "Geen beoordelingen"
 
-#: src/amo/components/AddonMeta/index.js:92
+#: src/amo/components/AddonMeta/index.js:98
 msgid "Used by"
 msgstr "Gebruikt door"
 
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:117
 msgid "Visit stats dashboard"
 msgstr "Statistiekendashboard bekijken"
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:137
 msgid "Custom License"
 msgstr "Aangepaste licentie"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:159
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:176
 msgid "Read the privacy policy for this add-on"
 msgstr "Het privacybeleid voor deze add-on lezen"
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:188
 msgid "Read the license agreement for this add-on"
 msgstr "De licentieovereenkomst voor deze add-on lezen"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:201
 msgid "See all versions"
 msgstr "Alle versies bekijken"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Add-on Links"
 msgstr "Add-on-koppelingen"
 
-#: src/amo/components/AddonMoreInfo/index.js:220
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "Version"
 msgstr "Versie"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Size"
 msgstr "Grootte"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:256
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Laatst bijgewerkt"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "License"
 msgstr "Licentie"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Privacy Policy"
 msgstr "Privacybeleid"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:280
 msgid "End-User License Agreement"
 msgstr "Eindgebruikerslicentieovereenkomst"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:288
 msgid "Version History"
 msgstr "Versiegeschiedenis"
 
-#: src/amo/components/AddonMoreInfo/index.js:278
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "Usage Statistics"
 msgstr "Gebruiksstatistieken"
 
-#: src/amo/components/AddonMoreInfo/index.js:294
+#: src/amo/components/AddonMoreInfo/index.js:314
 msgid "More information"
 msgstr "Meer informatie"
 
-#: src/amo/components/AddonMoreInfo/index.js:63
+#: src/amo/components/AddonMoreInfo/index.js:73
 #: src/amo/pages/UserProfile/index.js:357
 #: src/amo/pages/UserProfile/index.js:359
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "Startpagina"
 
-#: src/amo/components/AddonMoreInfo/index.js:74
+#: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support site"
 msgstr "Ondersteuningswebsite"
 
-#: src/amo/components/AddonMoreInfo/index.js:88
+#: src/amo/components/AddonMoreInfo/index.js:98
 msgid "Support Email"
 msgstr "E-mailadres voor ondersteuning"
 
@@ -317,47 +317,47 @@ msgstr "Andere gebruikers met deze extensie gebruiken ook"
 msgid "Other popular extensions"
 msgstr "Andere populaire extensies"
 
-#: src/amo/components/AddonReviewCard/index.js:199
+#: src/amo/components/AddonReviewCard/index.js:202
 msgid "Edit reply"
 msgstr "Antwoord bewerken"
 
-#: src/amo/components/AddonReviewCard/index.js:202
+#: src/amo/components/AddonReviewCard/index.js:205
 msgid "Edit review"
 msgstr "Beoordeling bewerken"
 
-#: src/amo/components/AddonReviewCard/index.js:209
-#: src/amo/components/AddonReviewCard/index.js:241
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete reply"
 msgstr "Antwoord verwijderen"
 
-#: src/amo/components/AddonReviewCard/index.js:213
-#: src/amo/components/AddonReviewCard/index.js:245
+#: src/amo/components/AddonReviewCard/index.js:216
+#: src/amo/components/AddonReviewCard/index.js:248
 msgid "Delete rating"
 msgstr "Waardering verwijderen"
 
-#: src/amo/components/AddonReviewCard/index.js:216
-#: src/amo/components/AddonReviewCard/index.js:248
+#: src/amo/components/AddonReviewCard/index.js:219
+#: src/amo/components/AddonReviewCard/index.js:251
 msgid "Delete review"
 msgstr "Beoordeling verwijderen"
 
-#: src/amo/components/AddonReviewCard/index.js:223
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this reply?"
 msgstr "Wilt u dit antwoord echt verwijderen?"
 
-#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this rating?"
 msgstr "Wilt u deze waardering echt verwijderen?"
 
-#: src/amo/components/AddonReviewCard/index.js:230
+#: src/amo/components/AddonReviewCard/index.js:233
 msgid "Do you really want to delete this review?"
 msgstr "Wilt u deze beoordeling echt verwijderen?"
 
-#: src/amo/components/AddonReviewCard/index.js:237
+#: src/amo/components/AddonReviewCard/index.js:240
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: src/amo/components/AddonReviewCard/index.js:255
+#: src/amo/components/AddonReviewCard/index.js:258
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:898
@@ -366,45 +366,45 @@ msgstr "Verwijderen"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/amo/components/AddonReviewCard/index.js:259
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep reply"
 msgstr "Antwoord behouden"
 
-#: src/amo/components/AddonReviewCard/index.js:263
+#: src/amo/components/AddonReviewCard/index.js:266
 msgid "Keep rating"
 msgstr "Waardering behouden"
 
-#: src/amo/components/AddonReviewCard/index.js:266
+#: src/amo/components/AddonReviewCard/index.js:269
 msgid "Keep review"
 msgstr "Beoordeling behouden"
 
-#: src/amo/components/AddonReviewCard/index.js:302
+#: src/amo/components/AddonReviewCard/index.js:305
 msgid "Write a reply to this review."
 msgstr "Schrijf een antwoord op deze beoordeling."
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:308
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr "Antwoord bijwerken"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:309
 msgid "Publish reply"
 msgstr "Antwoord publiceren"
 
-#: src/amo/components/AddonReviewCard/index.js:310
+#: src/amo/components/AddonReviewCard/index.js:313
 #: src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr "Antwoord bijwerken"
 
-#: src/amo/components/AddonReviewCard/index.js:311
+#: src/amo/components/AddonReviewCard/index.js:314
 msgid "Publishing reply"
 msgstr "Antwoord publiceren"
 
-#: src/amo/components/AddonReviewCard/index.js:357
+#: src/amo/components/AddonReviewCard/index.js:361
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s geplaatst"
 
-#: src/amo/components/AddonReviewCard/index.js:360
+#: src/amo/components/AddonReviewCard/index.js:364
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -412,19 +412,19 @@ msgstr ""
 "door %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:363
+#: src/amo/components/AddonReviewCard/index.js:367
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "door %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:478
+#: src/amo/components/AddonReviewCard/index.js:483
 msgid "Deleting…"
 msgstr "Verwijderen…"
 
-#: src/amo/components/AddonReviewCard/index.js:509
+#: src/amo/components/AddonReviewCard/index.js:514
 msgid "Reply to this review"
 msgstr "Deze beoordeling beantwoorden"
 
-#: src/amo/components/AddonReviewCard/index.js:539
+#: src/amo/components/AddonReviewCard/index.js:544
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
@@ -432,7 +432,7 @@ msgstr ""
 "Deze waardering of beoordeling is verwijderd. U ziet deze alleen omdat u "
 "meer toegangsrechten hebt."
 
-#: src/amo/components/AddonReviewCard/index.js:585
+#: src/amo/components/AddonReviewCard/index.js:590
 msgid "Write a review"
 msgstr "Schrijf een beoordeling"
 
@@ -552,11 +552,11 @@ msgstr "Add-ons van %(author)s"
 msgid "Add-ons by these developers"
 msgstr "Add-ons van deze ontwikkelaars"
 
-#: src/amo/components/AddonSummaryCard/index.js:48
+#: src/amo/components/AddonSummaryCard/index.js:62
 msgid "Add-on icon"
 msgstr "Add-onpictogram"
 
-#: src/amo/components/AddonSummaryCard/index.js:70
+#: src/amo/components/AddonSummaryCard/index.js:88
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "%(rating)s ster van 5"
@@ -568,8 +568,8 @@ msgid ","
 msgstr ","
 
 # Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:86
-#: src/amo/components/AddonTitle/index.js:91
+#: src/amo/components/AddonTitle/index.js:89
+#: src/amo/components/AddonTitle/index.js:94
 msgid "by"
 msgstr "door"
 
@@ -995,23 +995,23 @@ msgstr "Browsers"
 msgid "Products"
 msgstr "Producten"
 
-#: src/amo/components/Footer/index.js:266
+#: src/amo/components/Footer/index.js:256
 msgid "Privacy"
 msgstr "Privacy"
+
+#: src/amo/components/Footer/index.js:264
+msgid "Cookies"
+msgstr "Cookies"
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
 msgstr "Naar Mozilla’s startpagina"
 
-#: src/amo/components/Footer/index.js:274
-msgid "Cookies"
-msgstr "Cookies"
-
-#: src/amo/components/Footer/index.js:282
+#: src/amo/components/Footer/index.js:272
 msgid "Legal"
 msgstr "Juridisch"
 
-#: src/amo/components/Footer/index.js:292
+#: src/amo/components/Footer/index.js:282
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1122,12 +1122,12 @@ msgstr "Mijn profiel bewerken"
 msgid "Tools"
 msgstr "Hulpmiddelen"
 
-#: src/amo/components/HeroRecommendation/index.js:107
+#: src/amo/components/HeroRecommendation/index.js:108
 msgid "Get the extension"
 msgstr "De extensie downloaden"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:180
+#: src/amo/components/HeroRecommendation/index.js:184
 msgid "RECOMMENDED"
 msgstr "AANBEVOLEN"
 
@@ -1175,15 +1175,21 @@ msgstr ""
 msgid "Change language"
 msgstr "Taal wijzigen"
 
-#: src/amo/components/PermissionsCard/index.js:49
+#: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
 msgstr "Toestemmingen"
 
-#: src/amo/components/PermissionsCard/index.js:55
-msgid "This add-on can:"
+#: src/amo/components/PermissionsCard/index.js:67
+#, fuzzy
+msgid "This add-on needs to:"
 msgstr "Deze add-on kan:"
 
-#: src/amo/components/PermissionsCard/index.js:66
+#: src/amo/components/PermissionsCard/index.js:77
+#, fuzzy
+msgid "This add-on may also ask to:"
+msgstr "Deze add-on kan:"
+
+#: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
 msgstr "Meer info over toestemmingen"
 
@@ -1320,23 +1326,23 @@ msgstr "Sterrenwaardering opslaan"
 msgid "Star rating saved"
 msgstr "Sterrenwaardering opgeslagen"
 
-#: src/amo/components/RatingsByStar/index.js:95
+#: src/amo/components/RatingsByStar/index.js:108
 msgid "Read all five-star reviews"
 msgstr "Alle vijfsterrenbeoordelingen lezen"
 
-#: src/amo/components/RatingsByStar/index.js:96
+#: src/amo/components/RatingsByStar/index.js:109
 msgid "Read all four-star reviews"
 msgstr "Alle viersterrenbeoordelingen lezen"
 
-#: src/amo/components/RatingsByStar/index.js:97
+#: src/amo/components/RatingsByStar/index.js:110
 msgid "Read all three-star reviews"
 msgstr "Alle driesterrenbeoordelingen lezen"
 
-#: src/amo/components/RatingsByStar/index.js:98
+#: src/amo/components/RatingsByStar/index.js:111
 msgid "Read all two-star reviews"
 msgstr "Alle tweesterrenbeoordelingen lezen"
 
-#: src/amo/components/RatingsByStar/index.js:99
+#: src/amo/components/RatingsByStar/index.js:112
 msgid "Read all one-star reviews"
 msgstr "Alle éénsterbeoordelingen lezen"
 
@@ -1647,15 +1653,15 @@ msgstr "Firefox Add-ons"
 msgid "Go to the add-on page"
 msgstr "Naar de add-onpagina"
 
-#: src/amo/components/SearchResult/index.js:152
+#: src/amo/components/SearchResult/index.js:170
 msgid "No theme preview available"
 msgstr "Geen themavoorbeeld beschikbaar"
 
-#: src/amo/components/SearchResult/index.js:190
+#: src/amo/components/SearchResult/index.js:208
 msgid "Add-on note"
 msgstr "Add-on-notitie"
 
-#: src/amo/components/SearchResult/index.js:208
+#: src/amo/components/SearchResult/index.js:226
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s gebruiker"
@@ -1802,55 +1808,55 @@ msgstr ""
 msgid "Preview of %(title)s"
 msgstr "Voorbeeld van %(title)s"
 
-#: src/amo/pages/Addon/index.js:204
+#: src/amo/pages/Addon/index.js:211
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Deze add-on kan niet worden gewaardeerd, omdat er geen gepubliceerde versies "
 "zijn."
 
-#: src/amo/pages/Addon/index.js:215
+#: src/amo/pages/Addon/index.js:222
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s beoordeling lezen"
 msgstr[1] "Alle %(count)s beoordelingen lezen"
 
-#: src/amo/pages/Addon/index.js:233
+#: src/amo/pages/Addon/index.js:244
 msgid "No reviews yet"
 msgstr "Nog geen beoordelingen"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:254
 msgid "Rate your experience"
 msgstr "Uw ervaring waarderen"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:273
 msgid "About this dictionary"
 msgstr "Over dit woordenboek"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:276
 msgid "About this extension"
 msgstr "Over deze extensie"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:279
 msgid "About this language pack"
 msgstr "Over dit taalpakket"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:282
 msgid "About this theme"
 msgstr "Over dit thema"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:285
 msgid "About this add-on"
 msgstr "Over deze add-on"
 
-#: src/amo/pages/Addon/index.js:316
+#: src/amo/pages/Addon/index.js:327
 msgid "Developer comments"
 msgstr "Ontwikkelaarsopmerkingen"
 
-#: src/amo/pages/Addon/index.js:339
+#: src/amo/pages/Addon/index.js:350
 msgid "Release notes for %(addonVersion)s"
 msgstr "Uitgaveopmerkingen voor %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:470
+#: src/amo/pages/Addon/index.js:481
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1858,11 +1864,11 @@ msgstr ""
 "Dit is geen openbare vermelding. U ziet deze alleen omdat u meer "
 "toegangsrechten hebt."
 
-#: src/amo/pages/Addon/index.js:498
+#: src/amo/pages/Addon/index.js:509
 msgid "Extension Metadata"
 msgstr "Metagegevens van extensie"
 
-#: src/amo/pages/Addon/index.js:505
+#: src/amo/pages/Addon/index.js:516
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1870,7 +1876,7 @@ msgstr ""
 "Deze lijst is niet bedoeld voor dit platform. <a href=\"%(newLocation)s"
 "\">Door add-ons voor Firefox op Android bladeren</a>."
 
-#: src/amo/pages/Addon/index.js:509
+#: src/amo/pages/Addon/index.js:520
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1878,7 +1884,7 @@ msgstr ""
 "Deze lijst is niet bedoeld voor dit platform. <a href=\"%(newLocation)s"
 "\">Door add-ons voor Firefox op desktop bladeren</a>."
 
-#: src/amo/pages/Addon/index.js:513
+#: src/amo/pages/Addon/index.js:524
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
@@ -1888,7 +1894,7 @@ msgstr ""
 "voor Desktop gebruiken. Meer info over <a href=\"%(newLocation)s\">add-ons "
 "voor Android</a>."
 
-#: src/amo/pages/Addon/index.js:533
+#: src/amo/pages/Addon/index.js:544
 msgid "Screenshots"
 msgstr "Schermafbeeldingen"
 
@@ -1904,7 +1910,7 @@ msgstr "Eindgebruikerslicentieovereenkomst voor %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Privacybeleid voor %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:204
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1912,41 +1918,41 @@ msgstr ""
 "Beoordelingen en waarderingen voor %(addonName)s. Ontdek wat andere "
 "gebruikers van %(addonName)s vinden en voeg het toe aan uw Firefox-browser."
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show all reviews"
 msgstr "Alle beoordelingen tonen"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only five-star reviews"
 msgstr "Alleen vijfsterrenbeoordelingen tonen"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only four-star reviews"
 msgstr "Alleen viersterrenbeoordelingen tonen"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:243
 msgid "Show only three-star reviews"
 msgstr "Alleen driesterrenbeoordelingen tonen"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:245
 msgid "Show only two-star reviews"
 msgstr "Alleen tweesterrenbeoordelingen tonen"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:246
 msgid "Show only one-star reviews"
 msgstr "Alleen éénsterbeoordelingen tonen"
 
-#: src/amo/pages/AddonReviewList/index.js:279
+#: src/amo/pages/AddonReviewList/index.js:287
 msgid "Reviews for %(addonName)s"
 msgstr "Beoordelingen voor %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:289
+#: src/amo/pages/AddonReviewList/index.js:297
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s beoordeling"
 msgstr[1] "%(total)s beoordelingen"
 
-#: src/amo/pages/AddonReviewList/index.js:388
+#: src/amo/pages/AddonReviewList/index.js:397
 msgid "There are no reviews"
 msgstr "Er zijn geen beoordelingen"
 
@@ -3421,17 +3427,17 @@ msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:334
+#: src/core/reducers/versions.js:335
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s en later"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:338
+#: src/core/reducers/versions.js:339
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s tot %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:358
+#: src/core/reducers/versions.js:359
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Werkt met %(listOfApplicatonsAndVersions)s"
 

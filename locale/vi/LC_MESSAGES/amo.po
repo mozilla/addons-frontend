@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-21 16:19+0000\n"
+"POT-Creation-Date: 2020-08-04 16:32+0000\n"
 "PO-Revision-Date: 2020-07-17 13:47+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -178,122 +178,122 @@ msgstr "%(addonName)s - Nhận tiện ích mở rộng này cho 🦊 Firefox (%(
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Nhận gói ngôn ngữ này cho 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:119
+#: src/amo/components/AddonMeta/index.js:125
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s sao"
 
-#: src/amo/components/AddonMeta/index.js:128
+#: src/amo/components/AddonMeta/index.js:134
 msgid "Not rated yet"
 msgstr "Chưa được đánh giá"
 
-#: src/amo/components/AddonMeta/index.js:49
+#: src/amo/components/AddonMeta/index.js:55
 msgid "Users"
 msgstr "Người dùng"
 
-#: src/amo/components/AddonMeta/index.js:52
+#: src/amo/components/AddonMeta/index.js:58
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Người dùng"
 
-#: src/amo/components/AddonMeta/index.js:54
+#: src/amo/components/AddonMeta/index.js:60
 msgid "No Users"
 msgstr "Không có người dùng"
 
-#: src/amo/components/AddonMeta/index.js:61
+#: src/amo/components/AddonMeta/index.js:67
 msgid "Reviews"
 msgstr "Nhận xét"
 
-#: src/amo/components/AddonMeta/index.js:64
+#: src/amo/components/AddonMeta/index.js:70
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Nhận xét"
 
-#: src/amo/components/AddonMeta/index.js:66
+#: src/amo/components/AddonMeta/index.js:72
 msgid "No Reviews"
 msgstr "Không có bài đánh giá nào"
 
-#: src/amo/components/AddonMeta/index.js:92
+#: src/amo/components/AddonMeta/index.js:98
 msgid "Used by"
 msgstr "Được sử dụng bởi"
 
-#: src/amo/components/AddonMoreInfo/index.js:105
+#: src/amo/components/AddonMoreInfo/index.js:117
 msgid "Visit stats dashboard"
 msgstr "Xem số liệu thống kê"
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:137
 msgid "Custom License"
 msgstr "Giấy phép tùy biến"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:159
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:176
 msgid "Read the privacy policy for this add-on"
 msgstr "Đọc chính sách riêng tư của tiện ích này"
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:188
 msgid "Read the license agreement for this add-on"
 msgstr "Đọc thỏa thuận cấp phép cho tiện ích này"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:201
 msgid "See all versions"
 msgstr "Xem tất cả phiên bản"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Add-on Links"
 msgstr "Liên kết tiện ích"
 
-#: src/amo/components/AddonMoreInfo/index.js:220
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "Version"
 msgstr "Phiên bản"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Size"
 msgstr "Kích cỡ"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:256
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Cập nhật gần nhất"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "License"
 msgstr "Giấy phép"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Privacy Policy"
 msgstr "Chính sách riêng tư"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:280
 msgid "End-User License Agreement"
 msgstr "Giấy phép người dùng cuối"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:288
 msgid "Version History"
 msgstr "Lịch sử các phiên bản"
 
-#: src/amo/components/AddonMoreInfo/index.js:278
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "Usage Statistics"
 msgstr "Thống kê sử dụng"
 
-#: src/amo/components/AddonMoreInfo/index.js:294
+#: src/amo/components/AddonMoreInfo/index.js:314
 msgid "More information"
 msgstr "Thêm thông tin"
 
-#: src/amo/components/AddonMoreInfo/index.js:63
+#: src/amo/components/AddonMoreInfo/index.js:73
 #: src/amo/pages/UserProfile/index.js:357
 #: src/amo/pages/UserProfile/index.js:359
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "Trang chủ"
 
-#: src/amo/components/AddonMoreInfo/index.js:74
+#: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support site"
 msgstr "Trang hỗ trợ"
 
-#: src/amo/components/AddonMoreInfo/index.js:88
+#: src/amo/components/AddonMoreInfo/index.js:98
 msgid "Support Email"
 msgstr "Email hỗ trợ"
 
@@ -305,47 +305,47 @@ msgstr "Những người dùng khác có tiện ích mở rộng này cũng đã
 msgid "Other popular extensions"
 msgstr "Các tiện ích phổ biến khác"
 
-#: src/amo/components/AddonReviewCard/index.js:199
+#: src/amo/components/AddonReviewCard/index.js:202
 msgid "Edit reply"
 msgstr "Chỉnh sửa trả lời"
 
-#: src/amo/components/AddonReviewCard/index.js:202
+#: src/amo/components/AddonReviewCard/index.js:205
 msgid "Edit review"
 msgstr "Chỉnh sửa đánh giá"
 
-#: src/amo/components/AddonReviewCard/index.js:209
-#: src/amo/components/AddonReviewCard/index.js:241
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete reply"
 msgstr "Xóa trả lời"
 
-#: src/amo/components/AddonReviewCard/index.js:213
-#: src/amo/components/AddonReviewCard/index.js:245
+#: src/amo/components/AddonReviewCard/index.js:216
+#: src/amo/components/AddonReviewCard/index.js:248
 msgid "Delete rating"
 msgstr "Xóa xếp hạng"
 
-#: src/amo/components/AddonReviewCard/index.js:216
-#: src/amo/components/AddonReviewCard/index.js:248
+#: src/amo/components/AddonReviewCard/index.js:219
+#: src/amo/components/AddonReviewCard/index.js:251
 msgid "Delete review"
 msgstr "Xóa đánh giá"
 
-#: src/amo/components/AddonReviewCard/index.js:223
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this reply?"
 msgstr "Sửa bộ sưu tập"
 
-#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this rating?"
 msgstr "Sửa bộ sưu tập"
 
-#: src/amo/components/AddonReviewCard/index.js:230
+#: src/amo/components/AddonReviewCard/index.js:233
 msgid "Do you really want to delete this review?"
 msgstr "Sửa bộ sưu tập"
 
-#: src/amo/components/AddonReviewCard/index.js:237
+#: src/amo/components/AddonReviewCard/index.js:240
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Xóa"
 
-#: src/amo/components/AddonReviewCard/index.js:255
+#: src/amo/components/AddonReviewCard/index.js:258
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:898
@@ -354,45 +354,45 @@ msgstr "Xóa"
 msgid "Cancel"
 msgstr "Hủy bỏ"
 
-#: src/amo/components/AddonReviewCard/index.js:259
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep reply"
 msgstr "Giữ lại trả lời"
 
-#: src/amo/components/AddonReviewCard/index.js:263
+#: src/amo/components/AddonReviewCard/index.js:266
 msgid "Keep rating"
 msgstr "Giữ lại xếp hạng"
 
-#: src/amo/components/AddonReviewCard/index.js:266
+#: src/amo/components/AddonReviewCard/index.js:269
 msgid "Keep review"
 msgstr "Giữ lại đánh giá"
 
-#: src/amo/components/AddonReviewCard/index.js:302
+#: src/amo/components/AddonReviewCard/index.js:305
 msgid "Write a reply to this review."
 msgstr "Viết một câu trả lời cho đánh giá này."
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:308
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr "Cập nhật trả lời"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:309
 msgid "Publish reply"
 msgstr "Xuất bản trả lời"
 
-#: src/amo/components/AddonReviewCard/index.js:310
+#: src/amo/components/AddonReviewCard/index.js:313
 #: src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr "Đang cập nhật trả lời"
 
-#: src/amo/components/AddonReviewCard/index.js:311
+#: src/amo/components/AddonReviewCard/index.js:314
 msgid "Publishing reply"
 msgstr "Đang xuất bản trả lời"
 
-#: src/amo/components/AddonReviewCard/index.js:357
+#: src/amo/components/AddonReviewCard/index.js:361
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "đã đăng %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:360
+#: src/amo/components/AddonReviewCard/index.js:364
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -400,19 +400,19 @@ msgstr ""
 "bởi %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:363
+#: src/amo/components/AddonReviewCard/index.js:367
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "bởi %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:478
+#: src/amo/components/AddonReviewCard/index.js:483
 msgid "Deleting…"
 msgstr "Đang xóa…"
 
-#: src/amo/components/AddonReviewCard/index.js:509
+#: src/amo/components/AddonReviewCard/index.js:514
 msgid "Reply to this review"
 msgstr "Trả lời đánh giá này"
 
-#: src/amo/components/AddonReviewCard/index.js:539
+#: src/amo/components/AddonReviewCard/index.js:544
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
@@ -420,7 +420,7 @@ msgstr ""
 "Đánh giá hoặc đánh giá này đã bị xóa. Bạn chỉ nhìn thấy nó bởi các quyền cao "
 "hơn."
 
-#: src/amo/components/AddonReviewCard/index.js:585
+#: src/amo/components/AddonReviewCard/index.js:590
 msgid "Write a review"
 msgstr "Viết đánh giá"
 
@@ -540,12 +540,12 @@ msgstr "Tiện ích bởi %(author)s"
 msgid "Add-ons by these developers"
 msgstr "Tiện ích bởi những nhà phát triển này"
 
-#: src/amo/components/AddonSummaryCard/index.js:48
+#: src/amo/components/AddonSummaryCard/index.js:62
 msgid "Add-on icon"
 msgstr "Biểu tượng tiện ích"
 
 # roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
-#: src/amo/components/AddonSummaryCard/index.js:70
+#: src/amo/components/AddonSummaryCard/index.js:88
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "%(rating)s sao trên 5"
@@ -556,8 +556,8 @@ msgid ","
 msgstr ","
 
 # Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:86
-#: src/amo/components/AddonTitle/index.js:91
+#: src/amo/components/AddonTitle/index.js:89
+#: src/amo/components/AddonTitle/index.js:94
 msgid "by"
 msgstr "bởi"
 
@@ -982,23 +982,23 @@ msgstr "Trình duyệt"
 msgid "Products"
 msgstr "Sản phẩm"
 
-#: src/amo/components/Footer/index.js:266
+#: src/amo/components/Footer/index.js:256
 msgid "Privacy"
 msgstr "Riêng tư"
+
+#: src/amo/components/Footer/index.js:264
+msgid "Cookies"
+msgstr "Cookie"
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
 msgstr "Đi đến trang chủ Mozilla"
 
-#: src/amo/components/Footer/index.js:274
-msgid "Cookies"
-msgstr "Cookie"
-
-#: src/amo/components/Footer/index.js:282
+#: src/amo/components/Footer/index.js:272
 msgid "Legal"
 msgstr "Pháp lý"
 
-#: src/amo/components/Footer/index.js:292
+#: src/amo/components/Footer/index.js:282
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1111,12 +1111,12 @@ msgstr "Chỉnh sửa hồ sơ của tôi"
 msgid "Tools"
 msgstr "Các công cụ"
 
-#: src/amo/components/HeroRecommendation/index.js:107
+#: src/amo/components/HeroRecommendation/index.js:108
 msgid "Get the extension"
 msgstr "Nhận tiện ích mở rộng"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:180
+#: src/amo/components/HeroRecommendation/index.js:184
 msgid "RECOMMENDED"
 msgstr "ĐƯỢC ĐỀ XUẤT"
 
@@ -1164,15 +1164,21 @@ msgstr ""
 msgid "Change language"
 msgstr "Thay đổi ngôn ngữ"
 
-#: src/amo/components/PermissionsCard/index.js:49
+#: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
 msgstr "Quyền hạn"
 
-#: src/amo/components/PermissionsCard/index.js:55
-msgid "This add-on can:"
+#: src/amo/components/PermissionsCard/index.js:67
+#, fuzzy
+msgid "This add-on needs to:"
 msgstr "Tiện ích này có thể:"
 
-#: src/amo/components/PermissionsCard/index.js:66
+#: src/amo/components/PermissionsCard/index.js:77
+#, fuzzy
+msgid "This add-on may also ask to:"
+msgstr "Tiện ích này có thể:"
+
+#: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
 msgstr "Tìm hiểu thêm về quyền hạn"
 
@@ -1307,23 +1313,23 @@ msgstr "Đang lưu xếp hạng sao"
 msgid "Star rating saved"
 msgstr "Đã lưu xếp hạng sao"
 
-#: src/amo/components/RatingsByStar/index.js:95
+#: src/amo/components/RatingsByStar/index.js:108
 msgid "Read all five-star reviews"
 msgstr "Đọc tất cả các đánh giá năm sao"
 
-#: src/amo/components/RatingsByStar/index.js:96
+#: src/amo/components/RatingsByStar/index.js:109
 msgid "Read all four-star reviews"
 msgstr "Đọc tất cả các đánh giá bốn sao"
 
-#: src/amo/components/RatingsByStar/index.js:97
+#: src/amo/components/RatingsByStar/index.js:110
 msgid "Read all three-star reviews"
 msgstr "Đọc tất cả các đánh giá ba sao"
 
-#: src/amo/components/RatingsByStar/index.js:98
+#: src/amo/components/RatingsByStar/index.js:111
 msgid "Read all two-star reviews"
 msgstr "Đọc tất cả các đánh giá hai sao"
 
-#: src/amo/components/RatingsByStar/index.js:99
+#: src/amo/components/RatingsByStar/index.js:112
 msgid "Read all one-star reviews"
 msgstr "Đọc tất cả các đánh giá một sao"
 
@@ -1625,15 +1631,15 @@ msgstr "Tiện ích Firefox"
 msgid "Go to the add-on page"
 msgstr "Chuyển đến trang tiện ích"
 
-#: src/amo/components/SearchResult/index.js:152
+#: src/amo/components/SearchResult/index.js:170
 msgid "No theme preview available"
 msgstr "Không có bản xem trước chủ đề"
 
-#: src/amo/components/SearchResult/index.js:190
+#: src/amo/components/SearchResult/index.js:208
 msgid "Add-on note"
 msgstr "Ghi chú tiện ích"
 
-#: src/amo/components/SearchResult/index.js:208
+#: src/amo/components/SearchResult/index.js:226
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s người dùng"
@@ -1780,53 +1786,53 @@ msgstr ""
 msgid "Preview of %(title)s"
 msgstr "Xem trước %(title)s"
 
-#: src/amo/pages/Addon/index.js:204
+#: src/amo/pages/Addon/index.js:211
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Tiện ích này không thể được đánh giá vì chưa có phiên bản nào được xuất bản."
 
-#: src/amo/pages/Addon/index.js:215
+#: src/amo/pages/Addon/index.js:222
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Đọc tất cả %(count)s đánh giá"
 
-#: src/amo/pages/Addon/index.js:233
+#: src/amo/pages/Addon/index.js:244
 msgid "No reviews yet"
 msgstr "Chưa có đánh giá"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:254
 msgid "Rate your experience"
 msgstr "Xếp hạng trải nghiệm của bạn"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:273
 msgid "About this dictionary"
 msgstr "Giới thiệu từ điển"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:276
 msgid "About this extension"
 msgstr "Về tiện ích mở rộng này"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:279
 msgid "About this language pack"
 msgstr "Giới thiệu gói ngôn ngữ"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:282
 msgid "About this theme"
 msgstr "Giới thiệu chủ đề"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:285
 msgid "About this add-on"
 msgstr "Giới thiệu add-on này"
 
-#: src/amo/pages/Addon/index.js:316
+#: src/amo/pages/Addon/index.js:327
 msgid "Developer comments"
 msgstr "Trả lời của nhà phát triển"
 
-#: src/amo/pages/Addon/index.js:339
+#: src/amo/pages/Addon/index.js:350
 msgid "Release notes for %(addonVersion)s"
 msgstr "Ghi chú phát hành cho phiên bản %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:470
+#: src/amo/pages/Addon/index.js:481
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1834,11 +1840,11 @@ msgstr ""
 "Đây không phải là danh sách công khai. Bạn chỉ nhìn thấy nó bởi các quyền "
 "cao hơn."
 
-#: src/amo/pages/Addon/index.js:498
+#: src/amo/pages/Addon/index.js:509
 msgid "Extension Metadata"
 msgstr "Siêu dữ liệu mở rộng"
 
-#: src/amo/pages/Addon/index.js:505
+#: src/amo/pages/Addon/index.js:516
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1846,7 +1852,7 @@ msgstr ""
 "Danh sách này không dành cho nền tảng này. <a href=\"%(newLocation)s\">Duyệt "
 "các tiện ích mở rộng cho Firefox trên Android</a>."
 
-#: src/amo/pages/Addon/index.js:509
+#: src/amo/pages/Addon/index.js:520
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1854,7 +1860,7 @@ msgstr ""
 "Danh sách này không dành cho nền tảng này. <a href=\"%(newLocation)s\">Duyệt "
 "các tiện ích mở rộng cho Firefox trên máy tính để bàn</a>."
 
-#: src/amo/pages/Addon/index.js:513
+#: src/amo/pages/Addon/index.js:524
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
@@ -1864,7 +1870,7 @@ msgstr ""
 "này với Firefox cho máy tính để bàn. Tìm hiểu thêm về <a href="
 "\"%(newLocation)s\">tiện ích dành cho Android</a>."
 
-#: src/amo/pages/Addon/index.js:533
+#: src/amo/pages/Addon/index.js:544
 msgid "Screenshots"
 msgstr "Ảnh chụp màn hình"
 
@@ -1880,7 +1886,7 @@ msgstr "Thỏa thuận cấp phép người dùng cuối cho %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Chính sách bảo mật cho %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:204
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1888,40 +1894,40 @@ msgstr ""
 "Đánh giá và xếp hạng cho %(addonName)s. Tìm hiểu những gì người dùng khác "
 "nghĩ về %(addonName)s và thêm nó vào trình duyệt Firefox của bạn."
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show all reviews"
 msgstr "Hiển thị tất cả các đánh giá"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only five-star reviews"
 msgstr "Chỉ hiển thị đánh giá năm sao"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only four-star reviews"
 msgstr "Chỉ hiển thị đánh giá bốn sao"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:243
 msgid "Show only three-star reviews"
 msgstr "Chỉ hiển thị đánh giá ba sao"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:245
 msgid "Show only two-star reviews"
 msgstr "Chỉ hiển thị đánh giá hai sao"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:246
 msgid "Show only one-star reviews"
 msgstr "Chỉ hiển thị đánh giá một sao"
 
-#: src/amo/pages/AddonReviewList/index.js:279
+#: src/amo/pages/AddonReviewList/index.js:287
 msgid "Reviews for %(addonName)s"
 msgstr "Đánh giá cho %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:289
+#: src/amo/pages/AddonReviewList/index.js:297
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s đánh giá"
 
-#: src/amo/pages/AddonReviewList/index.js:388
+#: src/amo/pages/AddonReviewList/index.js:397
 msgid "There are no reviews"
 msgstr "Không có đánh giá nào"
 
@@ -3396,17 +3402,17 @@ msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:334
+#: src/core/reducers/versions.js:335
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s và lớn hơn"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:338
+#: src/core/reducers/versions.js:339
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s đến %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:358
+#: src/core/reducers/versions.js:359
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Hoạt động với %(listOfApplicatonsAndVersions)s"
 
