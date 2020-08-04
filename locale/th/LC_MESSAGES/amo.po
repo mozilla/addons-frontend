@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-07-21 16:19+0000\n"
-"PO-Revision-Date: 2020-08-02 13:16+0000\n"
+"PO-Revision-Date: 2020-08-04 13:13+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -717,9 +717,8 @@ msgid "Remove"
 msgstr "เอาออก"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
-#, fuzzy
 msgid "Collector's note"
-msgstr "ชื่อชุดสะสม"
+msgstr "หมายเหตุของตัวสะสม"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -1831,9 +1830,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:109
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "สำรวจ %(linkStart)sตัวจัดการรหัสผ่าน%(linkEnd)s เพิ่มเติมที่คัดเลือกโดยทีมงาน"
+msgstr "สำรวจ%(linkStart)sตัวปิดกั้นโฆษณา%(linkEnd)sที่ยอดเยี่ยมเพิ่มเติม"
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
@@ -1866,9 +1864,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "บอกให้โลกรู้ว่าทำไมคุณจึงคิดว่าส่วนขยายนี้ยอดเยี่ยม! โปรดปฏิบัติตาม %(linkStart)sคู่มือบทวิจารณ์%(linkEnd)s ของเรา"
+msgstr "สำรวจส่วนขยาย%(linkStart)sแท็บ%(linkEnd)sเพิ่มเติม"
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
@@ -1883,9 +1880,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:168
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "สำรวจ %(linkStart)sตัวจัดการรหัสผ่าน%(linkEnd)s เพิ่มเติมที่คัดเลือกโดยทีมงาน"
+msgstr "สำรวจส่วนขยาย%(linkStart)sที่คั่นหน้า%(linkEnd)sเพิ่มเติม"
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
@@ -1967,9 +1963,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:90
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "สำรวจ %(linkStart)sตัวจัดการรหัสผ่าน%(linkEnd)s เพิ่มเติมที่คัดเลือกโดยทีมงาน"
+msgstr "สำรวจ%(linkStart)sตัวจัดการรหัสผ่าน%(linkEnd)sที่ยอดเยี่ยมเพิ่มเติม"
 
 #: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
@@ -2409,9 +2404,8 @@ msgid "Edit profile"
 msgstr "แก้ไขโปรไฟล์"
 
 #: src/amo/pages/UserProfile/index.js:448
-#, fuzzy
 msgid "Admin user"
-msgstr "ลิงก์ส่วนเสริม"
+msgstr "ผู้ใช้ที่เป็นผู้ดูแล"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
