@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-05 12:12+0000\n"
+"PO-Revision-Date: 2020-08-05 12:22+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1585,7 +1585,7 @@ msgstr "Vælg billede..."
 
 #: src/amo/components/WrongPlatformWarning/index.js:101
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Besøg vores <a href=\"%(newLocation)s\">desktop-version af siden</a>, hvis du vil finde tilføjelser, der er kompatible med Firefox til computer."
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
@@ -1601,7 +1601,7 @@ msgstr "<a href=\"%(newLocation)s\">Klik her</a>, hvis du vil vide mere om tilf�
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Besøg vores <a href=\"%(newLocation)s\">mobil-version af siden</a>, hvis du vil finde tilføjelser, der er kompatible med Firefox til Android."
 
 #: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1772,7 +1772,7 @@ msgstr "Denne tilføjelse er blevet blokeret for din beskyttelse."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Hvorfor blev den blokeret?"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
