@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-04-25 00:41+0000\n"
+"PO-Revision-Date: 2020-08-04 17:31+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -127,7 +127,7 @@ msgstr "Neuspjelo instaliranje. Pokušaj ponovo."
 
 #: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
-msgstr "Neuspjelo preuzimanje. Provjeri svoju vezu."
+msgstr "Neuspjelo preuzimanje. Provjeri vezu."
 
 #: src/core/utils/addons.js:39
 msgid "An unexpected error occurred during installation."
