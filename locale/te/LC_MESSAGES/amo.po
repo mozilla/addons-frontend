@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-05 20:51+0000\n"
+"PO-Revision-Date: 2020-08-05 21:33+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1036,14 +1036,12 @@ msgid "Permissions"
 msgstr "అనుమతులు"
 
 #: src/amo/components/PermissionsCard/index.js:67
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "ఈ పొడిగింతలు చేయగలిగినవి:"
+msgstr "ఈ పొడిగింతకు ఇవి కావాలి:"
 
 #: src/amo/components/PermissionsCard/index.js:77
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "ఈ పొడిగింతలు చేయగలిగినవి:"
+msgstr "ఈ పొడిగింత వీటి కొరకు కూడా అడగవచ్చు:"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
