@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-05 12:49+0000\n"
+"PO-Revision-Date: 2020-08-05 12:59+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1588,7 +1588,7 @@ msgstr "Besøg vores <a href=\"%(newLocation)s\">desktop-version af siden</a>, h
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Ikke tilgængelig på Firefox til Android. Du kan bruge denne tilføjelse med Firefox til computer, eller se efter lignende <a href=\"%(newLocation)s\">tilføjelser til Android</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
@@ -1671,7 +1671,7 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:524
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Ikke tilgængelig på Firefox til Android. Du kan bruge denne tilføjelse med Firefox til computer. Læs mere om <a href=\"%(newLocation)s\">tilføjelser til Android</a>."
 
 #: src/amo/pages/Addon/index.js:544
 msgid "Screenshots"
@@ -2770,7 +2770,7 @@ msgstr ""
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "Du er blevet logget ud."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2898,11 +2898,11 @@ msgstr "Firefox anbefaler kun udvidelser, der opfylder vores standarder for sikk
 
 #: src/ui/components/PromotedBadge/index.js:59
 msgid "Verified Sponsor"
-msgstr ""
+msgstr "Bekræftet sponsor"
 
 #: src/ui/components/PromotedBadge/index.js:60
 msgid "Verified"
-msgstr ""
+msgstr "Bekræfter"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
