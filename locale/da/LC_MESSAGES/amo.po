@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-05 12:32+0000\n"
+"PO-Revision-Date: 2020-08-05 12:49+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -377,9 +377,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "skrevet %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:364
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "af %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "af %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:367
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -966,7 +965,7 @@ msgstr "Anmeldelser"
 
 #: src/amo/components/Header/index.js:139 src/core/components/AuthenticateButton/index.js:91
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Denne handling er ikke tilgængelig lige nu. Genindlæs sider om et øjeblik."
 
 #: src/amo/components/Header/index.js:144 src/core/components/AuthenticateButton/index.js:87
 msgid "Log out"
@@ -2609,21 +2608,19 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "VIGTIGT: Sletning af denne profil på dette websted kan ikke fortrydes."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
-"Dine data vil blive fjernet permanent herunder indstillinger for beskeder og profildetaljer (profilbillede, brugernavn, vis navn, sted, hjemmeside, biografi og beskæftigelse). Dine anmeldelser og "
-"bedømmelser vil blive anonymiseret og vil ikke længere kunne redigeres."
+"Dine data vil blive fjernet permanent herunder profildetaljer (profilbillede, brugernavn, vis navn, sted, hjemmeside, biografi og beskæftigelse), indstillinger for beskeder, anmeldelser og "
+"samlinger."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
-"Brugerens data vil blive fjernet permanent herunder indstillinger for beskeder og profildetaljer (profilbillede, brugernavn, vis navn, sted, hjemmeside, biografi og beskæftigelse). Anmeldelser og "
-"bedømmelser vil blive anonymiseret og vil ikke længere kunne redigeres."
+"Brugerens data vil blive fjernet permanent herunder profildetaljer (profilbillede, brugernavn, vis navn, sted, hjemmeside, biografi og beskæftigelse), indstillinger for beskeder, anmeldelser og "
+"samlinger."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
@@ -2653,7 +2650,7 @@ msgstr "Mailadressen %(strongStart)s%(email)s%(strongEnd)s vil ikke længere mod
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Du kan ændre dine indstillinger for beskeder ved at %(linkStart)sredigere din profil%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
