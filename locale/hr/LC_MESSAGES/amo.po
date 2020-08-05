@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -2293,7 +2293,7 @@ msgstr "Ja sam autor dodatka. Mogu li odgovarati na recenzije?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr "Da, autori dodataka mogu jednom odgovoriti na recenziju. Možeš postaviti temu za raspravu u našem %(startLink)sforumu</a> te pokrenuti dodatnu raspravu ili odgovoriti na postojeću."
+msgstr "Da, autori dodataka mogu jednom odgovoriti na recenziju. Možeš postaviti temu za raspravu u našem %(startLink)sforumu%(endLink)s te pokrenuti dodatnu raspravu ili odgovoriti na postojeću."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
