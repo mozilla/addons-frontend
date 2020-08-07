@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-07 08:29+0000\n"
+"PO-Revision-Date: 2020-08-07 08:35+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1065,7 +1065,7 @@ msgstr "열려있는 탭의 데이터에 접근하도록 개발자 도구 확장
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr "파일 다운로드 및 브라우저 다운로드 기록 수정"
+msgstr "파일을 다운로드하고 브라우저의 다운로드 기록을 읽고 수정"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
