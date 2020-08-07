@@ -96,7 +96,7 @@ export const SecondaryHeroBase = ({
         )}
         {!module.description && (
           <div className="SecondaryHero-module-link">
-            <LoadingText width={50} />
+            <LoadingText width={60} />
           </div>
         )}
       </div>,
@@ -109,9 +109,9 @@ export const SecondaryHeroBase = ({
         <h2 className="SecondaryHero-message-headline">
           {headline || (
             <>
-              <LoadingText width={70} />
+              <LoadingText width={80} />
               <br />
-              <LoadingText width={50} />
+              <LoadingText width={60} />
             </>
           )}
         </h2>
@@ -131,7 +131,7 @@ export const SecondaryHeroBase = ({
         )}
         {!headline && (
           <div className="SecondaryHero-message-link">
-            <LoadingText width={50} />
+            <LoadingText width={60} />
           </div>
         )}
       </div>

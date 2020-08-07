@@ -141,7 +141,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
                 {isUnsubscribed ? (
                   getNotificationDescription(i18n, notificationName)
                 ) : (
-                  <LoadingText range={30} />
+                  <LoadingText minWidth={40} />
                 )}
               </blockquote>
 

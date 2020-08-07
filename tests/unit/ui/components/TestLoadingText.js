@@ -12,8 +12,8 @@ describe(__filename, () => {
   });
 
   it('lets you set a fixed width', () => {
-    const root = render({ width: 55 });
-    expect(root.prop('style')).toMatchObject({ width: '55%' });
+    const root = render({ width: 40 });
+    expect(root).toHaveClassName('LoadingText--width-40');
   });
 
   it('lets you set a custom class name', () => {

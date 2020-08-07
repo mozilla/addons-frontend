@@ -98,7 +98,7 @@ export const AddonTitleBase = ({
           )}
         </>
       ) : (
-        <LoadingText width={70} />
+        <LoadingText width={80} />
       )}
     </Component>
   );
