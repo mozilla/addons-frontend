@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-09 13:23+0000\n"
+"PO-Revision-Date: 2020-08-09 13:29+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -1787,6 +1787,8 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Si Mozilla descobreix que un complement, un connector o un programa d'altri afecta seriosament la seguretat, l'estabilitat o el rendiment del Firefox i, a més, reuneix uns "
+"%(criteriaStartLink)scriteris determinats %(criteriaEndLink)s, pot ser que decideixi blocar-lo. Per a més informació, llegiu %(supportStartLink)saquest article d'assistència%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
@@ -2648,6 +2650,8 @@ msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Si l'usuari ha creat algun complement, també se suprimirà, tret que la propietat estigui compartida amb altres autors. En aquest cas, l'usuari s'eliminarà com a autor i els restants conservaran la "
+"propietat del complement."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 #, fuzzy
