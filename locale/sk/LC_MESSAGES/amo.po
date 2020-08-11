@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-06 14:30+0000\n"
+"PO-Revision-Date: 2020-08-11 13:00+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1043,11 +1043,11 @@ msgstr "Povolenia"
 
 #: src/amo/components/PermissionsCard/index.js:67
 msgid "This add-on needs to:"
-msgstr ""
+msgstr "Tento doplnok potrebuje:"
 
 #: src/amo/components/PermissionsCard/index.js:77
 msgid "This add-on may also ask to:"
-msgstr ""
+msgstr "Tento doplnok vás môže požiadať o:"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
@@ -1938,7 +1938,7 @@ msgstr "Zahájte každú reláciu upravenou stránkou novej karty."
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr ""
+msgstr "Úplne nová stránka novej karty - s upraviteľným pozadím, počasím a ďalšími vymoženosťami"
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
@@ -1946,11 +1946,11 @@ msgstr "Vylepšenie videí"
 
 #: src/amo/pages/Guides/index.js:203
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "Ak sa vám páči nejaké video, vďaka rozšíreniam môžete maximalizovať svoj zážitok, vrátane prispôsobenia si stránky YouTube podľa svojho vkusu."
 
 #: src/amo/pages/Guides/index.js:208
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
-msgstr ""
+msgstr "Pridajte si do videí na YouTube ovládací panel na jednoduchú úpravu hlasitosti, rýchlosti prehrávania, veľkosti prehrávača či na blokovanie reklám."
 
 #: src/amo/pages/Guides/index.js:217
 msgid "Get more out of media"
@@ -1958,13 +1958,15 @@ msgstr "Využívajte médiá naplno"
 
 #: src/amo/pages/Guides/index.js:218
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "Vďaka rozšíreniam môžete pracovať so širokou škálou zvláštnych potrieb a záujmov, ako je vyhľadávanie obrázkov, správa prevzatých súborov či predčítanie textu."
 
 #: src/amo/pages/Guides/index.js:223
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Našli ste niekedy na webe úchvatný obrázok a chceli ste sa o ňom dozvedieť viac, ako napríklad, kto je osoba na fotke? Či existujú súvisiace obrázky? Toto rozšírenie vám umožňuje ľahko a rýchlo "
+"vykonať reverzné vyhľadávanie obrázkov pomocou rôznych vyhľadávačov."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -1991,10 +1993,12 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Máte príliš veľa otvorených kariet alebo závratný počet záložiek? Rozšírenia vám môžu pomôcť. Od organizácie kariet až po nové funkcie, rozšírenia môžu dramaticky zmeniť spôsob, akým pracujete s "
+"kartami a záložkami."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Rozšírenia môžu rozšíriť internetové médiá rôznymi zaujímavými spôsobmi, od sledovania videí až po manipuláciu s obrázkami, hudbou atď."
 
 #: src/amo/pages/Guides/index.js:80
 msgid "Create and manage strong passwords"
@@ -2640,7 +2644,6 @@ msgstr ""
 "vlastníctvo doplnku."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
 msgstr "Ak sa na webe addons.mozilla.org opätovne zaregistrujete, vytvorí sa vám nový profil, ktorý nebude nijakým spôsobom prepojený s vami odstráneným profilom."
 
