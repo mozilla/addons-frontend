@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-07 18:31+0000\n"
-"Last-Translator: Paulina Rodriguez <pauli.rodriguez.c@gmail.com>\n"
+"PO-Revision-Date: 2020-03-09 05:37+0000\n"
+"Last-Translator: Handell González-Raymat <gabroche@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -871,9 +871,8 @@ msgid "Browsers"
 msgstr "Navegador para iOS"
 
 #: src/amo/components/Footer/index.js:169
-#, fuzzy
 msgid "Products"
-msgstr "Productividad"
+msgstr "Productos"
 
 #: src/amo/components/Footer/index.js:256
 msgid "Privacy"
