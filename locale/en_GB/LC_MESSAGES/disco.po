@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-04-22 12:36+0000\n"
+"POT-Creation-Date: 2020-08-11 17:57+0000\n"
 "PO-Revision-Date: 2020-04-25 14:16+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
@@ -55,10 +55,15 @@ msgid "Server Error"
 msgstr "Server Error"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Error code: %(status)s."
 
@@ -103,17 +108,17 @@ msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:334
+#: src/core/reducers/versions.js:335
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s and later"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:338
+#: src/core/reducers/versions.js:339
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s to %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:358
+#: src/core/reducers/versions.js:359
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Works with %(listOfApplicatonsAndVersions)s"
 
@@ -175,13 +180,19 @@ msgstr "Personalize Your Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalise your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalise your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 
 #: src/disco/pages/DiscoPane/index.js:207
@@ -189,8 +200,12 @@ msgid "Learn More"
 msgstr "Learn More"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Some of these recommendations are personalised. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Some of these recommendations are personalised. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -215,11 +230,19 @@ msgstr "Preview of %(title)s"
 #~ msgid "Learn more"
 #~ msgstr "Learn more"
 
-#~ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-#~ msgstr "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
 
-#~ msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-#~ msgstr "This is not a Recommended Extension. Make sure you trust it before installing."
+#~ msgid ""
+#~ "This is not a Recommended Extension. Make sure you trust it before "
+#~ "installing."
+#~ msgstr ""
+#~ "This is not a Recommended Extension. Make sure you trust it before "
+#~ "installing."
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "Downloading %(name)s."
