@@ -56,8 +56,9 @@
 
 .PermissionsCard {
   .Card-contents {
-    border-bottom-right-radius: $border-radius-default;
+    // FIX FOR ISSUE 9551
     border-bottom-left-radius: $border-radius-default;
+    border-bottom-right-radius: $border-radius-default;
   }
 
   .ShowMoreCard-contents {
