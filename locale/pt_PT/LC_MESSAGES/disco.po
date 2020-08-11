@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-04-22 12:36+0000\n"
+"POT-Creation-Date: 2020-08-11 17:57+0000\n"
 "PO-Revision-Date: 2020-04-22 13:15+0000\n"
 "Last-Translator: Manuela Silva <manuelarodsilva@gmail.com>\n"
 "Language-Team: none\n"
@@ -55,10 +55,15 @@ msgid "Server Error"
 msgstr "Erro do servidor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Desculpe, mas ocorreu um erro e não pudemos completar o seu pedido. Registámos o seu erro e iremos investigá-lo."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Desculpe, mas ocorreu um erro e não pudemos completar o seu pedido. "
+"Registámos o seu erro e iremos investigá-lo."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Código de erro: %(status)s."
 
@@ -103,17 +108,17 @@ msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:334
+#: src/core/reducers/versions.js:335
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s e superior"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:338
+#: src/core/reducers/versions.js:339
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s até %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:358
+#: src/core/reducers/versions.js:359
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Funciona com %(listOfApplicatonsAndVersions)s"
 
@@ -175,19 +180,30 @@ msgstr "Personalize o seu Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Existem milhares de extras gratuitos, criados por programadores por todo o mundo, que pode instalar para personalizar o seu Firefox. Desde temas visuais divertidos até poderosas ferramentas que "
-"fazem a navegação ser mais rápida e segura, os extras fazem o seu navegador ser seu. Para lhe ajudar a começar, aqui estão alguns que recomendamos pelo seu desempenho e funcionalidade se destacarem."
+"Existem milhares de extras gratuitos, criados por programadores por todo o "
+"mundo, que pode instalar para personalizar o seu Firefox. Desde temas "
+"visuais divertidos até poderosas ferramentas que fazem a navegação ser mais "
+"rápida e segura, os extras fazem o seu navegador ser seu. Para lhe ajudar a "
+"começar, aqui estão alguns que recomendamos pelo seu desempenho e "
+"funcionalidade se destacarem."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Saber mais"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Algumas destas recomendações são personalizadas. Estas são baseadas noutras extensões que instalou, preferências de perfil e estatísticas de utilização."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Algumas destas recomendações são personalizadas. Estas são baseadas noutras "
+"extensões que instalou, preferências de perfil e estatísticas de utilização."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -212,11 +228,19 @@ msgstr "Pré-visualização de %(title)s"
 #~ msgid "Learn more"
 #~ msgstr "Saber mais"
 
-#~ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-#~ msgstr "Esta extensão não é monitorizada pela Mozilla. Certifique-se que confia na extensão antes de a instalar."
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr ""
+#~ "Esta extensão não é monitorizada pela Mozilla. Certifique-se que confia "
+#~ "na extensão antes de a instalar."
 
-#~ msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-#~ msgstr "Esta extensão não é uma extensão recomendada. Certifique-se que confia na mesma antes de a instalar."
+#~ msgid ""
+#~ "This is not a Recommended Extension. Make sure you trust it before "
+#~ "installing."
+#~ msgstr ""
+#~ "Esta extensão não é uma extensão recomendada. Certifique-se que confia na "
+#~ "mesma antes de a instalar."
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "A transferir %(name)s."
@@ -252,7 +276,8 @@ msgstr "Pré-visualização de %(title)s"
 #~ msgstr "Agora pode aceder a %(name)s pela barra de ferramentas."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
+#~ msgstr ""
+#~ "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Coloque o cursor sob a imagem para pré-visualizar"

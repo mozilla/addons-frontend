@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-04-22 12:36+0000\n"
+"POT-Creation-Date: 2020-08-11 17:57+0000\n"
 "PO-Revision-Date: 2020-04-22 22:42+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
@@ -55,10 +55,15 @@ msgid "Server Error"
 msgstr "Serverfel"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Tyvärr, men ett fel uppstod och vi kunde inte slutföra din begäran. Vi har loggat detta fel och kommer att undersöka det."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Tyvärr, men ett fel uppstod och vi kunde inte slutföra din begäran. Vi har "
+"loggat detta fel och kommer att undersöka det."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Felkod: %(status)s."
 
@@ -103,17 +108,17 @@ msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:334
+#: src/core/reducers/versions.js:335
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s och senare"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:338
+#: src/core/reducers/versions.js:339
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s till %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:358
+#: src/core/reducers/versions.js:359
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Fungerar med %(listOfApplicatonsAndVersions)s"
 
@@ -175,19 +180,29 @@ msgstr "Anpassa Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Det finns tusentals tillägg som är gratis, skapade av utvecklare över hela världen, som du kan installera för att anpassa Firefox. Från roliga visuella teman till kraftfulla verktyg som gör surfning"
-" snabbare och säkrare, tillägg gör din webbläsare till din egen. För att hjälpa dig att komma igång, här är några vi rekommenderar för deras enastående prestanda och funktionalitet."
+"Det finns tusentals tillägg som är gratis, skapade av utvecklare över hela "
+"världen, som du kan installera för att anpassa Firefox. Från roliga visuella "
+"teman till kraftfulla verktyg som gör surfning snabbare och säkrare, tillägg "
+"gör din webbläsare till din egen. För att hjälpa dig att komma igång, här är "
+"några vi rekommenderar för deras enastående prestanda och funktionalitet."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Lär dig mer"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Några av dessa rekommendationer är personliga. De baseras på andra tillägg du har installerat, profilinställningar och användarstatistik."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Några av dessa rekommendationer är personliga. De baseras på andra tillägg "
+"du har installerat, profilinställningar och användarstatistik."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -212,11 +227,19 @@ msgstr "Förhandsgranskning av %(title)s"
 #~ msgid "Learn more"
 #~ msgstr "Läs mer"
 
-#~ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-#~ msgstr "Detta tillägg övervakas inte av Mozilla. Se till att du litar på tillägget innan du installerar det."
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr ""
+#~ "Detta tillägg övervakas inte av Mozilla. Se till att du litar på "
+#~ "tillägget innan du installerar det."
 
-#~ msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-#~ msgstr "Detta är inte ett rekommenderat tillägg. Se till att du litar på det innan du installerar."
+#~ msgid ""
+#~ "This is not a Recommended Extension. Make sure you trust it before "
+#~ "installing."
+#~ msgstr ""
+#~ "Detta är inte ett rekommenderat tillägg. Se till att du litar på det "
+#~ "innan du installerar."
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "Hämtar %(name)s."
@@ -252,7 +275,9 @@ msgstr "Förhandsgranskning av %(title)s"
 #~ msgstr "Nu kan du komma åt %(name)s från verktygsfältet."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Håll muspekaren över för att förhandsgranska eller klicka för att installera %(name)s"
+#~ msgstr ""
+#~ "Håll muspekaren över för att förhandsgranska eller klicka för att "
+#~ "installera %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Håll muspekaren över bilden för att förhandsgranska"

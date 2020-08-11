@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-04-22 12:36+0000\n"
+"POT-Creation-Date: 2020-08-11 17:57+0000\n"
 "PO-Revision-Date: 2020-04-26 16:21+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
@@ -55,10 +55,15 @@ msgid "Server Error"
 msgstr "Palvelinvirhe"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Olemme pahoillamme, tapahtui virhe, emmekä voi toteuttaa pyyntöäsi. Olemme tallentaneet virheen ja tutkimme sen syytä."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Olemme pahoillamme, tapahtui virhe, emmekä voi toteuttaa pyyntöäsi. Olemme "
+"tallentaneet virheen ja tutkimme sen syytä."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Virhekoodi: %(status)s."
 
@@ -68,7 +73,8 @@ msgstr "Sivua ei löytynyt"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "Olemme pahoillamme, mutta emme löytäneet syöttämästäsi osoitteesta mitään."
+msgstr ""
+"Olemme pahoillamme, mutta emme löytäneet syöttämästäsi osoitteesta mitään."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
@@ -103,17 +109,17 @@ msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s Tt"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:334
+#: src/core/reducers/versions.js:335
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s ja uudempi"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:338
+#: src/core/reducers/versions.js:339
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s versiosta %(minVersion)s versioon %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:358
+#: src/core/reducers/versions.js:359
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Toimii seuraavien kanssa: %(listOfApplicatonsAndVersions)s"
 
@@ -175,19 +181,29 @@ msgstr "Mukauta Firefoxiasi"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Firefoxille on tuhansia ilmaisia lisäosia, joita kehittävät ihmiset ympäri maailmaa. Voit muokata Firefoxista omanlaisesi asentamalla niitä. Lisäosia on hauskoista teemoista tehokkaisiin "
-"työkaluihin, jotka tekevät selaamisesta nopeampaa ja turvallisempaa. Näin alkajaisiksi tässä on muutamia, joita suosittelemme niiden erinomaisen suorituskyvyn ja toiminnallisuuden vuoksi."
+"Firefoxille on tuhansia ilmaisia lisäosia, joita kehittävät ihmiset ympäri "
+"maailmaa. Voit muokata Firefoxista omanlaisesi asentamalla niitä. Lisäosia "
+"on hauskoista teemoista tehokkaisiin työkaluihin, jotka tekevät selaamisesta "
+"nopeampaa ja turvallisempaa. Näin alkajaisiksi tässä on muutamia, joita "
+"suosittelemme niiden erinomaisen suorituskyvyn ja toiminnallisuuden vuoksi."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Lue lisää"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Jotkin näistä suosituksista ovat henkilökohtaisia. Suositukset perustuvat muihin asentamiisi laajennuksiin, profiilin asetuksiin ja käyttötilastoihin."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Jotkin näistä suosituksista ovat henkilökohtaisia. Suositukset perustuvat "
+"muihin asentamiisi laajennuksiin, profiilin asetuksiin ja käyttötilastoihin."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -212,11 +228,19 @@ msgstr "Lisäosan %(title)s esikatselu"
 #~ msgid "Learn more"
 #~ msgstr "Lue lisää"
 
-#~ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-#~ msgstr "Mozilla ei tarkkaile tätä laajennusta. Varmistu laajennuksen luotettavuudesta, ennen kuin asennat sen."
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr ""
+#~ "Mozilla ei tarkkaile tätä laajennusta. Varmistu laajennuksen "
+#~ "luotettavuudesta, ennen kuin asennat sen."
 
-#~ msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-#~ msgstr "Tämä ei ole suositeltu laajennus. Varmistu laajennuksen luotettavuudesta, ennen kuin asennat sen."
+#~ msgid ""
+#~ "This is not a Recommended Extension. Make sure you trust it before "
+#~ "installing."
+#~ msgstr ""
+#~ "Tämä ei ole suositeltu laajennus. Varmistu laajennuksen luotettavuudesta, "
+#~ "ennen kuin asennat sen."
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "Ladataan %(name)s."
