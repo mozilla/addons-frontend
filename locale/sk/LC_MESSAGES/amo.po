@@ -1042,14 +1042,12 @@ msgid "Permissions"
 msgstr "Povolenia"
 
 #: src/amo/components/PermissionsCard/index.js:67
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "Tento doplnok môže:"
+msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:77
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Tento doplnok môže:"
+msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
