@@ -69,7 +69,7 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
     _addChangeListeners: addChangeListeners,
     _log: log,
     _tracking: tracking,
-    // $FLOW_FIXME: `mozAddonManager` might be available.
+    // $FlowFixMe: `mozAddonManager` might be available.
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
   };
 

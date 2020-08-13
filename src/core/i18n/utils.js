@@ -312,7 +312,7 @@ export function makeI18n(
   _Jed: Jed = Jed,
   {
     // Checks required to guard against ReferenceError when Intl is not defined.
-    // $FLOW_FIXME
+    // $FlowFixMe
     _Intl = typeof Intl !== 'undefined' ? Intl : undefined,
   }: makeI18nOptions = {},
 ) {

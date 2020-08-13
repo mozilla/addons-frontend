@@ -58,7 +58,7 @@ export function createApiError({
   const apiError = new Error(
     `Error calling: ${urlId} (status: ${response.status})`,
   );
-  // $FLOW_FIXME: turn Error into a custom ApiError class.
+  // $FlowFixMe: turn Error into a custom ApiError class.
   apiError.response = {
     apiURL,
     status: response.status,
@@ -144,7 +144,7 @@ export function callApi({
     if (body instanceof FormData) {
       options.body = body;
       // Let the browser sets this header, including the boundary value.
-      // $FLOW_IGNORE
+      // $FlowIgnore
       delete options.headers['Content-type'];
     } else {
       options.body = JSON.stringify(body);
@@ -167,6 +167,9 @@ export function callApi({
     apiURL = utf8.encode(apiURL);
   }
 
+  // Flow expects headers['Content-type'] to be a string, but we sometimes
+  // delete it at line 148, above.
+  // $FlowIgnore
   return fetch(apiURL, options)
     .then((response) => {
       // There isn't always a 'Content-Type' in headers, e.g., with a DELETE
@@ -242,8 +245,8 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
 
   return callApi({
     endpoint: addQueryParams(`addons/addon/${slug}`, {
-      app: clientApp,
-      appversion: appVersion,
+      app: clientApp || '',
+      appversion: appVersion || '',
     }),
     auth: true,
     apiState: api,

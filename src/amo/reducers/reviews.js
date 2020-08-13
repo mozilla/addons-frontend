@@ -87,7 +87,7 @@ export function reviewListURL({
   invariant(addonSlug, 'addonSlug is required');
   const path = `/addon/${addonSlug}/reviews/${id ? `${id}/` : ''}`;
 
-  let queryParams = { score };
+  let queryParams = score ? { score: String(score) } : {};
 
   if (location) {
     queryParams = {

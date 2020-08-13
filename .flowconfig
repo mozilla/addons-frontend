@@ -25,5 +25,5 @@ module.system=node
 module.system.node.allow_root_relative=true
 module.system.node.root_relative_dirname=./src
 log.file=./flow/logs/flow.log
-suppress_comment= \\(.\\|\n\\)*\\$FLOW_FIXME
-suppress_comment= \\(.\\|\n\\)*\\$FLOW_IGNORE
+# suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+# suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore

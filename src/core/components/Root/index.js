@@ -31,7 +31,7 @@ const Root = ({
     <Provider store={store} key="provider">
       <ConnectedRouter history={history}>
         <CookiesProvider cookies={cookies}>
-          {/* $FLOW_FIXME: https://github.com/facebook/react/issues/12553 */}
+          {/* $FlowFixMe: https://github.com/facebook/react/issues/12553 */}
           {_config.get('enableStrictMode') ? (
             <React.StrictMode>{children}</React.StrictMode>
           ) : (

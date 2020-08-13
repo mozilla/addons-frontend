@@ -124,7 +124,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
           // username in order to send a server redirect (to support previous
           // URLs with usernames). That is why we have to ignore the Flow error
           // here.
-          // $FLOW_IGNORE
+          // $FlowIgnore
           userId: params.userId,
         }),
       );

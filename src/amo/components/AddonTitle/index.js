@@ -19,7 +19,7 @@ type Props = {|
   addon: AddonType | null,
   as?: string,
   linkToAddon?: boolean,
-  queryParamsForAttribution?: { [name: string]: ?string | number },
+  queryParamsForAttribution?: { [name: string]: string },
 |};
 
 type InternalProps = {|

@@ -256,7 +256,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           slug: params.slug,
           // It is possible that `userId` is  a `username` (string value) for
           // backward compatibility purpose.
-          // $FLOW_IGNORE
+          // $FlowIgnore
           userId: Number(params.userId) || params.userId,
         }),
       );

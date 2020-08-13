@@ -42,7 +42,7 @@ type IsDoNoTrackEnabledParams = {|
 export function isDoNotTrackEnabled({
   _log = log,
   // The type above is correct but Flow complains about `Navigator` being
-  // incompatible with `null`, so $FLOW_IGNORE.
+  // incompatible with `null`, so $FlowIgnore.
   _navigator = typeof navigator !== 'undefined' ? navigator : null,
   _window = typeof window !== 'undefined' ? window : null,
 }: IsDoNoTrackEnabledParams = {}): boolean {

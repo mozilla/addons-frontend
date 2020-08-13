@@ -157,7 +157,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
               // Flow cannot figure out CategoryType in this case.
               // See https://github.com/facebook/flow/issues/2174
               // and https://github.com/facebook/flow/issues/2221
-              // $FLOW_IGNORE
+              // $FlowIgnore
               const { name, slug } = category;
 
               return (

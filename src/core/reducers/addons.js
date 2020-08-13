@@ -271,7 +271,7 @@ export const isAddonLoading = (state: AppState, slug: string): boolean => {
 export const getAllAddons = (state: AppState): Array<AddonType> => {
   const addons = state.addons.byID;
 
-  // $FLOW_FIXME: see https://github.com/facebook/flow/issues/2221.
+  // $FlowFixMe: see https://github.com/facebook/flow/issues/2221.
   return Object.values(addons);
 };
 
@@ -429,7 +429,8 @@ export default function addonsReducer(
       // Expand all existing rating scores, add in the new score,
       // and recalculate the average.
       average =
-        (average * countForAverage + newReview.score) / (countForAverage + 1);
+        (average * countForAverage + Number(newReview.score)) /
+        (countForAverage + 1);
 
       // Adjust rating / review counts.
       if (!oldReview) {

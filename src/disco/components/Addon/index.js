@@ -160,8 +160,9 @@ export class AddonBase extends React.Component<InternalProps> {
 
     if (
       e.target &&
-      // $FLOW_FIXME: the `nodeName` might be available
+      // $FlowFixMe: the `nodeName` might be available
       e.target.nodeName &&
+      // $FlowIgnore: Flow is complaining about this now too, but disco.
       e.target.nodeName.toLowerCase() === 'a'
     ) {
       _tracking.sendEvent({
