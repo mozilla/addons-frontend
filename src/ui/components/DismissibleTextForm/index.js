@@ -267,7 +267,7 @@ export class DismissibleTextFormBase extends React.Component<
         <Textarea
           disabled={isSubmitting}
           className="DismissibleTextForm-textarea"
-          inputRef={(ref) => {
+          ref={(ref) => {
             this.textarea = ref;
           }}
           onChange={this.onTextChange}
