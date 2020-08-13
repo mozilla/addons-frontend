@@ -34,7 +34,7 @@ export const PHOTO_SWIPE_OPTIONS = {
   getThumbBoundsFn: (
     index: number,
     {
-      // $FLOW_FIXME: see https://github.com/facebook/flow/issues/183
+      // $FlowFixMe: see https://github.com/facebook/flow/issues/183
       _document = typeof document !== 'undefined' ? document : null,
       _window = typeof window !== 'undefined' ? window : null,
     }: GetThumbBoundsExtraParams = {},

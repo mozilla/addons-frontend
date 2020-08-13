@@ -150,7 +150,7 @@ export class CollectionManagerBase extends React.Component<
           ...payload,
           defaultLocale: siteLang,
           // query parameter values are string, not number.
-          // $FLOW_FIXME: https://github.com/mozilla/addons-frontend/issues/5737
+          // $FlowFixMe: https://github.com/mozilla/addons-frontend/issues/5737
           includeAddonId: location.query.include_addon_id,
           userId: currentUserId,
         }),
@@ -202,7 +202,7 @@ export class CollectionManagerBase extends React.Component<
     } else {
       // Flow complains because it cannot infer `name` since Flow 0.113.0, see:
       // https://medium.com/flow-type/spreads-common-errors-fixes-9701012e9d58
-      // $FLOW_IGNORE
+      // $FlowIgnore
       this.setState({ [name]: value });
     }
   };

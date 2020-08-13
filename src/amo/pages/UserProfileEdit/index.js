@@ -275,7 +275,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   };
 
   onPictureLoaded = (e: ProgressEvent) => {
-    // $FLOW_FIXME: `result` should exist.
+    // $FlowFixMe: `result` should exist.
     const { result } = e.target;
 
     this.setState({ pictureData: result });

@@ -184,7 +184,7 @@ export default ConfirmButton;
 ```
 
 - Try to avoid loose types like `Object` or `any` but feel free to use them if you are spending too much time declaring types that depend on other types that depend on other types, and so on.
-- You can add a `$FLOW_FIXME` comment to skip a Flow check if you run into a bug or if you hit something that's making you bang your head on the keyboard. If it's something you think is unfixable then use `$FLOW_IGNORE` instead. Please explain your rationale in the comment and link to a GitHub issue if possible.
+- You can add a `$FlowFixMe` comment to skip a Flow check if you run into a bug or if you hit something that's making you bang your head on the keyboard. If it's something you think is unfixable then use `$FlowIgnore` instead. Please explain your rationale in the comment and link to a GitHub issue if possible.
 - If you're stumped on why some Flow annotations aren't working, try using the `yarn flow type-at-pos ...` command to trace which types are being applied to the code. See `yarn flow -- --help type-at-pos` for details.
 
 ### Prettier

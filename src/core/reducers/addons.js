@@ -271,7 +271,7 @@ export const isAddonLoading = (state: AppState, slug: string): boolean => {
 export const getAllAddons = (state: AppState): Array<AddonType> => {
   const addons = state.addons.byID;
 
-  // $FLOW_FIXME: see https://github.com/facebook/flow/issues/2221.
+  // $FlowFixMe: see https://github.com/facebook/flow/issues/2221.
   return Object.values(addons);
 };
 
