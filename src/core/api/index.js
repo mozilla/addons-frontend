@@ -167,6 +167,9 @@ export function callApi({
     apiURL = utf8.encode(apiURL);
   }
 
+  // Flow expects headers['Content-type'] to be a string, but we sometimes
+  // delete it at line 148, above.
+  // $FlowIgnore
   return fetch(apiURL, options)
     .then((response) => {
       // There isn't always a 'Content-Type' in headers, e.g., with a DELETE
@@ -242,8 +245,8 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
 
   return callApi({
     endpoint: addQueryParams(`addons/addon/${slug}`, {
-      app: clientApp,
-      appversion: appVersion,
+      app: clientApp || '',
+      appversion: appVersion || '',
     }),
     auth: true,
     apiState: api,

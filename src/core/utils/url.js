@@ -27,7 +27,7 @@ export function removeUndefinedProps(object: Object): Object {
  */
 export function addQueryParams(
   urlString: string,
-  queryParams: { [key: string]: ?string | number } = {},
+  queryParams: { [key: string]: string } = {},
   _config: typeof config = config,
 ): string {
   let adjustedQueryParams = { ...queryParams };
@@ -49,7 +49,8 @@ export function addQueryParams(
   const urlObj = url.parse(urlString, true);
   // Clear search, since query object will only be used if search property
   // doesn't exist.
-  urlObj.search = undefined;
+  urlObj.search = null;
+  // $FlowFixMe: I'm not sure why Flow won't accept this.
   urlObj.query = removeUndefinedProps({
     ...urlObj.query,
     ...adjustedQueryParams,

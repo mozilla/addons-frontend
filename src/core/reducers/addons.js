@@ -429,7 +429,8 @@ export default function addonsReducer(
       // Expand all existing rating scores, add in the new score,
       // and recalculate the average.
       average =
-        (average * countForAverage + newReview.score) / (countForAverage + 1);
+        (average * countForAverage + Number(newReview.score)) /
+        (countForAverage + 1);
 
       // Adjust rating / review counts.
       if (!oldReview) {
