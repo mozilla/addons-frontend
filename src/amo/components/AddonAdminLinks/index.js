@@ -79,7 +79,6 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       </li>
     ) : null;
 
-
     const adminLink =
       hasAdminPermission && hasEditPermission ? (
         <li>
