@@ -67,7 +67,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           isFirefox({ userAgentInfo }) &&
           clientApp === CLIENT_APP_FIREFOX &&
           addon.type === ADDON_TYPE_EXTENSION &&
-          !addon.is_recommended;
+          !addon.isRecommended;
   };
 
   render() {

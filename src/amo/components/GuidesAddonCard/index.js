@@ -64,7 +64,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                       linkToAddon
                     />
                   </span>
-                  {addon && addon.is_recommended && (
+                  {addon && addon.isRecommended && (
                     <PromotedBadge category="recommended" size="small" />
                   )}
                 </div>

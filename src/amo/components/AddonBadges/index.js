@@ -38,7 +38,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     return (
       <div className="AddonBadges">
-        {addon.is_recommended && clientApp !== CLIENT_APP_ANDROID ? (
+        {addon.isRecommended && clientApp !== CLIENT_APP_ANDROID ? (
           <PromotedBadge category="recommended" size="large" />
         ) : null}
         {addon.isRestartRequired ? (

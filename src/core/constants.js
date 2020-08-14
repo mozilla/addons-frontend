@@ -309,3 +309,19 @@ export const DISCO_TAAR_CLIENT_ID_HEADER = 'moz-client-id';
 
 export const DEFAULT_UTM_SOURCE = 'addons.mozilla.org';
 export const DEFAULT_UTM_MEDIUM = 'referral';
+
+// Promoted categories
+export const LINE = 'line';
+export const RECOMMENDED = 'recommended';
+export const SPONSORED = 'sponsored';
+export const SPOTLIGHT = 'spotlight';
+export const STRATEGIC = 'strategic';
+export const VERIFIED = 'verified';
+
+export type PromotedCategoryType =
+  | typeof LINE
+  | typeof RECOMMENDED
+  | typeof SPONSORED
+  | typeof SPOTLIGHT
+  | typeof STRATEGIC
+  | typeof VERIFIED;

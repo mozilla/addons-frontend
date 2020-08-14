@@ -4,7 +4,7 @@ import type {
   ExternalAddonVersionType,
   PartialExternalAddonVersionType,
 } from 'core/reducers/versions';
-import type { AddonTypeType } from 'core/constants';
+import type { AddonTypeType, PromotedCategoryType } from 'core/constants';
 
 export type AddonStatusType =
   | 'lite'
@@ -44,6 +44,11 @@ export type LanguageToolType = {|
   url: string,
 |};
 
+export type PromotedType = {|
+  category: PromotedCategoryType,
+  apps: Array<string>,
+|};
+
 /*
  * This is the external API representation of an add-on.
  *
@@ -73,13 +78,13 @@ export type ExternalAddonType = {|
   id: number,
   is_disabled?: boolean,
   is_experimental?: boolean,
-  is_recommended?: boolean,
   is_source_public?: boolean,
   last_updated: Date | null,
   latest_unlisted_version?: ?ExternalAddonVersionType,
   locale_disambiguation?: string,
   name: string,
   previews?: Array<Object>,
+  promoted: PromotedType | null,
   ratings?: {|
     average: number,
     bayesian_average: number,
@@ -113,6 +118,7 @@ export type AddonType = {|
   // Here are some custom properties for our internal representation.
   currentVersionId: VersionIdType | null,
   isMozillaSignedExtension: boolean,
+  isRecommended: boolean,
   isRestartRequired: boolean,
   isWebExtension: boolean,
 |};

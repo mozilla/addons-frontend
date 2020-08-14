@@ -1,3 +1,4 @@
+import { CLIENT_APP_FIREFOX, RECOMMENDED, VERIFIED } from 'core/constants';
 import reducer, {
   autocompleteCancel,
   autocompleteLoad,
@@ -63,8 +64,9 @@ describe(__filename, () => {
     });
 
     it('sets the suggestion properties', () => {
+      const promoted = { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] };
       const result = createFakeAutocompleteResult({
-        is_recommended: true,
+        promoted,
         name: 'baz',
       });
       const results = [result];
@@ -78,11 +80,38 @@ describe(__filename, () => {
         {
           addonId: result.id,
           iconUrl: result.icon_url,
-          isRecommended: result.is_recommended,
+          isRecommended: true,
           name: result.name,
+          promoted,
           url: result.url,
         },
       ]);
+    });
+
+    it('sets the isRecommended to false when the add-on is not recommended', () => {
+      const result = createFakeAutocompleteResult({
+        promoted: { category: VERIFIED, apps: [CLIENT_APP_FIREFOX] },
+        name: 'baz',
+      });
+
+      const { suggestions } = reducer(
+        undefined,
+        autocompleteLoad({ results: [result] }),
+      );
+      expect(suggestions[0].isRecommended).toEqual(false);
+    });
+
+    it('sets the isRecommended to false when the add-on is not promoted', () => {
+      const result = createFakeAutocompleteResult({
+        promoted: null,
+        name: 'baz',
+      });
+
+      const { suggestions } = reducer(
+        undefined,
+        autocompleteLoad({ results: [result] }),
+      );
+      expect(suggestions[0].isRecommended).toEqual(false);
     });
 
     it('excludes AUTOCOMPLETE_LOADED results with null names', () => {

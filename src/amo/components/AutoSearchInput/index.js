@@ -26,6 +26,7 @@ import {
 import Icon from 'ui/components/Icon';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
+import type { SuggestionType } from 'core/reducers/autocomplete';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
@@ -35,16 +36,6 @@ import './styles.scss';
 
 export const SEARCH_TERM_MIN_LENGTH = 2;
 export const SEARCH_TERM_MAX_LENGTH = 100;
-
-// TODO: port reducers/autocomplete.js to Flow and move this there.
-export type SuggestionType = {|
-  addonId: number,
-  iconUrl: string,
-  isRecommended: boolean,
-  name: string,
-  type: string,
-  url: string,
-|};
 
 // TODO: create a type for the inverse of paramsToFilter in
 // core/searchUtils and move this there.
