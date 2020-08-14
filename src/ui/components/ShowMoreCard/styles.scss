@@ -56,7 +56,8 @@
 
 .PermissionsCard {
   .Card-contents {
-    border-radius: 0;
+    border-bottom-left-radius: $border-radius-default;
+    border-bottom-right-radius: $border-radius-default;
   }
 
   .ShowMoreCard-contents {
