@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-05 13:58+0000\n"
+"PO-Revision-Date: 2020-08-15 12:17+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -105,11 +105,11 @@ msgstr "Αυτό το πρόσθετο δεν είναι διαθέσιμο στ
 
 #: src/amo/components/AddonCompatibilityError/index.js:123
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Για αυτό το πρόσθετο απαιτείται μια <a href=\"%(downloadUrl)s\">νεότερη έκδοση του Firefox</a> (τουλάχιστον %(minVersion)s). Η έκδοση του Firefox σας είναι η %(yourVersion)s."
+msgstr "Αυτό το πρόσθετο απαιτεί μια <a href=\"%(downloadUrl)s\">νεότερη έκδοση του Firefox</a> (τουλάχιστον την έκδοση %(minVersion)s). Χρησιμοποιείτε το Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:140
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Ο περιηγητής σας δεν υποστηρίζει πρόσθετα. Μπορείτε να κάνετε <a href=\"%(downloadUrl)s\">λήψη του Firefox</a> για να εγκαταστήσετε αυτό το πρόσθετο."
+msgstr "Το πρόγραμμα περιήγησης σας δεν υποστηρίζει πρόσθετα. Μπορείτε να κάνετε <a href=\"%(downloadUrl)s\">λήψη του Firefox</a> για να εγκαταστήσετε αυτό το πρόσθετο."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:104
@@ -2732,7 +2732,7 @@ msgstr "Απενεργοποίηση"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
-msgstr "Λήψη"
+msgstr "Γίνεται λήψη"
 
 #: src/core/components/AMInstallButton/index.js:213
 msgid "Installing"
