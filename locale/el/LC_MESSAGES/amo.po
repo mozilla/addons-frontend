@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-15 12:17+0000\n"
+"PO-Revision-Date: 2020-08-15 13:02+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -276,7 +276,7 @@ msgstr "Ιστοσελίδα υποστήριξης"
 
 #: src/amo/components/AddonMoreInfo/index.js:98
 msgid "Support Email"
-msgstr "E-mail υποστήριξης"
+msgstr "Email υποστήριξης"
 
 #: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
