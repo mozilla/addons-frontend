@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-16 06:34+0000\n"
+"PO-Revision-Date: 2020-08-16 06:37+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2420,7 +2420,7 @@ msgstr "커뮤니티에 자기 소개하기"
 
 #: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "커뮤니티에 %(userName)s 소개하기"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
@@ -2468,11 +2468,11 @@ msgstr "%(userName)s 계정"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
-msgstr ""
+msgstr "이메일 주소"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "여기에서 이메일 주소 변경할 수 없음"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2488,7 +2488,7 @@ msgstr "프로필"
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
-msgstr ""
+msgstr "필수 항목"
 
 #: src/amo/pages/UserProfileEdit/index.js:637
 msgid "Display Name *"
@@ -2580,7 +2580,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
-msgstr ""
+msgstr "구독 취소"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2748,11 +2748,11 @@ msgstr ""
 
 #: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "설치하지 못했습니다. 다시 시도해 주세요."
 
 #: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "다운로드에 실패했습니다. 접속 상태를 확인 해 주세요."
 
 #: src/core/utils/addons.js:39
 msgid "An unexpected error occurred during installation."
@@ -2829,7 +2829,7 @@ msgstr ""
 
 #: src/ui/components/PromotedBadge/index.js:60
 msgid "Verified"
-msgstr ""
+msgstr "확인됨"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
@@ -2849,7 +2849,7 @@ msgstr "아직 평점이 없습니다"
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"
-msgstr ""
+msgstr "자세히 읽어보기"
 
 #: src/ui/components/ShowMoreCard/index.js:143
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
