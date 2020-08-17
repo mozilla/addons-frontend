@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-16 06:37+0000\n"
+"PO-Revision-Date: 2020-08-17 08:55+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -24,11 +24,11 @@ msgstr "추가 중…"
 
 #: src/amo/components/AddAddonToCollection/index.js:194
 msgid "Select a collection…"
-msgstr "컬렉션 선택…"
+msgstr "모음집 선택…"
 
 #: src/amo/components/AddAddonToCollection/index.js:201
 msgid "Create new collection"
-msgstr "새 컬렉션 만들기"
+msgstr "새 모음집 만들기"
 
 #: src/amo/components/AddAddonToCollection/index.js:242
 msgid "Added to %(collectionName)s"
@@ -594,11 +594,11 @@ msgstr "컬렉션에서 제거됨"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
-msgstr "이 컬렉션에 포함할 부가 기능 찾기"
+msgstr "이 모음집에 포함할 부가 기능 찾기"
 
 #: src/amo/components/CollectionDetails/index.js:103
 msgid "Edit this collection"
-msgstr "이 컬렉션 수정"
+msgstr "현재 모음집 수정"
 
 #: src/amo/components/CollectionDetails/index.js:114
 msgid "Edit collection details"
@@ -966,7 +966,7 @@ msgstr "내 계정"
 
 #: src/amo/components/Header/index.js:77
 msgid "View My Collections"
-msgstr "내 컬렉션 보기"
+msgstr "내 모음집 보기"
 
 #: src/amo/components/Header/index.js:85 src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
@@ -1793,23 +1793,23 @@ msgstr "컬렉션에 추가할 확장 기능 및 테마를 검색하세요."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Firefox를 다운로드하고, 즐겨 사용하는 확장 프로그램과 테마를 모음집으로 만들어 보세요. %(collectionName)s — %(collectionDescription)s 을 탐색합니다."
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Firefox를 다운로드하고, 즐겨 사용하는 확장 프로그램과 테마를 모음집으로 만들어 보세요. %(collectionName)s 을 탐색합니다."
 
 #: src/amo/pages/CollectionList/index.js:114
 msgid "Collections"
-msgstr "컬렉션"
+msgstr "모음집"
 
 #: src/amo/pages/CollectionList/index.js:119
 msgid "Log in to view your collections"
-msgstr "컬렉션을 보려면 로그인 하세요"
+msgstr "로그인 후 모음집 살펴보기"
 
 #: src/amo/pages/CollectionList/index.js:124
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr "컬렉션은 좋아하는 부가 기능을 쉽게 추적하고 완벽하게 사용자 지정된 브라우저를 다른 사용자와 공유할 수 있게 해줍니다."
+msgstr "모음집은 좋아하는 부가 기능을 쉽게 추적하고 완벽하게 사용자 지정된 브라우저를 다른 사용자와 공유할 수 있게 해줍니다."
 
 #: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
@@ -1817,11 +1817,11 @@ msgstr "컬렉션 만들기"
 
 #: src/amo/pages/CollectionList/index.js:62
 msgid "You do not have any collections."
-msgstr "컬렉션이 없습니다."
+msgstr "모음집이 없습니다."
 
 #: src/amo/pages/CollectionList/index.js:96
 msgid "My collections"
-msgstr "내 컬렉션"
+msgstr "내 모음집"
 
 #: src/amo/pages/Guides/index.js:105
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
@@ -2541,13 +2541,13 @@ msgstr "중요: 이 Firefox 부가 기능 프로필을 삭제하면 되돌릴 �
 #: src/amo/pages/UserProfileEdit/index.js:843
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr ""
+msgstr "프로필 세부 정보 (사진, 사용자 이름, 표시 이름, 위치, 홈페이지, 소개, 직업), 알림 기본 설정, 평가 및 모음집을 포함한 데이터가 영구적으로 제거됩니다."
 
 #: src/amo/pages/UserProfileEdit/index.js:849
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
-msgstr ""
+msgstr "프로필 세부 정보 (사진, 사용자 이름, 표시 이름, 위치, 홈페이지, 소개, 직업), 알림 환경 설정, 평가 및 모음집을 포함한 사용자의 데이터가 영구적으로 삭제됩니다."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
