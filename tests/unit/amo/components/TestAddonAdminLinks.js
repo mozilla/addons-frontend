@@ -90,15 +90,6 @@ describe(__filename, () => {
     expect(root.find('.AddonAdminLinks-edit-link')).toHaveLength(0);
   });
 
-  it('shows an admin add-on status link if the user has permission', () => {
-    const root = renderWithPermissions({ permissions: ADMIN_TOOLS_VIEW });
-
-    expect(root.find('.AddonAdminLinks-admin-status-link')).toHaveProp(
-      'href',
-      `/admin/addon/manage/${slug}/`,
-    );
-  });
-
   it('does not show an admin add-on status link if the user does not have permission', () => {
     const root = renderWithPermissions({ permissions: ADDONS_EDIT });
 

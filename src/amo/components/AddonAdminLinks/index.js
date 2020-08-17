@@ -79,20 +79,6 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       </li>
     ) : null;
 
-    const adminStatusLink = hasAdminPermission ? (
-      <li>
-        <a
-          className="AddonAdminLinks-admin-status-link"
-          href={`/admin/addon/manage/${addon.slug}/`}
-        >
-          {
-            // translators: This action allows an admin to edit the status of an add-on.
-            i18n.gettext('Admin add-on status')
-          }
-        </a>
-      </li>
-    ) : null;
-
     const adminLink =
       hasAdminPermission && hasEditPermission ? (
         <li>
@@ -151,7 +137,6 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
         >
           <ul className="AddonAdminLinks-list">
             {editLink}
-            {adminStatusLink}
             {adminLink}
             {contentReviewLink}
             {codeReviewLink}
