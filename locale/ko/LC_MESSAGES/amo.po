@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-17 09:00+0000\n"
+"PO-Revision-Date: 2020-08-17 10:28+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2332,7 +2332,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "HTML, 링크, 소스 코드 또는 코드 스니펫을 포함합니다. 리뷰는 텍스트로만 제공됩니다."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
