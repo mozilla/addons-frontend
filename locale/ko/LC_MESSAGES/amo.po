@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-17 08:55+0000\n"
+"PO-Revision-Date: 2020-08-17 09:00+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -41,7 +41,7 @@ msgstr "추가하기…"
 
 #: src/amo/components/AddAddonToCollection/index.js:263 src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
-msgstr "컬렉션에 추가"
+msgstr "모음집에 추가"
 
 #: src/amo/components/AddonAdminLinks/index.js:105
 msgid "Admin add-on"
@@ -586,11 +586,11 @@ msgstr "카테고리를 불러오는 중."
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
-msgstr "컬렉션에 추가됨"
+msgstr "모음집에 추가됨"
 
 #: src/amo/components/CollectionAddAddon/index.js:160
 msgid "Removed from collection"
-msgstr "컬렉션에서 제거됨"
+msgstr "모음집에서 제거됨"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
@@ -602,11 +602,11 @@ msgstr "현재 모음집 수정"
 
 #: src/amo/components/CollectionDetails/index.js:114
 msgid "Edit collection details"
-msgstr "컬렉션 세부 사항 수정"
+msgstr "모음집 세부 사항 수정"
 
 #: src/amo/components/CollectionDetails/index.js:126
 msgid "Back to collection"
-msgstr "컬렉션으로 돌아가기"
+msgstr "모음집으로 돌아가기"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:48
 msgid "Add-ons"
@@ -618,7 +618,7 @@ msgstr "제작자"
 
 #: src/amo/components/CollectionManager/index.js:240
 msgid "Create collection"
-msgstr "컬렉션 만들기"
+msgstr "모음집 만들기"
 
 #: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
@@ -626,7 +626,7 @@ msgstr "변경사항 저장"
 
 #: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
-msgstr "컬렉션 이름"
+msgstr "모음집 이름"
 
 #: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
@@ -1769,27 +1769,27 @@ msgstr "모든 테마 카테고리"
 
 #: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
-msgstr "이 컬렉션을 삭제하시겠습니까?"
+msgstr "현재 모음집을 삭제하시겠습니까?"
 
 #: src/amo/pages/Collection/index.js:395
 msgid "Delete this collection"
-msgstr "이 컬렉션 삭제"
+msgstr "현재 모음집 삭제"
 
 #: src/amo/pages/Collection/index.js:414
 msgid "Log in to create a collection"
-msgstr "컬렉션을 생성하려면 로그인 하세요"
+msgstr "로그인 후 모음집 생성하기"
 
 #: src/amo/pages/Collection/index.js:415
 msgid "Log in to edit this collection"
-msgstr "이 컬렉션을 수정하려면 로그인 하세요"
+msgstr "로그인 후 모음집 수정하기 "
 
 #: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "첫째, 컬렉션을 만듭니다. 이후 확장 기능과 테마를 추가할 수 있습니다."
+msgstr "첫째, 모음집을 만듭니다. 이후 확장 기능과 테마를 추가할 수 있습니다."
 
 #: src/amo/pages/Collection/index.js:451
 msgid "Search for extensions and themes to add to your collection."
-msgstr "컬렉션에 추가할 확장 기능 및 테마를 검색하세요."
+msgstr "확장 기능과 테마를 검색하여 모음집에 추가하세요."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -1813,7 +1813,7 @@ msgstr "모음집은 좋아하는 부가 기능을 쉽게 추적하고 완벽하
 
 #: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
-msgstr "컬렉션 만들기"
+msgstr "모음집 만들기"
 
 #: src/amo/pages/CollectionList/index.js:62
 msgid "You do not have any collections."
