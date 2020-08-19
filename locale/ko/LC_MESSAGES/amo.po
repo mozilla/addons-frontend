@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-17 10:28+0000\n"
+"PO-Revision-Date: 2020-08-19 20:57+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -48,9 +48,8 @@ msgid "Admin add-on"
 msgstr "관리자 부가 기능"
 
 #: src/amo/components/AddonAdminLinks/index.js:119
-#, fuzzy
 msgid "Content review add-on"
-msgstr "이 부가기능에 대한 %(total)s개의 리뷰"
+msgstr "콘텐츠 검토 부가 기능"
 
 #: src/amo/components/AddonAdminLinks/index.js:127
 msgid "Review theme"
@@ -1026,14 +1025,12 @@ msgid "Permissions"
 msgstr "권한"
 
 #: src/amo/components/PermissionsCard/index.js:67
-#, fuzzy
 msgid "This add-on needs to:"
 msgstr "이 부가 기능이 할 수 있는 것:"
 
 #: src/amo/components/PermissionsCard/index.js:77
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "이 부가 기능이 할 수 있는 것:"
+msgstr "이 부가 기능이 요청하는 것:"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
@@ -2623,9 +2620,8 @@ msgid "Enabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:209
-#, fuzzy
 msgid "Disabling"
-msgstr "제거 중"
+msgstr "사용 안함"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
@@ -2815,9 +2811,8 @@ msgid "Dismiss this notice"
 msgstr ""
 
 #: src/ui/components/PromotedBadge/index.js:40
-#, fuzzy
 msgid "By Firefox"
-msgstr "Firefox용"
+msgstr "Firefox 제작"
 
 #: src/ui/components/PromotedBadge/index.js:42 src/ui/components/PromotedBadge/index.js:50 src/ui/components/PromotedBadge/index.js:62
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
