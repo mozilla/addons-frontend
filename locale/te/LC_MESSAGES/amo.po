@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-05 21:33+0000\n"
+"PO-Revision-Date: 2020-08-19 02:03+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -223,7 +223,7 @@ msgstr "ఈ పొడిగింత కోసం ఈ గోప్యతా వ�
 
 #: src/amo/components/AddonMoreInfo/index.js:188
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "ఈ పొడగింత లైసెన్సు ఒప్పందాన్ని చదవండి"
 
 #: src/amo/components/AddonMoreInfo/index.js:201
 msgid "See all versions"
@@ -602,7 +602,7 @@ msgstr "సేకరణ నుండి తీసివేయబడింది"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "ఈ సేకరణలో చేర్చడానికి పొడగింతలను కనుగొనండి"
 
 #: src/amo/components/CollectionDetails/index.js:103
 msgid "Edit this collection"
@@ -837,11 +837,11 @@ msgstr "ఈ సమస్యను ఫ్లాగు చెయ్యడాని
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "మీ స్వంత ప్రతిస్పందనను ఫ్లాగ్ చేయలేరు"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "మీ స్వంత సమీక్షను ఫ్లాగ్ చేయలేరు"
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "This is spam"
@@ -1365,8 +1365,8 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(categoryName)sలో %(count)s పొడగింత కనబడింది"
+msgstr[1] "%(categoryName)sలో %(count)s పొడగింతలు కనబడ్డాయి"
 
 #: src/amo/components/SearchContextCard/index.js:74
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1596,7 +1596,7 @@ msgstr "%(title)s మునుజూపు"
 
 #: src/amo/pages/Addon/index.js:211
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "ఈ పొడగింతను రేట్ చేయలేరు ఎందుకంటే ఎటువంటి వెర్షన్లు ప్రచురించబడలేదు."
 
 #: src/amo/pages/Addon/index.js:222
 msgid "Read %(count)s review"
@@ -2204,7 +2204,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
-msgstr ""
+msgstr "సృష్టికర్తల సంఘం"
 
 #: src/amo/pages/StaticPages/About/index.js:56
 msgid ""
@@ -2448,7 +2448,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "%(userName)s‌‌ను సంఘానికి పరిచయం చేయండి"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
@@ -2616,7 +2616,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "నా వ్యక్తిగత పొడగింత గురించి మొజిల్లా నన్ను సంప్రదించాల్సినప్పుడు"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
@@ -2624,11 +2624,11 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "నా పొడగింతను ఎవరైనా సమీక్షించినప్పుడు"
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "నా సమీక్షకు పొడగింత డెవలపర్ స్పందించినప్పుడు"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
@@ -2680,7 +2680,7 @@ msgstr "నమోదవ్వండి లేదా ప్రవేశించ�
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "క్షమించండి, కానీ ఏదో లోపం వల్ల మేము మీ అభ్యర్థనను పూర్తి చేయలేకపోయాము. మేము ఈ లోపాన్ని నమోదు చేసాము, దానిని పరిశీలిస్తాము."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
