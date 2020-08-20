@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-20 17:16+0000\n"
+"PO-Revision-Date: 2020-08-20 17:40+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1266,7 +1266,7 @@ msgstr "추천 부가 기능"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348 src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
-msgstr "유행하는 확장 기능"
+msgstr "인기있는 확장 기능"
 
 #: src/amo/components/Search/index.js:137 src/amo/pages/LandingPage/index.js:165
 msgid "Trending themes"
@@ -2019,7 +2019,7 @@ msgstr "추천 테마 더보기"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
-msgstr "유행하는 확장 기능 더보기"
+msgstr "인기 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:235
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Firefox를 나만의 맞춤형 브라우저를 만들 수 있는 강력한 도구와 기능을 살펴보세요."
 
 #: src/amo/pages/LandingPage/index.js:275
 msgid "Explore all categories"
