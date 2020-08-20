@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-07 02:24+0000\n"
+"PO-Revision-Date: 2020-08-20 15:17+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -835,11 +835,11 @@ msgstr "Semnalează această recenzie"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
-msgstr "Autentifică-te pentru a semnala acest răspuns"
+msgstr "Intră în cont pentru a semnala acest răspuns"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
-msgstr "Autentifică-te pentru a semnala această recenzie"
+msgstr "Intră în cont pentru a semnala această recenzie"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -1144,23 +1144,23 @@ msgstr "Să acceseze activitatea browserului în timpul navigării"
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
-msgstr "Autentifică-te pentru a evalua acest dicționar"
+msgstr "Intră în cont pentru a evalua acest dicționar"
 
 #: src/amo/components/RatingManager/index.js:120
 msgid "Log in to rate this language pack"
-msgstr "Autentifică-te pentru a evalua acest pachet lingvistic"
+msgstr "Intră în cont pentru a evalua acest pachet lingvistic"
 
 #: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this theme"
-msgstr "Autentifică-te pentru a evalua această temă"
+msgstr "Intră în cont pentru a evalua această temă"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this extension"
-msgstr "Autentifică-te pentru a evalua această extensie"
+msgstr "Intră în cont pentru a evalua această extensie"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this add-on"
-msgstr "Autentifică-te pentru a evalua acest supliment"
+msgstr "Intră în cont pentru a evalua acest supliment"
 
 #: src/amo/components/RatingManager/index.js:173
 msgid "Are you sure you want to delete your review of %(addonName)s?"
@@ -1825,11 +1825,11 @@ msgstr "Șterge această colecție"
 
 #: src/amo/pages/Collection/index.js:414
 msgid "Log in to create a collection"
-msgstr "Autentifică-te pentru a crea o colecție"
+msgstr "Intră în cont pentru a crea o colecție"
 
 #: src/amo/pages/Collection/index.js:415
 msgid "Log in to edit this collection"
-msgstr "Autentifică-te pentru a edita această colecție"
+msgstr "Intră în cont pentru a edita această colecție"
 
 #: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -1853,7 +1853,7 @@ msgstr "Colecții"
 
 #: src/amo/pages/CollectionList/index.js:119
 msgid "Log in to view your collections"
-msgstr "Autentifică-te pentru a-ți vizualiza colecțiile"
+msgstr "Intră în cont pentru a-ți vizualiza colecțiile"
 
 #: src/amo/pages/CollectionList/index.js:124
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
@@ -2517,7 +2517,7 @@ msgstr "Prezintă-l pe %(userName)s comunității"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
-msgstr "Autentifică-te pentru a edita profilul"
+msgstr "Intră în cont pentru a edita profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
 msgid "Creating your profile…"
@@ -2751,7 +2751,7 @@ msgstr "Adaugă în Firefox"
 
 #: src/core/components/AuthenticateButton/index.js:88
 msgid "Register or Log in"
-msgstr "Înregistrează-te sau autentifică-te"
+msgstr "Înregistrare sau conectare"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
