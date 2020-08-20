@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-19 20:57+0000\n"
+"PO-Revision-Date: 2020-08-20 17:16+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2645,7 +2645,7 @@ msgstr "Firefox에 추가"
 
 #: src/core/components/AuthenticateButton/index.js:88
 msgid "Register or Log in"
-msgstr "회원가입 또는 로그인"
+msgstr "가입하기 또는 로그인"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
