@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-09 13:29+0000\n"
+"PO-Revision-Date: 2020-08-23 15:30+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -1044,14 +1044,12 @@ msgid "Permissions"
 msgstr "Permisos"
 
 #: src/amo/components/PermissionsCard/index.js:67
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "Aquest complement pot:"
+msgstr "Aquest complement necessita:"
 
 #: src/amo/components/PermissionsCard/index.js:77
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Aquest complement pot:"
+msgstr "Aquest complement també pot demanar:"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
