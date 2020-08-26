@@ -51,14 +51,14 @@
     @include respond-to(large) {
       display: none;
     }
-  }
 }
 
 .PermissionsCard {
   .Card-contents {
     border-bottom-left-radius: $border-radius-default;
     border-bottom-right-radius: $border-radius-default;
-  }
+    borde-radius: 0px;
+}
 
   .ShowMoreCard-contents {
     max-height: 300px;
