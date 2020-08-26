@@ -28,7 +28,7 @@ import type { ReactRouterLocationType } from 'core/types/router';
 import './styles.scss';
 
 export const FENIX_LINK_DESTINATION =
-  'https://support.mozilla.org/kb/add-compatibility-firefox-preview/';
+  'https://support.mozilla.org/kb/find-and-install-add-ons-firefox-android';
 
 type Props = {|
   addon?: AddonType | null,
@@ -120,7 +120,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
       if (compatibility.reason === INCOMPATIBLE_ANDROID_UNSUPPORTED) {
         message = i18n.sprintf(
           i18n.gettext(
-            `Not available on Firefox for Android. You can use this add-on with Firefox for Desktop, 
+            `Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,
               or look for similar <a href="%(newLocation)s">Android add-ons</a>.`,
           ),
           { newLocation: '/android/' },
