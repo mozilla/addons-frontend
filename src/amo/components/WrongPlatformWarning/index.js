@@ -28,8 +28,7 @@ import type { ReactRouterLocationType } from 'core/types/router';
 import './styles.scss';
 
 export const FENIX_LINK_DESTINATION =
-  'https://support.mozilla.org/kb/add-compatibility-firefox-preview/';
-
+  'https://support.mozilla.org/kb/find-and-install-add-ons-firefox-android';
 type Props = {|
   addon?: AddonType | null,
   className?: string,
