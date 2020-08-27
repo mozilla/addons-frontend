@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-25 02:43+0000\n"
+"PO-Revision-Date: 2020-08-27 21:05+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2214,7 +2214,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr "Le sito official de Mozilla pro discargar extensiones e themas de Firefox. Adder nove functionalitates e cambiar le apparentia del navigator pro personalisar tu experientia del web."
+msgstr "Le sito official de Mozilla pro discargar extensiones e themas pro Firefox. Adde nove functiones e cambia le apparentia del navigator pro personalisar tu experientia del web."
 
 #: src/amo/pages/StaticPages/About/index.js:215
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
@@ -2362,7 +2362,7 @@ msgstr "Functiona le additivo como tu sperava?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
-msgstr "Que functionalitates te placeva o displaceva?"
+msgstr "Que functiones te placeva o displaceva?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
@@ -2674,7 +2674,7 @@ msgstr "Mozilla debe contactar me sur mi additivo individual"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr "nove additivos o functionalitates de Firefox es disponibile"
+msgstr "nove additivos o functiones de Firefox es disponibile"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
@@ -2774,7 +2774,7 @@ msgstr "Pagina %(currentPage)s de %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:72
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr "Alcun functionalitates es temporarimente disactivate durante que nos exeque le mantenentia del sito web. Nos tornara al plen capacitate a breve."
+msgstr "Alcun functiones es temporarimente disactivate pro mantenentia del sito web. Nos retornara tosto al capacitate complete."
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
