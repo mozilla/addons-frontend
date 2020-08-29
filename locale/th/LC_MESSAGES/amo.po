@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-22 04:53+0000\n"
+"PO-Revision-Date: 2020-08-29 19:15+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -2141,11 +2141,11 @@ msgstr "เข้าร่วมใน %(startLink)sกระดานสนท�
 
 #: src/amo/pages/StaticPages/About/index.js:162
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "ให้คำติชมสำหรับส่วนเสริมที่คุณชื่นชอบ ผู้สร้างส่วนเสริมมีแนวโน้มที่จะปรับปรุงส่วนเสริมและสร้างส่วนเสริมใหม่เมื่อพวกเขารู้ว่าผู้คนชื่นชมผลงานของพวกเขา"
 
 #: src/amo/pages/StaticPages/About/index.js:167
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "บอกเพื่อนและครอบครัวของคุณว่า Firefox เป็นเบราว์เซอร์ที่รวดเร็วและปลอดภัยซึ่งปกป้องความเป็นส่วนตัว และพวกเขาสามารถใช้ส่วนเสริมเพื่อปรับแต่งในแบบของพวกเขาเองได้!"
 
 #: src/amo/pages/StaticPages/About/index.js:175
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
@@ -2599,7 +2599,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla ต้องการติดต่อฉันเกี่ยวกับส่วนเสริมของฉันเอง"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
