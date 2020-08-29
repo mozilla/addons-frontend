@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-29 19:15+0000\n"
+"PO-Revision-Date: 2020-08-29 19:23+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -2285,15 +2285,15 @@ msgstr "สิ่งที่ควรทำ:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "ให้เขียนเหมือนคุณกำลังบอกเพื่อนเกี่ยวกับประสบการณ์ที่มีต่อส่วนเสริมของคุณ"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "เขียนบทวิจารณ์ให้กระชับและเข้าใจง่าย"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "ให้รายละเอียดที่เฉพาะเจาะจงและเป็นประโยชน์ ตัวอย่างเช่น:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
@@ -2317,7 +2317,7 @@ msgstr "คุณจะใช้ส่วนเสริมนี้ต่อห
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "สละเวลาอ่านบทวิจารณ์ของคุณสักครู่ก่อนส่งเพื่อหลีกเลี่ยงการพิมพ์ผิด"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
@@ -2335,11 +2335,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "เขียนบทวิจารณ์สำหรับส่วนเสริมที่คุณยังไม่เคยใช้เอง"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "ใช้คำหยาบคาย ภาษาที่แสดงออกเกี่ยวกับเรื่องเพศ หรือภาษาที่ถือว่าแสดงความเกลียดชัง"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
@@ -2347,7 +2347,7 @@ msgstr "รวม HTML, ลิงก์, รหัสต้นฉบับหร
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "เขียนบทวิจารณ์ปลอม ดูหมิ่นผู้สร้างส่วนเสริม หรือดูถูกเป็นการส่วนตัว"
 
 #: src/amo/pages/UserProfile/index.js:241
 msgid "My reviews"
@@ -2531,7 +2531,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:792
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla ขอสงวนสิทธิ์ในการติดต่อคุณเป็นรายบุคคลเกี่ยวกับข้อกังวลต่าง ๆ ที่เกี่ยวกับส่วนเสริมที่โฮสต์ของคุณ"
 
 #: src/amo/pages/UserProfileEdit/index.js:818 src/amo/pages/UserProfileEdit/index.js:890
 msgid "Delete My Profile"
@@ -2607,7 +2607,7 @@ msgstr "มีคุณลักษณะของส่วนเสริมห
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "มีใครบางคนเขียนบทวิจารณ์เกี่ยวกับส่วนเสริมของฉัน"
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
