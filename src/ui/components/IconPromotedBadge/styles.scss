@@ -17,24 +17,24 @@ $icon-promoted-small-size: 16px;
   width: $default-icon-size;
 }
 
-.IconPromotedBadge-shellPath--line {
-  fill: $grey-40;
+.IconPromotedBadge-circle-bgColor--line {
+  fill: $grey-30;
 }
 
-.IconPromotedBadge-shellPath--recommended {
+.IconPromotedBadge-innerCircle-bgColor {
+  fill: $white;
+}
+
+.IconPromotedBadge-circle-bgColor--recommended {
   fill: $orange-50;
 }
 
-.IconPromotedBadge-shellPath--verified {
+.IconPromotedBadge-circle-bgColor--verified {
   fill: $green-70;
 }
 
 .IconPromotedBadge-iconPath {
   transform-origin: 50% 50%;
-}
-
-.IconPromotedBadge-iconPath--line {
-  fill: $black;
 }
 
 .IconPromotedBadge-iconPath--recommended,

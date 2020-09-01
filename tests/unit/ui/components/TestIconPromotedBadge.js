@@ -28,8 +28,8 @@ describe(__filename, () => {
     (category) => {
       const root = render({ category });
 
-      expect(root.find('circle')).toHaveClassName(
-        `IconPromotedBadge-shellPath--${category}`,
+      expect(root.find('circle').at(0)).toHaveClassName(
+        `IconPromotedBadge-circle-bgColor--${category}`,
       );
       expect(root.find('path')).toHaveClassName(
         `IconPromotedBadge-iconPath--${category}`,
@@ -37,12 +37,43 @@ describe(__filename, () => {
     },
   );
 
-  it.each(['line', 'recommended', 'verified'])(
+  it.each(['recommended', 'verified'])(
     'uses the expected path for category="%s"',
     (category) => {
       const root = render({ category });
 
       expect(root.find('path')).toHaveProp('d', paths[category]);
+    },
+  );
+
+  it('uses/adds expected elements/styles for the "line" category', () => {
+    const root = render({ category: 'line' });
+    expect(root.find('defs')).toHaveLength(1);
+    expect(root.find('circle')).toHaveLength(2);
+    expect(root.find('g')).toHaveProp('style');
+    expect(root.find('path')).toHaveLength(13);
+    expect(
+      root
+        .find('path')
+        .everyWhere((node) => node.hasClass('IconPromotedBadge-iconPath')),
+    ).toEqual(true);
+    expect(
+      root
+        .find('path')
+        .everyWhere((node) =>
+          node.hasClass('IconPromotedBadge-iconPath--line'),
+        ),
+    ).toEqual(true);
+  });
+
+  it.each(['recommended', 'verified'])(
+    'uses/exludes expected elements for for category="%s"',
+    (category) => {
+      const root = render({ category });
+      expect(root.find('defs')).toHaveLength(0);
+      expect(root.find('circle')).toHaveLength(1);
+      expect(root.find('g')).not.toHaveProp('style');
+      expect(root.find('path')).toHaveLength(1);
     },
   );
 
