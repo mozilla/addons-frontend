@@ -9,7 +9,14 @@ import GuidesAddonCard, {
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import { setInstallError, setInstallState } from 'core/reducers/installations';
-import { FATAL_ERROR, INSTALLING, UNKNOWN } from 'core/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  FATAL_ERROR,
+  INSTALLING,
+  RECOMMENDED,
+  UNKNOWN,
+  VERIFIED,
+} from 'core/constants';
 import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import {
   dispatchClientMetadata,
@@ -106,14 +113,27 @@ describe(__filename, () => {
 
   it('renders a PromotedBadge when the add-on is recommended', () => {
     const root = render({
-      addon: createInternalAddon({ ...fakeAddon, is_recommended: true }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
+      }),
     });
     expect(root.find(PromotedBadge)).toHaveLength(1);
   });
 
   it('does not render a PromotedBadge when the add-on is not recommended', () => {
     const root = render({
-      addon: createInternalAddon({ ...fakeAddon, is_recommended: false }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        promoted: { category: VERIFIED, apps: [CLIENT_APP_FIREFOX] },
+      }),
+    });
+    expect(root.find(PromotedBadge)).toHaveLength(0);
+  });
+
+  it('does not render a PromotedBadge when the add-on is not promoted', () => {
+    const root = render({
+      addon: createInternalAddon({ ...fakeAddon, promoted: null }),
     });
     expect(root.find(PromotedBadge)).toHaveLength(0);
   });

@@ -129,6 +129,7 @@ export const fakeAddon = Object.freeze({
   last_updated: '2018-11-22T10:09:01Z',
   name: 'Chill Out',
   previews: [fakePreview],
+  promoted: null,
   ratings: {
     average: 3.5,
     count: 10,
@@ -511,6 +512,7 @@ export function createFakeAutocompleteResult({
     icon_url: `${config.get('amoCDN')}/${name}.png`,
     is_recommended: false,
     name,
+    promoted: null,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
     ...props,
   };

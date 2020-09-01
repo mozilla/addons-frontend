@@ -9,6 +9,8 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  RECOMMENDED,
+  VERIFIED,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -53,7 +55,7 @@ describe(__filename, () => {
   // This is an add-on that would cause a warning to be displayed.
   const addonThatWouldShowWarning = {
     ...fakeAddon,
-    is_recommended: false,
+    promoted: { category: VERIFIED, apps: [CLIENT_APP_FIREFOX] },
     type: ADDON_TYPE_EXTENSION,
   };
 
@@ -97,7 +99,7 @@ describe(__filename, () => {
       const component = renderWithWarning({
         addon: createInternalAddon({
           ...addonThatWouldShowWarning,
-          is_recommended: true,
+          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
         }),
       });
 

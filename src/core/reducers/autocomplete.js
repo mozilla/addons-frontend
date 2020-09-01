@@ -1,7 +1,9 @@
 /* @flow */
 import invariant from 'invariant';
 
+import { RECOMMENDED } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
+import type { PromotedType } from 'core/types/addons';
 
 export const AUTOCOMPLETE_LOADED: 'AUTOCOMPLETE_LOADED' = 'AUTOCOMPLETE_LOADED';
 export const AUTOCOMPLETE_STARTED: 'AUTOCOMPLETE_STARTED' =
@@ -13,24 +15,25 @@ export const AUTOCOMPLETE_CANCELLED: 'AUTOCOMPLETE_CANCELLED' =
 type ExternalSuggestion = {|
   icon_url: string,
   id: number,
-  is_recommended: boolean,
   name: string,
+  promoted: PromotedType | null,
   type: string,
   url: string,
 |};
 
-type Suggestion = {|
+export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
   isRecommended: boolean,
   name: string,
+  promoted: PromotedType | null,
   type: string,
   url: string,
 |};
 
 export type AutocompleteState = {|
   loading: boolean,
-  suggestions: Array<Suggestion>,
+  suggestions: Array<SuggestionType>,
 |};
 
 const initialState: AutocompleteState = {
@@ -94,12 +97,16 @@ export function autocompleteLoad({
 
 export const createInternalSuggestion = (
   externalSuggestion: ExternalSuggestion,
-): Suggestion => {
+): SuggestionType => {
   return {
     addonId: externalSuggestion.id,
     iconUrl: getAddonIconUrl(externalSuggestion),
-    isRecommended: externalSuggestion.is_recommended,
+    isRecommended: Boolean(
+      externalSuggestion.promoted &&
+        externalSuggestion.promoted.category === RECOMMENDED,
+    ),
     name: externalSuggestion.name,
+    promoted: externalSuggestion.promoted,
     type: externalSuggestion.type,
     url: externalSuggestion.url,
   };

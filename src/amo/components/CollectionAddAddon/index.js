@@ -13,7 +13,7 @@ import translate from 'core/i18n/translate';
 import withUIState from 'core/withUIState';
 import Card from 'ui/components/Card';
 import Notice from 'ui/components/Notice';
-import type { SuggestionType } from 'amo/components/AutoSearchInput';
+import type { SuggestionType } from 'core/reducers/autocomplete';
 import type {
   CollectionFilters,
   CollectionType,

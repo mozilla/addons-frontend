@@ -9,6 +9,8 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DEFAULT_UTM_SOURCE,
+  RECOMMENDED,
+  VERIFIED,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -34,7 +36,7 @@ describe(__filename, () => {
     ...fakeAddon,
     authors: [{ name: 'A funky déveloper' }, { name: 'A groovy developer' }],
     average_daily_users: 5253,
-    is_recommended: false,
+    promoted: null,
     name: 'A search result',
     slug: 'a-search-result',
   });
@@ -477,7 +479,7 @@ describe(__filename, () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeAddon,
-        is_recommended: true,
+        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
       }),
     });
 
@@ -488,7 +490,7 @@ describe(__filename, () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeAddon,
-        is_recommended: true,
+        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
       }),
     });
 
@@ -502,7 +504,7 @@ describe(__filename, () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeAddon,
-        is_recommended: true,
+        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
       }),
       showRecommendedBadge: false,
     });
@@ -518,7 +520,7 @@ describe(__filename, () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeAddon,
-        is_recommended: true,
+        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
       }),
       store,
     });
@@ -530,7 +532,18 @@ describe(__filename, () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeAddon,
-        is_recommended: false,
+        promoted: { category: VERIFIED, apps: [CLIENT_APP_FIREFOX] },
+      }),
+    });
+
+    expect(root.find(PromotedBadge)).toHaveLength(0);
+  });
+
+  it('does not display a recommended badge when the addon is not promoted', () => {
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        promoted: null,
       }),
     });
 

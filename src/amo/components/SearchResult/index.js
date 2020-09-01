@@ -177,7 +177,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
               {addonTitle}
               {showRecommendedBadge &&
               addon &&
-              addon.is_recommended &&
+              addon.isRecommended &&
               clientApp !== CLIENT_APP_ANDROID ? (
                 <PromotedBadge
                   category="recommended"

@@ -11,8 +11,10 @@ import AutoSearchInput, {
 import SearchSuggestion from 'amo/components/SearchSuggestion';
 import {
   ADDON_TYPE_EXTENSION,
+  CLIENT_APP_FIREFOX,
   OS_LINUX,
   OS_WINDOWS,
+  RECOMMENDED,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
 } from 'core/constants';
@@ -608,7 +610,10 @@ describe(__filename, () => {
       const isRecommended = true;
       const name = 'uBlock Origin';
       const suggestionData = createInternalSuggestion(
-        createFakeAutocompleteResult({ name, is_recommended: isRecommended }),
+        createFakeAutocompleteResult({
+          name,
+          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
+        }),
       );
       const suggestion = renderSuggestion({ suggestionData });
 

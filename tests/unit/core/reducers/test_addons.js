@@ -3,7 +3,13 @@ import {
   unloadAddonReviews,
   updateRatingCounts,
 } from 'amo/actions/reviews';
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+  RECOMMENDED,
+  VERIFIED,
+} from 'core/constants';
 import addons, {
   createInternalAddon,
   createInternalAddonInfo,
@@ -887,6 +893,43 @@ describe(__filename, () => {
         });
         expect(getAddonInfoBySlug({ slug: 'some-slug', state })).toEqual(null);
       });
+    });
+  });
+
+  describe('createInternalAddon', () => {
+    it.each(
+      [CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX],
+      [CLIENT_APP_FIREFOX],
+      [CLIENT_APP_ANDROID],
+      [],
+    )(
+      'sets isRecommended to true for a recommended add-on, apps: %s',
+      (apps) => {
+        expect(
+          createInternalAddon({
+            ...fakeAddon,
+            promoted: { category: RECOMMENDED, apps },
+          }).isRecommended,
+        ).toEqual(true);
+      },
+    );
+
+    it('sets isRecommended to false for a non-recommended add-on', () => {
+      expect(
+        createInternalAddon({
+          ...fakeAddon,
+          promoted: { category: VERIFIED, apps: [CLIENT_APP_FIREFOX] },
+        }).isRecommended,
+      ).toEqual(false);
+    });
+
+    it('sets isRecommended to false for a non-promoted add-on', () => {
+      expect(
+        createInternalAddon({
+          ...fakeAddon,
+          promoted: null,
+        }).isRecommended,
+      ).toEqual(false);
     });
   });
 });

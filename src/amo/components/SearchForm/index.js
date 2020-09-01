@@ -12,11 +12,9 @@ import AutoSearchInput from 'amo/components/AutoSearchInput';
 import { CLIENT_APP_ANDROID } from 'core/constants';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import translate from 'core/i18n/translate';
-import type {
-  SearchFilters,
-  SuggestionType,
-} from 'amo/components/AutoSearchInput';
+import type { SearchFilters } from 'amo/components/AutoSearchInput';
 import type { AppState } from 'amo/store';
+import type { SuggestionType } from 'core/reducers/autocomplete';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterHistoryType } from 'core/types/router';
 

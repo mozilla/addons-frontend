@@ -6,6 +6,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  RECOMMENDED,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -47,7 +48,7 @@ describe(__filename, () => {
   it('displays a recommended badge for a recommended add-on', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
-      is_recommended: true,
+      promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
     });
     const root = shallowRender({ addon });
 
@@ -61,7 +62,7 @@ describe(__filename, () => {
 
     const addon = createInternalAddon({
       ...fakeAddon,
-      is_recommended: true,
+      promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
       type: ADDON_TYPE_EXTENSION,
     });
     const root = shallowRender({ addon, store });
