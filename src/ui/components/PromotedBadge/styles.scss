@@ -58,7 +58,7 @@
 
 .PromotedBadge-link--line {
   border: 1px solid $grey-30;
-  border-left: 0px;
+  border-left: 0;
 
   &,
   &:link,
@@ -80,7 +80,7 @@
 
 .PromotedBadge-link--recommended {
   border: 1px solid $orange-50;
-  border-left: 0px;
+  border-left: 0;
 
   &,
   &:link,
@@ -102,7 +102,7 @@
 
 .PromotedBadge-link--verified {
   border: 1px solid $green-70;
-  border-left: 0px;
+  border-left: 0;
 
   &,
   &:link,
