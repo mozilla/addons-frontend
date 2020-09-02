@@ -1,7 +1,6 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { RECOMMENDED } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
 import type { PromotedType } from 'core/types/addons';
 
@@ -24,7 +23,6 @@ type ExternalSuggestion = {|
 export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
-  isRecommended: boolean,
   name: string,
   promoted: PromotedType | null,
   type: string,
@@ -101,10 +99,6 @@ export const createInternalSuggestion = (
   return {
     addonId: externalSuggestion.id,
     iconUrl: getAddonIconUrl(externalSuggestion),
-    isRecommended: Boolean(
-      externalSuggestion.promoted &&
-        externalSuggestion.promoted.category === RECOMMENDED,
-    ),
     name: externalSuggestion.name,
     promoted: externalSuggestion.promoted,
     type: externalSuggestion.type,

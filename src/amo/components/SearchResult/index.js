@@ -8,11 +8,12 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
+import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { CLIENT_APP_ANDROID, ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import { nl2br, sanitizeHTML } from 'core/utils';
-import { addQueryParams } from 'core/utils/url';
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
+import { nl2br, sanitizeHTML } from 'core/utils';
+import { getPromotedCategory } from 'core/utils/addons';
+import { addQueryParams } from 'core/utils/url';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
@@ -30,7 +31,7 @@ type Props = {|
   onClick?: (addon: AddonType | CollectionAddonType) => void,
   onImpression?: (addon: AddonType | CollectionAddonType) => void,
   showMetadata?: boolean,
-  showRecommendedBadge?: boolean,
+  showPromotedBadge?: boolean,
   showSummary?: boolean,
   useThemePlaceholder?: boolean,
 |};
@@ -38,6 +39,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
+  _getPromotedCategory: typeof getPromotedCategory,
   clientApp: string,
   history: ReactRouterHistoryType,
   i18n: I18nType,
@@ -47,8 +49,9 @@ type InternalProps = {|
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
+    _getPromotedCategory: getPromotedCategory,
     showMetadata: true,
-    showRecommendedBadge: true,
+    showPromotedBadge: true,
     showSummary: true,
     useThemePlaceholder: false,
   };
@@ -81,13 +84,14 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
   renderResult() {
     const {
+      _getPromotedCategory,
       addon,
       addonInstallSource,
       clientApp,
       i18n,
       onImpression,
       showMetadata,
-      showRecommendedBadge,
+      showPromotedBadge,
       showSummary,
       useThemePlaceholder,
     } = this.props;
@@ -153,6 +157,12 @@ export class SearchResultBase extends React.Component<InternalProps> {
       summary = <p className="SearchResult-summary" {...summaryProps} />;
     }
 
+    const promotedCategory = _getPromotedCategory({
+      addon,
+      clientApp,
+      forBadging: true,
+    });
+
     return (
       <div className="SearchResult-wrapper">
         <div className="SearchResult-result">
@@ -175,12 +185,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
           <div className="SearchResult-contents">
             <h2 className="SearchResult-name">
               {addonTitle}
-              {showRecommendedBadge &&
-              addon &&
-              addon.isRecommended &&
-              clientApp !== CLIENT_APP_ANDROID ? (
+              {showPromotedBadge && addon && promotedCategory ? (
                 <PromotedBadge
-                  category="recommended"
+                  category={promotedCategory}
                   onClick={(e) => e.stopPropagation()}
                   size="small"
                 />

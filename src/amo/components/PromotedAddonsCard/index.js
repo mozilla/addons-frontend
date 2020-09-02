@@ -97,7 +97,7 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
         header={header}
         onAddonClick={this.onAddonClick}
         onAddonImpression={this.onAddonImpression}
-        showRecommendedBadge={false}
+        showPromotedBadge={false}
         type="horizontal"
         loading={loading}
         placeholderCount={LANDING_PAGE_PROMOTED_EXTENSION_COUNT}

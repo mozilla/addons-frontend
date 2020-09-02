@@ -9,12 +9,18 @@ import {
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
+  LINE,
+  RECOMMENDED,
+  SPONSORED,
+  VERIFIED,
 } from 'core/constants';
 import log from 'core/logger';
 import { getPreviewImage } from 'core/imageUtils';
 import { removeUndefinedProps } from 'core/utils/url';
+import type { PromotedCategoryType } from 'core/constants';
+import type { SuggestionType } from 'core/reducers/autocomplete';
 import type { AddonVersionType } from 'core/reducers/versions';
-import type { AddonType } from 'core/types/addons';
+import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
 export const getErrorMessage = ({
@@ -110,4 +116,34 @@ export const getAddonJsonLinkedData = ({
     version: currentVersion ? currentVersion.version : undefined,
     aggregateRating,
   });
+};
+
+export const getPromotedCategory = ({
+  addon,
+  clientApp,
+  forBadging = false,
+}: {|
+  addon: AddonType | CollectionAddonType | SuggestionType | null | void,
+  clientApp: string,
+  forBadging?: boolean,
+|}): PromotedCategoryType | null => {
+  let category = null;
+  if (addon && addon.promoted && addon.promoted.apps.includes(clientApp)) {
+    category = addon.promoted.category;
+  }
+
+  // Special logic if we're using the category for badging.
+  if (forBadging) {
+    // SPONSORED is badged as VERIFIED.
+    if (category === SPONSORED) {
+      category = VERIFIED;
+    }
+
+    // We only have badges for LINE, RECOMMENDED and VERIFIED.
+    if (![LINE, RECOMMENDED, VERIFIED].includes(category)) {
+      category = null;
+    }
+  }
+
+  return category;
 };

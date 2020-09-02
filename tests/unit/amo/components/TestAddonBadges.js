@@ -4,7 +4,6 @@ import AddonBadges, { AddonBadgesBase } from 'amo/components/AddonBadges';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   RECOMMENDED,
 } from 'core/constants';
@@ -45,27 +44,26 @@ describe(__filename, () => {
     expect(root.find(Badge)).toHaveLength(0);
   });
 
-  it('displays a recommended badge for a recommended add-on', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
+  it('displays a promoted badge for a promoted add-on', () => {
+    const category = RECOMMENDED;
+    const _getPromotedCategory = sinon.stub().returns(category);
+
+    const root = shallowRender({
+      _getPromotedCategory,
+      addon: createInternalAddon(fakeAddon),
     });
-    const root = shallowRender({ addon });
 
     expect(root.find(PromotedBadge)).toHaveLength(1);
+    expect(root.find(PromotedBadge)).toHaveProp('category', category);
   });
 
-  it('does not display a recommended badge on Android', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_ANDROID,
-    });
+  it('does not display a promoted badge for a non-promoted addon', () => {
+    const _getPromotedCategory = sinon.stub().returns(null);
 
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
-      type: ADDON_TYPE_EXTENSION,
+    const root = shallowRender({
+      _getPromotedCategory,
+      addon: createInternalAddon(fakeAddon),
     });
-    const root = shallowRender({ addon, store });
 
     expect(root.find(PromotedBadge)).toHaveLength(0);
   });

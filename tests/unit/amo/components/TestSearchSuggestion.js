@@ -1,31 +1,30 @@
+import config from 'config';
 import * as React from 'react';
 
 import SearchSuggestion, {
   SearchSuggestionBase,
 } from 'amo/components/SearchSuggestion';
-import Icon from 'ui/components/Icon';
-import LoadingText from 'ui/components/LoadingText';
-import {
-  dispatchClientMetadata,
-  fakeAddon,
-  fakeI18n,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
 import {
   ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  VERIFIED,
 } from 'core/constants';
+import { createInternalSuggestion } from 'core/reducers/autocomplete';
+import Icon from 'ui/components/Icon';
+import {
+  createFakeAutocompleteResult,
+  dispatchClientMetadata,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import IconPromotedBadge from 'ui/components/IconPromotedBadge';
+import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
   const shallowComponent = (props = {}) => {
     const allProps = {
-      name: fakeAddon.name,
-      i18n: fakeI18n(),
-      iconUrl: fakeAddon.icon_url,
-      isRecommended: false,
       loading: false,
       store: dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store,
+      suggestion: createInternalSuggestion(createFakeAutocompleteResult()),
       ...props,
     };
 
@@ -36,10 +35,16 @@ describe(__filename, () => {
   };
 
   it('renders itself', () => {
-    const root = shallowComponent();
+    const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
+    const name = 'suggestion name';
+    const suggestion = createInternalSuggestion(
+      createFakeAutocompleteResult({ icon_url: iconUrl, name }),
+    );
+    const root = shallowComponent({ suggestion });
 
     expect(root.find('.SearchSuggestion')).toHaveLength(1);
-    expect(root.find(Icon)).toHaveLength(1);
+    expect(root.find('.SearchSuggestion-icon')).toHaveProp('src', iconUrl);
+    expect(root.find('.SearchSuggestion-name')).toHaveText(name);
     expect(root.find(LoadingText)).toHaveLength(0);
   });
 
@@ -52,8 +57,10 @@ describe(__filename, () => {
   });
 
   it('displays a class name with its type', () => {
-    const props = { type: ADDON_TYPE_STATIC_THEME };
-    const root = shallowComponent(props);
+    const suggestion = createInternalSuggestion(
+      createFakeAutocompleteResult({ type: ADDON_TYPE_STATIC_THEME }),
+    );
+    const root = shallowComponent({ suggestion });
 
     expect(root).toHaveClassName(
       `SearchSuggestion--${ADDON_TYPE_STATIC_THEME}`,
@@ -68,28 +75,21 @@ describe(__filename, () => {
     expect(root.find(LoadingText)).toHaveLength(1);
   });
 
-  it('displays a recommended icon when the add-on is recommended', () => {
-    const props = { isRecommended: true };
-    const root = shallowComponent(props);
-
-    expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(1);
-  });
-
-  it('does not display a recommended icon on Android', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_ANDROID,
+  it('displays a promoted icon when the add-on is promoted', () => {
+    const category = VERIFIED;
+    const root = shallowComponent({
+      _getPromotedCategory: sinon.stub().returns(category),
     });
 
-    const props = { isRecommended: true, store };
-    const root = shallowComponent(props);
-
-    expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(0);
+    expect(root.find(IconPromotedBadge)).toHaveLength(1);
+    expect(root.find(IconPromotedBadge)).toHaveProp('category', category);
   });
 
-  it('does not display a recommended icon when the add-on is not recommended', () => {
-    const props = { isRecommended: false };
-    const root = shallowComponent(props);
+  it('does not display a promoted icon when the add-on is not promoted', () => {
+    const root = shallowComponent({
+      _getPromotedCategory: sinon.stub().returns(null),
+    });
 
-    expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(0);
+    expect(root.find(IconPromotedBadge)).toHaveLength(0);
   });
 });

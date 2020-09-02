@@ -36,9 +36,9 @@ export const PromotedBadgeBase = ({
   switch (category) {
     case 'line':
       label = i18n.gettext('By Firefox');
-      // TODO: Update the title and URL when we know them.
+      // TODO: Update URL when we know it.
       linkTitle = i18n.gettext(
-        'Firefox only recommends extensions that meet our standards for security and performance.',
+        'This extension was created by the makers of Firefox.',
       );
       linkUrl = 'https://support.mozilla.org/kb/recommended-extensions-program';
       break;
@@ -54,9 +54,9 @@ export const PromotedBadgeBase = ({
     // This is the verified badge.
     default:
       label = i18n.gettext('Verified');
-      // TODO: Update the title and URL when we know them.
+      // TODO: Update URL when we know it.
       linkTitle = i18n.gettext(
-        'Firefox only recommends extensions that meet our standards for security and performance.',
+        'This extension has been code-reviewed for safety.',
       );
       linkUrl = 'https://support.mozilla.org/kb/recommended-extensions-program';
       break;

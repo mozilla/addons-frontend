@@ -167,12 +167,12 @@ describe(__filename, () => {
     expect(root.find(CardList)).toHaveProp('header', header);
   });
 
-  it('passes the showRecommendedBadge prop through to SearchResult', () => {
-    const showRecommendedBadge = false;
-    const root = render({ addons: [fakeAddon], showRecommendedBadge });
+  it('passes the showPromotedBadge prop through to SearchResult', () => {
+    const showPromotedBadge = false;
+    const root = render({ addons: [fakeAddon], showPromotedBadge });
     expect(root.find(SearchResult)).toHaveProp(
-      'showRecommendedBadge',
-      showRecommendedBadge,
+      'showPromotedBadge',
+      showPromotedBadge,
     );
   });
 

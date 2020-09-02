@@ -203,8 +203,8 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       return Array(10).fill({
         addonId: undefined,
         iconUrl: getAddonIconUrl(),
-        isRecommended: false,
         name: this.props.i18n.gettext('Loading'),
+        promoted: null,
         url: undefined,
       });
     }
@@ -263,16 +263,12 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
   renderSuggestion = (suggestion: SuggestionType) => {
     const { loadingSuggestions, selectSuggestionText } = this.props;
-    const { iconUrl, isRecommended, name, type } = suggestion;
 
     return (
       <SearchSuggestion
         arrowAlt={selectSuggestionText}
-        iconUrl={iconUrl}
-        isRecommended={isRecommended}
         loading={loadingSuggestions}
-        name={name}
-        type={type}
+        suggestion={suggestion}
       />
     );
   };
