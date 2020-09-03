@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-29 19:23+0000\n"
+"PO-Revision-Date: 2020-09-03 18:43+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -946,7 +946,7 @@ msgstr "เครื่องมือผู้วิจารณ์"
 
 #: src/amo/components/Header/index.js:139 src/core/components/AuthenticateButton/index.js:91
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "การกระทำนี้ไม่สามารถใช้ได้ในขณะนี้ โปรดโหลดหน้าใหม่ในอีกสักครู่"
 
 #: src/amo/components/Header/index.js:144 src/core/components/AuthenticateButton/index.js:87
 msgid "Log out"
@@ -2419,7 +2419,7 @@ msgstr "ลบรูปภาพสำเร็จแล้ว"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "บอกข้อมูลเกี่ยวกับตัวคุณเองเพิ่มเติมสักเล็กน้อยแก่เรา เขตข้อมูลส่วนใหญ่ไม่บังคับกรอก แต่จะช่วยให้ผู้ใช้คนอื่นรู้จักคุณได้ดีขึ้น"
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
@@ -2431,7 +2431,7 @@ msgstr "แนะนำตัวคุณเองต่อชุมชนหา
 
 #: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "แนะนำ %(userName)s ให้กับชุมชน"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
