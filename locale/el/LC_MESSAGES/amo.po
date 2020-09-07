@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 16:32+0000\n"
-"PO-Revision-Date: 2020-08-15 13:02+0000\n"
+"PO-Revision-Date: 2020-09-07 22:32+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -951,7 +951,7 @@ msgstr "Διαχείριση συνδρομών"
 
 #: src/amo/components/Header/index.js:127
 msgid "Reviewer Tools"
-msgstr "Εργαλεία αξιολογητή"
+msgstr "Εργαλεία ελεγκτή"
 
 #: src/amo/components/Header/index.js:139 src/core/components/AuthenticateButton/index.js:91
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -2591,7 +2591,7 @@ msgstr "Εμφανιζόμενο όνομα *"
 
 #: src/amo/pages/UserProfileEdit/index.js:654
 msgid "Reviewer Name"
-msgstr "Όνομα κριτή"
+msgstr "Όνομα ελεγκτή"
 
 #: src/amo/pages/UserProfileEdit/index.js:687
 msgid "This URL will only be visible for users who are developers."
@@ -2708,7 +2708,7 @@ msgstr "ένας προγραμματιστής προσθέτου απαντά 
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
-msgstr "το πρόσθετό μου αξιολογείται από έναν κριτή"
+msgstr "το πρόσθετό μου αξιολογείται από ελεγκτή"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
