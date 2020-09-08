@@ -10,7 +10,6 @@ import Home, {
 } from 'amo/pages/Home';
 import { categoryResultsLinkTo } from 'amo/components/Categories';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
-import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
@@ -477,10 +476,42 @@ describe(__filename, () => {
     );
   });
 
-  it('renders HomeHeroGuides', () => {
-    const root = render();
+  it('renders the heroHeader for Android', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+    });
+    const heroShelves = _createHeroShelves();
+    _loadHomeData({ store, heroShelves });
+    const root = render({ store });
 
-    expect(root.find(HomeHeroGuides)).toHaveLength(1);
+    expect(root.find('.Home-heroHeader-title')).toHaveLength(1);
+    expect(root.find('.Home-heroHeader-subtitle')).toHaveLength(1);
+    expect(root.find('.Home-heroHeader-title').text()).toContain(
+      heroShelves.secondary.headline,
+    );
+    expect(root.find('.Home-heroHeader-subtitle').text()).toContain(
+      heroShelves.secondary.description,
+    );
+  });
+
+  it('does not render the heroHeader for Desktop', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+    });
+    const heroShelves = _createHeroShelves();
+    _loadHomeData({ store, heroShelves });
+    const root = render({ store });
+
+    expect(root.find('.Home-heroHeader-title')).toHaveLength(0);
+  });
+
+  it('does not render the heroHeader if there is no shelf data', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+    });
+    const root = render({ store });
+
+    expect(root.find('.Home-heroHeader-title')).toHaveLength(0);
   });
 
   it('renders a HeadLinks component', () => {
