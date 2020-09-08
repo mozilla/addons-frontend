@@ -8,7 +8,6 @@ import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
 import { categoryResultsLinkTo } from 'amo/components/Categories';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
-import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
@@ -184,6 +183,15 @@ export class HomeBase extends React.Component {
     );
   }
 
+  renderHeroHeader(shelfData) {
+    return (
+      <div className="Home-heroHeader">
+        <h2 className="Home-heroHeader-title">{shelfData.headline}</h2>
+        <h3 className="Home-heroHeader-subtitle">{shelfData.description}</h3>
+      </div>
+    );
+  }
+
   render() {
     const {
       _getFeaturedCollectionsMetadata,
@@ -263,7 +271,9 @@ export class HomeBase extends React.Component {
               <SecondaryHero shelfData={heroShelves && heroShelves.secondary} />
             ) : null}
 
-            {!showHeroPromo ? <HomeHeroGuides /> : null}
+            {!showHeroPromo && heroShelves && heroShelves.secondary
+              ? this.renderHeroHeader(heroShelves.secondary)
+              : null}
 
             <LandingAddonsCard
               addonInstallSource={INSTALL_SOURCE_FEATURED}

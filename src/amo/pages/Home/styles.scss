@@ -152,3 +152,35 @@
 .Home-noHeroError {
   padding: 0 24px;
 }
+
+.Home-heroHeader {
+  color: $black;
+  padding: $padding-page 0 $padding-page-l;
+  text-align: center;
+
+  @include respond-to(large) {
+    padding: 0 32px $padding-page;
+  }
+}
+
+.Home-heroHeader-title {
+  font-size: $font-size-l;
+  line-height: 1;
+  margin: $padding-page-l 0 20px;
+
+  @include respond-to(medium) {
+    font-size: $font-size-xl;
+  }
+}
+
+.Home-heroHeader-subtitle {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.15;
+  margin: $padding-page 0 $padding-page-l;
+
+  @include respond-to(medium) {
+    font-size: $font-size-l;
+    line-height: 1;
+  }
+}
