@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-04 16:32+0000\n"
+"POT-Creation-Date: 2020-09-08 16:56+0000\n"
 "PO-Revision-Date: 2018-07-02 12:25+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,25 +47,20 @@ msgstr "Dodaj u kolekciju"
 
 #: src/amo/components/AddonAdminLinks/index.js:105
 #, fuzzy
-msgid "Admin add-on"
-msgstr "Pronađi dodatke"
-
-#: src/amo/components/AddonAdminLinks/index.js:119
-#, fuzzy
 msgid "Content review add-on"
 msgstr "%(total)s recenzija za ovaj dodatak"
 
-#: src/amo/components/AddonAdminLinks/index.js:127
+#: src/amo/components/AddonAdminLinks/index.js:113
 #, fuzzy
 msgid "Review theme"
 msgstr "Tekst recenzije"
 
-#: src/amo/components/AddonAdminLinks/index.js:129
+#: src/amo/components/AddonAdminLinks/index.js:115
 #, fuzzy
 msgid "Review add-on code"
 msgstr "Recenzije za %(addonName)s"
 
-#: src/amo/components/AddonAdminLinks/index.js:149
+#: src/amo/components/AddonAdminLinks/index.js:135
 #, fuzzy
 msgid "Admin Links"
 msgstr "Linkovi dodataka"
@@ -76,10 +71,10 @@ msgstr "Linkovi dodataka"
 msgid "Edit add-on"
 msgstr "Pronađi dodatke"
 
-#: src/amo/components/AddonAdminLinks/index.js:90
+#: src/amo/components/AddonAdminLinks/index.js:91
 #, fuzzy
-msgid "Admin add-on status"
-msgstr "Učitavanje dodataka"
+msgid "Admin add-on"
+msgstr "Pronađi dodatke"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
 #, fuzzy
@@ -656,16 +651,16 @@ msgstr "Dodaci za Firefox"
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%s – dodatci za Firefox"
 
-#: src/amo/components/AutoSearchInput/index.js:216
+#: src/amo/components/AutoSearchInput/index.js:207
 msgid "Loading"
 msgstr "Učitavanje"
 
-#: src/amo/components/AutoSearchInput/index.js:312
+#: src/amo/components/AutoSearchInput/index.js:303
 msgid "Find add-ons"
 msgstr "Pronađi dodatke"
 
-#: src/amo/components/AutoSearchInput/index.js:337
-#: src/amo/components/AutoSearchInput/index.js:365
+#: src/amo/components/AutoSearchInput/index.js:328
+#: src/amo/components/AutoSearchInput/index.js:356
 msgid "Search"
 msgstr "Traži"
 
@@ -1174,33 +1169,6 @@ msgstr "Istaknute ekstenzije"
 msgid "RECOMMENDED"
 msgstr ""
 
-#: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:267
-msgid "Stay Safe Online"
-msgstr ""
-
-#: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:280
-#, fuzzy
-msgid "Organize Tabs & Bookmarks"
-msgstr "Zabilješke"
-
-#: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:293
-#, fuzzy
-msgid "Enhance Your Media Experience"
-msgstr "Ocijenite vaše iskustvo"
-
-#: src/amo/components/HomeHeroGuides/index.js:57
-msgid "Extensions are like apps for your browser."
-msgstr ""
-
-#: src/amo/components/HomeHeroGuides/index.js:60
-msgid ""
-"They add features to Firefox to make browsing faster, smarter, or just plain "
-"fun."
-msgstr ""
-
 #: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
 msgstr ""
@@ -1492,13 +1460,13 @@ msgstr ""
 msgid "Search results"
 msgstr "Pretraži rezultate"
 
-#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272
+#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:282
 #: src/amo/pages/LandingPage/index.js:123
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Istaknute ekstenzije"
 
-#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335
+#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:345
 #: src/amo/pages/LandingPage/index.js:155
 #, fuzzy
 msgid "Recommended themes"
@@ -1509,7 +1477,7 @@ msgstr "Popularne teme"
 msgid "Recommended add-ons"
 msgstr "Pronađi dodatke"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:358
 #: src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
 msgstr "Popularne ekstenzije"
@@ -1537,11 +1505,11 @@ msgstr "Najbolje ocjenjene teme"
 msgid "Top rated add-ons"
 msgstr "Najbolje ocijenjeni dodaci"
 
-#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
+#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:318
 msgid "Popular extensions"
 msgstr "Popularne ekstenzije"
 
-#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
+#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:299
 msgid "Popular themes"
 msgstr "Popularne teme"
 
@@ -1705,17 +1673,17 @@ msgstr "Operativni sistem"
 msgid "Recommended add-ons only"
 msgstr "Samo istaknuti dodaci"
 
-#: src/amo/components/SearchForm/index.js:57
+#: src/amo/components/SearchForm/index.js:55
 #, fuzzy
 msgid "Firefox Add-ons for Android"
 msgstr "Dodaci za Android"
 
-#: src/amo/components/SearchForm/index.js:58
+#: src/amo/components/SearchForm/index.js:56
 #, fuzzy
 msgid "Firefox Add-ons"
 msgstr "O Firefox dodacima"
 
-#: src/amo/components/SearchForm/index.js:81
+#: src/amo/components/SearchForm/index.js:79
 msgid "Go to the add-on page"
 msgstr "Idite na stranicu dodatka"
 
@@ -1748,7 +1716,7 @@ msgid "No results were found."
 msgstr "Nisu pronađeni rezultati."
 
 #: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/PromotedBadge/index.js:49
+#: src/ui/components/PromotedBadge/index.js:47
 #, fuzzy
 msgid "Recommended"
 msgstr "Korisnik od"
@@ -2182,292 +2150,81 @@ msgstr "Prijavite se da napravite kolekciju"
 msgid "My collections"
 msgstr "Prikaži moje kolekcije"
 
-#: src/amo/pages/Guides/index.js:105
-msgid ""
-"Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
-"of content filters without chewing up a bunch of memory."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:109
-#, fuzzy
-msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr ""
-"Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
-"pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:117
-msgid "Stop online trackers from stalking you"
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:118
-msgid ""
-"Online advertisers can track your activity from one website to the next, "
-"gathering information about you and your interests. Extensions can help "
-"cover your digital trail."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:123
-msgid ""
-"Isolate your Facebook identity into a separate “container” to stop Facebook "
-"from tracking your activity outside of its social platform."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:127
-#, fuzzy
-msgid ""
-"Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
-"extensions."
-msgstr ""
-"Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
-"pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:138
-msgid "Reimagine tab management"
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:139
-msgid ""
-"If you typically work with a lot of open tabs, you’re probably familiar with "
-"the frustration of searching through a row of unidentifiable tabs looking "
-"for just the one you need. Extensions can offer creative solutions for "
-"streamlining tab management."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:145
-msgid ""
-"Arrange and visualize your tabs in a cascading “tree” style format in "
-"Firefox’s sidebar."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-#, fuzzy
-msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr ""
-"Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
-"pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:160
-msgid "Better browsing with improved bookmarks"
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:161
-msgid ""
-"Extensions can help you organize your online interests. Bookmark managers "
-"are ideal for folks with a lot of content to track."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:165
-msgid ""
-"Enjoy a better way to organize your bookmarks if you maintain multiple "
-"bookmark folders."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:168
-#, fuzzy
-msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr ""
-"Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
-"pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:179
-msgid "Enjoy a fresh new tab experience"
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:180
-msgid ""
-"Start each browsing session tailored just for you by customizing your new "
-"tab experience."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:184
-msgid ""
-"Enjoy a beautiful new page with customizable backgrounds, local weather "
-"info, and more."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:202
-msgid "Improve videos"
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:203
-msgid ""
-"If you enjoy video content, extensions offer a number of ways to optimize "
-"your experience, including customizing YouTube to your taste and playing "
-"videos in theater mode."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:208
-msgid ""
-"Add a control bar to all YouTube video pages so you can easily adjust "
-"volume, playback speed, video player size, advertising and annotation "
-"blocking, and other features."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:217
-msgid "Get more out of media"
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:218
-msgid ""
-"Extensions can address a wide variety of niche media needs and interests, "
-"like image searching, download management, and text readers, to name a few."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:223
-msgid ""
-"Have you ever stumbled upon an intriguing image on the web and want to learn "
-"more about it, like who’s the person in the pic? Are there related images? "
-"This extension lets you perform quick and easy reverse image searches "
-"through a variety of engines."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:233
-msgid "Bring media right into the browser"
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:234
-msgid ""
-"Extensions can turn Firefox into your very own entertainment hub that gives "
-"you instant access to music, image capturing, gaming, and more."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:239
-msgid ""
-"Access 30,000+ radio stations from all over the globe, always just a click "
-"away."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:268
-msgid ""
-"The web is a wonderful but wild place. Your personal data can be used "
-"without your consent, your activities spied upon, and your passwords stolen. "
-"Fortunately, extensions can help fortify your online privacy and security."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:281
-msgid ""
-"Do you deal with too many open tabs or a dizzying number of bookmarks? "
-"Extensions can help! From organization assistance to providing fun new "
-"features, extensions can dramatically change the way you deal with tabs and "
-"bookmarks."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:294
-msgid ""
-"Extensions can augment online media in all sorts of interesting ways, from "
-"watching videos to handling images, music, and more."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:80
-msgid "Create and manage strong passwords"
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:81
-msgid ""
-"Password managers can help you create secure passwords, store your passwords "
-"(safely) in one place, and give you easy access to your login credentials "
-"wherever you are."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:86
-msgid ""
-"Fully encrypted password protection. Store your data securely and access "
-"logins across devices."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:90
-#, fuzzy
-msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr ""
-"Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
-"pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:98
-msgid "Block annoying ads"
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:99
-msgid ""
-"Today’s web is tangled up with unwanted advertisements that get in your way "
-"and slow you down. Ad-blocking extensions can block or filter those ads so "
-"you can get back to distraction-free browsing."
-msgstr ""
-
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:137
 msgid "Abstract"
 msgstr "Apstraktno"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:142
 msgid "Nature"
 msgstr "Priroda"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:147
 msgid "Film & TV"
 msgstr "Film i TV"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:152
 msgid "Scenery"
 msgstr "Scenografija"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:157
 msgid "Music"
 msgstr "Muzika"
 
-#: src/amo/pages/Home/index.js:163
+#: src/amo/pages/Home/index.js:162
 msgid "Seasonal"
 msgstr "Sezonski"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:209
 msgid "Change the way Firefox looks with themes."
 msgstr "Promijenite izgled Firefoxa sa temama."
 
-#: src/amo/pages/Home/index.js:234
+#: src/amo/pages/Home/index.js:242
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:132
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Vidi više popularnih ekstenzija"
 
-#: src/amo/pages/Home/index.js:290
+#: src/amo/pages/Home/index.js:300
 #, fuzzy
 msgid "See more popular themes"
 msgstr "Vidi više popularnih proširenja"
 
-#: src/amo/pages/Home/index.js:309
+#: src/amo/pages/Home/index.js:319
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "Vidi više najbolje ocjenjenih ekstenzija"
 
-#: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:336 src/amo/pages/LandingPage/index.js:164
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "Vidi više popularnih tema"
 
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/Home/index.js:359 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
 msgstr "Vidi više popularnih ekstenzija"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:57
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "Vidi više istaknutih ekstenzija"
 
-#: src/amo/pages/Home/index.js:59
+#: src/amo/pages/Home/index.js:58
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "Najbolje ekstenzije privatnosti"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:63
 #, fuzzy
 msgid "See more recommended password managers"
 msgstr "Vidi više popularnih tema"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:64
 #, fuzzy
 msgid "Recommended password managers"
 msgstr "Upravitelj lozinke"
@@ -3489,24 +3246,20 @@ msgstr "Pristupite vašim podacima za %(param)s"
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/PromotedBadge/index.js:40
+#: src/ui/components/PromotedBadge/index.js:38
 #, fuzzy
 msgid "By Firefox"
 msgstr "za Firefox"
 
-#: src/ui/components/PromotedBadge/index.js:42
-#: src/ui/components/PromotedBadge/index.js:50
-#: src/ui/components/PromotedBadge/index.js:62
+#: src/ui/components/PromotedBadge/index.js:40
+#: src/ui/components/PromotedBadge/index.js:48
+#: src/ui/components/PromotedBadge/index.js:58
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
 msgstr ""
 
-#: src/ui/components/PromotedBadge/index.js:59
-msgid "Verified Sponsor"
-msgstr ""
-
-#: src/ui/components/PromotedBadge/index.js:60
+#: src/ui/components/PromotedBadge/index.js:56
 msgid "Verified"
 msgstr ""
 
@@ -3545,6 +3298,50 @@ msgstr[2] "%(count)s dodataka pronađeno"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Odgovor developera"
+
+#, fuzzy
+#~ msgid "Admin add-on status"
+#~ msgstr "Učitavanje dodataka"
+
+#, fuzzy
+#~ msgid "Organize Tabs & Bookmarks"
+#~ msgstr "Zabilješke"
+
+#, fuzzy
+#~ msgid "Enhance Your Media Experience"
+#~ msgstr "Ocijenite vaše iskustvo"
+
+#, fuzzy
+#~ msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
+#~ msgstr ""
+#~ "Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
+#~ "pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
+
+#, fuzzy
+#~ msgid ""
+#~ "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
+#~ "extensions."
+#~ msgstr ""
+#~ "Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
+#~ "pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
+
+#, fuzzy
+#~ msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
+#~ msgstr ""
+#~ "Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
+#~ "pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
+
+#, fuzzy
+#~ msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
+#~ msgstr ""
+#~ "Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
+#~ "pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
+
+#, fuzzy
+#~ msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
+#~ msgstr ""
+#~ "Recite svijetu zašto mislite da je ova ekstenzija fantastična! Molimo "
+#~ "pratite naše %(linkStart)s smjernice za pregled %(linkEnd)s."
 
 #, fuzzy
 #~ msgid "Download"
