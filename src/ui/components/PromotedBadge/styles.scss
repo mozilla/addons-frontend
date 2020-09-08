@@ -24,7 +24,7 @@
 }
 
 .PromotedBadge--line {
-  color: $grey-40;
+  color: $grey-30;
 }
 
 .PromotedBadge--recommended {
@@ -57,28 +57,30 @@
 }
 
 .PromotedBadge-link--line {
-  border: 1px solid $grey-40;
+  border: 1px solid $grey-30;
+  border-left: 0;
 
   &,
   &:link,
   &:visited {
-    color: $grey-40;
+    color: $grey-30;
   }
 
   &:active,
   &:focus,
   &:hover {
-    border-color: $grey-50;
-    color: $grey-50;
+    border-color: $grey-40;
+    color: $grey-40;
 
-    .IconPromotedBadge-shellPath--line {
-      fill: $grey-50;
+    .IconPromotedBadge-circle-bgColor--line {
+      fill: $grey-40;
     }
   }
 }
 
 .PromotedBadge-link--recommended {
   border: 1px solid $orange-50;
+  border-left: 0;
 
   &,
   &:link,
@@ -92,7 +94,7 @@
     border-color: $orange-60;
     color: $orange-60;
 
-    .IconPromotedBadge-shellPath--recommended {
+    .IconPromotedBadge-circle-bgColor--recommended {
       fill: $orange-60;
     }
   }
@@ -100,6 +102,7 @@
 
 .PromotedBadge-link--verified {
   border: 1px solid $green-70;
+  border-left: 0;
 
   &,
   &:link,
@@ -113,7 +116,7 @@
     border-color: $green-80;
     color: $green-80;
 
-    .IconPromotedBadge-shellPath--verified {
+    .IconPromotedBadge-circle-bgColor--verified {
       fill: $green-80;
     }
   }

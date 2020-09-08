@@ -45,16 +45,6 @@ storiesOf('PromotedBadge', module).addWithChapters('all variants', {
           title: 'category="verified", size="small"',
           sectionFn: () => render({ category: 'verified', size: 'small' }),
         },
-        {
-          title: 'size="large" sponsor',
-          sectionFn: () =>
-            render({ category: 'verified', size: 'large', sponsor: true }),
-        },
-        {
-          title: 'category="verified", size="small" sponsor',
-          sectionFn: () =>
-            render({ category: 'verified', size: 'small', sponsor: true }),
-        },
       ],
     },
   ],

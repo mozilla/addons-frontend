@@ -17,7 +17,6 @@ type Props = {|
   category: PromotedBadgeCategory,
   onClick?: Function | null,
   size: PromotedBadgeSize,
-  sponsor?: boolean,
 |};
 
 export type InternalProps = {|
@@ -30,7 +29,6 @@ export const PromotedBadgeBase = ({
   i18n,
   onClick = null,
   size,
-  sponsor = false,
 }: InternalProps) => {
   let label;
   let linkTitle;
@@ -55,9 +53,7 @@ export const PromotedBadgeBase = ({
 
     // This is the verified badge.
     default:
-      label = sponsor
-        ? i18n.gettext('Verified Sponsor')
-        : i18n.gettext('Verified');
+      label = i18n.gettext('Verified');
       // TODO: Update the title and URL when we know them.
       linkTitle = i18n.gettext(
         'Firefox only recommends extensions that meet our standards for security and performance.',

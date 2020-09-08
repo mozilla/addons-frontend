@@ -14,7 +14,6 @@ describe(__filename, () => {
       category: 'line',
       i18n: fakeI18n(),
       size: 'large',
-      sponsor: false,
       ...moreProps,
     };
     return shallowUntilTarget(<PromotedBadge {...props} />, PromotedBadgeBase);
@@ -80,12 +79,6 @@ describe(__filename, () => {
     const root = render({ category });
 
     expect(root.find('.PromotedBadge-label')).toHaveText(label);
-  });
-
-  it('uses the expected label for verified sponsor', () => {
-    const root = render({ category: 'verified', sponsor: true });
-
-    expect(root.find('.PromotedBadge-label')).toHaveText('Verified Sponsor');
   });
 
   it('calls onClick after clicking on the link', () => {
