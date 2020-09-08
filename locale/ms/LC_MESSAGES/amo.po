@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-04 16:32+0000\n"
+"POT-Creation-Date: 2020-09-08 16:56+0000\n"
 "PO-Revision-Date: 2018-11-21 10:22+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,22 +45,18 @@ msgid "Add to collection"
 msgstr "Tambah ke koleksi"
 
 #: src/amo/components/AddonAdminLinks/index.js:105
-msgid "Admin add-on"
-msgstr "Pentadbir add-on"
-
-#: src/amo/components/AddonAdminLinks/index.js:119
 msgid "Content review add-on"
 msgstr "Kandungan ulasan add-on"
 
-#: src/amo/components/AddonAdminLinks/index.js:127
+#: src/amo/components/AddonAdminLinks/index.js:113
 msgid "Review theme"
 msgstr "Ulasan tema"
 
-#: src/amo/components/AddonAdminLinks/index.js:129
+#: src/amo/components/AddonAdminLinks/index.js:115
 msgid "Review add-on code"
 msgstr "Ulasan kod add-on"
 
-#: src/amo/components/AddonAdminLinks/index.js:149
+#: src/amo/components/AddonAdminLinks/index.js:135
 msgid "Admin Links"
 msgstr "Pautan Pentadbir"
 
@@ -69,9 +65,9 @@ msgstr "Pautan Pentadbir"
 msgid "Edit add-on"
 msgstr "Edit add-on"
 
-#: src/amo/components/AddonAdminLinks/index.js:90
-msgid "Admin add-on status"
-msgstr "Status pentadbir add-on"
+#: src/amo/components/AddonAdminLinks/index.js:91
+msgid "Admin add-on"
+msgstr "Pentadbir add-on"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
 #, fuzzy
@@ -620,16 +616,16 @@ msgstr "Add-on untuk Firefox Android (%(locale)s)"
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Add-on untuk Firefox Android (%(locale)s)"
 
-#: src/amo/components/AutoSearchInput/index.js:216
+#: src/amo/components/AutoSearchInput/index.js:207
 msgid "Loading"
 msgstr "Memuatkan"
 
-#: src/amo/components/AutoSearchInput/index.js:312
+#: src/amo/components/AutoSearchInput/index.js:303
 msgid "Find add-ons"
 msgstr "Cari add-ons"
 
-#: src/amo/components/AutoSearchInput/index.js:337
-#: src/amo/components/AutoSearchInput/index.js:365
+#: src/amo/components/AutoSearchInput/index.js:328
+#: src/amo/components/AutoSearchInput/index.js:356
 msgid "Search"
 msgstr "Carian"
 
@@ -1127,34 +1123,6 @@ msgstr "Ekstensi sorotan"
 msgid "RECOMMENDED"
 msgstr ""
 
-#: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:267
-msgid "Stay Safe Online"
-msgstr "Kekal Selamat Atas Talian"
-
-#: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:280
-msgid "Organize Tabs & Bookmarks"
-msgstr "Urus Tab & Tandabuku"
-
-#: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:293
-msgid "Enhance Your Media Experience"
-msgstr "Tingkatkan Pengalaman Media Anda"
-
-#: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
-msgid "Extensions are like apps for your browser."
-msgstr "Ekstensi adalah seperti aplikasi untuk pelayar anda."
-
-#: src/amo/components/HomeHeroGuides/index.js:60
-msgid ""
-"They add features to Firefox to make browsing faster, smarter, or just plain "
-"fun."
-msgstr ""
-"Ekstensi menambah ciri ke Firefox untuk membuatkan pelayaran lebih cepat, "
-"lebih bijak atau untuk keseronokan."
-
 #: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
 msgstr ""
@@ -1442,13 +1410,13 @@ msgstr ""
 msgid "Search results"
 msgstr "Hasil carian"
 
-#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272
+#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:282
 #: src/amo/pages/LandingPage/index.js:123
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Cari ekstensi"
 
-#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335
+#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:345
 #: src/amo/pages/LandingPage/index.js:155
 #, fuzzy
 msgid "Recommended themes"
@@ -1459,7 +1427,7 @@ msgstr "Tema musim panas"
 msgid "Recommended add-ons"
 msgstr "Cari add-ons"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:358
 #: src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
 msgstr "Ekstensi sohor kini"
@@ -1487,11 +1455,11 @@ msgstr "Tema tahap tinggi"
 msgid "Top rated add-ons"
 msgstr "Add-ons tahap tinggi"
 
-#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
+#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:318
 msgid "Popular extensions"
 msgstr "Ekstensi popular"
 
-#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
+#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:299
 msgid "Popular themes"
 msgstr "Tema popular"
 
@@ -1636,18 +1604,18 @@ msgstr "Sistem Pengoperasian"
 msgid "Recommended add-ons only"
 msgstr "Add-ons sorotan sahaja"
 
-#: src/amo/components/SearchForm/index.js:57
+#: src/amo/components/SearchForm/index.js:55
 #, fuzzy
 msgid "Firefox Add-ons for Android"
 msgstr "Add-ons untuk Android"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/SearchForm/index.js:58
+#: src/amo/components/SearchForm/index.js:56
 #, fuzzy
 msgid "Firefox Add-ons"
 msgstr "Perihal Add-ons Firefox"
 
-#: src/amo/components/SearchForm/index.js:81
+#: src/amo/components/SearchForm/index.js:79
 msgid "Go to the add-on page"
 msgstr "Pergi ke halaman add-on"
 
@@ -1677,7 +1645,7 @@ msgid "No results were found."
 msgstr "Tiada hasil ditemukan."
 
 #: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/PromotedBadge/index.js:49
+#: src/ui/components/PromotedBadge/index.js:47
 #, fuzzy
 msgid "Recommended"
 msgstr "Komen pengguna"
@@ -2100,293 +2068,35 @@ msgstr "Anda tiada sebarang koleksi."
 msgid "My collections"
 msgstr "Koleksi saya"
 
-#: src/amo/pages/Guides/index.js:105
-msgid ""
-"Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
-"of content filters without chewing up a bunch of memory."
-msgstr ""
-"Penyekat iklan yang ringkas dan efektif. uBlock Origin melaksanakan ribuan "
-"tapisan kandungan tanpa menggunakan banyak memori."
-
-#: src/amo/pages/Guides/index.js:109
-#, fuzzy
-msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Teroka %(linkStart)spenyekat iklan%(linkEnd)s lain yang dipilih."
-
-#: src/amo/pages/Guides/index.js:117
-msgid "Stop online trackers from stalking you"
-msgstr "Sekat penjejak atas talian daripada mengintip anda"
-
-#: src/amo/pages/Guides/index.js:118
-msgid ""
-"Online advertisers can track your activity from one website to the next, "
-"gathering information about you and your interests. Extensions can help "
-"cover your digital trail."
-msgstr ""
-"Pengiklan atas talian boleh menjejak aktiviti anda dari satu laman ke web "
-"seterusnya, mengumpulkan maklumat dan minat anda. Ekstensi boleh membantu "
-"melindungi jejak digital anda."
-
-#: src/amo/pages/Guides/index.js:123
-msgid ""
-"Isolate your Facebook identity into a separate “container” to stop Facebook "
-"from tracking your activity outside of its social platform."
-msgstr ""
-"Asingkan identiti Facebook anda ke dalam “bekas” berasingan untuk "
-"menghentikan Facebook daripada menjejaki aktiviti anda di luar platform "
-"sosialnya."
-
-#: src/amo/pages/Guides/index.js:127
-#, fuzzy
-msgid ""
-"Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
-"extensions."
-msgstr ""
-"Teroka %(linkStart)sprivasi & keselamatan%(linkEnd)s lain yang dipilih."
-
-#: src/amo/pages/Guides/index.js:138
-#, fuzzy
-msgid "Reimagine tab management"
-msgstr "Olahan semula pengurusan tab"
-
-#: src/amo/pages/Guides/index.js:139
-msgid ""
-"If you typically work with a lot of open tabs, you’re probably familiar with "
-"the frustration of searching through a row of unidentifiable tabs looking "
-"for just the one you need. Extensions can offer creative solutions for "
-"streamlining tab management."
-msgstr ""
-"Jika biasa bekerja dengan banyak tab terbuka, anda mungkin kecewa mencari "
-"dalam barisan tab yang tidak dikenali hanya untuk mencari tab yang "
-"diperlukan. Ekstensi boleh menawarkan penyelesaian kreatif untuk memperkemas "
-"pengurusan tab."
-
-#: src/amo/pages/Guides/index.js:145
-msgid ""
-"Arrange and visualize your tabs in a cascading “tree” style format in "
-"Firefox’s sidebar."
-msgstr ""
-"Susun dan visual tab dalam format gaya “pepohon” dalam bar sisi Firefox."
-
-#: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-#, fuzzy
-msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Teroka %(linkStart)spenyekat iklan%(linkEnd)s lain yang dipilih."
-
-#: src/amo/pages/Guides/index.js:160
-msgid "Better browsing with improved bookmarks"
-msgstr "Pelayaran lebih mudah dengan tandabuku yang lebih baik"
-
-#: src/amo/pages/Guides/index.js:161
-msgid ""
-"Extensions can help you organize your online interests. Bookmark managers "
-"are ideal for folks with a lot of content to track."
-msgstr ""
-"Ekstensi boleh membantu anda menyusun minat atas talian. Pengurus tandabuku "
-"sesuai untuk pengguna yang ada banyak kandungan untuk dijejaki."
-
-#: src/amo/pages/Guides/index.js:165
-msgid ""
-"Enjoy a better way to organize your bookmarks if you maintain multiple "
-"bookmark folders."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:168
-#, fuzzy
-msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Teroka %(linkStart)spengurus tandabuku%(linkEnd)s lain yang dipilih."
-
-#: src/amo/pages/Guides/index.js:179
-msgid "Enjoy a fresh new tab experience"
-msgstr "Nikmati pengalaman tab serba baru"
-
-#: src/amo/pages/Guides/index.js:180
-msgid ""
-"Start each browsing session tailored just for you by customizing your new "
-"tab experience."
-msgstr ""
-"Mulakan setiap sesi pelayaran yang disesuaikan dengan pengalaman tab baru "
-"anda."
-
-#: src/amo/pages/Guides/index.js:184
-msgid ""
-"Enjoy a beautiful new page with customizable backgrounds, local weather "
-"info, and more."
-msgstr ""
-"Alami halaman baru dengan penyesuaian latar belakang, cuaca tempatan & "
-"banyak lagi."
-
-#: src/amo/pages/Guides/index.js:202
-msgid "Improve videos"
-msgstr "Tingkatkan video"
-
-#: src/amo/pages/Guides/index.js:203
-#, fuzzy
-msgid ""
-"If you enjoy video content, extensions offer a number of ways to optimize "
-"your experience, including customizing YouTube to your taste and playing "
-"videos in theater mode."
-msgstr ""
-"Jika anda suka kandungan video, ekstensi menawarkan beberapa cara untuk "
-"mengoptimumkan pengalaman anda, daripada menyesuaikan siaran YouTube, "
-"memainkan video dalam mod teater dan banyak lagi."
-
-#: src/amo/pages/Guides/index.js:208
-msgid ""
-"Add a control bar to all YouTube video pages so you can easily adjust "
-"volume, playback speed, video player size, advertising and annotation "
-"blocking, and other features."
-msgstr ""
-"Tambah bar kawalan ke semua halaman video YouTube supaya anda boleh "
-"melaraskan kelantangan, main balik, saiz pemain video, pengiklanan dan "
-"anotasi dan ciri-ciri lain dengan mudah."
-
-#: src/amo/pages/Guides/index.js:217
-msgid "Get more out of media"
-msgstr "Dapatkan lebih banyak daripada media"
-
-#: src/amo/pages/Guides/index.js:218
-msgid ""
-"Extensions can address a wide variety of niche media needs and interests, "
-"like image searching, download management, and text readers, to name a few."
-msgstr ""
-"Ekstensi boleh memenuhi pelbagai keperluan dan kepentingan media khusus, "
-"seperti carian imej, urusan muat turun dan pembaca teks."
-
-#: src/amo/pages/Guides/index.js:223
-msgid ""
-"Have you ever stumbled upon an intriguing image on the web and want to learn "
-"more about it, like who’s the person in the pic? Are there related images? "
-"This extension lets you perform quick and easy reverse image searches "
-"through a variety of engines."
-msgstr ""
-"Pernahkah anda terjumpa imej yang menarik dalam web dan mahu mengetahui "
-"lebih lanjut tentangnya, seperti siapa dalam gambar itu? Ada imej yang "
-"berkaitan? Ekstensi ini membolehkan anda melakukan carian imej terbalik "
-"dengan cepat dan mudah melalui pelbagai enjin carian."
-
-#: src/amo/pages/Guides/index.js:233
-msgid "Bring media right into the browser"
-msgstr "Bawa media ke dalam pelayar"
-
-#: src/amo/pages/Guides/index.js:234
-msgid ""
-"Extensions can turn Firefox into your very own entertainment hub that gives "
-"you instant access to music, image capturing, gaming, and more."
-msgstr ""
-"Ekstensi boleh mengubah Firefox menjadi hab hiburan anda sendiri dengan "
-"memberikan anda akses segera ke muzik, tangkapan imej, permainan dan banyak "
-"lagi."
-
-#: src/amo/pages/Guides/index.js:239
-msgid ""
-"Access 30,000+ radio stations from all over the globe, always just a click "
-"away."
-msgstr "Akses 30,000+ stesen radio dari seluruh dunia, hanya satu klik sahaja."
-
-#: src/amo/pages/Guides/index.js:268
-msgid ""
-"The web is a wonderful but wild place. Your personal data can be used "
-"without your consent, your activities spied upon, and your passwords stolen. "
-"Fortunately, extensions can help fortify your online privacy and security."
-msgstr ""
-"Web adalah tempat yang indah tetapi berbahaya. Data peribadi anda boleh "
-"digunakan tanpa izin, aktiviti anda diintip dan kata laluan anda dicuri. "
-"Mujur ada ekstensi yang boleh membantu mengawal privasi dan keselamatan "
-"dalam talian anda."
-
-#: src/amo/pages/Guides/index.js:281
-msgid ""
-"Do you deal with too many open tabs or a dizzying number of bookmarks? "
-"Extensions can help! From organization assistance to providing fun new "
-"features, extensions can dramatically change the way you deal with tabs and "
-"bookmarks."
-msgstr ""
-"Adakah anda berurusan dengan terlalu banyak tab terbuka atau tandabuku? "
-"Ekstensi boleh membantu! Daripada bantuan organisasi untuk menyediakan ciri-"
-"ciri baru yang menyeronokkan, ekstensi secara dramatik boleh mengubah cara "
-"anda mengurus tab dan tandabuku."
-
-#: src/amo/pages/Guides/index.js:294
-msgid ""
-"Extensions can augment online media in all sorts of interesting ways, from "
-"watching videos to handling images, music, and more."
-msgstr ""
-"Ekstensi boleh menambah media atas talian dalam segala macam cara yang "
-"menarik, daripada menonton video untuk mengendalikan imej, muzik dan banyak "
-"lagi."
-
-#: src/amo/pages/Guides/index.js:80
-msgid "Create and manage strong passwords"
-msgstr "Cipta dan uruskan kata laluan yang sukar"
-
-#: src/amo/pages/Guides/index.js:81
-msgid ""
-"Password managers can help you create secure passwords, store your passwords "
-"(safely) in one place, and give you easy access to your login credentials "
-"wherever you are."
-msgstr ""
-"Pengurus kata laluan boleh membantu anda mencipta kata laluan yang selamat, "
-"menyimpan kata laluan (dengan selamat) di satu tempat, dan memberikan akses "
-"mudah untuk anda log masuk di mana-mana sahaja anda berada."
-
-#: src/amo/pages/Guides/index.js:86
-msgid ""
-"Fully encrypted password protection. Store your data securely and access "
-"logins across devices."
-msgstr ""
-"Perlindungan kata laluan dienkripsi sepenuhnya. Simpan data anda dengan "
-"selamat dan akses masuk ke semua peranti."
-
-#: src/amo/pages/Guides/index.js:90
-#, fuzzy
-msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr ""
-"Terokai %(linkStart)spengurus kata laluan%(linkEnd)s lain yang dipilih."
-
-#: src/amo/pages/Guides/index.js:98
-msgid "Block annoying ads"
-msgstr "Sekat iklan"
-
-#: src/amo/pages/Guides/index.js:99
-msgid ""
-"Today’s web is tangled up with unwanted advertisements that get in your way "
-"and slow you down. Ad-blocking extensions can block or filter those ads so "
-"you can get back to distraction-free browsing."
-msgstr ""
-"Web hari ini terpalit dengan iklan yang tidak diingini yang menghalang dan "
-"melambatkan anda. Ekstensi penyekat iklan boleh menyekat atau menapis iklan "
-"tersebut supaya anda boleh kembali ke pelayaran yang bebas gangguan."
-
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:137
 msgid "Abstract"
 msgstr "Abstrak"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:142
 msgid "Nature"
 msgstr "Alam"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:147
 msgid "Film & TV"
 msgstr "Filem & TV"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:152
 msgid "Scenery"
 msgstr "Pemandangan"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:157
 msgid "Music"
 msgstr "Muzik"
 
-#: src/amo/pages/Home/index.js:163
+#: src/amo/pages/Home/index.js:162
 msgid "Seasonal"
 msgstr "Musim"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:209
 msgid "Change the way Firefox looks with themes."
 msgstr "Mengubah penampilan Firefox dengan tema."
 
-#: src/amo/pages/Home/index.js:234
+#: src/amo/pages/Home/index.js:242
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2396,46 +2106,46 @@ msgstr ""
 "pelayar imbas anda. Ini boleh menyekat iklan, melindungi kata laluan, "
 "mengubah penampilan pelayar dan banyak lagi."
 
-#: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:132
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Lihat ekstensi sohor kini selanjutnya"
 
-#: src/amo/pages/Home/index.js:290
+#: src/amo/pages/Home/index.js:300
 #, fuzzy
 msgid "See more popular themes"
 msgstr "Lihat ekstensi popular selanjutnya"
 
-#: src/amo/pages/Home/index.js:309
+#: src/amo/pages/Home/index.js:319
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "Lihat ekstensi tahap tinggi selanjutnya"
 
-#: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:336 src/amo/pages/LandingPage/index.js:164
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "Lihat tema sohor kini selanjutnya"
 
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/Home/index.js:359 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
 msgstr "Lihat ekstensi sohor kini selanjutnya"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:57
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "Lihat ekstensi sorotan selanjutnya"
 
-#: src/amo/pages/Home/index.js:59
+#: src/amo/pages/Home/index.js:58
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "Ekstensi privasi teratas"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:63
 #, fuzzy
 msgid "See more recommended password managers"
 msgstr "Lihat tema sohor kini selanjutnya"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:64
 #, fuzzy
 msgid "Recommended password managers"
 msgstr "Pengurus kata laluan"
@@ -3496,24 +3206,20 @@ msgstr "Akses data anda untuk %(param)s"
 msgid "Dismiss this notice"
 msgstr "Abaikan notis ini"
 
-#: src/ui/components/PromotedBadge/index.js:40
+#: src/ui/components/PromotedBadge/index.js:38
 #, fuzzy
 msgid "By Firefox"
 msgstr "untuk Firefox"
 
-#: src/ui/components/PromotedBadge/index.js:42
-#: src/ui/components/PromotedBadge/index.js:50
-#: src/ui/components/PromotedBadge/index.js:62
+#: src/ui/components/PromotedBadge/index.js:40
+#: src/ui/components/PromotedBadge/index.js:48
+#: src/ui/components/PromotedBadge/index.js:58
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
 msgstr ""
 
-#: src/ui/components/PromotedBadge/index.js:59
-msgid "Verified Sponsor"
-msgstr ""
-
-#: src/ui/components/PromotedBadge/index.js:60
+#: src/ui/components/PromotedBadge/index.js:56
 msgid "Verified"
 msgstr ""
 
@@ -3549,6 +3255,252 @@ msgstr[0] "%(total)s add-on"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Respons pembangun"
+
+#~ msgid "Admin add-on status"
+#~ msgstr "Status pentadbir add-on"
+
+#~ msgid "Stay Safe Online"
+#~ msgstr "Kekal Selamat Atas Talian"
+
+#~ msgid "Organize Tabs & Bookmarks"
+#~ msgstr "Urus Tab & Tandabuku"
+
+#~ msgid "Enhance Your Media Experience"
+#~ msgstr "Tingkatkan Pengalaman Media Anda"
+
+#, fuzzy
+#~ msgid "Extensions are like apps for your browser."
+#~ msgstr "Ekstensi adalah seperti aplikasi untuk pelayar anda."
+
+#~ msgid ""
+#~ "They add features to Firefox to make browsing faster, smarter, or just "
+#~ "plain fun."
+#~ msgstr ""
+#~ "Ekstensi menambah ciri ke Firefox untuk membuatkan pelayaran lebih cepat, "
+#~ "lebih bijak atau untuk keseronokan."
+
+#~ msgid ""
+#~ "Lightweight, highly effective ad blocker. uBlock Origin enforces "
+#~ "thousands of content filters without chewing up a bunch of memory."
+#~ msgstr ""
+#~ "Penyekat iklan yang ringkas dan efektif. uBlock Origin melaksanakan "
+#~ "ribuan tapisan kandungan tanpa menggunakan banyak memori."
+
+#, fuzzy
+#~ msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
+#~ msgstr "Teroka %(linkStart)spenyekat iklan%(linkEnd)s lain yang dipilih."
+
+#~ msgid "Stop online trackers from stalking you"
+#~ msgstr "Sekat penjejak atas talian daripada mengintip anda"
+
+#~ msgid ""
+#~ "Online advertisers can track your activity from one website to the next, "
+#~ "gathering information about you and your interests. Extensions can help "
+#~ "cover your digital trail."
+#~ msgstr ""
+#~ "Pengiklan atas talian boleh menjejak aktiviti anda dari satu laman ke web "
+#~ "seterusnya, mengumpulkan maklumat dan minat anda. Ekstensi boleh membantu "
+#~ "melindungi jejak digital anda."
+
+#~ msgid ""
+#~ "Isolate your Facebook identity into a separate “container” to stop "
+#~ "Facebook from tracking your activity outside of its social platform."
+#~ msgstr ""
+#~ "Asingkan identiti Facebook anda ke dalam “bekas” berasingan untuk "
+#~ "menghentikan Facebook daripada menjejaki aktiviti anda di luar platform "
+#~ "sosialnya."
+
+#, fuzzy
+#~ msgid ""
+#~ "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
+#~ "extensions."
+#~ msgstr ""
+#~ "Teroka %(linkStart)sprivasi & keselamatan%(linkEnd)s lain yang dipilih."
+
+#, fuzzy
+#~ msgid "Reimagine tab management"
+#~ msgstr "Olahan semula pengurusan tab"
+
+#~ msgid ""
+#~ "If you typically work with a lot of open tabs, you’re probably familiar "
+#~ "with the frustration of searching through a row of unidentifiable tabs "
+#~ "looking for just the one you need. Extensions can offer creative "
+#~ "solutions for streamlining tab management."
+#~ msgstr ""
+#~ "Jika biasa bekerja dengan banyak tab terbuka, anda mungkin kecewa mencari "
+#~ "dalam barisan tab yang tidak dikenali hanya untuk mencari tab yang "
+#~ "diperlukan. Ekstensi boleh menawarkan penyelesaian kreatif untuk "
+#~ "memperkemas pengurusan tab."
+
+#~ msgid ""
+#~ "Arrange and visualize your tabs in a cascading “tree” style format in "
+#~ "Firefox’s sidebar."
+#~ msgstr ""
+#~ "Susun dan visual tab dalam format gaya “pepohon” dalam bar sisi Firefox."
+
+#, fuzzy
+#~ msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
+#~ msgstr "Teroka %(linkStart)spenyekat iklan%(linkEnd)s lain yang dipilih."
+
+#~ msgid "Better browsing with improved bookmarks"
+#~ msgstr "Pelayaran lebih mudah dengan tandabuku yang lebih baik"
+
+#~ msgid ""
+#~ "Extensions can help you organize your online interests. Bookmark managers "
+#~ "are ideal for folks with a lot of content to track."
+#~ msgstr ""
+#~ "Ekstensi boleh membantu anda menyusun minat atas talian. Pengurus "
+#~ "tandabuku sesuai untuk pengguna yang ada banyak kandungan untuk dijejaki."
+
+#, fuzzy
+#~ msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
+#~ msgstr ""
+#~ "Teroka %(linkStart)spengurus tandabuku%(linkEnd)s lain yang dipilih."
+
+#~ msgid "Enjoy a fresh new tab experience"
+#~ msgstr "Nikmati pengalaman tab serba baru"
+
+#~ msgid ""
+#~ "Start each browsing session tailored just for you by customizing your new "
+#~ "tab experience."
+#~ msgstr ""
+#~ "Mulakan setiap sesi pelayaran yang disesuaikan dengan pengalaman tab baru "
+#~ "anda."
+
+#~ msgid ""
+#~ "Enjoy a beautiful new page with customizable backgrounds, local weather "
+#~ "info, and more."
+#~ msgstr ""
+#~ "Alami halaman baru dengan penyesuaian latar belakang, cuaca tempatan & "
+#~ "banyak lagi."
+
+#~ msgid "Improve videos"
+#~ msgstr "Tingkatkan video"
+
+#, fuzzy
+#~ msgid ""
+#~ "If you enjoy video content, extensions offer a number of ways to optimize "
+#~ "your experience, including customizing YouTube to your taste and playing "
+#~ "videos in theater mode."
+#~ msgstr ""
+#~ "Jika anda suka kandungan video, ekstensi menawarkan beberapa cara untuk "
+#~ "mengoptimumkan pengalaman anda, daripada menyesuaikan siaran YouTube, "
+#~ "memainkan video dalam mod teater dan banyak lagi."
+
+#~ msgid ""
+#~ "Add a control bar to all YouTube video pages so you can easily adjust "
+#~ "volume, playback speed, video player size, advertising and annotation "
+#~ "blocking, and other features."
+#~ msgstr ""
+#~ "Tambah bar kawalan ke semua halaman video YouTube supaya anda boleh "
+#~ "melaraskan kelantangan, main balik, saiz pemain video, pengiklanan dan "
+#~ "anotasi dan ciri-ciri lain dengan mudah."
+
+#~ msgid "Get more out of media"
+#~ msgstr "Dapatkan lebih banyak daripada media"
+
+#~ msgid ""
+#~ "Extensions can address a wide variety of niche media needs and interests, "
+#~ "like image searching, download management, and text readers, to name a "
+#~ "few."
+#~ msgstr ""
+#~ "Ekstensi boleh memenuhi pelbagai keperluan dan kepentingan media khusus, "
+#~ "seperti carian imej, urusan muat turun dan pembaca teks."
+
+#~ msgid ""
+#~ "Have you ever stumbled upon an intriguing image on the web and want to "
+#~ "learn more about it, like who’s the person in the pic? Are there related "
+#~ "images? This extension lets you perform quick and easy reverse image "
+#~ "searches through a variety of engines."
+#~ msgstr ""
+#~ "Pernahkah anda terjumpa imej yang menarik dalam web dan mahu mengetahui "
+#~ "lebih lanjut tentangnya, seperti siapa dalam gambar itu? Ada imej yang "
+#~ "berkaitan? Ekstensi ini membolehkan anda melakukan carian imej terbalik "
+#~ "dengan cepat dan mudah melalui pelbagai enjin carian."
+
+#~ msgid "Bring media right into the browser"
+#~ msgstr "Bawa media ke dalam pelayar"
+
+#~ msgid ""
+#~ "Extensions can turn Firefox into your very own entertainment hub that "
+#~ "gives you instant access to music, image capturing, gaming, and more."
+#~ msgstr ""
+#~ "Ekstensi boleh mengubah Firefox menjadi hab hiburan anda sendiri dengan "
+#~ "memberikan anda akses segera ke muzik, tangkapan imej, permainan dan "
+#~ "banyak lagi."
+
+#~ msgid ""
+#~ "Access 30,000+ radio stations from all over the globe, always just a "
+#~ "click away."
+#~ msgstr ""
+#~ "Akses 30,000+ stesen radio dari seluruh dunia, hanya satu klik sahaja."
+
+#~ msgid ""
+#~ "The web is a wonderful but wild place. Your personal data can be used "
+#~ "without your consent, your activities spied upon, and your passwords "
+#~ "stolen. Fortunately, extensions can help fortify your online privacy and "
+#~ "security."
+#~ msgstr ""
+#~ "Web adalah tempat yang indah tetapi berbahaya. Data peribadi anda boleh "
+#~ "digunakan tanpa izin, aktiviti anda diintip dan kata laluan anda dicuri. "
+#~ "Mujur ada ekstensi yang boleh membantu mengawal privasi dan keselamatan "
+#~ "dalam talian anda."
+
+#~ msgid ""
+#~ "Do you deal with too many open tabs or a dizzying number of bookmarks? "
+#~ "Extensions can help! From organization assistance to providing fun new "
+#~ "features, extensions can dramatically change the way you deal with tabs "
+#~ "and bookmarks."
+#~ msgstr ""
+#~ "Adakah anda berurusan dengan terlalu banyak tab terbuka atau tandabuku? "
+#~ "Ekstensi boleh membantu! Daripada bantuan organisasi untuk menyediakan "
+#~ "ciri-ciri baru yang menyeronokkan, ekstensi secara dramatik boleh "
+#~ "mengubah cara anda mengurus tab dan tandabuku."
+
+#~ msgid ""
+#~ "Extensions can augment online media in all sorts of interesting ways, "
+#~ "from watching videos to handling images, music, and more."
+#~ msgstr ""
+#~ "Ekstensi boleh menambah media atas talian dalam segala macam cara yang "
+#~ "menarik, daripada menonton video untuk mengendalikan imej, muzik dan "
+#~ "banyak lagi."
+
+#~ msgid "Create and manage strong passwords"
+#~ msgstr "Cipta dan uruskan kata laluan yang sukar"
+
+#~ msgid ""
+#~ "Password managers can help you create secure passwords, store your "
+#~ "passwords (safely) in one place, and give you easy access to your login "
+#~ "credentials wherever you are."
+#~ msgstr ""
+#~ "Pengurus kata laluan boleh membantu anda mencipta kata laluan yang "
+#~ "selamat, menyimpan kata laluan (dengan selamat) di satu tempat, dan "
+#~ "memberikan akses mudah untuk anda log masuk di mana-mana sahaja anda "
+#~ "berada."
+
+#~ msgid ""
+#~ "Fully encrypted password protection. Store your data securely and access "
+#~ "logins across devices."
+#~ msgstr ""
+#~ "Perlindungan kata laluan dienkripsi sepenuhnya. Simpan data anda dengan "
+#~ "selamat dan akses masuk ke semua peranti."
+
+#, fuzzy
+#~ msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
+#~ msgstr ""
+#~ "Terokai %(linkStart)spengurus kata laluan%(linkEnd)s lain yang dipilih."
+
+#~ msgid "Block annoying ads"
+#~ msgstr "Sekat iklan"
+
+#~ msgid ""
+#~ "Today’s web is tangled up with unwanted advertisements that get in your "
+#~ "way and slow you down. Ad-blocking extensions can block or filter those "
+#~ "ads so you can get back to distraction-free browsing."
+#~ msgstr ""
+#~ "Web hari ini terpalit dengan iklan yang tidak diingini yang menghalang "
+#~ "dan melambatkan anda. Ekstensi penyekat iklan boleh menyekat atau menapis "
+#~ "iklan tersebut supaya anda boleh kembali ke pelayaran yang bebas gangguan."
 
 #, fuzzy
 #~ msgid "Download"

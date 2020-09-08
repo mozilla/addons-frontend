@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-04 16:32+0000\n"
+"POT-Creation-Date: 2020-09-08 16:56+0000\n"
 "PO-Revision-Date: 2020-06-21 19:57+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,28 +44,23 @@ msgstr "…ਵਿੱਚ ਜੋੜੋ"
 msgid "Add to collection"
 msgstr "ਸੰਗ੍ਰਹਿ ਵਿੱਚ ਜੋੜੋ"
 
-# This action allows an admin to maintain an add-on.
-#: src/amo/components/AddonAdminLinks/index.js:105
-msgid "Admin add-on"
-msgstr "ਪਰਸ਼ਾਸ਼ਕ ਐਡ-ਆਨ"
-
 # This action allows a reviewer to perform a content review of an add-on.
-#: src/amo/components/AddonAdminLinks/index.js:119
+#: src/amo/components/AddonAdminLinks/index.js:105
 msgid "Content review add-on"
 msgstr "ਸਮਗਰੀ ਸਮੀਖਿਆ ਐਡ-ਆਨ"
 
 # This action allows a reviewer to perform a review of a theme.
-#: src/amo/components/AddonAdminLinks/index.js:127
+#: src/amo/components/AddonAdminLinks/index.js:113
 msgid "Review theme"
 msgstr "ਥੀਮ ਦੀ ਸਮੀਖਿਆ ਕਰੋ"
 
 # This action allows a reviewer to perform a review of an add-on's code.
-#: src/amo/components/AddonAdminLinks/index.js:129
+#: src/amo/components/AddonAdminLinks/index.js:115
 msgid "Review add-on code"
 msgstr "ਐਡ-ਆਨ ਕੋਡ ਦੀ ਸਮੀਖਿਆ ਕਰੋ"
 
 # This is a list of links to administrative functions.
-#: src/amo/components/AddonAdminLinks/index.js:149
+#: src/amo/components/AddonAdminLinks/index.js:135
 msgid "Admin Links"
 msgstr "ਪਰਸ਼ਾਸ਼ਕੀ ਲਿੰਕ"
 
@@ -75,10 +70,10 @@ msgstr "ਪਰਸ਼ਾਸ਼ਕੀ ਲਿੰਕ"
 msgid "Edit add-on"
 msgstr "ਐਡ-ਆਨ ਸੋਧੋ"
 
-# This action allows an admin to edit the status of an add-on.
-#: src/amo/components/AddonAdminLinks/index.js:90
-msgid "Admin add-on status"
-msgstr "ਪਰਸ਼ਾਸ਼ਕੀ ਐਡ-ਆਨ ਹਾਲਤ"
+# This action allows an admin to maintain an add-on.
+#: src/amo/components/AddonAdminLinks/index.js:91
+msgid "Admin add-on"
+msgstr "ਪਰਸ਼ਾਸ਼ਕ ਐਡ-ਆਨ"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
 msgid "Author Links"
@@ -611,16 +606,16 @@ msgstr "ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਈਡ (%(locale)s) ਲਈ ਐ�
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਇਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/AutoSearchInput/index.js:216
+#: src/amo/components/AutoSearchInput/index.js:207
 msgid "Loading"
 msgstr "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/AutoSearchInput/index.js:312
+#: src/amo/components/AutoSearchInput/index.js:303
 msgid "Find add-ons"
 msgstr "ਐਡ-ਆਨ ਲੱਭੋ"
 
-#: src/amo/components/AutoSearchInput/index.js:337
-#: src/amo/components/AutoSearchInput/index.js:365
+#: src/amo/components/AutoSearchInput/index.js:328
+#: src/amo/components/AutoSearchInput/index.js:356
 msgid "Search"
 msgstr "ਖੋਜ"
 
@@ -1118,32 +1113,6 @@ msgstr "ਇਕਸਟੈਨਸ਼ਨ ਲਵੋ"
 msgid "RECOMMENDED"
 msgstr "ਸਿਫਾਰਸ਼ੀ"
 
-#: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:267
-msgid "Stay Safe Online"
-msgstr "ਆਨਲਾਈਨ ਸੁਰੱਖਿਅਤ ਰਹੋ"
-
-#: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:280
-msgid "Organize Tabs & Bookmarks"
-msgstr "ਟੈਬਾਂ ਅਤੇ ਬੁੱਕਮਾਰਕਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰੋ"
-
-#: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:293
-msgid "Enhance Your Media Experience"
-msgstr "ਆਪਣੇ ਮੀਡੀਆ ਅਨੁਭਵ ਨੂੰ ਵਧਾਓ"
-
-#: src/amo/components/HomeHeroGuides/index.js:57
-msgid "Extensions are like apps for your browser."
-msgstr "ਇਕਸਟੈਨਸ਼ਨ ਤੁਹਾਡੇ ਬਰਾਊਜ਼ਰ ਲਈ ਐਪਾਂ ਦੀ ਤਰ੍ਹਾਂ ਹਨ।"
-
-#: src/amo/components/HomeHeroGuides/index.js:60
-msgid ""
-"They add features to Firefox to make browsing faster, smarter, or just plain "
-"fun."
-msgstr ""
-"ਤੇਜ਼, ਚੁਸਤ, ਜਾਂ ਸਿਰਫ਼ ਸਾਦਾ ਮਜ਼ੇਦਾਰ ਬ੍ਰਾਉਜ਼ ਕਰਨ ਲਈ ਉਹ ਫਾਇਰਫਾਕਸ ਲਈ ਫੀਚਰ ਸ਼ਾਮਲ ਕਰਦੇ ਹਨ।"
-
 #: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
 msgstr "ਹੋਰ ਜਾਣੋ"
@@ -1424,12 +1393,12 @@ msgstr ""
 msgid "Search results"
 msgstr "ਖੋਜ ਨਤੀਜੇ"
 
-#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272
+#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:282
 #: src/amo/pages/LandingPage/index.js:123
 msgid "Recommended extensions"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335
+#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:345
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Recommended themes"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਥੀਮ"
@@ -1438,7 +1407,7 @@ msgstr "ਸਿਫਾਰਸ਼ੀ ਥੀਮ"
 msgid "Recommended add-ons"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਐਡ-ਆਨ"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:358
 #: src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
 msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਦਾ ਰੁਝਾਨ"
@@ -1466,11 +1435,11 @@ msgstr "ਸਿਖਰ ਤੇ ਦਿੱਤੇ ਗਏ ਵਿਸ਼ੇ"
 msgid "Top rated add-ons"
 msgstr "ਸਿਖਰ ਤੇ ਐਡ-ਆਨ ਸ਼ਾਮਲ"
 
-#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
+#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:318
 msgid "Popular extensions"
 msgstr "ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
+#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:299
 msgid "Popular themes"
 msgstr "ਹਰਮਨਪਿਆਰੇ ਥੀਮ"
 
@@ -1615,15 +1584,15 @@ msgstr "ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ"
 msgid "Recommended add-ons only"
 msgstr "ਸਿਰਫ ਸਿਫਾਰਸ਼ੀ ਐਡ-ਆਨ"
 
-#: src/amo/components/SearchForm/index.js:57
+#: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
 msgstr "ਐਂਡਰਾਇਡ ਲਈ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ"
 
-#: src/amo/components/SearchForm/index.js:58
+#: src/amo/components/SearchForm/index.js:56
 msgid "Firefox Add-ons"
 msgstr "ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ"
 
-#: src/amo/components/SearchForm/index.js:81
+#: src/amo/components/SearchForm/index.js:79
 msgid "Go to the add-on page"
 msgstr "ਐਡ-ਆਨ ਪੇਜ ਤੇ ਜਾਓ"
 
@@ -1654,7 +1623,7 @@ msgid "No results were found."
 msgstr "ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ।"
 
 #: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/PromotedBadge/index.js:49
+#: src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
 msgstr "ਸਿਫ਼ਾਰਸ਼ੀ"
 
@@ -2084,279 +2053,35 @@ msgstr "ਤੁਹਾਡੇ ਕੋਲ ਕੋਈ ਸੰਗ੍ਰਹਿ ਨਹੀ�
 msgid "My collections"
 msgstr "ਮੇਰੇ ਸੰਗ੍ਰਹਿ"
 
-#: src/amo/pages/Guides/index.js:105
-msgid ""
-"Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
-"of content filters without chewing up a bunch of memory."
-msgstr ""
-"ਹਲਕਾ, ਬਹੁਤ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਇਸ਼ਤਿਹਾਰ ਪਾਬੰਦੀ ਲਾਉਣ ਵਾਲਾ। uBlock ਮੂਲ ਹਜ਼ਾਰਾਂ ਸਮੱਗਰੀ ਫਿਲਟਰਾਂ ਨੂੰ "
-"ਮੈਮੋਰੀ ਖ਼ਪਤ ਕੀਤੇ ਬਗੈਰ ਲਾਗੂ ਕਰਦਾ ਹੈ।"
-
-#: src/amo/pages/Guides/index.js:109
-msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "ਵਧੇਰੇ ਸ਼ਾਨਦਾਰ%(linkStart)s ਉਦਾਸ ਬਲੌਕਰ%(linkEnd)s ਦੀ ਪੜਚੋਲ ਕਰੋ।"
-
-#: src/amo/pages/Guides/index.js:117
-msgid "Stop online trackers from stalking you"
-msgstr "ਆਨਲਾਈਨ ਟਰੈਕਰਜ਼ ਨੂੰ ਤੁਹਾਡੇ ਤੇ ਹਮਲਾ ਕਰਨ ਤੋਂ ਰੋਕੋ"
-
-#: src/amo/pages/Guides/index.js:118
-msgid ""
-"Online advertisers can track your activity from one website to the next, "
-"gathering information about you and your interests. Extensions can help "
-"cover your digital trail."
-msgstr ""
-"ਔਨਲਾਈਨ ਇਸ਼ਤਿਹਾਰਦਾਤਾ ਤੁਹਾਡੀ ਗਤੀਵਿਧੀ ਨੂੰ ਵੈਬਸਾਈਟ ਤੋਂ ਅਗਲੇ ਅਤੇ, ਤੁਹਾਡੇ ਅਤੇ ਤੁਹਾਡੀ ਦਿਲਚਸਪੀਆਂ "
-"ਬਾਰੇ ਜਾਣਕਾਰੀ ਇਕੱਤਰ ਕਰ ਸਕਦੇ ਹਨ। ਇਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੇ ਡਿਜੀਟਲ ਟ੍ਰਾਇਲ ਨੂੰ ਕਵਰ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ "
-"ਸਕਦੇ ਹਨ।"
-
-#: src/amo/pages/Guides/index.js:123
-msgid ""
-"Isolate your Facebook identity into a separate “container” to stop Facebook "
-"from tracking your activity outside of its social platform."
-msgstr ""
-"ਫੇਸਬੁੱਕ ਨੂੰ ਆਪਣੇ ਸਮਾਜਿਕ ਪਲੇਟਫਾਰਮ ਦੇ ਬਾਹਰ ਆਪਣੀ ਗਤੀਵਿਧੀ ਨੂੰ ਟਰੈਕ ਕਰਨ ਤੋਂ ਰੋਕਣ ਲਈ ਆਪਣੀ ਫੇਸਬੁੱਕ "
-"ਪਛਾਣ ਨੂੰ ਅਲੱਗ “ਕੰਟੇਨਰ” ਵਿੱਚ ਅਲੱਗ ਰੱਖੋ।"
-
-#: src/amo/pages/Guides/index.js:127
-msgid ""
-"Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
-"extensions."
-msgstr ""
-"ਹੋਰ ਸਿਫਾਰਸ਼ੀ %(linkStart)s ਪ੍ਰਾਈਵਸੀ ਅਤੇ ਸਕਿਓਰਿਟੀ%(linkEnd)s ਦੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
-
-#: src/amo/pages/Guides/index.js:138
-msgid "Reimagine tab management"
-msgstr "ਹੋਰ ਇਕ ਵਾਰੀ ਕਲਪਨਾ ਕਰੋ ਟੈਬ ਪ੍ਰਬੰਧਨ"
-
-#: src/amo/pages/Guides/index.js:139
-msgid ""
-"If you typically work with a lot of open tabs, you’re probably familiar with "
-"the frustration of searching through a row of unidentifiable tabs looking "
-"for just the one you need. Extensions can offer creative solutions for "
-"streamlining tab management."
-msgstr ""
-"ਜੇ ਤੁਸੀਂ ਆਮ ਤੌਰ ਤੇ ਬਹੁਤ ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਟੈਬਾਂ ਨਾਲ ਕੰਮ ਕਰਦੇ ਹੋ, ਤਾਂ ਸੰਭਵ ਤੌਰ ਤੇ ਤੁਹਾਨੂੰ ਸਿਰਫ ਲੋੜੀਂਦੀ "
-"ਇੱਕ ਦੀ ਤਲਾਸ਼ ਕਰਨ ਵਾਲੀ ਅਗਿਆਤ ਟੈਬਾਂ ਦੀ ਇੱਕ ਕਤਾਰ ਦੁਆਰਾ ਖੋਜ ਦੀ ਨਿਰਾਸ਼ਾ ਤੋਂ ਜਾਣੂ ਹੋ ਸਕਦਾ ਹੈ। "
-"ਇਕਸਟੈਨਸ਼ਨਾਂ ਨੂੰ ਟੈਬ ਦੇ ਇੰਤਜ਼ਾਮ ਨੂੰ ਸਰਲ ਬਣਾਉਣ ਲਈ ਸਿਰਜਣਾਤਮਕ ਹੱਲ ਪੇਸ਼ ਕਰ ਸਕਦੇ ਹਨ।"
-
-#: src/amo/pages/Guides/index.js:145
-msgid ""
-"Arrange and visualize your tabs in a cascading “tree” style format in "
-"Firefox’s sidebar."
-msgstr ""
-"ਫਾਇਰਫਾਕਸ ਦੇ ਬਾਹੀ ਵਿੱਚ ਕੈਸਕੇਡਿੰਗ ਵਾਲੀ “ਲੜੀ” ਸਟਾਈਲ ਫਾਰਮੈਟ ਵਿੱਚ ਆਪਣੇ ਟੈਬਾਂ ਨੂੰ ਇੰਤਜ਼ਾਮ ਕਰੋ ਅਤੇ "
-"ਵੇਖੋ।"
-
-# Example in English: "posted last week"
-#: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "ਹੋਰ%(linkStart)s ਟੈਬ%(linkEnd)s ਦੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
-
-#: src/amo/pages/Guides/index.js:160
-msgid "Better browsing with improved bookmarks"
-msgstr "ਸੁਧਾਰ ਕੀਤੇ ਬੁੱਕਮਾਰਕ ਨਾਲ ਵਧੀਆ ਬਰਾਊਜ਼ਿੰਗ"
-
-#: src/amo/pages/Guides/index.js:161
-msgid ""
-"Extensions can help you organize your online interests. Bookmark managers "
-"are ideal for folks with a lot of content to track."
-msgstr ""
-"ਇਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੀ ਆਨਲਾਈਨ ਰੁਚੀਆਂ ਦੇ ਬੰਦੋਬਸਤ ਕਰਨ ਵਿੱਚ ਤੁਹਾਡੀ ਸਹਾਇਤਾ ਕਰ ਸਕਦੇ ਹਨ। ਬੁੱਕਮਾਰਕ "
-"ਮੈਨੇਜਰ, ਟਰੈਕ ਕਰਨ ਲਈ ਬਹੁਤ ਸਾਰੀ ਸਮੱਗਰੀ ਵਾਲੇ ਲੋਕਾਂ ਲਈ ਆਦਰਸ਼ ਹਨ।"
-
-#: src/amo/pages/Guides/index.js:165
-msgid ""
-"Enjoy a better way to organize your bookmarks if you maintain multiple "
-"bookmark folders."
-msgstr ""
-"ਜੇ ਤੁਸੀਂ ਕਈ ਬੁੱਕਮਾਰਕ ਫੋਲਡਰਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰਦੇ ਹੋ ਤਾਂ ਆਪਣੇ ਬੁੱਕਮਾਰਕਾਂ ਦੇ ਇੰਤਜ਼ਾਮ ਕਰਨ ਦੇ ਵਧੀਆ ਢੰਗ ਦਾ "
-"ਆਨੰਦ ਲਵੋ।"
-
-#: src/amo/pages/Guides/index.js:168
-msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "ਹੋਰ %(linkStart)s ਬੁੱਕਮਾਰਕ%(linkEnd)s ਦੇ ਇਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
-
-#: src/amo/pages/Guides/index.js:179
-msgid "Enjoy a fresh new tab experience"
-msgstr "ਇੱਕ ਤਾਜ਼ੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਦਾ ਅਨੰਦ ਮਾਣੋ"
-
-#: src/amo/pages/Guides/index.js:180
-msgid ""
-"Start each browsing session tailored just for you by customizing your new "
-"tab experience."
-msgstr ""
-"ਆਪਣੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰਕੇ ਤੁਹਾਡੇ ਲਈ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਰੇਕ ਬ੍ਰਾਊਜ਼ਿੰਗ ਸੈਸ਼ਨ ਨੂੰ ਸ਼ੁਰੂ ਕਰੋ।"
-
-#: src/amo/pages/Guides/index.js:184
-msgid ""
-"Enjoy a beautiful new page with customizable backgrounds, local weather "
-"info, and more."
-msgstr "ਅਨੁਕੂਲ ਬੈਕਗਰਾਊਂਡ, ਸਥਾਨਕ ਮੌਸਮ ਜਾਣਕਾਰੀ, ਅਤੇ ਹੋਰ ਦੇ ਨਾਲ ਇੱਕ ਸੁੰਦਰ ਨਵੇਂ ਪੰਨੇ ਦਾ ਆਨੰਦ ਮਾਣੋ।"
-
-#: src/amo/pages/Guides/index.js:202
-msgid "Improve videos"
-msgstr "ਵੀਡੀਓ ਨੂੰ ਸੁਧਾਰੋ"
-
-#: src/amo/pages/Guides/index.js:203
-msgid ""
-"If you enjoy video content, extensions offer a number of ways to optimize "
-"your experience, including customizing YouTube to your taste and playing "
-"videos in theater mode."
-msgstr ""
-"ਜੇ ਤੁਸੀਂ ਵੀਡੀਓ ਸਮਗਰੀ ਦਾ ਅਨੰਦ ਮਾਣਦੇ ਹੋ, ਤਾਂ ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੇ ਤਜਰਬੇ ਨੂੰ ਅਨੁਕੂਲ ਬਣਾਉਣ ਦੇ ਕਈ ਤਰੀਕੇ "
-"ਪੇਸ਼ ਕਰਦੇ ਹਨ, ਜਿਸ ਵਿੱਚ ਥੀਏਟਰ ਮੋਡ ਵਿੱਚ YouTube ਨੂੰ ਆਪਣੇ ਸੁਆਦ ਅਤੇ ਵੀਡੀਓਜ਼ ਨੂੰ ਅਨੁਕੂਲ ਕਰਨਾ ਸ਼ਾਮਲ "
-"ਹੈ।"
-
-#: src/amo/pages/Guides/index.js:208
-msgid ""
-"Add a control bar to all YouTube video pages so you can easily adjust "
-"volume, playback speed, video player size, advertising and annotation "
-"blocking, and other features."
-msgstr ""
-"ਸਾਰੇ YouTube ਵੀਡੀਓ ਸਫ਼ਿਆਂ ਉੱਤੇ ਕੰਟਰੋਲ ਪੱਟੀ ਜੋੜੋ ਤਾਂ ਜੋ ਤੁਸੀਂ ਆਕਾਰ, ਪਲੇਬੈਕ ਸਪੀਡ, ਵਿਡੀਓ ਪਲੇਅਰ "
-"ਦਾ ਆਕਾਰ, ਇਸ਼ਤਿਹਾਰ ਅਤੇ ਐਨੋਟੇਸ਼ਨ ਪਾਬੰਦੀਆਂ ਅਤੇ ਹੋਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਆਸਾਨੀ ਨਾਲ ਅਨੁਕੂਲ ਕਰ ਸਕੋ।"
-
-#: src/amo/pages/Guides/index.js:217
-msgid "Get more out of media"
-msgstr "ਮੀਡੀਆ ਤੋਂ ਵੱਧ ਪ੍ਰਾਪਤ ਕਰੋ"
-
-#: src/amo/pages/Guides/index.js:218
-msgid ""
-"Extensions can address a wide variety of niche media needs and interests, "
-"like image searching, download management, and text readers, to name a few."
-msgstr ""
-"ਐਕਸਟੈਂਸ਼ਨ ਵੱਖ-ਵੱਖ ਕਿਸਮ ਦੇ ਮੀਡੀਆ ਲੋੜਾਂ ਅਤੇ ਦਿਲਚਸਪੀਆਂ ਨੂੰ ਸੰਬੋਧਨ ਕਰ ਸਕਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਚਿੱਤਰ ਖੋਜ, "
-"ਡਾਊਨਲੋਡ ਪ੍ਰਬੰਧਨ, ਅਤੇ ਪਾਠ ਪਾਠਕ, ਕੁਝ ਨਾਂ ਲਿਖਣ ਲਈ।"
-
-#: src/amo/pages/Guides/index.js:223
-msgid ""
-"Have you ever stumbled upon an intriguing image on the web and want to learn "
-"more about it, like who’s the person in the pic? Are there related images? "
-"This extension lets you perform quick and easy reverse image searches "
-"through a variety of engines."
-msgstr ""
-"ਕੀ ਤੁਸੀਂ ਕਦੇ ਵੈਬ ਤੇ ਇਕ ਦਿਲਚਸਪ ਤਸਵੀਰ ਤੇ ਠੋਕਰ ਮਾਰੀ ਹੈ ਅਤੇ ਇਸ ਬਾਰੇ ਹੋਰ ਜਾਣਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਜਿਵੇਂ "
-"ਕਿ ਤਸਵੀਰ ਵਿਚਲੇ ਵਿਅਕਤੀ ਦਾ? ਕੀ ਇੱਥੇ ਸਬੰਧਿਤ ਤਸਵੀਰਾਂ ਹਨ? ਇਹ ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਨੂੰ ਵੱਖ ਵੱਖ ਇੰਜਣਾਂ "
-"ਦੁਆਰਾ ਤੇਜ਼ ਅਤੇ ਆਸਾਨ ਉਲਟਾ ਚਿੱਤਰ ਖੋਜ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦੀ ਹੈ।"
-
-#: src/amo/pages/Guides/index.js:233
-msgid "Bring media right into the browser"
-msgstr "ਮੀਡੀਆ ਨੂੰ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਲਿਆਓ"
-
-#: src/amo/pages/Guides/index.js:234
-msgid ""
-"Extensions can turn Firefox into your very own entertainment hub that gives "
-"you instant access to music, image capturing, gaming, and more."
-msgstr ""
-"ਐਕਸਟੈਂਸ਼ਨ ਫਾਇਰਫਾਕਸ ਨੂੰ ਤੁਹਾਡੇ ਆਪਣੇ ਮਨੋਰੰਜਨ ਹੱਬ ਵਿੱਚ ਬਦਲ ਸਕਦੀ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਸੰਗੀਤ, ਚਿੱਤਰ ਕੈਪਚਰ, "
-"ਗੇਮਿੰਗ ਅਤੇ ਹੋਰ ਵੀ ਬਹੁਤ ਕੁਝ ਦੀ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।"
-
-#: src/amo/pages/Guides/index.js:239
-msgid ""
-"Access 30,000+ radio stations from all over the globe, always just a click "
-"away."
-msgstr "ਦੁਨੀਆ ਭਰ ਤੋਂ 30,000+ ਰੇਡੀਓ ਸਟੇਸ਼ਨਾਂ ਤੱਕ ਪਹੁੰਚੋ, ਹਮੇਸ਼ਾ ਇੱਕ ਕਲਿਕ ਦੂਰ।"
-
-#: src/amo/pages/Guides/index.js:268
-msgid ""
-"The web is a wonderful but wild place. Your personal data can be used "
-"without your consent, your activities spied upon, and your passwords stolen. "
-"Fortunately, extensions can help fortify your online privacy and security."
-msgstr ""
-"ਵੈਬ ਇਕ ਸ਼ਾਨਦਾਰ ਪਰ ਜੰਗਲੀ ਜਗ੍ਹਾ ਹੈ। ਤੁਹਾਡੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਤੁਹਾਡੀ ਸਹਿਮਤੀ ਤੋਂ ਬਿਨਾਂ ਵਰਤੀ ਜਾ "
-"ਸਕਦੀ ਹੈ, ਤੁਹਾਡੀਆਂ ਗਤੀਵਿਧੀਆਂ ਤੇ ਜਾਸੂਸੀ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ, ਅਤੇ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਚੋਰੀ ਹੋ ਸਕਦੇ ਹਨ। "
-"ਖੁਸ਼ਕਿਸਮਤੀ ਨਾਲ, ਐਕਸਟੈਂਸ਼ਨਜ਼ ਤੁਹਾਡੀ ਔਨਲਾਈਨ ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ ਨੂੰ ਮਜਬੂਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ "
-"ਸਕਦੀ ਹੈ।"
-
-#: src/amo/pages/Guides/index.js:281
-msgid ""
-"Do you deal with too many open tabs or a dizzying number of bookmarks? "
-"Extensions can help! From organization assistance to providing fun new "
-"features, extensions can dramatically change the way you deal with tabs and "
-"bookmarks."
-msgstr ""
-"ਕੀ ਤੁਸੀਂ ਬਹੁਤ ਸਾਰੀਆਂ ਖੁੱਲੇ ਟੈਬਾਂ ਜਾਂ ਇੱਕ ਬੁਝਾਰਤ ਦੀ ਬੁਖਾਰ ਨਾਲ ਸੰਪੰਨ ਕਰਦੇ ਹੋ? ਐਕਸਟੈਂਸ਼ਨਾਂ ਮਦਦ ਕਰ "
-"ਸਕਦੀਆਂ ਹਨ! ਸੰਗਠਨ ਦੀ ਸਹਾਇਤਾ ਤੋਂ ਲੈ ਕੇ ਮਨੋਰੰਜਨ ਦੀਆਂ ਨਵੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਪ੍ਰਦਾਨ ਕਰਨ ਤੱਕ, ਐਕਸਟੈਂਸ਼ਨਾਂ "
-"ਨਾਲ ਤੁਹਾਡੇ ਟੈਬਾਂ ਅਤੇ ਬੁੱਕਮਾਰਕਸ ਨਾਲ ਨਜਿੱਠਣ ਦਾ ਤਰੀਕਾ ਬਦਲ ਦਿਓ ਨੂੰ ਬਦਲ ਸਕਦੀਆਂ ਹਨ।"
-
-#: src/amo/pages/Guides/index.js:294
-msgid ""
-"Extensions can augment online media in all sorts of interesting ways, from "
-"watching videos to handling images, music, and more."
-msgstr ""
-"ਐਕਸਟੈਂਸ਼ਨ ਵਿਡਿਓ ਦੇਖਣ ਤੋਂ ਲੈ ਕੇ ਹੈਂਡਲ ਕਰਨ ਵਾਲੀਆਂ ਤਸਵੀਰਾਂ, ਸੰਗੀਤ ਅਤੇ ਹੋਰ ਵੀ ਕਈ ਤਰਾਂ ਦੇ ਆਨਲਾਈਨ "
-"ਦਿਲਚਸਪ ਮੀਡੀਆ ਨੂੰ ਵਧਾ ਸਕਦੇ ਹਨ।"
-
-#: src/amo/pages/Guides/index.js:80
-msgid "Create and manage strong passwords"
-msgstr "ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਬਣਾਓ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ"
-
-#: src/amo/pages/Guides/index.js:81
-msgid ""
-"Password managers can help you create secure passwords, store your passwords "
-"(safely) in one place, and give you easy access to your login credentials "
-"wherever you are."
-msgstr ""
-"ਪਾਸਵਰਡ ਪ੍ਰਬੰਧਕ ਤੁਹਾਨੂੰ ਸੁਰੱਖਿਅਤ ਪਾਸਵਰਡ ਬਣਾਉਣ, ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਸਟੋਰ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੇ ਹਨ "
-"(ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ) ਇਕ ਥਾਂ ਤੇ, ਅਤੇ ਤੁਸੀਂ ਜਿੱਥੇ ਵੀ ਹੋਵੋ ਉੱਥੇ ਆਪਣੇ ਲਾਗਇਨ ਪ੍ਰਮਾਣ ਪੱਤਰ ਤਕ ਆਸਾਨ ਪਹੁੰਚ "
-"ਪ੍ਰਦਾਨ ਕਰੋ।"
-
-#: src/amo/pages/Guides/index.js:86
-msgid ""
-"Fully encrypted password protection. Store your data securely and access "
-"logins across devices."
-msgstr ""
-"ਪੂਰੀ ਤਰ੍ਹਾਂ ਇਨਕਰਿਪਟ ਕੀਤੀ ਪਾਸਵਰਡ ਸੁਰੱਖਿਆ। ਆਪਣੇ ਡਾਟੇ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੂਪ ਸੰਭਾਲੋ ਅਤੇ ਲਾਗਇਨ ਨੂੰ ਸਾਰੇ "
-"ਡਿਵਾਈਸਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਕਰੋ\\"
-
-#: src/amo/pages/Guides/index.js:90
-msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "ਹੋਰ ਮਹਾਨ %(linkStart)sਪਾਸਵਰਡ ਮੈਨੇਜਰ%(linkEnd)s ਦੀ ਪੜਚੋਲ ਕਰੋ।"
-
-#: src/amo/pages/Guides/index.js:98
-msgid "Block annoying ads"
-msgstr "ਤੰਗ ਕਰਨ ਵਾਲੇ ਇਸ਼ਤਿਹਾਰਾਂ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
-
-#: src/amo/pages/Guides/index.js:99
-msgid ""
-"Today’s web is tangled up with unwanted advertisements that get in your way "
-"and slow you down. Ad-blocking extensions can block or filter those ads so "
-"you can get back to distraction-free browsing."
-msgstr ""
-"ਅੱਜ ਦਾ ਵੈੱਬ ਅਣਚਾਹੇ ਇਸ਼ਤਿਹਾਰਾਂ ਨਾਲ ਪੇਚੀਦਗੀ ਹੋ ਜਾਂਦਾ ਹੈ, ਜੋ ਤੁਹਾਡੇ ਰਾਹ ਵਿੱਚ ਆਉਂਦੇ ਹਨ ਅਤੇ ਤੁਹਾਨੂੰ "
-"ਹੌਲੀ ਕਰਦੇ ਹਨ। ਇਸ਼ਤਿਹਾਰ-ਪਾਬੰਦੀ ਇਕਸਟੈਂਸ਼ਨਾਂ ਉਹਨਾਂ ਇਸ਼ਤਿਹਾਰਾਂ ਉੱਤੇ ਪਾਬੰਦੀ ਲਗਾਉਂਦਾ ਜਾਂ ਫਿਲਟਰ ਕਰ "
-"ਸਕਦੀਆਂ ਹਨ ਤਾਂ ਜੋ ਤੁਸੀਂ ਬਿਨਾਂ-ਅਟਕੇ ਬਰਾਊਜ਼ਿੰਗ ਉੱਤੇ ਵਾਪਸ ਪ੍ਰਾਪਤ ਕਰ ਸਕੋ।"
-
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:137
 msgid "Abstract"
 msgstr "ਸੰਖੇਪ"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:142
 msgid "Nature"
 msgstr "ਕੁਦਰਤ"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:147
 msgid "Film & TV"
 msgstr "ਫਿਲਮ ਅਤੇ ਟੀਵੀ"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:152
 msgid "Scenery"
 msgstr "ਦ੍ਰਿਸ਼"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:157
 msgid "Music"
 msgstr "ਸੰਗੀਤ"
 
-#: src/amo/pages/Home/index.js:163
+#: src/amo/pages/Home/index.js:162
 msgid "Seasonal"
 msgstr "ਮੌਸਮੀ"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:209
 msgid "Change the way Firefox looks with themes."
 msgstr "ਫਾਇਰਫਾਕਸ ਨੂੰ ਥੀਮਾਂ ਦੇ ਰੂਪ ਵਿੱਚ ਵੇਖਣਾ ਬਦਲੋ।"
 
-#: src/amo/pages/Home/index.js:234
+#: src/amo/pages/Home/index.js:242
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2366,39 +2091,39 @@ msgstr ""
 "ਵਾਲੇ ਇਸ਼ਤਿਹਾਰ ਨੂੰ ਰੋਕ ਸਕਦੇ ਹਨ, ਪਾਸਵਰਡ ਸੰਭਾਲ ਸਕਦੇ ਹਨ, ਬਰਾਊਜ਼ਰ ਦਿੱਖ ਬਦਲ ਸਕਦੇ ਹਨ ਅਤੇ ਹੋਰ ਵੀ "
 "ਬਹੁਤ ਕੁਝ ਕਰ ਸਕਦੇ ਹਨ।"
 
-#: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
 msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ੀ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:290
+#: src/amo/pages/Home/index.js:300
 msgid "See more popular themes"
 msgstr "ਵਧੇਰੇ ਪ੍ਰਸਿੱਧ ਥੀਮ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:309
+#: src/amo/pages/Home/index.js:319
 msgid "See more popular extensions"
 msgstr "ਹੋਰ ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:336 src/amo/pages/LandingPage/index.js:164
 msgid "See more recommended themes"
 msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਥੀਮ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/Home/index.js:359 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
 msgstr "ਵੱਧ ਰੁਝਾਨ ਵਾਲੀਆਂ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:57
 msgid "See more enhanced privacy extensions"
 msgstr "ਹੋਰ ਵਾਧਾ ਕੀਤੀਆਂ ਪਰਦੇਦਾਰੀ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:59
+#: src/amo/pages/Home/index.js:58
 msgid "Enhanced privacy extensions"
 msgstr "ਵਾਧਾ ਕੀਤੀਆਂ ਪਰਦੇਦਾਰੀ ਇਕਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:63
 msgid "See more recommended password managers"
 msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਪਾਸਵਰਡ ਮੈਨੇਜਰ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:64
 msgid "Recommended password managers"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਪਾਸਵਰਡ ਮੈਨੇਜਰ"
 
@@ -3416,14 +3141,14 @@ msgstr "%(param)s ਲਈ ਆਪਣਾ ਡੇਟਾ ਐਕਸੈਸ ਕਰੋ"
 msgid "Dismiss this notice"
 msgstr "ਇਸ ਨੋਟਿਸ ਨੂੰ ਖਾਰਜ ਕਰੋ"
 
-#: src/ui/components/PromotedBadge/index.js:40
+#: src/ui/components/PromotedBadge/index.js:38
 #, fuzzy
 msgid "By Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਲਈ"
 
-#: src/ui/components/PromotedBadge/index.js:42
-#: src/ui/components/PromotedBadge/index.js:50
-#: src/ui/components/PromotedBadge/index.js:62
+#: src/ui/components/PromotedBadge/index.js:40
+#: src/ui/components/PromotedBadge/index.js:48
+#: src/ui/components/PromotedBadge/index.js:58
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -3431,11 +3156,7 @@ msgstr ""
 "ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ "
 "ਹਨ।"
 
-#: src/ui/components/PromotedBadge/index.js:59
-msgid "Verified Sponsor"
-msgstr ""
-
-#: src/ui/components/PromotedBadge/index.js:60
+#: src/ui/components/PromotedBadge/index.js:56
 msgid "Verified"
 msgstr ""
 
@@ -3472,6 +3193,242 @@ msgstr[1] "%(total)s ਐਡ-ਆਨ"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "ਵਿਕਾਸਕਾਰ ਜਵਾਬ"
+
+# This action allows an admin to edit the status of an add-on.
+#~ msgid "Admin add-on status"
+#~ msgstr "ਪਰਸ਼ਾਸ਼ਕੀ ਐਡ-ਆਨ ਹਾਲਤ"
+
+#~ msgid "Stay Safe Online"
+#~ msgstr "ਆਨਲਾਈਨ ਸੁਰੱਖਿਅਤ ਰਹੋ"
+
+#~ msgid "Organize Tabs & Bookmarks"
+#~ msgstr "ਟੈਬਾਂ ਅਤੇ ਬੁੱਕਮਾਰਕਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰੋ"
+
+#~ msgid "Enhance Your Media Experience"
+#~ msgstr "ਆਪਣੇ ਮੀਡੀਆ ਅਨੁਭਵ ਨੂੰ ਵਧਾਓ"
+
+#~ msgid "Extensions are like apps for your browser."
+#~ msgstr "ਇਕਸਟੈਨਸ਼ਨ ਤੁਹਾਡੇ ਬਰਾਊਜ਼ਰ ਲਈ ਐਪਾਂ ਦੀ ਤਰ੍ਹਾਂ ਹਨ।"
+
+#~ msgid ""
+#~ "They add features to Firefox to make browsing faster, smarter, or just "
+#~ "plain fun."
+#~ msgstr ""
+#~ "ਤੇਜ਼, ਚੁਸਤ, ਜਾਂ ਸਿਰਫ਼ ਸਾਦਾ ਮਜ਼ੇਦਾਰ ਬ੍ਰਾਉਜ਼ ਕਰਨ ਲਈ ਉਹ ਫਾਇਰਫਾਕਸ ਲਈ ਫੀਚਰ ਸ਼ਾਮਲ ਕਰਦੇ ਹਨ।"
+
+#~ msgid ""
+#~ "Lightweight, highly effective ad blocker. uBlock Origin enforces "
+#~ "thousands of content filters without chewing up a bunch of memory."
+#~ msgstr ""
+#~ "ਹਲਕਾ, ਬਹੁਤ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਇਸ਼ਤਿਹਾਰ ਪਾਬੰਦੀ ਲਾਉਣ ਵਾਲਾ। uBlock ਮੂਲ ਹਜ਼ਾਰਾਂ ਸਮੱਗਰੀ ਫਿਲਟਰਾਂ "
+#~ "ਨੂੰ ਮੈਮੋਰੀ ਖ਼ਪਤ ਕੀਤੇ ਬਗੈਰ ਲਾਗੂ ਕਰਦਾ ਹੈ।"
+
+#~ msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
+#~ msgstr "ਵਧੇਰੇ ਸ਼ਾਨਦਾਰ%(linkStart)s ਉਦਾਸ ਬਲੌਕਰ%(linkEnd)s ਦੀ ਪੜਚੋਲ ਕਰੋ।"
+
+#~ msgid "Stop online trackers from stalking you"
+#~ msgstr "ਆਨਲਾਈਨ ਟਰੈਕਰਜ਼ ਨੂੰ ਤੁਹਾਡੇ ਤੇ ਹਮਲਾ ਕਰਨ ਤੋਂ ਰੋਕੋ"
+
+#~ msgid ""
+#~ "Online advertisers can track your activity from one website to the next, "
+#~ "gathering information about you and your interests. Extensions can help "
+#~ "cover your digital trail."
+#~ msgstr ""
+#~ "ਔਨਲਾਈਨ ਇਸ਼ਤਿਹਾਰਦਾਤਾ ਤੁਹਾਡੀ ਗਤੀਵਿਧੀ ਨੂੰ ਵੈਬਸਾਈਟ ਤੋਂ ਅਗਲੇ ਅਤੇ, ਤੁਹਾਡੇ ਅਤੇ ਤੁਹਾਡੀ "
+#~ "ਦਿਲਚਸਪੀਆਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਇਕੱਤਰ ਕਰ ਸਕਦੇ ਹਨ। ਇਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੇ ਡਿਜੀਟਲ ਟ੍ਰਾਇਲ ਨੂੰ ਕਵਰ ਕਰਨ "
+#~ "ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੇ ਹਨ।"
+
+#~ msgid ""
+#~ "Isolate your Facebook identity into a separate “container” to stop "
+#~ "Facebook from tracking your activity outside of its social platform."
+#~ msgstr ""
+#~ "ਫੇਸਬੁੱਕ ਨੂੰ ਆਪਣੇ ਸਮਾਜਿਕ ਪਲੇਟਫਾਰਮ ਦੇ ਬਾਹਰ ਆਪਣੀ ਗਤੀਵਿਧੀ ਨੂੰ ਟਰੈਕ ਕਰਨ ਤੋਂ ਰੋਕਣ ਲਈ ਆਪਣੀ "
+#~ "ਫੇਸਬੁੱਕ ਪਛਾਣ ਨੂੰ ਅਲੱਗ “ਕੰਟੇਨਰ” ਵਿੱਚ ਅਲੱਗ ਰੱਖੋ।"
+
+#~ msgid ""
+#~ "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
+#~ "extensions."
+#~ msgstr ""
+#~ "ਹੋਰ ਸਿਫਾਰਸ਼ੀ %(linkStart)s ਪ੍ਰਾਈਵਸੀ ਅਤੇ ਸਕਿਓਰਿਟੀ%(linkEnd)s ਦੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ "
+#~ "ਕਰੋ।"
+
+#~ msgid "Reimagine tab management"
+#~ msgstr "ਹੋਰ ਇਕ ਵਾਰੀ ਕਲਪਨਾ ਕਰੋ ਟੈਬ ਪ੍ਰਬੰਧਨ"
+
+#~ msgid ""
+#~ "If you typically work with a lot of open tabs, you’re probably familiar "
+#~ "with the frustration of searching through a row of unidentifiable tabs "
+#~ "looking for just the one you need. Extensions can offer creative "
+#~ "solutions for streamlining tab management."
+#~ msgstr ""
+#~ "ਜੇ ਤੁਸੀਂ ਆਮ ਤੌਰ ਤੇ ਬਹੁਤ ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਟੈਬਾਂ ਨਾਲ ਕੰਮ ਕਰਦੇ ਹੋ, ਤਾਂ ਸੰਭਵ ਤੌਰ ਤੇ ਤੁਹਾਨੂੰ ਸਿਰਫ "
+#~ "ਲੋੜੀਂਦੀ ਇੱਕ ਦੀ ਤਲਾਸ਼ ਕਰਨ ਵਾਲੀ ਅਗਿਆਤ ਟੈਬਾਂ ਦੀ ਇੱਕ ਕਤਾਰ ਦੁਆਰਾ ਖੋਜ ਦੀ ਨਿਰਾਸ਼ਾ ਤੋਂ ਜਾਣੂ ਹੋ "
+#~ "ਸਕਦਾ ਹੈ। ਇਕਸਟੈਨਸ਼ਨਾਂ ਨੂੰ ਟੈਬ ਦੇ ਇੰਤਜ਼ਾਮ ਨੂੰ ਸਰਲ ਬਣਾਉਣ ਲਈ ਸਿਰਜਣਾਤਮਕ ਹੱਲ ਪੇਸ਼ ਕਰ ਸਕਦੇ ਹਨ।"
+
+#~ msgid ""
+#~ "Arrange and visualize your tabs in a cascading “tree” style format in "
+#~ "Firefox’s sidebar."
+#~ msgstr ""
+#~ "ਫਾਇਰਫਾਕਸ ਦੇ ਬਾਹੀ ਵਿੱਚ ਕੈਸਕੇਡਿੰਗ ਵਾਲੀ “ਲੜੀ” ਸਟਾਈਲ ਫਾਰਮੈਟ ਵਿੱਚ ਆਪਣੇ ਟੈਬਾਂ ਨੂੰ ਇੰਤਜ਼ਾਮ ਕਰੋ "
+#~ "ਅਤੇ ਵੇਖੋ।"
+
+# Example in English: "posted last week"
+#~ msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
+#~ msgstr "ਹੋਰ%(linkStart)s ਟੈਬ%(linkEnd)s ਦੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
+
+#~ msgid "Better browsing with improved bookmarks"
+#~ msgstr "ਸੁਧਾਰ ਕੀਤੇ ਬੁੱਕਮਾਰਕ ਨਾਲ ਵਧੀਆ ਬਰਾਊਜ਼ਿੰਗ"
+
+#~ msgid ""
+#~ "Extensions can help you organize your online interests. Bookmark managers "
+#~ "are ideal for folks with a lot of content to track."
+#~ msgstr ""
+#~ "ਇਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੀ ਆਨਲਾਈਨ ਰੁਚੀਆਂ ਦੇ ਬੰਦੋਬਸਤ ਕਰਨ ਵਿੱਚ ਤੁਹਾਡੀ ਸਹਾਇਤਾ ਕਰ ਸਕਦੇ ਹਨ। ਬੁੱਕਮਾਰਕ "
+#~ "ਮੈਨੇਜਰ, ਟਰੈਕ ਕਰਨ ਲਈ ਬਹੁਤ ਸਾਰੀ ਸਮੱਗਰੀ ਵਾਲੇ ਲੋਕਾਂ ਲਈ ਆਦਰਸ਼ ਹਨ।"
+
+#~ msgid ""
+#~ "Enjoy a better way to organize your bookmarks if you maintain multiple "
+#~ "bookmark folders."
+#~ msgstr ""
+#~ "ਜੇ ਤੁਸੀਂ ਕਈ ਬੁੱਕਮਾਰਕ ਫੋਲਡਰਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰਦੇ ਹੋ ਤਾਂ ਆਪਣੇ ਬੁੱਕਮਾਰਕਾਂ ਦੇ ਇੰਤਜ਼ਾਮ ਕਰਨ ਦੇ ਵਧੀਆ ਢੰਗ "
+#~ "ਦਾ ਆਨੰਦ ਲਵੋ।"
+
+#~ msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
+#~ msgstr "ਹੋਰ %(linkStart)s ਬੁੱਕਮਾਰਕ%(linkEnd)s ਦੇ ਇਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
+
+#~ msgid "Enjoy a fresh new tab experience"
+#~ msgstr "ਇੱਕ ਤਾਜ਼ੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਦਾ ਅਨੰਦ ਮਾਣੋ"
+
+#~ msgid ""
+#~ "Start each browsing session tailored just for you by customizing your new "
+#~ "tab experience."
+#~ msgstr ""
+#~ "ਆਪਣੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰਕੇ ਤੁਹਾਡੇ ਲਈ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਰੇਕ ਬ੍ਰਾਊਜ਼ਿੰਗ ਸੈਸ਼ਨ ਨੂੰ ਸ਼ੁਰੂ ਕਰੋ।"
+
+#~ msgid ""
+#~ "Enjoy a beautiful new page with customizable backgrounds, local weather "
+#~ "info, and more."
+#~ msgstr ""
+#~ "ਅਨੁਕੂਲ ਬੈਕਗਰਾਊਂਡ, ਸਥਾਨਕ ਮੌਸਮ ਜਾਣਕਾਰੀ, ਅਤੇ ਹੋਰ ਦੇ ਨਾਲ ਇੱਕ ਸੁੰਦਰ ਨਵੇਂ ਪੰਨੇ ਦਾ ਆਨੰਦ ਮਾਣੋ।"
+
+#~ msgid "Improve videos"
+#~ msgstr "ਵੀਡੀਓ ਨੂੰ ਸੁਧਾਰੋ"
+
+#~ msgid ""
+#~ "If you enjoy video content, extensions offer a number of ways to optimize "
+#~ "your experience, including customizing YouTube to your taste and playing "
+#~ "videos in theater mode."
+#~ msgstr ""
+#~ "ਜੇ ਤੁਸੀਂ ਵੀਡੀਓ ਸਮਗਰੀ ਦਾ ਅਨੰਦ ਮਾਣਦੇ ਹੋ, ਤਾਂ ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੇ ਤਜਰਬੇ ਨੂੰ ਅਨੁਕੂਲ ਬਣਾਉਣ ਦੇ ਕਈ "
+#~ "ਤਰੀਕੇ ਪੇਸ਼ ਕਰਦੇ ਹਨ, ਜਿਸ ਵਿੱਚ ਥੀਏਟਰ ਮੋਡ ਵਿੱਚ YouTube ਨੂੰ ਆਪਣੇ ਸੁਆਦ ਅਤੇ ਵੀਡੀਓਜ਼ ਨੂੰ ਅਨੁਕੂਲ "
+#~ "ਕਰਨਾ ਸ਼ਾਮਲ ਹੈ।"
+
+#~ msgid ""
+#~ "Add a control bar to all YouTube video pages so you can easily adjust "
+#~ "volume, playback speed, video player size, advertising and annotation "
+#~ "blocking, and other features."
+#~ msgstr ""
+#~ "ਸਾਰੇ YouTube ਵੀਡੀਓ ਸਫ਼ਿਆਂ ਉੱਤੇ ਕੰਟਰੋਲ ਪੱਟੀ ਜੋੜੋ ਤਾਂ ਜੋ ਤੁਸੀਂ ਆਕਾਰ, ਪਲੇਬੈਕ ਸਪੀਡ, ਵਿਡੀਓ "
+#~ "ਪਲੇਅਰ ਦਾ ਆਕਾਰ, ਇਸ਼ਤਿਹਾਰ ਅਤੇ ਐਨੋਟੇਸ਼ਨ ਪਾਬੰਦੀਆਂ ਅਤੇ ਹੋਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਆਸਾਨੀ ਨਾਲ ਅਨੁਕੂਲ ਕਰ "
+#~ "ਸਕੋ।"
+
+#~ msgid "Get more out of media"
+#~ msgstr "ਮੀਡੀਆ ਤੋਂ ਵੱਧ ਪ੍ਰਾਪਤ ਕਰੋ"
+
+#~ msgid ""
+#~ "Extensions can address a wide variety of niche media needs and interests, "
+#~ "like image searching, download management, and text readers, to name a "
+#~ "few."
+#~ msgstr ""
+#~ "ਐਕਸਟੈਂਸ਼ਨ ਵੱਖ-ਵੱਖ ਕਿਸਮ ਦੇ ਮੀਡੀਆ ਲੋੜਾਂ ਅਤੇ ਦਿਲਚਸਪੀਆਂ ਨੂੰ ਸੰਬੋਧਨ ਕਰ ਸਕਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਚਿੱਤਰ "
+#~ "ਖੋਜ, ਡਾਊਨਲੋਡ ਪ੍ਰਬੰਧਨ, ਅਤੇ ਪਾਠ ਪਾਠਕ, ਕੁਝ ਨਾਂ ਲਿਖਣ ਲਈ।"
+
+#~ msgid ""
+#~ "Have you ever stumbled upon an intriguing image on the web and want to "
+#~ "learn more about it, like who’s the person in the pic? Are there related "
+#~ "images? This extension lets you perform quick and easy reverse image "
+#~ "searches through a variety of engines."
+#~ msgstr ""
+#~ "ਕੀ ਤੁਸੀਂ ਕਦੇ ਵੈਬ ਤੇ ਇਕ ਦਿਲਚਸਪ ਤਸਵੀਰ ਤੇ ਠੋਕਰ ਮਾਰੀ ਹੈ ਅਤੇ ਇਸ ਬਾਰੇ ਹੋਰ ਜਾਣਨਾ ਚਾਹੁੰਦੇ ਹੋ, "
+#~ "ਜਿਵੇਂ ਕਿ ਤਸਵੀਰ ਵਿਚਲੇ ਵਿਅਕਤੀ ਦਾ? ਕੀ ਇੱਥੇ ਸਬੰਧਿਤ ਤਸਵੀਰਾਂ ਹਨ? ਇਹ ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਨੂੰ ਵੱਖ ਵੱਖ "
+#~ "ਇੰਜਣਾਂ ਦੁਆਰਾ ਤੇਜ਼ ਅਤੇ ਆਸਾਨ ਉਲਟਾ ਚਿੱਤਰ ਖੋਜ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦੀ ਹੈ।"
+
+#~ msgid "Bring media right into the browser"
+#~ msgstr "ਮੀਡੀਆ ਨੂੰ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਲਿਆਓ"
+
+#~ msgid ""
+#~ "Extensions can turn Firefox into your very own entertainment hub that "
+#~ "gives you instant access to music, image capturing, gaming, and more."
+#~ msgstr ""
+#~ "ਐਕਸਟੈਂਸ਼ਨ ਫਾਇਰਫਾਕਸ ਨੂੰ ਤੁਹਾਡੇ ਆਪਣੇ ਮਨੋਰੰਜਨ ਹੱਬ ਵਿੱਚ ਬਦਲ ਸਕਦੀ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਸੰਗੀਤ, ਚਿੱਤਰ "
+#~ "ਕੈਪਚਰ, ਗੇਮਿੰਗ ਅਤੇ ਹੋਰ ਵੀ ਬਹੁਤ ਕੁਝ ਦੀ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।"
+
+#~ msgid ""
+#~ "Access 30,000+ radio stations from all over the globe, always just a "
+#~ "click away."
+#~ msgstr "ਦੁਨੀਆ ਭਰ ਤੋਂ 30,000+ ਰੇਡੀਓ ਸਟੇਸ਼ਨਾਂ ਤੱਕ ਪਹੁੰਚੋ, ਹਮੇਸ਼ਾ ਇੱਕ ਕਲਿਕ ਦੂਰ।"
+
+#~ msgid ""
+#~ "The web is a wonderful but wild place. Your personal data can be used "
+#~ "without your consent, your activities spied upon, and your passwords "
+#~ "stolen. Fortunately, extensions can help fortify your online privacy and "
+#~ "security."
+#~ msgstr ""
+#~ "ਵੈਬ ਇਕ ਸ਼ਾਨਦਾਰ ਪਰ ਜੰਗਲੀ ਜਗ੍ਹਾ ਹੈ। ਤੁਹਾਡੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਤੁਹਾਡੀ ਸਹਿਮਤੀ ਤੋਂ ਬਿਨਾਂ ਵਰਤੀ "
+#~ "ਜਾ ਸਕਦੀ ਹੈ, ਤੁਹਾਡੀਆਂ ਗਤੀਵਿਧੀਆਂ ਤੇ ਜਾਸੂਸੀ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ, ਅਤੇ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਚੋਰੀ ਹੋ "
+#~ "ਸਕਦੇ ਹਨ। ਖੁਸ਼ਕਿਸਮਤੀ ਨਾਲ, ਐਕਸਟੈਂਸ਼ਨਜ਼ ਤੁਹਾਡੀ ਔਨਲਾਈਨ ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ ਨੂੰ ਮਜਬੂਤ ਕਰਨ "
+#~ "ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੀ ਹੈ।"
+
+#~ msgid ""
+#~ "Do you deal with too many open tabs or a dizzying number of bookmarks? "
+#~ "Extensions can help! From organization assistance to providing fun new "
+#~ "features, extensions can dramatically change the way you deal with tabs "
+#~ "and bookmarks."
+#~ msgstr ""
+#~ "ਕੀ ਤੁਸੀਂ ਬਹੁਤ ਸਾਰੀਆਂ ਖੁੱਲੇ ਟੈਬਾਂ ਜਾਂ ਇੱਕ ਬੁਝਾਰਤ ਦੀ ਬੁਖਾਰ ਨਾਲ ਸੰਪੰਨ ਕਰਦੇ ਹੋ? ਐਕਸਟੈਂਸ਼ਨਾਂ ਮਦਦ ਕਰ "
+#~ "ਸਕਦੀਆਂ ਹਨ! ਸੰਗਠਨ ਦੀ ਸਹਾਇਤਾ ਤੋਂ ਲੈ ਕੇ ਮਨੋਰੰਜਨ ਦੀਆਂ ਨਵੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਪ੍ਰਦਾਨ ਕਰਨ ਤੱਕ, "
+#~ "ਐਕਸਟੈਂਸ਼ਨਾਂ ਨਾਲ ਤੁਹਾਡੇ ਟੈਬਾਂ ਅਤੇ ਬੁੱਕਮਾਰਕਸ ਨਾਲ ਨਜਿੱਠਣ ਦਾ ਤਰੀਕਾ ਬਦਲ ਦਿਓ ਨੂੰ ਬਦਲ ਸਕਦੀਆਂ ਹਨ।"
+
+#~ msgid ""
+#~ "Extensions can augment online media in all sorts of interesting ways, "
+#~ "from watching videos to handling images, music, and more."
+#~ msgstr ""
+#~ "ਐਕਸਟੈਂਸ਼ਨ ਵਿਡਿਓ ਦੇਖਣ ਤੋਂ ਲੈ ਕੇ ਹੈਂਡਲ ਕਰਨ ਵਾਲੀਆਂ ਤਸਵੀਰਾਂ, ਸੰਗੀਤ ਅਤੇ ਹੋਰ ਵੀ ਕਈ ਤਰਾਂ ਦੇ "
+#~ "ਆਨਲਾਈਨ ਦਿਲਚਸਪ ਮੀਡੀਆ ਨੂੰ ਵਧਾ ਸਕਦੇ ਹਨ।"
+
+#~ msgid "Create and manage strong passwords"
+#~ msgstr "ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਬਣਾਓ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ"
+
+#~ msgid ""
+#~ "Password managers can help you create secure passwords, store your "
+#~ "passwords (safely) in one place, and give you easy access to your login "
+#~ "credentials wherever you are."
+#~ msgstr ""
+#~ "ਪਾਸਵਰਡ ਪ੍ਰਬੰਧਕ ਤੁਹਾਨੂੰ ਸੁਰੱਖਿਅਤ ਪਾਸਵਰਡ ਬਣਾਉਣ, ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਸਟੋਰ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੇ "
+#~ "ਹਨ (ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ) ਇਕ ਥਾਂ ਤੇ, ਅਤੇ ਤੁਸੀਂ ਜਿੱਥੇ ਵੀ ਹੋਵੋ ਉੱਥੇ ਆਪਣੇ ਲਾਗਇਨ ਪ੍ਰਮਾਣ ਪੱਤਰ ਤਕ "
+#~ "ਆਸਾਨ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰੋ।"
+
+#~ msgid ""
+#~ "Fully encrypted password protection. Store your data securely and access "
+#~ "logins across devices."
+#~ msgstr ""
+#~ "ਪੂਰੀ ਤਰ੍ਹਾਂ ਇਨਕਰਿਪਟ ਕੀਤੀ ਪਾਸਵਰਡ ਸੁਰੱਖਿਆ। ਆਪਣੇ ਡਾਟੇ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੂਪ ਸੰਭਾਲੋ ਅਤੇ ਲਾਗਇਨ ਨੂੰ "
+#~ "ਸਾਰੇ ਡਿਵਾਈਸਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਕਰੋ\\"
+
+#~ msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
+#~ msgstr "ਹੋਰ ਮਹਾਨ %(linkStart)sਪਾਸਵਰਡ ਮੈਨੇਜਰ%(linkEnd)s ਦੀ ਪੜਚੋਲ ਕਰੋ।"
+
+#~ msgid "Block annoying ads"
+#~ msgstr "ਤੰਗ ਕਰਨ ਵਾਲੇ ਇਸ਼ਤਿਹਾਰਾਂ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
+
+#~ msgid ""
+#~ "Today’s web is tangled up with unwanted advertisements that get in your "
+#~ "way and slow you down. Ad-blocking extensions can block or filter those "
+#~ "ads so you can get back to distraction-free browsing."
+#~ msgstr ""
+#~ "ਅੱਜ ਦਾ ਵੈੱਬ ਅਣਚਾਹੇ ਇਸ਼ਤਿਹਾਰਾਂ ਨਾਲ ਪੇਚੀਦਗੀ ਹੋ ਜਾਂਦਾ ਹੈ, ਜੋ ਤੁਹਾਡੇ ਰਾਹ ਵਿੱਚ ਆਉਂਦੇ ਹਨ ਅਤੇ "
+#~ "ਤੁਹਾਨੂੰ ਹੌਲੀ ਕਰਦੇ ਹਨ। ਇਸ਼ਤਿਹਾਰ-ਪਾਬੰਦੀ ਇਕਸਟੈਂਸ਼ਨਾਂ ਉਹਨਾਂ ਇਸ਼ਤਿਹਾਰਾਂ ਉੱਤੇ ਪਾਬੰਦੀ ਲਗਾਉਂਦਾ ਜਾਂ "
+#~ "ਫਿਲਟਰ ਕਰ ਸਕਦੀਆਂ ਹਨ ਤਾਂ ਜੋ ਤੁਸੀਂ ਬਿਨਾਂ-ਅਟਕੇ ਬਰਾਊਜ਼ਿੰਗ ਉੱਤੇ ਵਾਪਸ ਪ੍ਰਾਪਤ ਕਰ ਸਕੋ।"
 
 #, fuzzy
 #~ msgid "Download"
