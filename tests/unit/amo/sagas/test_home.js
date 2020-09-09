@@ -18,6 +18,7 @@ import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  RECOMMENDED,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
@@ -107,7 +108,7 @@ describe(__filename, () => {
           filters: {
             page_size: String(LANDING_PAGE_EXTENSION_COUNT),
             addonType: ADDON_TYPE_EXTENSION,
-            recommended: true,
+            promoted: RECOMMENDED,
             sort: SEARCH_SORT_RANDOM,
           },
         })
@@ -121,7 +122,7 @@ describe(__filename, () => {
           filters: {
             page_size: String(LANDING_PAGE_THEME_COUNT),
             addonType: ADDON_TYPE_STATIC_THEME,
-            recommended: true,
+            promoted: RECOMMENDED,
             sort: SEARCH_SORT_RANDOM,
           },
         })
@@ -135,7 +136,7 @@ describe(__filename, () => {
           filters: {
             page_size: String(LANDING_PAGE_EXTENSION_COUNT),
             addonType: ADDON_TYPE_EXTENSION,
-            recommended: true,
+            promoted: RECOMMENDED,
             sort: SEARCH_SORT_POPULAR,
           },
         })
@@ -162,7 +163,7 @@ describe(__filename, () => {
           filters: {
             page_size: String(LANDING_PAGE_EXTENSION_COUNT),
             addonType: ADDON_TYPE_EXTENSION,
-            recommended: true,
+            promoted: RECOMMENDED,
             sort: SEARCH_SORT_TRENDING,
           },
         })

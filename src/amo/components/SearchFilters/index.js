@@ -1,6 +1,6 @@
+/* @flow */
 import { oneLine } from 'common-tags';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
@@ -8,9 +8,12 @@ import { compose } from 'redux';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  LINE,
   OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
+  RECOMMENDED,
+  REVIEWED_FILTER,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_RECOMMENDED,
@@ -18,6 +21,7 @@ import {
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_UPDATED,
+  VERIFIED_FILTER,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
@@ -25,23 +29,31 @@ import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams, paramsToFilter } from 'core/searchUtils';
 import ExpandableCard from 'ui/components/ExpandableCard';
 import Select from 'ui/components/Select';
+import type { AppState } from 'amo/store';
+import type { SearchFilters as SearchFiltersType } from 'core/api/search';
+import type { I18nType } from 'core/types/i18n';
+import type { ReactRouterHistoryType } from 'core/types/router';
 
 import './styles.scss';
 
-const NO_FILTER = '';
+export const NO_FILTER = '';
 const sortSelectName = paramsToFilter.sort;
 
-export class SearchFiltersBase extends React.Component {
-  static propTypes = {
-    clientApp: PropTypes.string.isRequired,
-    filters: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired,
-    pathname: PropTypes.string.isRequired,
-  };
+type Props = {|
+  filters: SearchFiltersType,
+  pathname: string,
+|};
 
-  onSelectElementChange = (event) => {
+type InternalProps = {|
+  ...Props,
+  clientApp: string,
+  history: ReactRouterHistoryType,
+  i18n: I18nType,
+  lang: string,
+|};
+
+export class SearchFiltersBase extends React.Component<InternalProps> {
+  onSelectElementChange = (event: SyntheticEvent<HTMLSelectElement>) => {
     event.preventDefault();
 
     const { filters } = this.props;
@@ -51,62 +63,48 @@ export class SearchFiltersBase extends React.Component {
     const filterName = event.currentTarget.getAttribute('name');
     const filterValue = event.currentTarget.value;
 
-    // If we are currently filtering by category, and the filter to change is 'sort',
-    // force recommendations to the top.
-    // See https://github.com/mozilla/addons-frontend/issues/8084
-    if (
-      newFilters.category &&
-      filterName === sortSelectName &&
-      filterValue !== SEARCH_SORT_RECOMMENDED
-    ) {
-      newFilters[filterName] = `${SEARCH_SORT_RECOMMENDED},${filterValue}`;
-    } else {
-      newFilters[filterName] = filterValue;
-    }
+    if (filterName) {
+      // If we are currently filtering by category, and the filter to change is 'sort',
+      // force recommendations to the top.
+      // See https://github.com/mozilla/addons-frontend/issues/8084
+      if (
+        newFilters.category &&
+        filterName === sortSelectName &&
+        filterValue !== SEARCH_SORT_RECOMMENDED
+      ) {
+        newFilters[filterName] = `${SEARCH_SORT_RECOMMENDED},${filterValue}`;
+      } else {
+        newFilters[filterName] = filterValue;
+      }
 
-    // If the filters haven't changed we're not going to change the URL.
-    if (newFilters[filterName] === filters[filterName]) {
-      log.debug(oneLine`onSelectElementChange() called in SearchFilters but
+      // If the filters haven't changed we're not going to change the URL.
+      if (newFilters[filterName] === filters[filterName]) {
+        log.debug(oneLine`onSelectElementChange() called in SearchFilters but
         the filter ${filterName} did not change–not changing route.`);
-      return false;
+        return false;
+      }
+
+      if (newFilters[filterName] === NO_FILTER) {
+        delete newFilters[filterName];
+      }
     }
 
-    if (newFilters[filterName] === NO_FILTER) {
-      delete newFilters[filterName];
+    // We cannot pass `sort=random` without `promoted`.
+    // See: https://github.com/mozilla/addons-frontend/issues/8301
+    if (
+      !newFilters.promoted &&
+      newFilters.sort &&
+      newFilters.sort === SEARCH_SORT_RANDOM
+    ) {
+      delete newFilters.sort;
     }
 
-    this.doSearch({ newFilters });
+    this.doSearch(newFilters);
 
     return false;
   };
 
-  onChangeCheckbox = () => {
-    const { filters } = this.props;
-    const newFilters = { ...filters };
-
-    // When a checkbox changes, we want to invert its previous value.
-    // If it was checked, then we remove the filter since the API only supports
-    // `recommended=true`, otherwise we set this filter.
-    const filterName = 'recommended';
-
-    if (filters[filterName]) {
-      delete newFilters[filterName];
-
-      // We cannot pass `sort=random` without `recommended`.
-      // Given that we deleted the filter above, we also have to delete
-      // `sort=random`.
-      // See: https://github.com/mozilla/addons-frontend/issues/8301
-      if (newFilters.sort && newFilters.sort === SEARCH_SORT_RANDOM) {
-        delete newFilters.sort;
-      }
-    } else {
-      newFilters[filterName] = true;
-    }
-
-    this.doSearch({ newFilters });
-  };
-
-  doSearch({ newFilters }) {
+  doSearch(newFilters: SearchFiltersType) {
     const { clientApp, lang, history, pathname } = this.props;
 
     if (newFilters.page) {
@@ -160,6 +158,27 @@ export class SearchFiltersBase extends React.Component {
       { children: i18n.gettext('Most Users'), value: SEARCH_SORT_POPULAR },
       { children: i18n.gettext('Top Rated'), value: SEARCH_SORT_TOP_RATED },
       { children: i18n.gettext('Trending'), value: SEARCH_SORT_TRENDING },
+    ];
+  }
+
+  promotedOptions() {
+    const { i18n } = this.props;
+
+    return [
+      { children: i18n.gettext('All'), value: NO_FILTER },
+      { children: i18n.gettext('Recommended'), value: RECOMMENDED },
+      {
+        children: i18n.gettext('By Firefox'),
+        value: LINE,
+      },
+      {
+        children: i18n.gettext('Verified'),
+        value: VERIFIED_FILTER,
+      },
+      {
+        children: i18n.gettext('Reviewed'),
+        value: REVIEWED_FILTER,
+      },
     ];
   }
 
@@ -239,26 +258,29 @@ export class SearchFiltersBase extends React.Component {
           </Select>
 
           <label
-            className="SearchFilters-label SearchFilters-Recommended-label"
-            htmlFor="SearchFilters-Recommended"
+            className="SearchFilters-Promoted-label SearchFilters-label"
+            htmlFor="SearchFilters-Promoted"
           >
-            <input
-              className="SearchFilters-Recommended"
-              checked={!!filters.recommended}
-              id="SearchFilters-Recommended"
-              name="recommended"
-              onChange={this.onChangeCheckbox}
-              type="checkbox"
-            />
-            {i18n.gettext('Recommended add-ons only')}
+            {i18n.gettext('Promoted Add-Ons')}
           </label>
+          <Select
+            className="SearchFilters-Promoted SearchFilters-select"
+            id="SearchFilters-Promoted"
+            name="promoted"
+            onChange={this.onSelectElementChange}
+            value={filters.promoted || NO_FILTER}
+          >
+            {this.promotedOptions().map((option) => {
+              return <option key={option.value} {...option} />;
+            })}
+          </Select>
         </form>
       </ExpandableCard>
     );
   }
 }
 
-export function mapStateToProps(state) {
+export function mapStateToProps(state: AppState) {
   return {
     clientApp: state.api.clientApp,
     filters: state.search.filters,

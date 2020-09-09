@@ -16,10 +16,14 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  LINE,
+  RECOMMENDED,
+  REVIEWED_FILTER,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_EXPLORE,
+  VERIFIED_FILTER,
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -115,16 +119,51 @@ export class SearchBase extends React.Component<InternalProps> {
 
     let title = i18n.gettext('Search results');
 
-    if (filters.recommended) {
-      switch (filters.addonType) {
-        case ADDON_TYPE_EXTENSION:
-          title = i18n.gettext('Recommended extensions');
-          break;
-        case ADDON_TYPE_STATIC_THEME:
-          title = i18n.gettext('Recommended themes');
-          break;
-        default:
-          title = i18n.gettext('Recommended add-ons');
+    if (filters.promoted) {
+      if (filters.promoted === RECOMMENDED) {
+        switch (filters.addonType) {
+          case ADDON_TYPE_EXTENSION:
+            title = i18n.gettext('Recommended extensions');
+            break;
+          case ADDON_TYPE_STATIC_THEME:
+            title = i18n.gettext('Recommended themes');
+            break;
+          default:
+            title = i18n.gettext('Recommended add-ons');
+        }
+      } else if (filters.promoted === LINE) {
+        switch (filters.addonType) {
+          case ADDON_TYPE_EXTENSION:
+            title = i18n.gettext('Extensions by Firefox');
+            break;
+          case ADDON_TYPE_STATIC_THEME:
+            title = i18n.gettext('Themes by Firefox');
+            break;
+          default:
+            title = i18n.gettext('Add-ons by Firefox');
+        }
+      } else if (filters.promoted === REVIEWED_FILTER) {
+        switch (filters.addonType) {
+          case ADDON_TYPE_EXTENSION:
+            title = i18n.gettext('Reviewed extensions');
+            break;
+          case ADDON_TYPE_STATIC_THEME:
+            title = i18n.gettext('Reviewed themes');
+            break;
+          default:
+            title = i18n.gettext('Reviewed add-ons');
+        }
+      } else if (filters.promoted === VERIFIED_FILTER) {
+        switch (filters.addonType) {
+          case ADDON_TYPE_EXTENSION:
+            title = i18n.gettext('Verified extensions');
+            break;
+          case ADDON_TYPE_STATIC_THEME:
+            title = i18n.gettext('Verified themes');
+            break;
+          default:
+            title = i18n.gettext('Verified add-ons');
+        }
       }
     } else if (filters.sort) {
       switch (filters.sort) {

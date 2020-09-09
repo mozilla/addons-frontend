@@ -326,6 +326,8 @@ export const EXCLUDE_WARNING_CATEGORIES = [
   SPOTLIGHT,
   VERIFIED,
 ];
+export const REVIEWED_FILTER = `${LINE},${RECOMMENDED},${SPONSORED},${VERIFIED}`;
+export const VERIFIED_FILTER = `${SPONSORED},${VERIFIED}`;
 
 export type PromotedCategoryType =
   | typeof LINE

@@ -14,6 +14,7 @@ import landingSaga from 'amo/sagas/landing';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  RECOMMENDED,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_RANDOM,
@@ -77,7 +78,8 @@ describe(__filename, () => {
         const baseFilters = {
           addonType,
           page_size: pageSize,
-          recommended: addonType === ADDON_TYPE_EXTENSION ? true : undefined,
+          promoted:
+            addonType === ADDON_TYPE_EXTENSION ? RECOMMENDED : undefined,
         };
 
         const recommended = createAddonsApiResult([
@@ -92,7 +94,7 @@ describe(__filename, () => {
             ...baseArgs,
             filters: {
               ...baseFilters,
-              recommended: true,
+              promoted: RECOMMENDED,
               sort: SEARCH_SORT_RANDOM,
               page: '1',
             },
@@ -173,7 +175,7 @@ describe(__filename, () => {
         addonType,
         category,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-        recommended: true,
+        promoted: RECOMMENDED,
       };
 
       const recommended = createAddonsApiResult([
@@ -243,7 +245,7 @@ describe(__filename, () => {
       const baseFilters = {
         addonType,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-        recommended: true,
+        promoted: RECOMMENDED,
       };
 
       const recommended = createAddonsApiResult([

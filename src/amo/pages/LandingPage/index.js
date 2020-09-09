@@ -19,6 +19,7 @@ import {
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_TOP_RATED,
   INSTALL_SOURCE_TRENDING,
+  RECOMMENDED,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
@@ -125,7 +126,7 @@ export class LandingPageBase extends React.Component {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
-            recommended: true,
+            promoted: RECOMMENDED,
             sort: SEARCH_SORT_RANDOM,
           },
         },
@@ -135,7 +136,7 @@ export class LandingPageBase extends React.Component {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
-            recommended: true,
+            promoted: RECOMMENDED,
             sort: SEARCH_SORT_TRENDING,
           },
         },
@@ -145,7 +146,7 @@ export class LandingPageBase extends React.Component {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
-            recommended: true,
+            promoted: RECOMMENDED,
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
@@ -157,7 +158,7 @@ export class LandingPageBase extends React.Component {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_STATIC_THEME,
-            recommended: true,
+            promoted: RECOMMENDED,
             sort: SEARCH_SORT_RANDOM,
           },
         },

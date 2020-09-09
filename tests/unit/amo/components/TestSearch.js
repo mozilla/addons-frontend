@@ -15,9 +15,13 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
+  LINE,
+  RECOMMENDED,
+  REVIEWED_FILTER,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_POPULAR,
+  VERIFIED_FILTER,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
@@ -189,21 +193,93 @@ describe(__filename, () => {
   });
 
   it('renders an HTML title for recommended extensions', () => {
-    const filters = { addonType: ADDON_TYPE_EXTENSION, recommended: true };
+    const filters = { addonType: ADDON_TYPE_EXTENSION, promoted: RECOMMENDED };
     const wrapper = render({ filters });
     expect(wrapper.find('title')).toHaveText('Recommended extensions');
   });
 
   it('renders an HTML title for recommended themes', () => {
-    const filters = { addonType: ADDON_TYPE_STATIC_THEME, recommended: true };
+    const filters = {
+      addonType: ADDON_TYPE_STATIC_THEME,
+      promoted: RECOMMENDED,
+    };
     const wrapper = render({ filters });
     expect(wrapper.find('title')).toHaveText('Recommended themes');
   });
 
   it('renders an HTML title for recommended add-ons', () => {
-    const filters = { addonType: ADDON_TYPE_LANG, recommended: true };
+    const filters = { addonType: ADDON_TYPE_LANG, promoted: RECOMMENDED };
     const wrapper = render({ filters });
     expect(wrapper.find('title')).toHaveText('Recommended add-ons');
+  });
+
+  it('renders an HTML title for line extensions', () => {
+    const filters = { addonType: ADDON_TYPE_EXTENSION, promoted: LINE };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Extensions by Firefox');
+  });
+
+  it('renders an HTML title for line themes', () => {
+    const filters = {
+      addonType: ADDON_TYPE_STATIC_THEME,
+      promoted: LINE,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Themes by Firefox');
+  });
+
+  it('renders an HTML title for line add-ons', () => {
+    const filters = { addonType: ADDON_TYPE_LANG, promoted: LINE };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Add-ons by Firefox');
+  });
+
+  it('renders an HTML title for reviewed extensions', () => {
+    const filters = {
+      addonType: ADDON_TYPE_EXTENSION,
+      promoted: REVIEWED_FILTER,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Reviewed extensions');
+  });
+
+  it('renders an HTML title for reviewed themes', () => {
+    const filters = {
+      addonType: ADDON_TYPE_STATIC_THEME,
+      promoted: REVIEWED_FILTER,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Reviewed themes');
+  });
+
+  it('renders an HTML title for reviewed add-ons', () => {
+    const filters = { addonType: ADDON_TYPE_LANG, promoted: REVIEWED_FILTER };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Reviewed add-ons');
+  });
+
+  it('renders an HTML title for verified extensions', () => {
+    const filters = {
+      addonType: ADDON_TYPE_EXTENSION,
+      promoted: VERIFIED_FILTER,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Verified extensions');
+  });
+
+  it('renders an HTML title for verified themes', () => {
+    const filters = {
+      addonType: ADDON_TYPE_STATIC_THEME,
+      promoted: VERIFIED_FILTER,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Verified themes');
+  });
+
+  it('renders an HTML title for verified add-ons', () => {
+    const filters = { addonType: ADDON_TYPE_LANG, promoted: VERIFIED_FILTER };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Verified add-ons');
   });
 
   it('renders an HTML title for trending extensions', () => {

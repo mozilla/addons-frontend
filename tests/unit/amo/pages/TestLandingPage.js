@@ -9,6 +9,7 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  RECOMMENDED,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
@@ -292,7 +293,7 @@ describe(__filename, () => {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_EXTENSION,
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_RANDOM,
       },
     });
@@ -300,7 +301,7 @@ describe(__filename, () => {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_EXTENSION,
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_TOP_RATED,
       },
     });
@@ -308,7 +309,7 @@ describe(__filename, () => {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_EXTENSION,
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_TRENDING,
       },
     });
@@ -332,7 +333,7 @@ describe(__filename, () => {
       pathname: '/search/',
       query: {
         addonType,
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_RANDOM,
       },
     });
