@@ -35,8 +35,11 @@ describe(__filename, () => {
   });
 
   function render({ location, ...props } = {}) {
+    const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
+
     return shallowUntilTarget(
       <AddonMoreInfo
+        _config={_config}
         addon={props.addon || createInternalAddon(fakeAddon)}
         i18n={fakeI18n()}
         store={store}
