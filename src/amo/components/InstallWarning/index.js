@@ -6,8 +6,13 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import type { AppState } from 'amo/store';
-import { ADDON_TYPE_EXTENSION, CLIENT_APP_FIREFOX } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  CLIENT_APP_FIREFOX,
+  EXCLUDE_WARNING_CATEGORIES,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
+import { getPromotedCategory } from 'core/utils/addons';
 import {
   correctedLocationForPlatform,
   isFirefox,
@@ -28,6 +33,7 @@ type InternalProps = {|
   ...Props,
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
   _couldShowWarning?: () => boolean,
+  _getPromotedCategory: typeof getPromotedCategory,
   clientApp: string,
   className?: string,
   i18n: I18nType,
@@ -42,12 +48,14 @@ const WARNING_LINK_DESTINATION =
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
+    _getPromotedCategory: getPromotedCategory,
   };
 
   couldShowWarning = () => {
     const {
       _correctedLocationForPlatform,
       _couldShowWarning,
+      _getPromotedCategory,
       addon,
       clientApp,
       location,
@@ -61,13 +69,19 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       userAgentInfo,
     });
 
+    const promotedCategory = _getPromotedCategory({
+      addon,
+      clientApp,
+    });
+
     return _couldShowWarning
       ? _couldShowWarning()
       : !correctedLocation &&
           isFirefox({ userAgentInfo }) &&
           clientApp === CLIENT_APP_FIREFOX &&
           addon.type === ADDON_TYPE_EXTENSION &&
-          !addon.isRecommended;
+          (!promotedCategory ||
+            !EXCLUDE_WARNING_CATEGORIES.includes(promotedCategory));
   };
 
   render() {

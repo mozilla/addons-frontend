@@ -1,4 +1,6 @@
 import {
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   DOWNLOAD_FAILED,
   ERROR_CORRUPT_FILE,
   FATAL_ERROR,
@@ -8,14 +10,26 @@ import {
   OS_ALL,
   OS_MAC,
   OS_WINDOWS,
+  RECOMMENDED,
+  SPONSORED,
+  SPOTLIGHT,
+  STRATEGIC,
+  VERIFIED,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { createInternalVersion } from 'core/reducers/versions';
-import { fakeAddon, fakeI18n, fakeVersion } from 'tests/unit/helpers';
+import {
+  createFakeAutocompleteResult,
+  fakeAddon,
+  fakeI18n,
+  fakeVersion,
+} from 'tests/unit/helpers';
 import {
   getAddonJsonLinkedData,
   getErrorMessage,
   getFileHash,
+  getPromotedCategory,
 } from 'core/utils/addons';
 
 describe(__filename, () => {
@@ -189,6 +203,105 @@ describe(__filename, () => {
       expect(
         getAddonJsonLinkedData({ addon, ratingThreshold: 4 }),
       ).not.toHaveProperty('aggregateRating');
+    });
+  });
+
+  describe('getPromotedCategory', () => {
+    it('returns null if the addon is not promoted', () => {
+      const addon = createInternalAddon({ ...fakeAddon, promoted: null });
+      const suggestion = createInternalSuggestion(
+        createFakeAutocompleteResult({ promoted: null }),
+      );
+
+      expect(
+        getPromotedCategory({ addon, clientApp: CLIENT_APP_ANDROID }),
+      ).toEqual(null);
+      expect(
+        getPromotedCategory({
+          addon: suggestion,
+          clientApp: CLIENT_APP_ANDROID,
+        }),
+      ).toEqual(null);
+    });
+
+    it('returns null if the addon is not promoted for the specified app', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+      });
+      const suggestion = createInternalSuggestion(
+        createFakeAutocompleteResult({
+          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+        }),
+      );
+
+      expect(
+        getPromotedCategory({ addon, clientApp: CLIENT_APP_FIREFOX }),
+      ).toEqual(null);
+      expect(
+        getPromotedCategory({
+          addon: suggestion,
+          clientApp: CLIENT_APP_FIREFOX,
+        }),
+      ).toEqual(null);
+    });
+
+    it('returns the category if the addon is promoted for the specified app', () => {
+      const category = RECOMMENDED;
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        promoted: { category, apps: [CLIENT_APP_ANDROID] },
+      });
+      const suggestion = createInternalSuggestion(
+        createFakeAutocompleteResult({
+          promoted: { category, apps: [CLIENT_APP_ANDROID] },
+        }),
+      );
+
+      expect(
+        getPromotedCategory({ addon, clientApp: CLIENT_APP_ANDROID }),
+      ).toEqual(category);
+      expect(
+        getPromotedCategory({
+          addon: suggestion,
+          clientApp: CLIENT_APP_ANDROID,
+        }),
+      ).toEqual(category);
+    });
+
+    describe('forBadging === true', () => {
+      it.each([SPOTLIGHT, STRATEGIC])(
+        'returns null if the category is not one for badges, category: %s',
+        (category) => {
+          const addon = createInternalAddon({
+            ...fakeAddon,
+            promoted: { category, apps: [CLIENT_APP_ANDROID] },
+          });
+
+          expect(
+            getPromotedCategory({
+              addon,
+              clientApp: CLIENT_APP_ANDROID,
+              forBadging: true,
+            }),
+          ).toEqual(null);
+        },
+      );
+
+      it('returns VERIFIED if the category is SPONSORED', () => {
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          promoted: { category: SPONSORED, apps: [CLIENT_APP_ANDROID] },
+        });
+
+        expect(
+          getPromotedCategory({
+            addon,
+            clientApp: CLIENT_APP_ANDROID,
+            forBadging: true,
+          }),
+        ).toEqual(VERIFIED);
+      });
     });
   });
 });

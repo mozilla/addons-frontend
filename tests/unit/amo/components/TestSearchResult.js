@@ -6,10 +6,8 @@ import SearchResult, { SearchResultBase } from 'amo/components/SearchResult';
 import { getAddonURL } from 'amo/utils';
 import {
   ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DEFAULT_UTM_SOURCE,
-  RECOMMENDED,
   VERIFIED,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -475,23 +473,19 @@ describe(__filename, () => {
     expect(root.find('.SearchResult-note')).toHaveLength(0);
   });
 
-  it('displays a recommended badge when an add-on is recommended', () => {
+  it('displays a promoted badge when an add-on is promoted', () => {
+    const category = VERIFIED;
     const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
-      }),
+      _getPromotedCategory: sinon.stub().returns(category),
     });
 
     expect(root.find(PromotedBadge)).toHaveLength(1);
+    expect(root.find(PromotedBadge)).toHaveProp('category', category);
   });
 
   it('passes an onClick function which stops propagation to PromotedBadge', () => {
     const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
-      }),
+      _getPromotedCategory: sinon.stub().returns(VERIFIED),
     });
 
     const clickEvent = createFakeEvent();
@@ -500,51 +494,18 @@ describe(__filename, () => {
     sinon.assert.called(clickEvent.stopPropagation);
   });
 
-  it('does not display a recommended badge when showRecommendedBadge is false', () => {
+  it('does not display a promoted badge when showPromotedBadge is false', () => {
     const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
-      }),
-      showRecommendedBadge: false,
+      _getPromotedCategory: sinon.stub().returns(VERIFIED),
+      showPromotedBadge: false,
     });
 
     expect(root.find(PromotedBadge)).toHaveLength(0);
   });
 
-  it('does not display a recommended badge on Android', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_ANDROID,
-    });
-
+  it('does not display a promoted badge when the addon is not promoted', () => {
     const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
-      }),
-      store,
-    });
-
-    expect(root.find(PromotedBadge)).toHaveLength(0);
-  });
-
-  it('does not display a recommended badge when the addon is not recommended', () => {
-    const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        promoted: { category: VERIFIED, apps: [CLIENT_APP_FIREFOX] },
-      }),
-    });
-
-    expect(root.find(PromotedBadge)).toHaveLength(0);
-  });
-
-  it('does not display a recommended badge when the addon is not promoted', () => {
-    const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        promoted: null,
-      }),
+      _getPromotedCategory: sinon.stub().returns(null),
     });
 
     expect(root.find(PromotedBadge)).toHaveLength(0);

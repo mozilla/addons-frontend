@@ -31,7 +31,7 @@ describe(__filename, () => {
   it.each([
     [
       'line',
-      'Firefox only recommends extensions that meet our standards for security and performance.',
+      'This extension was created by the makers of Firefox.',
       'https://support.mozilla.org/kb/recommended-extensions-program',
     ],
     [
@@ -41,7 +41,7 @@ describe(__filename, () => {
     ],
     [
       'verified',
-      'Firefox only recommends extensions that meet our standards for security and performance.',
+      'This extension has been code-reviewed for safety.',
       'https://support.mozilla.org/kb/recommended-extensions-program',
     ],
   ])(

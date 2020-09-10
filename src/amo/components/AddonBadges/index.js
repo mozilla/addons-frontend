@@ -3,8 +3,9 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION, CLIENT_APP_ANDROID } from 'core/constants';
+import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { getPromotedCategory } from 'core/utils/addons';
 import { isQuantumCompatible } from 'core/utils/compatibility';
 import Badge from 'ui/components/Badge';
 import PromotedBadge from 'ui/components/PromotedBadge';
@@ -20,13 +21,18 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _getPromotedCategory: typeof getPromotedCategory,
   clientApp: string,
   i18n: I18nType,
 |};
 
 export class AddonBadgesBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _getPromotedCategory: getPromotedCategory,
+  };
+
   render() {
-    const { addon, clientApp, i18n } = this.props;
+    const { _getPromotedCategory, addon, clientApp, i18n } = this.props;
 
     if (!addon) {
       return null;
@@ -36,10 +42,16 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
       addon.type === ADDON_TYPE_EXTENSION &&
       isQuantumCompatible({ addon }) === false;
 
+    const promotedCategory = _getPromotedCategory({
+      addon,
+      clientApp,
+      forBadging: true,
+    });
+
     return (
       <div className="AddonBadges">
-        {addon.isRecommended && clientApp !== CLIENT_APP_ANDROID ? (
-          <PromotedBadge category="recommended" size="large" />
+        {promotedCategory ? (
+          <PromotedBadge category={promotedCategory} size="large" />
         ) : null}
         {addon.isRestartRequired ? (
           <Badge

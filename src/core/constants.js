@@ -317,6 +317,15 @@ export const SPOTLIGHT = 'spotlight';
 export const STRATEGIC = 'strategic';
 export const VERIFIED = 'verified';
 
+export const BADGE_CATEGORIES = [LINE, RECOMMENDED, VERIFIED];
+export const EXCLUDE_WARNING_CATEGORIES = [
+  LINE,
+  RECOMMENDED,
+  SPONSORED,
+  SPOTLIGHT,
+  VERIFIED,
+];
+
 export type PromotedCategoryType =
   | typeof LINE
   | typeof RECOMMENDED

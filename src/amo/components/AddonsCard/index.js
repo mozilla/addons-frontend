@@ -30,7 +30,7 @@ type Props = {|
   placeholderCount: number,
   type?: 'horizontal' | 'vertical',
   showMetadata?: boolean,
-  showRecommendedBadge?: boolean,
+  showPromotedBadge?: boolean,
   showSummary?: boolean,
 
   // These are all passed through to Card.
@@ -54,7 +54,7 @@ export default class AddonsCard extends React.Component<Props> {
     editing: false,
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,
-    showRecommendedBadge: true,
+    showPromotedBadge: true,
     useThemePlaceholder: false,
   };
 
@@ -74,7 +74,7 @@ export default class AddonsCard extends React.Component<Props> {
       placeholderCount,
       useThemePlaceholder,
       showMetadata,
-      showRecommendedBadge,
+      showPromotedBadge,
       showSummary,
       type,
       ...otherProps
@@ -109,7 +109,7 @@ export default class AddonsCard extends React.Component<Props> {
               onClick={onAddonClick}
               onImpression={onAddonImpression}
               showMetadata={showMetadata}
-              showRecommendedBadge={showRecommendedBadge}
+              showPromotedBadge={showPromotedBadge}
               showSummary={
                 ADDON_TYPE_STATIC_THEME !== addon.type ? showSummary : false
               }

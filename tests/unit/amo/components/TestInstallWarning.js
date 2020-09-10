@@ -9,7 +9,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  RECOMMENDED,
+  STRATEGIC,
   VERIFIED,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -37,6 +37,7 @@ describe(__filename, () => {
   const render = ({ location = createFakeLocation(), ...customProps } = {}) => {
     const props = {
       _correctedLocationForPlatform: sinon.stub().returns(null),
+      _getPromotedCategory: sinon.stub().returns(null),
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
       store,
@@ -55,7 +56,6 @@ describe(__filename, () => {
   // This is an add-on that would cause a warning to be displayed.
   const addonThatWouldShowWarning = {
     ...fakeAddon,
-    promoted: { category: VERIFIED, apps: [CLIENT_APP_FIREFOX] },
     type: ADDON_TYPE_EXTENSION,
   };
 
@@ -78,7 +78,7 @@ describe(__filename, () => {
   describe('couldShowWarning', () => {
     // This is a test for the happy path, but also serves as a sanity test for
     // renderWithWarning returning the happy path.
-    it('returns true if the userAgent and clientApp are both Firefox, and the add-on is an extension and is not recommended', () => {
+    it('returns true if the userAgent and clientApp are both Firefox, and the add-on is an extension and is not promoted', () => {
       const component = renderWithWarning();
 
       expect(component.instance().couldShowWarning()).toEqual(true);
@@ -95,15 +95,20 @@ describe(__filename, () => {
       expect(component.instance().couldShowWarning()).toEqual(false);
     });
 
-    it('returns false if the add-on is recommended', () => {
+    it('returns false if the add-on is promoted (but not STRATEGIC)', () => {
       const component = renderWithWarning({
-        addon: createInternalAddon({
-          ...addonThatWouldShowWarning,
-          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
-        }),
+        _getPromotedCategory: sinon.stub().returns(VERIFIED),
       });
 
       expect(component.instance().couldShowWarning()).toEqual(false);
+    });
+
+    it('returns true if the add-on is promoted in the STRATEGIC category', () => {
+      const component = renderWithWarning({
+        _getPromotedCategory: sinon.stub().returns(STRATEGIC),
+      });
+
+      expect(component.instance().couldShowWarning()).toEqual(true);
     });
 
     it('returns false if the userAgent is not Firefox', () => {

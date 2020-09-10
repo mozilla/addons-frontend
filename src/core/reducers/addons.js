@@ -12,7 +12,6 @@ import type {
 } from 'amo/actions/reviews';
 import type { ExternalAddonInfoType } from 'amo/api/addonInfo';
 import type { AppState } from 'amo/store';
-import { RECOMMENDED } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type {
   AddonType,
@@ -171,9 +170,6 @@ export function createInternalAddon(
     id: apiAddon.id,
     is_disabled: apiAddon.is_disabled,
     is_experimental: apiAddon.is_experimental,
-    isRecommended: Boolean(
-      apiAddon.promoted && apiAddon.promoted.category === RECOMMENDED,
-    ),
     is_source_public: apiAddon.is_source_public,
     last_updated: apiAddon.last_updated,
     latest_unlisted_version: apiAddon.latest_unlisted_version,
