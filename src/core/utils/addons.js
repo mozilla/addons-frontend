@@ -3,14 +3,13 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 
 import {
+  BADGE_CATEGORIES,
   DOWNLOAD_FAILED,
   ERROR_CORRUPT_FILE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
-  LINE,
-  RECOMMENDED,
   SPONSORED,
   VERIFIED,
 } from 'core/constants';
@@ -140,7 +139,7 @@ export const getPromotedCategory = ({
     }
 
     // We only have badges for LINE, RECOMMENDED and VERIFIED.
-    if (![LINE, RECOMMENDED, VERIFIED].includes(category)) {
+    if (!BADGE_CATEGORIES.includes(category)) {
       category = null;
     }
   }

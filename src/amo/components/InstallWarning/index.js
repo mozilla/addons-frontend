@@ -9,7 +9,7 @@ import type { AppState } from 'amo/store';
 import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_FIREFOX,
-  STRATEGIC,
+  EXCLUDE_WARNING_CATEGORIES,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getPromotedCategory } from 'core/utils/addons';
@@ -80,7 +80,8 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           isFirefox({ userAgentInfo }) &&
           clientApp === CLIENT_APP_FIREFOX &&
           addon.type === ADDON_TYPE_EXTENSION &&
-          (!promotedCategory || promotedCategory === STRATEGIC);
+          (!promotedCategory ||
+            !EXCLUDE_WARNING_CATEGORIES.includes(promotedCategory));
   };
 
   render() {
