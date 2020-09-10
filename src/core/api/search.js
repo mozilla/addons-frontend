@@ -23,6 +23,7 @@ export type SearchFilters = {|
   operatingSystem?: string,
   page?: string,
   page_size?: string,
+  promoted?: string,
   query?: string,
   recommended?: boolean,
   sort?: string,

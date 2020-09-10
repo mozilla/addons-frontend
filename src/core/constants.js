@@ -109,6 +109,7 @@ export const INSTALL_SOURCE_DISCOVERY = 'discovery-promo';
 export const INSTALL_SOURCE_FEATURED = 'featured';
 export const INSTALL_SOURCE_HERO_PROMO = 'hp-dl-promo';
 export const INSTALL_SOURCE_MOST_POPULAR = 'mostpopular';
+export const INSTALL_SOURCE_PROMOTED_SHELF = 'homepage-sponsored-shelf';
 export const INSTALL_SOURCE_SEARCH = 'search';
 export const INSTALL_SOURCE_TOP_RATED = 'rating';
 export const INSTALL_SOURCE_TRENDING = 'hotness';

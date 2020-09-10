@@ -14,6 +14,7 @@ import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
+import PromotedAddonsCard from 'amo/components/PromotedAddonsCard';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import { fetchHomeData } from 'amo/reducers/home';
 import {
@@ -21,6 +22,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_PROMOTED_SHELF,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
@@ -70,6 +72,7 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
 
 export class HomeBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     _getFeaturedCollectionsMetadata: PropTypes.func,
     clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
@@ -85,6 +88,7 @@ export class HomeBase extends React.Component {
   };
 
   static defaultProps = {
+    _config: config,
     _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
     includeRecommendedThemes: true,
     includeTrendingExtensions: false,
@@ -194,6 +198,7 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
+      _config,
       _getFeaturedCollectionsMetadata,
       clientApp,
       collections,
@@ -235,6 +240,14 @@ export class HomeBase extends React.Component {
 
     const showHeroPromo = clientApp !== CLIENT_APP_ANDROID;
 
+    const { promotedExtensions } = shelves;
+    if (Array.isArray(promotedExtensions)) {
+      // If there are fewer than 6 promoted extensions, just use the first 3.
+      if (promotedExtensions.length < 6) {
+        promotedExtensions.splice(3);
+      }
+    }
+
     return (
       <Page isHomePage showWrongPlatformWarning={!showHeroPromo}>
         <div className="Home">
@@ -267,6 +280,14 @@ export class HomeBase extends React.Component {
           ) : null}
 
           <div className="Home-content">
+            {_config.get('enableFeaturePromotedShelf') && showHeroPromo ? (
+              <PromotedAddonsCard
+                addonInstallSource={INSTALL_SOURCE_PROMOTED_SHELF}
+                addons={promotedExtensions}
+                loading={loading}
+              />
+            ) : null}
+
             {showHeroPromo ? (
               <SecondaryHero shelfData={heroShelves && heroShelves.secondary} />
             ) : null}
