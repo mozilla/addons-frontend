@@ -382,7 +382,7 @@ module.exports = {
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
-  enableFeatureUseUtmParams: false,
+  enableFeatureUseUtmParams: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

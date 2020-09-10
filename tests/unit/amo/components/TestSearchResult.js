@@ -90,9 +90,10 @@ describe(__filename, () => {
   });
 
   it('links the heading to the detail page with a source', () => {
+    const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
     const addonInstallSource = 'home-page-featured';
 
-    const root = render({ addonInstallSource });
+    const root = render({ _config, addonInstallSource });
 
     const link = root.find('.SearchResult-link');
     expect(url.parse(link.prop('to'), true).query).toMatchObject({

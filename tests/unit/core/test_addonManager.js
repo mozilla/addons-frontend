@@ -221,7 +221,8 @@ describe(__filename, () => {
       });
 
       sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
-        url,
+        url:
+          'http://example.com/path/to/file.xpi?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=src-in-install-url',
         hash: undefined,
       });
     });
@@ -236,7 +237,7 @@ describe(__filename, () => {
       });
 
       sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
-        url: `${url}?src=${defaultInstallSource}`,
+        url: `${url}?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=${defaultInstallSource}`,
         hash: undefined,
       });
     });
@@ -248,7 +249,7 @@ describe(__filename, () => {
       });
 
       sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
-        url: `${fakeInstallUrl}?src=home`,
+        url: `${fakeInstallUrl}?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=home`,
         hash: undefined,
       });
     });
@@ -263,7 +264,7 @@ describe(__filename, () => {
       });
 
       sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
-        url: `${fakeInstallUrl}?src=home`,
+        url: `${fakeInstallUrl}?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=home`,
         hash,
       });
     });
