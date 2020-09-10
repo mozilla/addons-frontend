@@ -1,6 +1,4 @@
 /* @flow */
-import urllib from 'url';
-
 /* global window */
 import log from 'core/logger';
 import {
@@ -16,7 +14,6 @@ import {
   ON_UNINSTALLED_EVENT,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'core/constants';
-import { addQueryParams } from 'core/utils/url';
 
 // This is the representation of an add-on in Firefox.
 type FirefoxAddon = {|
@@ -133,7 +130,6 @@ type OptionalInstallParams = {|
   _log?: typeof log,
   hash?: string | null,
   onIgnoredRejection?: () => void,
-  defaultInstallSource: string,
 |};
 
 export function install(
@@ -144,40 +140,31 @@ export function install(
     _mozAddonManager = window.navigator.mozAddonManager,
     hash,
     onIgnoredRejection = () => {},
-    defaultInstallSource,
   }: OptionalInstallParams = {},
 ) {
-  const parseQuery = true;
-  const urlParts = _url && urllib.parse(_url, parseQuery);
-  const srcInInstallURL = urlParts && urlParts.query && urlParts.query.src;
-  const src = srcInInstallURL || defaultInstallSource;
+  return _mozAddonManager
+    .createInstall({ url: _url, hash })
+    .then((installObj) => {
+      const callback = (e) => eventCallback(installObj, e);
+      for (const event of INSTALL_EVENT_LIST) {
+        _log.info(`[install] Adding listener for ${event}`);
+        installObj.addEventListener(event, callback);
+      }
+      return new Promise((resolve, reject) => {
+        installObj.addEventListener('onInstallEnded', () => resolve());
+        installObj.addEventListener('onInstallFailed', () => reject());
+        _log.info('Events to handle the installation initialized.');
 
-  if (src === undefined) {
-    return Promise.reject(new Error('No src for add-on install'));
-  }
-  const url = addQueryParams(_url, { src });
-
-  return _mozAddonManager.createInstall({ url, hash }).then((installObj) => {
-    const callback = (e) => eventCallback(installObj, e);
-    for (const event of INSTALL_EVENT_LIST) {
-      _log.info(`[install] Adding listener for ${event}`);
-      installObj.addEventListener(event, callback);
-    }
-    return new Promise((resolve, reject) => {
-      installObj.addEventListener('onInstallEnded', () => resolve());
-      installObj.addEventListener('onInstallFailed', () => reject());
-      _log.info('Events to handle the installation initialized.');
-
-      installObj.install().catch((error) => {
-        // The `mozAddonManager` has events we can listen to, this error occurs
-        // when a user cancels the installation but we are already notified via
-        // `onInstallCancelled`.
-        // See: https://github.com/mozilla/addons-frontend/issues/8668
-        _log.warn(`Ignoring promise rejection during installation: ${error}`);
-        onIgnoredRejection();
+        installObj.install().catch((error) => {
+          // The `mozAddonManager` has events we can listen to, this error occurs
+          // when a user cancels the installation but we are already notified via
+          // `onInstallCancelled`.
+          // See: https://github.com/mozilla/addons-frontend/issues/8668
+          _log.warn(`Ignoring promise rejection during installation: ${error}`);
+          onIgnoredRejection();
+        });
       });
     });
-  });
 }
 
 export function uninstall(

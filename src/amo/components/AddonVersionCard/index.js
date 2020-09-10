@@ -9,7 +9,6 @@ import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import Link from 'amo/components/Link';
-import { INSTALL_SOURCE_DETAIL_PAGE } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getVersionInfo } from 'core/reducers/versions';
 import { sanitizeUserHTML } from 'core/utils';
@@ -186,7 +185,6 @@ export const AddonVersionCardBase = (props: InternalProps) => {
         {addon && version && (
           <InstallButtonWrapper
             addon={addon}
-            defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
             getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
             version={version}
           />

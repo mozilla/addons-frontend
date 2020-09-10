@@ -11,11 +11,7 @@ import { oneLine } from 'common-tags';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
-import {
-  DISCO_NAVIGATION_CATEGORY,
-  INSTALL_SOURCE_DISCOVERY,
-  INSTALL_STATE,
-} from 'core/constants';
+import { DISCO_NAVIGATION_CATEGORY, INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/components/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
 import log from 'core/logger';
@@ -217,7 +213,6 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
         {results.map((item) => (
           <Addon
             addonId={item.addonId}
-            defaultInstallSource={INSTALL_SOURCE_DISCOVERY}
             description={item.description}
             heading={item.heading}
             key={item.addonId}

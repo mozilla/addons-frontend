@@ -213,11 +213,7 @@ export function isCompatibleWithUserAgent({
   const { platformFiles } = currentVersion;
   if (
     addon.type === ADDON_TYPE_EXTENSION &&
-    !_findInstallURL({
-      appendSource: false,
-      platformFiles,
-      userAgentInfo,
-    })
+    !_findInstallURL({ platformFiles, userAgentInfo })
   ) {
     return {
       compatible: false,

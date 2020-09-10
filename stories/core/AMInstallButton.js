@@ -15,7 +15,6 @@ const render = (otherProps) => {
     addon: createInternalAddon(fakeAddon),
     canUninstall: true,
     currentVersion: createInternalVersion(fakeVersion),
-    defaultInstallSource: 'storybook',
     disabled: false,
     enable: () => Promise.resolve(true),
     hasAddonManager: true,
