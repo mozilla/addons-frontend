@@ -72,7 +72,6 @@ describe(__filename, () => {
     addon: createInternalAddon(fakeAddon),
     cookies: fakeCookies(),
     currentVersion: createInternalVersion(fakeVersion),
-    defaultInstallSource: '',
     disabled: false,
     enable: sinon.stub(),
     hasAddonManager: true,
@@ -147,19 +146,6 @@ describe(__filename, () => {
     expect(root.find(Button).childAt(1)).toHaveText('Install Theme');
   });
 
-  it('uses router location to create install URLs', () => {
-    const externalSource = 'my-blog';
-    const installURL = 'https://addons.mozilla.org/download';
-    const root = render({
-      currentVersion: createInternalVersionWithInstallURL({ installURL }),
-      defaultInstallSource: 'this-should-be-overidden',
-      location: createFakeLocation({ query: { src: externalSource } }),
-    });
-
-    const button = root.find(Button);
-    expect(button).toHaveProp('href', `${installURL}?src=${externalSource}`);
-  });
-
   it('disables the button when disabled prop is true', () => {
     const installURL = 'https://addons.mozilla.org/download';
     const root = render({
@@ -197,20 +183,6 @@ describe(__filename, () => {
 
     expect(root.find(Button)).toHaveProp('disabled', true);
     expect(root.find(Button)).toHaveProp('href', undefined);
-  });
-
-  it('adds defaultInstallSource to extension buttons', () => {
-    const installURL = 'https://addons.mozilla.org/download';
-    const defaultInstallSource = 'homepage';
-    const root = render({
-      currentVersion: createInternalVersionWithInstallURL({ installURL }),
-      defaultInstallSource,
-    });
-
-    expect(root.find(Button)).toHaveProp(
-      'href',
-      `${installURL}?src=${defaultInstallSource}`,
-    );
   });
 
   it('calls the `install` helper to install an extension', async () => {

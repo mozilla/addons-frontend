@@ -211,45 +211,13 @@ describe(__filename, () => {
   });
 
   describe('install()', () => {
-    // See: https://github.com/mozilla/addons-frontend/issues/9202
-    it('uses the `src` query parameter in the URL when provided', async () => {
-      const url = 'http://example.com/path/to/file.xpi?src=src-in-install-url';
-
-      await addonManager.install(url, fakeCallback, {
-        _mozAddonManager: fakeMozAddonManager,
-        defaultInstallSource: 'default-src',
-      });
-
-      sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
-        url:
-          'http://example.com/path/to/file.xpi?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=src-in-install-url',
-        hash: undefined,
-      });
-    });
-
-    it('uses the default install source when the URL does not have a `src` query parameter', async () => {
-      const url = 'http://example.com/path/to/file.xpi';
-      const defaultInstallSource = 'default-src';
-
-      await addonManager.install(url, fakeCallback, {
-        _mozAddonManager: fakeMozAddonManager,
-        defaultInstallSource,
-      });
-
-      sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
-        url: `${url}?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=${defaultInstallSource}`,
-        hash: undefined,
-      });
-    });
-
     it('should call mozAddonManager.createInstall() with url', async () => {
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        defaultInstallSource: 'home',
       });
 
       sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
-        url: `${fakeInstallUrl}?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=home`,
+        url: fakeInstallUrl,
         hash: undefined,
       });
     });
@@ -259,12 +227,11 @@ describe(__filename, () => {
 
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        defaultInstallSource: 'home',
         hash,
       });
 
       sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
-        url: `${fakeInstallUrl}?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=home`,
+        url: fakeInstallUrl,
         hash,
       });
     });
@@ -272,7 +239,6 @@ describe(__filename, () => {
     it('should call installObj.addEventListener to setup events', async () => {
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        defaultInstallSource: 'home',
       });
 
       // It registers an extra onInstallFailed and onInstallEnded listener.
@@ -285,7 +251,6 @@ describe(__filename, () => {
     it('should call installObj.install()', async () => {
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        defaultInstallSource: 'home',
       });
 
       sinon.assert.called(fakeInstallObj.install);
@@ -300,7 +265,6 @@ describe(__filename, () => {
         addonManager
           .install(fakeInstallUrl, fakeCallback, {
             _mozAddonManager: fakeMozAddonManager,
-            defaultInstallSource: 'home',
           })
           // The second argument is the reject function.
           .then(unexpectedSuccess, () => {
@@ -325,7 +289,6 @@ describe(__filename, () => {
         _log,
         _mozAddonManager: fakeMozAddonManager,
         onIgnoredRejection: () => finishInstall(),
-        defaultInstallSource: 'home',
       });
 
       await installToFinish;
@@ -337,22 +300,11 @@ describe(__filename, () => {
 
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        defaultInstallSource: 'home',
       });
 
       fakeInstallObj.onDownloadProgressListener(fakeEvent);
 
       sinon.assert.calledWith(fakeCallback, fakeInstallObj, fakeEvent);
-    });
-
-    it('requires a src', () => {
-      return addonManager
-        .install(fakeInstallUrl, fakeCallback, {
-          _mozAddonManager: fakeMozAddonManager,
-        })
-        .then(unexpectedSuccess, (e) => {
-          expect(e.message).toEqual('No src for add-on install');
-        });
     });
   });
 

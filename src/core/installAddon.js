@@ -1,6 +1,4 @@
 /* @flow */
-import url from 'url';
-
 import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -48,7 +46,6 @@ import type {
 } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocationType } from 'core/types/router';
 import type { AppState as DiscoAppState } from 'disco/store';
 
 type AddonInstallType = {|
@@ -123,9 +120,6 @@ export function makeProgressHandler({
 
 type FindInstallUrlParams = {|
   _findFileForPlatform?: typeof findFileForPlatform,
-  appendSource?: boolean,
-  defaultInstallSource?: string,
-  location?: ReactRouterLocationType,
   platformFiles: PlatformFilesType,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -136,21 +130,9 @@ type FindInstallUrlParams = {|
  */
 export const findInstallURL = ({
   _findFileForPlatform = findFileForPlatform,
-  appendSource = true,
-  defaultInstallSource,
-  location,
   platformFiles,
   userAgentInfo,
 }: FindInstallUrlParams): string | void => {
-  let source;
-  if (appendSource) {
-    invariant(
-      location,
-      'The location parameter is required when appendSource is true',
-    );
-    source = location.query.src || defaultInstallSource;
-  }
-
   const platformFile = _findFileForPlatform({
     platformFiles,
     userAgentInfo,
@@ -169,25 +151,11 @@ export const findInstallURL = ({
     return undefined;
   }
 
-  if (!source) {
-    return installURL;
-  }
-
-  // Add ?src=...
-  const parseQuery = true;
-  const urlParts = url.parse(installURL, parseQuery);
-  return url.format({
-    ...urlParts,
-    // Reset the search string so we can define a new one.
-    search: undefined,
-    query: { ...urlParts.query, src: source },
-  });
+  return installURL;
 };
 
 type WithInstallHelpersProps = {|
   addon: AddonType | null,
-  defaultInstallSource: string,
-  location: ReactRouterLocationType,
   version?: AddonVersionType | null,
 |};
 
@@ -269,9 +237,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       _log,
       addon,
       currentVersion,
-      defaultInstallSource,
       dispatch,
-      location,
       userAgentInfo,
     } = this.props;
 
@@ -293,12 +259,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     const { guid, type } = addon;
     const { platformFiles } = currentVersion;
 
-    const installURL = findInstallURL({
-      defaultInstallSource,
-      location,
-      platformFiles,
-      userAgentInfo,
-    });
+    const installURL = findInstallURL({ platformFiles, userAgentInfo });
 
     const payload = { guid, url: installURL };
 
@@ -389,9 +350,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       _tracking,
       addon,
       currentVersion,
-      defaultInstallSource,
       dispatch,
-      location,
       userAgentInfo,
     } = this.props;
 
@@ -416,12 +375,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
         label: name,
       });
 
-      const installURL = findInstallURL({
-        defaultInstallSource,
-        location,
-        platformFiles,
-        userAgentInfo,
-      });
+      const installURL = findInstallURL({ platformFiles, userAgentInfo });
 
       resolve(installURL);
     })
@@ -445,7 +399,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
             name,
             type,
           }),
-          { defaultInstallSource, hash },
+          { hash },
         );
       })
       .then(() => {
@@ -530,14 +484,9 @@ export const withInstallHelpers = (
     state: AmoAppState | DiscoAppState,
     ownProps: WithInstallHelpersProps,
   ) => {
-    const { addon, defaultInstallSource, location } = ownProps;
+    const { addon } = ownProps;
 
     invariant(typeof addon !== 'undefined', 'addon is required');
-    invariant(
-      typeof defaultInstallSource !== 'undefined',
-      'defaultInstallSource is required',
-    );
-    invariant(location, 'location is required');
 
     let currentVersion = ownProps.version;
     if (!currentVersion) {

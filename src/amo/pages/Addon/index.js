@@ -46,7 +46,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
-  INSTALL_SOURCE_DETAIL_PAGE,
 } from 'core/constants';
 import { nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
@@ -499,7 +498,6 @@ export class AddonBase extends React.Component {
                   {addon && (
                     <InstallButtonWrapper
                       addon={addon}
-                      defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
                       getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
                     />
                   )}

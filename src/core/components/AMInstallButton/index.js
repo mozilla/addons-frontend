@@ -6,7 +6,6 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import {
@@ -40,7 +39,6 @@ import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocationType } from 'core/types/router';
 import type { ButtonType } from 'ui/components/Button';
 
 import './styles.scss';
@@ -52,7 +50,6 @@ type Props = {|
   className?: string,
   currentVersion: AddonVersionType | null,
   defaultButtonText?: string,
-  defaultInstallSource: string,
   disabled: boolean,
   puffy?: boolean,
   status: string,
@@ -65,7 +62,6 @@ type InternalProps = {|
   _tracking: typeof tracking,
   _window: typeof window,
   i18n: I18nType,
-  location: ReactRouterLocationType,
   userAgentInfo: UserAgentInfoType,
 |};
 
@@ -244,10 +240,8 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       canUninstall,
       className,
       currentVersion,
-      defaultInstallSource,
       disabled,
       hasAddonManager,
-      location,
       status,
       userAgentInfo,
     } = this.props;
@@ -258,8 +252,6 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
     const installURL = currentVersion
       ? findInstallURL({
-          defaultInstallSource,
-          location,
           platformFiles: currentVersion.platformFiles,
           userAgentInfo,
         })
@@ -357,7 +349,6 @@ export function mapStateToProps(state: AppState) {
 }
 
 const AMInstallButton: React.ComponentType<Props> = compose(
-  withRouter,
   connect(mapStateToProps),
   translate(),
 )(AMInstallButtonBase);

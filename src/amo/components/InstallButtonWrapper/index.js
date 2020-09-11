@@ -26,7 +26,6 @@ export type Props = {|
   addon: AddonType,
   className?: string,
   defaultButtonText?: string,
-  defaultInstallSource: string,
   getFirefoxButtonType: GetFirefoxButtonTypeType,
   puffy?: boolean,
   // TODO: this is a false positive since eslint-react-plugin >= 7.18.0 (it was
@@ -54,7 +53,6 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
     clientApp,
     currentVersion,
     defaultButtonText,
-    defaultInstallSource,
     enable,
     getFirefoxButtonType,
     hasAddonManager,
@@ -92,7 +90,6 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
           className={className ? `AMInstallButton--${className}` : ''}
           currentVersion={currentVersion}
           defaultButtonText={defaultButtonText}
-          defaultInstallSource={defaultInstallSource}
           disabled={!isCompatible}
           enable={enable}
           hasAddonManager={hasAddonManager}

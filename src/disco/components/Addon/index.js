@@ -43,7 +43,6 @@ const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
 type Props = {|
   addonId: $PropertyType<DiscoResultType, 'addonId'>,
-  defaultInstallSource: string,
   description: $PropertyType<DiscoResultType, 'description'>,
   heading: $PropertyType<DiscoResultType, 'heading'>,
 |};
@@ -196,7 +195,6 @@ export class AddonBase extends React.Component<InternalProps> {
       canUninstall,
       clientApp,
       currentVersion,
-      defaultInstallSource,
       enable,
       hasAddonManager,
       heading,
@@ -271,7 +269,6 @@ export class AddonBase extends React.Component<InternalProps> {
             canUninstall={canUninstall}
             className="Addon-install-button"
             currentVersion={currentVersion}
-            defaultInstallSource={defaultInstallSource}
             disabled={!compatible}
             enable={enable}
             hasAddonManager={hasAddonManager}
