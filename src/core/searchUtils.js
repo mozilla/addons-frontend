@@ -20,6 +20,7 @@ export const paramsToFilter = {
   // TODO: Change our filter to `pageSize`, for consistency.
   page_size: 'page_size',
   platform: 'operatingSystem',
+  promoted: 'promoted',
   q: 'query',
   recommended: 'recommended',
   sort: 'sort',

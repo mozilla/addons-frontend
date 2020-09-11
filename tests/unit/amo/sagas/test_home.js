@@ -174,8 +174,8 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           filters: {
-            page_size: String(LANDING_PAGE_PROMOTED_EXTENSION_COUNT),
             addonType: ADDON_TYPE_EXTENSION,
+            page_size: String(LANDING_PAGE_PROMOTED_EXTENSION_COUNT),
             promoted: SPONSORED,
             sort: SEARCH_SORT_RANDOM,
           },
