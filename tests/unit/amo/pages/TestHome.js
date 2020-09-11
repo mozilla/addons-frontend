@@ -15,6 +15,7 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Page from 'amo/components/Page';
+import PromotedAddonsCard from 'amo/components/PromotedAddonsCard';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   FETCH_HOME_DATA,
@@ -43,6 +44,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -105,6 +107,101 @@ describe(__filename, () => {
       expect(shelf).toHaveProp('loading', true);
     },
   );
+
+  it('renders a promoted extensions shelf if turned on', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+    });
+
+    const addon = fakeAddon;
+    const promotedExtensions = createAddonsApiResult([addon]);
+
+    _loadHomeData({
+      store,
+      shelves: { promotedExtensions },
+    });
+
+    const root = render({
+      _config: getFakeConfig({
+        enableFeaturePromotedShelf: true,
+      }),
+      store,
+    });
+
+    expect(root.find(PromotedAddonsCard)).toHaveProp('addons', [
+      createInternalAddon(addon),
+    ]);
+  });
+
+  it('does not render a promoted extensions shelf if turned off', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+    });
+
+    const addon = fakeAddon;
+    const promotedExtensions = createAddonsApiResult([addon]);
+
+    _loadHomeData({
+      store,
+      shelves: { promotedExtensions },
+    });
+
+    const root = render({
+      _config: getFakeConfig({
+        enableFeaturePromotedShelf: false,
+      }),
+      store,
+    });
+
+    expect(root.find(PromotedAddonsCard)).toHaveLength(0);
+  });
+
+  it('does not render a promoted extensions shelf on android', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+    });
+
+    const addon = fakeAddon;
+    const promotedExtensions = createAddonsApiResult([addon]);
+
+    _loadHomeData({
+      store,
+      shelves: { promotedExtensions },
+    });
+
+    const root = render({
+      _config: getFakeConfig({
+        enableFeaturePromotedShelf: true,
+      }),
+      store,
+    });
+
+    expect(root.find(PromotedAddonsCard)).toHaveLength(0);
+  });
+
+  it('only includes 3 promoted extensions if fewer than 6 are returned', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+    });
+
+    const addon = fakeAddon;
+    const promotedExtensions = createAddonsApiResult(Array(5).fill(addon));
+
+    _loadHomeData({
+      store,
+      shelves: { promotedExtensions },
+    });
+
+    const root = render({
+      _config: getFakeConfig({
+        enableFeaturePromotedShelf: true,
+      }),
+      store,
+    });
+
+    const addons = root.find(PromotedAddonsCard).prop('addons');
+    expect(addons.length).toEqual(3);
+  });
 
   it('renders a recommended extensions shelf', () => {
     const root = render();

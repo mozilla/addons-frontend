@@ -129,6 +129,7 @@ module.exports = {
     'enableFeatureBlockPage',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
+    'enableFeaturePromotedShelf',
     'enableFeatureUseUtmParams',
     'enableRequestID',
     'enableStrictMode',
@@ -383,6 +384,8 @@ module.exports = {
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
   enableFeatureUseUtmParams: true,
+
+  enableFeaturePromotedShelf: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

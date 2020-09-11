@@ -31,4 +31,6 @@ module.exports = {
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
+
+  enableFeaturePromotedShelf: true,
 };
