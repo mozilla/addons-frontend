@@ -31,6 +31,7 @@ import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getAddonURL } from 'amo/utils';
+import { isFenixCompatible } from 'core/utils/compatibility';
 import { getVersionById } from 'core/reducers/versions';
 import {
   fetchAddon,
@@ -69,6 +70,7 @@ export const STATUS_PUBLIC = 'public';
 
 export class AddonBase extends React.Component {
   static propTypes = {
+    _isFenixCompatible: PropTypes.func,
     RatingManager: PropTypes.func,
     addon: PropTypes.object,
     addonIsLoading: PropTypes.bool,
@@ -90,6 +92,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     config: defaultConfig,
+    _isFenixCompatible: isFenixCompatible,
     RatingManager: DefaultRatingManager,
   };
 
@@ -401,6 +404,7 @@ export class AddonBase extends React.Component {
 
   render() {
     const {
+      _isFenixCompatible,
       addon,
       addonsByAuthors,
       currentVersion,
@@ -507,23 +511,32 @@ export class AddonBase extends React.Component {
                   {i18n.gettext('Extension Metadata')}
                 </h2>
               </header>
-              <WrongPlatformWarning
-                addon={addon}
-                className="Addon-WrongPlatformWarning"
-                currentVersion={currentVersion}
-                fixAndroidLinkMessage={i18n.gettext(
-                  `This listing is not intended for this platform.
+              {addon ? (
+                <WrongPlatformWarning
+                  addon={addon}
+                  className="Addon-WrongPlatformWarning"
+                  currentVersion={currentVersion}
+                  fixAndroidLinkMessage={i18n.gettext(
+                    `This listing is not intended for this platform.
                     <a href="%(newLocation)s">Browse add-ons for Firefox on Android</a>.`,
-                )}
-                fixFirefoxLinkMessage={i18n.gettext(
-                  `This listing is not intended for this platform.
+                  )}
+                  fixFirefoxLinkMessage={i18n.gettext(
+                    `This listing is not intended for this platform.
                     <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
-                )}
-                fixFenixLinkMessage={i18n.gettext(
-                  `Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.
+                  )}
+                  fixFenixLinkMessage={
+                    _isFenixCompatible({ addon })
+                      ? i18n.gettext(
+                          `You can install this add-on in the Add-ons Manager. 
+                        Learn more about <a href="%(newLocation)s">add-ons for Android</a>.`,
+                        )
+                      : i18n.gettext(
+                          `Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.
                     Learn more about <a href="%(newLocation)s">add-ons for Android</a>.`,
-                )}
-              />
+                        )
+                  }
+                />
+              ) : null}
               {addon && <InstallWarning addon={addon} />}
             </Card>
 
