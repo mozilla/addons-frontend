@@ -77,8 +77,6 @@ export class ErrorHandler {
   }
 }
 
-export type ErrorHandlerType = typeof ErrorHandler;
-
 /*
  * This is a decorator that gives a component the ability to handle errors.
  *

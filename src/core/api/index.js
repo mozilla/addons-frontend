@@ -15,7 +15,7 @@ import {
   convertFiltersToQueryParams,
 } from 'core/searchUtils';
 import { addQueryParams } from 'core/utils/url';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 import type { ReactRouterLocationType } from 'core/types/router';
@@ -70,7 +70,7 @@ export function createApiError({
 type CallApiParams = {|
   apiState?: ApiState,
   auth?: boolean,
-  body?: Object | FormData,
+  body?: Object | typeof FormData,
   credentials?: boolean,
   endpoint: string,
   errorHandler?: ErrorHandlerType,

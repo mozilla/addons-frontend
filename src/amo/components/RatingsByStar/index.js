@@ -17,7 +17,7 @@ import IconStar from 'ui/components/IconStar';
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';

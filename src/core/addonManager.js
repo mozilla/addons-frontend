@@ -171,18 +171,10 @@ export function uninstall(
   guid: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
-  return getAddon(guid, { _mozAddonManager })
-    .then((addon) => {
-      log.info(`Requesting uninstall of ${guid}`);
-      return addon.uninstall();
-    })
-    .then((result) => {
-      // Until bug 1268075 this will resolve with a boolean
-      // for success and failure.
-      if (result === false) {
-        throw new Error('Uninstall failed');
-      }
-    });
+  return getAddon(guid, { _mozAddonManager }).then((addon) => {
+    log.info(`Requesting uninstall of ${guid}`);
+    return addon.uninstall();
+  });
 }
 
 type AddonChangeEvent = {|

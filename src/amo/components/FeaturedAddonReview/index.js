@@ -13,7 +13,7 @@ import log from 'core/logger';
 import Card from 'ui/components/Card';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';

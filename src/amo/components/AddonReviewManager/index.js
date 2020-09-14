@@ -19,7 +19,7 @@ import { replaceStringsWithJSX } from 'core/i18n/utils';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
 import type { I18nType } from 'core/types/i18n';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';

@@ -9,15 +9,15 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { fetchCategories } from 'core/reducers/categories';
-import { getCategoryResultsQuery } from 'core/utils';
+import { getCategoryResultsQuery } from 'core/utils/categories';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
-import type { GetCategoryResultsQueryParams } from 'core/utils';
+import type { GetCategoryResultsQueryParams } from 'core/utils/categories';
 
 import './styles.scss';
 

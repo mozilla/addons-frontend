@@ -26,7 +26,7 @@ import type {
   ReactRouterMatchType,
 } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 
 import './styles.scss';
 

@@ -13,7 +13,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
 } from 'core/constants';
-import { getCategoryResultsQuery } from 'core/utils';
+import { getCategoryResultsQuery } from 'core/utils/categories';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import {

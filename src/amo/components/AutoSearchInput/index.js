@@ -30,7 +30,7 @@ import type { SuggestionType } from 'core/reducers/autocomplete';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 
 import './styles.scss';
 

@@ -15,7 +15,7 @@ import { sanitizeHTML } from 'core/utils';
 import { fetchBlock } from 'amo/reducers/blocks';
 import log from 'core/logger';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterMatchType } from 'core/types/router';

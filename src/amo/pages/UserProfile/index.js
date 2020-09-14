@@ -53,7 +53,7 @@ import type {
   ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'core/types/router';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';

@@ -27,7 +27,7 @@ import { sanitizeUserHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { AddonInfoType } from 'core/reducers/addons';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';

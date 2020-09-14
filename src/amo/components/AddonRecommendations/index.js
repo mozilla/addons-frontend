@@ -18,7 +18,7 @@ import defaultTracking from 'core/tracking';
 import LoadingText from 'ui/components/LoadingText';
 import type { Recommendations } from 'amo/reducers/recommendations';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';

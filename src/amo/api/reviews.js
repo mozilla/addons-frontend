@@ -6,7 +6,7 @@ import { REVIEW_FLAG_REASON_OTHER } from 'amo/constants';
 import { callApi } from 'core/api';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { ApiState } from 'core/reducers/api';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { PaginatedApiResponse } from 'core/types/api';
 
 type ExternalReviewTypeBase = {|

@@ -43,7 +43,7 @@ import type {
 } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type {
   ReactRouterHistoryType,

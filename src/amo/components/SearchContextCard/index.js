@@ -10,7 +10,7 @@ import { withErrorHandler } from 'core/errorHandler';
 import Card from 'ui/components/Card';
 import type { AppState } from 'amo/store';
 import type { SearchFilters } from 'core/api/search';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 

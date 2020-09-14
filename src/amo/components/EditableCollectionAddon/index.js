@@ -17,7 +17,7 @@ import type {
   RemoveCollectionAddonFunc,
   SaveAddonNoteFunc,
 } from 'amo/pages/Collection';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';

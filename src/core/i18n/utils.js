@@ -309,7 +309,7 @@ type makeI18nOptions = {|
 export function makeI18n(
   i18nData: I18nConfig,
   lang: string,
-  _Jed: Jed = Jed,
+  _Jed: typeof Jed = Jed,
   {
     // Checks required to guard against ReferenceError when Intl is not defined.
     // $FlowFixMe

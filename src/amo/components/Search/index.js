@@ -31,10 +31,10 @@ import log from 'core/logger';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { AppState } from 'amo/store';
 import type { SearchFilters as SearchFiltersType } from 'core/api/search';
-import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
-import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 

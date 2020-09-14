@@ -16,7 +16,7 @@ import { sanitizeUserHTML } from 'core/utils';
 import LoadingText from 'ui/components/LoadingText';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
