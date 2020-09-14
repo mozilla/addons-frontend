@@ -17,6 +17,7 @@ import {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  RECOMMENDED,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
@@ -78,8 +79,8 @@ export function* fetchHomeData({
     }
 
     const recommendedSearchFilters = {
-      recommended: true,
       page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+      promoted: RECOMMENDED,
       sort: SEARCH_SORT_RANDOM,
     };
     const recommendedExtensionsParams: SearchParams = {
@@ -102,7 +103,7 @@ export function* fetchHomeData({
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_POPULAR,
       },
     };
@@ -119,7 +120,7 @@ export function* fetchHomeData({
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_TRENDING,
       },
     };

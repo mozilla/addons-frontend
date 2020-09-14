@@ -2,7 +2,11 @@ import * as React from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import SearchResults, { SearchResultsBase } from 'amo/components/SearchResults';
-import { INSTALL_SOURCE_FEATURED, INSTALL_SOURCE_SEARCH } from 'core/constants';
+import {
+  INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_SEARCH,
+  RECOMMENDED,
+} from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import {
   dispatchClientMetadata,
@@ -100,7 +104,7 @@ describe(__filename, () => {
 
   it('sets add-on install source to recommended when approrpriate', () => {
     const root = render({
-      filters: { query: 'ad blockers', recommended: true },
+      filters: { query: 'ad blockers', promoted: RECOMMENDED },
       loading: false,
       results: [fakeAddon],
     });

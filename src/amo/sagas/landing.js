@@ -10,6 +10,7 @@ import {
 import { search as searchApi } from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
+  RECOMMENDED,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
@@ -34,7 +35,7 @@ export function* fetchLandingAddons({
         ADDON_TYPE_STATIC_THEME === addonType
           ? String(LANDING_PAGE_THEME_COUNT)
           : String(LANDING_PAGE_EXTENSION_COUNT),
-      recommended: addonType === ADDON_TYPE_EXTENSION ? true : undefined,
+      promoted: addonType === ADDON_TYPE_EXTENSION ? RECOMMENDED : undefined,
     };
 
     if (category) {
@@ -45,7 +46,7 @@ export function* fetchLandingAddons({
       api,
       filters: {
         ...filters,
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_RANDOM,
         page: '1',
       },

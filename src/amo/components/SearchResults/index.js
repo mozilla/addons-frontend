@@ -54,7 +54,7 @@ export class SearchResultsBase extends React.Component<InternalProps> {
       }
     }
 
-    const addonInstallSource = filters.recommended
+    const addonInstallSource = filters.promoted
       ? INSTALL_SOURCE_FEATURED
       : INSTALL_SOURCE_SEARCH;
 

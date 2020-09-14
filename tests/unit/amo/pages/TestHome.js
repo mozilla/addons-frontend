@@ -29,6 +29,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  RECOMMENDED,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
@@ -214,7 +215,7 @@ describe(__filename, () => {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_EXTENSION,
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_RANDOM,
       },
     });
@@ -232,7 +233,7 @@ describe(__filename, () => {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_STATIC_THEME,
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_RANDOM,
       },
     });
@@ -265,7 +266,7 @@ describe(__filename, () => {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_EXTENSION,
-        recommended: true,
+        promoted: RECOMMENDED,
         sort: SEARCH_SORT_TRENDING,
       },
     });

@@ -25,7 +25,6 @@ export type SearchFilters = {|
   page_size?: string,
   promoted?: string,
   query?: string,
-  recommended?: boolean,
   sort?: string,
 |};
 
@@ -42,12 +41,12 @@ export function search({ api, auth = false, filters = {} }: SearchParams) {
   });
 
   // The API says: 'The "sort" parameter "random" can only be specified when
-  // the "featured" or "recommended" parameter is also present, and the "q"
+  // the "featured" or "promoted" parameter is also present, and the "q"
   // parameter absent.'
   // Let's make sure we don't send invalid filters.
   // Note that we no longer make use of the "featured" filter.
   if (newFilters.sort && newFilters.sort === SEARCH_SORT_RANDOM) {
-    if (!newFilters.recommended || newFilters.q) {
+    if (!newFilters.promoted || newFilters.q) {
       delete newFilters.sort;
 
       log.warn(oneLine`search api filter "sort=random" has been removed before

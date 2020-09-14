@@ -138,7 +138,7 @@ export const getPromotedCategory = ({
       category = VERIFIED;
     }
 
-    // We only have badges for LINE, RECOMMENDED and VERIFIED.
+    // We only have badges for certain categories.
     if (!BADGE_CATEGORIES.includes(category)) {
       category = null;
     }

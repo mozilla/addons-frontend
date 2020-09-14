@@ -4,6 +4,7 @@ import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  RECOMMENDED,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_RELEVANCE,
 } from 'core/constants';
@@ -181,7 +182,7 @@ describe(__filename, () => {
     });
   });
 
-  it('removes sort=random when the recommended filter is missing', () => {
+  it('removes sort=random when the promoted filter is missing', () => {
     mockWindow
       .expects('fetch')
       .withArgs(sinon.match((url) => !url.includes('sort')))
@@ -192,47 +193,47 @@ describe(__filename, () => {
     });
   });
 
-  it('removes sort=random when the recommended and query filters are set', () => {
-    const recommended = true;
+  it('removes sort=random when the promoted and query filters are set', () => {
+    const promoted = RECOMMENDED;
     const q = 'some query';
 
     mockWindow
       .expects('fetch')
       .withArgs(sinon.match((url) => !url.includes('sort')))
-      .withArgs(urlWithTheseParams({ recommended, q }))
+      .withArgs(urlWithTheseParams({ promoted, q }))
       .returns(mockResponse());
 
     return _search({
-      filters: { sort: SEARCH_SORT_RANDOM, recommended, query: q },
+      filters: { sort: SEARCH_SORT_RANDOM, promoted, query: q },
     }).then(() => {
       mockWindow.verify();
     });
   });
 
-  it('does not remove sort=random when recommended is set', () => {
-    const recommended = true;
+  it('does not remove sort=random when promoted is set', () => {
+    const promoted = RECOMMENDED;
     const sort = SEARCH_SORT_RANDOM;
 
     mockWindow
       .expects('fetch')
-      .withArgs(urlWithTheseParams({ sort, recommended }))
+      .withArgs(urlWithTheseParams({ sort, promoted }))
       .returns(mockResponse());
 
-    return _search({ filters: { sort, recommended } }).then(() => {
+    return _search({ filters: { sort, promoted } }).then(() => {
       mockWindow.verify();
     });
   });
 
   it('does not remove the sort filter when its value is not "random"', () => {
-    const recommended = true;
+    const promoted = RECOMMENDED;
     const sort = SEARCH_SORT_RELEVANCE;
 
     mockWindow
       .expects('fetch')
-      .withArgs(urlWithTheseParams({ sort, recommended }))
+      .withArgs(urlWithTheseParams({ sort, promoted }))
       .returns(mockResponse());
 
-    return _search({ filters: { sort, recommended } }).then(() => {
+    return _search({ filters: { sort, promoted } }).then(() => {
       mockWindow.verify();
     });
   });

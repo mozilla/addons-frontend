@@ -23,6 +23,7 @@ import {
   CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_PROMOTED_SHELF,
+  RECOMMENDED,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
@@ -306,7 +307,7 @@ export class HomeBase extends React.Component {
                 pathname: '/search/',
                 query: {
                   addonType: ADDON_TYPE_EXTENSION,
-                  recommended: true,
+                  promoted: RECOMMENDED,
                   sort: SEARCH_SORT_RANDOM,
                 },
               }}
@@ -342,7 +343,7 @@ export class HomeBase extends React.Component {
                 pathname: '/search/',
                 query: {
                   addonType: ADDON_TYPE_EXTENSION,
-                  recommended: true,
+                  promoted: RECOMMENDED,
                   sort: SEARCH_SORT_POPULAR,
                 },
               }}
@@ -359,7 +360,7 @@ export class HomeBase extends React.Component {
                   pathname: '/search/',
                   query: {
                     addonType: ADDON_TYPE_STATIC_THEME,
-                    recommended: true,
+                    promoted: RECOMMENDED,
                     sort: SEARCH_SORT_RANDOM,
                   },
                 }}
@@ -382,7 +383,7 @@ export class HomeBase extends React.Component {
                   pathname: '/search/',
                   query: {
                     addonType: ADDON_TYPE_EXTENSION,
-                    recommended: true,
+                    promoted: RECOMMENDED,
                     sort: SEARCH_SORT_TRENDING,
                   },
                 }}
