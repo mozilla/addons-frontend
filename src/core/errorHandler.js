@@ -7,6 +7,7 @@ import { clearError, setError, setErrorMessage } from 'core/actions/errors';
 import log from 'core/logger';
 import { normalizeFileNameId } from 'core/utils';
 import ErrorList from 'ui/components/ErrorList';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 
 function generateHandlerId({ name = '' } = {}) {
   return `${name}-${Math.random().toString(36).substr(2, 9)}`;
