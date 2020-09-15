@@ -7,7 +7,6 @@
     .AMInstallButton {
       @include respond-to(medium) {
         align-self: flex-end;
-        margin-bottom: 12px;
       }
     }
   }

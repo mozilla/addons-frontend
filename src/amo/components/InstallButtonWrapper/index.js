@@ -8,7 +8,8 @@ import { compose } from 'redux';
 import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import AMInstallButton from 'core/components/AMInstallButton';
 import { UNKNOWN } from 'core/constants';
-import { withInstallHelpers } from 'core/installAddon';
+import translate from 'core/i18n/translate';
+import { findInstallURL, withInstallHelpers } from 'core/installAddon';
 import { getVersionById } from 'core/reducers/versions';
 import { getClientCompatibility, isFirefox } from 'core/utils/compatibility';
 import type { GetFirefoxButtonTypeType } from 'amo/components/GetFirefoxButton';
@@ -17,12 +18,14 @@ import type { UserAgentInfoType } from 'core/reducers/api';
 import type { InstalledAddon } from 'core/reducers/installations';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
+import type { I18nType } from 'core/types/i18n';
 import type { AppState } from 'disco/store';
 
 import './styles.scss';
 
 export type Props = {|
   _getClientCompatibility?: typeof getClientCompatibility,
+  _findInstallURL?: typeof findInstallURL,
   addon: AddonType,
   className?: string,
   defaultButtonText?: string,
@@ -40,12 +43,14 @@ type InternalProps = {|
   canUninstall: $PropertyType<InstalledAddon, 'canUninstall'>,
   clientApp: string,
   currentVersion: AddonVersionType | null,
+  i18n: I18nType,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
 |};
 
 export const InstallButtonWrapperBase = (props: InternalProps) => {
   const {
+    _findInstallURL = findInstallURL,
     _getClientCompatibility = getClientCompatibility,
     addon,
     canUninstall,
@@ -56,6 +61,7 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
     enable,
     getFirefoxButtonType,
     hasAddonManager,
+    i18n,
     install,
     installStatus,
     isAddonEnabled,
@@ -76,6 +82,13 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
     });
     isCompatible = compatibility.compatible;
   }
+
+  const installURL = currentVersion
+    ? _findInstallURL({
+        platformFiles: currentVersion.platformFiles,
+        userAgentInfo,
+      })
+    : undefined;
 
   return (
     addon && (
@@ -105,6 +118,16 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
           buttonType={getFirefoxButtonType}
           className={className ? `GetFirefoxButton--${className}` : ''}
         />
+        {!isCompatible && installURL ? (
+          <div className="InstallButtonWrapper-downloadLink">
+            <a
+              className="InstallButtonWrapper-downloadLink-link"
+              href={installURL}
+            >
+              {i18n.gettext('Download file')}
+            </a>
+          </div>
+        ) : null}
       </div>
     )
   );
@@ -136,6 +159,7 @@ const InstallButtonWrapper: React.ComponentType<Props> = compose(
   withRouter,
   withInstallHelpers,
   connect(mapStateToProps),
+  translate(),
 )(InstallButtonWrapperBase);
 
 export default InstallButtonWrapper;
