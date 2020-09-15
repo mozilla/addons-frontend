@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-11 17:57+0000\n"
+"POT-Creation-Date: 2020-09-15 16:08+0000\n"
 "PO-Revision-Date: 2020-04-22 13:06+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -14,39 +14,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Enable"
 msgstr "הפעלה"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Remove"
 msgstr "הסרה"
 
-#: src/core/components/AMInstallButton/index.js:207
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Enabling"
 msgstr "מופעלת"
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Disabling"
 msgstr "בתהליך השבתה"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Downloading"
 msgstr "בהורדה"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Installing"
 msgstr "בהתקנה"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Uninstalling"
 msgstr "בהסרת התקנה"
 
-#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Install Theme"
 msgstr "התקנת ערכת נושא"
 
-#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Add to Firefox"
 msgstr "הוספה ל־Firefox"
 
@@ -122,31 +122,31 @@ msgstr "‏%(application)s %(minVersion)s עד %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "עובד עם %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "ההתקנה בוטלה מכיוון שנראה שהתוספת פגומה."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "Installation failed. Please try again."
 msgstr "ההתקנה נכשלה. נא לנסות שנית."
 
-#: src/core/utils/addons.js:37
+#: src/core/utils/addons.js:42
 msgid "Download failed. Please check your connection."
 msgstr "ההורדה נכשלה. נא לבדוק את החיבור שלך."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
 msgstr "אירעה שגיאה לא צפויה במהלך ההתקנה."
 
-#: src/core/utils/addons.js:41
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
 msgstr "אירעה שגיאה לא צפויה במהלך הסרת ההתקנה."
 
-#: src/core/utils/addons.js:46
+#: src/core/utils/addons.js:51
 msgid "An unexpected error occurred."
 msgstr "אירעה שגיאה לא צפויה."
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "סגירה"
 
@@ -170,15 +170,15 @@ msgstr "גילוי תוספות"
 msgid "Privacy Policy"
 msgstr "מדיניות פרטיות"
 
-#: src/disco/pages/DiscoPane/index.js:166
+#: src/disco/pages/DiscoPane/index.js:162
 msgid "Find more add-ons"
 msgstr "חיפוש תוספות נוספות"
 
-#: src/disco/pages/DiscoPane/index.js:188
+#: src/disco/pages/DiscoPane/index.js:184
 msgid "Personalize Your Firefox"
 msgstr "התאמה אישית של ה־Firefox שלך"
 
-#: src/disco/pages/DiscoPane/index.js:190
+#: src/disco/pages/DiscoPane/index.js:186
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -192,11 +192,11 @@ msgstr ""
 "לשלך. על־מנת לעזור לך להתחיל, להלן מספר תוספות שאנו ממליצים עליהן בזכות "
 "הפונקציונליות והביצועים שלהן."
 
-#: src/disco/pages/DiscoPane/index.js:207
+#: src/disco/pages/DiscoPane/index.js:203
 msgid "Learn More"
 msgstr "מידע נוסף"
 
-#: src/disco/pages/DiscoPane/index.js:211
+#: src/disco/pages/DiscoPane/index.js:207
 msgid ""
 "Some of these recommendations are personalized. They are based on other "
 "extensions you've installed, profile preferences, and usage statistics."

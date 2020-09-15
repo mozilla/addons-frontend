@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-11 17:57+0000\n"
+"POT-Creation-Date: 2020-09-15 16:08+0000\n"
 "PO-Revision-Date: 2020-04-23 09:26+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -14,39 +14,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Enable"
 msgstr "Aktivizoje"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Remove"
 msgstr "Hiqe"
 
-#: src/core/components/AMInstallButton/index.js:207
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Enabling"
 msgstr "Po aktivizohet"
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Disabling"
 msgstr "Po çaktivizohet"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Downloading"
 msgstr "Po shkarkohet"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Installing"
 msgstr "Po instalohet"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Uninstalling"
 msgstr "Po çinstalohet"
 
-#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Install Theme"
 msgstr "Instaloje Temën"
 
-#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Add to Firefox"
 msgstr "Shtoje te Firefox-i"
 
@@ -122,31 +122,31 @@ msgstr "%(application)s %(minVersion)s në %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Funksionon me %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Instalimi u ndërpre, ngaqë shtesa duket të jetë e dëmtuar."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "Installation failed. Please try again."
 msgstr "Instalimi dështoi. Ju lutemi, riprovoni."
 
-#: src/core/utils/addons.js:37
+#: src/core/utils/addons.js:42
 msgid "Download failed. Please check your connection."
 msgstr "Shkarkimi dështoi. Ju lutemi, kontrolloni lidhjen tuaj."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
 msgstr "Ndodhi një gabim i papritur gjatë instalimit."
 
-#: src/core/utils/addons.js:41
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ndodhi një gabim i papritur gjatë çinstalimit."
 
-#: src/core/utils/addons.js:46
+#: src/core/utils/addons.js:51
 msgid "An unexpected error occurred."
 msgstr "Ndodhi një gabim i papritur."
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "Mbylle"
 
@@ -170,15 +170,15 @@ msgstr "Zbuloni Shtesa"
 msgid "Privacy Policy"
 msgstr "Rregulla Privatësie"
 
-#: src/disco/pages/DiscoPane/index.js:166
+#: src/disco/pages/DiscoPane/index.js:162
 msgid "Find more add-ons"
 msgstr "Gjeni më tepër shtesa"
 
-#: src/disco/pages/DiscoPane/index.js:188
+#: src/disco/pages/DiscoPane/index.js:184
 msgid "Personalize Your Firefox"
 msgstr "Personalizoni Firefox-in Tuaj"
 
-#: src/disco/pages/DiscoPane/index.js:190
+#: src/disco/pages/DiscoPane/index.js:186
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -193,11 +193,11 @@ msgstr ""
 "Për t’ju ndihmuar t’ia filloni, ja disa që i këshillojmë për shkak të punës "
 "së shkëlqyer që bëjnë dhe funksionimit të tyre."
 
-#: src/disco/pages/DiscoPane/index.js:207
+#: src/disco/pages/DiscoPane/index.js:203
 msgid "Learn More"
 msgstr "Mësoni Më Tepër"
 
-#: src/disco/pages/DiscoPane/index.js:211
+#: src/disco/pages/DiscoPane/index.js:207
 msgid ""
 "Some of these recommendations are personalized. They are based on other "
 "extensions you've installed, profile preferences, and usage statistics."

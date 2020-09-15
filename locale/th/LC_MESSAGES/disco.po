@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-11 17:57+0000\n"
+"POT-Creation-Date: 2020-09-15 16:08+0000\n"
 "PO-Revision-Date: 2020-08-02 13:16+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,39 +14,39 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Enable"
 msgstr "เปิดใช้งาน"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Remove"
 msgstr "เอาออก"
 
-#: src/core/components/AMInstallButton/index.js:207
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Enabling"
 msgstr "กำลังเปิดใช้งาน"
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Disabling"
 msgstr "กำลังปิดใช้งาน"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Downloading"
 msgstr "กำลังดาวน์โหลด"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Installing"
 msgstr "กำลังติดตั้ง"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Uninstalling"
 msgstr "กำลังถอนการติดตั้ง"
 
-#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Install Theme"
 msgstr "ติดตั้งชุดตกแต่ง"
 
-#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Add to Firefox"
 msgstr "เพิ่มลงใน Firefox"
 
@@ -122,31 +122,31 @@ msgstr "%(application)s %(minVersion)s ถึง %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "ใช้งานได้กับ %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "การติดตังถูกระงับเพราะตัว add-on ดูจะไม่สมบูรณ์"
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "Installation failed. Please try again."
 msgstr "การติดตั้งล้มเหลว โปรดลองอีกครั้ง"
 
-#: src/core/utils/addons.js:37
+#: src/core/utils/addons.js:42
 msgid "Download failed. Please check your connection."
 msgstr "การดาวน์โหลดล้มเหลว โปรดตรวจสอบการเชื่อมต่อของคุณ"
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างการติดตั้ง"
 
-#: src/core/utils/addons.js:41
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างการถอนการติดตั้ง"
 
-#: src/core/utils/addons.js:46
+#: src/core/utils/addons.js:51
 msgid "An unexpected error occurred."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "ปิด"
 
@@ -170,15 +170,15 @@ msgstr "ค้นพบส่วนเสริม"
 msgid "Privacy Policy"
 msgstr "นโยบายความเป็นส่วนตัว"
 
-#: src/disco/pages/DiscoPane/index.js:166
+#: src/disco/pages/DiscoPane/index.js:162
 msgid "Find more add-ons"
 msgstr "ค้นหาส่วนเสริมเพิ่มเติม"
 
-#: src/disco/pages/DiscoPane/index.js:188
+#: src/disco/pages/DiscoPane/index.js:184
 msgid "Personalize Your Firefox"
 msgstr "ปรับแต่ง Firefox ของคุณ"
 
-#: src/disco/pages/DiscoPane/index.js:190
+#: src/disco/pages/DiscoPane/index.js:186
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -191,11 +191,11 @@ msgstr ""
 "ส่วนเสริมทำให้เบราว์เซอร์ของคุณเป็นของคุณ เพื่อช่วยคุณเริ่มต้น "
 "นี่คือบางส่วนที่เราแนะนำสำหรับประสิทธิภาพและการทำงานที่โดดเด่น"
 
-#: src/disco/pages/DiscoPane/index.js:207
+#: src/disco/pages/DiscoPane/index.js:203
 msgid "Learn More"
 msgstr "เรียนรู้เพิ่มเติม"
 
-#: src/disco/pages/DiscoPane/index.js:211
+#: src/disco/pages/DiscoPane/index.js:207
 msgid ""
 "Some of these recommendations are personalized. They are based on other "
 "extensions you've installed, profile preferences, and usage statistics."

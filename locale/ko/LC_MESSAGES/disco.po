@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-11 17:57+0000\n"
+"POT-Creation-Date: 2020-09-15 16:08+0000\n"
 "PO-Revision-Date: 2020-08-19 20:57+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
@@ -14,39 +14,39 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Enable"
 msgstr "사용함"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Remove"
 msgstr "제거"
 
-#: src/core/components/AMInstallButton/index.js:207
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Disabling"
 msgstr "사용 안함"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Downloading"
 msgstr "다운로드 중"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Installing"
 msgstr "설치 중"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Uninstalling"
 msgstr "제거 중"
 
-#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Install Theme"
 msgstr "테마 설치"
 
-#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
@@ -55,10 +55,15 @@ msgid "Server Error"
 msgstr "서버 오류"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "죄송합니다. 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 빠르게 처리하겠습니다."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"죄송합니다. 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 "
+"빠르게 처리하겠습니다."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "오류 코드 : %(status)s."
 
@@ -117,31 +122,31 @@ msgstr "%(application)s %(minVersion)s ~ %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "%(listOfApplicatonsAndVersions)s에서 작동"
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr ""
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "Installation failed. Please try again."
 msgstr "설치하지 못했습니다. 다시 시도해 주세요."
 
-#: src/core/utils/addons.js:37
+#: src/core/utils/addons.js:42
 msgid "Download failed. Please check your connection."
 msgstr "다운로드에 실패했습니다. 접속 상태를 확인 해 주세요."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
 msgstr "설치 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/core/utils/addons.js:41
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
 msgstr "설치 제거 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/core/utils/addons.js:46
+#: src/core/utils/addons.js:51
 msgid "An unexpected error occurred."
 msgstr "예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "닫기"
 
@@ -165,26 +170,35 @@ msgstr "부가 기능 찾기"
 msgid "Privacy Policy"
 msgstr "개인정보처리방침"
 
-#: src/disco/pages/DiscoPane/index.js:166
+#: src/disco/pages/DiscoPane/index.js:162
 msgid "Find more add-ons"
 msgstr "더 많은 부가 기능 찾기"
 
-#: src/disco/pages/DiscoPane/index.js:188
+#: src/disco/pages/DiscoPane/index.js:184
 msgid "Personalize Your Firefox"
 msgstr "Firefox 개인화하기"
 
-#: src/disco/pages/DiscoPane/index.js:190
+#: src/disco/pages/DiscoPane/index.js:186
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
-msgstr "전세계의 개발자들이 만든 Firefox를 나만의 것으로 만들 수 있는 수천개의 부가 기능이 있습니다. 재미있고 멋진 테마부터 강력한 도구와 기능에 이르기까지 브라우징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가지고 있는 저희가 추천드리는 몇가지 부가 기능이 있습니다."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"전세계의 개발자들이 만든 Firefox를 나만의 것으로 만들 수 있는 수천개의 부가 "
+"기능이 있습니다. 재미있고 멋진 테마부터 강력한 도구와 기능에 이르기까지 브라"
+"우징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가"
+"지고 있는 저희가 추천드리는 몇가지 부가 기능이 있습니다."
 
-#: src/disco/pages/DiscoPane/index.js:207
+#: src/disco/pages/DiscoPane/index.js:203
 msgid "Learn More"
 msgstr "더 알아보기"
 
-#: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+#: src/disco/pages/DiscoPane/index.js:207
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
@@ -210,11 +224,19 @@ msgstr "%(title)s 미리보기"
 #~ msgid "Learn more"
 #~ msgstr "더 알아보기"
 
-#~ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-#~ msgstr "이 확장 기능은 Mozilla에서 모니터링하지 않습니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr ""
+#~ "이 확장 기능은 Mozilla에서 모니터링하지 않습니다. 설치하기 전에 신뢰할 수 "
+#~ "있는지 확인하십시오."
 
-#~ msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-#~ msgstr "이것은 추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
+#~ msgid ""
+#~ "This is not a Recommended Extension. Make sure you trust it before "
+#~ "installing."
+#~ msgstr ""
+#~ "이것은 추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하"
+#~ "십시오."
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "%(name)s를 다운로드 중입니다."

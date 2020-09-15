@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-11 17:57+0000\n"
+"POT-Creation-Date: 2020-09-15 16:08+0000\n"
 "PO-Revision-Date: 2020-04-27 19:16+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,39 +14,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Enable"
 msgstr "ჩართვა"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Remove"
 msgstr "მოცილება"
 
-#: src/core/components/AMInstallButton/index.js:207
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Enabling"
 msgstr "ირთვება"
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Disabling"
 msgstr "ითიშება"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Downloading"
 msgstr "მიმდინარეობს ჩამოტვირთვა"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Installing"
 msgstr "მიმდინარეობს დაყენება"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Uninstalling"
 msgstr "იშლება"
 
-#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Install Theme"
 msgstr "თემის ჩადგმა"
 
-#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 
@@ -122,31 +122,31 @@ msgstr "%(application)s %(minVersion)s – %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "იმუშავებს ვერსიასთან %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "ჩადგმა შეჩერდა, ვინაიდან როგორც ჩანს, დამატება დაზიანებულია."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "Installation failed. Please try again."
 msgstr "დაყენება ვერ მოხერხდა. სცადეთ მოგვიანებით."
 
-#: src/core/utils/addons.js:37
+#: src/core/utils/addons.js:42
 msgid "Download failed. Please check your connection."
 msgstr "ჩამოტვირთვა ვერ მოხერხდა. გთხოვთ შეამოწმოთ ქსელთან კავშირი."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
 msgstr "მოულოდნელი შეცდომა დაყენებისას."
 
-#: src/core/utils/addons.js:41
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
 msgstr "მოულოდნელი შეცდომა ამოშლისას."
 
-#: src/core/utils/addons.js:46
+#: src/core/utils/addons.js:51
 msgid "An unexpected error occurred."
 msgstr "მოულოდნელი შეცდომა."
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "დახურვა"
 
@@ -170,15 +170,15 @@ msgstr "აღმოაჩინეთ ახალი დამატებე�
 msgid "Privacy Policy"
 msgstr "პირადულობის დაცვა"
 
-#: src/disco/pages/DiscoPane/index.js:166
+#: src/disco/pages/DiscoPane/index.js:162
 msgid "Find more add-ons"
 msgstr "სხვა დამატებების მოძიება"
 
-#: src/disco/pages/DiscoPane/index.js:188
+#: src/disco/pages/DiscoPane/index.js:184
 msgid "Personalize Your Firefox"
 msgstr "მოირგეთ თქვენი Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:190
+#: src/disco/pages/DiscoPane/index.js:186
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -193,11 +193,11 @@ msgstr ""
 "მეტად თქვენებურს. დასაწყისისთვის, აქვე გთავაზობთ რამდენიმე რჩეულ დამატებას, "
 "ბრაუზერის წარმადობისა და შესაძლებლობების გასაუმჯობესებლად."
 
-#: src/disco/pages/DiscoPane/index.js:207
+#: src/disco/pages/DiscoPane/index.js:203
 msgid "Learn More"
 msgstr "იხილეთ ვრცლად"
 
-#: src/disco/pages/DiscoPane/index.js:211
+#: src/disco/pages/DiscoPane/index.js:207
 msgid ""
 "Some of these recommendations are personalized. They are based on other "
 "extensions you've installed, profile preferences, and usage statistics."
