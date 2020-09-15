@@ -113,10 +113,7 @@ export const isFenixCompatible = ({
 }): boolean => {
   // It is compatible if it is in the special collection, but rather than
   // query a collection, we store a list of add-on guids in a config key.
-  if (addon && _config.get('fenixCompatibleGuids').includes(addon.guid)) {
-    return true;
-  }
-  return false;
+  return Boolean(addon && _config.get('fenixCompatibleGuids').includes(addon.guid));
 };
 
 export type IsCompatibleWithUserAgentParams = {|
