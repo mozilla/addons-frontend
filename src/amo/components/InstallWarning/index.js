@@ -1,5 +1,6 @@
 /* @flow */
 import makeClassName from 'classnames';
+import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -31,6 +32,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
   _couldShowWarning?: () => boolean,
   _getPromotedCategory: typeof getPromotedCategory,
@@ -47,6 +49,7 @@ const WARNING_LINK_DESTINATION =
 
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
     _correctedLocationForPlatform: correctedLocationForPlatform,
     _getPromotedCategory: getPromotedCategory,
   };
@@ -85,7 +88,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { className, i18n } = this.props;
+    const { _config, className, i18n } = this.props;
 
     if (this.couldShowWarning()) {
       return (
@@ -96,9 +99,11 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           className={makeClassName('InstallWarning', className)}
           type={genericWarningType}
         >
-          {i18n.gettext(
-            `This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing.`,
-          )}
+          {_config.get('enableFeaturePromotedShelf')
+            ? i18n.gettext(
+                `This is not monitored for security through Mozilla's Promoted Add-ons program. Make sure you trust it before installing.`,
+              )
+            : `This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing.`}
         </Notice>
       );
     }
