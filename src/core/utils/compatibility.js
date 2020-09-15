@@ -1,6 +1,7 @@
 /* @flow */
 /* global window */
 import { oneLine } from 'common-tags';
+import config from 'config';
 import invariant from 'invariant';
 import mozCompare from 'mozilla-version-comparator';
 
@@ -101,6 +102,20 @@ export const isFenix = (userAgentInfo: UserAgentInfoType): boolean => {
     return true;
   }
   return false;
+};
+
+export const isFenixCompatible = ({
+  _config = config,
+  addon,
+}: {
+  _config: typeof config,
+  addon: AddonType | null,
+}): boolean => {
+  // It is compatible if it is in the special collection, but rather than
+  // query a collection, we store a list of add-on guids in a config key.
+  return Boolean(
+    addon && _config.get('fenixCompatibleGuids').includes(addon.guid),
+  );
 };
 
 export type IsCompatibleWithUserAgentParams = {|

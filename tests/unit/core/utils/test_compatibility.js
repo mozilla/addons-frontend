@@ -26,6 +26,7 @@ import {
   getClientCompatibility,
   isCompatibleWithUserAgent,
   isFenix,
+  isFenixCompatible,
   isFirefox,
   isQuantumCompatible,
   correctedLocationForPlatform,
@@ -35,6 +36,7 @@ import {
   createFakeLocation,
   fakeAddon,
   fakeVersion,
+  getFakeConfig,
   getFakeLogger,
   userAgents,
   userAgentsByPlatform,
@@ -1098,6 +1100,45 @@ describe(__filename, () => {
       userAgents.firefoxIOS.forEach((userAgent) => {
         expect(isFenix(UAParser(userAgent))).toEqual(false);
       });
+    });
+  });
+
+  describe('isFenixCompatible', () => {
+    it('returns true if the add-on is in the configured list', () => {
+      const guid = 'some-guid';
+      const addon = createInternalAddon({ ...fakeAddon, guid });
+      const _config = getFakeConfig({
+        fenixCompatibleGuids: [guid],
+      });
+
+      expect(isFenixCompatible({ _config, addon })).toEqual(true);
+    });
+
+    it('returns false if the add-on is not in the configured list', () => {
+      const guid = 'some-guid';
+      const addon = createInternalAddon({ ...fakeAddon, guid });
+      const _config = getFakeConfig({
+        fenixCompatibleGuids: [`${guid}-different`],
+      });
+
+      expect(isFenixCompatible({ _config, addon })).toEqual(false);
+    });
+
+    it('returns false if the configured list is empty', () => {
+      const addon = createInternalAddon({ ...fakeAddon, guid: 'some-guid' });
+      const _config = getFakeConfig({
+        fenixCompatibleGuids: [],
+      });
+
+      expect(isFenixCompatible({ _config, addon })).toEqual(false);
+    });
+
+    it('returns false if the addon is null', () => {
+      const _config = getFakeConfig({
+        fenixCompatibleGuids: ['some-guid'],
+      });
+
+      expect(isFenixCompatible({ _config, addon: null })).toEqual(false);
     });
   });
 });
