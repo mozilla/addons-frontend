@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-15 17:32+0000\n"
+"PO-Revision-Date: 2020-09-15 17:33+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1730,9 +1730,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Tutón zapisk njeje mysleny za tutu platformu. <a href=\"%(newLocation)s\">Přepytajće přidatki za Firefox za desktop.</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Za Firefox za Android k dispoziciji njeje. Móžeće tutón přidatk z Firefox za Desktop wužiwać. Zhońće wjace wo <a href=\"%(newLocation)s\">přidatkach za Android</a>."
+msgstr "Njemóžeće tutón přidatk w zrjadowaku přidatkow instalować. Zhońće wjace wo <a href=\"%(newLocation)s\">přidatkach za Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
