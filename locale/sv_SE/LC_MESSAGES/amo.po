@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-15 17:32+0000\n"
+"PO-Revision-Date: 2020-09-15 17:41+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -968,11 +968,11 @@ msgstr "Webbläsartillägg för Firefox"
 
 #: src/amo/components/Header/index.js:205
 msgid "Learn how to create extensions and themes"
-msgstr "Läs om hur du skapar tillägg och teman"
+msgstr "Läs om hur du skapar utökningar och teman"
 
 #: src/amo/components/Header/index.js:215
 msgid "Submit and manage extensions and themes"
-msgstr "Skicka in och hantera tillägg och teman"
+msgstr "Skicka in och hantera utökningar och teman"
 
 #: src/amo/components/Header/index.js:71
 msgid "My Account"
@@ -996,7 +996,7 @@ msgstr "Verktyg"
 
 #: src/amo/components/HeroRecommendation/index.js:108
 msgid "Get the extension"
-msgstr "Hämta tillägget"
+msgstr "Hämta utökningen"
 
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:184
@@ -1125,7 +1125,7 @@ msgstr "Sponsrade utökningar"
 
 #: src/amo/components/PromotedAddonsCard/index.js:83 src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr "Firefox rekommenderar endast tillägg som uppfyller våra standarder för säkerhet och prestanda."
+msgstr "Firefox rekommenderar endast utökningar som uppfyller våra standarder för säkerhet och prestanda."
 
 #: src/amo/components/PromotedAddonsCard/index.js:87
 msgid "What is this?"
@@ -1278,42 +1278,36 @@ msgid "Extensions by Firefox"
 msgstr "Utökningar av Firefox"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Av Firefox"
+msgstr "Teman från Firefox"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Tillägg för Firefox"
+msgstr "Tillägg från Firefox"
 
 #: src/amo/components/Search/index.js:148
 msgid "Reviewed extensions"
 msgstr "Granskade utökningar"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Granska tema"
+msgstr "Granskade teman"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Granska kod för tillägg"
+msgstr "Granskade tillägg"
 
 #: src/amo/components/Search/index.js:159
 msgid "Verified extensions"
 msgstr "Verifierade utökningar"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Utvalda teman"
+msgstr "Verifierade teman"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Utvalda tillägg"
+msgstr "Verifierade tillägg"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1396,26 +1390,26 @@ msgstr "Söker efter tillägg"
 #: src/amo/components/SearchContextCard/index.js:55
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s tillägg hittades för \"%(query)s\" i %(categoryName)s"
-msgstr[1] "%(count)s tillägg hittades för \"%(query)s\" i %(categoryName)s"
+msgstr[0] "%(count)s utökning hittades för \"%(query)s\" i %(categoryName)s"
+msgstr[1] "%(count)s utökningar hittades för \"%(query)s\" i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s tillägg hittades i %(categoryName)s"
-msgstr[1] "%(count)s tillägg hittades i %(categoryName)s"
+msgstr[0] "%(count)s utökning hittades i %(categoryName)s"
+msgstr[1] "%(count)s utökningar hittades i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:74
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s tillägg hittades för \"%(query)s\""
-msgstr[1] "%(count)s tillägg hittades för \"%(query)s\""
+msgstr[0] "%(count)s utökning hittades för \"%(query)s\""
+msgstr[1] "%(count)s utökningar hittades för \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:83
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s tillägg hittades"
-msgstr[1] "%(count)s tillägg hittades"
+msgstr[0] "%(count)s utökning hittades"
+msgstr[1] "%(count)s utökningar hittades"
 
 #: src/amo/components/SearchContextCard/index.js:96
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -1480,9 +1474,8 @@ msgid "Verified"
 msgstr "Verifierad"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "Recension"
+msgstr "Granskad"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1501,9 +1494,8 @@ msgid "Operating System"
 msgstr "Operativsystem"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "Högst rankade tillägg"
+msgstr "Utvalda tillägg"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1706,9 +1698,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Den här listan är inte avsedd för den här plattformen. <a href=\"%(newLocation)s\">Bläddra bland tillägg för Firefox för datorer</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Inte tillgängligt på Firefox för Android. Du kan använda detta tillägg med Firefox för datorer. Läs mer om <a href=\"%(newLocation)s\">tillägg för Android</a>."
+msgstr "Du kan installera det här tillägget i tilläggshanteraren.  Läs mer om <a href=\"%(newLocation)s\">tillägg för Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -1876,11 +1867,11 @@ msgstr "Sök efter utökningar och teman som ska läggas till i din samling."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr "Hämta och skapa Firefox-samlingar för att hålla reda på favorittillägg och teman. Utforska %(collectionName)s—%(collectionDescription)s."
+msgstr "Hämta och skapa Firefox-samlingar för att hålla reda på favoritutökningar och teman. Utforska %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "Hämta och skapa Firefox-samlingar för att hålla reda på favorittillägg och teman. Utforska %(collectionName)s."
+msgstr "Hämta och skapa Firefox-samlingar för att hålla reda på favoritutökningar och teman. Utforska %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:114
 msgid "Collections"
@@ -1936,7 +1927,7 @@ msgstr "Ändra hur Firefox ser ut med teman."
 
 #: src/amo/pages/Home/index.js:256
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr "Hämta Firefox-tillägg och teman. De är som appar för din webbläsare. De kan blockera irriterande annonser, skydda lösenord, ändra webbläsarens utseende och mer."
+msgstr "Hämta Firefox utökningar och teman. De är som appar för din webbläsare. De kan blockera irriterande annonser, skydda lösenord, ändra webbläsarens utseende och mer."
 
 #: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
@@ -1948,7 +1939,7 @@ msgstr "Se fler populära teman"
 
 #: src/amo/pages/Home/index.js:341
 msgid "See more popular extensions"
-msgstr "Se flera populära tillägg"
+msgstr "Se flera populära utökningar"
 
 #: src/amo/pages/Home/index.js:358 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
@@ -1960,11 +1951,11 @@ msgstr "Se fler trendiga utökningar"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more enhanced privacy extensions"
-msgstr "Se fler förbättrade integritetstillägg"
+msgstr "Se fler förbättrade integritetsutökningar"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Enhanced privacy extensions"
-msgstr "Förbättrade integritetstillägg"
+msgstr "Förbättrade integritetsutökningar"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more recommended password managers"
@@ -1992,7 +1983,7 @@ msgstr "Hämta teman för att ändra hur Firefox ser ut. Skräddarsy din uppleve
 
 #: src/amo/pages/LandingPage/index.js:212
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr "Hämta Firefox-tillägg för att lägga till funktioner som anpassar surfning. Skydda lösenord, hitta erbjudanden, förbättra video och blockera irriterande annonser med webbläsarprogram."
+msgstr "Hämta Firefox utökningar för att lägga till funktioner som anpassar surfning. Skydda lösenord, hitta erbjudanden, förbättra video och blockera irriterande annonser med webbläsarprogram."
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2016,7 +2007,7 @@ msgstr "Ordlistor och språkpaket"
 
 #: src/amo/pages/LanguageTools/index.js:158
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr "Hämta Firefox-ordlistor och språkpaketstillägg. Lägg till ett nytt språkalternativ i din webbläsares stavningskontroll, eller ändra webbläsarens gränssnittsspråk."
+msgstr "Hämta Firefox-ordlistor och språkpaketsutökningar. Lägg till ett nytt språkalternativ i din webbläsares stavningskontroll, eller ändra webbläsarens gränssnittsspråk."
 
 #: src/amo/pages/LanguageTools/index.js:169
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2044,7 +2035,7 @@ msgstr "Ordlistor"
 
 #: src/amo/pages/SearchTools/index.js:60
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr "Hämta Firefox-tillägg för att anpassa hur du söker—allt från privat sökning till webbplatsspecifika sökningar, bildsökning och mer."
+msgstr "Hämta Firefox utökningar för att anpassa hur du söker—allt från privat sökning till webbplatsspecifika sökningar, bildsökning och mer."
 
 #: src/amo/pages/SearchTools/index.js:63
 msgid "Search Tools"
@@ -2096,7 +2087,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr "Den officiella Mozilla-webbplatsen för nedladdning av Firefox-tillägg och teman. Lägg till nya funktioner och ändra webbläsarens utseende för att anpassa din webbupplevelse."
+msgstr "Den officiella Mozilla-webbplatsen för nedladdning av Firefox utökningar och teman. Lägg till nya funktioner och ändra webbläsarens utseende för att anpassa din webbupplevelse."
 
 #: src/amo/pages/StaticPages/About/index.js:215
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
@@ -2207,7 +2198,7 @@ msgstr "Recensionsriktlinjer"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr "Riktlinjer, tips och vanliga frågor om att lämna en recension för de tillägg och teman som du har laddat ner och använt på Firefox."
+msgstr "Riktlinjer, tips och vanliga frågor om att lämna en recension för de utökningar och teman som du har laddat ner och använt på Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
@@ -2774,11 +2765,11 @@ msgstr "Avvisa detta meddelande"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This extension was created by the makers of Firefox."
-msgstr "Detta tillägg skapades av tillverkarna av Firefox."
+msgstr "Denna utökning skapades av tillverkarna av Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:58
 msgid "This extension has been code-reviewed for safety."
-msgstr "Detta tillägg har kodgranskats av säkerhetsskäl."
+msgstr "Denna utökning har kodgranskats av säkerhetsskäl."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
