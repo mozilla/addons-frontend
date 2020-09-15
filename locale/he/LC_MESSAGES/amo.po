@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-15 17:30+0000\n"
+"PO-Revision-Date: 2020-09-15 17:43+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1697,9 +1697,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "רשומה זו אינה מיועדת לפלטפורמה זו. <a href=\"%(newLocation)s\">עיון בתוספות ל־Firefox למחשבים שולחניים</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "לא זמין ב־Firefox עבור Android. באפשרותך להשתמש בתוספת זו ב־Firefox למחשבים שולחניים. מידע נוסף על <a href=\"%(newLocation)s\">תוספות עבור Android</a>."
+msgstr "באפשרותך להתקין תוספת זו דרך מנהל התוספות.  למידע נוסף על <a href=\"%(newLocation)s\">תוספות עבור Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -2750,11 +2749,11 @@ msgstr "סגירת הודעה זו"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This extension was created by the makers of Firefox."
-msgstr ""
+msgstr "הרחבה זו נוצרה על־ידי היוצרים של Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:58
 msgid "This extension has been code-reviewed for safety."
-msgstr ""
+msgstr "הקוד של הרחבה זו נסקר לטובת בטיחות."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
