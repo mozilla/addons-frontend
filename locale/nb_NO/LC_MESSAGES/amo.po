@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-15 19:14+0000\n"
+"PO-Revision-Date: 2020-09-15 19:15+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1471,9 +1471,8 @@ msgid "Verified"
 msgstr "Bekreftet"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "Omtale"
+msgstr "Gjennomgått"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
