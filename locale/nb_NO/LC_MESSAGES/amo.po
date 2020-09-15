@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-15 19:15+0000\n"
+"PO-Revision-Date: 2020-09-15 19:43+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1280,19 +1280,16 @@ msgid "Add-ons by Firefox"
 msgstr "Tillegg fra Firefox"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Anbefalte utvidelser"
+msgstr "Gjennomgåtte utvidelser"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Skriv en omtale av tema"
+msgstr "Gjennomgåtte temaer"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Skriv en omtale av utvidelseskode"
+msgstr "Gjennomgåtte utvidelser"
 
 #: src/amo/components/Search/index.js:159
 msgid "Verified extensions"
@@ -1491,9 +1488,8 @@ msgid "Operating System"
 msgstr "Operativsystem"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "Høyest vurderte tillegg"
+msgstr "Promoterte tillegg"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1696,9 +1692,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Denne oppføringen er ikke beregnet for denne plattformen. <a href=\"%(newLocation)s\">Se gjennom tillegg for Firefox for datamaskiner</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Ikke tilgjengelig på Firefox for Android. Du kan bruke dette tillegget med Firefox for datamaskiner. Les mer om <a href=\"%(newLocation)s\">tillegg for Android</a>."
+msgstr "Du kan installere dette tillegget i tilleggsbehandleren.  Les mer om <a href=\"%(newLocation)s\">tillegg for Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -2771,11 +2766,11 @@ msgstr "Avvis denne meldingen"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This extension was created by the makers of Firefox."
-msgstr ""
+msgstr "Denne utvidelsen ble utviklet av utviklerne av Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:58
 msgid "This extension has been code-reviewed for safety."
-msgstr ""
+msgstr "Kildekoden til denne utvidelsen er sjekket av sikkerhetsgrunner."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
