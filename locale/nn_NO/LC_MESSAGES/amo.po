@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-08 16:56+0000\n"
+"POT-Creation-Date: 2020-09-15 16:06+0000\n"
 "PO-Revision-Date: 2020-08-04 18:20+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,19 +73,19 @@ msgstr "Administrer tillegg"
 msgid "Author Links"
 msgstr "Forfattarlenker"
 
-#: src/amo/components/AddonBadges/index.js:47
+#: src/amo/components/AddonBadges/index.js:59
 msgid "Restart Required"
 msgstr "Omstart påkravd"
 
-#: src/amo/components/AddonBadges/index.js:51
+#: src/amo/components/AddonBadges/index.js:63
 msgid "Experimental"
 msgstr "Eksperimentell"
 
-#: src/amo/components/AddonBadges/index.js:56
+#: src/amo/components/AddonBadges/index.js:68
 msgid "Not compatible with Firefox Quantum"
 msgstr "Ikkje kompatibel med Firefox Quantum"
 
-#: src/amo/components/AddonBadges/index.js:62
+#: src/amo/components/AddonBadges/index.js:74
 msgid "Some features may require payment"
 msgstr "Nokre funskjonar kan krevje betaling"
 
@@ -566,27 +566,27 @@ msgstr ","
 msgid "by"
 msgstr "av"
 
-#: src/amo/components/AddonVersionCard/index.js:103
+#: src/amo/components/AddonVersionCard/index.js:102
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "Kjeldekode sleppt under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:114
+#: src/amo/components/AddonVersionCard/index.js:113
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Kjeldekode sleppt under %(linkStart)stilpassa lisens%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:141
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "Kjeldekode sleppt under %(licenseName)s"
 
-#: src/amo/components/AddonVersionCard/index.js:51
+#: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
 msgstr "Fann ingen versjon"
 
-#: src/amo/components/AddonVersionCard/index.js:59
+#: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
 msgstr "Versjon %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:83
+#: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Sleppt %(dateReleased)s - %(fileSize)s"
 
@@ -610,16 +610,16 @@ msgstr "Tillegg for Firefox Android (%(locale)s)"
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Tillegg for Firefox Android (%(locale)s)"
 
-#: src/amo/components/AutoSearchInput/index.js:207
+#: src/amo/components/AutoSearchInput/index.js:206
 msgid "Loading"
 msgstr "Lastar"
 
-#: src/amo/components/AutoSearchInput/index.js:303
+#: src/amo/components/AutoSearchInput/index.js:299
 msgid "Find add-ons"
 msgstr "Finn utvidingar"
 
-#: src/amo/components/AutoSearchInput/index.js:328
-#: src/amo/components/AutoSearchInput/index.js:356
+#: src/amo/components/AutoSearchInput/index.js:324
+#: src/amo/components/AutoSearchInput/index.js:352
 msgid "Search"
 msgstr "Søk"
 
@@ -790,7 +790,7 @@ msgid "Leave a note"
 msgstr "Legg igjen ein kommentar"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Remove"
 msgstr "Fjern"
 
@@ -1124,11 +1124,11 @@ msgstr "Last ned utvidinga"
 msgid "RECOMMENDED"
 msgstr "TILRÅDDE"
 
-#: src/amo/components/InstallWarning/index.js:81
+#: src/amo/components/InstallWarning/index.js:95
 msgid "Learn more"
 msgstr "Les meir"
 
-#: src/amo/components/InstallWarning/index.js:85
+#: src/amo/components/InstallWarning/index.js:99
 msgid ""
 "This is not monitored for security through Mozilla's Recommended Extensions "
 "program. Make sure you trust it before installing."
@@ -1246,6 +1246,25 @@ msgstr "Lagre uavgrensa mengder data på klientsida"
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
 msgstr "Tilgang til nettlesaraktivitet under navigering"
+
+#: src/amo/components/PromotedAddonsCard/index.js:76
+#, fuzzy
+msgid "Sponsored extensions"
+msgstr "Høgast vurderte utvidingar"
+
+#: src/amo/components/PromotedAddonsCard/index.js:83
+#: src/ui/components/PromotedBadge/index.js:48
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox tilrår berre utvidingar som oppfyller standardane våre for "
+"sikkerheit og yting."
+
+#: src/amo/components/PromotedAddonsCard/index.js:87
+#, fuzzy
+msgid "What is this?"
+msgstr "Kva tyer dette?"
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
@@ -1407,66 +1426,111 @@ msgstr ""
 "Vi har fått rapporten din. Takk for at du informerte oss om problema dine "
 "med denne brukaren."
 
-#: src/amo/components/Search/index.js:116
+#: src/amo/components/Search/index.js:120
 #: src/amo/components/SearchResults/index.js:68
 msgid "Search results"
 msgstr "Søkjeresultat"
 
-#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:282
-#: src/amo/pages/LandingPage/index.js:123
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
+#: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Tilrådde utvidingar"
 
-#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:345
-#: src/amo/pages/LandingPage/index.js:155
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:367
+#: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Tilrådde tema"
 
-#: src/amo/components/Search/index.js:127
+#: src/amo/components/Search/index.js:132
 msgid "Recommended add-ons"
 msgstr "Tilrådde tillegg"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:358
-#: src/amo/pages/LandingPage/index.js:133
+#: src/amo/components/Search/index.js:137
+#, fuzzy
+msgid "Extensions by Firefox"
+msgstr "Utvidingar av %(author)s"
+
+#: src/amo/components/Search/index.js:140
+#, fuzzy
+msgid "Themes by Firefox"
+msgstr "Av Firefox"
+
+#: src/amo/components/Search/index.js:143
+#, fuzzy
+msgid "Add-ons by Firefox"
+msgstr "Utvidingar for Firefox"
+
+#: src/amo/components/Search/index.js:148
+#, fuzzy
+msgid "Reviewed extensions"
+msgstr "Tilrådde utvidingar"
+
+#: src/amo/components/Search/index.js:151
+#, fuzzy
+msgid "Reviewed themes"
+msgstr "Vurder temaet"
+
+#: src/amo/components/Search/index.js:154
+#, fuzzy
+msgid "Reviewed add-ons"
+msgstr "Vurder kode for tillegg"
+
+#: src/amo/components/Search/index.js:159
+#, fuzzy
+msgid "Verified extensions"
+msgstr "Framheva utvidingar"
+
+#: src/amo/components/Search/index.js:162
+#, fuzzy
+msgid "Verified themes"
+msgstr "Framheva tema"
+
+#: src/amo/components/Search/index.js:165
+#, fuzzy
+msgid "Verified add-ons"
+msgstr "Framheva tillegg"
+
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380
+#: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Populære utvidingar"
 
-#: src/amo/components/Search/index.js:137
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:176
+#: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "Populære tema"
 
-#: src/amo/components/Search/index.js:140
+#: src/amo/components/Search/index.js:179
 msgid "Trending add-ons"
 msgstr "Populære utvidingar"
 
-#: src/amo/components/Search/index.js:146
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/components/Search/index.js:185
+#: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "Høgast vurderte utvidingar"
 
-#: src/amo/components/Search/index.js:149
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/components/Search/index.js:188
+#: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "Høgst vurderte tema"
 
-#: src/amo/components/Search/index.js:152
+#: src/amo/components/Search/index.js:191
 msgid "Top rated add-ons"
 msgstr "Høgast vurderte utvidingar"
 
-#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:318
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:340
 msgid "Popular extensions"
 msgstr "Populære udvidingar"
 
-#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:299
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:321
 msgid "Popular themes"
 msgstr "Populære tema"
 
-#: src/amo/components/Search/index.js:164
+#: src/amo/components/Search/index.js:203
 msgid "Popular add-ons"
 msgstr "Populære utvidingar"
 
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:209
 msgid "Search results for \"%(query)s\""
 msgstr "Søkjeresultat for «%(query)s»"
 
@@ -1538,70 +1602,95 @@ msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
 msgstr[1] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:128
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:168
 msgid "All"
 msgstr "Alle"
 
-#: src/amo/components/SearchFilters/index.js:129
+#: src/amo/components/SearchFilters/index.js:127
 msgid "Extension"
 msgstr "Utviding"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:131
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:144
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:155
+#: src/amo/components/SearchFilters/index.js:153
 msgid "Relevance"
 msgstr "Relevans"
 
-#: src/amo/components/SearchFilters/index.js:157
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Recently Updated"
 msgstr "Nyleg oppdaterte"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:158
 msgid "Most Users"
 msgstr "Flest brukarar"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:159
 msgid "Top Rated"
 msgstr "Høgast vurderte"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Trending"
 msgstr "Populære"
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:169
+#: src/ui/components/IconPromotedBadge/index.js:47
+#: src/ui/components/PromotedBadge/index.js:47
+msgid "Recommended"
+msgstr "Tilrådd"
+
+#: src/amo/components/SearchFilters/index.js:171
+#: src/ui/components/IconPromotedBadge/index.js:46
+#: src/ui/components/PromotedBadge/index.js:38
+msgid "By Firefox"
+msgstr "Av Firefox"
+
+#: src/amo/components/SearchFilters/index.js:175
+#: src/ui/components/IconPromotedBadge/index.js:48
+#: src/ui/components/PromotedBadge/index.js:56
+msgid "Verified"
+msgstr "Stadfesta"
+
+#: src/amo/components/SearchFilters/index.js:179
+#, fuzzy
+msgid "Reviewed"
+msgstr "Vurdering"
+
+#: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
 msgstr "Filtrer resultata"
 
-#: src/amo/components/SearchFilters/index.js:185
+#: src/amo/components/SearchFilters/index.js:204
 msgid "Sort by"
 msgstr "Sorter etter"
 
-#: src/amo/components/SearchFilters/index.js:207
+#: src/amo/components/SearchFilters/index.js:226
 msgid "Add-on Type"
 msgstr "Utvidingstype"
 
-#: src/amo/components/SearchFilters/index.js:227
+#: src/amo/components/SearchFilters/index.js:246
 msgid "Operating System"
 msgstr "Operativsystem"
 
-#: src/amo/components/SearchFilters/index.js:253
-msgid "Recommended add-ons only"
-msgstr "Berre tilrådde tillegg"
+#: src/amo/components/SearchFilters/index.js:264
+#, fuzzy
+msgid "Promoted Add-Ons"
+msgstr "Høgast vurderte utvidingar"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1615,15 +1704,15 @@ msgstr "Firefox-tillegg"
 msgid "Go to the add-on page"
 msgstr "Gå til utvidings-sida"
 
-#: src/amo/components/SearchResult/index.js:170
+#: src/amo/components/SearchResult/index.js:180
 msgid "No theme preview available"
 msgstr "Inga førehandsvising for tema er tilgjengeleg"
 
-#: src/amo/components/SearchResult/index.js:208
+#: src/amo/components/SearchResult/index.js:215
 msgid "Add-on note"
 msgstr "Tilleggsmerknad"
 
-#: src/amo/components/SearchResult/index.js:226
+#: src/amo/components/SearchResult/index.js:233
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s brukar"
@@ -1641,18 +1730,13 @@ msgstr "Fann ingen resultat for \"%(query)s\"."
 msgid "No results were found."
 msgstr "Fann ingen resultat."
 
-#: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/PromotedBadge/index.js:47
-msgid "Recommended"
-msgstr "Tilrådd"
-
 #: src/amo/components/SectionLinks/index.js:108
-#: src/amo/pages/LandingPage/index.js:230
+#: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Utvidingar"
 
 #: src/amo/components/SectionLinks/index.js:123
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Tema"
 
@@ -1766,58 +1850,58 @@ msgstr ""
 "For å finne tillegg som er kompatible med Firefox for Android, <a href="
 "\"%(newLocation)s\">gå til nettsida vår for vår mobilar</a>."
 
-#: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:171 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Førehandsvising %(title)s"
 
-#: src/amo/pages/Addon/index.js:211
+#: src/amo/pages/Addon/index.js:213
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Denne utvidinga kan ikkje vurderast fordi ingen versonar er publiserte."
 
-#: src/amo/pages/Addon/index.js:222
+#: src/amo/pages/Addon/index.js:224
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Les %(count)s vurdering"
 msgstr[1] "Les %(count)s vurderingar"
 
-#: src/amo/pages/Addon/index.js:244
+#: src/amo/pages/Addon/index.js:246
 msgid "No reviews yet"
 msgstr "Ingen vurderingar enno"
 
-#: src/amo/pages/Addon/index.js:254
+#: src/amo/pages/Addon/index.js:256
 msgid "Rate your experience"
 msgstr "Vurder opplevinga di"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:275
 msgid "About this dictionary"
 msgstr "Om denne ordboka"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:278
 msgid "About this extension"
 msgstr "Om denne utvidinga"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:281
 msgid "About this language pack"
 msgstr "Om denne språkpakken"
 
-#: src/amo/pages/Addon/index.js:282
+#: src/amo/pages/Addon/index.js:284
 msgid "About this theme"
 msgstr "Om dette temaet"
 
-#: src/amo/pages/Addon/index.js:285
+#: src/amo/pages/Addon/index.js:287
 msgid "About this add-on"
 msgstr "Om dette tillegget"
 
-#: src/amo/pages/Addon/index.js:327
+#: src/amo/pages/Addon/index.js:329
 msgid "Developer comments"
 msgstr "Utviklarkommentarar"
 
-#: src/amo/pages/Addon/index.js:350
+#: src/amo/pages/Addon/index.js:352
 msgid "Release notes for %(addonVersion)s"
 msgstr "Versjonsnotat for %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:481
+#: src/amo/pages/Addon/index.js:484
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1825,11 +1909,11 @@ msgstr ""
 "Dette er ikkje ei offentleg liste. Du ser det berre på grunn av forhøgde "
 "løyve."
 
-#: src/amo/pages/Addon/index.js:509
+#: src/amo/pages/Addon/index.js:511
 msgid "Extension Metadata"
 msgstr "Metadata for utvidingar"
 
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/pages/Addon/index.js:519
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1837,7 +1921,7 @@ msgstr ""
 "Denne oppføringa er ikkje tiltenkt for denne plattforma. <a href="
 "\"%(newLocation)s\">Sjå gjennom tillegg for Firefox på Android</a>."
 
-#: src/amo/pages/Addon/index.js:520
+#: src/amo/pages/Addon/index.js:523
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1845,7 +1929,17 @@ msgstr ""
 "Denne oppføringea er ikkje meint for denne plattforma. <a href="
 "\"%(newLocation)s\">Sjå gjennom tillegg for Firefox for datamaskiner</a>."
 
-#: src/amo/pages/Addon/index.js:524
+#: src/amo/pages/Addon/index.js:529
+#, fuzzy
+msgid ""
+"You can install this add-on in the Add-ons Manager.  Learn more about <a "
+"href=\"%(newLocation)s\">add-ons for Android</a>."
+msgstr ""
+"Ikkj tilgjengeleg på Firefox for Android. Du kan bruke dette tillegget med "
+"Firefox for datamaskiner. Les meir om <a href=\"%(newLocation)s\">tillegg "
+"for Android</a>."
+
+#: src/amo/pages/Addon/index.js:533
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
@@ -1855,7 +1949,7 @@ msgstr ""
 "Firefox for datamaskiner. Les meir om <a href=\"%(newLocation)s\">tillegg "
 "for Android</a>."
 
-#: src/amo/pages/Addon/index.js:544
+#: src/amo/pages/Addon/index.js:555
 msgid "Screenshots"
 msgstr "Skjermbilde"
 
@@ -2081,35 +2175,35 @@ msgstr "Du har ingen samlingar."
 msgid "My collections"
 msgstr "Mine samlingar"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:142
 msgid "Abstract"
 msgstr "Abstrakt"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:147
 msgid "Nature"
 msgstr "Natur"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:152
 msgid "Film & TV"
 msgstr "Film og TV"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:157
 msgid "Scenery"
 msgstr "Landskap"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:162
 msgid "Music"
 msgstr "Musikk"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:167
 msgid "Seasonal"
 msgstr "Sesongavhengig"
 
-#: src/amo/pages/Home/index.js:209
+#: src/amo/pages/Home/index.js:215
 msgid "Change the way Firefox looks with themes."
 msgstr "Endre korleis Firefox ser ut med tema."
 
-#: src/amo/pages/Home/index.js:242
+#: src/amo/pages/Home/index.js:256
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2119,55 +2213,55 @@ msgstr ""
 "Dei kan blokkere irriterande annonsar, beskytte passord, endre utsjånad på "
 "nettlesaren og meir."
 
-#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Vis fleire tilrådde utvidingar"
 
-#: src/amo/pages/Home/index.js:300
+#: src/amo/pages/Home/index.js:322
 msgid "See more popular themes"
 msgstr "Vis fleire populære tema"
 
-#: src/amo/pages/Home/index.js:319
+#: src/amo/pages/Home/index.js:341
 msgid "See more popular extensions"
 msgstr "Vis fleire populære utvidingar"
 
-#: src/amo/pages/Home/index.js:336 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:358 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Vis fleire tilrådde tema"
 
-#: src/amo/pages/Home/index.js:359 src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/Home/index.js:381 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Vis fleire populære utvidingar"
 
-#: src/amo/pages/Home/index.js:57
+#: src/amo/pages/Home/index.js:60
 msgid "See more enhanced privacy extensions"
 msgstr "Vis fleire forbetra personvernutvidingar"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:61
 msgid "Enhanced privacy extensions"
 msgstr "Forbetra personvernutvidingar"
 
-#: src/amo/pages/Home/index.js:63
+#: src/amo/pages/Home/index.js:66
 msgid "See more recommended password managers"
 msgstr "Vis fleire tilrådde passordhandsamarar"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:67
 msgid "Recommended password managers"
 msgstr "Tilrådde passordhandterarar"
 
-#: src/amo/pages/LandingPage/index.js:152
+#: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "Vis fleire høgast vurderte uvidingar"
 
-#: src/amo/pages/LandingPage/index.js:173
+#: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
 msgstr "Vis fleire populære tema"
 
-#: src/amo/pages/LandingPage/index.js:182
+#: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
 msgstr "Vis fleire høgast vurderte tema"
 
-#: src/amo/pages/LandingPage/index.js:206
+#: src/amo/pages/LandingPage/index.js:207
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2177,7 +2271,7 @@ msgstr ""
 "etter din smak. Søte smådyr, vonde robotar, vakre landskap — tusenvis av "
 "alternativ."
 
-#: src/amo/pages/LandingPage/index.js:211
+#: src/amo/pages/LandingPage/index.js:212
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2187,7 +2281,7 @@ msgstr ""
 "surfing. Beskytt passord, finn tilbod, forbetre video og blokker irriterande "
 "annonsar med nettlesar-appar."
 
-#: src/amo/pages/LandingPage/index.js:233
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2195,7 +2289,7 @@ msgstr ""
 "Endre utsjånad på nettlesaren din. Vel frå tusenvis av utvidingar for å gje "
 "Firefox den utsjånaden du vil ha."
 
-#: src/amo/pages/LandingPage/index.js:235
+#: src/amo/pages/LandingPage/index.js:236
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2203,7 +2297,7 @@ msgstr ""
 "Utforsk kraftfulle verktøy og funksjonar for tilpassing av Firefox, og gjer "
 "nettlesaren til din eigen."
 
-#: src/amo/pages/LandingPage/index.js:275
+#: src/amo/pages/LandingPage/index.js:276
 msgid "Explore all categories"
 msgstr "Utforsk alle kategoriar"
 
@@ -3001,35 +3095,35 @@ msgstr "tilleggskompatibiliteten til innlegget mitt kan ikkje oppgraderast"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "tilleggskompatibilitetn til innlegget mitt har blitt oppgradert"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Enable"
 msgstr "Slå på"
 
-#: src/core/components/AMInstallButton/index.js:207
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Enabling"
 msgstr "Slår på"
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Disabling"
 msgstr "Slår av"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Downloading"
 msgstr "Lastar ned"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Installing"
 msgstr "Installerer"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Uninstalling"
 msgstr "Avinstallerer"
 
-#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -3141,27 +3235,27 @@ msgstr "%(application)s %(minVersion)s til %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Fungerar med %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Installasjonen vart avbroten fordi tillegget ser ut til å vere skada."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "Installation failed. Please try again."
 msgstr "Mislykka installasjon. Prøv igjen."
 
-#: src/core/utils/addons.js:37
+#: src/core/utils/addons.js:42
 msgid "Download failed. Please check your connection."
 msgstr "Mislykka nedlasting. Konttroller tilkoplinga di."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
 msgstr "Det oppstod ein uventa feil under installasjonen."
 
-#: src/core/utils/addons.js:41
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Det oppstod ein uventa feil under avinstallasjonen."
 
-#: src/core/utils/addons.js:46
+#: src/core/utils/addons.js:51
 msgid "An unexpected error occurred."
 msgstr "Det oppstod ein uventa feil."
 
@@ -3213,23 +3307,13 @@ msgstr "Tilgang til dataa dine for %(param)s"
 msgid "Dismiss this notice"
 msgstr "Avvis denne meldinga"
 
-#: src/ui/components/PromotedBadge/index.js:38
-msgid "By Firefox"
-msgstr "Av Firefox"
-
 #: src/ui/components/PromotedBadge/index.js:40
-#: src/ui/components/PromotedBadge/index.js:48
-#: src/ui/components/PromotedBadge/index.js:58
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
+msgid "This extension was created by the makers of Firefox."
 msgstr ""
-"Firefox tilrår berre utvidingar som oppfyller standardane våre for "
-"sikkerheit og yting."
 
-#: src/ui/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "Stadfesta"
+#: src/ui/components/PromotedBadge/index.js:58
+msgid "This extension has been code-reviewed for safety."
+msgstr ""
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
@@ -3264,6 +3348,9 @@ msgstr[1] "%(total)s tillegg"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Svar frå utviklaren"
+
+#~ msgid "Recommended add-ons only"
+#~ msgstr "Berre tilrådde tillegg"
 
 #~ msgid "Admin add-on status"
 #~ msgstr "Administrer tilleggstatus"
@@ -3643,15 +3730,6 @@ msgstr "Svar frå utviklaren"
 
 #~ msgid "Featured Add-on"
 #~ msgstr "Framheva utviding"
-
-#~ msgid "Featured extensions"
-#~ msgstr "Framheva utvidingar"
-
-#~ msgid "Featured themes"
-#~ msgstr "Framheva tema"
-
-#~ msgid "Featured add-ons"
-#~ msgstr "Framheva tillegg"
 
 #~ msgid "Featured add-ons only"
 #~ msgstr "Berre framheva tillegg"

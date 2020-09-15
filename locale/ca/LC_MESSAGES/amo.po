@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-08 16:56+0000\n"
+"POT-Creation-Date: 2020-09-15 16:06+0000\n"
 "PO-Revision-Date: 2020-08-23 15:30+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -73,19 +73,19 @@ msgstr "Complement d'administrador"
 msgid "Author Links"
 msgstr "Enllaços d'autor"
 
-#: src/amo/components/AddonBadges/index.js:47
+#: src/amo/components/AddonBadges/index.js:59
 msgid "Restart Required"
 msgstr "Cal que reinicieu"
 
-#: src/amo/components/AddonBadges/index.js:51
+#: src/amo/components/AddonBadges/index.js:63
 msgid "Experimental"
 msgstr "Experimental"
 
-#: src/amo/components/AddonBadges/index.js:56
+#: src/amo/components/AddonBadges/index.js:68
 msgid "Not compatible with Firefox Quantum"
 msgstr "No és compatible amb el Firefox Quantum"
 
-#: src/amo/components/AddonBadges/index.js:62
+#: src/amo/components/AddonBadges/index.js:74
 msgid "Some features may require payment"
 msgstr "Pot ser que hàgiu de pagar per algunes funcions"
 
@@ -576,31 +576,31 @@ msgstr ","
 msgid "by"
 msgstr "per"
 
-#: src/amo/components/AddonVersionCard/index.js:103
+#: src/amo/components/AddonVersionCard/index.js:102
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr ""
 "El codi font s'ha publicat a l'empara de la llicència %(linkStart)s"
 "%(licenseName)s%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:114
+#: src/amo/components/AddonVersionCard/index.js:113
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr ""
 "El codi font s'ha publicat a l'empara d'una %(linkStart)sllicència "
 "personalitzada%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:141
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "El codi font s'ha publicat a l'empara de la llicència %(licenseName)s"
 
-#: src/amo/components/AddonVersionCard/index.js:51
+#: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
 msgstr "No s'ha trobat cap versió"
 
-#: src/amo/components/AddonVersionCard/index.js:59
+#: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
 msgstr "Versió %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:83
+#: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Publicada el %(dateReleased)s - %(fileSize)s"
 
@@ -624,16 +624,16 @@ msgstr "Complements per al Firefox Android (%(locale)s)"
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Complements per al Firefox Android (%(locale)s)"
 
-#: src/amo/components/AutoSearchInput/index.js:207
+#: src/amo/components/AutoSearchInput/index.js:206
 msgid "Loading"
 msgstr "S’està carregant"
 
-#: src/amo/components/AutoSearchInput/index.js:303
+#: src/amo/components/AutoSearchInput/index.js:299
 msgid "Find add-ons"
 msgstr "Cerca els complements"
 
-#: src/amo/components/AutoSearchInput/index.js:328
-#: src/amo/components/AutoSearchInput/index.js:356
+#: src/amo/components/AutoSearchInput/index.js:324
+#: src/amo/components/AutoSearchInput/index.js:352
 msgid "Search"
 msgstr "Cerca"
 
@@ -804,7 +804,7 @@ msgid "Leave a note"
 msgstr "Deixa una nota"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Remove"
 msgstr "Elimina"
 
@@ -1139,11 +1139,11 @@ msgstr "Baixa l'extensió"
 msgid "RECOMMENDED"
 msgstr "RECOMANACIONS"
 
-#: src/amo/components/InstallWarning/index.js:81
+#: src/amo/components/InstallWarning/index.js:95
 msgid "Learn more"
 msgstr "Més informació"
 
-#: src/amo/components/InstallWarning/index.js:85
+#: src/amo/components/InstallWarning/index.js:99
 msgid ""
 "This is not monitored for security through Mozilla's Recommended Extensions "
 "program. Make sure you trust it before installing."
@@ -1263,6 +1263,25 @@ msgstr "Emmagatzemar una quantitat il·limitada de dades del costat del client"
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
 msgstr "Accedir a l'activitat durant la navegació"
+
+#: src/amo/components/PromotedAddonsCard/index.js:76
+#, fuzzy
+msgid "Sponsored extensions"
+msgstr "Extensions amb millor puntuació"
+
+#: src/amo/components/PromotedAddonsCard/index.js:83
+#: src/ui/components/PromotedBadge/index.js:48
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"El Firefox només recomana extensions que compleixen els estàndards de "
+"seguretat i de rendiment."
+
+#: src/amo/components/PromotedAddonsCard/index.js:87
+#, fuzzy
+msgid "What is this?"
+msgstr "Això què vol dir?"
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
@@ -1422,66 +1441,111 @@ msgstr ""
 "Hem rebut l'informe. Gràcies per fer-nos saber les vostres preocupacions amb "
 "aquest usuari."
 
-#: src/amo/components/Search/index.js:116
+#: src/amo/components/Search/index.js:120
 #: src/amo/components/SearchResults/index.js:68
 msgid "Search results"
 msgstr "Resultats de la cerca"
 
-#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:282
-#: src/amo/pages/LandingPage/index.js:123
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
+#: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Extensions recomanades"
 
-#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:345
-#: src/amo/pages/LandingPage/index.js:155
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:367
+#: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Temes recomanats"
 
-#: src/amo/components/Search/index.js:127
+#: src/amo/components/Search/index.js:132
 msgid "Recommended add-ons"
 msgstr "Complements recomanats"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:358
-#: src/amo/pages/LandingPage/index.js:133
+#: src/amo/components/Search/index.js:137
+#, fuzzy
+msgid "Extensions by Firefox"
+msgstr "Extensions de: %(author)s"
+
+#: src/amo/components/Search/index.js:140
+#, fuzzy
+msgid "Themes by Firefox"
+msgstr "per al Firefox"
+
+#: src/amo/components/Search/index.js:143
+#, fuzzy
+msgid "Add-ons by Firefox"
+msgstr "Complements per al Firefox"
+
+#: src/amo/components/Search/index.js:148
+#, fuzzy
+msgid "Reviewed extensions"
+msgstr "Extensions recomanades"
+
+#: src/amo/components/Search/index.js:151
+#, fuzzy
+msgid "Reviewed themes"
+msgstr "Revisa el tema"
+
+#: src/amo/components/Search/index.js:154
+#, fuzzy
+msgid "Reviewed add-ons"
+msgstr "Revisa el codi del complement"
+
+#: src/amo/components/Search/index.js:159
+#, fuzzy
+msgid "Verified extensions"
+msgstr "Extensions de moda"
+
+#: src/amo/components/Search/index.js:162
+#, fuzzy
+msgid "Verified themes"
+msgstr "Verificat"
+
+#: src/amo/components/Search/index.js:165
+#, fuzzy
+msgid "Verified add-ons"
+msgstr "Patrocinador verificat"
+
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380
+#: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Extensions de moda"
 
-#: src/amo/components/Search/index.js:137
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:176
+#: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "Temes de moda"
 
-#: src/amo/components/Search/index.js:140
+#: src/amo/components/Search/index.js:179
 msgid "Trending add-ons"
 msgstr "Complements de moda"
 
-#: src/amo/components/Search/index.js:146
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/components/Search/index.js:185
+#: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "Extensions amb millor puntuació"
 
-#: src/amo/components/Search/index.js:149
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/components/Search/index.js:188
+#: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "Temes amb millor puntuació"
 
-#: src/amo/components/Search/index.js:152
+#: src/amo/components/Search/index.js:191
 msgid "Top rated add-ons"
 msgstr "Complements amb millor puntuació"
 
-#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:318
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:340
 msgid "Popular extensions"
 msgstr "Extensions populars"
 
-#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:299
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:321
 msgid "Popular themes"
 msgstr "Temes populars"
 
-#: src/amo/components/Search/index.js:164
+#: src/amo/components/Search/index.js:203
 msgid "Popular add-ons"
 msgstr "Complements populars"
 
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:209
 msgid "Search results for \"%(query)s\""
 msgstr "Resultats de la cerca «%(query)s»"
 
@@ -1554,70 +1618,96 @@ msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "S'ha trobat %(count)s tema de «%(query)s» a %(categoryName)s"
 msgstr[1] "S'han trobat %(count)s temes de «%(query)s» a %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:128
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:168
 msgid "All"
 msgstr "Tot"
 
-#: src/amo/components/SearchFilters/index.js:129
+#: src/amo/components/SearchFilters/index.js:127
 msgid "Extension"
 msgstr "Extensió"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:131
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:144
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:155
+#: src/amo/components/SearchFilters/index.js:153
 msgid "Relevance"
 msgstr "Rellevància"
 
-#: src/amo/components/SearchFilters/index.js:157
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Recently Updated"
 msgstr "Actualitzat recentment"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:158
 msgid "Most Users"
 msgstr "Amb més usuaris"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:159
 msgid "Top Rated"
 msgstr "Millor valorat"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Trending"
 msgstr "Tendències"
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:169
+#: src/ui/components/IconPromotedBadge/index.js:47
+#: src/ui/components/PromotedBadge/index.js:47
+msgid "Recommended"
+msgstr "Recomanat"
+
+#: src/amo/components/SearchFilters/index.js:171
+#: src/ui/components/IconPromotedBadge/index.js:46
+#: src/ui/components/PromotedBadge/index.js:38
+#, fuzzy
+msgid "By Firefox"
+msgstr "per al Firefox"
+
+#: src/amo/components/SearchFilters/index.js:175
+#: src/ui/components/IconPromotedBadge/index.js:48
+#: src/ui/components/PromotedBadge/index.js:56
+msgid "Verified"
+msgstr "Verificat"
+
+#: src/amo/components/SearchFilters/index.js:179
+#, fuzzy
+msgid "Reviewed"
+msgstr "Ressenya"
+
+#: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
 msgstr "Filtrar els resultats"
 
-#: src/amo/components/SearchFilters/index.js:185
+#: src/amo/components/SearchFilters/index.js:204
 msgid "Sort by"
 msgstr "Ordena per"
 
-#: src/amo/components/SearchFilters/index.js:207
+#: src/amo/components/SearchFilters/index.js:226
 msgid "Add-on Type"
 msgstr "Tipus de complement"
 
-#: src/amo/components/SearchFilters/index.js:227
+#: src/amo/components/SearchFilters/index.js:246
 msgid "Operating System"
 msgstr "Sistema operatiu"
 
-#: src/amo/components/SearchFilters/index.js:253
-msgid "Recommended add-ons only"
-msgstr "Només complements recomanats"
+#: src/amo/components/SearchFilters/index.js:264
+#, fuzzy
+msgid "Promoted Add-Ons"
+msgstr "Complements amb millor puntuació"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1631,15 +1721,15 @@ msgstr "Complements del Firefox"
 msgid "Go to the add-on page"
 msgstr "Ves a la pàgina del complement"
 
-#: src/amo/components/SearchResult/index.js:170
+#: src/amo/components/SearchResult/index.js:180
 msgid "No theme preview available"
 msgstr "La previsualització del tema no està disponible"
 
-#: src/amo/components/SearchResult/index.js:208
+#: src/amo/components/SearchResult/index.js:215
 msgid "Add-on note"
 msgstr "Nota del complement"
 
-#: src/amo/components/SearchResult/index.js:226
+#: src/amo/components/SearchResult/index.js:233
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s usuari"
@@ -1657,18 +1747,13 @@ msgstr "No s'ha trobat cap resultat per a «%(query)s»."
 msgid "No results were found."
 msgstr "No s'ha trobat cap resultat."
 
-#: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/PromotedBadge/index.js:47
-msgid "Recommended"
-msgstr "Recomanat"
-
 #: src/amo/components/SectionLinks/index.js:108
-#: src/amo/pages/LandingPage/index.js:230
+#: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Extensions"
 
 #: src/amo/components/SectionLinks/index.js:123
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Temes"
 
@@ -1782,70 +1867,70 @@ msgstr ""
 "Per trobar complements compatibles amb el Firefox a Android, <a href="
 "\"%(newLocation)s\">visiteu el nostre lloc per a mòbil</a>."
 
-#: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:171 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Previsualització de %(title)s"
 
-#: src/amo/pages/Addon/index.js:211
+#: src/amo/pages/Addon/index.js:213
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Aquest complement no es pot valorar perquè encara no s'ha publicat cap "
 "versió."
 
-#: src/amo/pages/Addon/index.js:222
+#: src/amo/pages/Addon/index.js:224
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Llegiu %(count)s ressenya"
 msgstr[1] "Llegiu %(count)s ressenyes"
 
-#: src/amo/pages/Addon/index.js:244
+#: src/amo/pages/Addon/index.js:246
 msgid "No reviews yet"
 msgstr "Encara no hi ha ressenyes"
 
-#: src/amo/pages/Addon/index.js:254
+#: src/amo/pages/Addon/index.js:256
 msgid "Rate your experience"
 msgstr "Valoreu l'experiència"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:275
 msgid "About this dictionary"
 msgstr "Quant a aquest diccionari"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:278
 msgid "About this extension"
 msgstr "Quant a aquesta extensió"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:281
 msgid "About this language pack"
 msgstr "Quant a aquest paquet de llengua"
 
-#: src/amo/pages/Addon/index.js:282
+#: src/amo/pages/Addon/index.js:284
 msgid "About this theme"
 msgstr "Quant a aquest tema"
 
-#: src/amo/pages/Addon/index.js:285
+#: src/amo/pages/Addon/index.js:287
 msgid "About this add-on"
 msgstr "Quant a aquest complement"
 
-#: src/amo/pages/Addon/index.js:327
+#: src/amo/pages/Addon/index.js:329
 msgid "Developer comments"
 msgstr "Comentaris del desenvolupador"
 
-#: src/amo/pages/Addon/index.js:350
+#: src/amo/pages/Addon/index.js:352
 msgid "Release notes for %(addonVersion)s"
 msgstr "Notes de versió per a %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:481
+#: src/amo/pages/Addon/index.js:484
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Aquest llistat no és públic. El podeu veure perquè teniu permisos elevats."
 
-#: src/amo/pages/Addon/index.js:509
+#: src/amo/pages/Addon/index.js:511
 msgid "Extension Metadata"
 msgstr "Metadades de l'extensió"
 
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/pages/Addon/index.js:519
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1853,7 +1938,7 @@ msgstr ""
 "Aquest llistat no està destinat a aquesta plataforma. <a href="
 "\"%(newLocation)s\">Cerca complements pel Firefox a Android</a>."
 
-#: src/amo/pages/Addon/index.js:520
+#: src/amo/pages/Addon/index.js:523
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1861,7 +1946,17 @@ msgstr ""
 "Aquest llistat no està destinat a aquesta plataforma. <a href="
 "\"%(newLocation)s\">Cerca complements pel Firefox a l'escriptori</a>."
 
-#: src/amo/pages/Addon/index.js:524
+#: src/amo/pages/Addon/index.js:529
+#, fuzzy
+msgid ""
+"You can install this add-on in the Add-ons Manager.  Learn more about <a "
+"href=\"%(newLocation)s\">add-ons for Android</a>."
+msgstr ""
+"No està disponible en el Firefox per a l'Android. Podeu utilitzar aquest "
+"complement amb el Firefox per a l'escriptori. Més informació sobre els <a "
+"href=\"%(newLocation)s\">complements per a l'Android</a>."
+
+#: src/amo/pages/Addon/index.js:533
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
@@ -1871,7 +1966,7 @@ msgstr ""
 "complement amb el Firefox per a l'escriptori. Més informació sobre els <a "
 "href=\"%(newLocation)s\">complements per a l'Android</a>."
 
-#: src/amo/pages/Addon/index.js:544
+#: src/amo/pages/Addon/index.js:555
 msgid "Screenshots"
 msgstr "Captures de pantalla"
 
@@ -2097,35 +2192,35 @@ msgstr "No teniu cap col·lecció."
 msgid "My collections"
 msgstr "Les meves col·leccions"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:142
 msgid "Abstract"
 msgstr "Abstracte"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:147
 msgid "Nature"
 msgstr "Natura"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:152
 msgid "Film & TV"
 msgstr "Pel·lícules i TV"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:157
 msgid "Scenery"
 msgstr "Teatre"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:162
 msgid "Music"
 msgstr "Música"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:167
 msgid "Seasonal"
 msgstr "Estacional"
 
-#: src/amo/pages/Home/index.js:209
+#: src/amo/pages/Home/index.js:215
 msgid "Change the way Firefox looks with themes."
 msgstr "Canvieu l'aparença del Firefox amb els temes."
 
-#: src/amo/pages/Home/index.js:242
+#: src/amo/pages/Home/index.js:256
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2135,55 +2230,55 @@ msgstr ""
 "vostre navegador. Bloquegen anuncis no desitjats, protegeixen les "
 "contrasenyes, canvien l'aparença del navegador i molt més."
 
-#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Mostra més extensions recomanades"
 
-#: src/amo/pages/Home/index.js:300
+#: src/amo/pages/Home/index.js:322
 msgid "See more popular themes"
 msgstr "Mostra més temes populars"
 
-#: src/amo/pages/Home/index.js:319
+#: src/amo/pages/Home/index.js:341
 msgid "See more popular extensions"
 msgstr "Mostra més extensions populars"
 
-#: src/amo/pages/Home/index.js:336 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:358 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Mostra més temes recomanats"
 
-#: src/amo/pages/Home/index.js:359 src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/Home/index.js:381 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Mostra més extensions de moda"
 
-#: src/amo/pages/Home/index.js:57
+#: src/amo/pages/Home/index.js:60
 msgid "See more enhanced privacy extensions"
 msgstr "Mostra més extensions sobre privadesa"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:61
 msgid "Enhanced privacy extensions"
 msgstr "Millors extensions de privadesa"
 
-#: src/amo/pages/Home/index.js:63
+#: src/amo/pages/Home/index.js:66
 msgid "See more recommended password managers"
 msgstr "Mostra més gestors de contrasenyes recomanats"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:67
 msgid "Recommended password managers"
 msgstr "Gestors de contrasenyes recomanats"
 
-#: src/amo/pages/LandingPage/index.js:152
+#: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "Mostra més extensions millor valorades"
 
-#: src/amo/pages/LandingPage/index.js:173
+#: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
 msgstr "Mostra més temes de moda"
 
-#: src/amo/pages/LandingPage/index.js:182
+#: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
 msgstr "Mostra més temes millor valorats"
 
-#: src/amo/pages/LandingPage/index.js:206
+#: src/amo/pages/LandingPage/index.js:207
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2193,7 +2288,7 @@ msgstr ""
 "vostres gustos. Criatures dolces, robots endimoniats, paisatges idíl·lics, "
 "hi ha milers d'opcions."
 
-#: src/amo/pages/LandingPage/index.js:211
+#: src/amo/pages/LandingPage/index.js:212
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2203,7 +2298,7 @@ msgstr ""
 "navegació. Amb les aplicacions del navegador, protegiu les contrasenyes, "
 "cerqueu ofertes, milloreu els vídeos i bloquegeu anuncis molestos."
 
-#: src/amo/pages/LandingPage/index.js:233
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2211,7 +2306,7 @@ msgstr ""
 "Canvieu l'aparença del navegador. Gràcies als temes podeu fer que el vostre "
 "Firefox llueixi."
 
-#: src/amo/pages/LandingPage/index.js:235
+#: src/amo/pages/LandingPage/index.js:236
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2219,7 +2314,7 @@ msgstr ""
 "Descobriu eines i funcions potents per personalitzar el Firefox i que el "
 "navegador us representi."
 
-#: src/amo/pages/LandingPage/index.js:275
+#: src/amo/pages/LandingPage/index.js:276
 msgid "Explore all categories"
 msgstr "Exploreu totes les categories"
 
@@ -3028,35 +3123,35 @@ msgstr "la compatibilitat del meu complement no es pot actualitzar"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "la compatibilitat del meu complement s'ha actualitzat correctament"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Enable"
 msgstr "Habilita"
 
-#: src/core/components/AMInstallButton/index.js:207
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Enabling"
 msgstr "S'està habilitant"
 
-#: src/core/components/AMInstallButton/index.js:209
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Disabling"
 msgstr "S'està inhabilitant"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Downloading"
 msgstr "S'està baixant"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Installing"
 msgstr "S'està instal·lant"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Uninstalling"
 msgstr "S'està desinstal·lant"
 
-#: src/core/components/AMInstallButton/index.js:223
+#: src/core/components/AMInstallButton/index.js:219
 msgid "Install Theme"
 msgstr "Instal·la el tema"
 
-#: src/core/components/AMInstallButton/index.js:224
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Add to Firefox"
 msgstr "Afegeix al Firefox"
 
@@ -3168,29 +3263,29 @@ msgstr "%(application)s %(minVersion)s a %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Funciona amb %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr ""
 "La instal·lació s'ha cancel·lat perquè sembla que el complement es troba "
 "malmès."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "Installation failed. Please try again."
 msgstr "La instal·lació ha fallat. Torneu a provar."
 
-#: src/core/utils/addons.js:37
+#: src/core/utils/addons.js:42
 msgid "Download failed. Please check your connection."
 msgstr "Ha fallat la descàrrega. Comproveu la vostra connexió."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
 msgstr "S'ha produït un error inesperat durant la instal·lació."
 
-#: src/core/utils/addons.js:41
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
 msgstr "S'ha produït un error inesperat durant la desinstal·lació."
 
-#: src/core/utils/addons.js:46
+#: src/core/utils/addons.js:51
 msgid "An unexpected error occurred."
 msgstr "S'ha produït un error inesperat."
 
@@ -3242,24 +3337,13 @@ msgstr "Accediu a les dades de %(param)s"
 msgid "Dismiss this notice"
 msgstr "Elimina aquest avís"
 
-#: src/ui/components/PromotedBadge/index.js:38
-#, fuzzy
-msgid "By Firefox"
-msgstr "per al Firefox"
-
 #: src/ui/components/PromotedBadge/index.js:40
-#: src/ui/components/PromotedBadge/index.js:48
-#: src/ui/components/PromotedBadge/index.js:58
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
+msgid "This extension was created by the makers of Firefox."
 msgstr ""
-"El Firefox només recomana extensions que compleixen els estàndards de "
-"seguretat i de rendiment."
 
-#: src/ui/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "Verificat"
+#: src/ui/components/PromotedBadge/index.js:58
+msgid "This extension has been code-reviewed for safety."
+msgstr ""
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
@@ -3294,6 +3378,9 @@ msgstr[1] "%(total)s complements"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Resposta del desenvolupador"
+
+#~ msgid "Recommended add-ons only"
+#~ msgstr "Només complements recomanats"
 
 #~ msgid "Admin add-on status"
 #~ msgstr "Estat del complement d'administrador"
@@ -3542,9 +3629,6 @@ msgstr "Resposta del desenvolupador"
 #~ "Avui dia, el web està infestat d'anuncis no desitjats que alenteixen i "
 #~ "entorpeixen. Desfés-te'n amb les extensions de bloqueig d'anuncis i "
 #~ "torneu a navegar sense distraccions."
-
-#~ msgid "Verified Sponsor"
-#~ msgstr "Patrocinador verificat"
 
 #~ msgid "Download"
 #~ msgid_plural "Downloads"
