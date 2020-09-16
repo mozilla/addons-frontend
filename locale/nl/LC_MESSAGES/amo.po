@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 10:05+0000\n"
-"Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
+"PO-Revision-Date: 2020-09-16 12:41+0000\n"
+"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1290,7 +1290,7 @@ msgstr "Beoordeelde extensies"
 
 #: src/amo/components/Search/index.js:151
 msgid "Reviewed themes"
-msgstr "Beoordeelde thema's"
+msgstr "Beoordeelde thema’s"
 
 #: src/amo/components/Search/index.js:154
 msgid "Reviewed add-ons"
@@ -1302,7 +1302,7 @@ msgstr "Geverifieerde extensies"
 
 #: src/amo/components/Search/index.js:162
 msgid "Verified themes"
-msgstr "Geverifieerde thema's"
+msgstr "Geverifieerde thema’s"
 
 #: src/amo/components/Search/index.js:165
 msgid "Verified add-ons"
@@ -1698,7 +1698,7 @@ msgstr "Deze lijst is niet bedoeld voor dit platform. <a href=\"%(newLocation)s\
 
 #: src/amo/pages/Addon/index.js:529
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "U kunt deze add-on in de Add-onsbeheerder installeren.  Meer informatie over <a href=\"%(newLocation)s\">add-ons voor Android</a>."
+msgstr "U kunt deze add-on in de Add-onbeheerder installeren.  Meer informatie over <a href=\"%(newLocation)s\">add-ons voor Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
