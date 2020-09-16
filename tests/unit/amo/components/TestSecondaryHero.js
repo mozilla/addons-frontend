@@ -6,8 +6,9 @@ import SecondaryHero, {
   SECONDARY_HERO_SRC,
 } from 'amo/components/SecondaryHero';
 import { createInternalHeroShelves } from 'amo/reducers/home';
-import { addParamsToHeroURL } from 'amo/utils';
 import LoadingText from 'ui/components/LoadingText';
+import { addQueryParams } from 'core/utils/url';
+import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import {
   createFakeEvent,
   createFakeTracking,
@@ -45,9 +46,10 @@ describe(__filename, () => {
     const link = root.find('.SecondaryHero-message-link');
     expect(link).toHaveProp(
       'to',
-      addParamsToHeroURL({
-        heroSrcCode: SECONDARY_HERO_SRC,
-        urlString: cta.url,
+      addQueryParams(cta.url, {
+        utm_source: DEFAULT_UTM_SOURCE,
+        utm_medium: DEFAULT_UTM_MEDIUM,
+        utm_content: SECONDARY_HERO_SRC,
       }),
     );
     expect(link).not.toHaveProp('target');
@@ -68,9 +70,10 @@ describe(__filename, () => {
     const link = root.find('.SecondaryHero-message-link');
     expect(link).toHaveProp(
       'href',
-      addParamsToHeroURL({
-        heroSrcCode: SECONDARY_HERO_SRC,
-        urlString: cta.url,
+      addQueryParams(cta.url, {
+        utm_source: DEFAULT_UTM_SOURCE,
+        utm_medium: DEFAULT_UTM_MEDIUM,
+        utm_content: SECONDARY_HERO_SRC,
       }),
     );
     expect(link).toHaveProp('prependClientApp', false);
@@ -181,18 +184,20 @@ describe(__filename, () => {
           if (linkType === 'external') {
             expect(link).toHaveProp(
               'href',
-              addParamsToHeroURL({
-                heroSrcCode: SECONDARY_HERO_SRC,
-                urlString: moduleData.cta.url,
+              addQueryParams(moduleData.cta.url, {
+                utm_source: DEFAULT_UTM_SOURCE,
+                utm_medium: DEFAULT_UTM_MEDIUM,
+                utm_content: SECONDARY_HERO_SRC,
               }),
             );
             expect(link).toHaveProp('target', '_blank');
           } else if (linkType === 'internal') {
             expect(link).toHaveProp(
               'to',
-              addParamsToHeroURL({
-                heroSrcCode: SECONDARY_HERO_SRC,
-                urlString: moduleData.cta.url,
+              addQueryParams(moduleData.cta.url, {
+                utm_source: DEFAULT_UTM_SOURCE,
+                utm_medium: DEFAULT_UTM_MEDIUM,
+                utm_content: SECONDARY_HERO_SRC,
               }),
             );
             expect(link).not.toHaveProp('target');

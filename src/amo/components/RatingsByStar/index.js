@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -30,7 +29,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   groupedRatings?: GroupedRatingsType,
@@ -39,10 +37,6 @@ type InternalProps = {|
 |};
 
 export class RatingsByStarBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    _config: config,
-  };
-
   constructor(props: InternalProps) {
     super(props);
 
@@ -93,14 +87,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const {
-      _config,
-      addon,
-      errorHandler,
-      i18n,
-      groupedRatings,
-      location,
-    } = this.props;
+    const { addon, errorHandler, i18n, groupedRatings, location } = this.props;
     const loading = (!addon || !groupedRatings) && !errorHandler.hasError();
 
     const linkTitles = {
@@ -128,7 +115,6 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                 <Link
                   title={linkTitles[star] || ''}
                   to={reviewListURL({
-                    _config,
                     addonSlug: addon.slug,
                     score: star,
                     location,

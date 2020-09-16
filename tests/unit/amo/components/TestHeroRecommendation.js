@@ -7,10 +7,12 @@ import HeroRecommendation, {
   HeroRecommendationBase,
 } from 'amo/components/HeroRecommendation';
 import { createInternalHeroShelves } from 'amo/reducers/home';
-import { addParamsToHeroURL, getAddonURL } from 'amo/utils';
+import { getAddonURL } from 'amo/utils';
+import { addQueryParams } from 'core/utils/url';
 import { loadSiteStatus } from 'core/reducers/site';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
+import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import {
   createFakeEvent,
   createFakeTracking,
@@ -254,9 +256,10 @@ describe(__filename, () => {
       const root = render({ shelfData });
 
       expect(root.instance().makeCallToActionURL()).toEqual(
-        addParamsToHeroURL({
-          heroSrcCode: PRIMARY_HERO_SRC,
-          urlString: getAddonURL(slug),
+        addQueryParams(getAddonURL(slug), {
+          utm_source: DEFAULT_UTM_SOURCE,
+          utm_medium: DEFAULT_UTM_MEDIUM,
+          utm_content: PRIMARY_HERO_SRC,
         }),
       );
     });
@@ -270,9 +273,10 @@ describe(__filename, () => {
       const root = render({ shelfData });
 
       expect(root.instance().makeCallToActionURL()).toEqual(
-        addParamsToHeroURL({
-          heroSrcCode: PRIMARY_HERO_SRC,
-          urlString: homepage,
+        addQueryParams(homepage, {
+          utm_source: DEFAULT_UTM_SOURCE,
+          utm_medium: DEFAULT_UTM_MEDIUM,
+          utm_content: PRIMARY_HERO_SRC,
         }),
       );
     });

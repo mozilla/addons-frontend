@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import defaultConfig from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -75,7 +74,6 @@ export class AddonBase extends React.Component {
     addon: PropTypes.object,
     addonIsLoading: PropTypes.bool,
     clientApp: PropTypes.string.isRequired,
-    config: PropTypes.object,
     currentVersion: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
@@ -91,7 +89,6 @@ export class AddonBase extends React.Component {
   };
 
   static defaultProps = {
-    config: defaultConfig,
     _isFenixCompatible: isFenixCompatible,
     RatingManager: DefaultRatingManager,
   };
@@ -187,14 +184,7 @@ export class AddonBase extends React.Component {
   }
 
   renderRatingsCard() {
-    const {
-      RatingManager,
-      addon,
-      config,
-      i18n,
-      location,
-      currentVersion,
-    } = this.props;
+    const { RatingManager, addon, i18n, location, currentVersion } = this.props;
     let content;
     let footerPropName = 'footerText';
 
@@ -234,7 +224,6 @@ export class AddonBase extends React.Component {
         <Link
           className="Addon-all-reviews-link"
           to={reviewListURL({
-            _config: config,
             addonSlug: addon.slug,
             location,
           })}
@@ -527,7 +516,7 @@ export class AddonBase extends React.Component {
                   fixFenixLinkMessage={
                     _isFenixCompatible({ addon })
                       ? i18n.gettext(
-                          `You can install this add-on in the Add-ons Manager. 
+                          `You can install this add-on in the Add-ons Manager.
                         Learn more about <a href="%(newLocation)s">add-ons for Android</a>.`,
                         )
                       : i18n.gettext(

@@ -15,7 +15,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -204,38 +203,7 @@ describe(__filename, () => {
     validateLink(counts.at(4), '1', 'Read all one-star reviews');
   });
 
-  it('adds a `src` query parameter to the review links when available in the location', () => {
-    const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-    const src = 'some-src';
-    const location = createFakeLocation({ query: { src } });
-    const grouping = {
-      5: 964,
-      4: 821,
-      3: 543,
-      2: 22,
-      1: 0,
-    };
-    const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
-    const root = render({ _config, addon, location });
-    const counts = root.find('.RatingsByStar-count').find(Link);
-
-    function validateLink(link, score) {
-      expect(link).toHaveProp(
-        'to',
-        `/addon/${addon.slug}/reviews/?score=${score}&src=${src}`,
-      );
-    }
-
-    validateLink(counts.at(0), '5');
-    validateLink(counts.at(1), '4');
-    validateLink(counts.at(2), '3');
-    validateLink(counts.at(3), '2');
-    validateLink(counts.at(4), '1');
-  });
-
-  it('adds UTM query parameters to the review links when there are some and UTM flag is enabled', () => {
-    const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+  it('adds UTM query parameters to the review links when there are some', () => {
     const utm_medium = 'some-utm-medium';
     const location = createFakeLocation({ query: { utm_medium } });
     const grouping = {
@@ -247,7 +215,7 @@ describe(__filename, () => {
     };
     const addon = addonForGrouping(grouping);
     store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
-    const root = render({ _config, addon, location });
+    const root = render({ addon, location });
     const counts = root.find('.RatingsByStar-count').find(Link);
 
     function validateLink(link, score) {
@@ -255,37 +223,6 @@ describe(__filename, () => {
         `score=${score}`,
         `utm_medium=${utm_medium}`,
       ].join('&');
-      expect(link).toHaveProp(
-        'to',
-        `/addon/${addon.slug}/reviews/?${expectedQueryString}`,
-      );
-    }
-
-    validateLink(counts.at(0), '5');
-    validateLink(counts.at(1), '4');
-    validateLink(counts.at(2), '3');
-    validateLink(counts.at(3), '2');
-    validateLink(counts.at(4), '1');
-  });
-
-  it('does not add UTM query parameters to the review links when there are some but UTM flag is disabled', () => {
-    const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-    const utm_medium = 'some-utm-medium';
-    const location = createFakeLocation({ query: { utm_medium } });
-    const grouping = {
-      5: 964,
-      4: 821,
-      3: 543,
-      2: 22,
-      1: 0,
-    };
-    const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
-    const root = render({ _config, addon, location });
-    const counts = root.find('.RatingsByStar-count').find(Link);
-
-    function validateLink(link, score) {
-      const expectedQueryString = `score=${score}`;
       expect(link).toHaveProp(
         'to',
         `/addon/${addon.slug}/reviews/?${expectedQueryString}`,

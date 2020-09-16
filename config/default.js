@@ -130,7 +130,6 @@ module.exports = {
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
     'enableFeaturePromotedShelf',
-    'enableFeatureUseUtmParams',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -383,8 +382,6 @@ module.exports = {
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
-
-  enableFeatureUseUtmParams: true,
 
   enableFeaturePromotedShelf: false,
 

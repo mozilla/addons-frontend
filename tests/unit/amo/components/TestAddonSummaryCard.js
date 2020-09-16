@@ -14,7 +14,6 @@ import {
   createFakeLocation,
   fakeAddon,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { getAddonURL } from 'amo/utils';
@@ -74,30 +73,11 @@ describe(__filename, () => {
       expect(header.find(Link)).toHaveProp('to', getAddonURL(addon.slug));
     });
 
-    it('adds a `src` query parameter to the link on the icon when there is a `src` query param', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-      const src = 'some-src';
-      const addon = fakeAddon;
-
-      const header = renderAddonHeader({
-        _config,
-        addon,
-        location: createFakeLocation({ query: { src } }),
-      });
-
-      expect(header.find(Link)).toHaveProp(
-        'to',
-        `${getAddonURL(addon.slug)}?src=${src}`,
-      );
-    });
-
-    it('adds UTM query parameters to the link on the icon when there are some and UTM flag is enabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+    it('adds UTM query parameters to the link on the icon when there are some', () => {
       const addon = fakeAddon;
       const utm_medium = 'some-utm-medium';
 
       const header = renderAddonHeader({
-        _config,
         addon,
         location: createFakeLocation({ query: { utm_medium } }),
       });
@@ -106,20 +86,6 @@ describe(__filename, () => {
         'to',
         `${getAddonURL(addon.slug)}?utm_medium=${utm_medium}`,
       );
-    });
-
-    it('does not add UTM query parameters to the link on the icon when there are some but UTM flag is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-      const addon = fakeAddon;
-      const utm_medium = 'some-utm-medium';
-
-      const header = renderAddonHeader({
-        _config,
-        addon,
-        location: createFakeLocation({ query: { utm_medium } }),
-      });
-
-      expect(header.find(Link)).toHaveProp('to', getAddonURL(addon.slug));
     });
 
     it('renders the fallback icon if the origin is not allowed', () => {
@@ -156,27 +122,10 @@ describe(__filename, () => {
       );
     });
 
-    it('passes queryParamsForAttribution with the value of `location.query.src` when UTM flag is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
+    it('passes an empty queryParamsForAttribution when there is no UTM parameter', () => {
       const src = 'some-src';
 
       const header = renderAddonHeader({
-        _config,
-        addon: fakeAddon,
-        location: createFakeLocation({ query: { src } }),
-      });
-
-      expect(header.find(AddonTitle)).toHaveProp('queryParamsForAttribution', {
-        src,
-      });
-    });
-
-    it('passes an empty queryParamsForAttribution when UTM flag is enabled and there is no UTM parameter', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
-      const src = 'some-src';
-
-      const header = renderAddonHeader({
-        _config,
         addon: fakeAddon,
         location: createFakeLocation({ query: { src } }),
       });
@@ -187,12 +136,10 @@ describe(__filename, () => {
       );
     });
 
-    it('passes queryParamsForAttribution with the value of `utm_content` if available when UTM flag is enabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+    it('passes queryParamsForAttribution with the value of `utm_content` when available', () => {
       const utm_content = 'some-src';
 
       const header = renderAddonHeader({
-        _config,
         addon: fakeAddon,
         location: createFakeLocation({ query: { utm_content } }),
       });

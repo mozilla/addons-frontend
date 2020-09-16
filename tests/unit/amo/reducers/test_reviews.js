@@ -45,12 +45,7 @@ import reviewsReducer, {
   storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import {
-  createFakeLocation,
-  fakeAddon,
-  fakeReview,
-  getFakeConfig,
-} from 'tests/unit/helpers';
+import { fakeAddon, fakeReview } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function setFakeReview({
@@ -1907,29 +1902,6 @@ describe(__filename, () => {
       const score = 5;
       expect(reviewListURL({ addonSlug, id, score })).toEqual(
         `/addon/${addonSlug}/reviews/${id}/?score=${score}`,
-      );
-    });
-
-    it('returns a URL with a src query parameter when UTM flag is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-      const addonSlug = 'adblock-plus';
-      const src = 'some-src';
-      const location = createFakeLocation({ query: { src } });
-
-      expect(reviewListURL({ _config, addonSlug, location })).toEqual(
-        `/addon/${addonSlug}/reviews/?src=${src}`,
-      );
-    });
-
-    it('returns a URL with score and src in the query string when UTM flag is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-      const addonSlug = 'adblock-plus';
-      const score = 5;
-      const src = 'some-src';
-      const location = createFakeLocation({ query: { src } });
-
-      expect(reviewListURL({ _config, addonSlug, score, location })).toEqual(
-        `/addon/${addonSlug}/reviews/?score=${score}&src=${src}`,
       );
     });
   });

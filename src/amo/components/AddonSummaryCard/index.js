@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import * as React from 'react';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -31,28 +30,19 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
 
 export const AddonSummaryCardBase = ({
-  _config = config,
   addon,
   headerText,
   i18n,
   location,
 }: InternalProps) => {
-  const queryParamsForAttribution = getQueryParametersForAttribution(
-    location,
-    _config,
-  );
+  const queryParamsForAttribution = getQueryParametersForAttribution(location);
   const addonUrl = addon
-    ? addQueryParams(
-        getAddonURL(addon.slug),
-        queryParamsForAttribution,
-        _config,
-      )
+    ? addQueryParams(getAddonURL(addon.slug), queryParamsForAttribution)
     : '';
   const iconUrl = getAddonIconUrl(addon);
   const iconImage = (

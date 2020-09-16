@@ -15,7 +15,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -174,33 +173,7 @@ describe(__filename, () => {
       expect(reviewCountLink).toHaveProp('to', listURL);
     });
 
-    it('renders links with `src` when the location has a `src` param but the UTM flag is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-      const slug = 'some-slug';
-      const src = 'some-value-for-src';
-      const location = createFakeLocation({ query: { src } });
-
-      const root = render({
-        _config,
-        addon: createInternalAddon({
-          ...fakeAddon,
-          ratings: { text_count: 3, count: 123 },
-          slug,
-        }),
-        location,
-      });
-
-      const reviewTitleLink = getReviewTitle(root).find(Link);
-      const reviewCountLink = getReviewCount(root).find(Link);
-
-      const listURL = `/addon/${slug}/reviews/?src=${src}`;
-
-      expect(reviewTitleLink).toHaveProp('to', listURL);
-      expect(reviewCountLink).toHaveProp('to', listURL);
-    });
-
-    it('renders links with UTM query parameters when the location has some and the UTM flag is enabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
+    it('renders links with UTM query parameters when the location has some', () => {
       const slug = 'some-slug';
       const utm_source = 'some-src';
       const utm_medium = 'some-medium';
@@ -209,7 +182,6 @@ describe(__filename, () => {
       });
 
       const root = render({
-        _config,
         addon: createInternalAddon({
           ...fakeAddon,
           ratings: { text_count: 3, count: 123 },
@@ -222,34 +194,6 @@ describe(__filename, () => {
       const reviewCountLink = getReviewCount(root).find(Link);
 
       const listURL = `/addon/${slug}/reviews/?utm_medium=some-medium&utm_source=some-src`;
-
-      expect(reviewTitleLink).toHaveProp('to', listURL);
-      expect(reviewCountLink).toHaveProp('to', listURL);
-    });
-
-    it('renders links without UTM query parameters when the location has some and the UTM flag is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-      const slug = 'some-slug';
-      const utm_source = 'some-src';
-      const utm_medium = 'some-medium';
-      const location = createFakeLocation({
-        query: { utm_source, utm_medium },
-      });
-
-      const root = render({
-        _config,
-        addon: createInternalAddon({
-          ...fakeAddon,
-          ratings: { text_count: 3, count: 123 },
-          slug,
-        }),
-        location,
-      });
-
-      const reviewTitleLink = getReviewTitle(root).find(Link);
-      const reviewCountLink = getReviewCount(root).find(Link);
-
-      const listURL = `/addon/${slug}/reviews/`;
 
       expect(reviewTitleLink).toHaveProp('to', listURL);
       expect(reviewCountLink).toHaveProp('to', listURL);

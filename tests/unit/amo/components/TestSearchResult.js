@@ -20,7 +20,6 @@ import {
   fakeI18n,
   fakePreview,
   fakeTheme,
-  getFakeConfig,
   normalizeSpaces,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -89,23 +88,10 @@ describe(__filename, () => {
     sinon.assert.called(clickEvent.stopPropagation);
   });
 
-  it('links the heading to the detail page with a source', () => {
-    const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
+  it('links the heading to the detail page with UTM params', () => {
     const addonInstallSource = 'home-page-featured';
 
-    const root = render({ _config, addonInstallSource });
-
-    const link = root.find('.SearchResult-link');
-    expect(url.parse(link.prop('to'), true).query).toMatchObject({
-      src: addonInstallSource,
-    });
-  });
-
-  it('links the heading to the detail page with UTM params when UTM flag is enabled', () => {
-    const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
-    const addonInstallSource = 'home-page-featured';
-
-    const root = render({ _config, addonInstallSource });
+    const root = render({ addonInstallSource });
 
     const link = root.find('.SearchResult-link');
     expect(url.parse(link.prop('to'), true).query).toMatchObject({

@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -33,7 +32,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   hasStatsPermission: boolean,
   userId: number | null,
   currentVersion: AddonVersionType | null,
@@ -42,13 +40,8 @@ type InternalProps = {|
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    _config: config,
-  };
-
   listContent() {
     const {
-      _config,
       addon,
       currentVersion,
       hasStatsPermission,
@@ -110,8 +103,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           className="AddonMoreInfo-stats-link"
           href={addQueryParams(
             `/addon/${addon.slug}/statistics/`,
-            getQueryParametersForAttribution(location, _config),
-            _config,
+            getQueryParametersForAttribution(location),
           )}
         >
           {i18n.gettext('Visit stats dashboard')}
@@ -129,8 +121,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         ? {
             to: addQueryParams(
               `/addon/${addon.slug}/license/`,
-              getQueryParametersForAttribution(location, _config),
-              _config,
+              getQueryParametersForAttribution(location),
             ),
           }
         : { href: license.url, prependClientApp: false, prependLang: false };
@@ -169,8 +160,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           className="AddonMoreInfo-privacy-policy-link"
           to={addQueryParams(
             `/addon/${addon.slug}/privacy/`,
-            getQueryParametersForAttribution(location, _config),
-            _config,
+            getQueryParametersForAttribution(location),
           )}
         >
           {i18n.gettext('Read the privacy policy for this add-on')}
@@ -181,8 +171,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           className="AddonMoreInfo-eula-link"
           to={addQueryParams(
             `/addon/${addon.slug}/eula/`,
-            getQueryParametersForAttribution(location, _config),
-            _config,
+            getQueryParametersForAttribution(location),
           )}
         >
           {i18n.gettext('Read the license agreement for this add-on')}
@@ -194,8 +183,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             className="AddonMoreInfo-version-history-link"
             to={addQueryParams(
               `/addon/${addon.slug}/versions/`,
-              getQueryParametersForAttribution(location, _config),
-              _config,
+              getQueryParametersForAttribution(location),
             )}
           >
             {i18n.gettext('See all versions')}

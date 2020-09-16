@@ -5,8 +5,7 @@ import {
   removeUndefinedProps,
   getQueryParametersForAttribution,
 } from 'core/utils/url';
-import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
-import { createFakeLocation, getFakeConfig } from 'tests/unit/helpers';
+import { createFakeLocation } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('removeUndefinedProps', () => {
@@ -82,47 +81,14 @@ describe(__filename, () => {
       });
       expect(url.parse(output, true).query).toEqual({});
     });
-
-    it('replaces `src` with UTM parameters when UTM flag is enabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
-      const src = 'some-src';
-
-      const output = addQueryParams('http://whatever.com/', { src }, _config);
-
-      expect(url.parse(output, true).query).toEqual({
-        utm_source: DEFAULT_UTM_SOURCE,
-        utm_medium: DEFAULT_UTM_MEDIUM,
-        utm_content: src,
-      });
-    });
-
-    it('does not replace `src` with UTM parameters when UTM flag is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-      const src = 'some-src';
-
-      const output = addQueryParams('http://whatever.com/', { src }, _config);
-
-      expect(url.parse(output, true).query).toEqual({ src });
-    });
   });
 
   describe('getQueryParametersForAttribution', () => {
-    it('returns the `src` query param when UTM flag is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-      const src = 'some-src';
-      const location = createFakeLocation({ query: { src } });
-
-      expect(getQueryParametersForAttribution(location, _config)).toEqual({
-        src,
-      });
-    });
-
     it('returns the UTM parameters in the location when UTM flag is enabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: true });
       const utm_campaign = 'some-utm-campaign';
       const location = createFakeLocation({ query: { utm_campaign } });
 
-      expect(getQueryParametersForAttribution(location, _config)).toEqual({
+      expect(getQueryParametersForAttribution(location)).toEqual({
         utm_campaign,
       });
     });
