@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 22:42+0000\n"
+"PO-Revision-Date: 2020-09-16 22:48+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1118,18 +1118,16 @@ msgid "Access browser activity during navigation"
 msgstr "Aceder à atividade do navegador durante a navegação"
 
 #: src/amo/components/PromotedAddonsCard/index.js:76
-#, fuzzy
 msgid "Sponsored extensions"
-msgstr "Extensões no top de avaliações"
+msgstr "Extensões patrocinadas"
 
 #: src/amo/components/PromotedAddonsCard/index.js:83 src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
 msgstr "O Firefox apenas recomenda extensões que atendam aos nossos standards para segurança e desempenho."
 
 #: src/amo/components/PromotedAddonsCard/index.js:87
-#, fuzzy
 msgid "What is this?"
-msgstr "O que isto significa?"
+msgstr "O que é isto?"
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
@@ -1274,49 +1272,40 @@ msgid "Recommended add-ons"
 msgstr "Extras recomendados"
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Extensões por %(author)s"
+msgstr "Extensões do Firefox"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Por Firefox"
+msgstr "Temas do Firefox"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Extras para o Firefox"
+msgstr "Extras do Firefox"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Extensões recomendadas"
+msgstr "Extensões revistas"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Rever tema"
+msgstr "Temas revistos"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Rever código de extra"
+msgstr "Extras revistos"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Extensões em destaque"
+msgstr "Extensões verificadas"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Temas em destaque"
+msgstr "Temas verificados"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Extras em destaque"
+msgstr "Extras verificados"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1483,9 +1472,8 @@ msgid "Verified"
 msgstr "Verificado"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "Análise"
+msgstr "Revisto"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1504,9 +1492,8 @@ msgid "Operating System"
 msgstr "Sistema operativo"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "Extras no top de avaliações"
+msgstr "Extras promovidos"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1709,9 +1696,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Este catálogo não é vocacionado para esta plataforma. <a href=\"%(newLocation)s\">Navegue nos extras para o Firefox para computadores</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Não disponível no Firefox para Android. Pode utilizar este extra no Firefox para computadores. Saber mais sobre <a href=\"%(newLocation)s\">extras para o Android</a>."
+msgstr "Oode instalar este extra no Gestor de extras. Saiba mais sobre <a href=\"%(newLocation)s\">extras para o Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
