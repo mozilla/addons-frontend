@@ -1120,18 +1120,16 @@ msgid "Access browser activity during navigation"
 msgstr "Accéder à l’activité du navigateur pendant la navigation"
 
 #: src/amo/components/PromotedAddonsCard/index.js:76
-#, fuzzy
 msgid "Sponsored extensions"
-msgstr "Extensions les mieux notées"
+msgstr ""
 
 #: src/amo/components/PromotedAddonsCard/index.js:83 src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
 msgstr "Firefox ne recommande que des extensions conformes à nos normes en matière de sécurité et de performances."
 
 #: src/amo/components/PromotedAddonsCard/index.js:87
-#, fuzzy
 msgid "What is this?"
-msgstr "Qu’est-ce que cela signifie ?"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
@@ -1276,49 +1274,40 @@ msgid "Recommended add-ons"
 msgstr "Modules recommandés"
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Extensions créées par %(author)s"
+msgstr ""
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Par Firefox"
+msgstr ""
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Modules pour Firefox"
+msgstr ""
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Extensions recommandées"
+msgstr ""
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Revue du thème"
+msgstr ""
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Revue du code de l’extension"
+msgstr ""
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Extensions mises en avant"
+msgstr ""
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Thèmes mis en avant"
+msgstr ""
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Modules mis en avant"
+msgstr ""
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1485,9 +1474,8 @@ msgid "Verified"
 msgstr "Vérifié"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "Critique"
+msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1506,9 +1494,8 @@ msgid "Operating System"
 msgstr "Système d’exploitation"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "Modules les mieux notés"
+msgstr ""
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1713,11 +1700,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Cette ressource n’est pas prévue pour cette plateforme. <a href=\"%(newLocation)s\">Parcourez les modules de Firefox pour ordinateur</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr ""
-"Non disponible sur Firefox pour Android. Vous pouvez utiliser ce module complémentaire avec Firefox pour ordinateur de bureau. En savoir plus sur les <a href=\"%(newLocation)s\">modules "
-"complémentaires pour Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
