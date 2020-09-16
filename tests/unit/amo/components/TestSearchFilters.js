@@ -137,7 +137,7 @@ describe(__filename, () => {
   it('changes the URL when a new promoted filter is selected', () => {
     const root = render({ filters: { query: 'Music player' } });
 
-    const select = root.find('.SearchFilters-Promoted');
+    const select = root.find('.SearchFilters-Badging');
     const currentTarget = {
       getAttribute: () => {
         return select.prop('name');
@@ -321,7 +321,7 @@ describe(__filename, () => {
       },
     });
 
-    const select = root.find('.SearchFilters-Promoted');
+    const select = root.find('.SearchFilters-Badging');
     const currentTarget = {
       getAttribute: () => {
         return select.prop('name');
@@ -392,6 +392,6 @@ describe(__filename, () => {
       },
     });
 
-    expect(root.find('.SearchFilters-Promoted')).toHaveProp('value', promoted);
+    expect(root.find('.SearchFilters-Badging')).toHaveProp('value', promoted);
   });
 });
