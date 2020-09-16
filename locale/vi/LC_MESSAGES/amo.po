@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 02:16+0000\n"
+"PO-Revision-Date: 2020-09-16 02:21+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -1282,24 +1282,20 @@ msgid "Reviewed extensions"
 msgstr "Tiện ích mở rộng được đề xuất"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Đánh giá chủ đề"
+msgstr "Chủ đề đã xem xét"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Xem lại đoạn mã tiện ích"
+msgstr "Tiện ích đã xem xét"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Tiện ích mở rộng nổi bật"
+msgstr "Tiện ích mở rộng đã xác minh"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Chủ đề nổi bật"
+msgstr "Chủ đề đã được xác minh"
 
 #: src/amo/components/Search/index.js:165
 msgid "Verified add-ons"
