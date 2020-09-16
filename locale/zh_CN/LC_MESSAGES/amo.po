@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 08:54+0000\n"
+"PO-Revision-Date: 2020-09-16 12:22+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1266,9 +1266,8 @@ msgid "Themes by Firefox"
 msgstr "Firefox 制作的主题"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Firefox 附加组件"
+msgstr "Firefox 制作的附加组件"
 
 #: src/amo/components/Search/index.js:148
 #, fuzzy
