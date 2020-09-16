@@ -38,7 +38,9 @@ export function getStyleRules({
           {
             loader: 'postcss-loader',
             options: {
-              plugins: postCssPlugins,
+              postcssOptions: {
+                plugins: postCssPlugins,
+              },
             },
           },
           {
@@ -66,7 +68,9 @@ export function getStyleRules({
           {
             loader: 'postcss-loader',
             options: {
-              plugins: postCssPlugins,
+              postcssOptions: {
+                plugins: postCssPlugins,
+              },
               sourceMap: true,
             },
           },
