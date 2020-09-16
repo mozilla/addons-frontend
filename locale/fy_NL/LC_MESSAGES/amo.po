@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 14:53+0000\n"
+"PO-Revision-Date: 2020-09-16 14:57+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1128,9 +1128,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox rekommandearret allinnich útwreidingen oan dy't oan ús standert foar feilichheid en prestaasjes foldogge."
 
 #: src/amo/components/PromotedAddonsCard/index.js:87
-#, fuzzy
 msgid "What is this?"
-msgstr "Wat betsjut dit?"
+msgstr "Wat is dit?"
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
@@ -1275,49 +1274,40 @@ msgid "Recommended add-ons"
 msgstr "Oanrekommandearre add-ons"
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Utwreidingen fan %(author)s"
+msgstr "Utwreidingen fan Firefox"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Troch Firefox"
+msgstr "Tema's fan Firefox"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Add-ons foar Firefox"
+msgstr "Add-ons fan Firefox"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Oanrekommandearre tafoegingen"
+msgstr "Beoardiele útwreidingen"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Tema beoardiele"
+msgstr "Beoardiele tema’s"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Add-onkoade beoardiele"
+msgstr "Beoardiele add-ons"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Oanrekommandearre útwreidingen"
+msgstr "Ferifiearre útwreidingen"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Oanrekommandearre tema’s"
+msgstr "Ferifiearre tema’s"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Oanrekommandearre add-ons"
+msgstr "Ferifiearre add-ons"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1341,7 +1331,7 @@ msgstr "Heechst wurdearre tema's"
 
 #: src/amo/components/Search/index.js:191
 msgid "Top rated add-ons"
-msgstr "Heechst wurdearre ad--ons"
+msgstr "Heechst wurdearre add-ons"
 
 #: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:340
 msgid "Popular extensions"
@@ -1484,9 +1474,8 @@ msgid "Verified"
 msgstr "Ferifiearre"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "Beoardieling"
+msgstr "Beoardiele"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1505,9 +1494,8 @@ msgid "Operating System"
 msgstr "Bestjoeringssysteem"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "Heechst wurdearre ad--ons"
+msgstr "Promoate add-ons"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1710,9 +1698,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Dizze list is net bedoeld foar dit platfoarm. <a href=\"%(newLocation)s\">Troch add-ons foar Firefox op desktop blêdzje</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Net beskikber yn Firefox foar Android. Jo kinne dizze add-on brûke mei Firefox foar desktop.  Mear ynfo oer <a href=\"%(newLocation)s\">Android-add-ons</a>."
+msgstr "Jo kinne dizze add-on yn de Add-onbehearder ynstallearje.  Mear ynformaasje oer <a href=\"%(newLocation)s\">add-ons foar Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
