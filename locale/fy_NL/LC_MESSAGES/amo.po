@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 13:08+0000\n"
+"PO-Revision-Date: 2020-09-16 14:53+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1120,9 +1120,8 @@ msgid "Access browser activity during navigation"
 msgstr "Browseraktiviteit wylst navigearjen benaderje"
 
 #: src/amo/components/PromotedAddonsCard/index.js:76
-#, fuzzy
 msgid "Sponsored extensions"
-msgstr "Heechst wurdearre útwreidingen"
+msgstr "Sponsore útwreidingen"
 
 #: src/amo/components/PromotedAddonsCard/index.js:83 src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
