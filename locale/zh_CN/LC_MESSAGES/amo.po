@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 08:53+0000\n"
+"PO-Revision-Date: 2020-09-16 08:56+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1106,16 +1106,14 @@ msgid "Access browser activity during navigation"
 msgstr "获知浏览器导航时的行为状态"
 
 #: src/amo/components/PromotedAddonsCard/index.js:76
-#, fuzzy
 msgid "Sponsored extensions"
-msgstr "最受好评的扩展"
+msgstr ""
 
 #: src/amo/components/PromotedAddonsCard/index.js:83 src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
 msgstr "Firefox 只推荐符合我们的安全和性能标准的扩展。"
 
 #: src/amo/components/PromotedAddonsCard/index.js:87
-#, fuzzy
 msgid "What is this?"
 msgstr "这是什么意思？"
 
@@ -1260,14 +1258,12 @@ msgid "Recommended add-ons"
 msgstr "推荐附加组件"
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "%(author)s 制作的扩展"
+msgstr "Firefox 制作的扩展"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "由 Firefox 推出"
+msgstr "Firefox 制作的主题"
 
 #: src/amo/components/Search/index.js:143
 #, fuzzy
