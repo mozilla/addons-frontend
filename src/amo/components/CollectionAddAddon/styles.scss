@@ -50,8 +50,8 @@
     border-bottom-right-radius: 0;
   }
 
-  // The Notice component creates children which are affected by these classes,
-  // which are added by the CSSTransition component.
+  // The Notice component creates children which are affected by these
+  // classes, which are added by the CSSTransition component.
   .Notice {
     &.CollectionAddAddon-noticePlaceholder-transition-appear {
       opacity: 1;

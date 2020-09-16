@@ -99,6 +99,7 @@ $icon-small: 13px;
     animation-name: pulseOpaqueRatingStars;
     // Ensure editable rating stars always render as open stars while
     // loading, even if some are selected (e.g. while hovering).
+
     cursor: initial;
   }
 }

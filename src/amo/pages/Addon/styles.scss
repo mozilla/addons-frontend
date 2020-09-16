@@ -143,6 +143,7 @@
       grid-column: 2;
       // This span makes sure the left widget does not move vertically when
       // there is a long description.
+
       grid-row: 1 / span 100000;
       // Fixes screenshot overflow in FF 52 ESR.
       max-width: 100%;
@@ -162,6 +163,7 @@
   .Addon-screenshots {
     // overflow required to fix content overlap in Safari.
     // See https://github.com/mozilla/addons-frontend/issues/2847
+
     overflow-x: hidden;
   }
 

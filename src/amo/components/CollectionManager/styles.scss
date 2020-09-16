@@ -29,6 +29,7 @@
 .CollectionManager-slug {
   // Always render the grid left-to-right. This UI involves a URL so
   // it should always be displayed left-to-right.
+
   direction: ltr;
   display: grid;
   grid-template-columns: 40% 60%;

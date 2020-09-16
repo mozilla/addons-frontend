@@ -3,6 +3,7 @@
 @mixin page-padding() {
   // This adds consistent padding to any top-level page component.
   // The top padding is zero to make room for the shared app banner.
+
   padding: $padding-page;
   padding-top: 0;
 

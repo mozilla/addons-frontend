@@ -78,9 +78,9 @@ $default-font-size: 13px;
         padding-top: 1px;
       }
 
-      // Small text is difficult to read against the bright Photon colors since
-      // it is blurry. This isn't (yet) part of the spec but added this because
-      // it improves accessibility. See:
+      // Small text is difficult to read against the bright Photon colors
+      // since it is blurry. This isn't (yet) part of the spec but added this
+      // because it improves accessibility. See:
       // https://github.com/FirefoxUX/photon/issues/264#issuecomment-364927535
       letter-spacing: 0.01rem;
     }
@@ -94,12 +94,13 @@ $default-font-size: 13px;
 
     &:active:not(.Button--disabled) {
       background: $background-active;
-      // This is not part of the Photon button spec, but without it only colour
-      // is changed onClick of a button. Even as someone without colourblindness
-      // I find this to be so subtle as to sometimes not notice. I'd think
-      // colourblind users may not notice the mild colour shift in the button
-      // as the only indicator that it was pressed, so I added this. - @tofumatt
-      // See: https://github.com/FirefoxUX/photon/issues/265
+      // This is not part of the Photon button spec, but without it only color
+      // is changed onClick of a button. Even as someone without
+      // colourblindness I find this to be so subtle as to sometimes not
+      // notice. I'd think colourblind users may not notice the mild colour
+      // shift in the button as the only indicator that it was pressed, so I
+      // added this. - @tofumatt See:
+      // https://github.com/FirefoxUX/photon/issues/265
       padding-top: 1px;
     }
   }
