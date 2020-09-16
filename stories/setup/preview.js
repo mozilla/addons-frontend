@@ -15,13 +15,11 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
 // Override some global-y setup options.
-// See: https://www.npmjs.com/package/@storybook/addon-options
 addParameters({
   options: {
     theme: create({
       brandTitle: 'Mozilla Addons frontend',
       brandUrl: 'https://github.com/mozilla/addons-frontend',
-      // Hide empty panel for now.
     }),
     showPanel: true,
   },
