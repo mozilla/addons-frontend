@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 08:56+0000\n"
+"PO-Revision-Date: 2020-09-16 09:21+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1455,9 +1455,8 @@ msgid "Verified"
 msgstr "已认证"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "评价"
+msgstr "已审核"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
