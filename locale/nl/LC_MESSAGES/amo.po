@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 06:44+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2020-09-16 10:05+0000\n"
+"Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1119,18 +1119,16 @@ msgid "Access browser activity during navigation"
 msgstr "Browseractiviteit tijdens navigeren benaderen"
 
 #: src/amo/components/PromotedAddonsCard/index.js:76
-#, fuzzy
 msgid "Sponsored extensions"
-msgstr "Hoogst gewaardeerde extensies"
+msgstr "Gesponsorde extensies"
 
 #: src/amo/components/PromotedAddonsCard/index.js:83 src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
 msgstr "Firefox beveelt alleen extensies aan die voldoen aan onze normen voor beveiliging en prestaties."
 
 #: src/amo/components/PromotedAddonsCard/index.js:87
-#, fuzzy
 msgid "What is this?"
-msgstr "Wat betekent dit?"
+msgstr "Wat is dit?"
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
@@ -1275,49 +1273,40 @@ msgid "Recommended add-ons"
 msgstr "Aanbevolen add-ons"
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Extensies van %(author)s"
+msgstr "Extensies van Firefox"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Door Firefox"
+msgstr "Thema's van Firefox"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Add-ons voor Firefox"
+msgstr "Add-ons van Firefox"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Aanbevolen extensies"
+msgstr "Beoordeelde extensies"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Thema beoordelen"
+msgstr "Beoordeelde thema's"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Add-oncode beoordelen"
+msgstr "Beoordeelde add-ons"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Aanbevolen extensies"
+msgstr "Geverifieerde extensies"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Aanbevolen thema’s"
+msgstr "Geverifieerde thema's"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Aanbevolen add-ons"
+msgstr "Geverifieerde add-ons"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1484,9 +1473,8 @@ msgid "Verified"
 msgstr "Geverifieerd"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "Beoordeling"
+msgstr "Beoordeeld"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1505,9 +1493,8 @@ msgid "Operating System"
 msgstr "Besturingssysteem"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "Hoogst gewaardeerde add-ons"
+msgstr "Gepromote add-ons"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1710,9 +1697,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Deze lijst is niet bedoeld voor dit platform. <a href=\"%(newLocation)s\">Door add-ons voor Firefox op desktop bladeren</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Niet beschikbaar in Firefox voor Android. U kunt deze add-on met Firefox voor Desktop gebruiken. Meer info over <a href=\"%(newLocation)s\">add-ons voor Android</a>."
+msgstr "U kunt deze add-on in de Add-onsbeheerder installeren.  Meer informatie over <a href=\"%(newLocation)s\">add-ons voor Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
