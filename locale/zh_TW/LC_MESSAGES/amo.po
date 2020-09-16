@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 03:19+0000\n"
+"PO-Revision-Date: 2020-09-16 03:36+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1270,34 +1270,28 @@ msgid "Add-ons by Firefox"
 msgstr "Firefox 原廠製作的附加元件"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "推薦的擴充套件"
+msgstr "審核過的擴充套件"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "審核佈景主題"
+msgstr "審核過的佈景主題"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "審核附加元件程式碼"
+msgstr "審核過的附加元件"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "精選擴充套件"
+msgstr "驗證過的擴充套件"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "精選佈景主題"
+msgstr "驗證過的佈景主題"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "精選附加元件"
+msgstr "驗證過的附加元件"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1454,9 +1448,8 @@ msgid "Verified"
 msgstr "已驗證"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "評論"
+msgstr "已審核"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1475,9 +1468,8 @@ msgid "Operating System"
 msgstr "作業系統"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "分數最高的附加元件"
+msgstr "廣告中的附加元件"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1678,9 +1670,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "此清單並非提供予本平台使用。<a href=\"%(newLocation)s\">瀏覽 Firefox 桌面版的附加元件</a>。"
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "這套附加元件無法使用於 Firefox for Android，您可以安裝到 Firefox 桌面版。了解 <a href=\"%(newLocation)s\">Android 附加元件</a>的更多資訊。"
+msgstr "您可以使用「附加元件管理員」來安裝這套附加元件。了解 <a href=\"%(newLocation)s\">Android 附加元件</a>的更多資訊。"
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
