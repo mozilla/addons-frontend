@@ -90,6 +90,7 @@ export function getStyleRules({
 export function getAssetRules() {
   // Common options for URL loaders (i.e. derivatives of file-loader).
   const urlLoaderOptions = {
+    encoding: 'base64',
     // This has been added in url-loader 2.2.0 and file-loader 5.0.0. The
     // default value (`true`) is a breaking change, so we have to set it to
     // `false`.
