@@ -80,7 +80,7 @@ export const PromotedBadgeBase = ({
         target="_blank"
         title={linkTitle}
       >
-        <IconPromotedBadge category={category} size={size} />
+        <IconPromotedBadge category={category} i18n={i18n} size={size} />
         <span
           className={makeClassName(
             'PromotedBadge-label',

@@ -40,6 +40,7 @@ const render = (
 };
 
 storiesOf('HeroRecommendation', module)
+  .addParameters({ component: HeroRecommendationBase })
   .addDecorator((story) => (
     <div className="HeroRecommendation--storybook">
       <Provider story={story()} />

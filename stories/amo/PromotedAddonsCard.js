@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { createInternalAddon } from 'core/reducers/addons';
-import { PromotedAddonsCardBase } from 'amo/components/PromotedAddonsCard';
+import PromotedAddonsCard, { PromotedAddonsCardBase } from 'amo/components/PromotedAddonsCard';
 import { fakeAddon, fakeI18n } from 'tests/unit/helpers';
 import type { InternalProps as PromotedAddonsCardProps } from 'amo/components/PromotedAddonsCard';
 
@@ -24,6 +24,7 @@ const render = (moreProps: $Shape<PromotedAddonsCardProps> = {}) => {
 };
 
 storiesOf('PromotedAddonsCard', module)
+  .addParameters({ component: PromotedAddonsCardBase })
   .addDecorator((story) => (
     <div className="PromotedAddonsCard--storybook">
       <Provider story={story()} />

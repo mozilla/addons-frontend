@@ -17,35 +17,37 @@ const render = (moreProps: $Shape<PromotedBadgeProps> = {}) => {
   );
 };
 
-storiesOf('PromotedBadge', module).addWithChapters('all variants', {
-  chapters: [
-    {
-      sections: [
-        {
-          title: 'category="line", size="large"',
-          sectionFn: () => render({ size: 'large' }),
-        },
-        {
-          title: 'category="line", size="small"',
-          sectionFn: () => render({ size: 'small' }),
-        },
-        {
-          title: 'category="recommended", size="large"',
-          sectionFn: () => render({ category: 'recommended', size: 'large' }),
-        },
-        {
-          title: 'category="recommended", size="small"',
-          sectionFn: () => render({ category: 'recommended', size: 'small' }),
-        },
-        {
-          title: 'category="verified", size="large"',
-          sectionFn: () => render({ category: 'verified', size: 'large' }),
-        },
-        {
-          title: 'category="verified", size="small"',
-          sectionFn: () => render({ category: 'verified', size: 'small' }),
-        },
-      ],
-    },
-  ],
-});
+storiesOf('PromotedBadge', module)
+  .addParameters({ component: PromotedBadgeBase })
+  .addWithChapters('all variants', {
+    chapters: [
+      {
+        sections: [
+          {
+            title: 'category="line", size="large"',
+            sectionFn: () => render({ size: 'large' }),
+          },
+          {
+            title: 'category="line", size="small"',
+            sectionFn: () => render({ size: 'small' }),
+          },
+          {
+            title: 'category="recommended", size="large"',
+            sectionFn: () => render({ category: 'recommended', size: 'large' }),
+          },
+          {
+            title: 'category="recommended", size="small"',
+            sectionFn: () => render({ category: 'recommended', size: 'small' }),
+          },
+          {
+            title: 'category="verified", size="large"',
+            sectionFn: () => render({ category: 'verified', size: 'large' }),
+          },
+          {
+            title: 'category="verified", size="small"',
+            sectionFn: () => render({ category: 'verified', size: 'small' }),
+          },
+        ],
+      },
+    ],
+  });

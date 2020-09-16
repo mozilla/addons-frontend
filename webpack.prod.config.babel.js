@@ -96,9 +96,9 @@ export default {
   ],
   resolve: {
     alias: {
-      tests: path.resolve('./tests'),
+      tests: path.resolve(__dirname, 'tests'),
     },
-    modules: [path.resolve('./src'), 'node_modules'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     extensions: ['.js', '.jsx'],
   },
 };

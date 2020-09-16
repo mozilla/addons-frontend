@@ -5,8 +5,6 @@ import {
   configure,
   setAddon,
 } from '@storybook/react';
-import { setDefaults } from '@storybook/addon-info';
-import { withOptions } from '@storybook/addon-options';
 import { initializeRTL } from 'storybook-addon-rtl';
 import { create } from '@storybook/theming/create';
 import chaptersAddon, {
@@ -15,19 +13,6 @@ import chaptersAddon, {
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-
-// addon-info default settings.
-setDefaults({
-  header: false,
-  inline: true,
-  source: false,
-  styles: (stylesheet) => ({
-    ...stylesheet,
-    infoBody: {
-      fontSize: '12px',
-    },
-  }),
-});
 
 // Override some global-y setup options.
 // See: https://www.npmjs.com/package/@storybook/addon-options

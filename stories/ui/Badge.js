@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
 import Badge from 'ui/components/Badge';
 import type { Props as BadgeProps } from 'ui/components/Badge';
@@ -33,13 +32,10 @@ function createPropsMatrix(chapter): Array<Props> {
 }
 
 storiesOf('Badge', module)
-  .add(
-    'Badge props',
-    withInfo()(() => {
-      return <Badge label="" />;
-    }),
-  )
-  .addWithChapters('Badge variations', {
+  .addParameters({
+    component: Badge,
+  })
+  .addWithChapters('all variants', {
     chapters: createChapters({
       Component: Badge,
       chapters: types,
