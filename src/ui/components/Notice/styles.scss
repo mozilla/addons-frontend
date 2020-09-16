@@ -48,6 +48,7 @@
 .Notice-light .Notice-icon {
   // Reduce the icon size for light notices so that the total
   // height of the notice adds up to $default-line-height.
+
   background-size: 11px 11px;
   height: 11px;
   width: 11px;
@@ -91,6 +92,7 @@
     &:active:not(.Button--disabled) {
       // The default styles add padding-top: 1px so this keeps it in
       // sync with the custom padding added above.
+
       padding-top: 7px;
     }
   }
@@ -165,6 +167,7 @@
   &.Notice-againstGrey20 {
     // When this Notice is rendered against a $grey-20 background, pick a
     // new background color to avoid a collision.
+
     background-color: $grey-30;
   }
 

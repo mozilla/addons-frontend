@@ -136,7 +136,7 @@ describe(__filename, () => {
     );
   });
 
-  it('renders meta with utf8 charset ', () => {
+  it('renders meta with utf8 charset', () => {
     const root = render();
     const meta = root.find({ charSet: 'utf-8' });
 

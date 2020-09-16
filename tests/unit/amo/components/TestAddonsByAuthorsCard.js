@@ -668,7 +668,7 @@ describe(__filename, () => {
     );
   });
 
-  it('shows extensions in header for a static theme with multiple authors and without More text ', () => {
+  it('shows extensions in header for a static theme with multiple authors and without More text', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_STATIC_THEME,
       showMore: false,

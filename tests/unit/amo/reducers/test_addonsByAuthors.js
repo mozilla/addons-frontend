@@ -742,7 +742,7 @@ describe(__filename, () => {
       ]);
     });
 
-    it("returns static themes when filtering for authors' themes ", () => {
+    it("returns static themes when filtering for authors' themes", () => {
       const addons = fakeExternalAddons({ type: ADDON_TYPE_STATIC_THEME });
 
       const authorIds = [

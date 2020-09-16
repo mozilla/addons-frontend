@@ -45,7 +45,7 @@ describe(__filename, () => {
     expect(star.find('path')).toHaveProp('d', getSvgPath(DIM_CLOSED_STYLE));
   });
 
-  it("sets the star style to OPEN_STYLE if the star is not selected and it's not readOnly ", () => {
+  it("sets the star style to OPEN_STYLE if the star is not selected and it's not readOnly", () => {
     const star = shallow(<IconStar readOnly={false} selected={false} />);
 
     expect(star.find('g')).toHaveProp('fillOpacity', 1);

@@ -10,11 +10,11 @@
 
   &.AddonsCard--horizontal {
     // overriding default list styles for theme
-    // stylelint-disable max-nesting-depth
     &.AddonsByAuthorsCard--theme {
       .Card-contents .AddonsCard-list {
         display: block;
 
+        // stylelint-disable max-nesting-depth
         @include respond-to(medium) {
           display: grid;
         }
