@@ -422,7 +422,7 @@ describe(__filename, () => {
       expect(getCurrentUser(reduxStoreState.users)).toMatchObject(user);
     });
 
-    it('it serializes the redux state in html', async () => {
+    it('serializes the redux state in html', async () => {
       const user = createUserAccountResponse({ id: 42, username: 'babar' });
 
       mockUsersApi

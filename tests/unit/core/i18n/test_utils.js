@@ -102,7 +102,7 @@ describe(__filename, () => {
   });
 
   describe('sanitizeLanguage()', () => {
-    it('should get a standard language ', () => {
+    it('should get a standard language', () => {
       expect(utils.sanitizeLanguage('ar')).toEqual('ar');
     });
 

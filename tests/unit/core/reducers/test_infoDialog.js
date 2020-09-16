@@ -31,7 +31,7 @@ describe(__filename, () => {
     expect(infoDialog(state, { type: 'WHATEVS' })).toEqual(state);
   });
 
-  it('hides a dialog with CLOSE_INFO ', () => {
+  it('hides a dialog with CLOSE_INFO', () => {
     const payload = getInfoDialogData();
     const prevState = infoDialog(undefined, showInfoDialog(payload));
 

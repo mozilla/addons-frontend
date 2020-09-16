@@ -160,7 +160,7 @@ describe(__filename, () => {
       expect(link).toHaveProp('title', expectedTitle);
     }
 
-    it.each([[counts], [bars]], (links) => {
+    [counts, bars].forEach((links) => {
       validateLink(links.at(0), '5', 'Read all five-star reviews');
       validateLink(links.at(1), '4', 'Read all four-star reviews');
       validateLink(links.at(2), '3', 'Read all three-star reviews');
