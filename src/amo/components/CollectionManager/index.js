@@ -25,7 +25,7 @@ import type {
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 import type { ElementEvent } from 'core/types/dom';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
   ReactRouterHistoryType,

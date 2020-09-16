@@ -18,7 +18,7 @@ import Card from 'ui/components/Card';
 import Select from 'ui/components/Select';
 import Notice from 'ui/components/Notice';
 import type { AddonType } from 'core/types/addons';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { CollectionType } from 'amo/reducers/collections';

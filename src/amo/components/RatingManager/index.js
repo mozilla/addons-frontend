@@ -34,7 +34,7 @@ import { genericType, successType } from 'ui/components/Notice';
 import UserRating from 'ui/components/UserRating';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
 import type { DispatchFunc } from 'core/types/redux';
 import type { AddonType } from 'core/types/addons';

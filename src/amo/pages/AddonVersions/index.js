@@ -26,7 +26,7 @@ import LoadingText from 'ui/components/LoadingText';
 import Notice from 'ui/components/Notice';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type {

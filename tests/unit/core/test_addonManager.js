@@ -319,18 +319,6 @@ describe(__filename, () => {
         );
     });
 
-    it('should reject if addon.uninstall resolves with false', () => {
-      const fakeAddon = fakeClientAddon({
-        uninstall: sinon.stub().resolves(false),
-      });
-      fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
-      return addonManager
-        .uninstall('test-id', { _mozAddonManager: fakeMozAddonManager })
-        .then(unexpectedSuccess, (err) =>
-          expect(err.message).toEqual('Uninstall failed'),
-        );
-    });
-
     it('should resolve if addon.uninstall resolves with true', () => {
       const fakeAddon = fakeClientAddon({
         uninstall: sinon.stub().resolves(true),

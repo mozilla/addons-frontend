@@ -7,7 +7,7 @@ import Link from 'amo/components/Link';
 import './styles.scss';
 
 type Props = {|
-  children?: string | Link,
+  children?: string | typeof Link,
   className?: string,
   detached?: boolean,
   disabled?: boolean,

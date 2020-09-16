@@ -1,3 +1,4 @@
+/* @flow */
 import type { ReactRouterHistoryType } from 'core/types/router';
 
 // This is a type function that takes a state type and returns a reducer

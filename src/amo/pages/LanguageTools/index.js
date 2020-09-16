@@ -28,7 +28,7 @@ import {
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { LanguageToolType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';

@@ -3,13 +3,13 @@ import path from 'path';
 
 import fs from 'fs-extra';
 import config from 'config';
-import type { $Request, $Response } from 'express';
+import { $Request, $Response } from 'express';
 
 import log from 'core/logger';
 
 const PREFIX = 'enableFeature';
 
-type ExpressHandler = (req: $Request, res: $Response) => void;
+type ExpressHandler = (req: typeof $Request, res: typeof $Response) => void;
 
 type ViewFrontendVersionHandlerParams = {|
   _config?: typeof config,
@@ -38,7 +38,7 @@ export const viewFrontendVersionHandler = ({
 
   const experiments = _config.get('experiments');
 
-  return (req: $Request, res: $Response) => {
+  return (req: typeof $Request, res: typeof $Response) => {
     fs.stat(version, async (error) => {
       if (error) {
         _log.error(

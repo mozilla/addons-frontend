@@ -42,7 +42,7 @@ import Select from 'ui/components/Select';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { ElementEvent } from 'core/types/dom';
 import type { DispatchFunc } from 'core/types/redux';

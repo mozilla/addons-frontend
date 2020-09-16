@@ -14,8 +14,6 @@ import {
   OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
-  SEARCH_SORT_POPULAR,
-  SEARCH_SORT_RECOMMENDED,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'core/constants';
 import log from 'core/logger';
@@ -46,7 +44,6 @@ import {
   USER_AGENT_OS_UNIX,
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 export function getClientConfig(_config) {
   const clientConfig = {};
@@ -303,17 +300,4 @@ export const findFileForPlatform = ({ userAgentInfo, platformFiles }) => {
     userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
   const platform = agentOsName && userAgentOSToPlatform[agentOsName];
   return (platform && platformFiles[platform]) || platformFiles[OS_ALL];
-};
-
-export type GetCategoryResultsQueryParams = { addonType: string, slug: string };
-
-export const getCategoryResultsQuery = ({
-  addonType,
-  slug,
-}: GetCategoryResultsQueryParams) => {
-  return convertFiltersToQueryParams({
-    addonType,
-    category: slug,
-    sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
-  });
 };

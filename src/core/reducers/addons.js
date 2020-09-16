@@ -12,12 +12,12 @@ import type {
 } from 'amo/actions/reviews';
 import type { ExternalAddonInfoType } from 'amo/api/addonInfo';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
 import type {
   AddonType,
   ExternalAddonType,
   PartialExternalAddonType,
 } from 'core/types/addons';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 
 export const FETCH_ADDON_INFO: 'FETCH_ADDON_INFO' = 'FETCH_ADDON_INFO';
 export const LOAD_ADDON_INFO: 'LOAD_ADDON_INFO' = 'LOAD_ADDON_INFO';

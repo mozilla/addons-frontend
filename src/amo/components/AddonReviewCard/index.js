@@ -38,7 +38,7 @@ import Notice from 'ui/components/Notice';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';

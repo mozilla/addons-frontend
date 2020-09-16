@@ -10,7 +10,7 @@ import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { FlagState } from 'amo/reducers/reviews';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 
 type Props = {|

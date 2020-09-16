@@ -7,7 +7,7 @@ import { compose } from 'redux';
 
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import {

@@ -12,7 +12,7 @@ import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { makeQueryString } from 'core/api';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { getCategoryResultsQuery } from 'core/utils';
+import { getCategoryResultsQuery } from 'core/utils/categories';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';

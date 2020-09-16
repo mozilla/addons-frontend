@@ -21,7 +21,7 @@ import Addon from 'disco/components/Addon';
 import Button from 'ui/components/Button';
 import Notice, { genericType } from 'ui/components/Notice';
 import type { MozAddonManagerType } from 'core/addonManager';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type {

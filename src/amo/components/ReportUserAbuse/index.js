@@ -15,7 +15,7 @@ import { normalizeFileNameId, sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
 import type { UserType } from 'amo/reducers/users';
