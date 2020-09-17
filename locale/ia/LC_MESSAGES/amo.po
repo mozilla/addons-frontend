@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-17 10:21+0000\n"
+"PO-Revision-Date: 2020-09-17 10:30+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1290,29 +1290,24 @@ msgid "Reviewed extensions"
 msgstr "Extensiones revidite"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Revisar thema"
+msgstr "Themas revidite"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Codice de additivo de revision"
+msgstr "Additivos revidite"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Extensiones promovite"
+msgstr "Extensiones verificate"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Themas promovite"
+msgstr "Themas verificate"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Additivos promovite"
+msgstr "Additivos verificate"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1479,9 +1474,8 @@ msgid "Verified"
 msgstr "Verificate"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "Revision"
+msgstr "Revidite"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1500,9 +1494,8 @@ msgid "Operating System"
 msgstr "Systema operative"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "Additivos principal classificate"
+msgstr "Additivos promovite"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1705,9 +1698,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Iste lista de presentation non es destinate pro iste systema operative. <a href=\"%(newLocation)s\">Folietta le additivos de Firefox pro scriptorio</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Non disponibile sur Firefox pro Android. Tu pote usar iste additivo con Firefox pro scriptorio. Saper plus re <a href=\"%(newLocation)s\">additivos pro Android</a>."
+msgstr "Tu pote installar iste additivo per le Gestor de additivos.  Sape plus re <a href=\"%(newLocation)s\">additivos pro Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
