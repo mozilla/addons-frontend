@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-15 18:12+0000\n"
+"PO-Revision-Date: 2020-09-17 18:03+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1125,7 +1125,7 @@ msgstr "Отримувати доступ до активності браузе
 
 #: src/amo/components/PromotedAddonsCard/index.js:76
 msgid "Sponsored extensions"
-msgstr "Рекламовані розширення"
+msgstr "Спонсоровані розширення"
 
 #: src/amo/components/PromotedAddonsCard/index.js:83 src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
