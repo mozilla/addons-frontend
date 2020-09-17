@@ -194,17 +194,6 @@ export class FooterBase extends React.Component {
               </li>
               <li>
                 <a
-                  className="Footer-send-link"
-                  href={`https://send.firefox.com${makeQueryStringWithUTM({
-                    utm_content: 'footer-link',
-                    utm_campaign: null,
-                  })}`}
-                >
-                  Send
-                </a>
-              </li>
-              <li>
-                <a
                   className="Footer-browsers-link"
                   href={`https://www.mozilla.org/firefox/browsers/${makeQueryStringWithUTM(
                     {
