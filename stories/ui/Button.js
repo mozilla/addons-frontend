@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
 import Button from 'ui/components/Button';
 import type { Props as ButtonProps } from 'ui/components/Button';
@@ -90,14 +89,11 @@ function createPropsMatrix(chapter): Array<Props> {
 }
 
 storiesOf('Button', module)
+  .addParameters({
+    component: Button,
+  })
   .addDecorator((story) => <Provider story={story()} />)
-  .add(
-    'Button props',
-    withInfo()(() => {
-      return <Button />;
-    }),
-  )
-  .addWithChapters('Button variations', {
+  .addWithChapters('all variants', {
     chapters: createChapters({
       Component: Button,
       chapters: buttonTypes,

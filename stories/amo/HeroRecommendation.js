@@ -11,6 +11,8 @@ import {
 import { HeroRecommendationBase } from 'amo/components/HeroRecommendation';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { ErrorHandler } from 'core/errorHandler';
+import { setError } from 'core/actions/errors';
+import { createApiError } from 'core/api/index';
 import type { InternalProps as HeroRecommendationProps } from 'amo/components/HeroRecommendation';
 
 import Provider from '../setup/Provider';
@@ -40,6 +42,7 @@ const render = (
 };
 
 storiesOf('HeroRecommendation', module)
+  .addParameters({ component: HeroRecommendationBase })
   .addDecorator((story) => (
     <div className="HeroRecommendation--storybook">
       <Provider story={story()} />
@@ -61,11 +64,20 @@ storiesOf('HeroRecommendation', module)
             title: 'with error',
             sectionFn: () => {
               const { store } = dispatchClientMetadata();
-              const errorHandler = new ErrorHandler({
-                dispatch: store.dispatch,
-                id: 'some-id',
+              const errorHandlerId = 'some-id';
+              const error = createApiError({
+                response: { status: 404 },
+                apiURL: 'https://some/api/endpoint',
+                jsonResponse: { message: 'Not found' },
               });
-              errorHandler.handle(new Error('Some error'));
+              store.dispatch(setError({ id: errorHandlerId, error }));
+              const capturedError = store.getState().errors[errorHandlerId];
+              const errorHandler = new ErrorHandler({
+                id: errorHandlerId,
+                dispatch: store.dispatch,
+                capturedError,
+              });
+
               return render({}, { errorHandler });
             },
           },

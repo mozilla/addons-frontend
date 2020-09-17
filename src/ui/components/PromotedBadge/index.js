@@ -13,7 +13,7 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type Props = {|
+export type Props = {|
   category: PromotedBadgeCategory,
   onClick?: Function | null,
   size: PromotedBadgeSize,

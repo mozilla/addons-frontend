@@ -20,15 +20,7 @@ const packageJson = JSON.parse(
 
 // eslint: there is an issue with 6.2.0 and the `no-unused-vars` rule, see:
 // https://github.com/eslint/eslint/issues/12117
-
-// @storybook/addon-info: https://github.com/storybookjs/storybook/issues/8324
-const skipDevDeps = [
-  'prettier',
-  'pretty-quick',
-  'enzyme',
-  'eslint',
-  '@storybook/addon-info',
-];
+const skipDevDeps = ['prettier', 'pretty-quick', 'enzyme', 'eslint'];
 
 describe(__filename, () => {
   Object.keys(packageJson.devDependencies).forEach((key) => {

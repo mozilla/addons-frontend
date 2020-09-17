@@ -1,9 +1,7 @@
 /* @flow */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
-import { fakeI18n } from 'tests/unit/helpers';
 import Rating, { RatingBase } from 'ui/components/Rating';
 import type { Props as RatingProps } from 'ui/components/Rating';
 
@@ -164,20 +162,13 @@ function createPropsMatrix(): Array<Props> {
 }
 
 storiesOf('Rating', module)
+  .addParameters({ component: RatingBase })
   .addDecorator((story) => (
     <div className="Rating--storybook">
       <Provider story={story()} />
     </div>
   ))
-  .add(
-    'Rating props',
-    withInfo()(() => {
-      return (
-        <RatingBase rating={4} i18n={fakeI18n({ includeJedSpy: false })} />
-      );
-    }),
-  )
-  .addWithChapters('Rating variations', {
+  .addWithChapters('all variants', {
     chapters: createChapters({
       Component: Rating,
       chapters: ['Rating'],

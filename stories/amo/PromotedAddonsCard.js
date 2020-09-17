@@ -24,6 +24,7 @@ const render = (moreProps: $Shape<PromotedAddonsCardProps> = {}) => {
 };
 
 storiesOf('PromotedAddonsCard', module)
+  .addParameters({ component: PromotedAddonsCardBase })
   .addDecorator((story) => (
     <div className="PromotedAddonsCard--storybook">
       <Provider story={story()} />
