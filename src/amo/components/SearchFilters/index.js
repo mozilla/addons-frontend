@@ -165,7 +165,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     const { i18n } = this.props;
 
     return [
-      { children: i18n.gettext('All'), value: NO_FILTER },
+      { children: i18n.gettext('Any'), value: NO_FILTER },
       { children: i18n.gettext('Recommended'), value: RECOMMENDED },
       {
         children: i18n.gettext('By Firefox'),
@@ -176,7 +176,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
         value: VERIFIED_FILTER,
       },
       {
-        children: i18n.gettext('Reviewed'),
+        children: i18n.gettext('All Reviewed'),
         value: REVIEWED_FILTER,
       },
     ];
@@ -258,14 +258,14 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
           </Select>
 
           <label
-            className="SearchFilters-Promoted-label SearchFilters-label"
-            htmlFor="SearchFilters-Promoted"
+            className="SearchFilters-Badging-label SearchFilters-label"
+            htmlFor="SearchFilters-Badging"
           >
-            {i18n.gettext('Promoted Add-Ons')}
+            {i18n.gettext('Badging')}
           </label>
           <Select
-            className="SearchFilters-Promoted SearchFilters-select"
-            id="SearchFilters-Promoted"
+            className="SearchFilters-Badging SearchFilters-select"
+            id="SearchFilters-Badging"
             name="promoted"
             onChange={this.onSelectElementChange}
             value={filters.promoted || NO_FILTER}
