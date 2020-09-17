@@ -79,15 +79,6 @@ describe(__filename, () => {
       })}`,
     );
 
-    expect(root.find('.Footer-send-link')).toHaveText('Send');
-    expect(root.find('.Footer-send-link')).toHaveProp(
-      'href',
-      `https://send.firefox.com${makeQueryStringWithUTM({
-        utm_content: 'footer-link',
-        utm_campaign: null,
-      })}`,
-    );
-
     expect(root.find('.Footer-browsers-link')).toHaveText('Browsers');
     expect(root.find('.Footer-browsers-link')).toHaveProp(
       'href',
