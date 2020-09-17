@@ -1,6 +1,7 @@
 require('@babel/register');
 
 const webpackProdConfig = require('webpack.prod.config.babel').default;
+
 const { getPlugins, getStyleRules } = require('../../webpack-common');
 
 module.exports = {

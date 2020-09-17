@@ -13,7 +13,7 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type Props = {|
+export type Props = {|
   category: PromotedBadgeCategory,
   onClick?: Function | null,
   size: PromotedBadgeSize,
@@ -80,7 +80,7 @@ export const PromotedBadgeBase = ({
         target="_blank"
         title={linkTitle}
       >
-        <IconPromotedBadge category={category} i18n={i18n} size={size} />
+        <IconPromotedBadge category={category} size={size} />
         <span
           className={makeClassName(
             'PromotedBadge-label',

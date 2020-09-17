@@ -5,25 +5,18 @@ import { storiesOf } from '@storybook/react';
 import IconPromotedBadge, {
   IconPromotedBadgeBase,
 } from 'ui/components/IconPromotedBadge';
-import { fakeI18n } from 'tests/unit/helpers';
 
-// TODO: remove the comment below once
-// https://github.com/yannickcr/eslint-plugin-react/issues/2298 is fixed.
-// eslint-disable-next-line react/prop-types
+import Provider from '../setup/Provider';
+
 const render = ({ category = 'line', size = 'large' } = {}) => {
-  return (
-    <IconPromotedBadge
-      category={category}
-      i18n={fakeI18n({ includeJedSpy: false })}
-      size={size}
-    />
-  );
+  return <IconPromotedBadge category={category} size={size} />;
 };
 
 storiesOf('IconPromotedBadge', module)
   .addParameters({
     component: IconPromotedBadgeBase,
   })
+  .addDecorator((story) => <Provider story={story()} />)
   .addWithChapters('all variants', {
     chapters: [
       {

@@ -1,10 +1,4 @@
-import { addons } from '@storybook/addons';
-import {
-  addDecorator,
-  addParameters,
-  configure,
-  setAddon,
-} from '@storybook/react';
+import { addParameters, setAddon } from '@storybook/react';
 import { initializeRTL } from 'storybook-addon-rtl';
 import { create } from '@storybook/theming/create';
 import chaptersAddon, {
