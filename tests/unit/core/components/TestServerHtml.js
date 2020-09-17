@@ -26,7 +26,7 @@ describe(__filename, () => {
       getLinkElements: sinon.stub(),
       getMainAssets: sinon.stub().returns([]),
       getPreAssets: sinon.stub().returns([]),
-      getRequiredChunksScriptElement: sinon.stub(),
+      getRequiredChunksScriptElements: sinon.stub(),
       ...props,
     };
   };
@@ -354,11 +354,11 @@ describe(__filename, () => {
     it('renders the required chunks script element', () => {
       const chunkExtractor = createFakeChunkExtractor();
 
-      sinon.assert.notCalled(chunkExtractor.getRequiredChunksScriptElement);
+      sinon.assert.notCalled(chunkExtractor.getRequiredChunksScriptElements);
 
       render({ chunkExtractor });
 
-      sinon.assert.calledOnce(chunkExtractor.getRequiredChunksScriptElement);
+      sinon.assert.calledOnce(chunkExtractor.getRequiredChunksScriptElements);
     });
   });
 });

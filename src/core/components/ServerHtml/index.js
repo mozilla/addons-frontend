@@ -234,7 +234,7 @@ export default class ServerHtml extends Component {
             type="application/json"
             id="redux-store-state"
           />
-          {chunkExtractor.getRequiredChunksScriptElement()}
+          {chunkExtractor.getRequiredChunksScriptElements()}
 
           {this.getAnalytics()}
           {this.getScript()}
