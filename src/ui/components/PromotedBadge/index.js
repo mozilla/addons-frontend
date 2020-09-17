@@ -38,7 +38,7 @@ export const PromotedBadgeBase = ({
       label = i18n.gettext('By Firefox');
       // TODO: Update URL when we know it.
       linkTitle = i18n.gettext(
-        'This extension was created by the makers of Firefox.',
+        'This is an official add-on built by the creators of Mozilla Firefox.',
       );
       linkUrl = 'https://support.mozilla.org/kb/recommended-extensions-program';
       break;
@@ -46,7 +46,7 @@ export const PromotedBadgeBase = ({
     case 'recommended':
       label = i18n.gettext('Recommended');
       linkTitle = i18n.gettext(
-        'Firefox only recommends extensions that meet our standards for security and performance.',
+        'Firefox only recommends add-ons that meet our standards for security and performance.',
       );
       linkUrl = 'https://support.mozilla.org/kb/recommended-extensions-program';
       break;
@@ -56,7 +56,7 @@ export const PromotedBadgeBase = ({
       label = i18n.gettext('Verified');
       // TODO: Update URL when we know it.
       linkTitle = i18n.gettext(
-        'This extension has been code-reviewed for safety.',
+        'This add-on has been reviewed to meet our standards for security and performance.',
       );
       linkUrl = 'https://support.mozilla.org/kb/recommended-extensions-program';
       break;
