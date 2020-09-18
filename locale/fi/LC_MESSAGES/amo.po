@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-18 08:55+0000\n"
+"PO-Revision-Date: 2020-09-18 08:56+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1281,34 +1281,28 @@ msgid "Add-ons by Firefox"
 msgstr "Lisäosia Firefoxille"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Suositellut laajennukset"
+msgstr "Katselmoidut laajennukset"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Katselmoi teema"
+msgstr "Katselmoidut teemat"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Katselmoi lisäosan koodi"
+msgstr "Katselmoidut lisäosat"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Suositellut laajennukset"
+msgstr "Vahvistetut laajennukset"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Suositellut teemat"
+msgstr "Vahvistetut teemat"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Suositellut lisäosat"
+msgstr "Vahvistetut lisäosat"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
