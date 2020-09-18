@@ -6,7 +6,6 @@ import base62 from 'base62';
 import config from 'config';
 
 import { makeQueryString } from 'core/api';
-import { addQueryParams } from 'core/utils/url';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 
 /*
@@ -85,37 +84,4 @@ export const checkInternalURL = ({
     isInternal,
     relativeURL,
   };
-};
-
-type QueryParams = { [key: string]: any };
-
-type AddParamsToHeroURLParams = {|
-  _addQueryParams?: typeof addQueryParams,
-  _config?: typeof config,
-  _checkInternalURL?: typeof checkInternalURL,
-  heroSrcCode: string,
-  internalQueryParams?: QueryParams,
-  externalQueryParams?: QueryParams,
-  urlString: string,
-|};
-
-export const addParamsToHeroURL = ({
-  _addQueryParams = addQueryParams,
-  _config = config,
-  _checkInternalURL = checkInternalURL,
-  heroSrcCode,
-  internalQueryParams = { src: heroSrcCode },
-  externalQueryParams = {
-    utm_content: heroSrcCode,
-    utm_medium: 'referral',
-    utm_source: url.parse(_config.get('baseURL')).host,
-  },
-  urlString,
-}: AddParamsToHeroURLParams) => {
-  return _addQueryParams(
-    urlString,
-    _checkInternalURL({ urlString }).isInternal
-      ? internalQueryParams
-      : externalQueryParams,
-  );
 };

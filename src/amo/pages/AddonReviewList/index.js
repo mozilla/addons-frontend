@@ -1,6 +1,5 @@
 /* @flow */
 /* eslint-disable react/no-unused-prop-types */
-import config from 'config';
 import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
@@ -74,7 +73,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   addon: AddonType | null,
   addonIsLoading: boolean,
   areReviewsLoading: boolean,
@@ -93,10 +91,6 @@ type InternalProps = {|
 |};
 
 export class AddonReviewListBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    _config: config,
-  };
-
   constructor(props: InternalProps) {
     super(props);
 
@@ -208,14 +202,13 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   }
 
   onSelectOption = (event: ElementEvent<HTMLSelectElement>) => {
-    const { _config, addon, clientApp, history, lang, location } = this.props;
+    const { addon, clientApp, history, lang, location } = this.props;
     invariant(addon, 'addon is required');
 
     event.preventDefault();
     const { value } = event.target;
 
     const listURL = reviewListURL({
-      _config,
       addonSlug: addon.slug,
       score: value === SHOW_ALL_REVIEWS ? undefined : value,
       location,
@@ -250,7 +243,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
   render() {
     const {
-      _config,
       addon,
       errorHandler,
       i18n,
@@ -334,7 +326,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           count={reviewCount}
           currentPage={getCurrentPage(location)}
           pathname={reviewListURL({
-            _config,
             addonSlug: addon.slug,
             score: location.query.score,
             location,

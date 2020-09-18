@@ -27,14 +27,12 @@ import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
-  createFakeLocation,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
   fakeI18n,
   fakeReview,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
@@ -1069,26 +1067,6 @@ describe(__filename, () => {
         to: reviewListURL({ addonSlug: slug, id: review.id }),
         title: i18n.moment(review.created).format('lll'),
       });
-    });
-
-    it('adds a `src` query parameter to the link in the byLine if available in the location when the UTM flag is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureUseUtmParams: false });
-      const slug = 'some-slug';
-      const review = signInAndDispatchSavedReview({
-        externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
-      });
-      const src = 'some-src';
-      const location = createFakeLocation({ query: { src } });
-
-      const root = render({ _config, review, store, location });
-
-      // Use hardcoded value to ensure that expectations are correct. We don't
-      // want to test that `reviewListURL()` was called but that the URLs are
-      // correct. This is why we use static values in the test cases involving
-      // `enableFeatureUseUtmParams`.
-      const expectedURL = `/addon/${slug}/reviews/${review.id}/?src=${src}`;
-
-      expect(renderByLine(root).find(Link)).toHaveProp('to', expectedURL);
     });
 
     it('uses the addonId for the byLine link when the reviewAddon has an empty slug', () => {

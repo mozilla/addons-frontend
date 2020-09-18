@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import { oneLine } from 'common-tags';
 import deepcopy from 'deepcopy';
 import invariant from 'invariant';
@@ -72,13 +71,11 @@ import type { AppState } from 'amo/store';
 import type { ReactRouterLocationType } from 'core/types/router';
 
 export function reviewListURL({
-  _config = config,
   addonSlug,
   id,
   location,
   score,
 }: {|
-  _config?: typeof config,
   addonSlug: string,
   id?: number,
   location?: ReactRouterLocationType,
@@ -92,11 +89,11 @@ export function reviewListURL({
   if (location) {
     queryParams = {
       ...queryParams,
-      ...getQueryParametersForAttribution(location, _config),
+      ...getQueryParametersForAttribution(location),
     };
   }
 
-  return addQueryParams(path, queryParams, _config);
+  return addQueryParams(path, queryParams);
 }
 
 type ReviewsById = {

@@ -8,12 +8,14 @@ import { compose } from 'redux';
 import AppBanner from 'amo/components/AppBanner';
 import Link from 'amo/components/Link';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
-import { addParamsToHeroURL, checkInternalURL, getAddonURL } from 'amo/utils';
+import { checkInternalURL, getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import tracking from 'core/tracking';
 import { sanitizeUserHTML } from 'core/utils';
+import { addQueryParams } from 'core/utils/url';
 import LoadingText from 'ui/components/LoadingText';
+import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/types/errorHandler';
@@ -55,16 +57,18 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     const { addon, external } = shelfData;
 
     if (addon) {
-      return addParamsToHeroURL({
-        heroSrcCode: PRIMARY_HERO_SRC,
-        urlString: getAddonURL(addon.slug),
+      return addQueryParams(getAddonURL(addon.slug), {
+        utm_source: DEFAULT_UTM_SOURCE,
+        utm_medium: DEFAULT_UTM_MEDIUM,
+        utm_content: PRIMARY_HERO_SRC,
       });
     }
 
     invariant(external, 'Either an addon or an external is required');
-    return addParamsToHeroURL({
-      heroSrcCode: PRIMARY_HERO_SRC,
-      urlString: external.homepage,
+    return addQueryParams(external.homepage, {
+      utm_source: DEFAULT_UTM_SOURCE,
+      utm_medium: DEFAULT_UTM_MEDIUM,
+      utm_content: PRIMARY_HERO_SRC,
     });
   };
 

@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -8,7 +7,11 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
-import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_STATIC_THEME,
+  DEFAULT_UTM_SOURCE,
+  DEFAULT_UTM_MEDIUM,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import { nl2br, sanitizeHTML } from 'core/utils';
@@ -38,7 +41,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   _getPromotedCategory: typeof getPromotedCategory,
   clientApp: string,
   history: ReactRouterHistoryType,
@@ -48,7 +50,6 @@ type InternalProps = {|
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _config: config,
     _getPromotedCategory: getPromotedCategory,
     showMetadata: true,
     showPromotedBadge: true,
@@ -63,11 +64,11 @@ export class SearchResultBase extends React.Component<InternalProps> {
     let linkTo = getAddonURL(addon.slug);
 
     if (addonInstallSource) {
-      linkTo = addQueryParams(
-        linkTo,
-        { src: addonInstallSource },
-        this.props._config,
-      );
+      linkTo = addQueryParams(linkTo, {
+        utm_source: DEFAULT_UTM_SOURCE,
+        utm_medium: DEFAULT_UTM_MEDIUM,
+        utm_content: addonInstallSource,
+      });
     }
 
     return linkTo;

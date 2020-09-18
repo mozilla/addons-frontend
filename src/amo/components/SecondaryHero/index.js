@@ -2,8 +2,10 @@
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import { addParamsToHeroURL, checkInternalURL } from 'amo/utils';
+import { checkInternalURL } from 'amo/utils';
 import tracking from 'core/tracking';
+import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
+import { addQueryParams } from 'core/utils/url';
 import LoadingText from 'ui/components/LoadingText';
 import type {
   HeroCallToActionType,
@@ -24,7 +26,11 @@ type InternalProps = {|
 |};
 
 const makeCallToActionURL = (urlString: string) => {
-  return addParamsToHeroURL({ heroSrcCode: SECONDARY_HERO_SRC, urlString });
+  return addQueryParams(urlString, {
+    utm_source: DEFAULT_UTM_SOURCE,
+    utm_medium: DEFAULT_UTM_MEDIUM,
+    utm_content: SECONDARY_HERO_SRC,
+  });
 };
 
 export const SecondaryHeroBase = ({
