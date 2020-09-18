@@ -31,17 +31,17 @@ describe(__filename, () => {
   it.each([
     [
       'line',
-      'This extension was created by the makers of Firefox.',
+      'This is an official add-on built by the creators of Mozilla Firefox.',
       'https://support.mozilla.org/kb/recommended-extensions-program',
     ],
     [
       'recommended',
-      'Firefox only recommends extensions that meet our standards for security and performance.',
+      'Firefox only recommends add-ons that meet our standards for security and performance.',
       'https://support.mozilla.org/kb/recommended-extensions-program',
     ],
     [
       'verified',
-      'This extension has been code-reviewed for safety.',
+      'This add-on has been reviewed to meet our standards for security and performance.',
       'https://support.mozilla.org/kb/recommended-extensions-program',
     ],
   ])(
