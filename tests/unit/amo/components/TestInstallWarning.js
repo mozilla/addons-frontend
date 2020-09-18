@@ -19,6 +19,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -177,4 +178,23 @@ describe(__filename, () => {
     const root = render({ _couldShowWarning });
     expect(root.find(Notice)).toHaveLength(0);
   });
+
+  it.each([
+    [true, /Promoted Add-ons program/],
+    [false, /Recommended Extensions program/],
+  ])(
+    'uses the expected test when enableFeaturePromotedShelf is %s',
+    (flagValue, expected) => {
+      const _couldShowWarning = sinon.stub().returns(true);
+
+      const root = render({
+        _config: getFakeConfig({
+          enableFeaturePromotedShelf: flagValue,
+        }),
+        _couldShowWarning,
+      });
+
+      expect(root.find(Notice).children().text()).toMatch(expected);
+    },
+  );
 });
