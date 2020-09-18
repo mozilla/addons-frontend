@@ -16,6 +16,7 @@ import {
   createFakeLocation,
   dispatchClientMetadata,
   fakeAddon,
+  fakeI18n,
   fakeInstalledAddon,
   fakeVersion,
   shallowUntilTarget,
@@ -33,6 +34,7 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <InstallButtonWrapper
         addon={createInternalAddon(fakeAddon)}
+        i18n={fakeI18n()}
         location={createFakeLocation()}
         store={store}
         {...props}
@@ -306,5 +308,93 @@ describe(__filename, () => {
     expect(root.find(GetFirefoxButton)).toHaveClassName(
       `GetFirefoxButton--${className}`,
     );
+  });
+
+  it('displays a download link when the browser is not compatible', () => {
+    const _findInstallURL = sinon
+      .stub()
+      .returns('https://a.m.o/files/addon.xpi');
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: false,
+    });
+
+    const root = render({
+      _findInstallURL,
+      _getClientCompatibility,
+      version: createInternalVersion(fakeAddon.current_version),
+    });
+
+    expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(1);
+  });
+
+  it('does not display a download link when the browser is compatible', () => {
+    const _findInstallURL = sinon
+      .stub()
+      .returns('https://a.m.o/files/addon.xpi');
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: true,
+    });
+
+    const root = render({
+      _findInstallURL,
+      _getClientCompatibility,
+      version: createInternalVersion(fakeAddon.current_version),
+    });
+
+    expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(0);
+  });
+
+  it('calls findInstallURL to determine the installURL for the add-on', () => {
+    const _findInstallURL = sinon.spy();
+    const version = createInternalVersion(fakeAddon.current_version);
+
+    render({ _findInstallURL, version });
+
+    sinon.assert.calledWith(_findInstallURL, {
+      platformFiles: version.platformFiles,
+      userAgentInfo: store.getState().api.userAgentInfo,
+    });
+  });
+
+  it('does not call findInstallURL if there is no currentVersion', () => {
+    const _findInstallURL = sinon.spy();
+
+    render({ _findInstallURL, version: null });
+
+    sinon.assert.notCalled(_findInstallURL);
+  });
+
+  it('uses the installURL in the download link', () => {
+    const installURL = 'https://a.m.o/files/addon.xpi';
+    const _findInstallURL = sinon.stub().returns(installURL);
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: false,
+    });
+
+    const root = render({
+      _findInstallURL,
+      _getClientCompatibility,
+      version: createInternalVersion(fakeAddon.current_version),
+    });
+
+    expect(root.find('.InstallButtonWrapper-downloadLink-link')).toHaveProp(
+      'href',
+      installURL,
+    );
+  });
+
+  it('does not display a download link when there is no installURL', () => {
+    const _findInstallURL = sinon.stub().returns(null);
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: false,
+    });
+
+    const root = render({
+      _findInstallURL,
+      _getClientCompatibility,
+      version: createInternalVersion(fakeAddon.current_version),
+    });
+
+    expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(0);
   });
 });

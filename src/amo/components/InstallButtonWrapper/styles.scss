@@ -7,3 +7,14 @@
     align-self: center;
   }
 }
+
+.InstallButtonWrapper-downloadLink {
+  margin-top: 12px;
+
+  a,
+  a:link {
+    color: $sub-text-color;
+    font-size: $font-size-s;
+    font-weight: lighter;
+  }
+}
