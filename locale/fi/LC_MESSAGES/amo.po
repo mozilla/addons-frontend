@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-18 08:56+0000\n"
+"PO-Revision-Date: 2020-09-19 16:27+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -2773,11 +2773,11 @@ msgstr "Ohita tämä ilmoitus"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This extension was created by the makers of Firefox."
-msgstr ""
+msgstr "Tämä laajennus luotiin Firefoxin tekijöiden toimesta."
 
 #: src/ui/components/PromotedBadge/index.js:58
 msgid "This extension has been code-reviewed for safety."
-msgstr ""
+msgstr "Tämän laajennuksen koodi on katselmoitu turvallisuuden varmistamiseksi."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
