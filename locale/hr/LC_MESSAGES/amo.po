@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-20 19:11+0000\n"
+"PO-Revision-Date: 2020-09-20 19:17+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1280,46 +1280,38 @@ msgid "Extensions by Firefox"
 msgstr "Proširenja od Firefoxa"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Od Firefoxa"
+msgstr "Motivi od Firefoxa"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Dodaci za Firefox"
+msgstr "Dodaci od Firefoxa"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Preporučena proširenja"
+msgstr "Pregledana proširenja"
 
 # This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Pregled teme"
+msgstr "Pregledani motivi"
 
 # This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Pregledaj kȏd dodatka"
+msgstr "Pregledani dodaci"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Proširenja u trendu"
+msgstr "Provjerena proširenja"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Provjereno"
+msgstr "Provjereni motivi"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Provjereni sponzor"
+msgstr "Provjereni dodaci"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1496,9 +1488,8 @@ msgid "Verified"
 msgstr "Provjereno"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "Recenzija"
+msgstr "Pregledano"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1517,9 +1508,8 @@ msgid "Operating System"
 msgstr "Operacijski sustav"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "Dodaci s najboljom ocjenom"
+msgstr "Predstavljeni dodaci"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1724,9 +1714,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Ovaj popis nije namijenjen ovoj platformi. <a href=\"%(newLocation)s\">Pregledaj dodatke za Firefox na računalu</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Nije dostupno u Firefoxu za Android. Ovaj dodatak možeš koristiti s Firefoxom za računalo. Saznaj više o <a href=\"%(newLocation)s\">dodacima za Android</a>."
+msgstr "Ovaj dodatak možeš instalirati u upravljaču dodataka.  Saznaj više o <a href=\"%(newLocation)s\"> dodacima za Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
