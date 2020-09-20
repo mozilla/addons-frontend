@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-16 12:29+0000\n"
+"PO-Revision-Date: 2020-09-20 06:21+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2714,7 +2714,7 @@ msgstr "此扩展由 Firefox 的开发商构建。"
 
 #: src/ui/components/PromotedBadge/index.js:58
 msgid "This extension has been code-reviewed for safety."
-msgstr "此扩展的代码已经过安全审查。"
+msgstr "此扩展的代码已通过安全审查。"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
