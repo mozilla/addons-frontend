@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-20 12:03+0000\n"
+"PO-Revision-Date: 2020-09-20 12:08+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1296,9 +1296,8 @@ msgid "Reviewed add-ons"
 msgstr "Gjennomgåtte utvidingar"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Framheva utvidingar"
+msgstr "Stadfesta utvidingar"
 
 #: src/amo/components/Search/index.js:162
 msgid "Verified themes"
@@ -2561,7 +2560,7 @@ msgstr "ein tilleggsutviklar svarar på vurderinga mi"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
-msgstr "tillegget mitt er vurdert av ein vurderar"
+msgstr "ein redaktør har tatt ein gjennomgang av tillegget mitt"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
@@ -2776,7 +2775,7 @@ msgstr "Denne utvidinga vart utvikla av Firefox-utviklarane."
 
 #: src/ui/components/PromotedBadge/index.js:58
 msgid "This extension has been code-reviewed for safety."
-msgstr "Kjeldekoden til denne utvidinga er sjekka av sikkerheitsgrunnar."
+msgstr "Kjeldekoden til denne utvidinga er gått gjennom av sikkerheitsgrunnar."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
