@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-20 11:53+0000\n"
+"PO-Revision-Date: 2020-09-20 12:03+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1272,34 +1272,28 @@ msgid "Recommended add-ons"
 msgstr "Tilrådde tillegg"
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Utvidingar av %(author)s"
+msgstr "Utvidingar frå Firefox"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Av Firefox"
+msgstr "Tema frå Firefox"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Utvidingar for Firefox"
+msgstr "Tillegg frå Firefox"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Tilrådde utvidingar"
+msgstr "Gjennomgåtte utvidingar"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Vurder temaet"
+msgstr "Gjennomgåtte tema"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Vurder kode for tillegg"
+msgstr "Gjennomgåtte utvidingar"
 
 #: src/amo/components/Search/index.js:159
 #, fuzzy
