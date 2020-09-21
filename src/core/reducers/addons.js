@@ -77,7 +77,10 @@ export function fetchAddon({
   }
   return {
     type: FETCH_ADDON,
-    payload: { errorHandlerId: errorHandler.id, slug },
+    payload: {
+      errorHandlerId: errorHandler.id,
+      slug: typeof slug === 'string' ? slug.trim() : slug,
+    },
   };
 }
 

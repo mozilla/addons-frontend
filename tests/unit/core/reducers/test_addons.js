@@ -291,6 +291,27 @@ describe(__filename, () => {
       expect(state.loadingBySlug[slug]).toBe(true);
     });
 
+    it('correctly stores a loading state for an add-on when the slug has leading/trailing spaces', () => {
+      const slug = 'some-slug';
+      let state = addons(
+        undefined,
+        fetchAddon({
+          slug: ` ${slug}`,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      expect(state.loadingBySlug[slug]).toBe(true);
+
+      state = addons(
+        undefined,
+        fetchAddon({
+          slug: `${slug} `,
+          errorHandler: createStubErrorHandler(),
+        }),
+      );
+      expect(state.loadingBySlug[slug]).toBe(true);
+    });
+
     it('is case insensitive', () => {
       const slug = 'some-slug';
       const state = addons(
