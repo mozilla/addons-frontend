@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-21 06:51+0000\n"
-"Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
+"PO-Revision-Date: 2020-09-21 14:54+0000\n"
+"Last-Translator: TrickyFoxy <roman.deev06@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -2126,7 +2126,7 @@ msgstr "Официальный сайт Mozilla для загрузки расш
 
 #: src/amo/pages/StaticPages/About/index.js:215
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr "%(startLink)sИнформация о том, как связаться с командой сайта дополнений Mozilla может быть найдена здесь%(endLink)s."
+msgstr "%(startLink)sИнформацию о том, как связаться с командой сайта дополнений Mozilla можно найти здесь%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
