@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-21 07:17+0000\n"
+"PO-Revision-Date: 2020-09-21 11:32+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1506,9 +1506,8 @@ msgid "Verified"
 msgstr "Preverjeno"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "Ocena"
+msgstr "Pregledano"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1736,9 +1735,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Ta dodatek ni namenjen tej platformi. <a href=\"%(newLocation)s\">Prebrskajte dodatke za namizni Firefox</a>."
 
 #: src/amo/pages/Addon/index.js:529
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Ni na voljo za Firefox za Android. Ta dodatek lahko namestite v Firefox za namizja. Več o <a href=\"%(newLocation)s\">dodatkih za Android</a>."
+msgstr "Ta dodatek lahko namestite v upravitelju dodatkov.  Več o <a href=\"%(newLocation)s\">dodatkih za Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -2813,11 +2811,11 @@ msgstr "Skrij obvestilo"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This extension was created by the makers of Firefox."
-msgstr ""
+msgstr "To razširitev so razvili ustvarjalci Firefoxa."
 
 #: src/ui/components/PromotedBadge/index.js:58
 msgid "This extension has been code-reviewed for safety."
-msgstr ""
+msgstr "Koda te razširitve je varnostno pregledana."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
