@@ -182,6 +182,59 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeNext);
   });
 
+  it('should trim params', () => {
+    const fakeReq = {
+      originalUrl: '/foo / search?q=foo&category=bar',
+      headers: {},
+    };
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
+    sinon.assert.calledWith(
+      fakeRes.redirect,
+      301,
+      '/foo/search/?q=foo&category=bar',
+    );
+    sinon.assert.notCalled(fakeNext);
+  });
+
+  it('trims encoded params', () => {
+    const url = '/foo / search?q=foo&category=bar';
+    const originalUrl = encodeURI(url);
+    const fakeReq = {
+      originalUrl,
+      headers: {},
+    };
+
+    expect(url !== originalUrl).toEqual(true);
+
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
+    sinon.assert.calledWith(
+      fakeRes.redirect,
+      301,
+      '/foo/search/?q=foo&category=bar',
+    );
+    sinon.assert.notCalled(fakeNext);
+  });
+
+  it('trims params even when a trailing slash exists', () => {
+    const fakeReq = {
+      originalUrl: '/foo / search/?q=foo&category=bar',
+      headers: {},
+    };
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
+    sinon.assert.calledWith(
+      fakeRes.redirect,
+      301,
+      '/foo/search/?q=foo&category=bar',
+    );
+    sinon.assert.notCalled(fakeNext);
+  });
+
   it('should handle several ? in URL (though that should never happen)', () => {
     const fakeReq = {
       originalUrl: '/foo/search?q=foo&category=bar?test=bad',

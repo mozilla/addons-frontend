@@ -10,8 +10,17 @@ export function trailingSlashesMiddleware(
   next,
   { _config = config } = {},
 ) {
+  let redirect = false;
   const UrlParts = req.originalUrl.split('?');
   const UrlSlashSeparated = UrlParts[0].replace(/^\//, '').split('/');
+
+  // Trim all params on the URL.
+  UrlSlashSeparated.forEach((param, index) => {
+    UrlSlashSeparated[index] = decodeURIComponent(
+      UrlSlashSeparated[index],
+    ).trim();
+  });
+  const trimmedParts = `/${UrlSlashSeparated.join('/')}`;
 
   // If part of this URL should include a lang or clientApp, check for one
   // and make sure they're valid.
@@ -26,6 +35,11 @@ export function trailingSlashesMiddleware(
     UrlSlashSeparated[0] = '$clientApp';
   }
 
+  if (trimmedParts !== UrlParts[0]) {
+    UrlParts[0] = trimmedParts;
+    redirect = true;
+  }
+
   const urlToCheck = `/${UrlSlashSeparated.join('/')}`;
 
   // If the URL doesn't end with a trailing slash, and it isn't an exception,
@@ -35,6 +49,10 @@ export function trailingSlashesMiddleware(
     UrlParts[0].substr(-1) !== '/'
   ) {
     UrlParts[0] = `${UrlParts[0]}/`;
+    redirect = true;
+  }
+
+  if (redirect) {
     return res.redirect(301, UrlParts.join('?'));
   }
 
