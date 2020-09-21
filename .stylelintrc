@@ -28,8 +28,8 @@
       "ignoreAtRules": ["if", "else"],
     }],
     "declaration-colon-newline-after": null,
+    "function-disallowed-list": ["random"],
     "function-url-quotes": ["always"],
-    "function-blacklist": ["random"],
     "indentation": null,
     "max-nesting-depth": [3, {
       "ignore": ["blockless-at-rules"],
