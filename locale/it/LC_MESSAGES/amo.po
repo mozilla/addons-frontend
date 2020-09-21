@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-17 19:31+0000\n"
+"PO-Revision-Date: 2020-09-17 19:32+0000\n"
 "Last-Translator: Sav22999 <saverio.morelli@outlook.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1289,15 +1289,15 @@ msgstr "Componenti aggiuntivi di Firefox"
 
 #: src/amo/components/Search/index.js:148
 msgid "Reviewed extensions"
-msgstr ""
+msgstr "Estensioni revisionate"
 
 #: src/amo/components/Search/index.js:151
 msgid "Reviewed themes"
-msgstr ""
+msgstr "Temi revisionati"
 
 #: src/amo/components/Search/index.js:154
 msgid "Reviewed add-ons"
-msgstr ""
+msgstr "Componenti aggiuntivi revisionati"
 
 #: src/amo/components/Search/index.js:159
 msgid "Verified extensions"
@@ -1477,7 +1477,7 @@ msgstr "Verificato"
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "Reviewed"
-msgstr ""
+msgstr "Revisionati"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
