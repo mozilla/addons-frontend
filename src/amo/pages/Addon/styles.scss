@@ -9,6 +9,12 @@
         align-self: flex-end;
       }
     }
+
+    .AMInstallButton--noDownloadLink {
+      @include respond-to(medium) {
+        margin-bottom: 12px;
+      }
+    }
   }
 }
 

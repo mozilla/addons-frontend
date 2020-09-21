@@ -344,6 +344,40 @@ describe(__filename, () => {
     expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(0);
   });
 
+  it('adds a special classname when no download link is displayed', () => {
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: true,
+    });
+
+    const root = render({
+      _getClientCompatibility,
+      version: createInternalVersion(fakeAddon.current_version),
+    });
+
+    expect(root.find(AMInstallButton)).toHaveClassName(
+      'AMInstallButton--noDownloadLink',
+    );
+  });
+
+  it('does not add a special classname when a download link is displayed', () => {
+    const _findInstallURL = sinon
+      .stub()
+      .returns('https://a.m.o/files/addon.xpi');
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: false,
+    });
+
+    const root = render({
+      _findInstallURL,
+      _getClientCompatibility,
+      version: createInternalVersion(fakeAddon.current_version),
+    });
+
+    expect(root.find(AMInstallButton)).not.toHaveClassName(
+      'AMInstallButton--noDownloadLink',
+    );
+  });
+
   it('calls findInstallURL to determine the installURL for the add-on', () => {
     const _findInstallURL = sinon.spy();
     const version = createInternalVersion(fakeAddon.current_version);
