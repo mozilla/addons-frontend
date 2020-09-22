@@ -24,6 +24,8 @@ class Category(Base):
 
         _category_name_locator = (By.CLASS_NAME, 'SearchContextCard-header')
 
+        def
+
         @property
         def name(self):
             return self.find_element(*self._category_name_locator).text

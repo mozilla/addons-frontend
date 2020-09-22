@@ -1,4 +1,7 @@
 import pytest
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 from pages.desktop.extensions import Extensions
 from pages.desktop.home import Home
@@ -39,6 +42,9 @@ def test_category_section_loads_correct_category(base_url, selenium):
     item = page.categories.category_list[0]
     name = item.name
     category = item.click()
+    WebDriverWait(selenium, 10).until(EC.text_to_be_present_in_element(
+        (By.CLASS_NAME, 'SearchContextCard-header'), name
+    ))
     assert name in category.header.name
 
 
