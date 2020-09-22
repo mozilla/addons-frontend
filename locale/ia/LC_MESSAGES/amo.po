@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-22 22:35+0000\n"
+"PO-Revision-Date: 2020-09-22 22:41+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1008,9 +1008,8 @@ msgid "Download file"
 msgstr "Discargar file"
 
 #: src/amo/components/InstallWarning/index.js:103
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Isto non es surveliate pro securitate per le  programma del extensiones recommendate de Mozilla. Assecura te que illo es digne de fide ante de installar lo."
+msgstr "Iste additivo non es activemente surveliate pro securitate per Mozilla. Verifica que tu te pote fider a illo ante lo installar."
 
 #: src/amo/components/InstallWarning/index.js:98
 msgid "Learn more"
@@ -1483,9 +1482,8 @@ msgid "Verified"
 msgstr "Verificate"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Revidite"
+msgstr "Toto revidite"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1708,9 +1706,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Iste lista de presentation non es destinate pro iste systema operative. <a href=\"%(newLocation)s\">Folietta le additivos de Firefox pro scriptorio</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Tu pote installar iste additivo per le Gestor de additivos.  Sape plus re <a href=\"%(newLocation)s\">additivos pro Android</a>."
+msgstr "Tu pote installar iste additivo per le Gestor de additivos. Sape plus re <a href=\"%(newLocation)s\">additivos pro Android</a>."
 
 #: src/amo/pages/Addon/index.js:522
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -2787,14 +2784,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr "Isto es un additivo official producite per le autores de Mozilla Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox recommenda solmente le extensiones que satisface nostre normas de securitate e efficientia."
+msgstr "Firefox recommenda solmente le additivos que satisface nostre normas de securitate e efficientia."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox recommenda solmente le extensiones que satisface nostre normas de securitate e efficientia."
+msgstr "Iste additivo ha essite revidite pro attinger nostre standardos de securitate e prestation."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
