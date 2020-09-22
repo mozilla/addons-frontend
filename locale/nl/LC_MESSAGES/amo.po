@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-16 12:41+0000\n"
+"PO-Revision-Date: 2020-09-22 20:18+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -1004,12 +1004,11 @@ msgstr "AANBEVOLEN"
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
 msgid "Download file"
-msgstr ""
+msgstr "Bestand downloaden"
 
 #: src/amo/components/InstallWarning/index.js:103
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Deze extensie wordt niet gecontroleerd op beveiligingsproblemen via het programma van Aanbevolen extensies van Mozilla. Zorg ervoor dat u de extensie vertrouwt voordat u deze installeert."
+msgstr "Deze add-on wordt niet actief op beveiliging gecontroleerd door Mozilla. Zorg ervoor dat u de add-on vertrouwt voordat u deze installeert."
 
 #: src/amo/components/InstallWarning/index.js:98
 msgid "Learn more"
@@ -1482,9 +1481,8 @@ msgid "Verified"
 msgstr "Geverifieerd"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Beoordeeld"
+msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1707,9 +1705,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Deze lijst is niet bedoeld voor dit platform. <a href=\"%(newLocation)s\">Door add-ons voor Firefox op desktop bladeren</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "U kunt deze add-on in de Add-onbeheerder installeren.  Meer informatie over <a href=\"%(newLocation)s\">add-ons voor Android</a>."
+msgstr "U kunt deze add-on in de Add-onbeheerder installeren. Meer info over <a href=\"%(newLocation)s\">add-ons voor Android</a>."
 
 #: src/amo/pages/Addon/index.js:522
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -2787,14 +2784,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox beveelt alleen extensies aan die voldoen aan onze normen voor beveiliging en prestaties."
+msgstr "Firefox beveelt alleen add-ons aan die voldoen aan onze normen voor beveiliging en prestaties."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox beveelt alleen extensies aan die voldoen aan onze normen voor beveiliging en prestaties."
+msgstr ""
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
