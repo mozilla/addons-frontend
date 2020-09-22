@@ -90,6 +90,8 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
       })
     : undefined;
 
+  const showDownloadLink = !isCompatible && installURL;
+
   return (
     addon && (
       <div
@@ -100,7 +102,12 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
         <AMInstallButton
           addon={addon}
           canUninstall={canUninstall}
-          className={className ? `AMInstallButton--${className}` : ''}
+          className={makeClassName(
+            className ? `AMInstallButton--${className}` : '',
+            {
+              'AMInstallButton--noDownloadLink': !showDownloadLink,
+            },
+          )}
           currentVersion={currentVersion}
           defaultButtonText={defaultButtonText}
           disabled={!isCompatible}
@@ -118,12 +125,9 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
           buttonType={getFirefoxButtonType}
           className={className ? `GetFirefoxButton--${className}` : ''}
         />
-        {!isCompatible && installURL ? (
-          <div className="InstallButtonWrapper-downloadLink">
-            <a
-              className="InstallButtonWrapper-downloadLink-link"
-              href={installURL}
-            >
+        {showDownloadLink ? (
+          <div className="InstallButtonWrapper-download">
+            <a className="InstallButtonWrapper-download-link" href={installURL}>
               {i18n.gettext('Download file')}
             </a>
           </div>

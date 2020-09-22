@@ -324,7 +324,7 @@ describe(__filename, () => {
       version: createInternalVersion(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(1);
+    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(1);
   });
 
   it('does not display a download link when the browser is compatible', () => {
@@ -341,7 +341,41 @@ describe(__filename, () => {
       version: createInternalVersion(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(0);
+    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
+  });
+
+  it('adds a special classname when no download link is displayed', () => {
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: true,
+    });
+
+    const root = render({
+      _getClientCompatibility,
+      version: createInternalVersion(fakeAddon.current_version),
+    });
+
+    expect(root.find(AMInstallButton)).toHaveClassName(
+      'AMInstallButton--noDownloadLink',
+    );
+  });
+
+  it('does not add a special classname when a download link is displayed', () => {
+    const _findInstallURL = sinon
+      .stub()
+      .returns('https://a.m.o/files/addon.xpi');
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: false,
+    });
+
+    const root = render({
+      _findInstallURL,
+      _getClientCompatibility,
+      version: createInternalVersion(fakeAddon.current_version),
+    });
+
+    expect(root.find(AMInstallButton)).not.toHaveClassName(
+      'AMInstallButton--noDownloadLink',
+    );
   });
 
   it('calls findInstallURL to determine the installURL for the add-on', () => {
@@ -377,7 +411,7 @@ describe(__filename, () => {
       version: createInternalVersion(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper-downloadLink-link')).toHaveProp(
+    expect(root.find('.InstallButtonWrapper-download-link')).toHaveProp(
       'href',
       installURL,
     );
@@ -395,6 +429,6 @@ describe(__filename, () => {
       version: createInternalVersion(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(0);
+    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
   });
 });
