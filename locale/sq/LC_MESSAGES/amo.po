@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-15 16:06+0000\n"
+"POT-Creation-Date: 2020-09-22 18:52+0000\n"
 "PO-Revision-Date: 2020-08-17 11:33+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -184,125 +184,125 @@ msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 "%(addonName)s – Merreni këtë Paketë Gjuhësore për 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:125
+#: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s Yll"
 msgstr[1] "%(total)s Yje"
 
-#: src/amo/components/AddonMeta/index.js:134
+#: src/amo/components/AddonMeta/index.js:128
 msgid "Not rated yet"
 msgstr "Ende pa vlerësim"
 
-#: src/amo/components/AddonMeta/index.js:55
+#: src/amo/components/AddonMeta/index.js:49
 msgid "Users"
 msgstr "Përdorues"
 
-#: src/amo/components/AddonMeta/index.js:58
+#: src/amo/components/AddonMeta/index.js:52
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Përdorues"
 msgstr[1] "Përdorues"
 
-#: src/amo/components/AddonMeta/index.js:60
+#: src/amo/components/AddonMeta/index.js:54
 msgid "No Users"
 msgstr "S’ka Përdorues"
 
-#: src/amo/components/AddonMeta/index.js:67
+#: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
 msgstr "Shqyrtime"
 
-#: src/amo/components/AddonMeta/index.js:70
+#: src/amo/components/AddonMeta/index.js:64
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "Shqyrtim"
 msgstr[1] "Shqyrtime"
 
-#: src/amo/components/AddonMeta/index.js:72
+#: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
 msgstr "S’ka Shqyrtime"
 
-#: src/amo/components/AddonMeta/index.js:98
+#: src/amo/components/AddonMeta/index.js:92
 msgid "Used by"
 msgstr "Përdorur nga"
 
-#: src/amo/components/AddonMoreInfo/index.js:117
+#: src/amo/components/AddonMoreInfo/index.js:109
 msgid "Visit stats dashboard"
 msgstr "Vizitoni pult statistikash"
 
-#: src/amo/components/AddonMoreInfo/index.js:137
+#: src/amo/components/AddonMoreInfo/index.js:128
 msgid "Custom License"
 msgstr "Licencë e Përshtatur"
 
-#: src/amo/components/AddonMoreInfo/index.js:159
+#: src/amo/components/AddonMoreInfo/index.js:150
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:176
+#: src/amo/components/AddonMoreInfo/index.js:166
 msgid "Read the privacy policy for this add-on"
 msgstr "Lexoni rregullat e privatësisë për këtë shtesë"
 
-#: src/amo/components/AddonMoreInfo/index.js:188
+#: src/amo/components/AddonMoreInfo/index.js:177
 msgid "Read the license agreement for this add-on"
 msgstr "Lexoni marrëveshjen e licencës për këtë shtesë"
 
-#: src/amo/components/AddonMoreInfo/index.js:201
+#: src/amo/components/AddonMoreInfo/index.js:189
 msgid "See all versions"
 msgstr "Shihini krejt versionet"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:216
 msgid "Add-on Links"
 msgstr "Lidhje shtese"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:236
 msgid "Size"
 msgstr "Madhësi"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:244
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Përditësuar së fundi më"
 
-#: src/amo/components/AddonMoreInfo/index.js:264
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "License"
 msgstr "Licencë"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "Privacy Policy"
 msgstr "Rregulla Privatësie"
 
-#: src/amo/components/AddonMoreInfo/index.js:280
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "End-User License Agreement"
 msgstr "Marrëveshje Licence Përdoruesi të Thjeshtë (EULA)"
 
-#: src/amo/components/AddonMoreInfo/index.js:288
+#: src/amo/components/AddonMoreInfo/index.js:276
 msgid "Version History"
 msgstr "Historik Versionesh"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:286
 msgid "Usage Statistics"
 msgstr "Statistika Përdorimi"
 
-#: src/amo/components/AddonMoreInfo/index.js:314
+#: src/amo/components/AddonMoreInfo/index.js:302
 msgid "More information"
 msgstr "Më tepër të dhëna"
 
-#: src/amo/components/AddonMoreInfo/index.js:73
+#: src/amo/components/AddonMoreInfo/index.js:66
 #: src/amo/pages/UserProfile/index.js:357
 #: src/amo/pages/UserProfile/index.js:359
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "Faqe hyrëse"
 
-#: src/amo/components/AddonMoreInfo/index.js:84
+#: src/amo/components/AddonMoreInfo/index.js:77
 msgid "Support site"
 msgstr "Sajt asistence"
 
-#: src/amo/components/AddonMoreInfo/index.js:98
+#: src/amo/components/AddonMoreInfo/index.js:91
 msgid "Support Email"
 msgstr "Email Asistence"
 
@@ -314,47 +314,47 @@ msgstr "Përdorues të tjerë me këtë zgjerim kanë instaluar edhe"
 msgid "Other popular extensions"
 msgstr "Zgjerime të tjera popullore"
 
-#: src/amo/components/AddonReviewCard/index.js:202
+#: src/amo/components/AddonReviewCard/index.js:199
 msgid "Edit reply"
 msgstr "Përpuno përgjigjen"
 
-#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:202
 msgid "Edit review"
 msgstr "Përpuno shqyrtimin"
 
-#: src/amo/components/AddonReviewCard/index.js:212
-#: src/amo/components/AddonReviewCard/index.js:244
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete reply"
 msgstr "Fshije përgjigjen"
 
-#: src/amo/components/AddonReviewCard/index.js:216
-#: src/amo/components/AddonReviewCard/index.js:248
+#: src/amo/components/AddonReviewCard/index.js:213
+#: src/amo/components/AddonReviewCard/index.js:245
 msgid "Delete rating"
 msgstr "Fshije vlerësimin"
 
-#: src/amo/components/AddonReviewCard/index.js:219
-#: src/amo/components/AddonReviewCard/index.js:251
+#: src/amo/components/AddonReviewCard/index.js:216
+#: src/amo/components/AddonReviewCard/index.js:248
 msgid "Delete review"
 msgstr "Fshije shqyrtimin"
 
-#: src/amo/components/AddonReviewCard/index.js:226
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this reply?"
 msgstr "Doni vërtet të fshihet kjo përgjigje?"
 
-#: src/amo/components/AddonReviewCard/index.js:230
+#: src/amo/components/AddonReviewCard/index.js:227
 msgid "Do you really want to delete this rating?"
 msgstr "Doni vërtet të fshihet ky vlerësim?"
 
-#: src/amo/components/AddonReviewCard/index.js:233
+#: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this review?"
 msgstr "Doni vërtet të fshihet ky shqyrtim?"
 
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:237
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Fshije"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:898
@@ -363,45 +363,45 @@ msgstr "Fshije"
 msgid "Cancel"
 msgstr "Anuloje"
 
-#: src/amo/components/AddonReviewCard/index.js:262
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep reply"
 msgstr "Mbaje përgjigjen"
 
-#: src/amo/components/AddonReviewCard/index.js:266
+#: src/amo/components/AddonReviewCard/index.js:263
 msgid "Keep rating"
 msgstr "Mbaje vlerësimin"
 
-#: src/amo/components/AddonReviewCard/index.js:269
+#: src/amo/components/AddonReviewCard/index.js:266
 msgid "Keep review"
 msgstr "Mbaje shqyrtimin"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Write a reply to this review."
 msgstr "Shkruani një përgjigje për këtë shqyrtim."
 
-#: src/amo/components/AddonReviewCard/index.js:308
+#: src/amo/components/AddonReviewCard/index.js:305
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr "Përditësoni përgjigjen"
 
-#: src/amo/components/AddonReviewCard/index.js:309
+#: src/amo/components/AddonReviewCard/index.js:306
 msgid "Publish reply"
 msgstr "Botojeni përgjigjen"
 
-#: src/amo/components/AddonReviewCard/index.js:313
+#: src/amo/components/AddonReviewCard/index.js:310
 #: src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr "Po përditësohet përgjigja"
 
-#: src/amo/components/AddonReviewCard/index.js:314
+#: src/amo/components/AddonReviewCard/index.js:311
 msgid "Publishing reply"
 msgstr "Po botohet përgjigja"
 
-#: src/amo/components/AddonReviewCard/index.js:361
+#: src/amo/components/AddonReviewCard/index.js:357
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "postuar më %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:364
+#: src/amo/components/AddonReviewCard/index.js:360
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -409,19 +409,19 @@ msgstr ""
 "nga %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:367
+#: src/amo/components/AddonReviewCard/index.js:363
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "nga %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:483
+#: src/amo/components/AddonReviewCard/index.js:478
 msgid "Deleting…"
 msgstr "Po fshihet…"
 
-#: src/amo/components/AddonReviewCard/index.js:514
+#: src/amo/components/AddonReviewCard/index.js:509
 msgid "Reply to this review"
 msgstr "Përgjigjjuni këtij shqyrtimi"
 
-#: src/amo/components/AddonReviewCard/index.js:544
+#: src/amo/components/AddonReviewCard/index.js:539
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
@@ -429,7 +429,7 @@ msgstr ""
 "Ky vlerësim apo shqyrtim është fshirë. Po e shihni vetëm ngaqë keni leje të "
 "fuqishme."
 
-#: src/amo/components/AddonReviewCard/index.js:590
+#: src/amo/components/AddonReviewCard/index.js:585
 msgid "Write a review"
 msgstr "Shkruani një shqyrtim"
 
@@ -550,11 +550,11 @@ msgstr "Shtesa nga %(author)s"
 msgid "Add-ons by these developers"
 msgstr "Shtesa nga këta zhvillues"
 
-#: src/amo/components/AddonSummaryCard/index.js:62
+#: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
 msgstr "Ikonë shtese"
 
-#: src/amo/components/AddonSummaryCard/index.js:88
+#: src/amo/components/AddonSummaryCard/index.js:78
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "Vlerësuar me %(rating)s yll nga 5 të mundshëm"
@@ -932,12 +932,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Iu vu shenjë si njoftim të metash ose kërkesë për asistencë"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Iu vu shenjë"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "I vini shenjë"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Iu vu shenjë"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -991,23 +991,23 @@ msgstr "Shfletues"
 msgid "Products"
 msgstr "Produkte"
 
-#: src/amo/components/Footer/index.js:256
+#: src/amo/components/Footer/index.js:245
 msgid "Privacy"
 msgstr "Privatësi"
 
-#: src/amo/components/Footer/index.js:264
+#: src/amo/components/Footer/index.js:253
 msgid "Cookies"
 msgstr "Cookies"
+
+#: src/amo/components/Footer/index.js:261
+msgid "Legal"
+msgstr "Ligjore"
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
 msgstr "Shkoni te faqja hyrëse e Mozilla-s"
 
-#: src/amo/components/Footer/index.js:272
-msgid "Legal"
-msgstr "Ligjore"
-
-#: src/amo/components/Footer/index.js:282
+#: src/amo/components/Footer/index.js:271
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1121,26 +1121,32 @@ msgstr "Përpunim i Profilit Tim"
 msgid "Tools"
 msgstr "Mjete"
 
-#: src/amo/components/HeroRecommendation/index.js:108
+#: src/amo/components/HeroRecommendation/index.js:112
 msgid "Get the extension"
 msgstr "Merreni zgjerimin"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:184
+#: src/amo/components/HeroRecommendation/index.js:188
 msgid "RECOMMENDED"
 msgstr "E REKOMANDUAR"
 
-#: src/amo/components/InstallWarning/index.js:95
-msgid "Learn more"
-msgstr "Mësoni më tepër"
+#: src/amo/components/InstallButtonWrapper/index.js:131
+#, fuzzy
+msgid "Download file"
+msgstr "Shkarkim"
 
-#: src/amo/components/InstallWarning/index.js:99
+#: src/amo/components/InstallWarning/index.js:103
+#, fuzzy
 msgid ""
-"This is not monitored for security through Mozilla's Recommended Extensions "
-"program. Make sure you trust it before installing."
+"This add-on is not actively monitored for security by Mozilla. Make sure you "
+"trust it before installing."
 msgstr ""
 "Ky nuk mbikëqyret përmes programit Zgjerim i Rekomanduar të Mozilla-s. "
 "Sigurohuni se i zini besë, përpara se ta instaloni."
+
+#: src/amo/components/InstallWarning/index.js:98
+msgid "Learn more"
+msgstr "Mësoni më tepër"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1262,7 +1268,6 @@ msgid "Sponsored extensions"
 msgstr "Zgjerimet më të vlerësuara"
 
 #: src/amo/components/PromotedAddonsCard/index.js:83
-#: src/ui/components/PromotedBadge/index.js:48
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1315,23 +1320,23 @@ msgstr "Po ruhet vlerësimi me yje"
 msgid "Star rating saved"
 msgstr "Vlerësimi me yje u ruajt"
 
-#: src/amo/components/RatingsByStar/index.js:108
+#: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all five-star reviews"
 msgstr "Lexoni krejt shqyrtimet me pesë yje"
 
-#: src/amo/components/RatingsByStar/index.js:109
+#: src/amo/components/RatingsByStar/index.js:96
 msgid "Read all four-star reviews"
 msgstr "Lexoni krejt shqyrtimet me katër yje"
 
-#: src/amo/components/RatingsByStar/index.js:110
+#: src/amo/components/RatingsByStar/index.js:97
 msgid "Read all three-star reviews"
 msgstr "Lexoni krejt shqyrtimet me tre yje"
 
-#: src/amo/components/RatingsByStar/index.js:111
+#: src/amo/components/RatingsByStar/index.js:98
 msgid "Read all two-star reviews"
 msgstr "Lexoni krejt shqyrtimet me dy yje"
 
-#: src/amo/components/RatingsByStar/index.js:112
+#: src/amo/components/RatingsByStar/index.js:99
 msgid "Read all one-star reviews"
 msgstr "Lexoni krejt shqyrtimet me një yll"
 
@@ -1611,7 +1616,6 @@ msgstr[1] "U gjetën %(count)s tema për \"%(query)s\" te %(categoryName)s"
 
 #: src/amo/components/SearchFilters/index.js:126
 #: src/amo/components/SearchFilters/index.js:142
-#: src/amo/components/SearchFilters/index.js:168
 msgid "All"
 msgstr "Krejt"
 
@@ -1655,6 +1659,10 @@ msgstr "Më të Vlerësuarat"
 msgid "Trending"
 msgstr "Në Modë"
 
+#: src/amo/components/SearchFilters/index.js:168
+msgid "Any"
+msgstr ""
+
 #: src/amo/components/SearchFilters/index.js:169
 #: src/ui/components/IconPromotedBadge/index.js:47
 #: src/ui/components/PromotedBadge/index.js:47
@@ -1675,7 +1683,7 @@ msgstr "Verifikuar"
 
 #: src/amo/components/SearchFilters/index.js:179
 #, fuzzy
-msgid "Reviewed"
+msgid "All Reviewed"
 msgstr "Shqyrtim"
 
 #: src/amo/components/SearchFilters/index.js:199
@@ -1695,9 +1703,8 @@ msgid "Operating System"
 msgstr "Sistem Operativ"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
-msgid "Promoted Add-Ons"
-msgstr "Shtesat më të vlerësuara"
+msgid "Badging"
+msgstr ""
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1711,15 +1718,15 @@ msgstr "Shtesa Firefox-i"
 msgid "Go to the add-on page"
 msgstr "Shko te faqja e shtesës"
 
-#: src/amo/components/SearchResult/index.js:180
+#: src/amo/components/SearchResult/index.js:181
 msgid "No theme preview available"
 msgstr "S’ka paraparje teme"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:216
 msgid "Add-on note"
 msgstr "Shënim shtese"
 
-#: src/amo/components/SearchResult/index.js:233
+#: src/amo/components/SearchResult/index.js:234
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s përdorues"
@@ -1857,69 +1864,69 @@ msgstr ""
 "Që të gjeni shtesa të përputhshme me Firefox-in në Android, <a href="
 "\"%(newLocation)s\">vizitoni sajtin tonë për celular</a>."
 
-#: src/amo/pages/Addon/index.js:171 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:168 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Paraparje e %(title)s"
 
-#: src/amo/pages/Addon/index.js:213
+#: src/amo/pages/Addon/index.js:203
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Kjo shtojcë nuk mund të vlerësohet, ngaqë s’ka versione të saj të publikuar."
 
-#: src/amo/pages/Addon/index.js:224
+#: src/amo/pages/Addon/index.js:214
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lexoni %(count)s shqyrtim"
 msgstr[1] "Lexoni krejt %(count)s shqyrtimet"
 
-#: src/amo/pages/Addon/index.js:246
+#: src/amo/pages/Addon/index.js:235
 msgid "No reviews yet"
 msgstr "Ende pa shqyrtime"
 
-#: src/amo/pages/Addon/index.js:256
+#: src/amo/pages/Addon/index.js:245
 msgid "Rate your experience"
 msgstr "Vlerësoni rastin tuaj"
 
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:264
 msgid "About this dictionary"
 msgstr "Rreth këtij fjalori"
 
-#: src/amo/pages/Addon/index.js:278
+#: src/amo/pages/Addon/index.js:267
 msgid "About this extension"
 msgstr "Rreth këtij zgjerimi"
 
-#: src/amo/pages/Addon/index.js:281
+#: src/amo/pages/Addon/index.js:270
 msgid "About this language pack"
 msgstr "Rreth kësaj pakete gjuhësore"
 
-#: src/amo/pages/Addon/index.js:284
+#: src/amo/pages/Addon/index.js:273
 msgid "About this theme"
 msgstr "Rreth kësaj teme"
 
-#: src/amo/pages/Addon/index.js:287
+#: src/amo/pages/Addon/index.js:276
 msgid "About this add-on"
 msgstr "Rreth kësaj shtese"
 
-#: src/amo/pages/Addon/index.js:329
+#: src/amo/pages/Addon/index.js:318
 msgid "Developer comments"
 msgstr "Komente nga zhvillues"
 
-#: src/amo/pages/Addon/index.js:352
+#: src/amo/pages/Addon/index.js:341
 msgid "Release notes for %(addonVersion)s"
 msgstr "Shënime hedhjeje në qarkullim për %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:484
+#: src/amo/pages/Addon/index.js:473
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Kjo s’është listë publike. Po e shihni vetëm ngaqë keni leje të fuqishme."
 
-#: src/amo/pages/Addon/index.js:511
+#: src/amo/pages/Addon/index.js:500
 msgid "Extension Metadata"
 msgstr "Tejtëdhëna Zgjerimi"
 
-#: src/amo/pages/Addon/index.js:519
+#: src/amo/pages/Addon/index.js:508
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1927,7 +1934,7 @@ msgstr ""
 "Kjo listë s’është e menduar për këtë platformë. <a href=\"%(newLocation)s"
 "\">Shfletoni shtesa për Firefox-in në Android</a>."
 
-#: src/amo/pages/Addon/index.js:523
+#: src/amo/pages/Addon/index.js:512
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1935,17 +1942,17 @@ msgstr ""
 "Kjo listë s’është e menduar për këtë platformë. <a href=\"%(newLocation)s"
 "\">Shfletoni shtesa për Firefox-in në desktop</a>."
 
-#: src/amo/pages/Addon/index.js:529
+#: src/amo/pages/Addon/index.js:518
 #, fuzzy
 msgid ""
-"You can install this add-on in the Add-ons Manager.  Learn more about <a "
-"href=\"%(newLocation)s\">add-ons for Android</a>."
+"You can install this add-on in the Add-ons Manager. Learn more about <a href="
+"\"%(newLocation)s\">add-ons for Android</a>."
 msgstr ""
 "Jo i passhëm në Firefox për Android. Mund ta përdorni këtë shtesë me Firefox-"
 "in për Desktop. Mësoni më tepër rreth <a href=\"%(newLocation)s\">shtesash "
 "për Android</a>."
 
-#: src/amo/pages/Addon/index.js:533
+#: src/amo/pages/Addon/index.js:522
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
@@ -1955,7 +1962,7 @@ msgstr ""
 "in për Desktop. Mësoni më tepër rreth <a href=\"%(newLocation)s\">shtesash "
 "për Android</a>."
 
-#: src/amo/pages/Addon/index.js:555
+#: src/amo/pages/Addon/index.js:544
 msgid "Screenshots"
 msgstr "Foto ekrani"
 
@@ -1971,7 +1978,7 @@ msgstr "Marrëveshje Licence Përdoruesi të Thjeshtë (EULA) për %(addonName)s
 msgid "Privacy policy for %(addonName)s"
 msgstr "Rregulla privatësie për %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:204
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1979,41 +1986,41 @@ msgstr ""
 "Shqyrtime dhe vlerësime për %(addonName)s. Shihni se ç’mendojnë përdoruesit "
 "e tjerë rreth %(addonName)s dhe shtojeni te Firefox-i juaj."
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show all reviews"
 msgstr "Shfaqi krejt shqyrtimet"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only five-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me pesë yje"
 
-#: src/amo/pages/AddonReviewList/index.js:241
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show only four-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me katër yje"
 
-#: src/amo/pages/AddonReviewList/index.js:243
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only three-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me tre yje"
 
-#: src/amo/pages/AddonReviewList/index.js:245
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only two-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me dy yje"
 
-#: src/amo/pages/AddonReviewList/index.js:246
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only one-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me një yll"
 
-#: src/amo/pages/AddonReviewList/index.js:287
+#: src/amo/pages/AddonReviewList/index.js:279
 msgid "Reviews for %(addonName)s"
 msgstr "Shqyrtime për %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:297
+#: src/amo/pages/AddonReviewList/index.js:289
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s shqyrtim"
 msgstr[1] "%(total)s shqyrtime"
 
-#: src/amo/pages/AddonReviewList/index.js:397
+#: src/amo/pages/AddonReviewList/index.js:388
 msgid "There are no reviews"
 msgstr "S’ka shqyrtime"
 
@@ -3326,12 +3333,26 @@ msgid "Dismiss this notice"
 msgstr "Shpërfille këtë shënim"
 
 #: src/ui/components/PromotedBadge/index.js:40
-msgid "This extension was created by the makers of Firefox."
+msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
-#: src/ui/components/PromotedBadge/index.js:58
-msgid "This extension has been code-reviewed for safety."
+#: src/ui/components/PromotedBadge/index.js:48
+#, fuzzy
+msgid ""
+"Firefox only recommends add-ons that meet our standards for security and "
+"performance."
 msgstr ""
+"Firefox-i rekomandon vetëm zgjerime që pajtohen me standarde tona për "
+"sigurinë dhe punimin."
+
+#: src/ui/components/PromotedBadge/index.js:58
+#, fuzzy
+msgid ""
+"This add-on has been reviewed to meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox-i rekomandon vetëm zgjerime që pajtohen me standarde tona për "
+"sigurinë dhe punimin."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
@@ -3366,6 +3387,10 @@ msgstr[1] "%(total)s shtesa"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Përgjigje zhvilluesi"
+
+#, fuzzy
+#~ msgid "Promoted Add-Ons"
+#~ msgstr "Shtesat më të vlerësuara"
 
 #~ msgid "Recommended add-ons only"
 #~ msgstr "Vetëm shtesa të rekomanduara"
@@ -3628,11 +3653,6 @@ msgstr "Përgjigje zhvilluesi"
 
 #~ msgid "Verified Sponsor"
 #~ msgstr "Sponsor i Verifikuar"
-
-#~ msgid "Download"
-#~ msgid_plural "Downloads"
-#~ msgstr[0] "Shkarkim"
-#~ msgstr[1] "Shkarkim"
 
 #~ msgid "No Downloads"
 #~ msgstr "Shkarkim"
