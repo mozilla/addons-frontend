@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-15 16:06+0000\n"
-"PO-Revision-Date: 2020-09-22 13:16+0000\n"
+"PO-Revision-Date: 2020-09-22 13:25+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1291,7 +1291,7 @@ msgstr "თემები, გთავაზობთ Firefox"
 
 #: src/amo/components/Search/index.js:143
 msgid "Add-ons by Firefox"
-msgstr "დამატებები, გთავაზობთ Firefox"
+msgstr "დამატებები, Firefox-ისგან"
 
 #: src/amo/components/Search/index.js:148
 msgid "Reviewed extensions"
@@ -1306,19 +1306,16 @@ msgid "Reviewed add-ons"
 msgstr "მიმოხილული დამატებები"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "რჩეული გაფართოებები"
+msgstr "დამოწმებული გაფართოებები"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "გამორჩეული თემები"
+msgstr "დამოწმებული თემები"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "რჩეული დამატებები"
+msgstr "დამოწმებული დამატებები"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1485,9 +1482,8 @@ msgid "Verified"
 msgstr "დამოწმებული"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "Reviewed"
-msgstr "მიმოხილვა"
+msgstr "მიმოხილული"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1506,9 +1502,8 @@ msgid "Operating System"
 msgstr "საოპერაციო სისტემა"
 
 #: src/amo/components/SearchFilters/index.js:264
-#, fuzzy
 msgid "Promoted Add-Ons"
-msgstr "საუკეთესოდ შეფასებული დამატებები"
+msgstr "დარეკლამებული დამატებები"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
