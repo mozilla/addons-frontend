@@ -101,7 +101,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
         >
           {_config.get('enableFeaturePromotedShelf')
             ? i18n.gettext(
-                `This is not monitored for security through Mozilla's Promoted Add-ons program. Make sure you trust it before installing.`,
+                'This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing.',
               )
             : `This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing.`}
         </Notice>

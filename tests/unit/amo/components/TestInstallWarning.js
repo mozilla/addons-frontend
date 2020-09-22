@@ -180,7 +180,7 @@ describe(__filename, () => {
   });
 
   it.each([
-    [true, /Promoted Add-ons program/],
+    [true, /security by Mozilla/],
     [false, /Recommended Extensions program/],
   ])(
     'uses the expected test when enableFeaturePromotedShelf is %s',
