@@ -2,6 +2,8 @@ from pypom import Page, Region
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class Base(Page):
@@ -141,6 +143,11 @@ class Header(Region):
                 textbox.send_keys(Keys.ENTER)
                 from pages.desktop.search import Search
                 return Search(self.selenium, self.page).wait_for_page_to_load()
+            WebDriverWait(self.selenium, 10).until(
+                EC.presence_of_element_located(
+                    self._search_suggestions_item_locator
+                )
+            )
             return self.search_suggestions
 
         @property
