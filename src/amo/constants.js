@@ -21,3 +21,5 @@ export const LANDING_PAGE_THEME_COUNT = 3;
 export const LANDING_PAGE_PROMOTED_EXTENSION_COUNT = 6;
 
 export const DOWNLOAD_FIREFOX_BASE_URL = 'https://www.mozilla.org/firefox/new/';
+export const PROMOTED_ADDONS_SUMO_URL =
+  'https://support.mozilla.org/kb/add-on-badges';

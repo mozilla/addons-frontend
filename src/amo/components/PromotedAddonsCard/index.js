@@ -4,7 +4,10 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
-import { LANDING_PAGE_PROMOTED_EXTENSION_COUNT } from 'amo/constants';
+import {
+  LANDING_PAGE_PROMOTED_EXTENSION_COUNT,
+  PROMOTED_ADDONS_SUMO_URL,
+} from 'amo/constants';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
@@ -77,7 +80,7 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
         </div>
         <a
           className="PromotedAddonsCard-headerLink"
-          href="https://support.mozilla.org/kb/recommended-extensions-program"
+          href={`${PROMOTED_ADDONS_SUMO_URL}?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=promoted-addon-shelf#sponsored`}
           rel="noopener noreferrer"
           target="_blank"
           title={i18n.gettext(
