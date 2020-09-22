@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-22 20:35+0000\n"
+"PO-Revision-Date: 2020-09-22 20:38+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1511,7 +1511,7 @@ msgstr "Wobkrućeny"
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "All Reviewed"
-msgstr "Wšě přepruwowany"
+msgstr "Wšě přepruwowane"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1738,7 +1738,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Tutón zapisk njeje mysleny za tutu platformu. <a href=\"%(newLocation)s\">Přepytajće přidatki za Firefox za desktop.</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "Njemóžeće tutón přidatk w zrjadowaku přidatkow instalować. Zhońće wjace wo <a href=\"%(newLocation)s\">přidatkach za Android</a>."
 
@@ -2817,14 +2816,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr "To je oficielny přidatk, kotryž je so wot wuwiwarjow Mozilla Firefox wuwił."
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox jenož rozšěrjenja doporučuje, kotrež našim standardam za wěstotu a wukon wotpowěduja."
+msgstr "Firefox jenož přidatki doporučuje, kotrež našim standardam za wěstotu a wukon wotpowěduja."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox jenož rozšěrjenja doporučuje, kotrež našim standardam za wěstotu a wukon wotpowěduja."
+msgstr "Tutón přidatk je so přepruwował, zo by našim standardam za wěstotu a wukon wotpowědował."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
