@@ -126,11 +126,8 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
           className={className ? `GetFirefoxButton--${className}` : ''}
         />
         {showDownloadLink ? (
-          <div className="InstallButtonWrapper-downloadLink">
-            <a
-              className="InstallButtonWrapper-downloadLink-link"
-              href={installURL}
-            >
+          <div className="InstallButtonWrapper-download">
+            <a className="InstallButtonWrapper-download-link" href={installURL}>
               {i18n.gettext('Download file')}
             </a>
           </div>

@@ -324,7 +324,7 @@ describe(__filename, () => {
       version: createInternalVersion(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(1);
+    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(1);
   });
 
   it('does not display a download link when the browser is compatible', () => {
@@ -341,7 +341,7 @@ describe(__filename, () => {
       version: createInternalVersion(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(0);
+    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
   });
 
   it('adds a special classname when no download link is displayed', () => {
@@ -411,7 +411,7 @@ describe(__filename, () => {
       version: createInternalVersion(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper-downloadLink-link')).toHaveProp(
+    expect(root.find('.InstallButtonWrapper-download-link')).toHaveProp(
       'href',
       installURL,
     );
@@ -429,6 +429,6 @@ describe(__filename, () => {
       version: createInternalVersion(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper-downloadLink')).toHaveLength(0);
+    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
   });
 });
