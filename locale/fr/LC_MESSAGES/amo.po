@@ -1004,14 +1004,12 @@ msgid "RECOMMENDED"
 msgstr "RECOMMANDÉE"
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
-#, fuzzy
 msgid "Download file"
-msgstr "Téléchargement"
+msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:103
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "La sécurité de cette extension n’est pas contrôlée par le programme des extensions recommandées de Mozilla. Assurez-vous que vous pouvez lui faire confiance avant de l’installer."
+msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:98
 msgid "Learn more"
@@ -1484,9 +1482,8 @@ msgid "Verified"
 msgstr "Vérifié"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Critique"
+msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1711,11 +1708,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Cette ressource n’est pas prévue pour cette plateforme. <a href=\"%(newLocation)s\">Parcourez les modules de Firefox pour ordinateur</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr ""
-"Non disponible sur Firefox pour Android. Vous pouvez utiliser ce module complémentaire avec Firefox pour ordinateur de bureau. En savoir plus sur les <a href=\"%(newLocation)s\">modules "
-"complémentaires pour Android</a>."
 
 #: src/amo/pages/Addon/index.js:522
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -2815,14 +2809,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr "Il s’agit d’un module officiel conçu par les créateurs de Mozilla Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox ne recommande que des extensions conformes à nos normes en matière de sécurité et de performances."
+msgstr ""
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox ne recommande que des extensions conformes à nos normes en matière de sécurité et de performances."
+msgstr ""
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
