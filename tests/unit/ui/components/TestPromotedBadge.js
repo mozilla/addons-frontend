@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import {
   createFakeEvent,
   fakeI18n,
@@ -47,6 +48,12 @@ describe(__filename, () => {
       const root = render({ category });
 
       expect(root.find('.PromotedBadge-link')).toHaveProp('title', linkTitle);
+      expect(root.find('.PromotedBadge-link')).toHaveProp(
+        'href',
+        getPromotedBadgesLinkUrl({
+          utm_content: 'promoted-addon-badge',
+        }),
+      );
     },
   );
 

@@ -4,6 +4,7 @@ import UAParser from 'ua-parser-js';
 import InstallWarning, {
   InstallWarningBase,
 } from 'amo/components/InstallWarning';
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -73,6 +74,17 @@ describe(__filename, () => {
     const root = render({ className });
 
     expect(root).toHaveClassName(className);
+  });
+
+  it('contains a correct link', () => {
+    const root = render();
+
+    expect(root.find(Notice)).toHaveProp(
+      'actionHref',
+      getPromotedBadgesLinkUrl({
+        utm_content: 'install-warning',
+      }),
+    );
   });
 
   describe('couldShowWarning', () => {

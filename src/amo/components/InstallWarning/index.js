@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import type { AppState } from 'amo/store';
-import { PROMOTED_ADDONS_SUMO_URL } from 'amo/constants';
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_FIREFOX,
@@ -43,7 +43,9 @@ type InternalProps = {|
 |};
 
 export const VARIANT_INCLUDE_WARNING_PROPOSED = 'includeWarning-proposed';
-const WARNING_LINK_DESTINATION = `${PROMOTED_ADDONS_SUMO_URL}?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=install-warning`;
+const WARNING_LINK_DESTINATION = getPromotedBadgesLinkUrl({
+  utm_content: 'install-warning',
+});
 
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps = {

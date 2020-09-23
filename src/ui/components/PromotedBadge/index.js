@@ -3,7 +3,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { PROMOTED_ADDONS_SUMO_URL } from 'amo/constants';
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import IconPromotedBadge from 'ui/components/IconPromotedBadge';
 import type {
@@ -33,7 +33,9 @@ export const PromotedBadgeBase = ({
 }: InternalProps) => {
   let label;
   let linkTitle;
-  const linkUrl = `${PROMOTED_ADDONS_SUMO_URL}?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=promoted-addon-badge`;
+  const linkUrl = getPromotedBadgesLinkUrl({
+    utm_content: 'promoted-addon-badge',
+  });
   switch (category) {
     case 'line':
       label = i18n.gettext('By Firefox');
