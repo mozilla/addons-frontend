@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-22 22:23+0000\n"
+"PO-Revision-Date: 2020-09-23 18:14+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1476,9 +1476,8 @@ msgid "Verified"
 msgstr "Bekreftet"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Gjennomgått"
+msgstr "Alle gjennomgåtte"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1498,7 +1497,7 @@ msgstr "Operativsystem"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "Merkeutdeling"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
