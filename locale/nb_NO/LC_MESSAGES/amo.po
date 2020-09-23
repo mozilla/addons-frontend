@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-23 18:14+0000\n"
+"PO-Revision-Date: 2020-09-23 18:18+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2781,9 +2781,8 @@ msgid "Firefox only recommends add-ons that meet our standards for security and 
 msgstr "Firefox anbefaler bare tillegg som oppfyller våre standarder for sikkerhet og ytelse."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox anbefaler bare utvidelser som oppfyller våre standarder for sikkerhet og ytelse."
+msgstr "Dette tillegget er gjennomgått for å oppfylle våre standarder for sikkerhet og ytelse."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
