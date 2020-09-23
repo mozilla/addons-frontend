@@ -10,6 +10,7 @@ from pages.desktop.home import Home
 from pages.desktop.search import Search
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_search_loads_and_navigates_to_correct_page(base_url, selenium):
     page = Home(selenium, base_url).open()
@@ -20,6 +21,7 @@ def test_search_loads_and_navigates_to_correct_page(base_url, selenium):
     assert search_name in search.result_list.extensions[0].name
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_search_loads_correct_results(base_url, selenium):
     page = Home(selenium, base_url).open()
@@ -28,6 +30,7 @@ def test_search_loads_correct_results(base_url, selenium):
     assert addon_name in items.result_list.extensions[0].name
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_legacy_extensions_do_not_load(base_url, selenium):
     page = Home(selenium, base_url).open()
@@ -37,6 +40,7 @@ def test_legacy_extensions_do_not_load(base_url, selenium):
         assert term not in item.name
 
 
+@pytest.mark.serial
 @pytest.mark.xfail(strict=False)
 @pytest.mark.parametrize('category, sort_attr', [
     ['Most Users', 'users'],
@@ -54,6 +58,7 @@ def test_sorting_by(base_url, selenium, category, sort_attr):
     assert sorted(results, reverse=True) == results
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_incompative_extensions_show_as_incompatible(base_url, selenium):
     page = Home(selenium, base_url).open()
@@ -65,6 +70,7 @@ def test_incompative_extensions_show_as_incompatible(base_url, selenium):
             assert detail_page.is_compatible is False
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_search_suggestion_term_is_higher(base_url, selenium):
     page = Home(selenium, base_url).open()
@@ -73,6 +79,7 @@ def test_search_suggestion_term_is_higher(base_url, selenium):
     assert suggestions[0].name == term
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_special_chars_dont_break_suggestions(base_url, selenium):
     page = Home(selenium, base_url).open()
@@ -83,6 +90,7 @@ def test_special_chars_dont_break_suggestions(base_url, selenium):
     assert term in results
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_capitalization_has_same_suggestions(base_url, selenium):
     page = Home(selenium, base_url).open()
@@ -93,6 +101,7 @@ def test_capitalization_has_same_suggestions(base_url, selenium):
     assert term == suggestions[0].name
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_esc_key_closes_suggestion_list(base_url, selenium):
     page = Home(selenium, base_url).open()
@@ -106,6 +115,7 @@ def test_esc_key_closes_suggestion_list(base_url, selenium):
             'AutoSearchInput-suggestions-list')
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_long_terms_dont_break_suggestions(base_url, selenium):
     page = Home(selenium, base_url).open()
@@ -118,6 +128,7 @@ def test_long_terms_dont_break_suggestions(base_url, selenium):
     assert term in suggestions[0].name
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_blank_search_loads_results_page(base_url, selenium):
     page = Home(selenium, base_url).open()
