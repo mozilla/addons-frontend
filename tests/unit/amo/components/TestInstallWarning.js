@@ -4,6 +4,7 @@ import UAParser from 'ua-parser-js';
 import InstallWarning, {
   InstallWarningBase,
 } from 'amo/components/InstallWarning';
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -19,7 +20,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -74,6 +74,17 @@ describe(__filename, () => {
     const root = render({ className });
 
     expect(root).toHaveClassName(className);
+  });
+
+  it('contains a correct link', () => {
+    const root = render();
+
+    expect(root.find(Notice)).toHaveProp(
+      'actionHref',
+      getPromotedBadgesLinkUrl({
+        utm_content: 'install-warning',
+      }),
+    );
   });
 
   describe('couldShowWarning', () => {
@@ -178,23 +189,4 @@ describe(__filename, () => {
     const root = render({ _couldShowWarning });
     expect(root.find(Notice)).toHaveLength(0);
   });
-
-  it.each([
-    [true, /security by Mozilla/],
-    [false, /Recommended Extensions program/],
-  ])(
-    'uses the expected test when enableFeaturePromotedShelf is %s',
-    (flagValue, expected) => {
-      const _couldShowWarning = sinon.stub().returns(true);
-
-      const root = render({
-        _config: getFakeConfig({
-          enableFeaturePromotedShelf: flagValue,
-        }),
-        _couldShowWarning,
-      });
-
-      expect(root.find(Notice).children().text()).toMatch(expected);
-    },
-  );
 });

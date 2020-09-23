@@ -3,6 +3,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import IconPromotedBadge from 'ui/components/IconPromotedBadge';
 import type {
@@ -32,15 +33,15 @@ export const PromotedBadgeBase = ({
 }: InternalProps) => {
   let label;
   let linkTitle;
-  let linkUrl;
+  const linkUrl = getPromotedBadgesLinkUrl({
+    utm_content: 'promoted-addon-badge',
+  });
   switch (category) {
     case 'line':
       label = i18n.gettext('By Firefox');
-      // TODO: Update URL when we know it.
       linkTitle = i18n.gettext(
         'This is an official add-on built by the creators of Mozilla Firefox.',
       );
-      linkUrl = 'https://support.mozilla.org/kb/recommended-extensions-program';
       break;
 
     case 'recommended':
@@ -48,17 +49,14 @@ export const PromotedBadgeBase = ({
       linkTitle = i18n.gettext(
         'Firefox only recommends add-ons that meet our standards for security and performance.',
       );
-      linkUrl = 'https://support.mozilla.org/kb/recommended-extensions-program';
       break;
 
     // This is the verified badge.
     default:
       label = i18n.gettext('Verified');
-      // TODO: Update URL when we know it.
       linkTitle = i18n.gettext(
         'This add-on has been reviewed to meet our standards for security and performance.',
       );
-      linkUrl = 'https://support.mozilla.org/kb/recommended-extensions-program';
       break;
   }
 

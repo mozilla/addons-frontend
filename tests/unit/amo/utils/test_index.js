@@ -1,6 +1,13 @@
 import url from 'url';
 
-import { getCanonicalURL, getAddonURL, checkInternalURL } from 'amo/utils';
+import { PROMOTED_ADDONS_SUMO_URL } from 'amo/constants';
+import {
+  checkInternalURL,
+  getAddonURL,
+  getCanonicalURL,
+  getPromotedBadgesLinkUrl,
+  makeQueryStringWithUTM,
+} from 'amo/utils';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -160,6 +167,19 @@ describe(__filename, () => {
           }).isInternal,
         ).toEqual(false);
       });
+    });
+  });
+
+  describe('getPromotedBadgesLinkUrl', () => {
+    it('returns a URL with utm_content specified', () => {
+      const utm_content = 'some-utm-content';
+
+      expect(getPromotedBadgesLinkUrl({ utm_content })).toEqual(
+        `${PROMOTED_ADDONS_SUMO_URL}${makeQueryStringWithUTM({
+          utm_campaign: null,
+          utm_content,
+        })}`,
+      );
     });
   });
 });

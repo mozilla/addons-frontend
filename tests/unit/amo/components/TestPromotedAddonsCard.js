@@ -9,6 +9,7 @@ import PromotedAddonsCard, {
   PROMOTED_ADDON_IMPRESSION_ACTION,
   PromotedAddonsCardBase,
 } from 'amo/components/PromotedAddonsCard';
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createFakeTracking,
@@ -76,6 +77,12 @@ describe(__filename, () => {
     expect(header.find('.PromotedAddonsCard-headerLink')).toHaveProp(
       'rel',
       'noopener noreferrer',
+    );
+    expect(header.find('.PromotedAddonsCard-headerLink')).toHaveProp(
+      'href',
+      `${getPromotedBadgesLinkUrl({
+        utm_content: 'promoted-addon-shelf',
+      })}#sponsored`,
     );
   });
 
