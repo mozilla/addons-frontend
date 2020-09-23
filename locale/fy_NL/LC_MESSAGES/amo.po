@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-23 09:43+0000\n"
+"PO-Revision-Date: 2020-09-23 09:53+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1465,7 +1465,7 @@ msgstr "Trending"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "Elke"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
@@ -1501,7 +1501,7 @@ msgstr "Bestjoeringssysteem"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "Takenning fan badges"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -2780,16 +2780,15 @@ msgstr "Dit berjocht ferstopje"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This is an official add-on built by the creators of Mozilla Firefox."
-msgstr ""
+msgstr "Dit is in offisjele add-on boud troch de makkers fan Mozilla Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
 msgstr "Firefox rekommandearret allinnich add-ons oan dy't foldogge oan ús noarms foar feilichheid en prestaasjes."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox rekommandearret allinnich útwreidingen oan dy't oan ús standert foar feilichheid en prestaasjes foldogge."
+msgstr "Dizze add-on is beoardiele en foldocht oan ús noarms foar befeiliging en prestaasjes."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
