@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-23 04:03+0000\n"
+"PO-Revision-Date: 2020-09-23 04:42+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -994,9 +994,8 @@ msgid "Download file"
 msgstr "下載檔案"
 
 #: src/amo/components/InstallWarning/index.js:103
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "此套件並未加入 Mozilla 的擴充套件推薦計畫，請確定您信任此套件再安裝。"
+msgstr "此附加元件未經 Mozilla 主動檢查安全性，請確定您信任此元件再安裝。"
 
 #: src/amo/components/InstallWarning/index.js:98
 msgid "Learn more"
@@ -1442,7 +1441,7 @@ msgstr "熱門趨勢"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "任何"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
@@ -1679,7 +1678,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "此清單並非提供予本平台使用。<a href=\"%(newLocation)s\">瀏覽 Firefox 桌面版的附加元件</a>。"
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "您可以使用「附加元件管理員」來安裝這套附加元件。了解 <a href=\"%(newLocation)s\">Android 附加元件</a>的更多資訊。"
 
@@ -2723,14 +2721,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox 僅推薦符合我們的安全性與運作效能標準的擴充套件。"
+msgstr "Firefox 僅推薦符合我們的安全性與運作效能標準的附加元件。"
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox 僅推薦符合我們的安全性與運作效能標準的擴充套件。"
+msgstr "我們檢查過此附加元件，確認符合我們的安全性與運作效能標準。"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
