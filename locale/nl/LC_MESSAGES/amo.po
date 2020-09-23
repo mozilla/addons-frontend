@@ -1466,7 +1466,7 @@ msgstr "Trends"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "Elke"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
@@ -1482,7 +1482,7 @@ msgstr "Geverifieerd"
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "All Reviewed"
-msgstr ""
+msgstr "Alle beoordeeld"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1502,7 +1502,7 @@ msgstr "Besturingssysteem"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "Toekenning van badges"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -2781,7 +2781,7 @@ msgstr "Dit bericht verbergen"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This is an official add-on built by the creators of Mozilla Firefox."
-msgstr ""
+msgstr "Dit is een officiële add-on gebouwd door de makers van Mozilla Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
@@ -2789,7 +2789,7 @@ msgstr "Firefox beveelt alleen add-ons aan die voldoen aan onze normen voor beve
 
 #: src/ui/components/PromotedBadge/index.js:58
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr ""
+msgstr "Deze add-on is beoordeeld en voldoet aan onze normen voor beveiliging en prestaties."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
