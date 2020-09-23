@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-23 12:37+0000\n"
+"PO-Revision-Date: 2020-09-23 12:43+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1464,7 +1464,7 @@ msgstr "מוביל לאחרונה"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "הכל"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
@@ -2637,7 +2637,7 @@ msgstr "חלק מהתכונות מושבתות באופן זמני בעת ביצ
 
 #: src/core/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
+msgstr "נותקת מהמערכת."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2756,7 +2756,7 @@ msgstr "סגירת הודעה זו"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This is an official add-on built by the creators of Mozilla Firefox."
-msgstr ""
+msgstr "זוהי תוספת רשמית שנבנתה על־ידי היוצרים של Mozilla Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
