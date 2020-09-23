@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-23 05:21+0000\n"
+"PO-Revision-Date: 2020-09-23 05:33+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -994,9 +994,8 @@ msgid "Download file"
 msgstr "下载文件"
 
 #: src/amo/components/InstallWarning/index.js:103
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "该扩展未列入“Mozilla 扩展推荐计划”进行安全审计，安装前请确认您信任该扩展。"
+msgstr "此附加组件未经 Mozilla 主动安全审计，安装前请确认您对其信任。"
 
 #: src/amo/components/InstallWarning/index.js:98
 msgid "Learn more"
@@ -1457,9 +1456,8 @@ msgid "Verified"
 msgstr "已认证"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "已审核"
+msgstr "全部已审核项目"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1680,7 +1678,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "此列表非适用于本平台。<a href=\"%(newLocation)s\">浏览桌面版 Firefox 桌面版的附加组件</a>。"
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "您可以使用“附加组件管理”来安装此扩展。详细了解 <a href=\"%(newLocation)s\">Android 附加组件</a>。"
 
@@ -2724,14 +2721,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr "这是由 Mozilla Firefox 开发商构建的官方附加组件。"
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox 只推荐符合我们的安全和性能标准的扩展。"
+msgstr "Firefox 只推荐符合我们的安全和性能标准的附加组件。"
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox 只推荐符合我们的安全和性能标准的扩展。"
+msgstr "此附加组件已通过审核，符合我们的安全和性能标准。"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
