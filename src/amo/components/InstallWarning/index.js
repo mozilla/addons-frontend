@@ -1,12 +1,12 @@
 /* @flow */
 import makeClassName from 'classnames';
-import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import type { AppState } from 'amo/store';
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_FIREFOX,
@@ -32,7 +32,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
   _couldShowWarning?: () => boolean,
   _getPromotedCategory: typeof getPromotedCategory,
@@ -44,12 +43,12 @@ type InternalProps = {|
 |};
 
 export const VARIANT_INCLUDE_WARNING_PROPOSED = 'includeWarning-proposed';
-const WARNING_LINK_DESTINATION =
-  'https://support.mozilla.org/kb/recommended-extensions-program#w_what-are-the-risks-of-installing-non-recommended-extensions';
+const WARNING_LINK_DESTINATION = getPromotedBadgesLinkUrl({
+  utm_content: 'install-warning',
+});
 
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _config: config,
     _correctedLocationForPlatform: correctedLocationForPlatform,
     _getPromotedCategory: getPromotedCategory,
   };
@@ -88,7 +87,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { _config, className, i18n } = this.props;
+    const { className, i18n } = this.props;
 
     if (this.couldShowWarning()) {
       return (
@@ -99,11 +98,9 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           className={makeClassName('InstallWarning', className)}
           type={genericWarningType}
         >
-          {_config.get('enableFeaturePromotedShelf')
-            ? i18n.gettext(
-                'This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing.',
-              )
-            : `This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing.`}
+          {i18n.gettext(
+            'This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing.',
+          )}
         </Notice>
       );
     }

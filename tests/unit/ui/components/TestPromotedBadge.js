@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import {
   createFakeEvent,
   fakeI18n,
@@ -32,25 +33,27 @@ describe(__filename, () => {
     [
       'line',
       'This is an official add-on built by the creators of Mozilla Firefox.',
-      'https://support.mozilla.org/kb/recommended-extensions-program',
     ],
     [
       'recommended',
       'Firefox only recommends add-ons that meet our standards for security and performance.',
-      'https://support.mozilla.org/kb/recommended-extensions-program',
     ],
     [
       'verified',
       'This add-on has been reviewed to meet our standards for security and performance.',
-      'https://support.mozilla.org/kb/recommended-extensions-program',
     ],
   ])(
     'passes the expected props to the link for category="%s"',
-    (category, linkTitle, linkUrl) => {
+    (category, linkTitle) => {
       const root = render({ category });
 
       expect(root.find('.PromotedBadge-link')).toHaveProp('title', linkTitle);
-      expect(root.find('.PromotedBadge-link')).toHaveProp('href', linkUrl);
+      expect(root.find('.PromotedBadge-link')).toHaveProp(
+        'href',
+        getPromotedBadgesLinkUrl({
+          utm_content: 'promoted-addon-badge',
+        }),
+      );
     },
   );
 

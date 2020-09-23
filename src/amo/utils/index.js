@@ -5,6 +5,7 @@ import url from 'url';
 import base62 from 'base62';
 import config from 'config';
 
+import { PROMOTED_ADDONS_SUMO_URL } from 'amo/constants';
 import { makeQueryString } from 'core/api';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 
@@ -35,7 +36,7 @@ export const makeQueryStringWithUTM = ({
 }: {|
   utm_source?: string,
   utm_medium?: string,
-  utm_campaign?: string,
+  utm_campaign?: string | null,
   utm_content: string,
 |}): string => {
   return makeQueryString({
@@ -84,4 +85,15 @@ export const checkInternalURL = ({
     isInternal,
     relativeURL,
   };
+};
+
+export const getPromotedBadgesLinkUrl = ({
+  utm_content,
+}: {|
+  utm_content: string,
+|}): string => {
+  return `${PROMOTED_ADDONS_SUMO_URL}${makeQueryStringWithUTM({
+    utm_campaign: null,
+    utm_content,
+  })}`;
 };
