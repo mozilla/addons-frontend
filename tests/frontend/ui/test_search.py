@@ -72,6 +72,7 @@ def test_incompative_extensions_show_as_incompatible(base_url, selenium):
 
 @pytest.mark.serial
 @pytest.mark.nondestructive
+@pytest.mark.xfail(strict=False)
 def test_search_suggestion_term_is_higher(base_url, selenium):
     page = Home(selenium, base_url).open()
     term = 'Ui-Addon-Install'
@@ -81,6 +82,7 @@ def test_search_suggestion_term_is_higher(base_url, selenium):
 
 @pytest.mark.serial
 @pytest.mark.nondestructive
+@pytest.mark.xfail(strict=False)
 def test_special_chars_dont_break_suggestions(base_url, selenium):
     page = Home(selenium, base_url).open()
     term = 'Ui-Addon'
