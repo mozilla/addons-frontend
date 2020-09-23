@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-23 09:32+0000\n"
+"PO-Revision-Date: 2020-09-23 09:43+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1006,11 +1006,8 @@ msgid "Download file"
 msgstr "Bestân downloade"
 
 #: src/amo/components/InstallWarning/index.js:103
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr ""
-"Dizze útwreiding wurdt net kontrolearre op befeiligingsproblemen fia it programma fan Oanrekommandearre útwreidingen fan Mozilla. Soargje derfoar dat jo de útwreiding fertrouwe eardat jo dizze "
-"ynstallearje."
+msgstr "Dizze add-on wurdt net aktyf op befeiliging kontrolearre troch Mozilla. Soargje derfoar dat jo de add-on fertrouwe eardat jo dizze ynstallearje."
 
 #: src/amo/components/InstallWarning/index.js:98
 msgid "Learn more"
@@ -1483,9 +1480,8 @@ msgid "Verified"
 msgstr "Ferifiearre"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Beoardiele"
+msgstr "Alle beoardiele"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1708,9 +1704,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Dizze list is net bedoeld foar dit platfoarm. <a href=\"%(newLocation)s\">Troch add-ons foar Firefox op desktop blêdzje</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Jo kinne dizze add-on yn de Add-onbehearder ynstallearje.  Mear ynformaasje oer <a href=\"%(newLocation)s\">add-ons foar Android</a>."
+msgstr "Jo kinne dizze add-on yn de Add-onbehearder ynstallearje.  Mear ynfo oer <a href=\"%(newLocation)s\">add-ons foar Android</a>."
 
 #: src/amo/pages/Addon/index.js:522
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -2788,9 +2783,8 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox rekommandearret allinnich útwreidingen oan dy't oan ús standert foar feilichheid en prestaasjes foldogge."
+msgstr "Firefox rekommandearret allinnich add-ons oan dy't foldogge oan ús noarms foar feilichheid en prestaasjes."
 
 #: src/ui/components/PromotedBadge/index.js:58
 #, fuzzy
