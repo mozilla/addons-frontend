@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-23 05:07+0000\n"
+"PO-Revision-Date: 2020-09-23 05:21+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -990,9 +990,8 @@ msgid "RECOMMENDED"
 msgstr "推荐"
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
-#, fuzzy
 msgid "Download file"
-msgstr "下载项"
+msgstr "下载文件"
 
 #: src/amo/components/InstallWarning/index.js:103
 #, fuzzy
