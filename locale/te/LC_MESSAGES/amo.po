@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-24 15:36+0000\n"
+"PO-Revision-Date: 2020-09-24 15:53+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1270,9 +1270,8 @@ msgid "Recommended add-ons"
 msgstr ""
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "%(author)s పొడగింతలు"
+msgstr "Firefox వారిచే పొడగింతలు"
 
 #: src/amo/components/Search/index.js:140
 msgid "Themes by Firefox"
