@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-24 12:24+0000\n"
+"PO-Revision-Date: 2020-09-24 13:02+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -997,14 +997,12 @@ msgid "RECOMMENDED"
 msgstr "RECOMENDADO"
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
-#, fuzzy
 msgid "Download file"
-msgstr "Download"
+msgstr "Baixar arquivo"
 
 #: src/amo/components/InstallWarning/index.js:103
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "A segurança disso não é monitorada pelo programa de extensões recomendadas da Mozilla. Tenha certeza de que confia antes de instalar."
+msgstr "A segurança desta extensão não é monitorada ativamente pela Mozilla. Tenha certeza de que confia nela antes de instalar."
 
 #: src/amo/components/InstallWarning/index.js:98
 msgid "Learn more"
@@ -1477,9 +1475,8 @@ msgid "Verified"
 msgstr "Certificado"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Revisado"
+msgstr "Tudo revisado"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1499,7 +1496,7 @@ msgstr "Sistema operacional"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "Emblemas"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
