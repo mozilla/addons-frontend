@@ -22,5 +22,5 @@ sudo chown -R  $USER:$USER .
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox pip3 install --user --no-deps -r tests/frontend/requirements.txt
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml up -d
 # Switch back to addons-frontend
-docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox python3 -m pytest tests/frontend --driver Firefox --html=ui-test.html --self-contained-html -vv -m "serial"
-docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox python3 -m pytest tests/frontend --driver Firefox --html=ui-test.html --self-contained-html -vv -n 4 -m "not serial"
+docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox python3 -m pytest tests/frontend --driver Firefox --html=ui-test-serial.html --self-contained-html -vv -m "serial"
+docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox python3 -m pytest tests/frontend --driver Firefox --html=ui-test-parallel.html --self-contained-html -vv -n 4 -m "not serial"
