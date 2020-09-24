@@ -147,6 +147,10 @@ export class AddonBase extends React.Component {
       match: { params },
     } = this.props;
 
+    if (errorHandler.hasError()) {
+      return;
+    }
+
     const oldAddonType = oldAddon ? oldAddon.type : null;
     if (newAddon && newAddon.type !== oldAddonType) {
       dispatch(setViewContext(newAddon.type));
