@@ -157,6 +157,11 @@ class Header(Region):
                 lambda _: self.is_element_displayed(
                     *self._search_suggestions_list_locator)
             )
+            WebDriverWait(self.selenium, 30).until(
+                EC.invisibility_of_element_located(
+                    self._search_item_name
+                )
+            )
             el_list = self.find_element(*self._search_suggestions_list_locator)
             items = el_list.find_elements(
                 *self._search_suggestions_item_locator)
