@@ -32,6 +32,11 @@ describe(__filename, () => {
     );
   };
 
+  it('displays nothing when addons is an empty array', () => {
+    const root = render({ addons: [] });
+    expect(root.find(AddonsCard)).toHaveLength(0);
+  });
+
   it('passes loading parameter to AddonsCard', () => {
     const root = render({ loading: true });
     expect(root.find(AddonsCard)).toHaveProp('loading', true);
@@ -69,7 +74,7 @@ describe(__filename, () => {
     );
   });
 
-  it('uses the proper `rel` property for the header link in AddonsCard', () => {
+  it('uses the expected properties for the header link in AddonsCard', () => {
     const root = render();
     const headerProp = root.find(AddonsCard).prop('header');
     const header = shallow(<div>{headerProp}</div>);
