@@ -71,6 +71,11 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
   render() {
     const { addonInstallSource, addons, className, i18n, loading } = this.props;
 
+    // Don't display anything if there are no add-ons.
+    if (Array.isArray(addons) && !addons.length) {
+      return null;
+    }
+
     const header = (
       <>
         <div className="PromotedAddonsCard-headerText">
