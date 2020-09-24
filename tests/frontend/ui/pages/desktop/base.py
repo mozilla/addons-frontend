@@ -133,7 +133,7 @@ class Header(Region):
         _search_suggestions_item_locator = (
             By.CLASS_NAME, 'AutoSearchInput-suggestions-item')
         _search_textbox_locator = (By.CLASS_NAME, 'AutoSearchInput-query')
-        _search_item_name = (By.CSS_SELECTOR, '.SearchSuggestion-name')
+        _search_item_name = (By.CSS_SELECTOR, '.SearchSuggestion-name .LoadingText')
 
         def search_for(self, term, execute=True):
             textbox = self.find_element(*self._search_textbox_locator)
@@ -144,8 +144,8 @@ class Header(Region):
                 textbox.send_keys(Keys.ENTER)
                 from pages.desktop.search import Search
                 return Search(self.selenium, self.page).wait_for_page_to_load()
-            WebDriverWait(self.selenium, 10).until(
-                EC.presence_of_element_located(
+            WebDriverWait(self.selenium, 30).until(
+                EC.invisibility_of_element_located(
                     self._search_item_name
                 )
             )
