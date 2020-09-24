@@ -154,7 +154,9 @@ jobs:
             PYTEST_ADDOPTS: -n 4 --reruns 1
           command: ./tests/frontend/run-integration-test.sh
       - store_artifacts:
-          path: addons-server/ui-test.html
+          path: ui-test-serial.html
+      - store_artifacts:
+          path: ui-test-parallel.html
 workflows:
   version: 2
   build_deploy_release:
