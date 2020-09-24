@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-24 08:10+0000\n"
+"PO-Revision-Date: 2020-09-24 08:24+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1006,9 +1006,8 @@ msgid "Download file"
 msgstr "Fájl letöltése"
 
 #: src/amo/components/InstallWarning/index.js:103
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Ezt nem vizsgálja biztonsági szempontból a Mozilla ajánlott kiegészítők programja. Telepítés előtt győződjön meg arról, hogy megbízik-e benne."
+msgstr "Ezt a kiegészítőt nem vizsgálja biztonsági szempontból a Mozilla. Telepítés előtt győződjön meg arról, hogy megbízik-e benne."
 
 #: src/amo/components/InstallWarning/index.js:98
 msgid "Learn more"
@@ -1481,9 +1480,8 @@ msgid "Verified"
 msgstr "Ellenőrzött"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Értékelt"
+msgstr "Összes értékelt"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1706,7 +1704,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Ez a felsorolás nem erre a platformra szól. <a href=\"%(newLocation)s\">Böngéssze az asztali Firefox kiegészítőket</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "Ezt a kiegészítőt a Kiegészítőkezelőben telepítheti. Tudjon meg többet az <a href=\"%(newLocation)s\">androidos kiegészítőkről</a>."
 
