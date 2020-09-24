@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-22 20:42+0000\n"
+"PO-Revision-Date: 2020-09-24 17:13+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1460,7 +1460,7 @@ msgstr "Gündemde"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "Hepsi"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
@@ -1476,7 +1476,7 @@ msgstr "Doğrulandı"
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "All Reviewed"
-msgstr ""
+msgstr "İncelendi"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1496,7 +1496,7 @@ msgstr "İşletim sistemi"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "Rozet"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
