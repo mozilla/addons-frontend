@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-24 05:22+0000\n"
+"PO-Revision-Date: 2020-09-24 05:27+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -1464,9 +1464,8 @@ msgid "Verified"
 msgstr "Đã xác minh"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Nhận xét"
+msgstr "Tất cả được đánh giá"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1486,7 +1485,7 @@ msgstr "Hệ điều hành"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "Huy hiệu"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
