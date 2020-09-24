@@ -156,7 +156,7 @@ jobs:
       - store_artifacts:
           path: ui-test-serial.html
       - store_artifacts:
-        path: ui-test-parallel.html
+          path: ui-test-parallel.html
 workflows:
   version: 2
   build_deploy_release:
