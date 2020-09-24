@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-24 08:24+0000\n"
+"PO-Revision-Date: 2020-09-24 08:27+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1465,7 +1465,7 @@ msgstr "Felkapott"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "Bármely"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
@@ -1501,7 +1501,7 @@ msgstr "Operációs rendszer"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "Jelvényezés"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -2780,17 +2780,15 @@ msgstr "Értesítés elvetése"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This is an official add-on built by the creators of Mozilla Firefox."
-msgstr ""
+msgstr "Ez egy hivatalos kiegészítő, amelyet a Mozilla Firefox készítői készítettek."
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
 msgstr "A Firefox csak olyan kiegészítőket ajánl, amelyek megfelelnek a biztonsági és a teljesítménybeli követelményeinknek."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "A Firefox csak olyan kiegészítőket ajánl, amelyek megfelelnek a biztonsági és a teljesítménybeli követelményeinknek."
+msgstr "Megvizsgáltuk ezt a kiegészítőt, és megfelelt a biztonsági és a teljesítménybeli követelményeinknek."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
