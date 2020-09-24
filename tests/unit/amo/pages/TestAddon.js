@@ -238,6 +238,31 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
+  it('does not dispatch any new actions if error handler has an error on update', () => {
+    const id = 'error-handler-id';
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    // First render.
+    const root = renderComponent({ store });
+
+    const error = createApiError({
+      response: { status: 400 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Bad request' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    // This makes sure the error was dispatched to state correctly.
+    expect(capturedError).toBeTruthy();
+    const errorHandler = createStubErrorHandler(capturedError);
+    fakeDispatch.resetHistory();
+    // This will trigger a second render (update).
+    root.setProps({ errorHandler });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
   it('renders an AddonTitle component', () => {
     const root = shallowRender();
     expect(root.find(AddonTitle)).toHaveLength(1);
