@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-24 13:02+0000\n"
+"PO-Revision-Date: 2020-09-24 16:23+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1699,7 +1699,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Esta listagem não se destina a esta plataforma. <a href=\"%(newLocation)s\">Veja extensões para Firefox no computador</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "Você pode instalar esta extensão no gerenciador de extensões. Saiba mais sobre <a href=\"%(newLocation)s\">extensões para Android</a>."
 
@@ -2780,14 +2779,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr "Esta é uma extensão oficial desenvolvida pelos criadores do Mozilla Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
 msgstr "O Firefox só recomenda extensões que atendem nossos padrões de segurança e desempenho."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "O Firefox só recomenda extensões que atendem nossos padrões de segurança e desempenho."
+msgstr "Esta extensão foi revisada para atender aos nossos padrões de segurança e desempenho."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
