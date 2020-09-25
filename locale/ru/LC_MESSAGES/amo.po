@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-25 13:51+0000\n"
+"PO-Revision-Date: 2020-09-25 13:54+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1481,7 +1481,7 @@ msgstr "Популярные"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "Любые"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
@@ -1517,7 +1517,7 @@ msgstr "Операционная система"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "С наградами"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -1722,9 +1722,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Эти расширения не предназначены для вашей платформы. <a href=\"%(newLocation)s\">Посмотреть дополнения для компьютерного Firefox</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Недоступно в Firefox для Android. Вы можете использовать это дополнение в компьютерном Firefox. Узнайте больше о <a href=\"%(newLocation)s\">дополнениях для Android</a>."
+msgstr "Вы можете установить это дополнение в Менеджере дополнений. Узнайте больше о <a href=\"%(newLocation)s\">дополнениях для Android</a>."
 
 #: src/amo/pages/Addon/index.js:522
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
