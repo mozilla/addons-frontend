@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-25 21:52+0000\n"
+"PO-Revision-Date: 2020-09-25 22:04+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1006,9 +1006,8 @@ msgid "Download file"
 msgstr "Stáhnout soubor"
 
 #: src/amo/components/InstallWarning/index.js:103
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Toto rozšíření není z hlediska bezpečnosti sledováno v programu doporučených rozšíření od Mozilly. Před jeho instalací se ujistěte, že mu můžete důvěřovat."
+msgstr "Bezpečnost tohoto doplňku není Mozillou aktivně sledována. Než jej nainstalujete, ujistěte se prosím, že mu můžete důvěřovat."
 
 #: src/amo/components/InstallWarning/index.js:98
 msgid "Learn more"
@@ -1123,18 +1122,16 @@ msgid "Access browser activity during navigation"
 msgstr "Přistupovat k aktivitám prohlížeče během prohlížení"
 
 #: src/amo/components/PromotedAddonsCard/index.js:76
-#, fuzzy
 msgid "Sponsored extensions"
-msgstr "Nejlépe hodnocená rozšíření"
+msgstr "Sponzorovaná rozšíření"
 
 #: src/amo/components/PromotedAddonsCard/index.js:83
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
 msgstr "Firefox doporučuje jen rozšíření, která splňují naše standardy pro bezpečnost a výkon."
 
 #: src/amo/components/PromotedAddonsCard/index.js:87
-#, fuzzy
 msgid "What is this?"
-msgstr "Co to znamená?"
+msgstr "Co to je?"
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
@@ -1279,19 +1276,16 @@ msgid "Recommended add-ons"
 msgstr "Doporučené doplňky"
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Rozšíření od autora %(author)s"
+msgstr "Rozšíření od Firefoxu"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Od Firefoxu"
+msgstr "Motivy od Firefoxu"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Doplňky pro Firefox"
+msgstr "Doplňky od Firefoxu"
 
 #: src/amo/components/Search/index.js:148
 #, fuzzy
@@ -1729,9 +1723,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Tento seznam není určen pro platformu na vašem zařízení. <a href=\"%(newLocation)s\">Doplňky do Firefoxu pro počítače najdete zde</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Tento doplněk není dostupný pro Firefox pro Android, ale můžete ho používat ve Firefoxu pro počítač. Zjistěte více o <a href=\"%(newLocation)s\">doplňích pro Android</a>."
+msgstr "Tento doplněk můžete nainstalovat pomocí správce doplňků. Zjistěte více o <a href=\"%(newLocation)s\">doplňcích ve Firefoxu pro Android</a>."
 
 #: src/amo/pages/Addon/index.js:522
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -2808,14 +2801,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
 msgstr "Firefox doporučuje jen rozšíření, která splňují naše standardy pro bezpečnost a výkon."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox doporučuje jen rozšíření, která splňují naše standardy pro bezpečnost a výkon."
+msgstr "U tohoto doplňku bylo zkontrolováno, že splňuje naše standardy pro bezpečnost a výkon."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
