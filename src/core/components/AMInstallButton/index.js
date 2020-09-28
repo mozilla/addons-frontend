@@ -66,7 +66,7 @@ type InternalProps = {|
 |};
 
 type TrackParams = {|
-  addonName: string,
+  guid: string,
   type: string,
 |};
 
@@ -102,10 +102,10 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     _log.info('Adding OpenSearch Provider', { addon });
     _window.external.AddSearchProvider(installURL);
 
-    const { name: addonName, type } = addon;
+    const { guid, type } = addon;
 
-    this.trackInstallStarted({ addonName, type });
-    this.trackInstallSucceeded({ addonName, type });
+    this.trackInstallStarted({ guid, type });
+    this.trackInstallSucceeded({ guid, type });
 
     return false;
   };
@@ -152,23 +152,23 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     return false;
   };
 
-  trackInstallStarted({ addonName, type }: TrackParams) {
+  trackInstallStarted({ guid, type }: TrackParams) {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
       action: getAddonTypeForTracking(type),
       category: getAddonEventCategory(type, INSTALL_STARTED_ACTION),
-      label: addonName,
+      label: guid,
     });
   }
 
-  trackInstallSucceeded({ addonName, type }: TrackParams) {
+  trackInstallSucceeded({ guid, type }: TrackParams) {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
       action: getAddonTypeForTracking(type),
       category: getAddonEventCategory(type, INSTALL_ACTION),
-      label: addonName,
+      label: guid,
     });
   }
 

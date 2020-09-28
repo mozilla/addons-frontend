@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import AppBanner from 'amo/components/AppBanner';
 import HeroRecommendation, {
+  PRIMARY_HERO_CLICK_ACTION,
   PRIMARY_HERO_CLICK_CATEGORY,
   PRIMARY_HERO_SRC,
   HeroRecommendationBase,
@@ -302,8 +303,9 @@ describe(__filename, () => {
         root.find('.HeroRecommendation-link').simulate('click', event);
 
         sinon.assert.calledWith(_tracking.sendEvent, {
-          action: root.instance().makeCallToActionURL(),
+          action: PRIMARY_HERO_CLICK_ACTION,
           category: PRIMARY_HERO_CLICK_CATEGORY,
+          label: feature === 'addon' ? shelfData.addon.guid : undefined,
         });
         sinon.assert.calledOnce(_tracking.sendEvent);
       },

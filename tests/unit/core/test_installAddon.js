@@ -728,7 +728,7 @@ describe(__filename, () => {
         sinon.assert.calledWith(_tracking.sendEvent, {
           action: getAddonTypeForTracking(type),
           category: getAddonEventCategory(type, INSTALL_DOWNLOAD_FAILED_ACTION),
-          label: name,
+          label: guid,
         });
       });
 
@@ -770,7 +770,7 @@ describe(__filename, () => {
         sinon.assert.calledWith(_tracking.sendEvent, {
           action: getAddonTypeForTracking(type),
           category: getAddonEventCategory(type, INSTALL_CANCELLED_ACTION),
-          label: name,
+          label: guid,
         });
       });
 
@@ -858,7 +858,7 @@ describe(__filename, () => {
               ADDON_TYPE_EXTENSION,
               ENABLE_ACTION,
             ),
-            label: addon.name,
+            label: addon.guid,
           });
         });
       });
@@ -1125,7 +1125,7 @@ describe(__filename, () => {
               ADDON_TYPE_EXTENSION,
               INSTALL_STARTED_ACTION,
             ),
-            label: addon.name,
+            label: addon.guid,
           });
           sinon.assert.calledOnce(fakeTracking.sendEvent);
         });
@@ -1150,7 +1150,7 @@ describe(__filename, () => {
               ADDON_TYPE_EXTENSION,
               INSTALL_ACTION,
             ),
-            label: addon.name,
+            label: addon.guid,
           });
         });
       });
@@ -1177,7 +1177,7 @@ describe(__filename, () => {
               ADDON_TYPE_STATIC_THEME,
               INSTALL_STARTED_ACTION,
             ),
-            label: addon.name,
+            label: addon.guid,
           });
         });
       });
@@ -1204,7 +1204,7 @@ describe(__filename, () => {
               ADDON_TYPE_STATIC_THEME,
               INSTALL_ACTION,
             ),
-            label: addon.name,
+            label: addon.guid,
           });
         });
       });
@@ -1404,7 +1404,7 @@ describe(__filename, () => {
               ADDON_TYPE_EXTENSION,
               UNINSTALL_ACTION,
             ),
-            label: addon.name,
+            label: addon.guid,
           });
         });
       });
@@ -1430,7 +1430,7 @@ describe(__filename, () => {
               ADDON_TYPE_STATIC_THEME,
               UNINSTALL_ACTION,
             ),
-            label: addon.name,
+            label: addon.guid,
           });
         });
       });
@@ -1453,7 +1453,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(fakeTracking.sendEvent, {
             action: TRACKING_TYPE_INVALID,
             category: getAddonEventCategory(INVALID_TYPE, UNINSTALL_ACTION),
-            label: addon.name,
+            label: addon.guid,
           });
         });
       });

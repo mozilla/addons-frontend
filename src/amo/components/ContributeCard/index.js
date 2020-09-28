@@ -13,6 +13,7 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
+export const CONTRIBUTE_BUTTON_CLICK_ACTION = 'contribute-click';
 export const CONTRIBUTE_BUTTON_CLICK_CATEGORY =
   'AMO Addon / Contribute Button Clicks';
 
@@ -84,11 +85,11 @@ export const ContributeCardBase = ({
       break;
   }
 
-  const onButtonClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  const onButtonClick = () => {
     _tracking.sendEvent({
-      action: addon.slug,
+      action: CONTRIBUTE_BUTTON_CLICK_ACTION,
       category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,
-      label: event.currentTarget.href,
+      label: addon.guid,
     });
   };
 

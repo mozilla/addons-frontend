@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import { checkInternalURL } from 'amo/utils';
+import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
 import tracking from 'core/tracking';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import { addQueryParams } from 'core/utils/url';
@@ -14,6 +14,7 @@ import type {
 
 import './styles.scss';
 
+export const SECONDARY_HERO_CLICK_ACTION = 'secondary-hero-click';
 export const SECONDARY_HERO_CLICK_CATEGORY = 'AMO Secondary Hero Clicks';
 export const SECONDARY_HERO_SRC = 'homepage-secondary-hero';
 
@@ -22,6 +23,7 @@ type Props = {| shelfData?: SecondaryHeroShelfType |};
 type InternalProps = {|
   ...Props,
   _checkInternalURL: typeof checkInternalURL,
+  _stripLangFromAmoUrl: typeof stripLangFromAmoUrl,
   _tracking: typeof tracking,
 |};
 
@@ -35,6 +37,7 @@ const makeCallToActionURL = (urlString: string) => {
 
 export const SecondaryHeroBase = ({
   _checkInternalURL = checkInternalURL,
+  _stripLangFromAmoUrl = stripLangFromAmoUrl,
   _tracking = tracking,
   shelfData,
 }: InternalProps) => {
@@ -43,8 +46,9 @@ export const SecondaryHeroBase = ({
 
   const onHeroClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
     _tracking.sendEvent({
-      action: event.currentTarget.href,
+      action: SECONDARY_HERO_CLICK_ACTION,
       category: SECONDARY_HERO_CLICK_CATEGORY,
+      label: _stripLangFromAmoUrl({ urlString: event.currentTarget.href }),
     });
   };
 

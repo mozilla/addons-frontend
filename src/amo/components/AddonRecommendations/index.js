@@ -100,7 +100,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
       tracking.sendEvent({
         action,
         category: TAAR_IMPRESSION_CATEGORY,
-        label: newAddon.name,
+        label: newAddon.guid,
       });
     }
   }
