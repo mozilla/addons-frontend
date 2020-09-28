@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-28 17:13+0000\n"
+"PO-Revision-Date: 2020-09-28 17:18+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1475,7 +1475,7 @@ msgstr "ხშირად ჩამოტვირთული"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "ნებისმიერი"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
@@ -1511,7 +1511,7 @@ msgstr "საოპერაციო სისტემა"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "ნიშნები"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
@@ -2802,16 +2802,15 @@ msgstr "ამ შეტყობინების დამალვა"
 
 #: src/ui/components/PromotedBadge/index.js:40
 msgid "This is an official add-on built by the creators of Mozilla Firefox."
-msgstr ""
+msgstr "მოცემული დამატება არის Mozilla Firefox-ის შემქმნელებისგან."
 
 #: src/ui/components/PromotedBadge/index.js:48
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
 msgstr "Firefox მხოლოდ იმ დამატებებს გირჩევთ, რომლებიც აკმაყოფილებს უსაფრთხოებისა და წარმადობის მაღალ მოთხოვნებს."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox მხოლოდ იმ გაფართოებებს გირჩევთ, რომლებიც აკმაყოფილებს უსაფრთხოებისა და წარმადობის მაღალ მოთხოვნებს."
+msgstr "მოცემული დამატება შემოწმებულია და აკმაყოფილებს უსაფრთხოებისა და წარმადობის სათანადო მოთხოვნებს."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
