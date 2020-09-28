@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-28 08:15+0000\n"
+"PO-Revision-Date: 2020-09-28 08:17+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1274,39 +1274,32 @@ msgid "Extensions by Firefox"
 msgstr "Isiɣzaf sɣur Firefox"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "S Firefox"
+msgstr "Isental sɣur Firefox"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Izegrar i Firefox"
+msgstr "Izegrar sɣur Firefox"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Isiɣzaf yelhan"
+msgstr "Isiɣzaf yettuceggren"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Acegger n usentel"
+msgstr "Isental yettuceggren"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Acegger n tengalt n usiɣzef"
+msgstr "Izegrar yettuceggren"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Isiɣzaf yettwaszemlen"
+msgstr "Isiɣzaf yettusneqden"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Isental itran"
+msgstr "Isental yettusneqden"
 
 #: src/amo/components/Search/index.js:165
 #, fuzzy
