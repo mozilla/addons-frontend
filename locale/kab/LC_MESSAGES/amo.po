@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-28 08:17+0000\n"
+"PO-Revision-Date: 2020-09-28 08:18+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1302,9 +1302,8 @@ msgid "Verified themes"
 msgstr "Isental yettusneqden"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Izegrar yettwasnen"
+msgstr "Izegrar yettusneqden"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1475,9 +1474,8 @@ msgid "Verified"
 msgstr "Ittwasenqed"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Tazmilt"
+msgstr "Ttuceggren i meṛṛa"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
