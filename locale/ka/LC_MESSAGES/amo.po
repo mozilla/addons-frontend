@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-28 16:54+0000\n"
+"PO-Revision-Date: 2020-09-28 17:13+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1490,9 +1490,8 @@ msgid "Verified"
 msgstr "დამოწმებული"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "მიმოხილული"
+msgstr "ყველა მიმოხილული"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -1716,9 +1715,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "ეს ჩამონათვალი არ არის განკუთვნილი ამ პლატფორმისთვის. <a href=\"%(newLocation)s\">მონახეთ დამატებები სამაგიდო Firefox-ისთვის</a>."
 
 #: src/amo/pages/Addon/index.js:518
-#, fuzzy
 msgid "You can install this add-on in the Add-ons Manager. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "ამ დამატების ჩადგმა შეგიძლიათ დამატებების მმართველიდან.  ვრცლად, იხილეთ <a href=\"%(newLocation)s\">დამატებები Android-ისთვის</a>."
+msgstr "ამ დამატების ჩადგმა შეგიძლიათ დამატებების მმართველიდან. ვრცლად, იხილეთ <a href=\"%(newLocation)s\">დამატებები Android-ისთვის</a>."
 
 #: src/amo/pages/Addon/index.js:522
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
@@ -2807,9 +2805,8 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
 #: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox მხოლოდ იმ გაფართოებებს გირჩევთ, რომლებიც აკმაყოფილებს უსაფრთხოებისა და წარმადობის მაღალ მოთხოვნებს."
+msgstr "Firefox მხოლოდ იმ დამატებებს გირჩევთ, რომლებიც აკმაყოფილებს უსაფრთხოებისა და წარმადობის მაღალ მოთხოვნებს."
 
 #: src/ui/components/PromotedBadge/index.js:58
 #, fuzzy
