@@ -7,6 +7,7 @@ import {
   getCanonicalURL,
   getPromotedBadgesLinkUrl,
   makeQueryStringWithUTM,
+  stripLangFromAmoUrl,
 } from 'amo/utils';
 import { getFakeConfig } from 'tests/unit/helpers';
 
@@ -179,6 +180,82 @@ describe(__filename, () => {
           utm_campaign: null,
           utm_content,
         })}`,
+      );
+    });
+  });
+
+  describe('stripLangFromAmoUrl', () => {
+    // These are known values from the config.
+    const validLang = 'en-US';
+    const invalidLang = 'en_US';
+
+    it('should return the same url if the link is external', () => {
+      const _checkInternalURL = sinon
+        .stub()
+        .returns({ isInternal: false, relativeURL: '' });
+      const urlString = `https://somehost/${validLang}/somepath/`;
+      expect(stripLangFromAmoUrl({ _checkInternalURL, urlString })).toEqual(
+        urlString,
+      );
+    });
+
+    it('should strip the lang if the link is internal', () => {
+      const _checkInternalURL = sinon
+        .stub()
+        .returns({ isInternal: true, relativeURL: '' });
+      const urlString = `https://somehost/${validLang}/somepath/`;
+      expect(stripLangFromAmoUrl({ _checkInternalURL, urlString })).toEqual(
+        'https://somehost/somepath/',
+      );
+    });
+
+    it('should not strip an invalid lang', () => {
+      const _checkInternalURL = sinon
+        .stub()
+        .returns({ isInternal: true, relativeURL: '' });
+      const urlString = `https://somehost/${invalidLang}/somepath/`;
+      expect(stripLangFromAmoUrl({ _checkInternalURL, urlString })).toEqual(
+        urlString,
+      );
+    });
+
+    it('should not strip a lang that is not the first path item', () => {
+      const _checkInternalURL = sinon
+        .stub()
+        .returns({ isInternal: true, relativeURL: '' });
+      const urlString = `https://somehost/somepath/${validLang}/`;
+      expect(stripLangFromAmoUrl({ _checkInternalURL, urlString })).toEqual(
+        urlString,
+      );
+    });
+
+    it('maintains the querystring', () => {
+      const _checkInternalURL = sinon
+        .stub()
+        .returns({ isInternal: true, relativeURL: '' });
+      const urlString = `https://somehost/${validLang}/somepath/?a=b`;
+      expect(stripLangFromAmoUrl({ _checkInternalURL, urlString })).toEqual(
+        'https://somehost/somepath/?a=b',
+      );
+    });
+
+    it('does not strip a valid lang from the querystring', () => {
+      const _checkInternalURL = sinon
+        .stub()
+        .returns({ isInternal: true, relativeURL: '' });
+      const urlString = `https://somehost/somepath/?lang=${validLang}`;
+      expect(stripLangFromAmoUrl({ _checkInternalURL, urlString })).toEqual(
+        urlString,
+      );
+    });
+
+    it('only strips the first instance of a lang', () => {
+      const _checkInternalURL = sinon
+        .stub()
+        .returns({ isInternal: true, relativeURL: '' });
+      const urlString = `https://somehost/${validLang}/${validLang}/somepath/`;
+      expect(stripLangFromAmoUrl({ _checkInternalURL, urlString })).toEqual(
+        `https://somehost/${validLang}/somepath/`,
       );
     });
   });
