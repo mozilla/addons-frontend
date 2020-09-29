@@ -4,6 +4,7 @@ import AppBanner from 'amo/components/AppBanner';
 import HeroRecommendation, {
   PRIMARY_HERO_CLICK_ACTION,
   PRIMARY_HERO_CLICK_CATEGORY,
+  PRIMARY_HERO_CLICK_EXTERNAL_LABEL,
   PRIMARY_HERO_SRC,
   HeroRecommendationBase,
 } from 'amo/components/HeroRecommendation';
@@ -305,7 +306,10 @@ describe(__filename, () => {
         sinon.assert.calledWith(_tracking.sendEvent, {
           action: PRIMARY_HERO_CLICK_ACTION,
           category: PRIMARY_HERO_CLICK_CATEGORY,
-          label: feature === 'addon' ? shelfData.addon.guid : undefined,
+          label:
+            feature === 'addon'
+              ? shelfData.addon.guid
+              : PRIMARY_HERO_CLICK_EXTERNAL_LABEL,
         });
         sinon.assert.calledOnce(_tracking.sendEvent);
       },
