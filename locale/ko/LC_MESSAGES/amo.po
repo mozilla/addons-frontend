@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-25 18:39+0000\n"
+"PO-Revision-Date: 2020-09-29 03:41+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1448,7 +1448,7 @@ msgstr "인기"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "모두"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:47
 msgid "Recommended"
@@ -1485,7 +1485,7 @@ msgstr "운영체제"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "배지"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
