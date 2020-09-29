@@ -58,7 +58,14 @@
 
 .PromotedBadge-link--line {
   border: 1px solid $grey-30;
-  border-left: 0;
+
+  [dir='ltr'] & {
+    border-left: 0;
+  }
+
+  [dir='rtl'] & {
+    border-right: 0;
+  }
 
   &,
   &:link,
