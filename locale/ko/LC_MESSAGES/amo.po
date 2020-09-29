@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-29 03:41+0000\n"
+"PO-Revision-Date: 2020-09-29 03:53+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1275,19 +1275,16 @@ msgid "Add-ons by Firefox"
 msgstr "Firefox 부가 기능"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "추천 확장 기능"
+msgstr "검토된 확장 기능"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "테마 검토"
+msgstr "검토된 테마"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "부가 기능 코드 검토"
+msgstr "검토된 부가 기능"
 
 #: src/amo/components/Search/index.js:159
 #, fuzzy
@@ -1463,9 +1460,8 @@ msgid "Verified"
 msgstr "확인됨"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "리뷰"
+msgstr "모두 검토됨"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -2735,9 +2731,8 @@ msgid "Firefox only recommends add-ons that meet our standards for security and 
 msgstr "Firefox는 보안 및 성능 표준을 충족하는 확장 기능만 추천합니다."
 
 #: src/ui/components/PromotedBadge/index.js:58
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox는 보안 및 성능 표준을 충족하는 확장 기능만 추천합니다."
+msgstr "이 부가 기능은 보안 및 성능에 대한 표준을 충족하는 것으로 검토되었습니다."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
