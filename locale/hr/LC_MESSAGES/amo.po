@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-22 18:52+0000\n"
+"POT-Creation-Date: 2020-09-29 17:41+0000\n"
 "PO-Revision-Date: 2020-09-20 20:02+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
@@ -717,19 +717,19 @@ msgstr "Ime"
 msgid "Popularity"
 msgstr "Omiljenost"
 
-#: src/amo/components/ContributeCard/index.js:108
+#: src/amo/components/ContributeCard/index.js:109
 msgid "Contribute now"
 msgstr "Doprinesi sada"
 
-#: src/amo/components/ContributeCard/index.js:45
+#: src/amo/components/ContributeCard/index.js:46
 msgid "Support this developer"
 msgstr "Podrži ovog programera"
 
-#: src/amo/components/ContributeCard/index.js:46
+#: src/amo/components/ContributeCard/index.js:47
 msgid "Support these developers"
 msgstr "Podrži ove programere"
 
-#: src/amo/components/ContributeCard/index.js:50
+#: src/amo/components/ContributeCard/index.js:51
 msgid ""
 "The developer of this extension asks that you help support its continued "
 "development by making a small contribution."
@@ -737,7 +737,7 @@ msgstr ""
 "Programer ovog proširenja te moli, da pomoću male donacije podržiš daljnji "
 "razvoj proširenja."
 
-#: src/amo/components/ContributeCard/index.js:52
+#: src/amo/components/ContributeCard/index.js:53
 msgid ""
 "The developers of this extension ask that you help support its continued "
 "development by making a small contribution."
@@ -745,15 +745,15 @@ msgstr ""
 "Programer ovog proširenja te moli, da pomoću male donacije podržiš daljnji "
 "razvoj proširenja."
 
-#: src/amo/components/ContributeCard/index.js:59
+#: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
 msgstr "Podrži ovog umjetnika"
 
-#: src/amo/components/ContributeCard/index.js:60
+#: src/amo/components/ContributeCard/index.js:61
 msgid "Support these artists"
 msgstr "Podrži ove umjetnike"
 
-#: src/amo/components/ContributeCard/index.js:64
+#: src/amo/components/ContributeCard/index.js:65
 msgid ""
 "The artist of this theme asks that you help support its continued creation "
 "by making a small contribution."
@@ -761,7 +761,7 @@ msgstr ""
 "Umjetnik/ca ovog motiva te moli, da pomoću male donacije podržiš razvoj "
 "daljnjih kreacija."
 
-#: src/amo/components/ContributeCard/index.js:66
+#: src/amo/components/ContributeCard/index.js:67
 msgid ""
 "The artists of this theme ask that you help support its continued creation "
 "by making a small contribution."
@@ -769,15 +769,15 @@ msgstr ""
 "Umjetnici ovog motiva te mole, da pomoću male donacije podržiš razvoj "
 "daljnjih kreacija."
 
-#: src/amo/components/ContributeCard/index.js:73
+#: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
 msgstr "Podrži ovog autora"
 
-#: src/amo/components/ContributeCard/index.js:74
+#: src/amo/components/ContributeCard/index.js:75
 msgid "Support these authors"
 msgstr "Podrži ove umjetnike"
 
-#: src/amo/components/ContributeCard/index.js:78
+#: src/amo/components/ContributeCard/index.js:79
 msgid ""
 "The author of this add-on asks that you help support its continued work by "
 "making a small contribution."
@@ -785,7 +785,7 @@ msgstr ""
 "Autor/ica ovog dodatka te moli, da pomoću male donacije podržiš daljnji "
 "razvoj dodataka."
 
-#: src/amo/components/ContributeCard/index.js:80
+#: src/amo/components/ContributeCard/index.js:81
 msgid ""
 "The authors of this add-on ask that you help support its continued work by "
 "making a small contribution."
@@ -934,12 +934,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Označeno kao izvještaj o grešci ili zahtjev za podršku"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Oznaka"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Označeno"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Oznaka"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1124,12 +1124,12 @@ msgstr "Uredi moj profil"
 msgid "Tools"
 msgstr "Alati"
 
-#: src/amo/components/HeroRecommendation/index.js:112
+#: src/amo/components/HeroRecommendation/index.js:119
 msgid "Get the extension"
 msgstr "Preuzmi proširenje"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:188
+#: src/amo/components/HeroRecommendation/index.js:195
 msgid "RECOMMENDED"
 msgstr "PREPORUČENO"
 
@@ -1138,7 +1138,7 @@ msgstr "PREPORUČENO"
 msgid "Download file"
 msgstr "Preuzimanje"
 
-#: src/amo/components/InstallWarning/index.js:103
+#: src/amo/components/InstallWarning/index.js:101
 #, fuzzy
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
@@ -1147,7 +1147,7 @@ msgstr ""
 "Sigurnost ovog proširenja ne prati se kroz Mozillin program preporučenih "
 "proširenja. Prije instaliranja odluči vjeruješ li ovom proširenju."
 
-#: src/amo/components/InstallWarning/index.js:98
+#: src/amo/components/InstallWarning/index.js:97
 msgid "Learn more"
 msgstr "Saznaj više"
 
@@ -1262,11 +1262,11 @@ msgstr "Spremaj neograničenu količinu podataka klijenta"
 msgid "Access browser activity during navigation"
 msgstr "Pristupi aktivnostima preglednika tijekom navigacije"
 
-#: src/amo/components/PromotedAddonsCard/index.js:76
+#: src/amo/components/PromotedAddonsCard/index.js:82
 msgid "Sponsored extensions"
 msgstr "Sponzorirana proširenja"
 
-#: src/amo/components/PromotedAddonsCard/index.js:83
+#: src/amo/components/PromotedAddonsCard/index.js:91
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1274,7 +1274,7 @@ msgstr ""
 "Firefox preporučuje samo proširenja, koja udovoljavaju našim standardima za "
 "sigurnost i performanse."
 
-#: src/amo/components/PromotedAddonsCard/index.js:87
+#: src/amo/components/PromotedAddonsCard/index.js:95
 msgid "What is this?"
 msgstr "Što je ovo?"
 
@@ -1671,13 +1671,13 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:169
 #: src/ui/components/IconPromotedBadge/index.js:47
-#: src/ui/components/PromotedBadge/index.js:47
+#: src/ui/components/PromotedBadge/index.js:48
 msgid "Recommended"
 msgstr "Preporučeno"
 
 #: src/amo/components/SearchFilters/index.js:171
 #: src/ui/components/IconPromotedBadge/index.js:46
-#: src/ui/components/PromotedBadge/index.js:38
+#: src/ui/components/PromotedBadge/index.js:41
 msgid "By Firefox"
 msgstr "Od Firefoxa"
 
@@ -1871,69 +1871,69 @@ msgstr ""
 "Pronađi dodatke koji su kompatibilni s Firefoxom za Android <a href="
 "\"%(newLocation)s\">ovdje</a>."
 
-#: src/amo/pages/Addon/index.js:168 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:172 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Pregled za %(title)s"
 
-#: src/amo/pages/Addon/index.js:203
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Ovaj se dodatak ne može ocijeniti, jer nije objavljena nijedna verzija."
 
-#: src/amo/pages/Addon/index.js:214
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Pročitaj %(count)s recenziju"
 msgstr[1] "Pročitaj %(count)s recenzije"
 msgstr[2] "Pročitaj %(count)s recenzija"
 
-#: src/amo/pages/Addon/index.js:235
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "Još nema recenzija"
 
-#: src/amo/pages/Addon/index.js:245
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "Ocijeni svoje iskustvo"
 
-#: src/amo/pages/Addon/index.js:264
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "Informacije o ovom rječniku"
 
-#: src/amo/pages/Addon/index.js:267
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "Informacije o ovom proširenju"
 
-#: src/amo/pages/Addon/index.js:270
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "Informacije o ovom jezičnom paketu"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "Informacije o ovom motivu"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "Informacije o ovom dodatku"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:322
 msgid "Developer comments"
 msgstr "Komentari razvijatelja"
 
-#: src/amo/pages/Addon/index.js:341
+#: src/amo/pages/Addon/index.js:345
 msgid "Release notes for %(addonVersion)s"
 msgstr "Napomene o izdanju za %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:473
+#: src/amo/pages/Addon/index.js:477
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "Ovo nije javni popis. Vidiš ih samo zbog povlaštenih dozvola."
 
-#: src/amo/pages/Addon/index.js:500
+#: src/amo/pages/Addon/index.js:504
 msgid "Extension Metadata"
 msgstr "Metapodaci proširenja"
 
-#: src/amo/pages/Addon/index.js:508
+#: src/amo/pages/Addon/index.js:512
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1941,7 +1941,7 @@ msgstr ""
 "Ovaj popis nije namijenjen ovoj platformi. <a href=\"%(newLocation)s"
 "\">Pregledaj dodatke za Firefox na Androidu</a>."
 
-#: src/amo/pages/Addon/index.js:512
+#: src/amo/pages/Addon/index.js:516
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1949,7 +1949,7 @@ msgstr ""
 "Ovaj popis nije namijenjen ovoj platformi. <a href=\"%(newLocation)s"
 "\">Pregledaj dodatke za Firefox na računalu</a>."
 
-#: src/amo/pages/Addon/index.js:518
+#: src/amo/pages/Addon/index.js:522
 #, fuzzy
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
@@ -1958,7 +1958,7 @@ msgstr ""
 "Ovaj dodatak možeš instalirati u upravljaču dodataka.  Saznaj više o <a href="
 "\"%(newLocation)s\"> dodacima za Android</a>."
 
-#: src/amo/pages/Addon/index.js:522
+#: src/amo/pages/Addon/index.js:526
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
@@ -1968,7 +1968,7 @@ msgstr ""
 "Firefoxom za računalo. Saznaj više o <a href=\"%(newLocation)s\">dodacima za "
 "Android</a>."
 
-#: src/amo/pages/Addon/index.js:544
+#: src/amo/pages/Addon/index.js:548
 msgid "Screenshots"
 msgstr "Snimke ekrana"
 
@@ -3233,11 +3233,11 @@ msgstr "Pristupi tvojim podacima za %(param)s"
 msgid "Dismiss this notice"
 msgstr "Odbaci ovu obavijest"
 
-#: src/ui/components/PromotedBadge/index.js:40
+#: src/ui/components/PromotedBadge/index.js:42
 msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
-#: src/ui/components/PromotedBadge/index.js:48
+#: src/ui/components/PromotedBadge/index.js:49
 #, fuzzy
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
@@ -3246,7 +3246,7 @@ msgstr ""
 "Firefox preporučuje samo proširenja, koja udovoljavaju našim standardima za "
 "sigurnost i performanse."
 
-#: src/ui/components/PromotedBadge/index.js:58
+#: src/ui/components/PromotedBadge/index.js:57
 #, fuzzy
 msgid ""
 "This add-on has been reviewed to meet our standards for security and "
