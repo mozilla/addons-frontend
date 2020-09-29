@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-22 18:52+0000\n"
+"POT-Creation-Date: 2020-09-29 17:41+0000\n"
 "PO-Revision-Date: 2020-08-01 23:43+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
@@ -706,19 +706,19 @@ msgstr "Nama"
 msgid "Popularity"
 msgstr "Popularitas"
 
-#: src/amo/components/ContributeCard/index.js:108
+#: src/amo/components/ContributeCard/index.js:109
 msgid "Contribute now"
 msgstr "Berkontribusi sekarang"
 
-#: src/amo/components/ContributeCard/index.js:45
+#: src/amo/components/ContributeCard/index.js:46
 msgid "Support this developer"
 msgstr "Dukung pengembang ini"
 
-#: src/amo/components/ContributeCard/index.js:46
+#: src/amo/components/ContributeCard/index.js:47
 msgid "Support these developers"
 msgstr "Dukung para pengembang ini"
 
-#: src/amo/components/ContributeCard/index.js:50
+#: src/amo/components/ContributeCard/index.js:51
 msgid ""
 "The developer of this extension asks that you help support its continued "
 "development by making a small contribution."
@@ -726,7 +726,7 @@ msgstr ""
 "Pengembang ekstensi ini meminta Anda mendukung pengembangan lebih lanjut "
 "dengan memberi sedikit kontribusi."
 
-#: src/amo/components/ContributeCard/index.js:52
+#: src/amo/components/ContributeCard/index.js:53
 msgid ""
 "The developers of this extension ask that you help support its continued "
 "development by making a small contribution."
@@ -734,15 +734,15 @@ msgstr ""
 "Para pengembang ekstensi ini meminta Anda mendukung pengembangan lebih "
 "lanjut dengan memberi sedikit kontribusi."
 
-#: src/amo/components/ContributeCard/index.js:59
+#: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
 msgstr "Dukung kreator ini"
 
-#: src/amo/components/ContributeCard/index.js:60
+#: src/amo/components/ContributeCard/index.js:61
 msgid "Support these artists"
 msgstr "Dukung para kreator ini"
 
-#: src/amo/components/ContributeCard/index.js:64
+#: src/amo/components/ContributeCard/index.js:65
 msgid ""
 "The artist of this theme asks that you help support its continued creation "
 "by making a small contribution."
@@ -750,7 +750,7 @@ msgstr ""
 "Kreator tema ini meminta Anda mendukung pembuatan lebih lanjut dengan "
 "memberi sedikit kontribusi."
 
-#: src/amo/components/ContributeCard/index.js:66
+#: src/amo/components/ContributeCard/index.js:67
 msgid ""
 "The artists of this theme ask that you help support its continued creation "
 "by making a small contribution."
@@ -758,15 +758,15 @@ msgstr ""
 "Para kreator tema ini meminta Anda mendukung pembuatan lebih lanjut dengan "
 "memberi sedikit kontribusi."
 
-#: src/amo/components/ContributeCard/index.js:73
+#: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
 msgstr "Dukung penulis ini"
 
-#: src/amo/components/ContributeCard/index.js:74
+#: src/amo/components/ContributeCard/index.js:75
 msgid "Support these authors"
 msgstr "Dukung para penulis ini"
 
-#: src/amo/components/ContributeCard/index.js:78
+#: src/amo/components/ContributeCard/index.js:79
 msgid ""
 "The author of this add-on asks that you help support its continued work by "
 "making a small contribution."
@@ -774,7 +774,7 @@ msgstr ""
 "Pembuat pengaya ini meminta Anda mendukung karya mereka lebih lanjut dengan "
 "memberi sedikit kontribusi."
 
-#: src/amo/components/ContributeCard/index.js:80
+#: src/amo/components/ContributeCard/index.js:81
 msgid ""
 "The authors of this add-on ask that you help support its continued work by "
 "making a small contribution."
@@ -924,12 +924,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ditandai sebagai laporan bug atau permintaan dukungan"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Tandai"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Ditandai"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Tandai"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1113,12 +1113,12 @@ msgstr "Edit Profil Saya"
 msgid "Tools"
 msgstr "Alat"
 
-#: src/amo/components/HeroRecommendation/index.js:112
+#: src/amo/components/HeroRecommendation/index.js:119
 msgid "Get the extension"
 msgstr "Dapatkan ekstensi"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:188
+#: src/amo/components/HeroRecommendation/index.js:195
 msgid "RECOMMENDED"
 msgstr "DIREKOMENDASIKAN"
 
@@ -1127,7 +1127,7 @@ msgstr "DIREKOMENDASIKAN"
 msgid "Download file"
 msgstr "Mengunduh"
 
-#: src/amo/components/InstallWarning/index.js:103
+#: src/amo/components/InstallWarning/index.js:101
 #, fuzzy
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
@@ -1136,7 +1136,7 @@ msgstr ""
 "Ini tidak dimonitor untuk keamanan melalui program Ekstensi yang Disarankan "
 "Mozilla. Pastikan Anda memercayainya sebelum menginstal."
 
-#: src/amo/components/InstallWarning/index.js:98
+#: src/amo/components/InstallWarning/index.js:97
 msgid "Learn more"
 msgstr "Pelajari lebih lanjut"
 
@@ -1251,12 +1251,12 @@ msgstr "Simpan data untuk sisi klien dalam jumlah tak terbatas"
 msgid "Access browser activity during navigation"
 msgstr "Mengakses aktivitas peramban selama navigasi"
 
-#: src/amo/components/PromotedAddonsCard/index.js:76
+#: src/amo/components/PromotedAddonsCard/index.js:82
 #, fuzzy
 msgid "Sponsored extensions"
 msgstr "Ekstensi peringkat teratas"
 
-#: src/amo/components/PromotedAddonsCard/index.js:83
+#: src/amo/components/PromotedAddonsCard/index.js:91
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1264,7 +1264,7 @@ msgstr ""
 "Firefox hanya menyarankan ekstensi yang memenuhi standar keamanan dan "
 "kinerja kami."
 
-#: src/amo/components/PromotedAddonsCard/index.js:87
+#: src/amo/components/PromotedAddonsCard/index.js:95
 #, fuzzy
 msgid "What is this?"
 msgstr "Apa artinya?"
@@ -1644,13 +1644,13 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:169
 #: src/ui/components/IconPromotedBadge/index.js:47
-#: src/ui/components/PromotedBadge/index.js:47
+#: src/ui/components/PromotedBadge/index.js:48
 msgid "Recommended"
 msgstr "Disarankan"
 
 #: src/amo/components/SearchFilters/index.js:171
 #: src/ui/components/IconPromotedBadge/index.js:46
-#: src/ui/components/PromotedBadge/index.js:38
+#: src/ui/components/PromotedBadge/index.js:41
 msgid "By Firefox"
 msgstr "Oleh Firefox"
 
@@ -1842,69 +1842,69 @@ msgstr ""
 "Untuk menemukan pengaya yang kompatibel dengan Firefox di Android, <a href="
 "\"%(newLocation)s\">kunjungi situs seluler kami</a>."
 
-#: src/amo/pages/Addon/index.js:168 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:172 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Pratinjau dari %(title)s"
 
-#: src/amo/pages/Addon/index.js:203
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Pengaya ini tidak dapat dinilai karena tidak ada versi yang telah "
 "ditayangkan."
 
-#: src/amo/pages/Addon/index.js:214
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/Addon/index.js:235
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "Belum ada ulasan"
 
-#: src/amo/pages/Addon/index.js:245
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "Beri peringkat"
 
-#: src/amo/pages/Addon/index.js:264
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "Tentang kamus ini"
 
-#: src/amo/pages/Addon/index.js:267
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "Tentang ekstensi ini"
 
-#: src/amo/pages/Addon/index.js:270
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "Tentang paket bahasa ini"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "Tentang tema ini"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "Tentang pengaya ini"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:322
 msgid "Developer comments"
 msgstr "Komentar pengembang"
 
-#: src/amo/pages/Addon/index.js:341
+#: src/amo/pages/Addon/index.js:345
 msgid "Release notes for %(addonVersion)s"
 msgstr "Catatan rilis untuk %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:473
+#: src/amo/pages/Addon/index.js:477
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Ini bukan daftar publik. Anda hanya melihatnya karena izin yang lebih tinggi."
 
-#: src/amo/pages/Addon/index.js:500
+#: src/amo/pages/Addon/index.js:504
 msgid "Extension Metadata"
 msgstr "Metadata Ekstensi"
 
-#: src/amo/pages/Addon/index.js:508
+#: src/amo/pages/Addon/index.js:512
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1912,7 +1912,7 @@ msgstr ""
 "Daftar ini tidak dimaksudkan untuk platform ini. <a href=\"%(newLocation)s"
 "\">Jelajahi pengaya untuk Firefox di Android</a>."
 
-#: src/amo/pages/Addon/index.js:512
+#: src/amo/pages/Addon/index.js:516
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1920,7 +1920,7 @@ msgstr ""
 "Daftar ini tidak dimaksudkan untuk platform ini. <a href=\"%(newLocation)s"
 "\">Jelajahi pengaya untuk Firefox di desktop</a>."
 
-#: src/amo/pages/Addon/index.js:518
+#: src/amo/pages/Addon/index.js:522
 #, fuzzy
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
@@ -1930,7 +1930,7 @@ msgstr ""
 "dengan Firefox untuk Desktop. Pelajari lebih lanjut tentang <a href="
 "\"%(newLocation)s\">pengaya untuk Android</a>."
 
-#: src/amo/pages/Addon/index.js:522
+#: src/amo/pages/Addon/index.js:526
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
@@ -1940,7 +1940,7 @@ msgstr ""
 "dengan Firefox untuk Desktop. Pelajari lebih lanjut tentang <a href="
 "\"%(newLocation)s\">pengaya untuk Android</a>."
 
-#: src/amo/pages/Addon/index.js:544
+#: src/amo/pages/Addon/index.js:548
 msgid "Screenshots"
 msgstr "Tangkapan Layar"
 
@@ -3263,11 +3263,11 @@ msgstr "Mengakses data Anda untuk %(param)s"
 msgid "Dismiss this notice"
 msgstr "Abaikan pernyataan ini"
 
-#: src/ui/components/PromotedBadge/index.js:40
+#: src/ui/components/PromotedBadge/index.js:42
 msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
-#: src/ui/components/PromotedBadge/index.js:48
+#: src/ui/components/PromotedBadge/index.js:49
 #, fuzzy
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
@@ -3276,7 +3276,7 @@ msgstr ""
 "Firefox hanya menyarankan ekstensi yang memenuhi standar keamanan dan "
 "kinerja kami."
 
-#: src/ui/components/PromotedBadge/index.js:58
+#: src/ui/components/PromotedBadge/index.js:57
 #, fuzzy
 msgid ""
 "This add-on has been reviewed to meet our standards for security and "

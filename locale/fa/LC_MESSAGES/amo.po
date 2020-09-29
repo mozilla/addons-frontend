@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-22 18:52+0000\n"
+"POT-Creation-Date: 2020-09-29 17:41+0000\n"
 "PO-Revision-Date: 2018-06-01 14:56+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -765,19 +765,19 @@ msgstr ""
 msgid "Popularity"
 msgstr "محبوب‌ترین پوسته‌ها"
 
-#: src/amo/components/ContributeCard/index.js:108
+#: src/amo/components/ContributeCard/index.js:109
 msgid "Contribute now"
 msgstr "هم‌اکنون مشارکت کنید"
 
-#: src/amo/components/ContributeCard/index.js:45
+#: src/amo/components/ContributeCard/index.js:46
 msgid "Support this developer"
 msgstr "از این توسعه‌دهنده پشتیبانی کنید"
 
-#: src/amo/components/ContributeCard/index.js:46
+#: src/amo/components/ContributeCard/index.js:47
 msgid "Support these developers"
 msgstr "از این توسعه‌دهندهگان پشتیبانی کنید"
 
-#: src/amo/components/ContributeCard/index.js:50
+#: src/amo/components/ContributeCard/index.js:51
 msgid ""
 "The developer of this extension asks that you help support its continued "
 "development by making a small contribution."
@@ -785,7 +785,7 @@ msgstr ""
 "توسعه دهنده این افزونه از شما درخواست می‌کند که به ادامه یافتن توسعه‌ی آن با "
 "یک مشارکت کوچک کمک کنید."
 
-#: src/amo/components/ContributeCard/index.js:52
+#: src/amo/components/ContributeCard/index.js:53
 msgid ""
 "The developers of this extension ask that you help support its continued "
 "development by making a small contribution."
@@ -793,15 +793,15 @@ msgstr ""
 "توسعه دهنده‌گان این افزونه از شما درخواست می‌کنند که به ادامه یافتن توسعه‌ی آن "
 "با یک مشارکت کوچک کمک کنید."
 
-#: src/amo/components/ContributeCard/index.js:59
+#: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
 msgstr "از این هنرمند پشتیبانی کنید"
 
-#: src/amo/components/ContributeCard/index.js:60
+#: src/amo/components/ContributeCard/index.js:61
 msgid "Support these artists"
 msgstr "از این هنرمندان پشتیبانی کنید"
 
-#: src/amo/components/ContributeCard/index.js:64
+#: src/amo/components/ContributeCard/index.js:65
 msgid ""
 "The artist of this theme asks that you help support its continued creation "
 "by making a small contribution."
@@ -809,7 +809,7 @@ msgstr ""
 "هنرمند این پوسته از شما درخواست می‌کند که به ادامه یافتن خلق آن با یک مشارکت "
 "کوچک کمک کنید."
 
-#: src/amo/components/ContributeCard/index.js:66
+#: src/amo/components/ContributeCard/index.js:67
 msgid ""
 "The artists of this theme ask that you help support its continued creation "
 "by making a small contribution."
@@ -817,15 +817,15 @@ msgstr ""
 "هنرمندان این پوسته از شما درخواست می‌کنند که به ادامه یافتن خلق آن با یک "
 "مشارکت کوچک کمک کنید."
 
-#: src/amo/components/ContributeCard/index.js:73
+#: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
 msgstr "از این مؤلف پشتیبانی کنید"
 
-#: src/amo/components/ContributeCard/index.js:74
+#: src/amo/components/ContributeCard/index.js:75
 msgid "Support these authors"
 msgstr "از این مؤلفان پشتیبانی کنید"
 
-#: src/amo/components/ContributeCard/index.js:78
+#: src/amo/components/ContributeCard/index.js:79
 msgid ""
 "The author of this add-on asks that you help support its continued work by "
 "making a small contribution."
@@ -833,7 +833,7 @@ msgstr ""
 "مولف‌ این افزونه از شما درخواست می‌کند که به ادامه یافتن توسعه‌ی آن با یک "
 "مشارکت کوچک کمک کنید."
 
-#: src/amo/components/ContributeCard/index.js:80
+#: src/amo/components/ContributeCard/index.js:81
 msgid ""
 "The authors of this add-on ask that you help support its continued work by "
 "making a small contribution."
@@ -973,12 +973,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "گزارش"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "گزارش شد"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "گزارش"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1168,13 +1168,13 @@ msgstr "ویرایش نمایه"
 msgid "Tools"
 msgstr "ابزارها"
 
-#: src/amo/components/HeroRecommendation/index.js:112
+#: src/amo/components/HeroRecommendation/index.js:119
 #, fuzzy
 msgid "Get the extension"
 msgstr "افزونه‌های منتخب"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:188
+#: src/amo/components/HeroRecommendation/index.js:195
 msgid "RECOMMENDED"
 msgstr ""
 
@@ -1183,13 +1183,13 @@ msgstr ""
 msgid "Download file"
 msgstr "در حال دریافت %(name)s."
 
-#: src/amo/components/InstallWarning/index.js:103
+#: src/amo/components/InstallWarning/index.js:101
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:98
+#: src/amo/components/InstallWarning/index.js:97
 msgid "Learn more"
 msgstr ""
 
@@ -1306,18 +1306,18 @@ msgstr ""
 msgid "Access browser activity during navigation"
 msgstr ""
 
-#: src/amo/components/PromotedAddonsCard/index.js:76
+#: src/amo/components/PromotedAddonsCard/index.js:82
 #, fuzzy
 msgid "Sponsored extensions"
 msgstr "افزونه‌های با بیشترین امتیاز"
 
-#: src/amo/components/PromotedAddonsCard/index.js:83
+#: src/amo/components/PromotedAddonsCard/index.js:91
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
 msgstr ""
 
-#: src/amo/components/PromotedAddonsCard/index.js:87
+#: src/amo/components/PromotedAddonsCard/index.js:95
 msgid "What is this?"
 msgstr ""
 
@@ -1728,14 +1728,14 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:169
 #: src/ui/components/IconPromotedBadge/index.js:47
-#: src/ui/components/PromotedBadge/index.js:47
+#: src/ui/components/PromotedBadge/index.js:48
 #, fuzzy
 msgid "Recommended"
 msgstr "کاربرها"
 
 #: src/amo/components/SearchFilters/index.js:171
 #: src/ui/components/IconPromotedBadge/index.js:46
-#: src/ui/components/PromotedBadge/index.js:38
+#: src/ui/components/PromotedBadge/index.js:41
 #, fuzzy
 msgid "By Firefox"
 msgstr "برای فایرفاکس"
@@ -1925,93 +1925,93 @@ msgid ""
 "\">visit our mobile site</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:168 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:172 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:203
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:214
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "همه‌ی %(count)s بازخورد‌ها را بخوانید"
 msgstr[1] "همه‌ی %(count)s بازخورد‌ها را بخوانید"
 
-#: src/amo/pages/Addon/index.js:235
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "تاکنون بدون بازخوردی ندارد"
 
-#: src/amo/pages/Addon/index.js:245
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "به تجربه خود امتیاز بدهید"
 
-#: src/amo/pages/Addon/index.js:264
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "درباره این لغت‌نامه"
 
-#: src/amo/pages/Addon/index.js:267
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "دربارهٔ این افزونه"
 
-#: src/amo/pages/Addon/index.js:270
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "دربارهٔ این بسته زبانی"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "دربارهٔ این تم"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "دربارهٔ این افزونه"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:322
 #, fuzzy
 msgid "Developer comments"
 msgstr "پاسخ توسعه‌دهنده"
 
-#: src/amo/pages/Addon/index.js:341
+#: src/amo/pages/Addon/index.js:345
 msgid "Release notes for %(addonVersion)s"
 msgstr "یادداشت‌های انتشار برای %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:473
+#: src/amo/pages/Addon/index.js:477
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:500
+#: src/amo/pages/Addon/index.js:504
 msgid "Extension Metadata"
 msgstr "فرادادهٔ ضمیمه"
 
-#: src/amo/pages/Addon/index.js:508
+#: src/amo/pages/Addon/index.js:512
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:512
+#: src/amo/pages/Addon/index.js:516
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:518
+#: src/amo/pages/Addon/index.js:522
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
 "\"%(newLocation)s\">add-ons for Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:522
+#: src/amo/pages/Addon/index.js:526
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
 "Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:544
+#: src/amo/pages/Addon/index.js:548
 msgid "Screenshots"
 msgstr "تصاویر صفحه"
 
@@ -3259,17 +3259,17 @@ msgstr ""
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/PromotedBadge/index.js:40
+#: src/ui/components/PromotedBadge/index.js:42
 msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
-#: src/ui/components/PromotedBadge/index.js:48
+#: src/ui/components/PromotedBadge/index.js:49
 msgid ""
 "Firefox only recommends add-ons that meet our standards for security and "
 "performance."
 msgstr ""
 
-#: src/ui/components/PromotedBadge/index.js:58
+#: src/ui/components/PromotedBadge/index.js:57
 msgid ""
 "This add-on has been reviewed to meet our standards for security and "
 "performance."
