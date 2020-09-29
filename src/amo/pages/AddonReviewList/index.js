@@ -292,7 +292,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           },
         );
     } else {
-      reviewCountText = <LoadingText />;
+      reviewCountText = <LoadingText width={40} />;
     }
 
     const reviewCountHTML = (
