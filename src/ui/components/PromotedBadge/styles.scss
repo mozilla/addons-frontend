@@ -59,14 +59,6 @@
 .PromotedBadge-link--line {
   border: 1px solid $grey-30;
 
-  [dir='ltr'] & {
-    border-left: 0;
-  }
-
-  [dir='rtl'] & {
-    border-right: 0;
-  }
-
   &,
   &:link,
   &:visited {
@@ -87,7 +79,14 @@
 
 .PromotedBadge-link--recommended {
   border: 1px solid $orange-50;
-  border-left: 0;
+
+  [dir='ltr'] & {
+    border-left: 0;
+  }
+
+  [dir='rtl'] & {
+    border-right: 0;
+  }
 
   &,
   &:link,
@@ -109,7 +108,14 @@
 
 .PromotedBadge-link--verified {
   border: 1px solid $green-70;
-  border-left: 0;
+
+  [dir='ltr'] & {
+    border-left: 0;
+  }
+
+  [dir='rtl'] & {
+    border-right: 0;
+  }
 
   &,
   &:link,
