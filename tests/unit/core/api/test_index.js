@@ -448,14 +448,15 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
-    it('logs a warning message when content type is unknown', async () => {
+    it('logs a warning message when content type is not JSON', async () => {
       const body = 'long body content'.repeat(100);
+      const contentType = 'text/plain';
       const status = 204;
       const url = 'some-response-url';
 
       mockWindow.expects('fetch').returns(
         createApiResponse({
-          headers: generateHeaders({ 'Content-Type': null }),
+          headers: generateHeaders({ 'Content-Type': contentType }),
           status,
           textData: body,
           url,
@@ -469,7 +470,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         _log.warn,
-        'Response from API was not JSON (was Content-Type: [unknown])',
+        `Response from API was not JSON (was Content-Type: ${contentType})`,
         {
           body: body.substring(0, 100),
           status,
