@@ -455,7 +455,7 @@ describe(__filename, () => {
 
       mockWindow.expects('fetch').returns(
         createApiResponse({
-          headers: generateHeaders({ 'Content-Type': null }),
+          headers: generateHeaders({ 'Content-Type': '' }),
           status,
           textData: body,
           url,
@@ -469,7 +469,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         _log.warn,
-        'Response from API was not JSON (was Content-Type: null)',
+        'Response from API was not JSON (was Content-Type: [unknown])',
         {
           body: body.substring(0, 100),
           status,
