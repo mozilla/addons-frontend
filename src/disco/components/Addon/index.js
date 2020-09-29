@@ -167,7 +167,7 @@ export class AddonBase extends React.Component<InternalProps> {
       _tracking.sendEvent({
         action: getAddonTypeForTracking(addon.type),
         category: CLICK_CATEGORY,
-        label: addon.name,
+        label: addon.guid,
       });
     }
   };

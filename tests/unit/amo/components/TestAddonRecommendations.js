@@ -244,7 +244,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: `${outcome}-${fallbackReason}`,
       category: TAAR_IMPRESSION_CATEGORY,
-      label: fakeAddon.name,
+      label: fakeAddon.guid,
     });
   });
 
@@ -279,7 +279,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeTracking.sendEvent, {
       action: outcome,
       category: TAAR_IMPRESSION_CATEGORY,
-      label: fakeAddon.name,
+      label: fakeAddon.guid,
     });
   });
 

@@ -23,7 +23,9 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
+export const PRIMARY_HERO_CLICK_ACTION = 'primary-hero-click';
 export const PRIMARY_HERO_CLICK_CATEGORY = 'AMO Primary Hero Clicks';
+export const PRIMARY_HERO_CLICK_EXTERNAL_LABEL = 'external-link';
 export const PRIMARY_HERO_SRC = 'homepage-primary-hero';
 
 type Props = {|
@@ -73,11 +75,16 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   };
 
   onHeroClick = () => {
-    const { _tracking } = this.props;
+    const { _tracking, shelfData } = this.props;
+
+    invariant(shelfData, 'The shelfData property is required');
+
+    const { addon } = shelfData;
 
     _tracking.sendEvent({
-      action: this.makeCallToActionURL(),
+      action: PRIMARY_HERO_CLICK_ACTION,
       category: PRIMARY_HERO_CLICK_CATEGORY,
+      label: addon ? addon.guid : PRIMARY_HERO_CLICK_EXTERNAL_LABEL,
     });
   };
 

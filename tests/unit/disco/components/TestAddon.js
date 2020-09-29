@@ -391,7 +391,7 @@ describe(__filename, () => {
     it('tracks an add-on link click', () => {
       const fakeTracking = createFakeTracking();
       const addonProps = {
-        name: 'foo',
+        guid: 'some-guid',
         type: ADDON_TYPE_EXTENSION,
       };
 
@@ -414,7 +414,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(fakeTracking.sendEvent, {
         action: TRACKING_TYPE_EXTENSION,
         category: CLICK_CATEGORY,
-        label: addonProps.name,
+        label: addonProps.guid,
       });
     });
 

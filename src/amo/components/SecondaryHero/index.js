@@ -14,6 +14,7 @@ import type {
 
 import './styles.scss';
 
+export const SECONDARY_HERO_CLICK_ACTION = 'secondary-hero-click';
 export const SECONDARY_HERO_CLICK_CATEGORY = 'AMO Secondary Hero Clicks';
 export const SECONDARY_HERO_SRC = 'homepage-secondary-hero';
 
@@ -43,8 +44,9 @@ export const SecondaryHeroBase = ({
 
   const onHeroClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
     _tracking.sendEvent({
-      action: event.currentTarget.href,
+      action: SECONDARY_HERO_CLICK_ACTION,
       category: SECONDARY_HERO_CLICK_CATEGORY,
+      label: event.currentTarget.href,
     });
   };
 

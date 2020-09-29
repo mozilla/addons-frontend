@@ -73,7 +73,6 @@ export function makeProgressHandler({
   _tracking,
   dispatch,
   guid,
-  name,
   type,
 }: MakeProgressHandlerParams) {
   return (addonInstall: AddonInstallType, event: EventType) => {
@@ -98,7 +97,7 @@ export function makeProgressHandler({
         _tracking.sendEvent({
           action: getAddonTypeForTracking(type),
           category: getAddonEventCategory(type, INSTALL_DOWNLOAD_FAILED_ACTION),
-          label: name,
+          label: guid,
         });
       }
     } else if (event.type === 'onInstallCancelled') {
@@ -110,7 +109,7 @@ export function makeProgressHandler({
       _tracking.sendEvent({
         action: getAddonTypeForTracking(type),
         category: getAddonEventCategory(type, INSTALL_CANCELLED_ACTION),
-        label: name,
+        label: guid,
       });
     } else if (event.type === 'onInstallFailed') {
       dispatch(setInstallError({ guid, error: INSTALL_FAILED }));
@@ -308,7 +307,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       return Promise.resolve();
     }
 
-    const { guid, type, name } = addon;
+    const { guid, type } = addon;
 
     return _addonManager
       .enable(guid)
@@ -317,7 +316,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
           _tracking.sendEvent({
             action: getAddonTypeForTracking(type),
             category: getAddonEventCategory(type, ENABLE_ACTION),
-            label: name,
+            label: guid,
           });
         }
 
@@ -372,7 +371,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       _tracking.sendEvent({
         action: getAddonTypeForTracking(type),
         category: getAddonEventCategory(type, INSTALL_STARTED_ACTION),
-        label: name,
+        label: guid,
       });
 
       const installURL = findInstallURL({ platformFiles, userAgentInfo });
@@ -406,7 +405,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
         _tracking.sendEvent({
           action: getAddonTypeForTracking(type),
           category: getAddonEventCategory(type, INSTALL_ACTION),
-          label: name,
+          label: guid,
         });
         if (!_addonManager.hasPermissionPromptsEnabled()) {
           this.showInfo();
@@ -432,7 +431,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     );
   }
 
-  uninstall({ guid, name, type }: UninstallParams) {
+  uninstall({ guid, type }: UninstallParams) {
     const { _addonManager, _log, _tracking, dispatch } = this.props;
 
     dispatch(setInstallState({ guid, status: UNINSTALLING }));
@@ -444,7 +443,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
         _tracking.sendEvent({
           action,
           category: getAddonEventCategory(type, UNINSTALL_ACTION),
-          label: name,
+          label: guid,
         });
       })
       .catch((error) => {

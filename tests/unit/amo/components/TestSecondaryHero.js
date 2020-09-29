@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import SecondaryHero, {
+  SECONDARY_HERO_CLICK_ACTION,
   SECONDARY_HERO_CLICK_CATEGORY,
   SECONDARY_HERO_SRC,
 } from 'amo/components/SecondaryHero';
@@ -104,8 +105,9 @@ describe(__filename, () => {
     root.find('.SecondaryHero-message-link').simulate('click', event);
 
     sinon.assert.calledWith(_tracking.sendEvent, {
-      action: event.currentTarget.href,
+      action: SECONDARY_HERO_CLICK_ACTION,
       category: SECONDARY_HERO_CLICK_CATEGORY,
+      label: event.currentTarget.href,
     });
     sinon.assert.calledOnce(_tracking.sendEvent);
   });
@@ -208,7 +210,6 @@ describe(__filename, () => {
 
     it('sends a tracking event when the cta is clicked', () => {
       const _tracking = createFakeTracking();
-
       const root = render({ _tracking, shelfData });
 
       const event = createFakeEvent({
@@ -218,8 +219,9 @@ describe(__filename, () => {
       root.find('.SecondaryHero-module-link').at(0).simulate('click', event);
 
       sinon.assert.calledWith(_tracking.sendEvent, {
-        action: event.currentTarget.href,
+        action: SECONDARY_HERO_CLICK_ACTION,
         category: SECONDARY_HERO_CLICK_CATEGORY,
+        label: event.currentTarget.href,
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
     });
