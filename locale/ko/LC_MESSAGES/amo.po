@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-22 18:52+0000\n"
-"PO-Revision-Date: 2020-09-29 03:53+0000\n"
+"PO-Revision-Date: 2020-09-29 03:57+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1260,9 +1260,8 @@ msgid "Recommended add-ons"
 msgstr "추천 부가 기능"
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "%(author)s 님의 확장 기능"
+msgstr "Firefox 제작의 확장 기능"
 
 #: src/amo/components/Search/index.js:140
 #, fuzzy
@@ -1287,19 +1286,16 @@ msgid "Reviewed add-ons"
 msgstr "검토된 부가 기능"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "추천 확장 기능"
+msgstr "확인된 확장 기능"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "추천 테마"
+msgstr "확인된 테마"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Firefox 부가 기능"
+msgstr "확인된 부가 기능"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
