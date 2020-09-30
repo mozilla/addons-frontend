@@ -202,3 +202,13 @@
     padding: 15px 36px;
   }
 }
+
+@mixin border-start($val) {
+  [dir='ltr'] & {
+    border-left: $val;
+  }
+
+  [dir='rtl'] & {
+    border-right: $val;
+  }
+}
