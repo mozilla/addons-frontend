@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import { checkInternalURL } from 'amo/utils';
+import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
 import tracking from 'core/tracking';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import { addQueryParams } from 'core/utils/url';
@@ -23,6 +23,7 @@ type Props = {| shelfData?: SecondaryHeroShelfType |};
 type InternalProps = {|
   ...Props,
   _checkInternalURL: typeof checkInternalURL,
+  _stripLangFromAmoUrl: typeof stripLangFromAmoUrl,
   _tracking: typeof tracking,
 |};
 
@@ -36,6 +37,7 @@ const makeCallToActionURL = (urlString: string) => {
 
 export const SecondaryHeroBase = ({
   _checkInternalURL = checkInternalURL,
+  _stripLangFromAmoUrl = stripLangFromAmoUrl,
   _tracking = tracking,
   shelfData,
 }: InternalProps) => {
@@ -46,7 +48,7 @@ export const SecondaryHeroBase = ({
     _tracking.sendEvent({
       action: SECONDARY_HERO_CLICK_ACTION,
       category: SECONDARY_HERO_CLICK_CATEGORY,
-      label: event.currentTarget.href,
+      label: _stripLangFromAmoUrl({ urlString: event.currentTarget.href }),
     });
   };
 

@@ -209,8 +209,10 @@ describe(__filename, () => {
     );
 
     it('sends a tracking event when the cta is clicked', () => {
+      const strippedUrl = '/a/different/url';
+      const _stripLangFromAmoUrl = sinon.stub().returns(strippedUrl);
       const _tracking = createFakeTracking();
-      const root = render({ _tracking, shelfData });
+      const root = render({ _stripLangFromAmoUrl, _tracking, shelfData });
 
       const event = createFakeEvent({
         currentTarget: { href: module1.cta.url },
@@ -218,10 +220,13 @@ describe(__filename, () => {
 
       root.find('.SecondaryHero-module-link').at(0).simulate('click', event);
 
+      sinon.assert.calledWith(_stripLangFromAmoUrl, {
+        urlString: module1.cta.url,
+      });
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: SECONDARY_HERO_CLICK_ACTION,
         category: SECONDARY_HERO_CLICK_CATEGORY,
-        label: event.currentTarget.href,
+        label: strippedUrl,
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
     });

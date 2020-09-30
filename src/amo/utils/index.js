@@ -8,6 +8,7 @@ import config from 'config';
 import { PROMOTED_ADDONS_SUMO_URL } from 'amo/constants';
 import { makeQueryString } from 'core/api';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
+import { isValidLang } from 'core/i18n/utils';
 
 /*
  * Return a base62 object that encodes/decodes just like how Django does it
@@ -96,4 +97,26 @@ export const getPromotedBadgesLinkUrl = ({
     utm_campaign: null,
     utm_content,
   })}`;
+};
+
+export const stripLangFromAmoUrl = ({
+  _checkInternalURL = checkInternalURL,
+  urlString,
+}: {
+  _checkInternalURL?: typeof checkInternalURL,
+  urlString: string,
+}) => {
+  if (_checkInternalURL({ urlString }).isInternal) {
+    const parsedUrl = url.parse(urlString, true);
+
+    if (parsedUrl.pathname) {
+      const pathParts = parsedUrl.pathname.split('/');
+      const langPart = pathParts[1];
+      if (isValidLang(langPart)) {
+        return urlString.replace(`${langPart}/`, '');
+      }
+    }
+  }
+
+  return urlString;
 };
