@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-29 17:41+0000\n"
-"PO-Revision-Date: 2020-09-30 06:28+0000\n"
+"PO-Revision-Date: 2020-09-30 18:55+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1002,14 +1002,12 @@ msgid "RECOMMENDED"
 msgstr "TILRÅDDE"
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
-#, fuzzy
 msgid "Download file"
-msgstr "Nedlasting"
+msgstr "Last ned fil"
 
 #: src/amo/components/InstallWarning/index.js:101
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Denna er ikkje tryggingsovervaka av Mozillas tilrådde program for utvidingar. Pass på at du stolar på henne før du installerer."
+msgstr "Dette tillegget vert ikkje aktivt overvaka for sikkerheit av Mozilla. Pass på at du stolar på det før du installerer."
 
 #: src/amo/components/InstallWarning/index.js:97
 msgid "Learn more"
