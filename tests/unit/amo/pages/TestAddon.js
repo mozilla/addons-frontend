@@ -338,7 +338,7 @@ describe(__filename, () => {
 
     // These should show LoadingText
     expect(root.find('.AddonDescription').prop('header')).toEqual(
-      <LoadingText minWidth={20} range={60} width={40} />,
+      <LoadingText width={40} />,
     );
     expect(
       root.find('.AddonDescription-contents').find(LoadingText),

@@ -46,7 +46,7 @@ export const SearchSuggestionBase = ({
     >
       <img alt={name} className="SearchSuggestion-icon" src={iconUrl} />
       <span className="SearchSuggestion-name">
-        {loading ? <LoadingText minWidth={20} range={12} /> : name}
+        {loading ? <LoadingText minWidth={20} /> : name}
       </span>
       {promotedCategory ? (
         <IconPromotedBadge

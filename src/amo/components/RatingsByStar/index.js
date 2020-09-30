@@ -131,7 +131,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               }
 
               starCountNode = loading ? (
-                <LoadingText minWidth={95} />
+                <LoadingText width={100} />
               ) : (
                 createLink(i18n.formatNumber(starCount || 0))
               );
@@ -141,7 +141,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               <React.Fragment key={star}>
                 <div className="RatingsByStar-star">
                   {loading ? (
-                    <LoadingText minWidth={95} />
+                    <LoadingText width={100} />
                   ) : (
                     createLink(i18n.formatNumber(star))
                   )}

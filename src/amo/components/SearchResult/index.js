@@ -239,7 +239,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
                   { total: i18n.formatNumber(averageDailyUsers) },
                 )
               ) : (
-                <LoadingText width={90} />
+                <LoadingText width={80} />
               )}
             </span>
           </h3>

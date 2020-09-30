@@ -146,7 +146,6 @@ export class CategoriesBase extends React.Component<InternalProps> {
                   <LoadingText
                     className="Categories-loading-text"
                     key={`Categories-loading-text-${index}`}
-                    range={3}
                   />
                 );
               })}
