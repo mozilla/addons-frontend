@@ -8,9 +8,14 @@ import SponsoredAddonsShelf, {
   PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
   PROMOTED_ADDON_IMPRESSION_ACTION,
   SponsoredAddonsShelfBase,
+  formatDataForBeacon,
 } from 'amo/components/SponsoredAddonsShelf';
 import { fetchHomeData, loadHomeData } from 'amo/reducers/home';
-import { fetchSponsored, loadSponsored } from 'amo/reducers/shelves';
+import {
+  createInternalsponsoredShelf,
+  fetchSponsored,
+  loadSponsored,
+} from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -61,10 +66,34 @@ describe(__filename, () => {
     );
   };
 
-  const _loadPromotedShelf = ({ addons = [] }) => {
+  const _loadPromotedShelf = ({
+    addons = [],
+    impressionData = 'some data',
+    impressionURL = 'https://mozilla.org/',
+  }) => {
     store.dispatch(
-      loadSponsored({ shelfData: { ...fakeSponsoredShelf, results: addons } }),
+      loadSponsored({
+        shelfData: {
+          ...fakeSponsoredShelf,
+          impression_data: impressionData,
+          impression_url: impressionURL,
+          results: addons,
+        },
+      }),
     );
+  };
+
+  const _createShelfData = ({
+    addons = [fakeAddon],
+    impressionData = 'some data',
+    impressionURL = 'https://mozilla.org/',
+  }) => {
+    return createInternalsponsoredShelf({
+      ...fakeSponsoredShelf,
+      impression_data: impressionData,
+      impression_url: impressionURL,
+      results: addons,
+    });
   };
 
   describe('When enableFeatureUseAdzerkForSponsoredShelf is false', () => {
@@ -129,6 +158,23 @@ describe(__filename, () => {
 
       const root = render({ _config, errorHandler });
       expect(root.find(AddonsCard)).toHaveLength(1);
+    });
+
+    it('does not send a beacon for the impression on mount or update', () => {
+      _loadPromotedExtensions({ addons: [fakeAddon] });
+      const _navigator = { sendBeacon: sinon.spy() };
+      const root = render({ _config, _navigator });
+
+      sinon.assert.notCalled(_navigator.sendBeacon);
+
+      root.setProps({
+        shelfData: _createShelfData({
+          impressionData: 'some data',
+          impressionURL: 'http://mozilla.org',
+        }),
+      });
+
+      sinon.assert.notCalled(_navigator.sendBeacon);
     });
   });
 
@@ -215,6 +261,82 @@ describe(__filename, () => {
       render({ _config });
 
       sinon.assert.notCalled(dispatchSpy);
+    });
+
+    it('sends a beacon for the impression on mount', () => {
+      const _navigator = { sendBeacon: sinon.spy() };
+      const impressionData = 'some data';
+      const impressionURL = 'https://mozilla.org/';
+      _loadPromotedShelf({
+        addons: [fakeAddon],
+        impressionData,
+        impressionURL,
+      });
+
+      render({ _config, _navigator });
+
+      sinon.assert.calledWith(
+        _navigator.sendBeacon,
+        impressionURL,
+        formatDataForBeacon({ data: impressionData, key: 'impression_data' }),
+      );
+    });
+
+    it('sends a beacon for the impression on update', () => {
+      const _navigator = { sendBeacon: sinon.spy() };
+      const impressionData = 'some data';
+      const impressionURL = 'https://mozilla.org/';
+
+      const root = render({ _config, _navigator });
+
+      root.setProps({
+        shelfData: _createShelfData({
+          impressionData,
+          impressionURL,
+        }),
+      });
+
+      sinon.assert.calledWith(
+        _navigator.sendBeacon,
+        impressionURL,
+        formatDataForBeacon({ data: impressionData, key: 'impression_data' }),
+      );
+    });
+
+    it('does not send a beacon for the impression when shelfData is not loaded', () => {
+      const _navigator = { sendBeacon: sinon.spy() };
+      const root = render({ _config, _navigator });
+
+      root.setProps({ shelfData: null });
+      sinon.assert.notCalled(_navigator.sendBeacon);
+    });
+
+    it('does not send a beacon for the impression when impression_data is missing', () => {
+      const _navigator = { sendBeacon: sinon.spy() };
+
+      const root = render({ _config, _navigator });
+
+      root.setProps({
+        shelfData: _createShelfData({
+          impressionData: null,
+        }),
+      });
+
+      sinon.assert.notCalled(_navigator.sendBeacon);
+    });
+
+    it('does not send a beacon for the impression when impression_url is missing', () => {
+      const _navigator = { sendBeacon: sinon.spy() };
+
+      const root = render({ _config, _navigator });
+
+      root.setProps({
+        shelfData: _createShelfData({
+          impressionURL: null,
+        }),
+      });
+
+      sinon.assert.notCalled(_navigator.sendBeacon);
     });
   });
 
