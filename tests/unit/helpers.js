@@ -1315,3 +1315,9 @@ export const createFakeBlockResult = ({
     ...others,
   };
 };
+
+export const fakesponsoredShelf = Object.freeze({
+  addons: Array(6).fill(fakeAddon),
+  impression_data: 'some data',
+  impression_url: 'https://mozilla.org/',
+});

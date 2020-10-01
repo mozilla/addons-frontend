@@ -61,6 +61,8 @@ export type ExternalAddonType = {|
   authors?: Array<AddonAuthorType>,
   average_daily_users?: number,
   categories?: Object,
+  click_data?: string | null,
+  click_url?: string | null,
   contributions_url: string,
   created: Date,
   // If you make an API request as an admin for an incomplete
