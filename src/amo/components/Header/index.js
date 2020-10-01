@@ -19,6 +19,7 @@ import {
   hasAnyReviewerRelatedPermission,
 } from 'amo/reducers/users';
 import { makeQueryStringWithUTM } from 'amo/utils';
+import { CLIENT_APP_FIREFOX } from 'core/constants';
 import translate from 'core/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
@@ -29,6 +30,7 @@ export class HeaderBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
     api: PropTypes.object.isRequired,
+    clientApp: PropTypes.string.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isHomePage: PropTypes.bool.isRequired,
@@ -155,6 +157,7 @@ export class HeaderBase extends React.Component {
   render() {
     const {
       _config,
+      clientApp,
       i18n,
       isHomePage,
       loadedPageIsAnonymous,
@@ -187,7 +190,9 @@ export class HeaderBase extends React.Component {
             )}
           </div>
 
-          <SectionLinks className="Header-SectionLinks" location={location} />
+          {clientApp === CLIENT_APP_FIREFOX ? (
+            <SectionLinks className="Header-SectionLinks" location={location} />
+          ) : null}
 
           <div className="Header-user-and-external-links">
             <Link
@@ -234,6 +239,7 @@ export class HeaderBase extends React.Component {
 export const mapStateToProps = (state) => {
   return {
     api: state.api,
+    clientApp: state.api.clientApp,
     isReviewer: hasAnyReviewerRelatedPermission(state),
     loadedPageIsAnonymous: state.site.loadedPageIsAnonymous,
     siteIsReadOnly: state.site.readOnly,
