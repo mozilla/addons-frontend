@@ -290,8 +290,8 @@ export class HomeBase extends React.Component {
             {_config.get('enableFeaturePromotedShelf') && isDesktopSite ? (
               <PromotedAddonsCard
                 addonInstallSource={INSTALL_SOURCE_PROMOTED_SHELF}
-                addons={promotedExtensions}
                 loading={loading}
+                shelfData={promotedShelf}
               />
             ) : null}
 

@@ -130,6 +130,7 @@ module.exports = {
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
     'enableFeaturePromotedShelf',
+    'enableFeatureUseAdzerk',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -384,6 +385,7 @@ module.exports = {
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
   enableFeaturePromotedShelf: false,
+  enableFeatureUseAdzerk: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

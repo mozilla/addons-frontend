@@ -32,6 +32,7 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
+  fakePromotedAddonsShelf,
   fakeTheme,
 } from 'tests/unit/helpers';
 
@@ -189,6 +190,20 @@ describe(__filename, () => {
         .withArgs(baseArgs)
         .resolves(heroShelves);
 
+      // The second call to fetch the promoted add-ons.
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            addonType: ADDON_TYPE_EXTENSION,
+            page_size: String(LANDING_PAGE_PROMOTED_EXTENSION_COUNT),
+            promoted: SPONSORED,
+            sort: SEARCH_SORT_RANDOM,
+          },
+        })
+        .resolves(promotedExtensions);
+
       _fetchHomeData({
         collectionsToFetch: [
           { slug: firstCollectionSlug, userId: firstCollectionUserId },
@@ -200,6 +215,10 @@ describe(__filename, () => {
       const loadAction = loadHomeData({
         collections,
         heroShelves,
+        promotedAddonsShelf: {
+          ...fakePromotedAddonsShelf,
+          addons: promotedExtensions.results,
+        },
         shelves: {
           recommendedExtensions,
           recommendedThemes,
@@ -234,6 +253,8 @@ describe(__filename, () => {
 
       const promotedExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi.expects('search').resolves(promotedExtensions);
+      // The second call.
+      mockSearchApi.expects('search').resolves(promotedExtensions);
 
       const heroShelves = createHeroShelves();
       mockHeroApi.expects('getHeroShelves').resolves(heroShelves);
@@ -246,6 +267,10 @@ describe(__filename, () => {
       const loadAction = loadHomeData({
         collections,
         heroShelves,
+        promotedAddonsShelf: {
+          ...fakePromotedAddonsShelf,
+          addons: promotedExtensions.results,
+        },
         shelves: {
           recommendedExtensions,
           recommendedThemes,
@@ -278,6 +303,8 @@ describe(__filename, () => {
 
       const promotedExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi.expects('search').resolves(promotedExtensions);
+      // Second call.
+      mockSearchApi.expects('search').resolves(promotedExtensions);
 
       const heroShelves = createHeroShelves();
       mockHeroApi.expects('getHeroShelves').resolves(heroShelves);
@@ -290,6 +317,10 @@ describe(__filename, () => {
       const loadAction = loadHomeData({
         collections,
         heroShelves,
+        promotedAddonsShelf: {
+          ...fakePromotedAddonsShelf,
+          addons: promotedExtensions.results,
+        },
         shelves: {
           recommendedExtensions,
           recommendedThemes: null,
@@ -331,6 +362,8 @@ describe(__filename, () => {
 
         const promotedExtensions = createAddonsApiResult([fakeAddon]);
         mockSearchApi.expects('search').resolves(promotedExtensions);
+        // Second call.
+        mockSearchApi.expects('search').resolves(promotedExtensions);
 
         const heroShelves = createHeroShelves();
         mockHeroApi.expects('getHeroShelves').resolves(heroShelves);
@@ -345,6 +378,10 @@ describe(__filename, () => {
         const loadAction = loadHomeData({
           collections,
           heroShelves,
+          promotedAddonsShelf: {
+            ...fakePromotedAddonsShelf,
+            addons: promotedExtensions.results,
+          },
           shelves: {
             recommendedExtensions,
             recommendedThemes: null,
@@ -455,6 +492,33 @@ describe(__filename, () => {
     });
 
     it('aborts fetching for a failed hero fetch', async () => {
+      const error = createApiError({ response: { status: 500 } });
+
+      mockHeroApi.expects('getHeroShelves').rejects(error);
+
+      _fetchHomeData();
+
+      const abortAction = abortFetchHomeData();
+
+      const expectedAction = await sagaTester.waitFor(abortAction.type);
+      expect(expectedAction).toEqual(abortAction);
+    });
+
+    // TODO: Update this when we have a real API to use for testing.
+    it('dispatches an error for a failed promoted add-ons fetch', async () => {
+      const error = createApiError({ response: { status: 500 } });
+
+      mockHeroApi.expects('getHeroShelves').rejects(error);
+
+      _fetchHomeData();
+
+      const errorAction = errorHandler.createErrorAction(error);
+      const expectedAction = await sagaTester.waitFor(errorAction.type);
+      expect(expectedAction).toEqual(errorAction);
+    });
+
+    // TODO: Update this when we have a real API to use for testing.
+    it('aborts fetching for a failed promoted add-ons fetch', async () => {
       const error = createApiError({ response: { status: 500 } });
 
       mockHeroApi.expects('getHeroShelves').rejects(error);

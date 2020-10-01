@@ -15,6 +15,7 @@ import {
   createFakeTracking,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -107,6 +108,31 @@ describe(__filename, () => {
     });
   });
 
+  it('configures AddonsCard to send a beacon when an add-on is clicked and feature is enabled', () => {
+    const _config = getFakeConfig({ enableFeatureUseAdzerk: true });
+    const _navigator = { sendBeacon: sinon.spy() };
+    const url = '/some/url';
+    const addon = createInternalAddon({ ...fakeAddon, url });
+
+    const root = render({ _config, _navigator, addons: [addon] });
+    const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
+    onAddonClick(addon);
+
+    sinon.assert.calledWith(_navigator.sendBeacon, url);
+  });
+
+  it('does not configure AddonsCard to send a beacon when an add-on is clicked and feature is disabled', () => {
+    const _config = getFakeConfig({ enableFeatureUseAdzerk: false });
+    const _navigator = { sendBeacon: sinon.spy() };
+    const addon = createInternalAddon(fakeAddon);
+
+    const root = render({ _config, _navigator, addons: [addon] });
+    const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
+    onAddonClick(addon);
+
+    sinon.assert.notCalled(_navigator.sendBeacon);
+  });
+
   it('configures AddonsCard to send a tracking event when an add-on is displayed', () => {
     const _tracking = createFakeTracking();
     const guid = 'some-guid';
@@ -121,5 +147,30 @@ describe(__filename, () => {
       category: PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
       label: guid,
     });
+  });
+
+  it('configures AddonsCard to send a beacon when an add-on is displayed and feature is enabled', () => {
+    const _config = getFakeConfig({ enableFeatureUseAdzerk: true });
+    const _navigator = { sendBeacon: sinon.spy() };
+    const url = '/some/url';
+    const addon = createInternalAddon({ ...fakeAddon, url });
+
+    const root = render({ _config, _navigator, addons: [addon] });
+    const onAddonImpression = root.find(AddonsCard).prop('onAddonImpression');
+    onAddonImpression(addon);
+
+    sinon.assert.calledWith(_navigator.sendBeacon, url);
+  });
+
+  it('does not configure AddonsCard to send a beacon when an add-on is displayed and feature is disabled', () => {
+    const _config = getFakeConfig({ enableFeatureUseAdzerk: false });
+    const _navigator = { sendBeacon: sinon.spy() };
+    const addon = createInternalAddon(fakeAddon);
+
+    const root = render({ _config, _navigator, addons: [addon] });
+    const onAddonImpression = root.find(AddonsCard).prop('onAddonImpression');
+    onAddonImpression(addon);
+
+    sinon.assert.notCalled(_navigator.sendBeacon);
   });
 });

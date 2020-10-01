@@ -1,13 +1,16 @@
 /* @flow */
+/* global navigator */
+import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import { LANDING_PAGE_PROMOTED_EXTENSION_COUNT } from 'amo/constants';
-import { getPromotedBadgesLinkUrl } from 'amo/utils';
+import { getPromotedBadgesLinkUrl, sendBeacon } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
+import type { PromotedAddonsShelfType } from 'amo/reducers/home';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -22,7 +25,7 @@ export const PROMOTED_ADDON_IMPRESSION_ACTION = 'sponsored-impression';
 
 type Props = {|
   addonInstallSource?: string,
-  addons?: Array<AddonType> | null,
+  shelfData: PromotedAddonsShelfType | null,
   className?: string,
   loading: boolean,
 |};
@@ -30,11 +33,15 @@ type Props = {|
 export type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  _config: typeof config,
+  _navigator: typeof navigator,
   _tracking: typeof tracking,
 |};
 
 export class PromotedAddonsCardBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
+    _navigator: navigator,
     _tracking: tracking,
   };
 
@@ -53,6 +60,10 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
   };
 
   onAddonClick = (addon: AddonType | CollectionAddonType) => {
+    const { _config, _navigator } = this.props;
+    if (_config.get('enableFeatureUseAdzerk')) {
+      sendBeacon({ _navigator, urlString: addon.url });
+    }
     this.sendTrackingEvent(
       addon,
       PROMOTED_ADDON_CLICK_ACTION,
@@ -61,6 +72,10 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
   };
 
   onAddonImpression = (addon: AddonType | CollectionAddonType) => {
+    const { _config, _navigator } = this.props;
+    if (_config.get('enableFeatureUseAdzerk')) {
+      sendBeacon({ _navigator, urlString: addon.url });
+    }
     this.sendTrackingEvent(
       addon,
       PROMOTED_ADDON_IMPRESSION_ACTION,
@@ -69,8 +84,18 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { addonInstallSource, addons, className, i18n, loading } = this.props;
+    const {
+      addonInstallSource,
+      shelfData,
+      className,
+      i18n,
+      loading,
+    } = this.props;
+    let addons;
 
+    if (shelfData) {
+      addons = shelfData.addons;
+    }
     // Don't display anything if there are no add-ons.
     if (Array.isArray(addons) && !addons.length) {
       return null;

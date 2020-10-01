@@ -154,10 +154,25 @@ export function* fetchHomeData({
       throw error;
     }
 
+    let promotedAddonsShelf = null;
+    try {
+      // TODO: Update this to use the correct API when available.
+      const promotedAddons = yield call(searchApi, promotedExtensionsParams);
+      promotedAddonsShelf = {
+        addons: promotedAddons.results,
+        impressionData: '',
+        impressionURL: '',
+      };
+    } catch (error) {
+      log.warn(`Promoted addons shelf failed to load: ${error}`);
+      throw error;
+    }
+
     yield put(
       loadHomeData({
         collections,
         heroShelves,
+        promotedAddonsShelf,
         shelves,
       }),
     );

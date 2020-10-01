@@ -7,6 +7,7 @@ import {
 import homeReducer, {
   abortFetchHomeData,
   createInternalHeroShelves,
+  createInternalPromotedAddonsShelf,
   fetchHomeData,
   initialState,
   loadHomeData,
@@ -23,6 +24,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakePrimaryHeroShelfExternal,
+  fakePromotedAddonsShelf,
   getFakeConfig,
   createHeroShelves,
 } from 'tests/unit/helpers';
@@ -33,12 +35,14 @@ describe(__filename, () => {
       store,
       collections = [],
       heroShelves = createHeroShelves({ primaryProps: { addon: fakeAddon } }),
+      promotedAddonsShelf = null,
       shelves = {},
     }) => {
       store.dispatch(
         loadHomeData({
           collections,
           heroShelves,
+          promotedAddonsShelf,
           shelves,
         }),
       );
@@ -122,6 +126,22 @@ describe(__filename, () => {
 
       expect(homeState.heroShelves).toEqual(
         createInternalHeroShelves(heroShelves),
+      );
+    });
+
+    it('loads the promoted add-ons shelf', () => {
+      const { store } = dispatchClientMetadata();
+
+      const promotedAddonsShelf = fakePromotedAddonsShelf;
+      _loadHomeData({
+        store,
+        promotedAddonsShelf,
+      });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.promotedAddonsShelf).toEqual(
+        createInternalPromotedAddonsShelf(promotedAddonsShelf),
       );
     });
 
@@ -441,12 +461,30 @@ describe(__filename, () => {
     });
 
     it('throws an exception if neither an addon nor an external entry is provided', () => {
-      const heroShelves = createHeroShelves({
-        primaryProps: { addon: undefined, external: undefined },
-      });
+      const heroShelves = createHeroShelves();
+      // We have to manually set these to undefined because createHeroShelves
+      // won't allow us to create an invalid shelf.
+      heroShelves.primary.addon = undefined;
+      heroShelves.primary.external = undefined;
       expect(() => createInternalHeroShelves(heroShelves)).toThrow(
         /Either primary.addon or primary.external is required/,
       );
+    });
+  });
+
+  describe('createInternalPromotedAddonsShelf', () => {
+    it('creates an internal representation of the promoted add-ons shelf', () => {
+      const addon = fakeAddon;
+      const promotedAddonsShelf = {
+        ...fakePromotedAddonsShelf,
+        addons: [addon],
+      };
+
+      expect(createInternalPromotedAddonsShelf(promotedAddonsShelf)).toEqual({
+        addons: [createInternalAddon(addon)],
+        impressionData: promotedAddonsShelf.impressionData,
+        impressionURL: promotedAddonsShelf.impressionData,
+      });
     });
   });
 });

@@ -38,7 +38,9 @@
     // This is used to upload files in the browser.
     "File": true,
     "FileReader": true,
-    "ProgressEvent": true
+    "ProgressEvent": true,
+    // Types that can be used with sendBeacon:
+    "BodyInit": true
   },
   "parser": "babel-eslint",
   "plugins": [

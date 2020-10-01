@@ -106,10 +106,23 @@ export type HeroShelvesType = {|
   secondary: SecondaryHeroShelfType,
 |};
 
+type ExternalPromotedAddonsShelfType = {|
+  addons: Array<PartialExternalAddonType>,
+  impressionData: string | null,
+  impressionURL: string | null,
+|};
+
+export type PromotedAddonsShelfType = {|
+  addons: Array<AddonType>,
+  impressionData: string | null,
+  impressionURL: string | null,
+|};
+
 export type HomeState = {
   collections: Array<Object | null>,
   heroShelves: HeroShelvesType | null,
   isLoading: boolean,
+  promotedAddonsShelf: PromotedAddonsShelfType | null,
   resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
   shelves: { [shelfName: string]: Array<AddonType> | null },
@@ -119,6 +132,7 @@ export const initialState: HomeState = {
   collections: [],
   heroShelves: null,
   isLoading: false,
+  promotedAddonsShelf: null,
   resetStateOnNextChange: false,
   resultsLoaded: false,
   shelves: {},
@@ -170,6 +184,7 @@ type ApiAddonsResponse = {|
 type LoadHomeDataParams = {|
   collections: Array<Object | null>,
   heroShelves: ExternalHeroShelvesType,
+  promotedAddonsShelf: ExternalPromotedAddonsShelfType,
   shelves: { [shelfName: string]: ApiAddonsResponse },
 |};
 
@@ -181,6 +196,7 @@ type LoadHomeDataAction = {|
 export const loadHomeData = ({
   collections,
   heroShelves,
+  promotedAddonsShelf,
   shelves,
 }: LoadHomeDataParams): LoadHomeDataAction => {
   invariant(collections, 'collections is required');
@@ -191,6 +207,7 @@ export const loadHomeData = ({
     payload: {
       collections,
       heroShelves,
+      promotedAddonsShelf,
       shelves,
     },
   };
@@ -252,6 +269,22 @@ export const createInternalHeroShelves = (
   return shelves;
 };
 
+export const createInternalPromotedAddonsShelf = (
+  promotedAddonsShelf: ExternalPromotedAddonsShelfType,
+): PromotedAddonsShelfType | null => {
+  if (!promotedAddonsShelf) {
+    return null;
+  }
+
+  const { addons, impressionData, impressionURL } = promotedAddonsShelf;
+
+  return {
+    addons: addons.map((addon) => createInternalAddon(addon)),
+    impressionData,
+    impressionURL,
+  };
+};
+
 const reducer = (
   state: HomeState = initialState,
   action: Action,
@@ -275,7 +308,12 @@ const reducer = (
       };
 
     case LOAD_HOME_DATA: {
-      const { collections, heroShelves, shelves } = action.payload;
+      const {
+        collections,
+        heroShelves,
+        promotedAddonsShelf,
+        shelves,
+      } = action.payload;
 
       return {
         ...state,
@@ -293,6 +331,9 @@ const reducer = (
         }),
         heroShelves: createInternalHeroShelves(heroShelves),
         isLoading: false,
+        promotedAddonsShelf: createInternalPromotedAddonsShelf(
+          promotedAddonsShelf,
+        ),
         resultsLoaded: true,
         shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
           const response = shelves[shelfName];

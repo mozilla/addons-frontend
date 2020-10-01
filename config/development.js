@@ -32,6 +32,7 @@ module.exports = {
         "'self'",
         addonsServerDevCDN,
         analyticsHost,
+        apiDevHost,
         sentryHost,
         webpackHost,
         // This is needed for pino-devtools.
