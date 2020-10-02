@@ -147,7 +147,7 @@ describe(__filename, () => {
     return loadAddon({ addon });
   };
 
-  const _loadAddonByAuthors = ({ addon, addonsByAuthors }) => {
+  const _loadAddonsByAuthors = ({ addon, addonsByAuthors }) => {
     return loadAddonsByAuthors({
       addons: addonsByAuthors,
       authorIds: [123],
@@ -1281,7 +1281,7 @@ describe(__filename, () => {
       store.dispatch(_loadAddon({ addon }));
 
       if (addonsByAuthors) {
-        store.dispatch(_loadAddonByAuthors({ addon, addonsByAuthors }));
+        store.dispatch(_loadAddonsByAuthors({ addon, addonsByAuthors }));
       }
 
       return { store };
