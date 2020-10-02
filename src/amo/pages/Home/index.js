@@ -20,7 +20,7 @@ import { fetchHomeData } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_PROMOTED_SHELF,
   RECOMMENDED,
@@ -32,6 +32,7 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
+import LoadingText from 'ui/components/LoadingText';
 
 import './styles.scss';
 
@@ -188,11 +189,16 @@ export class HomeBase extends React.Component {
     );
   }
 
-  renderHeroHeader(shelfData) {
+  renderHeroHeader() {
+    const { heroShelves } = this.props;
     return (
       <div className="Home-heroHeader">
-        <h2 className="Home-heroHeader-title">{shelfData.headline}</h2>
-        <h3 className="Home-heroHeader-subtitle">{shelfData.description}</h3>
+        <h2 className="Home-heroHeader-title">
+          {heroShelves ? heroShelves.secondary.headline : <LoadingText />}
+        </h2>
+        <h3 className="Home-heroHeader-subtitle">
+          {heroShelves ? heroShelves.secondary.description : <LoadingText />}
+        </h3>
       </div>
     );
   }
@@ -211,6 +217,8 @@ export class HomeBase extends React.Component {
       resultsLoaded,
       shelves,
     } = this.props;
+
+    const isDesktopSite = clientApp === CLIENT_APP_FIREFOX;
 
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
@@ -239,8 +247,6 @@ export class HomeBase extends React.Component {
       return null;
     };
 
-    const showHeroPromo = clientApp !== CLIENT_APP_ANDROID;
-
     const { promotedExtensions } = shelves;
     if (Array.isArray(promotedExtensions)) {
       // If there are fewer than 6 promoted extensions, just use the first 3.
@@ -250,7 +256,7 @@ export class HomeBase extends React.Component {
     }
 
     return (
-      <Page isHomePage showWrongPlatformWarning={!showHeroPromo}>
+      <Page isHomePage showWrongPlatformWarning={!isDesktopSite}>
         <div className="Home">
           <HeadMetaTags
             description={i18n.gettext(`Download Firefox extensions and themes.
@@ -269,11 +275,11 @@ export class HomeBase extends React.Component {
             }}
           />
 
-          {!showHeroPromo && errorHandler.hasError() ? (
+          {!isDesktopSite && errorHandler.hasError() ? (
             <div className="Home-noHeroError">{errorHandler.renderError()}</div>
           ) : null}
 
-          {showHeroPromo ? (
+          {isDesktopSite ? (
             <HeroRecommendation
               errorHandler={errorHandler}
               shelfData={heroShelves && heroShelves.primary}
@@ -281,7 +287,7 @@ export class HomeBase extends React.Component {
           ) : null}
 
           <div className="Home-content">
-            {_config.get('enableFeaturePromotedShelf') && showHeroPromo ? (
+            {_config.get('enableFeaturePromotedShelf') && isDesktopSite ? (
               <PromotedAddonsCard
                 addonInstallSource={INSTALL_SOURCE_PROMOTED_SHELF}
                 addons={promotedExtensions}
@@ -289,13 +295,11 @@ export class HomeBase extends React.Component {
               />
             ) : null}
 
-            {showHeroPromo ? (
+            {isDesktopSite ? (
               <SecondaryHero shelfData={heroShelves && heroShelves.secondary} />
             ) : null}
 
-            {!showHeroPromo && heroShelves && heroShelves.secondary
-              ? this.renderHeroHeader(heroShelves.secondary)
-              : null}
+            {!isDesktopSite ? this.renderHeroHeader() : null}
 
             <LandingAddonsCard
               addonInstallSource={INSTALL_SOURCE_FEATURED}
@@ -314,93 +318,99 @@ export class HomeBase extends React.Component {
               loading={loading}
             />
 
-            <LandingAddonsCard
-              addonInstallSource={INSTALL_SOURCE_FEATURED}
-              addons={shelves.popularThemes}
-              className="Home-PopularThemes"
-              header={i18n.gettext('Popular themes')}
-              footerText={i18n.gettext('See more popular themes')}
-              footerLink={{
-                pathname: '/search/',
-                query: {
-                  addonType: ADDON_TYPE_STATIC_THEME,
-                  sort: SEARCH_SORT_POPULAR,
-                },
-              }}
-              isTheme
-              loading={loading}
-            />
+            {isDesktopSite ? (
+              <>
+                <LandingAddonsCard
+                  addonInstallSource={INSTALL_SOURCE_FEATURED}
+                  addons={shelves.popularThemes}
+                  className="Home-PopularThemes"
+                  header={i18n.gettext('Popular themes')}
+                  footerText={i18n.gettext('See more popular themes')}
+                  footerLink={{
+                    pathname: '/search/',
+                    query: {
+                      addonType: ADDON_TYPE_STATIC_THEME,
+                      sort: SEARCH_SORT_POPULAR,
+                    },
+                  }}
+                  isTheme
+                  loading={loading}
+                />
 
-            {renderFeaturedCollection(0)}
+                {renderFeaturedCollection(0)}
 
-            <LandingAddonsCard
-              addonInstallSource={INSTALL_SOURCE_FEATURED}
-              addons={shelves.popularExtensions}
-              className="Home-PopularExtensions"
-              header={i18n.gettext('Popular extensions')}
-              footerText={i18n.gettext('See more popular extensions')}
-              footerLink={{
-                pathname: '/search/',
-                query: {
-                  addonType: ADDON_TYPE_EXTENSION,
-                  promoted: RECOMMENDED,
-                  sort: SEARCH_SORT_POPULAR,
-                },
-              }}
-              loading={loading}
-            />
+                <LandingAddonsCard
+                  addonInstallSource={INSTALL_SOURCE_FEATURED}
+                  addons={shelves.popularExtensions}
+                  className="Home-PopularExtensions"
+                  header={i18n.gettext('Popular extensions')}
+                  footerText={i18n.gettext('See more popular extensions')}
+                  footerLink={{
+                    pathname: '/search/',
+                    query: {
+                      addonType: ADDON_TYPE_EXTENSION,
+                      promoted: RECOMMENDED,
+                      sort: SEARCH_SORT_POPULAR,
+                    },
+                  }}
+                  loading={loading}
+                />
 
-            {includeRecommendedThemes && (
-              <LandingAddonsCard
-                addonInstallSource={INSTALL_SOURCE_FEATURED}
-                addons={shelves.recommendedThemes}
-                className="Home-RecommendedThemes"
-                footerText={i18n.gettext('See more recommended themes')}
-                footerLink={{
-                  pathname: '/search/',
-                  query: {
-                    addonType: ADDON_TYPE_STATIC_THEME,
-                    promoted: RECOMMENDED,
-                    sort: SEARCH_SORT_RANDOM,
-                  },
-                }}
-                header={i18n.gettext('Recommended themes')}
-                isTheme
-                loading={loading}
-              />
-            )}
+                {includeRecommendedThemes && (
+                  <LandingAddonsCard
+                    addonInstallSource={INSTALL_SOURCE_FEATURED}
+                    addons={shelves.recommendedThemes}
+                    className="Home-RecommendedThemes"
+                    footerText={i18n.gettext('See more recommended themes')}
+                    footerLink={{
+                      pathname: '/search/',
+                      query: {
+                        addonType: ADDON_TYPE_STATIC_THEME,
+                        promoted: RECOMMENDED,
+                        sort: SEARCH_SORT_RANDOM,
+                      },
+                    }}
+                    header={i18n.gettext('Recommended themes')}
+                    isTheme
+                    loading={loading}
+                  />
+                )}
 
-            {renderFeaturedCollection(1)}
+                {renderFeaturedCollection(1)}
 
-            {includeTrendingExtensions && (
-              <LandingAddonsCard
-                addonInstallSource={INSTALL_SOURCE_FEATURED}
-                addons={shelves.trendingExtensions}
-                className="Home-TrendingExtensions"
-                header={i18n.gettext('Trending extensions')}
-                footerText={i18n.gettext('See more trending extensions')}
-                footerLink={{
-                  pathname: '/search/',
-                  query: {
-                    addonType: ADDON_TYPE_EXTENSION,
-                    promoted: RECOMMENDED,
-                    sort: SEARCH_SORT_TRENDING,
-                  },
-                }}
-                loading={loading}
-              />
-            )}
+                {includeTrendingExtensions && (
+                  <LandingAddonsCard
+                    addonInstallSource={INSTALL_SOURCE_FEATURED}
+                    addons={shelves.trendingExtensions}
+                    className="Home-TrendingExtensions"
+                    header={i18n.gettext('Trending extensions')}
+                    footerText={i18n.gettext('See more trending extensions')}
+                    footerLink={{
+                      pathname: '/search/',
+                      query: {
+                        addonType: ADDON_TYPE_EXTENSION,
+                        promoted: RECOMMENDED,
+                        sort: SEARCH_SORT_TRENDING,
+                      },
+                    }}
+                    loading={loading}
+                  />
+                )}
 
-            <Card
-              className="Home-SubjectShelf Home-CuratedThemes"
-              header={themesHeader}
-            >
-              <div className="Home-SubjectShelf-text-wrapper">
-                <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
-              </div>
+                <Card
+                  className="Home-SubjectShelf Home-CuratedThemes"
+                  header={themesHeader}
+                >
+                  <div className="Home-SubjectShelf-text-wrapper">
+                    <h2 className="Home-SubjectShelf-subheading">
+                      {themesHeader}
+                    </h2>
+                  </div>
 
-              {this.renderCuratedThemes()}
-            </Card>
+                  {this.renderCuratedThemes()}
+                </Card>
+              </>
+            ) : null}
           </div>
         </div>
       </Page>
