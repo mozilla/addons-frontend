@@ -12,7 +12,7 @@ import { ErrorHandler } from 'core/errorHandler';
 import {
   createInternalAddon,
   fetchAddon,
-  loadAddonResults,
+  loadAddon,
 } from 'core/reducers/addons';
 import {
   createInternalVersion,
@@ -66,8 +66,8 @@ describe(__filename, () => {
     return shallowUntilTarget(<AddonVersions {...props} />, AddonVersionsBase);
   };
 
-  const _loadAddonResults = (addons = [fakeAddon]) => {
-    store.dispatch(loadAddonResults({ addons }));
+  const _loadAddon = (addon = fakeAddon) => {
+    store.dispatch(loadAddon({ addon }));
   };
 
   const _loadVersions = ({
@@ -111,7 +111,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const errorHandler = createStubErrorHandler();
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
@@ -157,7 +157,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const errorHandler = createStubErrorHandler();
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
 
     const dispatch = sinon.stub(store, 'dispatch');
 
@@ -204,7 +204,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const errorHandler = createStubErrorHandler();
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     store.dispatch(fetchVersions({ errorHandlerId: errorHandler.id, slug }));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
@@ -228,7 +228,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const errorHandler = createStubErrorHandler();
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     _loadVersions({ slug });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
@@ -253,7 +253,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const errorHandler = createStubErrorHandler();
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
 
     const dispatch = sinon.stub(store, 'dispatch');
 
@@ -285,7 +285,7 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const addon = { ...fakeAddon, slug };
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
 
     const root = render({
       params: { slug },
@@ -301,7 +301,7 @@ describe(__filename, () => {
     const versions = [fakeVersion];
     const expectedHeader = `${addon.name} version history - ${versions.length} version`;
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     _loadVersions({ slug, versions });
 
     const root = render({
@@ -321,7 +321,7 @@ describe(__filename, () => {
     const versions = [fakeVersion, fakeVersion];
     const expectedHeader = `${addon.name} version history - ${versions.length} versions`;
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     _loadVersions({ slug, versions });
 
     const root = render({
@@ -335,7 +335,7 @@ describe(__filename, () => {
     const slug = 'some-addon-slug';
     const addon = { ...fakeAddon, slug };
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
 
     const root = render({
       params: { slug },
@@ -381,7 +381,7 @@ describe(__filename, () => {
       const addon = { ...fakeAddon, slug, current_version: version1 };
       const version2 = { ...fakeVersion, id: 2 };
 
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       _loadVersions({ slug, versions: [version1, version2] });
 
       const root = render({
@@ -408,7 +408,7 @@ describe(__filename, () => {
       const slug = 'some-addon-slug';
       const addon = { ...fakeAddon, slug };
 
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       _loadVersions({ slug, versions: [] });
 
       const root = render({
@@ -427,7 +427,7 @@ describe(__filename, () => {
       const version2 = { ...fakeVersion, id: 2 };
       const version3 = { ...fakeVersion, id: 3 };
 
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       _loadVersions({ slug, versions: [version1, version2, version3] });
 
       const root = render({
@@ -447,7 +447,7 @@ describe(__filename, () => {
       const version2 = { ...fakeVersion, id: 2 };
       const version3 = { ...fakeVersion, id: 3 };
 
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       _loadVersions({ slug, versions: [version1, version2, version3] });
 
       const root = render({
@@ -476,7 +476,7 @@ describe(__filename, () => {
       const version2 = { ...fakeVersion, id: 2 };
       const version3 = { ...fakeVersion, id: 3 };
 
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       _loadVersions({ slug, versions: [version1, version2, version3] });
 
       const root = render({

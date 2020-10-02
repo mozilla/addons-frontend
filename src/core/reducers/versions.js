@@ -19,7 +19,7 @@ import {
   OS_WINDOWS,
 } from 'core/constants';
 import log from 'core/logger';
-import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
+import { LOAD_ADDON } from 'core/reducers/addons';
 import { SEARCH_LOADED } from 'core/reducers/search';
 import { findFileForPlatform } from 'core/utils';
 import { formatFilesize } from 'core/i18n/utils';
@@ -416,8 +416,14 @@ const reducer = (
       };
     }
 
+    case LOAD_ADDON:
+      // This is needed to use a common logic to store add-ons.
+      // Also, we don't use `break` in this case block on purpose.
+      //
+      // eslint-disable-next-line no-param-reassign, no-fallthrough
+      action.payload.addons = [action.payload.addon];
+
     case LOAD_ADDONS_BY_AUTHORS:
-    case LOAD_ADDON_RESULTS:
     case LOAD_COLLECTION_ADDONS:
     case LOAD_CURRENT_COLLECTION:
     case LOAD_CURRENT_COLLECTION_PAGE:

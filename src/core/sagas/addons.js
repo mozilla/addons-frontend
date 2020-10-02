@@ -7,7 +7,7 @@ import {
   FETCH_ADDON,
   FETCH_ADDON_INFO,
   loadAddonInfo,
-  loadAddonResults,
+  loadAddon,
 } from 'core/reducers/addons';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
@@ -28,13 +28,14 @@ export function* fetchAddon({
 }: FetchAddonAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
+
   try {
     const state = yield select(getState);
 
     const params: FetchAddonParams = { api: state.api, slug };
     const addon = yield call(fetchAddonFromApi, params);
 
-    yield put(loadAddonResults({ addons: [addon] }));
+    yield put(loadAddon({ addon }));
   } catch (error) {
     log.warn(`Failed to load add-on with slug ${slug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));

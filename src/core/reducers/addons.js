@@ -23,7 +23,7 @@ export const FETCH_ADDON_INFO: 'FETCH_ADDON_INFO' = 'FETCH_ADDON_INFO';
 export const LOAD_ADDON_INFO: 'LOAD_ADDON_INFO' = 'LOAD_ADDON_INFO';
 
 export const FETCH_ADDON: 'FETCH_ADDON' = 'FETCH_ADDON';
-export const LOAD_ADDON_RESULTS: 'LOAD_ADDON_RESULTS' = 'LOAD_ADDON_RESULTS';
+export const LOAD_ADDON: 'LOAD_ADDON' = 'LOAD_ADDON';
 
 type AddonID = number;
 
@@ -81,25 +81,21 @@ export function fetchAddon({
   };
 }
 
-type LoadAddonResultsParams = {|
-  addons: Array<ExternalAddonType>,
+type LoadAddonParams = {|
+  addon: ExternalAddonType,
 |};
 
-export type LoadAddonResultsAction = {|
-  payload: LoadAddonResultsParams,
-  type: typeof LOAD_ADDON_RESULTS,
+export type LoadAddonAction = {|
+  payload: LoadAddonParams,
+  type: typeof LOAD_ADDON,
 |};
 
-export function loadAddonResults({
-  addons,
-}: LoadAddonResultsParams = {}): LoadAddonResultsAction {
-  if (!addons) {
-    throw new Error('addons are required');
-  }
+export function loadAddon({ addon }: LoadAddonParams = {}): LoadAddonAction {
+  invariant(addon, 'addon is required');
 
   return {
-    type: LOAD_ADDON_RESULTS,
-    payload: { addons },
+    type: LOAD_ADDON,
+    payload: { addon },
   };
 }
 
@@ -315,7 +311,7 @@ type Action =
   | FetchAddonAction
   | FetchAddonInfoAction
   | LoadAddonInfoAction
-  | LoadAddonResultsAction
+  | LoadAddonAction
   | UnloadAddonReviewsAction
   | UpdateRatingCountsAction;
 
@@ -335,29 +331,27 @@ export default function addonsReducer(
       };
     }
 
-    case LOAD_ADDON_RESULTS: {
-      const { addons: loadedAddons } = action.payload;
+    case LOAD_ADDON: {
+      const { addon: loadedAddon } = action.payload;
 
       const byID = { ...state.byID };
       const byGUID = { ...state.byGUID };
       const bySlug = { ...state.bySlug };
       const loadingBySlug = { ...state.loadingBySlug };
 
-      loadedAddons.forEach((loadedAddon) => {
-        const addon = createInternalAddon(loadedAddon);
-        // Flow wants hash maps with string keys.
-        // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
-        byID[`${addon.id}`] = addon;
+      const addon = createInternalAddon(loadedAddon);
+      // Flow wants hash maps with string keys.
+      // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
+      byID[`${addon.id}`] = addon;
 
-        if (addon.slug) {
-          bySlug[addon.slug.toLowerCase()] = addon.id;
-          loadingBySlug[addon.slug.toLowerCase()] = false;
-        }
+      if (addon.slug) {
+        bySlug[addon.slug.toLowerCase()] = addon.id;
+        loadingBySlug[addon.slug.toLowerCase()] = false;
+      }
 
-        if (addon.guid) {
-          byGUID[addon.guid] = addon.id;
-        }
-      });
+      if (addon.guid) {
+        byGUID[addon.guid] = addon.id;
+      }
 
       return {
         ...state,

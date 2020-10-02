@@ -2,7 +2,7 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import log from 'core/logger';
-import { loadAddonResults } from 'core/reducers/addons';
+import { loadAddon } from 'core/reducers/addons';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import {
   GET_DISCO_RESULTS,
@@ -34,7 +34,10 @@ export function* fetchDiscoveryAddons({
 
     const addons = createExternalAddonMap({ results });
 
-    yield put(loadAddonResults({ addons }));
+    for (const addon of addons) {
+      yield put(loadAddon({ addon }));
+    }
+
     yield put(loadDiscoResults({ results }));
   } catch (error) {
     log.warn(`Failed to fetch discovery add-ons: ${error}`);

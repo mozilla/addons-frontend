@@ -13,7 +13,7 @@ import {
   fetchAddon,
   fetchAddonInfo,
   loadAddonInfo,
-  loadAddonResults,
+  loadAddon,
 } from 'core/reducers/addons';
 import {
   FETCH_VERSION,
@@ -66,8 +66,8 @@ describe(__filename, () => {
     return shallowUntilTarget(<AddonInfo {...props} />, AddonInfoBase);
   };
 
-  const _loadAddonResults = (addons = [fakeAddon]) => {
-    store.dispatch(loadAddonResults({ addons }));
+  const _loadAddon = (addon = fakeAddon) => {
+    store.dispatch(loadAddon({ addon }));
   };
 
   const _loadAddonInfo = ({
@@ -121,7 +121,7 @@ describe(__filename, () => {
       const slug = 'some-slug';
       const newSlug = 'some-other-slug';
       const addon = { ...fakeAddon, slug };
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
       render({
@@ -236,7 +236,7 @@ describe(__filename, () => {
     it('fetches an addonVersion when no version is loaded', () => {
       const slug = 'some-addon-slug';
       const addon = { ...fakeAddon, slug };
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       const errorHandler = createStubErrorHandler();
 
       const dispatch = sinon.stub(store, 'dispatch');
@@ -267,7 +267,7 @@ describe(__filename, () => {
     it('does not fetch an addonVersion when the addon has no current version', () => {
       const slug = 'some-addon-slug';
       const addon = { ...fakeAddon, slug, current_version: null };
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
 
       const dispatch = sinon.stub(store, 'dispatch');
 
@@ -282,7 +282,7 @@ describe(__filename, () => {
     it('fetches an addonVersion when the loaded version has no license text', () => {
       const slug = 'some-addon-slug';
       const addon = { ...fakeAddon, slug };
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       _loadVersions({
         slug,
         versions: [
@@ -311,7 +311,7 @@ describe(__filename, () => {
     it('does not fetch an addonVersion when the loaded version has license text', () => {
       const slug = 'some-addon-slug';
       const addon = { ...fakeAddon, slug };
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       _loadVersions({
         slug,
         versions: [
@@ -340,7 +340,7 @@ describe(__filename, () => {
     it('does not fetch an addonVersion if one is already loading', () => {
       const slug = 'some-addon-slug';
       const addon = { ...fakeAddon, slug };
-      _loadAddonResults([addon]);
+      _loadAddon(addon);
       const errorHandler = createStubErrorHandler();
 
       store.dispatch(
@@ -370,7 +370,8 @@ describe(__filename, () => {
       const newSlug = 'some-other-slug';
       const addon = { ...fakeAddon, slug };
       const newAddon = { ...fakeAddon, slug: newSlug };
-      _loadAddonResults([addon, newAddon]);
+      _loadAddon(addon);
+      _loadAddon(newAddon);
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
 
@@ -393,7 +394,7 @@ describe(__filename, () => {
   it('does not fetch an addon if one is already loaded', () => {
     const slug = 'some-addon-slug';
     const addon = { ...fakeAddon, slug };
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     const errorHandler = createStubErrorHandler();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
@@ -455,7 +456,7 @@ describe(__filename, () => {
 
   it('renders an AddonSummaryCard with an addon', () => {
     const addon = fakeAddon;
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     const root = render({ infoType: ADDON_INFO_TYPE_PRIVACY_POLICY });
 
     const summary = root.find(AddonSummaryCard);
@@ -478,7 +479,7 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const addon = { ...fakeAddon, slug };
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
 
     const root = render({
       infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
@@ -494,7 +495,7 @@ describe(__filename, () => {
   });
 
   it('renders a robots meta tag', () => {
-    _loadAddonResults();
+    _loadAddon();
     const root = render();
 
     expect(root.find('meta[name="robots"]')).toHaveLength(1);
@@ -517,7 +518,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });
 
     const root = render({
@@ -538,7 +539,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const addonInfo = { ...fakeAddonInfo, eula };
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });
 
     const root = render({
@@ -562,7 +563,7 @@ describe(__filename, () => {
       license: { ...fakeVersion.license, text: licenseText },
     };
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     _loadVersions({ slug, versions: [addonVersion] });
 
     const root = render({
@@ -583,7 +584,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });
 
     const root = render({
@@ -600,7 +601,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });
 
     const root = render({
@@ -619,7 +620,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
 
-    _loadAddonResults([addon]);
+    _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });
 
     const root = render({

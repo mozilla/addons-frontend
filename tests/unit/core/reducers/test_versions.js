@@ -15,7 +15,7 @@ import {
 import { formatFilesize } from 'core/i18n/utils';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { ADDON_TYPE_EXTENSION, OS_MAC, OS_WINDOWS } from 'core/constants';
-import { loadAddonResults } from 'core/reducers/addons';
+import { loadAddon } from 'core/reducers/addons';
 import { searchLoad } from 'core/reducers/search';
 import versionsReducer, {
   createInternalVersion,
@@ -763,17 +763,15 @@ describe(__filename, () => {
       });
     });
 
-    describe('LOAD_ADDON_RESULTS', () => {
+    describe('LOAD_ADDON', () => {
       it('loads versions', () => {
         const state = versionsReducer(
           undefined,
-          loadAddonResults({
-            addons: [
-              {
-                ...fakeAddon,
-                current_version: version,
-              },
-            ],
+          loadAddon({
+            addon: {
+              ...fakeAddon,
+              current_version: version,
+            },
           }),
         );
 

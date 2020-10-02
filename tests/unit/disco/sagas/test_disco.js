@@ -1,6 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
-import addonsReducer, { loadAddonResults } from 'core/reducers/addons';
+import addonsReducer, { loadAddon } from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import * as api from 'disco/api';
 import discoResultsReducer, {
@@ -97,7 +97,10 @@ describe(__filename, () => {
       const calledActions = sagaTester.getCalledActions();
 
       const addons = createExternalAddonMap({ results });
-      expect(calledActions[1]).toEqual(loadAddonResults({ addons }));
+
+      expect(addons.length).toEqual(2);
+      expect(calledActions[1]).toEqual(loadAddon({ addon: addons[0] }));
+      expect(calledActions[2]).toEqual(loadAddon({ addon: addons[1] }));
     });
 
     it('includes a telemetry client ID in the API request', async () => {
