@@ -58,7 +58,10 @@ describe(__filename, () => {
 
       _fetchAddon({ slug: fakeAddon.slug });
 
-      const expectedAction = loadAddon({ addon: fakeAddon });
+      const expectedAction = loadAddon({
+        addon: fakeAddon,
+        slug: fakeAddon.slug,
+      });
       await sagaTester.waitFor(expectedAction.type);
 
       mockApi.verify();
@@ -69,7 +72,10 @@ describe(__filename, () => {
 
       _fetchAddon();
 
-      const expectedAction = loadAddon({ addon: fakeAddon });
+      const expectedAction = loadAddon({
+        addon: fakeAddon,
+        slug: fakeAddon.slug,
+      });
       await sagaTester.waitFor(expectedAction.type);
 
       expect(sagaTester.getCalledActions()[1]).toEqual(

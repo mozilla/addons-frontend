@@ -26,7 +26,7 @@ export function loadDiscoResultsIntoState(
   const addons = createExternalAddonMap({ results });
 
   for (const addon of addons) {
-    store.dispatch(loadAddon({ addon }));
+    store.dispatch(loadAddon({ addon, slug: addon.slug }));
   }
 
   store.dispatch(loadDiscoResults({ results }));

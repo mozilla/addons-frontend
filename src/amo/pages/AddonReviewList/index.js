@@ -25,7 +25,7 @@ import { getCurrentUser } from 'amo/reducers/users';
 import { getAddonURL } from 'amo/utils';
 import {
   fetchAddon,
-  getAddonBySlug,
+  getAddonByIdInURL,
   isAddonLoading,
 } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
@@ -401,7 +401,7 @@ export function mapStateToProps(
   ownProps: Props,
 ): $Shape<InternalProps> {
   const { addonSlug } = ownProps.match.params;
-  const addon = getAddonBySlug(state.addons, addonSlug);
+  const addon = getAddonByIdInURL(state.addons, addonSlug);
   const reviewData = selectReviews({
     page: getCurrentPage(ownProps.location),
     reviewsState: state.reviews,

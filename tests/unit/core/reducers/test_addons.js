@@ -9,9 +9,7 @@ import addons, {
   createInternalAddonInfo,
   fetchAddon,
   fetchAddonInfo,
-  getAddonByGUID,
   getAddonByID,
-  getAddonBySlug,
   getAddonInfoBySlug,
   getAllAddons,
   isAddonInfoLoading,
@@ -37,21 +35,30 @@ describe(__filename, () => {
   });
 
   it('ignores unrelated actions', () => {
-    const firstState = addons(undefined, loadAddon({ addon: fakeAddon }));
+    const firstState = addons(
+      undefined,
+      loadAddon({ addon: fakeAddon, slug: fakeAddon.slug }),
+    );
     expect(addons(firstState, { type: 'UNRELATED_ACTION' })).toEqual(
       firstState,
     );
   });
 
   it('stores addons from entities', () => {
-    const firstState = addons(undefined, loadAddon({ addon: fakeAddon }));
+    const firstState = addons(
+      undefined,
+      loadAddon({ addon: fakeAddon, slug: fakeAddon.slug }),
+    );
 
     const anotherFakeAddon = {
       ...fakeAddon,
       slug: 'testing1234',
       id: 6401,
     };
-    const newState = addons(firstState, loadAddon({ addon: anotherFakeAddon }));
+    const newState = addons(
+      firstState,
+      loadAddon({ addon: anotherFakeAddon, slug: anotherFakeAddon.slug }),
+    );
 
     const internalAddon = createInternalAddon(anotherFakeAddon);
     expect(newState.byID).toEqual({
@@ -72,8 +79,11 @@ describe(__filename, () => {
     const addon1 = { ...fakeAddon, slug: 'first-slug', id: 123 };
     const addon2 = { ...fakeAddon, slug: 'second-slug', id: 456 };
 
-    let state = addons(undefined, loadAddon({ addon: addon1 }));
-    state = addons(state, loadAddon({ addon: addon2 }));
+    let state = addons(
+      undefined,
+      loadAddon({ addon: addon1, slug: addon1.slug }),
+    );
+    state = addons(state, loadAddon({ addon: addon2, slug: addon2.slug }));
 
     expect(Object.keys(state.byID).sort()).toEqual(['123', '456']);
   });
@@ -82,8 +92,11 @@ describe(__filename, () => {
     const addon1 = { ...fakeAddon, slug: 'first-slug', id: 123 };
     const addon2 = { ...fakeAddon, slug: 'second-slug', id: 456 };
 
-    let state = addons(undefined, loadAddon({ addon: addon1 }));
-    state = addons(state, loadAddon({ addon: addon2 }));
+    let state = addons(
+      undefined,
+      loadAddon({ addon: addon1, slug: addon1.slug }),
+    );
+    state = addons(state, loadAddon({ addon: addon2, slug: addon2.slug }));
 
     expect(state.bySlug).toEqual({
       'first-slug': 123,
@@ -95,8 +108,11 @@ describe(__filename, () => {
     const addon1 = { ...fakeAddon, slug: 'FIRST', id: 123 };
     const addon2 = { ...fakeAddon, slug: 'SeCond', id: 456 };
 
-    let state = addons(undefined, loadAddon({ addon: addon1 }));
-    state = addons(state, loadAddon({ addon: addon2 }));
+    let state = addons(
+      undefined,
+      loadAddon({ addon: addon1, slug: addon1.slug }),
+    );
+    state = addons(state, loadAddon({ addon: addon2, slug: addon2.slug }));
 
     expect(state.bySlug).toEqual({
       first: 123,
@@ -107,7 +123,7 @@ describe(__filename, () => {
   it('stores an internal representation of an extension', () => {
     const addon = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
 
     expect(getAddonByID(state, addon.id)).toEqual(createInternalAddon(addon));
   });
@@ -115,7 +131,7 @@ describe(__filename, () => {
   it('does not store undefined properties', () => {
     const addon = { ...fakeAddon, description: undefined };
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
 
     // eslint-disable-next-line no-prototype-builtins
     expect(
@@ -133,7 +149,7 @@ describe(__filename, () => {
       ],
     });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isRestartRequired).toBe(true);
   });
 
@@ -144,14 +160,14 @@ describe(__filename, () => {
       ],
     });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isRestartRequired).toBe(false);
   });
 
   it('sets `isRestartRequired` to `false` when addon has no files', () => {
     const addon = createFakeAddon({ files: [] });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isRestartRequired).toBe(false);
   });
 
@@ -163,7 +179,7 @@ describe(__filename, () => {
       ],
     });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isRestartRequired).toBe(true);
   });
 
@@ -172,7 +188,7 @@ describe(__filename, () => {
       files: [{ is_webextension: true }],
     });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isWebExtension).toBe(true);
   });
 
@@ -181,14 +197,14 @@ describe(__filename, () => {
       files: [{ is_webextension: false }],
     });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isWebExtension).toBe(false);
   });
 
   it('sets `isWebExtension` to `false` when addon has no files', () => {
     const addon = createFakeAddon({ files: [] });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isWebExtension).toBe(false);
   });
 
@@ -197,7 +213,7 @@ describe(__filename, () => {
       files: [{ is_webextension: false }, { is_webextension: true }],
     });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isWebExtension).toBe(true);
   });
 
@@ -206,7 +222,7 @@ describe(__filename, () => {
       files: [{ is_mozilla_signed_extension: true }],
     });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(true);
   });
 
@@ -215,14 +231,14 @@ describe(__filename, () => {
       files: [{ is_mozilla_signed_extension: false }],
     });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(false);
   });
 
   it('sets `isMozillaSignedExtension` to `false` without files', () => {
     const addon = createFakeAddon({ files: [] });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(false);
   });
 
@@ -234,7 +250,7 @@ describe(__filename, () => {
       ],
     });
 
-    const state = addons(undefined, loadAddon({ addon }));
+    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(true);
   });
 
@@ -242,10 +258,13 @@ describe(__filename, () => {
     const addon1 = { ...fakeAddon, slug: 'first-slug' };
     const addon2 = { ...fakeAddon, slug: 'second-slug' };
 
-    let state = addons(undefined, loadAddon({ addon: addon1 }));
-    state = addons(state, loadAddon({ addon: addon2 }));
+    let state = addons(
+      undefined,
+      loadAddon({ addon: addon1, slug: addon1.slug }),
+    );
+    state = addons(state, loadAddon({ addon: addon2, slug: addon2.slug }));
 
-    expect(state.loadingBySlug).toEqual({
+    expect(state.loadingByIdInURL).toEqual({
       'first-slug': false,
       'second-slug': false,
     });
@@ -277,27 +296,21 @@ describe(__filename, () => {
         undefined,
         fetchAddon({ slug, errorHandler: createStubErrorHandler() }),
       );
-      expect(state.loadingBySlug[slug]).toBe(true);
-    });
-
-    it('is case insensitive', () => {
-      const slug = 'some-slug';
-      const state = addons(
-        undefined,
-        fetchAddon({
-          slug: slug.toUpperCase(),
-          errorHandler: createStubErrorHandler(),
-        }),
-      );
-      expect(state.loadingBySlug).toHaveProperty(slug);
+      expect(state.loadingByIdInURL[slug]).toBe(true);
     });
   });
 
   describe('loadAddon', () => {
-    it('requires addons', () => {
+    it('requires an addon', () => {
       expect(() => {
         loadAddon();
       }).toThrow('addon is required');
+    });
+
+    it('requires a slug', () => {
+      expect(() => {
+        loadAddon({ addon: fakeAddon });
+      }).toThrow('slug is required');
     });
   });
 
@@ -310,73 +323,9 @@ describe(__filename, () => {
 
     it('returns an add-on by id', () => {
       const { store } = dispatchClientMetadata();
-      store.dispatch(loadAddon({ addon: fakeAddon }));
+      store.dispatch(loadAddon({ addon: fakeAddon, slug: fakeAddon.slug }));
 
       expect(getAddonByID(store.getState().addons, fakeAddon.id)).toEqual(
-        createInternalAddon(fakeAddon),
-      );
-    });
-  });
-
-  describe('getAddonBySlug', () => {
-    it('returns null if no add-on found with the given slug', () => {
-      const { state } = dispatchClientMetadata();
-
-      expect(getAddonBySlug(state.addons, 'slug')).toEqual(null);
-    });
-
-    it('returns null when slug is null', () => {
-      const { state } = dispatchClientMetadata();
-
-      expect(getAddonBySlug(state.addons, null)).toEqual(null);
-    });
-
-    it('returns null when slug is undefined', () => {
-      const { state } = dispatchClientMetadata();
-
-      expect(getAddonBySlug(state.addons, undefined)).toEqual(null);
-    });
-
-    it('returns null when slug is not a string', () => {
-      const { state } = dispatchClientMetadata();
-
-      expect(getAddonBySlug(state.addons, 123)).toEqual(null);
-    });
-
-    it('returns an add-on by slug', () => {
-      const { store } = dispatchClientMetadata();
-      store.dispatch(loadAddon({ addon: fakeAddon }));
-
-      expect(getAddonBySlug(store.getState().addons, fakeAddon.slug)).toEqual(
-        createInternalAddon(fakeAddon),
-      );
-    });
-
-    it('is case insensitive', () => {
-      const slug = 'some-slug';
-      const externalAddon = { ...fakeAddon, slug };
-
-      const { store } = dispatchClientMetadata();
-      store.dispatch(loadAddon({ addon: externalAddon }));
-
-      expect(
-        getAddonBySlug(store.getState().addons, slug.toUpperCase()),
-      ).toEqual(createInternalAddon(externalAddon));
-    });
-  });
-
-  describe('getAddonByGUID', () => {
-    it('returns null if no add-on found with the given guid', () => {
-      const { state } = dispatchClientMetadata();
-
-      expect(getAddonByGUID(state.addons, 'guid')).toEqual(null);
-    });
-
-    it('returns an add-on by guid', () => {
-      const { store } = dispatchClientMetadata();
-      store.dispatch(loadAddon({ addon: fakeAddon }));
-
-      expect(getAddonByGUID(store.getState().addons, fakeAddon.guid)).toEqual(
         createInternalAddon(fakeAddon),
       );
     });
@@ -391,7 +340,7 @@ describe(__filename, () => {
 
     it('returns an array of add-ons', () => {
       const { store } = dispatchClientMetadata();
-      store.dispatch(loadAddon({ addon: fakeAddon }));
+      store.dispatch(loadAddon({ addon: fakeAddon, slug: fakeAddon.slug }));
 
       expect(getAllAddons(store.getState())).toEqual([
         createInternalAddon(fakeAddon),
@@ -423,18 +372,6 @@ describe(__filename, () => {
         }),
       );
       expect(isAddonLoading({ addons: state }, slug)).toBe(true);
-    });
-
-    it('is case insensitive', () => {
-      const slug = 'some-slug';
-      const state = addons(
-        undefined,
-        fetchAddon({
-          slug,
-          errorHandler: createStubErrorHandler(),
-        }),
-      );
-      expect(isAddonLoading({ addons: state }, slug.toUpperCase())).toBe(true);
     });
 
     it('returns false when slug is not a string', () => {
@@ -483,7 +420,7 @@ describe(__filename, () => {
           errorHandler: createStubErrorHandler(),
         }),
       );
-      state = addons(state, loadAddon({ addon }));
+      state = addons(state, loadAddon({ addon, slug }));
 
       expect(isAddonLoading({ addons: state }, slug)).toBe(false);
     });
@@ -512,15 +449,14 @@ describe(__filename, () => {
         slug: slug2,
       };
 
-      let state = addons(undefined, loadAddon({ addon: addon1 }));
-      state = addons(state, loadAddon({ addon: addon2 }));
+      let state = addons(undefined, loadAddon({ addon: addon1, slug: slug1 }));
+      state = addons(state, loadAddon({ addon: addon2, slug: slug2 }));
 
       state = addons(state, unloadAddonReviews({ addonId: id1, reviewId: 1 }));
 
-      expect(getAddonByGUID(state, addon1.guid)).toEqual(null);
       expect(getAddonByID(state, addon1.id)).toEqual(null);
       expect(state.bySlug).toEqual({ [slug2]: id2 });
-      expect(state.loadingBySlug).toEqual({ [slug2]: false });
+      expect(state.loadingByIdInURL).toEqual({ [slug2]: false });
     });
   });
 
@@ -544,7 +480,7 @@ describe(__filename, () => {
     }
 
     function initStateWithAddon(addon = { ...fakeAddon }) {
-      return addons(undefined, loadAddon({ addon }));
+      return addons(undefined, loadAddon({ addon, slug: addon.slug }));
     }
 
     function average(numbers) {

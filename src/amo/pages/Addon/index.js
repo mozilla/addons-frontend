@@ -34,9 +34,7 @@ import { isFenixCompatible } from 'core/utils/compatibility';
 import { getVersionById } from 'core/reducers/versions';
 import {
   fetchAddon,
-  getAddonByID,
-  getAddonBySlug,
-  getAddonByGUID,
+  getAddonByIdInURL,
   isAddonLoading,
 } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
@@ -58,12 +56,6 @@ import ThemeImage from 'ui/components/ThemeImage';
 import Notice from 'ui/components/Notice';
 
 import './styles.scss';
-
-// Find out if slug converts to a positive number/ID.
-const slugIsPositiveID = (slug) => {
-  // eslint-disable-next-line no-restricted-globals
-  return !isNaN(slug) && parseInt(slug, 10) > 0;
-};
 
 export const STATUS_PUBLIC = 'public';
 
@@ -109,13 +101,15 @@ export class AddonBase extends React.Component {
     // This makes sure we do not try to dispatch any new actions in the case
     // of an error.
     if (!errorHandler.hasError()) {
-      const { slug } = params;
-
       if (addon) {
-        // We want to make sure the slug converts to a positive number/ID
-        // before we try redirecting. We also want to make sure the case of the
-        // slug parameter matches the add-on's slug case.
-        if (slugIsPositiveID(slug) || addon.slug !== slug) {
+        // If the slug (which is actually the URL parameter) does not match the
+        // add-on's slug, it means the URL isn't the "canonical URL" and we
+        // have to send a server redirect to fix that. The URL can contain an
+        // add-on ID, a GUID or the actual slug. In some cases, it can have
+        // trailing spaces or slightly different characters. As far as the API
+        // returns an add-on for the value of this parameter, we should be able
+        // to display it, after the redirect below.
+        if (addon.slug !== params.slug) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
           dispatch(
@@ -129,7 +123,7 @@ export class AddonBase extends React.Component {
 
         dispatch(setViewContext(addon.type));
       } else if (!addonIsLoading) {
-        dispatch(fetchAddon({ slug, errorHandler }));
+        dispatch(fetchAddon({ slug: params.slug, errorHandler }));
       }
     }
   }
@@ -582,16 +576,8 @@ export class AddonBase extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  let { slug } = ownProps.match.params;
-  slug = typeof slug === 'string' ? slug.trim() : slug;
-  let addon =
-    getAddonBySlug(state.addons, slug) || getAddonByGUID(state.addons, slug);
-
-  // It is possible to load an add-on by its ID but in the routing parameters,
-  // the parameter is always named `slug`.
-  if (slugIsPositiveID(slug)) {
-    addon = getAddonByID(state.addons, slug);
-  }
+  const { slug } = ownProps.match.params;
+  const addon = getAddonByIdInURL(state.addons, slug);
 
   let addonsByAuthors;
   let installedAddon = {};

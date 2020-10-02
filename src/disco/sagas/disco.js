@@ -35,7 +35,7 @@ export function* fetchDiscoveryAddons({
     const addons = createExternalAddonMap({ results });
 
     for (const addon of addons) {
-      yield put(loadAddon({ addon }));
+      yield put(loadAddon({ addon, slug: addon.slug }));
     }
 
     yield put(loadDiscoResults({ results }));

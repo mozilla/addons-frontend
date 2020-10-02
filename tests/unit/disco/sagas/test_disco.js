@@ -99,8 +99,12 @@ describe(__filename, () => {
       const addons = createExternalAddonMap({ results });
 
       expect(addons.length).toEqual(2);
-      expect(calledActions[1]).toEqual(loadAddon({ addon: addons[0] }));
-      expect(calledActions[2]).toEqual(loadAddon({ addon: addons[1] }));
+      expect(calledActions[1]).toEqual(
+        loadAddon({ addon: addons[0], slug: addons[0].slug }),
+      );
+      expect(calledActions[2]).toEqual(
+        loadAddon({ addon: addons[1], slug: addons[1].slug }),
+      );
     });
 
     it('includes a telemetry client ID in the API request', async () => {

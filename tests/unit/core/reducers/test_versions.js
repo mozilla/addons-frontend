@@ -772,6 +772,7 @@ describe(__filename, () => {
               ...fakeAddon,
               current_version: version,
             },
+            slug: fakeAddon.slug,
           }),
         );
 

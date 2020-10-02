@@ -13,7 +13,7 @@ import log from 'core/logger';
 import {
   fetchAddon,
   fetchAddonInfo,
-  getAddonBySlug,
+  getAddonByIdInURL,
   getAddonInfoBySlug,
   isAddonInfoLoading,
   isAddonLoading,
@@ -210,7 +210,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   const { slug } = ownProps.match.params;
-  const addon = getAddonBySlug(state.addons, slug);
+  const addon = getAddonByIdInURL(state.addons, slug);
 
   let addonVersion = null;
 
