@@ -418,11 +418,12 @@ const reducer = (
 
     case LOAD_ADDON:
       // This is needed to use a common logic to store add-ons.
-      // Also, we don't use `break` in this case block on purpose.
       //
-      // eslint-disable-next-line no-param-reassign, no-fallthrough
+      // eslint-disable-next-line no-param-reassign
       action.payload.addons = [action.payload.addon];
-
+    // Also, we don't use `break` in this case block on purpose.
+    //
+    // eslint-disable-next-line no-fallthrough
     case LOAD_ADDONS_BY_AUTHORS:
     case LOAD_COLLECTION_ADDONS:
     case LOAD_CURRENT_COLLECTION:
