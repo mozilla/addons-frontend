@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-29 17:41+0000\n"
-"PO-Revision-Date: 2020-10-03 14:36+0000\n"
+"PO-Revision-Date: 2020-10-03 15:09+0000\n"
 "Last-Translator: Ivan <1vanhorvat@protonmail.com>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1496,9 +1496,8 @@ msgid "Verified"
 msgstr "Provjereno"
 
 #: src/amo/components/SearchFilters/index.js:179
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Pregledano"
+msgstr "Sve pregledano"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
@@ -2780,14 +2779,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr ""
 
 #: src/ui/components/PromotedBadge/index.js:49
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox preporučuje samo proširenja, koja udovoljavaju našim standardima za sigurnost i performanse."
+msgstr "Firefox preporučuje samo dodatke koji udovoljavaju našim standardima za sigurnost i performance."
 
 #: src/ui/components/PromotedBadge/index.js:57
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox preporučuje samo proširenja, koja udovoljavaju našim standardima za sigurnost i performanse."
+msgstr "Na ovom dodatku izvršen je pregled udovoljava li našim standardima za sigurnost i performancu."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
