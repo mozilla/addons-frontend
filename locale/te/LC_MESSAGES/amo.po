@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-29 17:41+0000\n"
-"PO-Revision-Date: 2020-10-04 06:33+0000\n"
+"PO-Revision-Date: 2020-10-04 07:00+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1188,15 +1188,15 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "దుర్వినియోగం కింద ఈ పొడగింతను మీరు నివేదించారు"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "మీ నివేదికను అందుకున్నాము. ఈ పొడగింతతో మీ ఆందోళన గురించి మాకు తెలియజేసినందుకు ధన్యవాదాలు."
 
 #: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "ప్రతి దుర్వినియోగ నివేదికకు మేము స్పందించలేము కాని మేము ఈ సమస్యను పరిశీలిస్తాము."
 
 #: src/amo/components/ReportAbuseButton/index.js:137
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
@@ -1204,7 +1204,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "దుర్వినియోగం క్రింద ఈ పొడగింతను నివేదించండి"
 
 #: src/amo/components/ReportAbuseButton/index.js:183
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1240,7 +1240,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "ఈ వాడుకరి మా విధానాలను ఎలా ఉల్లంఘిస్తున్నారో వివరించండి."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
@@ -2341,7 +2341,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "మీకు నచ్చితే మిమ్మల్ని సంఘానికి పరిచయం చేసుకోండి"
 
 #: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Introduce %(userName)s to the community"
@@ -2589,7 +2589,7 @@ msgstr "పేజీ కనుగొనబడలేదు"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "క్షమించండి, కాని మీరు ఇచ్చిన URL వద్ద ఏమీ కనబడలేదు."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
@@ -2772,7 +2772,7 @@ msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:143
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">విస్తరించుకొని</span> మరింత చదవండి"
 
 #: src/ui/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
