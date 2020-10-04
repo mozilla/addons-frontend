@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-29 17:41+0000\n"
-"PO-Revision-Date: 2020-10-04 06:24+0000\n"
+"PO-Revision-Date: 2020-10-04 06:33+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1224,7 +1224,7 @@ msgstr "రద్దుచేయి"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "ఈ పొడగింత మా విధానాలను ఎలా ఉల్లంఘిస్తున్నదో వివరించండి."
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
