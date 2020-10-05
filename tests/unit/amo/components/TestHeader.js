@@ -2,8 +2,10 @@ import * as React from 'react';
 
 import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
+import SectionLinks from 'amo/components/SectionLinks';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import AuthenticateButton from 'core/components/AuthenticateButton';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import { loadSiteStatus, loadedPageIsAnonymous } from 'core/reducers/site';
 import {
@@ -224,5 +226,21 @@ describe(__filename, () => {
 
     expect(root).toHaveClassName('Header--loaded-page-is-anonymous');
     expect(root.find(AuthenticateButton)).toHaveLength(0);
+  });
+
+  it('renders navigation links for the desktop site', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+
+    const root = renderHeader({ store });
+
+    expect(root.find(SectionLinks)).toHaveLength(1);
+  });
+
+  it('does not render navigation links for the mobile site', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+
+    const root = renderHeader({ store });
+
+    expect(root.find(SectionLinks)).toHaveLength(0);
   });
 });
