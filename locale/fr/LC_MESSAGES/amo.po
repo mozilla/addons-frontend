@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-09-29 17:41+0000\n"
-"PO-Revision-Date: 2020-10-05 10:50+0000\n"
+"PO-Revision-Date: 2020-10-05 14:09+0000\n"
 "Last-Translator: YD <ygda+fx@free.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1009,7 +1009,7 @@ msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:101
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "La sécurité de ce module complémentaire n’est pas activement contrôlée par Mozilla. Assurez-vous de pouvoir lui faire confiance avant de l’installer."
+msgstr "La sécurité de ce module n’est pas contrôlée par Mozilla. Assurez-vous de sa fiabilité avant de l’installer."
 
 #: src/amo/components/InstallWarning/index.js:97
 msgid "Learn more"
