@@ -143,8 +143,8 @@ function shallowRender(...args) {
 }
 
 describe(__filename, () => {
-  const _loadAddon = ({ addon = fakeAddon }) => {
-    return loadAddon({ addon });
+  const _loadAddon = ({ addon = fakeAddon, slug = addon.slug }) => {
+    return loadAddon({ addon, slug });
   };
 
   const _loadAddonsByAuthors = ({ addon, addonsByAuthors }) => {
@@ -561,14 +561,12 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = fakeAddon;
-    store.dispatch(_loadAddon({ addon }));
+    // This is what happens when we load an add-on detail page using an ID.
+    const params = { slug: addon.id };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    renderComponent({
-      // We set the numeric `id` as slug.
-      params: { slug: addon.id },
-      store,
-    });
+    renderComponent({ params, store });
 
     sinon.assert.calledWith(
       fakeDispatch,
@@ -586,14 +584,13 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = { ...fakeAddon, slug };
-    store.dispatch(_loadAddon({ addon }));
+    // This is what happens when we load an add-on detail page with a slug that
+    // has trailing spaces.
+    const params = { slug: `${slug}  ` };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    renderComponent({
-      // Add trailing spaces to the slug
-      params: { slug: `${slug}  ` },
-      store,
-    });
+    renderComponent({ params, store });
 
     sinon.assert.calledWith(
       fakeDispatch,
@@ -609,14 +606,12 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = fakeAddon;
-    store.dispatch(_loadAddon({ addon }));
+    // We set the numeric `id` as slug, casted as a string.
+    const params = { slug: `${addon.id}` };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    renderComponent({
-      // We set the numeric `id` as slug, casted as a string.
-      params: { slug: `${addon.id}` },
-      store,
-    });
+    renderComponent({ params, store });
 
     sinon.assert.calledWith(
       fakeDispatch,
@@ -637,13 +632,11 @@ describe(__filename, () => {
       slug: '-1234',
     };
 
-    store.dispatch(_loadAddon({ addon }));
+    const params = { slug: addon.slug };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    renderComponent({
-      params: { slug: addon.slug },
-      store,
-    });
+    renderComponent({ params, store });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
     sinon.assert.callCount(fakeDispatch, 1);
@@ -656,14 +649,12 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = { ...fakeAddon, slug };
-    store.dispatch(_loadAddon({ addon }));
+    // Set the slug param to all uppercase.
+    const params = { slug: slug.toUpperCase() };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    renderComponent({
-      // Set the slug param to all uppercase
-      params: { slug: slug.toUpperCase() },
-      store,
-    });
+    renderComponent({ params, store });
 
     sinon.assert.calledWith(
       fakeDispatch,
@@ -1612,10 +1603,56 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({ clientApp });
     const guid = 'this_is@a.guid';
     const addon = { ...fakeAddon, guid };
-    store.dispatch(_loadAddon({ addon }));
+    const params = { slug: guid };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    renderComponent({ params: { slug: guid }, store });
+    renderComponent({ params, store });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it(`dispatches a server redirect when slug contains very similar characters`, () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const addon = { ...fakeAddon, slug: 'some-slug' };
+    // We change the slug to simulate an API response for a slug that isn't
+    // strictly the add-on's slug.
+    const params = { slug: 'söme-slug' };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    renderComponent({ params, store });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it(`dispatches a server redirect when slug is the add-on's GUID using a different case`, () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const guid = 'this_is@a.guid';
+    const addon = { ...fakeAddon, guid };
+    // We change the GUID case and simulate the loading of an URL containing
+    // that slug in uppercase.
+    const params = { slug: guid.toUpperCase() };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    renderComponent({ params, store });
 
     sinon.assert.calledWith(
       fakeDispatch,

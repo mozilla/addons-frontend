@@ -15,7 +15,7 @@ import {
 } from 'core/reducers/versions';
 import {
   fetchAddon,
-  getAddonBySlug,
+  getAddonByIdInURL,
   isAddonLoading,
 } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -214,7 +214,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   const { slug } = ownProps.match.params;
-  const addon = getAddonBySlug(state.addons, slug);
+  const addon = getAddonByIdInURL(state.addons, slug);
   const areVersionsLoading = getLoadingBySlug({ slug, state: state.versions });
 
   return {

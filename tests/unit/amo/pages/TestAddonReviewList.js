@@ -88,7 +88,7 @@ describe(__filename, () => {
   };
 
   const _loadAddon = (addon = fakeAddon) => {
-    store.dispatch(loadAddon({ addon }));
+    store.dispatch(loadAddon({ addon, slug: addon.slug }));
   };
 
   const _fetchReviews = (params = {}) => {

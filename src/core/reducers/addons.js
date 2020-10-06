@@ -41,7 +41,8 @@ export type AddonsState = {|
   infoBySlug: {
     [slug: string]: {| info: AddonInfoType, loading: boolean |},
   },
-  loadingBySlug: { [addonSlug: string]: boolean },
+  byIdInURL: { [id: string]: AddonID },
+  loadingByIdInURL: { [id: string]: boolean },
 |};
 
 export const initialState: AddonsState = {
@@ -49,7 +50,8 @@ export const initialState: AddonsState = {
   byGUID: {},
   bySlug: {},
   infoBySlug: {},
-  loadingBySlug: {},
+  byIdInURL: {},
+  loadingByIdInURL: {},
 };
 
 type FetchAddonParams = {|
@@ -83,6 +85,7 @@ export function fetchAddon({
 
 type LoadAddonParams = {|
   addon: ExternalAddonType,
+  slug: string,
 |};
 
 export type LoadAddonAction = {|
@@ -90,12 +93,16 @@ export type LoadAddonAction = {|
   type: typeof LOAD_ADDON,
 |};
 
-export function loadAddon({ addon }: LoadAddonParams = {}): LoadAddonAction {
+export function loadAddon({
+  addon,
+  slug,
+}: LoadAddonParams = {}): LoadAddonAction {
   invariant(addon, 'addon is required');
+  invariant(slug, 'slug is required');
 
   return {
     type: LOAD_ADDON,
-    payload: { addon },
+    payload: { addon, slug },
   };
 }
 
@@ -234,34 +241,21 @@ export const getAddonByID = (
   return addons.byID[`${id}`] || null;
 };
 
-export const getAddonBySlug = (
+export const getAddonByIdInURL = (
   addons: AddonsState,
-  slug: string,
+  id: string,
 ): AddonType | null => {
-  if (typeof slug !== 'string') {
-    return null;
-  }
-
-  const addonId = addons.bySlug[slug.toLowerCase()];
+  const addonId = addons.byIdInURL[id];
 
   return getAddonByID(addons, addonId);
 };
 
-export const getAddonByGUID = (
-  addons: AddonsState,
-  guid: string,
-): AddonType | null => {
-  const addonId = addons.byGUID[guid];
-
-  return getAddonByID(addons, addonId);
-};
-
-export const isAddonLoading = (state: AppState, slug: string): boolean => {
-  if (typeof slug !== 'string') {
+export const isAddonLoading = (state: AppState, id: string): boolean => {
+  if (typeof id !== 'string') {
     return false;
   }
 
-  return Boolean(state.addons.loadingBySlug[slug.toLowerCase()]);
+  return Boolean(state.addons.loadingByIdInURL[id]);
 };
 
 export const getAllAddons = (state: AppState): Array<AddonType> => {
@@ -322,31 +316,35 @@ export default function addonsReducer(
   switch (action.type) {
     case FETCH_ADDON: {
       const { slug } = action.payload;
+
       return {
         ...state,
-        loadingBySlug: {
-          ...state.loadingBySlug,
-          [slug.toLowerCase()]: true,
+        loadingByIdInURL: {
+          ...state.loadingByIdInURL,
+          [slug]: true,
         },
       };
     }
 
     case LOAD_ADDON: {
-      const { addon: loadedAddon } = action.payload;
+      const { addon: loadedAddon, slug } = action.payload;
 
       const byID = { ...state.byID };
       const byGUID = { ...state.byGUID };
       const bySlug = { ...state.bySlug };
-      const loadingBySlug = { ...state.loadingBySlug };
+      const byIdInURL = { ...state.byIdInURL };
+      const loadingByIdInURL = { ...state.loadingByIdInURL };
 
       const addon = createInternalAddon(loadedAddon);
       // Flow wants hash maps with string keys.
       // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
       byID[`${addon.id}`] = addon;
 
+      byIdInURL[slug] = addon.id;
+      loadingByIdInURL[slug] = false;
+
       if (addon.slug) {
         bySlug[addon.slug.toLowerCase()] = addon.id;
-        loadingBySlug[addon.slug.toLowerCase()] = false;
       }
 
       if (addon.guid) {
@@ -358,13 +356,15 @@ export default function addonsReducer(
         byID,
         byGUID,
         bySlug,
-        loadingBySlug,
+        byIdInURL,
+        loadingByIdInURL,
       };
     }
 
     case UNLOAD_ADDON_REVIEWS: {
       const { addonId } = action.payload;
       const addon = getAddonByID(state, addonId);
+
       if (addon) {
         return {
           ...state,
@@ -380,9 +380,9 @@ export default function addonsReducer(
             ...state.bySlug,
             [addon.slug.toLowerCase()]: undefined,
           },
-          loadingBySlug: {
-            ...state.loadingBySlug,
-            [addon.slug.toLowerCase()]: undefined,
+          loadingByIdInURL: {
+            ...state.loadingByIdInURL,
+            [addon.slug]: undefined,
           },
         };
       }

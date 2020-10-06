@@ -35,7 +35,7 @@ export function* fetchAddon({
     const params: FetchAddonParams = { api: state.api, slug };
     const addon = yield call(fetchAddonFromApi, params);
 
-    yield put(loadAddon({ addon }));
+    yield put(loadAddon({ addon, slug }));
   } catch (error) {
     log.warn(`Failed to load add-on with slug ${slug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
