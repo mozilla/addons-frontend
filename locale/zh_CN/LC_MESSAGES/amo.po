@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-29 17:41+0000\n"
+"POT-Creation-Date: 2020-10-06 17:23+0000\n"
 "PO-Revision-Date: 2020-09-23 05:33+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
@@ -987,11 +987,11 @@ msgstr "关于"
 msgid "Blog"
 msgstr "博客"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:207
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:212
 msgid "Extension Workshop"
 msgstr "扩展工坊"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:217
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:222
 msgid "Developer Hub"
 msgstr "开发者中心"
 
@@ -1011,72 +1011,72 @@ msgstr "报告缺陷"
 msgid "Review Guide"
 msgstr "评价指南"
 
-#: src/amo/components/GetFirefoxButton/index.js:68
+#: src/amo/components/GetFirefoxButton/index.js:81
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "只能用于 Firefox — 获取 Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:74
+#: src/amo/components/GetFirefoxButton/index.js:87
 msgid "Download Firefox"
 msgstr "下载 Firefox"
 
-#: src/amo/components/Header/index.js:103
+#: src/amo/components/Header/index.js:105
 msgid "Submit a New Add-on"
 msgstr "提交新附加组件"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:110
 msgid "Submit a New Theme"
 msgstr "提交新主题"
 
-#: src/amo/components/Header/index.js:117
+#: src/amo/components/Header/index.js:119
 msgid "Manage My Submissions"
 msgstr "管理我的提交"
 
-#: src/amo/components/Header/index.js:127
+#: src/amo/components/Header/index.js:129
 msgid "Reviewer Tools"
 msgstr "审核员工具"
 
-#: src/amo/components/Header/index.js:139
+#: src/amo/components/Header/index.js:141
 #: src/core/components/AuthenticateButton/index.js:91
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr "此操作当前不可用，请稍后刷新页面重试。"
 
-#: src/amo/components/Header/index.js:144
+#: src/amo/components/Header/index.js:146
 #: src/core/components/AuthenticateButton/index.js:87
 msgid "Log out"
 msgstr "退出"
 
-#: src/amo/components/Header/index.js:169
+#: src/amo/components/Header/index.js:172
 msgid "Firefox Browser Add-ons"
 msgstr "Firefox 浏览器附加组件"
 
-#: src/amo/components/Header/index.js:205
+#: src/amo/components/Header/index.js:210
 msgid "Learn how to create extensions and themes"
 msgstr "了解如何创建扩展和主题"
 
-#: src/amo/components/Header/index.js:215
+#: src/amo/components/Header/index.js:220
 msgid "Submit and manage extensions and themes"
 msgstr "提交和管理扩展和主题"
 
-#: src/amo/components/Header/index.js:71
+#: src/amo/components/Header/index.js:73
 msgid "My Account"
 msgstr "我的账户"
 
-#: src/amo/components/Header/index.js:77
+#: src/amo/components/Header/index.js:79
 msgid "View My Collections"
 msgstr "查看我的收藏集"
 
-#: src/amo/components/Header/index.js:85
+#: src/amo/components/Header/index.js:87
 #: src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
 msgstr "查看我的个人资料"
 
-#: src/amo/components/Header/index.js:93
+#: src/amo/components/Header/index.js:95
 #: src/amo/pages/UserProfileEdit/index.js:554
 msgid "Edit My Profile"
 msgstr "编辑我的个人资料"
 
-#: src/amo/components/Header/index.js:97
+#: src/amo/components/Header/index.js:99
 msgid "Tools"
 msgstr "工具"
 
@@ -1380,12 +1380,12 @@ msgstr "我们已收到您的报告。感谢告知。"
 msgid "Search results"
 msgstr "搜索结果"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:308
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "推荐扩展"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:367
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:373
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "推荐主题"
@@ -1430,7 +1430,7 @@ msgstr "已验证的主题"
 msgid "Verified add-ons"
 msgstr "已验证的附加组件"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:380
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:386
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "热门扩展"
@@ -1458,11 +1458,11 @@ msgstr "最受好评的主题"
 msgid "Top rated add-ons"
 msgstr "最受好评附加组件"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:340
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:346
 msgid "Popular extensions"
 msgstr "最流行的扩展"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:321
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:327
 msgid "Popular themes"
 msgstr "最流行的主题"
 
@@ -1777,66 +1777,66 @@ msgstr ""
 "若要寻找兼容于 Android 版 Firefox 的附加组件，<a href=\"%(newLocation)s\">请"
 "到我们的移动版网站</a>。"
 
-#: src/amo/pages/Addon/index.js:172 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "%(title)s 预览"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:201
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "因为还未公开发布任何版本，无法对此附加组件评分。"
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:212
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "阅读全部 %(count)s 条评价"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:233
 msgid "No reviews yet"
 msgstr "尚无评价"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:243
 msgid "Rate your experience"
 msgstr "为您的体验打分"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:262
 msgid "About this dictionary"
 msgstr "关于此词典"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:265
 msgid "About this extension"
 msgstr "关于此扩展"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:268
 msgid "About this language pack"
 msgstr "关于此语言包"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:271
 msgid "About this theme"
 msgstr "关于此主题"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:274
 msgid "About this add-on"
 msgstr "关于此附加组件"
 
-#: src/amo/pages/Addon/index.js:322
+#: src/amo/pages/Addon/index.js:316
 msgid "Developer comments"
 msgstr "开发者留言"
 
-#: src/amo/pages/Addon/index.js:345
+#: src/amo/pages/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s 的发布说明"
 
-#: src/amo/pages/Addon/index.js:477
+#: src/amo/pages/Addon/index.js:471
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "它没有被公开上架。您能看到它是因为提升的权限。"
 
-#: src/amo/pages/Addon/index.js:504
+#: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
 msgstr "扩展元数据"
 
-#: src/amo/pages/Addon/index.js:512
+#: src/amo/pages/Addon/index.js:506
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1844,7 +1844,7 @@ msgstr ""
 "此列表非适用于本平台。<a href=\"%(newLocation)s\">浏览 Android 版 Firefox 的"
 "附加组件</a>。"
 
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/pages/Addon/index.js:510
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1852,7 +1852,7 @@ msgstr ""
 "此列表非适用于本平台。<a href=\"%(newLocation)s\">浏览桌面版 Firefox 桌面版的"
 "附加组件</a>。"
 
-#: src/amo/pages/Addon/index.js:522
+#: src/amo/pages/Addon/index.js:516
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
 "\"%(newLocation)s\">add-ons for Android</a>."
@@ -1860,7 +1860,7 @@ msgstr ""
 "您可以使用“附加组件管理”来安装此扩展。详细了解 <a href=\"%(newLocation)s"
 "\">Android 附加组件</a>。"
 
-#: src/amo/pages/Addon/index.js:526
+#: src/amo/pages/Addon/index.js:520
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
@@ -1869,7 +1869,7 @@ msgstr ""
 "不适用于 Android 版 Firefox。您可以在桌面版 Firefox 使用此附加组件。详细了解"
 "<a href=\"%(newLocation)s\">>适用于 Android 的附加组件</a>的更多信息。"
 
-#: src/amo/pages/Addon/index.js:548
+#: src/amo/pages/Addon/index.js:542
 msgid "Screenshots"
 msgstr "屏幕截图"
 
@@ -2084,35 +2084,35 @@ msgstr "您没有任何收藏。"
 msgid "My collections"
 msgstr "我的收藏集"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:143
 msgid "Abstract"
 msgstr "抽象"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:148
 msgid "Nature"
 msgstr "自然"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:153
 msgid "Film & TV"
 msgstr "电影和电视"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:158
 msgid "Scenery"
 msgstr "风景"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:163
 msgid "Music"
 msgstr "音乐"
 
-#: src/amo/pages/Home/index.js:167
+#: src/amo/pages/Home/index.js:168
 msgid "Seasonal"
 msgstr "季节"
 
-#: src/amo/pages/Home/index.js:215
+#: src/amo/pages/Home/index.js:223
 msgid "Change the way Firefox looks with themes."
 msgstr "使用主题改变 Firefox 的外观。"
 
-#: src/amo/pages/Home/index.js:256
+#: src/amo/pages/Home/index.js:262
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2121,39 +2121,39 @@ msgstr ""
 "下载 Firefox 扩展与主题，它们就像是您浏览器上的应用程序，可以屏蔽讨人厌的广"
 "告、保护密码、更改浏览器外观，还有更多功能。"
 
-#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "看看更多推荐扩展"
 
-#: src/amo/pages/Home/index.js:322
+#: src/amo/pages/Home/index.js:328
 msgid "See more popular themes"
 msgstr "看看更多流行主题"
 
-#: src/amo/pages/Home/index.js:341
+#: src/amo/pages/Home/index.js:347
 msgid "See more popular extensions"
 msgstr "查看更多流行扩展"
 
-#: src/amo/pages/Home/index.js:358 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:364 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "看看更多推荐主题"
 
-#: src/amo/pages/Home/index.js:381 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:387 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "看看更多热门扩展"
 
-#: src/amo/pages/Home/index.js:60
+#: src/amo/pages/Home/index.js:61
 msgid "See more enhanced privacy extensions"
 msgstr "看看更多隐私增强扩展"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:62
 msgid "Enhanced privacy extensions"
 msgstr "隐私增强扩展"
 
-#: src/amo/pages/Home/index.js:66
+#: src/amo/pages/Home/index.js:67
 msgid "See more recommended password managers"
 msgstr "看看更多推荐的密码管理器"
 
-#: src/amo/pages/Home/index.js:67
+#: src/amo/pages/Home/index.js:68
 msgid "Recommended password managers"
 msgstr "推荐的密码管理器"
 
