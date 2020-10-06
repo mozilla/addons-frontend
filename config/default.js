@@ -129,7 +129,7 @@ module.exports = {
     'enableFeatureBlockPage',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
-    'enableFeaturePromotedShelf',
+    'enableFeatureSponsoredShelf',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -383,7 +383,7 @@ module.exports = {
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
-  enableFeaturePromotedShelf: false,
+  enableFeatureSponsoredShelf: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

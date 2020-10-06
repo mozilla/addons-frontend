@@ -125,7 +125,7 @@ describe(__filename, () => {
 
     const root = render({
       _config: getFakeConfig({
-        enableFeaturePromotedShelf: true,
+        enableFeatureSponsoredShelf: true,
       }),
       store,
     });
@@ -150,7 +150,7 @@ describe(__filename, () => {
 
     const root = render({
       _config: getFakeConfig({
-        enableFeaturePromotedShelf: false,
+        enableFeatureSponsoredShelf: false,
       }),
       store,
     });
@@ -173,7 +173,7 @@ describe(__filename, () => {
 
     const root = render({
       _config: getFakeConfig({
-        enableFeaturePromotedShelf: true,
+        enableFeatureSponsoredShelf: true,
       }),
       store,
     });
@@ -287,7 +287,7 @@ describe(__filename, () => {
 
   it('does not render most shelves on android', () => {
     const _config = getFakeConfig({
-      enableFeaturePromotedShelf: true,
+      enableFeatureSponsoredShelf: true,
     });
 
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
