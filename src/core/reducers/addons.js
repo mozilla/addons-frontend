@@ -41,7 +41,7 @@ export type AddonsState = {|
   infoBySlug: {
     [slug: string]: {| info: AddonInfoType, loading: boolean |},
   },
-  byIdInURL: { [addonSlug: string]: AddonID },
+  byIdInURL: { [id: string]: AddonID },
   loadingByIdInURL: { [id: string]: boolean },
 |};
 
@@ -250,12 +250,12 @@ export const getAddonByIdInURL = (
   return getAddonByID(addons, addonId);
 };
 
-export const isAddonLoading = (state: AppState, slug: string): boolean => {
-  if (typeof slug !== 'string') {
+export const isAddonLoading = (state: AppState, id: string): boolean => {
+  if (typeof id !== 'string') {
     return false;
   }
 
-  return Boolean(state.addons.loadingByIdInURL[slug]);
+  return Boolean(state.addons.loadingByIdInURL[id]);
 };
 
 export const getAllAddons = (state: AppState): Array<AddonType> => {

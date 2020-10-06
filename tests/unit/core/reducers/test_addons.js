@@ -10,13 +10,14 @@ import addons, {
   fetchAddon,
   fetchAddonInfo,
   getAddonByID,
+  getAddonByIdInURL,
   getAddonInfoBySlug,
   getAllAddons,
-  isAddonInfoLoading,
   initialState,
+  isAddonInfoLoading,
   isAddonLoading,
-  loadAddonInfo,
   loadAddon,
+  loadAddonInfo,
 } from 'core/reducers/addons';
 import {
   createFakeAddon,
@@ -297,20 +298,6 @@ describe(__filename, () => {
         fetchAddon({ slug, errorHandler: createStubErrorHandler() }),
       );
       expect(state.loadingByIdInURL[slug]).toBe(true);
-    });
-  });
-
-  describe('loadAddon', () => {
-    it('requires an addon', () => {
-      expect(() => {
-        loadAddon();
-      }).toThrow('addon is required');
-    });
-
-    it('requires a slug', () => {
-      expect(() => {
-        loadAddon({ addon: fakeAddon });
-      }).toThrow('slug is required');
     });
   });
 
@@ -811,6 +798,22 @@ describe(__filename, () => {
         });
         expect(getAddonInfoBySlug({ slug: 'some-slug', state })).toEqual(null);
       });
+    });
+  });
+
+  describe('getAddonByIdInURL', () => {
+    it('returns an add-on for a given known id', () => {
+      const addon = fakeAddon;
+      const slug = 'some-slug';
+      const state = addons(undefined, loadAddon({ addon, slug }));
+
+      expect(getAddonByIdInURL(state, slug)).toEqual(
+        createInternalAddon(addon),
+      );
+    });
+
+    it('returns null when the id is unknown', () => {
+      expect(getAddonByIdInURL(initialState, 'some-slug')).toEqual(null);
     });
   });
 });
