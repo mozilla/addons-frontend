@@ -5,12 +5,16 @@ import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
   GET_FIREFOX_BUTTON_TYPE_HEADER,
   GET_FIREFOX_BUTTON_TYPE_NONE,
+  GET_FIREFOX_BUTTON_CLICK_ACTION,
+  GET_FIREFOX_BUTTON_CLICK_CATEGORY,
   GetFirefoxButtonBase,
 } from 'amo/components/GetFirefoxButton';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createFakeEvent,
+  createFakeTracking,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -206,6 +210,31 @@ describe(__filename, () => {
 
         expect(root.find('.GetFirefoxButton')).toHaveLength(0);
       });
+    });
+    describe('tracking', () => {
+      const guid = 'some-guid';
+      const realAddon = createInternalAddon({ ...fakeAddon, guid });
+
+      it.each([
+        ['with addon', realAddon],
+        ['without addon', undefined],
+      ])(
+        'sends a tracking event when the button is clicked %s',
+        (desc, addon) => {
+          const _tracking = createFakeTracking();
+          const root = render({ _tracking, addon, store });
+
+          const event = createFakeEvent();
+          root.simulate('click', event);
+
+          sinon.assert.calledWith(_tracking.sendEvent, {
+            action: GET_FIREFOX_BUTTON_CLICK_ACTION,
+            category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+            label: addon ? addon.guid : '',
+          });
+          sinon.assert.calledOnce(_tracking.sendEvent);
+        },
+      );
     });
   });
 });

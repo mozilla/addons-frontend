@@ -9,6 +9,7 @@ import { compose } from 'redux';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'core/i18n/translate';
+import tracking from 'core/tracking';
 import { isFirefox } from 'core/utils/compatibility';
 import Button from 'ui/components/Button';
 import type { AppState } from 'amo/store';
@@ -24,6 +25,8 @@ export const GET_FIREFOX_BUTTON_TYPE_HEADER: 'GET_FIREFOX_BUTTON_TYPE_HEADER' =
   'GET_FIREFOX_BUTTON_TYPE_HEADER';
 export const GET_FIREFOX_BUTTON_TYPE_NONE: 'GET_FIREFOX_BUTTON_TYPE_NONE' =
   'GET_FIREFOX_BUTTON_TYPE_NONE';
+export const GET_FIREFOX_BUTTON_CLICK_ACTION = 'download-firefox-click';
+export const GET_FIREFOX_BUTTON_CLICK_CATEGORY = 'AMO Download Firefox';
 
 export type GetFirefoxButtonTypeType =
   | typeof GET_FIREFOX_BUTTON_TYPE_ADDON
@@ -39,6 +42,7 @@ export type Props = {|
 type InternalProps = {|
   ...Props,
   _base64url?: typeof base64url,
+  _tracking: typeof tracking,
   i18n: I18nType,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -46,6 +50,15 @@ type InternalProps = {|
 export const GetFirefoxButtonBase = (props: InternalProps) => {
   const { addon, buttonType, className, i18n, userAgentInfo } = props;
   const _base64url = props._base64url || base64url;
+  const _tracking = props._tracking || tracking;
+
+  const onButtonClick = () => {
+    _tracking.sendEvent({
+      action: GET_FIREFOX_BUTTON_CLICK_ACTION,
+      category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+      label: addon ? addon.guid : '',
+    });
+  };
 
   if (
     buttonType === GET_FIREFOX_BUTTON_TYPE_NONE ||
@@ -90,6 +103,7 @@ export const GetFirefoxButtonBase = (props: InternalProps) => {
         utm_content: utmContent,
       })}`}
       micro={micro}
+      onClick={onButtonClick}
       puffy={puffy}
     >
       {buttonText}
