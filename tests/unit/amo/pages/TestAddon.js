@@ -1619,6 +1619,51 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
+  it(`dispatches a server redirect when slug contains very similar characters`, () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const addon = { ...fakeAddon, slug: 'some-slug' };
+    // We change the slug to simulate an API response for a slug that isn't
+    // strictly the add-on's slug.
+    const params = { slug: 'söme-slug' };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    renderComponent({ params, store });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it(`dispatches a server redirect when slug is the add-on's GUID using a different case`, () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const guid = 'this_is@a.guid';
+    const addon = { ...fakeAddon, guid };
+    // We change the GUID case and simulate the loading of an URL containing
+    // that slug in uppercase.
+    const params = { slug: guid.toUpperCase() };
+    store.dispatch(_loadAddon({ addon, slug: params.slug }));
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    renderComponent({ params, store });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
   describe('InstallWarning', () => {
     let addon;
     let store;
