@@ -1,4 +1,4 @@
-import { loadAddonResults } from 'core/reducers/addons';
+import { loadAddon } from 'core/reducers/addons';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import {
   createExternalAddonMap,
@@ -25,7 +25,10 @@ export function loadDiscoResultsIntoState(
   const { results } = createFetchDiscoveryResult(addonResults);
   const addons = createExternalAddonMap({ results });
 
-  store.dispatch(loadAddonResults({ addons }));
+  for (const addon of addons) {
+    store.dispatch(loadAddon({ addon }));
+  }
+
   store.dispatch(loadDiscoResults({ results }));
 
   return store.getState();

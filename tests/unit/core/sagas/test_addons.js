@@ -6,7 +6,7 @@ import addonsReducer, {
   fetchAddon,
   fetchAddonInfo,
   loadAddonInfo,
-  loadAddonResults,
+  loadAddon,
 } from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import addonsSaga from 'core/sagas/addons';
@@ -58,7 +58,7 @@ describe(__filename, () => {
 
       _fetchAddon({ slug: fakeAddon.slug });
 
-      const expectedAction = loadAddonResults({ addons: [fakeAddon] });
+      const expectedAction = loadAddon({ addon: fakeAddon });
       await sagaTester.waitFor(expectedAction.type);
 
       mockApi.verify();
@@ -69,7 +69,7 @@ describe(__filename, () => {
 
       _fetchAddon();
 
-      const expectedAction = loadAddonResults({ addons: [fakeAddon] });
+      const expectedAction = loadAddon({ addon: fakeAddon });
       await sagaTester.waitFor(expectedAction.type);
 
       expect(sagaTester.getCalledActions()[1]).toEqual(
