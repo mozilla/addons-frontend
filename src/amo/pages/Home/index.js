@@ -247,14 +247,6 @@ export class HomeBase extends React.Component {
       return null;
     };
 
-    const { promotedExtensions } = shelves;
-    if (Array.isArray(promotedExtensions)) {
-      // If there are fewer than 6 promoted extensions, just use the first 3.
-      if (promotedExtensions.length < 6) {
-        promotedExtensions.splice(3);
-      }
-    }
-
     return (
       <Page isHomePage showWrongPlatformWarning={!isDesktopSite}>
         <div className="Home">
@@ -290,7 +282,6 @@ export class HomeBase extends React.Component {
             {_config.get('enableFeatureSponsoredShelf') && isDesktopSite ? (
               <PromotedAddonsCard
                 addonInstallSource={INSTALL_SOURCE_PROMOTED_SHELF}
-                addons={promotedExtensions}
                 loading={loading}
               />
             ) : null}
