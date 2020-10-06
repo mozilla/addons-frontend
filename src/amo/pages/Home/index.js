@@ -287,7 +287,7 @@ export class HomeBase extends React.Component {
           ) : null}
 
           <div className="Home-content">
-            {_config.get('enableFeaturePromotedShelf') && isDesktopSite ? (
+            {_config.get('enableFeatureSponsoredShelf') && isDesktopSite ? (
               <PromotedAddonsCard
                 addonInstallSource={INSTALL_SOURCE_PROMOTED_SHELF}
                 addons={promotedExtensions}
