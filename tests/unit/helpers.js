@@ -274,7 +274,10 @@ export const createPrimaryHeroShelf = ({
   return {
     addon,
     description,
-    external,
+    external:
+      addon === undefined && external === undefined
+        ? 'external-link'
+        : external,
     featured_image: featuredImage,
     gradient,
   };

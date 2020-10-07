@@ -441,9 +441,12 @@ describe(__filename, () => {
     });
 
     it('throws an exception if neither an addon nor an external entry is provided', () => {
-      const heroShelves = createHeroShelves({
-        primaryProps: { addon: undefined, external: undefined },
-      });
+      const heroShelves = createHeroShelves();
+      // createHeroShelves won't allow an invalid shelf to be created, so we
+      // must do this.
+      heroShelves.primary.addon = undefined;
+      heroShelves.primary.external = undefined;
+
       expect(() => createInternalHeroShelves(heroShelves)).toThrow(
         /Either primary.addon or primary.external is required/,
       );

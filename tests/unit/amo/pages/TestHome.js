@@ -115,14 +115,6 @@ describe(__filename, () => {
       clientApp: CLIENT_APP_FIREFOX,
     });
 
-    const addon = fakeAddon;
-    const promotedExtensions = createAddonsApiResult([addon]);
-
-    _loadHomeData({
-      store,
-      shelves: { promotedExtensions },
-    });
-
     const root = render({
       _config: getFakeConfig({
         enableFeatureSponsoredShelf: true,
@@ -130,9 +122,7 @@ describe(__filename, () => {
       store,
     });
 
-    expect(root.find(PromotedAddonsCard)).toHaveProp('addons', [
-      createInternalAddon(addon),
-    ]);
+    expect(root.find(PromotedAddonsCard)).toHaveLength(1);
   });
 
   it('does not render a promoted extensions shelf if turned off', () => {
@@ -156,30 +146,6 @@ describe(__filename, () => {
     });
 
     expect(root.find(PromotedAddonsCard)).toHaveLength(0);
-  });
-
-  it('only includes 3 promoted extensions if fewer than 6 are returned', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-    });
-
-    const addon = fakeAddon;
-    const promotedExtensions = createAddonsApiResult(Array(5).fill(addon));
-
-    _loadHomeData({
-      store,
-      shelves: { promotedExtensions },
-    });
-
-    const root = render({
-      _config: getFakeConfig({
-        enableFeatureSponsoredShelf: true,
-      }),
-      store,
-    });
-
-    const addons = root.find(PromotedAddonsCard).prop('addons');
-    expect(addons.length).toEqual(3);
   });
 
   it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(

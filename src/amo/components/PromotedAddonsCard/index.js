@@ -1,6 +1,7 @@
 /* @flow */
 import makeClassName from 'classnames';
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
@@ -8,6 +9,7 @@ import { LANDING_PAGE_PROMOTED_EXTENSION_COUNT } from 'amo/constants';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
+import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -22,15 +24,15 @@ export const PROMOTED_ADDON_IMPRESSION_ACTION = 'sponsored-impression';
 
 type Props = {|
   addonInstallSource?: string,
-  addons?: Array<AddonType> | null,
   className?: string,
-  loading: boolean,
 |};
 
 export type InternalProps = {|
   ...Props,
-  i18n: I18nType,
   _tracking: typeof tracking,
+  i18n: I18nType,
+  resultsLoaded: boolean,
+  shelves: { [shelfName: string]: Array<AddonType> | null },
 |};
 
 export class PromotedAddonsCardBase extends React.Component<InternalProps> {
@@ -69,11 +71,25 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { addonInstallSource, addons, className, i18n, loading } = this.props;
+    const {
+      addonInstallSource,
+      className,
+      i18n,
+      resultsLoaded,
+      shelves,
+    } = this.props;
 
-    // Don't display anything if there are no add-ons.
-    if (Array.isArray(addons) && !addons.length) {
+    const { promotedExtensions } = shelves;
+    if (Array.isArray(promotedExtensions) && !promotedExtensions.length) {
+      // Don't display anything if there are no add-ons.
       return null;
+    }
+
+    if (Array.isArray(promotedExtensions)) {
+      // If there are fewer than 6 promoted extensions, just use the first 3.
+      if (promotedExtensions.length < 6) {
+        promotedExtensions.splice(3);
+      }
     }
 
     const header = (
@@ -100,22 +116,30 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
     return (
       <AddonsCard
         addonInstallSource={addonInstallSource}
-        addons={addons}
+        addons={promotedExtensions}
         className={makeClassName('PromotedAddonsCard', className)}
         header={header}
         onAddonClick={this.onAddonClick}
         onAddonImpression={this.onAddonImpression}
         showPromotedBadge={false}
         type="horizontal"
-        loading={loading}
+        loading={resultsLoaded === false}
         placeholderCount={LANDING_PAGE_PROMOTED_EXTENSION_COUNT}
       />
     );
   }
 }
 
-const PromotedAddonsCard: React.ComponentType<Props> = compose(translate())(
-  PromotedAddonsCardBase,
-);
+export function mapStateToProps(state: AppState) {
+  return {
+    resultsLoaded: state.home.resultsLoaded,
+    shelves: state.home.shelves,
+  };
+}
+
+const PromotedAddonsCard: React.ComponentType<Props> = compose(
+  connect(mapStateToProps),
+  translate(),
+)(PromotedAddonsCardBase);
 
 export default PromotedAddonsCard;
