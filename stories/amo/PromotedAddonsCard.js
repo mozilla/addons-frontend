@@ -11,8 +11,8 @@ import Provider from '../setup/Provider';
 
 const render = (moreProps: $Shape<PromotedAddonsCardProps> = {}) => {
   const props = {
-    addons: null,
-    loading: false,
+    resultsLoaded: true,
+    shelves: {},
     ...moreProps,
   };
   return (
@@ -36,17 +36,29 @@ storiesOf('PromotedAddonsCard', module)
         sections: [
           {
             title: 'loading',
-            sectionFn: () => render({ loading: true }),
+            sectionFn: () => render({ resultsLoaded: false }),
           },
           {
             title: 'with 3 add-ons',
             sectionFn: () =>
-              render({ addons: Array(3).fill(createInternalAddon(fakeAddon)) }),
+              render({
+                shelves: {
+                  promotedExtensions: Array(3).fill(
+                    createInternalAddon(fakeAddon),
+                  ),
+                },
+              }),
           },
           {
             title: 'with 6 add-ons',
             sectionFn: () =>
-              render({ addons: Array(6).fill(createInternalAddon(fakeAddon)) }),
+              render({
+                shelves: {
+                  promotedExtensions: Array(6).fill(
+                    createInternalAddon(fakeAddon),
+                  ),
+                },
+              }),
           },
         ],
       },

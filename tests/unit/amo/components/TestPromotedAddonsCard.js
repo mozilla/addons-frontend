@@ -9,20 +9,34 @@ import PromotedAddonsCard, {
   PROMOTED_ADDON_IMPRESSION_ACTION,
   PromotedAddonsCardBase,
 } from 'amo/components/PromotedAddonsCard';
+import { fetchHomeData, loadHomeData } from 'amo/reducers/home';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createAddonsApiResult,
   createFakeTracking,
+  createHeroShelves,
+  dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let _tracking;
+  let store;
+
+  beforeEach(() => {
+    _tracking = createFakeTracking();
+    store = dispatchClientMetadata().store;
+  });
+
   const render = (customProps = {}) => {
     const props = {
+      _tracking,
       i18n: fakeI18n(),
       loading: false,
+      store,
       ...customProps,
     };
 
@@ -32,28 +46,43 @@ describe(__filename, () => {
     );
   };
 
-  it('displays nothing when addons is an empty array', () => {
-    const root = render({ addons: [] });
+  const _loadPromotedExtensions = ({ addons = [] }) => {
+    store.dispatch(
+      loadHomeData({
+        collections: [],
+        heroShelves: createHeroShelves(),
+        shelves: { promotedExtensions: createAddonsApiResult(addons) },
+      }),
+    );
+  };
+
+  it('displays nothing when promotedExtensions is an empty array', () => {
+    _loadPromotedExtensions({ addons: [] });
+    const root = render();
     expect(root.find(AddonsCard)).toHaveLength(0);
   });
 
   it('passes loading parameter to AddonsCard', () => {
-    const root = render({ loading: true });
+    store.dispatch(
+      fetchHomeData({ collectionsToFetch: [], errorHandlerId: 'some-id' }),
+    );
+
+    let root = render();
     expect(root.find(AddonsCard)).toHaveProp('loading', true);
 
-    root.setProps({ loading: false });
+    _loadPromotedExtensions({ addons: [fakeAddon] });
+    root = render();
     expect(root.find(AddonsCard)).toHaveProp('loading', false);
   });
 
-  it('passes addons to AddonsCard', () => {
-    const addons = [
-      createInternalAddon({
-        ...fakeAddon,
-        slug: 'custom-addon',
-      }),
-    ];
-    const root = render({ addons });
-    expect(root.find(AddonsCard)).toHaveProp('addons', addons);
+  it('passes promotedExtensions to AddonsCard', () => {
+    const addon = fakeAddon;
+    _loadPromotedExtensions({ addons: [addon] });
+    const root = render();
+
+    expect(root.find(AddonsCard)).toHaveProp('addons', [
+      createInternalAddon(addon),
+    ]);
   });
 
   it('can pass a custom classname to AddonsCard', () => {
@@ -92,13 +121,13 @@ describe(__filename, () => {
   });
 
   it('configures AddonsCard to send a tracking event when an add-on is clicked', () => {
-    const _tracking = createFakeTracking();
     const guid = 'some-guid';
-    const addon = createInternalAddon({ ...fakeAddon, guid });
+    const addon = { ...fakeAddon, guid };
+    _loadPromotedExtensions({ addons: [addon] });
 
-    const root = render({ _tracking, addons: [addon] });
+    const root = render();
     const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
-    onAddonClick(addon);
+    onAddonClick(createInternalAddon(addon));
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: PROMOTED_ADDON_CLICK_ACTION,
@@ -108,18 +137,27 @@ describe(__filename, () => {
   });
 
   it('configures AddonsCard to send a tracking event when an add-on is displayed', () => {
-    const _tracking = createFakeTracking();
     const guid = 'some-guid';
-    const addon = createInternalAddon({ ...fakeAddon, guid });
+    const addon = { ...fakeAddon, guid };
+    _loadPromotedExtensions({ addons: [addon] });
 
-    const root = render({ _tracking, addons: [addon] });
+    const root = render();
     const onAddonImpression = root.find(AddonsCard).prop('onAddonImpression');
-    onAddonImpression(addon);
+    onAddonImpression(createInternalAddon(addon));
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: PROMOTED_ADDON_IMPRESSION_ACTION,
       category: PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
       label: guid,
     });
+  });
+
+  it('only includes 3 promoted extensions if fewer than 6 are returned', () => {
+    _loadPromotedExtensions({ addons: Array(5).fill(fakeAddon) });
+
+    const root = render();
+
+    const addons = root.find(AddonsCard).prop('addons');
+    expect(addons.length).toEqual(3);
   });
 });
