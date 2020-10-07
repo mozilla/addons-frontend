@@ -187,15 +187,6 @@ module.exports = {
 
     // Set to true if you only want browsers to report errors, not block them
     reportOnly: false,
-
-    // Set to true if you want to blindly set all headers: Content-Security-Policy,
-    // X-WebKit-CSP, and X-Content-Security-Policy.
-    setAllHeaders: false,
-
-    // Set to true if you want to disable CSP on Android where it can be buggy.
-    disableAndroid: false,
-
-    browserSniff: false,
   },
 
   frameGuard: {
