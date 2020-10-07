@@ -9,7 +9,7 @@ import PromotedAddonsCard, {
   PROMOTED_ADDON_IMPRESSION_ACTION,
   PromotedAddonsCardBase,
 } from 'amo/components/PromotedAddonsCard';
-import { loadHomeData } from 'amo/reducers/home';
+import { fetchHomeData, loadHomeData } from 'amo/reducers/home';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -63,10 +63,15 @@ describe(__filename, () => {
   });
 
   it('passes loading parameter to AddonsCard', () => {
-    const root = render({ loading: true });
+    store.dispatch(
+      fetchHomeData({ collectionsToFetch: [], errorHandlerId: 'some-id' }),
+    );
+
+    let root = render();
     expect(root.find(AddonsCard)).toHaveProp('loading', true);
 
-    root.setProps({ loading: false });
+    _loadPromotedExtensions({ addons: [fakeAddon] });
+    root = render();
     expect(root.find(AddonsCard)).toHaveProp('loading', false);
   });
 

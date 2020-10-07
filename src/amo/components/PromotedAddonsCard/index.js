@@ -25,13 +25,13 @@ export const PROMOTED_ADDON_IMPRESSION_ACTION = 'sponsored-impression';
 type Props = {|
   addonInstallSource?: string,
   className?: string,
-  loading: boolean,
 |};
 
 export type InternalProps = {|
   ...Props,
   _tracking: typeof tracking,
   i18n: I18nType,
+  resultsLoaded: boolean,
   shelves: { [shelfName: string]: Array<AddonType> | null },
 |};
 
@@ -75,7 +75,7 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
       addonInstallSource,
       className,
       i18n,
-      loading,
+      resultsLoaded,
       shelves,
     } = this.props;
 
@@ -123,7 +123,7 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
         onAddonImpression={this.onAddonImpression}
         showPromotedBadge={false}
         type="horizontal"
-        loading={loading}
+        loading={resultsLoaded === false}
         placeholderCount={LANDING_PAGE_PROMOTED_EXTENSION_COUNT}
       />
     );
@@ -131,7 +131,10 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
 }
 
 export function mapStateToProps(state: AppState) {
-  return { shelves: state.home.shelves };
+  return {
+    resultsLoaded: state.home.resultsLoaded,
+    shelves: state.home.shelves,
+  };
 }
 
 const PromotedAddonsCard: React.ComponentType<Props> = compose(

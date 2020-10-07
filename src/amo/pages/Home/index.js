@@ -282,7 +282,6 @@ export class HomeBase extends React.Component {
             {_config.get('enableFeatureSponsoredShelf') && isDesktopSite ? (
               <PromotedAddonsCard
                 addonInstallSource={INSTALL_SOURCE_PROMOTED_SHELF}
-                loading={loading}
               />
             ) : null}
 
