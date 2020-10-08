@@ -2,13 +2,13 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
-import PromotedAddonsCard, {
+import SponsoredAddonsShelf, {
   PROMOTED_ADDON_CLICK_ACTION,
   PROMOTED_ADDON_HOMEPAGE_CLICK_CATEGORY,
   PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
   PROMOTED_ADDON_IMPRESSION_ACTION,
-  PromotedAddonsCardBase,
-} from 'amo/components/PromotedAddonsCard';
+  SponsoredAddonsShelfBase,
+} from 'amo/components/SponsoredAddonsShelf';
 import { fetchHomeData, loadHomeData } from 'amo/reducers/home';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -41,8 +41,8 @@ describe(__filename, () => {
     };
 
     return shallowUntilTarget(
-      <PromotedAddonsCard {...props} />,
-      PromotedAddonsCardBase,
+      <SponsoredAddonsShelf {...props} />,
+      SponsoredAddonsShelfBase,
     );
   };
 
@@ -108,11 +108,11 @@ describe(__filename, () => {
     const headerProp = root.find(AddonsCard).prop('header');
     const header = shallow(<div>{headerProp}</div>);
 
-    expect(header.find('.PromotedAddonsCard-headerLink')).toHaveProp(
+    expect(header.find('.SponsoredAddonsShelf-headerLink')).toHaveProp(
       'rel',
       'noopener noreferrer',
     );
-    expect(header.find('.PromotedAddonsCard-headerLink')).toHaveProp(
+    expect(header.find('.SponsoredAddonsShelf-headerLink')).toHaveProp(
       'href',
       `${getPromotedBadgesLinkUrl({
         utm_content: 'promoted-addon-shelf',

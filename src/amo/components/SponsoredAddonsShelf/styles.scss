@@ -1,20 +1,20 @@
 @import '~ui/css/styles';
 @import '~core/css/inc/vars';
 
-.PromotedAddonsCard {
+.SponsoredAddonsShelf {
   margin-bottom: 0;
 }
 
-.PromotedAddonsCard .Card-contents .AddonsCard-list {
+.SponsoredAddonsShelf .Card-contents .AddonsCard-list {
   grid-auto-flow: row dense;
   grid-template-columns: repeat(3, 33%);
 }
 
-.PromotedAddonsCard-headerText {
+.SponsoredAddonsShelf-headerText {
   display: inline;
 }
 
-.PromotedAddonsCard-headerLink {
+.SponsoredAddonsShelf-headerLink {
   font-size: $font-size-micro;
   @include margin-start(12px);
 
