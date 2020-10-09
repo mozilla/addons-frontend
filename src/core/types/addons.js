@@ -61,8 +61,6 @@ export type ExternalAddonType = {|
   authors?: Array<AddonAuthorType>,
   average_daily_users?: number,
   categories?: Object,
-  click_data?: string | null,
-  click_url?: string | null,
   contributions_url: string,
   created: Date,
   // If you make an API request as an admin for an incomplete
@@ -105,6 +103,9 @@ export type ExternalAddonType = {|
   type: AddonTypeType,
   url: string,
   weekly_downloads: number,
+  // These fields only exist for addons returned from the sponsored endpoint.
+  click_data?: string | null,
+  click_url?: string | null,
 |};
 
 export type PartialExternalAddonType = {|
