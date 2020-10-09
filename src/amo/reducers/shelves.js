@@ -11,7 +11,7 @@ export const FETCH_SPONSORED: 'FETCH_SPONSORED' = 'FETCH_SPONSORED';
 export const LOAD_SPONSORED: 'LOAD_SPONSORED' = 'LOAD_SPONSORED';
 
 export type ExternalSponsoredShelfType = {|
-  addons: Array<ExternalAddonType>,
+  results: Array<ExternalAddonType>,
   impression_data: string | null,
   impression_url: string | null,
 |};
@@ -80,10 +80,10 @@ export const getSponsoredShelf = (
 export const createInternalsponsoredShelf = (
   shelfData: ExternalSponsoredShelfType,
 ): SponsoredShelfType => {
-  const { addons, impression_data, impression_url } = shelfData;
+  const { results, impression_data, impression_url } = shelfData;
 
   return {
-    addons: addons.map((addon) => createInternalAddon(addon)),
+    addons: results.map((addon) => createInternalAddon(addon)),
     impressionData: impression_data,
     impressionURL: impression_url,
   };

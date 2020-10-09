@@ -38,7 +38,7 @@ describe(__filename, () => {
       }),
     );
 
-    const expectedAddons = fakesponsoredShelf.addons.map((addon) =>
+    const expectedAddons = fakesponsoredShelf.results.map((addon) =>
       createInternalAddon(addon),
     );
 
