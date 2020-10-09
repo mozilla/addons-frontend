@@ -103,6 +103,9 @@ export type ExternalAddonType = {|
   type: AddonTypeType,
   url: string,
   weekly_downloads: number,
+  // These fields only exist for addons returned from the sponsored endpoint.
+  click_data?: string | null,
+  click_url?: string | null,
 |};
 
 export type PartialExternalAddonType = {|

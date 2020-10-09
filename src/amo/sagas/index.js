@@ -8,6 +8,7 @@ import home from 'amo/sagas/home';
 import landing from 'amo/sagas/landing';
 import recommendations from 'amo/sagas/recommendations';
 import reviews from 'amo/sagas/reviews';
+import shelves from 'amo/sagas/shelves';
 import abuse from 'core/sagas/abuse';
 import addons from 'core/sagas/addons';
 import categories from 'core/sagas/categories';
@@ -36,6 +37,7 @@ export default function* rootSaga(): Saga {
     fork(recommendations),
     fork(reviews),
     fork(search),
+    fork(shelves),
     fork(site),
     fork(userAbuseReports),
     fork(users),
