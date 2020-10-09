@@ -10,7 +10,6 @@ export const getSponsoredShelf = ({
 }: GetSponsoredShelfParams): Promise<ExternalSponsoredShelfType> => {
   return callApi({
     apiState: api,
-    auth: true,
     endpoint: 'shelves/sponsored/',
     wrapOutgoingLinks: false,
   });

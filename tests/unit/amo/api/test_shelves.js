@@ -10,7 +10,6 @@ describe(__filename, () => {
     mockApi
       .expects('callApi')
       .withArgs({
-        auth: true,
         endpoint: 'shelves/sponsored/',
         apiState,
         wrapOutgoingLinks: false,
