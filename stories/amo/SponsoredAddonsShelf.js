@@ -3,30 +3,30 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { createInternalAddon } from 'core/reducers/addons';
-import { PromotedAddonsCardBase } from 'amo/components/PromotedAddonsCard';
+import { SponsoredAddonsShelfBase } from 'amo/components/SponsoredAddonsShelf';
 import { fakeAddon, fakeI18n } from 'tests/unit/helpers';
-import type { InternalProps as PromotedAddonsCardProps } from 'amo/components/PromotedAddonsCard';
+import type { InternalProps as SponsoredAddonsShelfProps } from 'amo/components/SponsoredAddonsShelf';
 
 import Provider from '../setup/Provider';
 
-const render = (moreProps: $Shape<PromotedAddonsCardProps> = {}) => {
+const render = (moreProps: $Shape<SponsoredAddonsShelfProps> = {}) => {
   const props = {
     resultsLoaded: true,
     shelves: {},
     ...moreProps,
   };
   return (
-    <PromotedAddonsCardBase
+    <SponsoredAddonsShelfBase
       i18n={fakeI18n({ includeJedSpy: false })}
       {...props}
     />
   );
 };
 
-storiesOf('PromotedAddonsCard', module)
-  .addParameters({ component: PromotedAddonsCardBase })
+storiesOf('SponsoredAddonsShelf', module)
+  .addParameters({ component: SponsoredAddonsShelfBase })
   .addDecorator((story) => (
-    <div className="PromotedAddonsCard--storybook">
+    <div className="SponsoredAddonsShelf--storybook">
       <Provider story={story()} />
     </div>
   ))

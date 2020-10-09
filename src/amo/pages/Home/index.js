@@ -14,7 +14,7 @@ import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
-import PromotedAddonsCard from 'amo/components/PromotedAddonsCard';
+import SponsoredAddonsShelf from 'amo/components/SponsoredAddonsShelf';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import { fetchHomeData } from 'amo/reducers/home';
 import {
@@ -280,7 +280,7 @@ export class HomeBase extends React.Component {
 
           <div className="Home-content">
             {_config.get('enableFeatureSponsoredShelf') && isDesktopSite ? (
-              <PromotedAddonsCard
+              <SponsoredAddonsShelf
                 addonInstallSource={INSTALL_SOURCE_PROMOTED_SHELF}
               />
             ) : null}

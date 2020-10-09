@@ -35,7 +35,7 @@ export type InternalProps = {|
   shelves: { [shelfName: string]: Array<AddonType> | null },
 |};
 
-export class PromotedAddonsCardBase extends React.Component<InternalProps> {
+export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
   static defaultProps = {
     _tracking: tracking,
   };
@@ -94,11 +94,11 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
 
     const header = (
       <>
-        <div className="PromotedAddonsCard-headerText">
+        <div className="SponsoredAddonsShelf-headerText">
           {i18n.gettext('Sponsored extensions')}
         </div>
         <a
-          className="PromotedAddonsCard-headerLink"
+          className="SponsoredAddonsShelf-headerLink"
           href={`${getPromotedBadgesLinkUrl({
             utm_content: 'promoted-addon-shelf',
           })}#sponsored`}
@@ -117,7 +117,7 @@ export class PromotedAddonsCardBase extends React.Component<InternalProps> {
       <AddonsCard
         addonInstallSource={addonInstallSource}
         addons={promotedExtensions}
-        className={makeClassName('PromotedAddonsCard', className)}
+        className={makeClassName('SponsoredAddonsShelf', className)}
         header={header}
         onAddonClick={this.onAddonClick}
         onAddonImpression={this.onAddonImpression}
@@ -137,9 +137,9 @@ export function mapStateToProps(state: AppState) {
   };
 }
 
-const PromotedAddonsCard: React.ComponentType<Props> = compose(
+const SponsoredAddonsShelf: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
-)(PromotedAddonsCardBase);
+)(SponsoredAddonsShelfBase);
 
-export default PromotedAddonsCard;
+export default SponsoredAddonsShelf;

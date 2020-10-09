@@ -15,7 +15,7 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Page from 'amo/components/Page';
-import PromotedAddonsCard from 'amo/components/PromotedAddonsCard';
+import SponsoredAddonsShelf from 'amo/components/SponsoredAddonsShelf';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   FETCH_HOME_DATA,
@@ -122,7 +122,7 @@ describe(__filename, () => {
       store,
     });
 
-    expect(root.find(PromotedAddonsCard)).toHaveLength(1);
+    expect(root.find(SponsoredAddonsShelf)).toHaveLength(1);
   });
 
   it('does not render a promoted extensions shelf if turned off', () => {
@@ -145,7 +145,7 @@ describe(__filename, () => {
       store,
     });
 
-    expect(root.find(PromotedAddonsCard)).toHaveLength(0);
+    expect(root.find(SponsoredAddonsShelf)).toHaveLength(0);
   });
 
   it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
@@ -264,7 +264,7 @@ describe(__filename, () => {
       store,
     });
 
-    expect(root.find(PromotedAddonsCard)).toHaveLength(0);
+    expect(root.find(SponsoredAddonsShelf)).toHaveLength(0);
     expect(root.find('.Home-FeaturedCollection')).toHaveLength(0);
     expect(root.find('.Home-RecommendedThemes')).toHaveLength(0);
     expect(root.find('.Home-TrendingExtensions')).toHaveLength(0);
