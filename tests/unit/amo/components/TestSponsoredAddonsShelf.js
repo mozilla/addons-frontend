@@ -10,15 +10,20 @@ import SponsoredAddonsShelf, {
   SponsoredAddonsShelfBase,
 } from 'amo/components/SponsoredAddonsShelf';
 import { fetchHomeData, loadHomeData } from 'amo/reducers/home';
+import { fetchSponsored, loadSponsored } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
+import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createAddonsApiResult,
   createFakeTracking,
   createHeroShelves,
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  fakesponsoredShelf,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -56,33 +61,161 @@ describe(__filename, () => {
     );
   };
 
-  it('displays nothing when promotedExtensions is an empty array', () => {
-    _loadPromotedExtensions({ addons: [] });
-    const root = render();
-    expect(root.find(AddonsCard)).toHaveLength(0);
-  });
-
-  it('passes loading parameter to AddonsCard', () => {
+  const _loadPromotedShelf = ({ addons = [] }) => {
     store.dispatch(
-      fetchHomeData({ collectionsToFetch: [], errorHandlerId: 'some-id' }),
+      loadSponsored({ shelfData: { ...fakesponsoredShelf, results: addons } }),
     );
+  };
 
-    let root = render();
-    expect(root.find(AddonsCard)).toHaveProp('loading', true);
+  describe('When enableFeatureUseAdzerkForSponsoredShelf is false', () => {
+    const _config = getFakeConfig({
+      enableFeatureUseAdzerkForSponsoredShelf: false,
+    });
 
-    _loadPromotedExtensions({ addons: [fakeAddon] });
-    root = render();
-    expect(root.find(AddonsCard)).toHaveProp('loading', false);
+    it('displays nothing when promotedExtensions is an empty array', () => {
+      _loadPromotedExtensions({ addons: [] });
+      const root = render({ _config });
+      expect(root.find(AddonsCard)).toHaveLength(0);
+    });
+
+    it('passes loading parameter to AddonsCard', () => {
+      store.dispatch(
+        fetchHomeData({ collectionsToFetch: [], errorHandlerId: 'some-id' }),
+      );
+
+      let root = render({ _config });
+      expect(root.find(AddonsCard)).toHaveProp('loading', true);
+
+      _loadPromotedExtensions({ addons: [fakeAddon] });
+      root = render({ _config });
+      expect(root.find(AddonsCard)).toHaveProp('loading', false);
+    });
+
+    it('passes promotedExtensions to AddonsCard', () => {
+      const addon = fakeAddon;
+      _loadPromotedExtensions({ addons: [addon] });
+      const root = render({ _config });
+
+      expect(root.find(AddonsCard)).toHaveProp('addons', [
+        createInternalAddon(addon),
+      ]);
+    });
+
+    it('only includes 3 promoted extensions if fewer than 6 are returned', () => {
+      _loadPromotedExtensions({ addons: Array(5).fill(fakeAddon) });
+
+      const root = render({ _config });
+
+      const addons = root.find(AddonsCard).prop('addons');
+      expect(addons.length).toEqual(3);
+    });
+
+    it('should not dispatch a fetch action', () => {
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render({ _config });
+
+      sinon.assert.notCalled(dispatchSpy);
+    });
+
+    // This is because errorHandler is only relevant if
+    // enableFeatureUseAdzerkForSponsoredShelf is true.
+    it('still renders, even if errorHandler has an error', () => {
+      const errorHandler = new ErrorHandler({
+        id: 'some-id',
+        dispatch: store.dispatch,
+      });
+      errorHandler.handle(new Error('some unexpected error'));
+
+      const root = render({ _config, errorHandler });
+      expect(root.find(AddonsCard)).toHaveLength(1);
+    });
   });
 
-  it('passes promotedExtensions to AddonsCard', () => {
-    const addon = fakeAddon;
-    _loadPromotedExtensions({ addons: [addon] });
-    const root = render();
+  describe('When enableFeatureUseAdzerkForSponsoredShelf is true', () => {
+    const _config = getFakeConfig({
+      enableFeatureUseAdzerkForSponsoredShelf: true,
+    });
 
-    expect(root.find(AddonsCard)).toHaveProp('addons', [
-      createInternalAddon(addon),
-    ]);
+    it('displays nothing when shelfData.results is an empty array', () => {
+      _loadPromotedShelf({ addons: [] });
+      const root = render({ _config });
+      expect(root.find(AddonsCard)).toHaveLength(0);
+    });
+
+    it('passes loading parameter to AddonsCard', () => {
+      store.dispatch(fetchSponsored({ errorHandlerId: 'some-id' }));
+
+      let root = render({ _config });
+      expect(root.find(AddonsCard)).toHaveProp('loading', true);
+
+      _loadPromotedShelf({ addons: [fakeAddon] });
+      root = render({ _config });
+      expect(root.find(AddonsCard)).toHaveProp('loading', false);
+    });
+
+    it('passes shelfData.results to AddonsCard', () => {
+      const addon = fakeAddon;
+      _loadPromotedShelf({ addons: [addon] });
+      const root = render({ _config });
+
+      expect(root.find(AddonsCard)).toHaveProp('addons', [
+        createInternalAddon(addon),
+      ]);
+    });
+
+    it('only includes 3 promoted extensions if fewer than 6 are returned', () => {
+      _loadPromotedShelf({ addons: Array(5).fill(fakeAddon) });
+
+      const root = render({ _config });
+
+      const addons = root.find(AddonsCard).prop('addons');
+      expect(addons.length).toEqual(3);
+    });
+
+    it('renders nothing if there is an error', () => {
+      const errorHandler = new ErrorHandler({
+        id: 'some-id',
+        dispatch: store.dispatch,
+      });
+      errorHandler.handle(new Error('some unexpected error'));
+      _loadPromotedShelf({ addons: [fakeAddon] });
+
+      const root = render({ _config, errorHandler });
+      expect(root.find(AddonsCard)).toHaveLength(0);
+    });
+
+    it('should dispatch a fetch action if shelfData is not loaded', () => {
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+
+      render({ _config, errorHandler });
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        fetchSponsored({
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+    });
+
+    it('should not dispatch a fetch action if shelfData is loading', () => {
+      store.dispatch(fetchSponsored({ errorHandlerId: 'some-id' }));
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render({ _config });
+
+      sinon.assert.notCalled(dispatchSpy);
+    });
+
+    it('should not dispatch a fetch action if shelfData is loaded', () => {
+      _loadPromotedShelf({ addons: [fakeAddon] });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render({ _config });
+
+      sinon.assert.notCalled(dispatchSpy);
+    });
   });
 
   it('can pass a custom classname to AddonsCard', () => {
@@ -150,14 +283,5 @@ describe(__filename, () => {
       category: PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
       label: guid,
     });
-  });
-
-  it('only includes 3 promoted extensions if fewer than 6 are returned', () => {
-    _loadPromotedExtensions({ addons: Array(5).fill(fakeAddon) });
-
-    const root = render();
-
-    const addons = root.find(AddonsCard).prop('addons');
-    expect(addons.length).toEqual(3);
   });
 });
