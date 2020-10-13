@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-06 17:23+0000\n"
+"POT-Creation-Date: 2020-10-13 16:50+0000\n"
 "PO-Revision-Date: 2020-09-22 20:18+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -1256,22 +1256,6 @@ msgstr "Gegevens aan clientzijde onbeperkt opslaan"
 msgid "Access browser activity during navigation"
 msgstr "Browseractiviteit tijdens navigeren benaderen"
 
-#: src/amo/components/PromotedAddonsCard/index.js:82
-msgid "Sponsored extensions"
-msgstr "Gesponsorde extensies"
-
-#: src/amo/components/PromotedAddonsCard/index.js:91
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox beveelt alleen extensies aan die voldoen aan onze normen voor "
-"beveiliging en prestaties."
-
-#: src/amo/components/PromotedAddonsCard/index.js:95
-msgid "What is this?"
-msgstr "Wat is dit?"
-
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
 msgstr "Meld u aan om dit woordenboek te waarderen"
@@ -1436,12 +1420,12 @@ msgstr ""
 msgid "Search results"
 msgstr "Zoekresultaten"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:308
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:298
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Aanbevolen extensies"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:373
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Aanbevolen thema’s"
@@ -1486,7 +1470,7 @@ msgstr "Geverifieerde thema’s"
 msgid "Verified add-ons"
 msgstr "Geverifieerde add-ons"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:386
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Populaire extensies"
@@ -1514,11 +1498,11 @@ msgstr "Hoogst gewaardeerde thema’s"
 msgid "Top rated add-ons"
 msgstr "Hoogst gewaardeerde add-ons"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:346
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
 msgid "Popular extensions"
 msgstr "Populaire extensies"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:327
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
 msgid "Popular themes"
 msgstr "Populaire thema’s"
 
@@ -1768,6 +1752,22 @@ msgstr "Woordenboeken en taalpakketten"
 #: src/amo/components/SectionLinks/index.js:98
 msgid "Explore"
 msgstr "Verkennen"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:107
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox beveelt alleen extensies aan die voldoen aan onze normen voor "
+"beveiliging en prestaties."
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:111
+msgid "What is this?"
+msgstr "Wat is dit?"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:98
+msgid "Sponsored extensions"
+msgstr "Gesponsorde extensies"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2200,7 +2200,7 @@ msgstr "Seizoensgebonden"
 msgid "Change the way Firefox looks with themes."
 msgstr "Wijzig het uiterlijk van Firefox met thema’s."
 
-#: src/amo/pages/Home/index.js:262
+#: src/amo/pages/Home/index.js:254
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2210,23 +2210,23 @@ msgstr ""
 "kunnen vervelende advertenties blokkeren, wachtwoorden beschermen, het "
 "uiterlijk van de browser wijzigen, en meer."
 
-#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Meer aanbevolen extensies bekijken"
 
-#: src/amo/pages/Home/index.js:328
+#: src/amo/pages/Home/index.js:318
 msgid "See more popular themes"
 msgstr "Meer populaire thema’s bekijken"
 
-#: src/amo/pages/Home/index.js:347
+#: src/amo/pages/Home/index.js:337
 msgid "See more popular extensions"
 msgstr "Meer populaire extensies bekijken"
 
-#: src/amo/pages/Home/index.js:364 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Meer aanbevolen thema’s bekijken"
 
-#: src/amo/pages/Home/index.js:387 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Meer populaire extensies bekijken"
 

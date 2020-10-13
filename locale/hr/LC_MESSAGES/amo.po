@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-06 17:23+0000\n"
+"POT-Creation-Date: 2020-10-13 16:50+0000\n"
 "PO-Revision-Date: 2020-10-03 15:09+0000\n"
 "Last-Translator: Ivan <1vanhorvat@protonmail.com>\n"
 "Language-Team: none\n"
@@ -1260,22 +1260,6 @@ msgstr "Spremaj neograničenu količinu podataka klijenta"
 msgid "Access browser activity during navigation"
 msgstr "Pristupi aktivnostima preglednika tijekom navigacije"
 
-#: src/amo/components/PromotedAddonsCard/index.js:82
-msgid "Sponsored extensions"
-msgstr "Sponzorirana proširenja"
-
-#: src/amo/components/PromotedAddonsCard/index.js:91
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox preporučuje samo proširenja, koja udovoljavaju našim standardima za "
-"sigurnost i performanse."
-
-#: src/amo/components/PromotedAddonsCard/index.js:95
-msgid "What is this?"
-msgstr "Što je ovo?"
-
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
 msgstr "Prijavi se i ocijeni ovaj rječnik"
@@ -1435,12 +1419,12 @@ msgstr ""
 msgid "Search results"
 msgstr "Rezultati pretrage"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:308
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:298
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Preporučena proširenja"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:373
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Preporučeni motivi"
@@ -1487,7 +1471,7 @@ msgstr "Provjereni motivi"
 msgid "Verified add-ons"
 msgstr "Provjereni dodaci"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:386
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Proširenja u trendu"
@@ -1515,11 +1499,11 @@ msgstr "Motivi s najboljom ocjenom"
 msgid "Top rated add-ons"
 msgstr "Dodaci s najboljom ocjenom"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:346
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
 msgid "Popular extensions"
 msgstr "Popularna proširenja"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:327
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
 msgid "Popular themes"
 msgstr "Popularni motivi"
 
@@ -1789,6 +1773,22 @@ msgstr "Rječnici i jezični paketi"
 #: src/amo/components/SectionLinks/index.js:98
 msgid "Explore"
 msgstr "Istraži"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:107
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox preporučuje samo proširenja, koja udovoljavaju našim standardima za "
+"sigurnost i performanse."
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:111
+msgid "What is this?"
+msgstr "Što je ovo?"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:98
+msgid "Sponsored extensions"
+msgstr "Sponzorirana proširenja"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2211,7 +2211,7 @@ msgstr "Sezonsko"
 msgid "Change the way Firefox looks with themes."
 msgstr "Promijeni izgled Firefoxa s motivima."
 
-#: src/amo/pages/Home/index.js:262
+#: src/amo/pages/Home/index.js:254
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2221,23 +2221,23 @@ msgstr ""
 "Mogu blokirati dosadne oglase, zaštititi lozinke, promijeniti izgled "
 "preglednika i još mnogo toga."
 
-#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Pogledaj daljnja preporučena proširenja"
 
-#: src/amo/pages/Home/index.js:328
+#: src/amo/pages/Home/index.js:318
 msgid "See more popular themes"
 msgstr "Pogledaj daljnje popularne motive"
 
-#: src/amo/pages/Home/index.js:347
+#: src/amo/pages/Home/index.js:337
 msgid "See more popular extensions"
 msgstr "Pogledaj daljnja popularna proširenja"
 
-#: src/amo/pages/Home/index.js:364 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Pogledaj daljnje preporučene motive"
 
-#: src/amo/pages/Home/index.js:387 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Pogledaj daljnja proširenja u trendu"
 
