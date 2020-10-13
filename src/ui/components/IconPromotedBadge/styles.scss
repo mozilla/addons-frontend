@@ -50,8 +50,8 @@ $icon-promoted-small-size: 16px;
 
   &.Icon-line {
     background-size: $icon-promoted-large-size - 4;
-    border-radius: $icon-promoted-large-size / 2;
     border: 1px solid $grey-30;
+    border-radius: $icon-promoted-large-size / 2;
     height: $icon-promoted-large-size;
     width: $icon-promoted-large-size;
   }
@@ -85,8 +85,8 @@ $icon-promoted-small-size: 16px;
 
   &.Icon-line {
     background-size: $icon-promoted-small-size - 2;
-    border-radius: $icon-promoted-small-size / 2;
     border: 1px solid $grey-30;
+    border-radius: $icon-promoted-small-size / 2;
     height: $icon-promoted-small-size;
     width: $icon-promoted-small-size;
   }
