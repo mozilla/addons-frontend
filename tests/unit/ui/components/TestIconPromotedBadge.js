@@ -30,7 +30,7 @@ describe(__filename, () => {
     expect(root).toHaveClassName(className);
   });
 
-  it.each(['line', 'recommended', 'verified'])(
+  it.each(['recommended', 'verified'])(
     'adds the expected classes for category="%s"',
     (category) => {
       const root = render({ category });
@@ -50,37 +50,6 @@ describe(__filename, () => {
       const root = render({ category });
 
       expect(root.find('path')).toHaveProp('d', paths[category]);
-    },
-  );
-
-  it('uses/adds expected elements/styles for the "line" category', () => {
-    const root = render({ category: 'line' });
-    expect(root.find('defs')).toHaveLength(1);
-    expect(root.find('circle')).toHaveLength(2);
-    expect(root.find('g')).toHaveProp('style');
-    expect(root.find('path')).toHaveLength(13);
-    expect(
-      root
-        .find('path')
-        .everyWhere((node) => node.hasClass('IconPromotedBadge-iconPath')),
-    ).toEqual(true);
-    expect(
-      root
-        .find('path')
-        .everyWhere((node) =>
-          node.hasClass('IconPromotedBadge-iconPath--line'),
-        ),
-    ).toEqual(true);
-  });
-
-  it.each(['recommended', 'verified'])(
-    'uses/exludes expected elements for for category="%s"',
-    (category) => {
-      const root = render({ category });
-      expect(root.find('defs')).toHaveLength(0);
-      expect(root.find('circle')).toHaveLength(1);
-      expect(root.find('g')).not.toHaveProp('style');
-      expect(root.find('path')).toHaveLength(1);
     },
   );
 
@@ -108,5 +77,20 @@ describe(__filename, () => {
     const root = render({ showAlt: false });
 
     expect(root.find(Icon)).toHaveProp('alt', undefined);
+  });
+
+  it.each(['recommended', 'verified'])(
+    'sets the icon with category="%s" to inline content',
+    (category) => {
+      const root = render({ category });
+
+      expect(root).toHaveProp('name', 'inline-content');
+    },
+  );
+
+  it('does not use inline-content but a real icon (image) for the category="line"', () => {
+    const root = render({ category: 'line' });
+
+    expect(root).toHaveProp('name', 'line');
   });
 });
