@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-06 17:23+0000\n"
+"POT-Creation-Date: 2020-10-13 16:50+0000\n"
 "PO-Revision-Date: 2020-09-22 20:38+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -1265,22 +1265,6 @@ msgstr "Njewobmjezowanu ličbu klientowych datow składować"
 msgid "Access browser activity during navigation"
 msgstr "Přistup na aktiwitu wobhladowaka za nawigaciju měć"
 
-#: src/amo/components/PromotedAddonsCard/index.js:82
-msgid "Sponsored extensions"
-msgstr "Sponsorowane rozšěrjenja"
-
-#: src/amo/components/PromotedAddonsCard/index.js:91
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox jenož rozšěrjenja doporučuje, kotrež našim standardam za wěstotu a "
-"wukon wotpowěduja."
-
-#: src/amo/components/PromotedAddonsCard/index.js:95
-msgid "What is this?"
-msgstr "Što to je?"
-
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
 msgstr "Přizjewće so, zo byšće tutón słownik pohódnoćił"
@@ -1448,12 +1432,12 @@ msgstr ""
 msgid "Search results"
 msgstr "Pytanske wuslědki"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:308
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:298
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Doporučene rozšěrjenja"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:373
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Doporučene drasty"
@@ -1498,7 +1482,7 @@ msgstr "Wobkrućene drasty"
 msgid "Verified add-ons"
 msgstr "Wobkrućene přidatki"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:386
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Woblubowane rozšěrjenja"
@@ -1526,11 +1510,11 @@ msgstr "Wysoko pohódnoćene drasty"
 msgid "Top rated add-ons"
 msgstr "Najwyše pohódnoćene přidatki"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:346
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
 msgid "Popular extensions"
 msgstr "Woblubowane rozšěrjenja"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:327
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
 msgid "Popular themes"
 msgstr "Woblubowane drasty"
 
@@ -1808,6 +1792,22 @@ msgstr "Słowniki a rěčne pakćiki"
 #: src/amo/components/SectionLinks/index.js:98
 msgid "Explore"
 msgstr "Wuslědźić"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:107
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox jenož rozšěrjenja doporučuje, kotrež našim standardam za wěstotu a "
+"wukon wotpowěduja."
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:111
+msgid "What is this?"
+msgstr "Što to je?"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:98
+msgid "Sponsored extensions"
+msgstr "Sponsorowane rozšěrjenja"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2245,7 +2245,7 @@ msgstr "Počasy"
 msgid "Change the way Firefox looks with themes."
 msgstr "Změńće wonkowny napohlad Firefox přez drasty."
 
-#: src/amo/pages/Home/index.js:262
+#: src/amo/pages/Home/index.js:254
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2255,23 +2255,23 @@ msgstr ""
 "Móža mjerzace wabjenje blokować, hesła škitać, zwonkowne wobhladowaka změnić "
 "a wjace."
 
-#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Dalše doporučene rozšěrjenja pokazać"
 
-#: src/amo/pages/Home/index.js:328
+#: src/amo/pages/Home/index.js:318
 msgid "See more popular themes"
 msgstr "Dalše woblubowane drasty pokazać"
 
-#: src/amo/pages/Home/index.js:347
+#: src/amo/pages/Home/index.js:337
 msgid "See more popular extensions"
 msgstr "Dalše woblubowane rozšěrjenja sej wobhladać"
 
-#: src/amo/pages/Home/index.js:364 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Dalše doporučene drasty pokazać"
 
-#: src/amo/pages/Home/index.js:387 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Dalše tuchwilu woblubowane rozšěrjenja sej wobhladać"
 
