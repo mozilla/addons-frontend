@@ -324,3 +324,7 @@
   height: 12px;
   width: 12px;
 }
+
+.Icon-line {
+  @include icon($name: 'line');
+}
