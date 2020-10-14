@@ -25,7 +25,9 @@ import './styles.scss';
 
 export const PRIMARY_HERO_CLICK_ACTION = 'primary-hero-click';
 export const PRIMARY_HERO_CLICK_CATEGORY = 'AMO Primary Hero Clicks';
-export const PRIMARY_HERO_CLICK_EXTERNAL_LABEL = 'external-link';
+export const PRIMARY_HERO_EXTERNAL_LABEL = 'external-link';
+export const PRIMARY_HERO_IMPRESSION_ACTION = 'primary-hero-impression';
+export const PRIMARY_HERO_IMPRESSION_CATEGORY = 'AMO Primary Hero Impressions';
 export const PRIMARY_HERO_SRC = 'homepage-primary-hero';
 
 type Props = {|
@@ -84,9 +86,39 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     _tracking.sendEvent({
       action: PRIMARY_HERO_CLICK_ACTION,
       category: PRIMARY_HERO_CLICK_CATEGORY,
-      label: addon ? addon.guid : PRIMARY_HERO_CLICK_EXTERNAL_LABEL,
+      label: addon ? addon.guid : PRIMARY_HERO_EXTERNAL_LABEL,
     });
   };
+
+  onHeroImpression = () => {
+    const { _tracking, shelfData } = this.props;
+
+    invariant(shelfData, 'The shelfData property is required');
+
+    const { addon } = shelfData;
+
+    _tracking.sendEvent({
+      action: PRIMARY_HERO_IMPRESSION_ACTION,
+      category: PRIMARY_HERO_IMPRESSION_CATEGORY,
+      label: addon ? addon.guid : PRIMARY_HERO_EXTERNAL_LABEL,
+    });
+  };
+
+  componentDidMount() {
+    const { shelfData } = this.props;
+
+    if (shelfData) {
+      this.onHeroImpression();
+    }
+  }
+
+  componentDidUpdate(prevProps: InternalProps) {
+    const { shelfData } = this.props;
+
+    if (shelfData && prevProps.shelfData !== shelfData) {
+      this.onHeroImpression();
+    }
+  }
 
   render() {
     const {
