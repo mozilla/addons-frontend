@@ -137,6 +137,23 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
   };
 
   onAddonClick = (addon: AddonType | CollectionAddonType) => {
+    const { _config, _navigator } = this.props;
+
+    if (_config.get('enableFeatureUseAdzerkForSponsoredShelf')) {
+      const { click_data, click_url } = addon;
+
+      if (click_data && click_url) {
+        sendBeacon({
+          _navigator,
+          data: formatDataForBeacon({
+            data: click_data,
+            key: 'click_data',
+          }),
+          urlString: click_url,
+        });
+      }
+    }
+
     this.sendTrackingEvent(
       addon,
       PROMOTED_ADDON_CLICK_ACTION,
