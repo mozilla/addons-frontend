@@ -4,7 +4,9 @@ import AppBanner from 'amo/components/AppBanner';
 import HeroRecommendation, {
   PRIMARY_HERO_CLICK_ACTION,
   PRIMARY_HERO_CLICK_CATEGORY,
-  PRIMARY_HERO_CLICK_EXTERNAL_LABEL,
+  PRIMARY_HERO_EXTERNAL_LABEL,
+  PRIMARY_HERO_IMPRESSION_ACTION,
+  PRIMARY_HERO_IMPRESSION_CATEGORY,
   PRIMARY_HERO_SRC,
   HeroRecommendationBase,
 } from 'amo/components/HeroRecommendation';
@@ -309,10 +311,70 @@ describe(__filename, () => {
           label:
             feature === 'addon'
               ? shelfData.addon.guid
-              : PRIMARY_HERO_CLICK_EXTERNAL_LABEL,
+              : PRIMARY_HERO_EXTERNAL_LABEL,
+        });
+        sinon.assert.calledTwice(_tracking.sendEvent);
+      },
+    );
+
+    it.each([
+      ['addon', withAddonShelfData],
+      ['external', withExternalShelfData],
+    ])(
+      'sends a tracking event for the impression on mount for %s',
+      (feature, shelfData) => {
+        const _tracking = createFakeTracking();
+
+        render({ _tracking, shelfData });
+
+        sinon.assert.calledWith(_tracking.sendEvent, {
+          action: PRIMARY_HERO_IMPRESSION_ACTION,
+          category: PRIMARY_HERO_IMPRESSION_CATEGORY,
+          label:
+            feature === 'addon'
+              ? shelfData.addon.guid
+              : PRIMARY_HERO_EXTERNAL_LABEL,
         });
         sinon.assert.calledOnce(_tracking.sendEvent);
       },
     );
+
+    it.each([
+      ['addon', withAddonShelfData],
+      ['external', withExternalShelfData],
+    ])(
+      'sends a tracking event for the impression on update for %s',
+      (feature, shelfData) => {
+        const _tracking = createFakeTracking();
+
+        const root = render({ _tracking, shelfData: null });
+
+        sinon.assert.notCalled(_tracking.sendEvent);
+
+        root.setProps({ shelfData });
+
+        sinon.assert.calledWith(_tracking.sendEvent, {
+          action: PRIMARY_HERO_IMPRESSION_ACTION,
+          category: PRIMARY_HERO_IMPRESSION_CATEGORY,
+          label:
+            feature === 'addon'
+              ? shelfData.addon.guid
+              : PRIMARY_HERO_EXTERNAL_LABEL,
+        });
+        sinon.assert.calledOnce(_tracking.sendEvent);
+      },
+    );
+
+    it('does not send a tracking event for the impression on mount or update if shelfData is missing', () => {
+      const _tracking = createFakeTracking();
+
+      const root = render({ _tracking, shelfData: undefined });
+
+      sinon.assert.notCalled(_tracking.sendEvent);
+
+      root.setProps({ shelfData: null });
+
+      sinon.assert.notCalled(_tracking.sendEvent);
+    });
   });
 });
