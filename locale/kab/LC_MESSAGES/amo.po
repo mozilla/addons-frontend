@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-10-13 16:50+0000\n"
-"PO-Revision-Date: 2020-10-15 17:52+0000\n"
+"PO-Revision-Date: 2020-10-15 18:03+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1001,9 +1001,8 @@ msgid "Download file"
 msgstr "Sader afaylu"
 
 #: src/amo/components/InstallWarning/index.js:101
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Taɣellist ur tettwasenqed ara s wahil n yiseɣzaf yelhan n Mozilla. Ḍmen qbel tumneḍ yis-s uqbel ad t-tesbeddeḍ."
+msgstr "Azegrir-a ara ur yettuɛass ara s wudem urmid i tɣellist sɣur Mozilla. Ḍmen tumneḍ yis-s uqbel ad t-tesbeddeḍ."
 
 #: src/amo/components/InstallWarning/index.js:97
 msgid "Learn more"
@@ -2764,9 +2763,8 @@ msgid "Firefox only recommends add-ons that meet our standards for security and 
 msgstr "Firefox ittwelleh ala  ɣer yizegrae yemṣadan d yilugan-nneɣ icudden ɣer tɣellist akked timellit."
 
 #: src/ui/components/PromotedBadge/index.js:57
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox ur ittwelleh ala isiɣzaf yemṣadan d yilugan-nneɣ icudden ɣer tɣellist akked timellit."
+msgstr "Azegrir-a yettusenqed akken ara yemṣada d yilugan-nneɣ icudden ɣer tɣellist akked timellit."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
