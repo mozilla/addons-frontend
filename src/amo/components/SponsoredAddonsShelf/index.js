@@ -1,17 +1,24 @@
 /* @flow */
 import makeClassName from 'classnames';
+import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import { LANDING_PAGE_PROMOTED_EXTENSION_COUNT } from 'amo/constants';
+import { fetchSponsored, getSponsoredShelf } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
+import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import tracking from 'core/tracking';
+import type { SponsoredShelfType } from 'amo/reducers/shelves';
 import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
+import type { ErrorHandlerType } from 'core/types/errorHandler';
 import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
@@ -29,16 +36,41 @@ type Props = {|
 
 export type InternalProps = {|
   ...Props,
+  _config: typeof config,
   _tracking: typeof tracking,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  isLoading: boolean,
   resultsLoaded: boolean,
+  shelfData: SponsoredShelfType | null | void,
   shelves: { [shelfName: string]: Array<AddonType> | null },
 |};
 
 export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
     _tracking: tracking,
+    shelfData: undefined,
   };
+
+  useAdzerk() {
+    const { _config } = this.props;
+    return _config.get('enableFeatureUseAdzerkForSponsoredShelf');
+  }
+
+  constructor(props: InternalProps) {
+    super(props);
+    const { isLoading, shelfData } = props;
+
+    if (this.useAdzerk() && !isLoading && !shelfData) {
+      this.props.dispatch(
+        fetchSponsored({
+          errorHandlerId: this.props.errorHandler.id,
+        }),
+      );
+    }
+  }
 
   sendTrackingEvent = (
     addon: AddonType | CollectionAddonType,
@@ -74,21 +106,40 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
     const {
       addonInstallSource,
       className,
+      errorHandler,
       i18n,
+      isLoading,
       resultsLoaded,
       shelves,
+      shelfData,
     } = this.props;
 
-    const { promotedExtensions } = shelves;
-    if (Array.isArray(promotedExtensions) && !promotedExtensions.length) {
+    if (this.useAdzerk() && errorHandler.hasError()) {
+      log.debug(
+        'Error when fetching sponsored add-ons, hiding the SponsoredAddonsShelf component.',
+      );
+      return null;
+    }
+
+    let sponsoredAddons;
+
+    if (this.useAdzerk()) {
+      if (shelfData) {
+        sponsoredAddons = shelfData.addons;
+      }
+    } else if (shelves) {
+      sponsoredAddons = shelves.promotedExtensions;
+    }
+
+    if (Array.isArray(sponsoredAddons) && !sponsoredAddons.length) {
       // Don't display anything if there are no add-ons.
       return null;
     }
 
-    if (Array.isArray(promotedExtensions)) {
-      // If there are fewer than 6 promoted extensions, just use the first 3.
-      if (promotedExtensions.length < 6) {
-        promotedExtensions.splice(3);
+    if (Array.isArray(sponsoredAddons)) {
+      // If there are fewer than 6 sponsored add-ons, just use the first 3.
+      if (sponsoredAddons.length < 6) {
+        sponsoredAddons.splice(3);
       }
     }
 
@@ -116,14 +167,14 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
     return (
       <AddonsCard
         addonInstallSource={addonInstallSource}
-        addons={promotedExtensions}
+        addons={sponsoredAddons}
         className={makeClassName('SponsoredAddonsShelf', className)}
         header={header}
         onAddonClick={this.onAddonClick}
         onAddonImpression={this.onAddonImpression}
         showPromotedBadge={false}
         type="horizontal"
-        loading={resultsLoaded === false}
+        loading={this.useAdzerk() ? isLoading : !resultsLoaded}
         placeholderCount={LANDING_PAGE_PROMOTED_EXTENSION_COUNT}
       />
     );
@@ -132,7 +183,9 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState) {
   return {
+    isLoading: state.shelves.isLoading,
     resultsLoaded: state.home.resultsLoaded,
+    shelfData: getSponsoredShelf(state),
     shelves: state.home.shelves,
   };
 }
@@ -140,6 +193,7 @@ export function mapStateToProps(state: AppState) {
 const SponsoredAddonsShelf: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
+  withErrorHandler({ name: 'SponsoredAddonsShelf' }),
 )(SponsoredAddonsShelfBase);
 
 export default SponsoredAddonsShelf;

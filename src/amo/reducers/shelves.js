@@ -1,4 +1,6 @@
 /* @flow */
+import config from 'config';
+import { LOCATION_CHANGE } from 'connected-react-router';
 import invariant from 'invariant';
 
 import type { AppState } from 'amo/store';
@@ -24,11 +26,13 @@ export type SponsoredShelfType = {|
 
 export type ShelvesState = {|
   isLoading: boolean,
+  resetStateOnNextChange: boolean,
   sponsored: SponsoredShelfType | null | void,
 |};
 
 export const initialState: ShelvesState = {
   isLoading: false,
+  resetStateOnNextChange: false,
   sponsored: undefined,
 };
 
@@ -97,6 +101,7 @@ type Action =
 const reducer = (
   state: ShelvesState = initialState,
   action: Action,
+  _config: typeof config = config,
 ): ShelvesState => {
   switch (action.type) {
     case ABORT_FETCH_SPONSORED:
@@ -120,6 +125,26 @@ const reducer = (
         ...state,
         isLoading: false,
         sponsored: createInternalsponsoredShelf(shelfData),
+      };
+    }
+
+    // See: https://github.com/mozilla/addons-frontend/issues/8601
+    case LOCATION_CHANGE: {
+      if (_config.get('server')) {
+        // We only care about client side navigation.
+        return state;
+      }
+      // When the client initializes, it updates its location. On next location
+      // change, we want to reset this state to fetch fresh data once user goes
+      // back to the homepage.
+      if (state.resetStateOnNextChange) {
+        return initialState;
+      }
+
+      return {
+        ...state,
+        // This will only be set *after* a single location change on the client.
+        resetStateOnNextChange: true,
       };
     }
 

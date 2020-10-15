@@ -10,7 +10,7 @@ import shelvesSaga from 'amo/sagas/shelves';
 import apiReducer from 'core/reducers/api';
 import {
   createStubErrorHandler,
-  fakesponsoredShelf,
+  fakeSponsoredShelf,
   dispatchClientMetadata,
 } from 'tests/unit/helpers';
 
@@ -45,7 +45,7 @@ describe(__filename, () => {
     it('calls the API to fetch the sponsored shelf', async () => {
       const state = sagaTester.getState();
 
-      const shelfData = fakesponsoredShelf;
+      const shelfData = fakeSponsoredShelf;
 
       mockApi
         .expects('getSponsoredShelf')

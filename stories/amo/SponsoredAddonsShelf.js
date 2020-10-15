@@ -2,9 +2,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { createInternalAddon } from 'core/reducers/addons';
 import { SponsoredAddonsShelfBase } from 'amo/components/SponsoredAddonsShelf';
-import { fakeAddon, fakeI18n } from 'tests/unit/helpers';
+import { ErrorHandler } from 'core/errorHandler';
+import { createInternalAddon } from 'core/reducers/addons';
+import {
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeI18n,
+} from 'tests/unit/helpers';
 import type { InternalProps as SponsoredAddonsShelfProps } from 'amo/components/SponsoredAddonsShelf';
 
 import Provider from '../setup/Provider';
@@ -17,6 +22,8 @@ const render = (moreProps: $Shape<SponsoredAddonsShelfProps> = {}) => {
   };
   return (
     <SponsoredAddonsShelfBase
+      dispatch={dispatchClientMetadata().store.dispatch}
+      errorHandler={new ErrorHandler({ id: 'some-id' })}
       i18n={fakeI18n({ includeJedSpy: false })}
       {...props}
     />
@@ -36,7 +43,7 @@ storiesOf('SponsoredAddonsShelf', module)
         sections: [
           {
             title: 'loading',
-            sectionFn: () => render({ resultsLoaded: false }),
+            sectionFn: () => render({ isLoading: true, resultsLoaded: false }),
           },
           {
             title: 'with 3 add-ons',
