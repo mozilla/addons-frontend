@@ -72,9 +72,10 @@
   }
 }
 
-.HeroRecommendation-recommended {
+.HeroRecommendation-title-text {
   @include font-medium();
 
+  display: inline;
   font-size: $font-size-s;
   letter-spacing: 0.1em;
   line-height: 1.143;
@@ -90,9 +91,25 @@
   }
 }
 
+.HeroRecommendation-title-link {
+  font-size: $font-size-micro;
+  @include margin-start(12px);
+
+  &,
+  &:active,
+  &:hover,
+  &:link,
+  &:visited {
+    color: $white;
+    font-weight: normal;
+    opacity: 0.5;
+    text-decoration: none;
+  }
+}
+
 .HeroRecommendation-body,
 .HeroRecommendation-heading,
-.HeroRecommendation-recommended {
+.HeroRecommendation-title {
   width: 100%;
 
   .LoadingText {
@@ -145,7 +162,7 @@
     }
   }
 
-  .HeroRecommendation-recommended,
+  .HeroRecommendation-title,
   .HeroRecommendation-heading,
   .HeroRecommendation-body,
   .HeroRecommendation-link {

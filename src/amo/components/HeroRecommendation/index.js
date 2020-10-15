@@ -8,14 +8,24 @@ import { compose } from 'redux';
 import AppBanner from 'amo/components/AppBanner';
 import Link from 'amo/components/Link';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
-import { checkInternalURL, getAddonURL } from 'amo/utils';
+import {
+  checkInternalURL,
+  getAddonURL,
+  getPromotedBadgesLinkUrl,
+} from 'amo/utils';
+import {
+  DEFAULT_UTM_SOURCE,
+  DEFAULT_UTM_MEDIUM,
+  LINE,
+  RECOMMENDED,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import tracking from 'core/tracking';
 import { sanitizeUserHTML } from 'core/utils';
+import { getPromotedCategory } from 'core/utils/addons';
 import { addQueryParams } from 'core/utils/url';
 import LoadingText from 'ui/components/LoadingText';
-import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/types/errorHandler';
@@ -35,22 +45,21 @@ type Props = {|
   shelfData?: PrimaryHeroShelfType,
 |};
 
-type MappedProps = {|
-  siteIsReadOnly: boolean,
-  siteNotice: string | null,
-|};
-
 export type InternalProps = {|
   ...Props,
-  ...MappedProps,
-  i18n: I18nType,
   _checkInternalURL: typeof checkInternalURL,
+  _getPromotedCategory: typeof getPromotedCategory,
   _tracking: typeof tracking,
+  clientApp: string,
+  i18n: I18nType,
+  siteIsReadOnly: boolean,
+  siteNotice: string | null,
 |};
 
 export class HeroRecommendationBase extends React.Component<InternalProps> {
   static defaultProps = {
     _checkInternalURL: checkInternalURL,
+    _getPromotedCategory: getPromotedCategory,
     _tracking: tracking,
   };
 
@@ -123,6 +132,8 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   render() {
     const {
       _checkInternalURL,
+      _getPromotedCategory,
+      clientApp,
       i18n,
       errorHandler,
       shelfData,
@@ -184,6 +195,51 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       loading = true;
     }
 
+    const renderHeroTitle = () => {
+      // translators: If uppercase does not work in your locale,
+      // change it to lowercase. This is used as a secondary heading.
+      let titleText = i18n.gettext('SPONSORED');
+
+      const promotedCategory = _getPromotedCategory({
+        addon,
+        clientApp,
+        forBadging: true,
+      });
+
+      if (promotedCategory === RECOMMENDED) {
+        // translators: If uppercase does not work in your locale,
+        // change it to lowercase. This is used as a secondary heading.
+        titleText = i18n.gettext('RECOMMENDED');
+      } else if (promotedCategory === LINE) {
+        // translators: If uppercase does not work in your locale,
+        // change it to lowercase. This is used as a secondary heading.
+        titleText = i18n.gettext('BY FIREFOX');
+      }
+
+      return (
+        <div className="HeroRecommendation-title">
+          <div className="HeroRecommendation-title-text">
+            {loading ? <LoadingText width={20} /> : titleText}
+          </div>
+          {![LINE, RECOMMENDED].includes(promotedCategory) ? (
+            <a
+              className="HeroRecommendation-title-link"
+              href={`${getPromotedBadgesLinkUrl({
+                utm_content: PRIMARY_HERO_SRC,
+              })}#sponsored`}
+              rel="noopener noreferrer"
+              target="_blank"
+              title={i18n.gettext(
+                'Firefox only recommends extensions that meet our standards for security and performance.',
+              )}
+            >
+              What is this?
+            </a>
+          ) : null}
+        </div>
+      );
+    };
+
     return (
       <section
         className={makeClassName(
@@ -218,15 +274,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
               </div>
             )}
             <div className="HeroRecommendation-info">
-              <div className="HeroRecommendation-recommended">
-                {loading ? (
-                  <LoadingText width={20} />
-                ) : (
-                  // translators: If uppercase does not work in your locale,
-                  // change it to lowercase. This is used as a secondary heading.
-                  i18n.gettext('RECOMMENDED')
-                )}
-              </div>
+              {renderHeroTitle()}
               <h2 className="HeroRecommendation-heading">
                 {loading ? <LoadingText width={60} /> : heading}
               </h2>
@@ -254,8 +302,9 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState): MappedProps => {
+const mapStateToProps = (state: AppState) => {
   return {
+    clientApp: state.api.clientApp,
     siteIsReadOnly: state.site.readOnly,
     siteNotice: state.site.notice,
   };
