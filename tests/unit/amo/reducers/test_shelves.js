@@ -1,3 +1,5 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
+
 import reducer, {
   abortFetchSponsored,
   fetchSponsored,
@@ -6,7 +8,12 @@ import reducer, {
   loadSponsored,
 } from 'amo/reducers/shelves';
 import { createInternalAddon } from 'core/reducers/addons';
-import { createStubErrorHandler, fakesponsoredShelf } from 'tests/unit/helpers';
+import {
+  createStubErrorHandler,
+  dispatchClientMetadata,
+  fakeSponsoredShelf,
+  getFakeConfig,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('initializes properly', () => {
@@ -30,7 +37,7 @@ describe(__filename, () => {
   });
 
   it('loads the sponsored shelf', () => {
-    const shelfData = fakesponsoredShelf;
+    const shelfData = fakeSponsoredShelf;
     const state = reducer(
       undefined,
       loadSponsored({
@@ -38,7 +45,7 @@ describe(__filename, () => {
       }),
     );
 
-    const expectedAddons = fakesponsoredShelf.results.map((addon) =>
+    const expectedAddons = fakeSponsoredShelf.results.map((addon) =>
       createInternalAddon(addon),
     );
 
@@ -62,6 +69,65 @@ describe(__filename, () => {
 
     const newState = reducer(state, abortFetchSponsored());
     expect(newState.isLoading).toEqual(false);
+  });
+
+  it('sets `resetStateOnNextChange` to `true` after a location change on the client', () => {
+    const _config = getFakeConfig({ server: false });
+
+    const state = reducer(undefined, { type: LOCATION_CHANGE }, _config);
+
+    expect(state.resetStateOnNextChange).toEqual(true);
+  });
+
+  it('does not set `resetStateOnNextChange` to `true` after a location change on the server', () => {
+    const _config = getFakeConfig({ server: true });
+
+    const state = reducer(undefined, { type: LOCATION_CHANGE }, _config);
+
+    expect(state.resetStateOnNextChange).toEqual(false);
+  });
+
+  it('resets the state to the initial state after two location changes on the client', () => {
+    const _config = getFakeConfig({ server: false });
+    const { store } = dispatchClientMetadata();
+    const impressionData = 'some data';
+    const shelfData = {
+      ...fakeSponsoredShelf,
+      impression_data: impressionData,
+    };
+
+    store.dispatch(loadSponsored({ shelfData }));
+
+    let state = store.getState().shelves;
+    expect(state.sponsored.impressionData).toEqual(impressionData);
+
+    // Perform two client-side location changes.
+    state = reducer(state, { type: LOCATION_CHANGE }, _config);
+    state = reducer(state, { type: LOCATION_CHANGE }, _config);
+
+    expect(state).toEqual(initialState);
+  });
+
+  it('does not reset the state to the initial state after only one location change on the client', () => {
+    const _config = getFakeConfig({ server: false });
+    const { store } = dispatchClientMetadata();
+    const impressionData = 'some data';
+    const shelfData = {
+      ...fakeSponsoredShelf,
+      impression_data: impressionData,
+    };
+
+    store.dispatch(loadSponsored({ shelfData }));
+
+    const firstState = store.getState().shelves;
+    expect(firstState.sponsored.impressionData).toEqual(impressionData);
+
+    const newState = reducer(firstState, { type: LOCATION_CHANGE }, _config);
+
+    expect(newState).toEqual({
+      ...firstState,
+      resetStateOnNextChange: true,
+    });
   });
 
   describe('getSponsoredShelf', () => {

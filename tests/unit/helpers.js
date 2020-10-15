@@ -1316,7 +1316,7 @@ export const createFakeBlockResult = ({
   };
 };
 
-export const fakesponsoredShelf = Object.freeze({
+export const fakeSponsoredShelf = Object.freeze({
   results: Array(6).fill({
     ...fakeAddon,
     click_data: 'some-data',

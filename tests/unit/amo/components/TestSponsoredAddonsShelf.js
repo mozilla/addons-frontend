@@ -22,7 +22,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakesponsoredShelf,
+  fakeSponsoredShelf,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -63,7 +63,7 @@ describe(__filename, () => {
 
   const _loadPromotedShelf = ({ addons = [] }) => {
     store.dispatch(
-      loadSponsored({ shelfData: { ...fakesponsoredShelf, results: addons } }),
+      loadSponsored({ shelfData: { ...fakeSponsoredShelf, results: addons } }),
     );
   };
 

@@ -54,14 +54,16 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
     shelfData: undefined,
   };
 
-  componentDidMount() {
-    const { _config, isLoading, shelfData } = this.props;
+  useAdzerk = () => {
+    const { _config } = this.props;
+    return _config.get('enableFeatureUseAdzerkForSponsoredShelf');
+  };
 
-    if (
-      _config.get('enableFeatureUseAdzerkForSponsoredShelf') &&
-      !isLoading &&
-      !shelfData
-    ) {
+  constructor(props: InternalProps) {
+    super(props);
+    const { isLoading, shelfData } = props;
+
+    if (this.useAdzerk() && !isLoading && !shelfData) {
       this.props.dispatch(
         fetchSponsored({
           errorHandlerId: this.props.errorHandler.id,
@@ -102,7 +104,6 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
 
   render() {
     const {
-      _config,
       addonInstallSource,
       className,
       errorHandler,
@@ -113,8 +114,7 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
       shelfData,
     } = this.props;
 
-    const useAdzerk = _config.get('enableFeatureUseAdzerkForSponsoredShelf');
-    if (useAdzerk && errorHandler.hasError()) {
+    if (this.useAdzerk() && errorHandler.hasError()) {
       log.debug(
         'Error when fetching sponsored add-ons, hiding the SponsoredAddonsShelf component.',
       );
@@ -123,7 +123,7 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
 
     let sponsoredAddons;
 
-    if (useAdzerk) {
+    if (this.useAdzerk()) {
       if (shelfData) {
         sponsoredAddons = shelfData.addons;
       }
@@ -174,7 +174,7 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
         onAddonImpression={this.onAddonImpression}
         showPromotedBadge={false}
         type="horizontal"
-        loading={useAdzerk ? isLoading : !resultsLoaded}
+        loading={this.useAdzerk() ? isLoading : !resultsLoaded}
         placeholderCount={LANDING_PAGE_PROMOTED_EXTENSION_COUNT}
       />
     );
