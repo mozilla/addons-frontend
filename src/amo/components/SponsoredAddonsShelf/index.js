@@ -54,10 +54,10 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
     shelfData: undefined,
   };
 
-  useAdzerk = () => {
+  useAdzerk() {
     const { _config } = this.props;
     return _config.get('enableFeatureUseAdzerkForSponsoredShelf');
-  };
+  }
 
   constructor(props: InternalProps) {
     super(props);
