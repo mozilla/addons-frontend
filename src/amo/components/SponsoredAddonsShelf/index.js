@@ -186,13 +186,6 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
       return null;
     }
 
-    if (Array.isArray(sponsoredAddons)) {
-      // If there are fewer than 6 sponsored add-ons, just use the first 3.
-      if (sponsoredAddons.length < 6) {
-        sponsoredAddons.splice(3);
-      }
-    }
-
     const header = (
       <>
         <div className="SponsoredAddonsShelf-headerText">

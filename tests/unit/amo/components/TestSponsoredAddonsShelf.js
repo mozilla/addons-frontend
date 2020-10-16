@@ -130,13 +130,14 @@ describe(__filename, () => {
       ]);
     });
 
-    it('only includes 3 promoted extensions if fewer than 6 are returned', () => {
+    // See https://github.com/mozilla/addons-frontend/issues/9771
+    it('includes all promoted extensions even if fewer than 6 are returned', () => {
       _loadPromotedExtensions({ addons: Array(5).fill(fakeAddon) });
 
       const root = render({ _config });
 
       const addons = root.find(AddonsCard).prop('addons');
-      expect(addons.length).toEqual(3);
+      expect(addons.length).toEqual(5);
     });
 
     it('should not dispatch a fetch action', () => {
@@ -210,13 +211,14 @@ describe(__filename, () => {
       ]);
     });
 
-    it('only includes 3 promoted extensions if fewer than 6 are returned', () => {
+    // See https://github.com/mozilla/addons-frontend/issues/9771
+    it('includes all promoted extensions even if fewer than 6 are returned', () => {
       _loadPromotedShelf({ addons: Array(5).fill(fakeAddon) });
 
       const root = render({ _config });
 
       const addons = root.find(AddonsCard).prop('addons');
-      expect(addons.length).toEqual(3);
+      expect(addons.length).toEqual(5);
     });
 
     it('renders nothing if there is an error', () => {
