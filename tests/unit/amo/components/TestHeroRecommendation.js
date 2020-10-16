@@ -102,6 +102,13 @@ describe(__filename, () => {
       },
     );
 
+    it('does not display an additional link when loading', () => {
+      const _getPromotedCategory = sinon.stub().returns(SPONSORED);
+
+      const root = render({ _getPromotedCategory, shelfData: null });
+      expect(root.find('.HeroRecommendation-title-link')).toHaveLength(0);
+    });
+
     it.each([LINE, RECOMMENDED])(
       'does not display an additional link for %s add-ons',
       (category) => {
