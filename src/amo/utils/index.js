@@ -1,5 +1,5 @@
 /* @flow */
-/* eslint camelcase: 0 */
+/* global navigator */
 import url from 'url';
 
 import base62 from 'base62';
@@ -9,6 +9,7 @@ import { PROMOTED_ADDONS_SUMO_URL } from 'amo/constants';
 import { makeQueryString } from 'core/api';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import { isValidLang } from 'core/i18n/utils';
+import log from 'core/logger';
 
 /*
  * Return a base62 object that encodes/decodes just like how Django does it
@@ -119,4 +120,23 @@ export const stripLangFromAmoUrl = ({
   }
 
   return urlString;
+};
+
+export const sendBeacon = ({
+  _log = log,
+  _navigator = typeof navigator !== 'undefined' ? navigator : null,
+  urlString,
+  data,
+}: {
+  _log?: typeof log,
+  _navigator?: typeof navigator | null,
+  urlString: string,
+  data?: BodyInit,
+}) => {
+  if (_navigator && _navigator.sendBeacon) {
+    _navigator.sendBeacon(urlString, data);
+    _log.debug(`Sending beacon to ${urlString}`);
+  } else {
+    _log.warn('navigator does not exist. Not sending a beacon.');
+  }
 };

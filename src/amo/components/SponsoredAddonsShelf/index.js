@@ -1,4 +1,5 @@
 /* @flow */
+/* global navigator */
 import makeClassName from 'classnames';
 import config from 'config';
 import * as React from 'react';
@@ -8,7 +9,7 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import { LANDING_PAGE_PROMOTED_EXTENSION_COUNT } from 'amo/constants';
 import { fetchSponsored, getSponsoredShelf } from 'amo/reducers/shelves';
-import { getPromotedBadgesLinkUrl } from 'amo/utils';
+import { getPromotedBadgesLinkUrl, sendBeacon } from 'amo/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -37,6 +38,7 @@ type Props = {|
 export type InternalProps = {|
   ...Props,
   _config: typeof config,
+  _navigator: typeof navigator,
   _tracking: typeof tracking,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -47,9 +49,22 @@ export type InternalProps = {|
   shelves: { [shelfName: string]: Array<AddonType> | null },
 |};
 
+export const formatDataForBeacon = ({
+  data,
+  key,
+}: {|
+  data: string,
+  key: string,
+|}): FormData => {
+  const formData = new FormData();
+  formData.append(key, data);
+  return formData;
+};
+
 export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
+    _navigator: typeof navigator !== 'undefined' ? navigator : null,
     _tracking: tracking,
     shelfData: undefined,
   };
@@ -71,6 +86,41 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
       );
     }
   }
+
+  componentDidMount() {
+    this.sendImpressionBeacon();
+  }
+
+  componentDidUpdate(prevProps: InternalProps) {
+    const { shelfData } = this.props;
+
+    if (prevProps.shelfData !== shelfData) {
+      this.sendImpressionBeacon();
+    }
+  }
+
+  sendImpressionBeacon = () => {
+    const { _config, _navigator, shelfData } = this.props;
+
+    if (_config.get('enableFeatureUseAdzerkForSponsoredShelf') && shelfData) {
+      const { impressionData, impressionURL } = shelfData;
+
+      if (impressionData && impressionURL) {
+        sendBeacon({
+          _navigator,
+          data: formatDataForBeacon({
+            data: impressionData,
+            key: 'impression_data',
+          }),
+          urlString: impressionURL,
+        });
+      } else {
+        log.debug(
+          'impressionData or impressionURL missing from API response. Not sending beacon.',
+        );
+      }
+    }
+  };
 
   sendTrackingEvent = (
     addon: AddonType | CollectionAddonType,
