@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-10-13 16:50+0000\n"
-"PO-Revision-Date: 2020-10-15 18:03+0000\n"
-"Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
+"PO-Revision-Date: 2020-10-16 10:34+0000\n"
+"Last-Translator: KAHINA <kahinamessaoudi03@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -1446,7 +1446,7 @@ msgstr "Tiddin"
 
 #: src/amo/components/SearchFilters/index.js:168
 msgid "Any"
-msgstr ""
+msgstr "Win illan"
 
 #: src/amo/components/SearchFilters/index.js:169 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:48
 msgid "Recommended"
@@ -2756,7 +2756,7 @@ msgstr "Fer izen-agi"
 
 #: src/ui/components/PromotedBadge/index.js:42
 msgid "This is an official add-on built by the creators of Mozilla Firefox."
-msgstr ""
+msgstr "Wa d azegrir unṣib yettwabna sɣur yimernayen n Mozilla Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:49
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
