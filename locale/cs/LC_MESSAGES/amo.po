@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-10-13 16:50+0000\n"
-"PO-Revision-Date: 2020-10-18 23:02+0000\n"
+"PO-Revision-Date: 2020-10-18 23:09+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1277,15 +1277,15 @@ msgstr "Doplňky od Firefoxu"
 
 #: src/amo/components/Search/index.js:148
 msgid "Reviewed extensions"
-msgstr ""
+msgstr "Zkontrolovaná rozšíření"
 
 #: src/amo/components/Search/index.js:151
 msgid "Reviewed themes"
-msgstr ""
+msgstr "Zkontrolované vzhledy"
 
 #: src/amo/components/Search/index.js:154
 msgid "Reviewed add-ons"
-msgstr ""
+msgstr "Zkontrolované doplňky"
 
 #: src/amo/components/Search/index.js:159
 msgid "Verified extensions"
@@ -1479,7 +1479,7 @@ msgstr "Ověřeno"
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "All Reviewed"
-msgstr ""
+msgstr "Všechny zkontrolované"
 
 #: src/amo/components/SearchFilters/index.js:199
 msgid "Filter results"
