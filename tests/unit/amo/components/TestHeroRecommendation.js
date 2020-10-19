@@ -12,11 +12,18 @@ import HeroRecommendation, {
 } from 'amo/components/HeroRecommendation';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { getAddonURL } from 'amo/utils';
-import { addQueryParams } from 'core/utils/url';
+import {
+  DEFAULT_UTM_SOURCE,
+  DEFAULT_UTM_MEDIUM,
+  LINE,
+  RECOMMENDED,
+  SPONSORED,
+  VERIFIED,
+} from 'core/constants';
 import { loadSiteStatus } from 'core/reducers/site';
+import { addQueryParams } from 'core/utils/url';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
-import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
 import {
   createFakeEvent,
   createFakeTracking,
@@ -69,6 +76,49 @@ describe(__filename, () => {
         root.instance().makeCallToActionURL(),
       );
     });
+
+    it.each([
+      [LINE, 'BY FIREFOX'],
+      [RECOMMENDED, 'RECOMMENDED'],
+      [SPONSORED, 'SPONSORED'],
+      [VERIFIED, 'SPONSORED'],
+      ['unknown category', 'SPONSORED'],
+    ])('displays the expected title for %s add-ons', (category, title) => {
+      const _getPromotedCategory = sinon.stub().returns(category);
+      const shelfData = createShelfData({ addon: fakeAddon });
+
+      const root = render({ _getPromotedCategory, shelfData });
+      expect(root.find('.HeroRecommendation-title-text')).toHaveText(title);
+    });
+
+    it.each([SPONSORED, VERIFIED, 'unknown category'])(
+      'displays an additional link for %s add-ons',
+      (category) => {
+        const _getPromotedCategory = sinon.stub().returns(category);
+        const shelfData = createShelfData({ addon: fakeAddon });
+
+        const root = render({ _getPromotedCategory, shelfData });
+        expect(root.find('.HeroRecommendation-title-link')).toHaveLength(1);
+      },
+    );
+
+    it('does not display an additional link when loading', () => {
+      const _getPromotedCategory = sinon.stub().returns(SPONSORED);
+
+      const root = render({ _getPromotedCategory, shelfData: null });
+      expect(root.find('.HeroRecommendation-title-link')).toHaveLength(0);
+    });
+
+    it.each([LINE, RECOMMENDED])(
+      'does not display an additional link for %s add-ons',
+      (category) => {
+        const _getPromotedCategory = sinon.stub().returns(category);
+        const shelfData = createShelfData({ addon: fakeAddon });
+
+        const root = render({ _getPromotedCategory, shelfData });
+        expect(root.find('.HeroRecommendation-title-link')).toHaveLength(0);
+      },
+    );
   });
 
   describe('for an external item', () => {
