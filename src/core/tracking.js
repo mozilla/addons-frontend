@@ -33,6 +33,8 @@ import {
 import log from 'core/logger';
 import { convertBoolean } from 'core/utils';
 
+export const SPONSORED_INSTALL_CONVERSION_INFO_KEY = 'sponsoredConversionInfo';
+
 type IsDoNoTrackEnabledParams = {|
   _log: typeof log,
   _navigator: ?typeof navigator,
@@ -320,6 +322,61 @@ export const sendSponsoredEventBeacon = ({
     data: formatDataForBeacon({ data, key: 'data', type }),
     urlString: sponsoredEventURL,
   });
+};
+
+export const storeConversionInfo = ({
+  _log = log,
+  _window = typeof window !== 'undefined' ? window : {},
+  addonId,
+  data,
+}: {
+  _log?: typeof log,
+  _window?: typeof window | Object,
+  addonId: number,
+  data: string,
+}) => {
+  if (_window.sessionStorage) {
+    _window.sessionStorage.setItem(
+      SPONSORED_INSTALL_CONVERSION_INFO_KEY,
+      JSON.stringify({ addonId, data }),
+    );
+  } else {
+    _log.warn(
+      'window.sessionStorage does not exist. Not storing conversion info.',
+    );
+  }
+};
+
+export const getConversionInfo = ({
+  _window = typeof window !== 'undefined' ? window : {},
+}: {
+  _window?: typeof window | Object,
+} = {}) => {
+  if (_window.sessionStorage) {
+    const info = _window.sessionStorage.getItem(
+      SPONSORED_INSTALL_CONVERSION_INFO_KEY,
+    );
+
+    if (info) {
+      return JSON.parse(info);
+    }
+  }
+
+  return null;
+};
+
+export const clearConversionInfo = ({
+  _log = log,
+  _window = typeof window !== 'undefined' ? window : {},
+}: {
+  _log?: typeof log,
+  _window?: typeof window | Object,
+} = {}) => {
+  if (_window.sessionStorage) {
+    _window.sessionStorage.removeItem(SPONSORED_INSTALL_CONVERSION_INFO_KEY);
+  } else {
+    _log.warn('window.sessionStorage does not exist. Nothing to clear.');
+  }
 };
 
 export default new Tracking();

@@ -72,6 +72,9 @@ function componentWithInstallHelpers() {
 
 const defaultProps = ({
   _addonManager = getFakeAddonManagerWrapper(),
+  _clearConversionInfo = sinon.spy(),
+  _getConversionInfo = sinon.spy(),
+  _sendSponsoredEventBeacon = sinon.spy(),
   addon = createInternalAddon(fakeAddon),
   store = dispatchClientMetadata().store,
   ...overrides
@@ -80,6 +83,9 @@ const defaultProps = ({
 
   return {
     _addonManager,
+    _clearConversionInfo,
+    _getConversionInfo,
+    _sendSponsoredEventBeacon,
     addon,
     store,
     ...overrides,
@@ -1151,6 +1157,118 @@ describe(__filename, () => {
               INSTALL_ACTION,
             ),
             label: addon.guid,
+          });
+        });
+      });
+
+      describe('Conversion tracking', () => {
+        const addon = createInternalAddon(fakeAddon);
+        const data = 'conversion data';
+
+        it('sends a beacon for the conversion', () => {
+          _loadVersions({ store });
+
+          const _getConversionInfo = sinon
+            .stub()
+            .returns({ addonId: addon.id, data });
+          const _sendSponsoredEventBeacon = sinon.spy();
+
+          const { root } = renderWithInstallHelpers({
+            _getConversionInfo,
+            _sendSponsoredEventBeacon,
+            addon,
+            store,
+          });
+          const { install } = root.instance().props;
+
+          return install(addon).then(() => {
+            sinon.assert.called(_getConversionInfo);
+            sinon.assert.calledWith(_sendSponsoredEventBeacon, {
+              data,
+              type: 'conversion',
+            });
+          });
+        });
+
+        it('does not send a beacon if there is no stored data', () => {
+          _loadVersions({ store });
+
+          const _getConversionInfo = sinon.stub().returns(undefined);
+          const _sendSponsoredEventBeacon = sinon.spy();
+
+          const { root } = renderWithInstallHelpers({
+            _getConversionInfo,
+            _sendSponsoredEventBeacon,
+            addon,
+            store,
+          });
+          const { install } = root.instance().props;
+
+          return install(addon).then(() => {
+            sinon.assert.notCalled(_sendSponsoredEventBeacon);
+          });
+        });
+
+        it('does not send a beacon if data is empty', () => {
+          _loadVersions({ store });
+
+          const _getConversionInfo = sinon
+            .stub()
+            .returns({ addonId: addon.id, data: undefined });
+          const _sendSponsoredEventBeacon = sinon.spy();
+
+          const { root } = renderWithInstallHelpers({
+            _getConversionInfo,
+            _sendSponsoredEventBeacon,
+            addon,
+            store,
+          });
+          const { install } = root.instance().props;
+
+          return install(addon).then(() => {
+            sinon.assert.notCalled(_sendSponsoredEventBeacon);
+          });
+        });
+
+        it('does not send a beacon if the add-on id does not match', () => {
+          _loadVersions({ store });
+
+          const _getConversionInfo = sinon
+            .stub()
+            .returns({ addonId: addon.id + 1, data });
+          const _sendSponsoredEventBeacon = sinon.spy();
+
+          const { root } = renderWithInstallHelpers({
+            _getConversionInfo,
+            _sendSponsoredEventBeacon,
+            addon,
+            store,
+          });
+          const { install } = root.instance().props;
+
+          return install(addon).then(() => {
+            sinon.assert.notCalled(_sendSponsoredEventBeacon);
+          });
+        });
+
+        it('clears stored conversion info', () => {
+          _loadVersions({ store });
+
+          const _clearConversionInfo = sinon.spy();
+          const _getConversionInfo = sinon
+            .stub()
+            .returns({ addonId: addon.id, data });
+
+          const { root } = renderWithInstallHelpers({
+            _clearConversionInfo,
+            _getConversionInfo,
+            addon,
+            store,
+          });
+          const { install } = root.instance().props;
+
+          return install(addon).then(() => {
+            sinon.assert.called(_clearConversionInfo);
           });
         });
       });

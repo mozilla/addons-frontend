@@ -1,12 +1,16 @@
 /* global window */
 import {
+  SPONSORED_INSTALL_CONVERSION_INFO_KEY,
   Tracking,
   isDoNotTrackEnabled,
+  clearConversionInfo,
   formatDataForBeacon,
   getAddonEventCategory,
   getAddonTypeForTracking,
+  getConversionInfo,
   sendBeacon,
   sendSponsoredEventBeacon,
+  storeConversionInfo,
 } from 'core/tracking';
 import {
   ADDON_TYPE_DICT,
@@ -558,6 +562,87 @@ describe(__filename, () => {
       sinon.assert.calledWith(_sendBeacon, {
         data: formattedData,
         urlString: expectedURL,
+      });
+    });
+  });
+
+  describe('Conversion info', () => {
+    let _window;
+
+    beforeEach(() => {
+      _window = {
+        sessionStorage: {
+          getItem: sinon.stub(),
+          setItem: sinon.spy(),
+          removeItem: sinon.spy(),
+        },
+      };
+    });
+
+    describe('storeConversionInfo', () => {
+      it('stores a stringified version of the info', () => {
+        const addonId = 123;
+        const data = 'some data';
+
+        storeConversionInfo({ _window, addonId, data });
+        sinon.assert.calledWith(
+          _window.sessionStorage.setItem,
+          SPONSORED_INSTALL_CONVERSION_INFO_KEY,
+          JSON.stringify({ addonId, data }),
+        );
+      });
+
+      it('can handle a missing window.sessionStorage object', () => {
+        const _log = getFakeLogger();
+        _window.sessionStorage = undefined;
+
+        storeConversionInfo({
+          _log,
+          _window,
+          addonId: 123,
+          data: 'some data',
+        });
+        sinon.assert.calledWith(
+          _log.warn,
+          'window.sessionStorage does not exist. Not storing conversion info.',
+        );
+      });
+    });
+
+    describe('getConversionInfo', () => {
+      it('returns parsed info', () => {
+        const data = { data: 'some data' };
+        _window.sessionStorage.getItem.returns(JSON.stringify(data));
+
+        expect(getConversionInfo({ _window })).toEqual(data);
+        sinon.assert.called(_window.sessionStorage.getItem);
+      });
+
+      it('returns null if window.sessionStorage does not exist', () => {
+        _window.sessionStorage = undefined;
+
+        expect(getConversionInfo({ _window })).toEqual(null);
+      });
+    });
+
+    describe('clearConversionInfo', () => {
+      it('clears sessionStorage parsed info', () => {
+        clearConversionInfo({ _window });
+        sinon.assert.calledWith(
+          _window.sessionStorage.removeItem,
+          SPONSORED_INSTALL_CONVERSION_INFO_KEY,
+        );
+      });
+
+      it('can handle a missing window.sessionStorage object', () => {
+        const _log = getFakeLogger();
+        _window.sessionStorage = undefined;
+
+        clearConversionInfo({ _log, _window });
+        sinon.assert.calledWith(
+          _log.warn,
+          'window.sessionStorage does not exist. Nothing to clear.',
+        );
       });
     });
   });

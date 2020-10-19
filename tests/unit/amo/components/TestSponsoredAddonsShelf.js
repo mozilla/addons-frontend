@@ -194,6 +194,18 @@ describe(__filename, () => {
 
       sinon.assert.notCalled(_sendSponsoredEventBeacon);
     });
+
+    it('does not configure AddonsCard to store conversion data when an add-on is clicked', () => {
+      const _storeConversionInfo = sinon.spy();
+      const addon = { ...fakeAddon, event_data: fakeEventData };
+      _loadPromotedExtensions({ addons: [addon] });
+
+      const root = render({ _config, _storeConversionInfo });
+      const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
+      onAddonClick(createInternalAddon(addon));
+
+      sinon.assert.notCalled(_storeConversionInfo);
+    });
   });
 
   describe('When enableFeatureUseAdzerkForSponsoredShelf is true', () => {
@@ -426,6 +438,36 @@ describe(__filename, () => {
       onAddonClick(createInternalAddon(addon));
 
       sinon.assert.notCalled(_sendSponsoredEventBeacon);
+    });
+
+    it('configures AddonsCard to store conversion data when an add-on is clicked', () => {
+      const _storeConversionInfo = sinon.spy();
+      const addonId = 12345;
+      const data = 'test conversion data';
+      const event_data = { ...fakeEventData, conversion: data };
+      const addon = { ...fakeAddon, event_data, id: addonId };
+      _loadPromotedShelf({ addons: [addon] });
+
+      const root = render({ _config, _storeConversionInfo });
+      const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
+      onAddonClick(createInternalAddon(addon));
+
+      sinon.assert.calledWith(_storeConversionInfo, {
+        addonId: addon.id,
+        data,
+      });
+    });
+
+    it('does not configure AddonsCard to store conversion data when an add-on is clicked if event_data is empty', () => {
+      const _storeConversionInfo = sinon.spy();
+      const addon = { ...fakeAddon, event_data: undefined };
+      _loadPromotedShelf({ addons: [addon] });
+
+      const root = render({ _config, _storeConversionInfo });
+      const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
+      onAddonClick(createInternalAddon(addon));
+
+      sinon.assert.notCalled(_storeConversionInfo);
     });
   });
 
