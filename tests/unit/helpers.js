@@ -1316,11 +1316,15 @@ export const createFakeBlockResult = ({
   };
 };
 
+export const fakeEventData = Object.freeze({
+  click: 'some-click-data',
+  conversion: 'some-conversion-data',
+});
+
 export const fakeSponsoredShelf = Object.freeze({
   results: Array(6).fill({
     ...fakeAddon,
-    click_data: 'some-data',
-    click_url: 'https://mozilla.org/',
+    event_data: fakeEventData,
   }),
   impression_data: 'some data',
   impression_url: 'https://mozilla.org/',

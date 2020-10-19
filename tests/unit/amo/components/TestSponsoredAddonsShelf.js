@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import SponsoredAddonsShelf, {
+  EVENT_URL,
   PROMOTED_ADDON_CLICK_ACTION,
   PROMOTED_ADDON_HOMEPAGE_CLICK_CATEGORY,
   PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
@@ -26,6 +27,7 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
+  fakeEventData,
   fakeI18n,
   fakeSponsoredShelf,
   getFakeConfig,
@@ -178,15 +180,11 @@ describe(__filename, () => {
     });
 
     it('does not send a beacon for the click', () => {
-      const addon = {
-        ...fakeAddon,
-        click_data: 'some data',
-        click_url: 'https://www.mozilla.org',
-      };
-      _loadPromotedExtensions({ addons: [addon] });
       const _navigator = { sendBeacon: sinon.spy() };
-      const root = render({ _config, _navigator });
+      const addon = { ...fakeAddon, event_data: fakeEventData };
+      _loadPromotedExtensions({ addons: [addon] });
 
+      const root = render({ _config, _navigator });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
       onAddonClick(createInternalAddon(addon));
 
@@ -357,9 +355,9 @@ describe(__filename, () => {
 
     it('configures AddonsCard to send a beacon when an add-on is clicked', () => {
       const _navigator = { sendBeacon: sinon.spy() };
-      const click_data = 'some click data';
-      const click_url = 'https://www.mozilla.org';
-      const addon = { ...fakeAddon, click_data, click_url };
+      const clickData = 'test click data';
+      const event_data = { ...fakeEventData, click: clickData };
+      const addon = { ...fakeAddon, event_data };
       _loadPromotedShelf({ addons: [addon] });
 
       const root = render({ _config, _navigator });
@@ -368,32 +366,26 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         _navigator.sendBeacon,
-        click_url,
-        formatDataForBeacon({ data: click_data, key: 'click_data' }),
+        EVENT_URL,
+        formatDataForBeacon({
+          data: clickData,
+          key: 'data',
+          type: 'click',
+        }),
       );
     });
 
-    it.each(['click_data', 'click_url'])(
-      'does not configure AddonsCard to send a beacon when an add-on is clicked when %s is missing',
-      (prop) => {
-        const _navigator = { sendBeacon: sinon.spy() };
-        const click_data = 'some click data';
-        const click_url = 'https://www.mozilla.org';
-        const addon = { ...fakeAddon, click_data, click_url };
-        addon[prop] = null;
-        _loadPromotedShelf({ addons: [addon] });
+    it('does not configure AddonsCard to send a beacon when an add-on is clicked when event_data is missing', () => {
+      const _navigator = { sendBeacon: sinon.spy() };
+      const addon = { ...fakeAddon, event_data: undefined };
+      _loadPromotedShelf({ addons: [addon] });
 
-        const root = render({ _config, _navigator });
-        const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
-        onAddonClick(createInternalAddon(addon));
+      const root = render({ _config, _navigator });
+      const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
+      onAddonClick(createInternalAddon(addon));
 
-        sinon.assert.neverCalledWith(
-          _navigator.sendBeacon,
-          click_url,
-          formatDataForBeacon({ data: click_data, key: 'click_data' }),
-        );
-      },
-    );
+      sinon.assert.neverCalledWithMatch(_navigator.sendBeacon, EVENT_URL);
+    });
   });
 
   it('can pass a custom classname to AddonsCard', () => {

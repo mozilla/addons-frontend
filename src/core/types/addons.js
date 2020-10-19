@@ -49,6 +49,11 @@ export type PromotedType = {|
   apps: Array<string>,
 |};
 
+type EventDataType = {|
+  click: string,
+  conversion: string,
+|};
+
 /*
  * This is the external API representation of an add-on.
  *
@@ -104,8 +109,7 @@ export type ExternalAddonType = {|
   url: string,
   weekly_downloads: number,
   // These fields only exist for addons returned from the sponsored endpoint.
-  click_data?: string | null,
-  click_url?: string | null,
+  event_data?: EventDataType,
 |};
 
 export type PartialExternalAddonType = {|
