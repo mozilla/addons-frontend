@@ -20,7 +20,7 @@ import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 import type { ReactRouterLocationType } from 'core/types/router';
 
-export const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
+const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
 export const DEFAULT_API_PAGE_SIZE = 25;
 
