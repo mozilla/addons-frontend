@@ -10,7 +10,6 @@ import AddonsCard from 'amo/components/AddonsCard';
 import { LANDING_PAGE_PROMOTED_EXTENSION_COUNT } from 'amo/constants';
 import { fetchSponsored, getSponsoredShelf } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl, sendBeacon } from 'amo/utils';
-import { API_BASE } from 'core/api';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -24,7 +23,7 @@ import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
-export const EVENT_URL = `${API_BASE}${config.get(
+export const EVENT_URL = `${config.get('apiPath')}${config.get(
   'apiVersion',
 )}/shelves/sponsored/event/`;
 export const PROMOTED_ADDON_CLICK_ACTION = 'sponsored-click';
