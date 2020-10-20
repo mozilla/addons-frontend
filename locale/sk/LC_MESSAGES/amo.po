@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-13 16:50+0000\n"
+"POT-Creation-Date: 2020-10-20 17:18+0000\n"
 "PO-Revision-Date: 2020-09-19 10:53+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -923,12 +923,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Nahlásené ako správa o chybe, alebo žiadosť o podporu"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Nahlásené"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Nahlásiť"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Nahlásené"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1111,14 +1111,32 @@ msgstr "Upraviť môj profil"
 msgid "Tools"
 msgstr "Nástroje"
 
-#: src/amo/components/HeroRecommendation/index.js:119
+#: src/amo/components/HeroRecommendation/index.js:162
 msgid "Get the extension"
 msgstr "Získať rozšírenie"
 
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:201
+msgid "SPONSORED"
+msgstr ""
+
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:195
+#: src/amo/components/HeroRecommendation/index.js:212
 msgid "RECOMMENDED"
 msgstr "ODPORÚČANÉ"
+
+#: src/amo/components/HeroRecommendation/index.js:216
+msgid "BY FIREFOX"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/SponsoredAddonsShelf/index.js:227
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox odporúča len rozšírenia, ktoré spĺňajú naše štandardy pre bezpečnosť "
+"a výkon."
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
 #, fuzzy
@@ -1781,23 +1799,15 @@ msgstr "Slovníky a jazykové balíky"
 msgid "Explore"
 msgstr "Objavujte"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:107
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox odporúča len rozšírenia, ktoré spĺňajú naše štandardy pre bezpečnosť "
-"a výkon."
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:111
-#, fuzzy
-msgid "What is this?"
-msgstr "Čo to znamená?"
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:98
+#: src/amo/components/SponsoredAddonsShelf/index.js:218
 #, fuzzy
 msgid "Sponsored extensions"
 msgstr "Najlepšie hodnotené rozšírenia"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:231
+#, fuzzy
+msgid "What is this?"
+msgstr "Čo to znamená?"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
