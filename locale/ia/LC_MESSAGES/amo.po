@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-13 16:50+0000\n"
+"POT-Creation-Date: 2020-10-20 17:18+0000\n"
 "PO-Revision-Date: 2020-09-22 22:41+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -931,12 +931,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Signalate como un reporto de defecto o requesta de supporto"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Signalate"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Signalar"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Signalate"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1121,14 +1121,32 @@ msgstr "Rediger mi profilo"
 msgid "Tools"
 msgstr "Utensiles"
 
-#: src/amo/components/HeroRecommendation/index.js:119
+#: src/amo/components/HeroRecommendation/index.js:162
 msgid "Get the extension"
 msgstr "Installa le extension"
 
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:201
+msgid "SPONSORED"
+msgstr ""
+
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:195
+#: src/amo/components/HeroRecommendation/index.js:212
 msgid "RECOMMENDED"
 msgstr "RECOMMENDATE"
+
+#: src/amo/components/HeroRecommendation/index.js:216
+msgid "BY FIREFOX"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/SponsoredAddonsShelf/index.js:227
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox recommenda solmente le extensiones que satisface nostre normas de "
+"securitate e efficientia."
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
 msgid "Download file"
@@ -1756,21 +1774,13 @@ msgstr "Dictionarios e pacchettos de lingua"
 msgid "Explore"
 msgstr "Explorar"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:107
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox recommenda solmente le extensiones que satisface nostre normas de "
-"securitate e efficientia."
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:111
-msgid "What is this?"
-msgstr "Que es isto?"
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:98
+#: src/amo/components/SponsoredAddonsShelf/index.js:218
 msgid "Sponsored extensions"
 msgstr "Extensiones sponsorisate"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:231
+msgid "What is this?"
+msgstr "Que es isto?"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"

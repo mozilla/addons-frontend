@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-13 16:50+0000\n"
+"POT-Creation-Date: 2020-10-20 17:18+0000\n"
 "PO-Revision-Date: 2020-07-14 06:20+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
@@ -916,12 +916,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "وُضع عليها إشارة بأنها تبليغ عن علّة أو طلب دعم"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "وُضع عليها إشارة"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "ضع عليها إشارة"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "وُضع عليها إشارة"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1102,14 +1102,30 @@ msgstr "حرِّر ملفي الشخصي"
 msgid "Tools"
 msgstr "أدوات"
 
-#: src/amo/components/HeroRecommendation/index.js:119
+#: src/amo/components/HeroRecommendation/index.js:162
 msgid "Get the extension"
 msgstr "احصل على الامتداد"
 
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:201
+msgid "SPONSORED"
+msgstr ""
+
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:195
+#: src/amo/components/HeroRecommendation/index.js:212
 msgid "RECOMMENDED"
 msgstr "مُقترحة"
+
+#: src/amo/components/HeroRecommendation/index.js:216
+msgid "BY FIREFOX"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/SponsoredAddonsShelf/index.js:227
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr "يوصي فيرفكس ويقترح فقط الامتدادات التي تلبي معاييرنا للأمان والأداء."
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
 #, fuzzy
@@ -1794,20 +1810,14 @@ msgstr "القواميس وحزم اللغات"
 msgid "Explore"
 msgstr "استكشف"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:107
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr "يوصي فيرفكس ويقترح فقط الامتدادات التي تلبي معاييرنا للأمان والأداء."
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:111
-msgid "What is this?"
-msgstr ""
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:98
+#: src/amo/components/SponsoredAddonsShelf/index.js:218
 #, fuzzy
 msgid "Sponsored extensions"
 msgstr "الامتدادات الأعلى تقييما"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:231
+msgid "What is this?"
+msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"

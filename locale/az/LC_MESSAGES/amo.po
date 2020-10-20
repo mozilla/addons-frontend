@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-13 16:50+0000\n"
+"POT-Creation-Date: 2020-10-20 17:18+0000\n"
 "PO-Revision-Date: 2018-10-31 16:33+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -900,12 +900,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Xəta hesabatı və ya dəstək istəyi olaraq işarələnib"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "İşarələndi"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "İşarələ"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "İşarələndi"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1094,14 +1094,30 @@ msgstr "Profilimi redaktə et"
 msgid "Tools"
 msgstr "Alətlər"
 
-#: src/amo/components/HeroRecommendation/index.js:119
+#: src/amo/components/HeroRecommendation/index.js:162
 #, fuzzy
 msgid "Get the extension"
 msgstr "Seçilmiş uzantılar"
 
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:201
+msgid "SPONSORED"
+msgstr ""
+
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:195
+#: src/amo/components/HeroRecommendation/index.js:212
 msgid "RECOMMENDED"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:216
+msgid "BY FIREFOX"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/SponsoredAddonsShelf/index.js:227
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
 msgstr ""
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
@@ -1739,20 +1755,14 @@ msgstr "Lüğətlər və Dil Paketləri"
 msgid "Explore"
 msgstr "Kəşf et"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:107
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
-msgstr ""
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:111
-msgid "What is this?"
-msgstr ""
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:98
+#: src/amo/components/SponsoredAddonsShelf/index.js:218
 #, fuzzy
 msgid "Sponsored extensions"
 msgstr "Ən çox qiymətləndirilən uzantılar"
+
+#: src/amo/components/SponsoredAddonsShelf/index.js:231
+msgid "What is this?"
+msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
