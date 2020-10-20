@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 
 // Addon States.
 export const DISABLED = 'DISABLED';
@@ -336,3 +337,7 @@ export type PromotedCategoryType =
   | typeof SPOTLIGHT
   | typeof STRATEGIC
   | typeof VERIFIED;
+
+export const PROMOTED_ADDON_EVENT_URL = `${config.get('apiPath')}${config.get(
+  'apiVersion',
+)}/shelves/sponsored/event/`;

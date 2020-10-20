@@ -2,8 +2,10 @@
 import {
   Tracking,
   isDoNotTrackEnabled,
+  formatDataForBeacon,
   getAddonEventCategory,
   getAddonTypeForTracking,
+  sendBeacon,
 } from 'core/tracking';
 import {
   ADDON_TYPE_DICT,
@@ -436,6 +438,72 @@ describe(__filename, () => {
 
     it('should not change the tracking category constants for disco pane navigation', () => {
       expect(DISCO_NAVIGATION_CATEGORY).toEqual('Discovery Navigation');
+    });
+  });
+
+  describe('sendBeacon', () => {
+    it('should send a becaon if navigator.sendBeacon exists', () => {
+      const urlString = 'https://www.mozilla.org';
+      const _log = getFakeLogger();
+      const _navigator = { sendBeacon: sinon.spy() };
+
+      sendBeacon({ _log, _navigator, urlString });
+      sinon.assert.calledWith(_log.debug, `Sending beacon to ${urlString}`);
+      sinon.assert.calledWith(_navigator.sendBeacon, urlString);
+    });
+
+    it('can include data in a becaon', () => {
+      const urlString = 'https://www.mozilla.org';
+      const data = 'some-data';
+      const _log = getFakeLogger();
+      const _navigator = { sendBeacon: sinon.spy() };
+
+      sendBeacon({ _log, _navigator, urlString, data });
+      sinon.assert.calledWith(_navigator.sendBeacon, urlString, data);
+    });
+
+    it('should not send a becaon if navigator does not exist', () => {
+      const urlString = 'https://www.mozilla.org';
+      const _log = getFakeLogger();
+
+      sendBeacon({ _log, _navigator: null, urlString });
+      sinon.assert.calledWith(
+        _log.warn,
+        'navigator does not exist. Not sending a beacon.',
+      );
+    });
+
+    it('should not send a becaon if navigator.sendBeacon does not exist', () => {
+      const urlString = 'https://www.mozilla.org';
+      const _log = getFakeLogger();
+
+      sendBeacon({ _log, _navigator: { sendBeacon: null }, urlString });
+      sinon.assert.calledWith(
+        _log.warn,
+        'navigator does not exist. Not sending a beacon.',
+      );
+    });
+  });
+
+  describe('formatDataForBeacon', () => {
+    it('can create a FormData object without a type', () => {
+      const data = 'some data';
+      const key = 'some key';
+      const expected = new FormData();
+      expected.append(key, data);
+
+      expect(formatDataForBeacon({ data, key })).toEqual(expected);
+    });
+
+    it('can create a FormData object with a type', () => {
+      const data = 'some data';
+      const key = 'some key';
+      const type = 'some type';
+      const expected = new FormData();
+      expected.append(key, data);
+      expected.append('type', type);
+
+      expect(formatDataForBeacon({ data, key, type })).toEqual(expected);
     });
   });
 });

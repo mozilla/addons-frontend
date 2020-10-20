@@ -3,13 +3,11 @@ import * as React from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import SponsoredAddonsShelf, {
-  EVENT_URL,
   PROMOTED_ADDON_CLICK_ACTION,
   PROMOTED_ADDON_HOMEPAGE_CLICK_CATEGORY,
   PROMOTED_ADDON_HOMEPAGE_IMPRESSION_CATEGORY,
   PROMOTED_ADDON_IMPRESSION_ACTION,
   SponsoredAddonsShelfBase,
-  formatDataForBeacon,
 } from 'amo/components/SponsoredAddonsShelf';
 import { fetchHomeData, loadHomeData } from 'amo/reducers/home';
 import {
@@ -18,7 +16,9 @@ import {
   loadSponsored,
 } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
+import { PROMOTED_ADDON_EVENT_URL } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
+import { formatDataForBeacon } from 'core/tracking';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createAddonsApiResult,
@@ -35,16 +35,19 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let _sendBeacon;
   let _tracking;
   let store;
 
   beforeEach(() => {
+    _sendBeacon = sinon.spy();
     _tracking = createFakeTracking();
     store = dispatchClientMetadata().store;
   });
 
   const render = (customProps = {}) => {
     const props = {
+      _sendBeacon,
       _tracking,
       i18n: fakeI18n(),
       loading: false,
@@ -165,10 +168,9 @@ describe(__filename, () => {
 
     it('does not send a beacon for the impression on mount or update', () => {
       _loadPromotedExtensions({ addons: [fakeAddon] });
-      const _navigator = { sendBeacon: sinon.spy() };
-      const root = render({ _config, _navigator });
+      const root = render({ _config });
 
-      sinon.assert.notCalled(_navigator.sendBeacon);
+      sinon.assert.notCalled(_sendBeacon);
 
       root.setProps({
         shelfData: _createShelfData({
@@ -177,19 +179,18 @@ describe(__filename, () => {
         }),
       });
 
-      sinon.assert.notCalled(_navigator.sendBeacon);
+      sinon.assert.notCalled(_sendBeacon);
     });
 
     it('does not send a beacon for the click', () => {
-      const _navigator = { sendBeacon: sinon.spy() };
       const addon = { ...fakeAddon, event_data: fakeEventData };
       _loadPromotedExtensions({ addons: [addon] });
 
-      const root = render({ _config, _navigator });
+      const root = render({ _config });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
       onAddonClick(createInternalAddon(addon));
 
-      sinon.assert.notCalled(_navigator.sendBeacon);
+      sinon.assert.notCalled(_sendBeacon);
     });
   });
 
@@ -280,7 +281,6 @@ describe(__filename, () => {
     });
 
     it('sends a beacon for the impression on mount', () => {
-      const _navigator = { sendBeacon: sinon.spy() };
       const impressionData = 'some data';
       const impressionURL = 'https://mozilla.org/';
       _loadPromotedShelf({
@@ -289,21 +289,22 @@ describe(__filename, () => {
         impressionURL,
       });
 
-      render({ _config, _navigator });
+      render({ _config });
 
-      sinon.assert.calledWith(
-        _navigator.sendBeacon,
-        impressionURL,
-        formatDataForBeacon({ data: impressionData, key: 'impression_data' }),
-      );
+      sinon.assert.calledWith(_sendBeacon, {
+        data: formatDataForBeacon({
+          data: impressionData,
+          key: 'impression_data',
+        }),
+        urlString: impressionURL,
+      });
     });
 
     it('sends a beacon for the impression on update', () => {
-      const _navigator = { sendBeacon: sinon.spy() };
       const impressionData = 'some data';
       const impressionURL = 'https://mozilla.org/';
 
-      const root = render({ _config, _navigator });
+      const root = render({ _config });
 
       root.setProps({
         shelfData: _createShelfData({
@@ -312,25 +313,24 @@ describe(__filename, () => {
         }),
       });
 
-      sinon.assert.calledWith(
-        _navigator.sendBeacon,
-        impressionURL,
-        formatDataForBeacon({ data: impressionData, key: 'impression_data' }),
-      );
+      sinon.assert.calledWith(_sendBeacon, {
+        data: formatDataForBeacon({
+          data: impressionData,
+          key: 'impression_data',
+        }),
+        urlString: impressionURL,
+      });
     });
 
     it('does not send a beacon for the impression when shelfData is not loaded', () => {
-      const _navigator = { sendBeacon: sinon.spy() };
-      const root = render({ _config, _navigator });
+      const root = render({ _config });
 
       root.setProps({ shelfData: null });
-      sinon.assert.notCalled(_navigator.sendBeacon);
+      sinon.assert.notCalled(_sendBeacon);
     });
 
     it('does not send a beacon for the impression when impression_data is missing', () => {
-      const _navigator = { sendBeacon: sinon.spy() };
-
-      const root = render({ _config, _navigator });
+      const root = render({ _config });
 
       root.setProps({
         shelfData: _createShelfData({
@@ -338,13 +338,11 @@ describe(__filename, () => {
         }),
       });
 
-      sinon.assert.notCalled(_navigator.sendBeacon);
+      sinon.assert.notCalled(_sendBeacon);
     });
 
     it('does not send a beacon for the impression when impression_url is missing', () => {
-      const _navigator = { sendBeacon: sinon.spy() };
-
-      const root = render({ _config, _navigator });
+      const root = render({ _config });
 
       root.setProps({
         shelfData: _createShelfData({
@@ -352,41 +350,38 @@ describe(__filename, () => {
         }),
       });
 
-      sinon.assert.notCalled(_navigator.sendBeacon);
+      sinon.assert.notCalled(_sendBeacon);
     });
 
     it('configures AddonsCard to send a beacon when an add-on is clicked', () => {
-      const _navigator = { sendBeacon: sinon.spy() };
       const clickData = 'test click data';
       const event_data = { ...fakeEventData, click: clickData };
       const addon = { ...fakeAddon, event_data };
       _loadPromotedShelf({ addons: [addon] });
 
-      const root = render({ _config, _navigator });
+      const root = render({ _config });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
       onAddonClick(createInternalAddon(addon));
 
-      sinon.assert.calledWith(
-        _navigator.sendBeacon,
-        EVENT_URL,
-        formatDataForBeacon({
+      sinon.assert.calledWith(_sendBeacon, {
+        data: formatDataForBeacon({
           data: clickData,
           key: 'data',
           type: 'click',
         }),
-      );
+        urlString: PROMOTED_ADDON_EVENT_URL,
+      });
     });
 
     it('does not configure AddonsCard to send a beacon when an add-on is clicked when event_data is missing', () => {
-      const _navigator = { sendBeacon: sinon.spy() };
       const addon = { ...fakeAddon, event_data: undefined };
       _loadPromotedShelf({ addons: [addon] });
 
-      const root = render({ _config, _navigator });
+      const root = render({ _config });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
       onAddonClick(createInternalAddon(addon));
 
-      sinon.assert.neverCalledWithMatch(_navigator.sendBeacon, EVENT_URL);
+      sinon.assert.neverCalledWithMatch(_sendBeacon, PROMOTED_ADDON_EVENT_URL);
     });
   });
 
