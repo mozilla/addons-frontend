@@ -23,6 +23,9 @@ import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
+export const EVENT_URL = `${config.get('apiPath')}${config.get(
+  'apiVersion',
+)}/shelves/sponsored/event/`;
 export const PROMOTED_ADDON_CLICK_ACTION = 'sponsored-click';
 export const PROMOTED_ADDON_HOMEPAGE_CLICK_CATEGORY =
   'AMO Homepage Sponsored Clicks';
@@ -52,12 +55,17 @@ export type InternalProps = {|
 export const formatDataForBeacon = ({
   data,
   key,
+  type,
 }: {|
   data: string,
   key: string,
+  type?: string,
 |}): FormData => {
   const formData = new FormData();
   formData.append(key, data);
+  if (type) {
+    formData.append('type', type);
+  }
   return formData;
 };
 
@@ -137,6 +145,24 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
   };
 
   onAddonClick = (addon: AddonType | CollectionAddonType) => {
+    const { _config, _navigator } = this.props;
+
+    if (_config.get('enableFeatureUseAdzerkForSponsoredShelf')) {
+      const { event_data } = addon;
+
+      if (event_data) {
+        sendBeacon({
+          _navigator,
+          data: formatDataForBeacon({
+            data: event_data.click,
+            key: 'data',
+            type: 'click',
+          }),
+          urlString: EVENT_URL,
+        });
+      }
+    }
+
     this.sendTrackingEvent(
       addon,
       PROMOTED_ADDON_CLICK_ACTION,
