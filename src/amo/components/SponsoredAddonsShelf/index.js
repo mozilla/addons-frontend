@@ -13,9 +13,9 @@ import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import tracking, {
-  PROMOTED_ADDON_EVENT_URL,
   formatDataForBeacon,
   sendBeacon,
+  sendSponsoredEventBeacon,
 } from 'core/tracking';
 import type { SponsoredShelfType } from 'amo/reducers/shelves';
 import type { AppState } from 'amo/store';
@@ -42,6 +42,7 @@ export type InternalProps = {|
   ...Props,
   _config: typeof config,
   _sendBeacon: typeof sendBeacon,
+  _sendSponsoredEventBeacon: typeof sendSponsoredEventBeacon,
   _tracking: typeof tracking,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -56,6 +57,7 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
     _sendBeacon: sendBeacon,
+    _sendSponsoredEventBeacon: sendSponsoredEventBeacon,
     _tracking: tracking,
     shelfData: undefined,
   };
@@ -127,20 +129,13 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
   };
 
   onAddonClick = (addon: AddonType | CollectionAddonType) => {
-    const { _config, _sendBeacon } = this.props;
+    const { _config, _sendSponsoredEventBeacon } = this.props;
 
     if (_config.get('enableFeatureUseAdzerkForSponsoredShelf')) {
       const { event_data } = addon;
 
       if (event_data) {
-        _sendBeacon({
-          data: formatDataForBeacon({
-            data: event_data.click,
-            key: 'data',
-            type: 'click',
-          }),
-          urlString: PROMOTED_ADDON_EVENT_URL,
-        });
+        _sendSponsoredEventBeacon({ data: event_data.click, type: 'click' });
       }
     }
 

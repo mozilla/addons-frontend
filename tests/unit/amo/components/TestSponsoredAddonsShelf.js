@@ -17,7 +17,7 @@ import {
 } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import { ErrorHandler } from 'core/errorHandler';
-import { PROMOTED_ADDON_EVENT_URL, formatDataForBeacon } from 'core/tracking';
+import { formatDataForBeacon } from 'core/tracking';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createAddonsApiResult,
@@ -35,11 +35,13 @@ import {
 
 describe(__filename, () => {
   let _sendBeacon;
+  let _sendSponsoredEventBeacon;
   let _tracking;
   let store;
 
   beforeEach(() => {
     _sendBeacon = sinon.spy();
+    _sendSponsoredEventBeacon = sinon.spy();
     _tracking = createFakeTracking();
     store = dispatchClientMetadata().store;
   });
@@ -47,6 +49,7 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = {
       _sendBeacon,
+      _sendSponsoredEventBeacon,
       _tracking,
       i18n: fakeI18n(),
       loading: false,
@@ -189,7 +192,7 @@ describe(__filename, () => {
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
       onAddonClick(createInternalAddon(addon));
 
-      sinon.assert.notCalled(_sendBeacon);
+      sinon.assert.notCalled(_sendSponsoredEventBeacon);
     });
   });
 
@@ -362,13 +365,9 @@ describe(__filename, () => {
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
       onAddonClick(createInternalAddon(addon));
 
-      sinon.assert.calledWith(_sendBeacon, {
-        data: formatDataForBeacon({
-          data: clickData,
-          key: 'data',
-          type: 'click',
-        }),
-        urlString: PROMOTED_ADDON_EVENT_URL,
+      sinon.assert.calledWith(_sendSponsoredEventBeacon, {
+        data: clickData,
+        type: 'click',
       });
     });
 
@@ -380,7 +379,7 @@ describe(__filename, () => {
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
       onAddonClick(createInternalAddon(addon));
 
-      sinon.assert.neverCalledWithMatch(_sendBeacon, PROMOTED_ADDON_EVENT_URL);
+      sinon.assert.notCalled(_sendSponsoredEventBeacon);
     });
   });
 

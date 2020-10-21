@@ -6,6 +6,7 @@ import {
   getAddonEventCategory,
   getAddonTypeForTracking,
   sendBeacon,
+  sendSponsoredEventBeacon,
 } from 'core/tracking';
 import {
   ADDON_TYPE_DICT,
@@ -504,6 +505,26 @@ describe(__filename, () => {
       expected.append('type', type);
 
       expect(formatDataForBeacon({ data, key, type })).toEqual(expected);
+    });
+  });
+
+  describe('sendSponsoredEventBeacon', () => {
+    it('calls sendBeacon with the expected data and URL', () => {
+      const apiPath = 'some/path/';
+      const apiVersion = 'someVersion';
+      const _config = getFakeConfig({ apiPath, apiVersion });
+      const _sendBeacon = sinon.spy();
+      const data = 'some data';
+      const type = 'click';
+
+      const expectedURL = `${apiPath}${apiVersion}/shelves/sponsored/event/`;
+      const formattedData = formatDataForBeacon({ data, key: 'data', type });
+
+      sendSponsoredEventBeacon({ _config, _sendBeacon, data, type });
+      sinon.assert.calledWith(_sendBeacon, {
+        data: formattedData,
+        urlString: expectedURL,
+      });
     });
   });
 });

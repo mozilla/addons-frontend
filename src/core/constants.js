@@ -1,4 +1,5 @@
 /* @flow */
+
 // Addon States.
 export const DISABLED = 'DISABLED';
 export const DISABLING = 'DISABLING';

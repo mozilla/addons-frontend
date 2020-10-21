@@ -33,10 +33,6 @@ import {
 import log from 'core/logger';
 import { convertBoolean } from 'core/utils';
 
-export const PROMOTED_ADDON_EVENT_URL = `${config.get('apiPath')}${config.get(
-  'apiVersion',
-)}/shelves/sponsored/event/`;
-
 type IsDoNoTrackEnabledParams = {|
   _log: typeof log,
   _navigator: ?typeof navigator,
@@ -296,6 +292,27 @@ export const formatDataForBeacon = ({
     formData.append('type', type);
   }
   return formData;
+};
+
+export const sendSponsoredEventBeacon = ({
+  _config = config,
+  _sendBeacon = sendBeacon,
+  data,
+  type,
+}: {
+  _config?: typeof config,
+  _sendBeacon?: typeof sendBeacon,
+  data: string,
+  type: string,
+}) => {
+  const sponsoredEventURL = `${_config.get('apiPath')}${_config.get(
+    'apiVersion',
+  )}/shelves/sponsored/event/`;
+
+  _sendBeacon({
+    data: formatDataForBeacon({ data, key: 'data', type }),
+    urlString: sponsoredEventURL,
+  });
 };
 
 export default new Tracking();
