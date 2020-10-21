@@ -24,11 +24,7 @@ import {
   logOutUser,
 } from 'amo/reducers/users';
 import { createApiError } from 'core/api';
-import {
-  ADDONS_POST_REVIEW,
-  CLIENT_APP_FIREFOX,
-  USERS_EDIT,
-} from 'core/constants';
+import { ADDONS_REVIEW, CLIENT_APP_FIREFOX, USERS_EDIT } from 'core/constants';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
@@ -440,7 +436,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({
       userProps: defaultUserProps({
         reviewer_name: reviewerName,
-        permissions: [ADDONS_POST_REVIEW],
+        permissions: [ADDONS_REVIEW],
       }),
     });
 
@@ -573,7 +569,7 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({
       userProps: defaultUserProps({
-        permissions: [ADDONS_POST_REVIEW],
+        permissions: [ADDONS_REVIEW],
         reviewer_name: '', // The API would return a value !== undefined for a reviewer.
       }),
     });
@@ -628,7 +624,7 @@ describe(__filename, () => {
 
   it('dispatches updateUserAccount action with all fields on submit for reviewers', () => {
     const { params, store } = signInUserWithProps({
-      permissions: [ADDONS_POST_REVIEW],
+      permissions: [ADDONS_REVIEW],
       reviewer_name: 'My Reviewer Name',
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');

@@ -29,7 +29,6 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  ADMIN_TOOLS,
   USERS_EDIT,
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -512,11 +511,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
       currentUser &&
       (currentUser.id === userId || hasPermission(state, USERS_EDIT));
 
-    canAdminUser =
-      currentUser &&
-      user &&
-      hasPermission(state, ADMIN_TOOLS) &&
-      hasPermission(state, USERS_EDIT);
+    canAdminUser = currentUser && user && hasPermission(state, USERS_EDIT);
 
     reviews = getReviewsByUserId(state.reviews, userId);
   } else {

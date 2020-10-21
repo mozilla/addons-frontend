@@ -24,15 +24,12 @@ import reducer, {
 } from 'amo/reducers/users';
 import {
   ADDONS_CONTENT_REVIEW,
-  ADDONS_POST_REVIEW,
   ADDONS_RECOMMENDED_REVIEW,
   ADDONS_REVIEW,
-  ADMIN_TOOLS_VIEW,
   ALL_SUPER_POWERS,
   REVIEWER_TOOLS_VIEW,
   STATIC_THEMES_REVIEW,
   STATS_VIEW,
-  THEMES_REVIEW,
 } from 'core/constants';
 import {
   createUserAccountResponse,
@@ -334,17 +331,17 @@ describe(__filename, () => {
 
   describe('hasPermission selector', () => {
     it('returns `true` when user has the given permission', () => {
-      const permissions = [ADMIN_TOOLS_VIEW, STATS_VIEW];
+      const permissions = [STATS_VIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasPermission(state, STATS_VIEW)).toEqual(true);
     });
 
     it('returns `false` when user does not have the given permission', () => {
-      const permissions = [ADMIN_TOOLS_VIEW, STATS_VIEW];
+      const permissions = [STATS_VIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
-      expect(hasPermission(state, THEMES_REVIEW)).toEqual(false);
+      expect(hasPermission(state, STATIC_THEMES_REVIEW)).toEqual(false);
     });
 
     it('returns `false` when user state has no permissions', () => {
@@ -352,20 +349,20 @@ describe(__filename, () => {
         userProps: { permissions: null },
       });
 
-      expect(hasPermission(state, THEMES_REVIEW)).toEqual(false);
+      expect(hasPermission(state, STATIC_THEMES_REVIEW)).toEqual(false);
     });
 
     it('returns `false` when user is not logged in', () => {
       const { state } = dispatchClientMetadata();
 
-      expect(hasPermission(state, THEMES_REVIEW)).toEqual(false);
+      expect(hasPermission(state, STATIC_THEMES_REVIEW)).toEqual(false);
     });
 
     it('returns `true` when user is admin', () => {
       const permissions = [ALL_SUPER_POWERS];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
-      expect(hasPermission(state, THEMES_REVIEW)).toEqual(true);
+      expect(hasPermission(state, STATIC_THEMES_REVIEW)).toEqual(true);
     });
 
     it('returns `true` when user has a broad permission', () => {
@@ -391,13 +388,6 @@ describe(__filename, () => {
   });
 
   describe('hasAnyReviewerRelatedPermission selector', () => {
-    it('returns `true` when user has ADDONS_POST_REVIEW', () => {
-      const permissions = [ADDONS_POST_REVIEW, STATS_VIEW];
-      const { state } = dispatchSignInActions({ userProps: { permissions } });
-
-      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
-    });
-
     it('returns `true` when user has ADDONS_CONTENT_REVIEW', () => {
       const permissions = [STATS_VIEW, ADDONS_CONTENT_REVIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
