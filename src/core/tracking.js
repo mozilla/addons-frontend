@@ -259,16 +259,23 @@ export const getAddonEventCategory = (
 };
 
 export const sendBeacon = ({
+  _isDoNotTrackEnabled = isDoNotTrackEnabled,
   _log = log,
   _navigator = typeof navigator !== 'undefined' ? navigator : null,
   urlString,
   data,
 }: {
+  _isDoNotTrackEnabled?: typeof isDoNotTrackEnabled,
   _log?: typeof log,
   _navigator?: typeof navigator | null,
   urlString: string,
   data?: BodyInit,
 }) => {
+  if (_isDoNotTrackEnabled()) {
+    _log.debug('Do Not Track Enabled; Not sending a beacon.');
+    return;
+  }
+
   if (_navigator && _navigator.sendBeacon) {
     _navigator.sendBeacon(urlString, data);
     _log.debug(`Sending beacon to ${urlString}`);
