@@ -258,4 +258,61 @@ export const getAddonEventCategory = (
   }
 };
 
+export const sendBeacon = ({
+  _log = log,
+  _navigator = typeof navigator !== 'undefined' ? navigator : null,
+  urlString,
+  data,
+}: {
+  _log?: typeof log,
+  _navigator?: typeof navigator | null,
+  urlString: string,
+  data?: BodyInit,
+}) => {
+  if (_navigator && _navigator.sendBeacon) {
+    _navigator.sendBeacon(urlString, data);
+    _log.debug(`Sending beacon to ${urlString}`);
+  } else {
+    _log.warn('navigator does not exist. Not sending a beacon.');
+  }
+};
+
+export const formatDataForBeacon = ({
+  data,
+  key,
+  type,
+}: {|
+  data: string,
+  key: string,
+  type?: string,
+|}): FormData => {
+  const formData = new FormData();
+  formData.append(key, data);
+  if (type) {
+    formData.append('type', type);
+  }
+  return formData;
+};
+
+export const sendSponsoredEventBeacon = ({
+  _config = config,
+  _sendBeacon = sendBeacon,
+  data,
+  type,
+}: {
+  _config?: typeof config,
+  _sendBeacon?: typeof sendBeacon,
+  data: string,
+  type: string,
+}) => {
+  const sponsoredEventURL = `${_config.get('apiPath')}${_config.get(
+    'apiVersion',
+  )}/shelves/sponsored/event/`;
+
+  _sendBeacon({
+    data: formatDataForBeacon({ data, key: 'data', type }),
+    urlString: sponsoredEventURL,
+  });
+};
+
 export default new Tracking();
