@@ -442,7 +442,7 @@ describe(__filename, () => {
   });
 
   describe('sendBeacon', () => {
-    it('should send a becaon if navigator.sendBeacon exists', () => {
+    it('should send a beacon if navigator.sendBeacon exists', () => {
       const urlString = 'https://www.mozilla.org';
       const _log = getFakeLogger();
       const _navigator = { sendBeacon: sinon.spy() };
@@ -452,7 +452,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(_navigator.sendBeacon, urlString);
     });
 
-    it('can include data in a becaon', () => {
+    it('can include data in a beacon', () => {
       const urlString = 'https://www.mozilla.org';
       const data = 'some-data';
       const _log = getFakeLogger();
@@ -462,7 +462,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(_navigator.sendBeacon, urlString, data);
     });
 
-    it('should not send a becaon if navigator does not exist', () => {
+    it('should not send a beacon if navigator does not exist', () => {
       const urlString = 'https://www.mozilla.org';
       const _log = getFakeLogger();
 
@@ -473,7 +473,7 @@ describe(__filename, () => {
       );
     });
 
-    it('should not send a becaon if navigator.sendBeacon does not exist', () => {
+    it('should not send a beacon if navigator.sendBeacon does not exist', () => {
       const urlString = 'https://www.mozilla.org';
       const _log = getFakeLogger();
 

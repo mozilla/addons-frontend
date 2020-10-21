@@ -9,11 +9,14 @@ import AddonsCard from 'amo/components/AddonsCard';
 import { LANDING_PAGE_PROMOTED_EXTENSION_COUNT } from 'amo/constants';
 import { fetchSponsored, getSponsoredShelf } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
-import { PROMOTED_ADDON_EVENT_URL } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import tracking, { formatDataForBeacon, sendBeacon } from 'core/tracking';
+import tracking, {
+  PROMOTED_ADDON_EVENT_URL,
+  formatDataForBeacon,
+  sendBeacon,
+} from 'core/tracking';
 import type { SponsoredShelfType } from 'amo/reducers/shelves';
 import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';

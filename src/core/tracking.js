@@ -33,6 +33,10 @@ import {
 import log from 'core/logger';
 import { convertBoolean } from 'core/utils';
 
+export const PROMOTED_ADDON_EVENT_URL = `${config.get('apiPath')}${config.get(
+  'apiVersion',
+)}/shelves/sponsored/event/`;
+
 type IsDoNoTrackEnabledParams = {|
   _log: typeof log,
   _navigator: ?typeof navigator,

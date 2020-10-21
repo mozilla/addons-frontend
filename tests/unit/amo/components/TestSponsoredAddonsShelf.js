@@ -16,9 +16,8 @@ import {
   loadSponsored,
 } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
-import { PROMOTED_ADDON_EVENT_URL } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { formatDataForBeacon } from 'core/tracking';
+import { PROMOTED_ADDON_EVENT_URL, formatDataForBeacon } from 'core/tracking';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createAddonsApiResult,
