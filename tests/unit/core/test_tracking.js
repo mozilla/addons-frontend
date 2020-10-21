@@ -463,6 +463,40 @@ describe(__filename, () => {
       sinon.assert.calledWith(_navigator.sendBeacon, urlString, data);
     });
 
+    it('does not send a beacon if DNT is enabled', () => {
+      const _isDoNotTrackEnabled = sinon.stub().returns(true);
+      const _log = getFakeLogger();
+      const _navigator = { sendBeacon: sinon.spy() };
+
+      sendBeacon({
+        _isDoNotTrackEnabled,
+        _log,
+        _navigator,
+        urlString: 'https://www.mozilla.org',
+      });
+      sinon.assert.calledWith(
+        _log.debug,
+        'Do Not Track Enabled; Not sending a beacon.',
+      );
+      sinon.assert.called(_isDoNotTrackEnabled);
+      sinon.assert.notCalled(_navigator.sendBeacon);
+    });
+
+    it('sends a beacon if DNT is disabled', () => {
+      const _isDoNotTrackEnabled = sinon.stub().returns(false);
+      const _log = getFakeLogger();
+      const _navigator = { sendBeacon: sinon.spy() };
+
+      sendBeacon({
+        _isDoNotTrackEnabled,
+        _log,
+        _navigator,
+        urlString: 'https://www.mozilla.org',
+      });
+      sinon.assert.called(_isDoNotTrackEnabled);
+      sinon.assert.called(_navigator.sendBeacon);
+    });
+
     it('should not send a beacon if navigator does not exist', () => {
       const urlString = 'https://www.mozilla.org';
       const _log = getFakeLogger();
