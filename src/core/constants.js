@@ -318,6 +318,14 @@ export const SPOTLIGHT = 'spotlight';
 export const STRATEGIC = 'strategic';
 export const VERIFIED = 'verified';
 
+export const ALL_PROMOTED_CATEGORIES = [
+  LINE,
+  RECOMMENDED,
+  SPONSORED,
+  SPOTLIGHT,
+  STRATEGIC,
+  VERIFIED,
+];
 export const BADGE_CATEGORIES = [LINE, RECOMMENDED, VERIFIED];
 export const EXCLUDE_WARNING_CATEGORIES = [
   LINE,

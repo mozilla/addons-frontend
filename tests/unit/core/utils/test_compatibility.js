@@ -2,6 +2,7 @@ import UAParser from 'ua-parser-js';
 
 import {
   ADDON_TYPE_STATIC_THEME,
+  ALL_PROMOTED_CATEGORIES,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
@@ -17,6 +18,7 @@ import {
   OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
+  RECOMMENDED,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -36,7 +38,6 @@ import {
   createFakeLocation,
   fakeAddon,
   fakeVersion,
-  getFakeConfig,
   getFakeLogger,
   userAgents,
   userAgentsByPlatform,
@@ -1104,41 +1105,55 @@ describe(__filename, () => {
   });
 
   describe('isFenixCompatible', () => {
-    it('returns true if the add-on is in the configured list', () => {
-      const guid = 'some-guid';
-      const addon = createInternalAddon({ ...fakeAddon, guid });
-      const _config = getFakeConfig({
-        fenixCompatibleGuids: [guid],
+    it('returns true if the add-on is recommended on android', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
       });
 
-      expect(isFenixCompatible({ _config, addon })).toEqual(true);
+      expect(isFenixCompatible({ addon })).toEqual(true);
     });
 
-    it('returns false if the add-on is not in the configured list', () => {
-      const guid = 'some-guid';
-      const addon = createInternalAddon({ ...fakeAddon, guid });
-      const _config = getFakeConfig({
-        fenixCompatibleGuids: [`${guid}-different`],
+    it('returns true if the add-on is recommended on android and desktop', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        promoted: {
+          category: RECOMMENDED,
+          apps: [CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX],
+        },
       });
 
-      expect(isFenixCompatible({ _config, addon })).toEqual(false);
+      expect(isFenixCompatible({ addon })).toEqual(true);
     });
 
-    it('returns false if the configured list is empty', () => {
-      const addon = createInternalAddon({ ...fakeAddon, guid: 'some-guid' });
-      const _config = getFakeConfig({
-        fenixCompatibleGuids: [],
+    it('returns false if the add-on is recommended but not on android', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
       });
 
-      expect(isFenixCompatible({ _config, addon })).toEqual(false);
+      expect(isFenixCompatible({ addon })).toEqual(false);
     });
 
-    it('returns false if the addon is null', () => {
-      const _config = getFakeConfig({
-        fenixCompatibleGuids: ['some-guid'],
+    it.each(
+      ALL_PROMOTED_CATEGORIES.filter((category) => category !== RECOMMENDED),
+    )('returns false if the add-on is %s on android', (category) => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        promoted: { category, apps: [CLIENT_APP_ANDROID] },
       });
 
-      expect(isFenixCompatible({ _config, addon: null })).toEqual(false);
+      expect(isFenixCompatible({ addon })).toEqual(false);
+    });
+
+    it('returns false if the add-on is not promoted', () => {
+      const addon = createInternalAddon({ ...fakeAddon, promoted: null });
+
+      expect(isFenixCompatible({ addon })).toEqual(false);
+    });
+
+    it('returns false if addon is null', () => {
+      expect(isFenixCompatible({ addon: null })).toEqual(false);
     });
   });
 });

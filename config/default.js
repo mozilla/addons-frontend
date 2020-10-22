@@ -135,7 +135,6 @@ module.exports = {
     'enableStrictMode',
     'experiments',
     'extensionWorkshopUrl',
-    'fenixCompatibleGuids',
     'fxaConfig',
     'hrefLangsMap',
     'isDeployed',
@@ -385,19 +384,4 @@ module.exports = {
   // in default-amo and/or default-disco depending on the target app for the
   // experiment.
   experiments: {},
-
-  // The list of GUIDs for add-ons that are Fenix compatible. This is based on
-  // the contents of the collection at
-  // https://addons.mozilla.org/firefox/collections/4757633/3204bb44a6ef44d39ee34917f28055/
-  fenixCompatibleGuids: [
-    '{7b1bf0b6-a1b9-42b0-b75d-252036438bdc}',
-    'jid1-BoFifL9Vbdl2zQ@jetpack',
-    'woop-NoopscooPsnSXQ@jetpack',
-    '{2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c}',
-    'addon@darkreader.org',
-    '{73a6fe31-595d-460b-a920-fcc0f8843232}',
-    'jid1-MnnxcxisBPnSXQ@jetpack',
-    'https-everywhere@eff.org',
-    'uBlock0@raymondhill.net',
-  ],
 };
