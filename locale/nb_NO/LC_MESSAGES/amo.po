@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-10-20 17:18+0000\n"
-"PO-Revision-Date: 2020-10-20 19:58+0000\n"
+"PO-Revision-Date: 2020-10-22 07:19+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1040,7 +1040,7 @@ msgstr "Dette tillegget kan også be om:"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
-msgstr "Lær mer om tillatelser"
+msgstr "Les mer om tillatelser"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
