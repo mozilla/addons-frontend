@@ -14,13 +14,13 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
-  INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+  MOBILE_HOME_PAGE_LINK,
   RECOMMENDED,
 } from 'core/constants';
 import { findInstallURL } from 'core/installAddon';
@@ -89,20 +89,25 @@ export const isFirefox = ({
   return userAgentInfo.browser.name === 'Firefox';
 };
 
-export const isFenix = (userAgentInfo: UserAgentInfoType): boolean => {
+export const isFirefoxForAndroid = (
+  userAgentInfo: UserAgentInfoType,
+): boolean => {
   // If the userAgent is false there was likely a programming error.
   invariant(userAgentInfo, 'userAgentInfo is required');
 
-  const { browser, os } = userAgentInfo;
-
-  if (
+  return (
     isFirefox({ userAgentInfo }) &&
-    os.name === USER_AGENT_OS_ANDROID &&
-    mozCompare(browser.version, '69.0') >= 0
-  ) {
-    return true;
-  }
-  return false;
+    userAgentInfo.os.name === USER_AGENT_OS_ANDROID
+  );
+};
+
+export const isFirefoxForIOS = (userAgentInfo: UserAgentInfoType): boolean => {
+  // If the userAgent is false there was likely a programming error.
+  invariant(userAgentInfo, 'userAgentInfo is required');
+
+  return (
+    isFirefox({ userAgentInfo }) && userAgentInfo.os.name === USER_AGENT_OS_IOS
+  );
 };
 
 export const isFenixCompatible = ({
@@ -152,19 +157,12 @@ export function isCompatibleWithUserAgent({
 
   // We need a Firefox browser compatible with add-ons (Firefox for iOS does
   // not currently support add-ons).
-  if (browser.name === 'Firefox' && os.name === 'iOS') {
+  if (isFirefoxForIOS(userAgentInfo)) {
     return { compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS };
   }
 
   if (!isFirefox({ userAgentInfo })) {
     return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
-  }
-
-  // Fenix does not support add-ons (yet?).
-  // See: https://github.com/mozilla-mobile/fenix/issues/1134
-  // See also: https://github.com/mozilla/addons-frontend/issues/7963
-  if (isFenix(userAgentInfo)) {
-    return { compatible: false, reason: INCOMPATIBLE_FIREFOX_FENIX };
   }
 
   // At this point we need a currentVersion in order for an extension to be
@@ -185,6 +183,11 @@ export function isCompatibleWithUserAgent({
       compatible: false,
       reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
     };
+  }
+
+  // As well, on Android, we need to check that the add-on is Fenix compatible.
+  if (os.name === USER_AGENT_OS_ANDROID && !isFenixCompatible({ addon })) {
+    return { compatible: false, reason: INCOMPATIBLE_ANDROID_UNSUPPORTED };
   }
 
   // Do version checks, if this add-on has minimum or maximum version
@@ -337,10 +340,12 @@ export const isQuantumCompatible = ({
 
 export const correctedLocationForPlatform = ({
   clientApp,
+  isHomePage = false,
   location,
   userAgentInfo,
 }: {|
   clientApp: string,
+  isHomePage?: boolean,
   location: ReactRouterLocationType,
   userAgentInfo: UserAgentInfoType,
 |}): string | null => {
@@ -349,20 +354,20 @@ export const correctedLocationForPlatform = ({
 
   const { browser, os } = userAgentInfo;
 
-  let currentClientApp;
-  let newClientApp;
-
-  if (os.name === USER_AGENT_OS_IOS) {
+  if (isFirefoxForIOS(userAgentInfo) || !isFirefox({ userAgentInfo })) {
     return null;
   }
 
   if (
-    os.name === USER_AGENT_OS_ANDROID &&
-    browser.name === USER_AGENT_BROWSER_FIREFOX &&
-    clientApp === CLIENT_APP_FIREFOX
+    // Android browser on desktop site.
+    (isFirefoxForAndroid(userAgentInfo) && clientApp === CLIENT_APP_FIREFOX) ||
+    // Android browser on page other than Home or Search.
+    (isFirefoxForAndroid(userAgentInfo) &&
+      !isHomePage &&
+      !location.pathname.includes('/search/'))
   ) {
-    currentClientApp = CLIENT_APP_FIREFOX;
-    newClientApp = CLIENT_APP_ANDROID;
+    // Redirect to `android` home page.
+    return MOBILE_HOME_PAGE_LINK;
   }
 
   if (
@@ -370,13 +375,12 @@ export const correctedLocationForPlatform = ({
     browser.name === USER_AGENT_BROWSER_FIREFOX &&
     clientApp === CLIENT_APP_ANDROID
   ) {
-    currentClientApp = CLIENT_APP_ANDROID;
-    newClientApp = CLIENT_APP_FIREFOX;
+    // Desktop browser on android site: Redirect to same page on `firefox`.
+    return `${location.pathname.replace(
+      CLIENT_APP_ANDROID,
+      CLIENT_APP_FIREFOX,
+    )}${location.search}`;
   }
 
-  return currentClientApp && newClientApp
-    ? `${location.pathname.replace(currentClientApp, newClientApp)}${
-        location.search
-      }`
-    : null;
+  return null;
 };

@@ -3,6 +3,7 @@ import * as React from 'react';
 import Page, { PageBase } from 'amo/components/Page';
 import AppBanner from 'amo/components/AppBanner';
 import Header from 'amo/components/Header';
+import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import {
   createContextWithFakeRouter,
@@ -29,6 +30,17 @@ describe(__filename, () => {
     const root = render({ isHomePage });
 
     expect(root.find(Header)).toHaveProp('isHomePage', isHomePage);
+  });
+
+  it('passes isHomePage to WrongPlatformWarning', () => {
+    const isHomePage = true;
+
+    const root = render({ isHomePage });
+
+    expect(root.find(WrongPlatformWarning)).toHaveProp(
+      'isHomePage',
+      isHomePage,
+    );
   });
 
   it('assigns a className to a page other than the home page', () => {

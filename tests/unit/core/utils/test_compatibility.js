@@ -6,13 +6,13 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
-  INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+  MOBILE_HOME_PAGE_LINK,
   OS_ALL,
   OS_ANDROID,
   OS_LINUX,
@@ -27,7 +27,8 @@ import {
   getCompatibleVersions,
   getClientCompatibility,
   isCompatibleWithUserAgent,
-  isFenix,
+  isFirefoxForAndroid,
+  isFirefoxForIOS,
   isFenixCompatible,
   isFirefox,
   isQuantumCompatible,
@@ -138,9 +139,13 @@ describe(__filename, () => {
       userAgents.fenix.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
+            addon: createInternalAddon({ ...fakeAddon, promoted: null }),
             userAgentInfo: UAParser(userAgent),
           }),
-        ).toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FENIX });
+        ).toEqual({
+          compatible: false,
+          reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
+        });
       });
     });
 
@@ -934,16 +939,76 @@ describe(__filename, () => {
 
   describe('correctedLocationForPlatform', () => {
     const _correctedLocationForPlatform = ({
-      clientApp,
+      clientApp = CLIENT_APP_FIREFOX,
+      isHomePage = false,
       location = createFakeLocation(),
       userAgentInfo,
     }) => {
       return correctedLocationForPlatform({
         clientApp,
+        isHomePage,
         location,
         userAgentInfo,
       });
     };
+
+    it('returns null when on Firefox for iOS', () => {
+      expect(
+        _correctedLocationForPlatform({
+          userAgentInfo: UAParser(userAgentsByPlatform.ios.firefox1iPhone),
+        }),
+      ).toEqual(null);
+    });
+
+    it('returns null when on a non-Firefox browser', () => {
+      expect(
+        _correctedLocationForPlatform({
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.chrome41),
+        }),
+      ).toEqual(null);
+    });
+
+    it('returns MOBILE_HOME_PAGE_LINK when on Firefox for Android and clientApp is firefox', () => {
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_FIREFOX,
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+        }),
+      ).toEqual(MOBILE_HOME_PAGE_LINK);
+    });
+
+    it('returns MOBILE_HOME_PAGE_LINK when on Firefox for Android and clientApp is android for most pages', () => {
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          isHomePage: false,
+          location: createFakeLocation({ pathname: '/some/path' }),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+        }),
+      ).toEqual(MOBILE_HOME_PAGE_LINK);
+    });
+
+    it('returns null when on Firefox for Android and clientApp is android for the home page', () => {
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          isHomePage: true,
+          location: createFakeLocation({ pathname: '/some/path' }),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+        }),
+      ).toEqual(null);
+    });
+
+    it('returns null when on Firefox for Android and clientApp is android for the search page', () => {
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          isHomePage: false,
+          location: createFakeLocation({ pathname: '/search/' }),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+        }),
+      ).toEqual(null);
+    });
 
     it('returns a link with `CLIENT_APP_ANDROID` replaced with `CLIENT_APP_FIREFOX` when on Firefox desktop', () => {
       const pathname = `/en-US/${CLIENT_APP_ANDROID}/addon/slug/`;
@@ -972,33 +1037,6 @@ describe(__filename, () => {
       );
     });
 
-    it('returns a link with `CLIENT_APP_FIREFOX` replaced with `CLIENT_APP_ANDROID` when on Firefox for Android', () => {
-      const pathname = `/en-US/${CLIENT_APP_FIREFOX}/addon/slug/`;
-      const search = '?src=featured';
-
-      expect(
-        _correctedLocationForPlatform({
-          clientApp: CLIENT_APP_FIREFOX,
-          location: createFakeLocation({ pathname, search }),
-          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
-        }),
-      ).toEqual(`/en-US/${CLIENT_APP_ANDROID}/addon/slug/${search}`);
-    });
-
-    it('maintains the word `firefox` in a slug for an add-on when switching platforms', () => {
-      const pathname = `/en-US/${CLIENT_APP_FIREFOX}/addon/awesome-firefox-extension/`;
-
-      expect(
-        _correctedLocationForPlatform({
-          clientApp: CLIENT_APP_FIREFOX,
-          location: createFakeLocation({ pathname }),
-          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
-        }),
-      ).toEqual(
-        `/en-US/${CLIENT_APP_ANDROID}/addon/awesome-firefox-extension/`,
-      );
-    });
-
     it('returns null if clientApp is `CLIENT_APP_FIREFOX` on desktop', () => {
       expect(
         _correctedLocationForPlatform({
@@ -1007,99 +1045,104 @@ describe(__filename, () => {
         }),
       ).toEqual(null);
     });
-
-    it('returns null if clientApp is `CLIENT_APP_ANDROID` on Android', () => {
-      expect(
-        _correctedLocationForPlatform({
-          clientApp: CLIENT_APP_ANDROID,
-          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
-        }),
-      ).toEqual(null);
-    });
-
-    it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
-      'returns null for clientApp %s on Desktop for a non-Firefox browser',
-      (clientApp) => {
-        expect(
-          _correctedLocationForPlatform({
-            clientApp,
-            userAgentInfo: UAParser(userAgentsByPlatform.mac.chrome41),
-          }),
-        ).toEqual(null);
-      },
-    );
-
-    it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
-      'returns null for clientApp %s on Android for a non-Firefox browser',
-      (clientApp) => {
-        expect(
-          _correctedLocationForPlatform({
-            clientApp,
-            userAgentInfo: UAParser(userAgents.chromeAndroid[0]),
-          }),
-        ).toEqual(null);
-      },
-    );
-
-    it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
-      'returns null for clientApp %s on Firefox for iOS',
-      (clientApp) => {
-        expect(
-          _correctedLocationForPlatform({
-            clientApp,
-            userAgentInfo: UAParser(userAgentsByPlatform.ios.firefox1iPhone),
-          }),
-        ).toEqual(null);
-      },
-    );
   });
 
-  describe('isFenix', () => {
+  describe('isFirefoxForAndroid', () => {
     it('returns true for Firefox Fenix', () => {
       userAgents.fenix.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(true);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(true);
       });
     });
 
     it('returns false for Android/webkit', () => {
       userAgents.androidWebkit.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
     it('returns false for Chrome Android', () => {
       userAgents.chromeAndroid.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
     it('returns false for Chrome desktop', () => {
       userAgents.chrome.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
     it('returns false for Firefox desktop', () => {
       userAgents.firefox.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
-    it('returns false for Firefox Android', () => {
+    it('returns true for Firefox Android', () => {
       userAgents.firefoxAndroid.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(true);
       });
     });
 
     it('returns false for Firefox OS', () => {
       userAgents.firefoxOS.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
     it('returns false for Firefox iOS', () => {
       userAgents.firefoxIOS.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
+      });
+    });
+  });
+
+  describe('isFirefoxForIOS', () => {
+    it('returns false for Firefox Fenix', () => {
+      userAgents.fenix.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Android/webkit', () => {
+      userAgents.androidWebkit.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Chrome Android', () => {
+      userAgents.chromeAndroid.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Chrome desktop', () => {
+      userAgents.chrome.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox desktop', () => {
+      userAgents.firefox.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox Android', () => {
+      userAgents.firefoxAndroid.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox OS', () => {
+      userAgents.firefoxOS.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns true for Firefox iOS', () => {
+      userAgents.firefoxIOS.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(true);
       });
     });
   });
