@@ -15,7 +15,7 @@ import { sanitizeHTML } from 'core/utils';
 import {
   correctedLocationForPlatform,
   getClientCompatibility,
-  isFenix,
+  isFirefoxForAndroid,
 } from 'core/utils/compatibility';
 import Notice, { warningInfoType } from 'ui/components/Notice';
 import type { AppState } from 'amo/store';
@@ -43,7 +43,7 @@ type InternalProps = {|
   ...Props,
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
   _getClientCompatibility: typeof getClientCompatibility,
-  _isFenix: typeof isFenix,
+  _isFenix: typeof isFirefoxForAndroid,
   clientApp: string,
   i18n: I18nType,
   location: ReactRouterLocationType,
@@ -54,7 +54,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
     _getClientCompatibility: getClientCompatibility,
-    _isFenix: isFenix,
+    _isFenix: isFirefoxForAndroid,
   };
 
   render() {

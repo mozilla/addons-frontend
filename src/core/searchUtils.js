@@ -2,6 +2,7 @@ import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 
 import log from 'core/logger';
+import { USER_AGENT_OS_IOS } from 'core/reducers/api';
 
 export const operatingSystems = {
   Linux: 'linux',
@@ -46,7 +47,7 @@ export function addVersionCompatibilityToFilters({
   // compatible with this version.
   if (
     userAgentInfo.browser.name === 'Firefox' &&
-    userAgentInfo.os.name !== 'iOS'
+    userAgentInfo.os.name !== USER_AGENT_OS_IOS
   ) {
     const browserVersion = parseInt(userAgentInfo.browser.version, 10);
 

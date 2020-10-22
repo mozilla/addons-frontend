@@ -9,7 +9,6 @@ import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
-  INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -90,11 +89,9 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
     // WrongPlatformWarning, so we do not want to display this compatibility
     // error.
     if (
-      [
-        INCOMPATIBLE_FIREFOX_FENIX,
-        INCOMPATIBLE_FIREFOX_FOR_IOS,
-        INCOMPATIBLE_ANDROID_UNSUPPORTED,
-      ].includes(reason)
+      [INCOMPATIBLE_FIREFOX_FOR_IOS, INCOMPATIBLE_ANDROID_UNSUPPORTED].includes(
+        reason,
+      )
     ) {
       _log.info(
         'Not rendering incompatibility error along with "wrong platform" warning',

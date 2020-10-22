@@ -6,7 +6,6 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
-  INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -27,7 +26,8 @@ import {
   getCompatibleVersions,
   getClientCompatibility,
   isCompatibleWithUserAgent,
-  isFenix,
+  isFirefoxForAndroid,
+  isFirefoxForIOS,
   isFenixCompatible,
   isFirefox,
   isQuantumCompatible,
@@ -138,9 +138,13 @@ describe(__filename, () => {
       userAgents.fenix.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
+            addon: createInternalAddon({ ...fakeAddon, promoted: null }),
             userAgentInfo: UAParser(userAgent),
           }),
-        ).toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FENIX });
+        ).toEqual({
+          compatible: false,
+          reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
+        });
       });
     });
 
@@ -1054,52 +1058,102 @@ describe(__filename, () => {
     );
   });
 
-  describe('isFenix', () => {
+  describe('isFirefoxForAndroid', () => {
     it('returns true for Firefox Fenix', () => {
       userAgents.fenix.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(true);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(true);
       });
     });
 
     it('returns false for Android/webkit', () => {
       userAgents.androidWebkit.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
     it('returns false for Chrome Android', () => {
       userAgents.chromeAndroid.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
     it('returns false for Chrome desktop', () => {
       userAgents.chrome.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
     it('returns false for Firefox desktop', () => {
       userAgents.firefox.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
-    it('returns false for Firefox Android', () => {
+    it('returns true for Firefox Android', () => {
       userAgents.firefoxAndroid.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(true);
       });
     });
 
     it('returns false for Firefox OS', () => {
       userAgents.firefoxOS.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
       });
     });
 
     it('returns false for Firefox iOS', () => {
       userAgents.firefoxIOS.forEach((userAgent) => {
-        expect(isFenix(UAParser(userAgent))).toEqual(false);
+        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
+      });
+    });
+  });
+
+  describe('isFirefoxForIOS', () => {
+    it('returns false for Firefox Fenix', () => {
+      userAgents.fenix.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Android/webkit', () => {
+      userAgents.androidWebkit.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Chrome Android', () => {
+      userAgents.chromeAndroid.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Chrome desktop', () => {
+      userAgents.chrome.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox desktop', () => {
+      userAgents.firefox.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox Android', () => {
+      userAgents.firefoxAndroid.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox OS', () => {
+      userAgents.firefoxOS.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns true for Firefox iOS', () => {
+      userAgents.firefoxIOS.forEach((userAgent) => {
+        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(true);
       });
     });
   });
