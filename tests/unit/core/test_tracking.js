@@ -3,14 +3,13 @@ import {
   SPONSORED_INSTALL_CONVERSION_INFO_KEY,
   Tracking,
   isDoNotTrackEnabled,
-  clearConversionInfo,
   formatDataForBeacon,
   getAddonEventCategory,
   getAddonTypeForTracking,
-  getConversionInfo,
   sendBeacon,
   sendSponsoredEventBeacon,
   storeConversionInfo,
+  trackConversion,
 } from 'core/tracking';
 import {
   ADDON_TYPE_DICT,
@@ -609,40 +608,87 @@ describe(__filename, () => {
       });
     });
 
-    describe('getConversionInfo', () => {
-      it('returns parsed info', () => {
-        const data = { data: 'some data' };
-        _window.sessionStorage.getItem.returns(JSON.stringify(data));
+    describe('trackConversion', () => {
+      const addonId = 1;
+      const data = 'some data';
 
-        expect(getConversionInfo({ _window })).toEqual(data);
+      it('calls window.sessionStorage to check for stored info', () => {
+        trackConversion({ _window, addonId });
         sinon.assert.called(_window.sessionStorage.getItem);
       });
 
-      it('returns null if window.sessionStorage does not exist', () => {
-        _window.sessionStorage = undefined;
+      it('sends a beacon if the addonId matches that in storage', () => {
+        const _sendSponsoredEventBeacon = sinon.spy();
+        const info = JSON.stringify({ addonId, data });
+        _window.sessionStorage.getItem.returns(info);
 
-        expect(getConversionInfo({ _window })).toEqual(null);
+        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
+        sinon.assert.calledWith(_sendSponsoredEventBeacon, {
+          data,
+          type: 'conversion',
+        });
       });
-    });
 
-    describe('clearConversionInfo', () => {
-      it('clears sessionStorage parsed info', () => {
-        clearConversionInfo({ _window });
+      it('clears sessionStorage if the addonId matches that in storage', () => {
+        const info = JSON.stringify({ addonId, data });
+        _window.sessionStorage.getItem.returns(info);
+
+        trackConversion({ _window, addonId });
         sinon.assert.calledWith(
           _window.sessionStorage.removeItem,
           SPONSORED_INSTALL_CONVERSION_INFO_KEY,
         );
       });
 
-      it('can handle a missing window.sessionStorage object', () => {
-        const _log = getFakeLogger();
+      it('does not send a beacon if window.sessionStorage does not exist', () => {
+        const _sendSponsoredEventBeacon = sinon.spy();
         _window.sessionStorage = undefined;
 
-        clearConversionInfo({ _log, _window });
-        sinon.assert.calledWith(
-          _log.warn,
-          'window.sessionStorage does not exist. Nothing to clear.',
-        );
+        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
+        sinon.assert.notCalled(_sendSponsoredEventBeacon);
+      });
+
+      it('does not send a beacon or clear storage if the stored data fails to parse', () => {
+        const _sendSponsoredEventBeacon = sinon.spy();
+        // Not parseable as JSON:
+        _window.sessionStorage.getItem.returns(1234);
+
+        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
+        sinon.assert.notCalled(_sendSponsoredEventBeacon);
+        sinon.assert.notCalled(_window.sessionStorage.removeItem);
+      });
+
+      it('does not send a beacon or clear storage if the addonId does not match', () => {
+        const _sendSponsoredEventBeacon = sinon.spy();
+        const info = JSON.stringify({ addonId, data });
+        _window.sessionStorage.getItem.returns(info);
+
+        trackConversion({
+          _sendSponsoredEventBeacon,
+          _window,
+          addonId: addonId + 1,
+        });
+        sinon.assert.notCalled(_sendSponsoredEventBeacon);
+        sinon.assert.notCalled(_window.sessionStorage.removeItem);
+      });
+
+      it('does not send a beacon or clear storage if nothing is stored', () => {
+        const _sendSponsoredEventBeacon = sinon.spy();
+        _window.sessionStorage.getItem.returns(undefined);
+
+        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
+        sinon.assert.notCalled(_sendSponsoredEventBeacon);
+        sinon.assert.notCalled(_window.sessionStorage.removeItem);
+      });
+
+      it('does not send a beacon or clear storage if data is empty', () => {
+        const _sendSponsoredEventBeacon = sinon.spy();
+        const info = JSON.stringify({ addonId, data: null });
+        _window.sessionStorage.getItem.returns(info);
+
+        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
+        sinon.assert.notCalled(_sendSponsoredEventBeacon);
+        sinon.assert.notCalled(_window.sessionStorage.removeItem);
       });
     });
   });

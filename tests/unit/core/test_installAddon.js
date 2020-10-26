@@ -1163,112 +1163,42 @@ describe(__filename, () => {
 
       describe('Conversion tracking', () => {
         const addon = createInternalAddon(fakeAddon);
-        const data = 'conversion data';
 
-        it('sends a beacon for the conversion', () => {
+        it('calls trackConversion after a successful install', () => {
           _loadVersions({ store });
-
-          const _getConversionInfo = sinon
-            .stub()
-            .returns({ addonId: addon.id, data });
-          const _sendSponsoredEventBeacon = sinon.spy();
+          const _trackConversion = sinon.spy();
 
           const { root } = renderWithInstallHelpers({
-            _getConversionInfo,
-            _sendSponsoredEventBeacon,
+            _trackConversion,
             addon,
             store,
           });
           const { install } = root.instance().props;
 
           return install(addon).then(() => {
-            sinon.assert.called(_getConversionInfo);
-            sinon.assert.calledWith(_sendSponsoredEventBeacon, {
-              data,
-              type: 'conversion',
-            });
+            sinon.assert.calledWith(_trackConversion, { addonId: addon.id });
           });
         });
 
-        it('does not send a beacon if there is no stored data', () => {
+        it('does not call trackConversion if the install fails', () => {
           _loadVersions({ store });
-
-          const _getConversionInfo = sinon.stub().returns(undefined);
-          const _sendSponsoredEventBeacon = sinon.spy();
+          const _trackConversion = sinon.spy();
 
           const { root } = renderWithInstallHelpers({
-            _getConversionInfo,
-            _sendSponsoredEventBeacon,
+            _addonManager: getFakeAddonManagerWrapper({
+              // Make the install fail.
+              install: sinon
+                .stub()
+                .returns(Promise.reject(new Error('install error'))),
+            }),
+            _trackConversion,
             addon,
             store,
           });
           const { install } = root.instance().props;
 
           return install(addon).then(() => {
-            sinon.assert.notCalled(_sendSponsoredEventBeacon);
-          });
-        });
-
-        it('does not send a beacon if data is empty', () => {
-          _loadVersions({ store });
-
-          const _getConversionInfo = sinon
-            .stub()
-            .returns({ addonId: addon.id, data: undefined });
-          const _sendSponsoredEventBeacon = sinon.spy();
-
-          const { root } = renderWithInstallHelpers({
-            _getConversionInfo,
-            _sendSponsoredEventBeacon,
-            addon,
-            store,
-          });
-          const { install } = root.instance().props;
-
-          return install(addon).then(() => {
-            sinon.assert.notCalled(_sendSponsoredEventBeacon);
-          });
-        });
-
-        it('does not send a beacon if the add-on id does not match', () => {
-          _loadVersions({ store });
-
-          const _getConversionInfo = sinon
-            .stub()
-            .returns({ addonId: addon.id + 1, data });
-          const _sendSponsoredEventBeacon = sinon.spy();
-
-          const { root } = renderWithInstallHelpers({
-            _getConversionInfo,
-            _sendSponsoredEventBeacon,
-            addon,
-            store,
-          });
-          const { install } = root.instance().props;
-
-          return install(addon).then(() => {
-            sinon.assert.notCalled(_sendSponsoredEventBeacon);
-          });
-        });
-
-        it('clears stored conversion info', () => {
-          _loadVersions({ store });
-
-          const _clearConversionInfo = sinon.spy();
-          const _getConversionInfo = sinon
-            .stub()
-            .returns({ addonId: addon.id, data });
-
-          const { root } = renderWithInstallHelpers({
-            _clearConversionInfo,
-            _getConversionInfo,
-            addon,
-            store,
-          });
-          const { install } = root.instance().props;
-
-          return install(addon).then(() => {
-            sinon.assert.called(_clearConversionInfo);
+            sinon.assert.notCalled(_trackConversion);
           });
         });
       });

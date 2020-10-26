@@ -347,35 +347,38 @@ export const storeConversionInfo = ({
   }
 };
 
-export const getConversionInfo = ({
+export const trackConversion = ({
+  _sendSponsoredEventBeacon = sendSponsoredEventBeacon,
   _window = typeof window !== 'undefined' ? window : {},
+  addonId,
 }: {
+  _sendSponsoredEventBeacon?: typeof sendSponsoredEventBeacon,
   _window?: typeof window | Object,
+  addonId: number,
 } = {}) => {
+  let info;
   if (_window.sessionStorage) {
-    const info = _window.sessionStorage.getItem(
+    info = _window.sessionStorage.getItem(
       SPONSORED_INSTALL_CONVERSION_INFO_KEY,
     );
+  }
 
-    if (info) {
-      return JSON.parse(info);
+  if (info) {
+    try {
+      info = JSON.parse(info);
+    } catch (e) {
+      info = null;
     }
   }
 
-  return null;
-};
+  if (info) {
+    const { addonId: storedAddonId, data } = info;
 
-export const clearConversionInfo = ({
-  _log = log,
-  _window = typeof window !== 'undefined' ? window : {},
-}: {
-  _log?: typeof log,
-  _window?: typeof window | Object,
-} = {}) => {
-  if (_window.sessionStorage) {
-    _window.sessionStorage.removeItem(SPONSORED_INSTALL_CONVERSION_INFO_KEY);
-  } else {
-    _log.warn('window.sessionStorage does not exist. Nothing to clear.');
+    if (addonId === storedAddonId && data) {
+      _sendSponsoredEventBeacon({ data, type: 'conversion' });
+
+      _window.sessionStorage.removeItem(SPONSORED_INSTALL_CONVERSION_INFO_KEY);
+    }
   }
 };
 

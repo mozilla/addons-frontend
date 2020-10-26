@@ -8,11 +8,9 @@ import { getAddonIconUrl } from 'core/imageUtils';
 import { setInstallError, setInstallState } from 'core/reducers/installations';
 import log from 'core/logger';
 import tracking, {
-  clearConversionInfo,
   getAddonTypeForTracking,
   getAddonEventCategory,
-  getConversionInfo,
-  sendSponsoredEventBeacon,
+  trackConversion,
 } from 'core/tracking';
 import {
   DOWNLOAD_FAILED,
@@ -165,10 +163,8 @@ type WithInstallHelpersInternalProps = {|
   ...WithInstallHelpersProps,
   WrappedComponent: React.ComponentType<any>,
   _addonManager: typeof addonManager,
-  _clearConversionInfo: typeof clearConversionInfo,
-  _getConversionInfo: typeof getConversionInfo,
   _log: typeof log,
-  _sendSponsoredEventBeacon: typeof sendSponsoredEventBeacon,
+  _trackConversion: typeof trackConversion,
   _tracking: typeof tracking,
   currentVersion: AddonVersionType | null,
   dispatch: DispatchFunc,
@@ -198,10 +194,8 @@ export type WithInstallHelpersInjectedProps = {|
 export class WithInstallHelpers extends React.Component<WithInstallHelpersInternalProps> {
   static defaultProps = {
     _addonManager: addonManager,
-    _clearConversionInfo: clearConversionInfo,
-    _getConversionInfo: getConversionInfo,
     _log: log,
-    _sendSponsoredEventBeacon: sendSponsoredEventBeacon,
+    _trackConversion: trackConversion,
     _tracking: tracking,
   };
 
@@ -354,10 +348,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   install() {
     const {
       _addonManager,
-      _getConversionInfo,
-      _clearConversionInfo,
       _log,
-      _sendSponsoredEventBeacon,
+      _trackConversion,
       _tracking,
       addon,
       currentVersion,
@@ -420,16 +412,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
           label: guid,
         });
 
-        const conversionInfo = _getConversionInfo();
-        if (conversionInfo) {
-          const { addonId, data } = conversionInfo;
-
-          if (addonId === id && data) {
-            _sendSponsoredEventBeacon({ data, type: 'conversion' });
-
-            _clearConversionInfo();
-          }
-        }
+        _trackConversion({ addonId: id });
 
         if (!_addonManager.hasPermissionPromptsEnabled()) {
           this.showInfo();
