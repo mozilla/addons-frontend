@@ -67,10 +67,8 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
     return _config.get('enableFeatureUseAdzerkForSponsoredShelf');
   }
 
-  constructor(props: InternalProps) {
-    super(props);
-    const { isLoading, shelfData } = props;
-
+  fetchDataIfNeeded() {
+    const { isLoading, shelfData } = this.props;
     if (this.useAdzerk() && !isLoading && !shelfData) {
       this.props.dispatch(
         fetchSponsored({
@@ -80,6 +78,11 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
     }
   }
 
+  constructor(props: InternalProps) {
+    super(props);
+    this.fetchDataIfNeeded();
+  }
+
   componentDidMount() {
     this.sendImpressionBeacon();
   }
@@ -87,6 +90,7 @@ export class SponsoredAddonsShelfBase extends React.Component<InternalProps> {
   componentDidUpdate(prevProps: InternalProps) {
     const { shelfData } = this.props;
 
+    this.fetchDataIfNeeded();
     if (prevProps.shelfData !== shelfData) {
       this.sendImpressionBeacon();
     }

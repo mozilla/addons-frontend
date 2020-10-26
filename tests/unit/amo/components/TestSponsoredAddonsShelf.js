@@ -94,7 +94,7 @@ describe(__filename, () => {
     addons = [fakeAddon],
     impressionData = 'some data',
     impressionURL = 'https://mozilla.org/',
-  }) => {
+  } = {}) => {
     return createInternalsponsoredShelf({
       ...fakeSponsoredShelf,
       impression_data: impressionData,
@@ -278,6 +278,52 @@ describe(__filename, () => {
       const dispatchSpy = sinon.spy(store, 'dispatch');
 
       render({ _config });
+
+      sinon.assert.notCalled(dispatchSpy);
+    });
+
+    it('should dispatch a fetch action on update if shelfData is not loaded', () => {
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+
+      _loadPromotedShelf({ addons: [fakeAddon] });
+      const root = render({ _config, errorHandler });
+
+      dispatchSpy.resetHistory();
+
+      root.setProps({ shelfData: null });
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        fetchSponsored({
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+    });
+
+    it('should not dispatch a fetch action on update if shelfData is loaded', () => {
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+
+      const root = render({ _config, errorHandler });
+
+      dispatchSpy.resetHistory();
+
+      root.setProps({ shelfData: _createShelfData() });
+
+      sinon.assert.notCalled(dispatchSpy);
+    });
+
+    it('should not dispatch a fetch action on update if shelfData is loading', () => {
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+
+      _loadPromotedShelf({ addons: [fakeAddon] });
+      const root = render({ _config, errorHandler });
+
+      dispatchSpy.resetHistory();
+
+      root.setProps({ shelfData: null, isLoading: true });
 
       sinon.assert.notCalled(dispatchSpy);
     });
