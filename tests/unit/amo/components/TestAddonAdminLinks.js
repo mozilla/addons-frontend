@@ -6,10 +6,9 @@ import AddonAdminLinks, {
 import {
   ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
-  ADDONS_POST_REVIEW,
+  ADDONS_REVIEW,
   ADDON_TYPE_STATIC_THEME,
-  ADMIN_TOOLS_VIEW,
-  THEMES_REVIEW,
+  STATIC_THEMES_REVIEW,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -84,7 +83,7 @@ describe(__filename, () => {
   });
 
   it('does not show an edit add-on link if the user does not have permission', () => {
-    const root = renderWithPermissions({ permissions: ADMIN_TOOLS_VIEW });
+    const root = renderWithPermissions({ permissions: ADDONS_REVIEW });
 
     expect(root.find('.AddonAdminLinks')).toHaveLength(1);
     expect(root.find('.AddonAdminLinks-edit-link')).toHaveLength(0);
@@ -106,7 +105,7 @@ describe(__filename, () => {
 
     const root = renderWithPermissions({
       addon,
-      permissions: [ADMIN_TOOLS_VIEW, ADDONS_EDIT],
+      permissions: [ADDONS_EDIT],
     });
 
     expect(root.find('.AddonAdminLinks-admin-link')).toHaveProp(
@@ -114,18 +113,6 @@ describe(__filename, () => {
       `/admin/models/addons/addon/${id}`,
     );
   });
-
-  it.each([ADMIN_TOOLS_VIEW, ADDONS_EDIT])(
-    'does not show an admin add-on link if the user only has the %s permission',
-    (permission) => {
-      const root = renderWithPermissions({
-        permissions: permission,
-      });
-
-      expect(root.find('.AddonAdminLinks')).toHaveLength(1);
-      expect(root.find('.AddonAdminLinks-admin-link')).toHaveLength(0);
-    },
-  );
 
   it('shows a content review link if the user has permission', () => {
     const root = renderWithPermissions({ permissions: ADDONS_CONTENT_REVIEW });
@@ -156,7 +143,7 @@ describe(__filename, () => {
   });
 
   it('shows a code review link for an extension if the user has permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_POST_REVIEW });
+    const root = renderWithPermissions({ permissions: ADDONS_REVIEW });
 
     expect(root.find('.AddonAdminLinks-codeReview-link')).toHaveProp(
       'href',
@@ -181,7 +168,7 @@ describe(__filename, () => {
         slug,
         type: ADDON_TYPE_STATIC_THEME,
       }),
-      permissions: THEMES_REVIEW,
+      permissions: STATIC_THEMES_REVIEW,
     });
 
     expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveProp(
@@ -212,7 +199,7 @@ describe(__filename, () => {
         ...fakeAddon,
         slug,
       }),
-      permissions: [ADDONS_EDIT, THEMES_REVIEW],
+      permissions: [ADDONS_EDIT, STATIC_THEMES_REVIEW],
     });
 
     expect(root.find('.AddonAdminLinks')).toHaveLength(1);

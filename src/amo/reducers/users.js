@@ -6,7 +6,6 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 import {
   ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
-  ADDONS_POST_REVIEW,
   ADDONS_RECOMMENDED_REVIEW,
   ADDONS_REVIEW,
   ADDONS_REVIEW_UNLISTED,
@@ -14,7 +13,6 @@ import {
   RATINGS_MODERATE,
   REVIEWER_TOOLS_VIEW,
   STATIC_THEMES_REVIEW,
-  THEMES_REVIEW,
 } from 'core/constants';
 import type { AppState } from 'amo/store';
 import type { ExternalSiteStatus } from 'core/reducers/site';
@@ -515,14 +513,12 @@ export const hasAnyReviewerRelatedPermission = (state: AppState): boolean => {
   return (
     permissions.includes(ADDONS_CONTENT_REVIEW) ||
     permissions.includes(ADDONS_EDIT) ||
-    permissions.includes(ADDONS_POST_REVIEW) ||
     permissions.includes(ADDONS_RECOMMENDED_REVIEW) ||
     permissions.includes(ADDONS_REVIEW) ||
     permissions.includes(ADDONS_REVIEW_UNLISTED) ||
     permissions.includes(RATINGS_MODERATE) ||
     permissions.includes(REVIEWER_TOOLS_VIEW) ||
-    permissions.includes(STATIC_THEMES_REVIEW) ||
-    permissions.includes(THEMES_REVIEW)
+    permissions.includes(STATIC_THEMES_REVIEW)
   );
 };
 

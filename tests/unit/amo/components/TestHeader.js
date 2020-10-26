@@ -5,7 +5,11 @@ import Link from 'amo/components/Link';
 import SectionLinks from 'amo/components/SectionLinks';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
+import {
+  ADDONS_REVIEW,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'core/constants';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import { loadSiteStatus, loadedPageIsAnonymous } from 'core/reducers/site';
 import {
@@ -138,7 +142,7 @@ describe(__filename, () => {
   it('displays the reviewer tools link when user has a reviewer permission', () => {
     const { store } = dispatchSignInActions({
       userProps: {
-        permissions: ['Addons:PostReview'],
+        permissions: [ADDONS_REVIEW],
       },
     });
     const wrapper = renderHeader({ store });

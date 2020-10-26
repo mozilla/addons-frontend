@@ -22,7 +22,6 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  ADMIN_TOOLS,
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
 } from 'core/constants';
@@ -622,7 +621,7 @@ describe(__filename, () => {
   it('does not render an admin link if no user is found', () => {
     const { store } = signInUserWithProps({
       userId: 1,
-      permissions: [USERS_EDIT, ADMIN_TOOLS],
+      permissions: [USERS_EDIT],
     });
 
     const root = renderUserProfile({
@@ -637,7 +636,7 @@ describe(__filename, () => {
     const userId = 1;
     const { store } = signInUserWithProps({
       userId,
-      permissions: [USERS_EDIT, ADMIN_TOOLS],
+      permissions: [USERS_EDIT],
     });
 
     const user = createUserAccountResponse({ userId });

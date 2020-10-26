@@ -263,15 +263,10 @@ export const ERROR_ADDON_DISABLED_BY_ADMIN = 'ERROR_ADDON_DISABLED_BY_ADMIN';
 // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Maximum_delay_value
 export const maximumSetTimeoutDelay = 2147483647;
 
-// Can access the website admin interface index page. Inner pages may require
-// other/additional permissions.
-export const ADMIN_TOOLS_VIEW = 'AdminTools:View';
 // Allows viewing and editing of any add-ons details in developer tools.
 export const ADDONS_EDIT = 'Addons:Edit';
 // Can access the add-on reviewer tools to approve/reject add-on submissions.
 export const ADDONS_REVIEW = 'Addons:Review';
-// Can access the theme reviewer tools to approve/reject theme submissions.
-export const THEMES_REVIEW = 'Personas:Review';
 // Can view statistics for all addons, regardless of privacy settings.
 export const STATS_VIEW = 'Stats:View';
 // Can edit all Mozilla-owned collections.
@@ -280,8 +275,6 @@ export const MOZILLA_COLLECTIONS_EDIT = 'Admin:Curation';
 export const FEATURED_THEMES_COLLECTION_EDIT = 'Collections:Contribute';
 // The slug for the special Featured Themes collection.
 export const FEATURED_THEMES_COLLECTION_SLUG = 'featured-personas';
-// Can confirm approval of automatically approved add-ons.
-export const ADDONS_POST_REVIEW = 'Addons:PostReview';
 // Can approve add-ons content.
 export const ADDONS_CONTENT_REVIEW = 'Addons:ContentReview';
 // Can review unlisted add-ons.
@@ -290,8 +283,6 @@ export const ADDONS_REVIEW_UNLISTED = 'Addons:ReviewUnlisted';
 export const RATINGS_MODERATE = 'Ratings:Moderate';
 // Can edit user accounts.
 export const USERS_EDIT = 'Users:Edit';
-// Can access admin functions.
-export const ADMIN_TOOLS = 'Admin:Tools';
 // Super powers. It means absolutely all permissions.
 export const ALL_SUPER_POWERS = '*:*';
 // Can view only the reviewer tools.

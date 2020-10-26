@@ -6,10 +6,9 @@ import { compose } from 'redux';
 import {
   ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
-  ADDONS_POST_REVIEW,
-  ADMIN_TOOLS_VIEW,
-  THEMES_REVIEW,
+  ADDONS_REVIEW,
   ADDON_TYPE_STATIC_THEME,
+  STATIC_THEMES_REVIEW,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
@@ -25,22 +24,20 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
-  hasAdminPermission: boolean,
   hasCodeReviewPermission: boolean,
   hasContentReviewPermission: boolean,
   hasEditPermission: boolean,
-  hasThemeReviewPermission: boolean,
+  hasStaticThemeReviewPermission: boolean,
 |};
 
 export class AddonAdminLinksBase extends React.Component<InternalProps> {
   render() {
     const {
       addon,
-      hasAdminPermission,
       hasCodeReviewPermission,
       hasContentReviewPermission,
       hasEditPermission,
-      hasThemeReviewPermission,
+      hasStaticThemeReviewPermission,
       i18n,
     } = this.props;
 
@@ -51,14 +48,13 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
     const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
 
     const showCodeReviewLink = hasCodeReviewPermission && !isTheme;
-    const showThemeReviewLink = hasThemeReviewPermission && isTheme;
+    const showStaticThemeReviewLink = hasStaticThemeReviewPermission && isTheme;
     const showContentReviewLink = hasContentReviewPermission && !isTheme;
     const hasALink =
       hasEditPermission ||
-      hasAdminPermission ||
       showContentReviewLink ||
       showCodeReviewLink ||
-      showThemeReviewLink;
+      showStaticThemeReviewLink;
 
     if (!hasALink) {
       return null;
@@ -79,20 +75,19 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       </li>
     ) : null;
 
-    const adminLink =
-      hasAdminPermission && hasEditPermission ? (
-        <li>
-          <a
-            className="AddonAdminLinks-admin-link"
-            href={`/admin/models/addons/addon/${addon.id}`}
-          >
-            {
-              // translators: This action allows an admin to maintain an add-on.
-              i18n.gettext('Admin add-on')
-            }
-          </a>
-        </li>
-      ) : null;
+    const adminLink = hasEditPermission ? (
+      <li>
+        <a
+          className="AddonAdminLinks-admin-link"
+          href={`/admin/models/addons/addon/${addon.id}`}
+        >
+          {
+            // translators: This action allows an admin to maintain an add-on.
+            i18n.gettext('Admin add-on')
+          }
+        </a>
+      </li>
+    ) : null;
 
     const contentReviewLink = showContentReviewLink ? (
       <li>
@@ -114,7 +109,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       : // translators: This action allows a reviewer to perform a review of an add-on's code.
         i18n.gettext('Review add-on code');
     const codeReviewLink =
-      showCodeReviewLink || showThemeReviewLink ? (
+      showCodeReviewLink || showStaticThemeReviewLink ? (
         <li>
           <a
             className={`AddonAdminLinks-${
@@ -149,11 +144,10 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
 
 export const mapStateToProps = (state: AppState) => {
   return {
-    hasAdminPermission: hasPermission(state, ADMIN_TOOLS_VIEW),
-    hasCodeReviewPermission: hasPermission(state, ADDONS_POST_REVIEW),
+    hasCodeReviewPermission: hasPermission(state, ADDONS_REVIEW),
     hasContentReviewPermission: hasPermission(state, ADDONS_CONTENT_REVIEW),
     hasEditPermission: hasPermission(state, ADDONS_EDIT),
-    hasThemeReviewPermission: hasPermission(state, THEMES_REVIEW),
+    hasStaticThemeReviewPermission: hasPermission(state, STATIC_THEMES_REVIEW),
   };
 };
 
