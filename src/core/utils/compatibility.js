@@ -1,7 +1,6 @@
 /* @flow */
 /* global window */
 import { oneLine } from 'common-tags';
-import config from 'config';
 import invariant from 'invariant';
 import mozCompare from 'mozilla-version-comparator';
 
@@ -22,9 +21,11 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+  RECOMMENDED,
 } from 'core/constants';
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
+import { getPromotedCategory } from 'core/utils/addons';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
@@ -105,16 +106,17 @@ export const isFenix = (userAgentInfo: UserAgentInfoType): boolean => {
 };
 
 export const isFenixCompatible = ({
-  _config = config,
   addon,
 }: {
-  _config: typeof config,
   addon: AddonType | null,
 }): boolean => {
-  // It is compatible if it is in the special collection, but rather than
-  // query a collection, we store a list of add-on guids in a config key.
-  return Boolean(
-    addon && _config.get('fenixCompatibleGuids').includes(addon.guid),
+  // Only add-ons that are recommended on android are considered compatible.
+  // See https://github.com/mozilla/addons-frontend/issues/9713.
+  return (
+    getPromotedCategory({
+      addon,
+      clientApp: CLIENT_APP_ANDROID,
+    }) === RECOMMENDED
   );
 };
 
