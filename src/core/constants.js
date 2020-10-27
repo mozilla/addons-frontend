@@ -204,9 +204,6 @@ export const INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY =
 export const INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY =
   'AMO Theme Installs Download Failed';
 
-export const DISCO_NAVIGATION_CATEGORY = 'Discovery Navigation';
-export const DISCO_NAVIGATION_ACTION = 'click';
-
 export const INSTALL_STARTED_EXTENSION_CATEGORY = 'AMO Addon Installs Started';
 export const INSTALL_STARTED_THEME_CATEGORY = 'AMO Theme Installs Started';
 
@@ -296,7 +293,6 @@ export const RTL = 'rtl';
 export const LTR = 'ltr';
 
 export const AMO_REQUEST_ID_HEADER = 'amo-request-id';
-export const DISCO_TAAR_CLIENT_ID_HEADER = 'moz-client-id';
 
 export const DEFAULT_UTM_SOURCE = 'addons.mozilla.org';
 export const DEFAULT_UTM_MEDIUM = 'referral';

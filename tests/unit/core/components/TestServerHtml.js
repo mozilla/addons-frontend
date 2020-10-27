@@ -33,7 +33,7 @@ describe(__filename, () => {
 
   function render(opts = {}) {
     const pageProps = {
-      appName: 'disco',
+      appName: 'amo',
       appState: { appStateExample: { things: 'lots-of-things' } },
       assets: fakeAssets,
       chunkExtractor: createFakeChunkExtractor(),
@@ -93,19 +93,19 @@ describe(__filename, () => {
     const styleSheets = root.find({ rel: 'stylesheet' });
 
     expect(styleSheets).toHaveLength(1);
-    expect(styleSheets.at(0)).toHaveProp('href', '/bar/disco-blah.css');
+    expect(styleSheets.at(0)).toHaveProp('href', '/bar/amo-blah.css');
   });
 
   it('renders js provided', () => {
     const root = render();
     const js = root.find('script');
 
-    expect(js.at(2)).toHaveProp('src', '/foo/disco-blah.js');
+    expect(js.at(2)).toHaveProp('src', '/foo/amo-blah.js');
   });
 
   it('does not render i18n js in the assets list', () => {
     const root = render();
-    const js = root.find('script[integrity="sha512-disco-i18n-js"]');
+    const js = root.find('script[integrity="sha512-amo-i18n-js"]');
     expect(js.exists()).toEqual(false);
   });
 
@@ -113,7 +113,7 @@ describe(__filename, () => {
     const root = render();
     const styleSheets = root.find({ rel: 'stylesheet' });
 
-    expect(styleSheets.at(0)).toHaveProp('integrity', 'sha512-disco-css');
+    expect(styleSheets.at(0)).toHaveProp('integrity', 'sha512-amo-css');
     expect(styleSheets.at(0)).toHaveProp('crossOrigin', 'anonymous');
   });
 
@@ -121,7 +121,7 @@ describe(__filename, () => {
     const root = render();
     const js = root.find('script');
 
-    expect(js.at(2)).toHaveProp('integrity', 'sha512-disco-js');
+    expect(js.at(2)).toHaveProp('integrity', 'sha512-amo-js');
     expect(js.at(2)).toHaveProp('crossOrigin', 'anonymous');
   });
 
@@ -165,14 +165,14 @@ describe(__filename, () => {
   it('throws for unknown static type', () => {
     expect(() => {
       const root = render({ includeSri: false });
-      root.instance().getStatic({ filePath: 'disco-foo', type: 'whatever' });
+      root.instance().getStatic({ filePath: 'amo-foo', type: 'whatever' });
     }).toThrowError('Unknown static type');
   });
 
   it('throws for missing SRI data', () => {
     expect(() => {
       const root = render();
-      root.instance().getStatic({ filePath: 'disco-blah' });
+      root.instance().getStatic({ filePath: 'amo-blah' });
     }).toThrowError(/SRI Data is missing/);
   });
 

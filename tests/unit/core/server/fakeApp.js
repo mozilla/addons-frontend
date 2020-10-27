@@ -4,22 +4,22 @@ import { Helmet } from 'react-helmet';
 
 export const fakeAssets = {
   styles: {
-    disco: '/bar/disco-blah.css',
+    amo: '/bar/amo-blah.css',
     search: '/search-blah.css',
   },
   javascript: {
-    disco: '/foo/disco-blah.js',
+    amo: '/foo/amo-blah.js',
     search: '/search-blah.js',
-    i18n: '/blah/disco-i18n.js',
+    i18n: '/blah/amo-i18n.js',
   },
 };
 
 export const fakeSRIData = {
-  'disco-blah.css': 'sha512-disco-css',
+  'amo-blah.css': 'sha512-amo-css',
   'search-blah.css': 'sha512-search-css',
-  'disco-blah.js': 'sha512-disco-js',
+  'amo-blah.js': 'sha512-amo-js',
   'search-blah.js': 'sha512-search-js',
-  'disco-i18n.js': 'sha512-disco-i18n-js',
+  'amo-i18n.js': 'sha512-amo-i18n-js',
 };
 
 export default class FakeApp extends React.Component {

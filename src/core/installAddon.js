@@ -46,7 +46,6 @@ import type {
 } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
-import type { AppState as DiscoAppState } from 'disco/store';
 
 type AddonInstallType = {|
   maxProgress: number,
@@ -480,7 +479,7 @@ export const withInstallHelpers = (
   )})`;
 
   const mapStateToProps = (
-    state: AmoAppState | DiscoAppState,
+    state: AmoAppState,
     ownProps: WithInstallHelpersProps,
   ) => {
     const { addon } = ownProps;

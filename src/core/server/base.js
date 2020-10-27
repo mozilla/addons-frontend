@@ -21,10 +21,7 @@ import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 import log from 'core/logger';
 import { createApiError } from 'core/api';
 import Root from 'core/components/Root';
-import {
-  AMO_REQUEST_ID_HEADER,
-  DISCO_TAAR_CLIENT_ID_HEADER,
-} from 'core/constants';
+import { AMO_REQUEST_ID_HEADER } from 'core/constants';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import requestId from 'core/middleware/requestId';
@@ -45,7 +42,6 @@ import {
   langToLocale,
   makeI18n,
 } from 'core/i18n/utils';
-import { setHashedClientId } from 'disco/reducers/telemetry';
 import { getDeploymentVersion } from 'core/utils/build';
 import { getSentryRelease } from 'core/utils/sentry';
 import { fetchSiteStatus, loadedPageIsAnonymous } from 'core/reducers/site';
@@ -245,28 +241,6 @@ function baseServer(
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
 
   const isDevelopment = config.get('isDevelopment');
-  if (appName === 'disco' && isDevelopment) {
-    // We use 57 (the first version of Firefox Quantum) here so that any
-    // version-dependent styles (eg.
-    // https://github.com/mozilla/addons-frontend/blob/master/src/disco/css/App.scss)
-    // are not loaded.
-    const defaultVersion = '57.0';
-
-    app.get('/', (req, res) => {
-      res.redirect(
-        302,
-        `/en-US/firefox/discovery/pane/${defaultVersion}/Darwin/normal`,
-      );
-    });
-
-    app.get('/:version/', (req, res) => {
-      const version = req.params.version || defaultVersion;
-      res.redirect(
-        302,
-        `/en-US/firefox/discovery/pane/${version}/Darwin/normal`,
-      );
-    });
-  }
 
   // Handle application and lang redirections.
   if (config.get('enablePrefixMiddleware')) {
@@ -324,11 +298,6 @@ function baseServer(
       // Vary the cache on Do Not Track headers.
       res.vary('DNT');
 
-      // Vary the cache on TAAR clientId headers.
-      if (appName === 'disco') {
-        res.vary(DISCO_TAAR_CLIENT_ID_HEADER);
-      }
-
       const history = _createHistory({ req });
       const { sagaMiddleware, store } = createStore({ history });
 
@@ -370,16 +339,6 @@ function baseServer(
           ) !== undefined
         ) {
           store.dispatch(dismissSurvey());
-        }
-
-        if (
-          appName === 'disco' &&
-          config.get('enableFeatureDiscoTaar') &&
-          req.headers[DISCO_TAAR_CLIENT_ID_HEADER]
-        ) {
-          store.dispatch(
-            setHashedClientId(req.headers[DISCO_TAAR_CLIENT_ID_HEADER]),
-          );
         }
 
         pageProps = getPageProps({ store, req, res, config });

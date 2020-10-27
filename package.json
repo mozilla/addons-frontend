@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
-    "build-all": "npm run clean && NODE_APP_INSTANCE=amo better-npm-run build && NODE_APP_INSTANCE=disco better-npm-run build",
+    "build-all": "npm run clean && NODE_APP_INSTANCE=amo better-npm-run build",
     "build-check": "bin/build-checks.js",
     "build-ci": "npm run build-all && npm run bundlesize",
     "build-locales": "bin/build-locales",
@@ -22,8 +22,6 @@
     "amo:ui-tests": "better-npm-run amo:ui-tests",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
-    "disco": "better-npm-run disco",
-    "disco:https": "better-npm-run disco:https",
     "eslint": "eslint .",
     "flow": "flow",
     "flow:check": "flow check",
@@ -39,7 +37,7 @@
     "storybook-build": "better-npm-run storybook-build",
     "storybook-deploy": "storybook-to-ghpages --script storybook-build",
     "storybook-smoke-test": "better-npm-run storybook-smoke-test",
-    "test-ci": "bin/config-check.js && NODE_APP_INSTANCE=amo npm run build-locales && NODE_APP_INSTANCE=disco npm run build-locales && better-npm-run test-ci && codecov",
+    "test-ci": "bin/config-check.js && NODE_APP_INSTANCE=amo npm run build-locales && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
@@ -100,20 +98,6 @@
         "FXA_CONFIG": "local",
         "CSP": false,
         "NODE_APP_INSTANCE": "amo"
-      }
-    },
-    "disco": {
-      "command": "better-npm-run start-dev",
-      "env": {
-        "NODE_APP_INSTANCE": "disco"
-      }
-    },
-    "disco:https": {
-      "command": "better-npm-run disco",
-      "env": {
-        "SERVER_HOST": "example.com",
-        "USE_HTTPS_FOR_DEV": "true",
-        "WEBPACK_SERVER_HOST": "example.com"
       }
     },
     "extract-locales": {
@@ -383,11 +367,11 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/@(amo|disco)-!(i18n-)*.js",
+      "path": "./dist/@amo-!(i18n-)*.js",
       "maxSize": "475 kB"
     },
     {
-      "path": "./dist/@(amo|disco)-i18n-*.js",
+      "path": "./dist/@amo-i18n-*.js",
       "maxSize": "33 kB"
     }
   ]

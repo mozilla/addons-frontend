@@ -145,7 +145,7 @@ export default class ServerHtml extends Component {
       chunkExtractor
         .getPreAssets()
         // We want to retrieve the bundles with "webpackPreload: true" only, and
-        // not the main bundle (amo or disco).
+        // not the main bundle (amo).
         .filter((asset) => asset.type === 'childAsset')
         // We return both "preload" and "prefetch" links to maximize browser
         // support, even though both links don't have the same goal.

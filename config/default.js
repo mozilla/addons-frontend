@@ -9,7 +9,6 @@ import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlPro
 const appName = process.env.NODE_APP_INSTANCE || null;
 const validAppNames = [
   'amo',
-  'disco',
 ];
 
 // Throw if the appName supplied is not valid.
@@ -107,10 +106,6 @@ module.exports = {
   // The keys listed here will be exposed on the client.
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
-  //
-  // NOTE: when you update this, you may also have to update
-  // config/default-disco.js:clientConfigKeys
-  //
   clientConfigKeys: [
     'allowErrorSimulation',
     'amoCDN',
@@ -356,9 +351,6 @@ module.exports = {
   // header for development purposes.
   cacheAllResponsesFor: null,
 
-  // See the Discopane config for how this is currently used.
-  discoParamsToUse: [],
-
   // This is the public Mozilla user ID (similar to TASK_USER_ID in
   // addons-server).
   mozillaUserId: 4757633,
@@ -381,7 +373,6 @@ module.exports = {
 
   // This defines experiments for use with the withExperiment HOC, but no
   // actual experiments should be defined here. Experiments should be defined
-  // in default-amo and/or default-disco depending on the target app for the
-  // experiment.
+  // in default-amo.
   experiments: {},
 };
