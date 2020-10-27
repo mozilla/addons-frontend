@@ -19,7 +19,7 @@ import type { InstalledAddon } from 'core/reducers/installations';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
-import type { AppState } from 'disco/store';
+import type { AppState } from 'amo/store';
 
 import './styles.scss';
 

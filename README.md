@@ -46,8 +46,6 @@ Here are some commands you can run:
 | yarn build-all | Build all the applications. |
 | yarn build-ci | Run the `build-all` and `bundlesize` npm scripts. |
 | yarn bundlesize | Run [bundlesize][] to check the generated AMO bundle sizes. [Building AMO is required first](#building-and-running-services). |
-| yarn disco | Start the dev server (for Discovery Pane) using data from the dev server (https://addons-dev.allizom.org/) |
-| yarn disco:https | Same as `disco` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended) |
 | yarn flow | Run Flow. By default this checks for errors and exits |
 | yarn flow:check | Explicitly check for Flow errors and exit |
 | yarn flow:dev | Continuously check for Flow errors |
@@ -239,22 +237,6 @@ Restart the server to see it take affect.
 
 Consult the [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order) to learn more about how configuration is applied.
 
-### Running the Discopane for local development
-
-When running `yarn disco`, your local server will be configured for a hosted development API. If you want to run your own [addons-server](https://github.com/mozilla/addons-server) API or make any other local changes, you'll need to create a custom config file named exactly like this:
-
-    touch config/local-development-disco.js
-
-Here's what `local-development-disco.js` would look like when overriding the `apiHost` parameter so that it points to your docker container:
-
-```javascript
-module.exports = {
-  apiHost: 'http://olympia.test',
-};
-```
-
-Restart the server to see it take affect.
-
 ### Configuring an Android device for local development
 
 If you want to access your local server on an Android device you will need to change a few settings. Let's say your local machine is accessible on your network at the IP address `10.0.0.1`. You could start your server like this:
@@ -306,7 +288,7 @@ The following are scripts that are used in deployment - you generally won't need
 
 The env vars are:
 
-- `NODE_APP_INSTANCE`: the name of the app, e.g., `amo` or `disco`
+- `NODE_APP_INSTANCE`: the name of the app, e.g., `amo`
 - `NODE_ENV`: the node environment, e.g. `production` or `development`
 - `NODE_CONFIG_ENV`: the name of the configuration to load, e.g., `dev`, `stage`, `prod`
 
@@ -399,17 +381,6 @@ curl https://addons-dev.allizom.org/__version__
 ```
 
 :bulb: You can install the [amo-info extension](https://addons.mozilla.org/en-US/firefox/addon/amo-info/) to easily view this information.
-
-## Overview and rationale
-
-This project will hold distinct front-ends e.g:
-
-- Discovery Pane
-- AMO or `addons.mozilla.org`
-
-We've made a conscious decision to avoid "premature modularization" and keep this all in one repository. This will help us build out the necessary tooling to support a universal front-end infrastructure without having to worry about cutting packages and bumping versions the entire time.
-
-At a later date if we need to move things out into their own project we still can.
 
 ## Core technologies
 

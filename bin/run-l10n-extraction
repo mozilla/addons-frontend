@@ -99,4 +99,3 @@ run_l10n_extraction() {
 echo "" > "$LOG_FILE"
 
 run_l10n_extraction "amo"
-run_l10n_extraction "disco"

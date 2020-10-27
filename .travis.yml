@@ -55,38 +55,6 @@ jobs:
     - stage:
       <<: *node-prod
       env: COMMAND=storybook-smoke-test
-    # Run the functional tests.
-    - stage:
-      <<: *tox
-      addons:
-        firefox: latest-nightly
-        hosts: example.com
-        apt:
-          update: true
-      env: TOXENV=discopane-ui-tests GECKODRIVER=0.24.0 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
-      install:
-        # This is required by `mkcert` to interact with Firefox
-        - sudo apt-get -y install libnss3-tools
-        # Get `mkcert`
-        - wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.1/mkcert-v1.4.1-linux-amd64 -O mkcert
-        - chmod +x mkcert
-        - ./mkcert -install
-        # Generate certificate for example.com
-        - ./mkcert -cert-file ./bin/local-dev-server-certs/example.com.pem -key-file ./bin/local-dev-server-certs/example.com-key.pem example.com
-        - yarn
-        - yarn start-func-test-server &
-      before_script:
-        - wget -O /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER/geckodriver-v$GECKODRIVER-linux64.tar.gz
-        - mkdir $HOME/geckodriver && tar xvf /tmp/geckodriver.tar.gz -C $HOME/geckodriver
-        - export PATH=$HOME/geckodriver:$PATH
-        - firefox --version
-        - geckodriver --version
-        - pip install tox
-        # Wait for server to be available
-        - until $(curl --output /dev/null --silent --head --fail -k https://example.com:4000); do printf '.'; sleep 5; done
-    - stage:
-      <<: *tox
-      env: TOXENV=flake8
     - stage:
       <<: *tox
       env: TOXENV=dennis-lint

@@ -14,7 +14,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   CLICK_CATEGORY,
-  DISCO_NAVIGATION_CATEGORY,
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
@@ -435,10 +434,6 @@ describe(__filename, () => {
 
     it('should not change the tracking category constants for clicks', () => {
       expect(CLICK_CATEGORY).toEqual('AMO Addon / Theme Clicks');
-    });
-
-    it('should not change the tracking category constants for disco pane navigation', () => {
-      expect(DISCO_NAVIGATION_CATEGORY).toEqual('Discovery Navigation');
     });
   });
 

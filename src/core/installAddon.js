@@ -38,7 +38,7 @@ import { showInfoDialog } from 'core/reducers/infoDialog';
 import { getVersionById } from 'core/reducers/versions';
 import { findFileForPlatform, getDisplayName } from 'core/utils';
 import { getFileHash } from 'core/utils/addons';
-import type { AppState as AmoAppState } from 'amo/store';
+import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type {
   AddonVersionType,
@@ -46,7 +46,6 @@ import type {
 } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
-import type { AppState as DiscoAppState } from 'disco/store';
 
 type AddonInstallType = {|
   maxProgress: number,
@@ -480,7 +479,7 @@ export const withInstallHelpers = (
   )})`;
 
   const mapStateToProps = (
-    state: AmoAppState | DiscoAppState,
+    state: AppState,
     ownProps: WithInstallHelpersProps,
   ) => {
     const { addon } = ownProps;

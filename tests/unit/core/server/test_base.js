@@ -13,10 +13,7 @@ import cheerio from 'cheerio';
 
 import { setRequestId } from 'core/actions';
 import { createApiError } from 'core/api';
-import {
-  AMO_REQUEST_ID_HEADER,
-  DISCO_TAAR_CLIENT_ID_HEADER,
-} from 'core/constants';
+import { AMO_REQUEST_ID_HEADER } from 'core/constants';
 import baseServer, { createHistory } from 'core/server/base';
 import { middleware } from 'core/store';
 import apiReducer from 'core/reducers/api';
@@ -32,7 +29,6 @@ import surveyReducer, {
 import * as siteApi from 'core/api/site';
 import siteReducer from 'core/reducers/site';
 import siteSaga from 'core/sagas/site';
-import telemetryReducer, { setHashedClientId } from 'disco/reducers/telemetry';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import {
   createUserAccountResponse,
@@ -602,163 +598,6 @@ describe(__filename, () => {
       expect(api.token).toEqual(null);
       expect(users.currentUserWasLoggedOut).toEqual(true);
       mockUsersApi.verify();
-    });
-  });
-
-  describe('TAARDIS', () => {
-    it('varies the moz-client-id header in disco', async () => {
-      const response = await testClient({
-        appInstanceName: 'disco',
-      })
-        .get('/en-US/firefox/')
-        .end();
-
-      expect(response.headers).toMatchObject({
-        vary: `DNT, ${DISCO_TAAR_CLIENT_ID_HEADER}`,
-      });
-      expect(response.statusCode).toEqual(200);
-    });
-
-    it('does not send the moz-client-id header for other apps', async () => {
-      const response = await testClient({
-        appInstanceName: 'amo',
-      })
-        .get('/en-US/firefox/')
-        .end();
-
-      expect(response.headers).toMatchObject({
-        vary: 'DNT',
-      });
-      expect(response.statusCode).toEqual(200);
-    });
-
-    it('dispatches setHashedClientId() if clientId header is present and enableFeatureDiscoTaar is true and app is disco', async () => {
-      const clientId = '1112';
-      const fakeConfig = getFakeConfig({
-        enableFeatureDiscoTaar: true,
-      });
-
-      const { store, sagaMiddleware } = createStoreAndSagas({
-        reducers: {
-          telemetry: telemetryReducer,
-        },
-      });
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const response = await testClient({
-        appInstanceName: 'disco',
-        config: fakeConfig,
-        store,
-        sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .set(DISCO_TAAR_CLIENT_ID_HEADER, clientId)
-        .end();
-
-      sinon.assert.calledWith(dispatchSpy, setHashedClientId(clientId));
-
-      expect(response.statusCode).toEqual(200);
-      expect(store.getState().telemetry.hashedClientId).toEqual(clientId);
-    });
-
-    it('does not dispatch setHashedClientId() if enableFeatureDiscoTaar is false', async () => {
-      const clientId = '1112';
-      const fakeConfig = getFakeConfig({
-        enableFeatureDiscoTaar: false,
-      });
-
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const response = await testClient({
-        appInstanceName: 'disco',
-        config: fakeConfig,
-        store,
-        sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .set(DISCO_TAAR_CLIENT_ID_HEADER, clientId)
-        .end();
-
-      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId(clientId));
-
-      expect(response.statusCode).toEqual(200);
-      expect(store.getState().telemetry).toEqual(undefined);
-    });
-
-    it('does not dispatch setHashedClientId() if there is no moz-client-id header', async () => {
-      const fakeConfig = getFakeConfig({
-        enableFeatureDiscoTaar: true,
-      });
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const response = await testClient({
-        appInstanceName: 'disco',
-        config: fakeConfig,
-        store,
-        sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .end();
-
-      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId('1112'));
-
-      expect(response.statusCode).toEqual(200);
-      expect(store.getState().telemetry).toEqual(undefined);
-    });
-
-    it('does not dispatch setHashedClientId() if moz-client-id is null', async () => {
-      const fakeConfig = getFakeConfig({
-        enableFeatureDiscoTaar: true,
-      });
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const response = await testClient({
-        appInstanceName: 'disco',
-        config: fakeConfig,
-        store,
-        sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .set(DISCO_TAAR_CLIENT_ID_HEADER, null)
-        .end();
-
-      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId('1112'));
-
-      expect(response.statusCode).toEqual(200);
-      expect(store.getState().telemetry).toEqual(undefined);
-    });
-
-    it('does not dispatch setHashedClientId() if app is not disco', async () => {
-      const clientId = '1112';
-      const fakeConfig = getFakeConfig({
-        enableFeatureDiscoTaar: true,
-      });
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const response = await testClient({
-        appInstanceName: 'not-disco',
-        config: fakeConfig,
-        store,
-        sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .set(DISCO_TAAR_CLIENT_ID_HEADER, clientId)
-        .end();
-
-      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId(clientId));
-
-      expect(response.statusCode).toEqual(200);
-
-      expect(store.getState().telemetry).toEqual(undefined);
     });
   });
 
