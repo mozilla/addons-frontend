@@ -367,11 +367,11 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/@amo-!(i18n-)*.js",
+      "path": "./dist/amo-!(i18n-)*.js",
       "maxSize": "475 kB"
     },
     {
-      "path": "./dist/@amo-i18n-*.js",
+      "path": "./dist/amo-i18n-*.js",
       "maxSize": "33 kB"
     }
   ]
