@@ -57,9 +57,6 @@ jobs:
       env: COMMAND=storybook-smoke-test
     - stage:
       <<: *tox
-      env: TOXENV=flake8
-    - stage:
-      <<: *tox
       env: TOXENV=dennis-lint
     - stage: Storybook deployment
       <<: *node-prod
