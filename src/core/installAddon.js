@@ -10,6 +10,7 @@ import log from 'core/logger';
 import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,
+  trackConversion,
 } from 'core/tracking';
 import {
   DOWNLOAD_FAILED,
@@ -162,6 +163,7 @@ type WithInstallHelpersInternalProps = {|
   WrappedComponent: React.ComponentType<any>,
   _addonManager: typeof addonManager,
   _log: typeof log,
+  _trackConversion: typeof trackConversion,
   _tracking: typeof tracking,
   currentVersion: AddonVersionType | null,
   dispatch: DispatchFunc,
@@ -192,6 +194,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   static defaultProps = {
     _addonManager: addonManager,
     _log: log,
+    _trackConversion: trackConversion,
     _tracking: tracking,
   };
 
@@ -345,6 +348,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     const {
       _addonManager,
       _log,
+      _trackConversion,
       _tracking,
       addon,
       currentVersion,
@@ -362,7 +366,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       return Promise.resolve();
     }
 
-    const { guid, name, type } = addon;
+    const { guid, id, name, type } = addon;
     const { platformFiles } = currentVersion;
 
     return new Promise((resolve) => {
@@ -406,6 +410,9 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
           category: getAddonEventCategory(type, INSTALL_ACTION),
           label: guid,
         });
+
+        _trackConversion({ addonId: id });
+
         if (!_addonManager.hasPermissionPromptsEnabled()) {
           this.showInfo();
         }
