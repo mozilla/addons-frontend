@@ -591,6 +591,20 @@ describe(__filename, () => {
         );
       });
 
+      it('ignores a non-strinifyable value', () => {
+        // This is a BigInt, which fails JSON.stringify.
+        const addonId = 9007199254740991n;
+        const data = 'some data';
+        const _log = getFakeLogger();
+
+        storeConversionInfo({ _log, _window, addonId, data });
+        sinon.assert.notCalled(_window.sessionStorage.setItem);
+        sinon.assert.calledWith(
+          _log.warn,
+          'data not stringifyable as JSON. Not storing conversion info.',
+        );
+      });
+
       it('can handle a missing window.sessionStorage object', () => {
         const _log = getFakeLogger();
         _window.sessionStorage = undefined;
@@ -651,7 +665,7 @@ describe(__filename, () => {
       it('does not send a beacon or clear storage if the stored data fails to parse', () => {
         const _sendSponsoredEventBeacon = sinon.spy();
         // Not parseable as JSON:
-        _window.sessionStorage.getItem.returns(1234);
+        _window.sessionStorage.getItem.returns({});
 
         trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
         sinon.assert.notCalled(_sendSponsoredEventBeacon);

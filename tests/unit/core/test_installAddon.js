@@ -72,9 +72,7 @@ function componentWithInstallHelpers() {
 
 const defaultProps = ({
   _addonManager = getFakeAddonManagerWrapper(),
-  _clearConversionInfo = sinon.spy(),
-  _getConversionInfo = sinon.spy(),
-  _sendSponsoredEventBeacon = sinon.spy(),
+  _trackConversion = sinon.spy(),
   addon = createInternalAddon(fakeAddon),
   store = dispatchClientMetadata().store,
   ...overrides
@@ -83,9 +81,7 @@ const defaultProps = ({
 
   return {
     _addonManager,
-    _clearConversionInfo,
-    _getConversionInfo,
-    _sendSponsoredEventBeacon,
+    _trackConversion,
     addon,
     store,
     ...overrides,

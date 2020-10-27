@@ -336,10 +336,15 @@ export const storeConversionInfo = ({
   data: string,
 }) => {
   if (_window.sessionStorage) {
-    _window.sessionStorage.setItem(
-      SPONSORED_INSTALL_CONVERSION_INFO_KEY,
-      JSON.stringify({ addonId, data }),
-    );
+    let item;
+    try {
+      item = JSON.stringify({ addonId, data });
+    } catch (e) {
+      _log.warn('data not stringifyable as JSON. Not storing conversion info.');
+      return;
+    }
+
+    _window.sessionStorage.setItem(SPONSORED_INSTALL_CONVERSION_INFO_KEY, item);
   } else {
     _log.warn(
       'window.sessionStorage does not exist. Not storing conversion info.',
@@ -361,12 +366,18 @@ export const trackConversion = ({
     info = _window.sessionStorage.getItem(
       SPONSORED_INSTALL_CONVERSION_INFO_KEY,
     );
+  } else {
+    log.warn(
+      'window.sessionStorage does not exist. Not retrieving conversion info.',
+    );
+    return;
   }
 
   if (info) {
     try {
       info = JSON.parse(info);
     } catch (e) {
+      log.warn('Could not parse stored conversion info.');
       info = null;
     }
   }
