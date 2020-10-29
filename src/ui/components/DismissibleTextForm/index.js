@@ -180,7 +180,7 @@ export class DismissibleTextFormBase extends React.Component<
     const submitButtonIsDisabled =
       isSubmitting ||
       !this.state.text.trim() ||
-      this.state.initialText === this.state.text;
+      this.state.initialText === this.state.text.trim();
     const deleteButtonIsDisabled = !this.state.text.trim();
 
     const text = {
