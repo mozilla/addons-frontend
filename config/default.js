@@ -122,7 +122,6 @@ module.exports = {
     'dismissedExperienceSurveyCookieName',
     'enableDevTools',
     'enableFeatureBlockPage',
-    'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
     'enableFeatureSponsoredShelf',
     'enableFeatureUseAdzerkForSponsoredShelf',
@@ -345,12 +344,6 @@ module.exports = {
   // currently only used in AMO.
   authTokenValidFor: null,
 
-  // The number of seconds the client should cache all responses for.
-  // If null, no caching headers will be sent.
-  // This setting is intended to simulate the Discopane's nginx cache
-  // header for development purposes.
-  cacheAllResponsesFor: null,
-
   // This is the public Mozilla user ID (similar to TASK_USER_ID in
   // addons-server).
   mozillaUserId: 4757633,
@@ -358,8 +351,6 @@ module.exports = {
   // Feature flags.
   // Please use the `enableFeature` prefix, see:
   // https://github.com/mozilla/addons-frontend/issues/6362.
-
-  enableFeatureDiscoTaar: false,
 
   enableFeatureBlockPage: true,
 

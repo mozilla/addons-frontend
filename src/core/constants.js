@@ -105,7 +105,6 @@ export const INSTALL_SOURCE_COLLECTION = 'collection';
 export const INSTALL_SOURCE_FEATURED_COLLECTION =
   'homepage-collection-featured';
 export const INSTALL_SOURCE_DETAIL_PAGE = 'dp-btn-primary';
-export const INSTALL_SOURCE_DISCOVERY = 'discovery-promo';
 export const INSTALL_SOURCE_FEATURED = 'featured';
 export const INSTALL_SOURCE_HERO_PROMO = 'hp-dl-promo';
 export const INSTALL_SOURCE_MOST_POPULAR = 'mostpopular';

@@ -129,20 +129,6 @@ describe(__filename, () => {
     expect(getAddonByID(state, addon.id)).toEqual(createInternalAddon(addon));
   });
 
-  it('does not store undefined properties', () => {
-    const addon = { ...fakeAddon, description: undefined };
-
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
-
-    // eslint-disable-next-line no-prototype-builtins
-    expect(
-      Object.prototype.hasOwnProperty.call(
-        getAddonByID(state, addon.id),
-        'description',
-      ),
-    ).toEqual(false);
-  });
-
   it('exposes `isRestartRequired` attribute from current version files', () => {
     const addon = createFakeAddon({
       files: [

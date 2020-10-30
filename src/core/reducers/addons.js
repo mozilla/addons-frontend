@@ -5,7 +5,6 @@ import {
   UNLOAD_ADDON_REVIEWS,
   UPDATE_RATING_COUNTS,
 } from 'amo/actions/reviews';
-import { removeUndefinedProps } from 'core/utils/url';
 import type {
   UnloadAddonReviewsAction,
   UpdateRatingCountsAction,
@@ -155,7 +154,7 @@ export const loadAddonInfo = ({
 export function createInternalAddon(
   apiAddon: ExternalAddonType | PartialExternalAddonType,
 ): AddonType {
-  let addon: AddonType = {
+  const addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
     categories: apiAddon.categories,
@@ -224,13 +223,6 @@ export function createInternalAddon(
       (file) => !!file.is_mozilla_signed_extension,
     );
   }
-
-  // Remove undefined properties entirely. This is for some legacy code
-  // in Discopane that relies on spreads to combine a Discopane result
-  // (which has a header and description) with a minimal add-on object.
-  // For example, the minimal add-on object does not have a description
-  // property so the spread should not override `description`.
-  addon = removeUndefinedProps(addon);
 
   return addon;
 }
