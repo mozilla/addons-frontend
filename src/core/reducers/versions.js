@@ -450,12 +450,7 @@ const reducer = (
 
           // Do not overwrite licence and release_notes data with nulls, which
           // are omitted from some API responses.
-          // Discopane does not need this done, and does not get a version
-          // property, so we can check for that too.
-          if (
-            apiVersion.version &&
-            (!apiVersion.license || !apiVersion.release_notes)
-          ) {
+          if (!apiVersion.license || !apiVersion.release_notes) {
             const existingVersion = getVersionById({
               id: apiVersion.id,
               state,

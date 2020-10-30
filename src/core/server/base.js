@@ -277,23 +277,7 @@ function baseServer(
       // only affect how the browser loads the page when clicking
       // the back button.
       //
-      const cacheControl = isAnonymousPage ? ['public'] : ['no-store'];
-
-      const cacheAllResponsesFor = config.get('cacheAllResponsesFor');
-      if (cacheAllResponsesFor) {
-        if (!isDevelopment) {
-          throw new Error(oneLine`You cannot simulate the cache with
-          the cacheAllResponsesFor config value when isDevelopment is false.
-          In other words, we already do caching in hosted environments
-          (via nginx) so this would be confusing!`);
-        }
-        _log.warn(oneLine`Sending a Cache-Control header so that the client caches
-        all requests for ${cacheAllResponsesFor} seconds`);
-        cacheControl.push('public');
-        cacheControl.push(`max-age=${cacheAllResponsesFor}`);
-      }
-
-      res.set('Cache-Control', cacheControl.join(', '));
+      res.set('Cache-Control', isAnonymousPage ? ['public'] : ['no-store']);
 
       // Vary the cache on Do Not Track headers.
       res.vary('DNT');
