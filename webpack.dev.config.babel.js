@@ -36,12 +36,8 @@ const assetsPath = path.resolve(__dirname, 'dist');
 const hmr = `webpack-hot-middleware/client?path=//${webpackHost}:${webpackPort}/__webpack_hmr`;
 
 const appName = config.get('appName');
-const appsBuildList = appName ? [appName] : config.get('validAppNames');
 
-const entryPoints = {};
-for (const app of appsBuildList) {
-  entryPoints[app] = [hmr, `${app}/client`];
-}
+const entryPoints = { [appName]: [hmr, `${appName}/client`] };
 
 // We do not want the production optimization settings in development.
 delete webpackConfig.optimization;

@@ -114,13 +114,13 @@ export default class ServerHtml extends Component {
   }
 
   renderStyles() {
-    const { _config, chunkExtractor } = this.props;
+    const { chunkExtractor } = this.props;
 
     return chunkExtractor
       .getMainAssets('style')
       .filter(
         // We render the main bundle with `getScript()`, so we skip it here.
-        (asset) => !_config.get('validAppNames').includes(asset.chunk),
+        (asset) => asset.chunk !== 'amo',
       )
       .map((asset) => {
         const sriProps = this.getSriProps(asset.filename);
@@ -169,13 +169,13 @@ export default class ServerHtml extends Component {
   }
 
   renderAsyncScripts() {
-    const { _config, chunkExtractor } = this.props;
+    const { chunkExtractor } = this.props;
 
     return chunkExtractor
       .getMainAssets('script')
       .filter(
         // We render the main bundle with `getScript()`, so we skip it here.
-        (asset) => !_config.get('validAppNames').includes(asset.chunk),
+        (asset) => asset.chunk !== 'amo',
       )
       .map((asset) => {
         const sriProps = this.getSriProps(asset.filename);

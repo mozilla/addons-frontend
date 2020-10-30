@@ -9,7 +9,7 @@ const appName = config.get('appName');
 
 // Bail if appName isn't set.
 if (!appName) {
-  console.log(chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
+  console.log(chalk.red('appName not set in config'));
   process.exit(1);
 }
 

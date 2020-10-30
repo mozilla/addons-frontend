@@ -263,7 +263,6 @@ function baseServer(
       }
 
       const isAnonymousPage =
-        appName === 'amo' &&
         config
           .get('anonymousPagePatterns')
           .filter((pattern) => new RegExp(pattern).test(req.originalUrl))
@@ -493,9 +492,7 @@ export function runServer({
 
   return new Promise((resolve) => {
     if (!appName) {
-      throw new Error(
-        `Please specify a valid appName from ${config.get('validAppNames')}`,
-      );
+      throw new Error(`Please specify an appName in config`);
     }
     resolve();
   })

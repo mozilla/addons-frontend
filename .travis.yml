@@ -38,7 +38,7 @@ jobs:
       env: COMMAND=build-ci
     - stage:
       <<: *node-next
-      env: COMMAND=build-all
+      env: COMMAND=build
     # Run the unit/integration tests.
     - stage:
       <<: *node-prod

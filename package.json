@@ -9,9 +9,8 @@
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
-    "build-all": "npm run clean && NODE_APP_INSTANCE=amo better-npm-run build",
     "build-check": "bin/build-checks.js",
-    "build-ci": "npm run build-all && npm run bundlesize",
+    "build-ci": "npm run build && npm run bundlesize",
     "build-locales": "bin/build-locales",
     "bundlesize": "bundlesize",
     "extract-locales": "better-npm-run extract-locales",
@@ -37,7 +36,7 @@
     "storybook-build": "better-npm-run storybook-build",
     "storybook-deploy": "storybook-to-ghpages --script storybook-build",
     "storybook-smoke-test": "better-npm-run storybook-smoke-test",
-    "test-ci": "bin/config-check.js && NODE_APP_INSTANCE=amo npm run build-locales && better-npm-run test-ci && codecov",
+    "test-ci": "bin/config-check.js && npm run build-locales && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
@@ -54,17 +53,13 @@
       }
     },
     "amo": {
-      "command": "better-npm-run start-dev-proxy",
-      "env": {
-        "NODE_APP_INSTANCE": "amo"
-      }
+      "command": "better-npm-run start-dev-proxy"
     },
     "amo:dev": {
       "command": "better-npm-run start-dev-proxy",
       "env": {
         "AMO_CDN": "https://addons-dev-cdn.allizom.org",
-        "PROXY_API_HOST": "https://addons-dev.allizom.org",
-        "NODE_APP_INSTANCE": "amo"
+        "PROXY_API_HOST": "https://addons-dev.allizom.org"
       }
     },
     "amo:dev-https": {
@@ -79,14 +74,12 @@
     "amo:ui-tests": {
       "command": "better-npm-run start-dev-proxy",
       "env": {
-        "NODE_APP_INSTANCE": "amo",
         "NODE_ENV": "production"
       }
     },
     "amo:no-proxy": {
       "command": "better-npm-run start-dev",
       "env": {
-        "NODE_APP_INSTANCE": "amo",
         "PROXY_ENABLED": "false"
       }
     },
@@ -96,8 +89,7 @@
         "AMO_CDN": "https://addons-stage-cdn.allizom.org",
         "PROXY_API_HOST": "https://addons.allizom.org",
         "FXA_CONFIG": "local",
-        "CSP": false,
-        "NODE_APP_INSTANCE": "amo"
+        "CSP": false
       }
     },
     "extract-locales": {

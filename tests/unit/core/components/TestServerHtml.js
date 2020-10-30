@@ -204,16 +204,14 @@ describe(__filename, () => {
       expect(link).toHaveProp('rel', 'stylesheet');
     });
 
-    it('excludes the main bundle', () => {
-      const _config = getFakeConfig({ validAppNames: ['main'] });
-
+    it('excludes the amo bundle', () => {
       const fooAsset = { chunk: 'foo', url: '/foo.css' };
-      const mainAsset = { chunk: 'main', url: '/main.css' };
+      const mainAsset = { chunk: 'amo', url: '/main.css' };
       const chunkExtractor = createFakeChunkExtractor({
         getMainAssets: () => [fooAsset, mainAsset],
       });
 
-      const root = render({ _config, chunkExtractor, includeSri: false });
+      const root = render({ chunkExtractor, includeSri: false });
 
       expect(root.find('link[data-chunk]')).toHaveLength(1);
       expect(root.find(`link[data-chunk="${mainAsset.chunk}"]`)).toHaveLength(
@@ -300,16 +298,14 @@ describe(__filename, () => {
       expect(link).toHaveProp('src', asset.url);
     });
 
-    it('excludes the main bundle', () => {
-      const _config = getFakeConfig({ validAppNames: ['main'] });
-
+    it('excludes the amo bundle', () => {
       const fooAsset = { chunk: 'foo', url: '/foo.js' };
-      const mainAsset = { chunk: 'main', url: '/main.js' };
+      const mainAsset = { chunk: 'amo', url: '/main.js' };
       const chunkExtractor = createFakeChunkExtractor({
         getMainAssets: () => [fooAsset, mainAsset],
       });
 
-      const root = render({ _config, chunkExtractor, includeSri: false });
+      const root = render({ chunkExtractor, includeSri: false });
 
       expect(root.find('script[data-chunk]')).toHaveLength(1);
       expect(root.find(`script[data-chunk="${mainAsset.chunk}"]`)).toHaveLength(
