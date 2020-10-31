@@ -35,7 +35,11 @@ jobs:
           "$CIRCLE_PROJECT_REPONAME"
           "$CIRCLE_BUILD_URL"
           > version.json
-      - run: docker build --pull -t addons-frontend .
+      - run:
+          name: Build the docker image
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker build --pull -t addons-frontend .
       - run: docker images
       - run:
           name: Write the sha256 sum to an artifact for verification
@@ -50,7 +54,6 @@ jobs:
           name: Push to repo
           command: |
             [ ! -z $DOCKERHUB_REPO ]
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
             echo $DOCKERHUB_REPO:$CIRCLE_TAG
             docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG
             docker images
@@ -95,7 +98,11 @@ jobs:
           "$CIRCLE_PROJECT_REPONAME"
           "$CIRCLE_BUILD_URL"
           > version.json
-      - run: docker build --pull -t addons-frontend .
+      - run:
+          name: Build the docker image
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker build --pull -t addons-frontend .
       - run: docker images
       - run:
           name: Write the sha256 sum to an artifact for verification
@@ -110,7 +117,6 @@ jobs:
           name: Push to repo
           command: |
             [ ! -z $DOCKERHUB_REPO ]
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker tag addons-frontend $DOCKERHUB_REPO:latest
             docker push $DOCKERHUB_REPO:latest
       - run:
