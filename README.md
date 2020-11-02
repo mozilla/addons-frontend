@@ -19,10 +19,10 @@ Never submit security-related bugs through a Github Issue or by email.
 
 ## Requirements
 
-- You need [Node](https://nodejs.org/) 10.x which is the current [LTS](https://github.com/nodejs/LTS) (long term support) release.
+- You need [Node](https://nodejs.org/en/) 10.x which is the current [LTS](https://github.com/nodejs/Release) (long term support) release.
 - Install [yarn](https://yarnpkg.com/en/) to manage dependencies and run scripts.
 
-The easiest way to manage multiple node versions in development is to use [nvm](https://github.com/creationix/nvm).
+The easiest way to manage multiple node versions in development is to use [nvm](https://github.com/nvm-sh/nvm).
 
 ## Get started
 
@@ -391,5 +391,5 @@ curl https://addons-dev.allizom.org/__version__
 
 [bundlesize]: https://github.com/siddharthkp/bundlesize
 [issue-7196]: https://github.com/mozilla/addons-frontend/issues/7196
-[jest]: https://facebook.github.io/jest/docs/en/getting-started.html
+[jest]: https://jestjs.io/docs/en/getting-started.html
 [prettier]: https://prettier.io/
