@@ -253,6 +253,17 @@ describe(__filename, () => {
     );
   });
 
+  it('disables the submit button when updating with whitespaces', () => {
+    const root = shallowRender({ text: 'Some Text' });
+
+    typeSomeText({ root, text: '   ' });
+
+    expect(root.find('.DismissibleTextForm-submit')).toHaveProp(
+      'disabled',
+      true,
+    );
+  });
+
   it('disables the textarea when submitting the form', () => {
     const root = shallowRender({ isSubmitting: true });
 
