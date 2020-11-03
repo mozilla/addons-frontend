@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-20 17:18+0000\n"
+"POT-Creation-Date: 2020-11-03 16:57+0000\n"
 "PO-Revision-Date: 2020-08-08 10:13+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,28 +44,28 @@ msgstr "ا ضافہ کریں…"
 msgid "Add to collection"
 msgstr "مجموعہ میں شامل کریں"
 
-#: src/amo/components/AddonAdminLinks/index.js:105
+#: src/amo/components/AddonAdminLinks/index.js:100
 msgid "Content review add-on"
 msgstr "اس ایڈ -اون کے مواد کا جائزہ لیں"
 
-#: src/amo/components/AddonAdminLinks/index.js:113
+#: src/amo/components/AddonAdminLinks/index.js:108
 msgid "Review theme"
 msgstr "تھیم کا جائزہ لیں"
 
-#: src/amo/components/AddonAdminLinks/index.js:115
+#: src/amo/components/AddonAdminLinks/index.js:110
 msgid "Review add-on code"
 msgstr "ایڈ -اون کوڈ کا جائزہ لیں"
 
-#: src/amo/components/AddonAdminLinks/index.js:135
+#: src/amo/components/AddonAdminLinks/index.js:130
 msgid "Admin Links"
 msgstr "ایڈمن روابت"
 
-#: src/amo/components/AddonAdminLinks/index.js:76
+#: src/amo/components/AddonAdminLinks/index.js:72
 #: src/amo/components/AddonAuthorLinks/index.js:46
 msgid "Edit add-on"
 msgstr "ایڈ-اون ترمیم کریں"
 
-#: src/amo/components/AddonAdminLinks/index.js:91
+#: src/amo/components/AddonAdminLinks/index.js:86
 msgid "Admin add-on"
 msgstr "ایڈمن ایڈ-اون"
 
@@ -275,8 +275,8 @@ msgid "More information"
 msgstr "مزید معلومات"
 
 #: src/amo/components/AddonMoreInfo/index.js:66
-#: src/amo/pages/UserProfile/index.js:357
-#: src/amo/pages/UserProfile/index.js:359
+#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "ابتدائی صفحہ"
@@ -912,12 +912,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "بگ رپورٹ یا سپورٹ کی درخواست کے طور پر نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "پرچم"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "نشان لگا دیا گیا"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "پرچم"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1119,7 +1119,7 @@ msgid "BY FIREFOX"
 msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:232
-#: src/amo/components/SponsoredAddonsShelf/index.js:227
+#: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1769,12 +1769,12 @@ msgstr "لغت اور زبان پیک"
 msgid "Explore"
 msgstr "دریافت کریں"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:218
+#: src/amo/components/SponsoredAddonsShelf/index.js:210
 #, fuzzy
 msgid "Sponsored extensions"
 msgstr "بہتريں توسیعات"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:231
+#: src/amo/components/SponsoredAddonsShelf/index.js:223
 msgid "What is this?"
 msgstr ""
 
@@ -2628,83 +2628,83 @@ msgid ""
 "Make false statements, disparage add-on authors or personally insult them."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:241
+#: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"
 msgstr "میرے جائزے"
 
-#: src/amo/pages/UserProfile/index.js:269
+#: src/amo/pages/UserProfile/index.js:268
 msgid ""
 "The profile of %(user)s, a Firefox extension and theme author. Find other "
 "apps by %(user)s, including average ratings, tenure, and the option to "
 "report issues."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:273
+#: src/amo/pages/UserProfile/index.js:272
 msgid ""
 "The profile of %(user)s, Firefox extension author. Find other extensions by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:277
+#: src/amo/pages/UserProfile/index.js:276
 msgid ""
 "The profile of %(user)s, Firefox theme author. Find other themes by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:316
+#: src/amo/pages/UserProfile/index.js:315
 #, fuzzy
 msgid "Add-ons developer"
 msgstr "ان تخلیقار کی جانبسے مزید توسیعات"
 
-#: src/amo/pages/UserProfile/index.js:322
+#: src/amo/pages/UserProfile/index.js:321
 #, fuzzy
 msgid "Theme artist"
 msgstr "معاونت کار سائٹ"
 
-#: src/amo/pages/UserProfile/index.js:336
+#: src/amo/pages/UserProfile/index.js:335
 #: src/amo/pages/UserProfileEdit/index.js:536
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "خیالہ تلاش کریں"
 
-#: src/amo/pages/UserProfile/index.js:339
+#: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
 msgstr "صارف کی پروفائل"
 
-#: src/amo/pages/UserProfile/index.js:365
+#: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:692
 msgid "Location"
 msgstr "محل وقوع"
 
-#: src/amo/pages/UserProfile/index.js:373
+#: src/amo/pages/UserProfile/index.js:372
 #: src/amo/pages/UserProfileEdit/index.js:707
 msgid "Occupation"
 msgstr "پیشہ"
 
-#: src/amo/pages/UserProfile/index.js:380
+#: src/amo/pages/UserProfile/index.js:379
 #, fuzzy
 msgid "User since"
 msgstr "‏‏صارفين"
 
-#: src/amo/pages/UserProfile/index.js:390
+#: src/amo/pages/UserProfile/index.js:389
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "ایڈ-اونز لوڈ کر رہا ہے"
 
-#: src/amo/pages/UserProfile/index.js:396
+#: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:411
+#: src/amo/pages/UserProfile/index.js:410
 #: src/amo/pages/UserProfileEdit/index.js:729
 msgid "Biography"
 msgstr "بانی"
 
-#: src/amo/pages/UserProfile/index.js:435
+#: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
 msgstr "پروفائل کی تدوین کریں"
 
-#: src/amo/pages/UserProfile/index.js:448
+#: src/amo/pages/UserProfile/index.js:447
 #, fuzzy
 msgid "Admin user"
 msgstr "ایڈ-اون ربظ"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-20 17:18+0000\n"
+"POT-Creation-Date: 2020-11-03 16:57+0000\n"
 "PO-Revision-Date: 2020-03-01 10:44+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
@@ -44,28 +44,28 @@ msgstr "追加先:"
 msgid "Add to collection"
 msgstr "コレクションへ追加"
 
-#: src/amo/components/AddonAdminLinks/index.js:105
+#: src/amo/components/AddonAdminLinks/index.js:100
 msgid "Content review add-on"
 msgstr "コンテンツレビューのアドオン"
 
-#: src/amo/components/AddonAdminLinks/index.js:113
+#: src/amo/components/AddonAdminLinks/index.js:108
 msgid "Review theme"
 msgstr "テーマのレビュー"
 
-#: src/amo/components/AddonAdminLinks/index.js:115
+#: src/amo/components/AddonAdminLinks/index.js:110
 msgid "Review add-on code"
 msgstr "アドオンコードのレビュー"
 
-#: src/amo/components/AddonAdminLinks/index.js:135
+#: src/amo/components/AddonAdminLinks/index.js:130
 msgid "Admin Links"
 msgstr "管理用リンク"
 
-#: src/amo/components/AddonAdminLinks/index.js:76
+#: src/amo/components/AddonAdminLinks/index.js:72
 #: src/amo/components/AddonAuthorLinks/index.js:46
 msgid "Edit add-on"
 msgstr "アドオンを編集"
 
-#: src/amo/components/AddonAdminLinks/index.js:91
+#: src/amo/components/AddonAdminLinks/index.js:86
 msgid "Admin add-on"
 msgstr "管理用アドオン"
 
@@ -278,8 +278,8 @@ msgid "More information"
 msgstr "詳しい情報"
 
 #: src/amo/components/AddonMoreInfo/index.js:66
-#: src/amo/pages/UserProfile/index.js:357
-#: src/amo/pages/UserProfile/index.js:359
+#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "ホームページ"
@@ -904,12 +904,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "バグ報告またはサポートリクエストとしてフラグが立てられました"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "フラグ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "フラグ付き"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "フラグ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1111,7 +1111,7 @@ msgid "BY FIREFOX"
 msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:232
-#: src/amo/components/SponsoredAddonsShelf/index.js:227
+#: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1743,12 +1743,12 @@ msgstr "スペルチェック辞書と言語パック"
 msgid "Explore"
 msgstr "もっと見る"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:218
+#: src/amo/components/SponsoredAddonsShelf/index.js:210
 #, fuzzy
 msgid "Sponsored extensions"
 msgstr "最も評価の高い拡張機能"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:231
+#: src/amo/components/SponsoredAddonsShelf/index.js:223
 msgid "What is this?"
 msgstr ""
 
@@ -2641,78 +2641,78 @@ msgstr ""
 "虚偽のレビューやアドオンの作者を貶す内容、個人的な辱める内容を書いてはいけま"
 "せん。"
 
-#: src/amo/pages/UserProfile/index.js:241
+#: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"
 msgstr "自分のレビュー"
 
-#: src/amo/pages/UserProfile/index.js:269
+#: src/amo/pages/UserProfile/index.js:268
 msgid ""
 "The profile of %(user)s, a Firefox extension and theme author. Find other "
 "apps by %(user)s, including average ratings, tenure, and the option to "
 "report issues."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:273
+#: src/amo/pages/UserProfile/index.js:272
 msgid ""
 "The profile of %(user)s, Firefox extension author. Find other extensions by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:277
+#: src/amo/pages/UserProfile/index.js:276
 msgid ""
 "The profile of %(user)s, Firefox theme author. Find other themes by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:316
+#: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
 msgstr "アドオン開発者"
 
-#: src/amo/pages/UserProfile/index.js:322
+#: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
 msgstr "テーマアーティスト"
 
-#: src/amo/pages/UserProfile/index.js:336
+#: src/amo/pages/UserProfile/index.js:335
 #: src/amo/pages/UserProfileEdit/index.js:536
 msgid "User Profile for %(user)s"
 msgstr "%(user)s のユーザープロフィール"
 
-#: src/amo/pages/UserProfile/index.js:339
+#: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
 msgstr "ユーザープロファイル"
 
-#: src/amo/pages/UserProfile/index.js:365
+#: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:692
 msgid "Location"
 msgstr "所在地"
 
-#: src/amo/pages/UserProfile/index.js:373
+#: src/amo/pages/UserProfile/index.js:372
 #: src/amo/pages/UserProfileEdit/index.js:707
 msgid "Occupation"
 msgstr "職業"
 
-#: src/amo/pages/UserProfile/index.js:380
+#: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
 msgstr "ユーザー登録日"
 
-#: src/amo/pages/UserProfile/index.js:390
+#: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
 msgstr "アドオンの数"
 
-#: src/amo/pages/UserProfile/index.js:396
+#: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
 msgstr "この開発者のアドオンの平均評価"
 
-#: src/amo/pages/UserProfile/index.js:411
+#: src/amo/pages/UserProfile/index.js:410
 #: src/amo/pages/UserProfileEdit/index.js:729
 msgid "Biography"
 msgstr "経歴"
 
-#: src/amo/pages/UserProfile/index.js:435
+#: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
 msgstr "プロファイルを編集"
 
-#: src/amo/pages/UserProfile/index.js:448
+#: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
 msgstr "管理者ユーザー"
 
