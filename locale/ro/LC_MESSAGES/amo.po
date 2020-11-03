@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-20 17:18+0000\n"
+"POT-Creation-Date: 2020-11-03 16:57+0000\n"
 "PO-Revision-Date: 2019-07-13 18:42+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -45,28 +45,28 @@ msgstr "Adaugă în…"
 msgid "Add to collection"
 msgstr "Adaugă în colecție"
 
-#: src/amo/components/AddonAdminLinks/index.js:105
+#: src/amo/components/AddonAdminLinks/index.js:100
 msgid "Content review add-on"
 msgstr "Supliment de recenzie pentru conținuturi"
 
-#: src/amo/components/AddonAdminLinks/index.js:113
+#: src/amo/components/AddonAdminLinks/index.js:108
 msgid "Review theme"
 msgstr "Scrie o recenzie la temă"
 
-#: src/amo/components/AddonAdminLinks/index.js:115
+#: src/amo/components/AddonAdminLinks/index.js:110
 msgid "Review add-on code"
 msgstr "Scrie o recenzie la codul suplimentului"
 
-#: src/amo/components/AddonAdminLinks/index.js:135
+#: src/amo/components/AddonAdminLinks/index.js:130
 msgid "Admin Links"
 msgstr "Linkuri de administrare"
 
-#: src/amo/components/AddonAdminLinks/index.js:76
+#: src/amo/components/AddonAdminLinks/index.js:72
 #: src/amo/components/AddonAuthorLinks/index.js:46
 msgid "Edit add-on"
 msgstr "Editează suplimentul"
 
-#: src/amo/components/AddonAdminLinks/index.js:91
+#: src/amo/components/AddonAdminLinks/index.js:86
 msgid "Admin add-on"
 msgstr "Administrează suplimentul"
 
@@ -295,8 +295,8 @@ msgid "More information"
 msgstr "Mai multe informații"
 
 #: src/amo/components/AddonMoreInfo/index.js:66
-#: src/amo/pages/UserProfile/index.js:357
-#: src/amo/pages/UserProfile/index.js:359
+#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "Pagină de start"
@@ -934,12 +934,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Semnalat(ă) ca raport de eroare sau cerere de asistență"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Semnalează"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Semnalat(ă)"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Semnalează"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1142,7 +1142,7 @@ msgid "BY FIREFOX"
 msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:232
-#: src/amo/components/SponsoredAddonsShelf/index.js:227
+#: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1800,12 +1800,12 @@ msgstr "Dicționare și pachete lingvistice"
 msgid "Explore"
 msgstr "Explorează"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:218
+#: src/amo/components/SponsoredAddonsShelf/index.js:210
 #, fuzzy
 msgid "Sponsored extensions"
 msgstr "Extensii în topul evaluărilor"
 
-#: src/amo/components/SponsoredAddonsShelf/index.js:231
+#: src/amo/components/SponsoredAddonsShelf/index.js:223
 #, fuzzy
 msgid "What is this?"
 msgstr "Ce înseamnă?"
@@ -2778,11 +2778,11 @@ msgid ""
 msgstr ""
 "Nu face afirmații false, nu denigra autorii suplimentelor și nu îi insulta."
 
-#: src/amo/pages/UserProfile/index.js:241
+#: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"
 msgstr "Recenziile mele"
 
-#: src/amo/pages/UserProfile/index.js:269
+#: src/amo/pages/UserProfile/index.js:268
 msgid ""
 "The profile of %(user)s, a Firefox extension and theme author. Find other "
 "apps by %(user)s, including average ratings, tenure, and the option to "
@@ -2792,7 +2792,7 @@ msgstr ""
 "realizate de %(user)s, inclusiv evaluările medii, titular și opțiunile de "
 "raportare a problemelor."
 
-#: src/amo/pages/UserProfile/index.js:273
+#: src/amo/pages/UserProfile/index.js:272
 msgid ""
 "The profile of %(user)s, Firefox extension author. Find other extensions by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
@@ -2801,7 +2801,7 @@ msgstr ""
 "de %(user)s, inclusiv evaluările medii, titular și opțiunile de raportare a "
 "problemelor."
 
-#: src/amo/pages/UserProfile/index.js:277
+#: src/amo/pages/UserProfile/index.js:276
 msgid ""
 "The profile of %(user)s, Firefox theme author. Find other themes by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
@@ -2810,55 +2810,55 @@ msgstr ""
 "%(user)s, inclusiv evaluările medii, titular și opțiunile de raportare a "
 "problemelor."
 
-#: src/amo/pages/UserProfile/index.js:316
+#: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
 msgstr "Dezvoltator de suplimente"
 
-#: src/amo/pages/UserProfile/index.js:322
+#: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
 msgstr "Artist de teme"
 
-#: src/amo/pages/UserProfile/index.js:336
+#: src/amo/pages/UserProfile/index.js:335
 #: src/amo/pages/UserProfileEdit/index.js:536
 msgid "User Profile for %(user)s"
 msgstr "Profil de utilizator pentru %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:339
+#: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
 msgstr "Profilul utilizatorului"
 
-#: src/amo/pages/UserProfile/index.js:365
+#: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:692
 msgid "Location"
 msgstr "Locație"
 
-#: src/amo/pages/UserProfile/index.js:373
+#: src/amo/pages/UserProfile/index.js:372
 #: src/amo/pages/UserProfileEdit/index.js:707
 msgid "Occupation"
 msgstr "Ocupație"
 
-#: src/amo/pages/UserProfile/index.js:380
+#: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
 msgstr "Utilizator din"
 
-#: src/amo/pages/UserProfile/index.js:390
+#: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
 msgstr "Număr de suplimente"
 
-#: src/amo/pages/UserProfile/index.js:396
+#: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
 msgstr "Evaluarea medie a suplimentelor dezvoltatorului"
 
-#: src/amo/pages/UserProfile/index.js:411
+#: src/amo/pages/UserProfile/index.js:410
 #: src/amo/pages/UserProfileEdit/index.js:729
 msgid "Biography"
 msgstr "Biografie"
 
-#: src/amo/pages/UserProfile/index.js:435
+#: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
 msgstr "Editează profilul"
 
-#: src/amo/pages/UserProfile/index.js:448
+#: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
 msgstr "Utilizator administrator"
 
