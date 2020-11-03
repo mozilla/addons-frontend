@@ -15,6 +15,7 @@ import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   THEMES_BY_AUTHORS_PAGE_SIZE,
+  DICT_BY_AUTHOR_PAGE_SIZE,
 } from 'amo/reducers/addonsByAuthors';
 import { getReviewsByUserId } from 'amo/reducers/reviews';
 import {
@@ -30,6 +31,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   USERS_EDIT,
+  ADDON_TYPE_DICT,
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -477,6 +479,17 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 showMore={false}
               />
 
+              <AddonsByAuthorsCard
+                addonType={ADDON_TYPE_DICT}
+                authorDisplayName={user ? user.name : null}
+                authorIds={user ? [user.id] : null}
+                errorHandler={errorHandler}
+                numberOfAddons={DICT_BY_AUTHOR_PAGE_SIZE}
+                pageParam="page_d"
+                paginate
+                pathname={this.getURL()}
+                showMore={false}
+              />
               {this.renderReviews()}
             </div>
           </div>

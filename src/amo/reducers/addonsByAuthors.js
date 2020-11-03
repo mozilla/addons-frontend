@@ -30,6 +30,7 @@ export const initialState: AddonsByAuthorsState = {
 
 export const EXTENSIONS_BY_AUTHORS_PAGE_SIZE = 10;
 export const THEMES_BY_AUTHORS_PAGE_SIZE = 12;
+export const DICT_BY_AUTHOR_PAGE_SIZE = 10;
 
 // For further information about this notation, see:
 // https://github.com/mozilla/addons-frontend/pull/3027#discussion_r137661289
