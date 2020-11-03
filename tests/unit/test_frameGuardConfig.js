@@ -1,5 +1,5 @@
 describe(__filename, () => {
-  it(`should default frameGuard to "deny" in production`, () => {
+  it('should default frameGuard to "deny" in production', () => {
     process.env.NODE_ENV = 'production';
     jest.resetModules();
     // eslint-disable-next-line global-require

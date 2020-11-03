@@ -28,68 +28,73 @@ error() {
   exit 1
 }
 
+run_l10n_extraction() {
+  local branch="amo-locales"
+
+  info "Starting l10n extraction"
+
+  # Detect local (uncommitted) changes.
+  if [[ ! -z "$GIT_CHANGES" ]]; then
+    error "You have local changes, therefore this script cannot continue."
+  fi
+
+  # Switch to the `master` branch if we are not on it already.
+  if [[ "$INITIAL_GIT_BRANCH" != "master" ]]; then
+    git checkout master
+  fi
+
+  # Make sure the 'master' branch is up-to-date.
+  git pull "$GIT_REMOTE" master
+
+  # Update dependencies
+  yarn >> "$LOG_FILE" 2>&1
+
+  # Ensure the branch to extract the locales is clean.
+  if [[ $(git branch --list "$branch") ]]; then
+    info "Deleting branch '$branch' because it already exists"
+    git branch -D "$branch"
+  fi
+
+  info "Creating and switching to branch '$branch'"
+  git checkout -b "$branch"
+
+  info "Extracting locales (this can take several minutes)"
+  bin/extract-locales >> "$LOG_FILE" 2>&1
+
+  local git_diff_stat
+  git_diff_stat=$(git diff --shortstat)
+
+  if [[ -z "$git_diff_stat" ]] || [[ "$git_diff_stat" == *"$DIFF_WITH_ONE_LINE_CHANGE"* ]]; then
+    info "No locale changes, nothing to update, ending process"
+    git checkout -- .
+    git checkout "$INITIAL_GIT_BRANCH"
+    git branch -d "$branch"
+    return
+  fi
+
+  git commit -a -m "Extract locales"
+
+  info "Merging locales"
+  bin/merge-locales >> "$LOG_FILE" 2>&1
+
+  git commit -a -m "Merge locales"
+
+  # We use force-push in case the branch already exists.
+  git push -f "$GIT_REMOTE" "$branch"
+
+  git checkout "$INITIAL_GIT_BRANCH"
+  git branch -D "$branch"
+
+  echo ""
+  echo "----------------------------------------------------------------------"
+  echo ""
+  echo "     You can now open the link below to submit your Pull Request:"
+  echo "     https://github.com/mozilla/addons-frontend/pull/new/$branch"
+  echo ""
+  echo "----------------------------------------------------------------------"
+}
+
 # Clear log file
 echo "" > "$LOG_FILE"
 
-branch="amo-locales"
-
-info "Starting l10n extraction"
-
-# Detect local (uncommitted) changes.
-if [[ ! -z "$GIT_CHANGES" ]]; then
-  error "You have local changes, therefore this script cannot continue."
-fi
-
-# Switch to the `master` branch if we are not on it already.
-if [[ "$INITIAL_GIT_BRANCH" != "master" ]]; then
-  git checkout master
-fi
-
-# Make sure the 'master' branch is up-to-date.
-git pull "$GIT_REMOTE" master
-
-# Update dependencies
-yarn >> "$LOG_FILE" 2>&1
-
-# Ensure the branch to extract the locales is clean.
-if [[ $(git branch --list "$branch") ]]; then
-  info "Deleting branch '$branch' because it already exists"
-  git branch -D "$branch"
-fi
-
-info "Creating and switching to branch '$branch'"
-git checkout -b "$branch"
-
-info "Extracting locales (this can take several minutes)"
-bin/extract-locales >> "$LOG_FILE" 2>&1
-
-git_diff_stat=$(git diff --shortstat)
-
-if [[ -z "$git_diff_stat" ]] || [[ "$git_diff_stat" == *"$DIFF_WITH_ONE_LINE_CHANGE"* ]]; then
-  info "No locale changes, nothing to update, ending process"
-  git checkout -- .
-  git checkout "$INITIAL_GIT_BRANCH"
-  git branch -d "$branch"
-  return
-fi
-
-git commit -a -m "Extract locales"
-
-info "Merging locales"
-bin/merge-locales >> "$LOG_FILE" 2>&1
-
-git commit -a -m "Merge locales"
-
-# We use force-push in case the branch already exists.
-git push -f "$GIT_REMOTE" "$branch"
-
-git checkout "$INITIAL_GIT_BRANCH"
-git branch -D "$branch"
-
-echo ""
-echo "----------------------------------------------------------------------"
-echo ""
-echo "     You can now open the link below to submit your Pull Request:"
-echo "     https://github.com/mozilla/addons-frontend/pull/new/$branch"
-echo ""
-echo "----------------------------------------------------------------------"
+run_l10n_extraction

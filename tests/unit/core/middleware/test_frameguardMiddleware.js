@@ -10,7 +10,7 @@ describe(__filename, () => {
     process.env.NODE_ENV = existingNodeEnv;
   });
 
-  it(`provides the expected x-frame-options headers`, () => {
+  it('provides the expected x-frame-options headers', () => {
     process.env.NODE_ENV = 'production';
     jest.resetModules();
     // eslint-disable-next-line global-require
