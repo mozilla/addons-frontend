@@ -358,7 +358,7 @@ module.exports = {
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
   enableFeatureSponsoredShelf: true,
-  enableFeatureUseAdzerkForSponsoredShelf: false,
+  enableFeatureUseAdzerkForSponsoredShelf: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
