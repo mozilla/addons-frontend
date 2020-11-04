@@ -282,13 +282,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(WrongPlatformWarning)).toHaveLength(1);
-    expect(root.find(WrongPlatformWarning)).toHaveProp('fixAndroidLinkMessage');
-    expect(root.find(WrongPlatformWarning)).toHaveProp('fixFirefoxLinkMessage');
     expect(root.find(WrongPlatformWarning)).toHaveProp('addon', addon);
-    expect(root.find(WrongPlatformWarning)).toHaveProp(
-      'currentVersion',
-      currentVersion,
-    );
   });
 
   it('does not render a WrongPlatformWarning component without an addon', () => {
@@ -297,26 +291,6 @@ describe(__filename, () => {
     });
 
     expect(root.find(WrongPlatformWarning)).toHaveLength(0);
-  });
-
-  it('passes the correct Fenix message to WrongPlatformWarning for a compatible add-on', () => {
-    const root = shallowRender({
-      _isFenixCompatible: sinon.stub().returns(true),
-    });
-
-    expect(root.find(WrongPlatformWarning).prop('fixFenixLinkMessage')).toMatch(
-      /You can install this add-on in the Add-ons Manager./,
-    );
-  });
-
-  it('passes the correct Fenix message to WrongPlatformWarning for an incompatible add-on', () => {
-    const root = shallowRender({
-      _isFenixCompatible: sinon.stub().returns(false),
-    });
-
-    expect(root.find(WrongPlatformWarning).prop('fixFenixLinkMessage')).toMatch(
-      /Not available on Firefox for Android./,
-    );
   });
 
   it('renders without an add-on', () => {

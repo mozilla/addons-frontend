@@ -2,25 +2,18 @@ import * as React from 'react';
 import UAParser from 'ua-parser-js';
 
 import WrongPlatformWarning, {
-  FENIX_LINK_DESTINATION,
+  ANDROID_SUMO_LINK_DESTINATION,
   WrongPlatformWarningBase,
 } from 'amo/components/WrongPlatformWarning';
-import {
-  CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
-  INCOMPATIBLE_ANDROID_UNSUPPORTED,
-  INCOMPATIBLE_FIREFOX_FOR_IOS,
-  INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-} from 'core/constants';
+import { getMobileHomepageLink } from 'core/utils/compatibility';
+import { CLIENT_APP_ANDROID } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { createInternalVersion } from 'core/reducers/versions';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakeVersion,
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -28,13 +21,17 @@ import {
 describe(__filename, () => {
   let _correctedLocationForPlatform;
   let _getClientCompatibility;
-  let _isFenix;
+  let _isFirefoxForAndroid;
+  let _isFirefoxForIOS;
+  let _isAndroidInstallable;
   let store;
 
   beforeEach(() => {
     _correctedLocationForPlatform = sinon.stub();
     _getClientCompatibility = sinon.stub().returns({});
-    _isFenix = sinon.stub();
+    _isFirefoxForAndroid = sinon.stub();
+    _isFirefoxForIOS = sinon.stub();
+    _isAndroidInstallable = sinon.stub();
     store = dispatchClientMetadata().store;
   });
 
@@ -50,7 +47,9 @@ describe(__filename, () => {
     const props = {
       _correctedLocationForPlatform,
       _getClientCompatibility,
-      _isFenix,
+      _isFirefoxForAndroid,
+      _isFirefoxForIOS,
+      _isAndroidInstallable,
       i18n: fakeI18n(),
       store,
       ...customProps,
@@ -74,16 +73,16 @@ describe(__filename, () => {
     expect(root).toHaveClassName(className);
   });
 
-  it('calls _isFenix to check for Fenix user agent', () => {
+  it('calls _isFirefoxForAndroid to check for Android user agent', () => {
     const clientApp = CLIENT_APP_ANDROID;
     const userAgent = userAgentsByPlatform.mac.firefox57;
     const parsedUserAgent = UAParser(userAgent);
     _dispatchClientMetadata({ clientApp, userAgent });
 
-    render();
+    render({ addon: createInternalAddon(fakeAddon) });
 
     sinon.assert.calledWith(
-      _isFenix,
+      _isFirefoxForAndroid,
       sinon.match({
         browser: sinon.match(parsedUserAgent.browser),
         os: sinon.match(parsedUserAgent.os),
@@ -91,20 +90,32 @@ describe(__filename, () => {
     );
   });
 
-  it('calls _correctedLocationForPlatform with clientApp, location and userAgentInfo', () => {
-    _isFenix.returns(false);
+  it('calls _isAndroidInstallable to check for Fenix compatibility', () => {
+    const addon = createInternalAddon(fakeAddon);
+    _isFirefoxForAndroid.returns(true);
+
+    render({ addon: createInternalAddon(fakeAddon) });
+
+    sinon.assert.calledWith(_isAndroidInstallable, { addon });
+  });
+
+  it('calls _correctedLocationForPlatform with clientApp, isHomePage, lang, location and userAgentInfo', () => {
     const clientApp = CLIENT_APP_ANDROID;
+    const isHomePage = true;
+    const lang = 'fr';
     const userAgent = userAgentsByPlatform.mac.firefox57;
     const parsedUserAgent = UAParser(userAgent);
-    _dispatchClientMetadata({ clientApp, userAgent });
+    _dispatchClientMetadata({ clientApp, lang, userAgent });
 
     const pathname = '/some/path/';
     const location = createFakeLocation({ pathname });
 
-    render({ location });
+    render({ isHomePage, location });
 
     sinon.assert.calledWith(_correctedLocationForPlatform, {
       clientApp,
+      isHomePage,
+      lang,
       location,
       userAgentInfo: sinon.match({
         browser: sinon.match(parsedUserAgent.browser),
@@ -113,117 +124,23 @@ describe(__filename, () => {
     });
   });
 
-  it.each([
-    [
-      CLIENT_APP_ANDROID,
-      [
-        'To find add-ons compatible with Firefox on desktop',
-        'visit our desktop site',
-      ],
-    ],
-    [
-      CLIENT_APP_FIREFOX,
-      [
-        'To find add-ons compatible with Firefox on Android',
-        'visit our mobile site',
-      ],
-    ],
-  ])(
-    'generates the expected message when clientApp is %s and not Fenix',
-    (clientApp, expectedText) => {
-      const newLocation = '/some/location/';
-      _correctedLocationForPlatform.returns(newLocation);
-      _isFenix.returns(false);
-      _dispatchClientMetadata({ clientApp });
-      const root = render();
-
-      for (const text of expectedText) {
-        expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-          text,
-        );
-      }
-      expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-        `<a href="${newLocation}">`,
-      );
-    },
-  );
-
-  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
-    'can display a custom message when clientApp is %s and not Fenix',
-    (clientApp) => {
-      const newLocation = '/some/location/';
-      _correctedLocationForPlatform.returns(newLocation);
-      _isFenix.returns(false);
-      _dispatchClientMetadata({ clientApp });
-      const androidMessageText = 'A message to show when clientApp is firefox';
-      const androidLinkText = 'click here for Android';
-      const firefoxMessageText = 'A message to show when clientApp is android';
-      const firefoxLinkText = 'click here for Firefox';
-      const fixAndroidLinkMessage = `${androidMessageText}<a href="%(newLocation)s">${androidLinkText}</a>.`;
-      const fixFirefoxLinkMessage = `${firefoxMessageText}<a href="%(newLocation)s">${firefoxLinkText}</a>.`;
-      const root = render({ fixAndroidLinkMessage, fixFirefoxLinkMessage });
-
-      expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-        clientApp === CLIENT_APP_ANDROID
-          ? firefoxMessageText
-          : androidMessageText,
-      );
-      expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-        clientApp === CLIENT_APP_ANDROID ? firefoxLinkText : androidLinkText,
-      );
-      expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-        `<a href="${newLocation}">`,
-      );
-    },
-  );
-
-  it('generates the expected message when user agent is Fenix', () => {
-    _isFenix.returns(true);
-    const root = render();
-
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'To learn about add-ons compatible with Firefox for Android,',
-    );
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'click here',
-    );
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      `<a href="${FENIX_LINK_DESTINATION}">`,
-    );
-  });
-
-  it('can display a custom message when user agent is Fenix', () => {
-    _isFenix.returns(true);
-    const messageText = 'A custom message.';
-    const linkText = 'click here';
-    const fixFenixLinkMessage = `${messageText}<a href="%(newLocation)s">${linkText}</a>.`;
-    const root = render({ fixFenixLinkMessage });
-
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      messageText,
-    );
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      linkText,
-    );
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      `<a href="${FENIX_LINK_DESTINATION}">`,
-    );
-  });
-
-  it('calls _getClientCompatibility when an addon and currentVersion exist', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const currentVersion = createInternalVersion(fakeVersion);
+  it('calls _correctedLocationForPlatform with isHomePage defaulted to false', () => {
     const clientApp = CLIENT_APP_ANDROID;
+    const lang = 'fr';
     const userAgent = userAgentsByPlatform.mac.firefox57;
     const parsedUserAgent = UAParser(userAgent);
-    _dispatchClientMetadata({ clientApp, userAgent });
+    _dispatchClientMetadata({ clientApp, lang, userAgent });
 
-    render({ addon, currentVersion });
+    const pathname = '/some/path/';
+    const location = createFakeLocation({ pathname });
 
-    sinon.assert.calledWith(_getClientCompatibility, {
-      addon,
+    render({ location });
+
+    sinon.assert.calledWith(_correctedLocationForPlatform, {
       clientApp,
-      currentVersion,
+      isHomePage: false,
+      lang,
+      location,
       userAgentInfo: sinon.match({
         browser: sinon.match(parsedUserAgent.browser),
         os: sinon.match(parsedUserAgent.os),
@@ -231,93 +148,85 @@ describe(__filename, () => {
     });
   });
 
-  it('does not call _getClientCompatibility when an addon does not exist', () => {
-    render({ currentVersion: createInternalVersion(fakeVersion) });
-    sinon.assert.notCalled(_getClientCompatibility);
-  });
-
-  it('does not call _getClientCompatibility when a currentVersion does not exist', () => {
-    render({ addon: createInternalAddon(fakeAddon) });
-    sinon.assert.notCalled(_getClientCompatibility);
-  });
-
-  it('returns nothing if not Fenix, no location correction is required, and no addon info', () => {
-    _correctedLocationForPlatform.returns(null);
-    _isFenix.returns(false);
-    const root = render({ addon: null, currentVersion: null });
-
-    expect(root.find('.WrongPlatformWarning')).toHaveLength(0);
-  });
-
-  it('returns nothing if not Fenix, no location correction is required, and not Android incompatible', () => {
-    _correctedLocationForPlatform.returns(null);
-    _isFenix.returns(false);
-    _getClientCompatibility.returns({
-      reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-    });
-    const root = render({
-      addon: createInternalAddon(fakeAddon),
-      currentVersion: createInternalVersion(fakeVersion),
-    });
-
-    expect(root.find('.WrongPlatformWarning')).toHaveLength(0);
-  });
-
-  it('generates the expected message when add-on is not compatible with Android', () => {
-    _getClientCompatibility.returns({
-      reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
-    });
-    const root = render({
-      addon: createInternalAddon(fakeAddon),
-      currentVersion: createInternalVersion(fakeVersion),
-    });
+  it('generates the expected message when user agent is Firefox for Android and add-on is compatible', () => {
+    _isFirefoxForAndroid.returns(true);
+    _isAndroidInstallable.returns(true);
+    const root = render({ addon: createInternalAddon(fakeAddon) });
 
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'Not available on Firefox for Android.',
+      'You can install this add-on in the Add-ons Manager.',
     );
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'You can use this add-on with Firefox for Desktop,',
+      'add-ons for Android',
     );
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'or look for similar',
-    );
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'Android add-ons',
-    );
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      '<a href="/android/">',
+      `<a href="${ANDROID_SUMO_LINK_DESTINATION}">`,
     );
   });
 
-  it('generates the expected message when add-on is not compatible with Android, even when wrong platform', () => {
-    _correctedLocationForPlatform.returns('/some/location/');
-    _getClientCompatibility.returns({
-      reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
-    });
-    const root = render({
-      addon: createInternalAddon(fakeAddon),
-      currentVersion: createInternalVersion(fakeVersion),
-    });
-
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'You can use this add-on with Firefox for Desktop,',
-    );
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      '<a href="/android/">',
-    );
-  });
-
-  it('generates the expected message when user is on iOS', () => {
-    _getClientCompatibility.returns({
-      reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
-    });
-    const root = render({
-      addon: createInternalAddon(fakeAddon),
-      currentVersion: createInternalVersion(fakeVersion),
-    });
+  it('generates the expected message when user agent is Firefox for iOS', () => {
+    _isFirefoxForIOS.returns(true);
+    const root = render();
 
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
       'This add-on is not compatible with this browser. Try installing it on Firefox for desktop.',
     );
+  });
+
+  it('generates the expected message when being directed to the mobile home page', () => {
+    const mobileLink = getMobileHomepageLink('en-US');
+    _correctedLocationForPlatform.returns(mobileLink);
+    const root = render();
+
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'To find add-ons compatible with Firefox for Android,',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'click here',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      `<a href="${mobileLink}">`,
+    );
+  });
+
+  it('generates the expected message when being directed to other than the mobile home page, from the detail page', () => {
+    const newLocation = '/some/location/';
+    _correctedLocationForPlatform.returns(newLocation);
+    const root = render({ addon: createInternalAddon(fakeAddon) });
+
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'This listing is not intended for this platform.',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'Browse add-ons for Firefox on desktop',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      `<a href="${newLocation}">`,
+    );
+  });
+
+  it('generates the expected message when being directed to other than the mobile home page, from other pages', () => {
+    const newLocation = '/some/location/';
+    _correctedLocationForPlatform.returns(newLocation);
+    const root = render();
+
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'To find add-ons compatible with Firefox on desktop,',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'visit our desktop site',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      `<a href="${newLocation}">`,
+    );
+  });
+
+  it('returns nothing if not Firefox for Android, not Firefox for iOS, and no location correction is required', () => {
+    _correctedLocationForPlatform.returns(null);
+    _isFirefoxForAndroid.returns(false);
+    _isFirefoxForIOS.returns(false);
+    const root = render();
+
+    expect(root.find('.WrongPlatformWarning')).toHaveLength(0);
   });
 });

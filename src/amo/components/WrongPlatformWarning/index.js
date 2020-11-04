@@ -5,47 +5,42 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import {
-  CLIENT_APP_ANDROID,
-  INCOMPATIBLE_ANDROID_UNSUPPORTED,
-  INCOMPATIBLE_FIREFOX_FOR_IOS,
-} from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import {
   correctedLocationForPlatform,
-  getClientCompatibility,
-  isFenix,
+  getMobileHomepageLink,
+  isAndroidInstallable,
+  isFirefoxForAndroid,
+  isFirefoxForIOS,
 } from 'core/utils/compatibility';
 import Notice, { warningInfoType } from 'ui/components/Notice';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
 import type { UserAgentInfoType } from 'core/reducers/api';
-import type { AddonVersionType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
-export const FENIX_LINK_DESTINATION =
+export const ANDROID_SUMO_LINK_DESTINATION =
   'https://support.mozilla.org/kb/find-and-install-add-ons-firefox-android';
 
 type Props = {|
   addon?: AddonType | null,
   className?: string,
-  currentVersion?: AddonVersionType | null,
-  fixAndroidLinkMessage?: string,
-  fixFirefoxLinkMessage?: string,
-  fixFenixLinkMessage?: string,
+  isHomePage?: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
-  _getClientCompatibility: typeof getClientCompatibility,
-  _isFenix: typeof isFenix,
+  _isAndroidInstallable: typeof isAndroidInstallable,
+  _isFirefoxForAndroid: typeof isFirefoxForAndroid,
+  _isFirefoxForIOS: typeof isFirefoxForIOS,
   clientApp: string,
   i18n: I18nType,
+  lang: string,
   location: ReactRouterLocationType,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -53,20 +48,24 @@ type InternalProps = {|
 export class WrongPlatformWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
-    _getClientCompatibility: getClientCompatibility,
-    _isFenix: isFenix,
+    _isAndroidInstallable: isAndroidInstallable,
+    _isFirefoxForAndroid: isFirefoxForAndroid,
+    _isFirefoxForIOS: isFirefoxForIOS,
+    isHomePage: false,
   };
 
   render() {
     const {
       _correctedLocationForPlatform,
-      _getClientCompatibility,
-      _isFenix,
+      _isAndroidInstallable,
+      _isFirefoxForAndroid,
+      _isFirefoxForIOS,
       addon,
       className,
       clientApp,
-      currentVersion,
       i18n,
+      isHomePage,
+      lang,
       location,
       userAgentInfo,
     } = this.props;
@@ -75,61 +74,55 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
 
     const newLocation = _correctedLocationForPlatform({
       clientApp,
+      isHomePage,
+      lang,
       location,
       userAgentInfo,
     });
 
-    if (_isFenix(userAgentInfo)) {
+    if (_isFirefoxForIOS(userAgentInfo)) {
+      // Firefox for iOS.
+      message = i18n.gettext(
+        `This add-on is not compatible with this browser. Try installing it on Firefox for desktop.`,
+      );
+    } else if (
+      addon &&
+      _isFirefoxForAndroid(userAgentInfo) &&
+      _isAndroidInstallable({ addon })
+    ) {
+      // Compatible with Fenix add-on detail page.
       message = i18n.sprintf(
-        this.props.fixFenixLinkMessage ||
-          i18n.gettext(
-            `To learn about add-ons compatible with Firefox for Android,
+        i18n.gettext(
+          `You can install this add-on in the Add-ons Manager.
+          Learn more about <a href="%(newLocation)s">add-ons for Android</a>.`,
+        ),
+        {
+          newLocation: ANDROID_SUMO_LINK_DESTINATION,
+        },
+      );
+    } else if (newLocation === getMobileHomepageLink(lang)) {
+      // Redirecting to mobile home page.
+      message = i18n.sprintf(
+        i18n.gettext(
+          `To find add-ons compatible with Firefox for Android,
                <a href="%(newLocation)s">click here</a>.`,
-          ),
-        { newLocation: FENIX_LINK_DESTINATION },
+        ),
+        { newLocation },
+      );
+    } else if (addon && newLocation) {
+      // User with desktop browser looking at detail page on mobile site.
+      message = i18n.sprintf(
+        `This listing is not intended for this platform.
+        <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
+        { newLocation },
       );
     } else if (newLocation) {
-      const fixAndroidLinkMessage =
-        this.props.fixAndroidLinkMessage ||
-        i18n.gettext(
-          `To find add-ons compatible with Firefox on Android,
-               <a href="%(newLocation)s">visit our mobile site</a>.`,
-        );
-
-      const fixFirefoxLinkMessage =
-        this.props.fixFirefoxLinkMessage ||
-        i18n.gettext(
-          `To find add-ons compatible with Firefox on desktop,
+      // Redirecting to new page on the desktop site.
+      message = i18n.sprintf(
+        `To find add-ons compatible with Firefox on desktop,
                <a href="%(newLocation)s">visit our desktop site</a>.`,
-        );
-
-      message =
-        clientApp === CLIENT_APP_ANDROID
-          ? i18n.sprintf(fixFirefoxLinkMessage, { newLocation })
-          : i18n.sprintf(fixAndroidLinkMessage, { newLocation });
-    }
-
-    // Check for an add-on that is incompatible on Android.
-    if (addon && currentVersion) {
-      const compatibility = _getClientCompatibility({
-        addon,
-        clientApp,
-        currentVersion,
-        userAgentInfo,
-      });
-      if (compatibility.reason === INCOMPATIBLE_ANDROID_UNSUPPORTED) {
-        message = i18n.sprintf(
-          i18n.gettext(
-            `Not available on Firefox for Android. You can use this add-on with Firefox for Desktop, 
-              or look for similar <a href="%(newLocation)s">Android add-ons</a>.`,
-          ),
-          { newLocation: '/android/' },
-        );
-      } else if (compatibility.reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
-        message = i18n.gettext(
-          `This add-on is not compatible with this browser. Try installing it on Firefox for desktop.`,
-        );
-      }
+        { newLocation },
+      );
     }
 
     return message ? (
@@ -149,6 +142,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
 export function mapStateToProps(state: AppState) {
   return {
     clientApp: state.api.clientApp,
+    lang: state.api.lang,
     userAgentInfo: state.api.userAgentInfo,
   };
 }

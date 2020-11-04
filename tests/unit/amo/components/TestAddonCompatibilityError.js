@@ -9,7 +9,6 @@ import {
   CLIENT_APP_FIREFOX,
   CLIENT_APP_ANDROID,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
-  INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -239,16 +238,6 @@ describe(__filename, () => {
   it('renders nothing for iOS users', () => {
     const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
-    });
-
-    const root = render({ _getClientCompatibility });
-
-    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
-  });
-
-  it('renders nothing if the browser is Fenix', () => {
-    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
-      reason: INCOMPATIBLE_FIREFOX_FENIX,
     });
 
     const root = render({ _getClientCompatibility });
