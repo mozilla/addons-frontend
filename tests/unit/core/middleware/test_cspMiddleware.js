@@ -8,9 +8,9 @@ import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 const deployedEnvs = ['dev', 'production', 'stage'];
 
 const cdnHosts = {
-  dev: 'https://addons-dev-cdn.allizom.org',
-  stage: 'https://addons-stage-cdn.allizom.org',
-  production: 'https://addons.cdn.mozilla.net',
+  dev: 'https://addons-amo-dev-cdn.allizom.org',
+  stage: 'https://addons-amo-cdn.allizom.org',
+  production: 'https://addons-amo.cdn.mozilla.net',
 };
 
 const apiHosts = {
@@ -64,11 +64,11 @@ describe(__filename, () => {
       jest.resetModules();
     });
 
-    it('should default default-src to "\'none\'"', () => {
+    it('should default default-src to the CDN', () => {
       // eslint-disable-next-line global-require
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      expect(cspConfig.defaultSrc).toEqual(["'none'"]);
+      expect(cspConfig.defaultSrc).toEqual([cdnHosts.production]);
     });
 
     it('should default base-uri to "\'self\'"', () => {
@@ -78,11 +78,11 @@ describe(__filename, () => {
       expect(cspConfig.baseUri).toEqual(["'self'"]);
     });
 
-    it('should default form-action to "\'none\'"', () => {
+    it('should default form-action to "\'self\'"', () => {
       // eslint-disable-next-line global-require
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      expect(cspConfig.formAction).toEqual(["'none'"]);
+      expect(cspConfig.formAction).toEqual(["'self'"]);
     });
 
     it('should default frame-src to "\'none\'"', () => {

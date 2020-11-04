@@ -158,7 +158,6 @@ module.exports = {
   // from ./lib/shared.js
   CSP: {
     directives: {
-      defaultSrc: [addonsFrontendCDN],
       baseUri: ["'self'"],
       childSrc: ["'none'"],
       connectSrc: [analyticsHost, apiProdHost, sentryHost],
@@ -176,6 +175,7 @@ module.exports = {
       objectSrc: ["'none'"],
       // This is needed because `prefetchSrc` isn't supported by FF yet.
       // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
+      defaultSrc: [addonsFrontendCDN],
       prefetchSrc: [addonsFrontendCDN],
       // Script is limited to the amo specific CDN.
       scriptSrc: [
