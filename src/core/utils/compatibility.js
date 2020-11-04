@@ -20,7 +20,6 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-  MOBILE_HOME_PAGE_LINK,
   RECOMMENDED,
 } from 'core/constants';
 import { findInstallURL } from 'core/installAddon';
@@ -110,7 +109,7 @@ export const isFirefoxForIOS = (userAgentInfo: UserAgentInfoType): boolean => {
   );
 };
 
-export const isFenixCompatible = ({
+export const isAndroidInstallable = ({
   addon,
 }: {
   addon: AddonType | null,
@@ -185,8 +184,8 @@ export function isCompatibleWithUserAgent({
     };
   }
 
-  // As well, on Android, we need to check that the add-on is Fenix compatible.
-  if (os.name === USER_AGENT_OS_ANDROID && !isFenixCompatible({ addon })) {
+  // As well, on Android, we need to check that the add-on is installable.
+  if (os.name === USER_AGENT_OS_ANDROID && !isAndroidInstallable({ addon })) {
     return { compatible: false, reason: INCOMPATIBLE_ANDROID_UNSUPPORTED };
   }
 
@@ -338,14 +337,19 @@ export const isQuantumCompatible = ({
   return addon.isWebExtension || addon.isMozillaSignedExtension;
 };
 
+export const getMobileHomepageLink = (lang: string) =>
+  `/${lang}/${CLIENT_APP_ANDROID}/`;
+
 export const correctedLocationForPlatform = ({
   clientApp,
   isHomePage = false,
+  lang,
   location,
   userAgentInfo,
 }: {|
   clientApp: string,
   isHomePage?: boolean,
+  lang: string,
   location: ReactRouterLocationType,
   userAgentInfo: UserAgentInfoType,
 |}): string | null => {
@@ -367,7 +371,7 @@ export const correctedLocationForPlatform = ({
       !location.pathname.includes('/search/'))
   ) {
     // Redirect to `android` home page.
-    return MOBILE_HOME_PAGE_LINK;
+    return getMobileHomepageLink(lang);
   }
 
   if (

@@ -330,5 +330,3 @@ export type PromotedCategoryType =
   | typeof SPOTLIGHT
   | typeof STRATEGIC
   | typeof VERIFIED;
-
-export const MOBILE_HOME_PAGE_LINK = `/${CLIENT_APP_ANDROID}/`;

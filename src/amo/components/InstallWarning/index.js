@@ -38,6 +38,7 @@ type InternalProps = {|
   clientApp: string,
   className?: string,
   i18n: I18nType,
+  lang: string,
   location: ReactRouterLocationType,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -60,6 +61,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       _getPromotedCategory,
       addon,
       clientApp,
+      lang,
       location,
       userAgentInfo,
     } = this.props;
@@ -67,6 +69,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
     // Do not show this warning if we are also going to show a WrongPlatformWarning.
     const correctedLocation = _correctedLocationForPlatform({
       clientApp,
+      lang,
       location,
       userAgentInfo,
     });
@@ -111,6 +114,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
 export const mapStateToProps = (state: AppState) => {
   return {
     clientApp: state.api.clientApp,
+    lang: state.api.lang,
     userAgentInfo: state.api.userAgentInfo,
   };
 };

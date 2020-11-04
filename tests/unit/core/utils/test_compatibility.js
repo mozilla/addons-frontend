@@ -12,7 +12,6 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-  MOBILE_HOME_PAGE_LINK,
   OS_ALL,
   OS_ANDROID,
   OS_LINUX,
@@ -26,10 +25,11 @@ import {
   FACEBOOK_CONTAINER_DOWNLOAD_URL,
   getCompatibleVersions,
   getClientCompatibility,
+  getMobileHomepageLink,
   isCompatibleWithUserAgent,
   isFirefoxForAndroid,
   isFirefoxForIOS,
-  isFenixCompatible,
+  isAndroidInstallable,
   isFirefox,
   isQuantumCompatible,
   correctedLocationForPlatform,
@@ -941,12 +941,14 @@ describe(__filename, () => {
     const _correctedLocationForPlatform = ({
       clientApp = CLIENT_APP_FIREFOX,
       isHomePage = false,
+      lang = 'en-US',
       location = createFakeLocation(),
       userAgentInfo,
     }) => {
       return correctedLocationForPlatform({
         clientApp,
         isHomePage,
+        lang,
         location,
         userAgentInfo,
       });
@@ -968,24 +970,28 @@ describe(__filename, () => {
       ).toEqual(null);
     });
 
-    it('returns MOBILE_HOME_PAGE_LINK when on Firefox for Android and clientApp is firefox', () => {
+    it('returns a link to the mobile homepage when on Firefox for Android and clientApp is firefox', () => {
+      const lang = 'fr';
       expect(
         _correctedLocationForPlatform({
           clientApp: CLIENT_APP_FIREFOX,
+          lang,
           userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
         }),
-      ).toEqual(MOBILE_HOME_PAGE_LINK);
+      ).toEqual(getMobileHomepageLink(lang));
     });
 
-    it('returns MOBILE_HOME_PAGE_LINK when on Firefox for Android and clientApp is android for most pages', () => {
+    it('returns a link to the mobile homepage when on Firefox for Android and clientApp is android for most pages', () => {
+      const lang = 'fr';
       expect(
         _correctedLocationForPlatform({
           clientApp: CLIENT_APP_ANDROID,
           isHomePage: false,
+          lang,
           location: createFakeLocation({ pathname: '/some/path' }),
           userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
         }),
-      ).toEqual(MOBILE_HOME_PAGE_LINK);
+      ).toEqual(getMobileHomepageLink(lang));
     });
 
     it('returns null when on Firefox for Android and clientApp is android for the home page', () => {
@@ -1044,6 +1050,15 @@ describe(__filename, () => {
           userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
         }),
       ).toEqual(null);
+    });
+  });
+
+  describe('getMobileHomepageLink', () => {
+    it('uses the lang and CLIENT_APP_ANDROID to build the link', () => {
+      const lang = 'fr';
+      expect(getMobileHomepageLink(lang)).toEqual(
+        `/${lang}/${CLIENT_APP_ANDROID}/`,
+      );
     });
   });
 
@@ -1147,14 +1162,14 @@ describe(__filename, () => {
     });
   });
 
-  describe('isFenixCompatible', () => {
+  describe('isAndroidInstallable', () => {
     it('returns true if the add-on is recommended on android', () => {
       const addon = createInternalAddon({
         ...fakeAddon,
         promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
       });
 
-      expect(isFenixCompatible({ addon })).toEqual(true);
+      expect(isAndroidInstallable({ addon })).toEqual(true);
     });
 
     it('returns true if the add-on is recommended on android and desktop', () => {
@@ -1166,7 +1181,7 @@ describe(__filename, () => {
         },
       });
 
-      expect(isFenixCompatible({ addon })).toEqual(true);
+      expect(isAndroidInstallable({ addon })).toEqual(true);
     });
 
     it('returns false if the add-on is recommended but not on android', () => {
@@ -1175,7 +1190,7 @@ describe(__filename, () => {
         promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
       });
 
-      expect(isFenixCompatible({ addon })).toEqual(false);
+      expect(isAndroidInstallable({ addon })).toEqual(false);
     });
 
     it.each(
@@ -1186,17 +1201,17 @@ describe(__filename, () => {
         promoted: { category, apps: [CLIENT_APP_ANDROID] },
       });
 
-      expect(isFenixCompatible({ addon })).toEqual(false);
+      expect(isAndroidInstallable({ addon })).toEqual(false);
     });
 
     it('returns false if the add-on is not promoted', () => {
       const addon = createInternalAddon({ ...fakeAddon, promoted: null });
 
-      expect(isFenixCompatible({ addon })).toEqual(false);
+      expect(isAndroidInstallable({ addon })).toEqual(false);
     });
 
     it('returns false if addon is null', () => {
-      expect(isFenixCompatible({ addon: null })).toEqual(false);
+      expect(isAndroidInstallable({ addon: null })).toEqual(false);
     });
   });
 });

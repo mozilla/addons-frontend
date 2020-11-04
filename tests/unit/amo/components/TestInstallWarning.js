@@ -152,6 +152,7 @@ describe(__filename, () => {
 
     it('calls _correctedLocationForPlatform with clientApp, location and userAgentInfo', () => {
       const clientApp = CLIENT_APP_ANDROID;
+      const lang = 'fr';
       const userAgent = userAgentsByPlatform.mac.firefox57;
       const parsedUserAgent = UAParser(userAgent);
       const location = createFakeLocation();
@@ -159,6 +160,7 @@ describe(__filename, () => {
 
       dispatchClientMetadata({
         clientApp,
+        lang,
         store,
         userAgent,
       });
@@ -167,6 +169,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(_correctedLocationForPlatform, {
         clientApp,
+        lang,
         location,
         userAgentInfo: sinon.match({
           browser: sinon.match(parsedUserAgent.browser),

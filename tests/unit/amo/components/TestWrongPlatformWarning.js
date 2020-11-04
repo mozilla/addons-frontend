@@ -5,7 +5,8 @@ import WrongPlatformWarning, {
   ANDROID_SUMO_LINK_DESTINATION,
   WrongPlatformWarningBase,
 } from 'amo/components/WrongPlatformWarning';
-import { CLIENT_APP_ANDROID, MOBILE_HOME_PAGE_LINK } from 'core/constants';
+import { getMobileHomepageLink } from 'core/utils/compatibility';
+import { CLIENT_APP_ANDROID } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
@@ -22,7 +23,7 @@ describe(__filename, () => {
   let _getClientCompatibility;
   let _isFirefoxForAndroid;
   let _isFirefoxForIOS;
-  let _isFenixCompatible;
+  let _isAndroidInstallable;
   let store;
 
   beforeEach(() => {
@@ -30,7 +31,7 @@ describe(__filename, () => {
     _getClientCompatibility = sinon.stub().returns({});
     _isFirefoxForAndroid = sinon.stub();
     _isFirefoxForIOS = sinon.stub();
-    _isFenixCompatible = sinon.stub();
+    _isAndroidInstallable = sinon.stub();
     store = dispatchClientMetadata().store;
   });
 
@@ -48,7 +49,7 @@ describe(__filename, () => {
       _getClientCompatibility,
       _isFirefoxForAndroid,
       _isFirefoxForIOS,
-      _isFenixCompatible,
+      _isAndroidInstallable,
       i18n: fakeI18n(),
       store,
       ...customProps,
@@ -89,21 +90,22 @@ describe(__filename, () => {
     );
   });
 
-  it('calls _isFenixCompatible to check for Fenix compatibility', () => {
+  it('calls _isAndroidInstallable to check for Fenix compatibility', () => {
     const addon = createInternalAddon(fakeAddon);
     _isFirefoxForAndroid.returns(true);
 
     render({ addon: createInternalAddon(fakeAddon) });
 
-    sinon.assert.calledWith(_isFenixCompatible, { addon });
+    sinon.assert.calledWith(_isAndroidInstallable, { addon });
   });
 
-  it('calls _correctedLocationForPlatform with clientApp, isHomePage, location and userAgentInfo', () => {
-    const isHomePage = true;
+  it('calls _correctedLocationForPlatform with clientApp, isHomePage, lang, location and userAgentInfo', () => {
     const clientApp = CLIENT_APP_ANDROID;
+    const isHomePage = true;
+    const lang = 'fr';
     const userAgent = userAgentsByPlatform.mac.firefox57;
     const parsedUserAgent = UAParser(userAgent);
-    _dispatchClientMetadata({ clientApp, userAgent });
+    _dispatchClientMetadata({ clientApp, lang, userAgent });
 
     const pathname = '/some/path/';
     const location = createFakeLocation({ pathname });
@@ -113,6 +115,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(_correctedLocationForPlatform, {
       clientApp,
       isHomePage,
+      lang,
       location,
       userAgentInfo: sinon.match({
         browser: sinon.match(parsedUserAgent.browser),
@@ -123,9 +126,10 @@ describe(__filename, () => {
 
   it('calls _correctedLocationForPlatform with isHomePage defaulted to false', () => {
     const clientApp = CLIENT_APP_ANDROID;
+    const lang = 'fr';
     const userAgent = userAgentsByPlatform.mac.firefox57;
     const parsedUserAgent = UAParser(userAgent);
-    _dispatchClientMetadata({ clientApp, userAgent });
+    _dispatchClientMetadata({ clientApp, lang, userAgent });
 
     const pathname = '/some/path/';
     const location = createFakeLocation({ pathname });
@@ -135,6 +139,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(_correctedLocationForPlatform, {
       clientApp,
       isHomePage: false,
+      lang,
       location,
       userAgentInfo: sinon.match({
         browser: sinon.match(parsedUserAgent.browser),
@@ -145,7 +150,7 @@ describe(__filename, () => {
 
   it('generates the expected message when user agent is Firefox for Android and add-on is compatible', () => {
     _isFirefoxForAndroid.returns(true);
-    _isFenixCompatible.returns(true);
+    _isAndroidInstallable.returns(true);
     const root = render({ addon: createInternalAddon(fakeAddon) });
 
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
@@ -169,7 +174,8 @@ describe(__filename, () => {
   });
 
   it('generates the expected message when being directed to the mobile home page', () => {
-    _correctedLocationForPlatform.returns(MOBILE_HOME_PAGE_LINK);
+    const mobileLink = getMobileHomepageLink('en-US');
+    _correctedLocationForPlatform.returns(mobileLink);
     const root = render();
 
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
@@ -179,7 +185,7 @@ describe(__filename, () => {
       'click here',
     );
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      `<a href="${MOBILE_HOME_PAGE_LINK}">`,
+      `<a href="${mobileLink}">`,
     );
   });
 

@@ -5,12 +5,12 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { MOBILE_HOME_PAGE_LINK } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import {
   correctedLocationForPlatform,
-  isFenixCompatible,
+  getMobileHomepageLink,
+  isAndroidInstallable,
   isFirefoxForAndroid,
   isFirefoxForIOS,
 } from 'core/utils/compatibility';
@@ -35,11 +35,12 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
-  _isFenixCompatible: typeof isFenixCompatible,
+  _isAndroidInstallable: typeof isAndroidInstallable,
   _isFirefoxForAndroid: typeof isFirefoxForAndroid,
   _isFirefoxForIOS: typeof isFirefoxForIOS,
   clientApp: string,
   i18n: I18nType,
+  lang: string,
   location: ReactRouterLocationType,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -47,7 +48,7 @@ type InternalProps = {|
 export class WrongPlatformWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
-    _isFenixCompatible: isFenixCompatible,
+    _isAndroidInstallable: isAndroidInstallable,
     _isFirefoxForAndroid: isFirefoxForAndroid,
     _isFirefoxForIOS: isFirefoxForIOS,
     isHomePage: false,
@@ -56,7 +57,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
   render() {
     const {
       _correctedLocationForPlatform,
-      _isFenixCompatible,
+      _isAndroidInstallable,
       _isFirefoxForAndroid,
       _isFirefoxForIOS,
       addon,
@@ -64,6 +65,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
       clientApp,
       i18n,
       isHomePage,
+      lang,
       location,
       userAgentInfo,
     } = this.props;
@@ -73,6 +75,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
     const newLocation = _correctedLocationForPlatform({
       clientApp,
       isHomePage,
+      lang,
       location,
       userAgentInfo,
     });
@@ -85,7 +88,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
     } else if (
       addon &&
       _isFirefoxForAndroid(userAgentInfo) &&
-      _isFenixCompatible({ addon })
+      _isAndroidInstallable({ addon })
     ) {
       // Compatible with Fenix add-on detail page.
       message = i18n.sprintf(
@@ -97,7 +100,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
           newLocation: ANDROID_SUMO_LINK_DESTINATION,
         },
       );
-    } else if (newLocation === MOBILE_HOME_PAGE_LINK) {
+    } else if (newLocation === getMobileHomepageLink(lang)) {
       // Redirecting to mobile home page.
       message = i18n.sprintf(
         i18n.gettext(
@@ -139,6 +142,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
 export function mapStateToProps(state: AppState) {
   return {
     clientApp: state.api.clientApp,
+    lang: state.api.lang,
     userAgentInfo: state.api.userAgentInfo,
   };
 }
