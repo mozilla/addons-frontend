@@ -22,6 +22,7 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  ADDON_TYPE_DICT,
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
 } from 'core/constants';
@@ -447,10 +448,10 @@ describe(__filename, () => {
     expect(root.find(ReportUserAbuse)).toHaveLength(1);
   });
 
-  it('renders two AddonsByAuthorsCard', () => {
+  it('renders three AddonsByAuthorsCard', () => {
     const root = renderUserProfile();
 
-    expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
+    expect(root.find(AddonsByAuthorsCard)).toHaveLength(3);
   });
 
   it('passes the errorHandler to the AddonsByAuthorsCard', () => {
@@ -465,13 +466,18 @@ describe(__filename, () => {
       'errorHandler',
       errorHandler,
     );
+
+    expect(root.find(AddonsByAuthorsCard).at(2)).toHaveProp(
+      'errorHandler',
+      errorHandler,
+    );
   });
 
   it('renders AddonsByAuthorsCards without a user', () => {
     const userId = 1234;
     const root = renderUserProfile({ params: { userId } });
 
-    expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
+    expect(root.find(AddonsByAuthorsCard)).toHaveLength(3);
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('authorIds', null);
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
       'authorDisplayName',
@@ -479,6 +485,11 @@ describe(__filename, () => {
     );
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('authorIds', null);
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'authorDisplayName',
+      null,
+    );
+    expect(root.find(AddonsByAuthorsCard).at(2)).toHaveProp('authorIds', null);
+    expect(root.find(AddonsByAuthorsCard).at(2)).toHaveProp(
       'authorDisplayName',
       null,
     );
@@ -521,6 +532,27 @@ describe(__filename, () => {
     );
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('paginate', true);
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'pathname',
+      `/user/${userId}/`,
+    );
+  });
+
+  it('renders AddonsByAuthorsCard for dicts', () => {
+    const userId = 123;
+    const { params, store } = signInUserWithUserId(userId);
+
+    const root = renderUserProfile({ params, store });
+
+    expect(root.find(AddonsByAuthorsCard).at(2)).toHaveProp(
+      'addonType',
+      ADDON_TYPE_DICT,
+    );
+    expect(root.find(AddonsByAuthorsCard).at(2)).toHaveProp(
+      'pageParam',
+      'page_d',
+    );
+    expect(root.find(AddonsByAuthorsCard).at(2)).toHaveProp('paginate', true);
+    expect(root.find(AddonsByAuthorsCard).at(2)).toHaveProp(
       'pathname',
       `/user/${userId}/`,
     );
