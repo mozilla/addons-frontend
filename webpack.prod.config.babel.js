@@ -13,12 +13,8 @@ import { getPlugins, getRules } from './webpack-common';
 import webpackIsomorphicToolsConfig from './src/core/server/webpack-isomorphic-tools-config';
 
 const appName = config.get('appName');
-const appsBuildList = appName ? [appName] : config.get('validAppNames');
 
-const entryPoints = {};
-for (const app of appsBuildList) {
-  entryPoints[app] = `${app}/client`;
-}
+const entryPoints = { [appName]: `${appName}/client` };
 
 export default {
   mode: 'production',

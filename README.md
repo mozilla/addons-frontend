@@ -42,9 +42,8 @@ Here are some commands you can run:
 | yarn amo:dev-https | Same as `amo:dev` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended) |
 | yarn amo:no-proxy | Start the dev server without a proxy (for amo) using data from Docker |
 | yarn amo:stage | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
-| yarn build | Build an app specified with the `NODE_APP_INSTANCE` environment variable. |
-| yarn build-all | Build all the applications. |
-| yarn build-ci | Run the `build-all` and `bundlesize` npm scripts. |
+| yarn build | Build the app. |
+| yarn build-ci | Run the `build` and `bundlesize` npm scripts. |
 | yarn bundlesize | Run [bundlesize][] to check the generated AMO bundle sizes. [Building AMO is required first](#building-and-running-services). |
 | yarn flow | Run Flow. By default this checks for errors and exits |
 | yarn flow:check | Explicitly check for Flow errors and exit |
@@ -288,7 +287,6 @@ The following are scripts that are used in deployment - you generally won't need
 
 The env vars are:
 
-- `NODE_APP_INSTANCE`: the name of the app, e.g., `amo`
 - `NODE_ENV`: the node environment, e.g. `production` or `development`
 - `NODE_CONFIG_ENV`: the name of the configuration to load, e.g., `dev`, `stage`, `prod`
 
@@ -297,11 +295,11 @@ The env vars are:
 | yarn start | Starts the express server (requires env vars)  |
 | yarn build | Builds the libs (all apps) (requires env vars) |
 
-**Example:** Building and running a production instance of the AMO app:
+**Example:** Building and running a production instance of the app:
 
 ```
-NODE_APP_INSTANCE=amo NODE_ENV=production NODE_CONFIG_ENV=prod yarn build
-NODE_APP_INSTANCE=amo NODE_ENV=production NODE_CONFIG_ENV=prod yarn start
+NODE_ENV=production NODE_CONFIG_ENV=prod yarn build
+NODE_ENV=production NODE_CONFIG_ENV=prod yarn start
 ```
 
 **Note: To run the app locally in production mode you'll need to create a config file for local production builds.** It must be saved as `config/local-prod-amo.js` and should look like:

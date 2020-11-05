@@ -164,13 +164,11 @@ function baseServer(
     _HotShots,
     _createHistory = createHistory,
     _log = log,
-    appInstanceName = null,
     appSagas,
     config = defaultConfig,
   } = {},
 ) {
-  const appName =
-    appInstanceName !== null ? appInstanceName : config.get('appName');
+  const appName = config.get('appName');
 
   const app = new Express();
   app.disable('x-powered-by');
@@ -263,7 +261,6 @@ function baseServer(
       }
 
       const isAnonymousPage =
-        appName === 'amo' &&
         config
           .get('anonymousPagePatterns')
           .filter((pattern) => new RegExp(pattern).test(req.originalUrl))
@@ -493,9 +490,7 @@ export function runServer({
 
   return new Promise((resolve) => {
     if (!appName) {
-      throw new Error(
-        `Please specify a valid appName from ${config.get('validAppNames')}`,
-      );
+      throw new Error(`Please specify an appName in config`);
     }
     resolve();
   })
@@ -509,9 +504,7 @@ export function runServer({
         const App = require(`${appName}/components/App`).default;
         const createStore = require(`${appName}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        let server = baseServer(App, createStore, {
-          appInstanceName: appName,
-        });
+        let server = baseServer(App, createStore);
         if (listen === true) {
           if (useHttpsForDev) {
             if (host === 'example.com') {

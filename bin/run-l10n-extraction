@@ -29,10 +29,9 @@ error() {
 }
 
 run_l10n_extraction() {
-  local app="$1"
-  local branch="$app-locales"
+  local branch="amo-locales"
 
-  info "Starting l10n extraction for $app"
+  info "Starting l10n extraction"
 
   # Detect local (uncommitted) changes.
   if [[ ! -z "$GIT_CHANGES" ]]; then
@@ -60,25 +59,25 @@ run_l10n_extraction() {
   git checkout -b "$branch"
 
   info "Extracting locales (this can take several minutes)"
-  NODE_APP_INSTANCE="$app" bin/extract-locales >> "$LOG_FILE" 2>&1
+  bin/extract-locales >> "$LOG_FILE" 2>&1
 
   local git_diff_stat
   git_diff_stat=$(git diff --shortstat)
 
   if [[ -z "$git_diff_stat" ]] || [[ "$git_diff_stat" == *"$DIFF_WITH_ONE_LINE_CHANGE"* ]]; then
-    info "No locale changes for $app, nothing to update, ending process for $app"
+    info "No locale changes, nothing to update, ending process"
     git checkout -- .
     git checkout "$INITIAL_GIT_BRANCH"
     git branch -d "$branch"
     return
   fi
 
-  git commit -a -m "Extract $app locales"
+  git commit -a -m "Extract locales"
 
   info "Merging locales"
-  NODE_APP_INSTANCE="$app" bin/merge-locales >> "$LOG_FILE" 2>&1
+  bin/merge-locales >> "$LOG_FILE" 2>&1
 
-  git commit -a -m "Merge $app locales"
+  git commit -a -m "Merge locales"
 
   # We use force-push in case the branch already exists.
   git push -f "$GIT_REMOTE" "$branch"
@@ -98,4 +97,4 @@ run_l10n_extraction() {
 # Clear log file
 echo "" > "$LOG_FILE"
 
-run_l10n_extraction "amo"
+run_l10n_extraction

@@ -6,15 +6,9 @@ import path from 'path';
 
 import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
 
-const appName = process.env.NODE_APP_INSTANCE || null;
-const validAppNames = [
-  'amo',
-];
-
-// Throw if the appName supplied is not valid.
-if (appName && !validAppNames.includes(appName)) {
-  throw new Error(
-    `App "${appName}" is not enabled; valid app names: ${validAppNames}`);
+const appName = 'amo';
+if (!appName) {
+  throw new Error('An appName is required.');
 }
 
 const addonsFrontendCDN = 'https://addons-amo.cdn.mozilla.net';
@@ -70,9 +64,6 @@ module.exports = {
   // Disable this in development when working with stage data, which is
   // very out-of-date and mostly not 57+ compatible.
   restrictSearchResultsToAppVersion: true,
-
-  // The canonical list of enabled apps.
-  validAppNames,
 
   // The node server host and port.
   serverHost: '127.0.0.1',

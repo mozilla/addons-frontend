@@ -21,14 +21,9 @@ const apiHosts = {
 
 describe(__filename, () => {
   const existingNodeEnv = process.env.NODE_ENV;
-  const existingNodeAppInstance = process.env.NODE_APP_INSTANCE;
 
   afterEach(() => {
     process.env.NODE_ENV = existingNodeEnv;
-    delete process.env.NODE_APP_INSTANCE;
-    if (existingNodeAppInstance) {
-      process.env.NODE_APP_INSTANCE = existingNodeAppInstance;
-    }
   });
 
   describe('CSP Config', () => {
@@ -117,7 +112,6 @@ describe(__filename, () => {
   describe('CSP Middleware', () => {
     it('provides the expected style-src directive', () => {
       process.env.NODE_ENV = 'prod';
-      process.env.NODE_APP_INSTANCE = 'amo';
       jest.resetModules();
       // eslint-disable-next-line global-require
       const config = require('config');

@@ -120,7 +120,7 @@ export default class ServerHtml extends Component {
       .getMainAssets('style')
       .filter(
         // We render the main bundle with `getScript()`, so we skip it here.
-        (asset) => !_config.get('validAppNames').includes(asset.chunk),
+        (asset) => asset.chunk !== _config.get('appName'),
       )
       .map((asset) => {
         const sriProps = this.getSriProps(asset.filename);
@@ -175,7 +175,7 @@ export default class ServerHtml extends Component {
       .getMainAssets('script')
       .filter(
         // We render the main bundle with `getScript()`, so we skip it here.
-        (asset) => !_config.get('validAppNames').includes(asset.chunk),
+        (asset) => asset.chunk !== _config.get('appName'),
       )
       .map((asset) => {
         const sriProps = this.getSriProps(asset.filename);

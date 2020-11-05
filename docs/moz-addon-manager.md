@@ -1,6 +1,6 @@
 # Develop features for mozAddonManager
 
-The AMO and Discovery Pane apps use the [`mozAddonManager`](https://bugzilla.mozilla.org/show_bug.cgi?id=1310752) web API to achieve a more seamless add-on installation user experience. However, this API is only available to a limited list of domains. If you go to https://addons.mozilla.org (production) in Firefox then `mozAddonManager` is available on the page. If you go to a non-production site (local, development or staging) then it's not by default.
+The AMO app uses the [`mozAddonManager`](https://bugzilla.mozilla.org/show_bug.cgi?id=1310752) web API to achieve a more seamless add-on installation user experience. However, this API is only available to a limited list of domains. If you go to https://addons.mozilla.org (production) in Firefox then `mozAddonManager` is available on the page. If you go to a non-production site (local, development or staging) then it's not by default.
 
 ## Turning on mozAddonManager in -dev and -stage environments
 
@@ -64,7 +64,7 @@ It is possible to serve the local development version of this project with HTTPS
 5. Start `addons-frontend` with the command below:
 
    ```
-   yarn amo:dev-https  # or yarn disco:https for Disco Pane
+   yarn amo:dev-https
    ```
 
 This allows you to browse the project at https://example.com:3000/ (and not `localhost`).

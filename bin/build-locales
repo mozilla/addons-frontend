@@ -19,7 +19,7 @@ const { oneLine } = require('common-tags');
 const appName = config.get('appName');
 
 if (!appName) {
-  console.log(chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
+  console.log(chalk.red('appName not set in config'));
   process.exit(1);
 }
 
@@ -61,36 +61,32 @@ poFiles.forEach((pofile) => {
   });
   const localeObject = JSON.parse(json);
 
-  // Add the moment locale JS into our locale file, if one is available and
-  // we're building for AMO (which is the only app that uses moment right
-  // now).
-  if (appName === 'amo') {
-    var defineLocale = null;
-    try {
-      const localeModulePath = getLocaleModulePath(locale);
+  // Add the moment locale JS into our locale file, if one is available.
+  var defineLocale = null;
+  try {
+    const localeModulePath = getLocaleModulePath(locale);
 
-      // Check for the locale first; if it doesn't exist we don't have
-      // a moment locale that matches.
-      fs.accessSync(`./node_modules/${localeModulePath}.js`);
+    // Check for the locale first; if it doesn't exist we don't have
+    // a moment locale that matches.
+    fs.accessSync(`./node_modules/${localeModulePath}.js`);
 
-      // We're using `new Function()` here to create a function out of the
-      // raw code; this function won't be executed but will be written out by
-      // `toSource()` so that it can be used later (at runtime, by moment).
-      defineLocale = new Function(`
-        // By requiring this module, the new locale is defined and
-        // registered internally for moment.js
-        require('${localeModulePath}');`);
-    } catch (e) {
-      // We ignore missing locale errors for en_US as its moment's default
-      // locale so we don't need to provide a translation.
-      if (locale !== 'en_US') {
-        console.info(oneLine`No moment i18n available for ${locale};
-          consider adding one or creating a mapping.`);
-      }
+    // We're using `new Function()` here to create a function out of the
+    // raw code; this function won't be executed but will be written out by
+    // `toSource()` so that it can be used later (at runtime, by moment).
+    defineLocale = new Function(`
+      // By requiring this module, the new locale is defined and
+      // registered internally for moment.js
+      require('${localeModulePath}');`);
+  } catch (e) {
+    // We ignore missing locale errors for en_US as its moment's default
+    // locale so we don't need to provide a translation.
+    if (locale !== 'en_US') {
+      console.info(oneLine`No moment i18n available for ${locale};
+        consider adding one or creating a mapping.`);
     }
-
-    localeObject._momentDefineLocale = defineLocale;
   }
+
+  localeObject._momentDefineLocale = defineLocale;
 
   // This is used to force cache-busting of the JS via changing all locale JS.
   // DO NOT REMOVE! See https://github.com/mozilla/addons-frontend/issues/4927

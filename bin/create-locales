@@ -24,7 +24,7 @@ const appName = config.get('appName');
 
 if (!appName) {
   console.log(
-    chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
+    chalk.red('appName not set in config'));
   process.exit(1);
 }
 
