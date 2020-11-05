@@ -14,6 +14,9 @@ module.exports = {
   // memory we have (and more...).
   enableRequestID: false,
 
+  // Force-disable Sentry
+  publicSentryDsn: null,
+
   // We use a fake/incomplete file for the test suite.
   loadableStatsFile: path.join(fixturesPath, 'loadable-stats.json'),
 
