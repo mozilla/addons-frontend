@@ -122,7 +122,7 @@ describe(__filename, () => {
       middleware(req, res, nextSpy);
       const cspHeader = res.get('content-security-policy');
       const policy = parse(cspHeader);
-      const cdnHost = 'https://addons.cdn.mozilla.net';
+      const cdnHost = 'https://addons-amo.cdn.mozilla.net';
       expect(policy['style-src']).toEqual([cdnHost]);
       sinon.assert.calledOnce(nextSpy);
     });

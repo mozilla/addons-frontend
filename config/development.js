@@ -38,8 +38,6 @@ module.exports = {
 
   enableStrictMode: true,
 
-  // I had to add this to get it to work, but I think there's a better way.
-  proxyPort: 3000,
   serverPort: 3000,
   webpackServerHost,
   webpackServerPort,
