@@ -94,7 +94,6 @@ export class ServerTestHelper {
 
   testClient({
     App = StubApp,
-    appInstanceName = 'testapp',
     store = null,
     sagaMiddleware = null,
     appSagas = null,
@@ -114,7 +113,6 @@ export class ServerTestHelper {
 
     const app = baseServer(App, _createStoreAndSagas, {
       appSagas: appSagas || fakeSaga,
-      appInstanceName,
       config,
       ...baseServerParams,
     });
@@ -523,14 +521,13 @@ describe(__filename, () => {
       );
     });
 
-    it('handles requests slightly differently when app is amo and loaded page is anonymous', async () => {
+    it('handles requests slightly differently when loaded page is anonymous', async () => {
       const url = '/en-US/firefox/';
       const config = getFakeConfig({ anonymousPagePatterns: [url] });
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({
-        appInstanceName: 'amo',
         config,
         store,
         sagaMiddleware,
@@ -553,7 +550,6 @@ describe(__filename, () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       await testClient({
-        appInstanceName: 'amo',
         config,
         store,
         sagaMiddleware,

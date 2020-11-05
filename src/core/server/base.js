@@ -164,13 +164,11 @@ function baseServer(
     _HotShots,
     _createHistory = createHistory,
     _log = log,
-    appInstanceName = null,
     appSagas,
     config = defaultConfig,
   } = {},
 ) {
-  const appName =
-    appInstanceName !== null ? appInstanceName : config.get('appName');
+  const appName = config.get('appName');
 
   const app = new Express();
   app.disable('x-powered-by');
@@ -506,9 +504,7 @@ export function runServer({
         const App = require(`${appName}/components/App`).default;
         const createStore = require(`${appName}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        let server = baseServer(App, createStore, {
-          appInstanceName: appName,
-        });
+        let server = baseServer(App, createStore);
         if (listen === true) {
           if (useHttpsForDev) {
             if (host === 'example.com') {

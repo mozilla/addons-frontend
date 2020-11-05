@@ -287,7 +287,6 @@ The following are scripts that are used in deployment - you generally won't need
 
 The env vars are:
 
-- `NODE_APP_INSTANCE`: the name of the app, e.g., `amo`
 - `NODE_ENV`: the node environment, e.g. `production` or `development`
 - `NODE_CONFIG_ENV`: the name of the configuration to load, e.g., `dev`, `stage`, `prod`
 
@@ -296,11 +295,11 @@ The env vars are:
 | yarn start | Starts the express server (requires env vars)  |
 | yarn build | Builds the libs (all apps) (requires env vars) |
 
-**Example:** Building and running a production instance of the AMO app:
+**Example:** Building and running a production instance of the app:
 
 ```
-NODE_APP_INSTANCE=amo NODE_ENV=production NODE_CONFIG_ENV=prod yarn build
-NODE_APP_INSTANCE=amo NODE_ENV=production NODE_CONFIG_ENV=prod yarn start
+NODE_ENV=production NODE_CONFIG_ENV=prod yarn build
+NODE_ENV=production NODE_CONFIG_ENV=prod yarn start
 ```
 
 **Note: To run the app locally in production mode you'll need to create a config file for local production builds.** It must be saved as `config/local-prod-amo.js` and should look like:
