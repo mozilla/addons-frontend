@@ -12,7 +12,6 @@ describe(__filename, () => {
   describe('createClient()', () => {
     const deploymentVersion = '1.2.3';
 
-    let fakeCreateStore;
     let fakeFastClick;
 
     function createFakeRavenJs({
@@ -29,13 +28,6 @@ describe(__filename, () => {
     beforeEach(() => {
       global.DEPLOYMENT_VERSION = deploymentVersion;
 
-      fakeCreateStore = () => {
-        return {
-          sagaMiddleware: null,
-          store: null,
-        };
-      };
-
       fakeFastClick = {
         attach: sinon.stub(),
       };
@@ -43,7 +35,7 @@ describe(__filename, () => {
 
     const _createClient = ({
       _FastClick = fakeFastClick,
-      createStore = fakeCreateStore,
+      createStore = createAmoStore,
       ...others
     } = {}) => {
       return createClient(createStore, { _FastClick, ...others });
@@ -64,16 +56,11 @@ describe(__filename, () => {
     });
 
     it('returns an object with the created store', async () => {
-      const store = sinon.stub();
-      const createStore = () => {
-        return {
-          sagaMiddleware: null,
-          store,
-        };
-      };
+      const storeResult = createAmoStore();
+      const createStore = () => storeResult;
 
       const props = await _createClient({ createStore });
-      expect(props).toHaveProperty('store', store);
+      expect(props).toHaveProperty('store', storeResult.store);
     });
 
     it('configures RavenJs for Sentry', async () => {

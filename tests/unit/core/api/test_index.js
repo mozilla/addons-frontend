@@ -656,20 +656,15 @@ describe(__filename, () => {
     };
 
     it('includes the next path', () => {
+      const fxaConfig = 'my-config';
+      const _config = getFakeConfig({ fxaConfig });
       const location = createFakeLocation({
         pathname: '/foo',
         query: { bar: 'BAR' },
       });
-      expect(getStartLoginQs({ location })).toEqual({ to: '/foo?bar=BAR' });
-    });
-
-    it('includes the next path the config if set', () => {
-      const fxaConfig = 'my-config';
-      const _config = getFakeConfig({ fxaConfig });
-      const location = createFakeLocation({ pathname: '/foo' });
 
       expect(getStartLoginQs({ _config, location })).toEqual({
-        to: '/foo',
+        to: '/foo?bar=BAR',
         config: fxaConfig,
       });
     });

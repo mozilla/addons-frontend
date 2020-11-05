@@ -1,10 +1,13 @@
 // Config for the stage server.
-import { addonsServerStageCDN, analyticsHost, apiStageHost, sentryHost, stageDomain } from './lib/shared';
+import { addonsServerStageCDN, analyticsHost, apiStageHost, baseUrlStage, sentryHost, stageDomain } from './lib/shared';
+
+const addonsFrontendCDN = 'https://addons-amo-cdn.allizom.org';
 
 module.exports = {
+  baseURL: baseUrlStage,
   apiHost: apiStageHost,
   amoCDN: addonsServerStageCDN,
-  staticHost: addonsServerStageCDN,
+  staticHost: addonsFrontendCDN,
 
   cookieDomain: `.${stageDomain}`,
 
@@ -16,17 +19,26 @@ module.exports = {
         apiStageHost,
         sentryHost,
       ],
+      fontSrc: [
+        addonsFrontendCDN,
+      ],
       imgSrc: [
         "'self'",
-        addonsServerStageCDN,
         'data:',
+        addonsServerStageCDN,
+        addonsFrontendCDN,
       ],
       scriptSrc: [
-        addonsServerStageCDN,
+        addonsFrontendCDN,
+        `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
-        addonsServerStageCDN,
+        addonsFrontendCDN,
       ],
+      // This is needed because `prefetchSrc` isn't supported by FF yet.
+      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
+      defaultSrc: [addonsFrontendCDN],
+      prefetchSrc: [addonsFrontendCDN],
     },
   },
 
@@ -34,4 +46,6 @@ module.exports = {
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-stage/
   publicSentryDsn: 'https://8f0a256ee2c345608510155edafb71f7@sentry.prod.mozaws.net/182',
+
+  extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
 };

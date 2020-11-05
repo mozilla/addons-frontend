@@ -259,19 +259,15 @@ export function startLoginUrl({
   _config?: typeof config,
   location: ReactRouterLocationType,
 |}) {
-  const apiVersion = _config.get('apiVersion');
-  const configName = _config.get('fxaConfig');
-
   const params = {
-    config: undefined,
+    config: _config.get('fxaConfig'),
     to: url.format({ ...location }),
   };
-  if (configName) {
-    params.config = configName;
-  }
   const query = makeQueryString(params);
 
-  return `${API_BASE}${apiVersion}/accounts/login/start/${query}`;
+  return `${API_BASE}${_config.get(
+    'apiVersion',
+  )}/accounts/login/start/${query}`;
 }
 
 export function logOutFromServer({ api }: {| api: ApiState |}) {

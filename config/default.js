@@ -17,6 +17,7 @@ if (appName && !validAppNames.includes(appName)) {
     `App "${appName}" is not enabled; valid app names: ${validAppNames}`);
 }
 
+const addonsFrontendCDN = 'https://addons-amo.cdn.mozilla.net';
 const basePath = path.resolve(__dirname, '../');
 const distPath = path.join(basePath, 'dist');
 const loadableStatsFilename = 'loadable-stats.json';
@@ -86,7 +87,7 @@ module.exports = {
 
   // The CDN host for AMO.
   amoCDN: addonsServerProdCDN,
-  staticHost: addonsServerProdCDN,
+  staticHost: addonsFrontendCDN,
   apiHost: apiProdHost,
   apiPath: '/api/',
   apiVersion: 'v4',
@@ -157,24 +158,31 @@ module.exports = {
   // from ./lib/shared.js
   CSP: {
     directives: {
-      defaultSrc: ["'none'"],
       baseUri: ["'self'"],
       childSrc: ["'none'"],
       connectSrc: [analyticsHost, apiProdHost, sentryHost],
-      formAction: ["'none'"],
+      fontSrc: [addonsFrontendCDN],
+      formAction: ["'self'"],
       frameSrc: ["'none'"],
       imgSrc: [
-        // Favicons are normally served
-        // from the document host.
         "'self'",
-        addonsServerProdCDN,
         'data:',
+        addonsServerProdCDN,
+        addonsFrontendCDN,
       ],
       manifestSrc: ["'none'"],
       mediaSrc: ["'none'"],
       objectSrc: ["'none'"],
-      scriptSrc: [addonsServerProdCDN],
-      styleSrc: [addonsServerProdCDN],
+      // This is needed because `prefetchSrc` isn't supported by FF yet.
+      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
+      defaultSrc: [addonsFrontendCDN],
+      prefetchSrc: [addonsFrontendCDN],
+      // Script is limited to the amo specific CDN.
+      scriptSrc: [
+        addonsFrontendCDN,
+        `${analyticsHost}/analytics.js`,
+      ],
+      styleSrc: [addonsFrontendCDN],
       workerSrc: ["'none'"],
       reportUri: '/__cspreport__',
     },
@@ -295,14 +303,12 @@ module.exports = {
   po2jsonFuzzyOutput: false,
 
   enablePrefixMiddleware: true,
-  enableTrailingSlashesMiddleware: false,
+  enableTrailingSlashesMiddleware: true,
 
   localeDir: path.resolve(path.join(__dirname, '../locale')),
 
-  // This is off by default
-  // and enabled on a per-app basis.
-  trackingEnabled: false,
-  trackingId: null,
+  trackingEnabled: true,
+  trackingId: 'UA-36116321-7',
   // send a page view on initialization.
   trackingSendInitPageView: true,
 
@@ -315,10 +321,85 @@ module.exports = {
     'firefox',
   ],
 
-  validLocaleUrlExceptions: [],
-  validClientAppUrlExceptions: [],
-  validTrailingSlashUrlExceptions: [],
-  clientAppRoutes: [],
+  // This needs to be kept in sync with addons-server's SUPPORTED_NONLOCALES
+  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py
+  // These are URLs that are ignored by our prefix middleware that will add
+  // a locale (e.g. `en-US`) to any URL that doesn't have a valid locale.
+  // These are all URLs that should not get a locale prepended to the URL,
+  // because they are locale-independant, like `/firefox/downloads/`.
+  validLocaleUrlExceptions: [
+    '__frontend_version__',
+    '__version__',
+    // This isn't in addons-server, but instead will cause a redirect to
+    // another host.
+    'blocklist',
+    'contribute.json',
+    'downloads',
+    'google1f3e37b7351799a5.html',
+    'google231a41e803e464e9.html',
+    'robots.txt',
+    'services',
+    'static',
+    'user-media',
+  ],
+
+  // This needs to be kept in sync with addons-server's SUPPORTED_NONAPPS
+  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py
+  // These are URLs that are ignored by our prefix middleware that will add
+  // a clientApp (e.g. `android`) to any URL that doesn't have a valid
+  // clientApp. These are all URLs that don't require a clientApp in them
+  // because they are app-independant, like `/en-US/developers/`.
+  validClientAppUrlExceptions: [
+    '__frontend_version__',
+    '__version__',
+    'about',
+    'admin',
+    'apps',
+    'blocklist',
+    'contribute.json',
+    'developer_agreement',
+    'developers',
+    'editors',
+    'google1f3e37b7351799a5.html',
+    'google231a41e803e464e9.html',
+    'jsi18n',
+    'review_guide',
+    'reviewers',
+    'robots.txt',
+    'services',
+    'static',
+    'statistics',
+    'user-media',
+  ],
+  // These routes are allowed through to the app rather than 404.
+  // Anything in here should also be present in validClientAppUrlExceptions.
+  clientAppRoutes: [
+    'about',
+    'review_guide',
+  ],
+
+  // These URLs are exceptions to our trailing slash URL redirects; if we
+  // find a URL that matches this pattern we won't redirect to the same url
+  // with an appended `/`. This is usually because if we redirect, it will
+  // cause a redirect loop with addons-server; see:
+  // https://github.com/mozilla/addons-frontend/issues/2037
+  //
+  // We use $lang and $clientApp as placeholders so we can have URLs in this
+  // list that don't include those URL pieces, if needed.
+  validTrailingSlashUrlExceptions: [
+    // User URLs, found in:
+    // https://github.com/mozilla/addons-server/blob/master/src/olympia/users/urls.py#L20
+    '/$lang/$clientApp/user/abuse',
+    '/$lang/$clientApp/user/rmlocale',
+    '/$lang/$clientApp/users/ajax',
+    '/$lang/$clientApp/users/delete',
+    '/$lang/$clientApp/users/edit',
+    '/$lang/$clientApp/users/login',
+    '/$lang/$clientApp/users/logout',
+    '/$lang/$clientApp/users/register',
+    '/$lang/about',
+    '/$lang/review_guide',
+  ],
 
   // The default app used in the URL.
   defaultClientApp: 'firefox',
@@ -329,7 +410,7 @@ module.exports = {
     'i18n',
   ],
 
-  fxaConfig: null,
+  fxaConfig: 'amo',
 
   proxyEnabled: false,
 
@@ -338,11 +419,13 @@ module.exports = {
   allowErrorSimulation: false,
 
   sentryDsn: process.env.SENTRY_DSN || null,
-  publicSentryDsn: null,
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-prod/
+  publicSentryDsn: 'https://dbce4e759d8b4dc6a1731d3301fdaab7@sentry.prod.mozaws.net/183',
 
-  // The amount of time (in seconds) that an auth token lives for. This is
-  // currently only used in AMO.
-  authTokenValidFor: null,
+  // The amount of time (in seconds) that an auth token lives for.
+  // This needs to match the SESSION_COOKIE_AGE in addons-server:
+  // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L990
+  authTokenValidFor: 2592000, // 30 days
 
   // This is the public Mozilla user ID (similar to TASK_USER_ID in
   // addons-server).
@@ -362,8 +445,14 @@ module.exports = {
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
-  // This defines experiments for use with the withExperiment HOC, but no
-  // actual experiments should be defined here. Experiments should be defined
-  // in default-amo.
-  experiments: {},
+  // The withExperiment HOC relies on this config to enable/disable A/B
+  // experiments on AMO.
+  experiments: {
+    // The id of the experiment should be added below, in the form of
+    // YYYYMMDD_experimentName, with a value of `true` for an enabled experiment
+    // or `false` for a disabled experiment.
+    // See: https://github.com/mozilla/addons-frontend/pull/9125#issuecomment-580683288
+    //
+    // e.g., 20200204_installWarning: true,
+  },
 };

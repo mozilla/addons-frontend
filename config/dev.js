@@ -1,10 +1,13 @@
 // Config for the -dev server.
-import { addonsServerDevCDN, analyticsHost, apiDevHost, sentryHost, devDomain } from './lib/shared';
+import { addonsServerDevCDN, analyticsHost, apiDevHost, baseUrlDev, sentryHost, devDomain } from './lib/shared';
+
+const addonsFrontendCDN = 'https://addons-amo-dev-cdn.allizom.org';
 
 module.exports = {
+  baseURL: baseUrlDev,
   apiHost: apiDevHost,
   amoCDN: addonsServerDevCDN,
-  staticHost: addonsServerDevCDN,
+  staticHost: addonsFrontendCDN,
 
   cookieDomain: `.${devDomain}`,
 
@@ -18,17 +21,26 @@ module.exports = {
         apiDevHost,
         sentryHost,
       ],
+      fontSrc: [
+        addonsFrontendCDN,
+      ],
       imgSrc: [
         "'self'",
-        addonsServerDevCDN,
         'data:',
+        addonsServerDevCDN,
+        addonsFrontendCDN,
       ],
       scriptSrc: [
-        addonsServerDevCDN,
+        addonsFrontendCDN,
+        `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
-        addonsServerDevCDN,
+        addonsFrontendCDN,
       ],
+      // This is needed because `prefetchSrc` isn't supported by FF yet.
+      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
+      defaultSrc: [addonsFrontendCDN],
+      prefetchSrc: [addonsFrontendCDN],
     },
   },
 
@@ -36,4 +48,6 @@ module.exports = {
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-dev/
   publicSentryDsn: 'https://2c975f188a8b4d728ecbb8179cff9c26@sentry.prod.mozaws.net/181',
+
+  extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 };
