@@ -169,7 +169,7 @@ describe(__filename, () => {
       );
 
       const response = await testClient({ App: NotFoundApp })
-        .get('/en-US/firefox/simulation-of-a-non-existent-page')
+        .get('/en-US/firefox/simulation-of-a-non-existent-page/')
         .end();
 
       expect(response.statusCode).toEqual(404);
