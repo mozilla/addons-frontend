@@ -31,6 +31,4 @@ module.exports = {
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
-
-  enableFeatureUseAdzerkForSponsoredShelf: true,
 };
