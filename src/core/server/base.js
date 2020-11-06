@@ -21,7 +21,7 @@ import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 import log from 'core/logger';
 import { REGION_CODE_HEADER, createApiError } from 'core/api';
 import Root from 'core/components/Root';
-import { AMO_REQUEST_ID_HEADER } from 'core/constants';
+import { AMO_REQUEST_ID_HEADER, APP_NAME } from 'core/constants';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import requestId from 'core/middleware/requestId';
@@ -56,7 +56,6 @@ export const createHistory = ({ req }) => {
 };
 
 export function getPageProps({ store, req, res, config }) {
-  const appName = config.get('appName');
   const isDeployed = config.get('isDeployed');
 
   // Get SRI for deployed services only.
@@ -69,7 +68,7 @@ export function getPageProps({ store, req, res, config }) {
   // Code-splitting.
   const chunkExtractor = new ChunkExtractor({
     stats: JSON.parse(fs.readFileSync(config.get('loadableStatsFile'))),
-    entrypoints: [appName],
+    entrypoints: [APP_NAME],
   });
 
   // Check the lang supplied by res.locals.lang for validity
@@ -100,7 +99,6 @@ export function getPageProps({ store, req, res, config }) {
   }
 
   return {
-    appName,
     assets: webpackIsomorphicTools.assets(),
     chunkExtractor,
     htmlLang: lang,
@@ -176,8 +174,6 @@ function baseServer(
     config = defaultConfig,
   } = {},
 ) {
-  const appName = config.get('appName');
-
   const app = new Express();
   app.disable('x-powered-by');
 
@@ -196,7 +192,6 @@ function baseServer(
     Raven.config(sentryDsn, {
       logger: 'server-js',
       release: getSentryRelease({
-        appName,
         version: getDeploymentVersion({ versionJson }),
       }),
     }).install();
@@ -302,7 +297,7 @@ function baseServer(
         let sagas = appSagas;
         if (!sagas) {
           // eslint-disable-next-line global-require, import/no-dynamic-require
-          sagas = require(`${appName}/sagas`).default;
+          sagas = require(`${APP_NAME}/sagas`).default;
         }
         runningSagas = sagaMiddleware.run(sagas);
 
@@ -353,7 +348,7 @@ function baseServer(
       try {
         if (locale !== langToLocale(config.get('defaultLang'))) {
           // eslint-disable-next-line global-require, import/no-dynamic-require
-          i18nData = require(`../../locale/${locale}/${appName}.js`);
+          i18nData = require(`../../locale/${locale}/${APP_NAME}.js`);
         }
       } catch (e) {
         _log.info(`Locale JSON not found or required for locale: "${locale}"`);
@@ -488,7 +483,6 @@ export function runServer({
 } = {}) {
   const port = config.get('serverPort');
   const host = config.get('serverHost');
-  const appName = config.get('appName');
 
   const useHttpsForDev = process.env.USE_HTTPS_FOR_DEV;
 
@@ -496,21 +490,16 @@ export function runServer({
     WebpackIsomorphicToolsConfig,
   );
 
-  return new Promise((resolve) => {
-    if (!appName) {
-      throw new Error(`Please specify an appName in config`);
-    }
-    resolve();
-  })
-    .then(() => isoMorphicServer.server(config.get('basePath')))
+  return isoMorphicServer
+    .server(config.get('basePath'))
     .then(() => {
       global.webpackIsomorphicTools = isoMorphicServer;
       // Webpack Isomorphic tools is ready
       // now fire up the actual server.
       return new Promise((resolve, reject) => {
         /* eslint-disable global-require, import/no-dynamic-require */
-        const App = require(`${appName}/components/App`).default;
-        const createStore = require(`${appName}/store`).default;
+        const App = require(`${APP_NAME}/components/App`).default;
+        const createStore = require(`${APP_NAME}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
         let server = baseServer(App, createStore);
         if (listen === true) {
@@ -543,7 +532,6 @@ export function runServer({
               [
                 `🔥 Addons-frontend server is running`,
                 `[ENV:${config.util.getEnv('NODE_ENV')}]`,
-                `[APP:${appName}]`,
                 `[isDevelopment:${config.get('isDevelopment')}]`,
                 `[isDeployed:${config.get('isDeployed')}]`,
                 `[apiHost:${config.get('apiHost')}]`,

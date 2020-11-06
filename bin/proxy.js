@@ -10,9 +10,11 @@ const cookie = require('cookie');
 const httpProxy = require('http-proxy');
 const pino = require('pino');
 
+const { APP_NAME } = require('../src/core/constants');
+
 const log = pino({
   level: config.get('loggingLevel'),
-  name: `${config.get('appName')}.proxy`,
+  name: `${APP_NAME}.proxy`,
 });
 
 const useHttpsForDev = process.env.USE_HTTPS_FOR_DEV;

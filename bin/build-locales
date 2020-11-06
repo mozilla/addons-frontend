@@ -12,19 +12,13 @@ const config = require('config');
 const po2json = require('po2json');
 const glob = require('glob');
 const shelljs = require('shelljs');
-const chalk = require('chalk');
 const toSource = require('tosource');
 const { oneLine } = require('common-tags');
 
-const appName = config.get('appName');
-
-if (!appName) {
-  console.log(chalk.red('appName not set in config'));
-  process.exit(1);
-}
+const { APP_NAME } = require('../src/core/constants');
 
 const localeDir = path.join(__dirname, '../locale');
-const poFiles = glob.sync(`${localeDir}/**/${appName}.po`);
+const poFiles = glob.sync(`${localeDir}/**/${APP_NAME}.po`);
 const dest = path.join(__dirname, '../src/locale/');
 
 const getLocaleModulePath = (locale, { _config = config } = {}) => {

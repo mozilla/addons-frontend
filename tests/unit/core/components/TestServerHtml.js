@@ -33,7 +33,6 @@ describe(__filename, () => {
 
   function render(opts = {}) {
     const pageProps = {
-      appName: 'amo',
       appState: { appStateExample: { things: 'lots-of-things' } },
       assets: fakeAssets,
       chunkExtractor: createFakeChunkExtractor(),

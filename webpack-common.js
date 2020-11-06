@@ -7,6 +7,7 @@ import webpack from 'webpack';
 import LoadablePlugin from '@loadable/webpack-plugin';
 
 import 'core/polyfill';
+import { APP_NAME } from 'core/constants';
 import { getClientConfig } from 'core/utils';
 import { getDeploymentVersion } from 'core/utils/build';
 
@@ -133,7 +134,6 @@ export function getPlugins({
   excludeOtherAppLocales = true,
   includeLoadablePlugin = true,
 } = {}) {
-  const appName = config.get('appName');
   const clientConfig = getClientConfig(config);
 
   const plugins = [
@@ -174,7 +174,7 @@ export function getPlugins({
       // This allow us to exclude locales for other apps being built.
       new webpack.ContextReplacementPlugin(
         /locale$/,
-        new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`),
+        new RegExp(`^\\.\\/.*?\\/${APP_NAME}\\.js$`),
       ),
     );
   }

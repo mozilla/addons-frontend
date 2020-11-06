@@ -2,21 +2,12 @@
 /* eslint-disable global-require, no-console */
 const path = require('path');
 
-const chalk = require('chalk');
 const chokidar = require('chokidar');
 require('@babel/register')({
   plugins: ['dynamic-import-node'],
 });
 const config = require('config');
 const touch = require('touch');
-
-const appName = config.get('appName');
-
-if (!appName) {
-  console.log(
-    chalk.red('appName not set in config'));
-  process.exit(1);
-}
 
 if (process.env.NODE_ENV === 'development') {
   if (!require('piping')({

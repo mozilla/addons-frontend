@@ -74,7 +74,6 @@ describe(__filename, () => {
       sinon.assert.calledWith(_RavenJs.config, publicSentryDsn, {
         logger: 'client-js',
         release: getSentryRelease({
-          appName: _config.get('appName'),
           version: deploymentVersion,
         }),
       });

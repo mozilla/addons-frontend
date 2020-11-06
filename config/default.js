@@ -6,18 +6,12 @@ import path from 'path';
 
 import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
 
-const appName = 'amo';
-if (!appName) {
-  throw new Error('An appName is required.');
-}
-
 const addonsFrontendCDN = 'https://addons-amo.cdn.mozilla.net';
 const basePath = path.resolve(__dirname, '../');
 const distPath = path.join(basePath, 'dist');
 const loadableStatsFilename = 'loadable-stats.json';
 
 module.exports = {
-  appName,
   basePath,
 
   // This is needed for code-splitting.
@@ -104,7 +98,6 @@ module.exports = {
     'apiHost',
     'apiPath',
     'apiVersion',
-    'appName',
     'authTokenValidFor',
     'baseURL',
     'cookieMaxAge',

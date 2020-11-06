@@ -9,7 +9,6 @@
 require('@babel/register');
 
 
-const chalk = require('chalk');
 const config = require('config');
 const fs = require('fs');
 const path = require('path');
@@ -18,15 +17,8 @@ const shell = require('shelljs');
 const supportedLangs = config.get('langs');
 const localeDir = path.join(__dirname, '../locale');
 const templateDir = path.join(localeDir, 'templates/LC_MESSAGES');
-const langToLocale = require('../src/core/i18n/utils').langToLocale;
-
-const appName = config.get('appName');
-
-if (!appName) {
-  console.log(
-    chalk.red('appName not set in config'));
-  process.exit(1);
-}
+const { langToLocale } = require('../src/core/i18n/utils');
+const { APP_NAME } = require('../src/core/constants');
 
 
 let lang;
@@ -36,14 +28,14 @@ let outputFile;
 for (lang of supportedLangs) {
   locale = langToLocale(lang);
   shell.exec(`mkdir -p ${localeDir}/${locale}/LC_MESSAGES/`);
-  outputFile = path.join(localeDir, locale, 'LC_MESSAGES', `${appName}.po`);
+  outputFile = path.join(localeDir, locale, 'LC_MESSAGES', `${APP_NAME}.po`);
   try {
     fs.statSync(outputFile);
     // eslint-disable-next-line no-console
     console.log(`${outputFile} already exists skipping`);
   } catch (e) {
     if (e.code === 'ENOENT') {
-      shell.exec(`msginit --no-translator --input=${templateDir}/${appName}.pot
+      shell.exec(`msginit --no-translator --input=${templateDir}/${APP_NAME}.pot
                   --output-file=${outputFile} -l ${locale}`.replace('\n', ' '));
     } else {
       throw e;

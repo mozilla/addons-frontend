@@ -10,6 +10,7 @@ import { render } from 'react-dom';
 import { loadableReady } from '@loadable/component';
 
 import Root from 'core/components/Root';
+import { APP_NAME } from 'core/constants';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
 import log from 'core/logger';
 import { addQueryParamsToHistory } from 'core/utils';
@@ -33,8 +34,6 @@ export default async function createClient(
     await fetchBufferedLogs();
   }
 
-  const appName = _config.get('appName');
-
   // This code needs to come before anything else so we get logs/errors if
   // anything else in this function goes wrong.
   const publicSentryDsn = _config.get('publicSentryDsn');
@@ -47,7 +46,7 @@ export default async function createClient(
         // `DEPLOYMENT_VERSION` is injected by webpack at build time (thanks to
         // the `DefinePlugin`).
         // See: https://github.com/mozilla/addons-frontend/issues/8270
-        release: getSentryRelease({ appName, version: DEPLOYMENT_VERSION }),
+        release: getSentryRelease({ version: DEPLOYMENT_VERSION }),
       })
       .install();
   } else {
@@ -105,7 +104,7 @@ export default async function createClient(
   if (sagas && sagaMiddleware) {
     sagaMiddleware.run(sagas);
   } else {
-    log.warn(`sagas not found for this app (src/${appName}/sagas)`);
+    log.warn(`sagas not found`);
   }
 
   let i18nData = {};
@@ -113,7 +112,7 @@ export default async function createClient(
     if (locale !== langToLocale(_config.get('defaultLang'))) {
       i18nData = await new Promise((resolve) => {
         // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-        require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(
+        require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${APP_NAME}.js`)(
           resolve,
         );
       });

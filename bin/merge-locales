@@ -2,25 +2,18 @@
 
 /* eslint-disable no-console */
 require('@babel/register');
-const config = require('config');
+
 const glob = require('glob');
 const path = require('path');
 const shell = require('shelljs');
-const chalk = require('chalk');
 
 const localeDir = path.join(__dirname, '../locale');
 
-const appName = config.get('appName');
+const { APP_NAME } = require('../src/core/constants');
 
-if (!appName) {
-  console.log(
-    chalk.red('appName not set in config'));
-  process.exit(1);
-}
-
-const poFiles = glob.sync(`${localeDir}/**/${appName}.po`);
+const poFiles = glob.sync(`${localeDir}/**/${APP_NAME}.po`);
 const template =
-  path.join(localeDir, `templates/LC_MESSAGES/${appName}.pot`);
+  path.join(localeDir, `templates/LC_MESSAGES/${APP_NAME}.pot`);
 
 poFiles.forEach((poFile) => {
   const dir = path.dirname(poFile);
