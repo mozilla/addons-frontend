@@ -20,6 +20,7 @@ import './styles.scss';
 import Routes from 'amo/components/Routes';
 import ScrollToTop from 'core/components/ScrollToTop';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
+import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { getDjangoBase62 } from 'amo/utils';
@@ -62,6 +63,8 @@ export function getErrorPage(status: number | null) {
       return NotAuthorizedPage;
     case 404:
       return NotFoundPage;
+    case 451:
+      return NotAvailableInRegionPage;
     case 500:
     default:
       return ServerErrorPage;

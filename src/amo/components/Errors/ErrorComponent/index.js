@@ -11,14 +11,14 @@ import './styles.scss';
 type Props = {|
   children: React.Node,
   className?: string,
-  code: 400 | 401 | 404 | 500,
+  code: 400 | 401 | 404 | 451 | 500,
   header: React.Element<any> | string,
 |};
 
 export default class ErrorComponent extends React.Component<Props> {
   render() {
     const { children, className, code, header } = this.props;
-    const validCodes = [400, 401, 404, 500];
+    const validCodes = [400, 401, 404, 451, 500];
 
     invariant(children, 'children is required');
     invariant(header, 'header is required');
@@ -30,6 +30,7 @@ export default class ErrorComponent extends React.Component<Props> {
           className={makeClassName('Errors', className, {
             NotAuthorized: code === 401,
             NotFound: code === 404,
+            NotAvailableInRegion: code === 451,
             ServerError: code === 500,
           })}
           header={header}

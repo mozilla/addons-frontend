@@ -16,6 +16,7 @@ import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
+import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
@@ -491,6 +492,28 @@ describe(__filename, () => {
 
     const root = shallowRender({ errorHandler });
     expect(root.find(NotFoundPage)).toHaveLength(1);
+  });
+
+  it('renders 451 page for unavailable add-on', () => {
+    const id = 'error-handler-id';
+    const { store } = createStore();
+
+    const error = createApiError({
+      response: { status: 451 },
+      apiURL: 'https://some/api/endpoint',
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    expect(capturedError).toBeTruthy();
+
+    const errorHandler = new ErrorHandler({
+      id,
+      dispatch: sinon.stub(),
+      capturedError,
+    });
+
+    const root = shallowRender({ errorHandler });
+    expect(root.find(NotAvailableInRegionPage)).toHaveLength(1);
   });
 
   it('renders NotFound page for unauthorized add-on - 401 error', () => {

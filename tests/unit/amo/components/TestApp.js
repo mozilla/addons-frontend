@@ -11,6 +11,7 @@ import App, {
   mapStateToProps,
 } from 'amo/components/App';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
+import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
@@ -333,6 +334,10 @@ describe(__filename, () => {
 
     it('returns a NotFoundPage component for 404 errors', () => {
       expect(getErrorPage(404)).toEqual(NotFoundPage);
+    });
+
+    it('returns a NotAvailableInRegionPage component for 451 errors', () => {
+      expect(getErrorPage(451)).toEqual(NotAvailableInRegionPage);
     });
 
     it('returns a ServerErrorPage component for 500 errors', () => {

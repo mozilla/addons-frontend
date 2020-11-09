@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { Route } from 'react-router-dom';
 
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
+import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Routes from 'amo/components/Routes';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
@@ -36,6 +37,19 @@ describe(__filename, () => {
 
       expect(root.find({ path })).toHaveLength(1);
       expect(root.find({ path })).toHaveProp('component', NotFoundPage);
+    });
+  });
+
+  describe('path = /:lang/:application/451/', () => {
+    it('renders a NotAvailableInRegion page', () => {
+      const path = '/:lang/:application/451/';
+      const root = render();
+
+      expect(root.find({ path })).toHaveLength(1);
+      expect(root.find({ path })).toHaveProp(
+        'component',
+        NotAvailableInRegionPage,
+      );
     });
   });
 

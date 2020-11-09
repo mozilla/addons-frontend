@@ -17,6 +17,7 @@ import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import ContributeCard from 'amo/components/ContributeCard';
+import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallWarning from 'amo/components/InstallWarning';
@@ -408,6 +409,10 @@ export class AddonBase extends React.Component {
         errorHandler.capturedError.responseStatusCode === 404
       ) {
         return <NotFoundPage />;
+      }
+
+      if (errorHandler.capturedError.responseStatusCode === 451) {
+        return <NotAvailableInRegionPage />;
       }
 
       // Show a list of errors at the top of the add-on section.
