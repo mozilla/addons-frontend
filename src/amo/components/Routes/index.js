@@ -17,7 +17,7 @@ import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
-import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import Block from 'amo/pages/Block';
@@ -198,7 +198,7 @@ const Routes = ({ _config = config }: Props = {}) => (
     <Route
       exact
       path="/:lang/:application/451/"
-      component={NotAvailableInRegionPage}
+      component={UnavailableForLegalReasonsPage}
     />
     <Route
       exact

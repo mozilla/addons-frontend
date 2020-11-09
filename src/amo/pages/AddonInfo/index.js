@@ -7,7 +7,7 @@ import { compose } from 'redux';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import Page from 'amo/components/Page';
-import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -160,7 +160,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
       }
 
       if (errorHandler.capturedError.responseStatusCode === 451) {
-        return <NotAvailableInRegionPage />;
+        return <UnavailableForLegalReasonsPage />;
       }
     }
 

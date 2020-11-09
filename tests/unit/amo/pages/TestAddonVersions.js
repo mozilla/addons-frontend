@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import AddonVersionCard from 'amo/components/AddonVersionCard';
-import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import AddonVersions, {
   AddonVersionsBase,
@@ -375,7 +375,7 @@ describe(__filename, () => {
     },
   );
 
-  it('renders a NotAvailableInRegionPage component when a 451 API error has been captured', () => {
+  it('renders a UnavailableForLegalReasonsPage component when a 451 API error has been captured', () => {
     const error = createApiError({
       response: { status: 451 },
       apiURL: 'https://some/api/endpoint',
@@ -389,7 +389,7 @@ describe(__filename, () => {
 
     const root = render({ errorHandler });
 
-    expect(root.find(NotAvailableInRegionPage)).toHaveLength(1);
+    expect(root.find(UnavailableForLegalReasonsPage)).toHaveLength(1);
   });
 
   describe('latest version', () => {

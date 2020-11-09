@@ -13,7 +13,7 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export class NotAvailableInRegionBase extends React.Component<InternalProps> {
+export class UnavailableForLegalReasonsBase extends React.Component<InternalProps> {
   render() {
     const { i18n } = this.props;
 
@@ -32,8 +32,8 @@ export class NotAvailableInRegionBase extends React.Component<InternalProps> {
   }
 }
 
-const NotAvailableInRegion: React.ComponentType<Props> = compose(translate())(
-  NotAvailableInRegionBase,
-);
+const UnavailableForLegalReasons: React.ComponentType<Props> = compose(
+  translate(),
+)(UnavailableForLegalReasonsBase);
 
-export default NotAvailableInRegion;
+export default UnavailableForLegalReasons;

@@ -30,7 +30,7 @@ export default class ErrorComponent extends React.Component<Props> {
           className={makeClassName('Errors', className, {
             NotAuthorized: code === 401,
             NotFound: code === 404,
-            NotAvailableInRegion: code === 451,
+            UnavailableForLegalReasons: code === 451,
             ServerError: code === 500,
           })}
           header={header}

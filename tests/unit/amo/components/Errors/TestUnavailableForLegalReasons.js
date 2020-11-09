@@ -2,12 +2,12 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import ErrorComponent from 'amo/components/Errors/ErrorComponent';
-import { NotAvailableInRegionBase } from 'amo/components/Errors/NotAvailableInRegion';
+import { UnavailableForLegalReasonsBase } from 'amo/components/Errors/UnavailableForLegalReasons';
 import { fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = () => {
-    return shallow(<NotAvailableInRegionBase i18n={fakeI18n()} />);
+    return shallow(<UnavailableForLegalReasonsBase i18n={fakeI18n()} />);
   };
 
   it('renders a not available error', () => {

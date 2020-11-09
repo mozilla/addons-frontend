@@ -17,7 +17,7 @@ import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import ContributeCard from 'amo/components/ContributeCard';
-import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallWarning from 'amo/components/InstallWarning';
@@ -412,7 +412,7 @@ export class AddonBase extends React.Component {
       }
 
       if (errorHandler.capturedError.responseStatusCode === 451) {
-        return <NotAvailableInRegionPage />;
+        return <UnavailableForLegalReasonsPage />;
       }
 
       // Show a list of errors at the top of the add-on section.

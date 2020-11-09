@@ -16,7 +16,7 @@ import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
-import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
@@ -513,7 +513,7 @@ describe(__filename, () => {
     });
 
     const root = shallowRender({ errorHandler });
-    expect(root.find(NotAvailableInRegionPage)).toHaveLength(1);
+    expect(root.find(UnavailableForLegalReasonsPage)).toHaveLength(1);
   });
 
   it('renders NotFound page for unauthorized add-on - 401 error', () => {

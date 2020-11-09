@@ -8,7 +8,7 @@ import AddonInfo, {
   AddonInfoBase,
   extractId,
 } from 'amo/pages/AddonInfo';
-import NotAvailableInRegionPage from 'amo/pages/ErrorPages/NotAvailableInRegionPage';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { createApiError } from 'core/api';
 import { ErrorHandler } from 'core/errorHandler';
@@ -230,7 +230,7 @@ describe(__filename, () => {
     },
   );
 
-  it('renders a NotAvailableInRegionPage component when a 451 API error has been captured', () => {
+  it('renders a UnavailableForLegalReasonsPage component when a 451 API error has been captured', () => {
     const error = createApiError({
       response: { status: 451 },
       apiURL: 'https://some/api/endpoint',
@@ -244,7 +244,7 @@ describe(__filename, () => {
 
     const root = render({ errorHandler });
 
-    expect(root.find(NotAvailableInRegionPage)).toHaveLength(1);
+    expect(root.find(UnavailableForLegalReasonsPage)).toHaveLength(1);
   });
 
   describe('ADDON_INFO_TYPE_CUSTOM_LICENSE', () => {
