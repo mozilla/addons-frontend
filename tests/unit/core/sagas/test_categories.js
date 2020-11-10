@@ -1,10 +1,9 @@
 import SagaTester from 'redux-saga-tester';
 
 import createStore from 'amo/store';
-import { setClientApp, setLang } from 'core/actions';
 import categoriesSaga from 'core/sagas/categories';
 import * as api from 'core/api/categories';
-import apiReducer from 'core/reducers/api';
+import apiReducer, { setClientApp, setLang } from 'core/reducers/api';
 import categoriesReducer, {
   LOAD_CATEGORIES,
   fetchCategories,

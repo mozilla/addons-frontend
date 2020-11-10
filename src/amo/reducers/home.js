@@ -9,7 +9,7 @@ import {
 } from 'amo/constants';
 import { SET_CLIENT_APP, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import type { SetClientAppAction } from 'core/actions';
+import type { SetClientAppAction } from 'core/reducers/api';
 import type {
   AddonType,
   ExternalAddonType,

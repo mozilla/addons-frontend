@@ -7,7 +7,6 @@ import utf8 from 'utf8';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
-import { REGION_CODE_HEADER } from 'core/constants';
 import languages from 'core/languages';
 import { initialApiState } from 'core/reducers/api';
 import log from 'core/logger';
@@ -24,6 +23,7 @@ import type { ReactRouterLocationType } from 'core/types/router';
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
 export const DEFAULT_API_PAGE_SIZE = 25;
+export const REGION_CODE_HEADER = 'X-Country-Code';
 
 export function makeQueryString(query: { [key: string]: any }) {
   const resolvedQuery = { ...query };

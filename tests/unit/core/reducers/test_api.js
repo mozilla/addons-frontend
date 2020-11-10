@@ -1,6 +1,6 @@
 import UAParser from 'ua-parser-js';
 
-import * as actions from 'core/actions';
+import * as actions from 'core/reducers/api';
 import { logOutUser } from 'amo/reducers/users';
 import api, { initialApiState } from 'core/reducers/api';
 import { userAgents, userAuthToken } from 'tests/unit/helpers';
@@ -115,5 +115,48 @@ describe(__filename, () => {
     const state = api(undefined, actions.setRequestId(requestId));
 
     expect(state.requestId).toEqual(requestId);
+  });
+
+  describe('setLang', () => {
+    it('creates the SET_LANG action', () => {
+      expect(actions.setLang('fr')).toEqual({
+        type: 'SET_LANG',
+        payload: { lang: 'fr' },
+      });
+    });
+  });
+
+  describe('setRegionCode', () => {
+    it('creates the SET_REGION_CODE action', () => {
+      const regionCode = 'CA';
+      expect(actions.setRegionCode(regionCode)).toEqual({
+        type: 'SET_REGION_CODE',
+        payload: { regionCode },
+      });
+    });
+  });
+
+  describe('setClientApp', () => {
+    it('creates the SET_CLIENT_APP action', () => {
+      expect(actions.setClientApp('firefox')).toEqual({
+        type: 'SET_CLIENT_APP',
+        payload: { clientApp: 'firefox' },
+      });
+    });
+
+    it('requires a clientApp value', () => {
+      expect(() => actions.setClientApp('')).toThrowError(/cannot be falsey/);
+    });
+  });
+
+  describe('setUserAgent', () => {
+    it('creates the SET_USER_AGENT action', () => {
+      const userAgent = userAgents.chrome[0];
+
+      expect(actions.setUserAgent(userAgent)).toEqual({
+        type: 'SET_USER_AGENT',
+        payload: { userAgent },
+      });
+    });
   });
 });

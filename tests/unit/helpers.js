@@ -21,7 +21,7 @@ import {
   setRegionCode,
   setAuthToken,
   setUserAgent,
-} from 'core/actions';
+} from 'core/reducers/api';
 import * as coreApi from 'core/api';
 import { getAddonStatus } from 'core/addonManager';
 import {

@@ -330,5 +330,3 @@ export type PromotedCategoryType =
   | typeof SPOTLIGHT
   | typeof STRATEGIC
   | typeof VERIFIED;
-
-export const REGION_CODE_HEADER = 'X-Country-Code';

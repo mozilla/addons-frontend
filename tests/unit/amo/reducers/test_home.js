@@ -13,7 +13,7 @@ import homeReducer, {
 } from 'amo/reducers/home';
 import { createInternalAddon } from 'core/reducers/addons';
 import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
-import { setClientApp } from 'core/actions';
+import { setClientApp } from 'core/reducers/api';
 import {
   createAddonsApiResult,
   createFakeCollectionAddon,

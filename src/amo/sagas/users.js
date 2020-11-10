@@ -38,7 +38,7 @@ import type {
   UnsubscribeNotificationAction,
   UpdateUserAccountAction,
 } from 'amo/reducers/users';
-import type { SetAuthTokenAction } from 'core/actions';
+import type { SetAuthTokenAction } from 'core/reducers/api';
 import type { Saga } from 'core/types/sagas';
 
 // This saga is not triggered by the UI but on the server side, hence do not

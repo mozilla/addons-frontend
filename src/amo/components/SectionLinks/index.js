@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
-import { setClientApp } from 'core/actions';
+import { setClientApp } from 'core/reducers/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,

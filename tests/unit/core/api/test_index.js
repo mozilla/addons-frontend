@@ -10,7 +10,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  REGION_CODE_HEADER,
 } from 'core/constants';
 import {
   apiResponsePage,
@@ -73,7 +72,7 @@ describe(__filename, () => {
       const { state } = dispatchClientMetadata({ regionCode });
 
       mockWindow.expects('fetch').callsFake((urlString, request) => {
-        expect(request.headers[REGION_CODE_HEADER]).toEqual(regionCode);
+        expect(request.headers[api.REGION_CODE_HEADER]).toEqual(regionCode);
         return createApiResponse();
       });
 
@@ -89,7 +88,7 @@ describe(__filename, () => {
       const { state } = dispatchClientMetadata({ regionCode: null });
 
       mockWindow.expects('fetch').callsFake((urlString, request) => {
-        expect(REGION_CODE_HEADER in request.headers).toEqual(false);
+        expect(api.REGION_CODE_HEADER in request.headers).toEqual(false);
         return createApiResponse();
       });
 
@@ -101,7 +100,7 @@ describe(__filename, () => {
       const { state } = dispatchClientMetadata({ regionCode: 'CA' });
 
       mockWindow.expects('fetch').callsFake((urlString, request) => {
-        expect(REGION_CODE_HEADER in request.headers).toEqual(false);
+        expect(api.REGION_CODE_HEADER in request.headers).toEqual(false);
         return createApiResponse();
       });
 
