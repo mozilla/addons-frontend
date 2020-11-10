@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-03 16:57+0000\n"
+"POT-Creation-Date: 2020-11-10 17:44+0000\n"
 "PO-Revision-Date: 2020-10-22 11:44+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
@@ -89,11 +89,11 @@ msgstr "Net kompatibel mei Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Guon funksjes kinne betelling fereaskje"
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:110
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Dizze add-on is net kompatibel mei jo ferzje fan Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -101,11 +101,11 @@ msgstr ""
 "Jo ferzje fan Firefox stipet dizze add-on net, omdat dizze opnij starten "
 "fereasket."
 
-#: src/amo/components/AddonCompatibilityError/index.js:119
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "This add-on is not available on your platform."
 msgstr "Dizze add-on is net beskikber foar jo platfoarm."
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:120
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -114,7 +114,7 @@ msgstr ""
 "Firefox</a> (op syn minst ferzje %(minVersion)s). Jo brûke Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:140
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -907,6 +907,15 @@ msgstr ""
 "Sorry, mar der is in flater bard mei ús server, en wy koene jo oanfraach net "
 "foltôgje. Wy hawwe dizze flater fêstlein en sille him ûndersykje."
 
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#, fuzzy
+msgid "Unavailable for legal reasons"
+msgstr "Beskikber foar jo taal"
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
+msgid "Sorry, but the content you are seeking is not available in your region."
+msgstr ""
+
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
 msgstr "Antwurd fan %(userName)s"
@@ -1146,17 +1155,17 @@ msgstr ""
 msgid "Download file"
 msgstr "Bestân downloade"
 
-#: src/amo/components/InstallWarning/index.js:101
+#: src/amo/components/InstallWarning/index.js:100
+msgid "Learn more"
+msgstr "Mear ynfo"
+
+#: src/amo/components/InstallWarning/index.js:104
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
 msgstr ""
 "Dizze add-on wurdt net aktyf op befeiliging kontrolearre troch Mozilla. "
 "Soargje derfoar dat jo de add-on fertrouwe eardat jo dizze ynstallearje."
-
-#: src/amo/components/InstallWarning/index.js:97
-msgid "Learn more"
-msgstr "Mear ynfo"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1811,25 +1820,16 @@ msgstr "Profylfoto"
 msgid "Choose Photo…"
 msgstr "Foto kieze…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:101
+#: src/amo/components/WrongPlatformWarning/index.js:106
+#, fuzzy
 msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
+"To find add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
 msgstr ""
-"<a href=\"%(newLocation)s\">Besykje ús desktopwebsite</a> om add-ons te "
-"finen dy't kompatibel binne mei Firefox op desktop."
+"<a href=\"%(newLocation)s\">Klik hjir</a> foar ynformaasje oer add-ons dy't "
+"kompatibel binne mei Firefox foar Android."
 
-#: src/amo/components/WrongPlatformWarning/index.js:122
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
-"ons</a>."
-msgstr ""
-"Net beskikber op Firefox foar Android. Jo kinne dizze add-on brûke mei "
-"Firefox foar desktop, of sykje nei ferlykbere <a href=\"%(newLocation)s"
-"\">Android-add-ons </a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:129
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "This add-on is not compatible with this browser. Try installing it on "
 "Firefox for desktop."
@@ -1837,103 +1837,7 @@ msgstr ""
 "Dizze add-on is net kompatibel mei dizze browser. Probearje it te "
 "ynstallearjen op Firefox foar desktop."
 
-#: src/amo/components/WrongPlatformWarning/index.js:85
-msgid ""
-"To learn about add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
-msgstr ""
-"<a href=\"%(newLocation)s\">Klik hjir</a> foar ynformaasje oer add-ons dy't "
-"kompatibel binne mei Firefox foar Android."
-
-#: src/amo/components/WrongPlatformWarning/index.js:94
-msgid ""
-"To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
-"\">visit our mobile site</a>."
-msgstr ""
-"<a href=\"%(newLocation)s\">Besykje ús mobile website</a> om add-ons te "
-"finen dy't kompatibel binne mei Firefox op Android."
-
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
-msgid "Preview of %(title)s"
-msgstr "Foarbyld fan %(title)s"
-
-#: src/amo/pages/Addon/index.js:201
-msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
-"Dizze add-on kin net wurdearre wurde, omdat der gjin publisearre ferzjes "
-"binne."
-
-#: src/amo/pages/Addon/index.js:212
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "%(count)s beoardieling lêze"
-msgstr[1] "%(count)s beoardielingen lêze"
-
-#: src/amo/pages/Addon/index.js:233
-msgid "No reviews yet"
-msgstr "Noch gjin beoardelingen"
-
-#: src/amo/pages/Addon/index.js:243
-msgid "Rate your experience"
-msgstr "Wurdearje jo ûnderfining"
-
-#: src/amo/pages/Addon/index.js:262
-msgid "About this dictionary"
-msgstr "Oer dit wurdboek"
-
-#: src/amo/pages/Addon/index.js:265
-msgid "About this extension"
-msgstr "Oer dizze útwreiding"
-
-#: src/amo/pages/Addon/index.js:268
-msgid "About this language pack"
-msgstr "Oer dit taalpakket"
-
-#: src/amo/pages/Addon/index.js:271
-msgid "About this theme"
-msgstr "Oer dit tema"
-
-#: src/amo/pages/Addon/index.js:274
-msgid "About this add-on"
-msgstr "Oer dizze add-on"
-
-#: src/amo/pages/Addon/index.js:316
-msgid "Developer comments"
-msgstr "Untwikkelersopmerkingen"
-
-#: src/amo/pages/Addon/index.js:339
-msgid "Release notes for %(addonVersion)s"
-msgstr "Utjefte-opmerkingen foar %(addonVersion)s"
-
-#: src/amo/pages/Addon/index.js:471
-msgid ""
-"This is not a public listing. You are only seeing it because of elevated "
-"permissions."
-msgstr ""
-"Dit is gjin iepenbiere list. Jo sjogge dit allinnich omdat jo mear "
-"tagongsrjochten hawwe."
-
-#: src/amo/pages/Addon/index.js:498
-msgid "Extension Metadata"
-msgstr "Metadata útwreiding"
-
-#: src/amo/pages/Addon/index.js:506
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
-"Dizze list is net bedoeld foar dit platfoarm. <a href=\"%(newLocation)s"
-"\">Troch add-ons foar Firefox op Android blêdzje</a>."
-
-#: src/amo/pages/Addon/index.js:510
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
-"Dizze list is net bedoeld foar dit platfoarm. <a href=\"%(newLocation)s"
-"\">Troch add-ons foar Firefox op desktop blêdzje</a>."
-
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/components/WrongPlatformWarning/index.js:95
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
 "\"%(newLocation)s\">add-ons for Android</a>."
@@ -1941,33 +1845,87 @@ msgstr ""
 "Jo kinne dizze add-on yn de Add-onbehearder ynstallearje.  Mear ynfo oer <a "
 "href=\"%(newLocation)s\">add-ons foar Android</a>."
 
-#: src/amo/pages/Addon/index.js:520
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
-"Android</a>."
-msgstr ""
-"Net beskikber yn Firefox foar Android. Jo kinne dizze add-on brûke mei "
-"Firefox foar desktop.  Mear ynfo oer <a href=\"%(newLocation)s\">Android-add-"
-"ons</a>."
+#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+msgid "Preview of %(title)s"
+msgstr "Foarbyld fan %(title)s"
 
-#: src/amo/pages/Addon/index.js:542
+#: src/amo/pages/Addon/index.js:199
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr ""
+"Dizze add-on kin net wurdearre wurde, omdat der gjin publisearre ferzjes "
+"binne."
+
+#: src/amo/pages/Addon/index.js:210
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "%(count)s beoardieling lêze"
+msgstr[1] "%(count)s beoardielingen lêze"
+
+#: src/amo/pages/Addon/index.js:231
+msgid "No reviews yet"
+msgstr "Noch gjin beoardelingen"
+
+#: src/amo/pages/Addon/index.js:241
+msgid "Rate your experience"
+msgstr "Wurdearje jo ûnderfining"
+
+#: src/amo/pages/Addon/index.js:260
+msgid "About this dictionary"
+msgstr "Oer dit wurdboek"
+
+#: src/amo/pages/Addon/index.js:263
+msgid "About this extension"
+msgstr "Oer dizze útwreiding"
+
+#: src/amo/pages/Addon/index.js:266
+msgid "About this language pack"
+msgstr "Oer dit taalpakket"
+
+#: src/amo/pages/Addon/index.js:269
+msgid "About this theme"
+msgstr "Oer dit tema"
+
+#: src/amo/pages/Addon/index.js:272
+msgid "About this add-on"
+msgstr "Oer dizze add-on"
+
+#: src/amo/pages/Addon/index.js:314
+msgid "Developer comments"
+msgstr "Untwikkelersopmerkingen"
+
+#: src/amo/pages/Addon/index.js:337
+msgid "Release notes for %(addonVersion)s"
+msgstr "Utjefte-opmerkingen foar %(addonVersion)s"
+
+#: src/amo/pages/Addon/index.js:472
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+"Dit is gjin iepenbiere list. Jo sjogge dit allinnich omdat jo mear "
+"tagongsrjochten hawwe."
+
+#: src/amo/pages/Addon/index.js:499
+msgid "Extension Metadata"
+msgstr "Metadata útwreiding"
+
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "Skermôfbyldingen"
 
-#: src/amo/pages/AddonInfo/index.js:154
+#: src/amo/pages/AddonInfo/index.js:174
 msgid "Custom License for %(addonName)s"
 msgstr "Oanpaste lisinsje foar %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:161
+#: src/amo/pages/AddonInfo/index.js:181
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "Einbrûikerslisinsjeoerienkomst foar %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:185
 msgid "Privacy policy for %(addonName)s"
 msgstr "Privacybelied foar %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1975,51 +1933,51 @@ msgstr ""
 "Beoardielingen en wurdearringen foar %(addonName)s. Untdek wat oare brûkers "
 "fine fan %(addonName)s en foegje it oan jo Firefox-browser ta."
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show all reviews"
 msgstr "Alle beoardielingen werjaan"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show only five-star reviews"
 msgstr "Allinnich fiifstjerrenbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only four-star reviews"
 msgstr "Allinnich fjouwerstjerrenbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only three-star reviews"
 msgstr "Allinnich trijestjerrenbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only two-star reviews"
 msgstr "Allinnich twastjerrenbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only one-star reviews"
 msgstr "Allinnich ienstjerbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:279
+#: src/amo/pages/AddonReviewList/index.js:284
 msgid "Reviews for %(addonName)s"
 msgstr "Beoardielingen foar %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:289
+#: src/amo/pages/AddonReviewList/index.js:294
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s beoardieling"
 msgstr[1] "%(total)s beoardielingen"
 
-#: src/amo/pages/AddonReviewList/index.js:388
+#: src/amo/pages/AddonReviewList/index.js:393
 msgid "There are no reviews"
 msgstr "Der binne gjin beoardielingen"
 
-#: src/amo/pages/AddonVersions/index.js:128
+#: src/amo/pages/AddonVersions/index.js:129
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Ferzjeskiednis fan %(addonName)s - %(total)s ferzje"
 msgstr[1] "Ferzjeskiednis fan %(addonName)s - %(total)s ferzjes"
 
-#: src/amo/pages/AddonVersions/index.js:176
+#: src/amo/pages/AddonVersions/index.js:181
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2027,15 +1985,15 @@ msgstr ""
 "Wês foarsichtich mei âlde ferzjes! Dizze ferzjes wurde foar test- en "
 "referinsjedoeleinen werjûn."
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:186
 msgid "You should always use the latest version of an add-on."
 msgstr "Jo moatte altyd de meast resinte ferzje fan in add-on brûke."
 
-#: src/amo/pages/AddonVersions/index.js:190
+#: src/amo/pages/AddonVersions/index.js:195
 msgid "Latest version"
 msgstr "Nijste ferzje"
 
-#: src/amo/pages/AddonVersions/index.js:199
+#: src/amo/pages/AddonVersions/index.js:204
 msgid "Older versions"
 msgstr "Aldere ferzjes"
 
@@ -3361,6 +3319,52 @@ msgstr[1] "%(total)s add-ons"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Antwurd ûntwikkeler"
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on desktop, <a href="
+#~ "\"%(newLocation)s\">visit our desktop site</a>."
+#~ msgstr ""
+#~ "<a href=\"%(newLocation)s\">Besykje ús desktopwebsite</a> om add-ons te "
+#~ "finen dy't kompatibel binne mei Firefox op desktop."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s"
+#~ "\">Android add-ons</a>."
+#~ msgstr ""
+#~ "Net beskikber op Firefox foar Android. Jo kinne dizze add-on brûke mei "
+#~ "Firefox foar desktop, of sykje nei ferlykbere <a href=\"%(newLocation)s"
+#~ "\">Android-add-ons </a>."
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on Android, <a href="
+#~ "\"%(newLocation)s\">visit our mobile site</a>."
+#~ msgstr ""
+#~ "<a href=\"%(newLocation)s\">Besykje ús mobile website</a> om add-ons te "
+#~ "finen dy't kompatibel binne mei Firefox op Android."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on Android</a>."
+#~ msgstr ""
+#~ "Dizze list is net bedoeld foar dit platfoarm. <a href=\"%(newLocation)s"
+#~ "\">Troch add-ons foar Firefox op Android blêdzje</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on desktop</a>."
+#~ msgstr ""
+#~ "Dizze list is net bedoeld foar dit platfoarm. <a href=\"%(newLocation)s"
+#~ "\">Troch add-ons foar Firefox op desktop blêdzje</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons "
+#~ "for Android</a>."
+#~ msgstr ""
+#~ "Net beskikber yn Firefox foar Android. Jo kinne dizze add-on brûke mei "
+#~ "Firefox foar desktop.  Mear ynfo oer <a href=\"%(newLocation)s\">Android-"
+#~ "add-ons</a>."
 
 #~ msgid "Promoted Add-Ons"
 #~ msgstr "Promoate add-ons"
