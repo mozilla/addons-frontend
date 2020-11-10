@@ -20,7 +20,7 @@ export class UnavailableForLegalReasonsBase extends React.Component<InternalProp
     return (
       <ErrorComponent
         code={451}
-        header={i18n.gettext('Not Available In Your Region')}
+        header={i18n.gettext('Unavailable for legal reasons')}
       >
         <p>
           {i18n.gettext(

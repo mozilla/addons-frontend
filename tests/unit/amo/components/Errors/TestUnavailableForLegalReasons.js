@@ -16,7 +16,7 @@ describe(__filename, () => {
     expect(root.find(ErrorComponent)).toHaveProp('code', 451);
     expect(root.find(ErrorComponent)).toHaveProp(
       'header',
-      'Not Available In Your Region',
+      'Unavailable for legal reasons',
     );
 
     expect(root.find('p').at(0)).toIncludeText('not available in your region');
