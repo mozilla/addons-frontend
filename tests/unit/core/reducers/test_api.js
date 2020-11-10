@@ -159,4 +159,12 @@ describe(__filename, () => {
       });
     });
   });
+
+  describe('setAuthToken', () => {
+    it('requires a token', () => {
+      expect(() => actions.setAuthToken()).toThrowError(
+        /token cannot be falsey/,
+      );
+    });
+  });
 });
