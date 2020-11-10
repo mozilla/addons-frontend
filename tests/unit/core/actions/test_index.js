@@ -19,6 +19,16 @@ describe(__filename, () => {
     });
   });
 
+  describe('core actions setRegionCode', () => {
+    it('creates the SET_REGION_CODE action', () => {
+      const regionCode = 'CA';
+      expect(actions.setRegionCode(regionCode)).toEqual({
+        type: 'SET_REGION_CODE',
+        payload: { regionCode },
+      });
+    });
+  });
+
   describe('core actions setClientApp', () => {
     it('creates the SET_CLIENT_APP action', () => {
       expect(actions.setClientApp('firefox')).toEqual({

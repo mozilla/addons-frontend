@@ -21,7 +21,7 @@ import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 import log from 'core/logger';
 import { createApiError } from 'core/api';
 import Root from 'core/components/Root';
-import { AMO_REQUEST_ID_HEADER } from 'core/constants';
+import { AMO_REQUEST_ID_HEADER, REGION_CODE_HEADER } from 'core/constants';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import requestId from 'core/middleware/requestId';
@@ -33,6 +33,7 @@ import {
   setAuthToken,
   setClientApp,
   setLang,
+  setRegionCode,
   setRequestId,
   setUserAgent,
 } from 'core/actions';
@@ -89,6 +90,12 @@ export function getPageProps({ store, req, res, config }) {
     store.dispatch(setUserAgent(res.locals.userAgent));
   } else {
     log.debug('No userAgent found in request headers.');
+  }
+
+  if (req.headers[REGION_CODE_HEADER]) {
+    store.dispatch(setRegionCode(req.headers[REGION_CODE_HEADER]));
+  } else {
+    log.debug(`No ${REGION_CODE_HEADER} found in request headers.`);
   }
 
   return {

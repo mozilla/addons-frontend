@@ -6,6 +6,7 @@ import {
   SET_AUTH_TOKEN,
   SET_LANG,
   SET_CLIENT_APP,
+  SET_REGION_CODE,
   SET_REQUEST_ID,
   SET_USER_AGENT,
 } from 'core/constants';
@@ -70,6 +71,7 @@ export type ApiState = {
   clientApp: ?string,
   // See config.get('langs') for all possible values.
   lang: ?string,
+  regionCode: ?string,
   requestId: string | null,
   token: ?string,
   userAgent: ?string,
@@ -79,6 +81,7 @@ export type ApiState = {
 export const initialApiState: ApiState = {
   clientApp: null,
   lang: null,
+  regionCode: null,
   requestId: null,
   token: null,
   userAgent: null,
@@ -107,6 +110,8 @@ export default function api(
       return { ...state, lang: action.payload.lang };
     case SET_CLIENT_APP:
       return { ...state, clientApp: action.payload.clientApp };
+    case SET_REGION_CODE:
+      return { ...state, regionCode: action.payload.regionCode };
     case SET_REQUEST_ID:
       return { ...state, requestId: action.payload.requestId };
     case SET_USER_AGENT: {

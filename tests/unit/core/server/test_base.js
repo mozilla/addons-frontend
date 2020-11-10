@@ -11,9 +11,9 @@ import supertest from 'supertest';
 import defaultConfig from 'config';
 import cheerio from 'cheerio';
 
-import { setRequestId } from 'core/actions';
+import { setRegionCode, setRequestId } from 'core/actions';
 import { createApiError } from 'core/api';
-import { AMO_REQUEST_ID_HEADER } from 'core/constants';
+import { AMO_REQUEST_ID_HEADER, REGION_CODE_HEADER } from 'core/constants';
 import baseServer, { createHistory } from 'core/server/base';
 import { middleware } from 'core/store';
 import apiReducer from 'core/reducers/api';
@@ -256,6 +256,22 @@ describe(__filename, () => {
         .end();
 
       sinon.assert.calledWith(dispatchSpy, setRequestId(requestId));
+    });
+
+    it('dispatches setRegionCode()', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const regionCode = 'CA';
+
+      await testClient({
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .set(REGION_CODE_HEADER, regionCode)
+        .end();
+
+      sinon.assert.calledWith(dispatchSpy, setRegionCode(regionCode));
     });
 
     it('fetches the user profile when given a token', async () => {

@@ -18,6 +18,7 @@ import { getDjangoBase62 } from 'amo/utils';
 import {
   setClientApp,
   setLang,
+  setRegionCode,
   setAuthToken,
   setUserAgent,
 } from 'core/actions';
@@ -346,12 +347,14 @@ export function dispatchClientMetadata({
   store = createStore().store,
   clientApp = CLIENT_APP_ANDROID,
   lang = 'en-US',
+  regionCode = 'CA',
   userAgent = sampleUserAgent,
   pathname = `/${lang}/${clientApp}/`,
   search = '',
 } = {}) {
   store.dispatch(setClientApp(clientApp));
   store.dispatch(setLang(lang));
+  store.dispatch(setRegionCode(regionCode));
   store.dispatch(setUserAgent(userAgent));
 
   // Simulate the behavior of `connected-react-router`.

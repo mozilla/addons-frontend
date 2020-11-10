@@ -3,6 +3,7 @@ import {
   SET_AUTH_TOKEN,
   SET_CLIENT_APP,
   SET_LANG,
+  SET_REGION_CODE,
   SET_REQUEST_ID,
   SET_USER_AGENT,
 } from 'core/constants';
@@ -46,6 +47,18 @@ export function setLang(lang: string): SetLangAction {
   return {
     type: SET_LANG,
     payload: { lang },
+  };
+}
+
+export type SetRegionCodeAction = {|
+  payload: {| regionCode: string |},
+  type: typeof SET_REGION_CODE,
+|};
+
+export function setRegionCode(regionCode: string): SetRegionCodeAction {
+  return {
+    type: SET_REGION_CODE,
+    payload: { regionCode },
   };
 }
 

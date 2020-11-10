@@ -10,6 +10,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  REGION_CODE_HEADER,
 } from 'core/constants';
 import {
   apiResponsePage,
@@ -64,6 +65,51 @@ describe(__filename, () => {
         .returns(createApiResponse());
 
       await api.callApi({ endpoint: 'resource', apiState: state.api });
+      mockWindow.verify();
+    });
+
+    it('adds the regionCode header to all requests from the server', async () => {
+      const regionCode = 'CA';
+      const { state } = dispatchClientMetadata({ regionCode });
+
+      mockWindow.expects('fetch').callsFake((urlString, request) => {
+        expect(request.headers[REGION_CODE_HEADER]).toEqual(regionCode);
+        return createApiResponse();
+      });
+
+      await api.callApi({
+        _config: getFakeConfig({ server: true }),
+        endpoint: 'resource',
+        apiState: state.api,
+      });
+      mockWindow.verify();
+    });
+
+    it('does not add the regionCode header if it does not exist in state', async () => {
+      const { state } = dispatchClientMetadata({ regionCode: null });
+
+      mockWindow.expects('fetch').callsFake((urlString, request) => {
+        expect(REGION_CODE_HEADER in request.headers).toEqual(false);
+        return createApiResponse();
+      });
+
+      await api.callApi({ endpoint: 'resource', apiState: state.api });
+      mockWindow.verify();
+    });
+
+    it('does not add the regionCode header if we are not on the server', async () => {
+      const { state } = dispatchClientMetadata({ regionCode: 'CA' });
+
+      mockWindow.expects('fetch').callsFake((urlString, request) => {
+        expect(REGION_CODE_HEADER in request.headers).toEqual(false);
+        return createApiResponse();
+      });
+
+      await api.callApi({
+        _config: getFakeConfig({ server: false }),
+        endpoint: 'resource',
+        apiState: state.api,
+      });
       mockWindow.verify();
     });
 

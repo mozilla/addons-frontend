@@ -7,6 +7,7 @@ import utf8 from 'utf8';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
+import { REGION_CODE_HEADER } from 'core/constants';
 import languages from 'core/languages';
 import { initialApiState } from 'core/reducers/api';
 import log from 'core/logger';
@@ -155,6 +156,9 @@ export function callApi({
     if (apiState.token) {
       options.headers.authorization = `Bearer ${apiState.token}`;
     }
+  }
+  if (_config.get('server') && apiState.regionCode) {
+    options.headers[REGION_CODE_HEADER] = apiState.regionCode;
   }
 
   adjustedEndpoint = adjustedEndpoint.endsWith('/')

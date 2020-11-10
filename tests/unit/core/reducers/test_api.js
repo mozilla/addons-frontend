@@ -34,6 +34,13 @@ describe(__filename, () => {
     ).toEqual({ bar: 'baz', lang });
   });
 
+  it('stores the regionCode', () => {
+    const regionCode = 'CA';
+    expect(
+      api({ bar: 'baz' }, { type: 'SET_REGION_CODE', payload: { regionCode } }),
+    ).toEqual({ bar: 'baz', regionCode });
+  });
+
   it('stores the clientApp', () => {
     const existingState = { bar: 'baz' };
     const clientApp = 'firefox';

@@ -150,6 +150,7 @@ export const SET_CLIENT_APP = 'SET_CLIENT_APP';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
 export const SET_LANG = 'SET_LANG';
+export const SET_REGION_CODE = 'SET_REGION_CODE';
 export const SET_REQUEST_ID = 'SET_REQUEST_ID';
 export const SET_USER_AGENT = 'SET_USER_AGENT';
 export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
@@ -329,3 +330,5 @@ export type PromotedCategoryType =
   | typeof SPOTLIGHT
   | typeof STRATEGIC
   | typeof VERIFIED;
+
+export const REGION_CODE_HEADER = 'X-Country-Code';
