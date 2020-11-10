@@ -157,7 +157,7 @@ export function callApi({
       options.headers.authorization = `Bearer ${apiState.token}`;
     }
   }
-  if (_config.get('server') && apiState.regionCode) {
+  if (apiState.regionCode) {
     options.headers[REGION_CODE_HEADER] = apiState.regionCode;
   }
 

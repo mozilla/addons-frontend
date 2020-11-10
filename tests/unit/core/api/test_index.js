@@ -67,7 +67,7 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
-    it('adds the regionCode header to all requests from the server', async () => {
+    it('adds the regionCode header to all requests', async () => {
       const regionCode = 'CA';
       const { state } = dispatchClientMetadata({ regionCode });
 
@@ -77,7 +77,6 @@ describe(__filename, () => {
       });
 
       await api.callApi({
-        _config: getFakeConfig({ server: true }),
         endpoint: 'resource',
         apiState: state.api,
       });
@@ -93,22 +92,6 @@ describe(__filename, () => {
       });
 
       await api.callApi({ endpoint: 'resource', apiState: state.api });
-      mockWindow.verify();
-    });
-
-    it('does not add the regionCode header if we are not on the server', async () => {
-      const { state } = dispatchClientMetadata({ regionCode: 'CA' });
-
-      mockWindow.expects('fetch').callsFake((urlString, request) => {
-        expect(api.REGION_CODE_HEADER in request.headers).toEqual(false);
-        return createApiResponse();
-      });
-
-      await api.callApi({
-        _config: getFakeConfig({ server: false }),
-        endpoint: 'resource',
-        apiState: state.api,
-      });
       mockWindow.verify();
     });
 
