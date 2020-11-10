@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-10 17:44+0000\n"
-"PO-Revision-Date: 2020-11-10 18:18+0000\n"
+"PO-Revision-Date: 2020-11-10 20:48+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1630,9 +1630,8 @@ msgid "Choose Photo…"
 msgstr "Escolher foto…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:106
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "Para saber mais sobre extensões compatíveis com o Firefox para Android, <a href=\"%(newLocation)s\">clique aqui</a>."
+msgstr "Para encontrar extensões compatíveis com Firefox para Android, <a href=\"%(newLocation)s\">clique aqui</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
