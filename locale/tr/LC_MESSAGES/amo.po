@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-03 16:57+0000\n"
+"POT-Creation-Date: 2020-11-10 17:44+0000\n"
 "PO-Revision-Date: 2020-10-20 19:57+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,11 +89,11 @@ msgstr "Firefox Quantum ile uyumlu değil"
 msgid "Some features may require payment"
 msgstr "Bazı özellikler ücretli olabilir"
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:110
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Bu eklenti sizin Firefox sürümünüzle uyumlu değil."
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -101,11 +101,11 @@ msgstr ""
 "Firefox sürümünüz bu eklentiyi desteklemiyor çünkü eklenti, yeniden "
 "başlatmayı gerektiriyor."
 
-#: src/amo/components/AddonCompatibilityError/index.js:119
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "This add-on is not available on your platform."
 msgstr "Bu eklenti sizin platformunuzda mevcut değil."
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:120
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -114,7 +114,7 @@ msgstr ""
 "gerektirir (en az %(minVersion)s). Siz Firefox %(yourVersion)s "
 "kullanıyorsunuz."
 
-#: src/amo/components/AddonCompatibilityError/index.js:140
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -898,6 +898,15 @@ msgstr ""
 "Ne yazık ki sunucumuzda bir hata oluştu ve isteğinizi tamamlayamadık. Bu "
 "hatayı kaydettik ve araştıracağız."
 
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#, fuzzy
+msgid "Unavailable for legal reasons"
+msgstr "Sizin dilinizdekiler"
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
+msgid "Sorry, but the content you are seeking is not available in your region."
+msgstr ""
+
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
 msgstr "%(userName)s adlı kullanıcının yanıtı"
@@ -1137,17 +1146,17 @@ msgstr ""
 msgid "Download file"
 msgstr "Dosyayı indir"
 
-#: src/amo/components/InstallWarning/index.js:101
+#: src/amo/components/InstallWarning/index.js:100
+msgid "Learn more"
+msgstr "Daha fazla bilgi al"
+
+#: src/amo/components/InstallWarning/index.js:104
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
 msgstr ""
 "Bu eklentinin güvenliği Mozilla tarafından izlenmemektedir. Yalnızca "
 "güvendiğiniz eklentileri yüklemenizi öneririz."
-
-#: src/amo/components/InstallWarning/index.js:97
-msgid "Learn more"
-msgstr "Daha fazla bilgi al"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1805,25 +1814,16 @@ msgstr "Profil fotoğrafı"
 msgid "Choose Photo…"
 msgstr "Fotoğraf seçin…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:101
+#: src/amo/components/WrongPlatformWarning/index.js:106
+#, fuzzy
 msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
+"To find add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
 msgstr ""
-"Firefox'un bilgisayar sürümüyle uyumlu eklentiler bulmak için <a href="
-"\"%(newLocation)s\">masaüstü sitemizi ziyaret edin</a>."
+"Android için Firefox ile uyumlu eklentiler hakkında bilgi edinmek için <a "
+"href=\"%(newLocation)s\">burayı tıklayın</a>."
 
-#: src/amo/components/WrongPlatformWarning/index.js:122
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
-"ons</a>."
-msgstr ""
-"Android için Firefox'ta kullanılamaz. Bu eklentiyi Firefox'un bilgisayar "
-"sürümünde kullanabilir veya benzer <a href=\"%(newLocation)s\">Android "
-"eklentilerini</a> arayabilirsiniz."
-
-#: src/amo/components/WrongPlatformWarning/index.js:129
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "This add-on is not compatible with this browser. Try installing it on "
 "Firefox for desktop."
@@ -1831,101 +1831,7 @@ msgstr ""
 "Bu eklenti bu tarayıcıyla uyumlu değil. Firefox'un bilgisayar sürümüne "
 "yüklemeyi deneyin."
 
-#: src/amo/components/WrongPlatformWarning/index.js:85
-msgid ""
-"To learn about add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
-msgstr ""
-"Android için Firefox ile uyumlu eklentiler hakkında bilgi edinmek için <a "
-"href=\"%(newLocation)s\">burayı tıklayın</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:94
-msgid ""
-"To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
-"\">visit our mobile site</a>."
-msgstr ""
-"Android'de Firefox ile uyumlu eklentiler bulmak için <a href="
-"\"%(newLocation)s\">mobil sitemizi ziyaret edin</a>."
-
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
-msgid "Preview of %(title)s"
-msgstr "%(title)s ön izlemesi"
-
-#: src/amo/pages/Addon/index.js:201
-msgid "This add-on cannot be rated because no versions have been published."
-msgstr "Bu eklentinin hiçbir sürümü yayımlanmadığı için ona puan veremezsiniz."
-
-#: src/amo/pages/Addon/index.js:212
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "%(count)s incelemenin hepsini oku"
-msgstr[1] "%(count)s incelemenin hepsini oku"
-
-#: src/amo/pages/Addon/index.js:233
-msgid "No reviews yet"
-msgstr "Henüz inceleme yapılmamış"
-
-#: src/amo/pages/Addon/index.js:243
-msgid "Rate your experience"
-msgstr "Deneyiminize puan verin"
-
-#: src/amo/pages/Addon/index.js:262
-msgid "About this dictionary"
-msgstr "Bu sözlük hakkında"
-
-#: src/amo/pages/Addon/index.js:265
-msgid "About this extension"
-msgstr "Bu eklenti hakkında"
-
-#: src/amo/pages/Addon/index.js:268
-msgid "About this language pack"
-msgstr "Bu dil paketi hakkında"
-
-#: src/amo/pages/Addon/index.js:271
-msgid "About this theme"
-msgstr "Bu tema hakkında"
-
-#: src/amo/pages/Addon/index.js:274
-msgid "About this add-on"
-msgstr "Bu eklenti hakkında"
-
-#: src/amo/pages/Addon/index.js:316
-msgid "Developer comments"
-msgstr "Geliştirici yorumları"
-
-#: src/amo/pages/Addon/index.js:339
-msgid "Release notes for %(addonVersion)s"
-msgstr "%(addonVersion)s sürüm notları"
-
-#: src/amo/pages/Addon/index.js:471
-msgid ""
-"This is not a public listing. You are only seeing it because of elevated "
-"permissions."
-msgstr ""
-"Bu listeleme herkese açık değildir. Ek izinleriniz nedeniyle bunu "
-"görebiliyorsunuz."
-
-#: src/amo/pages/Addon/index.js:498
-msgid "Extension Metadata"
-msgstr "Eklenti meta verileri"
-
-#: src/amo/pages/Addon/index.js:506
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
-"Bu eklenti bu platform için tasarlanmamıştır. <a href=\"%(newLocation)s"
-"\">Android için Firefox eklentilerine göz atın</a>."
-
-#: src/amo/pages/Addon/index.js:510
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
-"Bu eklenti bu platform için tasarlanmamıştır. <a href=\"%(newLocation)s"
-"\">Firefox'un bilgisayar sürümüyle uyumlu eklentilere göz atın</a>."
-
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/components/WrongPlatformWarning/index.js:95
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
 "\"%(newLocation)s\">add-ons for Android</a>."
@@ -1933,33 +1839,85 @@ msgstr ""
 "Bu eklentiyi Eklenti Yöneticisi'nden yükleyebilirsiniz. <a href="
 "\"%(newLocation)s\">Android eklentileri</a> hakkında bilgi alın."
 
-#: src/amo/pages/Addon/index.js:520
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
-"Android</a>."
-msgstr ""
-"Android için Firefox'ta kullanılamaz. Bu eklentiyi Firefox'un bilgisayar "
-"sürümünde kullanabilirsiniz. <a href=\"%(newLocation)s\">Android "
-"eklentileri</a> hakkında bilgi alın."
+#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+msgid "Preview of %(title)s"
+msgstr "%(title)s ön izlemesi"
 
-#: src/amo/pages/Addon/index.js:542
+#: src/amo/pages/Addon/index.js:199
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr "Bu eklentinin hiçbir sürümü yayımlanmadığı için ona puan veremezsiniz."
+
+#: src/amo/pages/Addon/index.js:210
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "%(count)s incelemenin hepsini oku"
+msgstr[1] "%(count)s incelemenin hepsini oku"
+
+#: src/amo/pages/Addon/index.js:231
+msgid "No reviews yet"
+msgstr "Henüz inceleme yapılmamış"
+
+#: src/amo/pages/Addon/index.js:241
+msgid "Rate your experience"
+msgstr "Deneyiminize puan verin"
+
+#: src/amo/pages/Addon/index.js:260
+msgid "About this dictionary"
+msgstr "Bu sözlük hakkında"
+
+#: src/amo/pages/Addon/index.js:263
+msgid "About this extension"
+msgstr "Bu eklenti hakkında"
+
+#: src/amo/pages/Addon/index.js:266
+msgid "About this language pack"
+msgstr "Bu dil paketi hakkında"
+
+#: src/amo/pages/Addon/index.js:269
+msgid "About this theme"
+msgstr "Bu tema hakkında"
+
+#: src/amo/pages/Addon/index.js:272
+msgid "About this add-on"
+msgstr "Bu eklenti hakkında"
+
+#: src/amo/pages/Addon/index.js:314
+msgid "Developer comments"
+msgstr "Geliştirici yorumları"
+
+#: src/amo/pages/Addon/index.js:337
+msgid "Release notes for %(addonVersion)s"
+msgstr "%(addonVersion)s sürüm notları"
+
+#: src/amo/pages/Addon/index.js:472
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+"Bu listeleme herkese açık değildir. Ek izinleriniz nedeniyle bunu "
+"görebiliyorsunuz."
+
+#: src/amo/pages/Addon/index.js:499
+msgid "Extension Metadata"
+msgstr "Eklenti meta verileri"
+
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "Ekran görüntüleri"
 
-#: src/amo/pages/AddonInfo/index.js:154
+#: src/amo/pages/AddonInfo/index.js:174
 msgid "Custom License for %(addonName)s"
 msgstr "%(addonName)s için özel lisans"
 
-#: src/amo/pages/AddonInfo/index.js:161
+#: src/amo/pages/AddonInfo/index.js:181
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "%(addonName)s Son Kullanıcı Lisans Anlaşması"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:185
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s gizlilik ilkeleri"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1967,51 +1925,51 @@ msgstr ""
 "%(addonName)s incelemeleri ve puanları. Diğer kullanıcıların %(addonName)s "
 "hakkında ne düşündüklerini öğrenin ve eklentiyi Firefox tarayıcınıza ekleyin."
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show all reviews"
 msgstr "Tüm incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show only five-star reviews"
 msgstr "Yalnızca beş yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only four-star reviews"
 msgstr "Yalnızca dört yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only three-star reviews"
 msgstr "Yalnızca üç yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only two-star reviews"
 msgstr "Yalnızca iki yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only one-star reviews"
 msgstr "Yalnızca bir yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:279
+#: src/amo/pages/AddonReviewList/index.js:284
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s incelemeleri"
 
-#: src/amo/pages/AddonReviewList/index.js:289
+#: src/amo/pages/AddonReviewList/index.js:294
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s inceleme"
 msgstr[1] "%(total)s inceleme"
 
-#: src/amo/pages/AddonReviewList/index.js:388
+#: src/amo/pages/AddonReviewList/index.js:393
 msgid "There are no reviews"
 msgstr "Hiç inceleme yok"
 
-#: src/amo/pages/AddonVersions/index.js:128
+#: src/amo/pages/AddonVersions/index.js:129
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "%(addonName)s sürüm geçmişi - %(total)s sürüm"
 msgstr[1] "%(addonName)s sürüm geçmişi - %(total)s sürüm"
 
-#: src/amo/pages/AddonVersions/index.js:176
+#: src/amo/pages/AddonVersions/index.js:181
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2019,15 +1977,15 @@ msgstr ""
 "Eski sürümlere dikkat edin! Bu sürümler yalnızca test veya referans amacıyla "
 "sunulmaktadır."
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:186
 msgid "You should always use the latest version of an add-on."
 msgstr "Her zaman eklentilerin son sürümlerini kullanmalısınız."
 
-#: src/amo/pages/AddonVersions/index.js:190
+#: src/amo/pages/AddonVersions/index.js:195
 msgid "Latest version"
 msgstr "Son sürüm"
 
-#: src/amo/pages/AddonVersions/index.js:199
+#: src/amo/pages/AddonVersions/index.js:204
 msgid "Older versions"
 msgstr "Eski sürümler"
 
@@ -3363,6 +3321,52 @@ msgstr[1] "%(total)s eklenti"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Geliştiricinin yanıtı"
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on desktop, <a href="
+#~ "\"%(newLocation)s\">visit our desktop site</a>."
+#~ msgstr ""
+#~ "Firefox'un bilgisayar sürümüyle uyumlu eklentiler bulmak için <a href="
+#~ "\"%(newLocation)s\">masaüstü sitemizi ziyaret edin</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s"
+#~ "\">Android add-ons</a>."
+#~ msgstr ""
+#~ "Android için Firefox'ta kullanılamaz. Bu eklentiyi Firefox'un bilgisayar "
+#~ "sürümünde kullanabilir veya benzer <a href=\"%(newLocation)s\">Android "
+#~ "eklentilerini</a> arayabilirsiniz."
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on Android, <a href="
+#~ "\"%(newLocation)s\">visit our mobile site</a>."
+#~ msgstr ""
+#~ "Android'de Firefox ile uyumlu eklentiler bulmak için <a href="
+#~ "\"%(newLocation)s\">mobil sitemizi ziyaret edin</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on Android</a>."
+#~ msgstr ""
+#~ "Bu eklenti bu platform için tasarlanmamıştır. <a href=\"%(newLocation)s"
+#~ "\">Android için Firefox eklentilerine göz atın</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on desktop</a>."
+#~ msgstr ""
+#~ "Bu eklenti bu platform için tasarlanmamıştır. <a href=\"%(newLocation)s"
+#~ "\">Firefox'un bilgisayar sürümüyle uyumlu eklentilere göz atın</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons "
+#~ "for Android</a>."
+#~ msgstr ""
+#~ "Android için Firefox'ta kullanılamaz. Bu eklentiyi Firefox'un bilgisayar "
+#~ "sürümünde kullanabilirsiniz. <a href=\"%(newLocation)s\">Android "
+#~ "eklentileri</a> hakkında bilgi alın."
 
 #~ msgid "Promoted Add-Ons"
 #~ msgstr "Sponsorlu eklentiler"

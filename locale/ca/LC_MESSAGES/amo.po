@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-03 16:57+0000\n"
+"POT-Creation-Date: 2020-11-10 17:44+0000\n"
 "PO-Revision-Date: 2020-08-23 15:30+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -89,11 +89,11 @@ msgstr "No és compatible amb el Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Pot ser que hàgiu de pagar per algunes funcions"
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:110
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Aquest complement no és compatible amb la versió del Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -101,11 +101,11 @@ msgstr ""
 "La versió del Firefox no és compatible amb aquest complement perquè "
 "requereix un reinici."
 
-#: src/amo/components/AddonCompatibilityError/index.js:119
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "This add-on is not available on your platform."
 msgstr "Aquest complement no està disponible a la vostra plataforma."
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:120
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -114,7 +114,7 @@ msgstr ""
 "del Firefox</a> (com a mínim, la versió %(minVersion)s). Actualment "
 "utilitzeu la versió %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:140
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -919,6 +919,15 @@ msgstr ""
 "Ens sap greu, però s'ha produït un error amb el servidor i no hem pogut "
 "completar la sol·licitud. Hem registrat aquest error i ho investigarem."
 
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#, fuzzy
+msgid "Unavailable for legal reasons"
+msgstr "Disponible per a la vostra llengua"
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
+msgid "Sorry, but the content you are seeking is not available in your region."
+msgstr ""
+
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
 msgstr "Resposta de: %(userName)s"
@@ -1162,7 +1171,11 @@ msgstr ""
 msgid "Download file"
 msgstr "S'està baixant"
 
-#: src/amo/components/InstallWarning/index.js:101
+#: src/amo/components/InstallWarning/index.js:100
+msgid "Learn more"
+msgstr "Més informació"
+
+#: src/amo/components/InstallWarning/index.js:104
 #, fuzzy
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
@@ -1171,10 +1184,6 @@ msgstr ""
 "La seguretat d'aquesta extensió no està controlada mitjançant el programa "
 "d'Extensions recomanades de Mozilla. Assegureu-vos que hi confieu abans "
 "d’instal·lar-la."
-
-#: src/amo/components/InstallWarning/index.js:97
-msgid "Learn more"
-msgstr "Més informació"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1842,25 +1851,16 @@ msgstr "Imatge de perfil"
 msgid "Choose Photo…"
 msgstr "Trieu la imatge…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:101
+#: src/amo/components/WrongPlatformWarning/index.js:106
+#, fuzzy
 msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
+"To find add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
 msgstr ""
-"Per trobar complements compatibles amb el Firefox a l'escriptori, <a href="
-"\"%(newLocation)s\">visiteu el nostre lloc per a escriptori</a>."
+"Per veure més informació sobre els complements compatibles amb el Firefox "
+"per a l'Android, <a href=\"%(newLocation)s\">feu clic aquí</a>."
 
-#: src/amo/components/WrongPlatformWarning/index.js:122
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
-"ons</a>."
-msgstr ""
-"No està disponible en el Firefox per a l'Android. Podeu utilitzar aquest "
-"complement amb el Firefox per a l'escriptori o cercar <a href="
-"\"%(newLocation)s\">complements similars per a l'Android</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:129
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "This add-on is not compatible with this browser. Try installing it on "
 "Firefox for desktop."
@@ -1868,102 +1868,7 @@ msgstr ""
 "Aquest complement no és compatible amb aquest navegador. Proveu d'instal·lar-"
 "lo al Firefox per a l'escriptori."
 
-#: src/amo/components/WrongPlatformWarning/index.js:85
-msgid ""
-"To learn about add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
-msgstr ""
-"Per veure més informació sobre els complements compatibles amb el Firefox "
-"per a l'Android, <a href=\"%(newLocation)s\">feu clic aquí</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:94
-msgid ""
-"To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
-"\">visit our mobile site</a>."
-msgstr ""
-"Per trobar complements compatibles amb el Firefox a Android, <a href="
-"\"%(newLocation)s\">visiteu el nostre lloc per a mòbil</a>."
-
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
-msgid "Preview of %(title)s"
-msgstr "Previsualització de %(title)s"
-
-#: src/amo/pages/Addon/index.js:201
-msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
-"Aquest complement no es pot valorar perquè encara no s'ha publicat cap "
-"versió."
-
-#: src/amo/pages/Addon/index.js:212
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Llegiu %(count)s ressenya"
-msgstr[1] "Llegiu %(count)s ressenyes"
-
-#: src/amo/pages/Addon/index.js:233
-msgid "No reviews yet"
-msgstr "Encara no hi ha ressenyes"
-
-#: src/amo/pages/Addon/index.js:243
-msgid "Rate your experience"
-msgstr "Valoreu l'experiència"
-
-#: src/amo/pages/Addon/index.js:262
-msgid "About this dictionary"
-msgstr "Quant a aquest diccionari"
-
-#: src/amo/pages/Addon/index.js:265
-msgid "About this extension"
-msgstr "Quant a aquesta extensió"
-
-#: src/amo/pages/Addon/index.js:268
-msgid "About this language pack"
-msgstr "Quant a aquest paquet de llengua"
-
-#: src/amo/pages/Addon/index.js:271
-msgid "About this theme"
-msgstr "Quant a aquest tema"
-
-#: src/amo/pages/Addon/index.js:274
-msgid "About this add-on"
-msgstr "Quant a aquest complement"
-
-#: src/amo/pages/Addon/index.js:316
-msgid "Developer comments"
-msgstr "Comentaris del desenvolupador"
-
-#: src/amo/pages/Addon/index.js:339
-msgid "Release notes for %(addonVersion)s"
-msgstr "Notes de versió per a %(addonVersion)s"
-
-#: src/amo/pages/Addon/index.js:471
-msgid ""
-"This is not a public listing. You are only seeing it because of elevated "
-"permissions."
-msgstr ""
-"Aquest llistat no és públic. El podeu veure perquè teniu permisos elevats."
-
-#: src/amo/pages/Addon/index.js:498
-msgid "Extension Metadata"
-msgstr "Metadades de l'extensió"
-
-#: src/amo/pages/Addon/index.js:506
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
-"Aquest llistat no està destinat a aquesta plataforma. <a href="
-"\"%(newLocation)s\">Cerca complements pel Firefox a Android</a>."
-
-#: src/amo/pages/Addon/index.js:510
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
-"Aquest llistat no està destinat a aquesta plataforma. <a href="
-"\"%(newLocation)s\">Cerca complements pel Firefox a l'escriptori</a>."
-
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/components/WrongPlatformWarning/index.js:95
 #, fuzzy
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
@@ -1973,33 +1878,86 @@ msgstr ""
 "complement amb el Firefox per a l'escriptori. Més informació sobre els <a "
 "href=\"%(newLocation)s\">complements per a l'Android</a>."
 
-#: src/amo/pages/Addon/index.js:520
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
-"Android</a>."
-msgstr ""
-"No està disponible en el Firefox per a l'Android. Podeu utilitzar aquest "
-"complement amb el Firefox per a l'escriptori. Més informació sobre els <a "
-"href=\"%(newLocation)s\">complements per a l'Android</a>."
+#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+msgid "Preview of %(title)s"
+msgstr "Previsualització de %(title)s"
 
-#: src/amo/pages/Addon/index.js:542
+#: src/amo/pages/Addon/index.js:199
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr ""
+"Aquest complement no es pot valorar perquè encara no s'ha publicat cap "
+"versió."
+
+#: src/amo/pages/Addon/index.js:210
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "Llegiu %(count)s ressenya"
+msgstr[1] "Llegiu %(count)s ressenyes"
+
+#: src/amo/pages/Addon/index.js:231
+msgid "No reviews yet"
+msgstr "Encara no hi ha ressenyes"
+
+#: src/amo/pages/Addon/index.js:241
+msgid "Rate your experience"
+msgstr "Valoreu l'experiència"
+
+#: src/amo/pages/Addon/index.js:260
+msgid "About this dictionary"
+msgstr "Quant a aquest diccionari"
+
+#: src/amo/pages/Addon/index.js:263
+msgid "About this extension"
+msgstr "Quant a aquesta extensió"
+
+#: src/amo/pages/Addon/index.js:266
+msgid "About this language pack"
+msgstr "Quant a aquest paquet de llengua"
+
+#: src/amo/pages/Addon/index.js:269
+msgid "About this theme"
+msgstr "Quant a aquest tema"
+
+#: src/amo/pages/Addon/index.js:272
+msgid "About this add-on"
+msgstr "Quant a aquest complement"
+
+#: src/amo/pages/Addon/index.js:314
+msgid "Developer comments"
+msgstr "Comentaris del desenvolupador"
+
+#: src/amo/pages/Addon/index.js:337
+msgid "Release notes for %(addonVersion)s"
+msgstr "Notes de versió per a %(addonVersion)s"
+
+#: src/amo/pages/Addon/index.js:472
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+"Aquest llistat no és públic. El podeu veure perquè teniu permisos elevats."
+
+#: src/amo/pages/Addon/index.js:499
+msgid "Extension Metadata"
+msgstr "Metadades de l'extensió"
+
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "Captures de pantalla"
 
-#: src/amo/pages/AddonInfo/index.js:154
+#: src/amo/pages/AddonInfo/index.js:174
 msgid "Custom License for %(addonName)s"
 msgstr "Llicència personalitzada per %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:161
+#: src/amo/pages/AddonInfo/index.js:181
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "Acord de llicència de l'usuari final de %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:185
 msgid "Privacy policy for %(addonName)s"
 msgstr "Política de privadesa de %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2007,51 +1965,51 @@ msgstr ""
 "Ressenyes i valoracions de %(addonName)s. Descobriu què pensen altres "
 "usuaris de %(addonName)s i afegiu-lo al navegador del Firefox."
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show all reviews"
 msgstr "Mostra totes les ressenyes"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show only five-star reviews"
 msgstr "Mostra només les ressenyes de cinc estrelles"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only four-star reviews"
 msgstr "Mostra només les ressenyes de quatre estrelles"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only three-star reviews"
 msgstr "Mostra només les ressenyes de tres estrelles"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only two-star reviews"
 msgstr "Mostra només les ressenyes de dues estrelles"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only one-star reviews"
 msgstr "Mostra només les ressenyes d'una estrella"
 
-#: src/amo/pages/AddonReviewList/index.js:279
+#: src/amo/pages/AddonReviewList/index.js:284
 msgid "Reviews for %(addonName)s"
 msgstr "Ressenyes sobre %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:289
+#: src/amo/pages/AddonReviewList/index.js:294
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s ressenya"
 msgstr[1] "%(total)s ressenyes"
 
-#: src/amo/pages/AddonReviewList/index.js:388
+#: src/amo/pages/AddonReviewList/index.js:393
 msgid "There are no reviews"
 msgstr "No hi ha ressenyes"
 
-#: src/amo/pages/AddonVersions/index.js:128
+#: src/amo/pages/AddonVersions/index.js:129
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Historial de versions de %(addonName)s - %(total)s versió"
 msgstr[1] "Historial de versions de %(addonName)s - %(total)s versions"
 
-#: src/amo/pages/AddonVersions/index.js:176
+#: src/amo/pages/AddonVersions/index.js:181
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2059,15 +2017,15 @@ msgstr ""
 "Compte amb les versions antigues! Sovint es mostren per fer proves i com a "
 "referència."
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:186
 msgid "You should always use the latest version of an add-on."
 msgstr "És recomanable que empreu la versió més recent d'un complement."
 
-#: src/amo/pages/AddonVersions/index.js:190
+#: src/amo/pages/AddonVersions/index.js:195
 msgid "Latest version"
 msgstr "Darrera versió"
 
-#: src/amo/pages/AddonVersions/index.js:199
+#: src/amo/pages/AddonVersions/index.js:204
 msgid "Older versions"
 msgstr "Versions més antigues"
 
@@ -3409,6 +3367,52 @@ msgstr[1] "%(total)s complements"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Resposta del desenvolupador"
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on desktop, <a href="
+#~ "\"%(newLocation)s\">visit our desktop site</a>."
+#~ msgstr ""
+#~ "Per trobar complements compatibles amb el Firefox a l'escriptori, <a href="
+#~ "\"%(newLocation)s\">visiteu el nostre lloc per a escriptori</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s"
+#~ "\">Android add-ons</a>."
+#~ msgstr ""
+#~ "No està disponible en el Firefox per a l'Android. Podeu utilitzar aquest "
+#~ "complement amb el Firefox per a l'escriptori o cercar <a href="
+#~ "\"%(newLocation)s\">complements similars per a l'Android</a>."
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on Android, <a href="
+#~ "\"%(newLocation)s\">visit our mobile site</a>."
+#~ msgstr ""
+#~ "Per trobar complements compatibles amb el Firefox a Android, <a href="
+#~ "\"%(newLocation)s\">visiteu el nostre lloc per a mòbil</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on Android</a>."
+#~ msgstr ""
+#~ "Aquest llistat no està destinat a aquesta plataforma. <a href="
+#~ "\"%(newLocation)s\">Cerca complements pel Firefox a Android</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on desktop</a>."
+#~ msgstr ""
+#~ "Aquest llistat no està destinat a aquesta plataforma. <a href="
+#~ "\"%(newLocation)s\">Cerca complements pel Firefox a l'escriptori</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons "
+#~ "for Android</a>."
+#~ msgstr ""
+#~ "No està disponible en el Firefox per a l'Android. Podeu utilitzar aquest "
+#~ "complement amb el Firefox per a l'escriptori. Més informació sobre els <a "
+#~ "href=\"%(newLocation)s\">complements per a l'Android</a>."
 
 #, fuzzy
 #~ msgid "Promoted Add-Ons"

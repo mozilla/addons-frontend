@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-03 16:57+0000\n"
+"POT-Creation-Date: 2020-11-10 17:44+0000\n"
 "PO-Revision-Date: 2020-10-20 18:34+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
@@ -90,11 +90,11 @@ msgstr "Не сумісно з Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Деякі функції можуть потребувати оплати"
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:110
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Цей додаток несумісний з вашою версією Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -102,11 +102,11 @@ msgstr ""
 "Ваша версія Firefox не підтримує цей додаток, тому що він потребує "
 "перезапуску."
 
-#: src/amo/components/AddonCompatibilityError/index.js:119
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "This add-on is not available on your platform."
 msgstr "Цей додаток недоступний на вашій платформі."
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:120
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -115,7 +115,7 @@ msgstr ""
 "(щонайменше, версію %(minVersion)s). Ви використовуєте Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:140
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -914,6 +914,15 @@ msgstr ""
 "Вибачте, але сталася помилка з нашим сервером, і ми не змогли виконати ваш "
 "запит. Ми записали цю помилку і будемо розслідувати її."
 
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#, fuzzy
+msgid "Unavailable for legal reasons"
+msgstr "Доступно вашою мовою"
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
+msgid "Sorry, but the content you are seeking is not available in your region."
+msgstr ""
+
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
 msgstr "Відповідь від %(userName)s"
@@ -1154,17 +1163,17 @@ msgstr ""
 msgid "Download file"
 msgstr "Завантажити файл"
 
-#: src/amo/components/InstallWarning/index.js:101
+#: src/amo/components/InstallWarning/index.js:100
+msgid "Learn more"
+msgstr "Докладніше"
+
+#: src/amo/components/InstallWarning/index.js:104
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
 msgstr ""
 "Цей додаток не контролюється Mozilla активно для забезпечення безпеки. Перш "
 "ніж встановлювати, переконайтеся, що ви йому довіряєте."
-
-#: src/amo/components/InstallWarning/index.js:97
-msgid "Learn more"
-msgstr "Докладніше"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1836,25 +1845,16 @@ msgstr "Фотографія профілю"
 msgid "Choose Photo…"
 msgstr "Оберіть фото…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:101
+#: src/amo/components/WrongPlatformWarning/index.js:106
+#, fuzzy
 msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
+"To find add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
 msgstr ""
-"Щоб знайти додатки, сумісні з Firefox для комп'ютера, <a href="
-"\"%(newLocation)s\">відвідайте наш сайт</a>."
+"Щоб ознайомитися з додатками, сумісними з Firefox для Android, <a href="
+"\"%(newLocation)s\">клацніть тут</a>."
 
-#: src/amo/components/WrongPlatformWarning/index.js:122
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
-"ons</a>."
-msgstr ""
-"Недоступно в Firefox для Android. Ви можете використовувати цей додаток з "
-"Firefox для комп'ютера,  або пошукайте подібні <a href=\"%(newLocation)s"
-"\">додатки для Android</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:129
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "This add-on is not compatible with this browser. Try installing it on "
 "Firefox for desktop."
@@ -1862,101 +1862,7 @@ msgstr ""
 "Цей додаток несумісний з цим браузером. Спробуйте встановити його в Firefox "
 "для комп'ютера."
 
-#: src/amo/components/WrongPlatformWarning/index.js:85
-msgid ""
-"To learn about add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
-msgstr ""
-"Щоб ознайомитися з додатками, сумісними з Firefox для Android, <a href="
-"\"%(newLocation)s\">клацніть тут</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:94
-msgid ""
-"To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
-"\">visit our mobile site</a>."
-msgstr ""
-"Щоб знайти додатки, сумісні з Firefox для Android, <a href=\"%(newLocation)s"
-"\">відвідайте наш сайт для мобільного</a>."
-
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
-msgid "Preview of %(title)s"
-msgstr "Перегляд %(title)s"
-
-#: src/amo/pages/Addon/index.js:201
-msgid "This add-on cannot be rated because no versions have been published."
-msgstr "Цей додаток не можна оцінити, тому що він не має опублікованих версій."
-
-#: src/amo/pages/Addon/index.js:212
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Читати %(count)s відгук"
-msgstr[1] "Читати всі %(count)s відгуки"
-msgstr[2] "Читати всі %(count)s відгуків"
-
-#: src/amo/pages/Addon/index.js:233
-msgid "No reviews yet"
-msgstr "Ще немає відгуків"
-
-#: src/amo/pages/Addon/index.js:243
-msgid "Rate your experience"
-msgstr "Оцініть"
-
-#: src/amo/pages/Addon/index.js:262
-msgid "About this dictionary"
-msgstr "Про цей словник"
-
-#: src/amo/pages/Addon/index.js:265
-msgid "About this extension"
-msgstr "Про це розширення"
-
-#: src/amo/pages/Addon/index.js:268
-msgid "About this language pack"
-msgstr "Про цей мовний пакет"
-
-#: src/amo/pages/Addon/index.js:271
-msgid "About this theme"
-msgstr "Про цю тему"
-
-#: src/amo/pages/Addon/index.js:274
-msgid "About this add-on"
-msgstr "Про цей додаток"
-
-#: src/amo/pages/Addon/index.js:316
-msgid "Developer comments"
-msgstr "Коментарі розробника"
-
-#: src/amo/pages/Addon/index.js:339
-msgid "Release notes for %(addonVersion)s"
-msgstr "Примітки до випуску для %(addonVersion)s"
-
-#: src/amo/pages/Addon/index.js:471
-msgid ""
-"This is not a public listing. You are only seeing it because of elevated "
-"permissions."
-msgstr ""
-"Це не публічний опис. Ви бачите його лише тому, що маєте підвищені привілеї."
-
-#: src/amo/pages/Addon/index.js:498
-msgid "Extension Metadata"
-msgstr "Метадані розширення"
-
-#: src/amo/pages/Addon/index.js:506
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
-"Цей опис не призначений для цієї платформи. <a href=\"%(newLocation)s"
-"\">Перегляньте додатки для Firefox на Android</a>."
-
-#: src/amo/pages/Addon/index.js:510
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
-"Цей опис не призначений для цієї платформи. <a href=\"%(newLocation)s"
-"\">Перегляньте додатки для Firefox на комп'ютері</a>."
-
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/components/WrongPlatformWarning/index.js:95
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
 "\"%(newLocation)s\">add-ons for Android</a>."
@@ -1964,33 +1870,85 @@ msgstr ""
 "Ви можете встановити цей додаток у Менеджері додатків. Докладніше про <a "
 "href=\"%(newLocation)s\">додатки для Android</a>."
 
-#: src/amo/pages/Addon/index.js:520
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
-"Android</a>."
-msgstr ""
-"Недоступно в Firefox для Android. Ви можете користуватися цим додатком у "
-"Firefox для комп'ютера. Дізнайтеся більше про <a href=\"%(newLocation)s"
-"\">додатки для Android</a>."
+#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+msgid "Preview of %(title)s"
+msgstr "Перегляд %(title)s"
 
-#: src/amo/pages/Addon/index.js:542
+#: src/amo/pages/Addon/index.js:199
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr "Цей додаток не можна оцінити, тому що він не має опублікованих версій."
+
+#: src/amo/pages/Addon/index.js:210
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "Читати %(count)s відгук"
+msgstr[1] "Читати всі %(count)s відгуки"
+msgstr[2] "Читати всі %(count)s відгуків"
+
+#: src/amo/pages/Addon/index.js:231
+msgid "No reviews yet"
+msgstr "Ще немає відгуків"
+
+#: src/amo/pages/Addon/index.js:241
+msgid "Rate your experience"
+msgstr "Оцініть"
+
+#: src/amo/pages/Addon/index.js:260
+msgid "About this dictionary"
+msgstr "Про цей словник"
+
+#: src/amo/pages/Addon/index.js:263
+msgid "About this extension"
+msgstr "Про це розширення"
+
+#: src/amo/pages/Addon/index.js:266
+msgid "About this language pack"
+msgstr "Про цей мовний пакет"
+
+#: src/amo/pages/Addon/index.js:269
+msgid "About this theme"
+msgstr "Про цю тему"
+
+#: src/amo/pages/Addon/index.js:272
+msgid "About this add-on"
+msgstr "Про цей додаток"
+
+#: src/amo/pages/Addon/index.js:314
+msgid "Developer comments"
+msgstr "Коментарі розробника"
+
+#: src/amo/pages/Addon/index.js:337
+msgid "Release notes for %(addonVersion)s"
+msgstr "Примітки до випуску для %(addonVersion)s"
+
+#: src/amo/pages/Addon/index.js:472
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+"Це не публічний опис. Ви бачите його лише тому, що маєте підвищені привілеї."
+
+#: src/amo/pages/Addon/index.js:499
+msgid "Extension Metadata"
+msgstr "Метадані розширення"
+
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "Знімки екрану"
 
-#: src/amo/pages/AddonInfo/index.js:154
+#: src/amo/pages/AddonInfo/index.js:174
 msgid "Custom License for %(addonName)s"
 msgstr "Ліцензія розробника для %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:161
+#: src/amo/pages/AddonInfo/index.js:181
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "Ліцензійна угода з кінцевим користувачем для %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:185
 msgid "Privacy policy for %(addonName)s"
 msgstr "Політика приватності для %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1998,53 +1956,53 @@ msgstr ""
 "Відгуки та оцінки для %(addonName)s. Дізнайтеся, які в інших користувачів "
 "враження від %(addonName)s і додайте його до свого Firefox."
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show all reviews"
 msgstr "Показати всі відгуки"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show only five-star reviews"
 msgstr "Показати лише відгуки з оцінкою 5 зірок"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only four-star reviews"
 msgstr "Показати лише відгуки з оцінкою 4 зірки"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only three-star reviews"
 msgstr "Показати лише відгуки з оцінкою 3 зірки"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only two-star reviews"
 msgstr "Показати лише відгуки з оцінкою 2 зірки"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only one-star reviews"
 msgstr "Показати лише відгуки з оцінкою 1 зірка"
 
-#: src/amo/pages/AddonReviewList/index.js:279
+#: src/amo/pages/AddonReviewList/index.js:284
 msgid "Reviews for %(addonName)s"
 msgstr "Відгуки для %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:289
+#: src/amo/pages/AddonReviewList/index.js:294
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s відгук"
 msgstr[1] "%(total)s відгуки"
 msgstr[2] "%(total)s відгуків"
 
-#: src/amo/pages/AddonReviewList/index.js:388
+#: src/amo/pages/AddonReviewList/index.js:393
 msgid "There are no reviews"
 msgstr "Відгуків немає"
 
-#: src/amo/pages/AddonVersions/index.js:128
+#: src/amo/pages/AddonVersions/index.js:129
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Історія версій %(addonName)s - %(total)s версія"
 msgstr[1] "Історія версій %(addonName)s - %(total)s версії"
 msgstr[2] "Історія версій %(addonName)s - %(total)s версій"
 
-#: src/amo/pages/AddonVersions/index.js:176
+#: src/amo/pages/AddonVersions/index.js:181
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2052,15 +2010,15 @@ msgstr ""
 "Будьте обачні із застарілими версіями! Ці версії відображаються лише з метою "
 "тестування й довідки."
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:186
 msgid "You should always use the latest version of an add-on."
 msgstr "Вам слід завжди використовувати найновішу версію додатка."
 
-#: src/amo/pages/AddonVersions/index.js:190
+#: src/amo/pages/AddonVersions/index.js:195
 msgid "Latest version"
 msgstr "Найновіша версія"
 
-#: src/amo/pages/AddonVersions/index.js:199
+#: src/amo/pages/AddonVersions/index.js:204
 msgid "Older versions"
 msgstr "Попередні версії"
 
@@ -3389,6 +3347,52 @@ msgstr[2] "%(total)s додатків"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Відповідь розробника"
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on desktop, <a href="
+#~ "\"%(newLocation)s\">visit our desktop site</a>."
+#~ msgstr ""
+#~ "Щоб знайти додатки, сумісні з Firefox для комп'ютера, <a href="
+#~ "\"%(newLocation)s\">відвідайте наш сайт</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s"
+#~ "\">Android add-ons</a>."
+#~ msgstr ""
+#~ "Недоступно в Firefox для Android. Ви можете використовувати цей додаток з "
+#~ "Firefox для комп'ютера,  або пошукайте подібні <a href=\"%(newLocation)s"
+#~ "\">додатки для Android</a>."
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on Android, <a href="
+#~ "\"%(newLocation)s\">visit our mobile site</a>."
+#~ msgstr ""
+#~ "Щоб знайти додатки, сумісні з Firefox для Android, <a href="
+#~ "\"%(newLocation)s\">відвідайте наш сайт для мобільного</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on Android</a>."
+#~ msgstr ""
+#~ "Цей опис не призначений для цієї платформи. <a href=\"%(newLocation)s"
+#~ "\">Перегляньте додатки для Firefox на Android</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on desktop</a>."
+#~ msgstr ""
+#~ "Цей опис не призначений для цієї платформи. <a href=\"%(newLocation)s"
+#~ "\">Перегляньте додатки для Firefox на комп'ютері</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons "
+#~ "for Android</a>."
+#~ msgstr ""
+#~ "Недоступно в Firefox для Android. Ви можете користуватися цим додатком у "
+#~ "Firefox для комп'ютера. Дізнайтеся більше про <a href=\"%(newLocation)s"
+#~ "\">додатки для Android</a>."
 
 #~ msgid "Promoted Add-Ons"
 #~ msgstr "Рекламовані додатки"

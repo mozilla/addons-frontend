@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-03 16:57+0000\n"
+"POT-Creation-Date: 2020-11-10 17:44+0000\n"
 "PO-Revision-Date: 2020-10-20 18:50+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -90,22 +90,22 @@ msgstr "אין תאימות ל־Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "חלק מהתכונות עשויות לדרוש תשלום"
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:110
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "תוספת זו אינה נתמכת ע״י הגרסה המותקנת של Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr ""
 "הגרסה של ה־Firefox שברשותך אינה תומכת בתוספת זו מכיוון שהיא דורשת הפעלה מחדש."
 
-#: src/amo/components/AddonCompatibilityError/index.js:119
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "This add-on is not available on your platform."
 msgstr "תוספת זו אינה זמינה לפלטפורמה שלך."
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:120
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -113,7 +113,7 @@ msgstr ""
 "תוספת זו דורשת <a href=\"%(downloadUrl)s\">גרסה חדשה יותר של Firefox</a> "
 "(לפחות גרסה %(minVersion)s). גרסת ה־‏Firefox שברשותך היא %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:140
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -887,6 +887,15 @@ msgstr ""
 "מצטערים, אבל אירעה שגיאה בשרת שלנו ולא הצלחנו להשלים את הבקשה שלך. תיעדנו את "
 "השגיאה הזאת ואנו נחקור אותה."
 
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#, fuzzy
+msgid "Unavailable for legal reasons"
+msgstr "זמין לשפה שלך"
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
+msgid "Sorry, but the content you are seeking is not available in your region."
+msgstr ""
+
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
 msgstr "תגובה מאת %(userName)s"
@@ -1123,17 +1132,17 @@ msgstr "‏Firefox ממליץ רק על הרחבות שעומדות בתקנים
 msgid "Download file"
 msgstr "הורדת קובץ"
 
-#: src/amo/components/InstallWarning/index.js:101
+#: src/amo/components/InstallWarning/index.js:100
+msgid "Learn more"
+msgstr "מידע נוסף"
+
+#: src/amo/components/InstallWarning/index.js:104
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
 msgstr ""
 "תוספת זו אינה מנוטרת לטובת אבטחה על־ידי Mozilla. מומלץ לוודא שההרחבה מהימנה "
 "טרם ההתקנה."
-
-#: src/amo/components/InstallWarning/index.js:97
-msgid "Learn more"
-msgstr "מידע נוסף"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1778,24 +1787,16 @@ msgstr "תמונת פרופיל"
 msgid "Choose Photo…"
 msgstr "בחירת תמונה…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:101
+#: src/amo/components/WrongPlatformWarning/index.js:106
+#, fuzzy
 msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
+"To find add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
 msgstr ""
-"כדי למצוא תוספות הנתמכות ב־Firefox למחשבים שולחניים, <a href="
-"\"%(newLocation)s\">ניתן לבקר באתר הרגיל שלנו</a>."
+"למידע נוסף על תוספות הנתמכות ב־Firefox עבור Android, <a href="
+"\"%(newLocation)s\">נא ללחוץ כאן</a>."
 
-#: src/amo/components/WrongPlatformWarning/index.js:122
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
-"ons</a>."
-msgstr ""
-"לא זמין ב־Firefox עבור Android. באפשרותך להשתמש בתוספת זו ב־Firefox למחשבים "
-"שולחניים,  או לחפש <a href=\"%(newLocation)s\">תוספות דומות ל־Android</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:129
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "This add-on is not compatible with this browser. Try installing it on "
 "Firefox for desktop."
@@ -1803,100 +1804,7 @@ msgstr ""
 "תוספת זו אינה נתמכת על־ידי הדפדפן הזה. ניתן לנסות להתקין אותה על Firefox "
 "למחשבים שולחניים."
 
-#: src/amo/components/WrongPlatformWarning/index.js:85
-msgid ""
-"To learn about add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
-msgstr ""
-"למידע נוסף על תוספות הנתמכות ב־Firefox עבור Android, <a href="
-"\"%(newLocation)s\">נא ללחוץ כאן</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:94
-msgid ""
-"To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
-"\">visit our mobile site</a>."
-msgstr ""
-"כדי למצוא תוספות הנתמכות ב־Firefox עבור Android, <a href=\"%(newLocation)s"
-"\">ניתן לבקר באתר שלנו לניידים</a>."
-
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
-msgid "Preview of %(title)s"
-msgstr "תצוגה מקדימה של %(title)s"
-
-#: src/amo/pages/Addon/index.js:201
-msgid "This add-on cannot be rated because no versions have been published."
-msgstr "לא ניתן לדרג תוספת זו כיוון שלא פורסמה אף גרסה."
-
-#: src/amo/pages/Addon/index.js:212
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "קריאת סקירה אחת"
-msgstr[1] "קריאת כל %(count)s הסקירות"
-
-#: src/amo/pages/Addon/index.js:233
-msgid "No reviews yet"
-msgstr "אין עדיין סקירות"
-
-#: src/amo/pages/Addon/index.js:243
-msgid "Rate your experience"
-msgstr "דירוג החוויה שלך"
-
-#: src/amo/pages/Addon/index.js:262
-msgid "About this dictionary"
-msgstr "על אודות מילון זה"
-
-#: src/amo/pages/Addon/index.js:265
-msgid "About this extension"
-msgstr "על אודות הרחבה זו"
-
-#: src/amo/pages/Addon/index.js:268
-msgid "About this language pack"
-msgstr "על אודות ערכת שפה זו"
-
-#: src/amo/pages/Addon/index.js:271
-msgid "About this theme"
-msgstr "על אודות ערכת נושא זו"
-
-#: src/amo/pages/Addon/index.js:274
-msgid "About this add-on"
-msgstr "על אודות תוספת זו"
-
-#: src/amo/pages/Addon/index.js:316
-msgid "Developer comments"
-msgstr "הערות המפתח"
-
-#: src/amo/pages/Addon/index.js:339
-msgid "Release notes for %(addonVersion)s"
-msgstr "הערות שחרור עבור %(addonVersion)s"
-
-#: src/amo/pages/Addon/index.js:471
-msgid ""
-"This is not a public listing. You are only seeing it because of elevated "
-"permissions."
-msgstr ""
-"רשומה זו אינה ציבורית. הסיבה שהיא מופיעה בפניך היא שיש לך רמת הרשאות מספיקה."
-
-#: src/amo/pages/Addon/index.js:498
-msgid "Extension Metadata"
-msgstr "נתוני העל של ההרחבה"
-
-#: src/amo/pages/Addon/index.js:506
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
-"רשומה זו אינה מיועדת לפלטפורמה זו. <a href=\"%(newLocation)s\">עיון בתוספות "
-"ל־Firefox עבור Android</a>."
-
-#: src/amo/pages/Addon/index.js:510
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
-"רשומה זו אינה מיועדת לפלטפורמה זו. <a href=\"%(newLocation)s\">עיון בתוספות "
-"ל־Firefox למחשבים שולחניים</a>."
-
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/components/WrongPlatformWarning/index.js:95
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
 "\"%(newLocation)s\">add-ons for Android</a>."
@@ -1904,32 +1812,84 @@ msgstr ""
 "באפשרותך להתקין תוספת זו דרך מנהל התוספות. למידע נוסף על <a href="
 "\"%(newLocation)s\">תוספות עבור Android</a>."
 
-#: src/amo/pages/Addon/index.js:520
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
-"Android</a>."
-msgstr ""
-"לא זמין ב־Firefox עבור Android. באפשרותך להשתמש בתוספת זו ב־Firefox למחשבים "
-"שולחניים. מידע נוסף על <a href=\"%(newLocation)s\">תוספות עבור Android</a>."
+#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+msgid "Preview of %(title)s"
+msgstr "תצוגה מקדימה של %(title)s"
 
-#: src/amo/pages/Addon/index.js:542
+#: src/amo/pages/Addon/index.js:199
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr "לא ניתן לדרג תוספת זו כיוון שלא פורסמה אף גרסה."
+
+#: src/amo/pages/Addon/index.js:210
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "קריאת סקירה אחת"
+msgstr[1] "קריאת כל %(count)s הסקירות"
+
+#: src/amo/pages/Addon/index.js:231
+msgid "No reviews yet"
+msgstr "אין עדיין סקירות"
+
+#: src/amo/pages/Addon/index.js:241
+msgid "Rate your experience"
+msgstr "דירוג החוויה שלך"
+
+#: src/amo/pages/Addon/index.js:260
+msgid "About this dictionary"
+msgstr "על אודות מילון זה"
+
+#: src/amo/pages/Addon/index.js:263
+msgid "About this extension"
+msgstr "על אודות הרחבה זו"
+
+#: src/amo/pages/Addon/index.js:266
+msgid "About this language pack"
+msgstr "על אודות ערכת שפה זו"
+
+#: src/amo/pages/Addon/index.js:269
+msgid "About this theme"
+msgstr "על אודות ערכת נושא זו"
+
+#: src/amo/pages/Addon/index.js:272
+msgid "About this add-on"
+msgstr "על אודות תוספת זו"
+
+#: src/amo/pages/Addon/index.js:314
+msgid "Developer comments"
+msgstr "הערות המפתח"
+
+#: src/amo/pages/Addon/index.js:337
+msgid "Release notes for %(addonVersion)s"
+msgstr "הערות שחרור עבור %(addonVersion)s"
+
+#: src/amo/pages/Addon/index.js:472
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+"רשומה זו אינה ציבורית. הסיבה שהיא מופיעה בפניך היא שיש לך רמת הרשאות מספיקה."
+
+#: src/amo/pages/Addon/index.js:499
+msgid "Extension Metadata"
+msgstr "נתוני העל של ההרחבה"
+
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "צילומי מסך"
 
-#: src/amo/pages/AddonInfo/index.js:154
+#: src/amo/pages/AddonInfo/index.js:174
 msgid "Custom License for %(addonName)s"
 msgstr "רישיון מותאם אישית עבור %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:161
+#: src/amo/pages/AddonInfo/index.js:181
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "הסכם רישיון למשתמש קצה עבור %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:185
 msgid "Privacy policy for %(addonName)s"
 msgstr "מדיניות פרטיות עבור %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1937,65 +1897,65 @@ msgstr ""
 "סקירות ודירוגים עבור %(addonName)s. ניתן לראות מה משתמשים אחרים חושבים על "
 "%(addonName)s ובהתאם לכך לבחור אם להוסיף אותו לדפדפן ה־Firefox שלך."
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show all reviews"
 msgstr "הצגת כל הסקירות"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show only five-star reviews"
 msgstr "הצגת סקירות בדירוג 5 כוכבים בלבד"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only four-star reviews"
 msgstr "הצגת סקירות בדירוג 4 כוכבים בלבד"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only three-star reviews"
 msgstr "הצגת סקירות בדירוג 3 כוכבים בלבד"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only two-star reviews"
 msgstr "הצגת סקירות בדירוג 2 כוכבים בלבד"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only one-star reviews"
 msgstr "הצגת סקירות בדירוג כוכב אחד בלבד"
 
-#: src/amo/pages/AddonReviewList/index.js:279
+#: src/amo/pages/AddonReviewList/index.js:284
 msgid "Reviews for %(addonName)s"
 msgstr "סקירות עבור %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:289
+#: src/amo/pages/AddonReviewList/index.js:294
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "דירוג אחד"
 msgstr[1] "%(total)s דירוגים"
 
-#: src/amo/pages/AddonReviewList/index.js:388
+#: src/amo/pages/AddonReviewList/index.js:393
 msgid "There are no reviews"
 msgstr "אין דירוגים"
 
-#: src/amo/pages/AddonVersions/index.js:128
+#: src/amo/pages/AddonVersions/index.js:129
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "היסטוריית גרסאות עבור %(addonName)s - גרסה אחת"
 msgstr[1] "היסטוריית גרסאות עבור %(addonName)s - ‏%(total)s גרסאות"
 
-#: src/amo/pages/AddonVersions/index.js:176
+#: src/amo/pages/AddonVersions/index.js:181
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:186
 msgid "You should always use the latest version of an add-on."
 msgstr "מומלץ תמיד להשתמש בגרסה העדכנית של תוספת."
 
-#: src/amo/pages/AddonVersions/index.js:190
+#: src/amo/pages/AddonVersions/index.js:195
 msgid "Latest version"
 msgstr "הגרסה העדכנית ביותר"
 
-#: src/amo/pages/AddonVersions/index.js:199
+#: src/amo/pages/AddonVersions/index.js:204
 msgid "Older versions"
 msgstr "גרסאות ישנות יותר"
 
@@ -3257,6 +3217,52 @@ msgstr[1] "%(total)s תוספות"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "תגובת המפתח"
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on desktop, <a href="
+#~ "\"%(newLocation)s\">visit our desktop site</a>."
+#~ msgstr ""
+#~ "כדי למצוא תוספות הנתמכות ב־Firefox למחשבים שולחניים, <a href="
+#~ "\"%(newLocation)s\">ניתן לבקר באתר הרגיל שלנו</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s"
+#~ "\">Android add-ons</a>."
+#~ msgstr ""
+#~ "לא זמין ב־Firefox עבור Android. באפשרותך להשתמש בתוספת זו ב־Firefox "
+#~ "למחשבים שולחניים,  או לחפש <a href=\"%(newLocation)s\">תוספות דומות ל־"
+#~ "Android</a>."
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on Android, <a href="
+#~ "\"%(newLocation)s\">visit our mobile site</a>."
+#~ msgstr ""
+#~ "כדי למצוא תוספות הנתמכות ב־Firefox עבור Android, <a href=\"%(newLocation)s"
+#~ "\">ניתן לבקר באתר שלנו לניידים</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on Android</a>."
+#~ msgstr ""
+#~ "רשומה זו אינה מיועדת לפלטפורמה זו. <a href=\"%(newLocation)s\">עיון "
+#~ "בתוספות ל־Firefox עבור Android</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on desktop</a>."
+#~ msgstr ""
+#~ "רשומה זו אינה מיועדת לפלטפורמה זו. <a href=\"%(newLocation)s\">עיון "
+#~ "בתוספות ל־Firefox למחשבים שולחניים</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons "
+#~ "for Android</a>."
+#~ msgstr ""
+#~ "לא זמין ב־Firefox עבור Android. באפשרותך להשתמש בתוספת זו ב־Firefox "
+#~ "למחשבים שולחניים. מידע נוסף על <a href=\"%(newLocation)s\">תוספות עבור "
+#~ "Android</a>."
 
 #~ msgid "Promoted Add-Ons"
 #~ msgstr "התוספות המדורגות ביותר"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-03 16:57+0000\n"
+"POT-Creation-Date: 2020-11-10 17:44+0000\n"
 "PO-Revision-Date: 2020-10-26 17:27+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -89,22 +89,22 @@ msgstr "E papërputhshme me Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Disa veçori mund të lypin pagesë"
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:110
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Kjo shtesë s’është e përputhshme me versionin tuaj të Firefox-it."
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr ""
 "Versioni juaj i Firefox-it nuk e mbulon këtë shtesë, ngaqë ajo lyp rinisje."
 
-#: src/amo/components/AddonCompatibilityError/index.js:119
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "This add-on is not available on your platform."
 msgstr "Kjo shtesë s’është e passhme për platformën tuaj."
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:120
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -113,7 +113,7 @@ msgstr ""
 "it</a> (të paktën versionin %(minVersion)s). Po përdorni Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:140
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -911,6 +911,15 @@ msgstr ""
 "Na ndjeni, por pati një gabim me shërbyesin tonë dhe s’mundëm të plotësonim "
 "kërkesën tuaj. E kemi regjistruar këtë gabim dhe do ta hetojmë."
 
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#, fuzzy
+msgid "Unavailable for legal reasons"
+msgstr "E passhme në gjuhën tuaj"
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
+msgid "Sorry, but the content you are seeking is not available in your region."
+msgstr ""
+
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
 msgstr "Përgjigje nga %(userName)s"
@@ -1152,17 +1161,17 @@ msgstr ""
 msgid "Download file"
 msgstr "Shkarko kartelën"
 
-#: src/amo/components/InstallWarning/index.js:101
+#: src/amo/components/InstallWarning/index.js:100
+msgid "Learn more"
+msgstr "Mësoni më tepër"
+
+#: src/amo/components/InstallWarning/index.js:104
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
 msgstr ""
 "Kjo shtesë nuk mbikëqyret aktivisht për sigurinë nga Mozilla. Sigurohuni se "
 "i zini besë, përpara se ta instaloni."
-
-#: src/amo/components/InstallWarning/index.js:97
-msgid "Learn more"
-msgstr "Mësoni më tepër"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1818,25 +1827,16 @@ msgstr "Foto profili"
 msgid "Choose Photo…"
 msgstr "Zgjidhni Foto…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:101
+#: src/amo/components/WrongPlatformWarning/index.js:106
+#, fuzzy
 msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
+"To find add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
 msgstr ""
-"Që të gjeni shtesa të përputhshme me Firefox-in në desktop, <a href="
-"\"%(newLocation)s\">vizitoni sajtin tonë për desktop</a>."
+"Për të mësuar rreth shtesash të përputhshme me Firefox-in për Android, <a "
+"href=\"%(newLocation)s\">klikoni këtu</a>."
 
-#: src/amo/components/WrongPlatformWarning/index.js:122
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
-"ons</a>."
-msgstr ""
-"Jo i passhëm në Firefox për Android. Mund ta përdorni këtë shtesë me Firefox-"
-"in për Desktop,  ose të shihni për <a href=\"%(newLocation)s\">shtesa për "
-"Android</a> të ngjashme."
-
-#: src/amo/components/WrongPlatformWarning/index.js:129
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "This add-on is not compatible with this browser. Try installing it on "
 "Firefox for desktop."
@@ -1844,101 +1844,7 @@ msgstr ""
 "Kjo shtesë s’është e përputhshme me këtë shfletues. Provoni ta instaloni te "
 "Firefox-i për desktop."
 
-#: src/amo/components/WrongPlatformWarning/index.js:85
-msgid ""
-"To learn about add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
-msgstr ""
-"Për të mësuar rreth shtesash të përputhshme me Firefox-in për Android, <a "
-"href=\"%(newLocation)s\">klikoni këtu</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:94
-msgid ""
-"To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
-"\">visit our mobile site</a>."
-msgstr ""
-"Që të gjeni shtesa të përputhshme me Firefox-in në Android, <a href="
-"\"%(newLocation)s\">vizitoni sajtin tonë për celular</a>."
-
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
-msgid "Preview of %(title)s"
-msgstr "Paraparje e %(title)s"
-
-#: src/amo/pages/Addon/index.js:201
-msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
-"Kjo shtojcë nuk mund të vlerësohet, ngaqë s’ka versione të saj të publikuar."
-
-#: src/amo/pages/Addon/index.js:212
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Lexoni %(count)s shqyrtim"
-msgstr[1] "Lexoni krejt %(count)s shqyrtimet"
-
-#: src/amo/pages/Addon/index.js:233
-msgid "No reviews yet"
-msgstr "Ende pa shqyrtime"
-
-#: src/amo/pages/Addon/index.js:243
-msgid "Rate your experience"
-msgstr "Vlerësoni rastin tuaj"
-
-#: src/amo/pages/Addon/index.js:262
-msgid "About this dictionary"
-msgstr "Rreth këtij fjalori"
-
-#: src/amo/pages/Addon/index.js:265
-msgid "About this extension"
-msgstr "Rreth këtij zgjerimi"
-
-#: src/amo/pages/Addon/index.js:268
-msgid "About this language pack"
-msgstr "Rreth kësaj pakete gjuhësore"
-
-#: src/amo/pages/Addon/index.js:271
-msgid "About this theme"
-msgstr "Rreth kësaj teme"
-
-#: src/amo/pages/Addon/index.js:274
-msgid "About this add-on"
-msgstr "Rreth kësaj shtese"
-
-#: src/amo/pages/Addon/index.js:316
-msgid "Developer comments"
-msgstr "Komente nga zhvillues"
-
-#: src/amo/pages/Addon/index.js:339
-msgid "Release notes for %(addonVersion)s"
-msgstr "Shënime hedhjeje në qarkullim për %(addonVersion)s"
-
-#: src/amo/pages/Addon/index.js:471
-msgid ""
-"This is not a public listing. You are only seeing it because of elevated "
-"permissions."
-msgstr ""
-"Kjo s’është listë publike. Po e shihni vetëm ngaqë keni leje të fuqishme."
-
-#: src/amo/pages/Addon/index.js:498
-msgid "Extension Metadata"
-msgstr "Tejtëdhëna Zgjerimi"
-
-#: src/amo/pages/Addon/index.js:506
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
-"Kjo listë s’është e menduar për këtë platformë. <a href=\"%(newLocation)s"
-"\">Shfletoni shtesa për Firefox-in në Android</a>."
-
-#: src/amo/pages/Addon/index.js:510
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
-"Kjo listë s’është e menduar për këtë platformë. <a href=\"%(newLocation)s"
-"\">Shfletoni shtesa për Firefox-in në desktop</a>."
-
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/components/WrongPlatformWarning/index.js:95
 msgid ""
 "You can install this add-on in the Add-ons Manager. Learn more about <a href="
 "\"%(newLocation)s\">add-ons for Android</a>."
@@ -1946,33 +1852,85 @@ msgstr ""
 "Këtë shtesë mund ta instaloni që nga Përgjegjësi i Shtesave. Mësoni më tepër "
 "rreth <a href=\"%(newLocation)s\">shtesash për Android</a>."
 
-#: src/amo/pages/Addon/index.js:520
-msgid ""
-"Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
-"Android</a>."
-msgstr ""
-"Jo i passhëm në Firefox për Android. Mund ta përdorni këtë shtesë me Firefox-"
-"in për Desktop. Mësoni më tepër rreth <a href=\"%(newLocation)s\">shtesash "
-"për Android</a>."
+#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+msgid "Preview of %(title)s"
+msgstr "Paraparje e %(title)s"
 
-#: src/amo/pages/Addon/index.js:542
+#: src/amo/pages/Addon/index.js:199
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr ""
+"Kjo shtojcë nuk mund të vlerësohet, ngaqë s’ka versione të saj të publikuar."
+
+#: src/amo/pages/Addon/index.js:210
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "Lexoni %(count)s shqyrtim"
+msgstr[1] "Lexoni krejt %(count)s shqyrtimet"
+
+#: src/amo/pages/Addon/index.js:231
+msgid "No reviews yet"
+msgstr "Ende pa shqyrtime"
+
+#: src/amo/pages/Addon/index.js:241
+msgid "Rate your experience"
+msgstr "Vlerësoni rastin tuaj"
+
+#: src/amo/pages/Addon/index.js:260
+msgid "About this dictionary"
+msgstr "Rreth këtij fjalori"
+
+#: src/amo/pages/Addon/index.js:263
+msgid "About this extension"
+msgstr "Rreth këtij zgjerimi"
+
+#: src/amo/pages/Addon/index.js:266
+msgid "About this language pack"
+msgstr "Rreth kësaj pakete gjuhësore"
+
+#: src/amo/pages/Addon/index.js:269
+msgid "About this theme"
+msgstr "Rreth kësaj teme"
+
+#: src/amo/pages/Addon/index.js:272
+msgid "About this add-on"
+msgstr "Rreth kësaj shtese"
+
+#: src/amo/pages/Addon/index.js:314
+msgid "Developer comments"
+msgstr "Komente nga zhvillues"
+
+#: src/amo/pages/Addon/index.js:337
+msgid "Release notes for %(addonVersion)s"
+msgstr "Shënime hedhjeje në qarkullim për %(addonVersion)s"
+
+#: src/amo/pages/Addon/index.js:472
+msgid ""
+"This is not a public listing. You are only seeing it because of elevated "
+"permissions."
+msgstr ""
+"Kjo s’është listë publike. Po e shihni vetëm ngaqë keni leje të fuqishme."
+
+#: src/amo/pages/Addon/index.js:499
+msgid "Extension Metadata"
+msgstr "Tejtëdhëna Zgjerimi"
+
+#: src/amo/pages/Addon/index.js:523
 msgid "Screenshots"
 msgstr "Foto ekrani"
 
-#: src/amo/pages/AddonInfo/index.js:154
+#: src/amo/pages/AddonInfo/index.js:174
 msgid "Custom License for %(addonName)s"
 msgstr "Licencë Vetjake për %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:161
+#: src/amo/pages/AddonInfo/index.js:181
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "Marrëveshje Licence Përdoruesi të Thjeshtë (EULA) për %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:185
 msgid "Privacy policy for %(addonName)s"
 msgstr "Rregulla privatësie për %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:198
+#: src/amo/pages/AddonReviewList/index.js:199
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1980,51 +1938,51 @@ msgstr ""
 "Shqyrtime dhe vlerësime për %(addonName)s. Shihni se ç’mendojnë përdoruesit "
 "e tjerë rreth %(addonName)s dhe shtojeni te Firefox-i juaj."
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show all reviews"
 msgstr "Shfaqi krejt shqyrtimet"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show only five-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me pesë yje"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only four-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me katër yje"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only three-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me tre yje"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only two-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me dy yje"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only one-star reviews"
 msgstr "Shfaq vetëm shqyrtimet me një yll"
 
-#: src/amo/pages/AddonReviewList/index.js:279
+#: src/amo/pages/AddonReviewList/index.js:284
 msgid "Reviews for %(addonName)s"
 msgstr "Shqyrtime për %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:289
+#: src/amo/pages/AddonReviewList/index.js:294
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s shqyrtim"
 msgstr[1] "%(total)s shqyrtime"
 
-#: src/amo/pages/AddonReviewList/index.js:388
+#: src/amo/pages/AddonReviewList/index.js:393
 msgid "There are no reviews"
 msgstr "S’ka shqyrtime"
 
-#: src/amo/pages/AddonVersions/index.js:128
+#: src/amo/pages/AddonVersions/index.js:129
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Historik versionesh për %(addonName)s - %(total)s version"
 msgstr[1] "Historik versionesh për %(addonName)s - %(total)s versione"
 
-#: src/amo/pages/AddonVersions/index.js:176
+#: src/amo/pages/AddonVersions/index.js:181
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2032,15 +1990,15 @@ msgstr ""
 "Bëni kujdes me versione të vjetër! Këto versione shfaqen për qëllime testimi "
 "dhe si referencë."
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:186
 msgid "You should always use the latest version of an add-on."
 msgstr "Duhet të përdorni përherë versionin më të ri të një shtese."
 
-#: src/amo/pages/AddonVersions/index.js:190
+#: src/amo/pages/AddonVersions/index.js:195
 msgid "Latest version"
 msgstr "Versioni më i ri"
 
-#: src/amo/pages/AddonVersions/index.js:199
+#: src/amo/pages/AddonVersions/index.js:204
 msgid "Older versions"
 msgstr "Versione të vjetër"
 
@@ -3380,6 +3338,52 @@ msgstr[1] "%(total)s shtesa"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Përgjigje zhvilluesi"
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on desktop, <a href="
+#~ "\"%(newLocation)s\">visit our desktop site</a>."
+#~ msgstr ""
+#~ "Që të gjeni shtesa të përputhshme me Firefox-in në desktop, <a href="
+#~ "\"%(newLocation)s\">vizitoni sajtin tonë për desktop</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s"
+#~ "\">Android add-ons</a>."
+#~ msgstr ""
+#~ "Jo i passhëm në Firefox për Android. Mund ta përdorni këtë shtesë me "
+#~ "Firefox-in për Desktop,  ose të shihni për <a href=\"%(newLocation)s"
+#~ "\">shtesa për Android</a> të ngjashme."
+
+#~ msgid ""
+#~ "To find add-ons compatible with Firefox on Android, <a href="
+#~ "\"%(newLocation)s\">visit our mobile site</a>."
+#~ msgstr ""
+#~ "Që të gjeni shtesa të përputhshme me Firefox-in në Android, <a href="
+#~ "\"%(newLocation)s\">vizitoni sajtin tonë për celular</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on Android</a>."
+#~ msgstr ""
+#~ "Kjo listë s’është e menduar për këtë platformë. <a href=\"%(newLocation)s"
+#~ "\">Shfletoni shtesa për Firefox-in në Android</a>."
+
+#~ msgid ""
+#~ "This listing is not intended for this platform. <a href=\"%(newLocation)s"
+#~ "\">Browse add-ons for Firefox on desktop</a>."
+#~ msgstr ""
+#~ "Kjo listë s’është e menduar për këtë platformë. <a href=\"%(newLocation)s"
+#~ "\">Shfletoni shtesa për Firefox-in në desktop</a>."
+
+#~ msgid ""
+#~ "Not available on Firefox for Android. You can use this add-on with "
+#~ "Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons "
+#~ "for Android</a>."
+#~ msgstr ""
+#~ "Jo i passhëm në Firefox për Android. Mund ta përdorni këtë shtesë me "
+#~ "Firefox-in për Desktop. Mësoni më tepër rreth <a href=\"%(newLocation)s"
+#~ "\">shtesash për Android</a>."
 
 #~ msgid "Promoted Add-Ons"
 #~ msgstr "Shtesat më të vlerësuara"
