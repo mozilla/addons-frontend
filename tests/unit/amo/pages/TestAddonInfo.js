@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import AddonInfo, {
   ADDON_INFO_TYPE_CUSTOM_LICENSE,
   ADDON_INFO_TYPE_EULA,
@@ -7,7 +8,10 @@ import AddonInfo, {
   AddonInfoBase,
   extractId,
 } from 'amo/pages/AddonInfo';
-import AddonSummaryCard from 'amo/components/AddonSummaryCard';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
+import { createApiError } from 'core/api';
+import { ErrorHandler } from 'core/errorHandler';
 import {
   createInternalAddon,
   fetchAddon,
@@ -204,6 +208,44 @@ describe(__filename, () => {
       );
     },
   );
+
+  it.each([401, 403, 404])(
+    'renders a NotFound component when a %d API error has been captured',
+    (status) => {
+      const error = createApiError({
+        response: { status },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'Not Found.' },
+      });
+
+      const errorHandler = new ErrorHandler({
+        id: 'error-handler-id',
+        dispatch: store.dispatch,
+      });
+      errorHandler.handle(error);
+
+      const root = render({ errorHandler });
+
+      expect(root.find(NotFoundPage)).toHaveLength(1);
+    },
+  );
+
+  it('renders a UnavailableForLegalReasonsPage component when a 451 API error has been captured', () => {
+    const error = createApiError({
+      response: { status: 451 },
+      apiURL: 'https://some/api/endpoint',
+    });
+
+    const errorHandler = new ErrorHandler({
+      id: 'error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(error);
+
+    const root = render({ errorHandler });
+
+    expect(root.find(UnavailableForLegalReasonsPage)).toHaveLength(1);
+  });
 
   describe('ADDON_INFO_TYPE_CUSTOM_LICENSE', () => {
     const renderLicenseType = ({

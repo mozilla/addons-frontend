@@ -16,6 +16,7 @@ import AddonReviewList, {
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { getAddonURL } from 'amo/utils';
 import { ErrorHandler } from 'core/errorHandler';
@@ -643,6 +644,22 @@ describe(__filename, () => {
 
       const root = render({ errorHandler });
       expect(root.find(NotFoundPage)).toHaveLength(1);
+    });
+
+    it('renders UnavailableForLegalReasonsPage page if API returns 451 error', () => {
+      const error = createApiError({
+        response: { status: 451 },
+        apiURL: 'https://some/api/endpoint',
+      });
+
+      const errorHandler = new ErrorHandler({
+        id: 'error-handler-id',
+        dispatch: store.dispatch,
+      });
+      errorHandler.handle(error);
+
+      const root = render({ errorHandler });
+      expect(root.find(UnavailableForLegalReasonsPage)).toHaveLength(1);
     });
 
     it('renders a list of reviews with ratings', () => {

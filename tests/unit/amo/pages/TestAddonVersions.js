@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import AddonVersionCard from 'amo/components/AddonVersionCard';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import AddonVersions, {
   AddonVersionsBase,
@@ -373,6 +374,23 @@ describe(__filename, () => {
       expect(root.find(NotFoundPage)).toHaveLength(1);
     },
   );
+
+  it('renders a UnavailableForLegalReasonsPage component when a 451 API error has been captured', () => {
+    const error = createApiError({
+      response: { status: 451 },
+      apiURL: 'https://some/api/endpoint',
+    });
+
+    const errorHandler = new ErrorHandler({
+      id: 'error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(error);
+
+    const root = render({ errorHandler });
+
+    expect(root.find(UnavailableForLegalReasonsPage)).toHaveLength(1);
+  });
 
   describe('latest version', () => {
     it('passes the first found version into the AddonVersionCard', () => {

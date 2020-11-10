@@ -33,6 +33,7 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
@@ -272,6 +273,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         errorHandler.capturedError.responseStatusCode === 404
       ) {
         return <NotFoundPage />;
+      }
+
+      if (errorHandler.capturedError.responseStatusCode === 451) {
+        return <UnavailableForLegalReasonsPage />;
       }
     }
 

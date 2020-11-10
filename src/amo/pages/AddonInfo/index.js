@@ -7,6 +7,8 @@ import { compose } from 'redux';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import Page from 'amo/components/Page';
+import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -143,6 +145,24 @@ export class AddonInfoBase extends React.Component<InternalProps> {
       i18n,
       infoType,
     } = this.props;
+
+    if (errorHandler.hasError()) {
+      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
+
+      // 401 and 403 for an add-on lookup is made to look like a 404 on purpose.
+      // See https://github.com/mozilla/addons-frontend/issues/3061
+      if (
+        errorHandler.capturedError.responseStatusCode === 401 ||
+        errorHandler.capturedError.responseStatusCode === 403 ||
+        errorHandler.capturedError.responseStatusCode === 404
+      ) {
+        return <NotFoundPage />;
+      }
+
+      if (errorHandler.capturedError.responseStatusCode === 451) {
+        return <UnavailableForLegalReasonsPage />;
+      }
+    }
 
     let header = '';
     let infoContent;
