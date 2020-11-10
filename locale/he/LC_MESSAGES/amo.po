@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-10 17:44+0000\n"
-"PO-Revision-Date: 2020-11-10 18:13+0000\n"
+"PO-Revision-Date: 2020-11-10 18:19+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1635,9 +1635,8 @@ msgid "Choose Photo…"
 msgstr "בחירת תמונה…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:106
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "למידע נוסף על תוספות הנתמכות ב־Firefox עבור Android, <a href=\"%(newLocation)s\">נא ללחוץ כאן</a>."
+msgstr "כדי למצוא תוספות הנתמכות ב־Firefox עבור Android, <a href=\"%(newLocation)s\">נא ללחוץ כאן</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
@@ -2283,11 +2282,11 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "הפרופיל של %(user)s, יוצר או יוצרת הרחבות של Firefox. ניתן למצוא הרחבות אחרות מאת %(user)s, לרבות דירוג ממוצע, קביעות והאפשרות לדווח על תקלות."
+msgstr "הפרופיל של %(user)s, יוצר/ת הרחבות ל־Firefox. ניתן למצוא הרחבות אחרות מאת %(user)s, לרבות דירוג ממוצע, קביעות והאפשרות לדווח על תקלות."
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "הפרופיל של %(user)s, יוצר/ת ערכות נושא ל־Firefox. ניתן למצוא ערכות נושא נוספות מאת %(user)s, לרבות דירוג ממוצע, קביעות והאפשרות לדווח על תקלות."
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
