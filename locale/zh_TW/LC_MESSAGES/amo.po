@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-10 17:44+0000\n"
-"PO-Revision-Date: 2020-11-10 18:07+0000\n"
+"PO-Revision-Date: 2020-11-11 02:44+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -783,9 +783,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "抱歉，我們的伺服器上有錯誤發生，無法完成請求。我們已經記錄下此錯誤，將再行修復。"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
-#, fuzzy
 msgid "Unavailable for legal reasons"
-msgstr "您的語系可用的"
+msgstr "由於法律因素無法使用"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
 msgid "Sorry, but the content you are seeking is not available in your region."
