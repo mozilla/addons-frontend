@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-10 17:44+0000\n"
-"PO-Revision-Date: 2020-11-11 02:44+0000\n"
+"PO-Revision-Date: 2020-11-12 01:11+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -788,7 +788,7 @@ msgstr "由於法律因素無法使用"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
 msgid "Sorry, but the content you are seeking is not available in your region."
-msgstr ""
+msgstr "抱歉，您查詢的內容無法於您的所在地區顯示。"
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
