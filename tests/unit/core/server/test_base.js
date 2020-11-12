@@ -192,7 +192,7 @@ describe(__filename, () => {
       const { api } = store.getState();
 
       expect(response.statusCode).toEqual(200);
-      expect(api.token).toEqual(undefined);
+      expect(api.token).toEqual(null);
     });
 
     it('dispatches setAuthToken() if cookie is present', async () => {
@@ -571,7 +571,7 @@ describe(__filename, () => {
       const { api, site } = store.getState();
       // It should not dispatch `setAuthToken()`.
       expect(response.statusCode).toEqual(200);
-      expect(api.token).toEqual(undefined);
+      expect(api.token).toEqual(null);
       // This means `loadedPageIsAnonymous()` has been dispatched.
       expect(site.loadedPageIsAnonymous).toEqual(true);
     });

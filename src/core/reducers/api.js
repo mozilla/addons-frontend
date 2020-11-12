@@ -60,23 +60,23 @@ export type UserAgentInfoType = {|
 |};
 
 export type ApiState = {
-  clientApp: ?string,
+  clientApp: string | null,
   // See config.get('langs') for all possible values.
-  lang: ?string,
-  regionCode: ?string,
+  lang: string | null,
+  regionCode: string | null,
   requestId: string | null,
-  token: ?string,
-  userAgent: ?string,
+  token: string | null,
+  userAgent: string | null,
   userAgentInfo: UserAgentInfoType,
 };
 
 export const initialApiState: ApiState = {
-  clientApp: undefined,
-  lang: undefined,
-  regionCode: undefined,
+  clientApp: null,
+  lang: null,
+  regionCode: null,
   requestId: null,
-  token: undefined,
-  userAgent: undefined,
+  token: null,
+  userAgent: null,
   userAgentInfo: { browser: {}, os: {} },
 };
 

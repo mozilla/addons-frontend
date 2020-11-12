@@ -347,7 +347,7 @@ export function dispatchClientMetadata({
   store = createStore().store,
   clientApp = CLIENT_APP_ANDROID,
   lang = 'en-US',
-  regionCode = 'CA',
+  regionCode = null,
   userAgent = sampleUserAgent,
   pathname = `/${lang}/${clientApp}/`,
   search = '',
