@@ -3,7 +3,11 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import ErrorComponent from 'amo/components/Errors/ErrorComponent';
+import Link from 'amo/components/Link';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { replaceStringsWithJSX } from 'core/i18n/utils';
+import { visibleAddonType } from 'core/utils';
 import type { I18nType } from 'core/types/i18n';
 
 type Props = {||};
@@ -17,16 +21,66 @@ export class UnavailableForLegalReasonsBase extends React.Component<InternalProp
   render() {
     const { i18n } = this.props;
 
+    const paragraphWithLinks = replaceStringsWithJSX({
+      text: i18n.gettext(
+        `You may be able to find what you’re looking for in one of the available
+        %(extensionStart)sextensions%(extensionEnd)s or
+        %(themeStart)sthemes%(themeEnd)s, or by asking for help on our
+        %(communityStart)scommunity forums%(communityEnd)s.`,
+      ),
+      replacements: [
+        [
+          'extensionStart',
+          'extensionEnd',
+          (text) => (
+            <Link
+              key="link-extensions"
+              to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
+            >
+              {text}
+            </Link>
+          ),
+        ],
+        [
+          'themeStart',
+          'themeEnd',
+          (text) => (
+            <Link
+              key="link-themes"
+              to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}
+            >
+              {text}
+            </Link>
+          ),
+        ],
+        [
+          'communityStart',
+          'communityEnd',
+          (text) => (
+            <Link
+              key="link-community"
+              href="https://discourse.mozilla.org/c/add-ons"
+              prependClientApp={false}
+              prependLang={false}
+            >
+              {text}
+            </Link>
+          ),
+        ],
+      ],
+    });
+
     return (
       <ErrorComponent
         code={451}
-        header={i18n.gettext('Unavailable for legal reasons')}
+        header={i18n.gettext('That page is not available in your region')}
       >
         <p>
           {i18n.gettext(
-            'Sorry, but the content you are seeking is not available in your region.',
+            'The page you tried to access is not available in your region.',
           )}
         </p>
+        <p className="Errors-paragraph-with-links">{paragraphWithLinks}</p>
       </ErrorComponent>
     );
   }
