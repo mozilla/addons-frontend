@@ -192,7 +192,7 @@ describe(__filename, () => {
       const { api } = store.getState();
 
       expect(response.statusCode).toEqual(200);
-      expect(api.token).toEqual(null);
+      expect(api.token).toEqual(undefined);
     });
 
     it('dispatches setAuthToken() if cookie is present', async () => {
@@ -257,7 +257,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(dispatchSpy, setRequestId(requestId));
     });
 
-    it('dispatches setRegionCode()', async () => {
+    it('dispatches setRegionCode() when the region code header is set on the request', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const regionCode = 'CA';
@@ -271,6 +271,23 @@ describe(__filename, () => {
         .end();
 
       sinon.assert.calledWith(dispatchSpy, setRegionCode(regionCode));
+    });
+
+    it('does not dispatch setRegionCode() when the region code header is not set on the request', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      await testClient({
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .end();
+
+      sinon.assert.neverCalledWith(
+        dispatchSpy,
+        setRegionCode(sinon.match.string),
+      );
     });
 
     it('fetches the user profile when given a token', async () => {
@@ -554,7 +571,7 @@ describe(__filename, () => {
       const { api, site } = store.getState();
       // It should not dispatch `setAuthToken()`.
       expect(response.statusCode).toEqual(200);
-      expect(api.token).toEqual(null);
+      expect(api.token).toEqual(undefined);
       // This means `loadedPageIsAnonymous()` has been dispatched.
       expect(site.loadedPageIsAnonymous).toEqual(true);
     });

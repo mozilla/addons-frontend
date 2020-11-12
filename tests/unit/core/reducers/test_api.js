@@ -30,14 +30,17 @@ describe(__filename, () => {
   it('stores the lang', () => {
     const lang = 'de';
     expect(
-      api({ bar: 'baz' }, { type: 'SET_LANG', payload: { lang } }),
+      api({ bar: 'baz' }, { type: actions.SET_LANG, payload: { lang } }),
     ).toEqual({ bar: 'baz', lang });
   });
 
   it('stores the regionCode', () => {
     const regionCode = 'CA';
     expect(
-      api({ bar: 'baz' }, { type: 'SET_REGION_CODE', payload: { regionCode } }),
+      api(
+        { bar: 'baz' },
+        { type: actions.SET_REGION_CODE, payload: { regionCode } },
+      ),
     ).toEqual({ bar: 'baz', regionCode });
   });
 
@@ -120,7 +123,7 @@ describe(__filename, () => {
   describe('setLang', () => {
     it('creates the SET_LANG action', () => {
       expect(actions.setLang('fr')).toEqual({
-        type: 'SET_LANG',
+        type: actions.SET_LANG,
         payload: { lang: 'fr' },
       });
     });
@@ -130,7 +133,7 @@ describe(__filename, () => {
     it('creates the SET_REGION_CODE action', () => {
       const regionCode = 'CA';
       expect(actions.setRegionCode(regionCode)).toEqual({
-        type: 'SET_REGION_CODE',
+        type: actions.SET_REGION_CODE,
         payload: { regionCode },
       });
     });
@@ -139,7 +142,7 @@ describe(__filename, () => {
   describe('setClientApp', () => {
     it('creates the SET_CLIENT_APP action', () => {
       expect(actions.setClientApp('firefox')).toEqual({
-        type: 'SET_CLIENT_APP',
+        type: actions.SET_CLIENT_APP,
         payload: { clientApp: 'firefox' },
       });
     });
@@ -154,7 +157,7 @@ describe(__filename, () => {
       const userAgent = userAgents.chrome[0];
 
       expect(actions.setUserAgent(userAgent)).toEqual({
-        type: 'SET_USER_AGENT',
+        type: actions.SET_USER_AGENT,
         payload: { userAgent },
       });
     });

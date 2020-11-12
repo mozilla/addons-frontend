@@ -145,14 +145,8 @@ export const OS_ANDROID = 'android';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const FEATURED_GET = 'FEATURED_GET';
 export const FEATURED_LOADED = 'FEATURED_LOADED';
-export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
-export const SET_CLIENT_APP = 'SET_CLIENT_APP';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
-export const SET_LANG = 'SET_LANG';
-export const SET_REGION_CODE = 'SET_REGION_CODE';
-export const SET_REQUEST_ID = 'SET_REQUEST_ID';
-export const SET_USER_AGENT = 'SET_USER_AGENT';
 export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 
 export const INSTALL_EVENT_LIST = [

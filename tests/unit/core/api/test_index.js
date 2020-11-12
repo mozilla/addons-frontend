@@ -67,7 +67,7 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
-    it('adds the regionCode header to all requests', async () => {
+    it('adds the region code header to all requests', async () => {
       const regionCode = 'CA';
       const { state } = dispatchClientMetadata({ regionCode });
 
@@ -83,7 +83,7 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
-    it('does not add the regionCode header if it does not exist in state', async () => {
+    it('does not add the region code header if it does not exist in state', async () => {
       const { state } = dispatchClientMetadata({ regionCode: null });
 
       mockWindow.expects('fetch').callsFake((urlString, request) => {

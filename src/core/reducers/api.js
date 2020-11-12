@@ -5,12 +5,12 @@ import { LOG_OUT_USER } from 'amo/reducers/users';
 import type { LogOutUserAction } from 'amo/reducers/users';
 import type { Exact } from 'core/types/util';
 
-export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
-export const SET_CLIENT_APP = 'SET_CLIENT_APP';
-export const SET_LANG = 'SET_LANG';
-export const SET_REGION_CODE = 'SET_REGION_CODE';
-export const SET_REQUEST_ID = 'SET_REQUEST_ID';
-export const SET_USER_AGENT = 'SET_USER_AGENT';
+export const SET_AUTH_TOKEN: 'SET_AUTH_TOKEN' = 'SET_AUTH_TOKEN';
+export const SET_CLIENT_APP: 'SET_CLIENT_APP' = 'SET_CLIENT_APP';
+export const SET_LANG: 'SET_LANG' = 'SET_LANG';
+export const SET_REGION_CODE: 'SET_REGION_CODE' = 'SET_REGION_CODE';
+export const SET_REQUEST_ID: 'SET_REQUEST_ID' = 'SET_REQUEST_ID';
+export const SET_USER_AGENT: 'SET_USER_AGENT' = 'SET_USER_AGENT';
 
 export const USER_AGENT_BROWSER_FIREFOX = 'Firefox';
 export const USER_AGENT_OS_ANDROID: 'Android' = 'Android';
@@ -71,12 +71,12 @@ export type ApiState = {
 };
 
 export const initialApiState: ApiState = {
-  clientApp: null,
-  lang: null,
-  regionCode: null,
+  clientApp: undefined,
+  lang: undefined,
+  regionCode: undefined,
   requestId: null,
-  token: null,
-  userAgent: null,
+  token: undefined,
+  userAgent: undefined,
   userAgentInfo: { browser: {}, os: {} },
 };
 

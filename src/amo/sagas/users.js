@@ -18,10 +18,10 @@ import {
   unloadUserAccount,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
-import { SET_AUTH_TOKEN } from 'core/constants';
 import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import { SET_AUTH_TOKEN } from 'core/reducers/api';
 import { loadSiteStatus } from 'core/reducers/site';
+import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
   CurrentUserAccountParams,
   CurrentUserAccountResponse,

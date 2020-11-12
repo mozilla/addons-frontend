@@ -92,8 +92,9 @@ export function getPageProps({ store, req, res, config }) {
     log.debug('No userAgent found in request headers.');
   }
 
-  if (req.get(REGION_CODE_HEADER)) {
-    store.dispatch(setRegionCode(req.get(REGION_CODE_HEADER)));
+  const regionCode = req.get(REGION_CODE_HEADER);
+  if (regionCode) {
+    store.dispatch(setRegionCode(regionCode));
   } else {
     log.debug(`No ${REGION_CODE_HEADER} found in request headers.`);
   }
