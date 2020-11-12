@@ -18,10 +18,10 @@ import {
   unloadUserAccount,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
-import { SET_AUTH_TOKEN } from 'core/constants';
 import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import { SET_AUTH_TOKEN } from 'core/reducers/api';
 import { loadSiteStatus } from 'core/reducers/site';
+import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
   CurrentUserAccountParams,
   CurrentUserAccountResponse,
@@ -38,7 +38,7 @@ import type {
   UnsubscribeNotificationAction,
   UpdateUserAccountAction,
 } from 'amo/reducers/users';
-import type { SetAuthTokenAction } from 'core/actions';
+import type { SetAuthTokenAction } from 'core/reducers/api';
 import type { Saga } from 'core/types/sagas';
 
 // This saga is not triggered by the UI but on the server side, hence do not

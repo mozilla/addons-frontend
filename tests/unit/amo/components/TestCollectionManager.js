@@ -14,7 +14,7 @@ import {
   finishEditingCollectionDetails,
   updateCollection,
 } from 'amo/reducers/collections';
-import { setLang } from 'core/actions';
+import { setLang } from 'core/reducers/api';
 import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { decodeHtmlEntities } from 'core/utils';
 import {

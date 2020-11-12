@@ -3,7 +3,7 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 
 import Link, { LinkBase, mapStateToProps } from 'amo/components/Link';
 import createStore from 'amo/store';
-import { setClientApp, setLang } from 'core/actions';
+import { setClientApp, setLang } from 'core/reducers/api';
 import Icon from 'ui/components/Icon';
 import { shallowUntilTarget } from 'tests/unit/helpers';
 

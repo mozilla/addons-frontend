@@ -2,7 +2,7 @@ import { createBrowserHistory } from 'history';
 import serialize from 'serialize-javascript';
 
 import createAmoStore from 'amo/store';
-import { setRequestId } from 'core/actions';
+import { setRequestId } from 'core/reducers/api';
 import createClient from 'core/client/base';
 import { getSentryRelease } from 'core/utils/sentry';
 import { loadedPageIsAnonymous } from 'core/reducers/site';

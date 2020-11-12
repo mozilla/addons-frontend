@@ -19,8 +19,7 @@ import usersReducer, {
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
 import { createApiError } from 'core/api';
-import { setAuthToken } from 'core/actions';
-import apiReducer from 'core/reducers/api';
+import apiReducer, { setAuthToken } from 'core/reducers/api';
 import { loadSiteStatus } from 'core/reducers/site';
 import {
   createApiResponse,

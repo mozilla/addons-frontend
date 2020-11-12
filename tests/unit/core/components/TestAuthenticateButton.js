@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { setAuthToken } from 'core/actions';
+import { setAuthToken } from 'core/reducers/api';
 import { loadCurrentUserAccount, logOutUser } from 'amo/reducers/users';
 import * as api from 'core/api';
 import AuthenticateButton, {

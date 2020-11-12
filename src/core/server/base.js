@@ -19,7 +19,7 @@ import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 
 import log from 'core/logger';
-import { createApiError } from 'core/api';
+import { REGION_CODE_HEADER, createApiError } from 'core/api';
 import Root from 'core/components/Root';
 import { AMO_REQUEST_ID_HEADER } from 'core/constants';
 import ServerHtml from 'core/components/ServerHtml';
@@ -33,9 +33,10 @@ import {
   setAuthToken,
   setClientApp,
   setLang,
+  setRegionCode,
   setRequestId,
   setUserAgent,
-} from 'core/actions';
+} from 'core/reducers/api';
 import {
   getDirection,
   isValidLang,
@@ -89,6 +90,13 @@ export function getPageProps({ store, req, res, config }) {
     store.dispatch(setUserAgent(res.locals.userAgent));
   } else {
     log.debug('No userAgent found in request headers.');
+  }
+
+  const regionCode = req.get(REGION_CODE_HEADER);
+  if (regionCode) {
+    store.dispatch(setRegionCode(regionCode));
+  } else {
+    log.debug(`No ${REGION_CODE_HEADER} found in request headers.`);
   }
 
   return {

@@ -23,6 +23,7 @@ import type { ReactRouterLocationType } from 'core/types/router';
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
 export const DEFAULT_API_PAGE_SIZE = 25;
+export const REGION_CODE_HEADER = 'X-Country-Code';
 
 export function makeQueryString(query: { [key: string]: any }) {
   const resolvedQuery = { ...query };
@@ -155,6 +156,9 @@ export function callApi({
     if (apiState.token) {
       options.headers.authorization = `Bearer ${apiState.token}`;
     }
+  }
+  if (apiState.regionCode) {
+    options.headers[REGION_CODE_HEADER] = apiState.regionCode;
   }
 
   adjustedEndpoint = adjustedEndpoint.endsWith('/')

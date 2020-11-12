@@ -67,6 +67,34 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
+    it('adds the region code header to all requests', async () => {
+      const regionCode = 'CA';
+      const { state } = dispatchClientMetadata({ regionCode });
+
+      mockWindow.expects('fetch').callsFake((urlString, request) => {
+        expect(request.headers[api.REGION_CODE_HEADER]).toEqual(regionCode);
+        return createApiResponse();
+      });
+
+      await api.callApi({
+        endpoint: 'resource',
+        apiState: state.api,
+      });
+      mockWindow.verify();
+    });
+
+    it('does not add the region code header if it does not exist in state', async () => {
+      const { state } = dispatchClientMetadata({ regionCode: null });
+
+      mockWindow.expects('fetch').callsFake((urlString, request) => {
+        expect(api.REGION_CODE_HEADER in request.headers).toEqual(false);
+        return createApiResponse();
+      });
+
+      await api.callApi({ endpoint: 'resource', apiState: state.api });
+      mockWindow.verify();
+    });
+
     it('can exclude wrap_outgoing_links param', async () => {
       const { state } = dispatchClientMetadata();
 

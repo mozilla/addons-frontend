@@ -25,7 +25,7 @@ import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { getDjangoBase62 } from 'amo/utils';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'core/addonManager';
-import { setUserAgent as setUserAgentAction } from 'core/actions';
+import { setUserAgent as setUserAgentAction } from 'core/reducers/api';
 import { setInstallState } from 'core/reducers/installations';
 import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'core/constants';
 import ErrorPage from 'core/components/ErrorPage';
