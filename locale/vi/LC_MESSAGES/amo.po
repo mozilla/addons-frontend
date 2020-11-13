@@ -787,9 +787,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Xin lỗi, nhưng đã xảy ra lỗi với máy chủ của chúng tôi và chúng tôi không thể hoàn thành yêu cầu của bạn. Chúng tôi đã ghi lại lỗi này và sẽ điều tra nó."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
-#, fuzzy
 msgid "Unavailable for legal reasons"
-msgstr "Có sẵn cho ngôn ngữ của bạn"
+msgstr "Không khả dụng vì lý do pháp lý"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
 msgid "Sorry, but the content you are seeking is not available in your region."
@@ -1619,9 +1618,8 @@ msgid "Choose Photo…"
 msgstr "Chọn ảnh…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:106
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "Để tìm hiểu các tiện ích mở rộng tương thích với Firefox trên Android, <a href=\"%(newLocation)s\">hãy nhấp vào đây</a>."
+msgstr "Để tìm các tiện ích mở rộng tương thích với Firefox dành cho Android, hãy <a href=\"%(newLocation)s\">nhấp vào đây</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
