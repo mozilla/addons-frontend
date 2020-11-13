@@ -1,6 +1,7 @@
 import UAParser from 'ua-parser-js';
 
 import {
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   ALL_PROMOTED_CATEGORIES,
   CLIENT_APP_ANDROID,
@@ -18,6 +19,7 @@ import {
   OS_MAC,
   OS_WINDOWS,
   RECOMMENDED,
+  validAddonTypes,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -1183,6 +1185,19 @@ describe(__filename, () => {
 
       expect(isAndroidInstallable({ addon })).toEqual(true);
     });
+
+    it.each(validAddonTypes.filter((type) => type !== ADDON_TYPE_EXTENSION))(
+      'returns false for a %s, even if the add-on is recommended on android',
+      (type) => {
+        const addon = createInternalAddon({
+          ...fakeAddon,
+          promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+          type,
+        });
+
+        expect(isAndroidInstallable({ addon })).toEqual(false);
+      },
+    );
 
     it('returns false if the add-on is recommended but not on android', () => {
       const addon = createInternalAddon({

@@ -114,9 +114,11 @@ export const isAndroidInstallable = ({
 }: {
   addon: AddonType | null,
 }): boolean => {
-  // Only add-ons that are recommended on android are considered compatible.
+  // Only extensions that are recommended on android are considered compatible.
   // See https://github.com/mozilla/addons-frontend/issues/9713.
   return (
+    !!addon &&
+    addon.type === ADDON_TYPE_EXTENSION &&
     getPromotedCategory({
       addon,
       clientApp: CLIENT_APP_ANDROID,
