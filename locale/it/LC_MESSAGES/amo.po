@@ -1639,9 +1639,8 @@ msgid "Choose Photo…"
 msgstr "Seleziona un’immagine…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:106
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "Per sapere di più sui componenti aggiuntivi compatibili con Firefox per Android, <a href=\"%(newLocation)s\">fai clic qui</a>."
+msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
