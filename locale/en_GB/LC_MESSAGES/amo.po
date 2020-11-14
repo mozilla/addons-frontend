@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-10 17:44+0000\n"
-"PO-Revision-Date: 2020-11-14 10:59+0000\n"
+"PO-Revision-Date: 2020-11-14 15:13+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
@@ -788,9 +788,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
-#, fuzzy
 msgid "Unavailable for legal reasons"
-msgstr "Available for your locale"
+msgstr "Unavailable for legal reasons"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
 msgid "Sorry, but the content you are seeking is not available in your region."
@@ -1629,9 +1628,8 @@ msgid "Choose Photo…"
 msgstr "Choose Photo…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:106
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
+msgstr "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
