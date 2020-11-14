@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-10 17:44+0000\n"
-"PO-Revision-Date: 2020-10-27 11:14+0000\n"
-"Last-Translator: Michele Rodaro <michele.rodaro@mozillaitalia.org>\n"
+"PO-Revision-Date: 2020-11-11 18:45+0000\n"
+"Last-Translator: Jenny <leanintocuriosity@gmx.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -798,7 +798,7 @@ msgstr "Attenzione: la richiesta non è stata elaborata a causa di un errore del
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
 msgid "Unavailable for legal reasons"
-msgstr ""
+msgstr "Non disponibile per motivi legali"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
 msgid "Sorry, but the content you are seeking is not available in your region."
