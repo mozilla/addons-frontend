@@ -231,7 +231,9 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     const { onSearch } = this.props;
 
     if (onSearch) {
-      const filters = this.createFiltersFromQuery(this.state.searchValue);
+      const filters = this.createFiltersFromQuery(
+        this.state.searchValue.trim(),
+      );
       onSearch(filters);
     }
   };
