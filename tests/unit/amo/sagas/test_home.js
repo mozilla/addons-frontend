@@ -6,11 +6,13 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_PROMOTED_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
+  MOBILE_HOME_PAGE_EXTENSION_COUNT,
 } from 'amo/constants';
 import homeReducer, {
   abortFetchHomeData,
   fetchHomeData,
   loadHomeData,
+  loadMobileHomeData,
 } from 'amo/reducers/home';
 import homeSaga from 'amo/sagas/home';
 import { createApiError } from 'core/api';
@@ -65,12 +67,13 @@ describe(__filename, () => {
           errorHandlerId: errorHandler.id,
           includeRecommendedThemes: true,
           includeTrendingExtensions: true,
+          isDesktopSite: true,
           ...params,
         }),
       );
     }
 
-    it('calls the API to fetch the data to display on home', async () => {
+    it('calls the APIs to fetch the data to display on home for the desktop site', async () => {
       const state = sagaTester.getState();
 
       const firstCollectionSlug = 'collection-slug';
@@ -207,6 +210,47 @@ describe(__filename, () => {
           popularThemes,
           promotedExtensions,
           trendingExtensions,
+        },
+      });
+
+      const expectedAction = await sagaTester.waitFor(loadAction.type);
+      mockCollectionsApi.verify();
+      mockSearchApi.verify();
+
+      expect(expectedAction).toEqual(loadAction);
+    });
+
+    it('calls the APIs to fetch the data to display on home for the mobile site', async () => {
+      const state = sagaTester.getState();
+
+      const baseArgs = { api: state.api };
+
+      const recommendedExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            page_size: String(MOBILE_HOME_PAGE_EXTENSION_COUNT),
+            addonType: ADDON_TYPE_EXTENSION,
+            promoted: RECOMMENDED,
+            sort: SEARCH_SORT_RANDOM,
+          },
+        })
+        .resolves(recommendedExtensions);
+
+      const heroShelves = createHeroShelves();
+      mockHeroApi
+        .expects('getHeroShelves')
+        .withArgs(baseArgs)
+        .resolves(heroShelves);
+
+      _fetchHomeData({ isDesktopSite: false });
+
+      const loadAction = loadMobileHomeData({
+        heroShelves,
+        shelves: {
+          recommendedExtensions,
         },
       });
 
@@ -398,7 +442,7 @@ describe(__filename, () => {
       expect(expectedAction).toEqual(abortAction);
     });
 
-    it('dispatches an error for a failed search fetch', async () => {
+    it('dispatches an error for a failed search fetch for the desktop site', async () => {
       const slug = 'collection-slug';
       const userId = 123;
 
@@ -414,6 +458,20 @@ describe(__filename, () => {
       mockSearchApi.expects('search').exactly(6).rejects(error);
 
       _fetchHomeData({ collectionsToFetch: [{ slug, userId }] });
+
+      const errorAction = errorHandler.createErrorAction(error);
+      const expectedAction = await sagaTester.waitFor(errorAction.type);
+      expect(expectedAction).toEqual(errorAction);
+    });
+
+    it('dispatches an error for a failed search fetch for the mobile site', async () => {
+      mockHeroApi.expects('getHeroShelves').resolves(createHeroShelves());
+
+      const error = new Error('some API error maybe');
+
+      mockSearchApi.expects('search').exactly(1).rejects(error);
+
+      _fetchHomeData({ isDesktopSite: false });
 
       const errorAction = errorHandler.createErrorAction(error);
       const expectedAction = await sagaTester.waitFor(errorAction.type);

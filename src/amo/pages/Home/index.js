@@ -16,6 +16,10 @@ import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
 import SponsoredAddonsShelf from 'amo/components/SponsoredAddonsShelf';
 import SecondaryHero from 'amo/components/SecondaryHero';
+import {
+  LANDING_PAGE_EXTENSION_COUNT,
+  MOBILE_HOME_PAGE_EXTENSION_COUNT,
+} from 'amo/constants';
 import { fetchHomeData } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
@@ -76,7 +80,6 @@ export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
     _getFeaturedCollectionsMetadata: PropTypes.func,
-    clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
@@ -84,6 +87,7 @@ export class HomeBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     includeRecommendedThemes: PropTypes.bool,
     includeTrendingExtensions: PropTypes.bool,
+    isDesktopSite: PropTypes.bool,
     isLoading: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
     shelves: PropTypes.object.isRequired,
@@ -112,6 +116,7 @@ export class HomeBase extends React.Component {
       errorHandler,
       includeRecommendedThemes,
       includeTrendingExtensions,
+      isDesktopSite,
       isLoading,
       resultsLoaded,
     } = this.props;
@@ -129,6 +134,7 @@ export class HomeBase extends React.Component {
           errorHandlerId: errorHandler.id,
           includeRecommendedThemes,
           includeTrendingExtensions,
+          isDesktopSite,
         }),
       );
     }
@@ -207,18 +213,16 @@ export class HomeBase extends React.Component {
     const {
       _config,
       _getFeaturedCollectionsMetadata,
-      clientApp,
       collections,
       errorHandler,
       heroShelves,
       i18n,
       includeRecommendedThemes,
       includeTrendingExtensions,
+      isDesktopSite,
       resultsLoaded,
       shelves,
     } = this.props;
-
-    const isDesktopSite = clientApp === CLIENT_APP_FIREFOX;
 
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
@@ -308,6 +312,11 @@ export class HomeBase extends React.Component {
                 },
               }}
               loading={loading}
+              placeholderCount={
+                isDesktopSite
+                  ? LANDING_PAGE_EXTENSION_COUNT
+                  : MOBILE_HOME_PAGE_EXTENSION_COUNT
+              }
             />
 
             {isDesktopSite ? (
@@ -412,9 +421,9 @@ export class HomeBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
-    clientApp: state.api.clientApp,
     collections: state.home.collections,
     heroShelves: state.home.heroShelves,
+    isDesktopSite: state.api.clientApp === CLIENT_APP_FIREFOX,
     isLoading: state.home.isLoading,
     resultsLoaded: state.home.resultsLoaded,
     shelves: state.home.shelves,

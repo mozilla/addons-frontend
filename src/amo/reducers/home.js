@@ -21,6 +21,8 @@ export const ABORT_FETCH_HOME_DATA: 'ABORT_FETCH_HOME_DATA' =
   'ABORT_FETCH_HOME_DATA';
 export const FETCH_HOME_DATA: 'FETCH_HOME_DATA' = 'FETCH_HOME_DATA';
 export const LOAD_HOME_DATA: 'LOAD_HOME_DATA' = 'LOAD_HOME_DATA';
+export const LOAD_MOBILE_HOME_DATA: 'LOAD_MOBILE_HOME_DATA' =
+  'LOAD_MOBILE_HOME_DATA';
 
 export type PrimaryHeroShelfExternalType = {|
   id: string,
@@ -138,6 +140,7 @@ type FetchHomeDataParams = {|
   errorHandlerId: string,
   includeRecommendedThemes: boolean,
   includeTrendingExtensions: boolean,
+  isDesktopSite: boolean,
 |};
 
 export type FetchHomeDataAction = {|
@@ -150,6 +153,7 @@ export const fetchHomeData = ({
   errorHandlerId,
   includeRecommendedThemes,
   includeTrendingExtensions,
+  isDesktopSite,
 }: FetchHomeDataParams): FetchHomeDataAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(collectionsToFetch, 'collectionsToFetch is required');
@@ -161,6 +165,7 @@ export const fetchHomeData = ({
       errorHandlerId,
       includeRecommendedThemes,
       includeTrendingExtensions,
+      isDesktopSite,
     },
   };
 };
@@ -199,10 +204,33 @@ export const loadHomeData = ({
   };
 };
 
+type LoadMobileHomeDataParams = {|
+  heroShelves: ExternalHeroShelvesType,
+  shelves: { [shelfName: string]: ApiAddonsResponse },
+|};
+
+type LoadMobileHomeDataAction = {|
+  type: typeof LOAD_MOBILE_HOME_DATA,
+  payload: LoadMobileHomeDataParams,
+|};
+
+export const loadMobileHomeData = ({
+  heroShelves,
+  shelves,
+}: LoadMobileHomeDataParams): LoadMobileHomeDataAction => {
+  invariant(shelves, 'shelves is required');
+
+  return {
+    type: LOAD_MOBILE_HOME_DATA,
+    payload: { heroShelves, shelves },
+  };
+};
+
 type Action =
   | AbortFetchHomeDataAction
   | FetchHomeDataAction
   | LoadHomeDataAction
+  | LoadMobileHomeDataAction
   | SetClientAppAction;
 
 const createInternalAddons = (
@@ -287,6 +315,26 @@ const reducer = (
           }
           return null;
         }),
+        heroShelves: createInternalHeroShelves(heroShelves),
+        isLoading: false,
+        resultsLoaded: true,
+        shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
+          const response = shelves[shelfName];
+
+          return {
+            ...shelvesToLoad,
+            [shelfName]: response ? createInternalAddons(response) : null,
+          };
+        }, {}),
+      };
+    }
+
+    case LOAD_MOBILE_HOME_DATA: {
+      const { heroShelves, shelves } = action.payload;
+
+      return {
+        ...state,
+        collections: [],
         heroShelves: createInternalHeroShelves(heroShelves),
         isLoading: false,
         resultsLoaded: true,
