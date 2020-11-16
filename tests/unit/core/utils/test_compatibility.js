@@ -137,11 +137,14 @@ describe(__filename, () => {
       });
     });
 
-    it('is incompatible with Firefox Fenix', () => {
+    it('is incompatible with Firefox Fenix, even though promoted', () => {
       userAgents.fenix.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
-            addon: createInternalAddon({ ...fakeAddon, promoted: null }),
+            addon: createInternalAddon({
+              ...fakeAddon,
+              promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+            }),
             userAgentInfo: UAParser(userAgent),
           }),
         ).toEqual({
