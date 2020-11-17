@@ -1,6 +1,7 @@
 /* @flow */
 /* global window */
 import { oneLine } from 'common-tags';
+import config from 'config';
 import invariant from 'invariant';
 import mozCompare from 'mozilla-version-comparator';
 
@@ -127,6 +128,7 @@ export const isAndroidInstallable = ({
 };
 
 export type IsCompatibleWithUserAgentParams = {|
+  _config?: typeof config,
   _findInstallURL?: typeof findInstallURL,
   _log?: typeof log,
   _window?: typeof window | Object,
@@ -143,6 +145,7 @@ export type UserAgentCompatibilityType = {|
 |};
 
 export function isCompatibleWithUserAgent({
+  _config = config,
   _findInstallURL = findInstallURL,
   _log = log,
   addon,
@@ -166,11 +169,19 @@ export function isCompatibleWithUserAgent({
     return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
   }
 
-  // Fenix does not support add-ons (yet?).
-  // See: https://github.com/mozilla-mobile/fenix/issues/1134
-  // See also: https://github.com/mozilla/addons-frontend/issues/7963
   if (isFirefoxForAndroid(userAgentInfo)) {
-    return { compatible: false, reason: INCOMPATIBLE_ANDROID_UNSUPPORTED };
+    // Add-ons are not installable in Fenix from AMO yet.
+    // See: https://github.com/mozilla/addons-frontend/issues/9864
+    if (!_config.get('enableFeatureAllowAndroidInstall')) {
+      return { compatible: false, reason: INCOMPATIBLE_ANDROID_UNSUPPORTED };
+    }
+    // We need to check that the add-on is installable and compatible.
+    if (
+      !isAndroidInstallable({ addon }) ||
+      (currentVersion && !currentVersion.compatibility[CLIENT_APP_ANDROID])
+    ) {
+      return { compatible: false, reason: INCOMPATIBLE_ANDROID_UNSUPPORTED };
+    }
   }
 
   // At this point we need a currentVersion in order for an extension to be

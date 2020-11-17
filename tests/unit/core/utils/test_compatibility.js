@@ -41,6 +41,7 @@ import {
   createFakeLocation,
   fakeAddon,
   fakeVersion,
+  getFakeConfig,
   getFakeLogger,
   userAgents,
   userAgentsByPlatform,
@@ -96,12 +97,6 @@ describe(__filename, () => {
         expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
       });
     });
-
-    it('returns true for Firefox Fenix', () => {
-      userAgents.fenix.forEach((userAgent) => {
-        expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
-      });
-    });
   });
 
   describe('isCompatibleWithUserAgent', () => {
@@ -137,10 +132,13 @@ describe(__filename, () => {
       });
     });
 
-    it('is incompatible with Firefox Fenix, even though promoted', () => {
-      userAgents.fenix.forEach((userAgent) => {
+    it('is incompatible with Firefox for Android, even though promoted, with flag off', () => {
+      userAgents.firefoxAndroid.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
+            _config: getFakeConfig({
+              enableFeatureAllowAndroidInstall: false,
+            }),
             addon: createInternalAddon({
               ...fakeAddon,
               promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
@@ -151,6 +149,23 @@ describe(__filename, () => {
           compatible: false,
           reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
         });
+      });
+    });
+
+    it('is compatible with Firefox for Android, when promoted, with flag on', () => {
+      userAgents.firefoxAndroid.forEach((userAgent) => {
+        expect(
+          _isCompatibleWithUserAgent({
+            _config: getFakeConfig({
+              enableFeatureAllowAndroidInstall: true,
+            }),
+            addon: createInternalAddon({
+              ...fakeAddon,
+              promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+            }),
+            userAgentInfo: UAParser(userAgent),
+          }),
+        ).toEqual({ compatible: true, reason: null });
       });
     });
 
@@ -320,7 +335,7 @@ describe(__filename, () => {
       ).toMatchObject({ compatible: true });
     });
 
-    it('is incompatible with Firefox on Android if no compatibility info exists for `android`', () => {
+    it('is incompatible with Firefox on Android if no compatibility info exists for `android`, even if promoted', () => {
       const currentVersion = createInternalVersion({
         ...fakeVersion,
         compatibility: {
@@ -333,6 +348,13 @@ describe(__filename, () => {
 
       expect(
         _isCompatibleWithUserAgent({
+          _config: getFakeConfig({
+            enableFeatureAllowAndroidInstall: true,
+          }),
+          addon: createInternalAddon({
+            ...fakeAddon,
+            promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
+          }),
           currentVersion,
           userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
         }),
@@ -1068,12 +1090,6 @@ describe(__filename, () => {
   });
 
   describe('isFirefoxForAndroid', () => {
-    it('returns true for Firefox Fenix', () => {
-      userAgents.fenix.forEach((userAgent) => {
-        expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(true);
-      });
-    });
-
     it('returns false for Android/webkit', () => {
       userAgents.androidWebkit.forEach((userAgent) => {
         expect(isFirefoxForAndroid(UAParser(userAgent))).toEqual(false);
@@ -1118,12 +1134,6 @@ describe(__filename, () => {
   });
 
   describe('isFirefoxForIOS', () => {
-    it('returns false for Firefox Fenix', () => {
-      userAgents.fenix.forEach((userAgent) => {
-        expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);
-      });
-    });
-
     it('returns false for Android/webkit', () => {
       userAgents.androidWebkit.forEach((userAgent) => {
         expect(isFirefoxForIOS(UAParser(userAgent))).toEqual(false);

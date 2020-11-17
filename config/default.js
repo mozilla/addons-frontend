@@ -117,6 +117,7 @@ module.exports = {
     'enableFeatureExperienceSurvey',
     'enableFeatureSponsoredShelf',
     'enableFeatureUseAdzerkForSponsoredShelf',
+    'enableFeatureAllowAndroidInstall',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -433,6 +434,7 @@ module.exports = {
 
   enableFeatureSponsoredShelf: true,
   enableFeatureUseAdzerkForSponsoredShelf: true,
+  enableFeatureAllowAndroidInstall: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
