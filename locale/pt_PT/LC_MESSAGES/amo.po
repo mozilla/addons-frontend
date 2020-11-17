@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-10 17:44+0000\n"
+"POT-Creation-Date: 2020-11-17 18:27+0000\n"
 "PO-Revision-Date: 2020-10-25 23:52+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
@@ -908,14 +908,29 @@ msgstr ""
 "Desculpe, mas ocorreu um erro com o nosso servidor e não conseguimos "
 "completar o seu pedido. Registámos este erro e vamos investigá-lo."
 
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 #, fuzzy
-msgid "Unavailable for legal reasons"
-msgstr "Disponível para o seu idioma"
-
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
-msgid "Sorry, but the content you are seeking is not available in your region."
+msgid ""
+"You may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes"
+"%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums"
+"%(communityEnd)s."
 msgstr ""
+"Tente visitar a página mais tarde, pois o tema ou a extensão pode ficar "
+"disponível novamente. Como alternativa, pode encontrar o que procura numa "
+"das %(extensionStart)sextensões%(extensionEnd)s ou %(themeStart)stemas"
+"%(themeEnd)s disponíveis, ou solicitando ajuda nos nossos "
+"%(communityStart)sfóruns da comunidade%(communityEnd)s."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
+#, fuzzy
+msgid "That page is not available in your region"
+msgstr "Este extra não esta disponível na sua plataforma."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
+#, fuzzy
+msgid "The page you tried to access is not available in your region."
+msgstr "Este extra não esta disponível na sua plataforma."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
@@ -938,12 +953,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Marcado como relatório de erro ou pedido de apoio"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Marcado"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Marcar"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Marcado"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3322,6 +3337,10 @@ msgstr[1] "%(total)s extras"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Resposta do programador"
+
+#, fuzzy
+#~ msgid "Unavailable for legal reasons"
+#~ msgstr "Disponível para o seu idioma"
 
 #~ msgid ""
 #~ "To find add-ons compatible with Firefox on desktop, <a href="

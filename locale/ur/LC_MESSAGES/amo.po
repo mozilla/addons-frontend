@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-10 17:44+0000\n"
+"POT-Creation-Date: 2020-11-17 18:27+0000\n"
 "PO-Revision-Date: 2020-08-08 10:13+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -889,14 +889,23 @@ msgstr ""
 "افسوس، لیکن ہمارے سرور کے ساتھ ایک غلطی تھی اور ہم آپ کی درخواست مکمل نہیں "
 "کر سکے۔ ہم نے اس غلطی کو نشانہ بنایا ہے اور اس کی تحقیقات کریں گی۔"
 
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
-#, fuzzy
-msgid "Unavailable for legal reasons"
-msgstr "آپ کی زبان میں دستیاب ہے"
-
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
-msgid "Sorry, but the content you are seeking is not available in your region."
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
+msgid ""
+"You may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes"
+"%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums"
+"%(communityEnd)s."
 msgstr ""
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
+#, fuzzy
+msgid "That page is not available in your region"
+msgstr "یہ ایڈاون آپ کے پلیٹ فارم پر دستیاب نہیں ہے۔"
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
+#, fuzzy
+msgid "The page you tried to access is not available in your region."
+msgstr "یہ ایڈاون آپ کے پلیٹ فارم پر دستیاب نہیں ہے۔"
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 #, fuzzy
@@ -921,12 +930,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "بگ رپورٹ یا سپورٹ کی درخواست کے طور پر نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "نشان لگا دیا گیا"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "پرچم"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3190,6 +3199,10 @@ msgstr[1] "کوئی زمرہ جات نہیں ملے۔"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "ڈویلپر کا جواب"
+
+#, fuzzy
+#~ msgid "Unavailable for legal reasons"
+#~ msgstr "آپ کی زبان میں دستیاب ہے"
 
 #, fuzzy
 #~ msgid "Promoted Add-Ons"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-10 17:44+0000\n"
+"POT-Creation-Date: 2020-11-17 18:27+0000\n"
 "PO-Revision-Date: 2020-08-01 23:43+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
@@ -903,14 +903,29 @@ msgstr ""
 "menyelesaikan permintaan Anda. Kami telah mencatat kesalahan ini dan akan "
 "menyelidikinya."
 
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 #, fuzzy
-msgid "Unavailable for legal reasons"
-msgstr "Tersedia untuk pelokalan Anda"
-
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
-msgid "Sorry, but the content you are seeking is not available in your region."
+msgid ""
+"You may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes"
+"%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums"
+"%(communityEnd)s."
 msgstr ""
+"Coba kunjungi laman nanti, karena tema atau ekstensi mungkin tersedia "
+"kembali. Atau, Anda mungkin dapat menemukan apa yang Anda cari di salah satu "
+"%(extensionStart)sekstensi%(extensionEnd)s atau %(themeStart)stema"
+"%(themeEnd)s yang tersedia, atau dengan meminta bantuan pada "
+"%(communityStart)sforum komunitas%(communityEnd)s kami."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
+#, fuzzy
+msgid "That page is not available in your region"
+msgstr "Pengaya ini belum tersedia untuk platform Anda."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
+#, fuzzy
+msgid "The page you tried to access is not available in your region."
+msgstr "Pengaya ini belum tersedia untuk platform Anda."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
@@ -933,12 +948,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ditandai sebagai laporan bug atau permintaan dukungan"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Ditandai"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Tandai"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Ditandai"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3286,6 +3301,10 @@ msgstr[0] "%(total)s pengaya"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Balasan pengembang"
+
+#, fuzzy
+#~ msgid "Unavailable for legal reasons"
+#~ msgstr "Tersedia untuk pelokalan Anda"
 
 #~ msgid ""
 #~ "To find add-ons compatible with Firefox on desktop, <a href="

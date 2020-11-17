@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-10 17:44+0000\n"
+"POT-Creation-Date: 2020-11-17 18:27+0000\n"
 "PO-Revision-Date: 2020-10-27 09:55+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -905,14 +905,29 @@ msgstr ""
 "fullføre førespurnaden din. Vi har logga denne feilen og kjem til å "
 "undersøke det."
 
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 #, fuzzy
-msgid "Unavailable for legal reasons"
-msgstr "Tilgjengeleg på ditt språk"
-
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
-msgid "Sorry, but the content you are seeking is not available in your region."
+msgid ""
+"You may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes"
+"%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums"
+"%(communityEnd)s."
 msgstr ""
+"Prøv å besøkje sida seinare, sidan temaet eller utvidinga kan bli "
+"tilgjengeleg igjen. Alternativt kan du finne det du leitar etter i ein av "
+"dei tilgjengelege %(extensionStart)sutvidingane%(extensionEnd)s eller "
+"%(themeStart)stema%(themeEnd)s, eller ved å be om hjelp i  "
+"%(communityStart)sfelleskapsforuma%(communityEnd)s våre."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
+#, fuzzy
+msgid "That page is not available in your region"
+msgstr "Denne utvidinga er ikkje tilgjengeleg på plattforma di."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
+#, fuzzy
+msgid "The page you tried to access is not available in your region."
+msgstr "Denne utvidinga er ikkje tilgjengeleg på plattforma di."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
@@ -935,12 +950,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Rapportert som ein feilrapport eller brukarstøtteførespurnad"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Flagga"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Flagg"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Flagga"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3324,6 +3339,10 @@ msgstr[1] "%(total)s tillegg"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Svar frå utviklaren"
+
+#, fuzzy
+#~ msgid "Unavailable for legal reasons"
+#~ msgstr "Tilgjengeleg på ditt språk"
 
 #~ msgid ""
 #~ "To find add-ons compatible with Firefox on desktop, <a href="

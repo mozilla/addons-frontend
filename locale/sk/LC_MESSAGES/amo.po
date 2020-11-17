@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-10 17:44+0000\n"
+"POT-Creation-Date: 2020-11-17 18:27+0000\n"
 "PO-Revision-Date: 2020-11-04 19:39+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -902,14 +902,29 @@ msgstr ""
 "Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe "
 "servera. Chybu sme zaznamenali a budeme sa jej venovať."
 
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 #, fuzzy
-msgid "Unavailable for legal reasons"
-msgstr "Dostupné vo vašom jazyku"
-
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
-msgid "Sorry, but the content you are seeking is not available in your region."
+msgid ""
+"You may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes"
+"%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums"
+"%(communityEnd)s."
 msgstr ""
+"Skúste túto stránku navštíviť neskôr. Téma vzhľadu alebo rozšírenie totižto "
+"môže byť opäť k dispozícii. Môžete taktiež skúsiť vyhľadávanie medzi "
+"ostatnými %(extensionStart)srozšíreniami%(extensionEnd)s alebo "
+"%(themeStart)stémami vzhľadu%(themeEnd)s. Môžete taktiež požiadať o pomoc na "
+"našom %(communityStart)skomunitnom fóre%(communityEnd)s."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
+#, fuzzy
+msgid "That page is not available in your region"
+msgstr "Tento doplnok nie je na vašej platforme dostupný."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
+#, fuzzy
+msgid "The page you tried to access is not available in your region."
+msgstr "Tento doplnok nie je na vašej platforme dostupný."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
@@ -932,12 +947,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Nahlásené ako správa o chybe, alebo žiadosť o podporu"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Nahlásené"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Nahlásiť"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Nahlásené"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3356,6 +3371,10 @@ msgstr[2] "%(total)s doplnkov"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Odpoveď od vývojára"
+
+#, fuzzy
+#~ msgid "Unavailable for legal reasons"
+#~ msgstr "Dostupné vo vašom jazyku"
 
 #~ msgid ""
 #~ "To find add-ons compatible with Firefox on desktop, <a href="

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-10 17:44+0000\n"
+"POT-Creation-Date: 2020-11-17 18:27+0000\n"
 "PO-Revision-Date: 2020-10-30 23:59+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -925,14 +925,23 @@ msgstr ""
 "xojtikïr ta xqatz'aqatisaj ri ak'utuxik. Xqatz'ib'aj ri sachoj chuqa' "
 "xtiqatikib'a'."
 
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
-#, fuzzy
-msgid "Unavailable for legal reasons"
-msgstr "K'o pan ach'ab'äl"
-
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
-msgid "Sorry, but the content you are seeking is not available in your region."
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
+msgid ""
+"You may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes"
+"%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums"
+"%(communityEnd)s."
 msgstr ""
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
+#, fuzzy
+msgid "That page is not available in your region"
+msgstr "Man okel ta re tz'aqat re' pa ri anuk'uche'el."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
+#, fuzzy
+msgid "The page you tried to access is not available in your region."
+msgstr "Man okel ta re tz'aqat re' pa ri anuk'uche'el."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 #, fuzzy
@@ -957,12 +966,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ya'on retal achi'el jun rutzijol sachoj o ruk'utuxik to'ïk"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Xya' retal"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Tiya' retal"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Xya' retal"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3368,6 +3377,10 @@ msgstr[1] "%(count)s taq tz'aqat xe'ilitäj"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Tzolin rutzij b'anonel"
+
+#, fuzzy
+#~ msgid "Unavailable for legal reasons"
+#~ msgstr "K'o pan ach'ab'äl"
 
 #~ msgid "Promoted Add-Ons"
 #~ msgstr "Taq tz'aqat ya'on kiq'ij"

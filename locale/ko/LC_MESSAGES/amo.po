@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-10 17:44+0000\n"
+"POT-Creation-Date: 2020-11-17 18:27+0000\n"
 "PO-Revision-Date: 2020-09-29 03:57+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -884,14 +884,23 @@ msgstr ""
 "죄송합니다. 서버에 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 "
 "오류는 빠르게 처리하겠습니다."
 
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:23
-#, fuzzy
-msgid "Unavailable for legal reasons"
-msgstr "한글판 있음"
-
-#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:26
-msgid "Sorry, but the content you are seeking is not available in your region."
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
+msgid ""
+"You may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes"
+"%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums"
+"%(communityEnd)s."
 msgstr ""
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
+#, fuzzy
+msgid "That page is not available in your region"
+msgstr "이 부가 기능은 현재 플랫폼에서 제공되지 않습니다."
+
+#: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
+#, fuzzy
+msgid "The page you tried to access is not available in your region."
+msgstr "이 부가 기능은 현재 플랫폼에서 제공되지 않습니다."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
@@ -914,12 +923,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "버그 신고 또는 지원 요청으로 플래그 지정됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "플래그 지정됨"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "플래그 지정"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "플래그 지정됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3158,6 +3167,10 @@ msgstr[0] "부가 기능 %(total)s개"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "개발자 답글"
+
+#, fuzzy
+#~ msgid "Unavailable for legal reasons"
+#~ msgstr "한글판 있음"
 
 #~ msgid ""
 #~ "To find add-ons compatible with Firefox on desktop, <a href="
