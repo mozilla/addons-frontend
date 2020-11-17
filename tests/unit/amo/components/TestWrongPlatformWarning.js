@@ -90,7 +90,7 @@ describe(__filename, () => {
     );
   });
 
-  it('calls _isAndroidInstallable to check for Fenix compatibility', () => {
+  it('calls _isAndroidInstallable to check for Android compatibility', () => {
     const addon = createInternalAddon(fakeAddon);
     _isFirefoxForAndroid.returns(true);
 

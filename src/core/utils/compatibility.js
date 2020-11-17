@@ -1,6 +1,7 @@
 /* @flow */
 /* global window */
 import { oneLine } from 'common-tags';
+import config from 'config';
 import invariant from 'invariant';
 import mozCompare from 'mozilla-version-comparator';
 
@@ -127,6 +128,7 @@ export const isAndroidInstallable = ({
 };
 
 export type IsCompatibleWithUserAgentParams = {|
+  _config?: typeof config,
   _findInstallURL?: typeof findInstallURL,
   _log?: typeof log,
   _window?: typeof window | Object,
@@ -143,6 +145,7 @@ export type UserAgentCompatibilityType = {|
 |};
 
 export function isCompatibleWithUserAgent({
+  _config = config,
   _findInstallURL = findInstallURL,
   _log = log,
   addon,
@@ -154,7 +157,7 @@ export function isCompatibleWithUserAgent({
   // If the userAgent is false there was likely a programming error.
   invariant(userAgentInfo, 'userAgentInfo is required');
 
-  const { browser, os } = userAgentInfo;
+  const { browser } = userAgentInfo;
 
   // We need a Firefox browser compatible with add-ons (Firefox for iOS does
   // not currently support add-ons).
@@ -166,6 +169,21 @@ export function isCompatibleWithUserAgent({
     return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
   }
 
+  if (isFirefoxForAndroid(userAgentInfo)) {
+    // Add-ons are not installable in Fenix from AMO yet.
+    // See: https://github.com/mozilla/addons-frontend/issues/9864
+    if (!_config.get('enableFeatureAllowAndroidInstall')) {
+      return { compatible: false, reason: INCOMPATIBLE_ANDROID_UNSUPPORTED };
+    }
+    // We need to check that the add-on is installable and compatible.
+    if (
+      !isAndroidInstallable({ addon }) ||
+      (currentVersion && !currentVersion.compatibility[CLIENT_APP_ANDROID])
+    ) {
+      return { compatible: false, reason: INCOMPATIBLE_ANDROID_UNSUPPORTED };
+    }
+  }
+
   // At this point we need a currentVersion in order for an extension to be
   // marked as compatible.
   if (!currentVersion) {
@@ -173,22 +191,6 @@ export function isCompatibleWithUserAgent({
       compatible: false,
       reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
     };
-  }
-
-  // For Android, we need to check that compatibility info exists for `android`.
-  if (
-    os.name === USER_AGENT_OS_ANDROID &&
-    !currentVersion.compatibility[CLIENT_APP_ANDROID]
-  ) {
-    return {
-      compatible: false,
-      reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
-    };
-  }
-
-  // As well, on Android, we need to check that the add-on is installable.
-  if (os.name === USER_AGENT_OS_ANDROID && !isAndroidInstallable({ addon })) {
-    return { compatible: false, reason: INCOMPATIBLE_ANDROID_UNSUPPORTED };
   }
 
   // Do version checks, if this add-on has minimum or maximum version
