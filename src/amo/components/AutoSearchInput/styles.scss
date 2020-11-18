@@ -88,6 +88,7 @@
 
 .AutoSearchInput-submit-button {
   display: none;
+  outline: none;
 
   @include respond-to(medium) {
     @include end(0);
