@@ -790,12 +790,11 @@ msgstr "您可以在下列%(extensionStart)s擴充套件%(extensionEnd)s或%(the
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
-msgstr "這個頁面無法於您所在的地區開啟。"
+msgstr "這個頁面並未向您所在的地區提供。"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "抱歉，您查詢的內容無法於您的所在地區顯示。"
+msgstr "您嘗試開啟的內容並未向您所在的地區提供。"
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
