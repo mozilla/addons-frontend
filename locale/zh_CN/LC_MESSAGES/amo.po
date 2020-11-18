@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-11-18 02:19+0000\n"
+"PO-Revision-Date: 2020-11-18 02:50+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -783,11 +783,10 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "很抱歉，但目前遇到一个服务器错误，我们无法完成您的请求。我们已记录该错误，并会进行调查。"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
-msgstr "请过段时间后再尝试访问该页面，因为主题或扩展可能会再次上架。另外，也许您可以在下列%(extensionStart)s扩展%(extensionEnd)s或%(themeStart)s主题%(themeEnd)s中找到要您要找的内容，或者到我们的%(communityStart)s社区论坛%(communityEnd)s寻求帮助。"
+msgstr "您可以在下列%(extensionStart)s扩展%(extensionEnd)s或%(themeStart)s主题%(themeEnd)s中找到要您要找的内容，或者到我们的%(communityStart)s社区论坛%(communityEnd)s寻求帮助。"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
