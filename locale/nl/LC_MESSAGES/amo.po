@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-11-18 06:42+0000\n"
+"PO-Revision-Date: 2020-11-18 06:43+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -803,11 +803,11 @@ msgstr ""
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
-msgstr ""
+msgstr "Die pagina is in uw regio niet beschikbaar"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
 msgid "The page you tried to access is not available in your region."
-msgstr ""
+msgstr "De pagina die u probeert te bereiken is niet beschikbaar in uw regio."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
