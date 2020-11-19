@@ -274,7 +274,7 @@ export class HomeBase extends React.Component {
           {isDesktopSite ? (
             <HeroRecommendation
               errorHandler={errorHandler}
-              shelfData={heroShelves && heroShelves.primary}
+              shelfData={heroShelves ? heroShelves.primary : undefined}
             />
           ) : null}
 
@@ -286,7 +286,9 @@ export class HomeBase extends React.Component {
             ) : null}
 
             {isDesktopSite ? (
-              <SecondaryHero shelfData={heroShelves && heroShelves.secondary} />
+              <SecondaryHero
+                shelfData={heroShelves ? heroShelves.secondary : undefined}
+              />
             ) : null}
 
             {!isDesktopSite ? this.renderHeroHeader() : null}

@@ -118,6 +118,12 @@ describe(__filename, () => {
     expect(root.find(LoadingText)).toHaveLength(11);
   });
 
+  it('renders nothing if shelfData is null', () => {
+    const root = render({ shelfData: null });
+
+    expect(root.find('.SecondaryHero')).toHaveLength(0);
+  });
+
   describe('modules', () => {
     const module1 = {
       icon: 'icon1',

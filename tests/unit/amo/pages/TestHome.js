@@ -620,15 +620,35 @@ describe(__filename, () => {
       );
     });
 
-    it('renders even if heroShelves are not loaded', () => {
+    it('passes undefined to hero components if shelves have not been loaded', () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
 
       const root = render({ store });
 
-      expect(root.find(HeroRecommendation)).toHaveLength(1);
-      expect(root.find(SecondaryHero)).toHaveLength(1);
+      const heroRecommendation = root.find(HeroRecommendation);
+      expect(heroRecommendation).toHaveLength(1);
+      expect(heroRecommendation).toHaveProp('shelfData', undefined);
+      const secondary = root.find(SecondaryHero);
+      expect(secondary).toHaveLength(1);
+      expect(secondary).toHaveProp('shelfData', undefined);
+    });
+
+    it('can pass null as shelfData to HeroRecommendation and SecondaryHero', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+      _loadHomeData({ store, heroShelves: { primary: null, secondary: null } });
+
+      const root = render({ store });
+
+      const heroRecommendation = root.find(HeroRecommendation);
+      expect(heroRecommendation).toHaveLength(1);
+      expect(heroRecommendation).toHaveProp('shelfData', null);
+      const secondary = root.find(SecondaryHero);
+      expect(secondary).toHaveLength(1);
+      expect(secondary).toHaveProp('shelfData', null);
     });
 
     it('does not render on Android', () => {
