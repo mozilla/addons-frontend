@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-11-18 16:33+0000\n"
+"PO-Revision-Date: 2020-11-20 18:30+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -807,9 +807,8 @@ msgid "That page is not available in your region"
 msgstr "Iste pagina non es disponibile in tu region."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "Desolate, ma le contento que tu cerca non es disponibile in tu region."
+msgstr "Desolate, ma le pagina que tu ha tentate acceder non es disponibile in tu region."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
