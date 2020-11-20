@@ -17,6 +17,7 @@ const appName = config.get('appName');
 const entryPoints = { [appName]: `${appName}/client` };
 
 export default {
+  bail: true,
   mode: 'production',
   devtool: 'source-map',
   context: path.resolve(__dirname),
