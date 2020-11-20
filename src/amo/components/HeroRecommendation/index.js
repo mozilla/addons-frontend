@@ -140,6 +140,11 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       siteIsReadOnly,
       siteNotice,
     } = this.props;
+    if (shelfData === null) {
+      // No data was returned for the primary shelf from the API.
+      return null;
+    }
+
     const { addon, description, external, featuredImage, gradient } =
       shelfData || {};
 

@@ -41,6 +41,11 @@ export const SecondaryHeroBase = ({
   _tracking = tracking,
   shelfData,
 }: InternalProps) => {
+  if (shelfData === null) {
+    // No data was returned for the secondary shelf from the API.
+    return null;
+  }
+
   const { headline, description, cta } = shelfData || {};
   const modules = (shelfData && shelfData.modules) || Array(3).fill({});
 

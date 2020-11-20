@@ -440,6 +440,31 @@ describe(__filename, () => {
       });
     });
 
+    it('works when primary is null', () => {
+      const heroShelves = {
+        primary: null,
+        secondary: createSecondaryHeroShelf(),
+      };
+
+      expect(createInternalHeroShelves(heroShelves).primary).toEqual(null);
+    });
+
+    it('works when secondary is null', () => {
+      const heroShelves = {
+        primary: createPrimaryHeroShelf(),
+        secondary: null,
+      };
+
+      expect(createInternalHeroShelves(heroShelves).secondary).toEqual(null);
+    });
+
+    it('works when both primary and secondary are null', () => {
+      const heroShelves = { primary: null, secondary: null };
+
+      expect(createInternalHeroShelves(heroShelves).primary).toEqual(null);
+      expect(createInternalHeroShelves(heroShelves).secondary).toEqual(null);
+    });
+
     it('throws an exception if neither an addon nor an external entry is provided', () => {
       const heroShelves = createHeroShelves();
       // createHeroShelves won't allow an invalid shelf to be created, so we

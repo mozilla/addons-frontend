@@ -55,7 +55,8 @@ type ExternalPrimaryHeroShelfWithExternalType = {|
 
 export type ExternalPrimaryHeroShelfType =
   | ExternalPrimaryHeroShelfWithAddonType
-  | ExternalPrimaryHeroShelfWithExternalType;
+  | ExternalPrimaryHeroShelfWithExternalType
+  | null;
 
 type BasePrimaryHeroShelfType = {|
   gradient: HeroGradientType,
@@ -77,7 +78,8 @@ type PrimaryHeroShelfWithExternalType = {|
 
 export type PrimaryHeroShelfType =
   | PrimaryHeroShelfWithAddonType
-  | PrimaryHeroShelfWithExternalType;
+  | PrimaryHeroShelfWithExternalType
+  | null;
 
 export type HeroCallToActionType = {|
   url: string,
@@ -95,7 +97,7 @@ export type SecondaryHeroShelfType = {|
   description: string,
   cta: HeroCallToActionType | null,
   modules: Array<SecondaryHeroModuleType>,
-|};
+|} | null;
 
 export type ExternalHeroShelvesType = {|
   primary: ExternalPrimaryHeroShelfType,
@@ -214,12 +216,14 @@ export const createInternalHeroShelves = (
 ): HeroShelvesType => {
   const { primary, secondary } = heroShelves;
 
+  if (primary === null) {
+    return { primary: null, secondary };
+  }
+
   invariant(
     primary.addon || primary.external,
     'Either primary.addon or primary.external is required',
   );
-
-  let shelves;
 
   const basePrimaryShelf = {
     gradient: primary.gradient,
@@ -233,24 +237,15 @@ export const createInternalHeroShelves = (
       addon: createInternalAddon(primary.addon),
       external: undefined,
     };
-
-    shelves = {
-      primary: primaryShelf,
-      secondary,
-    };
-  } else {
-    const primaryShelf: PrimaryHeroShelfWithExternalType = {
-      ...basePrimaryShelf,
-      addon: undefined,
-      external: primary.external,
-    };
-    shelves = {
-      primary: primaryShelf,
-      secondary,
-    };
+    return { primary: primaryShelf, secondary };
   }
 
-  return shelves;
+  const primaryShelf: PrimaryHeroShelfWithExternalType = {
+    ...basePrimaryShelf,
+    addon: undefined,
+    external: primary.external,
+  };
+  return { primary: primaryShelf, secondary };
 };
 
 const reducer = (

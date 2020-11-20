@@ -302,6 +302,12 @@ describe(__filename, () => {
     expect(root.find(LoadingText)).toHaveLength(4);
   });
 
+  it('renders nothing if shelfData is null', () => {
+    const root = render({ shelfData: null });
+
+    expect(root.find('.HeroRecommendation')).toHaveLength(0);
+  });
+
   describe('makeCallToActionURL', () => {
     it('creates a URL for an addon', () => {
       const slug = 'some-addon-slug';
