@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-11-24 05:04+0000\n"
+"PO-Revision-Date: 2020-11-24 05:22+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -95,11 +95,11 @@ msgstr "ఈ పొడగింత మీ Firefox వెర్షనుకు అ
 
 #: src/amo/components/AddonCompatibilityError/index.js:113
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr ""
+msgstr "మీ వద్ద ఉన్న Firefox వెర్షను ఈ పొడగింతకు తోడ్పాటునివ్వదు ఎందుకంటే దానికి పునఃప్రారంభించడం అవసరం."
 
 #: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "ఈ పొడగింత మీ ప్లాట్‌ఫారానికి అందుబాటులో లేదు."
 
 #: src/amo/components/AddonCompatibilityError/index.js:120
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
