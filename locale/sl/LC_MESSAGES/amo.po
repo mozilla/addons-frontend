@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-11-22 08:34+0000\n"
-"Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
+"PO-Revision-Date: 2020-11-24 09:09+0000\n"
+"Last-Translator: Matjaž Horvat <matjaz.horvat@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -803,13 +803,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Žal je prišlo do napake na našem strežniku in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Poskusite obiskati stran pozneje, saj lahko tema ali razširitev znova postaneta na voljo. Druga možnost je, da poskusite najti, kar iščete, med razpoložljivimi "
-"%(extensionStart)srazširitvami%(extensionEnd)s ali %(themeStart)stemami%(themeEnd)s, ali da za pomoč vprašate na našem %(communityStart)sforumu skupnosti%(communityEnd)s."
+"Kar iščete boste morda našli med razpoložljivimi %(extensionStart)srazširitvami%(extensionEnd)s ali %(themeStart)stemami%(themeEnd)s, ali pa za pomoč vprašajte na našem %(communityStart)sforumu "
+"skupnosti%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
@@ -1035,7 +1034,7 @@ msgstr "PRIPOROČENO"
 
 #: src/amo/components/HeroRecommendation/index.js:216
 msgid "BY FIREFOX"
-msgstr ""
+msgstr "FIREFOXOVO"
 
 #: src/amo/components/HeroRecommendation/index.js:232 src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
@@ -1302,19 +1301,16 @@ msgid "Recommended add-ons"
 msgstr "Priporočeni dodatki"
 
 #: src/amo/components/Search/index.js:137
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Razširitve razvijalca %(author)s"
+msgstr "Firefoxove razširitve"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Firefoxovo"
+msgstr "Firefoxove teme"
 
 #: src/amo/components/Search/index.js:143
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Dodatki za Firefox"
+msgstr "Firefoxovi dodatki"
 
 #: src/amo/components/Search/index.js:148
 msgid "Reviewed extensions"
@@ -1550,7 +1546,7 @@ msgstr "Operacijski sistem"
 
 #: src/amo/components/SearchFilters/index.js:264
 msgid "Badging"
-msgstr ""
+msgstr "Označevanje"
 
 #: src/amo/components/SearchForm/index.js:55
 msgid "Firefox Add-ons for Android"
