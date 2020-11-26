@@ -14,7 +14,6 @@ import {
   FETCH_HOME_DATA,
   abortFetchHomeData,
   loadHomeData,
-  loadMobileHomeData,
 } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
@@ -187,7 +186,8 @@ export function* fetchHomeData({
       }
 
       yield put(
-        loadMobileHomeData({
+        loadHomeData({
+          collections: [],
           heroShelves,
           shelves: { recommendedExtensions },
         }),

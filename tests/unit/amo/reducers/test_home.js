@@ -10,7 +10,6 @@ import homeReducer, {
   fetchHomeData,
   initialState,
   loadHomeData,
-  loadMobileHomeData,
 } from 'amo/reducers/home';
 import { createInternalAddon } from 'core/reducers/addons';
 import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
@@ -59,267 +58,141 @@ describe(__filename, () => {
       expect(state).toEqual(initialState);
     });
 
-    describe('loadHomeData', () => {
-      it('loads collections', () => {
-        const { store } = dispatchClientMetadata();
+    it('loads collections', () => {
+      const { store } = dispatchClientMetadata();
 
-        _loadHomeData({
-          store,
-          collections: [
-            createFakeCollectionAddonsListResponse({
-              addons: Array(10).fill(createFakeCollectionAddon()),
-            }),
-          ],
-        });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.resultsLoaded).toEqual(true);
-        expect(homeState.collections).toHaveLength(1);
-        expect(homeState.collections[0]).toHaveLength(
-          LANDING_PAGE_EXTENSION_COUNT,
-        );
-        expect(homeState.collections[0]).toEqual(
-          Array(LANDING_PAGE_EXTENSION_COUNT).fill(
-            createInternalAddon(fakeAddon),
-          ),
-        );
-      });
-
-      it('loads shelves', () => {
-        const { store } = dispatchClientMetadata();
-        const shelfName1 = 'someShelfName1';
-        const shelfName2 = 'someShelfName2';
-        const addon1 = { ...fakeAddon, slug: 'addon1' };
-        const addon2 = { ...fakeAddon, slug: 'addon2' };
-
-        _loadHomeData({
-          store,
-          shelves: {
-            [shelfName1]: createAddonsApiResult([addon1]),
-            [shelfName2]: createAddonsApiResult([addon2]),
-          },
-        });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.shelves[shelfName1]).toEqual([
-          createInternalAddon(addon1),
-        ]);
-        expect(homeState.shelves[shelfName2]).toEqual([
-          createInternalAddon(addon2),
-        ]);
-      });
-
-      it('loads hero shelves', () => {
-        const { store } = dispatchClientMetadata();
-
-        const heroShelves = _createHeroShelves();
-        _loadHomeData({
-          store,
-          heroShelves,
-        });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.heroShelves).toEqual(
-          createInternalHeroShelves(heroShelves),
-        );
-      });
-
-      it('sets null when a shelf has no response', () => {
-        const { store } = dispatchClientMetadata();
-        const shelfName1 = 'someShelfName1';
-        const shelfName2 = 'someShelfName2';
-        const addon1 = { ...fakeAddon, slug: 'addon1' };
-
-        _loadHomeData({
-          store,
-          shelves: {
-            [shelfName1]: createAddonsApiResult([addon1]),
-            [shelfName2]: null,
-          },
-        });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.shelves[shelfName1]).toEqual([
-          createInternalAddon(addon1),
-        ]);
-        expect(homeState.shelves[shelfName2]).toEqual(null);
-      });
-
-      it('loads the the correct amount of theme add-ons in a collection to display on homepage', () => {
-        const { store } = dispatchClientMetadata();
-
-        _loadHomeData({
-          store,
-          collections: [
-            createFakeCollectionAddonsListResponse({
-              addons: Array(10).fill({
-                ...createFakeCollectionAddon({
-                  addon: {
-                    ...fakeAddon,
-                    type: ADDON_TYPE_STATIC_THEME,
-                  },
-                }),
-              }),
-            }),
-          ],
-        });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.resultsLoaded).toEqual(true);
-        expect(homeState.collections).toHaveLength(1);
-
-        expect(homeState.collections[0]).toEqual(
-          Array(LANDING_PAGE_THEME_COUNT).fill(
-            createInternalAddon({
-              ...fakeAddon,
-              type: ADDON_TYPE_STATIC_THEME,
-            }),
-          ),
-        );
-      });
-
-      it('loads a null for a missing collection', () => {
-        const { store } = dispatchClientMetadata();
-
-        _loadHomeData({
-          store,
-          collections: [null],
-        });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.collections).toHaveLength(1);
-        expect(homeState.collections[0]).toEqual(null);
-      });
-
-      it('sets `isLoading` to `false` and `resultsLoaded` to `true` after loading data', () => {
-        const { store } = dispatchClientMetadata();
-
-        store.dispatch(
-          fetchHomeData({
-            collectionsToFetch: [],
-            errorHandlerId: 'some-error-handler-id',
+      _loadHomeData({
+        store,
+        collections: [
+          createFakeCollectionAddonsListResponse({
+            addons: Array(10).fill(createFakeCollectionAddon()),
           }),
-        );
-
-        _loadHomeData({ store });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.isLoading).toEqual(false);
-        expect(homeState.resultsLoaded).toEqual(true);
+        ],
       });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.resultsLoaded).toEqual(true);
+      expect(homeState.collections).toHaveLength(1);
+      expect(homeState.collections[0]).toHaveLength(
+        LANDING_PAGE_EXTENSION_COUNT,
+      );
+      expect(homeState.collections[0]).toEqual(
+        Array(LANDING_PAGE_EXTENSION_COUNT).fill(
+          createInternalAddon(fakeAddon),
+        ),
+      );
     });
 
-    describe('loadMobileHomeData', () => {
-      const _loadMobileHomeData = ({
+    it('loads shelves', () => {
+      const { store } = dispatchClientMetadata();
+      const shelfName1 = 'someShelfName1';
+      const shelfName2 = 'someShelfName2';
+      const addon1 = { ...fakeAddon, slug: 'addon1' };
+      const addon2 = { ...fakeAddon, slug: 'addon2' };
+
+      _loadHomeData({
         store,
-        heroShelves = createHeroShelves({ primaryProps: { addon: fakeAddon } }),
-        shelves = {},
-      }) => {
-        store.dispatch(
-          loadMobileHomeData({
-            heroShelves,
-            shelves,
+        shelves: {
+          [shelfName1]: createAddonsApiResult([addon1]),
+          [shelfName2]: createAddonsApiResult([addon2]),
+        },
+      });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.shelves[shelfName1]).toEqual([
+        createInternalAddon(addon1),
+      ]);
+      expect(homeState.shelves[shelfName2]).toEqual([
+        createInternalAddon(addon2),
+      ]);
+    });
+
+    it('loads hero shelves', () => {
+      const { store } = dispatchClientMetadata();
+
+      const heroShelves = _createHeroShelves();
+      _loadHomeData({
+        store,
+        heroShelves,
+      });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.heroShelves).toEqual(
+        createInternalHeroShelves(heroShelves),
+      );
+    });
+
+    it('sets null when a shelf has no response', () => {
+      const { store } = dispatchClientMetadata();
+      const shelfName1 = 'someShelfName1';
+      const shelfName2 = 'someShelfName2';
+      const addon1 = { ...fakeAddon, slug: 'addon1' };
+
+      _loadHomeData({
+        store,
+        shelves: {
+          [shelfName1]: createAddonsApiResult([addon1]),
+          [shelfName2]: null,
+        },
+      });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.shelves[shelfName1]).toEqual([
+        createInternalAddon(addon1),
+      ]);
+      expect(homeState.shelves[shelfName2]).toEqual(null);
+    });
+
+    it('loads the the correct amount of theme add-ons in a collection to display on homepage', () => {
+      const { store } = dispatchClientMetadata();
+
+      _loadHomeData({
+        store,
+        collections: [
+          createFakeCollectionAddonsListResponse({
+            addons: Array(10).fill({
+              ...createFakeCollectionAddon({
+                addon: {
+                  ...fakeAddon,
+                  type: ADDON_TYPE_STATIC_THEME,
+                },
+              }),
+            }),
           }),
-        );
-      };
-
-      it('loads shelves', () => {
-        const { store } = dispatchClientMetadata();
-        const shelfName1 = 'someShelfName1';
-        const shelfName2 = 'someShelfName2';
-        const addon1 = { ...fakeAddon, slug: 'addon1' };
-        const addon2 = { ...fakeAddon, slug: 'addon2' };
-
-        _loadMobileHomeData({
-          store,
-          shelves: {
-            [shelfName1]: createAddonsApiResult([addon1]),
-            [shelfName2]: createAddonsApiResult([addon2]),
-          },
-        });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.shelves[shelfName1]).toEqual([
-          createInternalAddon(addon1),
-        ]);
-        expect(homeState.shelves[shelfName2]).toEqual([
-          createInternalAddon(addon2),
-        ]);
+        ],
       });
 
-      it('loads hero shelves', () => {
-        const { store } = dispatchClientMetadata();
+      const homeState = store.getState().home;
 
-        const heroShelves = _createHeroShelves();
-        _loadMobileHomeData({
-          store,
-          heroShelves,
-        });
+      expect(homeState.resultsLoaded).toEqual(true);
+      expect(homeState.collections).toHaveLength(1);
 
-        const homeState = store.getState().home;
-
-        expect(homeState.heroShelves).toEqual(
-          createInternalHeroShelves(heroShelves),
-        );
-      });
-
-      it('sets null when a shelf has no response', () => {
-        const { store } = dispatchClientMetadata();
-        const shelfName1 = 'someShelfName1';
-        const shelfName2 = 'someShelfName2';
-        const addon1 = { ...fakeAddon, slug: 'addon1' };
-
-        _loadMobileHomeData({
-          store,
-          shelves: {
-            [shelfName1]: createAddonsApiResult([addon1]),
-            [shelfName2]: null,
-          },
-        });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.shelves[shelfName1]).toEqual([
-          createInternalAddon(addon1),
-        ]);
-        expect(homeState.shelves[shelfName2]).toEqual(null);
-      });
-
-      it('sets `collections` to an empty array', () => {
-        const { store } = dispatchClientMetadata();
-
-        _loadMobileHomeData({ store });
-
-        const homeState = store.getState().home;
-
-        expect(homeState.collections).toEqual([]);
-      });
-
-      it('sets `isLoading` to `false` and `resultsLoaded` to `true` after loading data', () => {
-        const { store } = dispatchClientMetadata();
-
-        store.dispatch(
-          fetchHomeData({
-            collectionsToFetch: [],
-            errorHandlerId: 'some-error-handler-id',
+      expect(homeState.collections[0]).toEqual(
+        Array(LANDING_PAGE_THEME_COUNT).fill(
+          createInternalAddon({
+            ...fakeAddon,
+            type: ADDON_TYPE_STATIC_THEME,
           }),
-        );
+        ),
+      );
+    });
 
-        _loadMobileHomeData({ store });
+    it('loads a null for a missing collection', () => {
+      const { store } = dispatchClientMetadata();
 
-        const homeState = store.getState().home;
-
-        expect(homeState.isLoading).toEqual(false);
-        expect(homeState.resultsLoaded).toEqual(true);
+      _loadHomeData({
+        store,
+        collections: [null],
       });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.collections).toHaveLength(1);
+      expect(homeState.collections[0]).toEqual(null);
     });
 
     it('returns null for an empty collection', () => {
@@ -351,6 +224,23 @@ describe(__filename, () => {
 
       expect(state.resultsLoaded).toEqual(false);
       expect(state.isLoading).toEqual(true);
+    });
+
+    it('sets `isLoading` to `false` after loading data', () => {
+      const { store } = dispatchClientMetadata();
+
+      store.dispatch(
+        fetchHomeData({
+          collectionsToFetch: [],
+          errorHandlerId: 'some-error-handler-id',
+        }),
+      );
+
+      _loadHomeData({ store });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.isLoading).toEqual(false);
     });
 
     it('aborts fetching of data', () => {

@@ -12,7 +12,6 @@ import homeReducer, {
   abortFetchHomeData,
   fetchHomeData,
   loadHomeData,
-  loadMobileHomeData,
 } from 'amo/reducers/home';
 import homeSaga from 'amo/sagas/home';
 import { createApiError } from 'core/api';
@@ -247,7 +246,8 @@ describe(__filename, () => {
 
       _fetchHomeData({ isDesktopSite: false });
 
-      const loadAction = loadMobileHomeData({
+      const loadAction = loadHomeData({
+        collections: [],
         heroShelves,
         shelves: {
           recommendedExtensions,
