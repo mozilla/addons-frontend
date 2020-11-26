@@ -6,8 +6,6 @@ import { compose } from 'redux';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import AddonVersionCard from 'amo/components/AddonVersionCard';
-import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Page from 'amo/components/Page';
 import {
   fetchVersions,
@@ -138,26 +136,8 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
       );
     }
 
-    if (errorHandler.hasError()) {
-      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
-
-      // 401 and 403 are made to look like a 404 on purpose.
-      // See: https://github.com/mozilla/addons-frontend/issues/3061.
-      if (
-        errorHandler.capturedError.responseStatusCode === 401 ||
-        errorHandler.capturedError.responseStatusCode === 403 ||
-        errorHandler.capturedError.responseStatusCode === 404
-      ) {
-        return <NotFoundPage />;
-      }
-
-      if (errorHandler.capturedError.responseStatusCode === 451) {
-        return <UnavailableForLegalReasonsPage />;
-      }
-    }
-
     return (
-      <Page>
+      <Page errorHandler={errorHandler}>
         <div className="AddonVersions">
           {addon && (
             <Helmet>
