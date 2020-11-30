@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-11-30 11:34+0000\n"
+"PO-Revision-Date: 2020-11-30 11:42+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1110,7 +1110,7 @@ msgstr "Отримувати доступ до вашого розташуван
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
-msgstr "Доступ до історії браузера"
+msgstr "Доступ до історії перегляду"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
