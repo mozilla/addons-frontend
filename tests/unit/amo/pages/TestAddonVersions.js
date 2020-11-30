@@ -2,14 +2,11 @@ import * as React from 'react';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import AddonVersionCard from 'amo/components/AddonVersionCard';
-import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
+import Page from 'amo/components/Page';
 import AddonVersions, {
   AddonVersionsBase,
   extractId,
 } from 'amo/pages/AddonVersions';
-import { createApiError } from 'core/api';
-import { ErrorHandler } from 'core/errorHandler';
 import {
   createInternalAddon,
   fetchAddon,
@@ -21,6 +18,7 @@ import {
   fetchVersions,
 } from 'core/reducers/versions';
 import {
+  createCapturedErrorHandler,
   createFakeHistory,
   createFakeLocation,
   createStubErrorHandler,
@@ -354,42 +352,11 @@ describe(__filename, () => {
     expect(root.find(CardList)).toHaveProp('header', <LoadingText />);
   });
 
-  it.each([401, 403, 404])(
-    'renders a NotFound component when a %d API error has been captured',
-    (status) => {
-      const error = createApiError({
-        response: { status },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'Not Found.' },
-      });
-
-      const errorHandler = new ErrorHandler({
-        id: 'error-handler-id',
-        dispatch: store.dispatch,
-      });
-      errorHandler.handle(error);
-
-      const root = render({ errorHandler });
-
-      expect(root.find(NotFoundPage)).toHaveLength(1);
-    },
-  );
-
-  it('renders a UnavailableForLegalReasonsPage component when a 451 API error has been captured', () => {
-    const error = createApiError({
-      response: { status: 451 },
-      apiURL: 'https://some/api/endpoint',
-    });
-
-    const errorHandler = new ErrorHandler({
-      id: 'error-handler-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(error);
+  it('passes the errorHandler to the Page component', () => {
+    const errorHandler = createCapturedErrorHandler({ status: 404 });
 
     const root = render({ errorHandler });
-
-    expect(root.find(UnavailableForLegalReasonsPage)).toHaveLength(1);
+    expect(root.find(Page)).toHaveProp('errorHandler', errorHandler);
   });
 
   describe('latest version', () => {
@@ -412,8 +379,6 @@ describe(__filename, () => {
         'version',
         createInternalVersion(version1),
       );
-
-      expect(root.find(NotFoundPage)).toHaveLength(0);
     });
 
     it('passes undefined for the version when versions have not been loaded', () => {
@@ -454,8 +419,6 @@ describe(__filename, () => {
 
       const versionCards = root.find(AddonVersionCard);
       expect(versionCards).toHaveLength(3);
-
-      expect(root.find(NotFoundPage)).toHaveLength(0);
     });
 
     it('passes the correct versions into multiple AddonVersionCards', () => {

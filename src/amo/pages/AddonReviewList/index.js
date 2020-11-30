@@ -33,8 +33,6 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
-import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
@@ -257,29 +255,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       siteUserCanReplyToReviews,
     } = this.props;
 
-    if (errorHandler.hasError()) {
-      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
-      // The following code attempts to recover from a 401 returned
-      // by fetchAddon() but may accidentally catch a 401 from
-      // fetchReviews(). Oh well.
-      // TODO: support multiple error handlers, see
-      // https://github.com/mozilla/addons-frontend/issues/3101
-      //
-      // 401 and 403 for an add-on lookup is made to look like a 404 on purpose.
-      // See https://github.com/mozilla/addons-frontend/issues/3061
-      if (
-        errorHandler.capturedError.responseStatusCode === 401 ||
-        errorHandler.capturedError.responseStatusCode === 403 ||
-        errorHandler.capturedError.responseStatusCode === 404
-      ) {
-        return <NotFoundPage />;
-      }
-
-      if (errorHandler.capturedError.responseStatusCode === 451) {
-        return <UnavailableForLegalReasonsPage />;
-      }
-    }
-
     const header = addon
       ? i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
           addonName: addon.name,
@@ -340,7 +315,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       ) : null;
 
     return (
-      <Page>
+      <Page errorHandler={errorHandler}>
         <div
           className={makeClassName(
             'AddonReviewList',

@@ -15,6 +15,8 @@ import { createMemoryHistory } from 'history';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import createStore from 'amo/store';
 import { getDjangoBase62 } from 'amo/utils';
+import { setError } from 'core/actions/errors';
+import { createApiError } from 'core/api/index';
 import {
   setClientApp,
   setLang,
@@ -445,6 +447,30 @@ export function createUserAccountResponse({
 export function createStubErrorHandler(capturedError = null) {
   return new ErrorHandler({
     id: 'create-stub-error-handler-id',
+    dispatch: sinon.stub(),
+    capturedError,
+  });
+}
+
+export function createCapturedErrorHandler({
+  status = 400,
+  message = 'Unknown error',
+  store = createStore().store,
+}) {
+  const id = 'error-handler-id';
+
+  const error = createApiError({
+    response: { status },
+    apiURL: 'https://some/api/endpoint',
+    jsonResponse: { message },
+  });
+  store.dispatch(setError({ id, error }));
+  const capturedError = store.getState().errors[id];
+  expect(capturedError).toBeTruthy();
+
+  // Set up an error handler from state like withErrorHandler().
+  return new ErrorHandler({
+    id,
     dispatch: sinon.stub(),
     capturedError,
   });

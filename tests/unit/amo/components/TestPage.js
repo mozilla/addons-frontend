@@ -2,10 +2,13 @@ import * as React from 'react';
 
 import Page, { PageBase } from 'amo/components/Page';
 import AppBanner from 'amo/components/AppBanner';
+import NotFound from 'amo/components/Errors/NotFound';
+import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLegalReasons';
 import Header from 'amo/components/Header';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import {
+  createCapturedErrorHandler,
   createContextWithFakeRouter,
   dispatchClientMetadata,
   shallowUntilTarget,
@@ -86,6 +89,55 @@ describe(__filename, () => {
     const className = 'some-class-name';
     const children = <div className={className} />;
     const root = render({ children });
+
+    expect(root.find(`.${className}`)).toHaveLength(1);
+  });
+
+  it('renders NotFound for missing add-on - 404 error', () => {
+    const errorHandler = createCapturedErrorHandler({ status: 404 });
+
+    const root = render({ errorHandler });
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('renders NotFound for unauthorized add-on - 401 error', () => {
+    const errorHandler = createCapturedErrorHandler({ status: 401 });
+
+    const root = render({ errorHandler });
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('renders NotFound for forbidden add-on - 403 error', () => {
+    const errorHandler = createCapturedErrorHandler({ status: 403 });
+
+    const root = render({ errorHandler });
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('renders UnavailableForLegalReasons for unavailable add-on - 451 error', () => {
+    const errorHandler = createCapturedErrorHandler({ status: 451 });
+
+    const root = render({ errorHandler });
+    expect(root.find(UnavailableForLegalReasons)).toHaveLength(1);
+  });
+
+  it.each([401, 403, 404, 451])(
+    'does not render children when there is a %s error',
+    (status) => {
+      const className = 'some-class-name';
+      const children = <div className={className} />;
+      const errorHandler = createCapturedErrorHandler({ status });
+      const root = render({ children, errorHandler });
+
+      expect(root.find(`.${className}`)).toHaveLength(0);
+    },
+  );
+
+  it('renders children when there is an uncaught error', () => {
+    const className = 'some-class-name';
+    const children = <div className={className} />;
+    const errorHandler = createCapturedErrorHandler({ status: 400 });
+    const root = render({ children, errorHandler });
 
     expect(root.find(`.${className}`)).toHaveLength(1);
   });

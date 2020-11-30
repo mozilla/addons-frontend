@@ -17,8 +17,6 @@ import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import ContributeCard from 'amo/components/ContributeCard';
-import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallWarning from 'amo/components/InstallWarning';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
@@ -48,7 +46,6 @@ import {
 import { nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
-import log from 'core/logger';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
@@ -399,22 +396,6 @@ export class AddonBase extends React.Component {
     const isThemeType = addon && addon.type === ADDON_TYPE_STATIC_THEME;
     let errorBanner = null;
     if (errorHandler.hasError()) {
-      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
-
-      // 401 and 403 are made to look like a 404 on purpose.
-      // See: https://github.com/mozilla/addons-frontend/issues/3061.
-      if (
-        errorHandler.capturedError.responseStatusCode === 401 ||
-        errorHandler.capturedError.responseStatusCode === 403 ||
-        errorHandler.capturedError.responseStatusCode === 404
-      ) {
-        return <NotFoundPage />;
-      }
-
-      if (errorHandler.capturedError.responseStatusCode === 451) {
-        return <UnavailableForLegalReasonsPage />;
-      }
-
       // Show a list of errors at the top of the add-on section.
       errorBanner = errorHandler.renderError();
     }
@@ -447,7 +428,7 @@ export class AddonBase extends React.Component {
       : 0;
 
     return (
-      <Page showWrongPlatformWarning={false}>
+      <Page errorHandler={errorHandler} showWrongPlatformWarning={false}>
         <div
           className={makeClassName('Addon', `Addon-${addonType}`, {
             'Addon-theme': isThemeType,

@@ -16,8 +16,7 @@ import AddonReviewList, {
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
-import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
+import Page from 'amo/components/Page';
 import { getAddonURL } from 'amo/utils';
 import { ErrorHandler } from 'core/errorHandler';
 import Link from 'amo/components/Link';
@@ -39,6 +38,7 @@ import Card from 'ui/components/Card';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import {
+  createCapturedErrorHandler,
   createFakeEvent,
   createFakeHistory,
   createFakeLocation,
@@ -595,71 +595,11 @@ describe(__filename, () => {
       expect(root.find(ErrorList)).toHaveLength(1);
     });
 
-    it('renders NotFound page if API returns 401 error', () => {
-      const error = createApiError({
-        response: { status: 401 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'Authentication Failed.' },
-      });
-
-      const errorHandler = new ErrorHandler({
-        id: 'error-handler-id',
-        dispatch: store.dispatch,
-      });
-      errorHandler.handle(error);
+    it('passes the errorHandler to the Page component', () => {
+      const errorHandler = createCapturedErrorHandler({ status: 404 });
 
       const root = render({ errorHandler });
-      expect(root.find(NotFoundPage)).toHaveLength(1);
-    });
-
-    it('renders NotFound page if API returns 403 error', () => {
-      const error = createApiError({
-        response: { status: 403 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'Not Permitted.' },
-      });
-
-      const errorHandler = new ErrorHandler({
-        id: 'error-handler-id',
-        dispatch: store.dispatch,
-      });
-      errorHandler.handle(error);
-
-      const root = render({ errorHandler });
-      expect(root.find(NotFoundPage)).toHaveLength(1);
-    });
-
-    it('renders NotFound page if API returns 404 error', () => {
-      const error = createApiError({
-        response: { status: 404 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'Not Found.' },
-      });
-
-      const errorHandler = new ErrorHandler({
-        id: 'error-handler-id',
-        dispatch: store.dispatch,
-      });
-      errorHandler.handle(error);
-
-      const root = render({ errorHandler });
-      expect(root.find(NotFoundPage)).toHaveLength(1);
-    });
-
-    it('renders UnavailableForLegalReasonsPage page if API returns 451 error', () => {
-      const error = createApiError({
-        response: { status: 451 },
-        apiURL: 'https://some/api/endpoint',
-      });
-
-      const errorHandler = new ErrorHandler({
-        id: 'error-handler-id',
-        dispatch: store.dispatch,
-      });
-      errorHandler.handle(error);
-
-      const root = render({ errorHandler });
-      expect(root.find(UnavailableForLegalReasonsPage)).toHaveLength(1);
+      expect(root.find(Page)).toHaveProp('errorHandler', errorHandler);
     });
 
     it('renders a list of reviews with ratings', () => {

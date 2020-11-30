@@ -15,9 +15,8 @@ import AddonHead from 'amo/components/AddonHead';
 import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
+import Page from 'amo/components/Page';
 import PermissionsCard from 'amo/components/PermissionsCard';
-import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import RatingManager, {
@@ -37,9 +36,7 @@ import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
-import { setError } from 'core/actions/errors';
 import { setInstallError, setInstallState } from 'core/reducers/installations';
-import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -50,11 +47,11 @@ import {
   INSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { addQueryParamsToHistory } from 'core/utils';
 import {
+  createCapturedErrorHandler,
   createFakeClientCompatibility,
   createFakeLocation,
   createStubErrorHandler,
@@ -217,22 +214,10 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any new actions if error handler has an error', () => {
-    const id = 'error-handler-id';
     const { store } = dispatchClientMetadata();
 
-    const error = createApiError({
-      response: { status: 400 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'Bad request' },
-    });
-
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    // This makes sure the error was dispatched to state correctly.
-    expect(capturedError).toBeTruthy();
-
+    const errorHandler = createCapturedErrorHandler({ status: 400, store });
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler(capturedError);
 
     renderComponent({ store, errorHandler });
 
@@ -240,23 +225,13 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any new actions if error handler has an error on update', () => {
-    const id = 'error-handler-id';
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // First render.
     const root = renderComponent({ store });
 
-    const error = createApiError({
-      response: { status: 400 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'Bad request' },
-    });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    // This makes sure the error was dispatched to state correctly.
-    expect(capturedError).toBeTruthy();
-    const errorHandler = createStubErrorHandler(capturedError);
+    const errorHandler = createCapturedErrorHandler({ status: 400, store });
     fakeDispatch.resetHistory();
     // This will trigger a second render (update).
     root.setProps({ errorHandler });
@@ -470,88 +445,11 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('renders 404 page for missing add-on', () => {
-    const id = 'error-handler-id';
-    const { store } = createStore();
-
-    const error = createApiError({
-      response: { status: 404 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'Not found' },
-    });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    expect(capturedError).toBeTruthy();
-
-    // Set up an error handler from state like withErrorHandler().
-    const errorHandler = new ErrorHandler({
-      id,
-      dispatch: sinon.stub(),
-      capturedError,
-    });
+  it('passes the errorHandler to the Page component', () => {
+    const errorHandler = createCapturedErrorHandler({ status: 404 });
 
     const root = shallowRender({ errorHandler });
-    expect(root.find(NotFoundPage)).toHaveLength(1);
-  });
-
-  it('renders 451 page for unavailable add-on', () => {
-    const id = 'error-handler-id';
-    const { store } = createStore();
-
-    const error = createApiError({
-      response: { status: 451 },
-      apiURL: 'https://some/api/endpoint',
-    });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    expect(capturedError).toBeTruthy();
-
-    const errorHandler = new ErrorHandler({
-      id,
-      dispatch: sinon.stub(),
-      capturedError,
-    });
-
-    const root = shallowRender({ errorHandler });
-    expect(root.find(UnavailableForLegalReasonsPage)).toHaveLength(1);
-  });
-
-  it('renders NotFound page for unauthorized add-on - 401 error', () => {
-    const { store } = dispatchClientMetadata();
-
-    const error = createApiError({
-      response: { status: 401 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: {
-        message: 'Authentication credentials were not provided.',
-      },
-    });
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(error);
-
-    const root = renderComponent({ errorHandler, store });
-    expect(root.find(NotFoundPage)).toHaveLength(1);
-  });
-
-  it('renders NotFound page for forbidden add-on - 403 error', () => {
-    const { store } = dispatchClientMetadata();
-
-    const error = createApiError({
-      response: { status: 403 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'You do not have permission.' },
-    });
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(error);
-
-    const root = renderComponent({ errorHandler, store });
-    expect(root.find(NotFoundPage)).toHaveLength(1);
+    expect(root.find(Page)).toHaveProp('errorHandler', errorHandler);
   });
 
   it('dispatches a server redirect when slug is a numeric ID', () => {
