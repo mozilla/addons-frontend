@@ -43,7 +43,7 @@ export const PageBase = ({
 }: InternalProps) => {
   let errorContent;
   if (errorHandler && errorHandler.hasError()) {
-    log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
+    log.info(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
     // 401 and 403 for an add-on lookup is made to look like a 404 on purpose.
     // See https://github.com/mozilla/addons-frontend/issues/3061
