@@ -138,6 +138,7 @@ type FetchHomeDataParams = {|
   errorHandlerId: string,
   includeRecommendedThemes: boolean,
   includeTrendingExtensions: boolean,
+  isDesktopSite: boolean,
 |};
 
 export type FetchHomeDataAction = {|
@@ -150,6 +151,7 @@ export const fetchHomeData = ({
   errorHandlerId,
   includeRecommendedThemes,
   includeTrendingExtensions,
+  isDesktopSite,
 }: FetchHomeDataParams): FetchHomeDataAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(collectionsToFetch, 'collectionsToFetch is required');
@@ -161,6 +163,7 @@ export const fetchHomeData = ({
       errorHandlerId,
       includeRecommendedThemes,
       includeTrendingExtensions,
+      isDesktopSite,
     },
   };
 };

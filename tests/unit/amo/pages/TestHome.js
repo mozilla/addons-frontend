@@ -18,6 +18,10 @@ import Page from 'amo/components/Page';
 import SponsoredAddonsShelf from 'amo/components/SponsoredAddonsShelf';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
+  LANDING_PAGE_EXTENSION_COUNT,
+  MOBILE_HOME_PAGE_EXTENSION_COUNT,
+} from 'amo/constants';
+import {
   FETCH_HOME_DATA,
   createInternalHeroShelves,
   fetchHomeData,
@@ -167,6 +171,12 @@ describe(__filename, () => {
         },
       });
       expect(shelf).toHaveProp('loading', true);
+      expect(shelf).toHaveProp(
+        'placeholderCount',
+        clientApp === CLIENT_APP_ANDROID
+          ? MOBILE_HOME_PAGE_EXTENSION_COUNT
+          : LANDING_PAGE_EXTENSION_COUNT,
+      );
     },
   );
 
@@ -282,7 +292,7 @@ describe(__filename, () => {
     const includeRecommendedThemes = false;
     const includeTrendingExtensions = false;
     const errorHandler = createStubErrorHandler();
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
@@ -302,6 +312,34 @@ describe(__filename, () => {
         collectionsToFetch: FEATURED_COLLECTIONS,
         includeRecommendedThemes,
         includeTrendingExtensions,
+        isDesktopSite: true,
+      }),
+    );
+  });
+
+  it('passes isDesktopSite: false to fetchHomeData on Android', () => {
+    const includeRecommendedThemes = false;
+    const includeTrendingExtensions = false;
+    const errorHandler = createStubErrorHandler();
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    render({
+      errorHandler,
+      includeRecommendedThemes,
+      includeTrendingExtensions,
+      store,
+    });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchHomeData({
+        errorHandlerId: errorHandler.id,
+        collectionsToFetch: FEATURED_COLLECTIONS,
+        includeRecommendedThemes,
+        includeTrendingExtensions,
+        isDesktopSite: false,
       }),
     );
   });
@@ -319,7 +357,7 @@ describe(__filename, () => {
   // This test case should be updated when we change the `defaultProps`.
   it('fetches add-ons with some defaults', () => {
     const errorHandler = createStubErrorHandler();
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({ errorHandler, store });
@@ -333,6 +371,7 @@ describe(__filename, () => {
         collectionsToFetch: FEATURED_COLLECTIONS,
         includeRecommendedThemes: true,
         includeTrendingExtensions: false,
+        isDesktopSite: true,
       }),
     );
   });
@@ -396,7 +435,7 @@ describe(__filename, () => {
   it('dispatches an action to fetch the add-ons to display on update', () => {
     const includeRecommendedThemes = false;
     const includeTrendingExtensions = false;
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
@@ -419,6 +458,7 @@ describe(__filename, () => {
         collectionsToFetch: FEATURED_COLLECTIONS,
         includeRecommendedThemes,
         includeTrendingExtensions,
+        isDesktopSite: true,
       }),
     );
   });

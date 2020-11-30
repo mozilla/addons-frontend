@@ -184,3 +184,7 @@
     line-height: 1;
   }
 }
+
+.Home-content .Card-contents .AddonsCard-list {
+  grid-auto-flow: row dense;
+}
