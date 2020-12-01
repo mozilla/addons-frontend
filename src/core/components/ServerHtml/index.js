@@ -6,7 +6,7 @@ import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
 import config from 'config';
 
-import { LTR } from 'core/constants';
+import { APP_NAME, LTR } from 'core/constants';
 
 const JS_CHUNK_EXCLUDES = new RegExp(
   `(?:${config.get('jsChunkExclusions').join('|')})`,
@@ -14,7 +14,6 @@ const JS_CHUNK_EXCLUDES = new RegExp(
 
 export default class ServerHtml extends Component {
   static propTypes = {
-    appName: PropTypes.string.isRequired,
     appState: PropTypes.object.isRequired,
     assets: PropTypes.object.isRequired,
     chunkExtractor: PropTypes.object.isRequired,
@@ -55,11 +54,10 @@ export default class ServerHtml extends Component {
   }
 
   getStatic({ filePath, type, index }) {
-    const { appName } = this.props;
     const leafName = filePath.split('/').pop();
 
     // Only output files for the current app.
-    if (leafName.startsWith(appName) && !JS_CHUNK_EXCLUDES.test(leafName)) {
+    if (leafName.startsWith(APP_NAME) && !JS_CHUNK_EXCLUDES.test(leafName)) {
       const sriProps = this.getSriProps(leafName);
 
       switch (type) {
@@ -114,13 +112,13 @@ export default class ServerHtml extends Component {
   }
 
   renderStyles() {
-    const { _config, chunkExtractor } = this.props;
+    const { chunkExtractor } = this.props;
 
     return chunkExtractor
       .getMainAssets('style')
       .filter(
         // We render the main bundle with `getScript()`, so we skip it here.
-        (asset) => asset.chunk !== _config.get('appName'),
+        (asset) => asset.chunk !== APP_NAME,
       )
       .map((asset) => {
         const sriProps = this.getSriProps(asset.filename);
@@ -169,13 +167,13 @@ export default class ServerHtml extends Component {
   }
 
   renderAsyncScripts() {
-    const { _config, chunkExtractor } = this.props;
+    const { chunkExtractor } = this.props;
 
     return chunkExtractor
       .getMainAssets('script')
       .filter(
         // We render the main bundle with `getScript()`, so we skip it here.
-        (asset) => asset.chunk !== _config.get('appName'),
+        (asset) => asset.chunk !== APP_NAME,
       )
       .map((asset) => {
         const sriProps = this.getSriProps(asset.filename);

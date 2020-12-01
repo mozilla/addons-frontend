@@ -133,7 +133,6 @@ export function getPlugins({
   excludeOtherAppLocales = true,
   includeLoadablePlugin = true,
 } = {}) {
-  const appName = config.get('appName');
   const clientConfig = getClientConfig(config);
 
   const plugins = [
@@ -174,7 +173,7 @@ export function getPlugins({
       // This allow us to exclude locales for other apps being built.
       new webpack.ContextReplacementPlugin(
         /locale$/,
-        new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`),
+        new RegExp(`^\\.\\/.*?\\/amo\\.js$`),
       ),
     );
   }

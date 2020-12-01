@@ -324,3 +324,6 @@ export type PromotedCategoryType =
   | typeof SPOTLIGHT
   | typeof STRATEGIC
   | typeof VERIFIED;
+
+export const APP_NAME = 'amo';
+export const WEBPACK_ENTRYPOINT = APP_NAME;

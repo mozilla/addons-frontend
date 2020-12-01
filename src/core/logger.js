@@ -1,6 +1,6 @@
 import config from 'config';
 
-import { AMO_REQUEST_ID_HEADER } from 'core/constants';
+import { AMO_REQUEST_ID_HEADER, APP_NAME } from 'core/constants';
 
 let pino = null;
 let httpContext = null;
@@ -32,7 +32,7 @@ if (config.get('server')) {
 
 const pinoLogger = pino({
   level: config.get('loggingLevel'),
-  name: config.get('appName'),
+  name: APP_NAME,
   // That is how the upstream library implements this... See:
   // https://github.com/pinojs/pino/blob/220e3d019fe22167a59cfe26260f6c2b4d0ea22b/lib/time.js#L5
   // Note: `true` is the default value for this parameter.

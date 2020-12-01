@@ -11,10 +11,9 @@ import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import SriDataPlugin from './src/core/server/sriDataPlugin';
 import { getPlugins, getRules } from './webpack-common';
 import webpackIsomorphicToolsConfig from './src/core/server/webpack-isomorphic-tools-config';
+import { WEBPACK_ENTRYPOINT } from './src/core/constants';
 
-const appName = config.get('appName');
-
-const entryPoints = { [appName]: `${appName}/client` };
+const entryPoints = { [WEBPACK_ENTRYPOINT]: 'amo/client' };
 
 export default {
   bail: true,

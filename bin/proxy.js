@@ -12,7 +12,7 @@ const pino = require('pino');
 
 const log = pino({
   level: config.get('loggingLevel'),
-  name: `${config.get('appName')}.proxy`,
+  name: 'proxy',
 });
 
 const useHttpsForDev = process.env.USE_HTTPS_FOR_DEV;
