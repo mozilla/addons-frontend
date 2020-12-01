@@ -29,11 +29,13 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _log: typeof log,
   clientApp: string,
   location: ReactRouterLocationType,
 |};
 
 export const PageBase = ({
+  _log = log,
   children,
   clientApp,
   errorHandler,
@@ -43,8 +45,6 @@ export const PageBase = ({
 }: InternalProps) => {
   let errorContent;
   if (errorHandler && errorHandler.hasError()) {
-    log.info(`Captured API Error: ${errorHandler.capturedError.messages}`);
-
     // 401 and 403 for an add-on lookup is made to look like a 404 on purpose.
     // See https://github.com/mozilla/addons-frontend/issues/3061
     if (
@@ -55,6 +55,15 @@ export const PageBase = ({
       errorContent = <NotFound />;
     } else if (errorHandler.capturedError.responseStatusCode === 451) {
       errorContent = <UnavailableForLegalReasons />;
+    }
+
+    const logMessage = `Captured API Error: ${errorHandler.capturedError.messages}`;
+    if (errorContent) {
+      _log.debug(logMessage);
+    } else {
+      // This is a string, silly eslint.
+      // eslint-disable-next-line amo/only-log-strings
+      _log.warn(logMessage);
     }
   }
 
