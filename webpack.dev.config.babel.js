@@ -9,7 +9,7 @@ import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 import { getPlugins, getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
 import webpackIsomorphicToolsConfig from './src/core/server/webpack-isomorphic-tools-config';
-import { APP_NAME, WEBPACK_ENTRYPOINT } from './src/core/constants';
+import { WEBPACK_ENTRYPOINT } from './src/core/constants';
 
 const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';
 
@@ -36,7 +36,7 @@ const assetsPath = path.resolve(__dirname, 'dist');
 
 const hmr = `webpack-hot-middleware/client?path=//${webpackHost}:${webpackPort}/__webpack_hmr`;
 
-const entryPoints = { [WEBPACK_ENTRYPOINT]: [hmr, `${APP_NAME}/client`] };
+const entryPoints = { [WEBPACK_ENTRYPOINT]: [hmr, 'amo/client'] };
 
 // We do not want the production optimization settings in development.
 delete webpackConfig.optimization;
