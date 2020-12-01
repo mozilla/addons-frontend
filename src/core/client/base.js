@@ -10,7 +10,6 @@ import { render } from 'react-dom';
 import { loadableReady } from '@loadable/component';
 
 import Root from 'core/components/Root';
-import { APP_NAME } from 'core/constants';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
 import log from 'core/logger';
 import { addQueryParamsToHistory } from 'core/utils';
@@ -112,7 +111,7 @@ export default async function createClient(
     if (locale !== langToLocale(_config.get('defaultLang'))) {
       i18nData = await new Promise((resolve) => {
         // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-        require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${APP_NAME}.js`)(
+        require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/amo.js`)(
           resolve,
         );
       });

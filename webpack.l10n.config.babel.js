@@ -6,7 +6,7 @@ import webpack from 'webpack';
 
 import { getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
-import { APP_NAME } from './src/core/constants';
+import { APP_NAME, WEBPACK_ENTRYPOINT } from './src/core/constants';
 
 if (process.env.NODE_ENV !== 'production') {
   console.log(chalk.red('This should be run with NODE_ENV="production"'));
@@ -28,7 +28,7 @@ const babelL10nPlugins = [
     'module:babel-gettext-extractor',
     {
       headers: {
-        'Project-Id-Version': APP_NAME,
+        'Project-Id-Version': 'amo',
         'Report-Msgid-Bugs-To': 'EMAIL@ADDRESS',
         'POT-Creation-Date': potCreationDate,
         'PO-Revision-Date': 'YEAR-MO-DA HO:MI+ZONE',
@@ -49,7 +49,7 @@ const babelL10nPlugins = [
         npgettext: ['msgctxt', 'msgid', 'msgid_plural', 'count'],
         dnpgettext: ['domain', 'msgctxt', 'msgid', 'msgid_plural', 'count'],
       },
-      fileName: `locale/templates/LC_MESSAGES/${APP_NAME}.pot`,
+      fileName: `locale/templates/LC_MESSAGES/amo.pot`,
       baseDirectory: process.cwd(),
       stripTemplateLiteralIndent: true,
     },
@@ -63,13 +63,13 @@ const babelOptions = {
 
 export default {
   ...webpackConfig,
-  entry: { [APP_NAME]: `${APP_NAME}/client` },
+  entry: { [WEBPACK_ENTRYPOINT]: `${APP_NAME}/client` },
   module: {
     rules: getRules({ babelOptions }),
   },
   plugins: [
     // Don't generate modules for locale files.
-    new webpack.IgnorePlugin(new RegExp(`locale\\/.*\\/${APP_NAME}\\.js$`)),
+    new webpack.IgnorePlugin(new RegExp(`locale\\/.*\\/amo\\.js$`)),
     ...webpackConfig.plugins,
   ],
 };

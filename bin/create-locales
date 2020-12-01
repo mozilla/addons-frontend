@@ -18,7 +18,6 @@ const supportedLangs = config.get('langs');
 const localeDir = path.join(__dirname, '../locale');
 const templateDir = path.join(localeDir, 'templates/LC_MESSAGES');
 const { langToLocale } = require('../src/core/i18n/utils');
-const { APP_NAME } = require('../src/core/constants');
 
 
 let lang;
@@ -28,14 +27,14 @@ let outputFile;
 for (lang of supportedLangs) {
   locale = langToLocale(lang);
   shell.exec(`mkdir -p ${localeDir}/${locale}/LC_MESSAGES/`);
-  outputFile = path.join(localeDir, locale, 'LC_MESSAGES', `${APP_NAME}.po`);
+  outputFile = path.join(localeDir, locale, 'LC_MESSAGES', 'amo.po');
   try {
     fs.statSync(outputFile);
     // eslint-disable-next-line no-console
     console.log(`${outputFile} already exists skipping`);
   } catch (e) {
     if (e.code === 'ENOENT') {
-      shell.exec(`msginit --no-translator --input=${templateDir}/${APP_NAME}.pot
+      shell.exec(`msginit --no-translator --input=${templateDir}/amo.pot
                   --output-file=${outputFile} -l ${locale}`.replace('\n', ' '));
     } else {
       throw e;

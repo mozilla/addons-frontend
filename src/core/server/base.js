@@ -21,7 +21,7 @@ import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 import log from 'core/logger';
 import { REGION_CODE_HEADER, createApiError } from 'core/api';
 import Root from 'core/components/Root';
-import { AMO_REQUEST_ID_HEADER, APP_NAME } from 'core/constants';
+import { AMO_REQUEST_ID_HEADER, WEBPACK_ENTRYPOINT } from 'core/constants';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import requestId from 'core/middleware/requestId';
@@ -68,7 +68,7 @@ export function getPageProps({ store, req, res, config }) {
   // Code-splitting.
   const chunkExtractor = new ChunkExtractor({
     stats: JSON.parse(fs.readFileSync(config.get('loadableStatsFile'))),
-    entrypoints: [APP_NAME],
+    entrypoints: [WEBPACK_ENTRYPOINT],
   });
 
   // Check the lang supplied by res.locals.lang for validity
@@ -297,7 +297,7 @@ function baseServer(
         let sagas = appSagas;
         if (!sagas) {
           // eslint-disable-next-line global-require, import/no-dynamic-require
-          sagas = require(`${APP_NAME}/sagas`).default;
+          sagas = require('amo/sagas').default;
         }
         runningSagas = sagaMiddleware.run(sagas);
 
@@ -348,7 +348,7 @@ function baseServer(
       try {
         if (locale !== langToLocale(config.get('defaultLang'))) {
           // eslint-disable-next-line global-require, import/no-dynamic-require
-          i18nData = require(`../../locale/${locale}/${APP_NAME}.js`);
+          i18nData = require(`../../locale/${locale}/amo.js`);
         }
       } catch (e) {
         _log.info(`Locale JSON not found or required for locale: "${locale}"`);
@@ -498,8 +498,8 @@ export function runServer({
       // now fire up the actual server.
       return new Promise((resolve, reject) => {
         /* eslint-disable global-require, import/no-dynamic-require */
-        const App = require(`${APP_NAME}/components/App`).default;
-        const createStore = require(`${APP_NAME}/store`).default;
+        const App = require('amo/components/App').default;
+        const createStore = require('amo/store').default;
         /* eslint-enable global-require, import/no-dynamic-require */
         let server = baseServer(App, createStore);
         if (listen === true) {
