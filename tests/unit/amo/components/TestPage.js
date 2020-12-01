@@ -11,6 +11,7 @@ import {
   createCapturedErrorHandler,
   createContextWithFakeRouter,
   dispatchClientMetadata,
+  getFakeLogger,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -133,6 +134,18 @@ describe(__filename, () => {
     },
   );
 
+  it.each([401, 403, 404, 451])(
+    'logs a debug message when there is a %s error',
+    (status) => {
+      const _log = getFakeLogger();
+      const message = 'Some error occured';
+      const errorHandler = createCapturedErrorHandler({ message, status });
+      render({ _log, errorHandler });
+
+      sinon.assert.calledWith(_log.debug, `Captured API Error: ${message}`);
+    },
+  );
+
   it('renders children when there is an uncaught error', () => {
     const className = 'some-class-name';
     const children = <div className={className} />;
@@ -140,5 +153,14 @@ describe(__filename, () => {
     const root = render({ children, errorHandler });
 
     expect(root.find(`.${className}`)).toHaveLength(1);
+  });
+
+  it('logs a warning message when there is an uncaught error', () => {
+    const _log = getFakeLogger();
+    const message = 'Some error occured';
+    const errorHandler = createCapturedErrorHandler({ message, status: 400 });
+    render({ _log, errorHandler });
+
+    sinon.assert.calledWith(_log.warn, `Captured API Error: ${message}`);
   });
 });
