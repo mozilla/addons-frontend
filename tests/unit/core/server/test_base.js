@@ -139,7 +139,7 @@ describe(__filename, () => {
 
   describe('app', () => {
     it('varies on DNT', async () => {
-      const response = await testClient().get('/en-US/firefox/').end();
+      const response = await testClient().get('/en-US/firefox/');
 
       expect(response.headers).toMatchObject({ vary: 'DNT' });
       expect(response.statusCode).toEqual(200);
@@ -165,30 +165,27 @@ describe(__filename, () => {
         </div>
       );
 
-      const response = await testClient({ App: NotFoundApp })
-        .get('/en-US/firefox/simulation-of-a-non-existent-page/')
-        .end();
-
+      const response = await testClient({ App: NotFoundApp }).get(
+        '/en-US/firefox/simulation-of-a-non-existent-page/',
+      );
       expect(response.statusCode).toEqual(404);
     });
 
     it('sets a Cache-Control header', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
 
-      const response = await testClient({ store, sagaMiddleware })
-        .get('/en-US/firefox/')
-        .end();
-
+      const response = await testClient({ store, sagaMiddleware }).get(
+        '/en-US/firefox/',
+      );
       expect(response.headers['cache-control']).toEqual('no-store');
     });
 
     it('does not dispatch setAuthToken() if cookie is not found', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
 
-      const response = await testClient({ store, sagaMiddleware })
-        .get('/en-US/firefox/')
-        .end();
-
+      const response = await testClient({ store, sagaMiddleware }).get(
+        '/en-US/firefox/',
+      );
       const { api } = store.getState();
 
       expect(response.statusCode).toEqual(200);
@@ -200,9 +197,7 @@ describe(__filename, () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
-        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
-        .end();
-
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`);
       const { api } = store.getState();
 
       expect(response.statusCode).toEqual(200);
@@ -217,9 +212,7 @@ describe(__filename, () => {
         .set(
           'cookie',
           `${defaultConfig.get('dismissedExperienceSurveyCookieName')}=""`,
-        )
-        .end();
-
+        );
       const { survey } = store.getState();
 
       expect(response.statusCode).toEqual(200);
@@ -228,10 +221,9 @@ describe(__filename, () => {
 
     it('does not dispatch dismissSurvey() if no cookie is present', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware })
-        .get('/en-US/firefox/')
-        .end();
-
+      const response = await testClient({ store, sagaMiddleware }).get(
+        '/en-US/firefox/',
+      );
       const { survey } = store.getState();
 
       expect(response.statusCode).toEqual(200);
@@ -251,9 +243,7 @@ describe(__filename, () => {
         .get('/en-US/firefox/')
         // The middleware will honor a request ID header rather than
         // generate a new one.
-        .set(AMO_REQUEST_ID_HEADER, requestId)
-        .end();
-
+        .set(AMO_REQUEST_ID_HEADER, requestId);
       sinon.assert.calledWith(dispatchSpy, setRequestId(requestId));
     });
 
@@ -267,9 +257,7 @@ describe(__filename, () => {
         sagaMiddleware,
       })
         .get('/en-US/firefox/')
-        .set(REGION_CODE_HEADER, regionCode)
-        .end();
-
+        .set(REGION_CODE_HEADER, regionCode);
       sinon.assert.calledWith(dispatchSpy, setRegionCode(regionCode));
     });
 
@@ -280,10 +268,7 @@ describe(__filename, () => {
       await testClient({
         store,
         sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .end();
-
+      }).get('/en-US/firefox/');
       sinon.assert.neverCalledWith(
         dispatchSpy,
         setRegionCode(sinon.match.string),
@@ -319,9 +304,7 @@ describe(__filename, () => {
         appSagas,
       })
         .get('/en-US/firefox/')
-        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
-        .end();
-
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`);
       const { api, users, site } = store.getState();
 
       expect(response.statusCode).toEqual(200);
@@ -353,10 +336,7 @@ describe(__filename, () => {
         store,
         sagaMiddleware,
         appSagas,
-      })
-        .get('/en-US/firefox/')
-        .end();
-
+      }).get('/en-US/firefox/');
       const { site } = store.getState();
 
       expect(response.statusCode).toEqual(200);
@@ -376,10 +356,7 @@ describe(__filename, () => {
         yield all([fork(usersSaga), fork(siteSaga)]);
       }
 
-      const response = await testClient({ appSagas })
-        .get('/en-US/firefox/')
-        .end();
-
+      const response = await testClient({ appSagas }).get('/en-US/firefox/');
       expect(response.statusCode).toEqual(200);
       mockSiteApi.verify();
     });
@@ -398,9 +375,7 @@ describe(__filename, () => {
         appSagas: usersSaga,
       })
         .get('/en-US/firefox/')
-        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
-        .end();
-
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`);
       expect(response.statusCode).toEqual(500);
       mockUsersApi.verify();
     });
@@ -426,9 +401,7 @@ describe(__filename, () => {
 
       const response = await client
         .get('/en-US/firefox/')
-        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
-        .end();
-
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`);
       const { api, users } = store.getState();
 
       expect(response.statusCode).toEqual(200);
@@ -467,9 +440,7 @@ describe(__filename, () => {
 
       const response = await client
         .get('/en-US/firefox/')
-        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
-        .end();
-
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`);
       const { api, users } = store.getState();
 
       // Parse the HTML response to retrieve the serialized redux state.
@@ -518,7 +489,7 @@ describe(__filename, () => {
         store,
       });
 
-      const response = await client.get(`/en-US/firefox/`).end();
+      const response = await client.get(`/en-US/firefox/`);
 
       expect(response.status).toEqual(301);
       expect(response.headers.location).toEqual(newURL);
@@ -530,10 +501,9 @@ describe(__filename, () => {
         throw new Error('oops');
       };
 
-      const response = await testClient({ _createHistory, _log })
-        .get('/en-US/firefox/')
-        .end();
-
+      const response = await testClient({ _createHistory, _log }).get(
+        '/en-US/firefox/',
+      );
       expect(response.statusCode).toEqual(500);
 
       // Error caught in the main handler.
@@ -565,9 +535,7 @@ describe(__filename, () => {
         sagaMiddleware,
       })
         .get(url)
-        .set('cookie', `${config.get('cookieName')}="${token}"`)
-        .end();
-
+        .set('cookie', `${config.get('cookieName')}="${token}"`);
       const { api, site } = store.getState();
       // It should not dispatch `setAuthToken()`.
       expect(response.statusCode).toEqual(200);
@@ -587,9 +555,7 @@ describe(__filename, () => {
         sagaMiddleware,
       })
         .get('/en-US/firefox/')
-        .set('cookie', `${config.get('cookieName')}="${token}"`)
-        .end();
-
+        .set('cookie', `${config.get('cookieName')}="${token}"`);
       const { site } = store.getState();
       expect(site.loadedPageIsAnonymous).toEqual(false);
     });
@@ -606,9 +572,7 @@ describe(__filename, () => {
         appSagas: usersSaga,
       })
         .get('/en-US/firefox/')
-        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
-        .end();
-
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`);
       const { api, users } = store.getState();
 
       expect(response.statusCode).toEqual(200);
