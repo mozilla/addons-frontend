@@ -237,4 +237,15 @@ describe(__filename, () => {
       mockWindow.verify();
     });
   });
+
+  it('calls fixFiltersForClientApp to adjust the filters', () => {
+    const filters = { query: 'foo' };
+    const _fixFiltersForClientApp = sinon.stub().returns(filters);
+
+    mockWindow.expects('fetch').returns(mockResponse());
+
+    return _search({ _fixFiltersForClientApp, filters }).then(() => {
+      sinon.assert.calledWith(_fixFiltersForClientApp, { api, filters });
+    });
+  });
 });

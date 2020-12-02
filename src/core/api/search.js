@@ -6,7 +6,7 @@ import { callApi } from 'core/api';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
-  fixFiltersForAndroidThemes,
+  fixFiltersForClientApp,
 } from 'core/searchUtils';
 import log from 'core/logger';
 import type { ApiState } from 'core/reducers/api';
@@ -29,14 +29,20 @@ export type SearchFilters = {|
 |};
 
 export type SearchParams = {|
+  _fixFiltersForClientApp?: typeof fixFiltersForClientApp,
   api: ApiState,
   auth?: boolean,
   filters: SearchFilters,
 |};
 
-export function search({ api, auth = false, filters = {} }: SearchParams) {
+export function search({
+  _fixFiltersForClientApp = fixFiltersForClientApp,
+  api,
+  auth = false,
+  filters = {},
+}: SearchParams) {
   const newFilters = addVersionCompatibilityToFilters({
-    filters: fixFiltersForAndroidThemes({ api, filters }),
+    filters: _fixFiltersForClientApp({ api, filters }),
     userAgentInfo: api.userAgentInfo,
   });
 

@@ -13,6 +13,7 @@ import log from 'core/logger';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
+  fixFiltersForClientApp,
 } from 'core/searchUtils';
 import { addQueryParams } from 'core/utils/url';
 import type { ErrorHandlerType } from 'core/types/errorHandler';
@@ -285,6 +286,7 @@ export function logOutFromServer({ api }: {| api: ApiState |}) {
 }
 
 export type AutocompleteParams = {|
+  _fixFiltersForClientApp?: typeof fixFiltersForClientApp,
   api: ApiState,
   filters: {|
     query: string,
@@ -292,9 +294,13 @@ export type AutocompleteParams = {|
   |},
 |};
 
-export function autocomplete({ api, filters }: AutocompleteParams) {
+export function autocomplete({
+  _fixFiltersForClientApp = fixFiltersForClientApp,
+  api,
+  filters,
+}: AutocompleteParams) {
   const filtersWithAppVersion = addVersionCompatibilityToFilters({
-    filters,
+    filters: _fixFiltersForClientApp({ api, filters }),
     userAgentInfo: api.userAgentInfo,
   });
 
