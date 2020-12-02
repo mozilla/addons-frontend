@@ -295,7 +295,7 @@ describe(__filename, () => {
 
         sinon.assert.calledWith(
           _log.error,
-          'could not determine whether the add-on was enabled',
+          'could not determine whether the add-on was enabled: %o',
         );
       });
 

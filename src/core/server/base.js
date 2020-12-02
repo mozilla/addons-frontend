@@ -451,7 +451,7 @@ function baseServer(
 
       _log.error(`Showing 500 page for error: ${error}`);
       // eslint-disable-next-line amo/only-log-strings
-      _log.error(error); // log the stack trace too.
+      _log.error('%o', error); // log the stack trace too.
 
       return showErrorPage({
         _createHistory,
@@ -466,7 +466,7 @@ function baseServer(
       _log.error(oneLine`Additionally, the error handler caught an error:
         ${recoveryError}`);
       // eslint-disable-next-line amo/only-log-strings
-      _log.error(recoveryError); // log the stack trace too.
+      _log.error('%o', recoveryError); // log the stack trace too.
 
       // Pass the original error to the next error handler.
       return next(error);
@@ -565,7 +565,7 @@ export function runServer({
     })
     .catch((err) => {
       // eslint-disable-next-line amo/only-log-strings
-      log.error({ err });
+      log.error('%o', { err });
 
       if (exitProcess) {
         process.exit(1);

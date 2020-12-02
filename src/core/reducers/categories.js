@@ -114,7 +114,7 @@ export default function reducer(
         // This category has no data, so skip it.
         if (!category || !category.application) {
           // eslint-disable-next-line amo/only-log-strings
-          log.warn('category or category.application was false-y', category);
+          log.warn('category or category.application was falsey: %o', category);
           return;
         }
 

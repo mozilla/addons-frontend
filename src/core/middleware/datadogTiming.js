@@ -23,7 +23,7 @@ export const datadogTiming = ({
     _log.error(`DataDog client socket error: ${error}`);
     // Log the full stack trace too:
     // eslint-disable-next-line amo/only-log-strings
-    _log.error({ err: error });
+    _log.error('%o', { err: error });
   });
 
   return responseTime((req, res, time) => {
