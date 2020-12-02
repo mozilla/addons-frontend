@@ -19,16 +19,8 @@ const port = config.get('webpackServerPort');
 const compiler = webpack(webpackDevConfig);
 
 const serverOptions = {
-  contentBase: `http://${host}:${port}`,
   headers: { 'Access-Control-Allow-Origin': '*' },
-  hot: true,
-  inline: true,
-  lazy: false,
-  noInfo: true,
-  progress: true,
   publicPath: webpackDevConfig.output.publicPath,
-  quiet: true,
-  stats: { colors: true },
 };
 
 const app = new Express();
