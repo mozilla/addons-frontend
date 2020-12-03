@@ -498,7 +498,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         _log.warn,
-        `Response from API was not JSON (was Content-Type: ${contentType})`,
+        `Response from API was not JSON (was Content-Type: ${contentType}) %o`,
         {
           body: body.substring(0, 100),
           status,

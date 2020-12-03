@@ -138,10 +138,11 @@ export class Tracking {
     }
   }
 
-  log(...args: Array<mixed>) {
+  log(message: string, obj?: Object) {
     if (this._log) {
+      const pattern = typeof obj === 'undefined' ? '%s %s' : '%s %s: %o';
       // eslint-disable-next-line amo/only-log-strings
-      this._log.info(this.logPrefix, ...args);
+      this._log.info(pattern, this.logPrefix, message, obj);
     }
   }
 
@@ -186,7 +187,7 @@ export class Tracking {
       eventValue: value,
     };
     this._ga('send', data);
-    this.log('sendEvent', JSON.stringify(data));
+    this.log('sendEvent', data);
   }
 
   /*
@@ -203,7 +204,7 @@ export class Tracking {
   pageView(data: Object = {}) {
     // See: https://developers.google.com/analytics/devguides/collection/analyticsjs/pages#pageview_fields
     this._ga('send', { hitType: 'pageview', ...data });
-    this.log('pageView', JSON.stringify(data));
+    this.log('pageView', data);
   }
 
   /*

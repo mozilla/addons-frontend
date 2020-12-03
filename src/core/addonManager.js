@@ -197,7 +197,7 @@ export function addChangeListeners(
     const { id: guid, type, needsRestart } = e;
 
     // eslint-disable-next-line amo/only-log-strings
-    _log.info('Event received', { type, id: guid, needsRestart });
+    _log.info('Event received: %o', { type, id: guid, needsRestart });
 
     if (type === ON_OPERATION_CANCELLED_EVENT) {
       // We need to retrieve the correct status for this add-on.
@@ -215,7 +215,7 @@ export function addChangeListeners(
         .catch((error) => {
           // eslint-disable-next-line amo/only-log-strings
           _log.error(
-            'Unexpected error after having received onOperationCancelled event',
+            'Unexpected error after having received onOperationCancelled event: %o',
             error,
           );
         });

@@ -195,7 +195,8 @@ export function callApi({
       return response.text().then((text) => {
         // eslint-disable-next-line amo/only-log-strings
         _log.warn(
-          oneLine`Response from API was not JSON (was Content-Type: ${contentType})`,
+          oneLine`Response from API was not JSON (was Content-Type:
+          ${contentType}) %o`,
           {
             body: text ? text.substring(0, 100) : '[empty]',
             status: response.status || '[unknown]',

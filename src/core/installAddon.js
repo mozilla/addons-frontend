@@ -226,7 +226,10 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       return clientAddon.isEnabled;
     } catch (error) {
       // eslint-disable-next-line amo/only-log-strings
-      _log.error('could not determine whether the add-on was enabled', error);
+      _log.error(
+        'could not determine whether the add-on was enabled: %o',
+        error,
+      );
     }
 
     return false;
@@ -331,7 +334,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
           _log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
         } else {
           // eslint-disable-next-line amo/only-log-strings
-          _log.error(`Error while trying to enable ${guid}:`, err);
+          _log.error(`Error while trying to enable ${guid}: %o`, err);
 
           dispatch(
             setInstallState({
