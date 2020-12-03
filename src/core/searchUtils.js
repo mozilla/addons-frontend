@@ -1,6 +1,7 @@
 import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 
+import { CLIENT_APP_ANDROID, RECOMMENDED } from 'core/constants';
 import log from 'core/logger';
 import { USER_AGENT_OS_IOS } from 'core/reducers/api';
 
@@ -119,7 +120,7 @@ export function convertOSToFilterValue(name) {
   return undefined;
 }
 
-export const fixFiltersForAndroidThemes = ({ api, filters }) => {
+export const fixFiltersForClientApp = ({ api, filters }) => {
   const newFilters = { ...filters };
 
   if (!newFilters.clientApp && api.clientApp) {
@@ -127,6 +128,11 @@ export const fixFiltersForAndroidThemes = ({ api, filters }) => {
       `No clientApp found in filters; using api.clientApp (${api.clientApp})`,
     );
     newFilters.clientApp = api.clientApp;
+  }
+
+  // This adds a filter to return only Android compatible add-ons.
+  if (newFilters.clientApp === CLIENT_APP_ANDROID) {
+    newFilters.promoted = RECOMMENDED;
   }
 
   return newFilters;

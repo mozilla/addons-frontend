@@ -5,13 +5,14 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  RECOMMENDED,
 } from 'core/constants';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
   convertOSToFilterValue,
-  fixFiltersForAndroidThemes,
+  fixFiltersForClientApp,
 } from 'core/searchUtils';
 import {
   dispatchClientMetadata,
@@ -220,46 +221,61 @@ describe(__filename, () => {
     });
   });
 
-  describe('fixFiltersForAndroidThemes', () => {
-    it('does not change clientApp filter for Android extensions', () => {
-      const filters = {
-        addonType: ADDON_TYPE_EXTENSION,
-        clientApp: CLIENT_APP_ANDROID,
-      };
+  describe('fixFiltersForClientApp', () => {
+    it('adds a clientApp filter if one does not exist', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      const { state } = dispatchClientMetadata({ clientApp });
+      const filters = {};
 
-      const newFilters = fixFiltersForAndroidThemes({ filters });
-      expect(newFilters).toEqual(filters);
-    });
-
-    it('sets clientApp to api.clientApp when clientApp is not a filter', () => {
-      const { state } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-      });
-
-      const filters = {
-        addonType: ADDON_TYPE_STATIC_THEME,
-      };
-
-      const newFilters = fixFiltersForAndroidThemes({
-        api: state.api,
-        filters,
-      });
-      expect(newFilters).toEqual({
-        ...filters,
-        clientApp: CLIENT_APP_FIREFOX,
-      });
+      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
+      expect(newFilters.clientApp).toEqual(clientApp);
     });
 
     it('does not modify the other filters', () => {
-      const filters = {
-        addonType: ADDON_TYPE_STATIC_THEME,
-        category: 'some-category',
-        clientApp: CLIENT_APP_FIREFOX,
-        page: '123',
-      };
+      const addonType = ADDON_TYPE_EXTENSION;
+      const category = 'some-category';
+      const clientApp = CLIENT_APP_FIREFOX;
+      const { state } = dispatchClientMetadata({ clientApp });
 
-      const newFilters = fixFiltersForAndroidThemes({ filters });
-      expect(newFilters).toEqual(filters);
+      const filters = { addonType, category };
+
+      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
+      expect(newFilters.addonType).toEqual(addonType);
+      expect(newFilters.category).toEqual(category);
+      expect(newFilters.clientApp).toEqual(clientApp);
+    });
+
+    it('does not override a clientApp filter', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      const { state } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+      });
+
+      const filters = { clientApp };
+
+      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
+      expect(newFilters.clientApp).toEqual(clientApp);
+    });
+
+    it('adds a promoted=recommended filter on Android', () => {
+      const clientApp = CLIENT_APP_ANDROID;
+      const { state } = dispatchClientMetadata({ clientApp });
+
+      const filters = {};
+
+      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
+      expect(newFilters.clientApp).toEqual(clientApp);
+      expect(newFilters.promoted).toEqual(RECOMMENDED);
+    });
+
+    it('does not add a promoted=recommended filter on Desktop', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      const { state } = dispatchClientMetadata({ clientApp });
+
+      const filters = {};
+
+      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
+      expect(newFilters.promoted).toEqual(undefined);
     });
   });
 });
