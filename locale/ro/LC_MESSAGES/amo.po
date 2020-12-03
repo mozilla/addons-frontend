@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-11-30 12:26+0000\n"
+"PO-Revision-Date: 2020-12-03 20:20+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1043,9 +1043,8 @@ msgid "Learn more"
 msgstr "Află mai multe"
 
 #: src/amo/components/InstallWarning/index.js:104
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Nu este monitorizată prin programul Mozilla de extensii recomandate. Asigură-te că este de încredere înainte de instalare."
+msgstr "Acest supliment nu este monitorizat în mod activ pentru securitate de către Mozilla. Asigură-te că este de încredere înainte de instalare."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
