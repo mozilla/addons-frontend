@@ -13,6 +13,7 @@ import { oneLine } from 'common-tags';
 import { createMemoryHistory } from 'history';
 
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
+import { createInternalCollection } from 'amo/reducers/collections';
 import createStore from 'amo/store';
 import { getDjangoBase62 } from 'amo/utils';
 import { setError } from 'core/actions/errors';
@@ -37,6 +38,7 @@ import {
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { makeI18n } from 'core/i18n/utils';
+import { createInternalAddon } from 'core/reducers/addons';
 import {
   autocompleteLoad,
   autocompleteStart,
@@ -44,6 +46,7 @@ import {
 import { searchLoad, searchStart } from 'core/reducers/search';
 import { selectUIState } from 'core/reducers/uiState';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
+import { createInternalVersion } from 'core/reducers/versions';
 import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
 import { addQueryParamsToHistory } from 'core/utils';
 
@@ -51,9 +54,13 @@ export const sampleUserAgent =
   'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
 
+export const createLocalizedString = (string, lang = 'en-US') => {
+  return { [lang]: string };
+};
+
 export const fakePreview = Object.freeze({
   id: 1,
-  caption: 'Image 1',
+  caption: createLocalizedString('Image 1'),
   image_url: 'https://addons.cdn.mozilla.net/full/1.png',
   thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/1.png',
   image_size: [400, 200],
@@ -101,10 +108,10 @@ export const fakeVersion = Object.freeze({
   is_strict_compatibility_enabled: false,
   license: {
     is_custom: false,
-    name: 'tofulicense',
+    name: createLocalizedString('tofulicense'),
     url: 'http://license.com/',
   },
-  release_notes: 'Some release notes',
+  release_notes: createLocalizedString('Some release notes'),
   reviewed: '2014-11-22T10:09:01Z',
   version: '2.0.0',
 });
@@ -116,20 +123,22 @@ export const fakeAddon = Object.freeze({
   contributions_url: '',
   created: '2014-11-22T10:09:01Z',
   current_version: fakeVersion,
-  description: 'This is a longer description of the chill out add-on',
+  description: {
+    'en-US': 'This is a longer description of the chill out add-on',
+  },
   default_locale: 'en-US',
   edit_url: 'https://addons.m.o/addon/chill-out/edit',
   guid: '1234@my-addons.firefox',
   has_eula: true,
   has_privacy_policy: true,
-  homepage: 'http://hamsterdance.com/',
+  homepage: createLocalizedString('http://hamsterdance.com/'),
   id: 1234,
   icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
   is_disabled: false,
   is_experimental: false,
   is_source_public: true,
   last_updated: '2018-11-22T10:09:01Z',
-  name: 'Chill Out',
+  name: createLocalizedString('Chill Out'),
   previews: [fakePreview],
   promoted: null,
   ratings: {
@@ -141,9 +150,9 @@ export const fakeAddon = Object.freeze({
   review_url: 'https://addons.m.o/en-US/editors/review/2377',
   slug: 'chill-out',
   status: 'public',
-  summary: 'This is a summary of the chill out add-on',
+  summary: createLocalizedString('This is a summary of the chill out add-on'),
   support_email: null,
-  support_url: 'http://support.hampsterdance.com/',
+  support_url: createLocalizedString('http://support.hampsterdance.com/'),
   tags: ['chilling'],
   type: ADDON_TYPE_EXTENSION,
   url: 'https://addons.m.o/addon/chill-out/',
@@ -164,10 +173,10 @@ export const fakeTheme = Object.freeze({
     compatibility: {},
     version: '0',
   },
-  description: 'This is the add-on description',
+  description: createLocalizedString('This is the add-on description'),
   guid: 'dancing-daisies-theme@my-addons.firefox',
   id: 54321,
-  name: 'Dancing Daisies by MaDonna',
+  name: createLocalizedString('Dancing Daisies by MaDonna'),
   slug: 'dancing-daisies',
   type: ADDON_TYPE_STATIC_THEME,
   previews: [fakePreview],
@@ -188,7 +197,7 @@ export const fakeReview = Object.freeze({
   addon: {
     icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
     id: 28014,
-    name: 'fake add-on name',
+    name: createLocalizedString('fake add-on name'),
     slug: fakeAddon.slug,
   },
   created: '2017-01-09T21:49:14Z',
@@ -254,9 +263,14 @@ export const fakeRecommendations = Object.freeze({
   outcome: 'recommended_fallback',
 });
 
-export const fakeAddonInfo = {
-  eula: 'eula text',
-  privacy_policy: ' some privacy policy text',
+export const createFakeAddonInfo = ({
+  eula = 'eula text',
+  privacyPolicy = ' some privacy policy text',
+} = {}) => {
+  return {
+    eula: createLocalizedString(eula),
+    privacy_policy: createLocalizedString(privacyPolicy),
+  };
 };
 
 export const fakePrimaryHeroShelfExternal = Object.freeze({
@@ -595,6 +609,7 @@ export const createFakeCollectionDetail = ({
   authorId = 99999,
   authorName = 'John Doe',
   authorUsername = 'johndoe',
+  description = 'collection description',
   ...params
 } = {}) => {
   return {
@@ -606,10 +621,10 @@ export const createFakeCollectionDetail = ({
       username: authorUsername,
     },
     default_locale: 'en-US',
-    description: 'some description',
+    description: createLocalizedString(description),
     id: randomId(),
     modified: Date.now(),
-    name,
+    name: createLocalizedString(name),
     public: true,
     slug: 'my-addons',
     url: `https://example.org/en-US/firefox/collections/johndoe/my-addons/`,
@@ -622,7 +637,7 @@ export function createFakeCollectionAddon({
   addon = fakeAddon,
   notes = null,
 } = {}) {
-  return { addon, notes };
+  return { addon, notes: createLocalizedString(notes) };
 }
 
 export const createFakeCollectionAddons = ({
@@ -1354,3 +1369,23 @@ export const fakeSponsoredShelf = Object.freeze({
   impression_data: 'some data',
   impression_url: 'https://mozilla.org/',
 });
+
+export const createInternalAddonWithLang = (addon, lang = 'en-US') => {
+  return createInternalAddon(addon, lang);
+};
+
+export const createInternalVersionWithLang = (version, lang = 'en-US') => {
+  return createInternalVersion(version, lang);
+};
+
+export const createInternalCollectionWithLang = ({
+  addonsResponse,
+  detail,
+  lang = 'en-US',
+}) => {
+  return createInternalCollection({
+    addonsResponse,
+    detail,
+    lang,
+  });
+};

@@ -3,8 +3,8 @@ import * as React from 'react';
 import PermissionsCard, {
   PermissionsCardBase,
 } from 'amo/components/PermissionsCard';
-import { createInternalVersion } from 'core/reducers/versions';
 import {
+  createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeI18n,
   fakePlatformFile,
@@ -25,7 +25,7 @@ describe(__filename, () => {
     optional = [],
     required = [],
   } = {}) => {
-    return createInternalVersion({
+    return createInternalVersionWithLang({
       ...fakeVersion,
       files: [
         {
@@ -40,7 +40,7 @@ describe(__filename, () => {
   function render(props = {}) {
     return shallowUntilTarget(
       <PermissionsCard
-        version={props.version || createInternalVersion(fakeVersion)}
+        version={props.version || createInternalVersionWithLang(fakeVersion)}
         i18n={fakeI18n()}
         store={store}
         {...props}

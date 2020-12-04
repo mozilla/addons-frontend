@@ -8,10 +8,10 @@ import RatingsByStar, {
 } from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { ErrorHandler } from 'core/errorHandler';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
+  createInternalAddonWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -29,7 +29,7 @@ describe(__filename, () => {
   });
 
   const getProps = ({
-    addon = createInternalAddon(fakeAddon),
+    addon = createInternalAddonWithLang(fakeAddon),
     ...customProps
   } = {}) => {
     return { addon, i18n: fakeI18n(), store, ...customProps };
@@ -44,7 +44,7 @@ describe(__filename, () => {
   };
 
   const addonForGrouping = (grouping, addonParams = {}) => {
-    return createInternalAddon({
+    return createInternalAddonWithLang({
       ...fakeAddon,
       ratings: {
         ...fakeAddon.ratings,
@@ -67,7 +67,7 @@ describe(__filename, () => {
   };
 
   it('fetches groupedRatings upon construction', () => {
-    const addon = createInternalAddon({ ...fakeAddon, id: 222 });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 222 });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ addon });
 
@@ -85,7 +85,7 @@ describe(__filename, () => {
     const root = render({ addon: null });
 
     dispatchSpy.resetHistory();
-    const addon = createInternalAddon({ ...fakeAddon, id: 222 });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 222 });
     root.setProps({ addon });
 
     sinon.assert.calledWith(
@@ -98,7 +98,7 @@ describe(__filename, () => {
   });
 
   it('only fetches groupedRatings when needed', () => {
-    const addon = createInternalAddon({ ...fakeAddon, id: 222 });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 222 });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     store.dispatch(
       setGroupedRatings({
@@ -132,7 +132,7 @@ describe(__filename, () => {
   });
 
   it('renders a loading state without grouped ratings', () => {
-    const root = render({ addon: createInternalAddon(fakeAddon) });
+    const root = render({ addon: createInternalAddonWithLang(fakeAddon) });
 
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
   });
@@ -341,7 +341,7 @@ describe(__filename, () => {
     const errorHandler = createErrorHandlerWithError();
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    render({ errorHandler, addon: createInternalAddon(fakeAddon) });
+    render({ errorHandler, addon: createInternalAddonWithLang(fakeAddon) });
 
     sinon.assert.notCalled(dispatchSpy);
   });
@@ -361,7 +361,7 @@ describe(__filename, () => {
     });
 
     it('makes an ID with the add-on', () => {
-      const addon = createInternalAddon({ ...fakeAddon, id: 1 });
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id: 1 });
       expect(extractId(getProps({ addon }))).toEqual(`addon-${addon.id}`);
     });
   });

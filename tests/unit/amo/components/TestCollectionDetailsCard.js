@@ -8,7 +8,6 @@ import CollectionDetails from 'amo/components/CollectionDetails';
 import CollectionManager from 'amo/components/CollectionManager';
 import {
   beginEditingCollectionDetails,
-  createInternalCollection,
   finishEditingCollectionDetails,
 } from 'amo/reducers/collections';
 import {
@@ -18,6 +17,7 @@ import {
 } from 'core/constants';
 import {
   createFakeCollectionDetail,
+  createInternalCollectionWithLang,
   dispatchSignInActions,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -46,7 +46,7 @@ describe(__filename, () => {
     authorUsername = 'some-user',
     slug = 'some-slug',
   } = {}) => {
-    return createInternalCollection({
+    return createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         authorId,
         authorUsername,

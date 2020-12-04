@@ -11,11 +11,12 @@ import {
   ADDON_TYPE_LANG,
   STATS_VIEW,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import { formatFilesize } from 'core/i18n/utils';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
+  createInternalAddonWithLang,
+  createLocalizedString,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
@@ -36,7 +37,7 @@ describe(__filename, () => {
   function render({ location, ...props } = {}) {
     return shallowUntilTarget(
       <AddonMoreInfo
-        addon={props.addon || createInternalAddon(fakeAddon)}
+        addon={props.addon || createInternalAddonWithLang(fakeAddon)}
         i18n={fakeI18n()}
         store={store}
         {...props}
@@ -68,10 +69,10 @@ describe(__filename, () => {
   });
 
   it('renders a link <dt> if links exist', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       homepage: null,
-      support_url: 'foo.com',
+      support_url: createLocalizedString('foo.com'),
     });
     const root = render({ addon });
 
@@ -82,11 +83,11 @@ describe(__filename, () => {
   });
 
   it('renders a link <dt> if support email exists', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       homepage: null,
       support_url: null,
-      support_email: 'hello@foo.com',
+      support_email: createLocalizedString('hello@foo.com'),
     });
     const root = render({ addon });
 
@@ -97,7 +98,7 @@ describe(__filename, () => {
   });
 
   it('does not render a link <dt> if no links exist', () => {
-    const partialAddon = createInternalAddon(fakeAddon);
+    const partialAddon = createInternalAddonWithLang(fakeAddon);
     delete partialAddon.homepage;
     delete partialAddon.support_email;
     delete partialAddon.support_url;
@@ -107,7 +108,7 @@ describe(__filename, () => {
   });
 
   it('does not render a homepage if none exists', () => {
-    const partialAddon = createInternalAddon(fakeAddon);
+    const partialAddon = createInternalAddonWithLang(fakeAddon);
     delete partialAddon.homepage;
     const root = render({ addon: partialAddon });
 
@@ -115,11 +116,11 @@ describe(__filename, () => {
   });
 
   it('does not render a link <dt> if support email is not valid', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       homepage: null,
       support_url: null,
-      support_email: 'invalid-email',
+      support_email: createLocalizedString('invalid-email'),
     });
     const root = render({ addon });
 
@@ -127,9 +128,9 @@ describe(__filename, () => {
   });
 
   it('renders the homepage of an add-on', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      homepage: 'http://hamsterdance.com/',
+      homepage: createLocalizedString('http://hamsterdance.com/'),
     });
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-homepage-link');
@@ -139,7 +140,7 @@ describe(__filename, () => {
   });
 
   it('does not render a support link if none exists', () => {
-    const partialAddon = createInternalAddon(fakeAddon);
+    const partialAddon = createInternalAddonWithLang(fakeAddon);
     delete partialAddon.support_url;
     const root = render({ addon: partialAddon });
 
@@ -147,9 +148,9 @@ describe(__filename, () => {
   });
 
   it('renders the support link of an add-on', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      support_url: 'http://support.hampsterdance.com/',
+      support_url: createLocalizedString('http://support.hampsterdance.com/'),
     });
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-support-link');
@@ -159,9 +160,9 @@ describe(__filename, () => {
   });
 
   it('renders the email link of an add-on', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      support_email: 'ba@bar.com',
+      support_email: createLocalizedString('ba@bar.com'),
     });
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-support-email');
@@ -214,7 +215,7 @@ describe(__filename, () => {
     _loadVersions({
       license: {
         is_custom: false,
-        name: licenseName,
+        name: createLocalizedString(licenseName),
         url: licenseUrl,
       },
     });
@@ -227,12 +228,12 @@ describe(__filename, () => {
   });
 
   it('renders a custom license link', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const licenseName = 'some license';
     _loadVersions({
       license: {
         is_custom: true,
-        name: licenseName,
+        name: createLocalizedString(licenseName),
         url: 'http://license.com/',
       },
     });
@@ -267,7 +268,9 @@ describe(__filename, () => {
   });
 
   it('renders the license info without a link if the url is null', () => {
-    _loadVersions({ license: { name: 'justText', url: null } });
+    _loadVersions({
+      license: { name: createLocalizedString('justText'), url: null },
+    });
     const root = render();
     expect(root.find('.AddonMoreInfo-license-link')).toHaveLength(0);
 
@@ -294,7 +297,7 @@ describe(__filename, () => {
   });
 
   it('does not render a privacy policy if none exists', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       has_privacy_policy: false,
     });
@@ -304,7 +307,7 @@ describe(__filename, () => {
   });
 
   it('renders the privacy policy and link', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       has_privacy_policy: true,
     });
@@ -322,14 +325,17 @@ describe(__filename, () => {
   });
 
   it('does not render a EULA if none exists', () => {
-    const addon = createInternalAddon({ ...fakeAddon, has_eula: false });
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      has_eula: false,
+    });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-eula')).toHaveLength(0);
   });
 
   it('renders the EULA and link', () => {
-    const addon = createInternalAddon({ ...fakeAddon, has_eula: true });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, has_eula: true });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-eula')).toHaveProp(
@@ -347,7 +353,7 @@ describe(__filename, () => {
 
   it('does not link to stats if user is not author of the add-on', () => {
     const authorUserId = 11;
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       slug: 'coolio',
       authors: [
@@ -372,7 +378,7 @@ describe(__filename, () => {
 
   it('links to stats if add-on author is viewing the page', () => {
     const authorUserId = 11;
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       slug: 'coolio',
       authors: [
@@ -398,7 +404,7 @@ describe(__filename, () => {
   });
 
   it('links to stats if user has STATS_VIEW permission', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = render({
       addon,
       store: dispatchSignInActions({
@@ -411,7 +417,7 @@ describe(__filename, () => {
   });
 
   it('links to version history if add-on is extension', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       type: ADDON_TYPE_EXTENSION,
     });
@@ -427,7 +433,7 @@ describe(__filename, () => {
   });
 
   it('links to version history if add-on is a dictionary', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       type: ADDON_TYPE_DICT,
     });
@@ -443,7 +449,7 @@ describe(__filename, () => {
   });
 
   it('links to version history if add-on is a language pack', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       type: ADDON_TYPE_LANG,
     });
@@ -459,7 +465,7 @@ describe(__filename, () => {
   });
 
   it('links to version history if add-on is a theme', () => {
-    const addon = createInternalAddon({ ...fakeTheme });
+    const addon = createInternalAddonWithLang({ ...fakeTheme });
 
     const root = render({ addon });
     const history = root.find('.AddonMoreInfo-version-history');
@@ -496,14 +502,14 @@ describe(__filename, () => {
   });
 
   it('renders admin links', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = render({ addon });
 
     expect(root.find(AddonAdminLinks)).toHaveProp('addon', addon);
   });
 
   it('renders author links', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = render({ addon });
 
     expect(root.find(AddonAuthorLinks)).toHaveProp('addon', addon);
@@ -511,7 +517,7 @@ describe(__filename, () => {
 
   describe('UTM parameters', () => {
     const authorUserId = 11;
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       has_privacy_policy: true,
       has_eula: true,

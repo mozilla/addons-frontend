@@ -8,10 +8,10 @@ import AddonSummaryCard, {
 import RatingsByStar from 'amo/components/RatingsByStar';
 import Link from 'amo/components/Link';
 import fallbackIcon from 'amo/img/icons/default-64.png';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
+  createInternalAddonWithLang,
   fakeAddon,
   fakeI18n,
   shallowUntilTarget,
@@ -24,7 +24,7 @@ describe(__filename, () => {
   const render = ({ addon, headerText, location, ...props }) => {
     return shallowUntilTarget(
       <AddonSummaryCard
-        addon={addon ? createInternalAddon(addon) : addon}
+        addon={addon ? createInternalAddonWithLang(addon) : addon}
         headerText={headerText}
         i18n={fakeI18n()}
         {...props}
@@ -114,7 +114,7 @@ describe(__filename, () => {
 
       expect(header.find(AddonTitle)).toHaveProp(
         'addon',
-        createInternalAddon(addon),
+        createInternalAddonWithLang(addon),
       );
       expect(header.find(AddonTitle)).toHaveProp(
         'queryParamsForAttribution',

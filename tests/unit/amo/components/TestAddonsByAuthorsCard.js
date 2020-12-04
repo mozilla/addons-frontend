@@ -21,11 +21,11 @@ import {
   ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import {
   createContextWithFakeRouter,
+  createInternalAddonWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -201,7 +201,7 @@ describe(__filename, () => {
 
     expect(root).toHaveClassName('AddonsByAuthorsCard');
     expect(sortAddons(root.find(AddonsCard).prop('addons'))).toEqual(
-      sortAddons(addons).map(createInternalAddon),
+      sortAddons(addons).map((addon) => createInternalAddonWithLang(addon)),
     );
     expect(root.find(AddonsCard)).toHaveProp(
       'placeholderCount',

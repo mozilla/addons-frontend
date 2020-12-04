@@ -8,10 +8,10 @@ import AddonMeta, {
 import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
+  createInternalAddonWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -22,7 +22,7 @@ import Rating from 'ui/components/Rating';
 
 describe(__filename, () => {
   function render({
-    addon = createInternalAddon(fakeAddon),
+    addon = createInternalAddonWithLang(fakeAddon),
     store = dispatchClientMetadata().store,
     location,
     ...props
@@ -49,7 +49,10 @@ describe(__filename, () => {
 
     it('renders the user count', () => {
       const root = render({
-        addon: createInternalAddon({ ...fakeAddon, average_daily_users: 2 }),
+        addon: createInternalAddonWithLang({
+          ...fakeAddon,
+          average_daily_users: 2,
+        }),
       });
 
       expect(getUserCount(root).content).toEqual('2');
@@ -58,7 +61,10 @@ describe(__filename, () => {
 
     it('renders one user', () => {
       const root = render({
-        addon: createInternalAddon({ ...fakeAddon, average_daily_users: 1 }),
+        addon: createInternalAddonWithLang({
+          ...fakeAddon,
+          average_daily_users: 1,
+        }),
       });
 
       expect(getUserCount(root).content).toEqual('1');
@@ -67,7 +73,10 @@ describe(__filename, () => {
 
     it('renders no users', () => {
       const root = render({
-        addon: createInternalAddon({ ...fakeAddon, average_daily_users: 0 }),
+        addon: createInternalAddonWithLang({
+          ...fakeAddon,
+          average_daily_users: 0,
+        }),
       });
 
       expect(getUserCount(root).content).toEqual('');
@@ -77,7 +86,7 @@ describe(__filename, () => {
     it('localizes the user count', () => {
       const i18n = fakeI18n({ lang: 'de' });
       const root = render({
-        addon: createInternalAddon({
+        addon: createInternalAddonWithLang({
           ...fakeAddon,
           average_daily_users: 1000,
         }),
@@ -90,7 +99,7 @@ describe(__filename, () => {
   describe('ratings', () => {
     function renderRatings(ratings = {}, otherProps = {}) {
       return render({
-        addon: createInternalAddon({
+        addon: createInternalAddonWithLang({
           ...fakeAddon,
           ratings: {
             ...fakeAddon.ratings,
@@ -131,7 +140,7 @@ describe(__filename, () => {
       const slug = 'some-slug';
       const ratingsCount = 5;
       const root = render({
-        addon: createInternalAddon({
+        addon: createInternalAddonWithLang({
           ...fakeAddon,
           ratings: { text_count: 3, count: ratingsCount },
           slug,
@@ -156,7 +165,7 @@ describe(__filename, () => {
       const location = createFakeLocation({ query: { src } });
 
       const root = render({
-        addon: createInternalAddon({
+        addon: createInternalAddonWithLang({
           ...fakeAddon,
           ratings: { text_count: 3, count: 123 },
           slug,
@@ -182,7 +191,7 @@ describe(__filename, () => {
       });
 
       const root = render({
-        addon: createInternalAddon({
+        addon: createInternalAddonWithLang({
           ...fakeAddon,
           ratings: { text_count: 3, count: 123 },
           slug,
@@ -227,7 +236,7 @@ describe(__filename, () => {
 
     it('handles zero reviews', () => {
       const root = render({
-        addon: createInternalAddon({ ...fakeAddon, ratings: null }),
+        addon: createInternalAddonWithLang({ ...fakeAddon, ratings: null }),
       });
 
       expect(getReviewTitle(root).children()).toHaveText('No Reviews');
@@ -239,7 +248,10 @@ describe(__filename, () => {
 
     it('handles an addon without ratings', () => {
       const root = render({
-        addon: createInternalAddon({ ...fakeAddon, ratings: undefined }),
+        addon: createInternalAddonWithLang({
+          ...fakeAddon,
+          ratings: undefined,
+        }),
       });
 
       // This should be null so it doesn't render a loading state.
@@ -247,7 +259,7 @@ describe(__filename, () => {
     });
 
     it('renders RatingsByStar with an add-on', () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
       const root = render({ addon });
 
       expect(root.find(RatingsByStar)).toHaveProp('addon', addon);

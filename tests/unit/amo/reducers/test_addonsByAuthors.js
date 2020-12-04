@@ -11,10 +11,19 @@ import reducer, {
   joinAuthorIdsAndAddonType,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
-import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakeAuthor, fakeTheme } from 'tests/unit/helpers';
+import { setLang } from 'core/reducers/api';
+import {
+  createInternalAddonWithLang,
+  fakeAddon,
+  fakeAuthor,
+  fakeTheme,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  // We need a state with setLang called for any tests that load add-ons.
+  const lang = 'en-US';
+  const stateWithLang = reducer(undefined, setLang(lang));
+
   const randomAuthorId1 = 123;
   const randomAuthorId2 = 456;
 
@@ -76,7 +85,7 @@ describe(__filename, () => {
       // Load some initial state to be sure that an unrelated action does not
       // change it.
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: [fakeAddon],
           authorIds: [fakeAddon.authors[0].id],
@@ -92,7 +101,7 @@ describe(__filename, () => {
 
     it('allows an empty list of add-ons', () => {
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: [],
           authorIds: [fakeAddon.authors[0].id],
@@ -109,7 +118,7 @@ describe(__filename, () => {
 
     it('adds related add-ons by slug', () => {
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: [fakeAddon],
           authorIds: [fakeAddon.authors[0].id],
@@ -127,7 +136,7 @@ describe(__filename, () => {
     it("always ensures extensions' page size is consistent", () => {
       const forAddonSlug = 'addon-slug';
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           forAddonSlug,
           // This is the case where there are more add-ons loaded than needed.
@@ -146,7 +155,7 @@ describe(__filename, () => {
     it("always ensures themes' page size is consistent", () => {
       const forAddonSlug = 'addon-slug';
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           forAddonSlug,
           // This is the case where there are more add-ons loaded than needed.
@@ -166,7 +175,7 @@ describe(__filename, () => {
       const forAddonSlug = 'addon-slug';
 
       const previousState = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: [fakeAddon],
           authorIds: [fakeAddon.authors[0].id],
@@ -197,7 +206,7 @@ describe(__filename, () => {
       const forAddonSlug = 'addon-slug';
 
       const firstState = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: [fakeAddon],
           authorIds: [fakeAddon.authors[0].id],
@@ -227,7 +236,7 @@ describe(__filename, () => {
       const { id: userId } = fakeTheme.authors[0];
 
       const prevState = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addonType: ADDON_TYPE_STATIC_THEME,
           addons: [fakeTheme],
@@ -238,7 +247,7 @@ describe(__filename, () => {
       );
 
       expect(prevState.byAddonId).toEqual({
-        [fakeTheme.id]: createInternalAddon(fakeTheme),
+        [fakeTheme.id]: createInternalAddonWithLang(fakeTheme),
       });
 
       const state = reducer(
@@ -252,7 +261,7 @@ describe(__filename, () => {
       );
 
       expect(state.byAddonId).toEqual({
-        [fakeTheme.id]: createInternalAddon(fakeTheme),
+        [fakeTheme.id]: createInternalAddonWithLang(fakeTheme),
       });
       expect(state.byAuthorId).toEqual({
         [userId]: [fakeTheme.id],
@@ -263,7 +272,7 @@ describe(__filename, () => {
       const { id: userId } = fakeAddon.authors[0];
 
       const prevState = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addonType: ADDON_TYPE_EXTENSION,
           addons: [fakeAddon],
@@ -274,7 +283,7 @@ describe(__filename, () => {
       );
 
       expect(prevState.byAddonId).toEqual({
-        [fakeAddon.id]: createInternalAddon(fakeAddon),
+        [fakeAddon.id]: createInternalAddonWithLang(fakeAddon),
       });
       expect(prevState.byAuthorId).toEqual({
         [userId]: [fakeAddon.id],
@@ -291,7 +300,7 @@ describe(__filename, () => {
       );
 
       expect(prevState.byAddonId).toEqual({
-        [fakeAddon.id]: createInternalAddon(fakeAddon),
+        [fakeAddon.id]: createInternalAddonWithLang(fakeAddon),
       });
       expect(state.byAuthorId).toEqual({
         [userId]: [],
@@ -358,7 +367,7 @@ describe(__filename, () => {
         authorIds,
       });
 
-      const newState = reducer(undefined, loadAddonsByAuthors(params));
+      const newState = reducer(stateWithLang, loadAddonsByAuthors(params));
 
       expect(newState.byAuthorId).toEqual({
         [firstAuthor.id]: [multiAuthorAddon.id],
@@ -374,12 +383,14 @@ describe(__filename, () => {
         forAddonSlug: undefined,
       });
 
-      const newState = reducer(undefined, loadAddonsByAuthors(params));
+      const newState = reducer(stateWithLang, loadAddonsByAuthors(params));
 
       expect(newState.byAddonId).toEqual({
-        [addons.firstAddon.id]: createInternalAddon(addons.firstAddon),
-        [addons.secondAddon.id]: createInternalAddon(addons.secondAddon),
-        [addons.thirdAddon.id]: createInternalAddon(addons.thirdAddon),
+        [addons.firstAddon.id]: createInternalAddonWithLang(addons.firstAddon),
+        [addons.secondAddon.id]: createInternalAddonWithLang(
+          addons.secondAddon,
+        ),
+        [addons.thirdAddon.id]: createInternalAddonWithLang(addons.thirdAddon),
       });
     });
 
@@ -396,7 +407,7 @@ describe(__filename, () => {
         forAddonSlug: undefined,
       });
 
-      const newState = reducer(undefined, loadAddonsByAuthors(params));
+      const newState = reducer(stateWithLang, loadAddonsByAuthors(params));
 
       expect(newState.byAuthorId).toEqual({
         [firstAuthorId]: [addons.firstAddon.id],
@@ -409,7 +420,7 @@ describe(__filename, () => {
       const params = getParams();
       delete params.forAddonSlug;
 
-      const newState = reducer(undefined, loadAddonsByAuthors(params));
+      const newState = reducer(stateWithLang, loadAddonsByAuthors(params));
 
       expect(newState.byAddonSlug).toEqual(initialState.byAddonSlug);
     });
@@ -421,7 +432,7 @@ describe(__filename, () => {
         pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
       });
 
-      const newState = reducer(undefined, loadAddonsByAuthors(params));
+      const newState = reducer(stateWithLang, loadAddonsByAuthors(params));
 
       expect(newState.byAddonSlug).toEqual({
         [fakeAddon.slug]: [fakeAddon.id],
@@ -436,7 +447,7 @@ describe(__filename, () => {
         forAddonSlug: undefined,
       });
 
-      let state = reducer(undefined, loadAddonsByAuthors(firstParams));
+      let state = reducer(stateWithLang, loadAddonsByAuthors(firstParams));
 
       const secondParams = getParams({
         addons: [addons.thirdAddon],
@@ -454,7 +465,7 @@ describe(__filename, () => {
 
     it('sets the loading state for authorIds once loaded', () => {
       let state = reducer(
-        undefined,
+        stateWithLang,
         fetchAddonsByAuthors({
           authorIds: [randomAuthorId1],
           errorHandlerId: 'error-handler-id',
@@ -483,7 +494,7 @@ describe(__filename, () => {
 
     it('sets the loading state for authorIds + addonType once loaded', () => {
       let state = reducer(
-        undefined,
+        stateWithLang,
         fetchAddonsByAuthors({
           authorIds: [randomAuthorId1],
           addonType: ADDON_TYPE_STATIC_THEME,
@@ -515,7 +526,7 @@ describe(__filename, () => {
       const count = 1;
 
       let state = reducer(
-        undefined,
+        stateWithLang,
         fetchAddonsByAuthors({
           authorIds: [randomAuthorId1],
           errorHandlerId: 'error-handler-id',
@@ -546,7 +557,7 @@ describe(__filename, () => {
       const count = 1;
 
       let state = reducer(
-        undefined,
+        stateWithLang,
         fetchAddonsByAuthors({
           authorIds: [randomAuthorId1],
           addonType: ADDON_TYPE_STATIC_THEME,
@@ -579,7 +590,7 @@ describe(__filename, () => {
     it('returns addons', () => {
       const addons = fakeExternalAddons();
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           authorIds: [randomAuthorId1],
@@ -590,16 +601,16 @@ describe(__filename, () => {
       );
 
       expect(getAddonsForSlug(state, 'test')).toEqual([
-        createInternalAddon(addons.firstAddon),
-        createInternalAddon(addons.secondAddon),
-        createInternalAddon(addons.thirdAddon),
+        createInternalAddonWithLang(addons.firstAddon),
+        createInternalAddonWithLang(addons.secondAddon),
+        createInternalAddonWithLang(addons.thirdAddon),
       ]);
     });
 
     it('returns nothing if no add-ons are found', () => {
       const addons = fakeExternalAddons();
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           authorIds: [randomAuthorId1],
@@ -617,7 +628,7 @@ describe(__filename, () => {
     it('returns addons for a single author', () => {
       const addons = fakeExternalAddons();
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           authorIds: [randomAuthorId1],
@@ -627,8 +638,8 @@ describe(__filename, () => {
       );
 
       expect(getAddonsForAuthorIds(state, [fakeAuthorTwo.id])).toEqual([
-        createInternalAddon(addons.firstAddon),
-        createInternalAddon(addons.secondAddon),
+        createInternalAddonWithLang(addons.firstAddon),
+        createInternalAddonWithLang(addons.secondAddon),
       ]);
     });
 
@@ -646,13 +657,13 @@ describe(__filename, () => {
       });
       const addons = Object.values(addonsMap);
 
-      const state = reducer(undefined, _loadAddonsByAuthors({ addons }));
+      const state = reducer(stateWithLang, _loadAddonsByAuthors({ addons }));
 
       expect(
         getAddonsForAuthorIds(state, [fakeAuthorTwo.id, randomAuthorId2]),
       ).toEqual([
-        createInternalAddon(addonsMap.firstAddon),
-        createInternalAddon(addonsMap.secondAddon),
+        createInternalAddonWithLang(addonsMap.firstAddon),
+        createInternalAddonWithLang(addonsMap.secondAddon),
       ]);
     });
 
@@ -670,13 +681,13 @@ describe(__filename, () => {
       });
       const addons = Object.values(addonsMap);
 
-      const state = reducer(undefined, _loadAddonsByAuthors({ addons }));
+      const state = reducer(stateWithLang, _loadAddonsByAuthors({ addons }));
 
       expect(
         getAddonsForAuthorIds(state, [fakeAuthorOne.id, fakeAuthorThree.id]),
       ).toEqual([
-        createInternalAddon(addonsMap.firstAddon),
-        createInternalAddon(addonsMap.thirdAddon),
+        createInternalAddonWithLang(addonsMap.firstAddon),
+        createInternalAddonWithLang(addonsMap.thirdAddon),
       ]);
     });
 
@@ -694,13 +705,13 @@ describe(__filename, () => {
       });
       const addons = Object.values(addonsMap);
 
-      const state = reducer(undefined, _loadAddonsByAuthors({ addons }));
+      const state = reducer(stateWithLang, _loadAddonsByAuthors({ addons }));
 
       expect(
         getAddonsForAuthorIds(state, [fakeAuthorOne.id, fakeAuthorTwo.id]),
       ).toEqual([
-        createInternalAddon(addonsMap.firstAddon),
-        createInternalAddon(addonsMap.secondAddon),
+        createInternalAddonWithLang(addonsMap.firstAddon),
+        createInternalAddonWithLang(addonsMap.secondAddon),
       ]);
     });
 
@@ -719,7 +730,7 @@ describe(__filename, () => {
         fakeAuthorThree.id,
       ];
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           addonType: ADDON_TYPE_EXTENSION,
@@ -737,8 +748,8 @@ describe(__filename, () => {
           addons.firstAddon.slug,
         ),
       ).toEqual([
-        createInternalAddon(addons.secondAddon),
-        createInternalAddon(addons.thirdAddon),
+        createInternalAddonWithLang(addons.secondAddon),
+        createInternalAddonWithLang(addons.thirdAddon),
       ]);
     });
 
@@ -751,7 +762,7 @@ describe(__filename, () => {
         fakeAuthorThree.id,
       ];
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           addonType: ADDON_TYPE_STATIC_THEME,
@@ -764,8 +775,8 @@ describe(__filename, () => {
       expect(
         getAddonsForAuthorIds(state, authorIds, ADDON_TYPE_STATIC_THEME),
       ).toEqual([
-        createInternalAddon(addons.firstAddon),
-        createInternalAddon(addons.secondAddon),
+        createInternalAddonWithLang(addons.firstAddon),
+        createInternalAddonWithLang(addons.secondAddon),
       ]);
     });
 
@@ -778,7 +789,7 @@ describe(__filename, () => {
         fakeAuthorThree.id,
       ];
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           addonType: ADDON_TYPE_EXTENSION,
@@ -791,16 +802,16 @@ describe(__filename, () => {
       expect(
         getAddonsForAuthorIds(state, authorIds, ADDON_TYPE_EXTENSION),
       ).toEqual([
-        createInternalAddon(addons.firstAddon),
-        createInternalAddon(addons.secondAddon),
-        createInternalAddon(addons.thirdAddon),
+        createInternalAddonWithLang(addons.firstAddon),
+        createInternalAddonWithLang(addons.secondAddon),
+        createInternalAddonWithLang(addons.thirdAddon),
       ]);
     });
 
     it('returns nothing if no add-ons are found', () => {
       const addons = fakeExternalAddons();
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           addons: Object.values(addons),
           authorIds: [randomAuthorId1],
@@ -864,7 +875,7 @@ describe(__filename, () => {
 
     it('returns false when loading is defined', () => {
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           ...params,
           addons: [],
@@ -889,7 +900,7 @@ describe(__filename, () => {
       const count = 123;
 
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           ...params,
           count,
@@ -903,7 +914,7 @@ describe(__filename, () => {
       const count = 123;
 
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           ...params,
           addonType: ADDON_TYPE_STATIC_THEME,
@@ -917,13 +928,13 @@ describe(__filename, () => {
     });
 
     it('returns null when there is no match', () => {
-      const state = reducer(undefined, loadAddonsByAuthors(params));
+      const state = reducer(stateWithLang, loadAddonsByAuthors(params));
 
       expect(getCountForAuthorIds(state, [randomAuthorId2])).toEqual(null);
     });
 
     it('returns null when no authorIds provided', () => {
-      const state = reducer(undefined, loadAddonsByAuthors(params));
+      const state = reducer(stateWithLang, loadAddonsByAuthors(params));
 
       expect(getCountForAuthorIds(state, [])).toEqual(null);
     });
@@ -932,7 +943,7 @@ describe(__filename, () => {
       const count = 123;
 
       const prevState = reducer(
-        undefined,
+        stateWithLang,
         loadAddonsByAuthors({
           ...params,
           count,

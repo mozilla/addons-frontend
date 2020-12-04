@@ -5,8 +5,12 @@ import reducer, {
   initialState,
   loadRecommendations,
 } from 'amo/reducers/recommendations';
-import { createInternalAddon } from 'core/reducers/addons';
-import { createStubErrorHandler, fakeAddon } from 'tests/unit/helpers';
+import { setLang } from 'core/reducers/api';
+import {
+  createInternalAddonWithLang,
+  createStubErrorHandler,
+  fakeAddon,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('initializes properly', () => {
@@ -39,8 +43,9 @@ describe(__filename, () => {
     const fallbackReason = 'timeout';
     const guid = 'some-guid';
     const outcome = 'recommended_fallback';
+    const stateWithLang = reducer(undefined, setLang('en-US'));
     const state = reducer(
-      undefined,
+      stateWithLang,
       loadRecommendations({
         addons,
         fallbackReason,
@@ -49,7 +54,9 @@ describe(__filename, () => {
       }),
     );
 
-    const expectedAddons = addons.map((addon) => createInternalAddon(addon));
+    const expectedAddons = addons.map((addon) =>
+      createInternalAddonWithLang(addon),
+    );
 
     const loadedRecommendations = getRecommendationsByGuid({ guid, state });
 

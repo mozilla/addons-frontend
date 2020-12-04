@@ -27,7 +27,6 @@ import {
   fetchHomeData,
   loadHomeData,
 } from 'amo/reducers/home';
-import { createInternalCollection } from 'amo/reducers/collections';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -38,13 +37,14 @@ import {
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import LoadingText from 'ui/components/LoadingText';
 import {
   createAddonsApiResult,
   createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
+  createInternalAddonWithLang,
+  createInternalCollectionWithLang,
   createHeroShelves,
   createStubErrorHandler,
   dispatchClientMetadata,
@@ -403,14 +403,14 @@ describe(__filename, () => {
     expect(firstCollectionShelf).toHaveProp('loading', false);
     expect(firstCollectionShelf).toHaveProp(
       'addons',
-      collectionAddons.map((addon) => createInternalAddon(addon.addon)),
+      collectionAddons.map((addon) => createInternalAddonWithLang(addon.addon)),
     );
 
     const recommendedExtensionsShelf = root.find('.Home-RecommendedExtensions');
     expect(recommendedExtensionsShelf).toHaveProp('loading', false);
     expect(recommendedExtensionsShelf).toHaveProp(
       'addons',
-      addons.map((addon) => createInternalAddon(addon)),
+      addons.map((addon) => createInternalAddonWithLang(addon)),
     );
   });
 
@@ -495,7 +495,7 @@ describe(__filename, () => {
 
   describe('isFeaturedCollection', () => {
     const createCollection = (details = {}) => {
-      return createInternalCollection({
+      return createInternalCollectionWithLang({
         detail: createFakeCollectionDetail(details),
       });
     };
@@ -649,14 +649,14 @@ describe(__filename, () => {
       expect(heroRecommendation).toHaveProp('errorHandler', errorHandler);
       expect(heroRecommendation).toHaveProp(
         'shelfData',
-        createInternalHeroShelves(heroShelves).primary,
+        createInternalHeroShelves(heroShelves, 'en-US').primary,
       );
 
       const secondaryHero = root.find(SecondaryHero);
       expect(secondaryHero).toHaveLength(1);
       expect(secondaryHero).toHaveProp(
         'shelfData',
-        createInternalHeroShelves(heroShelves).secondary,
+        createInternalHeroShelves(heroShelves, 'en-US').secondary,
       );
     });
 

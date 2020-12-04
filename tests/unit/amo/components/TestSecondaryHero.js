@@ -21,6 +21,7 @@ describe(__filename, () => {
   const createShelfData = (secondaryProps = {}) => {
     return createInternalHeroShelves(
       createHeroShelves({ primaryProps: { addon: fakeAddon }, secondaryProps }),
+      'en-US',
     ).secondary;
   };
 

@@ -9,7 +9,6 @@ import CollectionManager, {
 import {
   beginCollectionModification,
   createCollection,
-  createInternalCollection,
   finishCollectionModification,
   finishEditingCollectionDetails,
   updateCollection,
@@ -23,6 +22,7 @@ import {
   createFakeEvent,
   createFakeHistory,
   createFakeLocation,
+  createInternalCollectionWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -50,7 +50,7 @@ describe(__filename, () => {
   });
 
   const getProps = ({
-    collection = createInternalCollection({
+    collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail(),
     }),
     history = fakeHistory,
@@ -169,7 +169,7 @@ describe(__filename, () => {
       store: localStore,
       userId,
     });
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         name: 'OG name',
         description: 'OG description',
@@ -199,7 +199,7 @@ describe(__filename, () => {
   });
 
   it('strips HTML entities from name and description', () => {
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         // This is how the API returns data.
         name: 'Things &amp; Stuff',
@@ -221,7 +221,7 @@ describe(__filename, () => {
   });
 
   it('does not populate form when updating to the same collection', () => {
-    const firstCollection = createInternalCollection({
+    const firstCollection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         id: 1,
         name: 'First name',
@@ -253,7 +253,7 @@ describe(__filename, () => {
   });
 
   it('captures inputted text', () => {
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         name: 'OG name',
         description: 'OG description',
@@ -361,7 +361,7 @@ describe(__filename, () => {
   it('updates the collection on submit', () => {
     const filters = { page: '1' };
 
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({ authorId: signedInUserId }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -457,7 +457,7 @@ describe(__filename, () => {
   it('disables and enables form buttons when modification status changes', () => {
     const name = 'Collection name';
 
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({ name }),
     });
 
@@ -497,7 +497,7 @@ describe(__filename, () => {
     const name = 'Collection name';
     const slug = 'collection-slug';
 
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({ description, name, slug }),
     });
 
@@ -538,7 +538,7 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const filters = { page: '1' };
 
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         authorId: signedInUserId,
         name,
@@ -632,7 +632,7 @@ describe(__filename, () => {
   it('allows a blank description', () => {
     const errorHandler = createStubErrorHandler();
     const filters = { page: '1' };
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({ authorId: signedInUserId }),
     });
 
@@ -702,7 +702,7 @@ describe(__filename, () => {
   it('populates form state when updating to a new collection', () => {
     const root = render({ collection: null });
 
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         name: 'The name',
         description: 'The description',
@@ -716,7 +716,7 @@ describe(__filename, () => {
   });
 
   it('populates form state when switching collections', () => {
-    const firstCollection = createInternalCollection({
+    const firstCollection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         id: 1,
         name: 'first name',
@@ -725,7 +725,7 @@ describe(__filename, () => {
     });
     const root = render({ collection: firstCollection });
 
-    const secondCollection = createInternalCollection({
+    const secondCollection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         id: 2,
         name: 'second name',
@@ -747,7 +747,7 @@ describe(__filename, () => {
     });
 
     it('generates an ID with a collection', () => {
-      const collection = createInternalCollection({
+      const collection = createInternalCollectionWithLang({
         detail: createFakeCollectionDetail({
           slug: 'some-slug',
         }),

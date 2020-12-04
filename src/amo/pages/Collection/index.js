@@ -329,7 +329,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     addonId: number,
     errorHandler: ErrorHandlerType,
   ) => {
-    const { collection, dispatch, filters } = this.props;
+    const { collection, dispatch, filters, lang } = this.props;
 
     invariant(collection, 'collection is required');
 
@@ -343,6 +343,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         addonId,
         errorHandlerId: errorHandler.id,
         filters,
+        lang,
         slug,
         userId,
       }),
@@ -354,7 +355,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     errorHandler: ErrorHandlerType,
     notes: string,
   ) => {
-    const { collection, dispatch, filters } = this.props;
+    const { collection, dispatch, filters, lang } = this.props;
 
     invariant(collection, 'collection is required');
 
@@ -367,7 +368,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       updateCollectionAddon({
         addonId,
         errorHandlerId: errorHandler.id,
-        notes,
+        notes: { [lang]: notes },
         filters,
         slug,
         userId,

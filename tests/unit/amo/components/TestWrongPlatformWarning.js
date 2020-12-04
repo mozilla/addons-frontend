@@ -7,10 +7,10 @@ import WrongPlatformWarning, {
 } from 'amo/components/WrongPlatformWarning';
 import { getMobileHomepageLink } from 'core/utils/compatibility';
 import { CLIENT_APP_ANDROID } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
+  createInternalAddonWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -79,7 +79,7 @@ describe(__filename, () => {
     const parsedUserAgent = UAParser(userAgent);
     _dispatchClientMetadata({ clientApp, userAgent });
 
-    render({ addon: createInternalAddon(fakeAddon) });
+    render({ addon: createInternalAddonWithLang(fakeAddon) });
 
     sinon.assert.calledWith(
       _isFirefoxForAndroid,
@@ -91,10 +91,10 @@ describe(__filename, () => {
   });
 
   it('calls _isAndroidInstallable to check for Android compatibility', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     _isFirefoxForAndroid.returns(true);
 
-    render({ addon: createInternalAddon(fakeAddon) });
+    render({ addon: createInternalAddonWithLang(fakeAddon) });
 
     sinon.assert.calledWith(_isAndroidInstallable, { addon });
   });
@@ -151,7 +151,7 @@ describe(__filename, () => {
   it('generates the expected message when user agent is Firefox for Android and add-on is compatible', () => {
     _isFirefoxForAndroid.returns(true);
     _isAndroidInstallable.returns(true);
-    const root = render({ addon: createInternalAddon(fakeAddon) });
+    const root = render({ addon: createInternalAddonWithLang(fakeAddon) });
 
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
       'You can install this add-on in the Add-ons Manager.',
@@ -192,7 +192,7 @@ describe(__filename, () => {
   it('generates the expected message when being directed to other than the mobile home page, from the detail page', () => {
     const newLocation = '/some/location/';
     _correctedLocationForPlatform.returns(newLocation);
-    const root = render({ addon: createInternalAddon(fakeAddon) });
+    const root = render({ addon: createInternalAddonWithLang(fakeAddon) });
 
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
       'This listing is not intended for this platform.',

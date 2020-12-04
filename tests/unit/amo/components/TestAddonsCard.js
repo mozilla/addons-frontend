@@ -6,9 +6,8 @@ import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import CardList from 'ui/components/CardList';
-import { fakeAddon } from 'tests/unit/helpers';
+import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let addons;
@@ -192,7 +191,7 @@ describe(__filename, () => {
     const onAddonClick = sinon.spy();
 
     const root = render({
-      addons: [createInternalAddon(fakeAddon)],
+      addons: [createInternalAddonWithLang(fakeAddon)],
       onAddonClick,
     });
 
@@ -203,7 +202,7 @@ describe(__filename, () => {
     const onAddonImpression = sinon.spy();
 
     const root = render({
-      addons: [createInternalAddon(fakeAddon)],
+      addons: [createInternalAddonWithLang(fakeAddon)],
       onAddonImpression,
     });
 

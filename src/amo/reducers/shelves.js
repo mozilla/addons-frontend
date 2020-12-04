@@ -5,6 +5,7 @@ import invariant from 'invariant';
 
 import type { AppState } from 'amo/store';
 import { createInternalAddon } from 'core/reducers/addons';
+import { SET_LANG } from 'core/reducers/api';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const ABORT_FETCH_SPONSORED: 'ABORT_FETCH_SPONSORED' =
@@ -26,12 +27,14 @@ export type SponsoredShelfType = {|
 
 export type ShelvesState = {|
   isLoading: boolean,
+  lang: string,
   resetStateOnNextChange: boolean,
   sponsored: SponsoredShelfType | null | void,
 |};
 
 export const initialState: ShelvesState = {
   isLoading: false,
+  lang: '',
   resetStateOnNextChange: false,
   sponsored: undefined,
 };
@@ -83,11 +86,12 @@ export const getSponsoredShelf = (
 
 export const createInternalsponsoredShelf = (
   shelfData: ExternalSponsoredShelfType,
+  lang: string,
 ): SponsoredShelfType => {
   const { results, impression_data, impression_url } = shelfData;
 
   return {
-    addons: results.map((addon) => createInternalAddon(addon)),
+    addons: results.map((addon) => createInternalAddon(addon, lang)),
     impressionData: impression_data,
     impressionURL: impression_url,
   };
@@ -104,6 +108,11 @@ const reducer = (
   _config: typeof config = config,
 ): ShelvesState => {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
     case ABORT_FETCH_SPONSORED:
       return {
         ...state,
@@ -124,7 +133,7 @@ const reducer = (
       return {
         ...state,
         isLoading: false,
-        sponsored: createInternalsponsoredShelf(shelfData),
+        sponsored: createInternalsponsoredShelf(shelfData, state.lang),
       };
     }
 

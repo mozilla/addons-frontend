@@ -178,7 +178,7 @@ describe(__filename, () => {
 
     return _search().then(unexpectedSuccess, (err) => {
       expect(err.response.status).toEqual(401);
-      expect(err.response.apiURL).toMatch('/api/v4/addons/search/');
+      expect(err.response.apiURL).toMatch('/api/v5/addons/search/');
     });
   });
 

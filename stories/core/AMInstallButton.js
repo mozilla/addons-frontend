@@ -10,11 +10,12 @@ import { fakeAddon, fakeVersion } from 'tests/unit/helpers';
 
 import Provider from '../setup/Provider';
 
+const lang = 'en-US';
 const render = (otherProps) => {
   const props = {
-    addon: createInternalAddon(fakeAddon),
+    addon: createInternalAddon(fakeAddon, lang),
     canUninstall: true,
-    currentVersion: createInternalVersion(fakeVersion),
+    currentVersion: createInternalVersion(fakeVersion, lang),
     disabled: false,
     enable: () => Promise.resolve(true),
     hasAddonManager: true,

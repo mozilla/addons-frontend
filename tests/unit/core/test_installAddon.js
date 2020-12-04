@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { createInternalVersion, loadVersions } from 'core/reducers/versions';
+import { loadVersions } from 'core/reducers/versions';
 import { setInstallError, setInstallState } from 'core/reducers/installations';
 import {
   ADDON_TYPE_EXTENSION,
@@ -36,10 +36,11 @@ import {
   UNINSTALLING,
   UNINSTALL_ACTION,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import { showInfoDialog } from 'core/reducers/infoDialog';
 import {
   createFakeTracking,
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakePlatformFile,
@@ -73,7 +74,7 @@ function componentWithInstallHelpers() {
 const defaultProps = ({
   _addonManager = getFakeAddonManagerWrapper(),
   _trackConversion = sinon.spy(),
-  addon = createInternalAddon(fakeAddon),
+  addon = createInternalAddonWithLang(fakeAddon),
   store = dispatchClientMetadata().store,
   ...overrides
 } = {}) => {
@@ -142,7 +143,7 @@ describe(__filename, () => {
         type: ADDON_TYPE_EXTENSION,
       }),
     });
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
 
     renderWithInstallHelpers({ _addonManager, addon, store });
 
@@ -161,12 +162,15 @@ describe(__filename, () => {
 
     const root = mountWithInstallHelpers({
       _addonManager,
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
       store,
     });
     _addonManager.getAddon.resetHistory();
 
-    const newAddon = createInternalAddon({ ...fakeAddon, guid: '@new-guid' });
+    const newAddon = createInternalAddonWithLang({
+      ...fakeAddon,
+      guid: '@new-guid',
+    });
     root.setProps({ addon: newAddon });
 
     sinon.assert.calledWith(_addonManager.getAddon, newAddon.guid);
@@ -189,7 +193,7 @@ describe(__filename, () => {
     });
     _addonManager.getAddon.resetHistory();
 
-    const newAddon = createInternalAddon({
+    const newAddon = createInternalAddonWithLang({
       ...fakeAddon,
       guid: '@new-guid',
     });
@@ -205,7 +209,7 @@ describe(__filename, () => {
         isEnabled: true,
       }),
     });
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
 
     const root = mountWithInstallHelpers({
       _addonManager,
@@ -262,7 +266,7 @@ describe(__filename, () => {
     describe('isAddonEnabled', () => {
       it('returns true when the add-on is enabled', async () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
 
         const { root } = renderWithInstallHelpers({
           addon,
@@ -283,7 +287,7 @@ describe(__filename, () => {
         });
 
         const { root } = renderWithInstallHelpers({
-          addon: createInternalAddon(fakeAddon),
+          addon: createInternalAddonWithLang(fakeAddon),
           _addonManager: fakeAddonManager,
           _log,
         });
@@ -323,7 +327,7 @@ describe(__filename, () => {
 
     describe('setCurrentStatus', () => {
       const getAddon = ({ type = ADDON_TYPE_EXTENSION } = {}) => {
-        return createInternalAddon({ ...fakeAddon, type });
+        return createInternalAddonWithLang({ ...fakeAddon, type });
       };
 
       const loadVersionWithInstallUrl = (installURL) => {
@@ -832,7 +836,7 @@ describe(__filename, () => {
         });
         const name = 'the-name';
         const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           name,
           icon_url: iconUrl,
@@ -872,7 +876,7 @@ describe(__filename, () => {
         });
         const name = 'the-name';
         const iconUrl = 'https://a.m.o/some-icon.png';
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           name,
           icon_url: iconUrl,
@@ -894,7 +898,7 @@ describe(__filename, () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           permissionPromptsEnabled: true,
         });
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
@@ -918,7 +922,7 @@ describe(__filename, () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           enable: sinon.stub().returns(Promise.reject(new Error('hai'))),
         });
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
         const { dispatch, root } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
           addon,
@@ -943,7 +947,7 @@ describe(__filename, () => {
             .stub()
             .returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
         });
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
@@ -1042,7 +1046,7 @@ describe(__filename, () => {
         const { root } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
           store,
-          version: createInternalVersion({
+          version: createInternalVersionWithLang({
             ...fakeVersion,
             files: [
               {
@@ -1078,7 +1082,7 @@ describe(__filename, () => {
           },
         });
 
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
@@ -1102,7 +1106,7 @@ describe(__filename, () => {
       it('tracks the start of an addon install', () => {
         _loadVersions({ store });
 
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
         const fakeTracking = createFakeTracking();
         const { root } = renderWithInstallHelpers({
           _addonManager: getFakeAddonManagerWrapper({
@@ -1136,7 +1140,7 @@ describe(__filename, () => {
       it('tracks an addon install', () => {
         _loadVersions({ store });
 
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
         const fakeTracking = createFakeTracking();
         const { root } = renderWithInstallHelpers({
           _tracking: fakeTracking,
@@ -1158,7 +1162,7 @@ describe(__filename, () => {
       });
 
       describe('Conversion tracking', () => {
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
 
         it('calls trackConversion after a successful install', () => {
           _loadVersions({ store });
@@ -1202,7 +1206,7 @@ describe(__filename, () => {
       it('tracks the start of a static theme install', () => {
         _loadVersions({ store });
 
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           type: ADDON_TYPE_STATIC_THEME,
         });
@@ -1229,7 +1233,7 @@ describe(__filename, () => {
       it('tracks a static theme addon install', () => {
         _loadVersions({ store });
 
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           type: ADDON_TYPE_STATIC_THEME,
         });
@@ -1256,7 +1260,7 @@ describe(__filename, () => {
       it('should dispatch START_DOWNLOAD', () => {
         _loadVersions({ store });
 
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
         const { root, dispatch } = renderWithInstallHelpers({ addon, store });
         const { install } = root.instance().props;
 
@@ -1272,7 +1276,7 @@ describe(__filename, () => {
         _loadVersions({ store });
 
         const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           icon_url: iconUrl,
         });
@@ -1301,7 +1305,7 @@ describe(__filename, () => {
         _loadVersions({ store });
 
         const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           icon_url: iconUrl,
         });
@@ -1332,7 +1336,7 @@ describe(__filename, () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         fakeAddonManager.install = sinon.stub().returns(Promise.reject());
 
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
         const { root, dispatch } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
@@ -1387,7 +1391,7 @@ describe(__filename, () => {
     describe('uninstall', () => {
       it('calls addonManager.uninstall()', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
         const { root, dispatch } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
@@ -1408,7 +1412,7 @@ describe(__filename, () => {
         fakeAddonManager.uninstall = sinon
           .stub()
           .returns(Promise.reject(new Error('Add-on Manager uninstall error')));
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
         const { root, dispatch } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
@@ -1433,7 +1437,7 @@ describe(__filename, () => {
       it('tracks an addon uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const fakeTracking = createFakeTracking();
-        const addon = createInternalAddon(fakeAddon);
+        const addon = createInternalAddonWithLang(fakeAddon);
         const { root } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
@@ -1456,7 +1460,7 @@ describe(__filename, () => {
       it('tracks a static theme addon uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const fakeTracking = createFakeTracking();
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           type: ADDON_TYPE_STATIC_THEME,
         });
@@ -1482,7 +1486,7 @@ describe(__filename, () => {
       it('tracks a unknown type uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const fakeTracking = createFakeTracking();
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           type: INVALID_TYPE,
         });

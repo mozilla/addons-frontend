@@ -14,13 +14,13 @@ import {
   addAddonToCollection,
   addonAddedToCollection,
   addonRemovedFromCollection,
-  createInternalCollection,
 } from 'amo/reducers/collections';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import {
   applyUIStateChanges,
   createFakeAutocompleteResult,
   createFakeCollectionDetail,
+  createInternalCollectionWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -81,7 +81,7 @@ describe(__filename, () => {
   };
 
   const getProps = ({
-    collection = createInternalCollection({
+    collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail(),
     }),
     ...customProps
@@ -129,7 +129,7 @@ describe(__filename, () => {
     const filters = { page: 2 };
     const errorHandler = createStubErrorHandler();
 
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({ authorId }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -300,7 +300,7 @@ describe(__filename, () => {
 
     it('generates an ID with a collection', () => {
       const id = 12345;
-      const collection = createInternalCollection({
+      const collection = createInternalCollectionWithLang({
         detail: createFakeCollectionDetail({
           id,
         }),

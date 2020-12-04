@@ -21,7 +21,6 @@ import {
   RECOMMENDED,
   validAddonTypes,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   FACEBOOK_CONTAINER_ADDON_GUID,
   FACEBOOK_CONTAINER_DOWNLOAD_URL,
@@ -39,6 +38,8 @@ import {
 import {
   createFakeAddon,
   createFakeLocation,
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
   fakeAddon,
   fakeVersion,
   getFakeConfig,
@@ -46,7 +47,6 @@ import {
   userAgents,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
-import { createInternalVersion } from 'core/reducers/versions';
 
 describe(__filename, () => {
   describe('isFirefox', () => {
@@ -101,8 +101,8 @@ describe(__filename, () => {
 
   describe('isCompatibleWithUserAgent', () => {
     const _isCompatibleWithUserAgent = ({
-      addon = createInternalAddon(fakeAddon),
-      currentVersion = createInternalVersion(fakeAddon.current_version),
+      addon = createInternalAddonWithLang(fakeAddon),
+      currentVersion = createInternalVersionWithLang(fakeAddon.current_version),
       userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox40),
       ...rest
     }) => {
@@ -139,7 +139,7 @@ describe(__filename, () => {
             _config: getFakeConfig({
               enableFeatureAllowAndroidInstall: false,
             }),
-            addon: createInternalAddon({
+            addon: createInternalAddonWithLang({
               ...fakeAddon,
               promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
             }),
@@ -159,7 +159,7 @@ describe(__filename, () => {
             _config: getFakeConfig({
               enableFeatureAllowAndroidInstall: true,
             }),
-            addon: createInternalAddon({
+            addon: createInternalAddonWithLang({
               ...fakeAddon,
               promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
             }),
@@ -220,7 +220,7 @@ describe(__filename, () => {
       };
       expect(
         _isCompatibleWithUserAgent({
-          currentVersion: createInternalVersion({
+          currentVersion: createInternalVersionWithLang({
             ...fakeVersion,
             is_strict_compatibility_enabled: false,
           }),
@@ -316,11 +316,11 @@ describe(__filename, () => {
     });
 
     it('allows non-extensions to have mismatching platform files', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
       });
-      const currentVersion = createInternalVersion({
+      const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
         files: [
           {
@@ -336,7 +336,7 @@ describe(__filename, () => {
     });
 
     it('is incompatible with Firefox on Android if no compatibility info exists for `android`, even if promoted', () => {
-      const currentVersion = createInternalVersion({
+      const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
         compatibility: {
           firefox: {
@@ -351,7 +351,7 @@ describe(__filename, () => {
           _config: getFakeConfig({
             enableFeatureAllowAndroidInstall: true,
           }),
-          addon: createInternalAddon({
+          addon: createInternalAddonWithLang({
             ...fakeAddon,
             promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
           }),
@@ -367,8 +367,8 @@ describe(__filename, () => {
 
   describe('getCompatibleVersions', () => {
     const _getCompatibleVersions = ({
-      addon = createInternalAddon(fakeAddon),
-      currentVersion = createInternalVersion(fakeVersion),
+      addon = createInternalAddonWithLang(fakeAddon),
+      currentVersion = createInternalVersionWithLang(fakeVersion),
       ...rest
     }) => {
       return getCompatibleVersions({
@@ -379,7 +379,7 @@ describe(__filename, () => {
     };
 
     it('gets the min and max versions', () => {
-      const currentVersion = createInternalVersion({
+      const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
         compatibility: {
           firefox: {
@@ -399,7 +399,7 @@ describe(__filename, () => {
     });
 
     it('gets null if the clientApp does not match', () => {
-      const currentVersion = createInternalVersion({
+      const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
         compatibility: {
           firefox: {
@@ -419,7 +419,7 @@ describe(__filename, () => {
     });
 
     it('returns null if clientApp has no compatibility', () => {
-      const currentVersion = createInternalVersion({
+      const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
         compatibility: {},
       });
@@ -449,7 +449,7 @@ describe(__filename, () => {
     });
 
     it('marks clientApp as unsupported without compatibility', () => {
-      const currentVersion = createInternalVersion({
+      const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
         // This add-on is not compatible with any client apps.
         compatibility: {},
@@ -465,7 +465,7 @@ describe(__filename, () => {
 
     it('marks clientApp as supported with compatibility', () => {
       const clientApp = CLIENT_APP_ANDROID;
-      const currentVersion = createInternalVersion({
+      const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
         compatibility: {
           [clientApp]: {
@@ -486,8 +486,8 @@ describe(__filename, () => {
 
   describe('getClientCompatibility', () => {
     const _getClientCompatibility = ({
-      addon = createInternalAddon(fakeAddon),
-      currentVersion = createInternalVersion(fakeVersion),
+      addon = createInternalAddonWithLang(fakeAddon),
+      currentVersion = createInternalVersionWithLang(fakeVersion),
       ...rest
     }) => {
       return getClientCompatibility({
@@ -501,7 +501,7 @@ describe(__filename, () => {
       const { browser, os } = UAParser(userAgentsByPlatform.mac.firefox57);
       const userAgentInfo = { browser, os };
       const clientApp = CLIENT_APP_FIREFOX;
-      const currentVersion = createInternalVersion({
+      const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
         compatibility: {
           [clientApp]: {
@@ -532,7 +532,7 @@ describe(__filename, () => {
       expect(
         _getClientCompatibility({
           clientApp: CLIENT_APP_FIREFOX,
-          currentVersion: createInternalVersion({
+          currentVersion: createInternalVersionWithLang({
             ...fakeVersion,
             compatibility: {
               firefox: { max: '200.0', min: null },
@@ -555,7 +555,7 @@ describe(__filename, () => {
       expect(
         _getClientCompatibility({
           clientApp: CLIENT_APP_FIREFOX,
-          currentVersion: createInternalVersion({
+          currentVersion: createInternalVersionWithLang({
             ...fakeVersion,
             compatibility: {
               firefox: { max: null, min: '2.0' },
@@ -575,7 +575,7 @@ describe(__filename, () => {
       const { browser, os } = UAParser(userAgentsByPlatform.mac.chrome41);
       const userAgentInfo = { browser, os };
       const clientApp = CLIENT_APP_FIREFOX;
-      const currentVersion = createInternalVersion({
+      const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
         compatibility: {
           [clientApp]: {
@@ -622,11 +622,11 @@ describe(__filename, () => {
       const { browser, os } = UAParser(userAgentsByPlatform.mac.chrome41);
       const userAgentInfo = { browser, os };
       const clientApp = CLIENT_APP_FIREFOX;
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         guid: FACEBOOK_CONTAINER_ADDON_GUID,
       });
-      const currentVersion = createInternalVersion(fakeVersion);
+      const currentVersion = createInternalVersionWithLang(fakeVersion);
 
       expect(
         _getClientCompatibility({
@@ -651,7 +651,7 @@ describe(__filename, () => {
       expect(
         _getClientCompatibility({
           clientApp: CLIENT_APP_FIREFOX,
-          currentVersion: createInternalVersion({
+          currentVersion: createInternalVersionWithLang({
             ...fakeVersion,
             compatibility: {
               ...fakeAddon.current_version.compatibility,
@@ -680,7 +680,7 @@ describe(__filename, () => {
       expect(
         _getClientCompatibility({
           clientApp: CLIENT_APP_FIREFOX,
-          currentVersion: createInternalVersion({
+          currentVersion: createInternalVersionWithLang({
             ...fakeVersion,
             compatibility: {
               ...fakeAddon.current_version.compatibility,
@@ -712,7 +712,7 @@ describe(__filename, () => {
       expect(
         _getClientCompatibility({
           clientApp: CLIENT_APP_FIREFOX,
-          currentVersion: createInternalVersion({
+          currentVersion: createInternalVersionWithLang({
             ...fakeVersion,
             compatibility: {},
           }),
@@ -730,7 +730,7 @@ describe(__filename, () => {
     it('returns incompatible when add-on is non-restartless and FF version >= 61.0', () => {
       const userAgentInfo = UAParser(userAgentsByPlatform.mac.firefox61);
       const clientApp = CLIENT_APP_FIREFOX;
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         current_version: {
           ...fakeAddon.current_version,
@@ -758,7 +758,7 @@ describe(__filename, () => {
     it('returns compatible when add-on is non-restartless and FF version < 61.0', () => {
       const userAgentInfo = UAParser(userAgentsByPlatform.mac.firefox57);
       const clientApp = CLIENT_APP_FIREFOX;
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         current_version: {
           ...fakeAddon.current_version,
@@ -792,7 +792,7 @@ describe(__filename, () => {
       expect(
         _getClientCompatibility({
           clientApp: CLIENT_APP_ANDROID,
-          currentVersion: createInternalVersion({
+          currentVersion: createInternalVersionWithLang({
             ...fakeVersion,
             compatibility: {},
           }),
@@ -806,7 +806,7 @@ describe(__filename, () => {
 
   describe('isQuantumCompatible', () => {
     it('returns `true` when webextension is compatible', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           files: [
             {
@@ -830,7 +830,7 @@ describe(__filename, () => {
     });
 
     it('returns `true` when mozilla extension is compatible', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           files: [
             {
@@ -854,7 +854,7 @@ describe(__filename, () => {
     });
 
     it('returns `true` for windows-only mozilla extensions', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           files: [
             {
@@ -878,7 +878,7 @@ describe(__filename, () => {
     });
 
     it('returns `true` for linux-only mozilla extensions', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           files: [
             {
@@ -902,7 +902,7 @@ describe(__filename, () => {
     });
 
     it('returns `false` when non-webextesion is not compatible', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           files: [
             {
@@ -926,7 +926,7 @@ describe(__filename, () => {
     });
 
     it('returns `false` for add-ons without a current version', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           current_version: null,
         }),
@@ -936,7 +936,7 @@ describe(__filename, () => {
     });
 
     it('returns `true` when Android webextension is compatible', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           files: [
             {
@@ -1179,7 +1179,7 @@ describe(__filename, () => {
 
   describe('isAndroidInstallable', () => {
     it('returns true if the add-on is recommended on android', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
       });
@@ -1188,7 +1188,7 @@ describe(__filename, () => {
     });
 
     it('returns true if the add-on is recommended on android and desktop', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         promoted: {
           category: RECOMMENDED,
@@ -1202,7 +1202,7 @@ describe(__filename, () => {
     it.each(validAddonTypes.filter((type) => type !== ADDON_TYPE_EXTENSION))(
       'returns false for a %s, even if the add-on is recommended on android',
       (type) => {
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
           type,
@@ -1213,7 +1213,7 @@ describe(__filename, () => {
     );
 
     it('returns false if the add-on is recommended but not on android', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
       });
@@ -1224,7 +1224,7 @@ describe(__filename, () => {
     it.each(
       ALL_PROMOTED_CATEGORIES.filter((category) => category !== RECOMMENDED),
     )('returns false if the add-on is %s on android', (category) => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         promoted: { category, apps: [CLIENT_APP_ANDROID] },
       });
@@ -1233,7 +1233,10 @@ describe(__filename, () => {
     });
 
     it('returns false if the add-on is not promoted', () => {
-      const addon = createInternalAddon({ ...fakeAddon, promoted: null });
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        promoted: null,
+      });
 
       expect(isAndroidInstallable({ addon })).toEqual(false);
     });

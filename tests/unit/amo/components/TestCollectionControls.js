@@ -3,14 +3,16 @@ import { shallow } from 'enzyme';
 
 import CollectionControls from 'amo/components/CollectionControls';
 import CollectionSort from 'amo/components/CollectionSort';
-import { createInternalCollection } from 'amo/reducers/collections';
 import { COLLECTION_SORT_NAME } from 'core/constants';
-import { createFakeCollectionDetail } from 'tests/unit/helpers';
+import {
+  createFakeCollectionDetail,
+  createInternalCollectionWithLang,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {
     const props = {
-      collection: createInternalCollection({
+      collection: createInternalCollectionWithLang({
         detail: createFakeCollectionDetail(),
       }),
       editing: true,
@@ -22,7 +24,7 @@ describe(__filename, () => {
   };
 
   it('renders a CollectionSort component', () => {
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail(),
     });
     const editing = true;

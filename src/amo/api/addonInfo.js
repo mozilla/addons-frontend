@@ -3,6 +3,7 @@ import invariant from 'invariant';
 
 import { callApi } from 'core/api';
 import type { ApiState } from 'core/reducers/api';
+import type { LocalizedString } from 'core/types/api';
 
 export type GetAddonInfoParams = {|
   api: ApiState,
@@ -10,8 +11,8 @@ export type GetAddonInfoParams = {|
 |};
 
 export type ExternalAddonInfoType = {|
-  eula: string | null,
-  privacy_policy: string | null,
+  eula: LocalizedString | null,
+  privacy_policy: LocalizedString | null,
 |};
 
 export const getAddonInfo = ({

@@ -3,8 +3,7 @@ import { shallow } from 'enzyme';
 
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon } from 'tests/unit/helpers';
+import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
 import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'core/constants';
 
 describe(__filename, () => {
@@ -34,7 +33,7 @@ describe(__filename, () => {
 
   it('passes addons to LandingAddonsCard', () => {
     const addons = [
-      createInternalAddon({
+      createInternalAddonWithLang({
         ...fakeAddon,
         slug: 'custom-addon',
       }),

@@ -3,8 +3,8 @@ import * as React from 'react';
 import AddonAuthorLinks, {
   AddonAuthorLinksBase,
 } from 'amo/components/AddonAuthorLinks';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createInternalAddonWithLang,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
@@ -23,7 +23,7 @@ describe(__filename, () => {
   function render(props = {}) {
     return shallowUntilTarget(
       <AddonAuthorLinks
-        addon={props.addon || createInternalAddon(fakeAddon)}
+        addon={props.addon || createInternalAddonWithLang(fakeAddon)}
         i18n={fakeI18n()}
         store={store}
         {...props}
@@ -33,7 +33,7 @@ describe(__filename, () => {
   }
 
   const renderWithSignedUser = ({
-    addon = createInternalAddon({
+    addon = createInternalAddonWithLang({
       ...fakeAddon,
       slug,
       authors: [

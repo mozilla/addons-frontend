@@ -25,8 +25,8 @@ export const getPreviewImage = (
     // 720 is now the standard width for previews.
     const width = 720;
     imageIndex =
-      // The preview.image_size[0] is the image width.
-      addon.previews.findIndex((preview) => preview.image_size[0] === width);
+      // The preview.w is the image width.
+      addon.previews.findIndex((preview) => preview.w === width);
   }
 
   // This is a fallback for older themes that do not have this size generated.
@@ -36,7 +36,7 @@ export const getPreviewImage = (
 
   const preview = addon.previews[imageIndex];
 
-  const previewSize = full ? 'image_url' : 'thumbnail_url';
+  const previewSize = full ? 'src' : 'thumbnail_src';
   return preview[previewSize] && isAllowedOrigin(preview[previewSize])
     ? preview[previewSize]
     : null;

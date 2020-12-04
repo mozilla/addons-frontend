@@ -1,11 +1,11 @@
-import { createInternalAddon } from 'core/reducers/addons';
+import { setLang } from 'core/reducers/api';
 import search, {
   abortSearch,
   initialState,
   searchLoad,
   searchStart,
 } from 'core/reducers/search';
-import { fakeAddon } from 'tests/unit/helpers';
+import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('defaults to no filters', () => {
@@ -61,39 +61,36 @@ describe(__filename, () => {
   });
 
   describe('SEARCH_LOADED', () => {
-    let initialLoadedState;
-    let response;
-
-    beforeEach(() => {
-      initialLoadedState = {
-        filters: { query: 'foo' },
-        loading: false,
-        results: [],
-      };
-      response = {
-        count: 3,
-        results: [
-          { ...fakeAddon, slug: 'bar' },
-          { ...fakeAddon, slug: 'foo' },
-          { ...fakeAddon, slug: 'food' },
-        ],
-        pageSize: 25,
-      };
-    });
-
-    function getNextState() {
-      return search(initialLoadedState, searchLoad(response));
-    }
+    const stateWithLang = search(undefined, setLang('en-US'));
+    const response = {
+      count: 3,
+      results: [
+        { ...fakeAddon, slug: 'bar' },
+        { ...fakeAddon, slug: 'foo' },
+        { ...fakeAddon, slug: 'food' },
+      ],
+      pageSize: 25,
+    };
 
     it('sets loading', () => {
-      const { loading } = getNextState();
-      expect(loading).toBe(false);
+      // Start with loading: true.
+      let state = search(
+        stateWithLang,
+        searchStart({
+          errorHandlerId: 'foo',
+          filters: { query: 'foo' },
+        }),
+      );
+      state = search(state, searchLoad(response));
+      expect(state.loading).toBe(false);
     });
 
     it('sets the results', () => {
-      const { results } = getNextState();
+      const state = search(stateWithLang, searchLoad(response));
 
-      expect(results).toEqual(response.results.map(createInternalAddon));
+      expect(state.results).toEqual(
+        response.results.map((addon) => createInternalAddonWithLang(addon)),
+      );
     });
   });
 });

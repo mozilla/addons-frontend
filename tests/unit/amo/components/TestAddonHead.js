@@ -12,9 +12,10 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
-import { createInternalVersion, loadVersions } from 'core/reducers/versions';
+import { loadVersions } from 'core/reducers/versions';
 import {
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -46,7 +47,7 @@ describe(__filename, () => {
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
   ])('renders an HTML title for Firefox (add-on type: %s)', (type, name) => {
     const lang = 'fr';
-    const addon = createInternalAddon({ ...fakeAddon, type });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, type });
     const { store } = dispatchClientMetadata({
       clientApp: CLIENT_APP_FIREFOX,
       lang,
@@ -65,7 +66,7 @@ describe(__filename, () => {
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
   ])('renders an HTML title for Android (add-on type: %s)', (type, name) => {
     const lang = 'fr';
-    const addon = createInternalAddon({ ...fakeAddon, type });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, type });
     const { store } = dispatchClientMetadata({
       clientApp: CLIENT_APP_ANDROID,
       lang,
@@ -79,7 +80,7 @@ describe(__filename, () => {
 
   it('renders a HeadMetaTags component', () => {
     const created = new Date();
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const lang = 'fr';
     const { store } = dispatchClientMetadata({
       clientApp: CLIENT_APP_ANDROID,
@@ -111,10 +112,7 @@ describe(__filename, () => {
       'description',
       `Download ${addon.name} for Firefox. ${addon.summary}`,
     );
-    expect(root.find(HeadMetaTags)).toHaveProp(
-      'image',
-      addon.previews[0].image_url,
-    );
+    expect(root.find(HeadMetaTags)).toHaveProp('image', addon.previews[0].src);
     expect(root.find(HeadMetaTags)).toHaveProp('lastModified', created);
     expect(root.find(HeadMetaTags)).toHaveProp(
       'title',
@@ -124,7 +122,7 @@ describe(__filename, () => {
   });
 
   it('renders JSON linked data', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = render({ addon });
 
     expect(root.find('script[type="application/ld+json"]')).toHaveLength(1);
@@ -132,7 +130,7 @@ describe(__filename, () => {
 
   it('passes both an addon and a currentVersion when rendering JSON linked data', () => {
     const { store } = dispatchClientMetadata();
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     store.dispatch(
       loadVersions({
         slug: fakeAddon.slug,
@@ -140,7 +138,9 @@ describe(__filename, () => {
       }),
     );
 
-    const currentVersion = createInternalVersion(fakeAddon.current_version);
+    const currentVersion = createInternalVersionWithLang(
+      fakeAddon.current_version,
+    );
     const _getAddonJsonLinkedData = sinon.spy();
 
     render({ _getAddonJsonLinkedData, addon, store });
@@ -149,7 +149,7 @@ describe(__filename, () => {
   });
 
   it('renders a HeadLinks component', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
 
     const root = render({ addon });
 
@@ -158,7 +158,7 @@ describe(__filename, () => {
 
   it('escapes JSON linked data', () => {
     const name = '<script>';
-    const addon = createInternalAddon({ ...fakeAddon, name });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, name });
 
     const root = render({ addon });
 

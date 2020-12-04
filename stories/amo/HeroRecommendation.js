@@ -33,6 +33,7 @@ const render = (
           ...shelfProps,
         },
       }),
+      'en-US',
     ).primary,
     siteIsReadOnly: false,
     siteNotice: null,

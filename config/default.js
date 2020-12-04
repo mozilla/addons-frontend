@@ -75,7 +75,7 @@ module.exports = {
   staticHost: addonsFrontendCDN,
   apiHost: apiProdHost,
   apiPath: '/api/',
-  apiVersion: 'v4',
+  apiVersion: 'v5',
 
   // The version for the favicon.
   // This should be changed when a new favicon is pushed to the CDN to prevent

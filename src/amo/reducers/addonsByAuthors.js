@@ -3,11 +3,13 @@ import deepcopy from 'deepcopy';
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
+import { SET_LANG } from 'core/reducers/api';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 type AddonId = number;
 
 export type AddonsByAuthorsState = {|
+  lang: string,
   // TODO: It might be nice to eventually stop storing add-ons in this
   // reducer at all and rely on the add-ons in the `addons` reducer.
   // That said, these are partial add-ons returned from the search
@@ -21,6 +23,7 @@ export type AddonsByAuthorsState = {|
 |};
 
 export const initialState: AddonsByAuthorsState = {
+  lang: '',
   byAddonId: {},
   byAddonSlug: {},
   byAuthorId: {},
@@ -214,6 +217,12 @@ const reducer = (
   action: Action,
 ): AddonsByAuthorsState => {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
+
     case FETCH_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
 
@@ -288,7 +297,9 @@ const reducer = (
       newState.countFor[authorIdsWithAddonType] = count;
       newState.loadingFor[authorIdsWithAddonType] = false;
 
-      const internalAddons = addons.map((addon) => createInternalAddon(addon));
+      const internalAddons = addons.map((addon) =>
+        createInternalAddon(addon, state.lang),
+      );
 
       for (const addon of internalAddons) {
         newState.byAddonId[addon.id] = addon;

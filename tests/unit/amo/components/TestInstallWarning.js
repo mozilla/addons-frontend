@@ -13,10 +13,10 @@ import {
   STRATEGIC,
   VERIFIED,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
+  createInternalAddonWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -39,7 +39,7 @@ describe(__filename, () => {
     const props = {
       _correctedLocationForPlatform: sinon.stub().returns(null),
       _getPromotedCategory: sinon.stub().returns(null),
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
       i18n: fakeI18n(),
       store,
       ...customProps,
@@ -64,7 +64,7 @@ describe(__filename, () => {
   // the warning to be displayed.
   const renderWithWarning = (props = {}) => {
     return render({
-      addon: createInternalAddon(addonThatWouldShowWarning),
+      addon: createInternalAddonWithLang(addonThatWouldShowWarning),
       ...props,
     });
   };
@@ -98,7 +98,7 @@ describe(__filename, () => {
 
     it('returns false if the add-on is not an extension', () => {
       const component = renderWithWarning({
-        addon: createInternalAddon({
+        addon: createInternalAddonWithLang({
           ...addonThatWouldShowWarning,
           type: ADDON_TYPE_STATIC_THEME,
         }),

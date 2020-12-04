@@ -7,20 +7,15 @@ import AddonVersions, {
   AddonVersionsBase,
   extractId,
 } from 'amo/pages/AddonVersions';
-import {
-  createInternalAddon,
-  fetchAddon,
-  loadAddon,
-} from 'core/reducers/addons';
-import {
-  createInternalVersion,
-  loadVersions,
-  fetchVersions,
-} from 'core/reducers/versions';
+import { fetchAddon, loadAddon } from 'core/reducers/addons';
+import { loadVersions, fetchVersions } from 'core/reducers/versions';
 import {
   createCapturedErrorHandler,
   createFakeHistory,
   createFakeLocation,
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -295,10 +290,11 @@ describe(__filename, () => {
   });
 
   it('generates a header with add-on name and version count when versions have loaded', () => {
+    const name = 'My addon';
     const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, slug };
+    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
     const versions = [fakeVersion];
-    const expectedHeader = `${addon.name} version history - ${versions.length} version`;
+    const expectedHeader = `${name} version history - ${versions.length} version`;
 
     _loadAddon(addon);
     _loadVersions({ slug, versions });
@@ -315,10 +311,11 @@ describe(__filename, () => {
   });
 
   it('generates a header for multiple versions', () => {
+    const name = 'My addon';
     const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, slug };
+    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
     const versions = [fakeVersion, fakeVersion];
-    const expectedHeader = `${addon.name} version history - ${versions.length} versions`;
+    const expectedHeader = `${name} version history - ${versions.length} versions`;
 
     _loadAddon(addon);
     _loadVersions({ slug, versions });
@@ -342,7 +339,7 @@ describe(__filename, () => {
 
     expect(root.find(AddonSummaryCard)).toHaveProp(
       'addon',
-      createInternalAddon(addon),
+      createInternalAddonWithLang(addon),
     );
   });
 
@@ -374,10 +371,13 @@ describe(__filename, () => {
       });
 
       const latestVersionCard = root.find(AddonVersionCard).at(0);
-      expect(latestVersionCard).toHaveProp('addon', createInternalAddon(addon));
+      expect(latestVersionCard).toHaveProp(
+        'addon',
+        createInternalAddonWithLang(addon),
+      );
       expect(latestVersionCard).toHaveProp(
         'version',
-        createInternalVersion(version1),
+        createInternalVersionWithLang(version1),
       );
     });
 
@@ -438,15 +438,15 @@ describe(__filename, () => {
       const versionCards = root.find(AddonVersionCard);
       expect(versionCards.at(0)).toHaveProp(
         'version',
-        createInternalVersion(version1),
+        createInternalVersionWithLang(version1),
       );
       expect(versionCards.at(1)).toHaveProp(
         'version',
-        createInternalVersion(version2),
+        createInternalVersionWithLang(version2),
       );
       expect(versionCards.at(2)).toHaveProp(
         'version',
-        createInternalVersion(version3),
+        createInternalVersionWithLang(version3),
       );
     });
 

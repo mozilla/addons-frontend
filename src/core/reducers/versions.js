@@ -20,11 +20,14 @@ import {
 } from 'core/constants';
 import log from 'core/logger';
 import { LOAD_ADDON } from 'core/reducers/addons';
+import { SET_LANG } from 'core/reducers/api';
 import { SEARCH_LOADED } from 'core/reducers/search';
+import { selectLocalizedContent } from 'core/reducers/utils';
 import { findFileForPlatform } from 'core/utils';
 import { formatFilesize } from 'core/i18n/utils';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonStatusType } from 'core/types/addons';
+import type { LocalizedString } from 'core/types/api';
 import type { I18nType } from 'core/types/i18n';
 
 export const FETCH_VERSION: 'FETCH_VERSION' = 'FETCH_VERSION';
@@ -78,15 +81,21 @@ export type PartialExternalAddonVersionType = {|
   version: string,
 |};
 
-type PartialVersionLicenseType = {|
-  name: string | null,
-  text?: string,
+type PartialExternalVersionLicenseType = {|
+  name: LocalizedString | null,
+  text?: LocalizedString,
   url: string,
 |};
 
 export type ExternalVersionLicenseType = {|
-  ...PartialVersionLicenseType,
+  ...PartialExternalVersionLicenseType,
   is_custom: boolean,
+|};
+
+type PartialVersionLicenseType = {|
+  name: string | null,
+  text?: string,
+  url: string,
 |};
 
 export type VersionLicenseType = {|
@@ -97,7 +106,7 @@ export type VersionLicenseType = {|
 export type ExternalAddonVersionType = {|
   ...PartialExternalAddonVersionType,
   license: ExternalVersionLicenseType,
-  release_notes?: string,
+  release_notes?: LocalizedString,
 |};
 
 export type AddonVersionType = {
@@ -120,11 +129,13 @@ export type VersionsState = {
       loading: boolean,
     },
   },
+  lang: string,
 };
 
 export const initialState: VersionsState = {
   byId: {},
   bySlug: {},
+  lang: '',
 };
 
 export const defaultPlatformFiles: PlatformFilesType = Object.freeze({
@@ -157,6 +168,7 @@ export const createPlatformFiles = (
 
 export const createInternalVersion = (
   version: ExternalAddonVersionType,
+  lang: string,
 ): AddonVersionType => {
   return {
     compatibility: version.compatibility,
@@ -167,13 +179,13 @@ export const createInternalVersion = (
     license: version.license
       ? {
           isCustom: version.license.is_custom,
-          name: version.license.name,
-          text: version.license.text,
+          name: selectLocalizedContent(version.license.name, lang),
+          text: selectLocalizedContent(version.license.text, lang),
           url: version.license.url,
         }
       : null,
     platformFiles: createPlatformFiles(version),
-    releaseNotes: version.release_notes,
+    releaseNotes: selectLocalizedContent(version.release_notes, lang),
     version: version.version,
   };
 };
@@ -377,6 +389,11 @@ const reducer = (
   action: Action,
 ): VersionsState => {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
     case FETCH_VERSION:
     case FETCH_VERSIONS: {
       const { slug } = action.payload;
@@ -397,7 +414,7 @@ const reducer = (
 
       const newVersions = {};
       for (const version of versions) {
-        newVersions[version.id] = createInternalVersion(version);
+        newVersions[version.id] = createInternalVersion(version, state.lang);
       }
 
       return {
@@ -448,6 +465,8 @@ const reducer = (
         if (addonToUse.current_version) {
           const apiVersion = addonToUse.current_version;
 
+          const version = createInternalVersion(apiVersion, state.lang);
+
           // Do not overwrite licence and release_notes data with nulls, which
           // are omitted from some API responses.
           if (!apiVersion.license || !apiVersion.release_notes) {
@@ -456,14 +475,12 @@ const reducer = (
               state,
             });
             if (existingVersion) {
-              apiVersion.license =
-                apiVersion.license || existingVersion.license;
-              apiVersion.release_notes =
-                apiVersion.release_notes || existingVersion.releaseNotes;
+              version.license = version.license || existingVersion.license;
+              version.releaseNotes =
+                version.releaseNotes || existingVersion.releaseNotes;
             }
           }
 
-          const version = createInternalVersion(apiVersion);
           newVersions[version.id] = version;
         }
       }
@@ -486,7 +503,7 @@ const reducer = (
           for (const addon of shelves[shelf].results) {
             if (addon.current_version) {
               const currentVersion = addon.current_version;
-              let version = createInternalVersion(currentVersion);
+              let version = createInternalVersion(currentVersion, state.lang);
               // license and release_notes are omitted from the search endpoint results,
               // use them from an existing version if available.
               const { id } = currentVersion;
@@ -507,7 +524,10 @@ const reducer = (
       for (const collection of collections) {
         if (collection && collection.results) {
           for (const addon of collection.results) {
-            const version = createInternalVersion(addon.addon.current_version);
+            const version = createInternalVersion(
+              addon.addon.current_version,
+              state.lang,
+            );
             newVersions[version.id] = version;
           }
         }
@@ -529,7 +549,10 @@ const reducer = (
       for (const apiResponse of [recommended, highlyRated, trending]) {
         for (const addon of apiResponse.results) {
           if (addon.current_version) {
-            const version = createInternalVersion(addon.current_version);
+            const version = createInternalVersion(
+              addon.current_version,
+              state.lang,
+            );
             newVersions[version.id] = version;
           }
         }

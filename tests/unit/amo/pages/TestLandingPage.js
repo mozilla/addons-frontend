@@ -15,9 +15,11 @@ import {
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
+import { setLang } from 'core/reducers/api';
 import { visibleAddonType as getVisibleAddonType } from 'core/utils';
 import {
   createAddonsApiResult,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -53,6 +55,7 @@ describe(__filename, () => {
     errorHandler = createStubErrorHandler(),
     ...otherParams
   } = {}) => {
+    store.dispatch(setLang('en-US'));
     store.dispatch(
       getLanding({
         addonType,
@@ -63,13 +66,21 @@ describe(__filename, () => {
       loadLanding({
         addonType,
         recommended: createAddonsApiResult([
-          { ...fakeAddon, name: 'Featured', slug: 'recommended' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Featured'),
+            slug: 'recommended',
+          },
         ]),
         highlyRated: createAddonsApiResult([
-          { ...fakeAddon, name: 'High', slug: 'high' },
+          { ...fakeAddon, name: createLocalizedString('High'), slug: 'high' },
         ]),
         trending: createAddonsApiResult([
-          { ...fakeAddon, name: 'Trending', slug: 'trending' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Trending'),
+            slug: 'trending',
+          },
         ]),
         ...otherParams,
       }),
@@ -270,13 +281,21 @@ describe(__filename, () => {
       loadLanding({
         addonType: ADDON_TYPE_EXTENSION,
         recommended: createAddonsApiResult([
-          { ...fakeAddon, name: 'Featured', slug: 'recommended' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Featured'),
+            slug: 'recommended',
+          },
         ]),
         highlyRated: createAddonsApiResult([
-          { ...fakeAddon, name: 'High', slug: 'high' },
+          { ...fakeAddon, name: createLocalizedString('High'), slug: 'high' },
         ]),
         trending: createAddonsApiResult([
-          { ...fakeAddon, name: 'Trending', slug: 'trending' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Trending'),
+            slug: 'trending',
+          },
         ]),
       }),
     );
@@ -398,18 +417,38 @@ describe(__filename, () => {
       loadLanding({
         addonType: ADDON_TYPE_STATIC_THEME,
         recommended: createAddonsApiResult([
-          { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
-          { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
-          { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
-          { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+          { ...fakeAddon, name: createLocalizedString('Howdy'), slug: 'howdy' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Howdy again'),
+            slug: 'howdy-again',
+          },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Howdy 2'),
+            slug: 'howdy-2',
+          },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Howdy again 2'),
+            slug: 'howdy-again-2',
+          },
         ]),
         highlyRated: createAddonsApiResult([
-          { ...fakeAddon, name: 'High', slug: 'high' },
-          { ...fakeAddon, name: 'High again', slug: 'high-again' },
+          { ...fakeAddon, name: createLocalizedString('High'), slug: 'high' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('High again'),
+            slug: 'high-again',
+          },
         ]),
         trending: createAddonsApiResult([
-          { ...fakeAddon, name: 'Pop', slug: 'pop' },
-          { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+          { ...fakeAddon, name: createLocalizedString('Pop'), slug: 'pop' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Pop again'),
+            slug: 'pop-again',
+          },
         ]),
       }),
     );
@@ -561,13 +600,29 @@ describe(__filename, () => {
       loadLanding({
         addonType: ADDON_TYPE_STATIC_THEME,
         recommended: createAddonsApiResult([
-          { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
-          { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
-          { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Howdy again'),
+            slug: 'howdy-again',
+          },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Howdy 2'),
+            slug: 'howdy-2',
+          },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Howdy again 2'),
+            slug: 'howdy-again-2',
+          },
         ]),
         highlyRated: createAddonsApiResult([
-          { ...fakeAddon, name: 'High', slug: 'high' },
-          { ...fakeAddon, name: 'High again', slug: 'high-again' },
+          { ...fakeAddon, name: createLocalizedString('High'), slug: 'high' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('High again'),
+            slug: 'high-again',
+          },
         ]),
         trending: createAddonsApiResult([]),
       }),
@@ -587,12 +642,20 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_STATIC_THEME,
         recommended: createAddonsApiResult([]),
         highlyRated: createAddonsApiResult([
-          { ...fakeAddon, name: 'High', slug: 'high' },
-          { ...fakeAddon, name: 'High again', slug: 'high-again' },
+          { ...fakeAddon, name: createLocalizedString('High'), slug: 'high' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('High again'),
+            slug: 'high-again',
+          },
         ]),
         trending: createAddonsApiResult([
-          { ...fakeAddon, name: 'Pop', slug: 'pop' },
-          { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+          { ...fakeAddon, name: createLocalizedString('Pop'), slug: 'pop' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Pop again'),
+            slug: 'pop-again',
+          },
         ]),
       }),
     );
@@ -610,14 +673,30 @@ describe(__filename, () => {
       loadLanding({
         addonType: ADDON_TYPE_STATIC_THEME,
         recommended: createAddonsApiResult([
-          { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
-          { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
-          { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Howdy again'),
+            slug: 'howdy-again',
+          },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Howdy 2'),
+            slug: 'howdy-2',
+          },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Howdy again 2'),
+            slug: 'howdy-again-2',
+          },
         ]),
         highlyRated: createAddonsApiResult([]),
         trending: createAddonsApiResult([
-          { ...fakeAddon, name: 'Pop', slug: 'pop' },
-          { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+          { ...fakeAddon, name: createLocalizedString('Pop'), slug: 'pop' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Pop again'),
+            slug: 'pop-again',
+          },
         ]),
       }),
     );

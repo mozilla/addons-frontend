@@ -14,6 +14,7 @@ import type { InternalProps as SponsoredAddonsShelfProps } from 'amo/components/
 
 import Provider from '../setup/Provider';
 
+const lang = 'en-US';
 const render = (moreProps: $Shape<SponsoredAddonsShelfProps> = {}) => {
   const props = {
     resultsLoaded: true,
@@ -51,7 +52,7 @@ storiesOf('SponsoredAddonsShelf', module)
               render({
                 shelves: {
                   promotedExtensions: Array(3).fill(
-                    createInternalAddon(fakeAddon),
+                    createInternalAddon(fakeAddon, lang),
                   ),
                 },
               }),
@@ -62,7 +63,7 @@ storiesOf('SponsoredAddonsShelf', module)
               render({
                 shelves: {
                   promotedExtensions: Array(6).fill(
-                    createInternalAddon(fakeAddon),
+                    createInternalAddon(fakeAddon, lang),
                   ),
                 },
               }),

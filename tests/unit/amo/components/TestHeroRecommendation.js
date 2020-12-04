@@ -28,6 +28,7 @@ import {
   createFakeEvent,
   createFakeTracking,
   createHeroShelves,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -38,8 +39,10 @@ import {
 
 describe(__filename, () => {
   const createShelfData = (primaryProps = {}) => {
-    return createInternalHeroShelves(createHeroShelves({ primaryProps }))
-      .primary;
+    return createInternalHeroShelves(
+      createHeroShelves({ primaryProps }),
+      'en-US',
+    ).primary;
   };
 
   const render = (moreProps = {}) => {
@@ -57,12 +60,14 @@ describe(__filename, () => {
 
   describe('for an addon', () => {
     it('renders a heading', () => {
-      const addon = fakeAddon;
-      const shelfData = createShelfData({ addon });
+      const name = 'Addon name';
+      const shelfData = createShelfData({
+        addon: { ...fakeAddon, name: createLocalizedString(name) },
+      });
 
       const root = render({ shelfData });
 
-      expect(root.find('.HeroRecommendation-heading')).toHaveText(addon.name);
+      expect(root.find('.HeroRecommendation-heading')).toHaveText(name);
     });
 
     it('renders a link', () => {

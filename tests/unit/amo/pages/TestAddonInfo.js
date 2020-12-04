@@ -10,7 +10,6 @@ import AddonInfo, {
   extractId,
 } from 'amo/pages/AddonInfo';
 import {
-  createInternalAddon,
   fetchAddon,
   fetchAddonInfo,
   loadAddonInfo,
@@ -24,10 +23,12 @@ import {
 import {
   createCapturedErrorHandler,
   createFakeLocation,
+  createInternalAddonWithLang,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
-  fakeAddonInfo,
+  createFakeAddonInfo,
   fakeI18n,
   fakeVersion,
   shallowUntilTarget,
@@ -73,7 +74,7 @@ describe(__filename, () => {
   };
 
   const _loadAddonInfo = ({
-    addonInfo = fakeAddonInfo,
+    addonInfo = createFakeAddonInfo(),
     slug = fakeAddon.slug,
   }) => {
     store.dispatch(loadAddonInfo({ info: addonInfo, slug }));
@@ -242,26 +243,6 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches an addonVersion when no version is loaded', () => {
-      const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug };
-      _loadAddon(addon);
-      const errorHandler = createStubErrorHandler();
-
-      const dispatch = sinon.stub(store, 'dispatch');
-
-      renderLicenseType({ errorHandler, slug });
-
-      sinon.assert.calledWith(
-        dispatch,
-        fetchVersion({
-          errorHandlerId: errorHandler.id,
-          slug,
-          versionId: addon.current_version.id,
-        }),
-      );
-    });
-
     it('does not fetch an addonVersion when there is no addon', () => {
       const dispatch = sinon.stub(store, 'dispatch');
 
@@ -326,7 +307,10 @@ describe(__filename, () => {
         versions: [
           {
             ...fakeVersion,
-            license: { ...fakeVersion.license, text: 'some text' },
+            license: {
+              ...fakeVersion.license,
+              text: createLocalizedString('some text'),
+            },
           },
         ],
       });
@@ -464,16 +448,14 @@ describe(__filename, () => {
   });
 
   it('renders an AddonSummaryCard with an addon', () => {
-    const addon = fakeAddon;
+    const name = 'My addon';
+    const addon = { ...fakeAddon, name: createLocalizedString(name) };
     _loadAddon(addon);
     const root = render({ infoType: ADDON_INFO_TYPE_PRIVACY_POLICY });
 
     const summary = root.find(AddonSummaryCard);
-    expect(summary).toHaveProp('addon', createInternalAddon(addon));
-    expect(summary).toHaveProp(
-      'headerText',
-      `Privacy policy for ${addon.name}`,
-    );
+    expect(summary).toHaveProp('addon', createInternalAddonWithLang(addon));
+    expect(summary).toHaveProp('headerText', `Privacy policy for ${name}`);
   });
 
   it('renders an AddonSummaryCard without an addon', () => {
@@ -485,8 +467,9 @@ describe(__filename, () => {
   });
 
   it('renders an HTML title', () => {
+    const name = 'My addon';
     const slug = 'some-slug';
-    const addon = { ...fakeAddon, slug };
+    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
 
     _loadAddon(addon);
 
@@ -495,7 +478,7 @@ describe(__filename, () => {
       params: { slug },
     });
 
-    expect(root.find('title')).toHaveText(`Privacy policy for ${addon.name}`);
+    expect(root.find('title')).toHaveText(`Privacy policy for ${name}`);
   });
 
   it('does not render an HTML title when there is no add-on', () => {
@@ -522,10 +505,11 @@ describe(__filename, () => {
   });
 
   it('renders a privacy policy page', () => {
+    const name = 'My addon';
     const slug = 'some-slug';
+    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
     const privacyPolicy = 'This is the privacy policy text';
-    const addon = { ...fakeAddon, slug };
-    const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
+    const addonInfo = createFakeAddonInfo({ privacyPolicy });
 
     _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });
@@ -537,16 +521,17 @@ describe(__filename, () => {
 
     expect(root.find('.AddonInfo-info')).toHaveProp(
       'header',
-      `Privacy policy for ${addon.name}`,
+      `Privacy policy for ${name}`,
     );
     expect(root.find('.AddonInfo-info-html').html()).toContain(privacyPolicy);
   });
 
   it('renders a EULA page', () => {
+    const name = 'My addon';
     const slug = 'some-slug';
+    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
     const eula = 'This is the eula text';
-    const addon = { ...fakeAddon, slug };
-    const addonInfo = { ...fakeAddonInfo, eula };
+    const addonInfo = createFakeAddonInfo({ eula });
 
     _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });
@@ -558,18 +543,22 @@ describe(__filename, () => {
 
     expect(root.find('.AddonInfo-info')).toHaveProp(
       'header',
-      `End-User License Agreement for ${addon.name}`,
+      `End-User License Agreement for ${name}`,
     );
     expect(root.find('.AddonInfo-info-html').html()).toContain(eula);
   });
 
   it('renders a License page', () => {
-    const slug = 'some-slug';
     const licenseText = 'This is the license text';
-    const addon = { ...fakeAddon, slug };
+    const name = 'My addon';
+    const slug = 'some-slug';
+    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
     const addonVersion = {
       ...fakeVersion,
-      license: { ...fakeVersion.license, text: licenseText },
+      license: {
+        ...fakeVersion.license,
+        text: createLocalizedString(licenseText),
+      },
     };
 
     _loadAddon(addon);
@@ -582,7 +571,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonInfo-info')).toHaveProp(
       'header',
-      `Custom License for ${addon.name}`,
+      `Custom License for ${name}`,
     );
     expect(root.find('.AddonInfo-info-html').html()).toContain(licenseText);
   });
@@ -591,7 +580,7 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const privacyPolicy = '<script>alert(document.cookie);</script>';
     const addon = { ...fakeAddon, slug };
-    const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
+    const addonInfo = createFakeAddonInfo({ privacyPolicy });
 
     _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });
@@ -608,7 +597,7 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const privacyPolicy = 'This is the privacy\npolicy';
     const addon = { ...fakeAddon, slug };
-    const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
+    const addonInfo = createFakeAddonInfo({ privacyPolicy });
 
     _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });
@@ -627,7 +616,7 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const privacyPolicy = '<b>lots</b> <i>of</i> <a href="#">bug fixes</a>';
     const addon = { ...fakeAddon, slug };
-    const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
+    const addonInfo = createFakeAddonInfo({ privacyPolicy });
 
     _loadAddon(addon);
     _loadAddonInfo({ addonInfo, slug });

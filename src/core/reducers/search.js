@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
+import { SET_LANG } from 'core/reducers/api';
 import type { SearchFilters } from 'core/api/search';
 import type {
   AddonType,
@@ -15,6 +16,7 @@ export const SEARCH_LOADED: 'SEARCH_LOADED' = 'SEARCH_LOADED';
 const SEARCH_ABORTED: 'SEARCH_ABORTED' = 'SEARCH_ABORTED';
 
 export type SearchState = {|
+  lang: string,
   count: number,
   filters: SearchFilters | null,
   loading: boolean,
@@ -23,6 +25,7 @@ export type SearchState = {|
 |};
 
 export const initialState: SearchState = {
+  lang: '',
   count: 0,
   filters: null,
   loading: false,
@@ -92,6 +95,12 @@ export default function search(
   action: Action,
 ): SearchState {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
+
     case SEARCH_STARTED: {
       const { payload } = action;
 
@@ -111,7 +120,9 @@ export default function search(
         count: payload.count,
         loading: false,
         pageSize: payload.pageSize,
-        results: payload.results.map((addon) => createInternalAddon(addon)),
+        results: payload.results.map((addon) =>
+          createInternalAddon(addon, state.lang),
+        ),
       };
     }
     case SEARCH_ABORTED:

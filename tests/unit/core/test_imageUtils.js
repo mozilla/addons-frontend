@@ -1,8 +1,11 @@
 import config from 'config';
 
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
-import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakePreview } from 'tests/unit/helpers';
+import {
+  createInternalAddonWithLang,
+  fakeAddon,
+  fakePreview,
+} from 'tests/unit/helpers';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 
 describe(__filename, () => {
@@ -29,7 +32,7 @@ describe(__filename, () => {
   describe('getPreviewImage', () => {
     it('returns the first full image from the previews array', () => {
       const fullImage = `${config.get('amoCDN')}/full/12345.png`;
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         previews: [
           {
             ...fakePreview,
@@ -46,7 +49,7 @@ describe(__filename, () => {
     });
 
     it('returns null if the previews array is empty', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         previews: [],
       });
 
@@ -55,7 +58,7 @@ describe(__filename, () => {
     });
 
     it('returns null if the isAllowedOrigin returns false', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         previews: [
           {
             ...fakePreview,
@@ -70,7 +73,7 @@ describe(__filename, () => {
 
     it('uses the standard preview size (720) when useStandardSize is true', () => {
       const image720 = `${config.get('amoCDN')}/full/12345.png`;
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         previews: [
           {
             ...fakePreview,
@@ -94,7 +97,7 @@ describe(__filename, () => {
 
     it('uses the first preview image when useStandardSize is false', () => {
       const image300 = `${config.get('amoCDN')}/full/12345.png`;
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         previews: [
           {
             ...fakePreview,
@@ -118,7 +121,7 @@ describe(__filename, () => {
 
     it('returns the thumb image from the previews array when full and useStandardSize are false', () => {
       const thumbImage = `${config.get('amoCDN')}/full/12345.png`;
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         previews: [
           {
             ...fakePreview,
@@ -136,7 +139,7 @@ describe(__filename, () => {
 
     it('uses the first preview image when useStandardSize is true but the 720 size is not present', () => {
       const image300 = `${config.get('amoCDN')}/full/12345.png`;
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         previews: [
           {
             ...fakePreview,
@@ -155,7 +158,7 @@ describe(__filename, () => {
     });
 
     it('throws an error if useStandardSize is true and full is false', () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
 
       expect(() => {
         getPreviewImage(addon, { full: false, useStandardSize: true });

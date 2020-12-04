@@ -6,10 +6,10 @@ import EditableCollectionAddon, {
 } from 'amo/components/EditableCollectionAddon';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   applyUIStateChanges,
   createFakeEvent,
+  createInternalAddonWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -24,7 +24,7 @@ import Icon from 'ui/components/Icon';
 describe(__filename, () => {
   function render(props = {}) {
     const addon = props.addon || {
-      ...createInternalAddon(fakeAddon),
+      ...createInternalAddonWithLang(fakeAddon),
       notes: props.notes || null,
     };
 
@@ -60,7 +60,7 @@ describe(__filename, () => {
   });
 
   it('renders a class name with its type', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
     });
@@ -71,7 +71,7 @@ describe(__filename, () => {
   });
 
   it("renders the add-on's icon", () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = render({ addon });
     expect(root.find('.EditableCollectionAddon-icon')).toHaveProp(
       'src',
@@ -80,7 +80,7 @@ describe(__filename, () => {
   });
 
   it('renders the fallback icon if the origin is not allowed', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       icon_url: 'http://foo.com/hax.png',
     });
@@ -92,7 +92,7 @@ describe(__filename, () => {
   });
 
   it('renders the leave a note button icon', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = render({ addon });
     const button = root.find('.EditableCollectionAddon-leaveNote-button');
     expect(button).toHaveProp('buttonType', 'action');
@@ -116,7 +116,7 @@ describe(__filename, () => {
   });
 
   it('renders the remove button', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = render({ addon });
     const button = root.find('.EditableCollectionAddon-remove-button');
     expect(button).toHaveProp('buttonType', 'alert');
@@ -127,7 +127,7 @@ describe(__filename, () => {
   });
 
   it('calls the removeAddon function when the remove button is clicked', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const removeAddon = sinon.spy();
     const root = render({ addon, removeAddon });
 
