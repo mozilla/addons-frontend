@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-11-28 16:23+0000\n"
+"PO-Revision-Date: 2020-12-04 23:38+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -793,13 +793,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Desculpe, mas ocorreu um erro com o nosso servidor e não conseguimos completar o seu pedido. Registámos este erro e vamos investigá-lo."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Tente visitar a página mais tarde, pois o tema ou a extensão pode ficar disponível novamente. Como alternativa, pode encontrar o que procura numa das %(extensionStart)sextensões%(extensionEnd)s ou "
-"%(themeStart)stemas%(themeEnd)s disponíveis, ou solicitando ajuda nos nossos %(communityStart)sfóruns da comunidade%(communityEnd)s."
+"Pode conseguir encontrar o que procura numa das %(extensionStart)sextensões%(extensionEnd)s ou %(themeStart)stemas%(themeEnd)s disponíveis, ou solicitando ajuda nos nossos %(communityStart)sfóruns "
+"da comunidade%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
