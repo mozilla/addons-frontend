@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-12-05 16:16+0000\n"
+"PO-Revision-Date: 2020-12-05 16:17+0000\n"
 "Last-Translator: julen <julenx@gmail.com>\n"
 "Language-Team: none\n"
 "Language: eu\n"
@@ -49,7 +49,7 @@ msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:108
 msgid "Review theme"
-msgstr ""
+msgstr "Baloratu itxura"
 
 #: src/amo/components/AddonAdminLinks/index.js:110
 msgid "Review add-on code"
@@ -400,19 +400,19 @@ msgstr "Balorazioa bidaltzen"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Update review"
-msgstr ""
+msgstr "Eguneratu balorazioa"
 
 #: src/amo/components/AddonReviewManager/index.js:123
 msgid "Updating review"
-msgstr ""
+msgstr "Balorazioa eguneratzen"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
-msgstr ""
+msgstr "Gordetzen"
 
 #: src/amo/components/AddonReviewManager/index.js:145
 msgid "Saved"
-msgstr ""
+msgstr "Gordeta"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
