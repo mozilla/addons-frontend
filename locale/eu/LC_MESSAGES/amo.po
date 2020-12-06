@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-11-17 18:27+0000\n"
-"PO-Revision-Date: 2020-12-05 16:17+0000\n"
+"PO-Revision-Date: 2020-12-06 08:31+0000\n"
 "Last-Translator: julen <julenx@gmail.com>\n"
 "Language-Team: none\n"
 "Language: eu\n"
@@ -32,7 +32,7 @@ msgstr "Sortu bilduma berria"
 
 #: src/amo/components/AddAddonToCollection/index.js:242
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "%(collectionName)s bildumara gehituta"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:258
