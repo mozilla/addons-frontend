@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-17 18:27+0000\n"
+"POT-Creation-Date: 2020-12-08 17:10+0000\n"
 "PO-Revision-Date: 2018-07-02 12:25+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -981,12 +981,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Označeno kao bug prijava ili zahtjev za podršku"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Oznaka"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Označeno"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Oznaka"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1177,26 +1177,26 @@ msgstr "Uredi profil"
 msgid "Tools"
 msgstr "Alati"
 
-#: src/amo/components/HeroRecommendation/index.js:162
+#: src/amo/components/HeroRecommendation/index.js:167
 #, fuzzy
 msgid "Get the extension"
 msgstr "Istaknute ekstenzije"
 
 # If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:201
+#: src/amo/components/HeroRecommendation/index.js:206
 msgid "SPONSORED"
 msgstr ""
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:212
+#: src/amo/components/HeroRecommendation/index.js:217
 msgid "RECOMMENDED"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:216
+#: src/amo/components/HeroRecommendation/index.js:221
 msgid "BY FIREFOX"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:237
 #: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
@@ -1499,13 +1499,13 @@ msgstr ""
 msgid "Search results"
 msgstr "Pretraži rezultate"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:298
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
 #: src/amo/pages/LandingPage/index.js:124
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Istaknute ekstenzije"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:374
 #: src/amo/pages/LandingPage/index.js:156
 #, fuzzy
 msgid "Recommended themes"
@@ -1561,7 +1561,7 @@ msgstr "Istaknute teme"
 msgid "Verified add-ons"
 msgstr "Istaknuti dodaci"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:387
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Popularne ekstenzije"
@@ -1589,11 +1589,11 @@ msgstr "Najbolje ocjenjene teme"
 msgid "Top rated add-ons"
 msgstr "Najbolje ocijenjeni dodaci"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:347
 msgid "Popular extensions"
 msgstr "Popularne ekstenzije"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:328
 msgid "Popular themes"
 msgstr "Popularne teme"
 
@@ -1691,97 +1691,97 @@ msgstr[0] "%(count)s tema pronađena za\"%(query)s\""
 msgstr[1] "%(count)s teme pronađene za\"%(query)s\""
 msgstr[2] "%(count)s tema pronađeno za\"%(query)s\""
 
-#: src/amo/components/SearchFilters/index.js:126
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:143
 msgid "All"
 msgstr "Sve"
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:128
 msgid "Extension"
 msgstr "Ekstenzija"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:132
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:144
 msgid "Windows"
 msgstr "Prozor"
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:145
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:154
 msgid "Relevance"
 msgstr "Značaj"
 
-#: src/amo/components/SearchFilters/index.js:155
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Recently Updated"
 msgstr "Nedavno ažurirano"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:159
 msgid "Most Users"
 msgstr "Većina korisnika"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Top Rated"
 msgstr "Najbolje ocjenjeno"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Trending"
 msgstr "Popularno"
 
-#: src/amo/components/SearchFilters/index.js:168
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:170
 #: src/ui/components/IconPromotedBadge/index.js:47
 #: src/ui/components/PromotedBadge/index.js:48
 #, fuzzy
 msgid "Recommended"
 msgstr "Korisnik od"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:172
 #: src/ui/components/IconPromotedBadge/index.js:46
 #: src/ui/components/PromotedBadge/index.js:41
 #, fuzzy
 msgid "By Firefox"
 msgstr "za Firefox"
 
-#: src/amo/components/SearchFilters/index.js:175
+#: src/amo/components/SearchFilters/index.js:176
 #: src/ui/components/IconPromotedBadge/index.js:48
 #: src/ui/components/PromotedBadge/index.js:56
 msgid "Verified"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:180
 #, fuzzy
 msgid "All Reviewed"
 msgstr "Pregled"
 
-#: src/amo/components/SearchFilters/index.js:199
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Filter results"
 msgstr "Rezultati filtera"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Sort by"
 msgstr "Sortiraj po"
 
-#: src/amo/components/SearchFilters/index.js:226
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Add-on Type"
 msgstr "Vrsta dodatka"
 
-#: src/amo/components/SearchFilters/index.js:246
+#: src/amo/components/SearchFilters/index.js:247
 msgid "Operating System"
 msgstr "Operativni sistem"
 
-#: src/amo/components/SearchFilters/index.js:264
+#: src/amo/components/SearchFilters/index.js:268
 msgid "Badging"
 msgstr ""
 
@@ -1937,128 +1937,128 @@ msgid ""
 "\"%(newLocation)s\">add-ons for Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:161 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Pregled %(title)s"
 
-#: src/amo/pages/Addon/index.js:199
+#: src/amo/pages/Addon/index.js:196
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Ovaj dodatak ne može biti ocijenjen jer nema objavljene verzije."
 
-#: src/amo/pages/Addon/index.js:210
+#: src/amo/pages/Addon/index.js:207
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Pročitaj %(count)s pregled"
 msgstr[1] "Pročitaj %(count)s pregleda"
 msgstr[2] "Pročitaj %(count)s pregleda"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:228
 msgid "No reviews yet"
 msgstr "Nema recenzija"
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:238
 msgid "Rate your experience"
 msgstr "Ocijenite vaše iskustvo"
 
-#: src/amo/pages/Addon/index.js:260
+#: src/amo/pages/Addon/index.js:257
 msgid "About this dictionary"
 msgstr "O ovom rječniku"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:260
 msgid "About this extension"
 msgstr "O ovoj ekstenziji"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:263
 msgid "About this language pack"
 msgstr "O ovom paketu jezika"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:266
 msgid "About this theme"
 msgstr "O ovoj temi"
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:269
 msgid "About this add-on"
 msgstr "O ovom dodatku"
 
-#: src/amo/pages/Addon/index.js:314
+#: src/amo/pages/Addon/index.js:311
 #, fuzzy
 msgid "Developer comments"
 msgstr "Odgovor developera"
 
-#: src/amo/pages/Addon/index.js:337
+#: src/amo/pages/Addon/index.js:334
 msgid "Release notes for %(addonVersion)s"
 msgstr "Bilješke o izdanju za %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:472
+#: src/amo/pages/Addon/index.js:453
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:499
+#: src/amo/pages/Addon/index.js:480
 msgid "Extension Metadata"
 msgstr "Metapodaci za ekstenzije"
 
-#: src/amo/pages/Addon/index.js:523
+#: src/amo/pages/Addon/index.js:504
 msgid "Screenshots"
 msgstr "Screenshots"
 
-#: src/amo/pages/AddonInfo/index.js:174
+#: src/amo/pages/AddonInfo/index.js:154
 #, fuzzy
 msgid "Custom License for %(addonName)s"
 msgstr "Recenzije za %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:181
+#: src/amo/pages/AddonInfo/index.js:161
 #, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "Ugovor o korištenju za krajnjeg korisnika"
 
-#: src/amo/pages/AddonInfo/index.js:185
+#: src/amo/pages/AddonInfo/index.js:165
 #, fuzzy
 msgid "Privacy policy for %(addonName)s"
 msgstr "Recenzije za %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:199
+#: src/amo/pages/AddonReviewList/index.js:197
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:230
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Pregledi"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:232
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "Pročitaj %(count)s pregled"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:233
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "Pročitaj %(count)s pregled"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:235
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "Pročitaj %(count)s pregled"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:237
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Odgovori na ovu recenziju"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:238
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "Pročitaj %(count)s pregled"
 
-#: src/amo/pages/AddonReviewList/index.js:284
+#: src/amo/pages/AddonReviewList/index.js:259
 msgid "Reviews for %(addonName)s"
 msgstr "Recenzije za %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:294
+#: src/amo/pages/AddonReviewList/index.js:269
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
@@ -2066,34 +2066,34 @@ msgstr[0] "%(total)s korisnik"
 msgstr[1] "%(total)s korisnika"
 msgstr[2] "%(total)s korisnika"
 
-#: src/amo/pages/AddonReviewList/index.js:393
+#: src/amo/pages/AddonReviewList/index.js:368
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Još nema nikakvih ocjena"
 
-#: src/amo/pages/AddonVersions/index.js:129
+#: src/amo/pages/AddonVersions/index.js:127
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:161
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:186
+#: src/amo/pages/AddonVersions/index.js:166
 msgid "You should always use the latest version of an add-on."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:195
+#: src/amo/pages/AddonVersions/index.js:175
 #, fuzzy
 msgid "Latest version"
 msgstr "Pogledaj sve beta verzije"
 
-#: src/amo/pages/AddonVersions/index.js:204
+#: src/amo/pages/AddonVersions/index.js:184
 #, fuzzy
 msgid "Older versions"
 msgstr "Pogledaj sve verzije"
@@ -2234,81 +2234,81 @@ msgstr "Prijavite se da napravite kolekciju"
 msgid "My collections"
 msgstr "Prikaži moje kolekcije"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:149
 msgid "Abstract"
 msgstr "Apstraktno"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:154
 msgid "Nature"
 msgstr "Priroda"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:159
 msgid "Film & TV"
 msgstr "Film i TV"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:164
 msgid "Scenery"
 msgstr "Scenografija"
 
-#: src/amo/pages/Home/index.js:163
+#: src/amo/pages/Home/index.js:169
 msgid "Music"
 msgstr "Muzika"
 
-#: src/amo/pages/Home/index.js:168
+#: src/amo/pages/Home/index.js:174
 msgid "Seasonal"
 msgstr "Sezonski"
 
-#: src/amo/pages/Home/index.js:223
+#: src/amo/pages/Home/index.js:227
 msgid "Change the way Firefox looks with themes."
 msgstr "Promijenite izgled Firefoxa sa temama."
 
-#: src/amo/pages/Home/index.js:254
+#: src/amo/pages/Home/index.js:258
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Vidi više popularnih ekstenzija"
 
-#: src/amo/pages/Home/index.js:318
+#: src/amo/pages/Home/index.js:329
 #, fuzzy
 msgid "See more popular themes"
 msgstr "Vidi više popularnih proširenja"
 
-#: src/amo/pages/Home/index.js:337
+#: src/amo/pages/Home/index.js:348
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "Vidi više najbolje ocjenjenih ekstenzija"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:365 src/amo/pages/LandingPage/index.js:165
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "Vidi više popularnih tema"
 
-#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:388 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Vidi više popularnih ekstenzija"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:65
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "Vidi više istaknutih ekstenzija"
 
-#: src/amo/pages/Home/index.js:62
+#: src/amo/pages/Home/index.js:66
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "Najbolje ekstenzije privatnosti"
 
-#: src/amo/pages/Home/index.js:67
+#: src/amo/pages/Home/index.js:71
 #, fuzzy
 msgid "See more recommended password managers"
 msgstr "Vidi više popularnih tema"
 
-#: src/amo/pages/Home/index.js:68
+#: src/amo/pages/Home/index.js:72
 #, fuzzy
 msgid "Recommended password managers"
 msgstr "Upravitelj lozinke"

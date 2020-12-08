@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-17 18:27+0000\n"
+"POT-Creation-Date: 2020-12-08 17:10+0000\n"
 "PO-Revision-Date: 2020-07-14 06:20+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
@@ -934,12 +934,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "وُضع عليها إشارة بأنها تبليغ عن علّة أو طلب دعم"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "ضع عليها إشارة"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "وُضع عليها إشارة"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "ضع عليها إشارة"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1120,25 +1120,25 @@ msgstr "حرِّر ملفي الشخصي"
 msgid "Tools"
 msgstr "أدوات"
 
-#: src/amo/components/HeroRecommendation/index.js:162
+#: src/amo/components/HeroRecommendation/index.js:167
 msgid "Get the extension"
 msgstr "احصل على الامتداد"
 
 # If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:201
+#: src/amo/components/HeroRecommendation/index.js:206
 msgid "SPONSORED"
 msgstr ""
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:212
+#: src/amo/components/HeroRecommendation/index.js:217
 msgid "RECOMMENDED"
 msgstr "مُقترحة"
 
-#: src/amo/components/HeroRecommendation/index.js:216
+#: src/amo/components/HeroRecommendation/index.js:221
 msgid "BY FIREFOX"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:237
 #: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
@@ -1431,12 +1431,12 @@ msgstr ""
 msgid "Search results"
 msgstr "نتائج البحث"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:298
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "الامتدادات المُقترحة"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:374
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "السمات المُقترحة"
@@ -1490,7 +1490,7 @@ msgstr "السمات المُختارة"
 msgid "Verified add-ons"
 msgstr "إضافات مُختارة"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:387
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "الامتدادات المُتداولة"
@@ -1518,11 +1518,11 @@ msgstr "السمات الأعلى تقييما"
 msgid "Top rated add-ons"
 msgstr "أعلى الإضافات تقييما"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:347
 msgid "Popular extensions"
 msgstr "امتدادات شائعة"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:328
 msgid "Popular themes"
 msgstr "سمات شائعة"
 
@@ -1651,96 +1651,96 @@ msgstr[4] ""
 msgstr[5] ""
 "عُثر على %(count)s سمة عند البحث عن \"%(query)s\" في %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:126
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:143
 msgid "All"
 msgstr "الكل"
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:128
 msgid "Extension"
 msgstr "الامتدادات"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:132
 msgid "Theme"
 msgstr "السمات"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:144
 msgid "Windows"
 msgstr "وِندوز"
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:145
 msgid "macOS"
 msgstr "ماك أو إس"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Linux"
 msgstr "لينكس"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:154
 msgid "Relevance"
 msgstr "الصِلة"
 
-#: src/amo/components/SearchFilters/index.js:155
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Recently Updated"
 msgstr "المُحدّثة مؤخرا"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:159
 msgid "Most Users"
 msgstr "عدد المستخدمين"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Top Rated"
 msgstr "التقييم"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Trending"
 msgstr "المُتداول"
 
-#: src/amo/components/SearchFilters/index.js:168
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:170
 #: src/ui/components/IconPromotedBadge/index.js:47
 #: src/ui/components/PromotedBadge/index.js:48
 msgid "Recommended"
 msgstr "مُقترحة"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:172
 #: src/ui/components/IconPromotedBadge/index.js:46
 #: src/ui/components/PromotedBadge/index.js:41
 #, fuzzy
 msgid "By Firefox"
 msgstr "لفيرفكس"
 
-#: src/amo/components/SearchFilters/index.js:175
+#: src/amo/components/SearchFilters/index.js:176
 #: src/ui/components/IconPromotedBadge/index.js:48
 #: src/ui/components/PromotedBadge/index.js:56
 msgid "Verified"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:180
 #, fuzzy
 msgid "All Reviewed"
 msgstr "لا مراجعات"
 
-#: src/amo/components/SearchFilters/index.js:199
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Filter results"
 msgstr "تصفية النتائج"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Sort by"
 msgstr "رتّب حسب"
 
-#: src/amo/components/SearchFilters/index.js:226
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Add-on Type"
 msgstr "نوع الإضافة"
 
-#: src/amo/components/SearchFilters/index.js:246
+#: src/amo/components/SearchFilters/index.js:247
 msgid "Operating System"
 msgstr "نظام التشغيل"
 
-#: src/amo/components/SearchFilters/index.js:264
+#: src/amo/components/SearchFilters/index.js:268
 msgid "Badging"
 msgstr ""
 
@@ -1899,15 +1899,15 @@ msgstr ""
 "فيرفكس لسطح المكتب. تعرف على مزيد من المعلومات حول <a href=\"%(newLocation)s"
 "\">الوظائف الإضافية لنظام أندرويد</a>."
 
-#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:161 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "معاينة لسمة ”⁨%(title)s⁩“"
 
-#: src/amo/pages/Addon/index.js:199
+#: src/amo/pages/Addon/index.js:196
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "لا يمكن تقييم هذه الإضافة إذ لم تُنشر أية إصدارات منها."
 
-#: src/amo/pages/Addon/index.js:210
+#: src/amo/pages/Addon/index.js:207
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "لا شيء لقراءته"
@@ -1917,69 +1917,69 @@ msgstr[3] "اقرأ كل المراجعات ال‍ %(count)s"
 msgstr[4] "اقرأ كل المراجعات ال‍ %(count)s"
 msgstr[5] "اقرأ كل المراجعات ال‍ %(count)s"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:228
 msgid "No reviews yet"
 msgstr "لا مراجعات بعد"
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:238
 msgid "Rate your experience"
 msgstr "قيّم تجربتك"
 
-#: src/amo/pages/Addon/index.js:260
+#: src/amo/pages/Addon/index.js:257
 msgid "About this dictionary"
 msgstr "عن القاموس هذا"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:260
 msgid "About this extension"
 msgstr "عن الامتداد هذا"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:263
 msgid "About this language pack"
 msgstr "عن حزمة اللغة هذه"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:266
 msgid "About this theme"
 msgstr "عن السمة هذه"
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:269
 msgid "About this add-on"
 msgstr "عن الإضافة هذه"
 
-#: src/amo/pages/Addon/index.js:314
+#: src/amo/pages/Addon/index.js:311
 msgid "Developer comments"
 msgstr "تعليقات المطوّر"
 
-#: src/amo/pages/Addon/index.js:337
+#: src/amo/pages/Addon/index.js:334
 msgid "Release notes for %(addonVersion)s"
 msgstr "ملاحظات إصدار %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:472
+#: src/amo/pages/Addon/index.js:453
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:499
+#: src/amo/pages/Addon/index.js:480
 msgid "Extension Metadata"
 msgstr "بيانات الامتداد الوصفية"
 
-#: src/amo/pages/Addon/index.js:523
+#: src/amo/pages/Addon/index.js:504
 msgid "Screenshots"
 msgstr "لقطات الشاشة"
 
-#: src/amo/pages/AddonInfo/index.js:174
+#: src/amo/pages/AddonInfo/index.js:154
 msgid "Custom License for %(addonName)s"
 msgstr "ترخيص مخصص لـ %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:181
+#: src/amo/pages/AddonInfo/index.js:161
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "اتفاقية ترخيص المستخدم النهائي لـ %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:185
+#: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
 msgstr "سياسة الخصوصية لـ %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:199
+#: src/amo/pages/AddonReviewList/index.js:197
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1987,35 +1987,35 @@ msgstr ""
 "مراجعات وتقييمات %(addonName)s. تعرف على رأي المستخدمين الآخرين حول "
 "%(addonName)s وأضفه إلى متصفح فيرفكس."
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show all reviews"
 msgstr "عرض جميع المراجعات"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show only five-star reviews"
 msgstr "عرض مراجعات الخمس نجوم فقط"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only four-star reviews"
 msgstr "عرض مراجعات الأربع نجوم فقط"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only three-star reviews"
 msgstr "عرض مراجعات الثلاث نجوم فقط"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only two-star reviews"
 msgstr "عرض مراجعات النجمتين فقط"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only one-star reviews"
 msgstr "عرض مراجعات النجمة الواحدة فقط"
 
-#: src/amo/pages/AddonReviewList/index.js:284
+#: src/amo/pages/AddonReviewList/index.js:259
 msgid "Reviews for %(addonName)s"
 msgstr "مراجعات %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:294
+#: src/amo/pages/AddonReviewList/index.js:269
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "لا مراجعات"
@@ -2025,11 +2025,11 @@ msgstr[3] "%(total)s مراجعات"
 msgstr[4] "%(total)s مراجعة"
 msgstr[5] "%(total)s مراجعة"
 
-#: src/amo/pages/AddonReviewList/index.js:393
+#: src/amo/pages/AddonReviewList/index.js:368
 msgid "There are no reviews"
 msgstr "لا توجد مراجعات بعد"
 
-#: src/amo/pages/AddonVersions/index.js:129
+#: src/amo/pages/AddonVersions/index.js:127
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] ""
@@ -2039,21 +2039,21 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:161
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:186
+#: src/amo/pages/AddonVersions/index.js:166
 msgid "You should always use the latest version of an add-on."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:195
+#: src/amo/pages/AddonVersions/index.js:175
 msgid "Latest version"
 msgstr "احدث إصدار"
 
-#: src/amo/pages/AddonVersions/index.js:204
+#: src/amo/pages/AddonVersions/index.js:184
 msgid "Older versions"
 msgstr "إصدارات أقدم"
 
@@ -2182,74 +2182,74 @@ msgstr "ليس لديك مجموعات."
 msgid "My collections"
 msgstr "مجموعاتي"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:149
 msgid "Abstract"
 msgstr "مجرّدات"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:154
 msgid "Nature"
 msgstr "الطبيعة"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:159
 msgid "Film & TV"
 msgstr "الأفلام والتلفاز"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:164
 msgid "Scenery"
 msgstr "المناظر الطبيعية"
 
-#: src/amo/pages/Home/index.js:163
+#: src/amo/pages/Home/index.js:169
 msgid "Music"
 msgstr "الموسيقى"
 
-#: src/amo/pages/Home/index.js:168
+#: src/amo/pages/Home/index.js:174
 msgid "Seasonal"
 msgstr "موسميّات"
 
-#: src/amo/pages/Home/index.js:223
+#: src/amo/pages/Home/index.js:227
 msgid "Change the way Firefox looks with themes."
 msgstr "غيّر شكل فَيَرفُكس باستخدام السِمات."
 
-#: src/amo/pages/Home/index.js:254
+#: src/amo/pages/Home/index.js:258
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "شاهد المزيد من السمات المُقترحة"
 
-#: src/amo/pages/Home/index.js:318
+#: src/amo/pages/Home/index.js:329
 msgid "See more popular themes"
 msgstr "شاهد المزيد من السمات الشائعة"
 
-#: src/amo/pages/Home/index.js:337
+#: src/amo/pages/Home/index.js:348
 msgid "See more popular extensions"
 msgstr "طالع المزيد من الامتدادات الشائعة"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:365 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "شاهد المزيد من السمات المُقترحة"
 
-#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:388 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "طالع المزيد من الامتدادات المُتداولة"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:65
 msgid "See more enhanced privacy extensions"
 msgstr "شاهد المزيد من امتدادات تحسين الخصوصية"
 
-#: src/amo/pages/Home/index.js:62
+#: src/amo/pages/Home/index.js:66
 msgid "Enhanced privacy extensions"
 msgstr "امتدادات تحسين الخصوصية"
 
-#: src/amo/pages/Home/index.js:67
+#: src/amo/pages/Home/index.js:71
 msgid "See more recommended password managers"
 msgstr "شاهد المزيد من مديري كلمات السر المُقترحة"
 
-#: src/amo/pages/Home/index.js:68
+#: src/amo/pages/Home/index.js:72
 msgid "Recommended password managers"
 msgstr "مديري كلمات السر المُقترحة"
 

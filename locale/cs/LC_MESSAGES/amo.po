@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-17 18:27+0000\n"
+"POT-Creation-Date: 2020-12-08 17:10+0000\n"
 "PO-Revision-Date: 2020-11-17 09:41+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
@@ -947,12 +947,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Označeno jako hlášení chyby nebo žádost o podporu"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Nahlásit"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Nahlášeno"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Nahlásit"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1133,25 +1133,25 @@ msgstr "Upravit můj profil"
 msgid "Tools"
 msgstr "Nástroje"
 
-#: src/amo/components/HeroRecommendation/index.js:162
+#: src/amo/components/HeroRecommendation/index.js:167
 msgid "Get the extension"
 msgstr "Získat toto rozšíření"
 
 # If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:201
+#: src/amo/components/HeroRecommendation/index.js:206
 msgid "SPONSORED"
 msgstr "SPONZOROVÁNO"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:212
+#: src/amo/components/HeroRecommendation/index.js:217
 msgid "RECOMMENDED"
 msgstr "DOPORUČUJEME"
 
-#: src/amo/components/HeroRecommendation/index.js:216
+#: src/amo/components/HeroRecommendation/index.js:221
 msgid "BY FIREFOX"
 msgstr "OD FIREFOXU"
 
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:237
 #: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
@@ -1449,12 +1449,12 @@ msgstr ""
 msgid "Search results"
 msgstr "Výsledky vyhledávání"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:298
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Doporučená rozšíření"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:374
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Doporučené motivy vzhledu"
@@ -1499,7 +1499,7 @@ msgstr "Ověřené motivy vzhledu"
 msgid "Verified add-ons"
 msgstr "Ověřené doplňky"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:387
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Právě populární rozšíření"
@@ -1527,11 +1527,11 @@ msgstr "Nejlépe hodnocené motivy vzhledu"
 msgid "Top rated add-ons"
 msgstr "Nejlépe hodnocené doplňky"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:347
 msgid "Popular extensions"
 msgstr "Oblíbená rozšíření"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:328
 msgid "Popular themes"
 msgstr "Oblíbené motivy vzhledu"
 
@@ -1632,94 +1632,94 @@ msgstr[2] ""
 "Nalezeno %(count)s motivů vzhledu pro dotaz „%(query)s“ v kategorii "
 "%(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:126
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:143
 msgid "All"
 msgstr "Vše"
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:128
 msgid "Extension"
 msgstr "Rozšíření"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:132
 msgid "Theme"
 msgstr "Vzhled"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:144
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:145
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:154
 msgid "Relevance"
 msgstr "Relevance"
 
-#: src/amo/components/SearchFilters/index.js:155
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Recently Updated"
 msgstr "Nedávno aktualizované"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:159
 msgid "Most Users"
 msgstr "Nejvíce uživatelů"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Top Rated"
 msgstr "Nejlépe hodnocené"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Trending"
 msgstr "Právě populární"
 
-#: src/amo/components/SearchFilters/index.js:168
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Any"
 msgstr "Vše"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:170
 #: src/ui/components/IconPromotedBadge/index.js:47
 #: src/ui/components/PromotedBadge/index.js:48
 msgid "Recommended"
 msgstr "Doporučené"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:172
 #: src/ui/components/IconPromotedBadge/index.js:46
 #: src/ui/components/PromotedBadge/index.js:41
 msgid "By Firefox"
 msgstr "Od Firefoxu"
 
-#: src/amo/components/SearchFilters/index.js:175
+#: src/amo/components/SearchFilters/index.js:176
 #: src/ui/components/IconPromotedBadge/index.js:48
 #: src/ui/components/PromotedBadge/index.js:56
 msgid "Verified"
 msgstr "Ověřeno"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:180
 msgid "All Reviewed"
 msgstr "Všechny zkontrolované"
 
-#: src/amo/components/SearchFilters/index.js:199
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Filter results"
 msgstr "Filtrovat výsledky"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Sort by"
 msgstr "Seřadit podle"
 
-#: src/amo/components/SearchFilters/index.js:226
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Add-on Type"
 msgstr "Typ doplňku"
 
-#: src/amo/components/SearchFilters/index.js:246
+#: src/amo/components/SearchFilters/index.js:247
 msgid "Operating System"
 msgstr "Operační systém"
 
-#: src/amo/components/SearchFilters/index.js:264
+#: src/amo/components/SearchFilters/index.js:268
 msgid "Badging"
 msgstr "S nálepkou"
 
@@ -1872,59 +1872,59 @@ msgstr ""
 "Tento doplněk můžete nainstalovat pomocí správce doplňků. Zjistěte více o <a "
 "href=\"%(newLocation)s\">doplňcích ve Firefoxu pro Android</a>."
 
-#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:161 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Náhled %(title)s"
 
-#: src/amo/pages/Addon/index.js:199
+#: src/amo/pages/Addon/index.js:196
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Tento doplněk nelze ohodnotit, protože nebyla zveřejněna žádná jeho verze."
 
-#: src/amo/pages/Addon/index.js:210
+#: src/amo/pages/Addon/index.js:207
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Přečíst %(count)s recenzi"
 msgstr[1] "Přečíst všechny %(count)s recenze"
 msgstr[2] "Přečtěte si všech %(count)s recenzí"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:228
 msgid "No reviews yet"
 msgstr "Zatím žádné recenze"
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:238
 msgid "Rate your experience"
 msgstr "Ohodnoťte svou zkušenost"
 
-#: src/amo/pages/Addon/index.js:260
+#: src/amo/pages/Addon/index.js:257
 msgid "About this dictionary"
 msgstr "O tomto slovníku"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:260
 msgid "About this extension"
 msgstr "O tomto rozšíření"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:263
 msgid "About this language pack"
 msgstr "O tomto jazykovém balíčku"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:266
 msgid "About this theme"
 msgstr "O tomto motivu vzhledu"
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:269
 msgid "About this add-on"
 msgstr "O tomto doplňku"
 
-#: src/amo/pages/Addon/index.js:314
+#: src/amo/pages/Addon/index.js:311
 msgid "Developer comments"
 msgstr "Komentář vývojáře"
 
-#: src/amo/pages/Addon/index.js:337
+#: src/amo/pages/Addon/index.js:334
 msgid "Release notes for %(addonVersion)s"
 msgstr "Poznámky k verzi %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:472
+#: src/amo/pages/Addon/index.js:453
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1932,27 +1932,27 @@ msgstr ""
 "Toto není veřejná stránka doplňku. Vidíte ji pouze z důvodu zvýšených "
 "oprávnění."
 
-#: src/amo/pages/Addon/index.js:499
+#: src/amo/pages/Addon/index.js:480
 msgid "Extension Metadata"
 msgstr "Metadata rozšíření"
 
-#: src/amo/pages/Addon/index.js:523
+#: src/amo/pages/Addon/index.js:504
 msgid "Screenshots"
 msgstr "Snímky obrazovky"
 
-#: src/amo/pages/AddonInfo/index.js:174
+#: src/amo/pages/AddonInfo/index.js:154
 msgid "Custom License for %(addonName)s"
 msgstr "Vlastní licence doplňku %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:181
+#: src/amo/pages/AddonInfo/index.js:161
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "Licenční smlouva s koncovým uživatelem doplňku %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:185
+#: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
 msgstr "Zásady ochrany osobních údajů pro doplněk %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:199
+#: src/amo/pages/AddonReviewList/index.js:197
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1960,53 +1960,53 @@ msgstr ""
 "Recenze a hodnocení doplňku %(addonName)s. Zjistěte, co si ostatní uživatelé "
 "myslí o doplňku %(addonName)s a přidejte si ho do svého Firefoxu."
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show all reviews"
 msgstr "Zobrazit všechny recenze"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show only five-star reviews"
 msgstr "Zobrazit jen recenze s 5 hvězdičkami"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only four-star reviews"
 msgstr "Zobrazit jen recenze se 4 hvězdičkami"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only three-star reviews"
 msgstr "Zobrazit jen recenze se 3 hvězdičkami"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only two-star reviews"
 msgstr "Zobrazit jen recenze se 2 hvězdičkami"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only one-star reviews"
 msgstr "Zobrazit jen recenze s 1 hvězdičkou"
 
-#: src/amo/pages/AddonReviewList/index.js:284
+#: src/amo/pages/AddonReviewList/index.js:259
 msgid "Reviews for %(addonName)s"
 msgstr "Recenze doplňku %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:294
+#: src/amo/pages/AddonReviewList/index.js:269
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s recenze"
 msgstr[1] "%(total)s recenze"
 msgstr[2] "%(total)s recenzí"
 
-#: src/amo/pages/AddonReviewList/index.js:393
+#: src/amo/pages/AddonReviewList/index.js:368
 msgid "There are no reviews"
 msgstr "Zatím nehodnoceno"
 
-#: src/amo/pages/AddonVersions/index.js:129
+#: src/amo/pages/AddonVersions/index.js:127
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Historie doplňku %(addonName)s - %(total)s verze"
 msgstr[1] "Historie doplňku %(addonName)s - %(total)s verze"
 msgstr[2] "Historie doplňku %(addonName)s - %(total)s verzí"
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:161
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2014,15 +2014,15 @@ msgstr ""
 "Se starými verzemi opatrně! Tyto verze jsou zde dostupné jen pro testovací a "
 "referenční účely."
 
-#: src/amo/pages/AddonVersions/index.js:186
+#: src/amo/pages/AddonVersions/index.js:166
 msgid "You should always use the latest version of an add-on."
 msgstr "Používat byste vždy měli nejnovější verzi doplňku."
 
-#: src/amo/pages/AddonVersions/index.js:195
+#: src/amo/pages/AddonVersions/index.js:175
 msgid "Latest version"
 msgstr "Nejnovější verze"
 
-#: src/amo/pages/AddonVersions/index.js:204
+#: src/amo/pages/AddonVersions/index.js:184
 msgid "Older versions"
 msgstr "Starší verze"
 
@@ -2165,35 +2165,35 @@ msgstr "Nemáte žádné sbírky."
 msgid "My collections"
 msgstr "Mé sbírky"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:149
 msgid "Abstract"
 msgstr "Abstraktní"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:154
 msgid "Nature"
 msgstr "Příroda"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:159
 msgid "Film & TV"
 msgstr "Filmy a TV"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:164
 msgid "Scenery"
 msgstr "Krajinky"
 
-#: src/amo/pages/Home/index.js:163
+#: src/amo/pages/Home/index.js:169
 msgid "Music"
 msgstr "Hudba"
 
-#: src/amo/pages/Home/index.js:168
+#: src/amo/pages/Home/index.js:174
 msgid "Seasonal"
 msgstr "Sezónní"
 
-#: src/amo/pages/Home/index.js:223
+#: src/amo/pages/Home/index.js:227
 msgid "Change the way Firefox looks with themes."
 msgstr "Změňte vzhled svého Firefoxu pomocí motivů vzhledu."
 
-#: src/amo/pages/Home/index.js:254
+#: src/amo/pages/Home/index.js:258
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2203,39 +2203,39 @@ msgstr ""
 "pro váš prohlížeč. Umí blokovat otravné reklamy, chránit hesla, měnit vzhled "
 "prohlížeče a mnoho dalších věcí."
 
-#: src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Další doporučená rozšíření"
 
-#: src/amo/pages/Home/index.js:318
+#: src/amo/pages/Home/index.js:329
 msgid "See more popular themes"
 msgstr "Další oblíbené vzhledy"
 
-#: src/amo/pages/Home/index.js:337
+#: src/amo/pages/Home/index.js:348
 msgid "See more popular extensions"
 msgstr "Další oblíbená rozšíření"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:365 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Další doporučené vzhledy"
 
-#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:388 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Další právě populární rozšíření"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:65
 msgid "See more enhanced privacy extensions"
 msgstr "Další rozšíření zaměřená na zvýšení soukromí"
 
-#: src/amo/pages/Home/index.js:62
+#: src/amo/pages/Home/index.js:66
 msgid "Enhanced privacy extensions"
 msgstr "Rozšíření zaměřená na zvýšení soukromí"
 
-#: src/amo/pages/Home/index.js:67
+#: src/amo/pages/Home/index.js:71
 msgid "See more recommended password managers"
 msgstr "Další doporučení správci hesel"
 
-#: src/amo/pages/Home/index.js:68
+#: src/amo/pages/Home/index.js:72
 msgid "Recommended password managers"
 msgstr "Doporučení správci hesel"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-17 18:27+0000\n"
+"POT-Creation-Date: 2020-12-08 17:10+0000\n"
 "PO-Revision-Date: 2020-05-30 11:17+0000\n"
 "Last-Translator: Goce Mitevski <goce.mitevski@nicer2.com>\n"
 "Language-Team: none\n"
@@ -943,11 +943,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1131,26 +1131,26 @@ msgstr "Промени ја мојата критика"
 msgid "Tools"
 msgstr "Алатки"
 
-#: src/amo/components/HeroRecommendation/index.js:162
+#: src/amo/components/HeroRecommendation/index.js:167
 #, fuzzy
 msgid "Get the extension"
 msgstr "Проширување"
 
 # If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:201
+#: src/amo/components/HeroRecommendation/index.js:206
 msgid "SPONSORED"
 msgstr ""
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:212
+#: src/amo/components/HeroRecommendation/index.js:217
 msgid "RECOMMENDED"
 msgstr "ПРЕПОРАЧАНО"
 
-#: src/amo/components/HeroRecommendation/index.js:216
+#: src/amo/components/HeroRecommendation/index.js:221
 msgid "BY FIREFOX"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:237
 #: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
@@ -1435,13 +1435,13 @@ msgstr ""
 msgid "Search results"
 msgstr "Резултати од пребарувањето"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:298
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
 #: src/amo/pages/LandingPage/index.js:124
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Проширување"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:374
 #: src/amo/pages/LandingPage/index.js:156
 #, fuzzy
 msgid "Recommended themes"
@@ -1497,7 +1497,7 @@ msgstr "Препорачани теми"
 msgid "Verified add-ons"
 msgstr "Најди додатоци"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:387
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr ""
@@ -1525,11 +1525,11 @@ msgstr "Топ-рангирани теми"
 msgid "Top rated add-ons"
 msgstr ""
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:347
 msgid "Popular extensions"
 msgstr ""
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:328
 msgid "Popular themes"
 msgstr ""
 
@@ -1614,96 +1614,96 @@ msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "Не се пронајдени резултати за \"%(query)s\"."
 msgstr[1] "Не се пронајдени резултати за \"%(query)s\"."
 
-#: src/amo/components/SearchFilters/index.js:126
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:143
 msgid "All"
 msgstr "Сè"
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:128
 msgid "Extension"
 msgstr "Проширување"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:132
 msgid "Theme"
 msgstr "Тема"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:144
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:145
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:153
+#: src/amo/components/SearchFilters/index.js:154
 msgid "Relevance"
 msgstr "Значење"
 
-#: src/amo/components/SearchFilters/index.js:155
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Recently Updated"
 msgstr "Неодамна надградени"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:159
 msgid "Most Users"
 msgstr "Најмногу корисници"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Top Rated"
 msgstr "Најдобро оценети"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Trending"
 msgstr "Во тренд"
 
-#: src/amo/components/SearchFilters/index.js:168
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:170
 #: src/ui/components/IconPromotedBadge/index.js:47
 #: src/ui/components/PromotedBadge/index.js:48
 msgid "Recommended"
 msgstr "Препорачано"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:172
 #: src/ui/components/IconPromotedBadge/index.js:46
 #: src/ui/components/PromotedBadge/index.js:41
 #, fuzzy
 msgid "By Firefox"
 msgstr "за Firefox"
 
-#: src/amo/components/SearchFilters/index.js:175
+#: src/amo/components/SearchFilters/index.js:176
 #: src/ui/components/IconPromotedBadge/index.js:48
 #: src/ui/components/PromotedBadge/index.js:56
 msgid "Verified"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:180
 #, fuzzy
 msgid "All Reviewed"
 msgstr "Мислење"
 
-#: src/amo/components/SearchFilters/index.js:199
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Filter results"
 msgstr "Филтрирај резултати"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:205
 msgid "Sort by"
 msgstr "Подреди според"
 
-#: src/amo/components/SearchFilters/index.js:226
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Add-on Type"
 msgstr "Тип на додаток"
 
-#: src/amo/components/SearchFilters/index.js:246
+#: src/amo/components/SearchFilters/index.js:247
 msgid "Operating System"
 msgstr "Оперативен систем"
 
-#: src/amo/components/SearchFilters/index.js:264
+#: src/amo/components/SearchFilters/index.js:268
 msgid "Badging"
 msgstr ""
 
@@ -1856,158 +1856,158 @@ msgid ""
 "\"%(newLocation)s\">add-ons for Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:164 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:161 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:199
+#: src/amo/pages/Addon/index.js:196
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:210
+#: src/amo/pages/Addon/index.js:207
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Читај ја критиката на %(count)s"
 msgstr[1] "Читај ги сите критики на %(count)s"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:228
 msgid "No reviews yet"
 msgstr "Нема критики сѐ уште"
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:238
 msgid "Rate your experience"
 msgstr "Оценете го вашето искуство"
 
-#: src/amo/pages/Addon/index.js:260
+#: src/amo/pages/Addon/index.js:257
 msgid "About this dictionary"
 msgstr "За овој речник"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:260
 msgid "About this extension"
 msgstr "За ова проширување"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:263
 msgid "About this language pack"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:266
 msgid "About this theme"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:269
 msgid "About this add-on"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:314
+#: src/amo/pages/Addon/index.js:311
 msgid "Developer comments"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:337
+#: src/amo/pages/Addon/index.js:334
 msgid "Release notes for %(addonVersion)s"
 msgstr "Белешки за издание за %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:472
+#: src/amo/pages/Addon/index.js:453
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:499
+#: src/amo/pages/Addon/index.js:480
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:523
+#: src/amo/pages/Addon/index.js:504
 msgid "Screenshots"
 msgstr "Слики од екран"
 
-#: src/amo/pages/AddonInfo/index.js:174
+#: src/amo/pages/AddonInfo/index.js:154
 #, fuzzy
 msgid "Custom License for %(addonName)s"
 msgstr "Се пребарува за \"%(query)s\""
 
-#: src/amo/pages/AddonInfo/index.js:181
+#: src/amo/pages/AddonInfo/index.js:161
 msgid "End-User License Agreement for %(addonName)s"
 msgstr ""
 
-#: src/amo/pages/AddonInfo/index.js:185
+#: src/amo/pages/AddonInfo/index.js:165
 #, fuzzy
 msgid "Privacy policy for %(addonName)s"
 msgstr "Се пребарува за \"%(query)s\""
 
-#: src/amo/pages/AddonReviewList/index.js:199
+#: src/amo/pages/AddonReviewList/index.js:197
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:230
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Нема критики сѐ уште"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:232
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "Читај ја критиката на %(count)s"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:233
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "Читај ја критиката на %(count)s"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:235
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "Читај ја критиката на %(count)s"
 
-#: src/amo/pages/AddonReviewList/index.js:239
+#: src/amo/pages/AddonReviewList/index.js:237
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Читај ја критиката на %(count)s"
 
-#: src/amo/pages/AddonReviewList/index.js:240
+#: src/amo/pages/AddonReviewList/index.js:238
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "Читај ја критиката на %(count)s"
 
-#: src/amo/pages/AddonReviewList/index.js:284
+#: src/amo/pages/AddonReviewList/index.js:259
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:294
+#: src/amo/pages/AddonReviewList/index.js:269
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s корисник"
 msgstr[1] "%(total)s корисници"
 
-#: src/amo/pages/AddonReviewList/index.js:393
+#: src/amo/pages/AddonReviewList/index.js:368
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Напишете критика"
 
-#: src/amo/pages/AddonVersions/index.js:129
+#: src/amo/pages/AddonVersions/index.js:127
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/pages/AddonVersions/index.js:181
+#: src/amo/pages/AddonVersions/index.js:161
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:186
+#: src/amo/pages/AddonVersions/index.js:166
 msgid "You should always use the latest version of an add-on."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:195
+#: src/amo/pages/AddonVersions/index.js:175
 #, fuzzy
 msgid "Latest version"
 msgstr "Видете ги сите верзии"
 
-#: src/amo/pages/AddonVersions/index.js:204
+#: src/amo/pages/AddonVersions/index.js:184
 #, fuzzy
 msgid "Older versions"
 msgstr "Видете ги сите верзии"
@@ -2146,81 +2146,81 @@ msgstr "Најавете се за да го оцените овој речни�
 msgid "My collections"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:149
 msgid "Abstract"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:154
 msgid "Nature"
 msgstr "Природа"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:159
 msgid "Film & TV"
 msgstr "Филм и ТВ"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:164
 msgid "Scenery"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:163
+#: src/amo/pages/Home/index.js:169
 msgid "Music"
 msgstr "Музика"
 
-#: src/amo/pages/Home/index.js:168
+#: src/amo/pages/Home/index.js:174
 msgid "Seasonal"
 msgstr "Сезонски"
 
-#: src/amo/pages/Home/index.js:223
+#: src/amo/pages/Home/index.js:227
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:254
+#: src/amo/pages/Home/index.js:258
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Проширување"
 
-#: src/amo/pages/Home/index.js:318
+#: src/amo/pages/Home/index.js:329
 #, fuzzy
 msgid "See more popular themes"
 msgstr "Препорачани теми"
 
-#: src/amo/pages/Home/index.js:337
+#: src/amo/pages/Home/index.js:348
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "Видете ги сите бета-верзии"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:365 src/amo/pages/LandingPage/index.js:165
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "Препорачани теми"
 
-#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:388 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:65
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "Видете ги сите бета-верзии"
 
-#: src/amo/pages/Home/index.js:62
+#: src/amo/pages/Home/index.js:66
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "Видете ги сите бета-верзии"
 
-#: src/amo/pages/Home/index.js:67
+#: src/amo/pages/Home/index.js:71
 #, fuzzy
 msgid "See more recommended password managers"
 msgstr "Препорачани теми"
 
-#: src/amo/pages/Home/index.js:68
+#: src/amo/pages/Home/index.js:72
 #, fuzzy
 msgid "Recommended password managers"
 msgstr "Најди додатоци"
