@@ -8,6 +8,7 @@ import { compose } from 'redux';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
   LINE,
   OS_LINUX,
   OS_MAC,
@@ -183,7 +184,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { filters, i18n } = this.props;
+    const { clientApp, filters, i18n } = this.props;
 
     const expandableCardName = 'SearchFilters';
     const selectedSortFields = filters.sort
@@ -216,8 +217,8 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
           </Select>
 
           {/* Categories are linked to addonType so we don't allow changing the
-            addonType if a category is set. */}
-          {!filters.category && (
+            addonType if a category is set. Also, hide the addonType filter on Android. */}
+          {!filters.category && clientApp !== CLIENT_APP_ANDROID && (
             <div>
               <label
                 className="SearchFilters-AddonType-label SearchFilters-label"
@@ -257,23 +258,28 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
             })}
           </Select>
 
-          <label
-            className="SearchFilters-Badging-label SearchFilters-label"
-            htmlFor="SearchFilters-Badging"
-          >
-            {i18n.gettext('Badging')}
-          </label>
-          <Select
-            className="SearchFilters-Badging SearchFilters-select"
-            id="SearchFilters-Badging"
-            name="promoted"
-            onChange={this.onSelectElementChange}
-            value={filters.promoted || NO_FILTER}
-          >
-            {this.promotedOptions().map((option) => {
-              return <option key={option.value} {...option} />;
-            })}
-          </Select>
+          {/* Hide the badging filter on Android. */}
+          {clientApp !== CLIENT_APP_ANDROID && (
+            <div>
+              <label
+                className="SearchFilters-Badging-label SearchFilters-label"
+                htmlFor="SearchFilters-Badging"
+              >
+                {i18n.gettext('Badging')}
+              </label>
+              <Select
+                className="SearchFilters-Badging SearchFilters-select"
+                id="SearchFilters-Badging"
+                name="promoted"
+                onChange={this.onSelectElementChange}
+                value={filters.promoted || NO_FILTER}
+              >
+                {this.promotedOptions().map((option) => {
+                  return <option key={option.value} {...option} />;
+                })}
+              </Select>
+            </div>
+          )}
         </form>
       </ExpandableCard>
     );

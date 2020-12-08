@@ -7,6 +7,8 @@ import SearchFilters, {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   RECOMMENDED,
   OS_LINUX,
   SEARCH_SORT_RANDOM,
@@ -34,7 +36,7 @@ describe(__filename, () => {
   function render({
     filters = {},
     pathname = '/search/',
-    store = dispatchClientMetadata().store,
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store,
     ...props
   } = {}) {
     const errorHandler = createStubErrorHandler();
@@ -82,7 +84,7 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/android/search/`,
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
         addonType: ADDON_TYPE_EXTENSION,
         query: 'Music player',
@@ -104,7 +106,7 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/android/search/`,
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
         operatingSystem: OS_LINUX,
         query: 'Music player',
@@ -126,7 +128,7 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/android/search/`,
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
         query: 'Music player',
         sort: SEARCH_SORT_TRENDING,
@@ -148,7 +150,7 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/android/search/`,
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
         promoted: RECOMMENDED,
         query: 'Music player',
@@ -172,7 +174,7 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/android/search/`,
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
         category: 'some-category',
         query: 'Music player',
@@ -197,7 +199,7 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/android/search/`,
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
         category: 'some-category',
         query: 'Music player',
@@ -285,7 +287,7 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/android/search/`,
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
         query: 'Cool things',
       }),
@@ -332,7 +334,7 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/android/search/`,
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({}),
     });
   });
@@ -356,7 +358,7 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/android/search/`,
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
         addonType: ADDON_TYPE_EXTENSION,
         page: '1',
@@ -370,6 +372,20 @@ describe(__filename, () => {
     const root = render({ filters: { category: 'abstract' } });
 
     expect(root.find('.SearchFilters-AddonType')).toHaveLength(0);
+  });
+
+  it('does not display the addonType filter on Android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const root = render({ store });
+
+    expect(root.find('.SearchFilters-AddonType')).toHaveLength(0);
+  });
+
+  it('does not display the badging filter on Android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const root = render({ store });
+
+    expect(root.find('.SearchFilters-Badging')).toHaveLength(0);
   });
 
   it('renders a theme option', () => {
