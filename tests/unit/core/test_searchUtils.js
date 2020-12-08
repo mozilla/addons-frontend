@@ -277,5 +277,26 @@ describe(__filename, () => {
       const newFilters = fixFiltersForClientApp({ api: state.api, filters });
       expect(newFilters.promoted).toEqual(undefined);
     });
+
+    it('adds a addonType=extension filter on Android', () => {
+      const clientApp = CLIENT_APP_ANDROID;
+      const { state } = dispatchClientMetadata({ clientApp });
+
+      const filters = {};
+
+      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
+      expect(newFilters.clientApp).toEqual(clientApp);
+      expect(newFilters.addonType).toEqual(ADDON_TYPE_EXTENSION);
+    });
+
+    it('does not add a addonType=extension filter on Desktop', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      const { state } = dispatchClientMetadata({ clientApp });
+
+      const filters = {};
+
+      const newFilters = fixFiltersForClientApp({ api: state.api, filters });
+      expect(newFilters.addonType).toEqual(undefined);
+    });
   });
 });
