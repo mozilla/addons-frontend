@@ -1150,5 +1150,15 @@ describe(__filename, () => {
         }),
       ).toHaveProperty('numberOfAddons', numberOfAddons);
     });
+
+    it('selects the Name and Description from the localized strings', () => {
+      const description = 'My description';
+      const name = 'My name';
+      const detail = createFakeCollectionDetail({ description, name });
+      const collection = createInternalCollection({ detail, lang });
+
+      expect(collection).toHaveProperty('description', description);
+      expect(collection).toHaveProperty('name', name);
+    });
   });
 });

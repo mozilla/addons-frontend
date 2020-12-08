@@ -6,6 +6,7 @@ import {
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
   createInternalAddonInfo,
+  createInternalPreviews,
   fetchAddon,
   fetchAddonInfo,
   getAddonByID,
@@ -22,9 +23,11 @@ import { setLang } from 'core/reducers/api';
 import {
   createFakeAddon,
   createInternalAddonWithLang,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
+  fakePreview,
   createFakeAddonInfo,
   fakeReview,
 } from 'tests/unit/helpers';
@@ -813,6 +816,42 @@ describe(__filename, () => {
 
     it('returns null when the id is unknown', () => {
       expect(getAddonByIdInURL(initialState, 'some-slug')).toEqual(null);
+    });
+  });
+
+  describe('createInternalPreviews', () => {
+    it('coverts external previews into internal previews', () => {
+      const caption1 = 'My caption';
+      const caption2 = 'Another caption';
+      const preview1 = {
+        ...fakePreview,
+        caption: createLocalizedString(caption1, lang),
+      };
+      const preview2 = {
+        ...fakePreview,
+        caption: createLocalizedString(caption2, lang),
+      };
+
+      expect(createInternalPreviews([preview1, preview2], lang)).toEqual([
+        {
+          h: preview1.image_size[1],
+          src: preview1.image_url,
+          thumbnail_h: preview1.thumbnail_size[1],
+          thumbnail_src: preview1.thumbnail_url,
+          thumbnail_w: preview1.thumbnail_size[0],
+          title: caption1,
+          w: preview1.image_size[0],
+        },
+        {
+          h: preview2.image_size[1],
+          src: preview2.image_url,
+          thumbnail_h: preview2.thumbnail_size[1],
+          thumbnail_src: preview2.thumbnail_url,
+          thumbnail_w: preview2.thumbnail_size[0],
+          title: caption2,
+          w: preview2.image_size[0],
+        },
+      ]);
     });
   });
 });
