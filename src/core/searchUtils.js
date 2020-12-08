@@ -1,7 +1,11 @@
 import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 
-import { CLIENT_APP_ANDROID, RECOMMENDED } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  CLIENT_APP_ANDROID,
+  RECOMMENDED,
+} from 'core/constants';
 import log from 'core/logger';
 import { USER_AGENT_OS_IOS } from 'core/reducers/api';
 
@@ -130,9 +134,12 @@ export const fixFiltersForClientApp = ({ api, filters }) => {
     newFilters.clientApp = api.clientApp;
   }
 
-  // This adds a filter to return only Android compatible add-ons.
+  // This adds a filter to return only Android compatible add-ons (which
+  // currently) means they are Recommended. It also only includes extensions,
+  // as only those are available on Android.
   if (newFilters.clientApp === CLIENT_APP_ANDROID) {
     newFilters.promoted = RECOMMENDED;
+    newFilters.addonType = ADDON_TYPE_EXTENSION;
   }
 
   return newFilters;

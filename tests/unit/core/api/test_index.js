@@ -6,11 +6,7 @@ import config from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
-import {
-  ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
-} from 'core/constants';
+import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import {
   apiResponsePage,
   createApiResponse,
@@ -731,7 +727,7 @@ describe(__filename, () => {
 
   describe('autocomplete api', () => {
     const { api: defaultApiState } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_ANDROID,
+      clientApp: CLIENT_APP_FIREFOX,
       lang: 'en-US',
     }).state;
 
