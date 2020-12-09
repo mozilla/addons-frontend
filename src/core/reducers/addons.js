@@ -36,26 +36,28 @@ export type AddonInfoType = {
 };
 
 export type AddonsState = {|
-  lang: string,
   // Flow wants hash maps with string keys.
   // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
   byID: { [addonId: string]: AddonType },
+  byIdInURL: { [id: string]: AddonID },
   byGUID: { [addonGUID: string]: AddonID },
   bySlug: { [addonSlug: string]: AddonID },
   infoBySlug: {
     [slug: string]: {| info: AddonInfoType, loading: boolean |},
   },
-  byIdInURL: { [id: string]: AddonID },
+  lang: string,
   loadingByIdInURL: { [id: string]: boolean },
 |};
 
 export const initialState: AddonsState = {
-  lang: '',
   byID: {},
+  byIdInURL: {},
   byGUID: {},
   bySlug: {},
   infoBySlug: {},
-  byIdInURL: {},
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   loadingByIdInURL: {},
 };
 

@@ -10,7 +10,6 @@ import HeroRecommendation, {
   PRIMARY_HERO_SRC,
   HeroRecommendationBase,
 } from 'amo/components/HeroRecommendation';
-import { createInternalHeroShelves } from 'amo/reducers/home';
 import { getAddonURL } from 'amo/utils';
 import {
   DEFAULT_UTM_SOURCE,
@@ -28,6 +27,7 @@ import {
   createFakeEvent,
   createFakeTracking,
   createHeroShelves,
+  createInternalHeroShelvesWithLang,
   createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
@@ -39,9 +39,8 @@ import {
 
 describe(__filename, () => {
   const createShelfData = (primaryProps = {}) => {
-    return createInternalHeroShelves(
+    return createInternalHeroShelvesWithLang(
       createHeroShelves({ primaryProps }),
-      'en-US',
     ).primary;
   };
 

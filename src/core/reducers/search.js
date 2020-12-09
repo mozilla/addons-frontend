@@ -16,18 +16,20 @@ export const SEARCH_LOADED: 'SEARCH_LOADED' = 'SEARCH_LOADED';
 const SEARCH_ABORTED: 'SEARCH_ABORTED' = 'SEARCH_ABORTED';
 
 export type SearchState = {|
-  lang: string,
   count: number,
   filters: SearchFilters | null,
+  lang: string,
   loading: boolean,
   pageSize: string | null,
   results: Array<AddonType | CollectionAddonType>,
 |};
 
 export const initialState: SearchState = {
-  lang: '',
   count: 0,
   filters: null,
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   loading: false,
   pageSize: null,
   results: [],

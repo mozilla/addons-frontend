@@ -15,7 +15,6 @@ import {
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { setLang } from 'core/reducers/api';
 import { visibleAddonType as getVisibleAddonType } from 'core/utils';
 import {
   createAddonsApiResult,
@@ -55,7 +54,6 @@ describe(__filename, () => {
     errorHandler = createStubErrorHandler(),
     ...otherParams
   } = {}) => {
-    store.dispatch(setLang('en-US'));
     store.dispatch(
       getLanding({
         addonType,

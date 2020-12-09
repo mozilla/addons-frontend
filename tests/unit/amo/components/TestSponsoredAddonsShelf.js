@@ -65,7 +65,6 @@ describe(__filename, () => {
   };
 
   const _loadPromotedExtensions = ({ addons = [] }) => {
-    store.dispatch(setLang('en-US'));
     store.dispatch(
       loadHomeData({
         collections: [],

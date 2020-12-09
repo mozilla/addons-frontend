@@ -35,6 +35,8 @@ export const initialState: LandingState = {
   category: null,
   recommended: { count: 0, results: [] },
   highlyRated: { count: 0, results: [] },
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
   lang: '',
   loading: false,
   trending: { count: 0, results: [] },

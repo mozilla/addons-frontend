@@ -110,20 +110,22 @@ export type HeroShelvesType = {|
 |};
 
 export type HomeState = {
-  lang: string,
   collections: Array<Object | null>,
   heroShelves: HeroShelvesType | null,
   isLoading: boolean,
+  lang: string,
   resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
   shelves: { [shelfName: string]: Array<AddonType> | null },
 };
 
 export const initialState: HomeState = {
-  lang: '',
   collections: [],
   heroShelves: null,
   isLoading: false,
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   resetStateOnNextChange: false,
   resultsLoaded: false,
   shelves: {},

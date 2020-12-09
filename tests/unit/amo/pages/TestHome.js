@@ -23,7 +23,6 @@ import {
 } from 'amo/constants';
 import {
   FETCH_HOME_DATA,
-  createInternalHeroShelves,
   fetchHomeData,
   loadHomeData,
 } from 'amo/reducers/home';
@@ -43,9 +42,10 @@ import {
   createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
+  createHeroShelves,
   createInternalAddonWithLang,
   createInternalCollectionWithLang,
-  createHeroShelves,
+  createInternalHeroShelvesWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -649,14 +649,14 @@ describe(__filename, () => {
       expect(heroRecommendation).toHaveProp('errorHandler', errorHandler);
       expect(heroRecommendation).toHaveProp(
         'shelfData',
-        createInternalHeroShelves(heroShelves, 'en-US').primary,
+        createInternalHeroShelvesWithLang(heroShelves).primary,
       );
 
       const secondaryHero = root.find(SecondaryHero);
       expect(secondaryHero).toHaveLength(1);
       expect(secondaryHero).toHaveProp(
         'shelfData',
-        createInternalHeroShelves(heroShelves, 'en-US').secondary,
+        createInternalHeroShelvesWithLang(heroShelves).secondary,
       );
     });
 

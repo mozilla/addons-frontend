@@ -4,12 +4,12 @@ import { storiesOf } from '@storybook/react';
 
 import {
   createHeroShelves,
+  createInternalHeroShelvesWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
 } from 'tests/unit/helpers';
 import { HeroRecommendationBase } from 'amo/components/HeroRecommendation';
-import { createInternalHeroShelves } from 'amo/reducers/home';
 import { ErrorHandler } from 'core/errorHandler';
 import { setError } from 'core/actions/errors';
 import { createApiError } from 'core/api/index';
@@ -24,7 +24,7 @@ const render = (
   const props = {
     errorHandler: new ErrorHandler({ id: 'some-id' }),
     i18n: fakeI18n({ includeJedSpy: false }),
-    shelfData: createInternalHeroShelves(
+    shelfData: createInternalHeroShelvesWithLang(
       createHeroShelves({
         primaryProps: {
           addon: { ...fakeAddon, name: 'Forest Preserve Nougat (beta)' },
@@ -33,7 +33,6 @@ const render = (
           ...shelfProps,
         },
       }),
-      'en-US',
     ).primary,
     siteIsReadOnly: false,
     siteNotice: null,

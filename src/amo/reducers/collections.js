@@ -78,7 +78,6 @@ export type CollectionType = {
 export type CollectionId = number;
 
 export type CollectionsState = {
-  lang: string,
   byId: {
     [id: CollectionId]: CollectionType,
   },
@@ -111,10 +110,10 @@ export type CollectionsState = {
   hasAddonBeenAdded: boolean,
   hasAddonBeenRemoved: boolean,
   editingCollectionDetails: boolean,
+  lang: string,
 };
 
 export const initialState: CollectionsState = {
-  lang: '',
   byId: {},
   bySlug: {},
   current: { id: null, loading: false },
@@ -124,6 +123,9 @@ export const initialState: CollectionsState = {
   hasAddonBeenAdded: false,
   hasAddonBeenRemoved: false,
   editingCollectionDetails: false,
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
 };
 
 type FetchCurrentCollectionParams = {|
@@ -737,6 +739,7 @@ export const deleteCollectionAddonNotes = ({
   invariant(addonId, 'The addonId parameter is required');
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
   invariant(filters, 'The filters parameter is required');
+  invariant(lang, 'The lang parameter is required');
   invariant(slug, 'The slug parameter is required');
   invariant(userId, 'The userId parameter is required');
 

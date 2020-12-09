@@ -8,7 +8,7 @@ export const selectLocalizedContent = (
 ) => {
   invariant(lang, 'lang must not be empty');
   if (!field) {
-    return undefined;
+    return null;
   }
 
   if (!field[lang]) {

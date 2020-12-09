@@ -9,7 +9,6 @@ import type { AddonType, ExternalAddonType } from 'core/types/addons';
 type AddonId = number;
 
 export type AddonsByAuthorsState = {|
-  lang: string,
   // TODO: It might be nice to eventually stop storing add-ons in this
   // reducer at all and rely on the add-ons in the `addons` reducer.
   // That said, these are partial add-ons returned from the search
@@ -19,15 +18,18 @@ export type AddonsByAuthorsState = {|
   byAddonSlug: { [string]: Array<AddonId> },
   byAuthorId: { [number]: Array<AddonId> },
   countFor: { [string]: number },
+  lang: string,
   loadingFor: { [string]: boolean },
 |};
 
 export const initialState: AddonsByAuthorsState = {
-  lang: '',
   byAddonId: {},
   byAddonSlug: {},
   byAuthorId: {},
   countFor: {},
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   loadingFor: {},
 };
 

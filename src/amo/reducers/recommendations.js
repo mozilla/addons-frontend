@@ -38,6 +38,8 @@ export type RecommendationsState = {|
 
 export const initialState: RecommendationsState = {
   byGuid: {},
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
   lang: '',
 };
 

@@ -135,6 +135,8 @@ export type VersionsState = {
 export const initialState: VersionsState = {
   byId: {},
   bySlug: {},
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
   lang: '',
 };
 

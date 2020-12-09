@@ -14,6 +14,7 @@ import { createMemoryHistory } from 'history';
 
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { createInternalCollection } from 'amo/reducers/collections';
+import { createInternalHeroShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
 import { getDjangoBase62 } from 'amo/utils';
 import { setError } from 'core/actions/errors';
@@ -50,11 +51,12 @@ import { createInternalVersion } from 'core/reducers/versions';
 import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
 import { addQueryParamsToHistory } from 'core/utils';
 
+export const DEFAULT_LANG_IN_TESTS = config.get('defaultLang');
 export const sampleUserAgent =
   'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
 
-export const createLocalizedString = (string, lang = 'en-US') => {
+export const createLocalizedString = (string, lang = DEFAULT_LANG_IN_TESTS) => {
   return { [lang]: string };
 };
 
@@ -123,10 +125,10 @@ export const fakeAddon = Object.freeze({
   contributions_url: '',
   created: '2014-11-22T10:09:01Z',
   current_version: fakeVersion,
-  description: {
-    'en-US': 'This is a longer description of the chill out add-on',
-  },
-  default_locale: 'en-US',
+  description: createLocalizedString(
+    'This is a longer description of the chill out add-on',
+  ),
+  default_locale: DEFAULT_LANG_IN_TESTS,
   edit_url: 'https://addons.m.o/addon/chill-out/edit',
   guid: '1234@my-addons.firefox',
   has_eula: true,
@@ -362,7 +364,7 @@ export const onLocationChanged = ({ pathname, search = '', ...others }) => {
 export function dispatchClientMetadata({
   store = createStore().store,
   clientApp = CLIENT_APP_ANDROID,
-  lang = 'en-US',
+  lang = DEFAULT_LANG_IN_TESTS,
   regionCode = null,
   userAgent = sampleUserAgent,
   pathname = `/${lang}/${clientApp}/`,
@@ -620,7 +622,7 @@ export const createFakeCollectionDetail = ({
       url: 'http://olympia.test/en-US/firefox/user/johndoe/',
       username: authorUsername,
     },
-    default_locale: 'en-US',
+    default_locale: DEFAULT_LANG_IN_TESTS,
     description: createLocalizedString(description),
     id: randomId(),
     modified: Date.now(),
@@ -944,7 +946,7 @@ export function createFakeLanguageTool(otherProps = {}) {
   return {
     id: fakeAddon.id,
     current_version: fakeAddon.current_version,
-    default_locale: 'en-US',
+    default_locale: DEFAULT_LANG_IN_TESTS,
     guid: fakeAddon.guid,
     locale_disambiguation: '',
     name: fakeAddon.name,
@@ -1370,18 +1372,31 @@ export const fakeSponsoredShelf = Object.freeze({
   impression_url: 'https://mozilla.org/',
 });
 
-export const createInternalAddonWithLang = (addon, lang = 'en-US') => {
+export const createInternalAddonWithLang = (
+  addon,
+  lang = DEFAULT_LANG_IN_TESTS,
+) => {
   return createInternalAddon(addon, lang);
 };
 
-export const createInternalVersionWithLang = (version, lang = 'en-US') => {
+export const createInternalVersionWithLang = (
+  version,
+  lang = DEFAULT_LANG_IN_TESTS,
+) => {
   return createInternalVersion(version, lang);
+};
+
+export const createInternalHeroShelvesWithLang = (
+  heroShelves,
+  lang = DEFAULT_LANG_IN_TESTS,
+) => {
+  return createInternalHeroShelves(heroShelves, lang);
 };
 
 export const createInternalCollectionWithLang = ({
   addonsResponse,
   detail,
-  lang = 'en-US',
+  lang = DEFAULT_LANG_IN_TESTS,
 }) => {
   return createInternalCollection({
     addonsResponse,

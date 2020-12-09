@@ -64,6 +64,8 @@ export type ExternalPreviewType = {|
 |};
 
 export type PreviewType = {|
+  // These property names are the ones expected by the PhotoSwipeGallery
+  // component, which is why they are less than friendly.
   h: number,
   src: string,
   thumbnail_h: number,
