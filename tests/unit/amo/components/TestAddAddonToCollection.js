@@ -14,6 +14,7 @@ import {
 import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
+  DEFAULT_LANG_IN_TESTS,
   createContextWithFakeRouter,
   createFakeCollectionDetail,
   createFakeEvent,
@@ -174,7 +175,7 @@ describe(__filename, () => {
   });
 
   describe('selecting a user collection', () => {
-    const lang = 'en-US';
+    const lang = DEFAULT_LANG_IN_TESTS;
     const findOption = ({ root, text }) => {
       const option = root
         .find('.AddAddonToCollection-option')

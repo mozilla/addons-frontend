@@ -5,6 +5,7 @@ import {
 } from 'amo/actions/reviews';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
+  createInternalAddon,
   createInternalAddonInfo,
   createInternalPreviews,
   fetchAddon,
@@ -816,6 +817,58 @@ describe(__filename, () => {
 
     it('returns null when the id is unknown', () => {
       expect(getAddonByIdInURL(initialState, 'some-slug')).toEqual(null);
+    });
+  });
+
+  describe('createInternalAddon', () => {
+    it('coverts localized strings into simple strings', () => {
+      const description = 'Some description';
+      const developer_comments = 'developer comments';
+      const homepage = 'https://myhomepage.com';
+      const name = 'My addon';
+      const previews = [fakePreview];
+      const summary = 'A summary';
+      const support_email = 'someemail@mozilla.com';
+      const support_url = 'https://support.com';
+
+      const addon = createInternalAddon(
+        {
+          ...fakeAddon,
+          description: createLocalizedString(description, lang),
+          developer_comments: createLocalizedString(developer_comments, lang),
+          homepage: createLocalizedString(homepage, lang),
+          name: createLocalizedString(name, lang),
+          previews,
+          summary: createLocalizedString(summary, lang),
+          support_email: createLocalizedString(support_email, lang),
+          support_url: createLocalizedString(support_url, lang),
+        },
+        lang,
+      );
+
+      expect(addon.description).toEqual(description);
+      expect(addon.developer_comments).toEqual(developer_comments);
+      expect(addon.homepage).toEqual(homepage);
+      expect(addon.name).toEqual(name);
+      expect(addon.previews).toEqual(createInternalPreviews(previews, lang));
+      expect(addon.summary).toEqual(summary);
+      expect(addon.support_email).toEqual(support_email);
+      expect(addon.support_url).toEqual(support_url);
+    });
+  });
+
+  describe('createInternalAddonInfo', () => {
+    it('coverts localized strings into simple strings', () => {
+      const eula = 'some eula';
+      const privacyPolicy = 'some privacy policy';
+
+      const addonInfo = createInternalAddonInfo(
+        createFakeAddonInfo({ eula, privacyPolicy }),
+        lang,
+      );
+
+      expect(addonInfo.eula).toEqual(eula);
+      expect(addonInfo.privacyPolicy).toEqual(privacyPolicy);
     });
   });
 
