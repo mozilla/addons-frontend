@@ -332,7 +332,10 @@ const reducer = (
       // change, we want to reset this state to fetch fresh data once user goes
       // back to the homepage.
       if (state.resetStateOnNextChange) {
-        return initialState;
+        return {
+          ...initialState,
+          lang: state.lang,
+        };
       }
 
       return {

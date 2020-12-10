@@ -43,6 +43,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 import {
   autocompleteLoad,
   autocompleteStart,
+  createInternalSuggestion,
 } from 'core/reducers/autocomplete';
 import { searchLoad, searchStart } from 'core/reducers/search';
 import { selectUIState } from 'core/reducers/uiState';
@@ -57,7 +58,7 @@ export const sampleUserAgent =
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
 
 export const createLocalizedString = (string, lang = DEFAULT_LANG_IN_TESTS) => {
-  return { [lang]: string };
+  return string === null ? null : { [lang]: string };
 };
 
 export const fakePreview = Object.freeze({
@@ -557,7 +558,7 @@ export function createFakeAutocompleteResult({
   return {
     id: randomId(),
     icon_url: `${config.get('amoCDN')}/${name}.png`,
-    name,
+    name: createLocalizedString(name),
     promoted: null,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
     ...props,
@@ -591,7 +592,7 @@ export function createFakeAddon({
 
 export function dispatchAutocompleteResults({
   filters = { query: 'test' },
-  store = dispatchClientMetadata().store,
+  store = dispatchClientMetadata({ lang: DEFAULT_LANG_IN_TESTS }).store,
   results = [],
 } = {}) {
   store.dispatch(
@@ -942,18 +943,22 @@ export function createApiResponse({
   return Promise.resolve(response);
 }
 
-export function createFakeLanguageTool(otherProps = {}) {
+export function createFakeLanguageTool({
+  name = 'My addon',
+  target_locale = DEFAULT_LANG_IN_TESTS,
+  ...props
+} = {}) {
   return {
     id: fakeAddon.id,
     current_version: fakeAddon.current_version,
     default_locale: DEFAULT_LANG_IN_TESTS,
     guid: fakeAddon.guid,
     locale_disambiguation: '',
-    name: fakeAddon.name,
-    target_locale: 'ach',
+    name: createLocalizedString(name, target_locale),
+    target_locale,
     type: ADDON_TYPE_LANG,
     url: 'https://addons.allizom.org/en-US/firefox/addon/acholi-ug-lp-test',
-    ...otherProps,
+    ...props,
   };
 }
 
@@ -1403,4 +1408,11 @@ export const createInternalCollectionWithLang = ({
     detail,
     lang,
   });
+};
+
+export const createInternalSuggestionWithLang = (
+  suggestion,
+  lang = DEFAULT_LANG_IN_TESTS,
+) => {
+  return createInternalSuggestion(suggestion, lang);
 };

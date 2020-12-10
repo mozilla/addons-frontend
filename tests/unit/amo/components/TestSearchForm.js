@@ -4,12 +4,12 @@ import { Helmet } from 'react-helmet';
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import SearchForm, { SearchFormBase } from 'amo/components/SearchForm';
 import { CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID } from 'core/constants';
-import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import {
   createContextWithFakeRouter,
   createFakeAutocompleteResult,
   createFakeHistory,
+  createInternalSuggestionWithLang,
   dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
@@ -102,7 +102,7 @@ describe(__filename, () => {
     const root = render();
 
     const url = '/url/to/extension/detail/page';
-    const suggestion = createInternalSuggestion(
+    const suggestion = createInternalSuggestionWithLang(
       createFakeAutocompleteResult({ url, name: 'uBlock Origin' }),
     );
     const onSuggestionSelected = simulateAutoSearchCallback({
@@ -118,7 +118,7 @@ describe(__filename, () => {
     const root = render();
 
     const pathname = '/url/to/extension/detail/page';
-    const suggestion = createInternalSuggestion(
+    const suggestion = createInternalSuggestionWithLang(
       createFakeAutocompleteResult({
         url: `https://example.org${pathname}`,
         name: 'uBlock Origin',
@@ -136,7 +136,7 @@ describe(__filename, () => {
   it('does not push anything if the URL is empty', () => {
     const root = render();
 
-    const suggestion = createInternalSuggestion(
+    const suggestion = createInternalSuggestionWithLang(
       createFakeAutocompleteResult({
         url: '',
         name: 'uBlock Origin',

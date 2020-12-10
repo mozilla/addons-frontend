@@ -576,6 +576,42 @@ describe(__filename, () => {
     expect(root.find('.AddonInfo-info-html').html()).toContain(licenseText);
   });
 
+  it('renders an empty licence when license.text is null', () => {
+    const slug = 'some-slug';
+    const addon = { ...fakeAddon, slug };
+    const addonVersion = {
+      ...fakeVersion,
+      license: {
+        ...fakeVersion.license,
+        text: null,
+      },
+    };
+
+    _loadAddon(addon);
+    _loadVersions({ slug, versions: [addonVersion] });
+
+    const root = render({
+      infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+      params: { slug },
+    });
+
+    expect(root.find('.AddonInfo-info-html').html()).toContain('');
+  });
+
+  it('renders licence in a loading state when the version has not been loaded', () => {
+    const slug = 'some-slug';
+    const addon = { ...fakeAddon, slug };
+
+    _loadAddon(addon);
+
+    const root = render({
+      infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+      params: { slug },
+    });
+
+    expect(root.find('.AddonInfo').find(LoadingText)).toHaveLength(1);
+  });
+
   it('sanitizes the html content', () => {
     const slug = 'some-slug';
     const privacyPolicy = '<script>alert(document.cookie);</script>';

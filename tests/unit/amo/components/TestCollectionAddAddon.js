@@ -15,12 +15,12 @@ import {
   addonAddedToCollection,
   addonRemovedFromCollection,
 } from 'amo/reducers/collections';
-import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import {
   applyUIStateChanges,
   createFakeAutocompleteResult,
   createFakeCollectionDetail,
   createInternalCollectionWithLang,
+  createInternalSuggestionWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -135,7 +135,7 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ collection, errorHandler, filters, store });
 
-    const suggestion = createInternalSuggestion(
+    const suggestion = createInternalSuggestionWithLang(
       createFakeAutocompleteResult({ name: 'uBlock Origin' }),
     );
     const selectSuggestion = simulateAutoSearchCallback({
@@ -280,7 +280,7 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
 
-    const suggestion = createInternalSuggestion(
+    const suggestion = createInternalSuggestionWithLang(
       createFakeAutocompleteResult({ name: 'uBlock Origin' }),
     );
     const selectSuggestion = simulateAutoSearchCallback({

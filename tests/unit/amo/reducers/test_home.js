@@ -297,7 +297,7 @@ describe(__filename, () => {
       expect(state.resetStateOnNextChange).toEqual(false);
     });
 
-    it('resets the state to the initial state after two location changes on the client', () => {
+    it('resets the state to the initial state, but keeps lang, after two location changes on the client', () => {
       const _config = getFakeConfig({ server: false });
       const { store } = dispatchClientMetadata();
 
@@ -317,7 +317,7 @@ describe(__filename, () => {
       state = homeReducer(state, { type: LOCATION_CHANGE }, _config);
       state = homeReducer(state, { type: LOCATION_CHANGE }, _config);
 
-      expect(state).toEqual(initialState);
+      expect(state).toEqual({ ...initialState, lang });
     });
 
     it('does not reset the state to the initial state after only one location change on the client', () => {

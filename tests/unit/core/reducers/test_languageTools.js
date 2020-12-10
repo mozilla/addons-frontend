@@ -1,10 +1,12 @@
 import reducer, {
+  createInternalLanguageTool,
   fetchLanguageTools,
   getAllLanguageTools,
   initialState,
   loadLanguageTools,
 } from 'core/reducers/languageTools';
 import {
+  DEFAULT_LANG_IN_TESTS,
   createFakeLanguageTool,
   dispatchClientMetadata,
 } from 'tests/unit/helpers';
@@ -27,7 +29,10 @@ describe(__filename, () => {
 
     expect(state).toEqual({
       byID: {
-        [language.id]: language,
+        [language.id]: createInternalLanguageTool(
+          language,
+          DEFAULT_LANG_IN_TESTS,
+        ),
       },
     });
   });
@@ -70,11 +75,14 @@ describe(__filename, () => {
     });
 
     it('returns an array of languages', () => {
-      const language = createFakeLanguageTool();
+      const lang = 'fr';
+      const language = createFakeLanguageTool({ target_locale: lang });
       const { store } = dispatchClientMetadata();
       store.dispatch(loadLanguageTools({ languageTools: [language] }));
 
-      expect(getAllLanguageTools(store.getState())).toEqual([language]);
+      expect(getAllLanguageTools(store.getState())).toEqual([
+        createInternalLanguageTool(language, lang),
+      ]);
     });
   });
 });

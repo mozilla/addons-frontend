@@ -16,10 +16,10 @@ import {
   STRATEGIC,
   VERIFIED,
 } from 'core/constants';
-import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import {
   createFakeAutocompleteResult,
   createInternalAddonWithLang,
+  createInternalSuggestionWithLang,
   createInternalVersionWithLang,
   fakeAddon,
   fakeI18n,
@@ -212,7 +212,7 @@ describe(__filename, () => {
         ...fakeAddon,
         promoted: null,
       });
-      const suggestion = createInternalSuggestion(
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({ promoted: null }),
       );
 
@@ -232,7 +232,7 @@ describe(__filename, () => {
         ...fakeAddon,
         promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
       });
-      const suggestion = createInternalSuggestion(
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({
           promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
         }),
@@ -255,7 +255,7 @@ describe(__filename, () => {
         ...fakeAddon,
         promoted: { category, apps: [CLIENT_APP_ANDROID] },
       });
-      const suggestion = createInternalSuggestion(
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({
           promoted: { category, apps: [CLIENT_APP_ANDROID] },
         }),

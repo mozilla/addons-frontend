@@ -114,7 +114,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
       const needsLicenceText =
         addonVersion &&
         addonVersion.license &&
-        addonVersion.license.text === null;
+        addonVersion.license.text === undefined;
       if (
         addon &&
         addon.currentVersionId &&
@@ -152,10 +152,15 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     switch (infoType) {
       case ADDON_INFO_TYPE_CUSTOM_LICENSE:
         title = i18n.gettext('Custom License for %(addonName)s');
-        infoContent =
-          addonVersion && addonVersion.license
-            ? addonVersion.license.text
-            : null;
+        if (addonVersion && addonVersion.license) {
+          // If license.text is null, as opposed to undefined, it means we have
+          // already retrieved the licence, but that it's null on the server.
+          if (addonVersion.license.text === null) {
+            infoContent = '';
+          } else infoContent = addonVersion.license.text;
+        } else {
+          infoContent = null;
+        }
         break;
       case ADDON_INFO_TYPE_EULA:
         title = i18n.gettext('End-User License Agreement for %(addonName)s');
@@ -173,7 +178,10 @@ export class AddonInfoBase extends React.Component<InternalProps> {
       header = i18n.sprintf(title, { addonName: addon.name });
     }
 
-    if (infoContent) {
+    if (
+      infoContent ||
+      (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE && infoContent !== undefined)
+    ) {
       infoHtml = sanitizeUserHTML(infoContent);
     }
 

@@ -198,7 +198,16 @@ describe(__filename, () => {
 
   describe('createInternalVersion', () => {
     it('returns an object with the expected AddonVersionType', () => {
-      expect(createInternalVersion(fakeVersion, lang)).toEqual({
+      const licenceText = 'licence text';
+      const version = {
+        ...fakeVersion,
+        license: {
+          ...fakeVersion.license,
+          text: createLocalizedString(licenceText, lang),
+        },
+      };
+
+      expect(createInternalVersion(version, lang)).toEqual({
         compatibility: fakeVersion.compatibility,
         id: fakeVersion.id,
         isStrictCompatibilityEnabled: Boolean(
@@ -207,13 +216,19 @@ describe(__filename, () => {
         license: {
           isCustom: fakeVersion.license.is_custom,
           name: selectLocalizedContent(fakeVersion.license.name, lang),
-          text: selectLocalizedContent(fakeVersion.license.text, lang),
+          text: licenceText,
           url: fakeVersion.license.url,
         },
         platformFiles: createPlatformFiles(fakeVersion),
         releaseNotes: selectLocalizedContent(fakeVersion.release_notes, lang),
         version: fakeVersion.version,
       });
+    });
+
+    it('returns undefined for license.text if it is missing from the response', () => {
+      // fakeVersion does not include license.text.
+      const version = createInternalVersion(fakeVersion, lang);
+      expect(version.license.text).toEqual(undefined);
     });
   });
 

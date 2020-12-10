@@ -32,7 +32,7 @@ export type AddonAuthorType = {|
   picture_url: string,
 |};
 
-export type LanguageToolType = {|
+export type ExternalLanguageToolType = {|
   current_version: ExternalAddonVersionType,
   default_locale: string,
   guid: string,
@@ -40,9 +40,14 @@ export type LanguageToolType = {|
   locale_disambiguation?: string,
   name: LocalizedString,
   slug: string,
-  target_locale?: string,
+  target_locale: string,
   type: string,
   url: string,
+|};
+
+export type LanguageToolType = {|
+  ...ExternalLanguageToolType,
+  name: string,
 |};
 
 export type PromotedType = {|

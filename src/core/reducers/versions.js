@@ -182,7 +182,10 @@ export const createInternalVersion = (
       ? {
           isCustom: version.license.is_custom,
           name: selectLocalizedContent(version.license.name, lang),
-          text: selectLocalizedContent(version.license.text, lang),
+          text:
+            version.license.text === undefined
+              ? undefined
+              : selectLocalizedContent(version.license.text, lang),
           url: version.license.url,
         }
       : null,

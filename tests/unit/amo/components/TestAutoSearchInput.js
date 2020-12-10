@@ -20,7 +20,6 @@ import { ErrorHandler } from 'core/errorHandler';
 import {
   autocompleteCancel,
   autocompleteStart,
-  createInternalSuggestion,
 } from 'core/reducers/autocomplete';
 import {
   createContextWithFakeRouter,
@@ -28,6 +27,7 @@ import {
   createFakeDebounce,
   createFakeEvent,
   createFakeLocation,
+  createInternalSuggestionWithLang,
   createStubErrorHandler,
   dispatchAutocompleteResults,
   dispatchClientMetadata,
@@ -514,7 +514,7 @@ describe(__filename, () => {
       const onSuggestionSelected = sinon.stub();
       const root = render({ onSuggestionSelected });
 
-      const suggestion = createInternalSuggestion(
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({ name: 'uBlock Origin' }),
       );
 
@@ -535,7 +535,7 @@ describe(__filename, () => {
       const onSuggestionSelected = sinon.stub();
       const root = render({ store, onSuggestionSelected });
 
-      const suggestion = createInternalSuggestion(
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({ name: 'uBlock Origin' }),
       );
 
@@ -553,7 +553,7 @@ describe(__filename, () => {
       const root = render({ store });
       fetchSuggestions({ root, query: 'panda themes' });
 
-      const suggestion = createInternalSuggestion(externalSuggestion);
+      const suggestion = createInternalSuggestionWithLang(externalSuggestion);
       selectSuggestion({ root, suggestion });
 
       expect(root).not.toHaveClassName('AutoSearchInput--autocompleteIsOpen');
@@ -562,7 +562,7 @@ describe(__filename, () => {
     it('resets the search query when selecting a suggestion', () => {
       const root = render({ query: 'panda themes' });
 
-      const suggestion = createInternalSuggestion(
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult(),
       );
       selectSuggestion({ root, suggestion });
@@ -578,7 +578,9 @@ describe(__filename, () => {
   describe('suggestion result', () => {
     const renderSuggestion = ({
       root = render(),
-      suggestionData = createInternalSuggestion(createFakeAutocompleteResult()),
+      suggestionData = createInternalSuggestionWithLang(
+        createFakeAutocompleteResult(),
+      ),
     } = {}) => {
       const _renderSuggestion = simulateAutosuggestCallback({
         root,
@@ -590,7 +592,7 @@ describe(__filename, () => {
 
     it('converts a suggestion result into a value', () => {
       const name = 'uBlock Origin';
-      const suggestion = createInternalSuggestion(
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({ name }),
       );
 
@@ -605,7 +607,7 @@ describe(__filename, () => {
     });
 
     it('renders a suggestion', () => {
-      const suggestionData = createInternalSuggestion(
+      const suggestionData = createInternalSuggestionWithLang(
         createFakeAutocompleteResult(),
       );
       const suggestion = renderSuggestion({ suggestionData });
@@ -623,7 +625,7 @@ describe(__filename, () => {
       );
 
       const root = render({ store });
-      const suggestionData = createInternalSuggestion(
+      const suggestionData = createInternalSuggestionWithLang(
         createFakeAutocompleteResult(),
       );
       const suggestion = renderSuggestion({ root, suggestionData });
@@ -648,8 +650,10 @@ describe(__filename, () => {
     };
 
     it('returns suggestion results', () => {
-      const firstResult = createFakeAutocompleteResult({ name: 'Addon One' });
-      const secondResult = createFakeAutocompleteResult({ name: 'Addon Two' });
+      const firstName = 'Addon One';
+      const secondName = 'Addon Two';
+      const firstResult = createFakeAutocompleteResult({ name: firstName });
+      const secondResult = createFakeAutocompleteResult({ name: secondName });
       const { store } = dispatchAutocompleteResults({
         results: [firstResult, secondResult],
       });
@@ -658,11 +662,11 @@ describe(__filename, () => {
       const suggestions = getSuggestions(root);
 
       expect(suggestions[0]).toMatchObject({
-        name: firstResult.name,
+        name: firstName,
         addonId: firstResult.id,
       });
       expect(suggestions[1]).toMatchObject({
-        name: secondResult.name,
+        name: secondName,
         addonId: secondResult.id,
       });
 
