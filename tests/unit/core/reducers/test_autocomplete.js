@@ -1,4 +1,5 @@
 import { CLIENT_APP_FIREFOX, RECOMMENDED } from 'core/constants';
+import { setLang } from 'core/reducers/api';
 import reducer, {
   autocompleteCancel,
   autocompleteLoad,
@@ -7,6 +8,10 @@ import reducer, {
 import { createFakeAutocompleteResult } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  // We need a state with setLang called for any tests that load suggestions.
+  const lang = 'en-US';
+  const stateWithLang = reducer(undefined, setLang(lang));
+
   describe('reducer', () => {
     it('initializes properly', () => {
       const { loading, suggestions } = reducer(undefined, {});
@@ -22,7 +27,10 @@ describe(__filename, () => {
 
     it('handles AUTOCOMPLETE_CANCELLED', () => {
       const results = [createFakeAutocompleteResult({ name: 'foo' })];
-      const previousState = reducer(undefined, autocompleteLoad({ results }));
+      const previousState = reducer(
+        stateWithLang,
+        autocompleteLoad({ results }),
+      );
       const { loading, suggestions } = reducer(
         previousState,
         autocompleteCancel(),
@@ -52,7 +60,7 @@ describe(__filename, () => {
       ];
 
       const { loading, suggestions } = reducer(
-        undefined,
+        stateWithLang,
         autocompleteLoad({ results }),
       );
 
@@ -64,15 +72,13 @@ describe(__filename, () => {
     });
 
     it('sets the suggestion properties', () => {
+      const name = 'My addon';
       const promoted = { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] };
-      const result = createFakeAutocompleteResult({
-        promoted,
-        name: 'baz',
-      });
+      const result = createFakeAutocompleteResult({ promoted, name });
       const results = [result];
 
       const { loading, suggestions } = reducer(
-        undefined,
+        stateWithLang,
         autocompleteLoad({ results }),
       );
       expect(loading).toEqual(false);
@@ -80,7 +86,7 @@ describe(__filename, () => {
         {
           addonId: result.id,
           iconUrl: result.icon_url,
-          name: result.name,
+          name,
           promoted,
           url: result.url,
         },
@@ -95,7 +101,7 @@ describe(__filename, () => {
       ];
 
       const { loading, suggestions } = reducer(
-        undefined,
+        stateWithLang,
         autocompleteLoad({ results }),
       );
       expect(loading).toEqual(false);

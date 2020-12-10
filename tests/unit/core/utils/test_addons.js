@@ -16,11 +16,11 @@ import {
   STRATEGIC,
   VERIFIED,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
-import { createInternalSuggestion } from 'core/reducers/autocomplete';
-import { createInternalVersion } from 'core/reducers/versions';
 import {
   createFakeAutocompleteResult,
+  createInternalAddonWithLang,
+  createInternalSuggestionWithLang,
+  createInternalVersionWithLang,
   fakeAddon,
   fakeI18n,
   fakeVersion,
@@ -54,15 +54,15 @@ describe(__filename, () => {
 
   describe('getFileHash', () => {
     const _getFileHash = ({
-      addon = createInternalAddon(fakeAddon),
+      addon = createInternalAddonWithLang(fakeAddon),
       installURL = 'https://a.m.o/addons/file.xpi',
-      version = createInternalVersion(fakeVersion),
+      version = createInternalVersionWithLang(fakeVersion),
     } = {}) => {
       return getFileHash({ addon, installURL, version });
     };
 
     it('finds a file hash matching the URL', () => {
-      const version = createInternalVersion({
+      const version = createInternalVersionWithLang({
         ...fakeVersion,
         files: [
           {
@@ -85,7 +85,7 @@ describe(__filename, () => {
 
     it('strips query string parameters from the URL', () => {
       const url = 'https://a.m.o/addons/file.xpi';
-      const version = createInternalVersion({
+      const version = createInternalVersionWithLang({
         ...fakeVersion,
         files: [{ platform: OS_ALL, url, hash: 'hash-of-file' }],
       });
@@ -100,7 +100,7 @@ describe(__filename, () => {
 
     it('handles addon file URLs with unrelated query strings', () => {
       const url = 'https://a.m.o/addons/file.xpi';
-      const version = createInternalVersion({
+      const version = createInternalVersionWithLang({
         ...fakeVersion,
         files: [
           {
@@ -120,7 +120,7 @@ describe(__filename, () => {
     });
 
     it('does not find a file hash without files', () => {
-      const version = createInternalVersion({
+      const version = createInternalVersionWithLang({
         ...fakeVersion,
         files: [],
       });
@@ -131,15 +131,15 @@ describe(__filename, () => {
 
   describe('getAddonJsonLinkedData', () => {
     it('returns structured data', () => {
-      const addon = createInternalAddon(fakeAddon);
-      const currentVersion = createInternalVersion(fakeVersion);
+      const addon = createInternalAddonWithLang(fakeAddon);
+      const currentVersion = createInternalVersionWithLang(fakeVersion);
 
       expect(getAddonJsonLinkedData({ addon, currentVersion })).toEqual({
         '@context': 'http://schema.org',
         '@type': 'WebApplication',
         name: addon.name,
         url: addon.url,
-        image: addon.previews[0].image_url,
+        image: addon.previews[0].src,
         applicationCategory: 'http://schema.org/OtherApplication',
         operatingSystem: 'Firefox',
         description: addon.summary,
@@ -159,7 +159,7 @@ describe(__filename, () => {
     });
 
     it('returns structured data without the version if not available', () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
 
       expect(
         getAddonJsonLinkedData({ addon, currentVersion: null }),
@@ -167,7 +167,7 @@ describe(__filename, () => {
     });
 
     it('returns structured data without rating if not available', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         ratings: null,
       });
@@ -178,7 +178,7 @@ describe(__filename, () => {
     });
 
     it('returns structured data without rating if count is 0', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
@@ -192,7 +192,7 @@ describe(__filename, () => {
     });
 
     it('returns structured data without rating if average is below threshold', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
@@ -208,8 +208,11 @@ describe(__filename, () => {
 
   describe('getPromotedCategory', () => {
     it('returns null if the addon is not promoted', () => {
-      const addon = createInternalAddon({ ...fakeAddon, promoted: null });
-      const suggestion = createInternalSuggestion(
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        promoted: null,
+      });
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({ promoted: null }),
       );
 
@@ -225,11 +228,11 @@ describe(__filename, () => {
     });
 
     it('returns null if the addon is not promoted for the specified app', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
       });
-      const suggestion = createInternalSuggestion(
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({
           promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
         }),
@@ -248,11 +251,11 @@ describe(__filename, () => {
 
     it('returns the category if the addon is promoted for the specified app', () => {
       const category = RECOMMENDED;
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         promoted: { category, apps: [CLIENT_APP_ANDROID] },
       });
-      const suggestion = createInternalSuggestion(
+      const suggestion = createInternalSuggestionWithLang(
         createFakeAutocompleteResult({
           promoted: { category, apps: [CLIENT_APP_ANDROID] },
         }),
@@ -273,7 +276,7 @@ describe(__filename, () => {
       it.each([SPOTLIGHT, STRATEGIC])(
         'returns null if the category is not one for badges, category: %s',
         (category) => {
-          const addon = createInternalAddon({
+          const addon = createInternalAddonWithLang({
             ...fakeAddon,
             promoted: { category, apps: [CLIENT_APP_ANDROID] },
           });
@@ -289,7 +292,7 @@ describe(__filename, () => {
       );
 
       it('returns VERIFIED if the category is SPONSORED', () => {
-        const addon = createInternalAddon({
+        const addon = createInternalAddonWithLang({
           ...fakeAddon,
           promoted: { category: SPONSORED, apps: [CLIENT_APP_ANDROID] },
         });

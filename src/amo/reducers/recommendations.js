@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
+import { SET_LANG } from 'core/reducers/api';
 import type { AddonType, PartialExternalAddonType } from 'core/types/addons';
 
 export const ABORT_FETCH_RECOMMENDATIONS: 'ABORT_FETCH_RECOMMENDATIONS' =
@@ -32,10 +33,14 @@ export type RecommendationsState = {|
   byGuid: {
     [guid: string]: Recommendations,
   },
+  lang: string,
 |};
 
 export const initialState: RecommendationsState = {
   byGuid: {},
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
 };
 
 export type AbortFetchRecommendationsParams = {|
@@ -135,6 +140,11 @@ const reducer = (
   action: Action,
 ): RecommendationsState => {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
     case ABORT_FETCH_RECOMMENDATIONS:
       return {
         ...state,
@@ -167,7 +177,7 @@ const reducer = (
       const { fallbackReason, guid, outcome } = action.payload;
 
       const addons = action.payload.addons.map((addon) =>
-        createInternalAddon(addon),
+        createInternalAddon(addon, state.lang),
       );
 
       return {

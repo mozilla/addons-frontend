@@ -14,7 +14,7 @@ import {
   createStubErrorHandler,
   dispatchSignInActions,
   fakeAddon,
-  fakeAddonInfo,
+  createFakeAddonInfo,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -120,12 +120,12 @@ describe(__filename, () => {
           slug,
         })
         .once()
-        .resolves(fakeAddonInfo);
+        .resolves(createFakeAddonInfo());
 
       _fetchAddonInfo(slug);
 
       const expectedAction = loadAddonInfo({
-        info: fakeAddonInfo,
+        info: createFakeAddonInfo(),
         slug,
       });
 

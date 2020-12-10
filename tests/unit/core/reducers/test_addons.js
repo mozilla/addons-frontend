@@ -7,6 +7,7 @@ import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
   createInternalAddon,
   createInternalAddonInfo,
+  createInternalPreviews,
   fetchAddon,
   fetchAddonInfo,
   getAddonByID,
@@ -19,16 +20,24 @@ import addons, {
   loadAddon,
   loadAddonInfo,
 } from 'core/reducers/addons';
+import { setLang } from 'core/reducers/api';
 import {
   createFakeAddon,
+  createInternalAddonWithLang,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
-  fakeAddonInfo,
+  fakePreview,
+  createFakeAddonInfo,
   fakeReview,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  // We need a state with setLang called for any tests that use loadAddon or loadAddonInfo.
+  const lang = 'en-US';
+  const stateWithLang = addons(undefined, setLang(lang));
+
   it('defaults to its initial state', () => {
     expect(addons(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(
       initialState,
@@ -37,7 +46,7 @@ describe(__filename, () => {
 
   it('ignores unrelated actions', () => {
     const firstState = addons(
-      undefined,
+      stateWithLang,
       loadAddon({ addon: fakeAddon, slug: fakeAddon.slug }),
     );
     expect(addons(firstState, { type: 'UNRELATED_ACTION' })).toEqual(
@@ -47,7 +56,7 @@ describe(__filename, () => {
 
   it('stores addons from entities', () => {
     const firstState = addons(
-      undefined,
+      stateWithLang,
       loadAddon({ addon: fakeAddon, slug: fakeAddon.slug }),
     );
 
@@ -61,7 +70,7 @@ describe(__filename, () => {
       loadAddon({ addon: anotherFakeAddon, slug: anotherFakeAddon.slug }),
     );
 
-    const internalAddon = createInternalAddon(anotherFakeAddon);
+    const internalAddon = createInternalAddonWithLang(anotherFakeAddon);
     expect(newState.byID).toEqual({
       ...firstState.byID,
       [anotherFakeAddon.id]: internalAddon,
@@ -81,7 +90,7 @@ describe(__filename, () => {
     const addon2 = { ...fakeAddon, slug: 'second-slug', id: 456 };
 
     let state = addons(
-      undefined,
+      stateWithLang,
       loadAddon({ addon: addon1, slug: addon1.slug }),
     );
     state = addons(state, loadAddon({ addon: addon2, slug: addon2.slug }));
@@ -94,7 +103,7 @@ describe(__filename, () => {
     const addon2 = { ...fakeAddon, slug: 'second-slug', id: 456 };
 
     let state = addons(
-      undefined,
+      stateWithLang,
       loadAddon({ addon: addon1, slug: addon1.slug }),
     );
     state = addons(state, loadAddon({ addon: addon2, slug: addon2.slug }));
@@ -110,7 +119,7 @@ describe(__filename, () => {
     const addon2 = { ...fakeAddon, slug: 'SeCond', id: 456 };
 
     let state = addons(
-      undefined,
+      stateWithLang,
       loadAddon({ addon: addon1, slug: addon1.slug }),
     );
     state = addons(state, loadAddon({ addon: addon2, slug: addon2.slug }));
@@ -124,9 +133,11 @@ describe(__filename, () => {
   it('stores an internal representation of an extension', () => {
     const addon = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
 
-    expect(getAddonByID(state, addon.id)).toEqual(createInternalAddon(addon));
+    expect(getAddonByID(state, addon.id)).toEqual(
+      createInternalAddonWithLang(addon),
+    );
   });
 
   it('exposes `isRestartRequired` attribute from current version files', () => {
@@ -136,7 +147,7 @@ describe(__filename, () => {
       ],
     });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isRestartRequired).toBe(true);
   });
 
@@ -147,14 +158,14 @@ describe(__filename, () => {
       ],
     });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isRestartRequired).toBe(false);
   });
 
   it('sets `isRestartRequired` to `false` when addon has no files', () => {
     const addon = createFakeAddon({ files: [] });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isRestartRequired).toBe(false);
   });
 
@@ -166,7 +177,7 @@ describe(__filename, () => {
       ],
     });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isRestartRequired).toBe(true);
   });
 
@@ -175,7 +186,7 @@ describe(__filename, () => {
       files: [{ is_webextension: true }],
     });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isWebExtension).toBe(true);
   });
 
@@ -184,14 +195,14 @@ describe(__filename, () => {
       files: [{ is_webextension: false }],
     });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isWebExtension).toBe(false);
   });
 
   it('sets `isWebExtension` to `false` when addon has no files', () => {
     const addon = createFakeAddon({ files: [] });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isWebExtension).toBe(false);
   });
 
@@ -200,7 +211,7 @@ describe(__filename, () => {
       files: [{ is_webextension: false }, { is_webextension: true }],
     });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isWebExtension).toBe(true);
   });
 
@@ -209,7 +220,7 @@ describe(__filename, () => {
       files: [{ is_mozilla_signed_extension: true }],
     });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(true);
   });
 
@@ -218,14 +229,14 @@ describe(__filename, () => {
       files: [{ is_mozilla_signed_extension: false }],
     });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(false);
   });
 
   it('sets `isMozillaSignedExtension` to `false` without files', () => {
     const addon = createFakeAddon({ files: [] });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(false);
   });
 
@@ -237,7 +248,7 @@ describe(__filename, () => {
       ],
     });
 
-    const state = addons(undefined, loadAddon({ addon, slug: addon.slug }));
+    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(true);
   });
 
@@ -246,7 +257,7 @@ describe(__filename, () => {
     const addon2 = { ...fakeAddon, slug: 'second-slug' };
 
     let state = addons(
-      undefined,
+      stateWithLang,
       loadAddon({ addon: addon1, slug: addon1.slug }),
     );
     state = addons(state, loadAddon({ addon: addon2, slug: addon2.slug }));
@@ -299,7 +310,7 @@ describe(__filename, () => {
       store.dispatch(loadAddon({ addon: fakeAddon, slug: fakeAddon.slug }));
 
       expect(getAddonByID(store.getState().addons, fakeAddon.id)).toEqual(
-        createInternalAddon(fakeAddon),
+        createInternalAddonWithLang(fakeAddon),
       );
     });
   });
@@ -316,7 +327,7 @@ describe(__filename, () => {
       store.dispatch(loadAddon({ addon: fakeAddon, slug: fakeAddon.slug }));
 
       expect(getAllAddons(store.getState())).toEqual([
-        createInternalAddon(fakeAddon),
+        createInternalAddonWithLang(fakeAddon),
       ]);
     });
   });
@@ -387,7 +398,7 @@ describe(__filename, () => {
       const slug = 'some-slug';
       const addon = { ...fakeAddon, slug };
       let state = addons(
-        undefined,
+        stateWithLang,
         fetchAddon({
           slug,
           errorHandler: createStubErrorHandler(),
@@ -422,7 +433,10 @@ describe(__filename, () => {
         slug: slug2,
       };
 
-      let state = addons(undefined, loadAddon({ addon: addon1, slug: slug1 }));
+      let state = addons(
+        stateWithLang,
+        loadAddon({ addon: addon1, slug: slug1 }),
+      );
       state = addons(state, loadAddon({ addon: addon2, slug: slug2 }));
 
       state = addons(state, unloadAddonReviews({ addonId: id1, reviewId: 1 }));
@@ -453,7 +467,7 @@ describe(__filename, () => {
     }
 
     function initStateWithAddon(addon = { ...fakeAddon }) {
-      return addons(undefined, loadAddon({ addon, slug: addon.slug }));
+      return addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     }
 
     function average(numbers) {
@@ -746,11 +760,14 @@ describe(__filename, () => {
     it('clears the loading flag when loading info', () => {
       let state;
       const slug = 'some-slug';
-      state = addons(state, fetchAddonInfo({ errorHandlerId: 1, slug }));
+      state = addons(
+        stateWithLang,
+        fetchAddonInfo({ errorHandlerId: 1, slug }),
+      );
       state = addons(
         state,
         loadAddonInfo({
-          info: fakeAddonInfo,
+          info: createFakeAddonInfo(),
           slug,
         }),
       );
@@ -760,11 +777,11 @@ describe(__filename, () => {
 
     it('loads info', () => {
       const slug = 'some-slug';
-      const info = fakeAddonInfo;
-      const state = addons(undefined, loadAddonInfo({ slug, info }));
+      const info = createFakeAddonInfo();
+      const state = addons(stateWithLang, loadAddonInfo({ slug, info }));
 
       expect(getAddonInfoBySlug({ slug, state })).toEqual(
-        createInternalAddonInfo(info),
+        createInternalAddonInfo(info, lang),
       );
     });
 
@@ -791,15 +808,103 @@ describe(__filename, () => {
     it('returns an add-on for a given known id', () => {
       const addon = fakeAddon;
       const slug = 'some-slug';
-      const state = addons(undefined, loadAddon({ addon, slug }));
+      const state = addons(stateWithLang, loadAddon({ addon, slug }));
 
       expect(getAddonByIdInURL(state, slug)).toEqual(
-        createInternalAddon(addon),
+        createInternalAddonWithLang(addon),
       );
     });
 
     it('returns null when the id is unknown', () => {
       expect(getAddonByIdInURL(initialState, 'some-slug')).toEqual(null);
+    });
+  });
+
+  describe('createInternalAddon', () => {
+    it('coverts localized strings into simple strings', () => {
+      const description = 'Some description';
+      const developer_comments = 'developer comments';
+      const homepage = 'https://myhomepage.com';
+      const name = 'My addon';
+      const previews = [fakePreview];
+      const summary = 'A summary';
+      const support_email = 'someemail@mozilla.com';
+      const support_url = 'https://support.com';
+
+      const addon = createInternalAddon(
+        {
+          ...fakeAddon,
+          description: createLocalizedString(description, lang),
+          developer_comments: createLocalizedString(developer_comments, lang),
+          homepage: createLocalizedString(homepage, lang),
+          name: createLocalizedString(name, lang),
+          previews,
+          summary: createLocalizedString(summary, lang),
+          support_email: createLocalizedString(support_email, lang),
+          support_url: createLocalizedString(support_url, lang),
+        },
+        lang,
+      );
+
+      expect(addon.description).toEqual(description);
+      expect(addon.developer_comments).toEqual(developer_comments);
+      expect(addon.homepage).toEqual(homepage);
+      expect(addon.name).toEqual(name);
+      expect(addon.previews).toEqual(createInternalPreviews(previews, lang));
+      expect(addon.summary).toEqual(summary);
+      expect(addon.support_email).toEqual(support_email);
+      expect(addon.support_url).toEqual(support_url);
+    });
+  });
+
+  describe('createInternalAddonInfo', () => {
+    it('coverts localized strings into simple strings', () => {
+      const eula = 'some eula';
+      const privacyPolicy = 'some privacy policy';
+
+      const addonInfo = createInternalAddonInfo(
+        createFakeAddonInfo({ eula, privacyPolicy }),
+        lang,
+      );
+
+      expect(addonInfo.eula).toEqual(eula);
+      expect(addonInfo.privacyPolicy).toEqual(privacyPolicy);
+    });
+  });
+
+  describe('createInternalPreviews', () => {
+    it('coverts external previews into internal previews', () => {
+      const caption1 = 'My caption';
+      const caption2 = 'Another caption';
+      const preview1 = {
+        ...fakePreview,
+        caption: createLocalizedString(caption1, lang),
+      };
+      const preview2 = {
+        ...fakePreview,
+        caption: createLocalizedString(caption2, lang),
+      };
+
+      expect(createInternalPreviews([preview1, preview2], lang)).toEqual([
+        {
+          h: preview1.image_size[1],
+          src: preview1.image_url,
+          thumbnail_h: preview1.thumbnail_size[1],
+          thumbnail_src: preview1.thumbnail_url,
+          thumbnail_w: preview1.thumbnail_size[0],
+          title: caption1,
+          w: preview1.image_size[0],
+        },
+        {
+          h: preview2.image_size[1],
+          src: preview2.image_url,
+          thumbnail_h: preview2.thumbnail_size[1],
+          thumbnail_src: preview2.thumbnail_url,
+          thumbnail_w: preview2.thumbnail_size[0],
+          title: caption2,
+          w: preview2.image_size[0],
+        },
+      ]);
     });
   });
 });

@@ -33,11 +33,11 @@ import {
   trimAndAddProtocolToUrl,
   visibleAddonType,
 } from 'core/utils';
-import { createInternalAddon } from 'core/reducers/addons';
 import { createPlatformFiles } from 'core/reducers/versions';
 import {
   createFakeHistory,
   createFakeLocation,
+  createInternalAddonWithLang,
   fakeAddon,
   fakePlatformFile,
   fakeVersion,
@@ -189,7 +189,7 @@ describe(__filename, () => {
   });
 
   describe('isAddonAuthor', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       authors: [
         {

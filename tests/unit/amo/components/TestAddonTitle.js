@@ -3,9 +3,10 @@ import * as React from 'react';
 import AddonTitle, { AddonTitleBase } from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
-import { createInternalAddon } from 'core/reducers/addons';
 import LoadingText from 'ui/components/LoadingText';
 import {
+  createInternalAddonWithLang,
+  createLocalizedString,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -33,7 +34,10 @@ describe(__filename, () => {
   it('renders the name of the add-on', () => {
     const name = 'some addon name';
     const root = render({
-      addon: createInternalAddon({ ...fakeAddon, name }),
+      addon: createInternalAddonWithLang({
+        ...fakeAddon,
+        name: createLocalizedString(name),
+      }),
     });
 
     expect(root).toIncludeText(name);
@@ -46,7 +50,7 @@ describe(__filename, () => {
     };
 
     const root = render({
-      addon: createInternalAddon({ ...fakeAddon, authors: [author] }),
+      addon: createInternalAddonWithLang({ ...fakeAddon, authors: [author] }),
     });
 
     expect(root.find(Link)).toHaveLength(1);
@@ -67,7 +71,10 @@ describe(__filename, () => {
     };
 
     const root = render({
-      addon: createInternalAddon({ ...fakeAddon, authors: [author1, author2] }),
+      addon: createInternalAddonWithLang({
+        ...fakeAddon,
+        authors: [author1, author2],
+      }),
     });
 
     expect(root.find(Link)).toHaveLength(2);
@@ -95,7 +102,7 @@ describe(__filename, () => {
   });
 
   it('renders without authors', () => {
-    const addon = createInternalAddon({ ...fakeAddon, authors: null });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, authors: null });
     const root = render({ addon });
 
     // This makes sure only the add-on name is displayed.
@@ -104,7 +111,7 @@ describe(__filename, () => {
 
   it('renders an author without url', () => {
     const root = render({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         authors: [
           {
@@ -121,7 +128,7 @@ describe(__filename, () => {
 
   it('sanitizes a title', () => {
     const root = render({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         name: '<script>alert(document.cookie);</script>',
         authors: [],
@@ -150,7 +157,10 @@ describe(__filename, () => {
     };
 
     const root = render({
-      addon: createInternalAddon({ ...fakeAddon, authors: [author1, author2] }),
+      addon: createInternalAddonWithLang({
+        ...fakeAddon,
+        authors: [author1, author2],
+      }),
       store,
     });
 
@@ -173,14 +183,14 @@ describe(__filename, () => {
   });
 
   it('does not link to the add-on detail page when the "linkToAddon" prop is false', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = render({ addon, linkToAddon: false });
 
     expect(root.find(Link)).toHaveLength(1);
   });
 
   it('links to the add-on detail page when the "linkToAddon" prop is true', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = render({ addon, linkToAddon: true });
 
     expect(root.find(Link)).toHaveLength(2);
@@ -203,7 +213,7 @@ describe(__filename, () => {
 
   it('accepts some query params for attribution to append to the add-on URL', () => {
     const queryParamsForAttribution = { some: 'value' };
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
 
     const root = render({
       addon,

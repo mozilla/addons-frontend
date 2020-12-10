@@ -8,18 +8,19 @@ import AddAddonToCollection, {
 import {
   addAddonToCollection,
   addonAddedToCollection,
-  createInternalCollection,
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
 import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
+  DEFAULT_LANG_IN_TESTS,
   createContextWithFakeRouter,
   createFakeCollectionDetail,
   createFakeEvent,
   createFakeHistory,
+  createInternalAddonWithLang,
+  createInternalCollectionWithLang,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
@@ -38,7 +39,7 @@ describe(__filename, () => {
 
   const getProps = (customProps = {}) => {
     return {
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
       i18n: fakeI18n(),
       history: createFakeHistory(),
       store,
@@ -73,14 +74,18 @@ describe(__filename, () => {
     store.dispatch(loadUserCollections({ userId, collections }));
   };
 
-  const createSomeCollections = ({ userId = 123 } = {}) => {
+  const createSomeCollections = ({
+    firstName = 'first',
+    secondName = 'second',
+    userId = 123,
+  } = {}) => {
     const firstCollection = createFakeCollectionDetail({
       authorId: userId,
-      name: 'first',
+      name: firstName,
     });
     const secondCollection = createFakeCollectionDetail({
       authorId: userId,
-      name: 'second',
+      name: secondName,
     });
 
     return { firstCollection, secondCollection };
@@ -152,7 +157,7 @@ describe(__filename, () => {
     });
 
     it('does not fetch user collections while loading', () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
       const userId = 10;
       dispatchSignInActions({ store, userId });
       store.dispatch(
@@ -170,6 +175,7 @@ describe(__filename, () => {
   });
 
   describe('selecting a user collection', () => {
+    const lang = DEFAULT_LANG_IN_TESTS;
     const findOption = ({ root, text }) => {
       const option = root
         .find('.AddAddonToCollection-option')
@@ -196,7 +202,7 @@ describe(__filename, () => {
     });
 
     it('renders a disabled select when adding add-on to collection', () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
       const userId = 10;
       dispatchSignInActions({ store, userId });
       store.dispatch(
@@ -224,10 +230,12 @@ describe(__filename, () => {
     });
 
     it('lets you select a collection', () => {
-      const addon = createInternalAddon({ ...fakeAddon, id: 234 });
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id: 234 });
+      const secondName = 'second';
       const userId = 10;
 
       const { firstCollection, secondCollection } = createSomeCollections({
+        secondName,
         userId,
       });
 
@@ -241,7 +249,7 @@ describe(__filename, () => {
       const select = root.find('.AddAddonToCollection-select');
       const secondOption = findOption({
         root,
-        text: secondCollection.name,
+        text: secondName,
       });
 
       // Add the add-on to the second collection.
@@ -265,10 +273,14 @@ describe(__filename, () => {
     });
 
     it('sorts collection by name in select box', () => {
-      const addon = createInternalAddon({ ...fakeAddon, id: 234 });
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id: 234 });
+      const firstName = 'a collection';
+      const secondName = 'b collection';
       const userId = 10;
 
       const { firstCollection, secondCollection } = createSomeCollections({
+        firstName,
+        secondName,
         userId,
       });
 
@@ -281,14 +293,15 @@ describe(__filename, () => {
       const root = render({ addon });
       const option = root.find('optgroup .AddAddonToCollection-option').at(0);
 
-      expect(option).toHaveText(firstCollection.name);
+      expect(option).toHaveText(firstName);
     });
 
     it('shows a notice that you added to a collection', () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
+      const firstName = 'a collection';
       const userId = 10;
 
-      const { firstCollection } = createSomeCollections({ userId });
+      const { firstCollection } = createSomeCollections({ firstName, userId });
 
       signInAndDispatchCollections({
         userId,
@@ -306,16 +319,18 @@ describe(__filename, () => {
 
       const notice = root.find(Notice);
       expect(notice.prop('type')).toEqual('success');
-      expect(notice.childAt(0).text()).toContain(
-        `Added to ${firstCollection.name}`,
-      );
+      expect(notice.childAt(0).text()).toContain(`Added to ${firstName}`);
     });
 
     it('shows notices for each target collection', () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
+      const firstName = 'a collection';
+      const secondName = 'b collection';
       const userId = 10;
 
       const { firstCollection, secondCollection } = createSomeCollections({
+        firstName,
+        secondName,
         userId,
       });
 
@@ -347,8 +362,8 @@ describe(__filename, () => {
       const text = (index) => {
         return notice.at(index).childAt(0).text();
       };
-      expect(text(0)).toContain(`Added to ${firstCollection.name}`);
-      expect(text(1)).toContain(`Added to ${secondCollection.name}`);
+      expect(text(0)).toContain(`Added to ${firstName}`);
+      expect(text(1)).toContain(`Added to ${secondName}`);
     });
 
     it('does nothing when you select the prompt', () => {
@@ -376,10 +391,9 @@ describe(__filename, () => {
 
     it('lets you create a new collection by navigating to the collection page', () => {
       const clientApp = CLIENT_APP_FIREFOX;
-      const lang = 'fr';
       const id = 234;
 
-      const addon = createInternalAddon({ ...fakeAddon, id });
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id });
 
       signInAndDispatchCollections({
         clientApp,
@@ -412,8 +426,9 @@ describe(__filename, () => {
       signInAndDispatchCollections();
       const root = render({ addon: null });
 
-      const collection = createInternalCollection({
+      const collection = createInternalCollectionWithLang({
         detail: createFakeCollectionDetail(),
+        lang,
       });
       // This should not be possible through the UI.
       expect(() => root.instance().addToCollection(collection)).toThrow(
@@ -424,8 +439,9 @@ describe(__filename, () => {
     it('requires you to sign in before adding to a collection', () => {
       const root = render();
 
-      const collection = createInternalCollection({
+      const collection = createInternalCollectionWithLang({
         detail: createFakeCollectionDetail(),
+        lang,
       });
       // This should not be possible through the UI.
       expect(() => root.instance().addToCollection(collection)).toThrow(
@@ -474,7 +490,7 @@ describe(__filename, () => {
     });
 
     it('renders an ID with an add-on ID and user', () => {
-      const addon = createInternalAddon({ ...fakeAddon, id: 5432 });
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id: 5432 });
       const userId = 123;
 
       dispatchSignInActions({ store, userId });

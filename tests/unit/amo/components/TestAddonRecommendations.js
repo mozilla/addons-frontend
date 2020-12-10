@@ -16,9 +16,9 @@ import {
   fetchRecommendations,
   loadRecommendations,
 } from 'amo/reducers/recommendations';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createFakeTracking,
+  createInternalAddonWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -47,7 +47,7 @@ describe(__filename, () => {
   }
 
   function doLoadRecommendations({
-    addon = createInternalAddon(fakeAddon),
+    addon = createInternalAddonWithLang(fakeAddon),
     ...props
   }) {
     return loadRecommendations({
@@ -57,7 +57,10 @@ describe(__filename, () => {
     });
   }
 
-  function render({ addon = createInternalAddon(fakeAddon), ...props } = {}) {
+  function render({
+    addon = createInternalAddonWithLang(fakeAddon),
+    ...props
+  } = {}) {
     const errorHandler = createStubErrorHandler();
 
     return shallowUntilTarget(
@@ -92,7 +95,7 @@ describe(__filename, () => {
 
   it('renders an AddonCard when recommendations are loaded', () => {
     const apiAddons = [fakeAddon];
-    const addons = [createInternalAddon(fakeAddon)];
+    const addons = [createInternalAddonWithLang(fakeAddon)];
     const outcome = OUTCOME_RECOMMENDED;
     store.dispatch(
       doLoadRecommendations({
@@ -153,7 +156,7 @@ describe(__filename, () => {
   });
 
   it('should dispatch a fetch action if no recommendations exist', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
@@ -177,7 +180,7 @@ describe(__filename, () => {
   });
 
   it('should dispatch a fetch action if the addon is updated', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
@@ -185,7 +188,7 @@ describe(__filename, () => {
 
     dispatchSpy.resetHistory();
 
-    const newAddon = createInternalAddon({
+    const newAddon = createInternalAddonWithLang({
       ...fakeAddon,
       guid: 'new-guid',
     });
@@ -202,7 +205,7 @@ describe(__filename, () => {
   });
 
   it('should not dispatch a fetch if the addon is updated but not changed', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const root = render({ addon });
@@ -215,7 +218,7 @@ describe(__filename, () => {
   });
 
   it('should not dispatch a fetch if the addon is updated to null', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const root = render({ addon });

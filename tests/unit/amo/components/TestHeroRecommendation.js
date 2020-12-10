@@ -10,7 +10,6 @@ import HeroRecommendation, {
   PRIMARY_HERO_SRC,
   HeroRecommendationBase,
 } from 'amo/components/HeroRecommendation';
-import { createInternalHeroShelves } from 'amo/reducers/home';
 import { getAddonURL } from 'amo/utils';
 import {
   DEFAULT_UTM_SOURCE,
@@ -28,6 +27,8 @@ import {
   createFakeEvent,
   createFakeTracking,
   createHeroShelves,
+  createInternalHeroShelvesWithLang,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -38,8 +39,9 @@ import {
 
 describe(__filename, () => {
   const createShelfData = (primaryProps = {}) => {
-    return createInternalHeroShelves(createHeroShelves({ primaryProps }))
-      .primary;
+    return createInternalHeroShelvesWithLang(
+      createHeroShelves({ primaryProps }),
+    ).primary;
   };
 
   const render = (moreProps = {}) => {
@@ -57,12 +59,14 @@ describe(__filename, () => {
 
   describe('for an addon', () => {
     it('renders a heading', () => {
-      const addon = fakeAddon;
-      const shelfData = createShelfData({ addon });
+      const name = 'Addon name';
+      const shelfData = createShelfData({
+        addon: { ...fakeAddon, name: createLocalizedString(name) },
+      });
 
       const root = render({ shelfData });
 
-      expect(root.find('.HeroRecommendation-heading')).toHaveText(addon.name);
+      expect(root.find('.HeroRecommendation-heading')).toHaveText(name);
     });
 
     it('renders a link', () => {

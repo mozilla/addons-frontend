@@ -265,7 +265,7 @@ type ModifyCollectionAddonBaseParams = {|
   _modifyCollectionAddon?: (any) => Promise<void>,
 |};
 
-type CollectionAddonNotes = string | null;
+type CollectionAddonNotes = LocalizedString | null;
 
 export type CreateCollectionAddonParams = {|
   ...ModifyCollectionAddonBaseParams,

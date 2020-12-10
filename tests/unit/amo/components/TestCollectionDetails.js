@@ -10,11 +10,11 @@ import {
   collectionEditUrl,
   collectionUrl,
   convertFiltersToQueryParams,
-  createInternalCollection,
 } from 'amo/reducers/collections';
 import {
   createFakeCollectionDetail,
   createFakeEvent,
+  createInternalCollectionWithLang,
   dispatchSignInActions,
   fakeI18n,
   shallowUntilTarget,
@@ -23,7 +23,7 @@ import {
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {
     const props = {
-      collection: createInternalCollection({
+      collection: createInternalCollectionWithLang({
         detail: createFakeCollectionDetail(),
       }),
       editing: false,
@@ -46,7 +46,7 @@ describe(__filename, () => {
     const description = 'Collection description';
     const modified = 'Jan 1, 1999';
     const name = 'Collection Name';
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         authorName,
         count,
@@ -80,7 +80,7 @@ describe(__filename, () => {
 
   it('allows HTML entities in the Collection description', () => {
     const description = 'Apples &amp; carrots';
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({
         description,
       }),
@@ -123,7 +123,7 @@ describe(__filename, () => {
   it('renders an edit button if requested', () => {
     const authorUsername = 'some-username';
     const slug = 'some-slug';
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({ authorUsername, slug }),
     });
     const filters = { page: '1' };
@@ -168,7 +168,7 @@ describe(__filename, () => {
   it('renders a back to collection link if requested and editing', () => {
     const authorUsername = 'some-username';
     const slug = 'some-slug';
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail: createFakeCollectionDetail({ authorUsername, slug }),
     });
     const filters = { page: '1' };

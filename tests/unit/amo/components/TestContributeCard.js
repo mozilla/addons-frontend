@@ -11,12 +11,12 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import {
   createFakeEvent,
   createFakeTracking,
+  createInternalAddonWithLang,
   fakeAddon,
   fakeI18n,
   shallowUntilTarget,
@@ -24,7 +24,7 @@ import {
 
 describe(__filename, () => {
   const createAddon = (params) => {
-    return createInternalAddon({
+    return createInternalAddonWithLang({
       ...fakeAddon,
       contributions_url: 'https://paypal.me/babar',
       type: ADDON_TYPE_EXTENSION,
@@ -136,7 +136,7 @@ describe(__filename, () => {
     const _tracking = createFakeTracking();
     const contributionsUrl = 'some/url';
     const guid = 'some-guid';
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       contributions_url: contributionsUrl,
       guid,

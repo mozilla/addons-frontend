@@ -4,8 +4,8 @@ import landing, {
   loadLanding,
 } from 'amo/reducers/landing';
 import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon } from 'tests/unit/helpers';
+import { setLang } from 'core/reducers/api';
+import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('getLanding', () => {
@@ -149,9 +149,11 @@ describe(__filename, () => {
     });
 
     describe('LOAD_LANDING', () => {
+      const stateWithLang = landing(undefined, setLang('en-US'));
+
       it('sets the results', () => {
         const state = landing(
-          initialState,
+          stateWithLang,
           loadLanding({
             addonType: ADDON_TYPE_STATIC_THEME,
             recommended: {
@@ -167,8 +169,8 @@ describe(__filename, () => {
         );
         expect(state.recommended.count).toEqual(2);
         expect(state.recommended.results).toEqual([
-          createInternalAddon({ ...fakeAddon, slug: 'foo' }),
-          createInternalAddon({ ...fakeAddon, slug: 'food' }),
+          createInternalAddonWithLang({ ...fakeAddon, slug: 'foo' }),
+          createInternalAddonWithLang({ ...fakeAddon, slug: 'food' }),
         ]);
         expect(state.highlyRated).toEqual({ count: 0, results: [] });
         expect(state.trending).toEqual({ count: 0, results: [] });
@@ -177,7 +179,7 @@ describe(__filename, () => {
 
       it('does not set null keys', () => {
         const previousState = {
-          ...initialState,
+          ...stateWithLang,
           highlyRated: 'hello',
         };
 

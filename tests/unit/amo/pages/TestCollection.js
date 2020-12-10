@@ -18,7 +18,6 @@ import ConfirmButton from 'ui/components/ConfirmButton';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import {
-  createInternalCollection,
   deleteCollection,
   deleteCollectionAddonNotes,
   fetchCurrentCollection,
@@ -43,6 +42,8 @@ import {
   createFakeCollectionDetail,
   createFakeEvent,
   createFakeHistory,
+  createInternalCollectionWithLang,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -54,7 +55,10 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const defaultCollectionDetail = createFakeCollectionDetail();
+  const defaultCollectionName = 'Collection name';
+  const defaultCollectionDetail = createFakeCollectionDetail({
+    name: defaultCollectionName,
+  });
   const defaultUserId = defaultCollectionDetail.author.id;
   const defaultSlug = defaultCollectionDetail.slug;
 
@@ -128,7 +132,7 @@ describe(__filename, () => {
     const editing = false;
     const addonsResponse = createFakeCollectionAddonsListResponse();
     const detail = createFakeCollectionDetail();
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail,
       addonsResponse,
     });
@@ -774,7 +778,7 @@ describe(__filename, () => {
       authorId: userId,
       slug,
     });
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail,
       addonsResponse,
     });
@@ -968,7 +972,7 @@ describe(__filename, () => {
     _loadCurrentCollection({ store });
 
     const wrapper = renderComponent({ store });
-    expect(wrapper.find('title')).toHaveText(defaultCollectionDetail.name);
+    expect(wrapper.find('title')).toHaveText(defaultCollectionName);
   });
 
   it('does not render an HTML title when there is no collection loaded', () => {
@@ -1032,7 +1036,7 @@ describe(__filename, () => {
 
     const addonsResponse = createFakeCollectionAddonsListResponse();
     const detail = createFakeCollectionDetail({ authorId });
-    const collection = createInternalCollection({
+    const collection = createInternalCollectionWithLang({
       detail,
       addonsResponse,
     });
@@ -1294,7 +1298,8 @@ describe(__filename, () => {
 
   it('dispatches deleteCollectionAddonNotes when deleteNote is called', () => {
     const authorId = 11;
-    const { store } = dispatchSignInActions({ userId: authorId });
+    const lang = 'fr';
+    const { store } = dispatchSignInActions({ lang, userId: authorId });
 
     const addonsResponse = createFakeCollectionAddonsListResponse();
     const addonId = addonsResponse.results[0].addon.id;
@@ -1330,6 +1335,7 @@ describe(__filename, () => {
         addonId,
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
+        lang,
         slug: detail.slug,
         userId: detail.author.id,
       }),
@@ -1338,7 +1344,8 @@ describe(__filename, () => {
 
   it('dispatches updateCollectionAddon when saveNote is called', () => {
     const authorId = 11;
-    const { store } = dispatchSignInActions({ userId: authorId });
+    const lang = 'fr';
+    const { store } = dispatchSignInActions({ lang, userId: authorId });
 
     const addonsResponse = createFakeCollectionAddonsListResponse();
     const addonId = addonsResponse.results[0].addon.id;
@@ -1373,7 +1380,7 @@ describe(__filename, () => {
       updateCollectionAddon({
         addonId,
         errorHandlerId: errorHandler.id,
-        notes,
+        notes: createLocalizedString(notes, lang),
         filters: { page, collectionSort: sort },
         slug: detail.slug,
         userId: detail.author.id,

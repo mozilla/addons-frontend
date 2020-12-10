@@ -27,7 +27,6 @@ import {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
-  localizeCollectionDetail,
   unloadCollectionBySlug,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
@@ -174,7 +173,7 @@ export function* addAddonToCollection({
       addonId,
       api: state.api,
       slug,
-      notes,
+      notes: notes ? { [state.api.lang]: notes } : undefined,
       userId: String(userId),
     };
     yield call(api.createCollectionAddon, params);
@@ -287,16 +286,7 @@ export function* modifyCollection(
       // If a new collection was just created, load it so that it will
       // be available when the user arrives at the collection edit screen.
       if (!includeAddonId) {
-        const localizedDetail = localizeCollectionDetail({
-          detail: response,
-          lang,
-        });
-
-        yield put(
-          loadCurrentCollection({
-            detail: localizedDetail,
-          }),
-        );
+        yield put(loadCurrentCollection({ detail: response }));
       }
 
       yield put(pushLocation(newLocation));

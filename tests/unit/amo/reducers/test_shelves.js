@@ -7,8 +7,9 @@ import reducer, {
   initialState,
   loadSponsored,
 } from 'amo/reducers/shelves';
-import { createInternalAddon } from 'core/reducers/addons';
+import { setLang } from 'core/reducers/api';
 import {
+  createInternalAddonWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeSponsoredShelf,
@@ -38,15 +39,16 @@ describe(__filename, () => {
 
   it('loads the sponsored shelf', () => {
     const shelfData = fakeSponsoredShelf;
-    const state = reducer(
-      undefined,
+    let state = reducer(undefined, setLang('en-US'));
+    state = reducer(
+      state,
       loadSponsored({
         shelfData,
       }),
     );
 
     const expectedAddons = fakeSponsoredShelf.results.map((addon) =>
-      createInternalAddon(addon),
+      createInternalAddonWithLang(addon),
     );
 
     // This also serves as a test for getSponsoredShelf for a loaded shelf.

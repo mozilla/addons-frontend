@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
+import { SET_LANG } from 'core/reducers/api';
 import type { SearchFilters } from 'core/api/search';
 import type {
   AddonType,
@@ -17,6 +18,7 @@ const SEARCH_ABORTED: 'SEARCH_ABORTED' = 'SEARCH_ABORTED';
 export type SearchState = {|
   count: number,
   filters: SearchFilters | null,
+  lang: string,
   loading: boolean,
   pageSize: string | null,
   results: Array<AddonType | CollectionAddonType>,
@@ -25,6 +27,9 @@ export type SearchState = {|
 export const initialState: SearchState = {
   count: 0,
   filters: null,
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   loading: false,
   pageSize: null,
   results: [],
@@ -92,6 +97,12 @@ export default function search(
   action: Action,
 ): SearchState {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
+
     case SEARCH_STARTED: {
       const { payload } = action;
 
@@ -111,7 +122,9 @@ export default function search(
         count: payload.count,
         loading: false,
         pageSize: payload.pageSize,
-        results: payload.results.map((addon) => createInternalAddon(addon)),
+        results: payload.results.map((addon) =>
+          createInternalAddon(addon, state.lang),
+        ),
       };
     }
     case SEARCH_ABORTED:

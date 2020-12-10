@@ -17,12 +17,13 @@ import {
 } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import { ErrorHandler } from 'core/errorHandler';
+import { setLang } from 'core/reducers/api';
 import { formatDataForBeacon } from 'core/tracking';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createAddonsApiResult,
   createFakeTracking,
   createHeroShelves,
+  createInternalAddonWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -78,6 +79,7 @@ describe(__filename, () => {
     impressionData = 'some data',
     impressionURL = 'https://mozilla.org/',
   }) => {
+    store.dispatch(setLang('en-US'));
     store.dispatch(
       loadSponsored({
         shelfData: {
@@ -95,12 +97,15 @@ describe(__filename, () => {
     impressionData = 'some data',
     impressionURL = 'https://mozilla.org/',
   } = {}) => {
-    return createInternalsponsoredShelf({
-      ...fakeSponsoredShelf,
-      impression_data: impressionData,
-      impression_url: impressionURL,
-      results: addons,
-    });
+    return createInternalsponsoredShelf(
+      {
+        ...fakeSponsoredShelf,
+        impression_data: impressionData,
+        impression_url: impressionURL,
+        results: addons,
+      },
+      'en-US',
+    );
   };
 
   describe('When enableFeatureUseAdzerkForSponsoredShelf is false', () => {
@@ -133,7 +138,7 @@ describe(__filename, () => {
       const root = render({ _config });
 
       expect(root.find(AddonsCard)).toHaveProp('addons', [
-        createInternalAddon(addon),
+        createInternalAddonWithLang(addon),
       ]);
     });
 
@@ -190,7 +195,7 @@ describe(__filename, () => {
 
       const root = render({ _config });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
-      onAddonClick(createInternalAddon(addon));
+      onAddonClick(createInternalAddonWithLang(addon));
 
       sinon.assert.notCalled(_sendSponsoredEventBeacon);
     });
@@ -202,7 +207,7 @@ describe(__filename, () => {
 
       const root = render({ _config, _storeConversionInfo });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
-      onAddonClick(createInternalAddon(addon));
+      onAddonClick(createInternalAddonWithLang(addon));
 
       sinon.assert.notCalled(_storeConversionInfo);
     });
@@ -236,7 +241,7 @@ describe(__filename, () => {
       const root = render({ _config });
 
       expect(root.find(AddonsCard)).toHaveProp('addons', [
-        createInternalAddon(addon),
+        createInternalAddonWithLang(addon),
       ]);
     });
 
@@ -421,7 +426,7 @@ describe(__filename, () => {
 
       const root = render({ _config });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
-      onAddonClick(createInternalAddon(addon));
+      onAddonClick(createInternalAddonWithLang(addon));
 
       sinon.assert.calledWith(_sendSponsoredEventBeacon, {
         data: clickData,
@@ -435,7 +440,7 @@ describe(__filename, () => {
 
       const root = render({ _config });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
-      onAddonClick(createInternalAddon(addon));
+      onAddonClick(createInternalAddonWithLang(addon));
 
       sinon.assert.notCalled(_sendSponsoredEventBeacon);
     });
@@ -450,7 +455,7 @@ describe(__filename, () => {
 
       const root = render({ _config, _storeConversionInfo });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
-      onAddonClick(createInternalAddon(addon));
+      onAddonClick(createInternalAddonWithLang(addon));
 
       sinon.assert.calledWith(_storeConversionInfo, {
         addonId: addon.id,
@@ -465,7 +470,7 @@ describe(__filename, () => {
 
       const root = render({ _config, _storeConversionInfo });
       const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
-      onAddonClick(createInternalAddon(addon));
+      onAddonClick(createInternalAddonWithLang(addon));
 
       sinon.assert.notCalled(_storeConversionInfo);
     });
@@ -480,7 +485,7 @@ describe(__filename, () => {
 
   it('passes addonInstallSource to AddonsCard', () => {
     const addonInstallSource = 'featured-on-home-page';
-    const addons = [createInternalAddon(fakeAddon)];
+    const addons = [createInternalAddonWithLang(fakeAddon)];
     const root = render({ addons, addonInstallSource });
 
     expect(root.find(AddonsCard)).toHaveProp(
@@ -513,7 +518,7 @@ describe(__filename, () => {
 
     const root = render();
     const onAddonClick = root.find(AddonsCard).prop('onAddonClick');
-    onAddonClick(createInternalAddon(addon));
+    onAddonClick(createInternalAddonWithLang(addon));
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: PROMOTED_ADDON_CLICK_ACTION,
@@ -529,7 +534,7 @@ describe(__filename, () => {
 
     const root = render();
     const onAddonImpression = root.find(AddonsCard).prop('onAddonImpression');
-    onAddonImpression(createInternalAddon(addon));
+    onAddonImpression(createInternalAddonWithLang(addon));
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: PROMOTED_ADDON_IMPRESSION_ACTION,

@@ -20,12 +20,12 @@ import {
   UNINSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
-import { createInternalVersion } from 'core/reducers/versions';
 import Icon from 'ui/components/Icon';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeCookies,
@@ -56,7 +56,7 @@ describe(__filename, () => {
   const createInternalVersionWithInstallURL = ({
     installURL = 'https://a.m.o/files/addon.xpi',
   }) => {
-    return createInternalVersion({
+    return createInternalVersionWithLang({
       ...fakeVersion,
       files: [
         {
@@ -69,9 +69,9 @@ describe(__filename, () => {
   };
 
   const renderProps = (customProps = {}) => ({
-    addon: createInternalAddon(fakeAddon),
+    addon: createInternalAddonWithLang(fakeAddon),
     cookies: fakeCookies(),
-    currentVersion: createInternalVersion(fakeVersion),
+    currentVersion: createInternalVersionWithLang(fakeVersion),
     disabled: false,
     enable: sinon.stub(),
     hasAddonManager: true,
@@ -137,7 +137,7 @@ describe(__filename, () => {
   });
 
   it('renders Install Theme text on button when it is a static theme', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeTheme,
       type: ADDON_TYPE_STATIC_THEME,
     });
@@ -186,7 +186,7 @@ describe(__filename, () => {
   });
 
   it('calls the `install` helper to install an extension', async () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const enable = sinon.spy();
     const install = sinon.spy();
 
@@ -205,7 +205,7 @@ describe(__filename, () => {
   });
 
   it('calls the `install` and `enable` helpers to install a static theme', async () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
     });
@@ -236,7 +236,7 @@ describe(__filename, () => {
   });
 
   it("does not call the `enable` helper after the `install` helper for a static theme if it's already enabled", async () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
     });
@@ -369,7 +369,7 @@ describe(__filename, () => {
 
   it('renders an Icon when add-on is a static theme and status is INSTALLED', () => {
     const root = render({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeTheme,
         type: ADDON_TYPE_STATIC_THEME,
       }),
@@ -422,7 +422,7 @@ describe(__filename, () => {
 
   it('calls the `uninstall` helper when uninstalling an add-on', () => {
     const installURL = 'http://example.org/install/url';
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const uninstall = sinon.spy();
 
     const root = render({

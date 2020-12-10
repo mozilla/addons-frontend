@@ -10,8 +10,8 @@ import {
   ADDON_TYPE_STATIC_THEME,
   STATIC_THEMES_REVIEW,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createInternalAddonWithLang,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
@@ -31,7 +31,7 @@ describe(__filename, () => {
   function render(props = {}) {
     return shallowUntilTarget(
       <AddonAdminLinks
-        addon={props.addon || createInternalAddon(fakeAddon)}
+        addon={props.addon || createInternalAddonWithLang(fakeAddon)}
         i18n={fakeI18n()}
         store={store}
         {...props}
@@ -41,7 +41,7 @@ describe(__filename, () => {
   }
 
   const renderWithPermissions = ({
-    addon = createInternalAddon({
+    addon = createInternalAddonWithLang({
       ...fakeAddon,
       slug,
     }),
@@ -98,7 +98,7 @@ describe(__filename, () => {
 
   it('shows an admin add-on link if the user has permission', () => {
     const id = 123;
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       id,
     });
@@ -132,7 +132,7 @@ describe(__filename, () => {
 
   it('does not show a content review link for a theme', () => {
     const root = renderWithPermissions({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeTheme,
       }),
       permissions: [ADDONS_CONTENT_REVIEW, ADDONS_EDIT],
@@ -163,7 +163,7 @@ describe(__filename, () => {
 
   it('shows a theme review link for a static theme if the user has permission', () => {
     const root = renderWithPermissions({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         slug,
         type: ADDON_TYPE_STATIC_THEME,
@@ -182,7 +182,7 @@ describe(__filename, () => {
 
   it('does not show a theme review link if the user does not have permission', () => {
     const root = renderWithPermissions({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeTheme,
         slug,
       }),
@@ -195,7 +195,7 @@ describe(__filename, () => {
 
   it('does not show a theme review link if the user has permission but the add-on is not a theme', () => {
     const root = renderWithPermissions({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         slug,
       }),

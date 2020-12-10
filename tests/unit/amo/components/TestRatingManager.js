@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -37,6 +36,8 @@ import AuthenticateButton from 'core/components/AuthenticateButton';
 import { genericType, successType } from 'ui/components/Notice';
 import UserRating from 'ui/components/UserRating';
 import {
+  createInternalAddonWithLang,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -49,7 +50,7 @@ import {
 describe(__filename, () => {
   function getRenderProps(customProps = {}) {
     return {
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       store: dispatchSignInActions().store,
@@ -66,7 +67,7 @@ describe(__filename, () => {
   }
 
   const createStoreWithLatestReview = ({
-    addon = createInternalAddon({ ...fakeAddon, id: 7663 }),
+    addon = createInternalAddonWithLang({ ...fakeAddon, id: 7663 }),
     review = fakeReview,
     userId = 92345,
   } = {}) => {
@@ -87,18 +88,22 @@ describe(__filename, () => {
   };
 
   it('prompts you to rate the add-on by name', () => {
+    const name = 'Some Add-on';
     const root = render({
-      addon: createInternalAddon({ ...fakeAddon, name: 'Some Add-on' }),
+      addon: createInternalAddonWithLang({
+        ...fakeAddon,
+        name: createLocalizedString(name),
+      }),
     });
 
     const prompt = root.find('.RatingManager-legend').html();
     expect(prompt).toContain('How are you enjoying');
-    expect(prompt).toContain('Some Add-on');
+    expect(prompt).toContain(name);
   });
 
   it('dispatches fetchLatestUserReview on construction', () => {
     const userId = 12889;
-    const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 3344 });
 
     const { store } = dispatchSignInActions({ userId });
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -117,7 +122,7 @@ describe(__filename, () => {
   });
 
   it('does not fetchLatestUserReview when a null one was already fetched', () => {
-    const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 3344 });
 
     const { store } = createStoreWithLatestReview({
       addon,
@@ -133,7 +138,7 @@ describe(__filename, () => {
   });
 
   it('does not fetchLatestUserReview if there is an error', () => {
-    const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 3344 });
     const { store } = dispatchSignInActions();
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
@@ -157,7 +162,7 @@ describe(__filename, () => {
   });
 
   it('passes review=undefined before the saved review has loaded', () => {
-    const addon = createInternalAddon({ ...fakeAddon });
+    const addon = createInternalAddonWithLang({ ...fakeAddon });
     const { store } = dispatchSignInActions();
 
     const root = render({ addon, store });
@@ -209,7 +214,7 @@ describe(__filename, () => {
   });
 
   it('passes an add-on to the report abuse button', () => {
-    const addon = createInternalAddon({ ...fakeAddon });
+    const addon = createInternalAddonWithLang({ ...fakeAddon });
 
     const root = render({ addon });
 
@@ -282,7 +287,7 @@ describe(__filename, () => {
 
     function getAuthPromptForType(addonType) {
       const root = renderWithoutUser({
-        addon: createInternalAddon({ ...fakeAddon, type: addonType }),
+        addon: createInternalAddonWithLang({ ...fakeAddon, type: addonType }),
       });
 
       expect(root.find(AuthenticateButton)).toHaveLength(1);
@@ -388,7 +393,7 @@ describe(__filename, () => {
     });
 
     it('prompts to delete a review when beginningToDeleteReview', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         name: 'uBlock Origin',
       });
@@ -404,7 +409,7 @@ describe(__filename, () => {
     });
 
     it('prompts to delete a rating when beginningToDeleteReview', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         name: 'uBlock Origin',
       });
@@ -505,7 +510,7 @@ describe(__filename, () => {
 
     it('submits a new rating', () => {
       const { store } = dispatchSignInActions();
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
       const score = 5;

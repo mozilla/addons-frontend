@@ -1,6 +1,10 @@
 /* @flow */
+import { selectLocalizedContent } from 'core/reducers/utils';
 import type { AppState } from 'amo/store';
-import type { LanguageToolType } from 'core/types/addons';
+import type {
+  ExternalLanguageToolType,
+  LanguageToolType,
+} from 'core/types/addons';
 
 export const FETCH_LANGUAGE_TOOLS: 'FETCH_LANGUAGE_TOOLS' =
   'FETCH_LANGUAGE_TOOLS';
@@ -37,7 +41,7 @@ export const fetchLanguageTools = ({
 };
 
 type LoadLanguageToolsParams = {|
-  languageTools: Array<LanguageToolType>,
+  languageTools: Array<ExternalLanguageToolType>,
 |};
 
 type LoadLanguageToolsAction = {|
@@ -69,6 +73,14 @@ export const getAllLanguageTools = (
   return Object.keys(byID).map((key) => byID[key]);
 };
 
+export const createInternalLanguageTool = (
+  languageTool: ExternalLanguageToolType,
+  lang: string,
+): LanguageToolType => ({
+  ...languageTool,
+  name: selectLocalizedContent(languageTool.name, lang),
+});
+
 type Action = FetchLanguageToolsAction | LoadLanguageToolsAction;
 
 export default function languageToolsReducer(
@@ -80,10 +92,14 @@ export default function languageToolsReducer(
       const byID = { ...state.byID };
 
       action.payload.languageTools.forEach((item) => {
-        byID[`${item.id}`] = item;
+        byID[`${item.id}`] = createInternalLanguageTool(
+          item,
+          item.target_locale,
+        );
       });
 
       return {
+        ...state,
         byID,
       };
     }

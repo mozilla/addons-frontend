@@ -6,13 +6,13 @@ import CollectionList, {
   extractId,
 } from 'amo/pages/CollectionList';
 import {
-  createInternalCollection,
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   createFakeCollectionDetail,
+  createInternalCollectionWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -227,7 +227,7 @@ describe(__filename, () => {
     expect(userCollections).toHaveLength(2);
 
     userCollections.forEach((collection, index) => {
-      const expected = createInternalCollection({
+      const expected = createInternalCollectionWithLang({
         detail: collections[index],
       });
 

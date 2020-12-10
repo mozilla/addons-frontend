@@ -11,10 +11,10 @@ import GetFirefoxButton, {
 } from 'amo/components/GetFirefoxButton';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createFakeEvent,
   createFakeTracking,
+  createInternalAddonWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -90,7 +90,7 @@ describe(__filename, () => {
 
       it('sets the href on the button with the guid of the add-on', () => {
         const guid = 'some-guid';
-        const addon = createInternalAddon({ ...fakeAddon, guid });
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
         const root = render({
           addon,
           buttonType,
@@ -108,7 +108,7 @@ describe(__filename, () => {
       it('calls base64url.encode to encode the guid of the add-on', () => {
         const _base64url = { encode: sinon.spy() };
         const guid = 'some-guid';
-        const addon = createInternalAddon({ ...fakeAddon, guid });
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
         render({
           _base64url,
           addon,
@@ -122,7 +122,7 @@ describe(__filename, () => {
       // See: https://github.com/mozilla/addons-frontend/issues/7255
       it('does not call base64url.encode when add-on has a `null` GUID', () => {
         const _base64url = { encode: sinon.spy() };
-        const addon = createInternalAddon({ ...fakeAddon, guid: null });
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid: null });
 
         render({
           _base64url,
@@ -136,7 +136,7 @@ describe(__filename, () => {
 
       it('sets the button as puffy and not micro', () => {
         const root = render({
-          addon: createInternalAddon(fakeAddon),
+          addon: createInternalAddonWithLang(fakeAddon),
           buttonType,
           store,
         });
@@ -147,7 +147,7 @@ describe(__filename, () => {
 
       it('has the expected button text', () => {
         const root = render({
-          addon: createInternalAddon(fakeAddon),
+          addon: createInternalAddonWithLang(fakeAddon),
           buttonType,
           store,
         });
@@ -161,7 +161,7 @@ describe(__filename, () => {
 
       it('sets the href on the button with the expected utm_content for the header', () => {
         const guid = 'some-guid';
-        const addon = createInternalAddon({ ...fakeAddon, guid });
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
         const root = render({
           addon,
           buttonType,
@@ -178,7 +178,7 @@ describe(__filename, () => {
 
       it('sets the button as micro and not puffy', () => {
         const root = render({
-          addon: createInternalAddon(fakeAddon),
+          addon: createInternalAddonWithLang(fakeAddon),
           buttonType,
           store,
         });
@@ -189,7 +189,7 @@ describe(__filename, () => {
 
       it('has the expected button text', () => {
         const root = render({
-          addon: createInternalAddon(fakeAddon),
+          addon: createInternalAddonWithLang(fakeAddon),
           buttonType,
           store,
         });
@@ -203,7 +203,7 @@ describe(__filename, () => {
 
       it('renders nothing when the none type is specified', () => {
         const root = render({
-          addon: createInternalAddon(fakeAddon),
+          addon: createInternalAddonWithLang(fakeAddon),
           buttonType,
           store,
         });
@@ -213,7 +213,7 @@ describe(__filename, () => {
     });
     describe('tracking', () => {
       const guid = 'some-guid';
-      const realAddon = createInternalAddon({ ...fakeAddon, guid });
+      const realAddon = createInternalAddonWithLang({ ...fakeAddon, guid });
 
       it.each([
         ['with addon', realAddon],

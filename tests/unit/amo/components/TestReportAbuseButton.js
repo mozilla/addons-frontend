@@ -20,10 +20,10 @@ import {
 import Button from 'ui/components/Button';
 import ErrorList from 'ui/components/ErrorList';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createFakeAddonAbuseReport,
   createFakeEvent,
+  createInternalAddonWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -34,7 +34,7 @@ import {
 describe(__filename, () => {
   const defaultRenderProps = {
     _hasAbuseReportPanelEnabled: sinon.stub(),
-    addon: createInternalAddon({ ...fakeAddon, slug: 'my-addon' }),
+    addon: createInternalAddonWithLang({ ...fakeAddon, slug: 'my-addon' }),
     errorHandler: createStubErrorHandler(),
     i18n: fakeI18n(),
     store: dispatchClientMetadata().store,
@@ -146,7 +146,10 @@ describe(__filename, () => {
     'initiates an abuse report via Firefox when the "report" button is clicked if supported and add-on type is %s',
     (addonType) => {
       const _hasAbuseReportPanelEnabled = sinon.stub().returns(true);
-      const addon = createInternalAddon({ ...fakeAddon, type: addonType });
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        type: addonType,
+      });
       const fakeEvent = createFakeEvent();
       const { store } = dispatchClientMetadata();
       const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -170,7 +173,10 @@ describe(__filename, () => {
     'does not initiate an abuse report via Firefox when add-on type is %s',
     (addonType) => {
       const _hasAbuseReportPanelEnabled = sinon.stub().returns(true);
-      const addon = createInternalAddon({ ...fakeAddon, type: addonType });
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        type: addonType,
+      });
       const { store } = dispatchClientMetadata();
       const dispatchSpy = sinon.spy(store, 'dispatch');
 

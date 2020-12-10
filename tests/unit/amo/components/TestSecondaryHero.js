@@ -6,7 +6,6 @@ import SecondaryHero, {
   SECONDARY_HERO_CLICK_CATEGORY,
   SECONDARY_HERO_SRC,
 } from 'amo/components/SecondaryHero';
-import { createInternalHeroShelves } from 'amo/reducers/home';
 import LoadingText from 'ui/components/LoadingText';
 import { addQueryParams } from 'core/utils/url';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
@@ -14,12 +13,13 @@ import {
   createFakeEvent,
   createFakeTracking,
   createHeroShelves,
+  createInternalHeroShelvesWithLang,
   fakeAddon,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const createShelfData = (secondaryProps = {}) => {
-    return createInternalHeroShelves(
+    return createInternalHeroShelvesWithLang(
       createHeroShelves({ primaryProps: { addon: fakeAddon }, secondaryProps }),
     ).secondary;
   };

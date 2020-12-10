@@ -7,8 +7,8 @@ import {
   CLIENT_APP_FIREFOX,
   RECOMMENDED,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createInternalAddonWithLang,
   createFakeAddon,
   dispatchClientMetadata,
   fakeAddon,
@@ -35,7 +35,7 @@ describe(__filename, () => {
   });
 
   it('displays no badges when none are called for', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       type: ADDON_TYPE_EXTENSION,
     });
@@ -50,7 +50,7 @@ describe(__filename, () => {
 
     const root = shallowRender({
       _getPromotedCategory,
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
     });
 
     expect(root.find(PromotedBadge)).toHaveLength(1);
@@ -62,14 +62,14 @@ describe(__filename, () => {
 
     const root = shallowRender({
       _getPromotedCategory,
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
     });
 
     expect(root.find(PromotedBadge)).toHaveLength(0);
   });
 
   it('displays a badge when the addon needs restart', () => {
-    const addon = createInternalAddon(
+    const addon = createInternalAddonWithLang(
       createFakeAddon({
         files: [{ is_restart_required: true }],
       }),
@@ -81,7 +81,7 @@ describe(__filename, () => {
   });
 
   it('does not display the "restart required" badge when addon does not need restart', () => {
-    const addon = createInternalAddon(
+    const addon = createInternalAddonWithLang(
       createFakeAddon({
         files: [{ is_restart_required: false }],
       }),
@@ -92,13 +92,15 @@ describe(__filename, () => {
   });
 
   it('does not display the "restart required" badge when isRestartRequired is not true', () => {
-    const root = shallowRender({ addon: createInternalAddon(fakeAddon) });
+    const root = shallowRender({
+      addon: createInternalAddonWithLang(fakeAddon),
+    });
 
     expect(root.find(Badge).find({ type: 'restart-required' })).toHaveLength(0);
   });
 
   it('displays a badge when the addon is experimental', () => {
-    const addon = createInternalAddon(
+    const addon = createInternalAddonWithLang(
       createFakeAddon({
         is_experimental: true,
       }),
@@ -110,7 +112,7 @@ describe(__filename, () => {
   });
 
   it('does not display a badge when the addon is not experimental', () => {
-    const addon = createInternalAddon(
+    const addon = createInternalAddonWithLang(
       createFakeAddon({
         is_experimental: false,
       }),
@@ -122,7 +124,7 @@ describe(__filename, () => {
 
   describe('Quantum compatible badge', () => {
     it('does not display a badge when add-on is compatible with Quantum', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           files: [
             {
@@ -145,7 +147,7 @@ describe(__filename, () => {
     });
 
     it('displays a badge when the addon is not compatible with Quantum', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           files: [
             {
@@ -174,7 +176,7 @@ describe(__filename, () => {
     });
 
     it('does not display a badge for add-ons that are not extensions', () => {
-      const addon = createInternalAddon(
+      const addon = createInternalAddonWithLang(
         createFakeAddon({
           files: [
             {
@@ -199,7 +201,7 @@ describe(__filename, () => {
   });
 
   it('displays a badge when the addon requires payment', () => {
-    const addon = createInternalAddon(
+    const addon = createInternalAddonWithLang(
       createFakeAddon({
         requires_payment: true,
       }),
@@ -214,7 +216,7 @@ describe(__filename, () => {
   });
 
   it('does not display a badge when the addon does not require payment', () => {
-    const addon = createInternalAddon(
+    const addon = createInternalAddonWithLang(
       createFakeAddon({
         requires_payment: false,
       }),

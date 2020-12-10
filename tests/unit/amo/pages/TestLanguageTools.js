@@ -10,6 +10,7 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
 import {
+  createInternalLanguageTool,
   getAllLanguageTools,
   loadLanguageTools,
 } from 'core/reducers/languageTools';
@@ -259,10 +260,10 @@ describe(__filename, () => {
 
     expect(root.find(LanguageToolList)).toHaveLength(2);
     expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
-      addons[0],
+      createInternalLanguageTool(addons[0], 'az'),
     ]);
     expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
-      addons[1],
+      createInternalLanguageTool(addons[1], 'az-IR'),
     ]);
   });
 
@@ -318,11 +319,11 @@ describe(__filename, () => {
     expect(root.find('.LanguageTools-table-row')).toHaveLength(2);
 
     expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
-      addons[0],
+      createInternalLanguageTool(addons[0], 'fa'),
     ]);
     expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
-      addons[1],
-      addons[2],
+      createInternalLanguageTool(addons[1], 'fa-IR'),
+      createInternalLanguageTool(addons[2], 'fa-IR'),
     ]);
   });
 

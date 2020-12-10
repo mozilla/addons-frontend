@@ -9,11 +9,12 @@ import InstallButtonWrapper, {
 import { setInstallState } from 'core/reducers/installations';
 import AMInstallButton from 'core/components/AMInstallButton';
 import { CLIENT_APP_FIREFOX, INSTALLED, UNKNOWN } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
-import { createInternalVersion, loadVersions } from 'core/reducers/versions';
+import { loadVersions } from 'core/reducers/versions';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -33,7 +34,7 @@ describe(__filename, () => {
   const render = (props = {}) => {
     return shallowUntilTarget(
       <InstallButtonWrapper
-        addon={createInternalAddon(fakeAddon)}
+        addon={createInternalAddonWithLang(fakeAddon)}
         i18n={fakeI18n()}
         location={createFakeLocation()}
         store={store}
@@ -79,14 +80,14 @@ describe(__filename, () => {
 
     render({
       _getClientCompatibility,
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       store,
     });
 
     sinon.assert.calledWith(_getClientCompatibility, {
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       clientApp,
-      currentVersion: createInternalVersion(addon.current_version),
+      currentVersion: createInternalVersionWithLang(addon.current_version),
       userAgentInfo: store.getState().api.userAgentInfo,
     });
   });
@@ -109,15 +110,15 @@ describe(__filename, () => {
 
     render({
       _getClientCompatibility,
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       store,
-      version: createInternalVersion(version),
+      version: createInternalVersionWithLang(version),
     });
 
     sinon.assert.calledWith(_getClientCompatibility, {
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       clientApp,
-      currentVersion: createInternalVersion(version),
+      currentVersion: createInternalVersionWithLang(version),
       userAgentInfo: store.getState().api.userAgentInfo,
     });
   });
@@ -135,14 +136,14 @@ describe(__filename, () => {
 
     render({
       _getClientCompatibility,
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       store,
     });
 
     sinon.assert.neverCalledWith(_getClientCompatibility, {
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       clientApp,
-      currentVersion: createInternalVersion(addon.current_version),
+      currentVersion: createInternalVersionWithLang(addon.current_version),
       userAgentInfo: store.getState().api.userAgentInfo,
     });
   });
@@ -172,7 +173,7 @@ describe(__filename, () => {
   });
 
   it('passes an add-on to AMInstallButton', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
 
     const root = render({
       addon,
@@ -182,7 +183,7 @@ describe(__filename, () => {
   });
 
   it('passes a null currentVersion to AMInstallButton when no version is loaded', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
 
     const root = render({
       addon,
@@ -197,22 +198,22 @@ describe(__filename, () => {
     _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
     const root = render({
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
     });
 
     expect(root.find(AMInstallButton)).toHaveProp(
       'currentVersion',
-      createInternalVersion(addon.current_version),
+      createInternalVersionWithLang(addon.current_version),
     );
   });
 
   it('passes a currentVersion to AMInstallButton when one is specified', () => {
-    const version = createInternalVersion({
+    const version = createInternalVersionWithLang({
       ...fakeVersion,
       id: fakeAddon.current_version.id + 1,
     });
     const root = render({
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
       version,
     });
 
@@ -228,7 +229,7 @@ describe(__filename, () => {
 
     const root = render({
       _getClientCompatibility,
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
     });
 
     expect(root.find(AMInstallButton)).toHaveProp('disabled', false);
@@ -246,7 +247,7 @@ describe(__filename, () => {
     );
 
     const root = render({
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
     });
 
     expect(root.find(AMInstallButton)).toHaveProp('status', INSTALLED);
@@ -265,7 +266,7 @@ describe(__filename, () => {
     );
 
     const root = render({
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
     });
 
     expect(root.find(AMInstallButton)).toHaveProp('canUninstall', canUninstall);
@@ -278,7 +279,7 @@ describe(__filename, () => {
   });
 
   it('passes an add-on to GetFirefoxButton', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
 
     const root = render({
       addon,
@@ -321,7 +322,7 @@ describe(__filename, () => {
     const root = render({
       _findInstallURL,
       _getClientCompatibility,
-      version: createInternalVersion(fakeAddon.current_version),
+      version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(1);
@@ -338,7 +339,7 @@ describe(__filename, () => {
     const root = render({
       _findInstallURL,
       _getClientCompatibility,
-      version: createInternalVersion(fakeAddon.current_version),
+      version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
@@ -351,7 +352,7 @@ describe(__filename, () => {
 
     const root = render({
       _getClientCompatibility,
-      version: createInternalVersion(fakeAddon.current_version),
+      version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
     expect(root.find(AMInstallButton)).toHaveClassName(
@@ -370,7 +371,7 @@ describe(__filename, () => {
     const root = render({
       _findInstallURL,
       _getClientCompatibility,
-      version: createInternalVersion(fakeAddon.current_version),
+      version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
     expect(root.find(AMInstallButton)).not.toHaveClassName(
@@ -380,7 +381,7 @@ describe(__filename, () => {
 
   it('calls findInstallURL to determine the installURL for the add-on', () => {
     const _findInstallURL = sinon.spy();
-    const version = createInternalVersion(fakeAddon.current_version);
+    const version = createInternalVersionWithLang(fakeAddon.current_version);
 
     render({ _findInstallURL, version });
 
@@ -408,7 +409,7 @@ describe(__filename, () => {
     const root = render({
       _findInstallURL,
       _getClientCompatibility,
-      version: createInternalVersion(fakeAddon.current_version),
+      version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
     expect(root.find('.InstallButtonWrapper-download-link')).toHaveProp(
@@ -426,7 +427,7 @@ describe(__filename, () => {
     const root = render({
       _findInstallURL,
       _getClientCompatibility,
-      version: createInternalVersion(fakeAddon.current_version),
+      version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);

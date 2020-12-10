@@ -3,13 +3,13 @@ import * as React from 'react';
 import CollectionSort, {
   CollectionSortBase,
 } from 'amo/components/CollectionSort';
-import { createInternalCollection } from 'amo/reducers/collections';
 import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
 import {
   createFakeCollectionDetail,
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeHistory,
+  createInternalCollectionWithLang,
   dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
@@ -18,7 +18,7 @@ import {
 describe(__filename, () => {
   const render = ({ ...otherProps } = {}) => {
     const { history, ...props } = {
-      collection: createInternalCollection({
+      collection: createInternalCollectionWithLang({
         detail: createFakeCollectionDetail(),
       }),
       editing: false,
@@ -73,7 +73,7 @@ describe(__filename, () => {
         const clientApp = CLIENT_APP_FIREFOX;
         const lang = 'en-US';
         const queryParams = { page, collection_sort: sort };
-        const collection = createInternalCollection({
+        const collection = createInternalCollectionWithLang({
           detail: createFakeCollectionDetail({
             authorId: userId,
             slug,

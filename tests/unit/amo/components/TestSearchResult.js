@@ -10,11 +10,12 @@ import {
   DEFAULT_UTM_SOURCE,
   VERIFIED,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeHistory,
+  createInternalAddonWithLang,
+  createLocalizedString,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -29,12 +30,12 @@ import Rating from 'ui/components/Rating';
 import PromotedBadge from 'ui/components/PromotedBadge';
 
 describe(__filename, () => {
-  const baseAddon = createInternalAddon({
+  const baseAddon = createInternalAddonWithLang({
     ...fakeAddon,
     authors: [{ name: 'A funky déveloper' }, { name: 'A groovy developer' }],
     average_daily_users: 5253,
     promoted: null,
-    name: 'A search result',
+    name: createLocalizedString('A search result'),
     slug: 'a-search-result',
   });
 
@@ -63,16 +64,19 @@ describe(__filename, () => {
   }
 
   it('renders the heading', () => {
-    const root = render();
+    const name = 'A search result';
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      name: createLocalizedString(name),
+    });
+    const root = render({ addon });
 
-    expect(root.find('.SearchResult-link').children()).toIncludeText(
-      'A search result',
-    );
+    expect(root.find('.SearchResult-link').children()).toIncludeText(name);
   });
 
   it('links the heading to the detail page', () => {
     const slug = 'some-addon-slug';
-    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, slug });
 
     const root = render({ addon });
 
@@ -110,7 +114,7 @@ describe(__filename, () => {
 
   it('ignores an empty author list', () => {
     const root = render({
-      addon: createInternalAddon({ ...fakeAddon, authors: undefined }),
+      addon: createInternalAddonWithLang({ ...fakeAddon, authors: undefined }),
     });
 
     expect(root).not.toHaveClassName('SearchResult-author');
@@ -146,7 +150,7 @@ describe(__filename, () => {
 
   it('renders the user count as singular', () => {
     const root = render({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         average_daily_users: 1,
       }),
@@ -157,7 +161,7 @@ describe(__filename, () => {
 
   it('links the li element to the detail page', () => {
     const slug = 'some-addon-slug';
-    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, slug });
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'fr';
     const history = createFakeHistory();
@@ -175,7 +179,7 @@ describe(__filename, () => {
   });
 
   it('calls the custom onClick handler for the li element, passing the addon', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const onClick = sinon.spy();
 
     const root = render({ addon, onClick });
@@ -198,7 +202,7 @@ describe(__filename, () => {
   });
 
   it('calls the custom onClick handler for the anchor element, passing the addon', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const clickEvent = createFakeEvent();
     const onClick = sinon.spy();
 
@@ -222,7 +226,7 @@ describe(__filename, () => {
   });
 
   it('calls the custom onImpression handler, passing the addon', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const onImpression = sinon.spy();
 
     render({ addon, onImpression });
@@ -257,7 +261,10 @@ describe(__filename, () => {
   });
 
   it('displays a placeholder if the icon is malformed', () => {
-    const addon = createInternalAddon({ ...fakeAddon, icon_url: 'whatevs' });
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      icon_url: 'whatevs',
+    });
     const root = render({ addon });
 
     // image `require` calls in jest return the filename
@@ -266,7 +273,7 @@ describe(__filename, () => {
 
   it('adds a theme-specific class', () => {
     const root = render({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
       }),
@@ -284,7 +291,7 @@ describe(__filename, () => {
   it('does not render a theme image if the isAllowedOrigin is false', () => {
     const root = render({
       _isAllowedOrigin: sinon.stub().returns(false),
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         previews: [],
         type: ADDON_TYPE_STATIC_THEME,
@@ -297,9 +304,9 @@ describe(__filename, () => {
   it("renders an image's alt attribute as its addon name", () => {
     const alt = 'pretty image';
     const root = render({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
-        name: alt,
+        name: createLocalizedString(alt),
       }),
     });
 
@@ -324,7 +331,7 @@ describe(__filename, () => {
     const headerImageFull = 'https://addons.cdn.mozilla.net/full/12345.png';
 
     const root = render({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
         previews: [
@@ -346,7 +353,7 @@ describe(__filename, () => {
     const headerImageFull = 'https://addons.cdn.mozilla.net/full/1.png';
 
     const root = render({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
         previews: [
@@ -363,7 +370,7 @@ describe(__filename, () => {
   });
 
   it('displays a message if the static theme preview image is unavailable', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       previews: [],
       type: ADDON_TYPE_STATIC_THEME,
@@ -376,7 +383,7 @@ describe(__filename, () => {
   });
 
   it("does not display a 'no theme preview available' message if the static theme preview image is available", () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeTheme,
       type: ADDON_TYPE_STATIC_THEME,
     });
@@ -500,7 +507,7 @@ describe(__filename, () => {
 
   it('sets an extra css class to the icon wrapper when there is no theme image', () => {
     const root = render({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
         previews: [],

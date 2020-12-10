@@ -2,7 +2,10 @@
 import invariant from 'invariant';
 
 import { getAddonIconUrl } from 'core/imageUtils';
+import { SET_LANG } from 'core/reducers/api';
+import { selectLocalizedContent } from 'core/reducers/utils';
 import type { PromotedType } from 'core/types/addons';
+import type { LocalizedString } from 'core/types/api';
 
 export const AUTOCOMPLETE_LOADED: 'AUTOCOMPLETE_LOADED' = 'AUTOCOMPLETE_LOADED';
 export const AUTOCOMPLETE_STARTED: 'AUTOCOMPLETE_STARTED' =
@@ -14,7 +17,7 @@ export const AUTOCOMPLETE_CANCELLED: 'AUTOCOMPLETE_CANCELLED' =
 type ExternalSuggestion = {|
   icon_url: string,
   id: number,
-  name: string,
+  name: LocalizedString,
   promoted: PromotedType | null,
   type: string,
   url: string,
@@ -30,11 +33,15 @@ export type SuggestionType = {|
 |};
 
 export type AutocompleteState = {|
+  lang: string,
   loading: boolean,
   suggestions: Array<SuggestionType>,
 |};
 
 const initialState: AutocompleteState = {
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   loading: false,
   suggestions: [],
 };
@@ -95,11 +102,12 @@ export function autocompleteLoad({
 
 export const createInternalSuggestion = (
   externalSuggestion: ExternalSuggestion,
+  lang: string,
 ): SuggestionType => {
   return {
     addonId: externalSuggestion.id,
     iconUrl: getAddonIconUrl(externalSuggestion),
-    name: externalSuggestion.name,
+    name: selectLocalizedContent(externalSuggestion.name, lang),
     promoted: externalSuggestion.promoted,
     type: externalSuggestion.type,
     url: externalSuggestion.url,
@@ -125,6 +133,7 @@ export default function reducer(
     case AUTOCOMPLETE_STARTED:
       return {
         ...initialState,
+        lang: state.lang,
         loading: true,
       };
     case AUTOCOMPLETE_LOADED: {
@@ -134,7 +143,7 @@ export default function reducer(
         // TODO: Remove this when `null` names are not returned. See:
         // https://github.com/mozilla/addons-server/issues/6189
         .filter((result) => result.name !== null)
-        .map((result) => createInternalSuggestion(result));
+        .map((result) => createInternalSuggestion(result, state.lang));
 
       return {
         ...state,
@@ -142,6 +151,11 @@ export default function reducer(
         suggestions,
       };
     }
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
     default:
       return state;
   }

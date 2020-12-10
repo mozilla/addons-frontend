@@ -28,23 +28,28 @@ import reducer, {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
-  localizeCollectionDetail,
   removeAddonFromCollection,
   unloadCollectionBySlug,
   updateCollection,
 } from 'amo/reducers/collections';
 import { COLLECTION_SORT_NAME } from 'core/constants';
+import { setLang } from 'core/reducers/api';
 import {
   createFakeCollectionAddon,
   createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
+  createInternalCollectionWithLang,
   createStubErrorHandler,
   fakeAddon,
   onLocationChanged,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  // We need a state with setLang called for any tests that load collections.
+  const lang = 'en-US';
+  const stateWithLang = reducer(undefined, setLang(lang));
+
   const _loadCurrentCollection = ({
     addonsResponse = createFakeCollectionAddonsListResponse(),
     detail = createFakeCollectionDetail(),
@@ -97,7 +102,7 @@ describe(__filename, () => {
       const collectionDetail = createFakeCollectionDetail();
 
       let state = reducer(
-        undefined,
+        stateWithLang,
         _loadCurrentCollection({
           detail: collectionDetail,
         }),
@@ -120,7 +125,7 @@ describe(__filename, () => {
       const collectionDetail = createFakeCollectionDetail();
 
       const state = reducer(
-        undefined,
+        stateWithLang,
         _loadCurrentCollection({
           addonsResponse: collectionAddons,
           detail: collectionDetail,
@@ -131,7 +136,7 @@ describe(__filename, () => {
 
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection).toEqual(
-        createInternalCollection({
+        createInternalCollectionWithLang({
           detail: collectionDetail,
           addonsResponse: collectionAddons,
         }),
@@ -141,7 +146,7 @@ describe(__filename, () => {
 
     it('resets the current collection when fetching a new collection', () => {
       // 1. User loads a collection.
-      let state = reducer(undefined, _loadCurrentCollection());
+      let state = reducer(stateWithLang, _loadCurrentCollection());
 
       // 2. User navigates to another collection.
       state = reducer(
@@ -162,7 +167,7 @@ describe(__filename, () => {
 
       // 1. User loads a collection.
       let state = reducer(
-        undefined,
+        stateWithLang,
         _loadCurrentCollection({
           addonsResponse: createFakeCollectionAddonsListResponse(),
           detail: collectionDetail,
@@ -181,7 +186,7 @@ describe(__filename, () => {
 
       expect(state.current.loading).toEqual(true);
       expect(getCurrentCollection(state)).toEqual({
-        ...createInternalCollection({
+        ...createInternalCollectionWithLang({
           detail: collectionDetail,
         }),
         addons: [],
@@ -195,7 +200,7 @@ describe(__filename, () => {
 
       expect(() =>
         reducer(
-          undefined,
+          stateWithLang,
           loadCurrentCollectionPage({
             addonsResponse,
           }),
@@ -206,7 +211,7 @@ describe(__filename, () => {
     it('loads a collection page', () => {
       const notes = 'These are some notes';
 
-      let state = reducer(undefined, _loadCurrentCollection());
+      let state = reducer(stateWithLang, _loadCurrentCollection());
 
       const fakeCollectionAddon = createFakeCollectionAddon({
         addon: { ...fakeAddon, id: 333 },
@@ -226,7 +231,7 @@ describe(__filename, () => {
 
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection.addons).toEqual(
-        createInternalAddons(newAddons.results),
+        createInternalAddons(newAddons.results, lang),
       );
       expect(loadedCollection.numberOfAddons).toEqual(newAddons.count);
       expect(state.current.loading).toEqual(false);
@@ -255,7 +260,7 @@ describe(__filename, () => {
       const secondCollection = createFakeCollectionDetail({ id: 2 });
 
       let state = reducer(
-        undefined,
+        stateWithLang,
         _loadCurrentCollection({
           detail: firstCollection,
         }),
@@ -318,7 +323,7 @@ describe(__filename, () => {
       const secondCollection = createFakeCollectionDetail({ id: 2, count: 2 });
 
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadUserCollections({
           userId,
           collections: [firstCollection, secondCollection],
@@ -330,13 +335,13 @@ describe(__filename, () => {
       expect(userState.collections).toEqual([1, 2]);
 
       expect(state.byId[userState.collections[0]]).toEqual(
-        createInternalCollection({
+        createInternalCollectionWithLang({
           detail: firstCollection,
           pageSize: null,
         }),
       );
       expect(state.byId[userState.collections[1]]).toEqual(
-        createInternalCollection({
+        createInternalCollectionWithLang({
           detail: secondCollection,
           pageSize: null,
         }),
@@ -348,7 +353,7 @@ describe(__filename, () => {
       const collection = createFakeCollectionDetail({ id: 1 });
 
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadUserCollections({
           userId,
           collections: [collection],
@@ -366,7 +371,7 @@ describe(__filename, () => {
       const collection = createFakeCollectionDetail({ id: 1 });
 
       let state = reducer(
-        undefined,
+        stateWithLang,
         loadUserCollections({
           userId,
           collections: [collection],
@@ -393,7 +398,7 @@ describe(__filename, () => {
       const collection = createFakeCollectionDetail({ id: 1 });
 
       let state = reducer(
-        undefined,
+        stateWithLang,
         loadUserCollections({
           userId,
           collections: [collection],
@@ -421,7 +426,7 @@ describe(__filename, () => {
       const collection = createFakeCollectionDetail({ id: 1 });
 
       let state = reducer(
-        undefined,
+        stateWithLang,
         loadUserCollections({
           userId,
           collections: [collection],
@@ -718,7 +723,7 @@ describe(__filename, () => {
       const collection = createFakeCollectionDetail({ id: 1 });
 
       let state = loadCollectionIntoState({
-        state: initialState,
+        state: stateWithLang,
         collection,
         addonsResponse,
       });
@@ -728,7 +733,7 @@ describe(__filename, () => {
 
       const collectionInState = state.byId[collection.id];
       expect(collectionInState.addons).toEqual(
-        createInternalAddons(addonsResponse.results),
+        createInternalAddons(addonsResponse.results, lang),
       );
     });
 
@@ -743,7 +748,7 @@ describe(__filename, () => {
       });
 
       const state = loadCollectionIntoState({
-        state: initialState,
+        state: stateWithLang,
         collection,
         addonsResponse,
       });
@@ -762,13 +767,13 @@ describe(__filename, () => {
       const id = 45321;
       const addonsResponse = createFakeCollectionAddonsListResponse();
       const collectionDetail = createFakeCollectionDetail({ id });
-      const internalCollection = createInternalCollection({
+      const internalCollection = createInternalCollectionWithLang({
         addonsResponse,
         detail: collectionDetail,
       });
 
       const state = reducer(
-        undefined,
+        stateWithLang,
         _loadCurrentCollection({
           addonsResponse,
           detail: collectionDetail,
@@ -795,13 +800,13 @@ describe(__filename, () => {
       const id = 45321;
       const addonsResponse = createFakeCollectionAddonsListResponse();
       const collectionDetail = createFakeCollectionDetail({ id });
-      const internalCollection = createInternalCollection({
+      const internalCollection = createInternalCollectionWithLang({
         addonsResponse,
         detail: collectionDetail,
       });
 
       const state = reducer(
-        undefined,
+        stateWithLang,
         _loadCurrentCollection({
           addonsResponse,
           detail: collectionDetail,
@@ -833,7 +838,7 @@ describe(__filename, () => {
 
       // Load a collection with add-ons.
       let state = reducer(
-        undefined,
+        stateWithLang,
         _loadCurrentCollection({
           addonsResponse,
           detail: collectionDetail,
@@ -857,7 +862,7 @@ describe(__filename, () => {
       );
 
       expect(state.byId[collectionDetail.id].addons).toEqual(
-        createInternalAddons(newAddons),
+        createInternalAddons(newAddons, lang),
       );
       expect(state.byId[collectionDetail.id].addons[0].notes).toEqual(notes);
     });
@@ -866,7 +871,7 @@ describe(__filename, () => {
       const addons = createFakeCollectionAddons();
       expect(() => {
         reducer(
-          undefined,
+          stateWithLang,
           loadCollectionAddons({
             addons,
             // This collection has not been loaded into state yet.
@@ -926,7 +931,7 @@ describe(__filename, () => {
       const collectionDetail = createFakeCollectionDetail();
 
       let state = reducer(
-        undefined,
+        stateWithLang,
         _loadCurrentCollection({
           detail: collectionDetail,
         }),
@@ -938,12 +943,10 @@ describe(__filename, () => {
     });
 
     it('preserves other collections', () => {
-      let state;
-
       const collection1Addons = createFakeCollectionAddonsListResponse();
       const collection1Detail = createFakeCollectionDetail();
-      state = reducer(
-        state,
+      let state = reducer(
+        stateWithLang,
         _loadCurrentCollection({
           addonsResponse: collection1Addons,
           detail: collection1Detail,
@@ -964,29 +967,11 @@ describe(__filename, () => {
       state = reducer(state, action);
 
       expect(state.byId[collection1Detail.id]).toEqual(
-        createInternalCollection({
+        createInternalCollectionWithLang({
           detail: collection1Detail,
           addonsResponse: collection1Addons,
         }),
       );
-    });
-  });
-
-  describe('localizeCollectionDetail', () => {
-    it('localizes collection detail', () => {
-      const lang = 'en-US';
-      const collectionDetail = createFakeCollectionDetail();
-      const collectionDetailWithLocalizedStrings = {
-        ...collectionDetail,
-        description: { [lang]: collectionDetail.description },
-        name: { [lang]: collectionDetail.name },
-      };
-      const localizedDetail = localizeCollectionDetail({
-        detail: collectionDetailWithLocalizedStrings,
-        lang,
-      });
-
-      expect(localizedDetail).toEqual(collectionDetail);
     });
   });
 
@@ -1015,7 +1000,7 @@ describe(__filename, () => {
       };
 
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadUserCollections({
           userId,
           collections: [firstCollection, secondCollection],
@@ -1025,13 +1010,13 @@ describe(__filename, () => {
       const collections = expandCollections(state, meta);
       expect(collections.length).toEqual(2);
       expect(collections[0]).toEqual(
-        createInternalCollection({
+        createInternalCollectionWithLang({
           detail: firstCollection,
           pageSize: null,
         }),
       );
       expect(collections[1]).toEqual(
-        createInternalCollection({
+        createInternalCollectionWithLang({
           detail: secondCollection,
           pageSize: null,
         }),
@@ -1046,7 +1031,7 @@ describe(__filename, () => {
       };
 
       const state = reducer(
-        undefined,
+        stateWithLang,
         loadUserCollections({
           userId,
           collections: [firstCollection],
@@ -1056,7 +1041,7 @@ describe(__filename, () => {
       const collections = expandCollections(state, meta);
       expect(collections.length).toEqual(1);
       expect(collections[0]).toEqual(
-        createInternalCollection({
+        createInternalCollectionWithLang({
           detail: firstCollection,
           pageSize: null,
         }),
@@ -1079,7 +1064,7 @@ describe(__filename, () => {
     it('returns a URL for a collection', () => {
       const authorId = 123;
       const slug = 'some-slug';
-      const collection = createInternalCollection({
+      const collection = createInternalCollectionWithLang({
         detail: createFakeCollectionDetail({ authorId, slug }),
       });
 
@@ -1104,7 +1089,7 @@ describe(__filename, () => {
     it('returns a URL for the collection when all 3 params are passed', () => {
       const authorId = 1;
       const slug = 'some-slug';
-      const collection = createInternalCollection({
+      const collection = createInternalCollectionWithLang({
         detail: createFakeCollectionDetail({ authorId, slug }),
       });
 
@@ -1138,7 +1123,10 @@ describe(__filename, () => {
     it('prevents the name to be `null`', () => {
       const detail = createFakeCollectionDetail({ name: null });
 
-      expect(createInternalCollection({ detail })).toHaveProperty('name', '');
+      expect(createInternalCollection({ detail, lang })).toHaveProperty(
+        'name',
+        '',
+      );
     });
 
     it('uses a count from addonsResponse for numberOfAddons', () => {
@@ -1148,6 +1136,7 @@ describe(__filename, () => {
         createInternalCollection({
           addonsResponse: createFakeCollectionAddonsListResponse({ count }),
           detail: createFakeCollectionDetail(),
+          lang,
         }),
       ).toHaveProperty('numberOfAddons', count);
     });
@@ -1157,8 +1146,19 @@ describe(__filename, () => {
       expect(
         createInternalCollection({
           detail: createFakeCollectionDetail({ count: numberOfAddons }),
+          lang,
         }),
       ).toHaveProperty('numberOfAddons', numberOfAddons);
+    });
+
+    it('selects the name and description from the localized strings', () => {
+      const description = 'My description';
+      const name = 'My name';
+      const detail = createFakeCollectionDetail({ description, name });
+      const collection = createInternalCollection({ detail, lang });
+
+      expect(collection).toHaveProperty('description', description);
+      expect(collection).toHaveProperty('name', name);
     });
   });
 });

@@ -29,11 +29,7 @@ import {
   CLIENT_APP_FIREFOX,
   SET_VIEW_CONTEXT,
 } from 'core/constants';
-import {
-  fetchAddon,
-  createInternalAddon,
-  loadAddon,
-} from 'core/reducers/addons';
+import { fetchAddon, loadAddon } from 'core/reducers/addons';
 import Card from 'ui/components/Card';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
@@ -42,6 +38,8 @@ import {
   createFakeEvent,
   createFakeHistory,
   createFakeLocation,
+  createInternalAddonWithLang,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -168,7 +166,7 @@ describe(__filename, () => {
           count: 0,
         },
       };
-      const addon = createInternalAddon(externalAddon);
+      const addon = createInternalAddonWithLang(externalAddon);
 
       _loadAddon(externalAddon);
 
@@ -190,7 +188,7 @@ describe(__filename, () => {
           count: reviewCount,
         },
       };
-      const addon = createInternalAddon(externalAddon);
+      const addon = createInternalAddonWithLang(externalAddon);
 
       _loadAddon(externalAddon);
 
@@ -220,13 +218,14 @@ describe(__filename, () => {
     });
 
     it('renders an AddonSummaryCard with an addon', () => {
-      const addon = fakeAddon;
+      const name = 'My addon';
+      const addon = { ...fakeAddon, name: createLocalizedString(name) };
       _loadAddon(addon);
       const root = render();
 
       const summary = root.find(AddonSummaryCard);
-      expect(summary).toHaveProp('addon', createInternalAddon(addon));
-      expect(summary).toHaveProp('headerText', `Reviews for ${addon.name}`);
+      expect(summary).toHaveProp('addon', createInternalAddonWithLang(addon));
+      expect(summary).toHaveProp('headerText', `Reviews for ${name}`);
     });
 
     it('renders an AddonSummaryCard without an addon', () => {
@@ -344,7 +343,7 @@ describe(__filename, () => {
     });
 
     it('fetches reviews if needed during an update', () => {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         slug: 'some-other-slug',
       });
@@ -568,7 +567,7 @@ describe(__filename, () => {
       dispatch.resetHistory();
       // Update the component with a different addon having the same type.
       root.setProps({
-        addon: createInternalAddon({ ...addon1, id: 345 }),
+        addon: createInternalAddonWithLang({ ...addon1, id: 345 }),
       });
 
       sinon.assert.notCalled(dispatch);
@@ -583,7 +582,7 @@ describe(__filename, () => {
       const root = render();
 
       dispatch.resetHistory();
-      root.setProps({ addon: createInternalAddon(addon2) });
+      root.setProps({ addon: createInternalAddonWithLang(addon2) });
 
       sinon.assert.calledWith(dispatch, setViewContext(addon2.type));
     });
@@ -604,7 +603,7 @@ describe(__filename, () => {
 
     it('renders a list of reviews with ratings', () => {
       const addon = { ...fakeAddon };
-      const internalAddon = createInternalAddon(addon);
+      const internalAddon = createInternalAddonWithLang(addon);
       const reviews = [
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
@@ -837,10 +836,10 @@ describe(__filename, () => {
     });
 
     it('renders an HTML title', () => {
-      const addon = fakeAddon;
-      _loadAddon(addon);
+      const name = 'My addon';
+      _loadAddon({ ...fakeAddon, name: createLocalizedString(name) });
       const root = render();
-      expect(root.find('title')).toHaveText(`Reviews for ${addon.name}`);
+      expect(root.find('title')).toHaveText(`Reviews for ${name}`);
     });
 
     it('does not render an HTML title when there is no add-on', () => {
@@ -881,7 +880,7 @@ describe(__filename, () => {
       const root = render({ params: { reviewId } });
 
       const featured = root.find(FeaturedAddonReview);
-      expect(featured).toHaveProp('addon', createInternalAddon(addon));
+      expect(featured).toHaveProp('addon', createInternalAddonWithLang(addon));
       expect(featured).toHaveProp('reviewId', reviewId);
     });
 
@@ -1046,8 +1045,13 @@ describe(__filename, () => {
   });
 
   it('renders a "description" meta tag', () => {
+    const name = 'My addon';
     const addonSlug = 'example-slug';
-    const addon = { ...fakeAddon, slug: addonSlug };
+    const addon = {
+      ...fakeAddon,
+      name: createLocalizedString(name),
+      slug: addonSlug,
+    };
     _loadAddon(addon);
 
     const root = render({ params: { addonSlug } });
@@ -1055,7 +1059,7 @@ describe(__filename, () => {
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
       new RegExp(
-        `Reviews and ratings for ${addon.name}. Find out what other users think about ${addon.name}`,
+        `Reviews and ratings for ${name}. Find out what other users think about ${name}`,
       ),
     );
   });

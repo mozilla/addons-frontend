@@ -9,7 +9,7 @@ import {
 } from 'amo/constants';
 import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { SET_CLIENT_APP } from 'core/reducers/api';
+import { SET_CLIENT_APP, SET_LANG } from 'core/reducers/api';
 import type { SetClientAppAction } from 'core/reducers/api';
 import type {
   AddonType,
@@ -113,6 +113,7 @@ export type HomeState = {
   collections: Array<Object | null>,
   heroShelves: HeroShelvesType | null,
   isLoading: boolean,
+  lang: string,
   resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
   shelves: { [shelfName: string]: Array<AddonType> | null },
@@ -122,6 +123,9 @@ export const initialState: HomeState = {
   collections: [],
   heroShelves: null,
   isLoading: false,
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   resetStateOnNextChange: false,
   resultsLoaded: false,
   shelves: {},
@@ -210,12 +214,14 @@ type Action =
 
 const createInternalAddons = (
   response: ApiAddonsResponse,
+  lang: string,
 ): Array<AddonType> => {
-  return response.results.map((addon) => createInternalAddon(addon));
+  return response.results.map((addon) => createInternalAddon(addon, lang));
 };
 
 export const createInternalHeroShelves = (
   heroShelves: ExternalHeroShelvesType,
+  lang: string,
 ): HeroShelvesType => {
   const { primary, secondary } = heroShelves;
 
@@ -237,7 +243,7 @@ export const createInternalHeroShelves = (
   if (primary.addon) {
     const primaryShelf: PrimaryHeroShelfWithAddonType = {
       ...basePrimaryShelf,
-      addon: createInternalAddon(primary.addon),
+      addon: createInternalAddon(primary.addon, lang),
       external: undefined,
     };
     return { primary: primaryShelf, secondary };
@@ -257,8 +263,17 @@ const reducer = (
   _config: typeof config = config,
 ): HomeState => {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
+
     case SET_CLIENT_APP:
-      return initialState;
+      return {
+        ...initialState,
+        lang: state.lang,
+      };
 
     case ABORT_FETCH_HOME_DATA:
       return {
@@ -285,12 +300,12 @@ const reducer = (
                 ? LANDING_PAGE_THEME_COUNT
                 : LANDING_PAGE_EXTENSION_COUNT;
             return collection.results.slice(0, sliceEnd).map((item) => {
-              return createInternalAddon(item.addon);
+              return createInternalAddon(item.addon, state.lang);
             });
           }
           return null;
         }),
-        heroShelves: createInternalHeroShelves(heroShelves),
+        heroShelves: createInternalHeroShelves(heroShelves, state.lang),
         isLoading: false,
         resultsLoaded: true,
         shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
@@ -298,7 +313,9 @@ const reducer = (
 
           return {
             ...shelvesToLoad,
-            [shelfName]: response ? createInternalAddons(response) : null,
+            [shelfName]: response
+              ? createInternalAddons(response, state.lang)
+              : null,
           };
         }, {}),
       };
@@ -315,7 +332,10 @@ const reducer = (
       // change, we want to reset this state to fetch fresh data once user goes
       // back to the homepage.
       if (state.resetStateOnNextChange) {
-        return initialState;
+        return {
+          ...initialState,
+          lang: state.lang,
+        };
       }
 
       return {

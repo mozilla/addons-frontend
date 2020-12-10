@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
+import { SET_LANG } from 'core/reducers/api';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const GET_LANDING: 'GET_LANDING' = 'GET_LANDING';
@@ -23,6 +24,7 @@ export type LandingState = {|
   category: string | null,
   recommended: ResultSet,
   highlyRated: ResultSet,
+  lang: string,
   loading: boolean,
   resultsLoaded: boolean,
   trending: ResultSet,
@@ -33,6 +35,9 @@ export const initialState: LandingState = {
   category: null,
   recommended: { count: 0, results: [] },
   highlyRated: { count: 0, results: [] },
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   loading: false,
   trending: { count: 0, results: [] },
   resultsLoaded: false,
@@ -103,6 +108,11 @@ export default function reducer(
   action: Action,
 ): LandingState {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
     case GET_LANDING: {
       const { payload } = action;
 
@@ -110,6 +120,7 @@ export default function reducer(
         ...initialState,
         addonType: payload.addonType,
         category: payload.category || null,
+        lang: state.lang,
         loading: true,
         resultsLoaded: false,
       };
@@ -124,7 +135,7 @@ export default function reducer(
           newState[key] = {
             count: payload[key].count,
             results: payload[key].results.map((addon) =>
-              createInternalAddon(addon),
+              createInternalAddon(addon, state.lang),
             ),
           };
         }

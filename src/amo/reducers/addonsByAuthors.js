@@ -3,6 +3,7 @@ import deepcopy from 'deepcopy';
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
+import { SET_LANG } from 'core/reducers/api';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 type AddonId = number;
@@ -17,6 +18,7 @@ export type AddonsByAuthorsState = {|
   byAddonSlug: { [string]: Array<AddonId> },
   byAuthorId: { [number]: Array<AddonId> },
   countFor: { [string]: number },
+  lang: string,
   loadingFor: { [string]: boolean },
 |};
 
@@ -25,6 +27,9 @@ export const initialState: AddonsByAuthorsState = {
   byAddonSlug: {},
   byAuthorId: {},
   countFor: {},
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
   loadingFor: {},
 };
 
@@ -214,6 +219,12 @@ const reducer = (
   action: Action,
 ): AddonsByAuthorsState => {
   switch (action.type) {
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
+
     case FETCH_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
 
@@ -288,7 +299,9 @@ const reducer = (
       newState.countFor[authorIdsWithAddonType] = count;
       newState.loadingFor[authorIdsWithAddonType] = false;
 
-      const internalAddons = addons.map((addon) => createInternalAddon(addon));
+      const internalAddons = addons.map((addon) =>
+        createInternalAddon(addon, state.lang),
+      );
 
       for (const addon of internalAddons) {
         newState.byAddonId[addon.id] = addon;

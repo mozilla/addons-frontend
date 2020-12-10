@@ -9,10 +9,10 @@ import {
   CLIENT_APP_FIREFOX,
   VERIFIED,
 } from 'core/constants';
-import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import Icon from 'ui/components/Icon';
 import {
   createFakeAutocompleteResult,
+  createInternalSuggestionWithLang,
   dispatchClientMetadata,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -24,7 +24,9 @@ describe(__filename, () => {
     const allProps = {
       loading: false,
       store: dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store,
-      suggestion: createInternalSuggestion(createFakeAutocompleteResult()),
+      suggestion: createInternalSuggestionWithLang(
+        createFakeAutocompleteResult(),
+      ),
       ...props,
     };
 
@@ -37,7 +39,7 @@ describe(__filename, () => {
   it('renders itself', () => {
     const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
     const name = 'suggestion name';
-    const suggestion = createInternalSuggestion(
+    const suggestion = createInternalSuggestionWithLang(
       createFakeAutocompleteResult({ icon_url: iconUrl, name }),
     );
     const root = shallowComponent({ suggestion });
@@ -57,7 +59,7 @@ describe(__filename, () => {
   });
 
   it('displays a class name with its type', () => {
-    const suggestion = createInternalSuggestion(
+    const suggestion = createInternalSuggestionWithLang(
       createFakeAutocompleteResult({ type: ADDON_TYPE_STATIC_THEME }),
     );
     const root = shallowComponent({ suggestion });

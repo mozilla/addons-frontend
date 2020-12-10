@@ -16,7 +16,9 @@ import { formatFilesize } from 'core/i18n/utils';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { ADDON_TYPE_EXTENSION, OS_MAC, OS_WINDOWS } from 'core/constants';
 import { loadAddon } from 'core/reducers/addons';
+import { setLang } from 'core/reducers/api';
 import { searchLoad } from 'core/reducers/search';
+import { selectLocalizedContent } from 'core/reducers/utils';
 import versionsReducer, {
   createInternalVersion,
   fetchVersion,
@@ -35,6 +37,8 @@ import {
   createFakeCollectionAddon,
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
+  createInternalVersionWithLang,
+  createLocalizedString,
   fakeAddon,
   fakeI18n,
   fakePlatformFile,
@@ -43,6 +47,10 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  // We need a state with setLang called for any tests that load versions.
+  const lang = 'en-US';
+  const stateWithLang = versionsReducer(undefined, setLang(lang));
+
   it('defaults to its initial state', () => {
     expect(versionsReducer(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(
       initialState,
@@ -93,7 +101,7 @@ describe(__filename, () => {
     let state;
     const slug = 'some-slug';
     state = versionsReducer(
-      undefined,
+      stateWithLang,
       fetchVersions({ errorHandlerId: 1, slug }),
     );
     state = versionsReducer(
@@ -107,11 +115,14 @@ describe(__filename, () => {
   it('loads versions', () => {
     const slug = 'some-slug';
     const versions = [fakeVersion, fakeVersion];
-    const state = versionsReducer(undefined, loadVersions({ slug, versions }));
+    const state = versionsReducer(
+      stateWithLang,
+      loadVersions({ slug, versions }),
+    );
 
     expect(getVersionsBySlug({ slug, state })).toEqual([
-      createInternalVersion(versions[0]),
-      createInternalVersion(versions[1]),
+      createInternalVersionWithLang(versions[0]),
+      createInternalVersionWithLang(versions[1]),
     ]);
   });
 
@@ -122,16 +133,16 @@ describe(__filename, () => {
       ...fakeVersion,
       license: {
         ...fakeVersion.license,
-        text: licenseText,
+        text: createLocalizedString(licenseText),
       },
     };
     const state = versionsReducer(
-      undefined,
+      stateWithLang,
       loadVersions({ slug, versions: [version] }),
     );
 
     const firstStoredVersion = getVersionsBySlug({ slug, state })[0];
-    expect(firstStoredVersion).toEqual(createInternalVersion(version));
+    expect(firstStoredVersion).toEqual(createInternalVersionWithLang(version));
     expect(firstStoredVersion.license.text).toEqual(licenseText);
   });
 
@@ -187,7 +198,16 @@ describe(__filename, () => {
 
   describe('createInternalVersion', () => {
     it('returns an object with the expected AddonVersionType', () => {
-      expect(createInternalVersion(fakeVersion)).toEqual({
+      const licenceText = 'licence text';
+      const version = {
+        ...fakeVersion,
+        license: {
+          ...fakeVersion.license,
+          text: createLocalizedString(licenceText, lang),
+        },
+      };
+
+      expect(createInternalVersion(version, lang)).toEqual({
         compatibility: fakeVersion.compatibility,
         id: fakeVersion.id,
         isStrictCompatibilityEnabled: Boolean(
@@ -195,13 +215,20 @@ describe(__filename, () => {
         ),
         license: {
           isCustom: fakeVersion.license.is_custom,
-          name: fakeVersion.license.name,
+          name: selectLocalizedContent(fakeVersion.license.name, lang),
+          text: licenceText,
           url: fakeVersion.license.url,
         },
         platformFiles: createPlatformFiles(fakeVersion),
-        releaseNotes: fakeVersion.release_notes,
+        releaseNotes: selectLocalizedContent(fakeVersion.release_notes, lang),
         version: fakeVersion.version,
       });
+    });
+
+    it('returns undefined for license.text if it is missing from the response', () => {
+      // fakeVersion does not include license.text.
+      const version = createInternalVersion(fakeVersion, lang);
+      expect(version.license.text).toEqual(undefined);
     });
   });
 
@@ -240,7 +267,7 @@ describe(__filename, () => {
       const _findFileForPlatform = sinon.stub().returns({ created, size });
 
       const state = versionsReducer(
-        undefined,
+        stateWithLang,
         loadVersions({ slug: 'some-slug', versions: [fakeVersion] }),
       );
 
@@ -268,7 +295,7 @@ describe(__filename, () => {
       const _findFileForPlatform = sinon.stub().returns(undefined);
 
       const state = versionsReducer(
-        undefined,
+        stateWithLang,
         loadVersions({ slug: 'some-slug', versions: [fakeVersion] }),
       );
 
@@ -294,7 +321,7 @@ describe(__filename, () => {
         },
       };
       const state = versionsReducer(
-        undefined,
+        stateWithLang,
         loadVersions({
           slug: 'some-slug',
           versions: [version],
@@ -323,7 +350,7 @@ describe(__filename, () => {
         },
       };
       const state = versionsReducer(
-        undefined,
+        stateWithLang,
         loadVersions({
           slug: 'some-slug',
           versions: [version],
@@ -356,7 +383,7 @@ describe(__filename, () => {
         },
       };
       const state = versionsReducer(
-        undefined,
+        stateWithLang,
         loadVersions({
           slug: 'some-slug',
           versions: [version],
@@ -377,7 +404,7 @@ describe(__filename, () => {
   describe('getVersionById', () => {
     it('returns a loaded version', () => {
       const state = versionsReducer(
-        undefined,
+        stateWithLang,
         loadVersions({ slug: 'some-slug', versions: [fakeVersion] }),
       );
 
@@ -386,7 +413,7 @@ describe(__filename, () => {
           state,
           id: fakeVersion.id,
         }),
-      ).toEqual(createInternalVersion(fakeVersion));
+      ).toEqual(createInternalVersionWithLang(fakeVersion));
     });
 
     it('returns null when no version has been loaded', () => {
@@ -416,19 +443,19 @@ describe(__filename, () => {
       };
 
       it('loads versions', () => {
-        const state = versionsReducer(undefined, _loadAddonsByAuthors());
+        const state = versionsReducer(stateWithLang, _loadAddonsByAuthors());
 
         expect(
           getVersionById({
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
 
       it('handles no add-ons', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           _loadAddonsByAuthors({ addons: [] }),
         );
 
@@ -437,7 +464,7 @@ describe(__filename, () => {
 
       it('handles an add-on without a current_version', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           _loadAddonsByAuthors({
             addons: [
               {
@@ -459,7 +486,7 @@ describe(__filename, () => {
         });
 
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadCurrentCollection({
             addonsResponse: createFakeCollectionAddonsListResponse({
               addons: [fakeCollectionAddon],
@@ -473,7 +500,7 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
     });
 
@@ -484,7 +511,7 @@ describe(__filename, () => {
         });
 
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadCurrentCollectionPage({
             addonsResponse: createFakeCollectionAddonsListResponse({
               addons: [fakeCollectionAddon],
@@ -497,7 +524,7 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
     });
 
@@ -508,7 +535,7 @@ describe(__filename, () => {
         });
 
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadCollectionAddons({
             addons: [fakeCollectionAddon],
             slug: 'sone-slug',
@@ -520,14 +547,14 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
     });
 
     describe('LOAD_HOME_DATA', () => {
       it('loads versions from shelves', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadHomeData({
             collections: [],
             shelves: {
@@ -543,12 +570,12 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
 
       it('maintains license and release notes from pre-existing versions', () => {
         let state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadVersions({ slug: fakeAddon.slug, versions: [version] }),
         );
 
@@ -579,12 +606,12 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
 
       it('handles invalid shelves', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadHomeData({
             collections: [],
             shelves: {
@@ -593,7 +620,7 @@ describe(__filename, () => {
           }),
         );
 
-        expect(state).toEqual(initialState);
+        expect(state).toEqual(stateWithLang);
       });
 
       it('loads versions for collections', () => {
@@ -607,7 +634,7 @@ describe(__filename, () => {
         });
 
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadHomeData({
             collections: [
               { results: [fakeCollectionAddon1] },
@@ -622,20 +649,20 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
         expect(
           getVersionById({
             state,
             id: versionId2,
           }),
-        ).toEqual(createInternalVersion(version2));
+        ).toEqual(createInternalVersionWithLang(version2));
       });
     });
 
     describe('LOAD_LANDING', () => {
       it('loads versions for recommended add-ons', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadLanding({
             addonType: ADDON_TYPE_EXTENSION,
             recommended: createAddonsApiResult([
@@ -651,12 +678,12 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
 
       it('loads versions for highlyRated add-ons', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadLanding({
             addonType: ADDON_TYPE_EXTENSION,
             recommended: createAddonsApiResult([]),
@@ -672,12 +699,12 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
 
       it('loads versions for trending add-ons', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadLanding({
             addonType: ADDON_TYPE_EXTENSION,
             recommended: createAddonsApiResult([]),
@@ -693,7 +720,7 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
     });
 
@@ -706,7 +733,7 @@ describe(__filename, () => {
 
       it('loads versions', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadRecommendations({
             addons: [
               {
@@ -724,19 +751,22 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(versionForRecommendations));
+        ).toEqual(createInternalVersionWithLang(versionForRecommendations));
       });
 
       it('does not overwrite license and releaseNotes', () => {
         const slug = 'some-slug';
         const testVersion = {
           ...version,
-          license: { name: 'test name', url: 'https://addons.mozilla.org/' },
-          release_notes: 'some release notes',
+          license: {
+            name: createLocalizedString('test name', lang),
+            url: 'https://addons.mozilla.org/',
+          },
+          release_notes: createLocalizedString('some release notes', lang),
         };
 
         let state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadVersions({ slug, versions: [testVersion] }),
         );
 
@@ -759,14 +789,14 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(testVersion));
+        ).toEqual(createInternalVersionWithLang(testVersion));
       });
     });
 
     describe('LOAD_ADDON', () => {
       it('loads versions', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           loadAddon({
             addon: {
               ...fakeAddon,
@@ -781,14 +811,14 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
     });
 
     describe('SEARCH_LOADED', () => {
       it('loads versions', () => {
         const state = versionsReducer(
-          undefined,
+          stateWithLang,
           searchLoad({
             count: 1,
             pageSize: DEFAULT_API_PAGE_SIZE,
@@ -806,7 +836,7 @@ describe(__filename, () => {
             state,
             id: versionId,
           }),
-        ).toEqual(createInternalVersion(version));
+        ).toEqual(createInternalVersionWithLang(version));
       });
     });
   });

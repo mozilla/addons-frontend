@@ -3,7 +3,9 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
+import { SET_LANG } from 'core/reducers/api';
 import { createInternalAddon } from 'core/reducers/addons';
+import { selectLocalizedContent } from 'core/reducers/utils';
 import type { CollectionAddonType, ExternalAddonType } from 'core/types/addons';
 import type { LocalizedString } from 'core/types/api';
 
@@ -108,6 +110,7 @@ export type CollectionsState = {
   hasAddonBeenAdded: boolean,
   hasAddonBeenRemoved: boolean,
   editingCollectionDetails: boolean,
+  lang: string,
 };
 
 export const initialState: CollectionsState = {
@@ -120,6 +123,9 @@ export const initialState: CollectionsState = {
   hasAddonBeenAdded: false,
   hasAddonBeenRemoved: false,
   editingCollectionDetails: false,
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
 };
 
 type FetchCurrentCollectionParams = {|
@@ -239,7 +245,7 @@ export const fetchCurrentCollectionPage = ({
 
 export type ExternalCollectionAddon = {|
   addon: ExternalAddonType,
-  notes: string | null,
+  notes: LocalizedString | null,
 |};
 
 type ExternalCollectionAddons = Array<ExternalCollectionAddon>;
@@ -253,20 +259,14 @@ export type ExternalCollectionDetail = {|
     username: string,
   |},
   default_locale: string,
-  description: string | null,
+  description: LocalizedString | null,
   id: number,
   modified: string,
-  name: string,
+  name: LocalizedString,
   public: boolean,
   slug: string,
   url: string,
   uuid: string,
-|};
-
-export type ExternalCollectionDetailWithLocalizedStrings = {|
-  ...ExternalCollectionDetail,
-  description: LocalizedString | null,
-  name: LocalizedString,
 |};
 
 export type CollectionAddonsListResponse = {|
@@ -409,7 +409,7 @@ type AddAddonToCollectionParams = {|
   editing?: boolean,
   errorHandlerId: string,
   filters?: CollectionFilters,
-  notes?: string,
+  notes?: LocalizedString,
   slug: string,
   userId: number,
 |};
@@ -673,7 +673,7 @@ type UpdateCollectionAddonParams = {|
   addonId: number,
   errorHandlerId: string,
   filters: CollectionFilters,
-  notes: string,
+  notes: LocalizedString,
   slug: string,
   userId: number,
 |};
@@ -718,6 +718,7 @@ type DeleteCollectionAddonNotesParams = {|
   addonId: number,
   errorHandlerId: string,
   filters: CollectionFilters,
+  lang: string,
   slug: string,
   userId: number,
 |};
@@ -731,12 +732,14 @@ export const deleteCollectionAddonNotes = ({
   addonId,
   errorHandlerId,
   filters,
+  lang,
   slug,
   userId,
 }: DeleteCollectionAddonNotesParams = {}): DeleteCollectionAddonNotesAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
   invariant(filters, 'The filters parameter is required');
+  invariant(lang, 'The lang parameter is required');
   invariant(slug, 'The slug parameter is required');
   invariant(userId, 'The userId parameter is required');
 
@@ -748,7 +751,7 @@ export const deleteCollectionAddonNotes = ({
       addonId,
       errorHandlerId,
       filters,
-      notes: '',
+      notes: { [lang]: '' },
       slug,
       userId,
     },
@@ -777,12 +780,13 @@ export const finishEditingCollectionDetails = (): FinishEditingCollectionDetails
 
 export const createInternalAddons = (
   items: ExternalCollectionAddons,
+  lang: string,
 ): Array<CollectionAddonType> => {
   return items.map(({ addon, notes }) => {
     // This allows to have a consistent way to manipulate addons in the app.
     return {
-      ...createInternalAddon(addon),
-      notes,
+      ...createInternalAddon(addon, lang),
+      notes: selectLocalizedContent(notes, lang),
     };
   });
 };
@@ -825,21 +829,25 @@ export const getCurrentCollection = (
 type CreateInternalCollectionParams = {|
   addonsResponse?: CollectionAddonsListResponse,
   detail: ExternalCollectionDetail,
+  lang: string,
 |};
 
 export const createInternalCollection = ({
   addonsResponse,
   detail,
+  lang,
 }: CreateInternalCollectionParams): CollectionType => ({
-  addons: addonsResponse ? createInternalAddons(addonsResponse.results) : null,
+  addons: addonsResponse
+    ? createInternalAddons(addonsResponse.results, lang)
+    : null,
   authorId: detail.author.id,
   authorName: detail.author.name,
   authorUsername: detail.author.username,
   defaultLocale: detail.default_locale,
-  description: detail.description,
+  description: selectLocalizedContent(detail.description, lang),
   id: detail.id,
   lastUpdatedDate: detail.modified,
-  name: detail.name || '',
+  name: selectLocalizedContent(detail.name, lang) || '',
   numberOfAddons: addonsResponse ? addonsResponse.count : detail.addon_count,
   pageSize: addonsResponse ? addonsResponse.page_size : null,
   slug: detail.slug,
@@ -860,6 +868,7 @@ export const loadCollectionIntoState = ({
   const internalCollection = createInternalCollection({
     detail: collection,
     addonsResponse,
+    lang: state.lang,
   });
   // In case the new collection isn't loaded with add-ons,
   // make sure we don't overwrite any existing addons.
@@ -930,35 +939,6 @@ const unloadUserCollections = ({
         loading: false,
       },
     },
-  };
-};
-
-type LocalizeCollectionDetailParams = {|
-  detail: ExternalCollectionDetailWithLocalizedStrings,
-  lang: string,
-|};
-
-export const localizeCollectionDetail = ({
-  detail,
-  lang,
-}: LocalizeCollectionDetailParams): ExternalCollectionDetail => {
-  invariant(detail, 'detail is required for localizeCollectionDetail');
-  invariant(lang, 'lang is required for localizeCollectionDetail');
-
-  // Flow will not allow us to use the spread operator here, so we have
-  // to repeat all the fields.
-  return {
-    addon_count: detail.addon_count,
-    author: detail.author,
-    default_locale: detail.default_locale,
-    description: detail.description ? detail.description[lang] : null,
-    id: detail.id,
-    modified: detail.modified,
-    name: detail.name[lang],
-    public: detail.public,
-    slug: detail.slug,
-    url: detail.url,
-    uuid: detail.uuid,
   };
 };
 
@@ -1116,7 +1096,7 @@ const reducer = (
           ...state.byId,
           [currentCollection.id]: {
             ...currentCollection,
-            addons: createInternalAddons(addonsResponse.results),
+            addons: createInternalAddons(addonsResponse.results, state.lang),
             numberOfAddons: addonsResponse.count,
             pageSize: addonsResponse.page_size,
           },
@@ -1146,7 +1126,7 @@ const reducer = (
           ...state.byId,
           [collectionId]: {
             ...collection,
-            addons: createInternalAddons(addons),
+            addons: createInternalAddons(addons, state.lang),
           },
         },
       };
@@ -1342,6 +1322,12 @@ const reducer = (
       return {
         ...state,
         addonInCollections: {},
+      };
+
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
       };
 
     default:

@@ -21,7 +21,6 @@ import collectionsReducer, {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
-  localizeCollectionDetail,
   removeAddonFromCollection,
   unloadCollectionBySlug,
   updateCollection,
@@ -658,10 +657,7 @@ describe(__filename, () => {
         _createCollection(params);
 
         const expectedLoadAction = loadCurrentCollection({
-          detail: localizeCollectionDetail({
-            detail: collectionDetailResponse,
-            lang: state.api.lang,
-          }),
+          detail: collectionDetailResponse,
         });
 
         const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
@@ -904,12 +900,13 @@ describe(__filename, () => {
   });
 
   describe('updateCollectionAddon', () => {
+    const lang = 'en-US';
     const _updateCollectionAddon = (params = {}) => {
       sagaTester.dispatch(
         updateCollectionAddon({
           addonId: 543,
           errorHandlerId: errorHandler.id,
-          notes: '',
+          notes: { [lang]: '' },
           filters: { page: '1' },
           slug: 'some-collection',
           userId: 'some-user',
@@ -919,14 +916,14 @@ describe(__filename, () => {
     };
 
     it('updates notes for a collection add-on', async () => {
+      const state = sagaTester.getState();
       const params = {
         addonId: 123,
-        notes: 'Here are some notes',
+        notes: { [lang]: 'Here are some notes' },
         filters: { page: '2' },
         slug: 'some-other-slug',
         userId: 'some-other-user',
       };
-      const state = sagaTester.getState();
 
       mockApi
         .expects('updateCollectionAddon')
@@ -978,6 +975,7 @@ describe(__filename, () => {
 
   describe('deleteCollectionAddonNotes', () => {
     it('deletes notes for a collection add-on by updating the notes to an empty string', async () => {
+      const lang = 'en-US';
       const params = {
         addonId: 123,
         filters: { page: '2' },
@@ -991,7 +989,7 @@ describe(__filename, () => {
         .withArgs({
           addonId: params.addonId,
           api: state.api,
-          notes: '',
+          notes: { [lang]: '' },
           slug: params.slug,
           userId: params.userId,
         })
@@ -1001,6 +999,7 @@ describe(__filename, () => {
       sagaTester.dispatch(
         deleteCollectionAddonNotes({
           errorHandlerId: errorHandler.id,
+          lang,
           ...params,
         }),
       );

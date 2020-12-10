@@ -13,47 +13,31 @@ const WIDTH = 200;
 describe(__filename, () => {
   const previews = [
     {
-      caption: 'A screenshot',
-      image_url: 'http://img.com/one',
-      thumbnail_url: 'http://img.com/1',
-      image_size: [WIDTH, HEIGHT],
-      thumbnail_size: [WIDTH - 100, HEIGHT - 100],
+      title: 'A screenshot',
+      src: 'http://img.com/one',
+      thumbnail_src: 'http://img.com/1',
+      thumbnail_w: WIDTH - 100,
+      thumbnail_h: HEIGHT - 100,
+      h: HEIGHT,
+      w: WIDTH,
     },
     {
-      caption: 'Another screenshot',
-      image_url: 'http://img.com/two',
-      thumbnail_url: 'http://img.com/2',
-      image_size: [WIDTH, HEIGHT],
-      thumbnail_size: [WIDTH - 100, HEIGHT - 100],
+      title: 'Another screenshot',
+      src: 'http://img.com/two',
+      thumbnail_src: 'http://img.com/2',
+      thumbnail_w: WIDTH - 100,
+      thumbnail_h: HEIGHT - 100,
+      h: HEIGHT,
+      w: WIDTH,
     },
   ];
 
   it('renders the previews', () => {
-    const items = [
-      {
-        title: 'A screenshot',
-        src: 'http://img.com/one',
-        thumbnail_src: 'http://img.com/1',
-        thumbnail_w: WIDTH - 100,
-        thumbnail_h: HEIGHT - 100,
-        h: HEIGHT,
-        w: WIDTH,
-      },
-      {
-        title: 'Another screenshot',
-        src: 'http://img.com/two',
-        thumbnail_src: 'http://img.com/2',
-        thumbnail_w: WIDTH - 100,
-        thumbnail_h: HEIGHT - 100,
-        h: HEIGHT,
-        w: WIDTH,
-      },
-    ];
     const root = shallow(<ScreenShots previews={previews} />);
     const gallery = root.children().children();
 
     expect(gallery.type()).toEqual(PhotoSwipeGallery);
-    expect(gallery.prop('items')).toEqual(items);
+    expect(gallery.prop('items')).toEqual(previews);
     expect(gallery.prop('thumbnailContent')).toEqual(thumbnailContent);
   });
 

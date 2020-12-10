@@ -25,10 +25,8 @@ import RatingManager, {
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getAddonURL } from 'amo/utils';
-import { createInternalVersion } from 'core/reducers/versions';
 import createStore from 'amo/store';
 import {
-  createInternalAddon,
   fetchAddon as fetchAddonAction,
   loadAddon,
 } from 'core/reducers/addons';
@@ -54,6 +52,9 @@ import {
   createCapturedErrorHandler,
   createFakeClientCompatibility,
   createFakeLocation,
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -70,9 +71,9 @@ import ThemeImage from 'ui/components/ThemeImage';
 import Notice from 'ui/components/Notice';
 
 function renderProps({
-  addon = createInternalAddon(fakeAddon),
+  addon = createInternalAddonWithLang(fakeAddon),
   params,
-  currentVersion = createInternalVersion(fakeVersion),
+  currentVersion = createInternalVersionWithLang(fakeVersion),
   ...customProps
 } = {}) {
   const i18n = fakeI18n();
@@ -167,7 +168,7 @@ describe(__filename, () => {
     const root = shallowRender({ dispatch: fakeDispatch });
     fakeDispatch.resetHistory();
     root.setProps({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
       }),
@@ -189,14 +190,14 @@ describe(__filename, () => {
     });
     fakeDispatch.resetHistory();
     // Update with a new addon
-    root.setProps({ addon: createInternalAddon(fakeAddon) });
+    root.setProps({ addon: createInternalAddonWithLang(fakeAddon) });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
   });
 
   it('only dispatches setViewContext for a new addon type', () => {
     const fakeDispatch = sinon.stub();
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = shallowRender({ addon, dispatch: fakeDispatch });
     fakeDispatch.resetHistory();
     // Update with the same addon (this apparently happens in real usage).
@@ -250,8 +251,8 @@ describe(__filename, () => {
   });
 
   it('renders a WrongPlatformWarning component', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const currentVersion = createInternalVersion(fakeVersion);
+    const addon = createInternalAddonWithLang(fakeAddon);
+    const currentVersion = createInternalVersionWithLang(fakeVersion);
     const root = shallowRender({
       addon,
       currentVersion,
@@ -363,7 +364,7 @@ describe(__filename, () => {
   it('does not dispatch fetchAddon when slugs are the same', () => {
     const fakeDispatch = sinon.stub();
     const errorHandler = createStubErrorHandler();
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = shallowRender({ addon, errorHandler, dispatch: fakeDispatch });
 
     fakeDispatch.resetHistory();
@@ -562,9 +563,11 @@ describe(__filename, () => {
   });
 
   it('sanitizes a summary', () => {
-    const scriptHTML = '<script>alert(document.cookie);</script>';
+    const scriptHTML = createLocalizedString(
+      '<script>alert(document.cookie);</script>',
+    );
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         summary: scriptHTML,
       }),
@@ -576,9 +579,9 @@ describe(__filename, () => {
   });
 
   it('adds <br> tags for newlines in a summary', () => {
-    const summaryWithNewlines = 'Hello\nI am an add-on.';
+    const summaryWithNewlines = createLocalizedString('Hello\nI am an add-on.');
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         summary: summaryWithNewlines,
       }),
@@ -588,7 +591,9 @@ describe(__filename, () => {
   });
 
   it('sanitizes bad description HTML', () => {
-    const scriptHTML = '<script>alert(document.cookie);</script>';
+    const scriptHTML = createLocalizedString(
+      '<script>alert(document.cookie);</script>',
+    );
     const addon = {
       ...fakeAddon,
       description: scriptHTML,
@@ -615,7 +620,7 @@ describe(__filename, () => {
 
   it('sets a title for the description of a static theme', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
       }),
@@ -627,7 +632,7 @@ describe(__filename, () => {
 
   it('sets a title for the description of a dictionary', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_DICT,
       }),
@@ -639,7 +644,7 @@ describe(__filename, () => {
 
   it('sets a title for the description of a language pack', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_LANG,
       }),
@@ -651,7 +656,7 @@ describe(__filename, () => {
 
   it('sets a title for the description of a generic add-on', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: 'generic-type',
       }),
@@ -662,7 +667,7 @@ describe(__filename, () => {
   });
 
   it('hides the description if description and summary are null', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       description: null,
       summary: null,
@@ -672,10 +677,10 @@ describe(__filename, () => {
   });
 
   it('hides the description if description and summary are blank', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      description: '',
-      summary: '',
+      description: createLocalizedString(''),
+      summary: createLocalizedString(''),
     });
     const root = renderAsDOMNode({ addon });
     expect(root.find('.AddonDescription')).toHaveLength(0);
@@ -684,11 +689,11 @@ describe(__filename, () => {
   it("displays a static theme's description", () => {
     const description = 'some cool description';
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
-        summary: 'my theme is very cool',
-        description,
+        summary: createLocalizedString('my theme is very cool'),
+        description: createLocalizedString(description),
       }),
     });
 
@@ -701,10 +706,10 @@ describe(__filename, () => {
 
   it('does not display anything if a static theme has no description', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_STATIC_THEME,
-        summary: 'my theme is very cool',
+        summary: createLocalizedString('my theme is very cool'),
         description: null,
       }),
     });
@@ -715,10 +720,10 @@ describe(__filename, () => {
   it('does not display anything when the extension has no description', () => {
     const summary = 'my theme is very cool';
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_EXTENSION,
-        summary,
+        summary: createLocalizedString(summary),
         description: null,
       }),
     });
@@ -729,10 +734,10 @@ describe(__filename, () => {
   it('does not display anything when the language pack has no description', () => {
     const summary = 'my theme is very cool';
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_LANG,
-        summary,
+        summary: createLocalizedString(summary),
         description: null,
       }),
     });
@@ -743,10 +748,10 @@ describe(__filename, () => {
   it('does not display anything when the dictionary has no description', () => {
     const summary = 'my theme is very cool';
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_DICT,
-        summary,
+        summary: createLocalizedString(summary),
         description: null,
       }),
     });
@@ -757,11 +762,11 @@ describe(__filename, () => {
   it("displays the extension's description when both description and summary are supplied", () => {
     const description = 'some cool description';
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         type: ADDON_TYPE_EXTENSION,
-        summary: 'my theme is very cool',
-        description,
+        summary: createLocalizedString('my theme is very cool'),
+        description: createLocalizedString(description),
       }),
     });
 
@@ -774,9 +779,9 @@ describe(__filename, () => {
 
   it('converts new lines in the description to breaks', () => {
     const root = renderAsDOMNode({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
-        description: '\n\n\n',
+        description: createLocalizedString('\n\n\n'),
       }),
     });
     expect(root.find('.AddonDescription-contents').html()).toContain(
@@ -786,9 +791,11 @@ describe(__filename, () => {
 
   it('allows some HTML tags in the description', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
-        description: '<b>super</b> <i>cool</i> <blink>add-on</blink>',
+        description: createLocalizedString(
+          '<b>super</b> <i>cool</i> <blink>add-on</blink>',
+        ),
       }),
     });
     const contents = root.find('.AddonDescription-contents');
@@ -799,10 +806,11 @@ describe(__filename, () => {
 
   it('strips dangerous HTML tag attributes from description', () => {
     const root = renderAsDOMNode({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
-        description:
+        description: createLocalizedString(
           '<a href="javascript:alert(document.cookie)" onclick="sneaky()">placeholder</a>',
+        ),
       }),
     });
 
@@ -812,7 +820,7 @@ describe(__filename, () => {
   });
 
   it('hides developer comments if null', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       developer_comments: null,
     });
@@ -823,9 +831,9 @@ describe(__filename, () => {
   it('displays developer comments', () => {
     const developerComments = 'some awesome developers comments';
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
-        developer_comments: developerComments,
+        developer_comments: createLocalizedString(developerComments),
       }),
     });
     expect(root.find('.Addon-developer-comments').childAt(0).html()).toContain(
@@ -835,9 +843,11 @@ describe(__filename, () => {
 
   it('allows some HTML tags in the developer comments', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
-        developer_comments: '<b>super</b> <i>cool</i> <blink>comments</blink>',
+        developer_comments: createLocalizedString(
+          '<b>super</b> <i>cool</i> <blink>comments</blink>',
+        ),
       }),
     });
     expect(root.find('.Addon-developer-comments').childAt(0).html()).toMatch(
@@ -847,11 +857,11 @@ describe(__filename, () => {
 
   it('configures the overall ratings section', () => {
     const location = createFakeLocation();
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = shallowRender({
       addon,
       location,
-      currentVersion: createInternalVersion(fakeVersion),
+      currentVersion: createInternalVersionWithLang(fakeVersion),
     }).find(RatingManagerWithI18n);
     expect(root.prop('addon')).toEqual(addon);
     expect(root.prop('location')).toEqual(location);
@@ -859,7 +869,7 @@ describe(__filename, () => {
 
   it('does not show a ratings manager without a version', () => {
     const root = shallowRender({
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
       currentVersion: null,
     });
 
@@ -868,16 +878,24 @@ describe(__filename, () => {
   });
 
   it('renders a summary', () => {
-    const root = shallowRender();
-    expect(root.find('.Addon-summary').html()).toContain(fakeAddon.summary);
+    const summary = 'some summary';
+    const root = shallowRender({
+      addon: {
+        ...createInternalAddonWithLang({
+          ...fakeAddon,
+          summary: createLocalizedString(summary),
+        }),
+      },
+    });
+    expect(root.find('.Addon-summary').html()).toContain(summary);
   });
 
   it('renders a summary with links', () => {
     const summary = '<a href="http://foo.com/">my website</a>';
     const root = renderAsDOMNode({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
-        summary,
+        summary: createLocalizedString(summary),
       }),
     });
 
@@ -888,10 +906,10 @@ describe(__filename, () => {
     const iconURL = 'https://addons.cdn.mozilla.net/foo.jpg';
     const addonName = 'some-addon-name';
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         icon_url: iconURL,
-        name: addonName,
+        name: createLocalizedString(addonName),
       }),
     });
     const image = root.find('.Addon-icon img');
@@ -901,7 +919,7 @@ describe(__filename, () => {
 
   it('renders a fall-back asset', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeAddon,
         icon_url: 'http://foo.com/whatever.jpg',
       }),
@@ -912,7 +930,7 @@ describe(__filename, () => {
 
   it('renders screenshots for type extension', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeTheme,
         type: ADDON_TYPE_EXTENSION,
       }),
@@ -922,7 +940,7 @@ describe(__filename, () => {
 
   it('hides screenshots for static theme type', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeTheme,
         type: ADDON_TYPE_STATIC_THEME,
       }),
@@ -932,7 +950,7 @@ describe(__filename, () => {
 
   it('uses Addon-theme class if it is a static theme', () => {
     const root = shallowRender({
-      addon: createInternalAddon({
+      addon: createInternalAddonWithLang({
         ...fakeTheme,
         type: ADDON_TYPE_STATIC_THEME,
       }),
@@ -941,7 +959,7 @@ describe(__filename, () => {
   });
 
   it('passes the addon to AddonCompatibilityError', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = shallowRender({
       addon,
     });
@@ -950,24 +968,28 @@ describe(__filename, () => {
   });
 
   it('renders a ThemeImage in the header', () => {
-    const root = shallowRender({ addon: createInternalAddon(fakeTheme) });
+    const root = shallowRender({
+      addon: createInternalAddonWithLang(fakeTheme),
+    });
     expect(root.find(ThemeImage)).toHaveLength(1);
     expect(root.find(ThemeImage)).toHaveProp('roundedCorners', true);
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {
-    const root = shallowRender({ addon: createInternalAddon(fakeAddon) });
+    const root = shallowRender({
+      addon: createInternalAddonWithLang(fakeAddon),
+    });
     expect(root.find(AddonMoreInfo)).toHaveLength(1);
   });
 
   it('renders meta data for the add-on', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = shallowRender({ addon });
     expect(root.find(AddonMeta).prop('addon')).toEqual(addon);
   });
 
   it('renders permissions for the add-on', () => {
-    const currentVersion = createInternalVersion(fakeVersion);
+    const currentVersion = createInternalVersionWithLang(fakeVersion);
     const root = shallowRender({ currentVersion });
     expect(root.find(PermissionsCard)).toHaveProp('version', currentVersion);
   });
@@ -978,7 +1000,7 @@ describe(__filename, () => {
   });
 
   it('renders recommendations for an extension', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const root = shallowRender({ addon });
     expect(root.find(AddonRecommendations)).toHaveLength(1);
     expect(root.find(AddonRecommendations)).toHaveProp('addon', addon);
@@ -996,7 +1018,7 @@ describe(__filename, () => {
       ADDON_TYPE_LANG,
       ADDON_TYPE_STATIC_THEME,
     ]) {
-      const addon = createInternalAddon({
+      const addon = createInternalAddonWithLang({
         ...fakeAddon,
         type: addonType,
       });
@@ -1024,7 +1046,7 @@ describe(__filename, () => {
       store.dispatch(_loadAddon({ addon }));
 
       const root = renderComponent({
-        addon: createInternalAddon(addon),
+        addon: createInternalAddonWithLang(addon),
         store,
         ...customProps,
       });
@@ -1103,12 +1125,17 @@ describe(__filename, () => {
   describe('version release notes', () => {
     function renderWithVersion(props = {}) {
       return shallowRender({
-        currentVersion: createInternalVersion({ ...fakeVersion, ...props }),
+        currentVersion: createInternalVersionWithLang({
+          ...fakeVersion,
+          ...props,
+        }),
       });
     }
 
     function getReleaseNotes(releaseNotes) {
-      const root = renderWithVersion({ release_notes: releaseNotes });
+      const root = renderWithVersion({
+        release_notes: createLocalizedString(releaseNotes),
+      });
       return root.find('.AddonDescription-version-notes div').render();
     }
 
@@ -1136,7 +1163,9 @@ describe(__filename, () => {
 
     it('shows the release notes', () => {
       const releaseNotes = 'Fixed some stuff';
-      const root = renderWithVersion({ release_notes: releaseNotes });
+      const root = renderWithVersion({
+        release_notes: createLocalizedString(releaseNotes),
+      });
       const notes = root.find('.AddonDescription-version-notes div');
       expect(notes.html()).toContain(releaseNotes);
     });
@@ -1223,7 +1252,7 @@ describe(__filename, () => {
 
     it('is hidden when add-on has no authors', () => {
       const root = shallowRender({
-        addon: createInternalAddon({
+        addon: createInternalAddonWithLang({
           ...fakeAddon,
           authors: [],
         }),
@@ -1316,7 +1345,7 @@ describe(__filename, () => {
 
   it('renders the site identifier as a data attribute', () => {
     const id = 9001;
-    const addon = createInternalAddon({ ...fakeAddon, id });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id });
     const root = shallowRender({ addon });
 
     expect(root.find('.Addon')).toHaveProp('data-site-identifier', id);
@@ -1381,7 +1410,7 @@ describe(__filename, () => {
       });
 
       const { currentVersion } = _mapStateToProps();
-      expect(currentVersion).toEqual(createInternalVersion(apiVersion));
+      expect(currentVersion).toEqual(createInternalVersionWithLang(apiVersion));
     });
 
     it('handles a non-existent add-on', () => {
@@ -1410,7 +1439,7 @@ describe(__filename, () => {
     });
 
     it('passes the addon to the InstallButtonWrapper', () => {
-      const internalAddon = createInternalAddon(addon);
+      const internalAddon = createInternalAddonWithLang(addon);
 
       const root = renderComponent({ addon: internalAddon, store });
 
@@ -1424,7 +1453,7 @@ describe(__filename, () => {
   // Non-public add-ons require an account listed as a developer of the add-on
   // or admin rights.
   it('displays a notice to admin/developer when add-on is not fully reviewed', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       status: 'disabled',
     });
@@ -1434,7 +1463,7 @@ describe(__filename, () => {
   });
 
   it('does not display a notice when add-on is fully reviewed', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       status: 'public',
     });
@@ -1447,7 +1476,7 @@ describe(__filename, () => {
   // Non-public add-ons require an account listed as a developer of the add-on
   // or admin rights.
   it('displays a notice to admin/developer when an add-on is disabled', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       is_disabled: true,
     });
@@ -1457,7 +1486,7 @@ describe(__filename, () => {
   });
 
   it('does not display a notice when add-on is not disabled', () => {
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       is_disabled: false,
     });
@@ -1582,7 +1611,7 @@ describe(__filename, () => {
     });
 
     it('passes the addon to the InstallWarning', () => {
-      const internalAddon = createInternalAddon(addon);
+      const internalAddon = createInternalAddonWithLang(addon);
       store.dispatch(_loadAddon({ addon }));
 
       const root = renderComponent({ addon: internalAddon, store });

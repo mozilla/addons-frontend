@@ -16,10 +16,11 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
-import { createInternalVersion, loadVersions } from 'core/reducers/versions';
+import { loadVersions } from 'core/reducers/versions';
 import {
   createFakeClientCompatibility,
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -78,7 +79,7 @@ describe(__filename, () => {
 
   const render = (props = {}) => {
     const defaultProps = {
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
       i18n: fakeI18n(),
       store,
     };
@@ -111,14 +112,14 @@ describe(__filename, () => {
 
     render({
       _getClientCompatibility,
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       store,
     });
 
     sinon.assert.calledWith(_getClientCompatibility, {
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       clientApp,
-      currentVersion: createInternalVersion(addon.current_version),
+      currentVersion: createInternalVersionWithLang(addon.current_version),
       userAgentInfo: store.getState().api.userAgentInfo,
     });
   });
@@ -141,15 +142,15 @@ describe(__filename, () => {
 
     render({
       _getClientCompatibility,
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       store,
-      version: createInternalVersion(version),
+      version: createInternalVersionWithLang(version),
     });
 
     sinon.assert.calledWith(_getClientCompatibility, {
-      addon: createInternalAddon(addon),
+      addon: createInternalAddonWithLang(addon),
       clientApp,
-      currentVersion: createInternalVersion(version),
+      currentVersion: createInternalVersionWithLang(version),
       userAgentInfo: store.getState().api.userAgentInfo,
     });
   });

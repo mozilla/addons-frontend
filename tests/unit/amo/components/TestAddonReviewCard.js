@@ -23,10 +23,10 @@ import { reviewListURL } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
 import { ALL_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
+  createInternalAddonWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -57,7 +57,7 @@ describe(__filename, () => {
 
   const render = ({ location, ...customProps } = {}) => {
     const props = {
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
       i18n: fakeI18n(),
       siteUserCanReply: false,
       store,
@@ -110,7 +110,7 @@ describe(__filename, () => {
   };
 
   const renderReply = ({
-    addon = createInternalAddon(fakeAddon),
+    addon = createInternalAddonWithLang(fakeAddon),
     originalReviewId = 44321,
     reply = _setReviewReply({ addon }).reply,
     ...props
@@ -142,7 +142,7 @@ describe(__filename, () => {
   };
 
   function createAddonAndReview({ externalReview = fakeReview } = {}) {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
     const review = _setReview({
       ...externalReview,
       addon: {
@@ -157,7 +157,7 @@ describe(__filename, () => {
   const signInAsAddonDeveloper = ({ developerUserId = 51123 } = {}) => {
     dispatchSignInActions({ store, userId: developerUserId });
 
-    const addon = createInternalAddon({
+    const addon = createInternalAddonWithLang({
       ...fakeAddon,
       authors: [
         {
@@ -1125,7 +1125,7 @@ describe(__filename, () => {
 
     it('renders a short byLine for replies by default', () => {
       const i18n = fakeI18n();
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
       const { reply } = _setReviewReply({ addon });
 
       const root = renderReply({ i18n, reply });
@@ -1195,7 +1195,7 @@ describe(__filename, () => {
 
   describe('Developer reply to a review', () => {
     it('renders a nested reply', () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
       const { review, reply } = _setReviewReply({ addon });
       const root = render({ addon, review });
 

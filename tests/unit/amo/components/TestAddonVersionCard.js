@@ -11,9 +11,11 @@ import Link from 'amo/components/Link';
 import { setInstallError, setInstallState } from 'core/reducers/installations';
 import { FATAL_ERROR, INSTALLING } from 'core/constants';
 import { formatFilesize } from 'core/i18n/utils';
-import { createInternalAddon } from 'core/reducers/addons';
-import { createInternalVersion, loadVersions } from 'core/reducers/versions';
+import { loadVersions } from 'core/reducers/versions';
 import {
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
+  createLocalizedString,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -33,10 +35,10 @@ describe(__filename, () => {
   const render = (props = {}) => {
     return shallowUntilTarget(
       <AddonVersionCard
-        addon={createInternalAddon(fakeAddon)}
+        addon={createInternalAddonWithLang(fakeAddon)}
         i18n={fakeI18n()}
         store={store}
-        version={createInternalVersion(fakeAddon.current_version)}
+        version={createInternalVersionWithLang(fakeAddon.current_version)}
         {...props}
       />,
       AddonVersionCardBase,
@@ -93,7 +95,7 @@ describe(__filename, () => {
   it('renders a version number', () => {
     const versionNumber = '1.0';
     const root = render({
-      version: createInternalVersion({
+      version: createInternalVersionWithLang({
         ...fakeVersion,
         version: versionNumber,
       }),
@@ -122,7 +124,7 @@ describe(__filename, () => {
     _loadVersions({ addon });
 
     const root = render({
-      version: createInternalVersion(version),
+      version: createInternalVersionWithLang(version),
     });
 
     expect(root.find('.AddonVersionCard-compatibility')).toHaveText(
@@ -151,7 +153,7 @@ describe(__filename, () => {
       _loadVersions({ addon });
 
       const root = render({
-        version: createInternalVersion(version),
+        version: createInternalVersionWithLang(version),
       });
 
       expect(root.find('.AddonVersionCard-fileInfo')).toHaveText(
@@ -168,7 +170,7 @@ describe(__filename, () => {
       _loadVersions({ addon });
 
       const root = render({
-        version: createInternalVersion(version),
+        version: createInternalVersionWithLang(version),
       });
 
       expect(root.find('.AddonVersionCard-fileInfo')).toHaveLength(0);
@@ -178,9 +180,9 @@ describe(__filename, () => {
   it('renders release notes', () => {
     const releaseNotes = 'Some release notes';
     const root = render({
-      version: createInternalVersion({
+      version: createInternalVersionWithLang({
         ...fakeVersion,
-        release_notes: releaseNotes,
+        release_notes: createLocalizedString(releaseNotes),
       }),
     });
 
@@ -193,9 +195,9 @@ describe(__filename, () => {
     const releaseNotes = '<b>Some release notes</b>';
     const badReleaseNotes = `<script>alert()</script>${releaseNotes}`;
     const root = render({
-      version: createInternalVersion({
+      version: createInternalVersionWithLang({
         ...fakeVersion,
-        release_notes: badReleaseNotes,
+        release_notes: createLocalizedString(badReleaseNotes),
       }),
     });
 
@@ -207,9 +209,12 @@ describe(__filename, () => {
   it('displays a license name', () => {
     const licenseName = 'some license name';
     const root = render({
-      version: createInternalVersion({
+      version: createInternalVersionWithLang({
         ...fakeVersion,
-        license: { ...fakeVersion.license, name: licenseName },
+        license: {
+          ...fakeVersion.license,
+          name: createLocalizedString(licenseName),
+        },
       }),
     });
 
@@ -221,9 +226,12 @@ describe(__filename, () => {
   it('displays a license without a name', () => {
     const licenseName = null;
     const root = render({
-      version: createInternalVersion({
+      version: createInternalVersionWithLang({
         ...fakeVersion,
-        license: { ...fakeVersion.license, name: licenseName },
+        license: {
+          ...fakeVersion.license,
+          name: createLocalizedString(licenseName),
+        },
       }),
     });
 
@@ -234,7 +242,7 @@ describe(__filename, () => {
   it('renders a link to a non-custom license', () => {
     const licenseURL = 'http://example.com/';
     const root = render({
-      version: createInternalVersion({
+      version: createInternalVersionWithLang({
         ...fakeVersion,
         license: { ...fakeVersion.license, url: licenseURL },
       }),
@@ -248,10 +256,10 @@ describe(__filename, () => {
 
   it('renders a link to a custom license', () => {
     const slug = 'some-slug';
-    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, slug });
     const root = render({
       addon,
-      version: createInternalVersion({
+      version: createInternalVersionWithLang({
         ...fakeVersion,
         license: { ...fakeVersion.license, is_custom: true },
       }),
@@ -265,10 +273,10 @@ describe(__filename, () => {
 
   it('does not render license info if there is no license', () => {
     const slug = 'some-slug';
-    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, slug });
     const root = render({
       addon,
-      version: createInternalVersion({
+      version: createInternalVersionWithLang({
         ...fakeVersion,
         license: null,
       }),
@@ -280,13 +288,17 @@ describe(__filename, () => {
   it('renders plain text when license has no URL', () => {
     const slug = 'some-slug';
     const licenseName = 'some license without URL';
-    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, slug });
 
     const root = render({
       addon,
-      version: createInternalVersion({
+      version: createInternalVersionWithLang({
         ...fakeVersion,
-        license: { ...fakeVersion.license, name: licenseName, url: null },
+        license: {
+          ...fakeVersion.license,
+          name: createLocalizedString(licenseName),
+          url: null,
+        },
       }),
     });
 
@@ -296,7 +308,7 @@ describe(__filename, () => {
 
   it('passes an install error to AddonInstallError', () => {
     const guid = 'some-guid';
-    const addon = createInternalAddon({ ...fakeAddon, guid });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
     store.dispatch(
       setInstallState({
         guid,
@@ -318,8 +330,8 @@ describe(__filename, () => {
   });
 
   it('passes an add-on and a version to AddonCompatibilityError', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const version = createInternalVersion(fakeVersion);
+    const addon = createInternalAddonWithLang(fakeAddon);
+    const version = createInternalVersionWithLang(fakeVersion);
 
     const root = render({ addon, version });
 
@@ -334,7 +346,7 @@ describe(__filename, () => {
   });
 
   it('passes an add-on to InstallButtonWrapper', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = createInternalAddonWithLang(fakeAddon);
 
     const root = render({ addon });
 
@@ -349,7 +361,7 @@ describe(__filename, () => {
 
   it('does not render an InstallButtonWrapper if there is no version', () => {
     const root = render({
-      addon: createInternalAddon(fakeAddon),
+      addon: createInternalAddonWithLang(fakeAddon),
       version: null,
     });
 
@@ -358,7 +370,7 @@ describe(__filename, () => {
 
   describe('InstallWarning', () => {
     it('renders the InstallWarning if an add-on exists', () => {
-      const root = render({ addon: createInternalAddon(fakeAddon) });
+      const root = render({ addon: createInternalAddonWithLang(fakeAddon) });
 
       expect(root.find(InstallWarning)).toHaveLength(1);
     });
@@ -370,7 +382,7 @@ describe(__filename, () => {
     });
 
     it('passes the addon to the InstallWarning', () => {
-      const addon = createInternalAddon(fakeAddon);
+      const addon = createInternalAddonWithLang(fakeAddon);
       const root = render({ addon });
 
       expect(root.find(InstallWarning)).toHaveProp('addon', addon);
