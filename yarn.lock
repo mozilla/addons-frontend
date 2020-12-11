@@ -6852,7 +6852,7 @@ eslint-config-airbnb@18.2.1:
     object.assign "^4.1.2"
     object.entries "^1.1.2"
 
-eslint-config-amo@4.0.0:
+eslint-config-amo@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-4.0.0.tgz#b36014edf27c38c10f223dc6218c3f5d27c11d74"
   integrity sha512-3vzI9nnsao5STpgTmguY3DA5U/cgboKtshRQPWFXCEZ7sy+HW/GJoZPSefuhhGgUloR0hkEnPsN7ipqkYNBbsg==
