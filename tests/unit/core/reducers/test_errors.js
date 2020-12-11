@@ -8,6 +8,7 @@ import {
 } from 'core/constants';
 import errors, { initialState } from 'core/reducers/errors';
 
+// eslint-disable-next-line jest/no-export
 export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
   const response = {
     ok: false,

@@ -704,7 +704,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('logOutFromServer', async () => {
+  describe('logOutFromServer', () => {
     it('makes a delete request to the session endpoint', async () => {
       const { state } = dispatchSignInActions();
 

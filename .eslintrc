@@ -43,9 +43,6 @@
     "BodyInit": true
   },
   "parser": "babel-eslint",
-  "plugins": [
-    "jest"
-  ],
   "rules": {
     // These rules are not compatible with Prettier.
     "implicit-arrow-linebreak": "off",
@@ -61,7 +58,10 @@
     "react/default-props-match-prop-types": "off",
     // This rule is disabled because it outputs a lot of false positives, see:
     // https://github.com/benmosher/eslint-plugin-import/issues/1343
-    "import/no-cycle": "off"
+    "import/no-cycle": "off",
+    // This rule is only a warning but it is too noisy: we have test cases
+    // without `expect` because we're using `sinon` too.
+    "jest/expect-expect": "off"
   },
   "settings": {
     "import/core-modules": [

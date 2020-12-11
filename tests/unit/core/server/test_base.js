@@ -65,6 +65,7 @@ const StubApp = () => (
   </div>
 );
 
+// eslint-disable-next-line jest/no-export
 export class ServerTestHelper {
   constructor() {
     this.helmetCanUseDOM = Helmet.canUseDOM;
