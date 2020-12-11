@@ -326,11 +326,15 @@ describe(__filename, () => {
   });
 
   describe('categoryResultsLinkTo', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const slug = 'some-slug';
+    it('returns a "to" object', () => {
+      const addonType = ADDON_TYPE_EXTENSION;
+      const slug = 'some-slug';
 
-    const toValue = categoryResultsLinkTo({ addonType, slug });
-    expect(toValue.pathname).toEqual('/search/');
-    expect(toValue.query).toEqual(getCategoryResultsQuery({ addonType, slug }));
+      const toValue = categoryResultsLinkTo({ addonType, slug });
+      expect(toValue.pathname).toEqual('/search/');
+      expect(toValue.query).toEqual(
+        getCategoryResultsQuery({ addonType, slug }),
+      );
+    });
   });
 });

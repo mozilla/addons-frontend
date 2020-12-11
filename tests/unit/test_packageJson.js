@@ -26,6 +26,7 @@ describe(__filename, () => {
   Object.keys(packageJson.devDependencies).forEach((key) => {
     it(`should have devDependencies[${key}] version prefixed with "^"`, () => {
       if (!skipDevDeps.includes(key)) {
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(packageJson.devDependencies[key]).toEqual(
           expect.stringMatching(/^(\^|git)/),
         );

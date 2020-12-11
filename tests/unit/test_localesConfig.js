@@ -34,9 +34,11 @@ describe(__filename, () => {
 
   describe('Check Locale JS files', () => {
     for (const localeJSFile of glob.sync('src/locale/*/*.js')) {
+      // eslint-disable-next-line jest/no-done-callback
       it(`${localeJSFile} should not have html entities`, (done) => {
         fs.readFile(localeJSFile, 'utf8', (err, data) => {
           if (!err) {
+            // eslint-disable-next-line jest/no-conditional-expect
             expect(/&[^\s]+;/.test(data)).toBeFalsy();
           } else {
             throw new Error(err);
@@ -63,6 +65,7 @@ describe(__filename, () => {
               // are skipped in plural forms.
               if (translation && numberTranslationMatches === 1) {
                 for (const match of placeholderMatches) {
+                  // eslint-disable-next-line jest/no-conditional-expect
                   expect(translation).toContain(match);
                 }
               }

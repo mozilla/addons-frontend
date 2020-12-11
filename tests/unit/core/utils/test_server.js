@@ -11,6 +11,7 @@ describe(__filename, () => {
     const basePath = path.join(__dirname, 'fixtures');
     const versionJson = fs.readJsonSync(path.join(basePath, 'version.json'));
 
+    // eslint-disable-next-line jest/no-done-callback
     it('exposes the version.json file', (done) => {
       const _config = getFakeConfig({ basePath });
       const handler = viewFrontendVersionHandler({ _config });
@@ -29,6 +30,7 @@ describe(__filename, () => {
       });
     });
 
+    // eslint-disable-next-line jest/no-done-callback
     it('exposes the experiments and feature flags', (done) => {
       const experiments = {
         ab_test_1: true,
@@ -60,6 +62,7 @@ describe(__filename, () => {
       });
     });
 
+    // eslint-disable-next-line jest/no-done-callback
     it('returns a 415 and logs an error when file does not exist', (done) => {
       const _config = getFakeConfig({ basePath: '/some/invalid/path' });
       const _log = getFakeLogger();

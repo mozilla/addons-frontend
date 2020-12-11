@@ -114,10 +114,12 @@ describe(__filename, () => {
   });
 
   describe('setRequestId', () => {
-    const requestId = 'uuid4-set-by-middleware';
-    const state = api(undefined, actions.setRequestId(requestId));
+    it('stores a request ID', () => {
+      const requestId = 'uuid4-set-by-middleware';
+      const state = api(undefined, actions.setRequestId(requestId));
 
-    expect(state.requestId).toEqual(requestId);
+      expect(state.requestId).toEqual(requestId);
+    });
   });
 
   describe('setLang', () => {
