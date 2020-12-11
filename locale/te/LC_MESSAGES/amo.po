@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-12-08 17:10+0000\n"
-"PO-Revision-Date: 2020-12-11 18:55+0000\n"
+"PO-Revision-Date: 2020-12-11 18:57+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -674,7 +674,7 @@ msgstr "ఈ డెవలపర్లుకు తోడ్పడండి"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "ఒక చిన్న విరాళం అందించడం ద్వారా ఈ పొడగింత నిరంతర అభివృద్ధికి తోడ్పడమని దీని తయారీదారు మిమ్మల్ని కోరుతున్నారు."
+msgstr "ఒక చిన్న విరాళం ఇచ్చి ఈ పొడగింత నిరంతర అభివృద్ధికి తోడ్పడమని దీని తయారీదారు మిమ్మల్ని కోరుతున్నారు."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
@@ -690,11 +690,11 @@ msgstr "ఈ కళాకారులకు మద్దతు ఇవ్వండ
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr "ఒక చిన్న విరాళం ఇచ్చి ఈ అలంకాపు తయారీకి తోడ్పడమని దీని తయారీదారు మిమ్మల్ని కోరుతున్నారు."
+msgstr "ఒక చిన్న విరాళం ఇచ్చి ఈ అలంకారపు తయారీకి తోడ్పడమని దీని తయారీదారు మిమ్మల్ని కోరుతున్నారు."
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "ఒక చిన్న విరాళం ఇచ్చి ఈ అలంకారపు తయారీకి తోడ్పడమని దీని తయారీదార్లు మిమ్మల్ని కోరుతున్నారు."
 
 #: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
@@ -706,11 +706,11 @@ msgstr "ఈ రచయితలకు మద్దతు ఇవ్వండి"
 
 #: src/amo/components/ContributeCard/index.js:79
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "ఒక చిన్న విరాళం ఇచ్చి ఈ పొడగింత అభివృద్ధికి తోడ్పడమని దీని తయారీదారు మిమ్మల్ని కోరుతున్నారు."
 
 #: src/amo/components/ContributeCard/index.js:81
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "ఒక చిన్న విరాళం ఇచ్చి ఈ పొడగింత అభివృద్ధికి తోడ్పడమని దీని తయారీదార్లు మిమ్మల్ని కోరుతున్నారు."
 
 #: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
