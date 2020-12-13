@@ -1035,9 +1035,8 @@ msgid "Learn more"
 msgstr "Lue lisää"
 
 #: src/amo/components/InstallWarning/index.js:104
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Tämän tietoturvaa ei tarkisteta Mozillan Suositellut laajennukset -ohjelman kautta. Varmista, että luotat tähän ennen kuin asennat sen."
+msgstr "Mozilla ei seuraa aktiivisesti tämän lisäosan turvallisuutta. Varmista ennen asennusta, että luotat siihen."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
