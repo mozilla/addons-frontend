@@ -112,6 +112,15 @@ jobs:
       - run: pip install tox
       - run: TOXENV=dennis-lint tox
 
+  deploy-storybook:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_build_cache
+      - *run_yarn_install
+      - *save_build_cache
+      - run: yarn storybook-deploy --ci
+
   release-tag: # build for the master branch and tags
     <<: *defaults-release
     steps:
@@ -276,6 +285,16 @@ workflows:
       - test-next
       - check
       - dennis-lint
+      - deploy-storybook:
+          requires:
+            - build
+            - test
+            - check
+          filters:
+            branches:
+              only: master
+            tags:
+              ignore: /.*/
       - release-tag:
           filters:
             tags:
