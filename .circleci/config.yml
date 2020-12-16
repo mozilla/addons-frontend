@@ -3,6 +3,7 @@
 # DOCKERHUB_REPO - docker hub repo, format: <username>/<repo>
 # DOCKER_USER - Login user for docker hub
 # DOCKER_PASS - Login password for docker hub user
+# GH_TOKEN - A valid GitHub token (for Storybook)
 version: 2.1
 
 references:
