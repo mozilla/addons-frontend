@@ -3,13 +3,126 @@
 # DOCKERHUB_REPO - docker hub repo, format: <username>/<repo>
 # DOCKER_USER - Login user for docker hub
 # DOCKER_PASS - Login password for docker hub user
+# GH_TOKEN - A valid GitHub token (for Storybook)
 version: 2.1
 
-jobs:
-  release-tag: # build for the master branch and tags
+references:
+  defaults: &defaults
+    working_directory: ~/addons-frontend
+    docker:
+      # This is the NodeJS version we run in production.
+      - image: circleci/node:12
+
+  defaults-next: &defaults-next
+    working_directory: ~/addons-frontend
+    docker:
+      # This is the next NodeJS version we will support.
+      - image: circleci/node:14
+
+  defaults-release: &defaults-release
     machine:
       image: ubuntu-1604:201903-01
     working_directory: ~/addons-frontend
+
+  restore_build_cache: &restore_build_cache
+    restore_cache:
+      name: restore yarn package cache
+      keys:
+        - yarn-packages-{{ checksum "yarn.lock" }}
+
+  run_yarn_install: &run_yarn_install
+    run:
+      name: install dependencies
+      # See: https://github.com/mozilla/addons-frontend/issues/3034
+      command: yarn install --pure-lockfile
+
+  save_build_cache: &save_build_cache
+    save_cache:
+      name: save yarn package cache
+      key: yarn-packages-{{ checksum "yarn.lock" }}
+      paths:
+        - ~/.cache/yarn
+
+  restore_next_build_cache: &restore_next_build_cache
+    restore_cache:
+      name: restore yarn package cache
+      keys:
+        - next-yarn-packages-{{ checksum "yarn.lock" }}
+
+  save_next_build_cache: &save_next_build_cache
+    save_cache:
+      name: save yarn package cache
+      key: next-yarn-packages-{{ checksum "yarn.lock" }}
+      paths:
+        - ~/.cache/yarn
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_build_cache
+      - *run_yarn_install
+      - *save_build_cache
+      - run: yarn build-ci
+
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_build_cache
+      - *run_yarn_install
+      - *save_build_cache
+      - run: yarn test-ci
+
+  check:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_build_cache
+      - *run_yarn_install
+      - *save_build_cache
+      - run: yarn lint
+      - run: yarn prettier-ci
+      - run: yarn storybook-smoke-test
+
+  build-next:
+    <<: *defaults-next
+    steps:
+      - checkout
+      - *restore_next_build_cache
+      - *run_yarn_install
+      - *save_next_build_cache
+      - run: yarn build
+
+  test-next:
+    <<: *defaults-next
+    steps:
+      - checkout
+      - *restore_next_build_cache
+      - *run_yarn_install
+      - *save_next_build_cache
+      - run: yarn test-ci
+
+  dennis-lint:
+    <<: *defaults-release
+    steps:
+      - checkout
+      - run: pyenv global 3.7.0
+      - run: pip install tox
+      - run: TOXENV=dennis-lint tox
+
+  deploy-storybook:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_build_cache
+      - *run_yarn_install
+      - *save_build_cache
+      - run: yarn storybook-deploy --ci
+
+  release-tag: # build for the master branch and tags
+    <<: *defaults-release
     steps:
       - checkout
       - run:
@@ -69,10 +182,9 @@ jobs:
             sudo sysctl -w vm.max_map_count=262144
             ./tests/smoke/setup_docker.sh
             tox -e smoke-tests
+
   release-master: # build for the master branch and tags
-    machine:
-      image: ubuntu-1604:201903-01
-    working_directory: ~/addons-frontend
+    <<: *defaults-release
     steps:
       - checkout
       - run:
@@ -130,10 +242,9 @@ jobs:
             sudo sysctl -w vm.max_map_count=262144
             ./tests/smoke/setup_docker.sh
             tox -e smoke-tests
+
   integration-test:
-    working_directory: ~/addons-frontend
-    machine:
-      image: ubuntu-1604:201903-01
+    <<: *defaults-release
     resource_class: large
     steps:
       - checkout
@@ -163,10 +274,27 @@ jobs:
           path: ui-test-serial.html
       - store_artifacts:
           path: ui-test-parallel.html
+
 workflows:
   version: 2
-  build_deploy_release:
+  default-workflow:
     jobs:
+      - build
+      - test
+      - build-next
+      - test-next
+      - check
+      - dennis-lint
+      - deploy-storybook:
+          requires:
+            - build
+            - test
+            - check
+          filters:
+            branches:
+              only: master
+            tags:
+              ignore: /.*/
       - release-tag:
           filters:
             tags:
