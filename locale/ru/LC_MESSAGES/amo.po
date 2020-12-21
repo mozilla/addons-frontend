@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-12-08 17:10+0000\n"
-"PO-Revision-Date: 2020-12-16 20:32+0000\n"
+"PO-Revision-Date: 2020-12-17 12:53+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1026,7 +1026,7 @@ msgstr "ОТ СПОНСОРА"
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:217
 msgid "RECOMMENDED"
-msgstr "РЕКОМЕНДОВАННЫЕ"
+msgstr "РЕКОМЕНДУЕМЫЕ"
 
 #: src/amo/components/HeroRecommendation/index.js:221
 msgid "BY FIREFOX"
@@ -1502,7 +1502,7 @@ msgstr "Любые"
 
 #: src/amo/components/SearchFilters/index.js:170 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:48
 msgid "Recommended"
-msgstr "Рекомендованные"
+msgstr "Рекомендуемые"
 
 #: src/amo/components/SearchFilters/index.js:172 src/ui/components/IconPromotedBadge/index.js:46 src/ui/components/PromotedBadge/index.js:41
 msgid "By Firefox"
@@ -2542,16 +2542,16 @@ msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
-"Если вы являетесь автором каких-либо дополнений, они также будут удалены, если только вы не разделяете права собственности с другими авторами. В этом случае вы будете удалены как автор, а остальные "
-"авторы сохранят право собственности на дополнение."
+"Если вы являетесь автором каких-либо дополнений, то они также будут удалены, если только права собственности не были разделены с другими авторами. В этом случае вы будете удалены из списка авторов, "
+"а остальные авторы сохранят право собственности на дополнение."
 
 #: src/amo/pages/UserProfileEdit/index.js:864
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
-"Если пользователь создал какие-либо дополнения, они также будут удалены, если только права собственности не переданы другим авторам. В этом случае пользователь будет удалён как автор, а остальные "
-"авторы сохранят права собственности на дополнение."
+"Если пользователь создал какие-либо дополнения, то они также будут удалены, если только права собственности не были разделены с другими авторами. В этом случае пользователь будет удалён из списка "
+"авторов, а остальные авторы сохранят права собственности на дополнение."
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
