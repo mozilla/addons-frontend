@@ -5463,10 +5463,10 @@ content-disposition@0.5.3, content-disposition@^0.5.2:
   dependencies:
     safe-buffer "5.1.2"
 
-content-security-policy-parser@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/content-security-policy-parser/-/content-security-policy-parser-0.3.0.tgz#a14d4ed54c8d098621ba46cabcd20a78be0c691e"
-  integrity sha512-ub90B4t9EfDPv3DCH7vEwGe4tVMkSm4Ow1HsmvmEQwinDfpTEDmkuJVa5WpzHDTt2bUirNRZuzL6S0msASlJhg==
+content-security-policy-parser@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/content-security-policy-parser/-/content-security-policy-parser-0.4.0.tgz#07a53cc62b3b2b7786b4d398bb1a0d81d2e479e8"
+  integrity sha512-Fpp/t8B52ATElNPUD+QCeXzgyRr0mfCIHr1Oxy/HiwN7X0OY86EjZjO0WFWqJJ/YTja17NfGPr6NloTW+MWhIg==
 
 content-type@^1.0.4, content-type@~1.0.4:
   version "1.0.4"
