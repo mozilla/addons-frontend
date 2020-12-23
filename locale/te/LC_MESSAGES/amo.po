@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-12-08 17:10+0000\n"
-"PO-Revision-Date: 2020-12-22 16:09+0000\n"
+"PO-Revision-Date: 2020-12-23 08:53+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -746,7 +746,7 @@ msgstr "ప్రామాణీకరించబడలేదు"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:36
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "క్షమించండి, ఈ పేజీని చూడడానికి మీకు అధికారం లేదు. మీరు సైన్ ఇన్ చేసిలేకపోతే, పేజీ ఎగువ ఉన్న లంకెను వాడి సైన్ ఇన్ కావడానికి ప్రయత్నించండి."
 
 #: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
