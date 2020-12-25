@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-12-08 17:10+0000\n"
-"PO-Revision-Date: 2020-12-24 18:21+0000\n"
+"PO-Revision-Date: 2020-12-25 20:19+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1857,11 +1857,11 @@ msgstr "ఈ సేకరణను మార్చడానికి ప్రవ
 
 #: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "మొదట, మీ సేకరణను సృష్టించండి. ఆ తర్వాత పొడగింతలను, అలంకారాలను చేర్చవచ్చు."
 
 #: src/amo/pages/Collection/index.js:451
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "మీ సేకరణలో చేర్చుకోడానికి పొడగింతలను, అలంకారాలను వెతకండి."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
