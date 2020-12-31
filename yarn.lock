@@ -12688,10 +12688,10 @@ pino-syslog@^1.2.0:
     split2 "^2.1.1"
     through2 "^2.0.3"
 
-pino@6.8.0:
-  version "6.8.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-6.8.0.tgz#d242f9936f2e65217fde75c0af5d5d8b4d3d3fde"
-  integrity sha512-nxq+6Jr7m0cMjYFBoTRw3bco14omZ/SQCheAHz9GVwdkbUrzKhgT+gSI/ql2Mnsca0QQKgpB/ACWhjxE4JsX3Q==
+pino@6.9.0:
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-6.9.0.tgz#adaa57b52b8ccd8efc3499dd6e7e00ee72884354"
+  integrity sha512-9RrRJsKOsgj50oGoR/y4EEVyUjMb/eRu8y4hjwPqM6q214xsxSxY/IKB+aEEv0slqNd4U0RVRfivKfy83UxgUQ==
   dependencies:
     fast-redact "^3.0.0"
     fast-safe-stringify "^2.0.7"
