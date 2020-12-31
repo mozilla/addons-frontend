@@ -350,7 +350,7 @@ brew cask install font-fira-sans font-open-sans font-chivo font-fira-mono
 
 ## What version is deployed?
 
-You can check to see what commit of `addons-frontend` is deployed as well as which A/B experiments are running and which feature flags are enabled by making a request like this:
+You can check to see what commit of `addons-frontend` is deployed, which A/B experiments are running, or which feature flags are enabled by making a request like this:
 
 ```
 curl https://addons-dev.allizom.org/__frontend_version__
