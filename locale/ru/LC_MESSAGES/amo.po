@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-12-08 17:10+0000\n"
-"PO-Revision-Date: 2020-12-17 12:53+0000\n"
+"PO-Revision-Date: 2020-12-29 22:39+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -2495,12 +2495,11 @@ msgstr "Уведомления"
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr "Время от времени Mozilla может посылать вам письма о выходящих вскоре релизах и событиях, касающихся дополнений. Пожалуйста, выберите темы, в которых вы заинтересованы."
+msgstr "Время от времени Mozilla может отправлять вам письма о выходящих вскоре релизах и новостях дополнений. Пожалуйста, выберите темы, в которых вы заинтересованы."
 
 #: src/amo/pages/UserProfileEdit/index.js:777
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
-"Время от времени Mozilla может посылать этому пользователю письма о выходящих вскоре релизах и событиях, касающихся дополнений. Пожалуйста, выберите темы, в которых он может быть заинтересован."
+msgstr "Время от времени Mozilla может отправлять этому пользователю письма о выходящих вскоре релизах и новостей дополнений. Пожалуйста, выберите темы, в которых он может быть заинтересован."
 
 #: src/amo/pages/UserProfileEdit/index.js:792
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
