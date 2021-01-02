@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-12-08 17:10+0000\n"
-"PO-Revision-Date: 2020-11-16 09:14+0000\n"
+"PO-Revision-Date: 2021-01-02 16:18+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -799,16 +799,16 @@ msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Mund të jeni në gjendje të gjeni ç’po kërkoni në një nga %(extensionStart)szgjerimet%(extensionEnd)s ose %(themeStart)stemat%(themeEnd)s e gatshme, ose duke kërkuar ndihmë te "
+"%(communityStart)sforumet e bashkësisë tonë%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
-#, fuzzy
 msgid "That page is not available in your region"
-msgstr "Kjo shtesë s’është e passhme për platformën tuaj."
+msgstr "Kjo faqe s’është e passhme në rajonin tuaj"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "Na ndjeni, por lënda që po kërkoni, s’mund të kihet në rajonin tuaj."
+msgstr "Faqja ku provuat të hyni s’është e passhme në rajonin tuaj."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
