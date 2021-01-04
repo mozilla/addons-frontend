@@ -2,7 +2,7 @@
 import url from 'url';
 
 import config from 'config';
-import { AllHtmlEntities } from 'html-entities';
+import { decode } from 'html-entities';
 import invariant from 'invariant';
 import qhistory from 'qhistory';
 import { stringify, parse } from 'qs';
@@ -228,8 +228,7 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
  * Decodes HTML entities into their respective symbols.
  */
 export const decodeHtmlEntities = (string) => {
-  const entities = new AllHtmlEntities();
-  return entities.decode(string);
+  return decode(string);
 };
 
 /*
