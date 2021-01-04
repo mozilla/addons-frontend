@@ -274,7 +274,10 @@ describe(__filename, () => {
 
   it('renders the block URL if there is one', () => {
     const guid = 'some-guid';
-    const url = 'http://example.org/block/reason/maybe';
+    const url = {
+      url: 'http://example.org/block/reason/maybe',
+      outgoing: 'https://outgoing.mozilla.org/bbb',
+    };
     const block = createFakeBlockResult({ guid, url });
     const { store } = dispatchClientMetadata();
     store.dispatch(loadBlock({ block }));
@@ -282,7 +285,7 @@ describe(__filename, () => {
     const root = render({ store, guid });
 
     expect(root.find('.Block-metadata').html()).toContain(
-      `<a href="${url}">View block request</a>.`,
+      `<a href="${url.outgoing}">View block request</a>.`,
     );
   });
 

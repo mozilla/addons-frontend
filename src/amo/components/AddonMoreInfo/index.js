@@ -58,7 +58,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       });
     }
 
-    let homepage = trimAndAddProtocolToUrl(addon.homepage);
+    let homepage =
+      addon.homepage && trimAndAddProtocolToUrl(addon.homepage.outgoing);
     if (homepage) {
       homepage = (
         <li>
@@ -69,7 +70,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
-    let supportUrl = trimAndAddProtocolToUrl(addon.support_url);
+    let supportUrl =
+      addon.support_url && trimAndAddProtocolToUrl(addon.support_url.outgoing);
     if (supportUrl) {
       supportUrl = (
         <li>

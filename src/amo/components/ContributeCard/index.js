@@ -100,7 +100,9 @@ export const ContributeCardBase = ({
         <Button
           buttonType="action"
           className="ContributeCard-button"
-          href={addon.contributions_url}
+          href={
+            (addon.contributions_url && addon.contributions_url.outgoing) || ''
+          }
           onClick={onButtonClick}
           target="_blank"
           puffy

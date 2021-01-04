@@ -21,3 +21,13 @@ export type PaginatedApiResponse<ResultType> = {|
 export type LocalizedString = {
   [locale: string]: string,
 };
+
+export type OutgoingUrl = {|
+  outgoing: string,
+  url: string,
+|};
+
+export type LocalizedOutgoingUrl = {
+  outgoing: LocalizedString,
+  url: LocalizedString,
+};

@@ -14,7 +14,6 @@ describe(__filename, () => {
         endpoint: 'hero',
         apiState,
         // See https://github.com/mozilla/addons-frontend/issues/8826.
-        wrapOutgoingLinks: false,
       })
       .once()
       .returns(createApiResponse());

@@ -26,7 +26,10 @@ describe(__filename, () => {
   const createAddon = (params) => {
     return createInternalAddonWithLang({
       ...fakeAddon,
-      contributions_url: 'https://paypal.me/babar',
+      contributions_url: {
+        url: 'https://paypal.me/babar',
+        outgoing: 'https://outgoing.mozilla.org/qqq',
+      },
       type: ADDON_TYPE_EXTENSION,
       ...params,
     });
@@ -56,14 +59,17 @@ describe(__filename, () => {
   });
 
   it('does not render anything if add-on has no contributions URL', () => {
-    const root = render({ addon: createAddon({ contributions_url: '' }) });
+    const root = render({ addon: createAddon({ contributions_url: null }) });
     expect(root.find(Card)).toHaveLength(0);
   });
 
   it('renders a Button with a contributions URL', () => {
     const root = render();
     expect(root.find(Button)).toHaveLength(1);
-    expect(root.find(Button)).toHaveProp('href', 'https://paypal.me/babar');
+    expect(root.find(Button)).toHaveProp(
+      'href',
+      'https://outgoing.mozilla.org/qqq',
+    );
     expect(root.find(Button).children().at(1)).toHaveText('Contribute now');
     expect(root.find(Button)).toHaveProp('target', '_blank');
   });
@@ -134,7 +140,7 @@ describe(__filename, () => {
 
   it('sends a tracking event when the button is clicked', () => {
     const _tracking = createFakeTracking();
-    const contributionsUrl = 'some/url';
+    const contributionsUrl = { url: 'some/url', outgoing: 'some/other/url' };
     const guid = 'some-guid';
     const addon = createInternalAddonWithLang({
       ...fakeAddon,

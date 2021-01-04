@@ -824,24 +824,36 @@ describe(__filename, () => {
     it('coverts localized strings into simple strings', () => {
       const description = 'Some description';
       const developer_comments = 'developer comments';
-      const homepage = 'https://myhomepage.com';
+      const homepage = {
+        url: 'https://myhomepage.com',
+        outgoing: 'https://outgoing.mozilla.org/myh',
+      };
       const name = 'My addon';
       const previews = [fakePreview];
       const summary = 'A summary';
       const support_email = 'someemail@mozilla.com';
-      const support_url = 'https://support.com';
+      const support_url = {
+        url: 'https://support.com',
+        outgoing: 'https://outgoing.mozilla.org/sup',
+      };
 
       const addon = createInternalAddon(
         {
           ...fakeAddon,
           description: createLocalizedString(description, lang),
           developer_comments: createLocalizedString(developer_comments, lang),
-          homepage: createLocalizedString(homepage, lang),
+          homepage: {
+            url: createLocalizedString(homepage.url, lang),
+            outgoing: createLocalizedString(homepage.outgoing, lang),
+          },
           name: createLocalizedString(name, lang),
           previews,
           summary: createLocalizedString(summary, lang),
           support_email: createLocalizedString(support_email, lang),
-          support_url: createLocalizedString(support_url, lang),
+          support_url: {
+            url: createLocalizedString(support_url.url, lang),
+            outgoing: createLocalizedString(support_url.outgoing, lang),
+          },
         },
         lang,
       );

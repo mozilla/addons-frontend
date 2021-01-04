@@ -29,7 +29,7 @@ describe(__filename, () => {
   };
 
   it('renders a message with an internal link', () => {
-    const cta = { text: 'cta text', url: 'some/url' };
+    const cta = { text: 'cta text', url: 'some/url', outgoing: 'out/url' };
     const _checkInternalURL = sinon
       .stub()
       .returns({ isInternal: true, relativeURL: cta.url });
@@ -62,7 +62,7 @@ describe(__filename, () => {
 
   it('renders a message with an external link', () => {
     const _checkInternalURL = sinon.stub().returns({ isInternal: false });
-    const cta = { text: 'cta text', url: 'some/url' };
+    const cta = { text: 'cta text', url: 'some/url', outgoing: 'out/url' };
     const shelfData = createShelfData({ cta });
 
     const root = render({ _checkInternalURL, shelfData });
@@ -96,7 +96,7 @@ describe(__filename, () => {
 
   it('sends a tracking event when the cta is clicked', () => {
     const _tracking = createFakeTracking();
-    const cta = { text: 'cta text', url: 'some/url' };
+    const cta = { text: 'cta text', url: 'some/url', outgoing: 'out/url' };
     const shelfData = createShelfData({ cta });
 
     const root = render({ _tracking, shelfData });
@@ -128,7 +128,7 @@ describe(__filename, () => {
     const module1 = {
       icon: 'icon1',
       description: 'module1 description',
-      cta: { text: 'cta1 text', url: 'cta/url1' },
+      cta: { text: 'cta1 text', url: 'cta/url1', outgoing: 'out/url1' },
     };
     const module2 = {
       icon: 'icon2',
@@ -138,7 +138,7 @@ describe(__filename, () => {
     const module3 = {
       icon: 'icon3',
       description: 'module3 description',
-      cta: { text: 'cta3 text', url: 'cta/url3' },
+      cta: { text: 'cta3 text', url: 'cta/url3', outgoing: 'out/url3' },
     };
 
     const shelfData = createShelfData({

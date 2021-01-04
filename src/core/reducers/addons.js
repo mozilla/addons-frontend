@@ -178,6 +178,14 @@ export function createInternalAddon(
   apiAddon: ExternalAddonType | PartialExternalAddonType,
   lang: string,
 ): AddonType {
+  const homepage_url = apiAddon.homepage ? apiAddon.homepage.url : null;
+  const homepage_outgoing = apiAddon.homepage
+    ? apiAddon.homepage.outgoing
+    : null;
+  const support_url = apiAddon.support_url ? apiAddon.support_url.url : null;
+  const support_outgoing = apiAddon.support_url
+    ? apiAddon.support_url.outgoing
+    : null;
   const addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
@@ -195,7 +203,13 @@ export function createInternalAddon(
     guid: apiAddon.guid,
     has_eula: apiAddon.has_eula,
     has_privacy_policy: apiAddon.has_privacy_policy,
-    homepage: selectLocalizedContent(apiAddon.homepage, lang),
+    homepage:
+      homepage_url && homepage_outgoing
+        ? {
+            url: selectLocalizedContent(homepage_url, lang),
+            outgoing: selectLocalizedContent(homepage_outgoing, lang),
+          }
+        : null,
     icon_url: apiAddon.icon_url,
     id: apiAddon.id,
     is_disabled: apiAddon.is_disabled,
@@ -216,7 +230,13 @@ export function createInternalAddon(
     status: apiAddon.status,
     summary: selectLocalizedContent(apiAddon.summary, lang),
     support_email: selectLocalizedContent(apiAddon.support_email, lang),
-    support_url: selectLocalizedContent(apiAddon.support_url, lang),
+    support_url:
+      support_url && support_outgoing
+        ? {
+            url: selectLocalizedContent(support_url, lang),
+            outgoing: selectLocalizedContent(support_outgoing, lang),
+          }
+        : null,
     tags: apiAddon.tags,
     target_locale: apiAddon.target_locale,
     type: apiAddon.type,

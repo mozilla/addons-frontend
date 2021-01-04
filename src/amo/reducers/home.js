@@ -83,6 +83,7 @@ export type PrimaryHeroShelfType =
 
 export type HeroCallToActionType = {|
   url: string,
+  outgoing: string,
   text: string,
 |};
 

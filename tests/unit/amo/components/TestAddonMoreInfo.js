@@ -72,7 +72,10 @@ describe(__filename, () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
       homepage: null,
-      support_url: createLocalizedString('foo.com'),
+      support_url: {
+        url: createLocalizedString('foo.com'),
+        outgoing: createLocalizedString('baa.com'),
+      },
     });
     const root = render({ addon });
 
@@ -130,13 +133,16 @@ describe(__filename, () => {
   it('renders the homepage of an add-on', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      homepage: createLocalizedString('http://hamsterdance.com/'),
+      homepage: {
+        url: createLocalizedString('http://hamsterdance.com/'),
+        outgoing: createLocalizedString('https://outgoing.mozilla.org/hamster'),
+      },
     });
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-homepage-link');
 
     expect(link).toIncludeText('Homepage');
-    expect(link).toHaveProp('href', 'http://hamsterdance.com/');
+    expect(link).toHaveProp('href', 'https://outgoing.mozilla.org/hamster');
   });
 
   it('does not render a support link if none exists', () => {
@@ -150,13 +156,16 @@ describe(__filename, () => {
   it('renders the support link of an add-on', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      support_url: createLocalizedString('http://support.hampsterdance.com/'),
+      support_url: {
+        url: createLocalizedString('http://support.hampsterdance.com/'),
+        outgoing: createLocalizedString('https://outgoing.mozilla.org/hamster'),
+      },
     });
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-support-link');
 
     expect(link).toIncludeText('Support site');
-    expect(link).toHaveProp('href', 'http://support.hampsterdance.com/');
+    expect(link).toHaveProp('href', 'https://outgoing.mozilla.org/hamster');
   });
 
   it('renders the email link of an add-on', () => {

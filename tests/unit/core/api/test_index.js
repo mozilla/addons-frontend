@@ -56,7 +56,7 @@ describe(__filename, () => {
 
       mockWindow
         .expects('fetch')
-        .withArgs(urlWithTheseParams({ lang, wrap_outgoing_links: true }))
+        .withArgs(urlWithTheseParams({ lang }))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint: 'resource', apiState: state.api });
@@ -88,26 +88,6 @@ describe(__filename, () => {
       });
 
       await api.callApi({ endpoint: 'resource', apiState: state.api });
-      mockWindow.verify();
-    });
-
-    it('can exclude wrap_outgoing_links param', async () => {
-      const { state } = dispatchClientMetadata();
-
-      mockWindow
-        .expects('fetch')
-        .withArgs(
-          sinon.match(
-            (urlString) => !urlString.includes('wrap_outgoing_links'),
-          ),
-        )
-        .returns(createApiResponse());
-
-      await api.callApi({
-        endpoint: 'resource',
-        apiState: state.api,
-        wrapOutgoingLinks: false,
-      });
       mockWindow.verify();
     });
 
@@ -264,7 +244,7 @@ describe(__filename, () => {
       const endpoint = 'some-endpoint/';
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match(`/api/${apiVersion}/${endpoint}?`))
+        .withArgs(sinon.match(`/api/${apiVersion}/${endpoint}`))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint });
@@ -275,7 +255,7 @@ describe(__filename, () => {
       const endpoint = '/some-endpoint/';
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match(`/api/${apiVersion}/some-endpoint/?`))
+        .withArgs(sinon.match(`/api/${apiVersion}/some-endpoint/`))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint });
