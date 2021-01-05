@@ -37,10 +37,9 @@ Here are some commands you can run:
 
 | Command | Description |
 | --- | --- |
-| yarn amo | Start the dev server/proxy (for amo) using data from Docker. _This is not currently working. See [issue-7196][]_. |
+| yarn amo:olympia | Start the dev server/proxy (for amo) using data from a local addons-server environment. |
 | yarn amo:dev | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/) |
 | yarn amo:dev-https | Same as `amo:dev` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended) |
-| yarn amo:no-proxy | Start the dev server without a proxy (for amo) using data from Docker |
 | yarn amo:stage | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
 | yarn build | Build the app. |
 | yarn build-ci | Run the `build` and `bundlesize` npm scripts. |
@@ -388,6 +387,5 @@ curl https://addons-dev.allizom.org/__version__
 - Unit tests with high coverage (aiming for 100%)
 
 [bundlesize]: https://github.com/siddharthkp/bundlesize
-[issue-7196]: https://github.com/mozilla/addons-frontend/issues/7196
 [jest]: https://jestjs.io/docs/en/getting-started.html
 [prettier]: https://prettier.io/

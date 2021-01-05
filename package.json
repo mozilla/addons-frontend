@@ -15,12 +15,11 @@
     "bundlesize": "bundlesize",
     "extract-locales": "better-npm-run extract-locales",
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
-    "amo": "better-npm-run amo",
     "amo:dev": "better-npm-run amo:dev",
     "amo:dev-https": "better-npm-run amo:dev-https",
-    "amo:ui-tests": "better-npm-run amo:ui-tests",
-    "amo:no-proxy": "better-npm-run amo:no-proxy",
+    "amo:olympia": "better-npm-run amo:olympia",
     "amo:stage": "better-npm-run amo:stage",
+    "amo:ui-tests": "npm run amo:olympia",
     "eslint": "eslint .",
     "flow": "flow",
     "flow:check": "flow check",
@@ -52,8 +51,11 @@
         "NODE_PATH": "./:./src"
       }
     },
-    "amo": {
-      "command": "better-npm-run start-dev-proxy"
+    "amo:olympia": {
+      "command": "better-npm-run start-dev-proxy",
+      "env": {
+        "NODE_APP_INSTANCE": "local"
+      }
     },
     "amo:dev": {
       "command": "better-npm-run start-dev-proxy",
@@ -69,18 +71,6 @@
         "SERVER_HOST": "example.com",
         "USE_HTTPS_FOR_DEV": "true",
         "WEBPACK_SERVER_HOST": "example.com"
-      }
-    },
-    "amo:ui-tests": {
-      "command": "better-npm-run start-dev-proxy",
-      "env": {
-        "NODE_ENV": "production"
-      }
-    },
-    "amo:no-proxy": {
-      "command": "better-npm-run start-dev",
-      "env": {
-        "PROXY_ENABLED": "false"
       }
     },
     "amo:stage": {
@@ -115,8 +105,7 @@
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
         "NODE_ICU_DATA": "./node_modules/full-icu",
-        "NODE_PATH": "./:./src",
-        "SERVER_PORT": "3333"
+        "NODE_PATH": "./:./src"
       }
     },
     "node": {

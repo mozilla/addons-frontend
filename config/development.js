@@ -38,7 +38,7 @@ module.exports = {
 
   enableStrictMode: true,
 
-  serverPort: 3000,
+  serverPort: 3333,
   webpackServerHost,
   webpackServerPort,
   webpackHost,
