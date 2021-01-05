@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-12-08 17:10+0000\n"
+"POT-Creation-Date: 2021-01-05 17:03+0000\n"
 "PO-Revision-Date: 2020-05-30 11:17+0000\n"
 "Last-Translator: Goce Mitevski <goce.mitevski@nicer2.com>\n"
 "Language-Team: none\n"
@@ -644,12 +644,12 @@ msgstr "Додатоци за Firefox"
 msgid "Loading"
 msgstr "Се вчитува"
 
-#: src/amo/components/AutoSearchInput/index.js:299
+#: src/amo/components/AutoSearchInput/index.js:301
 msgid "Find add-ons"
 msgstr "Најди додатоци"
 
-#: src/amo/components/AutoSearchInput/index.js:324
-#: src/amo/components/AutoSearchInput/index.js:352
+#: src/amo/components/AutoSearchInput/index.js:326
+#: src/amo/components/AutoSearchInput/index.js:354
 msgid "Search"
 msgstr "Барај"
 
@@ -1925,11 +1925,11 @@ msgstr "Слики од екран"
 msgid "Custom License for %(addonName)s"
 msgstr "Се пребарува за \"%(query)s\""
 
-#: src/amo/pages/AddonInfo/index.js:161
+#: src/amo/pages/AddonInfo/index.js:166
 msgid "End-User License Agreement for %(addonName)s"
 msgstr ""
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:170
 #, fuzzy
 msgid "Privacy policy for %(addonName)s"
 msgstr "Се пребарува за \"%(query)s\""
@@ -2075,41 +2075,41 @@ msgstr "Се вчитуваат категории."
 msgid "All theme categories"
 msgstr "Истражете ги сите категории"
 
-#: src/amo/pages/Collection/index.js:392
+#: src/amo/pages/Collection/index.js:393
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/pages/Collection/index.js:395
+#: src/amo/pages/Collection/index.js:396
 #, fuzzy
 msgid "Delete this collection"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/pages/Collection/index.js:414
+#: src/amo/pages/Collection/index.js:415
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/pages/Collection/index.js:415
+#: src/amo/pages/Collection/index.js:416
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/pages/Collection/index.js:448
+#: src/amo/pages/Collection/index.js:449
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:451
+#: src/amo/pages/Collection/index.js:452
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:513
+#: src/amo/pages/Collection/index.js:514
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:516
+#: src/amo/pages/Collection/index.js:517
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -3054,17 +3054,17 @@ msgid "%(localizedSize)s TB"
 msgstr ""
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:335
+#: src/core/reducers/versions.js:352
 msgid "%(application)s %(minVersion)s and later"
 msgstr ""
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:339
+#: src/core/reducers/versions.js:356
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s до %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:359
+#: src/core/reducers/versions.js:376
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
 

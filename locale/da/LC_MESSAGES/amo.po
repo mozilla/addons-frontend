@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-12-08 17:10+0000\n"
+"POT-Creation-Date: 2021-01-05 17:03+0000\n"
 "PO-Revision-Date: 2020-09-21 18:59+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
@@ -620,12 +620,12 @@ msgstr "%(title)s – Tilføjelser til Firefox til Android (%(locale)s)"
 msgid "Loading"
 msgstr "Indlæser"
 
-#: src/amo/components/AutoSearchInput/index.js:299
+#: src/amo/components/AutoSearchInput/index.js:301
 msgid "Find add-ons"
 msgstr "Find tilføjelser"
 
-#: src/amo/components/AutoSearchInput/index.js:324
-#: src/amo/components/AutoSearchInput/index.js:352
+#: src/amo/components/AutoSearchInput/index.js:326
+#: src/amo/components/AutoSearchInput/index.js:354
 msgid "Search"
 msgstr "Søg"
 
@@ -1937,11 +1937,11 @@ msgstr "Skærmbilleder"
 msgid "Custom License for %(addonName)s"
 msgstr ""
 
-#: src/amo/pages/AddonInfo/index.js:161
+#: src/amo/pages/AddonInfo/index.js:166
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "Licensaftale for slutbrugere for %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:170
 msgid "Privacy policy for %(addonName)s"
 msgstr "Privatlivspolitik for %(addonName)s"
 
@@ -2086,32 +2086,32 @@ msgstr "Alle udvidelses-kategorier"
 msgid "All theme categories"
 msgstr "Alle tema-kategorier"
 
-#: src/amo/pages/Collection/index.js:392
+#: src/amo/pages/Collection/index.js:393
 msgid "Do you really want to delete this collection?"
 msgstr "Vil du virkelig slette denne samling?"
 
-#: src/amo/pages/Collection/index.js:395
+#: src/amo/pages/Collection/index.js:396
 msgid "Delete this collection"
 msgstr "Slet denne samling"
 
-#: src/amo/pages/Collection/index.js:414
+#: src/amo/pages/Collection/index.js:415
 msgid "Log in to create a collection"
 msgstr "Log ind for at oprette en samling"
 
-#: src/amo/pages/Collection/index.js:415
+#: src/amo/pages/Collection/index.js:416
 msgid "Log in to edit this collection"
 msgstr "Log ind for at redigere denne samling"
 
-#: src/amo/pages/Collection/index.js:448
+#: src/amo/pages/Collection/index.js:449
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Opret først din samling. Derefter kan du føje udvidelser og temaer til den."
 
-#: src/amo/pages/Collection/index.js:451
+#: src/amo/pages/Collection/index.js:452
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Søg efter udvidelser og temaer, du kan føje til din samling."
 
-#: src/amo/pages/Collection/index.js:513
+#: src/amo/pages/Collection/index.js:514
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2119,7 +2119,7 @@ msgstr ""
 "Hent og opret samlinger til Firefox, og hold styr på dine favoritudvidelser "
 "og temaer. Udforsk %(collectionName)s—%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:516
+#: src/amo/pages/Collection/index.js:517
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -3164,17 +3164,17 @@ msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:335
+#: src/core/reducers/versions.js:352
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s og nyere"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:339
+#: src/core/reducers/versions.js:356
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s til %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:359
+#: src/core/reducers/versions.js:376
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Virker med %(listOfApplicatonsAndVersions)s"
 

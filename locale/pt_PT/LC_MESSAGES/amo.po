@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-12-08 17:10+0000\n"
+"POT-Creation-Date: 2021-01-05 17:03+0000\n"
 "PO-Revision-Date: 2020-12-04 23:38+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
@@ -619,12 +619,12 @@ msgstr "%(title)s – Extras para o Firefox Android (%(locale)s)"
 msgid "Loading"
 msgstr "A carregar"
 
-#: src/amo/components/AutoSearchInput/index.js:299
+#: src/amo/components/AutoSearchInput/index.js:301
 msgid "Find add-ons"
 msgstr "Encontrar extras"
 
-#: src/amo/components/AutoSearchInput/index.js:324
-#: src/amo/components/AutoSearchInput/index.js:352
+#: src/amo/components/AutoSearchInput/index.js:326
+#: src/amo/components/AutoSearchInput/index.js:354
 msgid "Search"
 msgstr "Pesquisar"
 
@@ -1930,11 +1930,11 @@ msgstr "Capturas de ecrã"
 msgid "Custom License for %(addonName)s"
 msgstr "Licença personalizada para %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:161
+#: src/amo/pages/AddonInfo/index.js:166
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "Acordo de licenciamento do utilizador final para %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:170
 msgid "Privacy policy for %(addonName)s"
 msgstr "Política de privacidade para %(addonName)s"
 
@@ -2080,31 +2080,31 @@ msgstr "Todas as categorias de extensões"
 msgid "All theme categories"
 msgstr "Todas as categorias de temas"
 
-#: src/amo/pages/Collection/index.js:392
+#: src/amo/pages/Collection/index.js:393
 msgid "Do you really want to delete this collection?"
 msgstr "Pretende mesmo apagar esta coleção?"
 
-#: src/amo/pages/Collection/index.js:395
+#: src/amo/pages/Collection/index.js:396
 msgid "Delete this collection"
 msgstr "Apagar esta coleção"
 
-#: src/amo/pages/Collection/index.js:414
+#: src/amo/pages/Collection/index.js:415
 msgid "Log in to create a collection"
 msgstr "Iniciar sessão para criar uma coleção"
 
-#: src/amo/pages/Collection/index.js:415
+#: src/amo/pages/Collection/index.js:416
 msgid "Log in to edit this collection"
 msgstr "Iniciar sessão para editar esta coleção"
 
-#: src/amo/pages/Collection/index.js:448
+#: src/amo/pages/Collection/index.js:449
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "Primeiro, crie a sua coleção. Depois pode adicionar extensões e temas."
 
-#: src/amo/pages/Collection/index.js:451
+#: src/amo/pages/Collection/index.js:452
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Pesquise por extensões e temas para adicionar à sua coleção."
 
-#: src/amo/pages/Collection/index.js:513
+#: src/amo/pages/Collection/index.js:514
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2112,7 +2112,7 @@ msgstr ""
 "Transfira e crie coleções do Firefox para acompanhar as suas extensões e "
 "temas favoritos. Explore %(collectionName)s—%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:516
+#: src/amo/pages/Collection/index.js:517
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -3193,17 +3193,17 @@ msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:335
+#: src/core/reducers/versions.js:352
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s e superior"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:339
+#: src/core/reducers/versions.js:356
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s até %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:359
+#: src/core/reducers/versions.js:376
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Funciona com %(listOfApplicatonsAndVersions)s"
 
