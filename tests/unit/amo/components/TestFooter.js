@@ -47,7 +47,7 @@ describe(__filename, () => {
     // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
     expect(root.find('.Footer-bug-report-link')).toHaveProp(
       'href',
-      'https://developer.mozilla.org/Add-ons/AMO/Policy/Contact',
+      'https://developer.mozilla.org/docs/Mozilla/Add-ons/Contact_us',
     );
 
     expect(root.find('.Footer-extension-workshop-link')).toHaveText(

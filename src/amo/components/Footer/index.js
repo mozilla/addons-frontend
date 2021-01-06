@@ -89,7 +89,7 @@ export class FooterBase extends React.Component {
               <li>
                 <a
                   className="Footer-bug-report-link"
-                  href="https://developer.mozilla.org/Add-ons/AMO/Policy/Contact"
+                  href="https://developer.mozilla.org/docs/Mozilla/Add-ons/Contact_us"
                 >
                   {i18n.gettext('Report a bug')}
                 </a>
