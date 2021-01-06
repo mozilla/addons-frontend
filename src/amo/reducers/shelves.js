@@ -147,9 +147,12 @@ const reducer = (
       }
       // When the client initializes, it updates its location. On next location
       // change, we want to reset this state to fetch fresh data once user goes
-      // back to the homepage.
+      // back to the homepage, but we need to keep the lang.
       if (state.resetStateOnNextChange) {
-        return initialState;
+        return {
+          ...initialState,
+          lang: state.lang,
+        };
       }
 
       return {

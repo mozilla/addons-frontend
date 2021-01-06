@@ -89,9 +89,10 @@ describe(__filename, () => {
     expect(state.resetStateOnNextChange).toEqual(false);
   });
 
-  it('resets the state to the initial state after two location changes on the client', () => {
+  it('resets the state to the initial (but preserves lang) state after two location changes on the client', () => {
+    const lang = 'fr';
     const _config = getFakeConfig({ server: false });
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ lang });
     const impressionData = 'some data';
     const shelfData = {
       ...fakeSponsoredShelf,
@@ -107,7 +108,7 @@ describe(__filename, () => {
     state = reducer(state, { type: LOCATION_CHANGE }, _config);
     state = reducer(state, { type: LOCATION_CHANGE }, _config);
 
-    expect(state).toEqual(initialState);
+    expect(state).toEqual({ ...initialState, lang });
   });
 
   it('does not reset the state to the initial state after only one location change on the client', () => {
