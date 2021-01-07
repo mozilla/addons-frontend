@@ -30,7 +30,6 @@ import {
   safePromise,
   sanitizeHTML,
   sanitizeUserHTML,
-  trimAndAddProtocolToUrl,
   visibleAddonType,
 } from 'core/utils';
 import { createPlatformFiles } from 'core/reducers/versions';
@@ -408,22 +407,6 @@ describe(__filename, () => {
       return asPromised().then(unexpectedSuccess, (error) => {
         expect(error.message).toEqual(message);
       });
-    });
-  });
-
-  describe('trimAndAddProtocolToUrl', () => {
-    it('adds a protocol to a URL if missing', () => {
-      expect(trimAndAddProtocolToUrl('test.com')).toEqual('http://test.com');
-    });
-
-    it('trims whitespace on a URL', () => {
-      expect(trimAndAddProtocolToUrl(' test.com ')).toEqual('http://test.com');
-    });
-
-    it('works with HTTPS URLs', () => {
-      expect(trimAndAddProtocolToUrl('https://test.com')).toEqual(
-        'https://test.com',
-      );
     });
   });
 
