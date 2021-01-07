@@ -1,3 +1,4 @@
+import { setLang } from 'core/reducers/api';
 import reducer, {
   createInternalLanguageTool,
   fetchLanguageTools,
@@ -6,7 +7,6 @@ import reducer, {
   loadLanguageTools,
 } from 'core/reducers/languageTools';
 import {
-  DEFAULT_LANG_IN_TESTS,
   createFakeLanguageTool,
   dispatchClientMetadata,
 } from 'tests/unit/helpers';
@@ -19,9 +19,12 @@ describe(__filename, () => {
   });
 
   it('stores language tools', () => {
-    const language = createFakeLanguageTool();
+    const lang = 'fr';
+    const language = createFakeLanguageTool({ target_locale: lang });
+    const stateWithLang = reducer(undefined, setLang(lang));
+
     const state = reducer(
-      undefined,
+      stateWithLang,
       loadLanguageTools({
         languageTools: [language],
       }),
@@ -29,18 +32,18 @@ describe(__filename, () => {
 
     expect(state).toEqual({
       byID: {
-        [language.id]: createInternalLanguageTool(
-          language,
-          DEFAULT_LANG_IN_TESTS,
-        ),
+        [language.id]: createInternalLanguageTool(language, lang),
       },
+      lang,
     });
   });
 
   it('ignores unrelated actions', () => {
-    const language = createFakeLanguageTool();
+    const lang = 'fr';
+    const language = createFakeLanguageTool({ target_locale: lang });
+    const stateWithLang = reducer(undefined, setLang(lang));
     const firstState = reducer(
-      undefined,
+      stateWithLang,
       loadLanguageTools({
         languageTools: [language],
       }),
@@ -77,7 +80,7 @@ describe(__filename, () => {
     it('returns an array of languages', () => {
       const lang = 'fr';
       const language = createFakeLanguageTool({ target_locale: lang });
-      const { store } = dispatchClientMetadata();
+      const { store } = dispatchClientMetadata({ lang });
       store.dispatch(loadLanguageTools({ languageTools: [language] }));
 
       expect(getAllLanguageTools(store.getState())).toEqual([

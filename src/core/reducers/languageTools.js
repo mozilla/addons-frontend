@@ -1,4 +1,5 @@
 /* @flow */
+import { SET_LANG } from 'core/reducers/api';
 import { selectLocalizedContent } from 'core/reducers/utils';
 import type { AppState } from 'amo/store';
 import type {
@@ -12,10 +13,14 @@ export const LOAD_LANGUAGE_TOOLS: 'LOAD_LANGUAGE_TOOLS' = 'LOAD_LANGUAGE_TOOLS';
 
 export type LanguageToolsState = {|
   byID: { [id: string]: LanguageToolType },
+  lang: string,
 |};
 
 export const initialState: LanguageToolsState = {
   byID: {},
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
 };
 
 type FetchLanguageToolsParams = {|
@@ -92,10 +97,7 @@ export default function languageToolsReducer(
       const byID = { ...state.byID };
 
       action.payload.languageTools.forEach((item) => {
-        byID[`${item.id}`] = createInternalLanguageTool(
-          item,
-          item.target_locale,
-        );
+        byID[`${item.id}`] = createInternalLanguageTool(item, state.lang);
       });
 
       return {
@@ -103,6 +105,11 @@ export default function languageToolsReducer(
         byID,
       };
     }
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
     default:
       return state;
   }

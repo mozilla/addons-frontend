@@ -234,6 +234,7 @@ describe(__filename, () => {
   });
 
   it('renders add-ons for all variants of a short locale on a single row (only one supported language)', () => {
+    const lang = 'fr';
     // The short locale is `az` here.
     const addons = [
       createFakeLanguageTool({
@@ -250,7 +251,7 @@ describe(__filename, () => {
       }),
     ];
 
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
     const root = renderShallow({ store });
@@ -260,10 +261,10 @@ describe(__filename, () => {
 
     expect(root.find(LanguageToolList)).toHaveLength(2);
     expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[0], 'az'),
+      createInternalLanguageTool(addons[0], lang),
     ]);
     expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[1], 'az-IR'),
+      createInternalLanguageTool(addons[1], lang),
     ]);
   });
 
@@ -288,6 +289,7 @@ describe(__filename, () => {
   });
 
   it('renders add-ons on two different rows corresponding to two supported languages', () => {
+    const lang = 'fr';
     // The short locale is `fa` here, which is in the list of supported
     // languages (`src/core/languages.js`) together with `fa-IR`.
     const addons = [
@@ -311,7 +313,7 @@ describe(__filename, () => {
       }),
     ];
 
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
     const root = renderShallow({ store });
@@ -319,11 +321,11 @@ describe(__filename, () => {
     expect(root.find('.LanguageTools-table-row')).toHaveLength(2);
 
     expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[0], 'fa'),
+      createInternalLanguageTool(addons[0], lang),
     ]);
     expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[1], 'fa-IR'),
-      createInternalLanguageTool(addons[2], 'fa-IR'),
+      createInternalLanguageTool(addons[1], lang),
+      createInternalLanguageTool(addons[2], lang),
     ]);
   });
 
