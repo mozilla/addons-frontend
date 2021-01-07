@@ -58,7 +58,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       });
     }
 
-    let homepage = addon.homepage.outgoing
+    let homepage = addon.homepage && addon.homepage.outgoing;
     if (homepage) {
       homepage = (
         <li>
@@ -69,7 +69,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
-    let supportUrl = addon.support_url.outgoing
+    let supportUrl = addon.support_url && addon.support_url.outgoing;
     if (supportUrl) {
       supportUrl = (
         <li>
