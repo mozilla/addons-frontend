@@ -23,57 +23,67 @@ import {
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
+  const lang = 'fr';
   const languageTools = [
     createFakeLanguageTool({
       id: 1,
+      lang,
       name: 'Scottish Language Pack (with Irn-Bru)',
       target_locale: 'en-GB',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 2,
+      lang,
       name: 'Old stuffy English',
       target_locale: 'en-GB',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 3,
+      lang,
       name: 'English Language Pack with Extra Us',
       target_locale: 'en-GB',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 4,
+      lang,
       name: 'Cool new English',
       target_locale: 'en-US',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 5,
+      lang,
       name: 'le French Dictionary',
       target_locale: 'fr',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 6,
+      lang,
       name: 'French Language Pack',
       target_locale: 'fr',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 7,
+      lang,
       name: 'اُردو',
       target_locale: 'ur',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 8,
+      lang,
       name: '正體中文 (繁體)',
       target_locale: 'zh-TW',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 9,
+      lang,
       name: 'isiZulu',
       target_locale: 'zu',
       type: ADDON_TYPE_LANG,
@@ -238,19 +248,21 @@ describe(__filename, () => {
     const addons = [
       createFakeLanguageTool({
         id: 1,
+        lang,
         name: 'Azərbaycanca (AZ) Language Pack',
         target_locale: 'az',
         type: ADDON_TYPE_LANG,
       }),
       createFakeLanguageTool({
         id: 2,
+        lang,
         name: 'Azerbaijani Spell Checker',
         target_locale: 'az-IR',
         type: ADDON_TYPE_DICT,
       }),
     ];
 
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
     const root = renderShallow({ store });
@@ -260,10 +272,10 @@ describe(__filename, () => {
 
     expect(root.find(LanguageToolList)).toHaveLength(2);
     expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[0], 'az'),
+      createInternalLanguageTool(addons[0], lang),
     ]);
     expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[1], 'az-IR'),
+      createInternalLanguageTool(addons[1], lang),
     ]);
   });
 
@@ -293,25 +305,28 @@ describe(__filename, () => {
     const addons = [
       createFakeLanguageTool({
         id: 1,
+        lang,
         name: 'Persian Dictionary',
         target_locale: 'fa',
         type: ADDON_TYPE_DICT,
       }),
       createFakeLanguageTool({
         id: 2,
+        lang,
         name: 'Persian (IR) Dictionary',
         target_locale: 'fa-IR',
         type: ADDON_TYPE_DICT,
       }),
       createFakeLanguageTool({
         id: 3,
+        lang,
         name: 'Lilak, Persian Spell Checker Dictionary',
         target_locale: 'fa-IR',
         type: ADDON_TYPE_DICT,
       }),
     ];
 
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
     const root = renderShallow({ store });
@@ -319,11 +334,11 @@ describe(__filename, () => {
     expect(root.find('.LanguageTools-table-row')).toHaveLength(2);
 
     expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[0], 'fa'),
+      createInternalLanguageTool(addons[0], lang),
     ]);
     expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[1], 'fa-IR'),
-      createInternalLanguageTool(addons[2], 'fa-IR'),
+      createInternalLanguageTool(addons[1], lang),
+      createInternalLanguageTool(addons[2], lang),
     ]);
   });
 
