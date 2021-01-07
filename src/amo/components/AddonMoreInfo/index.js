@@ -12,7 +12,7 @@ import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
-import { isAddonAuthor, trimAndAddProtocolToUrl } from 'core/utils';
+import { isAddonAuthor } from 'core/utils';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
@@ -58,7 +58,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       });
     }
 
-    let homepage = trimAndAddProtocolToUrl(addon.homepage);
+    let homepage = addon.homepage && addon.homepage.outgoing;
     if (homepage) {
       homepage = (
         <li>
@@ -69,7 +69,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
-    let supportUrl = trimAndAddProtocolToUrl(addon.support_url);
+    let supportUrl = addon.support_url && addon.support_url.outgoing;
     if (supportUrl) {
       supportUrl = (
         <li>

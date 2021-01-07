@@ -11,6 +11,5 @@ export const getSponsoredShelf = ({
   return callApi({
     apiState: api,
     endpoint: 'shelves/sponsored/',
-    wrapOutgoingLinks: false,
   });
 };

@@ -1,6 +1,8 @@
 /* @flow */
 import invariant from 'invariant';
 
+import type { UrlWithOutgoing } from 'core/types/api';
+
 export const FETCH_BLOCK: 'FETCH_BLOCK' = 'FETCH_BLOCK';
 export const ABORT_FETCH_BLOCK: 'ABORT_FETCH_BLOCK' = 'ABORT_FETCH_BLOCK';
 export const LOAD_BLOCK: 'LOAD_BLOCK' = 'LOAD_BLOCK';
@@ -14,7 +16,7 @@ export type ExternalBlockType = {|
   min_version: string,
   modified: string,
   reason: string | null,
-  url: string | null,
+  url: UrlWithOutgoing | null,
 |};
 
 export type BlockType = {|

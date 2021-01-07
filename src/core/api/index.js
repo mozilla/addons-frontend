@@ -81,7 +81,6 @@ type CallApiParams = {|
   _config?: typeof config,
   version?: string,
   _log?: typeof log,
-  wrapOutgoingLinks?: boolean,
 |};
 
 export function callApi({
@@ -96,7 +95,6 @@ export function callApi({
   _config = config,
   version = _config.get('apiVersion'),
   _log = log,
-  wrapOutgoingLinks = true,
 }: CallApiParams): Promise<any> {
   if (!endpoint) {
     return Promise.reject(
@@ -128,7 +126,6 @@ export function callApi({
     ...parsedUrl.query,
     ...params,
     lang: apiState.lang,
-    wrap_outgoing_links: wrapOutgoingLinks || null,
   });
 
   const options = {

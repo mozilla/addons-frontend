@@ -174,6 +174,17 @@ export const createInternalPreviews = (
   }));
 };
 
+const selectLocalizedUrlWithOutgoing = (url, lang) => {
+  if (url && url.url && url.outgoing) {
+    return {
+      url: selectLocalizedContent(url.url, lang),
+      outgoing: selectLocalizedContent(url.outgoing, lang),
+    };
+  }
+
+  return null;
+};
+
 export function createInternalAddon(
   apiAddon: ExternalAddonType | PartialExternalAddonType,
   lang: string,
@@ -195,7 +206,7 @@ export function createInternalAddon(
     guid: apiAddon.guid,
     has_eula: apiAddon.has_eula,
     has_privacy_policy: apiAddon.has_privacy_policy,
-    homepage: selectLocalizedContent(apiAddon.homepage, lang),
+    homepage: selectLocalizedUrlWithOutgoing(apiAddon.homepage, lang),
     icon_url: apiAddon.icon_url,
     id: apiAddon.id,
     is_disabled: apiAddon.is_disabled,
@@ -216,7 +227,7 @@ export function createInternalAddon(
     status: apiAddon.status,
     summary: selectLocalizedContent(apiAddon.summary, lang),
     support_email: selectLocalizedContent(apiAddon.support_email, lang),
-    support_url: selectLocalizedContent(apiAddon.support_url, lang),
+    support_url: selectLocalizedUrlWithOutgoing(apiAddon.support_url, lang),
     tags: apiAddon.tags,
     target_locale: apiAddon.target_locale,
     type: apiAddon.type,

@@ -123,7 +123,7 @@ export const fakeAddon = Object.freeze({
   authors: [fakeAuthor],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
-  contributions_url: '',
+  contributions_url: null,
   created: '2014-11-22T10:09:01Z',
   current_version: fakeVersion,
   description: createLocalizedString(
@@ -134,7 +134,10 @@ export const fakeAddon = Object.freeze({
   guid: '1234@my-addons.firefox',
   has_eula: true,
   has_privacy_policy: true,
-  homepage: createLocalizedString('http://hamsterdance.com/'),
+  homepage: {
+    'url': createLocalizedString('http://hamsterdance.com/'),
+    'outgoing': createLocalizedString('https://outgoing.mozilla.org/hamster'),
+  },
   id: 1234,
   icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
   is_disabled: false,
@@ -155,7 +158,12 @@ export const fakeAddon = Object.freeze({
   status: 'public',
   summary: createLocalizedString('This is a summary of the chill out add-on'),
   support_email: null,
-  support_url: createLocalizedString('http://support.hampsterdance.com/'),
+  support_url: {
+    url: createLocalizedString('http://support.hampsterdance.com/'),
+    outgoing: createLocalizedString(
+      'https://outgoing.mozilla.org/supporthamster',
+    ),
+  },
   tags: ['chilling'],
   type: ADDON_TYPE_EXTENSION,
   url: 'https://addons.m.o/addon/chill-out/',
@@ -304,24 +312,40 @@ export const createPrimaryHeroShelf = ({
 };
 
 export const createSecondaryHeroShelf = ({
-  cta = { url: 'https://mozilla.org', text: 'Some cta text' },
+  cta = {
+    url: 'https://mozilla.org',
+    outgoing: 'https://outgoing/',
+    text: 'Some cta text',
+  },
   description = 'Secondary shelf description',
   headline = 'Secondary shelf headline',
   modules = [
     {
       icon: 'icon1',
       description: 'module 1 description',
-      cta: { url: 'https://mozilla.org/1', text: 'module 1 cta text' },
+      cta: {
+        url: 'https://mozilla.org/1',
+        outgoing: 'https://outgoing/1',
+        text: 'module 1 cta text',
+      },
     },
     {
       icon: 'icon2',
       description: 'module 2 description',
-      cta: { url: 'https://mozilla.org/2', text: 'module 2 cta text' },
+      cta: {
+        url: 'https://mozilla.org/2',
+        outgoing: 'https://outgoing/2',
+        text: 'module 2 cta text',
+      },
     },
     {
       icon: 'icon3',
       description: 'module 3 description',
-      cta: { url: 'https://mozilla.org/3', text: 'module 3 cta text' },
+      cta: {
+        url: 'https://mozilla.org/3',
+        outgoing: 'https://outgoing/3',
+        text: 'module 3 cta text',
+      },
     },
   ],
 } = {}) => {

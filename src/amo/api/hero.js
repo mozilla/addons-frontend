@@ -12,6 +12,5 @@ export const getHeroShelves = ({
     apiState: api,
     auth: true,
     endpoint: 'hero',
-    wrapOutgoingLinks: false,
   });
 };

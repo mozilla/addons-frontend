@@ -12,7 +12,6 @@ describe(__filename, () => {
       .withArgs({
         endpoint: 'shelves/sponsored/',
         apiState,
-        wrapOutgoingLinks: false,
       })
       .once()
       .returns(createApiResponse());

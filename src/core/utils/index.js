@@ -216,14 +216,6 @@ export const safePromise = (callback) => (...args) => {
   }
 };
 
-export function trimAndAddProtocolToUrl(urlToCheck) {
-  let urlToReturn = urlToCheck ? urlToCheck.trim() : null;
-  if (urlToReturn && !urlToReturn.match(/^https?:\/\//)) {
-    urlToReturn = `http://${urlToReturn}`;
-  }
-  return urlToReturn;
-}
-
 /*
  * Decodes HTML entities into their respective symbols.
  */
