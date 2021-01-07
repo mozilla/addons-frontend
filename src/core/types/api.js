@@ -22,12 +22,12 @@ export type LocalizedString = {
   [locale: string]: string,
 };
 
-export type OutgoingUrl = {|
+export type UrlWithOutgoing = {|
   outgoing: string,
   url: string,
 |};
 
-export type LocalizedOutgoingUrl = {
+export type LocalizedUrlWithOutgoing = {|
   outgoing: LocalizedString,
   url: LocalizedString,
-};
+|};

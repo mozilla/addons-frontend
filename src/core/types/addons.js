@@ -6,9 +6,9 @@ import type {
 } from 'core/reducers/versions';
 import type { AddonTypeType, PromotedCategoryType } from 'core/constants';
 import type {
-  LocalizedOutgoingUrl,
+  LocalizedUrlWithOutgoing,
   LocalizedString,
-  OutgoingUrl,
+  UrlWithOutgoing,
 } from 'core/types/api';
 
 export type AddonStatusType =
@@ -96,7 +96,7 @@ export type ExternalAddonType = {|
   authors?: Array<AddonAuthorType>,
   average_daily_users?: number,
   categories?: Object,
-  contributions_url?: OutgoingUrl,
+  contributions_url: UrlWithOutgoing | null,
   created: Date,
   // If you make an API request as an admin for an incomplete
   // add-on (status=0) then the current_version could be null.
@@ -108,7 +108,7 @@ export type ExternalAddonType = {|
   guid: string,
   has_eula?: boolean,
   has_privacy_policy?: boolean,
-  homepage?: LocalizedOutgoingUrl,
+  homepage: LocalizedUrlWithOutgoing | null,
   icon_url?: string,
   id: number,
   is_disabled?: boolean,
@@ -132,7 +132,7 @@ export type ExternalAddonType = {|
   status?: AddonStatusType,
   summary?: LocalizedString,
   support_email?: LocalizedString,
-  support_url?: LocalizedOutgoingUrl,
+  support_url: LocalizedUrlWithOutgoing | null,
   tags?: Array<string>,
   target_locale?: string,
   type: AddonTypeType,
@@ -155,12 +155,12 @@ export type AddonType = {|
   // normalized l10n fields
   description: string | null,
   developer_comments: string | null,
-  homepage: OutgoingUrl | null,
+  homepage: UrlWithOutgoing | null,
   name: string,
   previews?: Array<PreviewType>,
   summary: string | null,
   support_email: string | null,
-  support_url: OutgoingUrl | null,
+  support_url: UrlWithOutgoing | null,
   // Here are some custom properties for our internal representation.
   currentVersionId: VersionIdType | null,
   isMozillaSignedExtension: boolean,

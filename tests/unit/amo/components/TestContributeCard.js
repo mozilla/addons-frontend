@@ -150,9 +150,7 @@ describe(__filename, () => {
 
     const root = render({ _tracking, addon });
 
-    const event = createFakeEvent({
-      currentTarget: { href: contributionsUrl },
-    });
+    const event = createFakeEvent();
 
     root.find('.ContributeCard-button').simulate('click', event);
 
