@@ -969,7 +969,8 @@ export function createApiResponse({
 
 export function createFakeLanguageTool({
   name = 'My addon',
-  target_locale = DEFAULT_LANG_IN_TESTS,
+  lang = DEFAULT_LANG_IN_TESTS,
+  target_locale = '',
   ...props
 } = {}) {
   return {
@@ -978,7 +979,7 @@ export function createFakeLanguageTool({
     default_locale: DEFAULT_LANG_IN_TESTS,
     guid: fakeAddon.guid,
     locale_disambiguation: '',
-    name: createLocalizedString(name, target_locale),
+    name: createLocalizedString(name, lang),
     target_locale,
     type: ADDON_TYPE_LANG,
     url: 'https://addons.allizom.org/en-US/firefox/addon/acholi-ug-lp-test',
