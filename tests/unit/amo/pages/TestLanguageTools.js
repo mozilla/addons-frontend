@@ -23,57 +23,67 @@ import {
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
+  const lang = 'fr';
   const languageTools = [
     createFakeLanguageTool({
       id: 1,
+      lang,
       name: 'Scottish Language Pack (with Irn-Bru)',
       target_locale: 'en-GB',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 2,
+      lang,
       name: 'Old stuffy English',
       target_locale: 'en-GB',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 3,
+      lang,
       name: 'English Language Pack with Extra Us',
       target_locale: 'en-GB',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 4,
+      lang,
       name: 'Cool new English',
       target_locale: 'en-US',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 5,
+      lang,
       name: 'le French Dictionary',
       target_locale: 'fr',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 6,
+      lang,
       name: 'French Language Pack',
       target_locale: 'fr',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 7,
+      lang,
       name: 'اُردو',
       target_locale: 'ur',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 8,
+      lang,
       name: '正體中文 (繁體)',
       target_locale: 'zh-TW',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 9,
+      lang,
       name: 'isiZulu',
       target_locale: 'zu',
       type: ADDON_TYPE_LANG,
@@ -234,17 +244,18 @@ describe(__filename, () => {
   });
 
   it('renders add-ons for all variants of a short locale on a single row (only one supported language)', () => {
-    const lang = 'fr';
     // The short locale is `az` here.
     const addons = [
       createFakeLanguageTool({
         id: 1,
+        lang,
         name: 'Azərbaycanca (AZ) Language Pack',
         target_locale: 'az',
         type: ADDON_TYPE_LANG,
       }),
       createFakeLanguageTool({
         id: 2,
+        lang,
         name: 'Azerbaijani Spell Checker',
         target_locale: 'az-IR',
         type: ADDON_TYPE_DICT,
@@ -289,24 +300,26 @@ describe(__filename, () => {
   });
 
   it('renders add-ons on two different rows corresponding to two supported languages', () => {
-    const lang = 'fr';
     // The short locale is `fa` here, which is in the list of supported
     // languages (`src/core/languages.js`) together with `fa-IR`.
     const addons = [
       createFakeLanguageTool({
         id: 1,
+        lang,
         name: 'Persian Dictionary',
         target_locale: 'fa',
         type: ADDON_TYPE_DICT,
       }),
       createFakeLanguageTool({
         id: 2,
+        lang,
         name: 'Persian (IR) Dictionary',
         target_locale: 'fa-IR',
         type: ADDON_TYPE_DICT,
       }),
       createFakeLanguageTool({
         id: 3,
+        lang,
         name: 'Lilak, Persian Spell Checker Dictionary',
         target_locale: 'fa-IR',
         type: ADDON_TYPE_DICT,

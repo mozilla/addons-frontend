@@ -20,7 +20,7 @@ describe(__filename, () => {
 
   it('stores language tools', () => {
     const lang = 'fr';
-    const language = createFakeLanguageTool({ target_locale: lang });
+    const language = createFakeLanguageTool({ lang });
     const stateWithLang = reducer(undefined, setLang(lang));
 
     const state = reducer(
@@ -40,7 +40,7 @@ describe(__filename, () => {
 
   it('ignores unrelated actions', () => {
     const lang = 'fr';
-    const language = createFakeLanguageTool({ target_locale: lang });
+    const language = createFakeLanguageTool({ lang });
     const stateWithLang = reducer(undefined, setLang(lang));
     const firstState = reducer(
       stateWithLang,
@@ -79,7 +79,7 @@ describe(__filename, () => {
 
     it('returns an array of languages', () => {
       const lang = 'fr';
-      const language = createFakeLanguageTool({ target_locale: lang });
+      const language = createFakeLanguageTool({ lang });
       const { store } = dispatchClientMetadata({ lang });
       store.dispatch(loadLanguageTools({ languageTools: [language] }));
 
