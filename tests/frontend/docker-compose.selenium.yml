@@ -32,4 +32,3 @@ services:
     ports:
       - "5900"
     shm_size: 2g
-    network_mode: host

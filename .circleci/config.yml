@@ -279,37 +279,38 @@ workflows:
   version: 2
   default-workflow:
     jobs:
-      - build
-      - test
-      - build-next
-      - test-next
-      - check
-      - dennis-lint
-      - deploy-storybook:
-          requires:
-            - build
-            - test
-            - check
-          filters:
-            branches:
-              only: master
-            tags:
-              ignore: /.*/
-      - release-tag:
-          filters:
-            tags:
-              only: /.*/
-            branches:
-              ignore: /.*/
-      - release-master:
-          filters:
-            branches:
-              only: master
-            tags:
-              ignore: /.*/
-      - integration-test:
-          filters:
-            branches:
-              only: master
-            tags:
-              ignore: /.*/
+      - integration-test
+#      - build
+#      - test
+#      - build-next
+#      - test-next
+#      - check
+#      - dennis-lint
+#      - deploy-storybook:
+#          requires:
+#            - build
+#            - test
+#            - check
+#          filters:
+#            branches:
+#              only: master
+#            tags:
+#              ignore: /.*/
+#      - release-tag:
+#          filters:
+#            tags:
+#              only: /.*/
+#            branches:
+#              ignore: /.*/
+#      - release-master:
+#          filters:
+#            branches:
+#              only: master
+#            tags:
+#              ignore: /.*/
+#      - integration-test:
+#          filters:
+#            branches:
+#              only: master
+#            tags:
+#              ignore: /.*/

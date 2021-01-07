@@ -28,7 +28,7 @@ is our test environment manager and [pytest][pytest] is the test runner.
 
 To run the tests, execute the commands below in a python 3 virtual environment:
 ```sh
-tests/frontend/-run-integration-test.sh
+tests/frontend/run-integration-test.sh
 ```
 
 ### Adding a test

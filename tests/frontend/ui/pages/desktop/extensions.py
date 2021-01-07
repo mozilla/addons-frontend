@@ -8,7 +8,7 @@ class Extensions(Base):
 
     URL_TEMPLATE = 'extensions/'
 
-    _featured_addons_locator = (By.CLASS_NAME, 'FeaturedAddons')
+    _featured_addons_locator = (By.CLASS_NAME, 'RecommendedAddons')
     _top_rated_locator = (By.CLASS_NAME, 'HighlyRatedAddons')
     _title_locator = (By.CLASS_NAME, 'LandingPage-addonType-name')
     _trending_addons_locator = (By.CLASS_NAME, 'TrendingAddons')

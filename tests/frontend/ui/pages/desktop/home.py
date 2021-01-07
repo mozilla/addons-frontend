@@ -11,7 +11,7 @@ class Home(Base):
     _featured_extensions_locator = (
         By.CLASS_NAME, 'Home-RecommendedExtensions'
     )
-    _featured_themes_locator = (By.CLASS_NAME, 'Home-FeaturedThemes')
+    _featured_themes_locator = (By.CLASS_NAME, 'Home-RecommendedThemes')
     _hero_locator = (By.CLASS_NAME, 'HeroRecommendation')
     _popular_extensions_locator = (By.CLASS_NAME, 'Home-PopularExtensions')
     _popular_themes_locator = (By.CLASS_NAME, 'Home-PopularThemes')
