@@ -19,7 +19,9 @@ const useHttpsForDev = process.env.USE_HTTPS_FOR_DEV;
 const protocol = useHttpsForDev ? 'https' : 'http';
 
 const apiHost = config.get('proxyApiHost', null) || config.get('apiHost');
-const frontendHost = `${protocol}://${config.get('serverHost')}:${config.get('serverPort')}`;
+const serverHost = config.get('serverHost');
+const serverPort = parseInt(config.get('serverPort'), 10);
+const frontendHost = `${protocol}://${serverHost}:${serverPort}`;
 
 log.info(`apiHost: ${apiHost}`);
 log.info(`frontendHost: ${frontendHost}`);
@@ -93,8 +95,7 @@ proxy.on('error', (error, req, res) => {
   res.end(htmlFile);
 });
 
-const host = useHttpsForDev ? process.env.SERVER_HOST : 'localhost';
-const port = parseInt(config.get('proxyPort', '3333'), 10);
+const proxyPort = parseInt(config.get('proxyPort'), 10);
 
-log.info(`🚦 Proxy running at ${protocol}://${host}:${port}`);
-server.listen(port);
+log.info(`🚦 Proxy running at ${protocol}://${serverHost}:${proxyPort}`);
+server.listen(proxyPort);
