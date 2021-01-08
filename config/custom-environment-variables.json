@@ -12,5 +12,6 @@
   "serverPort": "SERVER_PORT",
   "staticHost": "STATIC_HOST",
   "trackingEnabled": "TRACKING_ENABLED",
-  "webpackServerHost": "WEBPACK_SERVER_HOST"
+  "webpackServerHost": "WEBPACK_SERVER_HOST",
+  "webpackServerPort": "WEBPACK_SERVER_PORT"
 }
