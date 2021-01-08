@@ -1,13 +1,13 @@
 // This config should be used with a local addons-server setup.
 module.exports = {
   apiHost: 'http://olympia.test',
-  proxyPort: 4000,
+  proxyPort: 6000,
 
   serverHost: 'olympia.test',
 
   baseURL: 'http://olympia.test',
 
-  webpackServerPort: 4001,
+  webpackServerPort: 6001,
 
   mozillaUserId: 10968,
   CSP: false,
