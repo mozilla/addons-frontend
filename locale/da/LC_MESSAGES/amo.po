@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-01-05 17:03+0000\n"
-"PO-Revision-Date: 2021-01-09 12:11+0000\n"
+"PO-Revision-Date: 2021-01-09 12:22+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1036,9 +1036,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox anbefaler kun udvidelser, der opfylder vores standarder for sikkerhed og ydelse."
 
 #: src/amo/components/InstallButtonWrapper/index.js:131
-#, fuzzy
 msgid "Download file"
-msgstr "Henter"
+msgstr "Hent fil"
 
 #: src/amo/components/InstallWarning/index.js:100
 msgid "Learn more"
@@ -1061,9 +1060,8 @@ msgid "This add-on needs to:"
 msgstr "Denne tilføjelse behøver at:"
 
 #: src/amo/components/PermissionsCard/index.js:77
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Denne tilføjelse kan:"
+msgstr "Denne tilføjelse kan også bede om at:"
 
 #: src/amo/components/PermissionsCard/index.js:92
 msgid "Learn more about permissions"
