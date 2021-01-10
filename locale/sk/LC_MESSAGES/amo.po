@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-01-05 17:03+0000\n"
-"PO-Revision-Date: 2020-11-27 15:57+0000\n"
+"PO-Revision-Date: 2021-01-10 20:35+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -802,14 +802,12 @@ msgstr ""
 "%(extensionStart)srozšíreniami%(extensionEnd)s alebo %(themeStart)stémami vzhľadu%(themeEnd)s. Môžete taktiež požiadať o pomoc na našom %(communityStart)skomunitnom fóre%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
-#, fuzzy
 msgid "That page is not available in your region"
-msgstr "Tento doplnok nie je na vašej platforme dostupný."
+msgstr "Táto stránka nie je vašom regióne dostupná"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "Tento doplnok nie je na vašej platforme dostupný."
+msgstr "Stránka, na ktorú ste sa pokúsili prejsť, nie je vo vašom regióne dostupná."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
@@ -1043,7 +1041,7 @@ msgstr "Ďalšie informácie"
 
 #: src/amo/components/InstallWarning/index.js:104
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr ""
+msgstr "Toto rozšírenie nie je z hľadiska bezpečnosti aktívne monitorované Mozillou. Pred inštaláciou sa uistite, že mu môžete dôverovať."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1334,7 +1332,7 @@ msgstr "Vybrané témy vzhľadu"
 
 #: src/amo/components/Search/index.js:165
 msgid "Verified add-ons"
-msgstr ""
+msgstr "Overené doplnky"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:387 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1620,10 +1618,9 @@ msgstr "Objavujte"
 
 #: src/amo/components/SponsoredAddonsShelf/index.js:210
 msgid "Sponsored extensions"
-msgstr ""
+msgstr "Sponzorované rozšírenia"
 
 #: src/amo/components/SponsoredAddonsShelf/index.js:223
-#, fuzzy
 msgid "What is this?"
 msgstr "Čo to znamená?"
 
@@ -1664,9 +1661,8 @@ msgid "Choose Photo…"
 msgstr "Vyberte fotografiu…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:106
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "Ďalšie informácie o doplnkoch kompatibilných s Firefoxom pre Android nájdete <a href=\"%(newLocation)s\">tu</a>."
+msgstr "Doplnky kompatibilné s Firefoxom pre Android nájdete <a href=\"%(newLocation)s\">tu</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
