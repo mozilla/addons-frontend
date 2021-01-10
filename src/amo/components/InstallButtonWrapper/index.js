@@ -147,11 +147,7 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
               </a>
             </div>
           ) : null}
-          {/* {latest ? (
-          <div>
-          <a href={installURL}>Download</a>
-          </div>
-        ) : null} */}
+
         </div>
       )
     );
