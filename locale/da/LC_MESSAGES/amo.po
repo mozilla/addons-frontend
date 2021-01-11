@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-01-05 17:03+0000\n"
-"PO-Revision-Date: 2021-01-11 18:39+0000\n"
+"PO-Revision-Date: 2021-01-11 21:24+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1308,34 +1308,28 @@ msgid "Add-ons by Firefox"
 msgstr "Tilføjelser af Firefox"
 
 #: src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Anbefalede udvidelser"
+msgstr "Tjekkede udvidelser"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Anmeldelsestekst"
+msgstr "Tjekkede temaer"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Anmeldelser af %(addonName)s"
+msgstr "Tjekkede tilføjelser"
 
 #: src/amo/components/Search/index.js:159
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Udvalgte udvidelser"
+msgstr "Verificerede udvidelser"
 
 #: src/amo/components/Search/index.js:162
-#, fuzzy
 msgid "Verified themes"
-msgstr "Udvalgte temaer"
+msgstr "Verificerede temaer"
 
 #: src/amo/components/Search/index.js:165
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Udvalgte tilføjelser"
+msgstr "Verificerede tilføjelser"
 
 #: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:387 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1506,9 +1500,8 @@ msgid "Verified"
 msgstr "Verificeret"
 
 #: src/amo/components/SearchFilters/index.js:180
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Anmeldelse"
+msgstr "Alle tjekkede"
 
 #: src/amo/components/SearchFilters/index.js:200
 msgid "Filter results"
@@ -2581,7 +2574,7 @@ msgstr "en udvikler af tilføjelser svarer på min anmeldelse"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
-msgstr "min tilføjelse er gennemgået af en redaktør"
+msgstr "min tilføjelse er tjekket af en redaktør"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
@@ -2795,14 +2788,12 @@ msgid "This is an official add-on built by the creators of Mozilla Firefox."
 msgstr "Dette er en officiel tilføjelse bygget af udviklerne bag Mozilla Firefox."
 
 #: src/ui/components/PromotedBadge/index.js:49
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox anbefaler kun udvidelser, der opfylder vores standarder for sikkerhed og ydelse."
+msgstr "Firefox anbefaler kun tilføjelser, der opfylder vores standarder for sikkerhed og ydelse."
 
 #: src/ui/components/PromotedBadge/index.js:57
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox anbefaler kun udvidelser, der opfylder vores standarder for sikkerhed og ydelse."
+msgstr "Denne tilføjelse er blevet tjekket for, om den overholder vores standarder for sikkerhed og ydelse."
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
