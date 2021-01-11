@@ -78,6 +78,20 @@ describe(__filename, () => {
     ]);
   });
 
+  it('can handle a blank name', () => {
+    const collection = createInternalCollectionWithLang({
+      detail: createFakeCollectionDetail({
+        name: null,
+      }),
+    });
+
+    const root = render({ collection });
+
+    expect(root.find('.CollectionDetails-title').children()).toHaveText(
+      'Blank Name',
+    );
+  });
+
   it('allows HTML entities in the Collection description', () => {
     const description = 'Apples &amp; carrots';
     const collection = createInternalCollectionWithLang({

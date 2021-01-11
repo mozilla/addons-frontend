@@ -40,6 +40,22 @@ describe(__filename, () => {
     );
   });
 
+  it('can render a collection with a null for a name', () => {
+    const props = {
+      authorId: 1234,
+      id: 1,
+      name: null,
+      numberOfAddons: 5,
+      slug: 'some-slug',
+    };
+
+    const root = render(props);
+
+    expect(root.find('.UserCollection-name').children()).toHaveText(
+      'Blank Name',
+    );
+  });
+
   it('renders singular text for a collection with 1 add-on', () => {
     const props = {
       authorId: 1234,
