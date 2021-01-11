@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-01-05 17:03+0000\n"
-"PO-Revision-Date: 2021-01-11 21:24+0000\n"
+"PO-Revision-Date: 2021-01-11 21:25+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1485,7 +1485,7 @@ msgstr "Trending"
 
 #: src/amo/components/SearchFilters/index.js:169
 msgid "Any"
-msgstr ""
+msgstr "Alle"
 
 #: src/amo/components/SearchFilters/index.js:170 src/ui/components/IconPromotedBadge/index.js:47 src/ui/components/PromotedBadge/index.js:48
 msgid "Recommended"
