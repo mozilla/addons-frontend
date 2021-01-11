@@ -20,6 +20,7 @@ import type {
   PartialExternalAddonType,
   PreviewType,
 } from 'core/types/addons';
+import type { LocalizedUrlWithOutgoing, UrlWithOutgoing } from 'core/types/api';
 import type { ErrorHandlerType } from 'core/types/errorHandler';
 
 export const FETCH_ADDON_INFO: 'FETCH_ADDON_INFO' = 'FETCH_ADDON_INFO';
@@ -174,7 +175,10 @@ export const createInternalPreviews = (
   }));
 };
 
-const selectLocalizedUrlWithOutgoing = (url, lang) => {
+export const selectLocalizedUrlWithOutgoing = (
+  url: LocalizedUrlWithOutgoing | null,
+  lang: string,
+): UrlWithOutgoing | null => {
   if (url && url.url && url.outgoing) {
     return {
       url: selectLocalizedContent(url.url, lang),
