@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-01-05 17:03+0000\n"
-"PO-Revision-Date: 2021-01-11 18:33+0000\n"
+"PO-Revision-Date: 2021-01-11 18:39+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -802,14 +802,12 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
-#, fuzzy
 msgid "That page is not available in your region"
-msgstr "Denne tilføjelse er ikke tilgængelig på din platform."
+msgstr "Denne side er ikke tilgængelig i din region"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "Denne tilføjelse er ikke tilgængelig på din platform."
+msgstr "Siden, du forsøgte at få adgang til, er ikke tilgængelig i din region."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
@@ -1020,7 +1018,7 @@ msgstr "Hent udvidelsen"
 # If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:206
 msgid "SPONSORED"
-msgstr ""
+msgstr "SPONSORERET"
 
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:217
@@ -1029,7 +1027,7 @@ msgstr "ANBEFALET"
 
 #: src/amo/components/HeroRecommendation/index.js:221
 msgid "BY FIREFOX"
-msgstr ""
+msgstr "AF FIREFOX"
 
 #: src/amo/components/HeroRecommendation/index.js:237 src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
@@ -1505,7 +1503,7 @@ msgstr "Af Firefox"
 
 #: src/amo/components/SearchFilters/index.js:176 src/ui/components/IconPromotedBadge/index.js:48 src/ui/components/PromotedBadge/index.js:56
 msgid "Verified"
-msgstr "Bekræfter"
+msgstr "Verificeret"
 
 #: src/amo/components/SearchFilters/index.js:180
 #, fuzzy
