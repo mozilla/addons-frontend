@@ -51,7 +51,7 @@ export const UserCollectionBase = (props: InternalProps) => {
     <li className="UserCollection" key={id}>
       <Link className="UserCollection-link" {...linkProps}>
         <h2 className="UserCollection-name">
-          {loading ? <LoadingText /> : name || i18n.gettext('Blank Name')}
+          {loading ? <LoadingText /> : name || i18n.gettext('(no name)')}
         </h2>
         <p className="UserCollection-number">{numberText || <LoadingText />}</p>
       </Link>

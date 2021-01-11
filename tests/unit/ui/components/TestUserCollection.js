@@ -52,7 +52,7 @@ describe(__filename, () => {
     const root = render(props);
 
     expect(root.find('.UserCollection-name').children()).toHaveText(
-      'Blank Name',
+      '(no name)',
     );
   });
 

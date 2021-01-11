@@ -88,7 +88,7 @@ describe(__filename, () => {
     const root = render({ collection });
 
     expect(root.find('.CollectionDetails-title').children()).toHaveText(
-      'Blank Name',
+      '(no name)',
     );
   });
 
