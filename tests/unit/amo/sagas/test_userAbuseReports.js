@@ -1,13 +1,13 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as api from 'core/api/abuse';
-import { CLEAR_ERROR } from 'core/constants';
+import * as api from 'amo/api/abuse';
+import { CLEAR_ERROR } from 'amo/constants';
 import userAbuseReportsReducer, {
   abortUserAbuseReport,
   loadUserAbuseReport,
   sendUserAbuseReport,
 } from 'amo/reducers/userAbuseReports';
-import apiReducer from 'core/reducers/api';
+import apiReducer from 'amo/reducers/api';
 import userAbuseReportsSaga from 'amo/sagas/userAbuseReports';
 import {
   createFakeUserAbuseReport,

@@ -1,4 +1,4 @@
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import reducer, {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   THEMES_BY_AUTHORS_PAGE_SIZE,
@@ -11,7 +11,7 @@ import reducer, {
   joinAuthorIdsAndAddonType,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
-import { setLang } from 'core/reducers/api';
+import { setLang } from 'amo/reducers/api';
 import {
   createInternalAddonWithLang,
   fakeAddon,

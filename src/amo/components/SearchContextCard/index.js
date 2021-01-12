@@ -3,16 +3,16 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { fetchCategories } from 'core/reducers/categories';
-import translate from 'core/i18n/translate';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
+import { fetchCategories } from 'amo/reducers/categories';
+import translate from 'amo/i18n/translate';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
+import { withErrorHandler } from 'amo/errorHandler';
 import Card from 'ui/components/Card';
 import type { AppState } from 'amo/store';
-import type { SearchFilters } from 'core/api/search';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
+import type { SearchFilters } from 'amo/api/search';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

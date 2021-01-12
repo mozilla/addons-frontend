@@ -6,20 +6,20 @@ import { withRouter } from 'react-router-dom';
 import AddonTitle from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
-import translate from 'core/i18n/translate';
-import { getAddonIconUrl } from 'core/imageUtils';
+import translate from 'amo/i18n/translate';
+import { getAddonIconUrl } from 'amo/imageUtils';
 import {
   addQueryParams,
   getQueryParametersForAttribution,
-} from 'core/utils/url';
+} from 'amo/utils/url';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
 import { roundToOneDigit } from 'amo/components/AddonMeta';
 import { getAddonURL } from 'amo/utils';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 

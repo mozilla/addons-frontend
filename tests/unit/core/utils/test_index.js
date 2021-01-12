@@ -11,7 +11,7 @@ import {
   OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   addQueryParamsToHistory,
   apiAddonType,
@@ -31,8 +31,8 @@ import {
   sanitizeHTML,
   sanitizeUserHTML,
   visibleAddonType,
-} from 'core/utils';
-import { createPlatformFiles } from 'core/reducers/versions';
+} from 'amo/utils';
+import { createPlatformFiles } from 'amo/reducers/versions';
 import {
   createFakeHistory,
   createFakeLocation,
@@ -490,7 +490,7 @@ describe(__filename, () => {
     });
 
     it('returns the given filename if `src` is not in it', () => {
-      const filename = 'tests/unit/core/utils/test_index.js';
+      const filename = 'tests/unit/amo/utils/test_index.js';
 
       expect(normalizeFileNameId(filename)).toEqual(filename);
     });

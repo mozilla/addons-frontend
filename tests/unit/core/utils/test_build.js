@@ -1,4 +1,4 @@
-import { getDeploymentVersion } from 'core/utils/build';
+import { getDeploymentVersion } from 'amo/utils/build';
 
 describe(__filename, () => {
   describe('getDeploymentVersion', () => {

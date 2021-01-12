@@ -4,14 +4,14 @@ import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
 import SectionLinks from 'amo/components/SectionLinks';
 import { makeQueryStringWithUTM } from 'amo/utils';
-import AuthenticateButton from 'core/components/AuthenticateButton';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
 import {
   ADDONS_REVIEW,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-} from 'core/constants';
+} from 'amo/constants';
 import DropdownMenu from 'ui/components/DropdownMenu';
-import { loadSiteStatus, loadedPageIsAnonymous } from 'core/reducers/site';
+import { loadSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
 import {
   createFakeEvent,
   createFakeLocation,

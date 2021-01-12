@@ -3,7 +3,7 @@ import { TransitionGroup } from 'react-transition-group';
 
 import AMInstallButton, {
   AMInstallButtonBase,
-} from 'core/components/AMInstallButton';
+} from 'amo/components/AMInstallButton';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
@@ -19,7 +19,7 @@ import {
   UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
-} from 'core/constants';
+} from 'amo/constants';
 import Icon from 'ui/components/Icon';
 import {
   createContextWithFakeRouter,

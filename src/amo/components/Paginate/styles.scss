@@ -1,0 +1,68 @@
+@import '~amo/css/styles';
+
+.Paginate {
+  padding: $padding-page;
+
+  @include respond-to(large) {
+    background-color: $grey-10;
+    border-radius: $border-radius-default;
+    display: inline-block;
+    margin: 0 auto;
+  }
+}
+
+.Paginate-links {
+  display: flex;
+  justify-content: center;
+}
+
+.Paginate .Button.Paginate-item {
+  &,
+  &:link,
+  &:visited {
+    background-color: $grey-20;
+    color: $link-color;
+    display: none;
+    font-weight: normal;
+    min-width: 48%;
+    text-decoration: none;
+
+    &:first-child,
+    &:last-child {
+      color: $black;
+      display: flex;
+    }
+
+    @include respond-to(large) {
+      background-color: transparent;
+      display: flex;
+      min-width: initial;
+    }
+  }
+
+  &:hover,
+  &:active {
+    background-color: $grey-30;
+  }
+}
+
+.Paginate .Button.Paginate-item--current-page {
+  color: $black;
+  opacity: 1;
+}
+
+.Paginate-item--previous {
+  @include margin-end(6px);
+}
+
+.Paginate-item--next {
+  @include margin-start(6px);
+}
+
+.Paginate-page-number {
+  @include font-light();
+
+  color: $grey-50;
+  margin: $padding-page 0 0;
+  text-align: center;
+}

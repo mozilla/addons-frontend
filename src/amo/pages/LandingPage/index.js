@@ -23,15 +23,15 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
-} from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
-import log from 'core/logger';
+} from 'amo/constants';
+import { withErrorHandler } from 'amo/errorHandler';
+import log from 'amo/logger';
 import {
   apiAddonType,
   apiAddonTypeIsValid,
   visibleAddonType as getVisibleAddonType,
-} from 'core/utils';
-import translate from 'core/i18n/translate';
+} from 'amo/utils';
+import translate from 'amo/i18n/translate';
 import Button from 'ui/components/Button';
 
 import './styles.scss';

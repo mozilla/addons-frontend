@@ -3,10 +3,10 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import translate from 'core/i18n/translate';
+import translate from 'amo/i18n/translate';
 import Link from 'amo/components/Link';
 import LoadingText from 'ui/components/LoadingText';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

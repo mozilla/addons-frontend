@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import Paginate, { PaginateBase } from 'core/components/Paginate';
-import PaginatorLink from 'core/components/PaginatorLink';
+import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
+import Paginate, { PaginateBase } from 'amo/components/Paginate';
+import PaginatorLink from 'amo/components/PaginatorLink';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {

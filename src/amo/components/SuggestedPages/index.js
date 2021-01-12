@@ -3,10 +3,10 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import translate from 'core/i18n/translate';
-import { visibleAddonType } from 'core/utils';
-import type { I18nType } from 'core/types/i18n';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import { visibleAddonType } from 'amo/utils';
+import type { I18nType } from 'amo/types/i18n';
 
 type Props = {||};
 

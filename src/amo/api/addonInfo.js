@@ -1,9 +1,9 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { callApi } from 'core/api';
-import type { ApiState } from 'core/reducers/api';
-import type { LocalizedString } from 'core/types/api';
+import { callApi } from 'amo/api';
+import type { ApiState } from 'amo/reducers/api';
+import type { LocalizedString } from 'amo/types/api';
 
 export type GetAddonInfoParams = {|
   api: ApiState,

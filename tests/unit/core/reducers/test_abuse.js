@@ -7,7 +7,7 @@ import abuseReducer, {
   loadAddonAbuseReport,
   sendAddonAbuseReport,
   showAddonAbuseReportUI,
-} from 'core/reducers/abuse';
+} from 'amo/reducers/abuse';
 import {
   dispatchClientMetadata,
   createFakeAddonAbuseReport,

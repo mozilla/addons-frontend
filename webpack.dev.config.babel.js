@@ -8,8 +8,8 @@ import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
 import { getPlugins, getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
-import webpackIsomorphicToolsConfig from './src/core/server/webpack-isomorphic-tools-config';
-import { WEBPACK_ENTRYPOINT } from './src/core/constants';
+import webpackIsomorphicToolsConfig from './src/amo/server/webpack-isomorphic-tools-config';
+import { WEBPACK_ENTRYPOINT } from './src/amo/constants';
 
 const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';
 

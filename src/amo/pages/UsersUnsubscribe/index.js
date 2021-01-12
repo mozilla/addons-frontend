@@ -10,23 +10,23 @@ import Page from 'amo/components/Page';
 import { getNotificationDescription } from 'amo/utils/notifications';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
-import { replaceStringsWithJSX } from 'core/i18n/utils';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import { sanitizeHTML } from 'amo/utils';
+import { replaceStringsWithJSX } from 'amo/i18n/utils';
 import {
   getUnsubscribeKey,
   isUnsubscribedFor,
   unsubscribeNotification,
 } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
-import type { DispatchFunc } from 'core/types/redux';
+import type { DispatchFunc } from 'amo/types/redux';
 import type {
   ReactRouterLocationType,
   ReactRouterMatchType,
-} from 'core/types/router';
-import type { I18nType } from 'core/types/i18n';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
+} from 'amo/types/router';
+import type { I18nType } from 'amo/types/i18n';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 
 import './styles.scss';
 

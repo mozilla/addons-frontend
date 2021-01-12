@@ -1,9 +1,15 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as searchApi from 'core/api/search';
+import * as searchApi from 'amo/api/search';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
+  RECOMMENDED,
+  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_TOP_RATED,
+  SEARCH_SORT_RANDOM,
 } from 'amo/constants';
 import landingReducer, {
   LOAD_LANDING,
@@ -11,15 +17,7 @@ import landingReducer, {
   loadLanding,
 } from 'amo/reducers/landing';
 import landingSaga from 'amo/sagas/landing';
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_STATIC_THEME,
-  RECOMMENDED,
-  SEARCH_SORT_TRENDING,
-  SEARCH_SORT_TOP_RATED,
-  SEARCH_SORT_RANDOM,
-} from 'core/constants';
-import apiReducer from 'core/reducers/api';
+import apiReducer from 'amo/reducers/api';
 import {
   createAddonsApiResult,
   createStubErrorHandler,

@@ -9,15 +9,15 @@ import {
   sendUserAbuseReport,
   showUserAbuseReportUI,
 } from 'amo/reducers/userAbuseReports';
-import { withErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import { normalizeFileNameId, sanitizeHTML } from 'core/utils';
+import { withErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import { normalizeFileNameId, sanitizeHTML } from 'amo/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { DispatchFunc } from 'core/types/redux';
-import type { I18nType } from 'core/types/i18n';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { I18nType } from 'amo/types/i18n';
 import type { UserType } from 'amo/reducers/users';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 

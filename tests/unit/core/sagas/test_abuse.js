@@ -1,16 +1,16 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as addonManager from 'core/addonManager';
-import * as api from 'core/api/abuse';
-import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
+import * as addonManager from 'amo/addonManager';
+import * as api from 'amo/api/abuse';
+import { CLEAR_ERROR, SET_ERROR } from 'amo/constants';
 import abuseReducer, {
   finishAddonAbuseReportViaFirefox,
   initiateAddonAbuseReportViaFirefox,
   loadAddonAbuseReport,
   sendAddonAbuseReport,
-} from 'core/reducers/abuse';
-import apiReducer from 'core/reducers/api';
-import abuseSaga from 'core/sagas/abuse';
+} from 'amo/reducers/abuse';
+import apiReducer from 'amo/reducers/api';
+import abuseSaga from 'amo/sagas/abuse';
 import {
   createFakeAddonAbuseReport,
   createStubErrorHandler,

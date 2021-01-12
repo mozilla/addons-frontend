@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import InfoDialog, { InfoDialogBase } from 'core/components/InfoDialog';
-import { closeInfoDialog, showInfoDialog } from 'core/reducers/infoDialog';
+import InfoDialog, { InfoDialogBase } from 'amo/components/InfoDialog';
+import { closeInfoDialog, showInfoDialog } from 'amo/reducers/infoDialog';
 import {
   dispatchClientMetadata,
   fakeI18n,

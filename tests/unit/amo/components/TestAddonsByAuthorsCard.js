@@ -11,16 +11,16 @@ import {
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
-import { createApiError } from 'core/api';
-import { ErrorHandler } from 'core/errorHandler';
-import Paginate from 'core/components/Paginate';
+import { createApiError } from 'amo/api';
+import { ErrorHandler } from 'amo/errorHandler';
+import Paginate from 'amo/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_POPULAR,
-} from 'core/constants';
+} from 'amo/constants';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import {

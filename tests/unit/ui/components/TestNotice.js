@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { setUIState as setUIStateAction } from 'core/reducers/uiState';
+import { setUIState as setUIStateAction } from 'amo/reducers/uiState';
 import {
   createFakeEvent,
   dispatchClientMetadata,

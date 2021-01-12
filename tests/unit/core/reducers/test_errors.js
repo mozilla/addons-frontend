@@ -1,12 +1,12 @@
-import { createApiError } from 'core/api/index';
-import { clearError, setError, setErrorMessage } from 'core/actions/errors';
+import { createApiError } from 'amo/api/index';
+import { clearError, setError, setErrorMessage } from 'amo/actions/errors';
 import {
   API_ERROR_SIGNATURE_EXPIRED,
   ERROR_ADDON_DISABLED_BY_ADMIN,
   ERROR_ADDON_DISABLED_BY_DEV,
   ERROR_UNKNOWN,
-} from 'core/constants';
-import errors, { initialState } from 'core/reducers/errors';
+} from 'amo/constants';
+import errors, { initialState } from 'amo/reducers/errors';
 
 // eslint-disable-next-line jest/no-export
 export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {

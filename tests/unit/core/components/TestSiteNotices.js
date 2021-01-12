@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import SiteNotices, { SiteNoticesBase } from 'core/components/SiteNotices';
+import SiteNotices, { SiteNoticesBase } from 'amo/components/SiteNotices';
 import { logOutUser } from 'amo/reducers/users';
-import { loadSiteStatus } from 'core/reducers/site';
+import { loadSiteStatus } from 'amo/reducers/site';
 import Notice from 'ui/components/Notice';
 import {
   dispatchClientMetadata,

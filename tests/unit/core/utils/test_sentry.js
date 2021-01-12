@@ -1,4 +1,4 @@
-import { getSentryRelease } from 'core/utils/sentry';
+import { getSentryRelease } from 'amo/utils/sentry';
 
 describe(__filename, () => {
   describe('getSentryRelease', () => {

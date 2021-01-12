@@ -16,9 +16,9 @@ import {
   loadSponsored,
 } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
-import { ErrorHandler } from 'core/errorHandler';
-import { setLang } from 'core/reducers/api';
-import { formatDataForBeacon } from 'core/tracking';
+import { ErrorHandler } from 'amo/errorHandler';
+import { setLang } from 'amo/reducers/api';
+import { formatDataForBeacon } from 'amo/tracking';
 import {
   createAddonsApiResult,
   createFakeTracking,

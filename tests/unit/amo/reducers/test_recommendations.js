@@ -5,7 +5,7 @@ import reducer, {
   initialState,
   loadRecommendations,
 } from 'amo/reducers/recommendations';
-import { setLang } from 'core/reducers/api';
+import { setLang } from 'amo/reducers/api';
 import {
   createInternalAddonWithLang,
   createStubErrorHandler,

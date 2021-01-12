@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs-extra';
 import MockExpressResponse from 'mock-express-response';
 
-import { viewFrontendVersionHandler } from 'core/utils/server';
+import { viewFrontendVersionHandler } from 'amo/utils/server';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 describe(__filename, () => {

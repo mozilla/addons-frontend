@@ -13,9 +13,9 @@ import {
   RATINGS_MODERATE,
   REVIEWER_TOOLS_VIEW,
   STATIC_THEMES_REVIEW,
-} from 'core/constants';
+} from 'amo/constants';
 import type { AppState } from 'amo/store';
-import type { ExternalSiteStatus } from 'core/reducers/site';
+import type { ExternalSiteStatus } from 'amo/reducers/site';
 
 export const FINISH_UPDATE_USER_ACCOUNT: 'FINISH_UPDATE_USER_ACCOUNT' =
   'FINISH_UPDATE_USER_ACCOUNT';

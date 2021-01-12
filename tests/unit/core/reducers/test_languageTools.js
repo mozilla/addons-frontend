@@ -1,11 +1,11 @@
-import { setLang } from 'core/reducers/api';
+import { setLang } from 'amo/reducers/api';
 import reducer, {
   createInternalLanguageTool,
   fetchLanguageTools,
   getAllLanguageTools,
   initialState,
   loadLanguageTools,
-} from 'core/reducers/languageTools';
+} from 'amo/reducers/languageTools';
 import {
   createFakeLanguageTool,
   dispatchClientMetadata,

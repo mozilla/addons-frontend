@@ -3,9 +3,9 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import translate from 'core/i18n/translate';
+import translate from 'amo/i18n/translate';
 import Button from 'ui/components/Button';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 import type { ButtonType } from 'ui/components/Button';
 
 import './styles.scss';

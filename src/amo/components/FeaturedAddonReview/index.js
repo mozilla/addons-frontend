@@ -7,16 +7,16 @@ import { compose } from 'redux';
 import { fetchReview } from 'amo/actions/reviews';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import { selectReview } from 'amo/reducers/reviews';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
 import Card from 'ui/components/Card';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

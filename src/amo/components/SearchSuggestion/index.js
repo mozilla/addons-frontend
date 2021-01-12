@@ -4,12 +4,12 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { getPromotedCategory } from 'core/utils/addons';
+import { getPromotedCategory } from 'amo/utils/addons';
 import Icon from 'ui/components/Icon';
 import IconPromotedBadge from 'ui/components/IconPromotedBadge';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
-import type { SuggestionType } from 'core/reducers/autocomplete';
+import type { SuggestionType } from 'amo/reducers/autocomplete';
 
 import './styles.scss';
 

@@ -6,10 +6,10 @@ import GetFirefoxButton, {
 import InstallButtonWrapper, {
   InstallButtonWrapperBase,
 } from 'amo/components/InstallButtonWrapper';
-import { setInstallState } from 'core/reducers/installations';
-import AMInstallButton from 'core/components/AMInstallButton';
-import { CLIENT_APP_FIREFOX, INSTALLED, UNKNOWN } from 'core/constants';
-import { loadVersions } from 'core/reducers/versions';
+import { setInstallState } from 'amo/reducers/installations';
+import AMInstallButton from 'amo/components/AMInstallButton';
+import { CLIENT_APP_FIREFOX, INSTALLED, UNKNOWN } from 'amo/constants';
+import { loadVersions } from 'amo/reducers/versions';
 import {
   createContextWithFakeRouter,
   createFakeLocation,

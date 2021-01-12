@@ -6,7 +6,7 @@ import path from 'path';
 import config from 'config';
 import glob from 'glob';
 
-import { langToLocale, localeToLang } from 'core/i18n/utils';
+import { langToLocale, localeToLang } from 'amo/i18n/utils';
 
 const langs = config.get('langs');
 const basePath = config.get('basePath');

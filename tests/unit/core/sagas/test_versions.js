@@ -1,13 +1,13 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as versionsApi from 'core/api/versions';
+import * as versionsApi from 'amo/api/versions';
 import versionsReducer, {
   fetchVersion,
   fetchVersions,
   loadVersions,
-} from 'core/reducers/versions';
-import versionsSaga from 'core/sagas/versions';
-import apiReducer from 'core/reducers/api';
+} from 'amo/reducers/versions';
+import versionsSaga from 'amo/sagas/versions';
+import apiReducer from 'amo/reducers/api';
 import {
   dispatchClientMetadata,
   createStubErrorHandler,

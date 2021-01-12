@@ -5,7 +5,7 @@ import EditableCollectionAddon, {
   extractId,
 } from 'amo/components/EditableCollectionAddon';
 import fallbackIcon from 'amo/img/icons/default-64.png';
-import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import {
   applyUIStateChanges,
   createFakeEvent,

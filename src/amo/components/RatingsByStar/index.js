@@ -9,17 +9,17 @@ import { withRouter } from 'react-router-dom';
 import Link from 'amo/components/Link';
 import { fetchGroupedRatings } from 'amo/actions/reviews';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
 import LoadingText from 'ui/components/LoadingText';
 import IconStar from 'ui/components/IconStar';
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { AppState } from 'amo/store';
-import type { AddonType } from 'core/types/addons';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { AddonType } from 'amo/types/addons';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 

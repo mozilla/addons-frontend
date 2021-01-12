@@ -1,14 +1,14 @@
 import * as React from 'react';
 
-import { setAuthToken } from 'core/reducers/api';
+import { setAuthToken } from 'amo/reducers/api';
 import { loadCurrentUserAccount, logOutUser } from 'amo/reducers/users';
-import * as api from 'core/api';
+import * as api from 'amo/api';
 import AuthenticateButton, {
   AuthenticateButtonBase,
   createHandleLogOutFunction,
   mapStateToProps,
-} from 'core/components/AuthenticateButton';
-import { loadSiteStatus } from 'core/reducers/site';
+} from 'amo/components/AuthenticateButton';
+import { loadSiteStatus } from 'amo/reducers/site';
 import {
   createContextWithFakeRouter,
   createFakeEvent,

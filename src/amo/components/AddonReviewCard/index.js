@@ -10,11 +10,11 @@ import Link from 'amo/components/Link';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { ADDONS_EDIT, USERS_EDIT } from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import { normalizeFileNameId } from 'core/utils';
+import { ADDONS_EDIT, USERS_EDIT } from 'amo/constants';
+import { withErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
+import { normalizeFileNameId } from 'amo/utils';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import {
   beginDeleteAddonReview,
@@ -26,7 +26,7 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
-import { replaceStringsWithJSX } from 'core/i18n/utils';
+import { replaceStringsWithJSX } from 'amo/i18n/utils';
 import Button from 'ui/components/Button';
 import ConfirmationDialog from 'ui/components/ConfirmationDialog';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
@@ -37,12 +37,12 @@ import Notice from 'ui/components/Notice';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { AddonType } from 'core/types/addons';
-import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { AddonType } from 'amo/types/addons';
+import type { DispatchFunc } from 'amo/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
-import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 

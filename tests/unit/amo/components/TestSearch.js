@@ -10,7 +10,7 @@ import Search, {
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
 import { setViewContext } from 'amo/actions/viewContext';
-import Paginate from 'core/components/Paginate';
+import Paginate from 'amo/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -23,10 +23,10 @@ import {
   SEARCH_SORT_POPULAR,
   VERIFIED_FILTER,
   VIEW_CONTEXT_EXPLORE,
-} from 'core/constants';
-import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
-import { ErrorHandler } from 'core/errorHandler';
-import { searchStart } from 'core/reducers/search';
+} from 'amo/constants';
+import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
+import { ErrorHandler } from 'amo/errorHandler';
+import { searchStart } from 'amo/reducers/search';
 import ErrorList from 'ui/components/ErrorList';
 import {
   createStubErrorHandler,

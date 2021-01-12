@@ -2,7 +2,7 @@ import reducer, {
   initialState,
   showSurvey,
   dismissSurvey,
-} from 'core/reducers/survey';
+} from 'amo/reducers/survey';
 
 describe(__filename, () => {
   it('shows a survey by default', () => {

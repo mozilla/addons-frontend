@@ -23,17 +23,17 @@ import {
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_UPDATED,
   VERIFIED_FILTER,
-} from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
-import log from 'core/logger';
-import translate from 'core/i18n/translate';
-import { convertFiltersToQueryParams, paramsToFilter } from 'core/searchUtils';
+} from 'amo/constants';
+import { withErrorHandler } from 'amo/errorHandler';
+import log from 'amo/logger';
+import translate from 'amo/i18n/translate';
+import { convertFiltersToQueryParams, paramsToFilter } from 'amo/searchUtils';
 import ExpandableCard from 'ui/components/ExpandableCard';
 import Select from 'ui/components/Select';
 import type { AppState } from 'amo/store';
-import type { SearchFilters as SearchFiltersType } from 'core/api/search';
-import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterHistoryType } from 'core/types/router';
+import type { SearchFilters as SearchFiltersType } from 'amo/api/search';
+import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterHistoryType } from 'amo/types/router';
 
 import './styles.scss';
 

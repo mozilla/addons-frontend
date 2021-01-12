@@ -1,4 +1,4 @@
-import * as api from 'core/api';
+import * as api from 'amo/api';
 import { getSponsoredShelf } from 'amo/api/shelves';
 import { createApiResponse, dispatchClientMetadata } from 'tests/unit/helpers';
 

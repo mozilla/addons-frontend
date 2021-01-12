@@ -10,7 +10,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
-} from 'core/constants';
+} from 'amo/constants';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import {

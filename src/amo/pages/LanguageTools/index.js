@@ -13,25 +13,25 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Page from 'amo/components/Page';
 import { getAddonURL } from 'amo/utils';
-import { withErrorHandler } from 'core/errorHandler';
+import { withErrorHandler } from 'amo/errorHandler';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
-} from 'core/constants';
-import { unfilteredLanguages } from 'core/languages';
-import translate from 'core/i18n/translate';
+} from 'amo/constants';
+import { unfilteredLanguages } from 'amo/languages';
+import translate from 'amo/i18n/translate';
 import {
   fetchLanguageTools,
   getAllLanguageTools,
-} from 'core/reducers/languageTools';
+} from 'amo/reducers/languageTools';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { LanguageToolType } from 'core/types/addons';
-import type { DispatchFunc } from 'core/types/redux';
-import type { I18nType } from 'core/types/i18n';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { LanguageToolType } from 'amo/types/addons';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

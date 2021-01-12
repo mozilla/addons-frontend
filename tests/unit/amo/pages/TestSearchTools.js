@@ -4,7 +4,7 @@ import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   dispatchClientMetadata,
   fakeI18n,

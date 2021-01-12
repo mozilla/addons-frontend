@@ -2,10 +2,10 @@ import { createBrowserHistory } from 'history';
 import serialize from 'serialize-javascript';
 
 import createAmoStore from 'amo/store';
-import { setRequestId } from 'core/reducers/api';
-import createClient from 'core/client/base';
-import { getSentryRelease } from 'core/utils/sentry';
-import { loadedPageIsAnonymous } from 'core/reducers/site';
+import { setRequestId } from 'amo/reducers/api';
+import createClient from 'amo/client/base';
+import { getSentryRelease } from 'amo/utils/sentry';
+import { loadedPageIsAnonymous } from 'amo/reducers/site';
 import { getFakeConfig, createFakeTracking } from 'tests/unit/helpers';
 
 describe(__filename, () => {

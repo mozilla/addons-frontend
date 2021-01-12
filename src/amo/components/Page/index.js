@@ -11,12 +11,12 @@ import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLega
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
-import InfoDialog from 'core/components/InfoDialog';
-import { CLIENT_APP_ANDROID } from 'core/constants';
-import log from 'core/logger';
+import InfoDialog from 'amo/components/InfoDialog';
+import { CLIENT_APP_ANDROID } from 'amo/constants';
+import log from 'amo/logger';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 

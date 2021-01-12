@@ -15,16 +15,16 @@ import {
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
   COLLECTION_SORT_POPULARITY_DESCENDING,
-} from 'core/constants';
-import translate from 'core/i18n/translate';
+} from 'amo/constants';
+import translate from 'amo/i18n/translate';
 import Select from 'ui/components/Select';
 import type {
   CollectionFilters,
   CollectionType,
 } from 'amo/reducers/collections';
 import type { AppState } from 'amo/store';
-import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterHistoryType } from 'core/types/router';
+import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterHistoryType } from 'amo/types/router';
 
 import './styles.scss';
 

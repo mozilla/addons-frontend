@@ -17,7 +17,7 @@ import AddonReviewManager, {
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import Link from 'amo/components/Link';
-import { ErrorHandler } from 'core/errorHandler';
+import { ErrorHandler } from 'amo/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,

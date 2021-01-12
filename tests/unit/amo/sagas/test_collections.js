@@ -27,8 +27,8 @@ import collectionsReducer, {
   updateCollectionAddon,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
-import apiReducer from 'core/reducers/api';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
+import apiReducer from 'amo/reducers/api';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import {
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,

@@ -3,9 +3,9 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { getBlock } from 'amo/api/blocks';
 import { FETCH_BLOCK, abortFetchBlock, loadBlock } from 'amo/reducers/blocks';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { FetchBlockAction } from 'amo/reducers/blocks';
-import type { Saga } from 'core/types/sagas';
+import type { Saga } from 'amo/types/sagas';
 
 export function* fetchBlock({
   payload: { errorHandlerId, guid },

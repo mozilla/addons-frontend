@@ -6,7 +6,7 @@ import NotFound from 'amo/components/Errors/NotFound';
 import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLegalReasons';
 import Header from 'amo/components/Header';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
   createCapturedErrorHandler,
   createContextWithFakeRouter,

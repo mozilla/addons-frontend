@@ -1,7 +1,7 @@
 import MockExpressRequest from 'mock-express-request';
 import MockExpressResponse from 'mock-express-response';
 
-import { frameguard } from 'core/middleware';
+import { frameguard } from 'amo/middleware';
 
 describe(__filename, () => {
   const existingNodeEnv = process.env.NODE_ENV;

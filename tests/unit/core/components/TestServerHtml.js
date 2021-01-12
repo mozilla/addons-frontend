@@ -2,13 +2,13 @@ import { shallow } from 'enzyme';
 import { Helmet } from 'react-helmet';
 import * as React from 'react';
 
-import ServerHtml from 'core/components/ServerHtml';
+import ServerHtml from 'amo/components/ServerHtml';
 import FakeApp, {
   fakeAssets,
   fakeSRIData,
 } from 'tests/unit/core/server/fakeApp';
 import { getFakeConfig } from 'tests/unit/helpers';
-import { RTL } from 'core/constants';
+import { RTL } from 'amo/constants';
 
 describe(__filename, () => {
   const _helmetCanUseDOM = Helmet.canUseDOM;

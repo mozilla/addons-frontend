@@ -7,7 +7,7 @@ import shelvesReducer, {
   loadSponsored,
 } from 'amo/reducers/shelves';
 import shelvesSaga from 'amo/sagas/shelves';
-import apiReducer from 'core/reducers/api';
+import apiReducer from 'amo/reducers/api';
 import {
   createStubErrorHandler,
   fakeSponsoredShelf,

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
-import { setClientApp } from 'core/reducers/api';
+import { setClientApp } from 'amo/reducers/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -15,16 +15,16 @@ import {
   VIEW_CONTEXT_EXPLORE,
   VIEW_CONTEXT_HOME,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
-} from 'core/constants';
-import translate from 'core/i18n/translate';
-import { visibleAddonType } from 'core/utils';
+} from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import { visibleAddonType } from 'amo/utils';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 import type { AppState } from 'amo/store';
 import type { ViewContextType } from 'amo/reducers/viewContext';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterHistoryType } from 'core/types/router';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { ReactRouterHistoryType } from 'amo/types/router';
 
 import './styles.scss';
 

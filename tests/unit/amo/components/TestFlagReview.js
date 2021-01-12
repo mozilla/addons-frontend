@@ -10,7 +10,7 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import FlagReview, { FlagReviewBase } from 'amo/components/FlagReview';
-import { ErrorHandler } from 'core/errorHandler';
+import { ErrorHandler } from 'amo/errorHandler';
 import {
   createFakeEvent,
   createStubErrorHandler,

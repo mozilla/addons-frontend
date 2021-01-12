@@ -1,0 +1,145 @@
+@import '~amo/css/styles';
+
+.AMInstallButton-transition-enter {
+  opacity: 0.01;
+}
+
+.AMInstallButton-transition-exit {
+  display: none;
+}
+
+.AMInstallButton-transition-enter-active {
+  opacity: 1;
+  transition: opacity $transition-short ease;
+}
+
+.AMInstallButton {
+  .AMInstallButton-button {
+    white-space: nowrap;
+
+    .Icon {
+      @include padding-end(4px);
+
+      margin-top: -2px;
+    }
+  }
+
+  .AMInstallButton-button--enable {
+    .Icon {
+      margin-top: inherit;
+    }
+  }
+
+  .AMInstallButton-loading-button {
+    background-color: $grey-20;
+    border-radius: 2px;
+    height: 32px;
+  }
+
+  .AMInstallButton-loader {
+    $borderRadiusReduction: 43%;
+    $height: 4px;
+    $heightReduction: 0.9;
+    $speed: 0.53s;
+    $width: 4px;
+    $widthIncrease: 1.6;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    width: 32px;
+
+    @keyframes move {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(12px);
+      }
+    }
+
+    [dir='rtl'] & {
+      @keyframes move-rtl {
+        0% {
+          transform: scaleX(-1) translateX(0);
+        }
+
+        100% {
+          transform: scaleX(-1) translateX(12px);
+        }
+      }
+    }
+
+    @keyframes squash {
+      0% {
+        transform: scale(1, 1);
+      }
+
+      30% {
+        border-radius: $borderRadiusReduction;
+        transform: scale($widthIncrease, $heightReduction);
+      }
+
+      70% {
+        border-radius: $borderRadiusReduction;
+        transform: scale($widthIncrease, $heightReduction);
+      }
+
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+    .AMInstallButton-loader-container {
+      @include margin-start(8px);
+
+      animation: move $speed cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite
+        alternate;
+      height: $height;
+      width: $width;
+
+      [dir='rtl'] & {
+        animation-name: move-rtl;
+      }
+
+      // Center the blue ball when we disable animations.
+      @media (prefers-reduced-motion: reduce) {
+        @include margin-start(14px);
+
+        animation: none;
+      }
+    }
+
+    .AMInstallButton-loader-ball {
+      animation: squash $speed ease-in-out infinite alternate;
+      background: $blue-60;
+      border-radius: 50%;
+      height: $height;
+      width: $width;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+  }
+
+  .AMInstallButton-loading-button--puffy {
+    height: 48px;
+
+    .AMInstallButton-loader {
+      width: 48px;
+    }
+
+    .AMInstallButton-loader-container {
+      @include margin-start(16px);
+
+      // Center the blue ball when we disable animations.
+      @media (prefers-reduced-motion: reduce) {
+        @include margin-start(22px);
+      }
+    }
+  }
+}

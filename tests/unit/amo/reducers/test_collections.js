@@ -32,8 +32,8 @@ import reducer, {
   unloadCollectionBySlug,
   updateCollection,
 } from 'amo/reducers/collections';
-import { COLLECTION_SORT_NAME } from 'core/constants';
-import { setLang } from 'core/reducers/api';
+import { COLLECTION_SORT_NAME } from 'amo/constants';
+import { setLang } from 'amo/reducers/api';
 import {
   createFakeCollectionAddon,
   createFakeCollectionAddons,

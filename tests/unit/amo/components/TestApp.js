@@ -15,13 +15,13 @@ import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
-import { setUserAgent as setUserAgentAction } from 'core/reducers/api';
+import { setUserAgent as setUserAgentAction } from 'amo/reducers/api';
 import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INSTALL_STATE,
   maximumSetTimeoutDelay,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createContextWithFakeRouter,
   dispatchClientMetadata,

@@ -14,7 +14,7 @@ import {
   FEATURED_THEMES_COLLECTION_EDIT,
   FEATURED_THEMES_COLLECTION_SLUG,
   MOZILLA_COLLECTIONS_EDIT,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createFakeCollectionDetail,
   createInternalCollectionWithLang,

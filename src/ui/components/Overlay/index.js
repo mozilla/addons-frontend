@@ -5,7 +5,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import keydown, { Keys } from 'react-keydown';
 
-import withUIState from 'core/withUIState';
+import withUIState from 'amo/withUIState';
 
 import './styles.scss';
 

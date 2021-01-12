@@ -1,4 +1,4 @@
-import { prefixMiddleware } from 'core/middleware';
+import { prefixMiddleware } from 'amo/middleware';
 
 describe(__filename, () => {
   let fakeRes;

@@ -5,27 +5,27 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
+import { withErrorHandler } from 'amo/errorHandler';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
 import {
   hideAddonAbuseReportUI,
   initiateAddonAbuseReportViaFirefox,
   sendAddonAbuseReport,
   showAddonAbuseReportUI,
-} from 'core/reducers/abuse';
-import { normalizeFileNameId, sanitizeHTML } from 'core/utils';
+} from 'amo/reducers/abuse';
+import { normalizeFileNameId, sanitizeHTML } from 'amo/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
-import type { AddonAbuseState } from 'core/reducers/abuse';
-import type { DispatchFunc } from 'core/types/redux';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
-import { hasAbuseReportPanelEnabled } from 'core/addonManager';
+import type { AddonAbuseState } from 'amo/reducers/abuse';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
+import { hasAbuseReportPanelEnabled } from 'amo/addonManager';
 
 import './styles.scss';
 

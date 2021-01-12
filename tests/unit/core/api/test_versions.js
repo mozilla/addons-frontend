@@ -1,5 +1,5 @@
-import { getVersion, getVersions } from 'core/api/versions';
-import * as api from 'core/api';
+import { getVersion, getVersions } from 'amo/api/versions';
+import * as api from 'amo/api';
 import { createApiResponse, dispatchSignInActions } from 'tests/unit/helpers';
 
 describe(__filename, () => {

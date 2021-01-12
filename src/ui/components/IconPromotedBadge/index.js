@@ -3,10 +3,10 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { LINE, RECOMMENDED, VERIFIED } from 'core/constants';
-import translate from 'core/i18n/translate';
+import { LINE, RECOMMENDED, VERIFIED } from 'amo/constants';
+import translate from 'amo/i18n/translate';
 import Icon from 'ui/components/Icon';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 import './styles.scss';
 
 export type PromotedBadgeCategory =

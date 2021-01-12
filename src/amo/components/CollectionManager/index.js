@@ -13,9 +13,9 @@ import {
   updateCollection,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import { decodeHtmlEntities } from 'core/utils';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import { decodeHtmlEntities } from 'amo/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import type {
@@ -23,14 +23,14 @@ import type {
   CollectionType,
 } from 'amo/reducers/collections';
 import type { AppState } from 'amo/store';
-import type { I18nType } from 'core/types/i18n';
-import type { ElementEvent } from 'core/types/dom';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { DispatchFunc } from 'core/types/redux';
+import type { I18nType } from 'amo/types/i18n';
+import type { ElementEvent } from 'amo/types/dom';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { DispatchFunc } from 'amo/types/redux';
 import type {
   ReactRouterHistoryType,
   ReactRouterLocationType,
-} from 'core/types/router';
+} from 'amo/types/router';
 
 import './styles.scss';
 

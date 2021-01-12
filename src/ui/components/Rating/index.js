@@ -5,9 +5,9 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import log from 'core/logger';
-import translate from 'core/i18n/translate';
-import { type I18nType } from 'core/types/i18n';
+import log from 'amo/logger';
+import translate from 'amo/i18n/translate';
+import { type I18nType } from 'amo/types/i18n';
 import IconStar from 'ui/components/IconStar';
 import type { Props as IconStarProps } from 'ui/components/IconStar';
 

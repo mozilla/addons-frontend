@@ -1,5 +1,5 @@
 import createStore from 'amo/store';
-import { initialState } from 'core/reducers/addons';
+import { initialState } from 'amo/reducers/addons';
 
 describe(__filename, () => {
   it('creates an empty store', () => {

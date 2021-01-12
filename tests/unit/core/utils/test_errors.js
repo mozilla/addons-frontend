@@ -2,12 +2,12 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import GenericError from 'core/components/ErrorPage/GenericError';
-import NotFound from 'core/components/ErrorPage/NotFound';
+import GenericError from 'amo/components/ErrorPage/GenericError';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import {
   getErrorComponent,
   render404IfConfigKeyIsFalse,
-} from 'core/utils/errors';
+} from 'amo/utils/errors';
 
 describe(__filename, () => {
   describe('getErrorComponent', () => {

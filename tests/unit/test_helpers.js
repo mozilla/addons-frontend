@@ -10,7 +10,7 @@ import SagaTester from 'redux-saga-tester';
 import { put, takeLatest } from 'redux-saga/effects';
 
 import createStore from 'amo/store';
-import { addQueryParamsToHistory } from 'core/utils';
+import { addQueryParamsToHistory } from 'amo/utils';
 import {
   getFakeConfig,
   matchingSagaAction,

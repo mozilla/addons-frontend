@@ -1,6 +1,6 @@
 /* @flow */
-import { callApi } from 'core/api';
-import type { ApiState } from 'core/reducers/api';
+import { callApi } from 'amo/api';
+import type { ApiState } from 'amo/reducers/api';
 import type { ExternalHeroShelvesType } from 'amo/reducers/home';
 
 export type GetHeroShelvesParams = {| api: ApiState |};

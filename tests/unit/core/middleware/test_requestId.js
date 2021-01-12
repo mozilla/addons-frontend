@@ -1,8 +1,8 @@
 import MockExpressRequest from 'mock-express-request';
 import MockExpressResponse from 'mock-express-response';
 
-import { AMO_REQUEST_ID_HEADER } from 'core/constants';
-import requestId from 'core/middleware/requestId';
+import { AMO_REQUEST_ID_HEADER } from 'amo/constants';
+import requestId from 'amo/middleware/requestId';
 
 describe(__filename, () => {
   function _requestId({

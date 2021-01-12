@@ -20,7 +20,7 @@ import {
   OS_WINDOWS,
   RECOMMENDED,
   validAddonTypes,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   FACEBOOK_CONTAINER_ADDON_GUID,
   FACEBOOK_CONTAINER_DOWNLOAD_URL,
@@ -34,7 +34,7 @@ import {
   isFirefox,
   isQuantumCompatible,
   correctedLocationForPlatform,
-} from 'core/utils/compatibility';
+} from 'amo/utils/compatibility';
 import {
   createFakeAddon,
   createFakeLocation,

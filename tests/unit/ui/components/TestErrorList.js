@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
+import { API_ERROR_SIGNATURE_EXPIRED } from 'amo/constants';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import ErrorList, { ErrorListBase } from 'ui/components/ErrorList';
 import Notice from 'ui/components/Notice';

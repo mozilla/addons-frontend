@@ -21,7 +21,7 @@ module.exports = {
   // The base URL of the site (for SEO purpose).
   baseURL: baseUrlProd,
 
-  // These are reversed in src/core/client/config.js.
+  // These are reversed in src/amo/client/config.js.
   client: false,
   server: true,
 

@@ -2,7 +2,7 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.{js,jsx}'],
   coveragePathIgnorePatterns: [
     '<rootDir>/node_modules/',
-    '<rootDir>/src/core/server/webpack-isomorphic-tools-config.js',
+    '<rootDir>/src/amo/server/webpack-isomorphic-tools-config.js',
     '<rootDir>/src/locale/',
   ],
   moduleDirectories: ['src', 'node_modules'],

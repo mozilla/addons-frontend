@@ -4,7 +4,7 @@ import reducer, {
   finishFormOverlaySubmit,
   openFormOverlay,
   initialState,
-} from 'core/reducers/formOverlay';
+} from 'amo/reducers/formOverlay';
 
 describe(__filename, () => {
   describe('reducer', () => {

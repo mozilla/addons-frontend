@@ -4,8 +4,8 @@ import * as React from 'react';
 import AddonCompatibilityError, {
   AddonCompatibilityErrorBase,
 } from 'amo/components/AddonCompatibilityError';
-import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import {
+  DOWNLOAD_FIREFOX_BASE_URL,
   CLIENT_APP_FIREFOX,
   CLIENT_APP_ANDROID,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
@@ -15,8 +15,8 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-} from 'core/constants';
-import { loadVersions } from 'core/reducers/versions';
+} from 'amo/constants';
+import { loadVersions } from 'amo/reducers/versions';
 import {
   createFakeClientCompatibility,
   createInternalAddonWithLang,

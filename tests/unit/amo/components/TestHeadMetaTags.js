@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import HeadMetaTags, { HeadMetaTagsBase } from 'amo/components/HeadMetaTags';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
   dispatchClientMetadata,
   fakeI18n,

@@ -3,11 +3,11 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 
 import { REVIEW_FLAG_REASON_OTHER } from 'amo/constants';
-import { callApi } from 'core/api';
+import { callApi } from 'amo/api';
 import type { FlagReviewReasonType } from 'amo/constants';
-import type { ApiState } from 'core/reducers/api';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { PaginatedApiResponse } from 'core/types/api';
+import type { ApiState } from 'amo/reducers/api';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { PaginatedApiResponse } from 'amo/types/api';
 
 type ExternalReviewTypeBase = {|
   addon: {|

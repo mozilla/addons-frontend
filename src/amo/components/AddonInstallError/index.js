@@ -1,10 +1,10 @@
 /* @flow */
 import * as React from 'react';
 
-import translate from 'core/i18n/translate';
+import translate from 'amo/i18n/translate';
 import Notice from 'ui/components/Notice';
-import { getErrorMessage } from 'core/utils/addons';
-import type { I18nType } from 'core/types/i18n';
+import { getErrorMessage } from 'amo/utils/addons';
+import type { I18nType } from 'amo/types/i18n';
 
 import './style.scss';
 

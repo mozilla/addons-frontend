@@ -9,18 +9,18 @@ import {
   fetchUserCollections,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
-import AuthenticateButton from 'core/components/AuthenticateButton';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import UserCollection from 'ui/components/UserCollection';
 import type { CollectionType } from 'amo/reducers/collections';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

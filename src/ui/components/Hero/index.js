@@ -4,11 +4,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { setHeroBannerOrder } from 'core/reducers/heroBanners';
+import { setHeroBannerOrder } from 'amo/reducers/heroBanners';
 import Card from 'ui/components/Card';
 import HeroSection from 'ui/components/HeroSection';
 import type { AppState } from 'amo/store';
-import type { DispatchFunc } from 'core/types/redux';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

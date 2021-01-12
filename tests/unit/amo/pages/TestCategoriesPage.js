@@ -5,8 +5,8 @@ import Categories from 'amo/components/Categories';
 import { CategoriesPageBase } from 'amo/pages/CategoriesPage';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import { visibleAddonType } from 'core/utils';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
+import { visibleAddonType } from 'amo/utils';
 import { fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {

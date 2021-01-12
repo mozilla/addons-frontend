@@ -1,4 +1,4 @@
-import { selectLocalizedContent } from 'core/reducers/utils';
+import { selectLocalizedContent } from 'amo/reducers/utils';
 
 describe(__filename, () => {
   describe('selectLocalizedContent', () => {

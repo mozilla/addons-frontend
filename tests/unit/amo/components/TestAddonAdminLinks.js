@@ -9,7 +9,7 @@ import {
   ADDONS_REVIEW,
   ADDON_TYPE_STATIC_THEME,
   STATIC_THEMES_REVIEW,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createInternalAddonWithLang,
   dispatchClientMetadata,

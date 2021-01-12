@@ -8,7 +8,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   VERIFIED,
-} from 'core/constants';
+} from 'amo/constants';
 import Icon from 'ui/components/Icon';
 import {
   createFakeAutocompleteResult,

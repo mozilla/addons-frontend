@@ -1,6 +1,6 @@
 import config from 'config';
 
-import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
+import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
 import {
   createInternalAddonWithLang,
   fakeAddon,

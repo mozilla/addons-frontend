@@ -6,11 +6,11 @@ import Categories from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Page from 'amo/components/Page';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import translate from 'core/i18n/translate';
-import { apiAddonType } from 'core/utils';
-import type { ReactRouterMatchType } from 'core/types/router';
-import type { I18nType } from 'core/types/i18n';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import { apiAddonType } from 'amo/utils';
+import type { ReactRouterMatchType } from 'amo/types/router';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

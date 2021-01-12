@@ -4,11 +4,11 @@ import autocompleteReducer, {
   autocompleteCancel,
   autocompleteStart,
   autocompleteLoad,
-} from 'core/reducers/autocomplete';
-import { CLEAR_ERROR } from 'core/constants';
-import * as api from 'core/api';
-import apiReducer from 'core/reducers/api';
-import autocompleteSaga from 'core/sagas/autocomplete';
+} from 'amo/reducers/autocomplete';
+import { CLEAR_ERROR } from 'amo/constants';
+import * as api from 'amo/api';
+import apiReducer from 'amo/reducers/api';
+import autocompleteSaga from 'amo/sagas/autocomplete';
 import {
   createFakeAutocompleteResult,
   createStubErrorHandler,

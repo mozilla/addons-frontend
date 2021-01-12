@@ -1,7 +1,7 @@
-import createClient from 'core/client/base';
+import createClient from 'amo/client/base';
 
 // Initialize the tracking.
-import 'core/tracking';
+import 'amo/tracking';
 
 import App from './components/App';
 import sagas from './sagas';

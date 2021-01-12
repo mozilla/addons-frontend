@@ -12,8 +12,8 @@ import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
 import CollectionControls from 'amo/components/CollectionControls';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
-import AuthenticateButton from 'core/components/AuthenticateButton';
-import Paginate from 'core/components/Paginate';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
+import Paginate from 'amo/components/Paginate';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
@@ -27,16 +27,16 @@ import {
   removeAddonFromCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
-import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
+import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
 import {
   CLIENT_APP_FIREFOX,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
   INSTALL_SOURCE_COLLECTION,
   INSTALL_SOURCE_FEATURED_COLLECTION,
-} from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
+} from 'amo/constants';
+import { ErrorHandler } from 'amo/errorHandler';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   createFakeCollectionAddon,
   createFakeCollectionDetail,

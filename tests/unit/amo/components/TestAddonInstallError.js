@@ -4,7 +4,7 @@ import AddonInstallError, {
   AddonInstallErrorBase,
 } from 'amo/components/AddonInstallError';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-import { FATAL_ERROR } from 'core/constants';
+import { FATAL_ERROR } from 'amo/constants';
 
 describe(__filename, () => {
   const render = (props = {}) => {

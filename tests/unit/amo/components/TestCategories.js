@@ -7,13 +7,13 @@ import {
   categoryResultsLinkTo,
   mapStateToProps,
 } from 'amo/components/Categories';
-import { fetchCategories, loadCategories } from 'core/reducers/categories';
+import { fetchCategories, loadCategories } from 'amo/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
-} from 'core/constants';
-import { getCategoryResultsQuery } from 'core/utils/categories';
+} from 'amo/constants';
+import { getCategoryResultsQuery } from 'amo/utils/categories';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import {

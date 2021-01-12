@@ -9,15 +9,15 @@ import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import Link from 'amo/components/Link';
-import translate from 'core/i18n/translate';
-import { getVersionInfo } from 'core/reducers/versions';
-import { sanitizeUserHTML } from 'core/utils';
-import { replaceStringsWithJSX } from 'core/i18n/utils';
+import translate from 'amo/i18n/translate';
+import { getVersionInfo } from 'amo/reducers/versions';
+import { sanitizeUserHTML } from 'amo/utils';
+import { replaceStringsWithJSX } from 'amo/i18n/utils';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
-import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
+import type { AddonVersionType, VersionInfoType } from 'amo/reducers/versions';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

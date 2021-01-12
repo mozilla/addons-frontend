@@ -42,8 +42,8 @@ import {
 } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
 import reviewsSaga, { FLASH_SAVED_MESSAGE_DURATION } from 'amo/sagas/reviews';
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import apiReducer from 'core/reducers/api';
+import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
+import apiReducer from 'amo/reducers/api';
 import {
   apiResponsePage,
   createExternalReview,

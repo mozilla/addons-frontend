@@ -10,7 +10,7 @@ import {
   sendSponsoredEventBeacon,
   storeConversionInfo,
   trackConversion,
-} from 'core/tracking';
+} from 'amo/tracking';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -38,7 +38,7 @@ import {
   UNINSTALL_ACTION,
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
-} from 'core/constants';
+} from 'amo/constants';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {

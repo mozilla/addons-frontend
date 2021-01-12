@@ -3,9 +3,9 @@ import * as React from 'react';
 
 import Link from 'amo/components/Link';
 import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
-import tracking from 'core/tracking';
-import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
-import { addQueryParams } from 'core/utils/url';
+import tracking from 'amo/tracking';
+import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'amo/constants';
+import { addQueryParams } from 'amo/utils/url';
 import LoadingText from 'ui/components/LoadingText';
 import type {
   HeroCallToActionType,

@@ -4,13 +4,13 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import translate from 'core/i18n/translate';
-import { nl2br, sanitizeHTML } from 'core/utils';
+import translate from 'amo/i18n/translate';
+import { nl2br, sanitizeHTML } from 'amo/utils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
 import './styles.scss';
@@ -36,7 +36,7 @@ function reviewBody({
   id,
 }: {|
   content?: React.Node | string,
-  html?: React.Node,
+  html?: {| __html: string |},
   id: string,
 |}) {
   invariant(

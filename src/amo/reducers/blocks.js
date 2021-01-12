@@ -1,7 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
 
-import type { UrlWithOutgoing } from 'core/types/api';
+import type { UrlWithOutgoing } from 'amo/types/api';
 
 export const FETCH_BLOCK: 'FETCH_BLOCK' = 'FETCH_BLOCK';
 export const ABORT_FETCH_BLOCK: 'ABORT_FETCH_BLOCK' = 'ABORT_FETCH_BLOCK';

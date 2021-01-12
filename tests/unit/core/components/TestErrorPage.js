@@ -2,16 +2,16 @@ import { mount } from 'enzyme';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 
-import ErrorPage, { ErrorPageBase } from 'core/components/ErrorPage';
-import { createApiError } from 'core/api';
-import { loadErrorPage } from 'core/reducers/errorPage';
-import { getErrorComponent } from 'core/utils/errors';
+import ErrorPage, { ErrorPageBase } from 'amo/components/ErrorPage';
+import { createApiError } from 'amo/api';
+import { loadErrorPage } from 'amo/reducers/errorPage';
+import { getErrorComponent } from 'amo/utils/errors';
 import {
   dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import I18nProvider from 'core/i18n/Provider';
+import I18nProvider from 'amo/i18n/Provider';
 
 describe(__filename, () => {
   let store;

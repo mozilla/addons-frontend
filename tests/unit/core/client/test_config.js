@@ -1,4 +1,4 @@
-import { ClientConfig } from 'core/client/config';
+import { ClientConfig } from 'amo/client/config';
 
 describe(__filename, () => {
   let config;

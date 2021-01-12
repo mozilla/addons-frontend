@@ -3,11 +3,11 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
-import { SET_LANG } from 'core/reducers/api';
-import { createInternalAddon } from 'core/reducers/addons';
-import { selectLocalizedContent } from 'core/reducers/utils';
-import type { CollectionAddonType, ExternalAddonType } from 'core/types/addons';
-import type { LocalizedString } from 'core/types/api';
+import { SET_LANG } from 'amo/reducers/api';
+import { createInternalAddon } from 'amo/reducers/addons';
+import { selectLocalizedContent } from 'amo/reducers/utils';
+import type { CollectionAddonType, ExternalAddonType } from 'amo/types/addons';
+import type { LocalizedString } from 'amo/types/api';
 
 export const ADD_ADDON_TO_COLLECTION: 'ADD_ADDON_TO_COLLECTION' =
   'ADD_ADDON_TO_COLLECTION';

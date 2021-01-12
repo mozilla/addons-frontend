@@ -13,9 +13,9 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
-} from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
-import { visibleAddonType as getVisibleAddonType } from 'core/utils';
+} from 'amo/constants';
+import { ErrorHandler } from 'amo/errorHandler';
+import { visibleAddonType as getVisibleAddonType } from 'amo/utils';
 import {
   createAddonsApiResult,
   createLocalizedString,

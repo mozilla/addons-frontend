@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import I18nProvider from 'core/i18n/Provider';
+import I18nProvider from 'amo/i18n/Provider';
 import { fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {

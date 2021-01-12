@@ -8,8 +8,8 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
-import type { AddonType } from 'core/types/addons';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
+import type { AddonType } from 'amo/types/addons';
 
 import './styles.scss';
 

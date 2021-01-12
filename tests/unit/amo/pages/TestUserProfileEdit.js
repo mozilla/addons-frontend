@@ -23,10 +23,10 @@ import {
   loadUserNotifications,
   logOutUser,
 } from 'amo/reducers/users';
-import { createApiError } from 'core/api';
-import { ADDONS_REVIEW, CLIENT_APP_FIREFOX, USERS_EDIT } from 'core/constants';
-import AuthenticateButton from 'core/components/AuthenticateButton';
-import { ErrorHandler } from 'core/errorHandler';
+import { createApiError } from 'amo/api';
+import { ADDONS_REVIEW, CLIENT_APP_FIREFOX, USERS_EDIT } from 'amo/constants';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
+import { ErrorHandler } from 'amo/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import Notice from 'ui/components/Notice';
 import LoadingText from 'ui/components/LoadingText';

@@ -3,9 +3,9 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import SiteNotices from 'core/components/SiteNotices';
-import SurveyNotice from 'core/components/SurveyNotice';
-import type { ReactRouterLocationType } from 'core/types/router';
+import SiteNotices from 'amo/components/SiteNotices';
+import SurveyNotice from 'amo/components/SurveyNotice';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 

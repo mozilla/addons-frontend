@@ -8,8 +8,8 @@ import Page from 'amo/components/Page';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import { abortFetchBlock, fetchBlock, loadBlock } from 'amo/reducers/blocks';
-import { ErrorHandler } from 'core/errorHandler';
-import { createApiError } from 'core/api';
+import { ErrorHandler } from 'amo/errorHandler';
+import { createApiError } from 'amo/api';
 import {
   createFakeBlockResult,
   createStubErrorHandler,

@@ -1,4 +1,4 @@
-import * as addonManager from 'core/addonManager';
+import * as addonManager from 'amo/addonManager';
 import {
   GLOBAL_EVENTS,
   GLOBAL_EVENT_STATUS_MAP,
@@ -7,7 +7,7 @@ import {
   ON_OPERATION_CANCELLED_EVENT,
   ON_UNINSTALLED_EVENT,
   SET_ENABLE_NOT_AVAILABLE,
-} from 'core/constants';
+} from 'amo/constants';
 import { getFakeLogger, unexpectedSuccess } from 'tests/unit/helpers';
 
 const fakeClientAddon = (overrides = {}) => ({

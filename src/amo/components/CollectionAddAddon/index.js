@@ -8,20 +8,20 @@ import { compose } from 'redux';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import { addAddonToCollection } from 'amo/reducers/collections';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import withUIState from 'core/withUIState';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import withUIState from 'amo/withUIState';
 import Card from 'ui/components/Card';
 import Notice from 'ui/components/Notice';
-import type { SuggestionType } from 'core/reducers/autocomplete';
+import type { SuggestionType } from 'amo/reducers/autocomplete';
 import type {
   CollectionFilters,
   CollectionType,
 } from 'amo/reducers/collections';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

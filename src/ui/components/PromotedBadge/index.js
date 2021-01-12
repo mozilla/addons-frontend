@@ -4,13 +4,13 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
-import translate from 'core/i18n/translate';
+import translate from 'amo/i18n/translate';
 import IconPromotedBadge from 'ui/components/IconPromotedBadge';
 import type {
   PromotedBadgeCategory,
   PromotedBadgeSize,
 } from 'ui/components/IconPromotedBadge';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

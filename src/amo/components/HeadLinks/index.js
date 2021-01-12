@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { getCanonicalURL } from 'amo/utils';
-import { hrefLangs } from 'core/languages';
+import { hrefLangs } from 'amo/languages';
 import type { AppState } from 'amo/store';
 
 type Props = {|

@@ -30,7 +30,7 @@ import {
   REVIEWER_TOOLS_VIEW,
   STATIC_THEMES_REVIEW,
   STATS_VIEW,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createUserAccountResponse,
   createUserNotificationsResponse,

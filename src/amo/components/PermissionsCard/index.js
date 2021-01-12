@@ -3,13 +3,13 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import translate from 'core/i18n/translate';
+import translate from 'amo/i18n/translate';
 import Button from 'ui/components/Button';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 import type { AppState } from 'amo/store';
-import type { AddonVersionType } from 'core/reducers/versions';
-import type { UserAgentInfoType } from 'core/reducers/api';
-import type { I18nType } from 'core/types/i18n';
+import type { AddonVersionType } from 'amo/reducers/versions';
+import type { UserAgentInfoType } from 'amo/reducers/api';
+import type { I18nType } from 'amo/types/i18n';
 
 import { PermissionUtils } from './permissions';
 

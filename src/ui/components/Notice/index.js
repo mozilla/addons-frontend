@@ -4,11 +4,11 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import translate from 'core/i18n/translate';
-import withUIState from 'core/withUIState';
+import translate from 'amo/i18n/translate';
+import withUIState from 'amo/withUIState';
 import Button from 'ui/components/Button';
 import IconXMark from 'ui/components/IconXMark';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

@@ -1,7 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
 
-import type { AbuseReporter } from 'core/api/abuse';
+import type { AbuseReporter } from 'amo/api/abuse';
 
 export const ABORT_USER_ABUSE_REPORT: 'ABORT_USER_ABUSE_REPORT' =
   'ABORT_USER_ABUSE_REPORT';

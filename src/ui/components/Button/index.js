@@ -4,7 +4,7 @@ import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import log from 'core/logger';
+import log from 'amo/logger';
 
 import './styles.scss';
 

@@ -5,21 +5,21 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import translate from 'amo/i18n/translate';
+import { sanitizeHTML } from 'amo/utils';
 import {
   correctedLocationForPlatform,
   getMobileHomepageLink,
   isAndroidInstallable,
   isFirefoxForAndroid,
   isFirefoxForIOS,
-} from 'core/utils/compatibility';
+} from 'amo/utils/compatibility';
 import Notice, { warningInfoType } from 'ui/components/Notice';
 import type { AppState } from 'amo/store';
-import type { AddonType } from 'core/types/addons';
-import type { UserAgentInfoType } from 'core/reducers/api';
-import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { AddonType } from 'amo/types/addons';
+import type { UserAgentInfoType } from 'amo/reducers/api';
+import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 

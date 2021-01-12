@@ -25,17 +25,17 @@ import {
   hasPermission,
   isDeveloper,
 } from 'amo/reducers/users';
-import Paginate from 'core/components/Paginate';
+import Paginate from 'amo/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   USERS_EDIT,
-} from 'core/constants';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { sanitizeUserHTML } from 'core/utils';
+} from 'amo/constants';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
+import { sanitizeUserHTML } from 'amo/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
@@ -47,13 +47,13 @@ import UserAvatar from 'ui/components/UserAvatar';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { UserType } from 'amo/reducers/users';
-import type { DispatchFunc } from 'core/types/redux';
+import type { DispatchFunc } from 'amo/types/redux';
 import type {
   ReactRouterLocationType,
   ReactRouterMatchType,
-} from 'core/types/router';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
+} from 'amo/types/router';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

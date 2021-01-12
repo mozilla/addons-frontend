@@ -8,10 +8,10 @@ import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
-import SriDataPlugin from './src/core/server/sriDataPlugin';
+import SriDataPlugin from './src/amo/server/sriDataPlugin';
 import { getPlugins, getRules } from './webpack-common';
-import webpackIsomorphicToolsConfig from './src/core/server/webpack-isomorphic-tools-config';
-import { WEBPACK_ENTRYPOINT } from './src/core/constants';
+import webpackIsomorphicToolsConfig from './src/amo/server/webpack-isomorphic-tools-config';
+import { WEBPACK_ENTRYPOINT } from './src/amo/constants';
 
 const entryPoints = { [WEBPACK_ENTRYPOINT]: 'amo/client' };
 

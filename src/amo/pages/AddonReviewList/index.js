@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
+import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
@@ -27,11 +27,11 @@ import {
   fetchAddon,
   getAddonByIdInURL,
   isAddonLoading,
-} from 'core/reducers/addons';
-import Paginate from 'core/components/Paginate';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
+} from 'amo/reducers/addons';
+import Paginate from 'amo/components/Paginate';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
 import Link from 'amo/components/Link';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
@@ -40,16 +40,16 @@ import Select from 'ui/components/Select';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { AddonType } from 'core/types/addons';
-import type { ElementEvent } from 'core/types/dom';
-import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { AddonType } from 'amo/types/addons';
+import type { ElementEvent } from 'amo/types/dom';
+import type { DispatchFunc } from 'amo/types/redux';
 import type {
   ReactRouterHistoryType,
   ReactRouterLocationType,
   ReactRouterMatchType,
-} from 'core/types/router';
-import type { I18nType } from 'core/types/i18n';
+} from 'amo/types/router';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

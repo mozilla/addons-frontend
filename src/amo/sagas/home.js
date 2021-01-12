@@ -9,13 +9,6 @@ import {
   LANDING_PAGE_PROMOTED_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
-} from 'amo/constants';
-import {
-  FETCH_HOME_DATA,
-  abortFetchHomeData,
-  loadHomeData,
-} from 'amo/reducers/home';
-import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   RECOMMENDED,
@@ -23,14 +16,19 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SPONSORED,
-} from 'core/constants';
-import { search as searchApi } from 'core/api/search';
-import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+} from 'amo/constants';
+import {
+  FETCH_HOME_DATA,
+  abortFetchHomeData,
+  loadHomeData,
+} from 'amo/reducers/home';
+import { search as searchApi } from 'amo/api/search';
+import log from 'amo/logger';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { GetCollectionAddonsParams } from 'amo/api/collections';
 import type { FetchHomeDataAction } from 'amo/reducers/home';
-import type { SearchParams } from 'core/api/search';
-import type { Saga } from 'core/types/sagas';
+import type { SearchParams } from 'amo/api/search';
+import type { Saga } from 'amo/types/sagas';
 
 export function* fetchHomeData({
   payload: {

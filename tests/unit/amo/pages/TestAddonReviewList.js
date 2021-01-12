@@ -18,18 +18,18 @@ import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
 import Page from 'amo/components/Page';
 import { getAddonURL } from 'amo/utils';
-import { ErrorHandler } from 'core/errorHandler';
+import { ErrorHandler } from 'amo/errorHandler';
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
-import Paginate from 'core/components/Paginate';
+import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
+import Paginate from 'amo/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   SET_VIEW_CONTEXT,
-} from 'core/constants';
-import { fetchAddon, loadAddon } from 'core/reducers/addons';
+} from 'amo/constants';
+import { fetchAddon, loadAddon } from 'amo/reducers/addons';
 import Card from 'ui/components/Card';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';

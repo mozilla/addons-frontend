@@ -3,7 +3,7 @@ import knuthShuffle from 'knuth-shuffle';
 import heroBannerOrderReducer, {
   initialState,
   setHeroBannerOrder,
-} from 'core/reducers/heroBanners';
+} from 'amo/reducers/heroBanners';
 
 describe(__filename, () => {
   const defaultParams = { name: 'MegaHero', sections: ['1', '2', '3'] };

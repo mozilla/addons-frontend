@@ -1,7 +1,7 @@
 import UAParser from 'ua-parser-js';
 
 import { PermissionUtils } from 'amo/components/PermissionsCard/permissions';
-import { createPlatformFiles } from 'core/reducers/versions';
+import { createPlatformFiles } from 'amo/reducers/versions';
 import {
   fakeI18n,
   fakeVersion,

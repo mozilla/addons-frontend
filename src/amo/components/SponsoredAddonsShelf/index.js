@@ -9,21 +9,21 @@ import AddonsCard from 'amo/components/AddonsCard';
 import { LANDING_PAGE_PROMOTED_EXTENSION_COUNT } from 'amo/constants';
 import { fetchSponsored, getSponsoredShelf } from 'amo/reducers/shelves';
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
-import { withErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
+import { withErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
 import tracking, {
   formatDataForBeacon,
   sendBeacon,
   sendSponsoredEventBeacon,
   storeConversionInfo,
-} from 'core/tracking';
+} from 'amo/tracking';
 import type { SponsoredShelfType } from 'amo/reducers/shelves';
 import type { AppState } from 'amo/store';
-import type { AddonType, CollectionAddonType } from 'core/types/addons';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

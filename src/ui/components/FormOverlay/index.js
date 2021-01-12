@@ -4,13 +4,13 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { closeFormOverlay } from 'core/reducers/formOverlay';
-import translate from 'core/i18n/translate';
+import { closeFormOverlay } from 'amo/reducers/formOverlay';
+import translate from 'amo/i18n/translate';
 import Button from 'ui/components/Button';
 import IconXMark from 'ui/components/IconXMark';
 import type { AppState } from 'amo/store';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

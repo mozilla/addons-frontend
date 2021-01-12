@@ -3,8 +3,8 @@ import * as React from 'react';
 import makeClassNames from 'classnames';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'core/constants';
-import type { AddonType } from 'core/types/addons';
+import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'amo/constants';
+import type { AddonType } from 'amo/types/addons';
 
 import './styles.scss';
 

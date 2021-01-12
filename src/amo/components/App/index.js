@@ -11,30 +11,30 @@ import { compose } from 'redux';
 
 // We have to import these styles first to have them listed first in the final
 // CSS file. See: https://github.com/mozilla/addons-frontend/issues/3565
-import 'core/fonts/fira.scss';
-import 'core/fonts/opensans.scss';
+import 'amo/fonts/fira.scss';
+import 'amo/fonts/opensans.scss';
 import 'normalize.css/normalize.css';
 import './styles.scss';
 
 /* eslint-disable import/first */
 import Routes from 'amo/components/Routes';
-import ScrollToTop from 'core/components/ScrollToTop';
+import ScrollToTop from 'amo/components/ScrollToTop';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { getDjangoBase62 } from 'amo/utils';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
-import { addChangeListeners } from 'core/addonManager';
-import { setUserAgent as setUserAgentAction } from 'core/reducers/api';
-import { setInstallState } from 'core/reducers/installations';
-import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'core/constants';
-import ErrorPage from 'core/components/ErrorPage';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
+import { addChangeListeners } from 'amo/addonManager';
+import { setUserAgent as setUserAgentAction } from 'amo/reducers/api';
+import { setInstallState } from 'amo/reducers/installations';
+import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'amo/constants';
+import ErrorPage from 'amo/components/ErrorPage';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
 import type { AppState } from 'amo/store';
-import type { DispatchFunc } from 'core/types/redux';
-import type { InstalledAddon } from 'core/reducers/installations';
-import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { InstalledAddon } from 'amo/reducers/installations';
+import type { I18nType } from 'amo/types/i18n';
 /* eslint-enable import/first */
 
 interface MozNavigator extends Navigator {

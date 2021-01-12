@@ -4,8 +4,8 @@ import { oneLine } from 'common-tags';
 import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 import NotFound, { NotFoundBase } from 'amo/components/Errors/NotFound';
 import Link from 'amo/components/Link';
-import { createApiError } from 'core/api';
-import { loadErrorPage } from 'core/reducers/errorPage';
+import { createApiError } from 'amo/api';
+import { loadErrorPage } from 'amo/reducers/errorPage';
 import {
   dispatchSignInActions,
   fakeI18n,

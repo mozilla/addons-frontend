@@ -1,4 +1,4 @@
-import { trailingSlashesMiddleware } from 'core/middleware';
+import { trailingSlashesMiddleware } from 'amo/middleware';
 
 describe(__filename, () => {
   let fakeRes;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import HeadLinks, { HeadLinksBase } from 'amo/components/HeadLinks';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
   dispatchClientMetadata,
   getFakeConfig,

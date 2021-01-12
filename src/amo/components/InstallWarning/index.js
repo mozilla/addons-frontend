@@ -11,18 +11,18 @@ import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_FIREFOX,
   EXCLUDE_WARNING_CATEGORIES,
-} from 'core/constants';
-import translate from 'core/i18n/translate';
-import { getPromotedCategory } from 'core/utils/addons';
+} from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import { getPromotedCategory } from 'amo/utils/addons';
 import {
   correctedLocationForPlatform,
   isFirefox,
-} from 'core/utils/compatibility';
+} from 'amo/utils/compatibility';
 import Notice, { genericWarningType } from 'ui/components/Notice';
-import type { UserAgentInfoType } from 'core/reducers/api';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { UserAgentInfoType } from 'amo/reducers/api';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 

@@ -1,4 +1,4 @@
-import reducer, { setUIState } from 'core/reducers/uiState';
+import reducer, { setUIState } from 'amo/reducers/uiState';
 
 describe(__filename, () => {
   describe('reducer', () => {

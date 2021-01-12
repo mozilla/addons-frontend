@@ -4,9 +4,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
-import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
-import log from 'core/logger';
-import translate from 'core/i18n/translate';
+import { API_ERROR_SIGNATURE_EXPIRED } from 'amo/constants';
+import log from 'amo/logger';
+import translate from 'amo/i18n/translate';
 import Notice from 'ui/components/Notice';
 
 import './styles.scss';

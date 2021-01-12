@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import AppBanner, { AppBannerBase } from 'amo/components/AppBanner';
-import SiteNotices from 'core/components/SiteNotices';
-import SurveyNotice from 'core/components/SurveyNotice';
+import SiteNotices from 'amo/components/SiteNotices';
+import SurveyNotice from 'amo/components/SurveyNotice';
 import {
   createContextWithFakeRouter,
   createFakeLocation,

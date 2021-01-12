@@ -1,10 +1,10 @@
-import { CLIENT_APP_FIREFOX, RECOMMENDED } from 'core/constants';
-import { setLang } from 'core/reducers/api';
+import { CLIENT_APP_FIREFOX, RECOMMENDED } from 'amo/constants';
+import { setLang } from 'amo/reducers/api';
 import reducer, {
   autocompleteCancel,
   autocompleteLoad,
   autocompleteStart,
-} from 'core/reducers/autocomplete';
+} from 'amo/reducers/autocomplete';
 import { createFakeAutocompleteResult } from 'tests/unit/helpers';
 
 describe(__filename, () => {

@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { SimulateAsyncErrorBase } from 'core/pages/error-simulation/SimulateAsyncError';
+import { SimulateAsyncErrorBase } from 'amo/pages/error-simulation/SimulateAsyncError';
 
 describe(__filename, () => {
   let clock;

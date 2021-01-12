@@ -4,7 +4,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import withUIState from 'core/withUIState';
+import withUIState from 'amo/withUIState';
 import Button from 'ui/components/Button';
 import ConfirmationDialog from 'ui/components/ConfirmationDialog';
 import type { ButtonType } from 'ui/components/Button';

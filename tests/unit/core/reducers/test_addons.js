@@ -3,7 +3,7 @@ import {
   unloadAddonReviews,
   updateRatingCounts,
 } from 'amo/actions/reviews';
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
+import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import addons, {
   createInternalAddon,
   createInternalAddonInfo,
@@ -20,8 +20,8 @@ import addons, {
   loadAddon,
   loadAddonInfo,
   selectLocalizedUrlWithOutgoing,
-} from 'core/reducers/addons';
-import { setLang } from 'core/reducers/api';
+} from 'amo/reducers/addons';
+import { setLang } from 'amo/reducers/api';
 import {
   createFakeAddon,
   createInternalAddonWithLang,

@@ -21,8 +21,8 @@ import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
-import { ALL_SUPER_POWERS } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
+import { ALL_SUPER_POWERS } from 'amo/constants';
+import { ErrorHandler } from 'amo/errorHandler';
 import {
   createContextWithFakeRouter,
   createFakeEvent,

@@ -1,14 +1,14 @@
 import SagaTester from 'redux-saga-tester';
 
 import createStore from 'amo/store';
-import categoriesSaga from 'core/sagas/categories';
-import * as api from 'core/api/categories';
-import apiReducer, { setClientApp, setLang } from 'core/reducers/api';
+import categoriesSaga from 'amo/sagas/categories';
+import * as api from 'amo/api/categories';
+import apiReducer, { setClientApp, setLang } from 'amo/reducers/api';
 import categoriesReducer, {
   LOAD_CATEGORIES,
   fetchCategories,
   loadCategories,
-} from 'core/reducers/categories';
+} from 'amo/reducers/categories';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe(__filename, () => {

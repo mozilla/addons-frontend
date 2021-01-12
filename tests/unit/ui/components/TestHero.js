@@ -1,7 +1,7 @@
 import { mount } from 'enzyme';
 import * as React from 'react';
 
-import { setHeroBannerOrder } from 'core/reducers/heroBanners';
+import { setHeroBannerOrder } from 'amo/reducers/heroBanners';
 import Hero from 'ui/components/Hero';
 import { dispatchClientMetadata } from 'tests/unit/helpers';
 

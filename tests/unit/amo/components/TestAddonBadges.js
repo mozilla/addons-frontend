@@ -6,7 +6,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   RECOMMENDED,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createInternalAddonWithLang,
   createFakeAddon,

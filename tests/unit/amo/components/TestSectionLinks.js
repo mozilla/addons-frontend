@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import SectionLinks, { SectionLinksBase } from 'amo/components/SectionLinks';
-import { setClientApp } from 'core/reducers/api';
+import { setClientApp } from 'amo/reducers/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -11,7 +11,7 @@ import {
   VIEW_CONTEXT_EXPLORE,
   VIEW_CONTEXT_HOME,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createContextWithFakeRouter,
   createFakeEvent,

@@ -5,13 +5,13 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
-import translate from 'core/i18n/translate';
-import { isRtlLang } from 'core/i18n/utils';
+import translate from 'amo/i18n/translate';
+import { isRtlLang } from 'amo/i18n/utils';
 import LoadingText from 'ui/components/LoadingText';
-import { addQueryParams } from 'core/utils/url';
+import { addQueryParams } from 'amo/utils/url';
 import type { AppState } from 'amo/store';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

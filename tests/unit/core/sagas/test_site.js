@@ -1,13 +1,13 @@
 import SagaTester from 'redux-saga-tester';
 import { END } from 'redux-saga';
 
-import * as api from 'core/api/site';
-import apiReducer from 'core/reducers/api';
+import * as api from 'amo/api/site';
+import apiReducer from 'amo/reducers/api';
 import siteReducer, {
   fetchSiteStatus,
   loadSiteStatus,
-} from 'core/reducers/site';
-import siteSaga from 'core/sagas/site';
+} from 'amo/reducers/site';
+import siteSaga from 'amo/sagas/site';
 import { dispatchClientMetadata } from 'tests/unit/helpers';
 
 describe(__filename, () => {

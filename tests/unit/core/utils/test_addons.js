@@ -15,7 +15,7 @@ import {
   SPOTLIGHT,
   STRATEGIC,
   VERIFIED,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createFakeAutocompleteResult,
   createInternalAddonWithLang,
@@ -30,7 +30,7 @@ import {
   getErrorMessage,
   getFileHash,
   getPromotedCategory,
-} from 'core/utils/addons';
+} from 'amo/utils/addons';
 
 describe(__filename, () => {
   describe('getErrorMessage', () => {

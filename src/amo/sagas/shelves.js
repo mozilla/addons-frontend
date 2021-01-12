@@ -7,11 +7,11 @@ import {
   loadSponsored,
 } from 'amo/reducers/shelves';
 import { getSponsoredShelf } from 'amo/api/shelves';
-import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import log from 'amo/logger';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { GetSponsoredShelfParams } from 'amo/api/shelves';
 import type { FetchSponsoredAction } from 'amo/reducers/shelves';
-import type { Saga } from 'core/types/sagas';
+import type { Saga } from 'amo/types/sagas';
 
 export function* fetchSponsored({
   payload: { errorHandlerId },

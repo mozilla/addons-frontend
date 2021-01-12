@@ -2,8 +2,8 @@ import {
   ADDON_TYPE_EXTENSION,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RECOMMENDED,
-} from 'core/constants';
-import { getCategoryResultsQuery } from 'core/utils/categories';
+} from 'amo/constants';
+import { getCategoryResultsQuery } from 'amo/utils/categories';
 
 describe(__filename, () => {
   describe('getCategoryResultsQuery', () => {

@@ -5,8 +5,8 @@ import SearchPage, {
   SearchPageBase,
   mapStateToProps,
 } from 'amo/pages/SearchPage';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX, OS_MAC } from 'core/constants';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX, OS_MAC } from 'amo/constants';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   createFakeLocation,
   dispatchClientMetadata,

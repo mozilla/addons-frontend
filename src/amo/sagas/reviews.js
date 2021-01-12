@@ -46,8 +46,8 @@ import {
   setUserReviews,
   updateRatingCounts,
 } from 'amo/actions/reviews';
-import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import log from 'amo/logger';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { AppState } from 'amo/store';
 import type {
   ExternalReviewReplyType,
@@ -74,7 +74,7 @@ import type {
   UpdateAddonReviewAction,
 } from 'amo/actions/reviews';
 import { selectReview } from 'amo/reducers/reviews';
-import type { Saga } from 'core/types/sagas';
+import type { Saga } from 'amo/types/sagas';
 
 // Number of millesconds that a message should be flashed on screen.
 export const FLASH_SAVED_MESSAGE_DURATION = 2000;

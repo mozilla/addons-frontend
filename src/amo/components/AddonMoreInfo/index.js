@@ -7,23 +7,23 @@ import { withRouter } from 'react-router-dom';
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
 import Link from 'amo/components/Link';
-import { getVersionById, getVersionInfo } from 'core/reducers/versions';
-import { STATS_VIEW } from 'core/constants';
-import translate from 'core/i18n/translate';
+import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
+import { STATS_VIEW } from 'amo/constants';
+import translate from 'amo/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
-import type { AddonType } from 'core/types/addons';
-import { isAddonAuthor } from 'core/utils';
+import type { AddonType } from 'amo/types/addons';
+import { isAddonAuthor } from 'amo/utils';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
 import {
   addQueryParams,
   getQueryParametersForAttribution,
-} from 'core/utils/url';
+} from 'amo/utils/url';
 import type { AppState } from 'amo/store';
-import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
-import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { AddonVersionType, VersionInfoType } from 'amo/reducers/versions';
+import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 type Props = {|
   addon: AddonType | null,

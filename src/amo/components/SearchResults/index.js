@@ -3,12 +3,12 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
-import Paginate from 'core/components/Paginate';
-import { INSTALL_SOURCE_FEATURED, INSTALL_SOURCE_SEARCH } from 'core/constants';
-import translate from 'core/i18n/translate';
-import type { SearchFilters } from 'core/api/search';
-import type { AddonType, CollectionAddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
+import Paginate from 'amo/components/Paginate';
+import { INSTALL_SOURCE_FEATURED, INSTALL_SOURCE_SEARCH } from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import type { SearchFilters } from 'amo/api/search';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
 
 type Props = {|
   count: number,

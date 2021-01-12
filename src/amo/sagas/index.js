@@ -9,17 +9,17 @@ import landing from 'amo/sagas/landing';
 import recommendations from 'amo/sagas/recommendations';
 import reviews from 'amo/sagas/reviews';
 import shelves from 'amo/sagas/shelves';
-import abuse from 'core/sagas/abuse';
-import addons from 'core/sagas/addons';
-import categories from 'core/sagas/categories';
-import search from 'core/sagas/search';
-import site from 'core/sagas/site';
-import autocomplete from 'core/sagas/autocomplete';
-import languageTools from 'core/sagas/languageTools';
+import abuse from 'amo/sagas/abuse';
+import addons from 'amo/sagas/addons';
+import categories from 'amo/sagas/categories';
+import search from 'amo/sagas/search';
+import site from 'amo/sagas/site';
+import autocomplete from 'amo/sagas/autocomplete';
+import languageTools from 'amo/sagas/languageTools';
 import userAbuseReports from 'amo/sagas/userAbuseReports';
 import users from 'amo/sagas/users';
-import versions from 'core/sagas/versions';
-import type { Saga } from 'core/types/sagas';
+import versions from 'amo/sagas/versions';
+import type { Saga } from 'amo/types/sagas';
 
 // Export all sagas for this app so runSaga can consume them.
 export default function* rootSaga(): Saga {

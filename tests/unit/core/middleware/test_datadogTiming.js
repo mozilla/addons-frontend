@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 
-import { datadogTiming } from 'core/middleware/datadogTiming';
+import { datadogTiming } from 'amo/middleware/datadogTiming';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 import { ServerTestHelper } from 'tests/unit/core/server/test_base';
 

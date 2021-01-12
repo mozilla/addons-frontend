@@ -7,8 +7,8 @@ import blocksReducer, {
   loadBlock,
 } from 'amo/reducers/blocks';
 import blocksSaga from 'amo/sagas/blocks';
-import { createApiError } from 'core/api';
-import apiReducer from 'core/reducers/api';
+import { createApiError } from 'amo/api';
+import apiReducer from 'amo/reducers/api';
 import {
   createFakeBlockResult,
   createStubErrorHandler,

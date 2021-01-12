@@ -1,6 +1,6 @@
-import * as api from 'core/api';
-import { languageTools } from 'core/api/languageTools';
-import { CLIENT_APP_ANDROID } from 'core/constants';
+import * as api from 'amo/api';
+import { languageTools } from 'amo/api/languageTools';
+import { CLIENT_APP_ANDROID } from 'amo/constants';
 import {
   createApiResponse,
   createFakeLanguageTool,

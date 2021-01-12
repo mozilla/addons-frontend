@@ -6,14 +6,14 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   RECOMMENDED,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
   convertOSToFilterValue,
   fixFiltersForClientApp,
-} from 'core/searchUtils';
+} from 'amo/searchUtils';
 import {
   dispatchClientMetadata,
   getFakeConfig,
