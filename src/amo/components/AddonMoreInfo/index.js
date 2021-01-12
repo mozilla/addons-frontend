@@ -62,7 +62,11 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     if (homepage) {
       homepage = (
         <li>
-          <a className="AddonMoreInfo-homepage-link" href={homepage}>
+          <a
+            className="AddonMoreInfo-homepage-link"
+            href={homepage}
+            title={addon.homepage && addon.homepage.url}
+          >
             {i18n.gettext('Homepage')}
           </a>
         </li>
@@ -73,7 +77,11 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     if (supportUrl) {
       supportUrl = (
         <li>
-          <a className="AddonMoreInfo-support-link" href={supportUrl}>
+          <a
+            className="AddonMoreInfo-support-link"
+            href={supportUrl}
+            title={addon.support_url && addon.support_url.url}
+          >
             {i18n.gettext('Support site')}
           </a>
         </li>

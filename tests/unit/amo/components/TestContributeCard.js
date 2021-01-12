@@ -72,6 +72,7 @@ describe(__filename, () => {
     );
     expect(root.find(Button).children().at(1)).toHaveText('Contribute now');
     expect(root.find(Button)).toHaveProp('target', '_blank');
+    expect(root.find(Button)).toHaveProp('title', 'https://paypal.me/babar');
   });
 
   it('displays content for an extension developer', () => {

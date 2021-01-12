@@ -143,6 +143,7 @@ describe(__filename, () => {
 
     expect(link).toIncludeText('Homepage');
     expect(link).toHaveProp('href', 'https://outgoing.mozilla.org/hamster');
+    expect(link).toHaveProp('title', 'http://hamsterdance.com/');
   });
 
   it('does not render a support link if none exists', () => {
@@ -157,7 +158,7 @@ describe(__filename, () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
       support_url: {
-        url: createLocalizedString('http://support.hampsterdance.com/'),
+        url: createLocalizedString('http://support.hamsterdance.com/'),
         outgoing: createLocalizedString('https://outgoing.mozilla.org/hamster'),
       },
     });
@@ -166,6 +167,7 @@ describe(__filename, () => {
 
     expect(link).toIncludeText('Support site');
     expect(link).toHaveProp('href', 'https://outgoing.mozilla.org/hamster');
+    expect(link).toHaveProp('title', 'http://support.hamsterdance.com/');
   });
 
   it('renders the email link of an add-on', () => {
