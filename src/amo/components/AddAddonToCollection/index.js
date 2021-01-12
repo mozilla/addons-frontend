@@ -30,7 +30,6 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
-  // latest: boolean,
 |};
 
 type InternalProps = {|

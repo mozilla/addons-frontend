@@ -35,7 +35,7 @@ export type Props = {|
   // working fine with 7.17.0)
   // eslint-disable-next-line react/no-unused-prop-types
   version?: AddonVersionType | null,
-  latest: boolean,
+  showButtonInsteadOfLink: boolean,
 |};
 
 type InternalProps = {|
@@ -47,7 +47,7 @@ type InternalProps = {|
   i18n: I18nType,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
-  latest: boolean,
+  showButtonInsteadOfLink: boolean,
 |};
 
 export const InstallButtonWrapperBase = (props: InternalProps) => {
@@ -71,7 +71,7 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
     setCurrentStatus,
     uninstall,
     userAgentInfo,
-    latest,
+    showButtonInsteadOfLink,
   } = props;
 
   let isCompatible = false;
@@ -95,7 +95,7 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
 
   const showDownloadLink = !isCompatible && installURL;
 
-  if (latest === false) {
+  if (showButtonInsteadOfLink === false) {
     return (
       <div
         className={makeClassName('InstallButtonWrapper', {
