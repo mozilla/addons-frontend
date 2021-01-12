@@ -185,7 +185,19 @@ export default ConfirmButton;
 
 ### Prettier
 
-We use [Prettier][] to automatically format our JavaScript code and stop all the on-going debates over styles. As a developer, you have to run it (with `yarn prettier-dev`) before submitting a Pull Request.
+We use [Prettier][] to automatically format our JavaScript code and stop all the on-going debates over styles.
+
+### Pre-commit hook
+
+We use [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged) to configure and run a pre-commit hook whenever you add a commit locally using Git. This hook will automatically run `Prettier` on your code, and will also check it for `eslint` and `flow` errors. If any errors exist, you will see a message similar to:
+
+`✔ Reverting to original state because of errors...`
+
+which will be followed by the details of the error(s). The last line of output will say:
+
+`husky > pre-commit hook failed (add --no-verify to bypass)`
+
+As per this message, you can bypass this hook by adding `--no-verify` to your `git commit` command, but we do not recommend doing this. Instead, you should fix any errors reported and then run `git commit` again, and it should succeed.
 
 ### Code coverage
 
