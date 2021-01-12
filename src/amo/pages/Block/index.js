@@ -94,7 +94,7 @@ export class BlockBase extends React.Component<InternalProps> {
     if (block.url) {
       content.push(
         ' ',
-        <a key={block.url.url} href={block.url.outgoing}>
+        <a key={block.url.url} href={block.url.outgoing} title={block.url.url}>
           {i18n.gettext('View block request')}
         </a>,
         '.',

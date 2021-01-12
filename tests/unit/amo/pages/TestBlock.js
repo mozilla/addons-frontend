@@ -285,7 +285,7 @@ describe(__filename, () => {
     const root = render({ store, guid });
 
     expect(root.find('.Block-metadata').html()).toContain(
-      `<a href="${url.outgoing}">View block request</a>.`,
+      `<a href="${url.outgoing}" title="${url.url}">View block request</a>.`,
     );
   });
 

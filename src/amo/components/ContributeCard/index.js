@@ -103,6 +103,7 @@ export const ContributeCardBase = ({
           href={
             (addon.contributions_url && addon.contributions_url.outgoing) || ''
           }
+          title={addon.contributions_url && addon.contributions_url.url}
           onClick={onButtonClick}
           target="_blank"
           puffy
