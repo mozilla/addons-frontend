@@ -2,7 +2,7 @@ import EventEmitter from 'events';
 
 import { datadogTiming } from 'amo/middleware/datadogTiming';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
-import { ServerTestHelper } from 'tests/unit/core/server/test_base';
+import { ServerTestHelper } from 'tests/unit/amo/server/test_base';
 
 describe(__filename, () => {
   let hotShotsClient;

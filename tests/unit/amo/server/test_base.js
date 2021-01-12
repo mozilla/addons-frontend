@@ -26,7 +26,7 @@ import surveyReducer, {
 import * as siteApi from 'amo/api/site';
 import siteReducer from 'amo/reducers/site';
 import siteSaga from 'amo/sagas/site';
-import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
+import FakeApp, { fakeAssets } from 'tests/unit/amo/server/fakeApp';
 import {
   createUserAccountResponse,
   getFakeConfig,
