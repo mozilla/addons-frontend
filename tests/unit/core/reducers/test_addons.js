@@ -19,6 +19,7 @@ import addons, {
   isAddonLoading,
   loadAddon,
   loadAddonInfo,
+  selectLocalizedUrlWithOutgoing,
 } from 'core/reducers/addons';
 import { setLang } from 'core/reducers/api';
 import {
@@ -917,6 +918,47 @@ describe(__filename, () => {
           w: preview2.image_size[0],
         },
       ]);
+    });
+  });
+
+  describe('selectLocalizedUrlWithOutgoing', () => {
+    it('selects the url and outgoing url in the correct locale', () => {
+      const fr_urls = {
+        url: 'https://fr.foo.baa/',
+        outgoing: 'https://outgoing/?123&fr.foo.baa',
+      };
+      const en_urls = {
+        url: 'https://en.foo.baa/',
+        outgoing: 'https://outgoing/?123&en.foo.baa',
+      };
+
+      expect(
+        selectLocalizedUrlWithOutgoing(
+          {
+            url: { fr: fr_urls.url, 'en-US': en_urls.url },
+            outgoing: { fr: fr_urls.outgoing, 'en-US': en_urls.outgoing },
+          },
+          'fr',
+        ),
+      ).toEqual(fr_urls);
+    });
+
+    it('returns null if the localizedUrl is null or if url or outgoing is missing', () => {
+      expect(selectLocalizedUrlWithOutgoing(null, lang)).toEqual(null);
+
+      expect(
+        selectLocalizedUrlWithOutgoing(
+          { url: { [lang]: 'https://url' } },
+          lang,
+        ),
+      ).toEqual(null);
+
+      expect(
+        selectLocalizedUrlWithOutgoing(
+          { outgoing: { [lang]: 'https://url' } },
+          lang,
+        ),
+      ).toEqual(null);
     });
   });
 });
