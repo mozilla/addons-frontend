@@ -36,7 +36,7 @@ function reviewBody({
   id,
 }: {|
   content?: React.Node | string,
-  html?: React.Node,
+  html?: {| __html: string |},
   id: string,
 |}) {
   invariant(

@@ -1,6 +1,7 @@
 /* @flow */
 import url from 'url';
 
+import * as React from 'react';
 import config from 'config';
 import { decode } from 'html-entities';
 import invariant from 'invariant';
@@ -50,6 +51,9 @@ import {
   USER_AGENT_OS_UNIX,
   USER_AGENT_OS_WINDOWS,
 } from 'amo/reducers/api';
+import type { AddonType } from 'amo/types/addons';
+import type { UserAgentInfoType } from 'amo/reducers/api';
+import type { PlatformFilesType } from 'amo/reducers/versions';
 
 /*
  * Return a base62 object that encodes/decodes just like how Django does it
@@ -162,7 +166,7 @@ export const stripLangFromAmoUrl = ({
   return urlString;
 };
 
-export function getClientConfig(_config) {
+export function getClientConfig(_config: typeof config) {
   const clientConfig = {};
   for (const key of _config.get('clientConfigKeys')) {
     clientConfig[key] = _config.get(key);
@@ -170,7 +174,7 @@ export function getClientConfig(_config) {
   return clientConfig;
 }
 
-export function convertBoolean(value) {
+export function convertBoolean(value: any) {
   switch (value) {
     case true:
     case 1:
@@ -189,7 +193,7 @@ export function convertBoolean(value) {
  * More complete UA detection for compatibility will take place elsewhere.
  *
  */
-export function getClientApp(userAgentString) {
+export function getClientApp(userAgentString: string) {
   // We are going to return android as the application if it's *any* android browser.
   // whereas the previous behaviour was to only return 'android' for FF Android.
   // This way we are showing more relevant content, and if we prompt for the user to download
@@ -200,11 +204,18 @@ export function getClientApp(userAgentString) {
   return 'firefox';
 }
 
-export function isValidClientApp(value, { _config = config } = {}) {
+export function isValidClientApp(
+  value: string,
+  { _config = config }: {| _config: typeof config |} = {},
+) {
   return _config.get('validClientApplications').includes(value);
 }
 
-export function sanitizeHTML(text, allowTags = [], _purify = purify) {
+export function sanitizeHTML(
+  text: ?string,
+  allowTags: Array<string> = [],
+  _purify: typeof purify = purify,
+): {| __html: string |} {
   // TODO: Accept tags to allow and run through dom-purify.
   return {
     __html: _purify.sanitize(text, { ALLOWED_TAGS: allowTags }),
@@ -212,7 +223,7 @@ export function sanitizeHTML(text, allowTags = [], _purify = purify) {
 }
 
 // Convert new lines to HTML breaks.
-export function nl2br(text) {
+export function nl2br(text: ?string): string {
   return (text || '').replace(/(\r\n|\r|\n)(?!<\/?(li|ul|ol)>)/g, '<br />');
 }
 
@@ -227,7 +238,7 @@ export function nl2br(text) {
  * Developer Hub when you hover over the *Some HTML Supported* link under
  * the textarea field.
  */
-export function sanitizeUserHTML(text) {
+export function sanitizeUserHTML(text: ?string) {
   return sanitizeHTML(nl2br(text), [
     'a',
     'abbr',
@@ -245,7 +256,13 @@ export function sanitizeUserHTML(text) {
   ]);
 }
 
-export function isAddonAuthor({ addon, userId }) {
+export function isAddonAuthor({
+  addon,
+  userId,
+}: {|
+  addon: AddonType | null,
+  userId: string | number | null,
+|}) {
   if (!addon || !addon.authors || !addon.authors.length || !userId) {
     return false;
   }
@@ -256,8 +273,10 @@ export function isAddonAuthor({ addon, userId }) {
 }
 
 export function isAllowedOrigin(
-  urlString,
-  { allowedOrigins = [config.get('amoCDN')] } = {},
+  urlString: string,
+  {
+    allowedOrigins = [config.get('amoCDN')],
+  }: {| allowedOrigins?: Array<string> |} = {},
 ) {
   let parsedURL;
   try {
@@ -267,24 +286,26 @@ export function isAllowedOrigin(
     return false;
   }
 
-  return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
+  return allowedOrigins.includes(
+    `${parsedURL.protocol || ''}//${parsedURL.host || ''}`,
+  );
 }
 
-export function apiAddonTypeIsValid(addonType) {
+export function apiAddonTypeIsValid(addonType: string) {
   return Object.prototype.hasOwnProperty.call(
     API_ADDON_TYPES_MAPPING,
     addonType,
   );
 }
 
-export function apiAddonType(addonType) {
+export function apiAddonType(addonType: string) {
   if (!apiAddonTypeIsValid(addonType)) {
     throw new Error(`"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
   }
   return API_ADDON_TYPES_MAPPING[addonType];
 }
 
-export function visibleAddonType(addonType) {
+export function visibleAddonType(addonType: string) {
   if (
     !Object.prototype.hasOwnProperty.call(
       VISIBLE_ADDON_TYPES_MAPPING,
@@ -296,24 +317,30 @@ export function visibleAddonType(addonType) {
   return VISIBLE_ADDON_TYPES_MAPPING[addonType];
 }
 
-export function removeProtocolFromURL(urlWithProtocol) {
+export function removeProtocolFromURL(urlWithProtocol: string) {
   invariant(urlWithProtocol, 'urlWithProtocol is required');
 
   // `//test.com` is a valid, protocol-relative URL which we'll allow.
   return urlWithProtocol.replace(/^(https?:|)\/\//, '');
 }
 
-export function isValidLocaleUrlException(value, { _config = config } = {}) {
+export function isValidLocaleUrlException(
+  value: string,
+  { _config = config }: { _config?: typeof config } = {},
+) {
   return _config.get('validLocaleUrlExceptions').includes(value);
 }
 
-export function isValidClientAppUrlException(value, { _config = config } = {}) {
+export function isValidClientAppUrlException(
+  value: string,
+  { _config = config }: { _config?: typeof config } = {},
+) {
   return _config.get('validClientAppUrlExceptions').includes(value);
 }
 
 export function isValidTrailingSlashUrlException(
-  value,
-  { _config = config } = {},
+  value: string,
+  { _config = config }: { _config?: typeof config } = {},
 ) {
   return _config.get('validTrailingSlashUrlExceptions').includes(value);
 }
@@ -325,7 +352,7 @@ export function isValidTrailingSlashUrlException(
  * instead. If the callback runs without an error, its return value is not
  * altered. In other words, it may or may not return a promise and that's ok.
  */
-export const safePromise = (callback) => (...args) => {
+export const safePromise = (callback: Function) => (...args: any) => {
   try {
     return callback(...args);
   } catch (error) {
@@ -336,7 +363,7 @@ export const safePromise = (callback) => (...args) => {
 /*
  * Decodes HTML entities into their respective symbols.
  */
-export const decodeHtmlEntities = (string) => {
+export const decodeHtmlEntities = (string: string | null) => {
   return decode(string);
 };
 
@@ -350,7 +377,7 @@ export const decodeHtmlEntities = (string) => {
  * returns a relative path but `__filename` on the server returns an
  * absolute path.
  */
-export const normalizeFileNameId = (filename) => {
+export const normalizeFileNameId = (filename: string) => {
   let fileId = filename;
   if (!fileId.startsWith('src')) {
     fileId = fileId.replace(/^.*src/, 'src');
@@ -359,15 +386,25 @@ export const normalizeFileNameId = (filename) => {
   return fileId;
 };
 
-export const getDisplayName = (component) => {
-  return component.displayName || component.name || 'Component';
+export const getDisplayName = (component: React.ComponentType<any>): string => {
+  const defaultName = 'Component';
+
+  if (component) {
+    return component.displayName || component.name || defaultName;
+  }
+
+  return defaultName;
 };
 
 export const addQueryParamsToHistory = ({
   history,
   _parse = parse,
   _stringify = stringify,
-}) => {
+}: {|
+  history: typeof history,
+  _parse?: typeof parse,
+  _stringify?: typeof stringify,
+|}) => {
   return qhistory(history, _stringify, _parse);
 };
 
@@ -400,7 +437,13 @@ export const userAgentOSToPlatform = {
   [USER_AGENT_OS_UNIX.toLowerCase()]: OS_LINUX,
 };
 
-export const findFileForPlatform = ({ userAgentInfo, platformFiles }) => {
+export const findFileForPlatform = ({
+  userAgentInfo,
+  platformFiles,
+}: {|
+  userAgentInfo: UserAgentInfoType,
+  platformFiles: PlatformFilesType,
+|}) => {
   invariant(userAgentInfo, 'userAgentInfo is required');
   invariant(platformFiles, 'platformFiles is required');
 

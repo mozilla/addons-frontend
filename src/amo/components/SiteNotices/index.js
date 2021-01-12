@@ -30,7 +30,7 @@ type InternalProps = {|
 // We cannot use `sanitizeUserHTML()` on a `<span />`, which is required to
 // avoid the UI glitch so we configure our own sanitize function to make sure
 // it is safe to use `<span />`.
-const sanitizeNoticeHTML = (text: string): string => {
+const sanitizeNoticeHTML = (text: string) => {
   return sanitizeHTML(nl2br(text), ['a', 'b', 'br', 'em', 'i', 'strong']);
 };
 

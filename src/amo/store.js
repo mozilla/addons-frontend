@@ -71,7 +71,9 @@ import type { VersionsState } from 'amo/reducers/versions';
 import type { ReactRouterHistoryType, LocationType } from 'amo/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'amo/types/store';
 
-export const minimalReduxLogger = () => (next) => (action) => {
+export const minimalReduxLogger = () => (next: (action: Object) => Object) => (
+  action: Object,
+) => {
   log.info(`Dispatching ${action.type}`);
   return next(action);
 };
@@ -90,7 +92,15 @@ export function middleware({
   _window = typeof window !== 'undefined' ? window : null,
   sagaMiddleware = null,
   routerMiddleware = null,
-} = {}) {
+}: {|
+  _applyMiddleware?: typeof applyMiddleware,
+  _config?: typeof config,
+  _createLogger?: typeof createLogger,
+  _minimalReduxLogger?: typeof minimalReduxLogger,
+  _window?: typeof window | null,
+  sagaMiddleware?: Object | null,
+  routerMiddleware?: Object | null,
+|} = {}) {
   const isDev = _config.get('isDevelopment');
 
   const callbacks = [];
