@@ -34,7 +34,6 @@ export const UserCollectionBase = (props: InternalProps) => {
     linkProps.href = '';
   } else {
     invariant(authorId, 'authorId is required');
-    invariant(name, 'name is required');
     invariant(slug, 'slug is required');
     invariant(
       numberOfAddons !== undefined && Number.isInteger(numberOfAddons),
@@ -51,7 +50,9 @@ export const UserCollectionBase = (props: InternalProps) => {
   return (
     <li className="UserCollection" key={id}>
       <Link className="UserCollection-link" {...linkProps}>
-        <h2 className="UserCollection-name">{name || <LoadingText />}</h2>
+        <h2 className="UserCollection-name">
+          {loading ? <LoadingText /> : name || i18n.gettext('(no name)')}
+        </h2>
         <p className="UserCollection-number">{numberText || <LoadingText />}</p>
       </Link>
     </li>

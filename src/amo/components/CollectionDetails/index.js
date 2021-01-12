@@ -60,7 +60,11 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
     return (
       <div className="CollectionDetails">
         <h1 className="CollectionDetails-title">
-          {collection ? collection.name : <LoadingText />}
+          {collection ? (
+            collection.name || i18n.gettext('(no name)')
+          ) : (
+            <LoadingText />
+          )}
         </h1>
         <p className="CollectionDetails-description">
           {collection ? (
