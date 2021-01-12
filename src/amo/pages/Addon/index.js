@@ -28,7 +28,7 @@ import Link from 'amo/components/Link';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { getAddonURL } from 'amo/utils';
+import { getAddonURL, nl2br, sanitizeHTML, sanitizeUserHTML } from 'amo/utils';
 import { getVersionById } from 'amo/reducers/versions';
 import {
   fetchAddon,
@@ -43,7 +43,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
 } from 'amo/constants';
-import { nl2br, sanitizeHTML, sanitizeUserHTML } from 'amo/utils';
 import { getAddonIconUrl } from 'amo/imageUtils';
 import translate from 'amo/i18n/translate';
 import Card from 'ui/components/Card';

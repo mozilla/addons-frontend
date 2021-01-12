@@ -12,11 +12,20 @@ import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 import { createMemoryHistory } from 'history';
 
-import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
+import {
+  DOWNLOAD_FIREFOX_BASE_URL,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+  ENABLED,
+  OS_ALL,
+} from 'amo/constants';
 import { createInternalCollection } from 'amo/reducers/collections';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
-import { getDjangoBase62 } from 'amo/utils';
+import { getDjangoBase62, addQueryParamsToHistory } from 'amo/utils';
 import { setError } from 'amo/actions/errors';
 import { createApiError } from 'amo/api/index';
 import {
@@ -28,15 +37,6 @@ import {
 } from 'amo/reducers/api';
 import * as coreApi from 'amo/api';
 import { getAddonStatus } from 'amo/addonManager';
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_LANG,
-  ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
-  ENABLED,
-  OS_ALL,
-} from 'amo/constants';
 import { ErrorHandler } from 'amo/errorHandler';
 import { makeI18n } from 'amo/i18n/utils';
 import { createInternalAddon } from 'amo/reducers/addons';
@@ -50,7 +50,6 @@ import { selectUIState } from 'amo/reducers/uiState';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
 import { createInternalVersion } from 'amo/reducers/versions';
 import { createUIStateMapper, mergeUIStateProps } from 'amo/withUIState';
-import { addQueryParamsToHistory } from 'amo/utils';
 
 export const DEFAULT_LANG_IN_TESTS = config.get('defaultLang');
 export const sampleUserAgent =

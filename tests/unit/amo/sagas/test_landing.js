@@ -4,14 +4,6 @@ import * as searchApi from 'amo/api/search';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
-} from 'amo/constants';
-import landingReducer, {
-  LOAD_LANDING,
-  getLanding,
-  loadLanding,
-} from 'amo/reducers/landing';
-import landingSaga from 'amo/sagas/landing';
-import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   RECOMMENDED,
@@ -19,6 +11,12 @@ import {
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_RANDOM,
 } from 'amo/constants';
+import landingReducer, {
+  LOAD_LANDING,
+  getLanding,
+  loadLanding,
+} from 'amo/reducers/landing';
+import landingSaga from 'amo/sagas/landing';
 import apiReducer from 'amo/reducers/api';
 import {
   createAddonsApiResult,

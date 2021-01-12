@@ -3,6 +3,7 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 
+import { createFakeApiError } from 'tests/unit/core/reducers/test_errors';
 import { createApiError } from 'amo/api/index';
 import { ERROR_UNKNOWN } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -18,7 +19,6 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { createFakeApiError } from 'tests/unit/amo/reducers/test_errors';
 import ErrorList from 'ui/components/ErrorList';
 
 class SomeComponentBase extends React.Component {

@@ -24,7 +24,7 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { getAddonURL } from 'amo/utils';
+import { getAddonURL, addQueryParamsToHistory } from 'amo/utils';
 import createStore from 'amo/store';
 import { fetchAddon as fetchAddonAction, loadAddon } from 'amo/reducers/addons';
 import {
@@ -44,7 +44,6 @@ import {
 } from 'amo/constants';
 import I18nProvider from 'amo/i18n/Provider';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
-import { addQueryParamsToHistory } from 'amo/utils';
 import {
   createCapturedErrorHandler,
   createFakeClientCompatibility,

@@ -7,6 +7,13 @@ import {
   LANDING_PAGE_PROMOTED_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
+  RECOMMENDED,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RANDOM,
+  SEARCH_SORT_TRENDING,
+  SPONSORED,
 } from 'amo/constants';
 import homeReducer, {
   abortFetchHomeData,
@@ -16,15 +23,6 @@ import homeReducer, {
 import homeSaga from 'amo/sagas/home';
 import { createApiError } from 'amo/api';
 import * as searchApi from 'amo/api/search';
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_STATIC_THEME,
-  RECOMMENDED,
-  SEARCH_SORT_POPULAR,
-  SEARCH_SORT_RANDOM,
-  SEARCH_SORT_TRENDING,
-  SPONSORED,
-} from 'amo/constants';
 import apiReducer from 'amo/reducers/api';
 import {
   createAddonsApiResult,

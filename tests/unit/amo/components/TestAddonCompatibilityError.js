@@ -4,8 +4,8 @@ import * as React from 'react';
 import AddonCompatibilityError, {
   AddonCompatibilityErrorBase,
 } from 'amo/components/AddonCompatibilityError';
-import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import {
+  DOWNLOAD_FIREFOX_BASE_URL,
   CLIENT_APP_FIREFOX,
   CLIENT_APP_ANDROID,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,

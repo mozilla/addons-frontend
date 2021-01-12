@@ -12,6 +12,7 @@ import {
   checkInternalURL,
   getAddonURL,
   getPromotedBadgesLinkUrl,
+  sanitizeUserHTML,
 } from 'amo/utils';
 import {
   DEFAULT_UTM_SOURCE,
@@ -22,7 +23,6 @@ import {
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import tracking from 'amo/tracking';
-import { sanitizeUserHTML } from 'amo/utils';
 import { getPromotedCategory } from 'amo/utils/addons';
 import { addQueryParams } from 'amo/utils/url';
 import LoadingText from 'ui/components/LoadingText';

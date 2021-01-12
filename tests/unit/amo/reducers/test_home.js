@@ -3,6 +3,8 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
+  ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_FIREFOX,
 } from 'amo/constants';
 import homeReducer, {
   abortFetchHomeData,
@@ -11,7 +13,6 @@ import homeReducer, {
   initialState,
   loadHomeData,
 } from 'amo/reducers/home';
-import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'amo/constants';
 import { setClientApp, setLang } from 'amo/reducers/api';
 import {
   createAddonsApiResult,

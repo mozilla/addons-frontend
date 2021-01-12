@@ -20,13 +20,6 @@ import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
-} from 'amo/constants';
-import {
-  FETCH_HOME_DATA,
-  fetchHomeData,
-  loadHomeData,
-} from 'amo/reducers/home';
-import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
@@ -36,6 +29,11 @@ import {
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
+import {
+  FETCH_HOME_DATA,
+  fetchHomeData,
+  loadHomeData,
+} from 'amo/reducers/home';
 import LoadingText from 'ui/components/LoadingText';
 import {
   createAddonsApiResult,

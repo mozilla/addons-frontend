@@ -6,8 +6,8 @@ import invariant from 'invariant';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
+  ADDON_TYPE_STATIC_THEME,
 } from 'amo/constants';
-import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { createInternalAddon } from 'amo/reducers/addons';
 import { SET_CLIENT_APP, SET_LANG } from 'amo/reducers/api';
 import type { SetClientAppAction } from 'amo/reducers/api';

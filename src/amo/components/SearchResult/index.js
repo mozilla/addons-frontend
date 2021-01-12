@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import { getAddonURL } from 'amo/utils';
+import { getAddonURL, nl2br, sanitizeHTML } from 'amo/utils';
 import {
   ADDON_TYPE_STATIC_THEME,
   DEFAULT_UTM_SOURCE,
@@ -14,7 +14,6 @@ import {
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
-import { nl2br, sanitizeHTML } from 'amo/utils';
 import { getPromotedCategory } from 'amo/utils/addons';
 import { addQueryParams } from 'amo/utils/url';
 import Icon from 'ui/components/Icon';

@@ -9,13 +9,6 @@ import {
   LANDING_PAGE_PROMOTED_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
-} from 'amo/constants';
-import {
-  FETCH_HOME_DATA,
-  abortFetchHomeData,
-  loadHomeData,
-} from 'amo/reducers/home';
-import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   RECOMMENDED,
@@ -24,6 +17,11 @@ import {
   SEARCH_SORT_TRENDING,
   SPONSORED,
 } from 'amo/constants';
+import {
+  FETCH_HOME_DATA,
+  abortFetchHomeData,
+  loadHomeData,
+} from 'amo/reducers/home';
 import { search as searchApi } from 'amo/api/search';
 import log from 'amo/logger';
 import { createErrorHandler, getState } from 'amo/sagas/utils';

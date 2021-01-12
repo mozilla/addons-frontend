@@ -6,9 +6,6 @@ import { GET_LANDING, loadLanding } from 'amo/reducers/landing';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
-} from 'amo/constants';
-import { search as searchApi } from 'amo/api/search';
-import {
   ADDON_TYPE_EXTENSION,
   RECOMMENDED,
   SEARCH_SORT_RANDOM,
@@ -16,6 +13,7 @@ import {
   SEARCH_SORT_TOP_RATED,
   ADDON_TYPE_STATIC_THEME,
 } from 'amo/constants';
+import { search as searchApi } from 'amo/api/search';
 import log from 'amo/logger';
 import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { GetLandingAction } from 'amo/reducers/landing';

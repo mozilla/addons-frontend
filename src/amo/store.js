@@ -1,14 +1,18 @@
 /* @flow */
+/* global window */
 import config from 'config';
 import { createMemoryHistory } from 'history';
 import {
   applyMiddleware,
   compose,
-  createStore as _createStore,
+  createStore as defaultCreateStore,
   combineReducers,
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { connectRouter, routerMiddleware } from 'connected-react-router';
+import {
+  connectRouter,
+  routerMiddleware as defaultRouterMiddleware,
+} from 'connected-react-router';
 import { createLogger } from 'redux-logger';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
@@ -127,7 +131,7 @@ export function middleware({
       _window &&
       _window.__REDUX_DEVTOOLS_EXTENSION__
       ? _window.__REDUX_DEVTOOLS_EXTENSION__()
-      : (createStore) => createStore,
+      : (_createStore) => _createStore,
   );
 }
 
@@ -227,11 +231,11 @@ export default function createStore({
   initialState = {},
 }: CreateStoreParams = {}) {
   const sagaMiddleware = createSagaMiddleware();
-  const store = _createStore(
+  const store = defaultCreateStore(
     createRootReducer({ history, reducers }),
     initialState,
     middleware({
-      routerMiddleware: routerMiddleware(history),
+      routerMiddleware: defaultRouterMiddleware(history),
       sagaMiddleware,
     }),
   );

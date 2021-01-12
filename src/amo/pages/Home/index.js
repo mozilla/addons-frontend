@@ -19,9 +19,6 @@ import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
-} from 'amo/constants';
-import { fetchHomeData } from 'amo/reducers/home';
-import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
@@ -33,6 +30,7 @@ import {
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
+import { fetchHomeData } from 'amo/reducers/home';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import Card from 'ui/components/Card';

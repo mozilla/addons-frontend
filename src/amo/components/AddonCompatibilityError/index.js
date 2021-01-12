@@ -5,9 +5,8 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
-import { makeQueryStringWithUTM } from 'amo/utils';
 import {
+  DOWNLOAD_FIREFOX_BASE_URL,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
@@ -16,10 +15,10 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'amo/constants';
+import { makeQueryStringWithUTM, sanitizeHTML } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import { getVersionById } from 'amo/reducers/versions';
-import { sanitizeHTML } from 'amo/utils';
 import { getClientCompatibility } from 'amo/utils/compatibility';
 import Notice from 'ui/components/Notice';
 import type { AppState } from 'amo/store';
