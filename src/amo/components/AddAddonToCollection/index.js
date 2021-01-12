@@ -31,7 +31,7 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
-  latest: boolean
+  // latest: boolean,
 |};
 
 type InternalProps = {|

@@ -101,58 +101,55 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
           'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
         })}
       >
-        <a className={makeClassName('oldDownload')} href={installURL}>{i18n.gettext('Download Older Version')}</a>
+        <a className={makeClassName('oldDownload')} href={installURL}>
+          {i18n.gettext('Download Older Version')}
+        </a>
       </div>
     );
-  } 
-    return (
-      addon && (
-        <div
-          className={makeClassName('InstallButtonWrapper', {
-            'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
-          })}
-        >
-          <AMInstallButton
-            addon={addon}
-            canUninstall={canUninstall}
-            className={makeClassName(
-              className ? `AMInstallButton--${className}` : '',
-              {
-                'AMInstallButton--noDownloadLink': !showDownloadLink,
-              },
-            )}
-            currentVersion={currentVersion}
-            defaultButtonText={defaultButtonText}
-            disabled={!isCompatible}
-            enable={enable}
-            hasAddonManager={hasAddonManager}
-            install={install}
-            isAddonEnabled={isAddonEnabled}
-            puffy={puffy}
-            setCurrentStatus={setCurrentStatus}
-            status={installStatus}
-            uninstall={uninstall}
-          />
-          <GetFirefoxButton
-            addon={addon}
-            buttonType={getFirefoxButtonType}
-            className={className ? `GetFirefoxButton--${className}` : ''}
-          />
-          {showDownloadLink ? (
-            <div className="InstallButtonWrapper-download">
-              <a
-                className="InstallButtonWrapper-download-link"
-                href={installURL}
-              >
-                {i18n.gettext('Download file')}
-              </a>
-            </div>
-          ) : null}
-
-        </div>
-      )
-    );
-
+  }
+  return (
+    addon && (
+      <div
+        className={makeClassName('InstallButtonWrapper', {
+          'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
+        })}
+      >
+        <AMInstallButton
+          addon={addon}
+          canUninstall={canUninstall}
+          className={makeClassName(
+            className ? `AMInstallButton--${className}` : '',
+            {
+              'AMInstallButton--noDownloadLink': !showDownloadLink,
+            },
+          )}
+          currentVersion={currentVersion}
+          defaultButtonText={defaultButtonText}
+          disabled={!isCompatible}
+          enable={enable}
+          hasAddonManager={hasAddonManager}
+          install={install}
+          isAddonEnabled={isAddonEnabled}
+          puffy={puffy}
+          setCurrentStatus={setCurrentStatus}
+          status={installStatus}
+          uninstall={uninstall}
+        />
+        <GetFirefoxButton
+          addon={addon}
+          buttonType={getFirefoxButtonType}
+          className={className ? `GetFirefoxButton--${className}` : ''}
+        />
+        {showDownloadLink ? (
+          <div className="InstallButtonWrapper-download">
+            <a className="InstallButtonWrapper-download-link" href={installURL}>
+              {i18n.gettext('Download file')}
+            </a>
+          </div>
+        ) : null}
+      </div>
+    )
+  );
 };
 
 export function mapStateToProps(state: AppState, ownProps: InternalProps) {
