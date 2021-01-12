@@ -9,7 +9,7 @@ import {
   CLIENT_APP_FIREFOX,
   DEFAULT_UTM_SOURCE,
   VERIFIED,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createContextWithFakeRouter,
   createFakeEvent,

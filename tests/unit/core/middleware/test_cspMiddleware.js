@@ -2,7 +2,7 @@ import MockExpressRequest from 'mock-express-request';
 import MockExpressResponse from 'mock-express-response';
 import parse from 'content-security-policy-parser';
 
-import { csp } from 'core/middleware';
+import { csp } from 'amo/middleware';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 const deployedEnvs = ['dev', 'production', 'stage'];

@@ -18,9 +18,9 @@ import usersReducer, {
   updateUserAccount,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
-import { createApiError } from 'core/api';
-import apiReducer, { setAuthToken } from 'core/reducers/api';
-import { loadSiteStatus } from 'core/reducers/site';
+import { createApiError } from 'amo/api';
+import apiReducer, { setAuthToken } from 'amo/reducers/api';
+import { loadSiteStatus } from 'amo/reducers/site';
 import {
   createApiResponse,
   createStubErrorHandler,

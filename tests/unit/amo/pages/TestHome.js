@@ -35,7 +35,7 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
-} from 'core/constants';
+} from 'amo/constants';
 import LoadingText from 'ui/components/LoadingText';
 import {
   createAddonsApiResult,

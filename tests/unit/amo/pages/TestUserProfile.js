@@ -17,16 +17,16 @@ import {
   getCurrentUser,
   loadUserAccount,
 } from 'amo/reducers/users';
-import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
-import Paginate from 'core/components/Paginate';
+import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
+import Paginate from 'amo/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
-} from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
+} from 'amo/constants';
+import { ErrorHandler } from 'amo/errorHandler';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import ErrorList from 'ui/components/ErrorList';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';

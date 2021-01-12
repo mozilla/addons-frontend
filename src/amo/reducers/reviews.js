@@ -35,7 +35,7 @@ import {
 import {
   addQueryParams,
   getQueryParametersForAttribution,
-} from 'core/utils/url';
+} from 'amo/utils/url';
 import type {
   BeginDeleteAddonReviewAction,
   CancelDeleteAddonReviewAction,
@@ -68,7 +68,7 @@ import type {
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { AppState } from 'amo/store';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 export function reviewListURL({
   addonSlug,

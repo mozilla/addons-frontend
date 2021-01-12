@@ -7,7 +7,7 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import { search as searchApi } from 'core/api/search';
+import { search as searchApi } from 'amo/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   RECOMMENDED,
@@ -15,12 +15,12 @@ import {
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
   ADDON_TYPE_STATIC_THEME,
-} from 'core/constants';
-import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+} from 'amo/constants';
+import log from 'amo/logger';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { GetLandingAction } from 'amo/reducers/landing';
-import type { SearchParams } from 'core/api/search';
-import type { Saga } from 'core/types/sagas';
+import type { SearchParams } from 'amo/api/search';
+import type { Saga } from 'amo/types/sagas';
 
 export function* fetchLandingAddons({
   payload: { addonType, category, errorHandlerId },

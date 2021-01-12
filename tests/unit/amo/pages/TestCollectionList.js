@@ -9,7 +9,7 @@ import {
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
-import AuthenticateButton from 'core/components/AuthenticateButton';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
 import {
   createFakeCollectionDetail,
   createInternalCollectionWithLang,

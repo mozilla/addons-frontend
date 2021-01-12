@@ -7,12 +7,12 @@ import * as React from 'react';
 import { compose } from 'redux';
 import Textarea from 'react-textarea-autosize';
 
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import createLocalState, { LocalState } from 'core/localState';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
+import createLocalState, { LocalState } from 'amo/localState';
 import Button from 'ui/components/Button';
-import type { ElementEvent } from 'core/types/dom';
-import type { I18nType } from 'core/types/i18n';
+import type { ElementEvent } from 'amo/types/dom';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

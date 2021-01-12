@@ -27,17 +27,17 @@ import {
   updateCollectionAddon,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
-import AuthenticateButton from 'core/components/AuthenticateButton';
-import Paginate from 'core/components/Paginate';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
+import Paginate from 'amo/components/Paginate';
 import {
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   INSTALL_SOURCE_COLLECTION,
   INSTALL_SOURCE_FEATURED_COLLECTION,
-} from 'core/constants';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
+} from 'amo/constants';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import Card from 'ui/components/Card';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import type {
@@ -45,15 +45,15 @@ import type {
   CollectionType,
 } from 'amo/reducers/collections';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { CollectionAddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { CollectionAddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 import type {
   ReactRouterHistoryType,
   ReactRouterLocationType,
   ReactRouterMatchType,
-} from 'core/types/router';
+} from 'amo/types/router';
 
 import './styles.scss';
 

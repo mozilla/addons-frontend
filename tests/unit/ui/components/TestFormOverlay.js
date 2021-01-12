@@ -5,7 +5,7 @@ import {
   closeFormOverlay,
   finishFormOverlaySubmit,
   openFormOverlay,
-} from 'core/reducers/formOverlay';
+} from 'amo/reducers/formOverlay';
 import {
   createFakeEvent,
   dispatchClientMetadata,

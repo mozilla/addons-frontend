@@ -1,7 +1,7 @@
 import redirectToReducer, {
   initialState,
   sendServerRedirect,
-} from 'core/reducers/redirectTo';
+} from 'amo/reducers/redirectTo';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {

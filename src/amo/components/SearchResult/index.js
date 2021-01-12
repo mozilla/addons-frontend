@@ -11,20 +11,20 @@ import {
   ADDON_TYPE_STATIC_THEME,
   DEFAULT_UTM_SOURCE,
   DEFAULT_UTM_MEDIUM,
-} from 'core/constants';
-import translate from 'core/i18n/translate';
-import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
-import { nl2br, sanitizeHTML } from 'core/utils';
-import { getPromotedCategory } from 'core/utils/addons';
-import { addQueryParams } from 'core/utils/url';
+} from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
+import { nl2br, sanitizeHTML } from 'amo/utils';
+import { getPromotedCategory } from 'amo/utils/addons';
+import { addQueryParams } from 'amo/utils/url';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import PromotedBadge from 'ui/components/PromotedBadge';
 import type { AppState } from 'amo/store';
-import type { AddonType, CollectionAddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterHistoryType } from 'core/types/router';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterHistoryType } from 'amo/types/router';
 
 import './styles.scss';
 

@@ -10,27 +10,27 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import SearchSuggestion from 'amo/components/SearchSuggestion';
-import { SEARCH_SORT_RANDOM } from 'core/constants';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import { getAddonIconUrl } from 'core/imageUtils';
-import log from 'core/logger';
+import { SEARCH_SORT_RANDOM } from 'amo/constants';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import { getAddonIconUrl } from 'amo/imageUtils';
+import log from 'amo/logger';
 import {
   convertOSToFilterValue,
   convertQueryParamsToFilters,
-} from 'core/searchUtils';
-import translate from 'core/i18n/translate';
+} from 'amo/searchUtils';
+import translate from 'amo/i18n/translate';
 import {
   autocompleteCancel,
   autocompleteStart,
-} from 'core/reducers/autocomplete';
+} from 'amo/reducers/autocomplete';
 import Icon from 'ui/components/Icon';
 import type { AppState } from 'amo/store';
-import type { UserAgentInfoType } from 'core/reducers/api';
-import type { SuggestionType } from 'core/reducers/autocomplete';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocationType } from 'core/types/router';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
+import type { UserAgentInfoType } from 'amo/reducers/api';
+import type { SuggestionType } from 'amo/reducers/autocomplete';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { ReactRouterLocationType } from 'amo/types/router';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 
 import './styles.scss';
 
@@ -38,7 +38,7 @@ export const SEARCH_TERM_MIN_LENGTH = 2;
 export const SEARCH_TERM_MAX_LENGTH = 100;
 
 // TODO: create a type for the inverse of paramsToFilter in
-// core/searchUtils and move this there.
+// amo/searchUtils and move this there.
 export type SearchFilters = Object;
 
 type Props = {|

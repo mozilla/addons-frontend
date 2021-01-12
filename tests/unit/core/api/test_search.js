@@ -1,5 +1,5 @@
 /* global window */
-import { search } from 'core/api/search';
+import { search } from 'amo/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
@@ -7,7 +7,7 @@ import {
   RECOMMENDED,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_RELEVANCE,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createApiResponse,
   dispatchSignInActions,

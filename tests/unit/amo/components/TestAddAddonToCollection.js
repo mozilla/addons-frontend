@@ -11,8 +11,8 @@ import {
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
-import { CLIENT_APP_FIREFOX } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import { ErrorHandler } from 'amo/errorHandler';
 import {
   DEFAULT_LANG_IN_TESTS,
   createContextWithFakeRouter,

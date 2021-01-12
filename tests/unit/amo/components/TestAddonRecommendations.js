@@ -26,7 +26,7 @@ import {
   fakeRecommendations,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { ErrorHandler } from 'core/errorHandler';
+import { ErrorHandler } from 'amo/errorHandler';
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {

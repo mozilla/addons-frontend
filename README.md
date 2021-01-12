@@ -144,7 +144,7 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
 }
 ```
 
-- Use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types) via the pipe syntax (`{| key: ... |}`) when possible. Sometimes the spread operator triggers an error like 'Inexact type is incompatible with exact type' but that's a [bug](https://github.com/facebook/flow/issues/2405). You can use the `Exact<T>` workaround from [`src/core/types/util`](https://github.com/mozilla/addons-frontend/blob/master/src/core/types/util.js) if you have to. This is meant as a working replacement for [\$Exact<T>](https://flow.org/en/docs/types/utilities/#toc-exact).
+- Use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types) via the pipe syntax (`{| key: ... |}`) when possible. Sometimes the spread operator triggers an error like 'Inexact type is incompatible with exact type' but that's a [bug](https://github.com/facebook/flow/issues/2405). You can use the `Exact<T>` workaround from [`src/amo/types/util`](https://github.com/mozilla/addons-frontend/blob/master/src/amo/types/util.js) if you have to. This is meant as a working replacement for [\$Exact<T>](https://flow.org/en/docs/types/utilities/#toc-exact).
 - Add a type hint for components wrapped in HOCs (higher order components) so that Flow can validate calls to the component. We need to add a hint because we don't yet have decent type coverage for all the HOCs we rely on. Here is an example:
 
 ```js

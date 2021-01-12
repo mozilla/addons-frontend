@@ -1,5 +1,5 @@
-import * as api from 'core/api';
-import { reportAddon, reportUser } from 'core/api/abuse';
+import * as api from 'amo/api';
+import { reportAddon, reportUser } from 'amo/api/abuse';
 import {
   createApiResponse,
   createFakeAddonAbuseReport,

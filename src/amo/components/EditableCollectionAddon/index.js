@@ -4,11 +4,11 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { withFixedErrorHandler } from 'core/errorHandler';
-import { getAddonIconUrl } from 'core/imageUtils';
-import translate from 'core/i18n/translate';
-import withUIState from 'core/withUIState';
-import { nl2br, normalizeFileNameId, sanitizeHTML } from 'core/utils';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import { getAddonIconUrl } from 'amo/imageUtils';
+import translate from 'amo/i18n/translate';
+import withUIState from 'amo/withUIState';
+import { nl2br, normalizeFileNameId, sanitizeHTML } from 'amo/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
@@ -17,9 +17,9 @@ import type {
   RemoveCollectionAddonFunc,
   SaveAddonNoteFunc,
 } from 'amo/pages/Collection';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { AddonType, CollectionAddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 
 import './styles.scss';

@@ -11,7 +11,7 @@ import Adapter from 'enzyme-adapter-react-16';
 // See: github.com/mozilla/addons-frontend/pull/2540#discussion_r120926107
 import 'jest-enzyme';
 
-import 'core/polyfill';
+import 'amo/polyfill';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -79,7 +79,7 @@ console.debug = console.log;
 global.sinon = sinon.createSandbox();
 
 // Stub the magic constant webpack normally supplies.
-global.CLIENT_CONFIG = require('core/utils').getClientConfig(config);
+global.CLIENT_CONFIG = require('amo/utils').getClientConfig(config);
 
 // See: https://github.com/mozilla/addons-frontend/issues/1138
 global.fetch = (input) => {

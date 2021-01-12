@@ -3,20 +3,20 @@ import * as React from 'react';
 import ReportAbuseButton, {
   ReportAbuseButtonBase,
 } from 'amo/components/ReportAbuseButton';
-import { setError } from 'core/actions/errors';
+import { setError } from 'amo/actions/errors';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   initiateAddonAbuseReportViaFirefox,
   loadAddonAbuseReport,
   sendAddonAbuseReport,
   showAddonAbuseReportUI,
   hideAddonAbuseReportUI,
-} from 'core/reducers/abuse';
+} from 'amo/reducers/abuse';
 import Button from 'ui/components/Button';
 import ErrorList from 'ui/components/ErrorList';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';

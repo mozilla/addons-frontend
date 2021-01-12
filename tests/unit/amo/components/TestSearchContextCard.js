@@ -3,8 +3,8 @@ import * as React from 'react';
 import SearchContextCard, {
   SearchContextCardBase,
 } from 'amo/components/SearchContextCard';
-import { fetchCategories, loadCategories } from 'core/reducers/categories';
-import { searchStart } from 'core/reducers/search';
+import { fetchCategories, loadCategories } from 'amo/reducers/categories';
+import { searchStart } from 'amo/reducers/search';
 import {
   dispatchClientMetadata,
   dispatchSearchResults,
@@ -19,7 +19,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-} from 'core/constants';
+} from 'amo/constants';
 
 describe(__filename, () => {
   let _store;

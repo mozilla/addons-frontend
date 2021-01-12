@@ -13,14 +13,14 @@ import SearchForm from 'amo/components/SearchForm';
 import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton, {
   createHandleLogOutFunction,
-} from 'core/components/AuthenticateButton';
+} from 'amo/components/AuthenticateButton';
 import {
   getCurrentUser,
   hasAnyReviewerRelatedPermission,
 } from 'amo/reducers/users';
 import { makeQueryStringWithUTM } from 'amo/utils';
-import { CLIENT_APP_FIREFOX } from 'core/constants';
-import translate from 'core/i18n/translate';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import translate from 'amo/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 

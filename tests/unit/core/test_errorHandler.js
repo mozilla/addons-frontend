@@ -3,22 +3,22 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 
-import { createApiError } from 'core/api/index';
-import { ERROR_UNKNOWN } from 'core/constants';
-import translate from 'core/i18n/translate';
-import { clearError, setError, setErrorMessage } from 'core/actions/errors';
+import { createApiError } from 'amo/api/index';
+import { ERROR_UNKNOWN } from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import { clearError, setError, setErrorMessage } from 'amo/actions/errors';
 import {
   ErrorHandler,
   withErrorHandler,
   withFixedErrorHandler,
   withRenderedErrorHandler,
-} from 'core/errorHandler';
+} from 'amo/errorHandler';
 import {
   dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { createFakeApiError } from 'tests/unit/core/reducers/test_errors';
+import { createFakeApiError } from 'tests/unit/amo/reducers/test_errors';
 import ErrorList from 'ui/components/ErrorList';
 
 class SomeComponentBase extends React.Component {

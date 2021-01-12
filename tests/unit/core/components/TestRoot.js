@@ -4,8 +4,8 @@ import { withCookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Root from 'core/components/Root';
-import translate from 'core/i18n/translate';
+import Root from 'amo/components/Root';
+import translate from 'amo/i18n/translate';
 import {
   createFakeHistory,
   createFakeLocation,

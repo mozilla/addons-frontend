@@ -7,7 +7,7 @@ import RatingsByStar, {
   RatingsByStarBase,
 } from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { ErrorHandler } from 'core/errorHandler';
+import { ErrorHandler } from 'amo/errorHandler';
 import {
   createContextWithFakeRouter,
   createFakeLocation,

@@ -1,10 +1,10 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { callApi } from 'core/api';
-import type { ApiState } from 'core/reducers/api';
-import type { PaginatedApiResponse } from 'core/types/api';
-import type { ExternalAddonType } from 'core/types/addons';
+import { callApi } from 'amo/api';
+import type { ApiState } from 'amo/reducers/api';
+import type { PaginatedApiResponse } from 'amo/types/api';
+import type { ExternalAddonType } from 'amo/types/addons';
 
 export type GetRecommendationsParams = {|
   api: ApiState,

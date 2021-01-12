@@ -5,15 +5,15 @@ import * as React from 'react';
 
 import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import CardList from 'ui/components/CardList';
 import type {
   DeleteAddonNoteFunc,
   RemoveCollectionAddonFunc,
   SaveAddonNoteFunc,
 } from 'amo/pages/Collection';
-import type { AddonType, CollectionAddonType } from 'core/types/addons';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 
 import './styles.scss';
 

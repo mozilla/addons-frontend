@@ -16,24 +16,24 @@ import {
   getCountForAuthorIds,
   getLoadingForAuthorIds,
 } from 'amo/reducers/addonsByAuthors';
-import Paginate from 'core/components/Paginate';
+import Paginate from 'amo/components/Paginate';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_POPULAR,
-} from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
+} from 'amo/constants';
+import { withErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
 import LoadingText from 'ui/components/LoadingText';
 import type { FetchAddonsByAuthorsParams } from 'amo/reducers/addonsByAuthors';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 

@@ -3,15 +3,15 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
-import translate from 'core/i18n/translate';
-import { getPromotedCategory } from 'core/utils/addons';
-import { isQuantumCompatible } from 'core/utils/compatibility';
+import { ADDON_TYPE_EXTENSION } from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import { getPromotedCategory } from 'amo/utils/addons';
+import { isQuantumCompatible } from 'amo/utils/compatibility';
 import Badge from 'ui/components/Badge';
 import PromotedBadge from 'ui/components/PromotedBadge';
 import type { AppState } from 'amo/store';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

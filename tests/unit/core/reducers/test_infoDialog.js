@@ -2,7 +2,7 @@ import infoDialog, {
   closeInfoDialog,
   initialState,
   showInfoDialog,
-} from 'core/reducers/infoDialog';
+} from 'amo/reducers/infoDialog';
 
 describe(__filename, () => {
   const getInfoDialogData = () => {

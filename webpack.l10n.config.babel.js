@@ -6,7 +6,7 @@ import webpack from 'webpack';
 
 import { getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
-import { WEBPACK_ENTRYPOINT } from './src/core/constants';
+import { WEBPACK_ENTRYPOINT } from './src/amo/constants';
 
 if (process.env.NODE_ENV !== 'production') {
   console.log(chalk.red('This should be run with NODE_ENV="production"'));

@@ -5,8 +5,8 @@ import WrongPlatformWarning, {
   ANDROID_SUMO_LINK_DESTINATION,
   WrongPlatformWarningBase,
 } from 'amo/components/WrongPlatformWarning';
-import { getMobileHomepageLink } from 'core/utils/compatibility';
-import { CLIENT_APP_ANDROID } from 'core/constants';
+import { getMobileHomepageLink } from 'amo/utils/compatibility';
+import { CLIENT_APP_ANDROID } from 'amo/constants';
 import {
   createContextWithFakeRouter,
   createFakeLocation,

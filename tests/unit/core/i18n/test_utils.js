@@ -4,8 +4,8 @@ import moment from 'moment';
 import { oneLine } from 'common-tags';
 
 import Link from 'amo/components/Link';
-import * as utils from 'core/i18n/utils';
-import { RTL, LTR } from 'core/constants';
+import * as utils from 'amo/i18n/utils';
+import { RTL, LTR } from 'amo/constants';
 import { fakeI18n, getFakeLogger, normalizeSpaces } from 'tests/unit/helpers';
 
 const defaultLang = config.get('defaultLang');

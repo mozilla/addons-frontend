@@ -15,18 +15,18 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-} from 'core/constants';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import { getVersionById } from 'core/reducers/versions';
-import { sanitizeHTML } from 'core/utils';
-import { getClientCompatibility } from 'core/utils/compatibility';
+} from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
+import { getVersionById } from 'amo/reducers/versions';
+import { sanitizeHTML } from 'amo/utils';
+import { getClientCompatibility } from 'amo/utils/compatibility';
 import Notice from 'ui/components/Notice';
 import type { AppState } from 'amo/store';
-import type { UserAgentInfoType } from 'core/reducers/api';
-import type { AddonVersionType } from 'core/reducers/versions';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
+import type { UserAgentInfoType } from 'amo/reducers/api';
+import type { AddonVersionType } from 'amo/reducers/versions';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
 
 import './style.scss';
 

@@ -1,14 +1,14 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as api from 'core/api/search';
-import { CLEAR_ERROR } from 'core/constants';
-import apiReducer from 'core/reducers/api';
+import * as api from 'amo/api/search';
+import { CLEAR_ERROR } from 'amo/constants';
+import apiReducer from 'amo/reducers/api';
 import searchReducer, {
   SEARCH_LOADED,
   abortSearch,
   searchStart,
-} from 'core/reducers/search';
-import searchSaga from 'core/sagas/search';
+} from 'amo/reducers/search';
+import searchSaga from 'amo/sagas/search';
 import {
   createStubErrorHandler,
   dispatchSignInActions,

@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { SimulateSyncErrorBase } from 'core/pages/error-simulation/SimulateSyncError';
+import { SimulateSyncErrorBase } from 'amo/pages/error-simulation/SimulateSyncError';
 
 describe(__filename, () => {
   function render(props = {}) {

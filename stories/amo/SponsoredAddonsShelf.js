@@ -3,8 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { SponsoredAddonsShelfBase } from 'amo/components/SponsoredAddonsShelf';
-import { ErrorHandler } from 'core/errorHandler';
-import { createInternalAddon } from 'core/reducers/addons';
+import { ErrorHandler } from 'amo/errorHandler';
+import { createInternalAddon } from 'amo/reducers/addons';
 import {
   dispatchClientMetadata,
   fakeAddon,

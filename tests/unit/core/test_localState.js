@@ -1,4 +1,4 @@
-import createLocalState, { configureLocalForage } from 'core/localState';
+import createLocalState, { configureLocalForage } from 'amo/localState';
 import { unexpectedSuccess } from 'tests/unit/helpers';
 
 function fakeLocalForage(overrides = {}) {
@@ -35,7 +35,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(localForage.config, {
       name: sinon.match.string,
       version: sinon.match.string,
-      storeName: 'src/core/localState.js',
+      storeName: 'src/amo/localState.js',
     });
   });
 

@@ -6,9 +6,9 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import LoadablePlugin from '@loadable/webpack-plugin';
 
-import 'core/polyfill';
-import { getClientConfig } from 'core/utils';
-import { getDeploymentVersion } from 'core/utils/build';
+import 'amo/polyfill';
+import { getClientConfig } from 'amo/utils';
+import { getDeploymentVersion } from 'amo/utils/build';
 
 import versionJson from './version';
 
@@ -148,12 +148,12 @@ export function getPlugins({
     // server-only keys removed.
     new webpack.NormalModuleReplacementPlugin(
       /^config$/,
-      'core/client/config.js',
+      'amo/client/config.js',
     ),
     // This swaps the server side window object with a standard browser window.
     new webpack.NormalModuleReplacementPlugin(
-      /core\/window/,
-      'core/browserWindow.js',
+      /amo\/window/,
+      'amo/browserWindow.js',
     ),
     new CircularDependencyPlugin({
       exclude: /node_modules/,

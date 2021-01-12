@@ -1,11 +1,8 @@
 import { createStore, combineReducers } from 'redux';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
-import { createApiError } from 'core/api';
-import errorPage, {
-  initialState,
-  loadErrorPage,
-} from 'core/reducers/errorPage';
+import { createApiError } from 'amo/api';
+import errorPage, { initialState, loadErrorPage } from 'amo/reducers/errorPage';
 
 function getErrorPageState(store) {
   return store.getState().errorPage;

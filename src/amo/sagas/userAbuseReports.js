@@ -6,12 +6,12 @@ import {
   abortUserAbuseReport,
   loadUserAbuseReport,
 } from 'amo/reducers/userAbuseReports';
-import { reportUser as reportUserApi } from 'core/api/abuse';
-import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import { reportUser as reportUserApi } from 'amo/api/abuse';
+import log from 'amo/logger';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { SendUserAbuseReportAction } from 'amo/reducers/userAbuseReports';
-import type { ReportUserParams } from 'core/api/abuse';
-import type { Saga } from 'core/types/sagas';
+import type { ReportUserParams } from 'amo/api/abuse';
+import type { Saga } from 'amo/types/sagas';
 
 export function* reportUser({
   payload: { errorHandlerId, message, userId },

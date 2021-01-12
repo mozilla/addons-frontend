@@ -7,9 +7,9 @@ import { compose } from 'redux';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import Page from 'amo/components/Page';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
 import {
   fetchAddon,
   fetchAddonInfo,
@@ -17,23 +17,23 @@ import {
   getAddonInfoBySlug,
   isAddonInfoLoading,
   isAddonLoading,
-} from 'core/reducers/addons';
+} from 'amo/reducers/addons';
 import {
   fetchVersion,
   getLoadingBySlug,
   getVersionById,
-} from 'core/reducers/versions';
-import { sanitizeUserHTML } from 'core/utils';
+} from 'amo/reducers/versions';
+import { sanitizeUserHTML } from 'amo/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { AddonInfoType } from 'core/reducers/addons';
-import type { AddonVersionType } from 'core/reducers/versions';
-import type { AddonType } from 'core/types/addons';
-import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterMatchType } from 'core/types/router';
-import type { I18nType } from 'core/types/i18n';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { AddonInfoType } from 'amo/reducers/addons';
+import type { AddonVersionType } from 'amo/reducers/versions';
+import type { AddonType } from 'amo/types/addons';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { ReactRouterMatchType } from 'amo/types/router';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

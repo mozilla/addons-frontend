@@ -7,7 +7,7 @@ import {
   defaultCookieConfig,
   getVariant,
   withExperiment,
-} from 'core/withExperiment';
+} from 'amo/withExperiment';
 import {
   createFakeTracking,
   fakeCookies,

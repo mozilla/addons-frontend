@@ -6,7 +6,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
-} from 'core/constants';
+} from 'amo/constants';
 import { selectReview } from 'amo/reducers/reviews';
 import {
   SAVED_RATING,
@@ -32,7 +32,7 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
-import AuthenticateButton from 'core/components/AuthenticateButton';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
 import { genericType, successType } from 'ui/components/Notice';
 import UserRating from 'ui/components/UserRating';
 import {

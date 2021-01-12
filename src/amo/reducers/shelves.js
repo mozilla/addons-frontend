@@ -4,9 +4,9 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 import invariant from 'invariant';
 
 import type { AppState } from 'amo/store';
-import { createInternalAddon } from 'core/reducers/addons';
-import { SET_LANG } from 'core/reducers/api';
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import { createInternalAddon } from 'amo/reducers/addons';
+import { SET_LANG } from 'amo/reducers/api';
+import type { AddonType, ExternalAddonType } from 'amo/types/addons';
 
 export const ABORT_FETCH_SPONSORED: 'ABORT_FETCH_SPONSORED' =
   'ABORT_FETCH_SPONSORED';

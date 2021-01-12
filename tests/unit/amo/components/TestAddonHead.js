@@ -11,8 +11,8 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-} from 'core/constants';
-import { loadVersions } from 'core/reducers/versions';
+} from 'amo/constants';
+import { loadVersions } from 'amo/reducers/versions';
 import {
   createInternalAddonWithLang,
   createInternalVersionWithLang,

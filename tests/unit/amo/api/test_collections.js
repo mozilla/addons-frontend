@@ -1,6 +1,6 @@
 import { oneLineTrim } from 'common-tags';
 
-import * as api from 'core/api';
+import * as api from 'amo/api';
 import {
   createCollection,
   createCollectionAddon,
@@ -16,7 +16,7 @@ import {
   updateCollection,
   updateCollectionAddon,
 } from 'amo/api/collections';
-import { COLLECTION_SORT_DATE_ADDED_ASCENDING } from 'core/constants';
+import { COLLECTION_SORT_DATE_ADDED_ASCENDING } from 'amo/constants';
 import {
   apiResponsePage,
   createApiResponse,

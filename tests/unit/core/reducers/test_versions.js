@@ -12,13 +12,13 @@ import {
   OUTCOME_RECOMMENDED,
   loadRecommendations,
 } from 'amo/reducers/recommendations';
-import { formatFilesize } from 'core/i18n/utils';
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import { ADDON_TYPE_EXTENSION, OS_MAC, OS_WINDOWS } from 'core/constants';
-import { loadAddon } from 'core/reducers/addons';
-import { setLang } from 'core/reducers/api';
-import { searchLoad } from 'core/reducers/search';
-import { selectLocalizedContent } from 'core/reducers/utils';
+import { formatFilesize } from 'amo/i18n/utils';
+import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
+import { ADDON_TYPE_EXTENSION, OS_MAC, OS_WINDOWS } from 'amo/constants';
+import { loadAddon } from 'amo/reducers/addons';
+import { setLang } from 'amo/reducers/api';
+import { searchLoad } from 'amo/reducers/search';
+import { selectLocalizedContent } from 'amo/reducers/utils';
 import versionsReducer, {
   createInternalVersion,
   fetchVersion,
@@ -31,7 +31,7 @@ import versionsReducer, {
   loadVersions,
   createPlatformFiles,
   defaultPlatformFiles,
-} from 'core/reducers/versions';
+} from 'amo/reducers/versions';
 import {
   createAddonsApiResult,
   createFakeCollectionAddon,

@@ -9,14 +9,14 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
-import { CLIENT_APP_ANDROID } from 'core/constants';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
-import translate from 'core/i18n/translate';
+import { CLIENT_APP_ANDROID } from 'amo/constants';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
+import translate from 'amo/i18n/translate';
 import type { SearchFilters } from 'amo/components/AutoSearchInput';
 import type { AppState } from 'amo/store';
-import type { SuggestionType } from 'core/reducers/autocomplete';
-import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterHistoryType } from 'core/types/router';
+import type { SuggestionType } from 'amo/reducers/autocomplete';
+import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterHistoryType } from 'amo/types/router';
 
 type Props = {|
   apiLang: string | null,

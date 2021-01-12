@@ -9,7 +9,7 @@ import webpack from 'webpack';
 import SriPlugin from 'webpack-subresource-integrity';
 import tmp from 'tmp';
 
-import SriDataPlugin from 'core/server/sriDataPlugin';
+import SriDataPlugin from 'amo/server/sriDataPlugin';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {

@@ -7,15 +7,15 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
-import { SET_CLIENT_APP, SET_LANG } from 'core/reducers/api';
-import type { SetClientAppAction } from 'core/reducers/api';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
+import { createInternalAddon } from 'amo/reducers/addons';
+import { SET_CLIENT_APP, SET_LANG } from 'amo/reducers/api';
+import type { SetClientAppAction } from 'amo/reducers/api';
 import type {
   AddonType,
   ExternalAddonType,
   PartialExternalAddonType,
-} from 'core/types/addons';
+} from 'amo/types/addons';
 
 export const ABORT_FETCH_HOME_DATA: 'ABORT_FETCH_HOME_DATA' =
   'ABORT_FETCH_HOME_DATA';

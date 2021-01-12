@@ -16,7 +16,7 @@ import FlagReviewMenu, {
   FlagReviewMenuBase,
 } from 'amo/components/FlagReviewMenu';
 import { logOutUser } from 'amo/reducers/users';
-import AuthenticateButton from 'core/components/AuthenticateButton';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
 import {
   dispatchSignInActions,
   fakeI18n,

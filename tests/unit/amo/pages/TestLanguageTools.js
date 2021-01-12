@@ -8,12 +8,12 @@ import LanguageTools, {
 import Link from 'amo/components/Link';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
+import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'amo/constants';
 import {
   createInternalLanguageTool,
   getAllLanguageTools,
   loadLanguageTools,
-} from 'core/reducers/languageTools';
+} from 'amo/reducers/languageTools';
 import {
   createFakeLanguageTool,
   dispatchClientMetadata,
@@ -301,7 +301,7 @@ describe(__filename, () => {
 
   it('renders add-ons on two different rows corresponding to two supported languages', () => {
     // The short locale is `fa` here, which is in the list of supported
-    // languages (`src/core/languages.js`) together with `fa-IR`.
+    // languages (`src/amo/languages.js`) together with `fa-IR`.
     const addons = [
       createFakeLanguageTool({
         id: 1,

@@ -7,7 +7,7 @@ import recommendationsReducer, {
   loadRecommendations,
 } from 'amo/reducers/recommendations';
 import recommendationsSaga from 'amo/sagas/recommendations';
-import apiReducer from 'core/reducers/api';
+import apiReducer from 'amo/reducers/api';
 import {
   createStubErrorHandler,
   fakeAddon,

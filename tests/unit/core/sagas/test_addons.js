@@ -1,15 +1,15 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as addonInfoApi from 'amo/api/addonInfo';
-import * as api from 'core/api';
+import * as api from 'amo/api';
 import addonsReducer, {
   fetchAddon,
   fetchAddonInfo,
   loadAddonInfo,
   loadAddon,
-} from 'core/reducers/addons';
-import apiReducer from 'core/reducers/api';
-import addonsSaga from 'core/sagas/addons';
+} from 'amo/reducers/addons';
+import apiReducer from 'amo/reducers/api';
+import addonsSaga from 'amo/sagas/addons';
 import {
   createStubErrorHandler,
   dispatchSignInActions,

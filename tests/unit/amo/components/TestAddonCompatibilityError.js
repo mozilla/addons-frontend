@@ -15,8 +15,8 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-} from 'core/constants';
-import { loadVersions } from 'core/reducers/versions';
+} from 'amo/constants';
+import { loadVersions } from 'amo/reducers/versions';
 import {
   createFakeClientCompatibility,
   createInternalAddonWithLang,

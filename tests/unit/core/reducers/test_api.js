@@ -1,8 +1,8 @@
 import UAParser from 'ua-parser-js';
 
-import * as actions from 'core/reducers/api';
+import * as actions from 'amo/reducers/api';
 import { logOutUser } from 'amo/reducers/users';
-import api, { initialApiState } from 'core/reducers/api';
+import api, { initialApiState } from 'amo/reducers/api';
 import { userAgents, userAuthToken } from 'tests/unit/helpers';
 
 describe(__filename, () => {

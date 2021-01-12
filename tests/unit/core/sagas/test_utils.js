@@ -6,8 +6,8 @@ import SagaTester from 'redux-saga-tester';
 import { put, select } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import apiReducer from 'core/reducers/api';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import apiReducer from 'amo/reducers/api';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import { dispatchSignInActions, getFakeLogger } from 'tests/unit/helpers';
 
 describe(__filename, () => {

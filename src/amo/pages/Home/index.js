@@ -32,9 +32,9 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
-} from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
+} from 'amo/constants';
+import { withErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 

@@ -6,18 +6,18 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { withErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import { fetchCategories } from 'core/reducers/categories';
-import { getCategoryResultsQuery } from 'core/utils/categories';
+import { withErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import { fetchCategories } from 'amo/reducers/categories';
+import { getCategoryResultsQuery } from 'amo/utils/categories';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { DispatchFunc } from 'core/types/redux';
-import type { I18nType } from 'core/types/i18n';
-import type { GetCategoryResultsQueryParams } from 'core/utils/categories';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { I18nType } from 'amo/types/i18n';
+import type { GetCategoryResultsQueryParams } from 'amo/utils/categories';
 
 import './styles.scss';
 

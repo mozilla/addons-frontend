@@ -11,8 +11,8 @@ import homeReducer, {
   initialState,
   loadHomeData,
 } from 'amo/reducers/home';
-import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
-import { setClientApp, setLang } from 'core/reducers/api';
+import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'amo/constants';
+import { setClientApp, setLang } from 'amo/reducers/api';
 import {
   createAddonsApiResult,
   createFakeCollectionAddon,

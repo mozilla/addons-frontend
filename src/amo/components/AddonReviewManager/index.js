@@ -12,16 +12,16 @@ import {
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import Link from 'amo/components/Link';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import { normalizeFileNameId } from 'core/utils';
-import { replaceStringsWithJSX } from 'core/i18n/utils';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import { normalizeFileNameId } from 'amo/utils';
+import { replaceStringsWithJSX } from 'amo/i18n/utils';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
-import type { DispatchFunc } from 'core/types/redux';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 
 import './styles.scss';

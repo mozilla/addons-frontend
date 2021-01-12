@@ -29,23 +29,23 @@ import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getAddonURL } from 'amo/utils';
-import { getVersionById } from 'core/reducers/versions';
+import { getVersionById } from 'amo/reducers/versions';
 import {
   fetchAddon,
   getAddonByIdInURL,
   isAddonLoading,
-} from 'core/reducers/addons';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { withFixedErrorHandler } from 'core/errorHandler';
+} from 'amo/reducers/addons';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
+import { withFixedErrorHandler } from 'amo/errorHandler';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
-} from 'core/constants';
-import { nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
-import { getAddonIconUrl } from 'core/imageUtils';
-import translate from 'core/i18n/translate';
+} from 'amo/constants';
+import { nl2br, sanitizeHTML, sanitizeUserHTML } from 'amo/utils';
+import { getAddonIconUrl } from 'amo/imageUtils';
+import translate from 'amo/i18n/translate';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
@@ -68,7 +68,7 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     installError: PropTypes.string,
     lang: PropTypes.string.isRequired,
-    // See ReactRouterLocationType in 'core/types/router'
+    // See ReactRouterLocationType in 'amo/types/router'
     location: PropTypes.object.isRequired,
     match: PropTypes.shape({
       params: PropTypes.object.isRequired,

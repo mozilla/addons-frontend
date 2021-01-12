@@ -4,7 +4,7 @@ import * as React from 'react';
 import makeClassName from 'classnames';
 import onClickOutside from 'react-onclickoutside';
 
-import log from 'core/logger';
+import log from 'amo/logger';
 import Icon from 'ui/components/Icon';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 

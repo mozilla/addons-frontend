@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import SearchForm, { SearchFormBase } from 'amo/components/SearchForm';
-import { CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID } from 'core/constants';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
+import { CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID } from 'amo/constants';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import {
   createContextWithFakeRouter,
   createFakeAutocompleteResult,

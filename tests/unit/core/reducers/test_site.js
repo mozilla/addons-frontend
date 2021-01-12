@@ -2,7 +2,7 @@ import reducer, {
   initialState,
   loadSiteStatus,
   loadedPageIsAnonymous,
-} from 'core/reducers/site';
+} from 'amo/reducers/site';
 
 describe(__filename, () => {
   describe('reducer', () => {

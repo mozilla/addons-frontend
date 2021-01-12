@@ -4,7 +4,7 @@ import {
   addQueryParams,
   removeUndefinedProps,
   getQueryParametersForAttribution,
-} from 'core/utils/url';
+} from 'amo/utils/url';
 import { createFakeLocation } from 'tests/unit/helpers';
 
 describe(__filename, () => {

@@ -18,9 +18,9 @@ import {
   RECOMMENDED,
   SPONSORED,
   VERIFIED,
-} from 'core/constants';
-import { loadSiteStatus } from 'core/reducers/site';
-import { addQueryParams } from 'core/utils/url';
+} from 'amo/constants';
+import { loadSiteStatus } from 'amo/reducers/site';
+import { addQueryParams } from 'amo/utils/url';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import {

@@ -11,17 +11,17 @@ import {
   getRecommendationsByGuid,
   OUTCOME_RECOMMENDED,
 } from 'amo/reducers/recommendations';
-import { withErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import defaultTracking from 'core/tracking';
+import { withErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
+import defaultTracking from 'amo/tracking';
 import LoadingText from 'ui/components/LoadingText';
 import type { Recommendations } from 'amo/reducers/recommendations';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
-import type { AddonType } from 'core/types/addons';
-import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
+import type { AddonType } from 'amo/types/addons';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

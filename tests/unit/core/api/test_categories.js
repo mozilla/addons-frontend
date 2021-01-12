@@ -1,5 +1,5 @@
-import * as api from 'core/api';
-import { getCategories } from 'core/api/categories';
+import * as api from 'amo/api';
+import { getCategories } from 'amo/api/categories';
 import { createApiResponse, dispatchClientMetadata } from 'tests/unit/helpers';
 
 describe(__filename, () => {

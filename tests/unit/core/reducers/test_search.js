@@ -1,10 +1,10 @@
-import { setLang } from 'core/reducers/api';
+import { setLang } from 'amo/reducers/api';
 import search, {
   abortSearch,
   initialState,
   searchLoad,
   searchStart,
-} from 'core/reducers/search';
+} from 'amo/reducers/search';
 import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {

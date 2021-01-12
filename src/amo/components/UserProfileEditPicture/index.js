@@ -3,13 +3,13 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import translate from 'core/i18n/translate';
-import withUIState from 'core/withUIState';
+import translate from 'amo/i18n/translate';
+import withUIState from 'amo/withUIState';
 import Button from 'ui/components/Button';
 import ConfirmButton from 'ui/components/ConfirmButton';
 import UserAvatar from 'ui/components/UserAvatar';
 import type { UserType } from 'amo/reducers/users';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

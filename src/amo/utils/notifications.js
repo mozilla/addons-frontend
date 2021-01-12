@@ -1,5 +1,5 @@
 /* @flow */
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 
 export const getNotificationDescription = (
   i18n: I18nType,

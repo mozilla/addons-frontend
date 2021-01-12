@@ -9,13 +9,13 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import FlagReview from 'amo/components/FlagReview';
-import AuthenticateButton from 'core/components/AuthenticateButton';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
 import { getCurrentUser } from 'amo/reducers/users';
-import translate from 'core/i18n/translate';
+import translate from 'amo/i18n/translate';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
 import type { AppState } from 'amo/store';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 import type { UserType } from 'amo/reducers/users';
 import type { UserReviewType } from 'amo/actions/reviews';
 

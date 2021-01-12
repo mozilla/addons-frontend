@@ -10,7 +10,7 @@ import {
   sendUserAbuseReport,
   showUserAbuseReportUI,
 } from 'amo/reducers/userAbuseReports';
-import { ErrorHandler } from 'core/errorHandler';
+import { ErrorHandler } from 'amo/errorHandler';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import ErrorList from 'ui/components/ErrorList';
 import {

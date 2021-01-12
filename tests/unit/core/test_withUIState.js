@@ -2,8 +2,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import withUIState, { generateId } from 'core/withUIState';
-import { setUIState } from 'core/reducers/uiState';
+import withUIState, { generateId } from 'amo/withUIState';
+import { setUIState } from 'amo/reducers/uiState';
 import {
   applyUIStateChanges,
   dispatchClientMetadata,

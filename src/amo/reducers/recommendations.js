@@ -1,9 +1,9 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { createInternalAddon } from 'core/reducers/addons';
-import { SET_LANG } from 'core/reducers/api';
-import type { AddonType, PartialExternalAddonType } from 'core/types/addons';
+import { createInternalAddon } from 'amo/reducers/addons';
+import { SET_LANG } from 'amo/reducers/api';
+import type { AddonType, PartialExternalAddonType } from 'amo/types/addons';
 
 export const ABORT_FETCH_RECOMMENDATIONS: 'ABORT_FETCH_RECOMMENDATIONS' =
   'ABORT_FETCH_RECOMMENDATIONS';

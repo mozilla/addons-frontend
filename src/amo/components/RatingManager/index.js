@@ -18,27 +18,27 @@ import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import { selectLatestUserReview } from 'amo/reducers/reviews';
-import AuthenticateButton from 'core/components/AuthenticateButton';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   validAddonTypes as defaultValidAddonTypes,
-} from 'core/constants';
-import { withRenderedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import { sanitizeHTML } from 'core/utils';
+} from 'amo/constants';
+import { withRenderedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
+import { sanitizeHTML } from 'amo/utils';
 import { genericType, successType } from 'ui/components/Notice';
 import UserRating from 'ui/components/UserRating';
-import type { AddonVersionType } from 'core/reducers/versions';
+import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
-import type { DispatchFunc } from 'core/types/redux';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

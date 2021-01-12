@@ -8,7 +8,7 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import type { Props as HeadMetaTagsProps } from 'amo/components/HeadMetaTags';
 import type { AppState } from 'amo/store';
-import type { LocationType } from 'core/types/router';
+import type { LocationType } from 'amo/types/router';
 
 type Props = {|
   ...HeadMetaTagsProps,

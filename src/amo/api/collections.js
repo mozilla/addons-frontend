@@ -1,14 +1,14 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { callApi, allPages, validateLocalizedString } from 'core/api';
+import { callApi, allPages, validateLocalizedString } from 'amo/api';
 import type {
   CollectionFilters,
   ExternalCollectionAddon,
   ExternalCollectionDetail,
 } from 'amo/reducers/collections';
-import type { ApiState } from 'core/reducers/api';
-import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
+import type { ApiState } from 'amo/reducers/api';
+import type { LocalizedString, PaginatedApiResponse } from 'amo/types/api';
 
 export type GetCollectionParams = {|
   api: ApiState,

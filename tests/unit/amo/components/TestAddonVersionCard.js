@@ -8,10 +8,10 @@ import AddonVersionCard, {
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import Link from 'amo/components/Link';
-import { setInstallError, setInstallState } from 'core/reducers/installations';
-import { FATAL_ERROR, INSTALLING } from 'core/constants';
-import { formatFilesize } from 'core/i18n/utils';
-import { loadVersions } from 'core/reducers/versions';
+import { setInstallError, setInstallState } from 'amo/reducers/installations';
+import { FATAL_ERROR, INSTALLING } from 'amo/constants';
+import { formatFilesize } from 'amo/i18n/utils';
+import { loadVersions } from 'amo/reducers/versions';
 import {
   createInternalAddonWithLang,
   createInternalVersionWithLang,

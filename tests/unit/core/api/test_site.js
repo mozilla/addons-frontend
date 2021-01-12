@@ -1,5 +1,5 @@
-import * as api from 'core/api';
-import { getSiteStatus } from 'core/api/site';
+import * as api from 'amo/api';
+import { getSiteStatus } from 'amo/api/site';
 import { createApiResponse, dispatchClientMetadata } from 'tests/unit/helpers';
 
 describe(__filename, () => {

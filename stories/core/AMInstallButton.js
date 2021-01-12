@@ -2,10 +2,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import AMInstallButton from 'core/components/AMInstallButton';
-import { createInternalAddon } from 'core/reducers/addons';
-import { createInternalVersion } from 'core/reducers/versions';
-import { validInstallStates } from 'core/constants';
+import AMInstallButton from 'amo/components/AMInstallButton';
+import { createInternalAddon } from 'amo/reducers/addons';
+import { createInternalVersion } from 'amo/reducers/versions';
+import { validInstallStates } from 'amo/constants';
 import { fakeAddon, fakeVersion } from 'tests/unit/helpers';
 
 import Provider from '../setup/Provider';

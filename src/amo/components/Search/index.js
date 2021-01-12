@@ -11,8 +11,8 @@ import NotFound from 'amo/components/Errors/NotFound';
 import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
-import { searchStart } from 'core/reducers/search';
-import Paginate from 'core/components/Paginate';
+import { searchStart } from 'amo/reducers/search';
+import Paginate from 'amo/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -24,17 +24,17 @@ import {
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_EXPLORE,
   VERIFIED_FILTER,
-} from 'core/constants';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
+} from 'amo/constants';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import type { AppState } from 'amo/store';
-import type { SearchFilters as SearchFiltersType } from 'core/api/search';
-import type { AddonType, CollectionAddonType } from 'core/types/addons';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
+import type { SearchFilters as SearchFiltersType } from 'amo/api/search';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

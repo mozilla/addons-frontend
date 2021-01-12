@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { getCanonicalURL } from 'amo/utils';
-import { CLIENT_APP_ANDROID } from 'core/constants';
-import translate from 'core/i18n/translate';
+import { CLIENT_APP_ANDROID } from 'amo/constants';
+import translate from 'amo/i18n/translate';
 import type { AppState } from 'amo/store';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 
 import defaultImage from './img/default-og-image.png';
 

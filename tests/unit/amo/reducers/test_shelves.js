@@ -7,7 +7,7 @@ import reducer, {
   initialState,
   loadSponsored,
 } from 'amo/reducers/shelves';
-import { setLang } from 'core/reducers/api';
+import { setLang } from 'amo/reducers/api';
 import {
   createInternalAddonWithLang,
   createStubErrorHandler,

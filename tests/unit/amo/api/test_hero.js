@@ -1,4 +1,4 @@
-import * as api from 'core/api';
+import * as api from 'amo/api';
 import { getHeroShelves } from 'amo/api/hero';
 import { createApiResponse, dispatchClientMetadata } from 'tests/unit/helpers';
 

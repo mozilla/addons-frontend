@@ -4,8 +4,8 @@ import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 import NotAuthorized, {
   NotAuthorizedBase,
 } from 'amo/components/Errors/NotAuthorized';
-import { createApiError } from 'core/api';
-import { loadErrorPage } from 'core/reducers/errorPage';
+import { createApiError } from 'amo/api';
+import { loadErrorPage } from 'amo/reducers/errorPage';
 import {
   dispatchSignInActions,
   fakeI18n,

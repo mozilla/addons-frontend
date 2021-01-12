@@ -1,7 +1,7 @@
 import MockExpressRequest from 'mock-express-request';
 import MockExpressResponse from 'mock-express-response';
 
-import { hsts } from 'core/middleware';
+import { hsts } from 'amo/middleware';
 
 describe(__filename, () => {
   it('provides the expected HSTS headers', () => {

@@ -14,8 +14,8 @@ import homeReducer, {
   loadHomeData,
 } from 'amo/reducers/home';
 import homeSaga from 'amo/sagas/home';
-import { createApiError } from 'core/api';
-import * as searchApi from 'core/api/search';
+import { createApiError } from 'amo/api';
+import * as searchApi from 'amo/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -24,8 +24,8 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SPONSORED,
-} from 'core/constants';
-import apiReducer from 'core/reducers/api';
+} from 'amo/constants';
+import apiReducer from 'amo/reducers/api';
 import {
   createAddonsApiResult,
   createFakeCollectionAddonsListResponse,

@@ -12,7 +12,7 @@ import {
   CLIENT_APP_FIREFOX,
   STRATEGIC,
   VERIFIED,
-} from 'core/constants';
+} from 'amo/constants';
 import {
   createContextWithFakeRouter,
   createFakeLocation,

@@ -8,8 +8,8 @@ describe(__filename, () => {
 
     it('does not return deleted files', () => {
       const files = _filterFileNamesFromGitStatusOutput([
-        'D  src/core/browserWindow.js',
-        ' D  src/core/browserWindow.js',
+        'D  src/amo/browserWindow.js',
+        ' D  src/amo/browserWindow.js',
       ]);
 
       expect(files).toHaveLength(0);
@@ -17,10 +17,10 @@ describe(__filename, () => {
 
     it('only returned the new filename of a renamed file', () => {
       const files = _filterFileNamesFromGitStatusOutput([
-        'RM src/amo/sagas/categories.js -> src/core/sagas/categories.js',
+        'RM src/amo/sagas/categories.js -> src/amo/sagas/categories.js',
       ]);
 
-      expect(files).toEqual(['src/core/sagas/categories.js']);
+      expect(files).toEqual(['src/amo/sagas/categories.js']);
     });
 
     it('returns the filenames without the git statuses', () => {

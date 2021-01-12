@@ -5,9 +5,9 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import languages from 'core/languages';
-import translate from 'core/i18n/translate';
-import { addQueryParams } from 'core/utils/url';
+import languages from 'amo/languages';
+import translate from 'amo/i18n/translate';
+import { addQueryParams } from 'amo/utils/url';
 
 import './styles.scss';
 

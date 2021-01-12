@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
-require('core/server/base').runServer().then(() => {
+require('amo/server/base').runServer().then(() => {
   if (config.get('isDevelopment')) {
     const basePath = config.get('basePath');
     const watcher = chokidar.watch(path.join(basePath, 'src'));

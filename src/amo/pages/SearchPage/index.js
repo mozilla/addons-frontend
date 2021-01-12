@@ -9,18 +9,18 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-} from 'core/constants';
-import { makeQueryString } from 'core/api';
-import log from 'core/logger';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
+} from 'amo/constants';
+import { makeQueryString } from 'amo/api';
+import log from 'amo/logger';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
-} from 'core/searchUtils';
+} from 'amo/searchUtils';
 import type { AppState } from 'amo/store';
-import type { SearchFilters } from 'core/api/search';
-import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { SearchFilters } from 'amo/api/search';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 type Props = {|
   location: ReactRouterLocationType,

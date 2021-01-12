@@ -6,8 +6,8 @@ import {
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_SEARCH,
   RECOMMENDED,
-} from 'core/constants';
-import Paginate from 'core/components/Paginate';
+} from 'amo/constants';
+import Paginate from 'amo/components/Paginate';
 import {
   dispatchClientMetadata,
   fakeAddon,

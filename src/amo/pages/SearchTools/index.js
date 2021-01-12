@@ -7,15 +7,15 @@ import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Page from 'amo/components/Page';
-import { ADDON_TYPE_EXTENSION, SEARCH_SORT_TOP_RATED } from 'core/constants';
-import translate from 'core/i18n/translate';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
-import { makeQueryString } from 'core/api';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { getCategoryResultsQuery } from 'core/utils/categories';
+import { ADDON_TYPE_EXTENSION, SEARCH_SORT_TOP_RATED } from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
+import { makeQueryString } from 'amo/api';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
+import { getCategoryResultsQuery } from 'amo/utils/categories';
 import type { AppState } from 'amo/store';
-import type { DispatchFunc } from 'core/types/redux';
-import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { I18nType } from 'amo/types/i18n';
 import type { SearchFilters } from 'amo/components/AutoSearchInput';
 
 type Props = {|

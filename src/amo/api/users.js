@@ -2,7 +2,7 @@
 import invariant from 'invariant';
 import FormData from '@willdurand/isomorphic-formdata';
 
-import { callApi } from 'core/api';
+import { callApi } from 'amo/api';
 import type {
   ExternalUserType,
   NotificationType,
@@ -11,7 +11,7 @@ import type {
   UserEditableFieldsType,
   UserId,
 } from 'amo/reducers/users';
-import type { ApiState } from 'core/reducers/api';
+import type { ApiState } from 'amo/reducers/api';
 
 export type UserApiParams = {|
   api: ApiState,

@@ -8,7 +8,7 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {

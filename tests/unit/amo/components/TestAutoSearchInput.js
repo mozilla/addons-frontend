@@ -15,12 +15,12 @@ import {
   OS_WINDOWS,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
-} from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
+} from 'amo/constants';
+import { ErrorHandler } from 'amo/errorHandler';
 import {
   autocompleteCancel,
   autocompleteStart,
-} from 'core/reducers/autocomplete';
+} from 'amo/reducers/autocomplete';
 import {
   createContextWithFakeRouter,
   createFakeAutocompleteResult,

@@ -5,13 +5,13 @@ import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
-import translate from 'core/i18n/translate';
+import translate from 'amo/i18n/translate';
 import MetadataCard from 'ui/components/MetadataCard';
 import Rating from 'ui/components/Rating';
 import RatingsByStar from 'amo/components/RatingsByStar';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 

@@ -7,8 +7,8 @@ import AddonVersions, {
   AddonVersionsBase,
   extractId,
 } from 'amo/pages/AddonVersions';
-import { fetchAddon, loadAddon } from 'core/reducers/addons';
-import { loadVersions, fetchVersions } from 'core/reducers/versions';
+import { fetchAddon, loadAddon } from 'amo/reducers/addons';
+import { loadVersions, fetchVersions } from 'amo/reducers/versions';
 import {
   createCapturedErrorHandler,
   createFakeHistory,

@@ -2,9 +2,9 @@
 import * as React from 'react';
 
 import StaticPage from 'amo/components/StaticPage';
-import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
-import type { I18nType } from 'core/types/i18n';
+import translate from 'amo/i18n/translate';
+import { sanitizeHTML } from 'amo/utils';
+import type { I18nType } from 'amo/types/i18n';
 
 type Props = {|
   i18n: I18nType,

@@ -11,24 +11,22 @@ import supertest from 'supertest';
 import defaultConfig from 'config';
 import cheerio from 'cheerio';
 
-import { REGION_CODE_HEADER, createApiError } from 'core/api';
-import { AMO_REQUEST_ID_HEADER } from 'core/constants';
-import baseServer, { createHistory } from 'core/server/base';
-import { middleware } from 'core/store';
-import apiReducer, { setRegionCode, setRequestId } from 'core/reducers/api';
-import redirectToReducer, {
-  sendServerRedirect,
-} from 'core/reducers/redirectTo';
+import { REGION_CODE_HEADER, createApiError } from 'amo/api';
+import { AMO_REQUEST_ID_HEADER } from 'amo/constants';
+import baseServer, { createHistory } from 'amo/server/base';
+import { middleware } from 'amo/store';
+import apiReducer, { setRegionCode, setRequestId } from 'amo/reducers/api';
+import redirectToReducer, { sendServerRedirect } from 'amo/reducers/redirectTo';
 import usersReducer, { getCurrentUser } from 'amo/reducers/users';
 import usersSaga from 'amo/sagas/users';
 import * as usersApi from 'amo/api/users';
 import surveyReducer, {
   initialState as initialSurveyState,
-} from 'core/reducers/survey';
-import * as siteApi from 'core/api/site';
-import siteReducer from 'core/reducers/site';
-import siteSaga from 'core/sagas/site';
-import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
+} from 'amo/reducers/survey';
+import * as siteApi from 'amo/api/site';
+import siteReducer from 'amo/reducers/site';
+import siteSaga from 'amo/sagas/site';
+import FakeApp, { fakeAssets } from 'tests/unit/amo/server/fakeApp';
 import {
   createUserAccountResponse,
   getFakeConfig,

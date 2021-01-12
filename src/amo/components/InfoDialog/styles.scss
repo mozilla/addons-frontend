@@ -1,0 +1,89 @@
+@import '~amo/css/styles';
+
+// From Firefox source code: `toolkit/themes/shared/popupnotification.inc.css`
+$popup-notification-button-active: #0568ba;
+$popup-notification-button-hover: #0675d3;
+$popup-notification-button: #0996f8;
+
+.InfoDialog {
+  background: $white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  font-size: $font-size-s;
+  left: 10px;
+  overflow: hidden;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 20;
+
+  @include respond-to(medium) {
+    left: auto;
+    max-width: 400px;
+  }
+
+  [dir='rtl'] & {
+    left: 10px;
+    right: auto;
+  }
+}
+
+.InfoDialog-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.InfoDialog-logo {
+  align-self: stretch;
+  display: flex;
+  padding: 20px;
+
+  img {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+.InfoDialog-copy {
+  align-self: stretch;
+  padding: 20px 20px 20px 0;
+
+  :last-child {
+    margin: 0;
+  }
+
+  [dir='rtl'] & {
+    padding: 20px 0 20px 20px;
+  }
+}
+
+.InfoDialog-title {
+  margin: 0 0 0.5em;
+}
+
+.InfoDialog-description {
+  margin-top: 0;
+}
+
+.InfoDialog-button {
+  align-self: stretch;
+  background-color: $popup-notification-button;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  flex-direction: column;
+  padding: 1em;
+  transition: background 100ms;
+
+  &:focus,
+  &:hover {
+    background-color: $popup-notification-button-hover;
+  }
+
+  &:active {
+    background-color: $popup-notification-button-active;
+  }
+}

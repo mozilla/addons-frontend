@@ -8,11 +8,11 @@ import {
   loadRecommendations,
 } from 'amo/reducers/recommendations';
 import * as api from 'amo/api/recommendations';
-import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import log from 'amo/logger';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { GetRecommendationsParams } from 'amo/api/recommendations';
 import type { FetchRecommendationsAction } from 'amo/reducers/recommendations';
-import type { Saga } from 'core/types/sagas';
+import type { Saga } from 'amo/types/sagas';
 
 export function* fetchRecommendations({
   payload: { errorHandlerId, guid, recommended },

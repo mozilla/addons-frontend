@@ -14,12 +14,12 @@ import {
   fetchAddonInfo,
   loadAddonInfo,
   loadAddon,
-} from 'core/reducers/addons';
+} from 'amo/reducers/addons';
 import {
   FETCH_VERSION,
   fetchVersion,
   loadVersions,
-} from 'core/reducers/versions';
+} from 'amo/reducers/versions';
 import {
   createCapturedErrorHandler,
   createFakeLocation,

@@ -5,8 +5,8 @@ import FormData from '@willdurand/isomorphic-formdata';
 import config from 'config';
 import utf8 from 'utf8';
 
-import * as api from 'core/api';
-import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
+import * as api from 'amo/api';
+import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
   apiResponsePage,
   createApiResponse,

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import CollectionControls from 'amo/components/CollectionControls';
 import CollectionSort from 'amo/components/CollectionSort';
-import { COLLECTION_SORT_NAME } from 'core/constants';
+import { COLLECTION_SORT_NAME } from 'amo/constants';
 import {
   createFakeCollectionDetail,
   createInternalCollectionWithLang,

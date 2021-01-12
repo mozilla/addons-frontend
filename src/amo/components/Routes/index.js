@@ -30,10 +30,10 @@ import SearchPage from 'amo/pages/SearchPage';
 import UserProfile from 'amo/pages/UserProfile';
 import UserProfileEdit from 'amo/pages/UserProfileEdit';
 import UsersUnsubscribe from 'amo/pages/UsersUnsubscribe';
-import SimulateAsyncError from 'core/pages/error-simulation/SimulateAsyncError';
-import SimulateClientError from 'core/pages/error-simulation/SimulateClientError';
-import SimulateSyncError from 'core/pages/error-simulation/SimulateSyncError';
-import type { ConfigType } from 'core/types/config';
+import SimulateAsyncError from 'amo/pages/error-simulation/SimulateAsyncError';
+import SimulateClientError from 'amo/pages/error-simulation/SimulateClientError';
+import SimulateSyncError from 'amo/pages/error-simulation/SimulateSyncError';
+import type { ConfigType } from 'amo/types/config';
 
 // About `loadable()` and code-splitting:
 //

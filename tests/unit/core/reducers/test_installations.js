@@ -13,8 +13,8 @@ import {
   UNINSTALL_COMPLETE,
   UNINSTALLED,
   UNINSTALLING,
-} from 'core/constants';
-import installations, { setInstallState } from 'core/reducers/installations';
+} from 'amo/constants';
+import installations, { setInstallState } from 'amo/reducers/installations';
 import { fakeInstalledAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {

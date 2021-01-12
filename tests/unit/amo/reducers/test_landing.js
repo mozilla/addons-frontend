@@ -3,8 +3,8 @@ import landing, {
   initialState,
   loadLanding,
 } from 'amo/reducers/landing';
-import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
-import { setLang } from 'core/reducers/api';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
+import { setLang } from 'amo/reducers/api';
 import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {

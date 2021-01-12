@@ -3,8 +3,8 @@ import { mount } from 'enzyme';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import I18nProvider from 'core/i18n/Provider';
-import translate from 'core/i18n/translate';
+import I18nProvider from 'amo/i18n/Provider';
+import translate from 'amo/i18n/translate';
 import { fakeI18n } from 'tests/unit/helpers';
 
 class OuterComponent extends React.Component {

@@ -2,11 +2,11 @@
 import makeClassName from 'classnames';
 import * as React from 'react';
 
-import translate from 'core/i18n/translate';
-import { getPreviewImage } from 'core/imageUtils';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
-import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import translate from 'amo/i18n/translate';
+import { getPreviewImage } from 'amo/imageUtils';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 
 import './styles.scss';
 

@@ -17,17 +17,17 @@ import { createInternalCollection } from 'amo/reducers/collections';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
 import { getDjangoBase62 } from 'amo/utils';
-import { setError } from 'core/actions/errors';
-import { createApiError } from 'core/api/index';
+import { setError } from 'amo/actions/errors';
+import { createApiError } from 'amo/api/index';
 import {
   setClientApp,
   setLang,
   setRegionCode,
   setAuthToken,
   setUserAgent,
-} from 'core/reducers/api';
-import * as coreApi from 'core/api';
-import { getAddonStatus } from 'core/addonManager';
+} from 'amo/reducers/api';
+import * as coreApi from 'amo/api';
+import { getAddonStatus } from 'amo/addonManager';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -36,21 +36,21 @@ import {
   CLIENT_APP_FIREFOX,
   ENABLED,
   OS_ALL,
-} from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
-import { makeI18n } from 'core/i18n/utils';
-import { createInternalAddon } from 'core/reducers/addons';
+} from 'amo/constants';
+import { ErrorHandler } from 'amo/errorHandler';
+import { makeI18n } from 'amo/i18n/utils';
+import { createInternalAddon } from 'amo/reducers/addons';
 import {
   autocompleteLoad,
   autocompleteStart,
   createInternalSuggestion,
-} from 'core/reducers/autocomplete';
-import { searchLoad, searchStart } from 'core/reducers/search';
-import { selectUIState } from 'core/reducers/uiState';
+} from 'amo/reducers/autocomplete';
+import { searchLoad, searchStart } from 'amo/reducers/search';
+import { selectUIState } from 'amo/reducers/uiState';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
-import { createInternalVersion } from 'core/reducers/versions';
-import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
-import { addQueryParamsToHistory } from 'core/utils';
+import { createInternalVersion } from 'amo/reducers/versions';
+import { createUIStateMapper, mergeUIStateProps } from 'amo/withUIState';
+import { addQueryParamsToHistory } from 'amo/utils';
 
 export const DEFAULT_LANG_IN_TESTS = config.get('defaultLang');
 export const sampleUserAgent =
@@ -1071,7 +1071,7 @@ export const urlWithTheseParams = (params) => {
 /*
  * Returns a fake ReactRouter location object.
  *
- * See ReactRouterLocationType in 'core/types/router';
+ * See ReactRouterLocationType in 'amo/types/router';
  */
 export const createFakeLocation = (props = {}) => {
   return {
@@ -1088,7 +1088,7 @@ export const createFakeLocation = (props = {}) => {
 /*
  * Returns a fake ReactRouter history object.
  *
- * See ReactRouterHistoryType in 'core/types/router';
+ * See ReactRouterHistoryType in 'amo/types/router';
  */
 export const createFakeHistory = ({ location = createFakeLocation() } = {}) => {
   return {
@@ -1348,7 +1348,7 @@ export function createFakeDebounce() {
 }
 
 // This creates a fake instance with the same interface as
-// LocalState in core/localState
+// LocalState in amo/localState
 export function createFakeLocalState(overrides = {}) {
   return {
     clear: sinon.spy(() => Promise.resolve()),

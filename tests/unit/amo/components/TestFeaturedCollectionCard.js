@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
-import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'core/constants';
+import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'amo/constants';
 
 describe(__filename, () => {
   function render(customProps = {}) {

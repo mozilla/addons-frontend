@@ -10,9 +10,9 @@ import {
   fakeI18n,
 } from 'tests/unit/helpers';
 import { HeroRecommendationBase } from 'amo/components/HeroRecommendation';
-import { ErrorHandler } from 'core/errorHandler';
-import { setError } from 'core/actions/errors';
-import { createApiError } from 'core/api/index';
+import { ErrorHandler } from 'amo/errorHandler';
+import { setError } from 'amo/actions/errors';
+import { createApiError } from 'amo/api/index';
 import type { InternalProps as HeroRecommendationProps } from 'amo/components/HeroRecommendation';
 
 import Provider from '../setup/Provider';

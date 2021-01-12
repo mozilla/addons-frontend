@@ -1,12 +1,12 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as api from 'core/api/languageTools';
+import * as api from 'amo/api/languageTools';
 import languageToolsReducer, {
   fetchLanguageTools,
   loadLanguageTools,
-} from 'core/reducers/languageTools';
-import apiReducer from 'core/reducers/api';
-import languageToolsSaga from 'core/sagas/languageTools';
+} from 'amo/reducers/languageTools';
+import apiReducer from 'amo/reducers/api';
+import languageToolsSaga from 'amo/sagas/languageTools';
 import {
   createFakeLanguageTool,
   createStubErrorHandler,

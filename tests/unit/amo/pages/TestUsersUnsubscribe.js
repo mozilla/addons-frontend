@@ -14,7 +14,7 @@ import UsersUnsubscribe, {
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import { getNotificationDescription } from 'amo/utils/notifications';
-import { ErrorHandler } from 'core/errorHandler';
+import { ErrorHandler } from 'amo/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,

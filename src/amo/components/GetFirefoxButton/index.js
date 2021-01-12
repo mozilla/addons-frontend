@@ -8,14 +8,14 @@ import { compose } from 'redux';
 
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
-import translate from 'core/i18n/translate';
-import tracking from 'core/tracking';
-import { isFirefox } from 'core/utils/compatibility';
+import translate from 'amo/i18n/translate';
+import tracking from 'amo/tracking';
+import { isFirefox } from 'amo/utils/compatibility';
 import Button from 'ui/components/Button';
 import type { AppState } from 'amo/store';
-import type { UserAgentInfoType } from 'core/reducers/api';
-import type { AddonType } from 'core/types/addons';
-import type { I18nType } from 'core/types/i18n';
+import type { UserAgentInfoType } from 'amo/reducers/api';
+import type { AddonType } from 'amo/types/addons';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

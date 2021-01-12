@@ -25,12 +25,12 @@ import {
   isDeveloper,
   logOutUser,
 } from 'amo/reducers/users';
-import AuthenticateButton from 'core/components/AuthenticateButton';
-import { USERS_EDIT } from 'core/constants';
-import { withFixedErrorHandler } from 'core/errorHandler';
-import log from 'core/logger';
-import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import AuthenticateButton from 'amo/components/AuthenticateButton';
+import { USERS_EDIT } from 'amo/constants';
+import { withFixedErrorHandler } from 'amo/errorHandler';
+import log from 'amo/logger';
+import translate from 'amo/i18n/translate';
+import { sanitizeHTML } from 'amo/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
@@ -42,14 +42,14 @@ import type {
   UserType,
 } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
-import type { DispatchFunc } from 'core/types/redux';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
 import type {
   ReactRouterHistoryType,
   ReactRouterLocationType,
   ReactRouterMatchType,
-} from 'core/types/router';
+} from 'amo/types/router';
 
 import './styles.scss';
 

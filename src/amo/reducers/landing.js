@@ -1,9 +1,9 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { createInternalAddon } from 'core/reducers/addons';
-import { SET_LANG } from 'core/reducers/api';
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import { createInternalAddon } from 'amo/reducers/addons';
+import { SET_LANG } from 'amo/reducers/api';
+import type { AddonType, ExternalAddonType } from 'amo/types/addons';
 
 export const GET_LANDING: 'GET_LANDING' = 'GET_LANDING';
 export const LOAD_LANDING: 'LOAD_LANDING' = 'LOAD_LANDING';

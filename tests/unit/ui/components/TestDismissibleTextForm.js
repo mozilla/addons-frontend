@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
-import I18nProvider from 'core/i18n/Provider';
+import I18nProvider from 'amo/i18n/Provider';
 import {
   createFakeDebounce,
   createFakeEvent,

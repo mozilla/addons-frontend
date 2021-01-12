@@ -26,15 +26,12 @@ import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getAddonURL } from 'amo/utils';
 import createStore from 'amo/store';
-import {
-  fetchAddon as fetchAddonAction,
-  loadAddon,
-} from 'core/reducers/addons';
+import { fetchAddon as fetchAddonAction, loadAddon } from 'amo/reducers/addons';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
-import { setInstallError, setInstallState } from 'core/reducers/installations';
+import { setInstallError, setInstallState } from 'amo/reducers/installations';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -44,10 +41,10 @@ import {
   FATAL_ERROR,
   INSTALLING,
   UNKNOWN,
-} from 'core/constants';
-import I18nProvider from 'core/i18n/Provider';
-import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { addQueryParamsToHistory } from 'core/utils';
+} from 'amo/constants';
+import I18nProvider from 'amo/i18n/Provider';
+import { sendServerRedirect } from 'amo/reducers/redirectTo';
+import { addQueryParamsToHistory } from 'amo/utils';
 import {
   createCapturedErrorHandler,
   createFakeClientCompatibility,

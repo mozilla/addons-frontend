@@ -3,7 +3,7 @@ import * as React from 'react';
 import CollectionSort, {
   CollectionSortBase,
 } from 'amo/components/CollectionSort';
-import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
+import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'amo/constants';
 import {
   createFakeCollectionDetail,
   createContextWithFakeRouter,

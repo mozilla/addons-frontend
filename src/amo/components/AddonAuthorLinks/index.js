@@ -3,12 +3,12 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import translate from 'core/i18n/translate';
-import type { AddonType } from 'core/types/addons';
+import translate from 'amo/i18n/translate';
+import type { AddonType } from 'amo/types/addons';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 import type { AppState } from 'amo/store';
-import { isAddonAuthor } from 'core/utils';
+import { isAddonAuthor } from 'amo/utils';
 
 type Props = {|
   addon: AddonType | null,

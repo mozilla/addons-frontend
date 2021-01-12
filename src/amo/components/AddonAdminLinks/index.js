@@ -9,12 +9,12 @@ import {
   ADDONS_REVIEW,
   ADDON_TYPE_STATIC_THEME,
   STATIC_THEMES_REVIEW,
-} from 'core/constants';
-import translate from 'core/i18n/translate';
+} from 'amo/constants';
+import translate from 'amo/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
-import type { AddonType } from 'core/types/addons';
+import type { AddonType } from 'amo/types/addons';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
-import type { I18nType } from 'core/types/i18n';
+import type { I18nType } from 'amo/types/i18n';
 import type { AppState } from 'amo/store';
 
 type Props = {|

@@ -2,13 +2,13 @@
 import * as React from 'react';
 import { oneLine } from 'common-tags';
 
-import log from 'core/logger';
-import { findFileForPlatform } from 'core/utils';
+import log from 'amo/logger';
+import { findFileForPlatform } from 'amo/utils';
 import HostPermissions from 'ui/components/HostPermissions';
 import Permission from 'ui/components/Permission';
-import type { UserAgentInfoType } from 'core/reducers/api';
-import type { PlatformFilesType } from 'core/reducers/versions';
-import type { I18nType } from 'core/types/i18n';
+import type { UserAgentInfoType } from 'amo/reducers/api';
+import type { PlatformFilesType } from 'amo/reducers/versions';
+import type { I18nType } from 'amo/types/i18n';
 
 export type GetCurrentPermissionsParams = {|
   platformFiles: PlatformFilesType,

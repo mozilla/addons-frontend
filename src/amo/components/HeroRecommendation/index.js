@@ -18,18 +18,18 @@ import {
   DEFAULT_UTM_MEDIUM,
   LINE,
   RECOMMENDED,
-} from 'core/constants';
-import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import tracking from 'core/tracking';
-import { sanitizeUserHTML } from 'core/utils';
-import { getPromotedCategory } from 'core/utils/addons';
-import { addQueryParams } from 'core/utils/url';
+} from 'amo/constants';
+import translate from 'amo/i18n/translate';
+import log from 'amo/logger';
+import tracking from 'amo/tracking';
+import { sanitizeUserHTML } from 'amo/utils';
+import { getPromotedCategory } from 'amo/utils/addons';
+import { addQueryParams } from 'amo/utils/url';
 import LoadingText from 'ui/components/LoadingText';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { I18nType } from 'core/types/i18n';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 

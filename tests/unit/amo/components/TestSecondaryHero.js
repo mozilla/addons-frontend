@@ -7,8 +7,8 @@ import SecondaryHero, {
   SECONDARY_HERO_SRC,
 } from 'amo/components/SecondaryHero';
 import LoadingText from 'ui/components/LoadingText';
-import { addQueryParams } from 'core/utils/url';
-import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'core/constants';
+import { addQueryParams } from 'amo/utils/url';
+import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'amo/constants';
 import {
   createFakeEvent,
   createFakeTracking,

@@ -6,7 +6,7 @@ import {
   VIEW_CONTEXT_HOME,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
   SET_VIEW_CONTEXT,
-} from 'core/constants';
+} from 'amo/constants';
 
 export type ViewContextType =
   | typeof ADDON_TYPE_EXTENSION

@@ -6,8 +6,8 @@ import FeaturedAddonReview, {
   FeaturedAddonReviewBase,
 } from 'amo/components/FeaturedAddonReview';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
-import { createApiError } from 'core/api';
-import { ErrorHandler } from 'core/errorHandler';
+import { createApiError } from 'amo/api';
+import { ErrorHandler } from 'amo/errorHandler';
 import {
   createStubErrorHandler,
   dispatchClientMetadata,

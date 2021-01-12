@@ -11,7 +11,7 @@ import {
   replyToReview,
   submitReview,
 } from 'amo/api/reviews';
-import * as api from 'core/api';
+import * as api from 'amo/api';
 import {
   apiResponsePage,
   createStubErrorHandler,

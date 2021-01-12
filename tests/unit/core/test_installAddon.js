@@ -3,8 +3,8 @@ import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { loadVersions } from 'core/reducers/versions';
-import { setInstallError, setInstallState } from 'core/reducers/installations';
+import { loadVersions } from 'amo/reducers/versions';
+import { setInstallError, setInstallState } from 'amo/reducers/installations';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -35,8 +35,8 @@ import {
   UNINSTALLED,
   UNINSTALLING,
   UNINSTALL_ACTION,
-} from 'core/constants';
-import { showInfoDialog } from 'core/reducers/infoDialog';
+} from 'amo/constants';
+import { showInfoDialog } from 'amo/reducers/infoDialog';
 import {
   createFakeTracking,
   createInternalAddonWithLang,
@@ -53,8 +53,8 @@ import {
   WithInstallHelpers,
   makeProgressHandler,
   withInstallHelpers,
-} from 'core/installAddon';
-import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
+} from 'amo/installAddon';
+import { getAddonTypeForTracking, getAddonEventCategory } from 'amo/tracking';
 
 const INVALID_TYPE = 'not-a-real-type';
 

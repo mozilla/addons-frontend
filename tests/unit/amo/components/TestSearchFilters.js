@@ -15,9 +15,9 @@ import {
   SEARCH_SORT_RECOMMENDED,
   SEARCH_SORT_RELEVANCE,
   SEARCH_SORT_TRENDING,
-} from 'core/constants';
-import { searchStart } from 'core/reducers/search';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
+} from 'amo/constants';
+import { searchStart } from 'amo/reducers/search';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import Select from 'ui/components/Select';
 import {
   createContextWithFakeRouter,

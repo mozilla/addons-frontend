@@ -1,7 +1,7 @@
 import deepEqual from 'deep-eql';
 import FormData from '@willdurand/isomorphic-formdata';
 
-import * as api from 'core/api';
+import * as api from 'amo/api';
 import {
   currentUserAccount,
   deleteUserAccount,

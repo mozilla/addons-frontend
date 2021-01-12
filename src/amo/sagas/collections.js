@@ -30,8 +30,8 @@ import {
   unloadCollectionBySlug,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
-import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import log from 'amo/logger';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type {
   CreateCollectionAddonParams,
   CreateCollectionParams,
@@ -54,7 +54,7 @@ import type {
   UpdateCollectionAction,
   UpdateCollectionAddonAction,
 } from 'amo/reducers/collections';
-import type { Saga } from 'core/types/sagas';
+import type { Saga } from 'amo/types/sagas';
 
 export function* fetchCurrentCollection({
   payload: { errorHandlerId, filters, slug, userId },

@@ -5,13 +5,13 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-} from 'core/constants';
+} from 'amo/constants';
 import categories, {
   FETCH_CATEGORIES,
   fetchCategories,
   loadCategories,
   initialState,
-} from 'core/reducers/categories';
+} from 'amo/reducers/categories';
 import { fakeCategory } from 'tests/unit/helpers';
 
 describe(__filename, () => {

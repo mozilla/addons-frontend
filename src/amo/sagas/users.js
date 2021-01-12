@@ -18,10 +18,10 @@ import {
   unloadUserAccount,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
-import log from 'core/logger';
-import { SET_AUTH_TOKEN } from 'core/reducers/api';
-import { loadSiteStatus } from 'core/reducers/site';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import log from 'amo/logger';
+import { SET_AUTH_TOKEN } from 'amo/reducers/api';
+import { loadSiteStatus } from 'amo/reducers/site';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type {
   CurrentUserAccountParams,
   CurrentUserAccountResponse,
@@ -38,8 +38,8 @@ import type {
   UnsubscribeNotificationAction,
   UpdateUserAccountAction,
 } from 'amo/reducers/users';
-import type { SetAuthTokenAction } from 'core/reducers/api';
-import type { Saga } from 'core/types/sagas';
+import type { SetAuthTokenAction } from 'amo/reducers/api';
+import type { Saga } from 'amo/types/sagas';
 
 // This saga is not triggered by the UI but on the server side, hence do not
 // have a `errorHandler`. We handle 401s here but other errors are re-thrown so

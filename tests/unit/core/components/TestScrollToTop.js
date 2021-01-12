@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import ScrollToTop, { ScrollToTopBase } from 'core/components/ScrollToTop';
+import ScrollToTop, { ScrollToTopBase } from 'amo/components/ScrollToTop';
 import {
   createContextWithFakeRouter,
   createFakeLocation,

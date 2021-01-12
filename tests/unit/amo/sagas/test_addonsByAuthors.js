@@ -11,9 +11,9 @@ import {
   ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
-} from 'core/constants';
-import * as searchApi from 'core/api/search';
-import apiReducer from 'core/reducers/api';
+} from 'amo/constants';
+import * as searchApi from 'amo/api/search';
+import apiReducer from 'amo/reducers/api';
 import {
   createAddonsApiResult,
   createStubErrorHandler,

@@ -1,6 +1,6 @@
 /* @flow */
 import type { ViewContextState } from 'amo/reducers/viewContext';
-import { SET_VIEW_CONTEXT } from 'core/constants';
+import { SET_VIEW_CONTEXT } from 'amo/constants';
 
 export function setViewContext(
   context: $PropertyType<ViewContextState, 'context'>,

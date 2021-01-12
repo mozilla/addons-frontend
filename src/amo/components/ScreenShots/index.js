@@ -5,7 +5,7 @@ import * as React from 'react';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import 'react-photoswipe/lib/photoswipe.css';
 
-import type { PreviewType } from 'core/types/addons';
+import type { PreviewType } from 'amo/types/addons';
 import './styles.scss';
 
 type ThumbBounds =

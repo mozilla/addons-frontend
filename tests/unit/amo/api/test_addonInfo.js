@@ -1,5 +1,5 @@
 import { getAddonInfo } from 'amo/api/addonInfo';
-import * as api from 'core/api';
+import * as api from 'amo/api';
 import { createApiResponse, dispatchSignInActions } from 'tests/unit/helpers';
 
 describe(__filename, () => {

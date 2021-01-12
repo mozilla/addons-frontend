@@ -1,5 +1,5 @@
-import { clearError, setError, setErrorMessage } from 'core/actions/errors';
-import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
+import { clearError, setError, setErrorMessage } from 'amo/actions/errors';
+import { CLEAR_ERROR, SET_ERROR } from 'amo/constants';
 
 describe(__filename, () => {
   describe('setError', () => {

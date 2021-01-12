@@ -23,14 +23,14 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SPONSORED,
-} from 'core/constants';
-import { search as searchApi } from 'core/api/search';
-import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+} from 'amo/constants';
+import { search as searchApi } from 'amo/api/search';
+import log from 'amo/logger';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { GetCollectionAddonsParams } from 'amo/api/collections';
 import type { FetchHomeDataAction } from 'amo/reducers/home';
-import type { SearchParams } from 'core/api/search';
-import type { Saga } from 'core/types/sagas';
+import type { SearchParams } from 'amo/api/search';
+import type { Saga } from 'amo/types/sagas';
 
 export function* fetchHomeData({
   payload: {

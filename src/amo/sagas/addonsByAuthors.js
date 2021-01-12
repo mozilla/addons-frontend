@@ -1,17 +1,17 @@
 /* @flow */
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 
-import { SEARCH_SORT_TRENDING } from 'core/constants';
+import { SEARCH_SORT_TRENDING } from 'amo/constants';
 import {
   FETCH_ADDONS_BY_AUTHORS,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
-import { search as searchApi } from 'core/api/search';
-import log from 'core/logger';
-import { createErrorHandler, getState } from 'core/sagas/utils';
+import { search as searchApi } from 'amo/api/search';
+import log from 'amo/logger';
+import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { FetchAddonsByAuthorsAction } from 'amo/reducers/addonsByAuthors';
-import type { SearchParams } from 'core/api/search';
-import type { Saga } from 'core/types/sagas';
+import type { SearchParams } from 'amo/api/search';
+import type { Saga } from 'amo/types/sagas';
 
 export function* fetchAddonsByAuthors({
   payload,

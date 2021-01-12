@@ -1,6 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as searchApi from 'core/api/search';
+import * as searchApi from 'amo/api/search';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
@@ -18,8 +18,8 @@ import {
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_RANDOM,
-} from 'core/constants';
-import apiReducer from 'core/reducers/api';
+} from 'amo/constants';
+import apiReducer from 'amo/reducers/api';
 import {
   createAddonsApiResult,
   createStubErrorHandler,

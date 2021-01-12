@@ -1,6 +1,6 @@
 import Express from 'express';
 
-import { serveAssetsLocally } from 'core/middleware';
+import { serveAssetsLocally } from 'amo/middleware';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {

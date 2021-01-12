@@ -1,4 +1,4 @@
-import { middleware, minimalReduxLogger } from 'core/store';
+import { middleware, minimalReduxLogger } from 'amo/store';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {

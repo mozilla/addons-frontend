@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { flagReview } from 'amo/actions/reviews';
-import { withErrorHandler } from 'core/errorHandler';
+import { withErrorHandler } from 'amo/errorHandler';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { FlagState } from 'amo/reducers/reviews';
-import type { ErrorHandlerType } from 'core/types/errorHandler';
-import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { DispatchFunc } from 'amo/types/redux';
 
 type Props = {|
   buttonText: string,

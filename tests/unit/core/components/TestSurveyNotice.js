@@ -3,14 +3,14 @@ import querystring from 'querystring';
 import config from 'config';
 import * as React from 'react';
 
-import SurveyNotice, { SurveyNoticeBase } from 'core/components/SurveyNotice';
+import SurveyNotice, { SurveyNoticeBase } from 'amo/components/SurveyNotice';
 import {
   SURVEY_ACTION_DISMISSED,
   SURVEY_ACTION_SHOWN,
   SURVEY_ACTION_VISITED,
   SURVEY_CATEGORY,
-} from 'core/constants';
-import { dismissSurvey } from 'core/reducers/survey';
+} from 'amo/constants';
+import { dismissSurvey } from 'amo/reducers/survey';
 import Notice from 'ui/components/Notice';
 import {
   createFakeTracking,
