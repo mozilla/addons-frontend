@@ -6,7 +6,7 @@ import ServerHtml from 'amo/components/ServerHtml';
 import FakeApp, {
   fakeAssets,
   fakeSRIData,
-} from 'tests/unit/core/server/fakeApp';
+} from 'tests/unit/amo/server/fakeApp';
 import { getFakeConfig } from 'tests/unit/helpers';
 import { RTL } from 'amo/constants';
 
