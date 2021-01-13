@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-05 17:03+0000\n"
+"POT-Creation-Date: 2021-01-13 19:02+0000\n"
 "PO-Revision-Date: 2020-12-22 11:03+0000\n"
 "Last-Translator: Shazia Mansoor <shaz_dvm@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,11 +89,11 @@ msgstr "Firefox Quantum کے ساتھ مطابقت نہیں ہے"
 msgid "Some features may require payment"
 msgstr "کچھ خصوصیات کےلیے ادائیگی کی ضرورت ہوسکتی ہے"
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:109
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "یہ ایڈاون Firefox کے اپنے ورژن کے ساتھ مطابقت نہیں رکھتا ہے۔"
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:112
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -101,17 +101,17 @@ msgstr ""
 "Firefox کا یہ ورژن اس ایڈ-اون کی حمایت نہیں کرتا کیونکہ اس کو دوبارہ شروع "
 "کرنے کی ضرورت ہے۔"
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:115
 msgid "This add-on is not available on your platform."
 msgstr "یہ ایڈاون آپ کے پلیٹ فارم پر دستیاب نہیں ہے۔"
 
-#: src/amo/components/AddonCompatibilityError/index.js:120
+#: src/amo/components/AddonCompatibilityError/index.js:119
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:137
+#: src/amo/components/AddonCompatibilityError/index.js:136
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -209,83 +209,83 @@ msgstr "کوئی جائزہ نہیں ہے"
 msgid "Used by"
 msgstr "کی جانب سے استعمال شدہ"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMoreInfo/index.js:117
 msgid "Visit stats dashboard"
 msgstr "اعداد و شمار ڈیش بورڈ ملاحظہ کریں"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:136
 msgid "Custom License"
 msgstr "کسٹم لائسنس"
 
-#: src/amo/components/AddonMoreInfo/index.js:150
+#: src/amo/components/AddonMoreInfo/index.js:158
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:166
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the privacy policy for this add-on"
 msgstr "ایڈ -اون کے لیئے رازداری پالیسی پڑھیں"
 
-#: src/amo/components/AddonMoreInfo/index.js:177
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "Read the license agreement for this add-on"
 msgstr "اس ایڈ -اون کے لیئے لائسنس معاہدہ پڑھیں"
 
-#: src/amo/components/AddonMoreInfo/index.js:189
+#: src/amo/components/AddonMoreInfo/index.js:197
 msgid "See all versions"
 msgstr "تمام ورژن دیکھیں"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Add-on Links"
 msgstr "ایڈ-اون ربظ"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:236
 msgid "Version"
 msgstr "ورژن"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "Size"
 msgstr "ماپ"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
-#: src/amo/components/CollectionDetails/index.js:89
+#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/CollectionDetails/index.js:93
 msgid "Last updated"
 msgstr "آخری تازہ کاری"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "License"
 msgstr "لائسنس"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Privacy Policy"
 msgstr "رازداری پالیسی"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:276
 msgid "End-User License Agreement"
 msgstr "اختتامی صارف لائسنس معاہدہ"
 
-#: src/amo/components/AddonMoreInfo/index.js:276
+#: src/amo/components/AddonMoreInfo/index.js:284
 msgid "Version History"
 msgstr "ورژن سابقات"
 
-#: src/amo/components/AddonMoreInfo/index.js:286
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "Usage Statistics"
 msgstr "استعمال کے اعداد و شمار"
 
-#: src/amo/components/AddonMoreInfo/index.js:302
+#: src/amo/components/AddonMoreInfo/index.js:310
 msgid "More information"
 msgstr "مزید معلومات"
 
-#: src/amo/components/AddonMoreInfo/index.js:66
+#: src/amo/components/AddonMoreInfo/index.js:70
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "ابتدائی صفحہ"
 
-#: src/amo/components/AddonMoreInfo/index.js:77
+#: src/amo/components/AddonMoreInfo/index.js:85
 msgid "Support site"
 msgstr "سپورٹ سائٹ"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:99
 msgid "Support Email"
 msgstr "معاونت کار ای میل"
 
@@ -585,6 +585,44 @@ msgstr "ورژن  %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
+#: src/amo/components/AMInstallButton/index.js:198
+msgid "Enable"
+msgstr "اہل بنائیں"
+
+#: src/amo/components/AMInstallButton/index.js:201
+#: src/amo/components/EditableCollectionAddon/index.js:143
+msgid "Remove"
+msgstr "ہٹائیں"
+
+#: src/amo/components/AMInstallButton/index.js:203
+msgid "Enabling"
+msgstr ""
+
+#: src/amo/components/AMInstallButton/index.js:205
+#, fuzzy
+msgid "Disabling"
+msgstr "ناتنصیب کر رہا ہے"
+
+#: src/amo/components/AMInstallButton/index.js:207
+msgid "Downloading"
+msgstr "ڈاؤن لوڈ ہو رہا ہے"
+
+#: src/amo/components/AMInstallButton/index.js:209
+msgid "Installing"
+msgstr "تنصیب کر رہا ہے"
+
+#: src/amo/components/AMInstallButton/index.js:211
+msgid "Uninstalling"
+msgstr "ناتنصیب کر رہا ہے"
+
+#: src/amo/components/AMInstallButton/index.js:219
+msgid "Install Theme"
+msgstr "خیالیہ کی تنصیب کریں"
+
+#: src/amo/components/AMInstallButton/index.js:220
+msgid "Add to Firefox"
+msgstr "Firefox میں شامل کریں"
+
 #: src/amo/components/App/index.js:185
 #: src/amo/components/HeadMetaTags/index.js:79
 #, fuzzy
@@ -608,6 +646,21 @@ msgstr "Firefox میں شامل کریں"
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
+
+#: src/amo/components/AuthenticateButton/index.js:87
+#: src/amo/components/Header/index.js:146
+msgid "Log out"
+msgstr "لاگ آؤٹ"
+
+#: src/amo/components/AuthenticateButton/index.js:88
+msgid "Register or Log in"
+msgstr "رجسٹر یا لاگ ان کریں"
+
+#: src/amo/components/AuthenticateButton/index.js:91
+#: src/amo/components/Header/index.js:141
+msgid ""
+"This action is currently unavailable. Please reload the page in a moment."
+msgstr ""
 
 #: src/amo/components/AutoSearchInput/index.js:206
 msgid "Loading"
@@ -646,27 +699,32 @@ msgstr "مجموعہ سے ہٹا دیا گیا"
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionDetails/index.js:103
+#: src/amo/components/CollectionDetails/index.js:107
 #, fuzzy
 msgid "Edit this collection"
 msgstr "تمام توسیعات براؤز کریں"
 
-#: src/amo/components/CollectionDetails/index.js:114
+#: src/amo/components/CollectionDetails/index.js:118
 #, fuzzy
 msgid "Edit collection details"
 msgstr "تمام توسیعات براؤز کریں"
 
-#: src/amo/components/CollectionDetails/index.js:126
+#: src/amo/components/CollectionDetails/index.js:130
 #, fuzzy
 msgid "Back to collection"
 msgstr "تمام توسیعات براؤز کریں"
 
-#: src/amo/components/CollectionDetails/index.js:79
-#: src/amo/components/Footer/index.js:48
+#: src/amo/components/CollectionDetails/index.js:64
+#: src/ui/components/UserCollection/index.js:54
+msgid "(no name)"
+msgstr ""
+
+#: src/amo/components/CollectionDetails/index.js:83
+#: src/amo/components/Footer/index.js:47
 msgid "Add-ons"
 msgstr "ایڈ-اون"
 
-#: src/amo/components/CollectionDetails/index.js:83
+#: src/amo/components/CollectionDetails/index.js:87
 msgid "Creator"
 msgstr "تخلیق کار"
 
@@ -712,7 +770,7 @@ msgstr "نام"
 msgid "Popularity"
 msgstr "مقبولیت"
 
-#: src/amo/components/ContributeCard/index.js:109
+#: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
 msgstr "ابھی حصہ لیں"
 
@@ -793,11 +851,6 @@ msgstr ""
 msgid "Leave a note"
 msgstr "ایک نوٹ چھوڑ دی‏ں"
 
-#: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:201
-msgid "Remove"
-msgstr "ہٹائیں"
-
 #: src/amo/components/EditableCollectionAddon/index.js:152
 #, fuzzy
 msgid "Collector's note"
@@ -814,6 +867,30 @@ msgstr "محفوظ کریں"
 #: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
 msgstr "تدوین"
+
+#: src/amo/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/Errors/ServerError/index.js:30
+msgid "Server Error"
+msgstr "پیش کار کا نقص"
+
+#: src/amo/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+
+#: src/amo/components/ErrorPage/GenericError/index.js:33
+#: src/amo/components/ErrorPage/NotFound/index.js:35
+msgid "Error code: %(status)s."
+msgstr "غلط کوڈ: %(status)s۔"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:27
+msgid "Page not found"
+msgstr "صفہہ نہیں ملا"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:29
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
@@ -875,11 +952,6 @@ msgid ""
 "a>. Tell us what steps you took that lead to the error and we'll do our best "
 "to fix it."
 msgstr ""
-
-#: src/amo/components/Errors/ServerError/index.js:30
-#: src/core/components/ErrorPage/GenericError/index.js:24
-msgid "Server Error"
-msgstr "پیش کار کا نقص"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid ""
@@ -979,71 +1051,71 @@ msgstr "اس میں نازیبا زبان کا استعمال کیا گیا ہے
 msgid "Flagged for inappropriate language"
 msgstr "نامناسب زبان کے لئے نشان لگا دیا گیا"
 
-#: src/amo/components/Footer/index.js:104
+#: src/amo/components/Footer/index.js:103
 msgid "Site Status"
 msgstr "سائٹ کی حیثیت"
 
-#: src/amo/components/Footer/index.js:111
+#: src/amo/components/Footer/index.js:110
 msgid "Browsers"
 msgstr "براؤزر"
 
-#: src/amo/components/Footer/index.js:169
+#: src/amo/components/Footer/index.js:168
 msgid "Products"
 msgstr "مصنوعات"
 
-#: src/amo/components/Footer/index.js:245
+#: src/amo/components/Footer/index.js:244
 msgid "Privacy"
 msgstr "رازداری"
 
-#: src/amo/components/Footer/index.js:253
+#: src/amo/components/Footer/index.js:252
 msgid "Cookies"
 msgstr "کوکیز"
 
-#: src/amo/components/Footer/index.js:261
-msgid "Legal"
-msgstr "قانونی"
-
-#: src/amo/components/Footer/index.js:27
+#: src/amo/components/Footer/index.js:26
 msgid "Go to Mozilla's homepage"
 msgstr "Mozilla کے ابتدائِ صفحہ پر جائیں"
 
-#: src/amo/components/Footer/index.js:271
+#: src/amo/components/Footer/index.js:260
+msgid "Legal"
+msgstr "قانونی"
+
+#: src/amo/components/Footer/index.js:270
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
 "Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
 msgstr ""
 
-#: src/amo/components/Footer/index.js:53
+#: src/amo/components/Footer/index.js:52
 msgid "About"
 msgstr "متعلق"
 
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:57
 msgid "Blog"
 msgstr "بلاگ"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:212
+#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:212
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "توسیعات"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:222
+#: src/amo/components/Footer/index.js:75 src/amo/components/Header/index.js:222
 msgid "Developer Hub"
 msgstr "ڈویلپر ہب"
 
-#: src/amo/components/Footer/index.js:81
+#: src/amo/components/Footer/index.js:80
 msgid "Developer Policies"
 msgstr "ڈویلپر پالیسیاں"
 
-#: src/amo/components/Footer/index.js:86
+#: src/amo/components/Footer/index.js:85
 msgid "Forum"
 msgstr "فورم"
 
-#: src/amo/components/Footer/index.js:94
+#: src/amo/components/Footer/index.js:93
 msgid "Report a bug"
 msgstr "ایک گڑبڑ رپورٹ کریں"
 
-#: src/amo/components/Footer/index.js:99
+#: src/amo/components/Footer/index.js:98
 msgid "Review Guide"
 msgstr "جائزہ  کا ہدایت نامہ"
 
@@ -1071,17 +1143,6 @@ msgstr "میرے نشستوں کا نظم کریں"
 #, fuzzy
 msgid "Reviewer Tools"
 msgstr "متن کا جائزہ لیں"
-
-#: src/amo/components/Header/index.js:141
-#: src/core/components/AuthenticateButton/index.js:91
-msgid ""
-"This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
-
-#: src/amo/components/Header/index.js:146
-#: src/core/components/AuthenticateButton/index.js:87
-msgid "Log out"
-msgstr "لاگ آؤٹ"
 
 #: src/amo/components/Header/index.js:172
 msgid "Firefox Browser Add-ons"
@@ -1142,6 +1203,18 @@ msgid ""
 "performance."
 msgstr ""
 
+#: src/amo/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr ""
+
+#: src/amo/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr ""
+
+#: src/amo/components/InfoDialog/index.js:88
+msgid "OK"
+msgstr "ٹھیک ہے"
+
 #: src/amo/components/InstallButtonWrapper/index.js:131
 msgid "Download file"
 msgstr "فائل ڈائونلوڈ کریں"
@@ -1159,6 +1232,18 @@ msgstr ""
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
 msgstr "زبان تبدیل کریں"
+
+#: src/amo/components/Paginate/index.js:137
+msgid "Previous"
+msgstr "پچھلا"
+
+#: src/amo/components/Paginate/index.js:154
+msgid "Next"
+msgstr "اگلا"
+
+#: src/amo/components/Paginate/index.js:160
+msgid "Page %(currentPage)s of %(totalPages)s"
+msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
@@ -1425,12 +1510,12 @@ msgstr ""
 msgid "Search results"
 msgstr "تلاش کے نتائج"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:302
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "تجویز کردہ ایکسٹنشن"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:374
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:372
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "تجویز کردہ تھیمز"
@@ -1485,7 +1570,7 @@ msgstr "نمایاں خیالہ"
 msgid "Verified add-ons"
 msgstr "نمایاں توسیعات"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:387
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:385
 #: src/amo/pages/LandingPage/index.js:134
 #, fuzzy
 msgid "Trending extensions"
@@ -1517,11 +1602,11 @@ msgstr "سب سے اوپر ریٹیڈ خیالہ"
 msgid "Top rated add-ons"
 msgstr "ایڈ-اونز لوڈ کر رہا ہے"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:347
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:345
 msgid "Popular extensions"
 msgstr "مقبول توسیعات"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:328
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:326
 msgid "Popular themes"
 msgstr "مقبول خیالیے"
 
@@ -1715,16 +1800,16 @@ msgstr "Firefox ایڈاونز کے بارے میں"
 msgid "Go to the add-on page"
 msgstr "اضافہ جات کے صفحہ پر جائیں"
 
-#: src/amo/components/SearchResult/index.js:181
+#: src/amo/components/SearchResult/index.js:180
 msgid "No theme preview available"
 msgstr "خیالیہ کا کوئی بھی پیش منظر دستیاب نہیں"
 
-#: src/amo/components/SearchResult/index.js:216
+#: src/amo/components/SearchResult/index.js:215
 #, fuzzy
 msgid "Add-on note"
 msgstr "ایڈ ان آئکن"
 
-#: src/amo/components/SearchResult/index.js:234
+#: src/amo/components/SearchResult/index.js:233
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s صارف"
@@ -1785,6 +1870,16 @@ msgstr "لغت اور زبان پیک"
 msgid "Explore"
 msgstr "دریافت کریں"
 
+#: src/amo/components/SiteNotices/index.js:72
+msgid ""
+"Some features are temporarily disabled while we perform website maintenance. "
+"We'll be back to full capacity shortly."
+msgstr ""
+
+#: src/amo/components/SiteNotices/index.js:87
+msgid "You have been logged out."
+msgstr ""
+
 #: src/amo/components/SponsoredAddonsShelf/index.js:210
 #, fuzzy
 msgid "Sponsored extensions"
@@ -1809,6 +1904,18 @@ msgstr "تمام خیالیے براؤز کریں"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "ایڈ-اونز ابتدائی صفحہ"
+
+#: src/amo/components/SurveyNotice/index.js:128
+msgid "Take short survey"
+msgstr "مختصر سروے لے لیں"
+
+#: src/amo/components/SurveyNotice/index.js:136
+msgid ""
+"Thanks for visiting this site! Please take a minute or two to tell Firefox "
+"about your experience."
+msgstr ""
+"اس سائٹ کا دورہ کرنے کے لئے شکریہ! اپنے تجربے کے بارے میں Firefox کو بتانے "
+"کیلئے ایک یا دو منٹ دیں۔"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
@@ -1851,61 +1958,81 @@ msgid ""
 "\"%(newLocation)s\">add-ons for Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:161 src/ui/components/ThemeImage/index.js:31
+#: src/amo/i18n/utils.js:254
+msgid "%(localizedSize)s B"
+msgstr ""
+
+#: src/amo/i18n/utils.js:256
+msgid "%(localizedSize)s KB"
+msgstr ""
+
+#: src/amo/i18n/utils.js:258
+msgid "%(localizedSize)s MB"
+msgstr ""
+
+#: src/amo/i18n/utils.js:260
+msgid "%(localizedSize)s GB"
+msgstr ""
+
+#: src/amo/i18n/utils.js:262
+msgid "%(localizedSize)s TB"
+msgstr ""
+
+#: src/amo/pages/Addon/index.js:160 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "%(title)s کا پیش نظارہ"
 
-#: src/amo/pages/Addon/index.js:196
+#: src/amo/pages/Addon/index.js:195
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "اس اظافہ جات کی درجہ بندی نہیں کی جاسکتی ہے کیونکہ کوئی ورژن شائع نہیں ہوا "
 "ہے۔"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s جائزے پڑھیں"
 msgstr[1] "تمام %(count)s جائزے بڑہیں"
 
-#: src/amo/pages/Addon/index.js:228
+#: src/amo/pages/Addon/index.js:227
 msgid "No reviews yet"
 msgstr "اب تک کوئی جائزہ نہیں ہے"
 
-#: src/amo/pages/Addon/index.js:238
+#: src/amo/pages/Addon/index.js:237
 msgid "Rate your experience"
 msgstr "اپنے تجربے کی شرح کاری کریں"
 
-#: src/amo/pages/Addon/index.js:257
+#: src/amo/pages/Addon/index.js:256
 msgid "About this dictionary"
 msgstr "اس لغت کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:260
+#: src/amo/pages/Addon/index.js:259
 msgid "About this extension"
 msgstr "اس توسیع کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:262
 msgid "About this language pack"
 msgstr "اس زبان پیک کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:265
 msgid "About this theme"
 msgstr "اس خیالیہ کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:268
 #, fuzzy
 msgid "About this add-on"
 msgstr "%(addonType)s کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:311
+#: src/amo/pages/Addon/index.js:310
 #, fuzzy
 msgid "Developer comments"
 msgstr "ڈویلپر کا جواب"
 
-#: src/amo/pages/Addon/index.js:334
+#: src/amo/pages/Addon/index.js:333
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s کے لئے ریلیز نوٹ"
 
-#: src/amo/pages/Addon/index.js:453
+#: src/amo/pages/Addon/index.js:452
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1913,11 +2040,11 @@ msgstr ""
 "یہ عوامی فہرست نہیں ہے۔ آپ اسے صرف اعلی درجے کی اجازت ہونے کی وجہ سے دیکھ "
 "رہے ہیں۔"
 
-#: src/amo/pages/Addon/index.js:480
+#: src/amo/pages/Addon/index.js:479
 msgid "Extension Metadata"
 msgstr "توسیعات میٹا ڈیٹا"
 
-#: src/amo/pages/Addon/index.js:504
+#: src/amo/pages/Addon/index.js:503
 msgid "Screenshots"
 msgstr "اسکرین شاٹ"
 
@@ -2142,80 +2269,80 @@ msgstr "تمام توسیعات براؤز کریں"
 msgid "My collections"
 msgstr "میرے مجموعے"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:147
 msgid "Abstract"
 msgstr "تلخیص"
 
-#: src/amo/pages/Home/index.js:154
+#: src/amo/pages/Home/index.js:152
 msgid "Nature"
 msgstr "‏‏قدرت"
 
-#: src/amo/pages/Home/index.js:159
+#: src/amo/pages/Home/index.js:157
 msgid "Film & TV"
 msgstr "فلم & ٹی وی"
 
-#: src/amo/pages/Home/index.js:164
+#: src/amo/pages/Home/index.js:162
 msgid "Scenery"
 msgstr "نظارہ"
 
-#: src/amo/pages/Home/index.js:169
+#: src/amo/pages/Home/index.js:167
 msgid "Music"
 msgstr "موسیقی"
 
-#: src/amo/pages/Home/index.js:174
+#: src/amo/pages/Home/index.js:172
 msgid "Seasonal"
 msgstr "‏‏موسمیاتی"
 
-#: src/amo/pages/Home/index.js:227
+#: src/amo/pages/Home/index.js:225
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:258
+#: src/amo/pages/Home/index.js:256
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:303 src/amo/pages/LandingPage/index.js:133
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Home/index.js:329
+#: src/amo/pages/Home/index.js:327
 msgid "See more popular themes"
 msgstr "توسیعات تلاش کریں"
 
-#: src/amo/pages/Home/index.js:348
+#: src/amo/pages/Home/index.js:346
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Home/index.js:365 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:363 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "مزید تجویز شدہ تھیمز دیکھیں"
 
-#: src/amo/pages/Home/index.js:388 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:386 src/amo/pages/LandingPage/index.js:143
 #, fuzzy
 msgid "See more trending extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:63
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Home/index.js:66
+#: src/amo/pages/Home/index.js:64
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Home/index.js:71
+#: src/amo/pages/Home/index.js:69
 #, fuzzy
 msgid "See more recommended password managers"
 msgstr "مزید مقبول خیالیے"
 
-#: src/amo/pages/Home/index.js:72
+#: src/amo/pages/Home/index.js:70
 #, fuzzy
 msgid "Recommended password managers"
 msgstr "پاس ورڈ مینیجرز"
@@ -2896,6 +3023,48 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr "رکنیت ختم کریں"
 
+# This is application compatibility information, such as "firefox 41 and later"
+#: src/amo/reducers/versions.js:352
+msgid "%(application)s %(minVersion)s and later"
+msgstr ""
+
+# This is application compatibility information, such as "firefox 41 to 45"
+#: src/amo/reducers/versions.js:356
+msgid "%(application)s %(minVersion)s to %(maxVersion)s"
+msgstr ""
+
+# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#: src/amo/reducers/versions.js:376
+msgid "Works with %(listOfApplicatonsAndVersions)s"
+msgstr ""
+
+#: src/amo/utils/addons.js:36
+msgid "Installation aborted because the add-on appears to be corrupt."
+msgstr ""
+
+#: src/amo/utils/addons.js:40
+msgid "Installation failed. Please try again."
+msgstr ""
+
+#: src/amo/utils/addons.js:42
+msgid "Download failed. Please check your connection."
+msgstr ""
+
+#: src/amo/utils/addons.js:44
+#, fuzzy
+msgid "An unexpected error occurred during installation."
+msgstr "ایک غیرمتوقع نقص پیش آگیا"
+
+#: src/amo/utils/addons.js:46
+#, fuzzy
+msgid "An unexpected error occurred during uninstallation."
+msgstr "ایک غیرمتوقع نقص پیش آگیا"
+
+#: src/amo/utils/addons.js:51
+#, fuzzy
+msgid "An unexpected error occurred."
+msgstr "ایک غیرمتوقع نقص پیش آگیا"
+
 #: src/amo/utils/notifications.js:10
 msgid ""
 "stay up-to-date with news and events relevant to add-on developers "
@@ -2930,170 +3099,6 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
-
-#: src/core/components/AMInstallButton/index.js:198
-msgid "Enable"
-msgstr "اہل بنائیں"
-
-#: src/core/components/AMInstallButton/index.js:203
-msgid "Enabling"
-msgstr ""
-
-#: src/core/components/AMInstallButton/index.js:205
-#, fuzzy
-msgid "Disabling"
-msgstr "ناتنصیب کر رہا ہے"
-
-#: src/core/components/AMInstallButton/index.js:207
-msgid "Downloading"
-msgstr "ڈاؤن لوڈ ہو رہا ہے"
-
-#: src/core/components/AMInstallButton/index.js:209
-msgid "Installing"
-msgstr "تنصیب کر رہا ہے"
-
-#: src/core/components/AMInstallButton/index.js:211
-msgid "Uninstalling"
-msgstr "ناتنصیب کر رہا ہے"
-
-#: src/core/components/AMInstallButton/index.js:219
-msgid "Install Theme"
-msgstr "خیالیہ کی تنصیب کریں"
-
-#: src/core/components/AMInstallButton/index.js:220
-msgid "Add to Firefox"
-msgstr "Firefox میں شامل کریں"
-
-#: src/core/components/AuthenticateButton/index.js:88
-msgid "Register or Log in"
-msgstr "رجسٹر یا لاگ ان کریں"
-
-#: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
-msgid "Error code: %(status)s."
-msgstr "غلط کوڈ: %(status)s۔"
-
-#: src/core/components/ErrorPage/NotFound/index.js:27
-msgid "Page not found"
-msgstr "صفہہ نہیں ملا"
-
-#: src/core/components/ErrorPage/NotFound/index.js:29
-msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
-
-#: src/core/components/InfoDialog/index.js:64
-msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
-
-#: src/core/components/InfoDialog/index.js:77
-msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
-
-#: src/core/components/InfoDialog/index.js:88
-msgid "OK"
-msgstr "ٹھیک ہے"
-
-#: src/core/components/Paginate/index.js:137
-msgid "Previous"
-msgstr "پچھلا"
-
-#: src/core/components/Paginate/index.js:154
-msgid "Next"
-msgstr "اگلا"
-
-#: src/core/components/Paginate/index.js:160
-msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
-
-#: src/core/components/SiteNotices/index.js:72
-msgid ""
-"Some features are temporarily disabled while we perform website maintenance. "
-"We'll be back to full capacity shortly."
-msgstr ""
-
-#: src/core/components/SiteNotices/index.js:87
-msgid "You have been logged out."
-msgstr ""
-
-#: src/core/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "مختصر سروے لے لیں"
-
-#: src/core/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"اس سائٹ کا دورہ کرنے کے لئے شکریہ! اپنے تجربے کے بارے میں Firefox کو بتانے "
-"کیلئے ایک یا دو منٹ دیں۔"
-
-#: src/core/i18n/utils.js:254
-msgid "%(localizedSize)s B"
-msgstr ""
-
-#: src/core/i18n/utils.js:256
-msgid "%(localizedSize)s KB"
-msgstr ""
-
-#: src/core/i18n/utils.js:258
-msgid "%(localizedSize)s MB"
-msgstr ""
-
-#: src/core/i18n/utils.js:260
-msgid "%(localizedSize)s GB"
-msgstr ""
-
-#: src/core/i18n/utils.js:262
-msgid "%(localizedSize)s TB"
-msgstr ""
-
-# This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:352
-msgid "%(application)s %(minVersion)s and later"
-msgstr ""
-
-# This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:356
-msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
-
-# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:376
-msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
-
-#: src/core/utils/addons.js:36
-msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
-
-#: src/core/utils/addons.js:40
-msgid "Installation failed. Please try again."
-msgstr ""
-
-#: src/core/utils/addons.js:42
-msgid "Download failed. Please check your connection."
-msgstr ""
-
-#: src/core/utils/addons.js:44
-#, fuzzy
-msgid "An unexpected error occurred during installation."
-msgstr "ایک غیرمتوقع نقص پیش آگیا"
-
-#: src/core/utils/addons.js:46
-#, fuzzy
-msgid "An unexpected error occurred during uninstallation."
-msgstr "ایک غیرمتوقع نقص پیش آگیا"
-
-#: src/core/utils/addons.js:51
-#, fuzzy
-msgid "An unexpected error occurred."
-msgstr "ایک غیرمتوقع نقص پیش آگیا"
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
@@ -3183,7 +3188,7 @@ msgstr ""
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 
-#: src/ui/components/UserCollection/index.js:46
+#: src/ui/components/UserCollection/index.js:45
 #, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
