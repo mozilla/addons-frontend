@@ -5,11 +5,11 @@ import 'amo/css/inc/lib.scss';
 import './setup/styles.scss';
 
 // Components
-import './amo/HeroRecommendation';
-import './amo/SponsoredAddonsShelf';
 import './amo/AMInstallButton';
-import './ui/Badge';
-import './ui/Button';
-import './ui/IconPromotedBadge';
-import './ui/Rating';
-import './ui/PromotedBadge';
+import './amo/Badge';
+import './amo/Button';
+import './amo/HeroRecommendation';
+import './amo/IconPromotedBadge';
+import './amo/PromotedBadge';
+import './amo/Rating';
+import './amo/SponsoredAddonsShelf';

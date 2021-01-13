@@ -2,8 +2,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Button from 'ui/components/Button';
-import type { Props as ButtonProps } from 'ui/components/Button';
+import Button from 'amo/components/Button';
+import type { Props as ButtonProps } from 'amo/components/Button';
 
 import Provider from '../setup/Provider';
 import { createChapters } from '../utils';

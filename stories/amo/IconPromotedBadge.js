@@ -2,49 +2,47 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import PromotedBadge, { PromotedBadgeBase } from 'ui/components/PromotedBadge';
-import type { Props as PromotedBadgeProps } from 'ui/components/PromotedBadge';
+import IconPromotedBadge, {
+  IconPromotedBadgeBase,
+} from 'amo/components/IconPromotedBadge';
 
 import Provider from '../setup/Provider';
 
-const render = (moreProps: $Shape<PromotedBadgeProps> = {}) => {
-  const props = {
-    category: 'line',
-    size: 'large',
-    ...moreProps,
-  };
-  return <PromotedBadge {...props} />;
+const render = ({ category = 'line', size = 'large' } = {}) => {
+  return <IconPromotedBadge category={category} size={size} />;
 };
 
-storiesOf('PromotedBadge', module)
-  .addParameters({ component: PromotedBadgeBase })
+storiesOf('IconPromotedBadge', module)
+  .addParameters({
+    component: IconPromotedBadgeBase,
+  })
   .addDecorator((story) => <Provider story={story()} />)
   .addWithChapters('all variants', {
     chapters: [
       {
         sections: [
           {
-            title: 'category="line", size="large"',
+            title: 'Line, size="large"',
             sectionFn: () => render({ size: 'large' }),
           },
           {
-            title: 'category="line", size="small"',
+            title: 'Line, size="small"',
             sectionFn: () => render({ size: 'small' }),
           },
           {
-            title: 'category="recommended", size="large"',
+            title: 'Recommended, size="large"',
             sectionFn: () => render({ category: 'recommended', size: 'large' }),
           },
           {
-            title: 'category="recommended", size="small"',
+            title: 'Recommended, size="small"',
             sectionFn: () => render({ category: 'recommended', size: 'small' }),
           },
           {
-            title: 'category="verified", size="large"',
+            title: 'Verified, size="large"',
             sectionFn: () => render({ category: 'verified', size: 'large' }),
           },
           {
-            title: 'category="verified", size="small"',
+            title: 'Verified, size="small"',
             sectionFn: () => render({ category: 'verified', size: 'small' }),
           },
         ],

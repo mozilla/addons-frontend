@@ -1,8 +1,8 @@
 /* @flow */
 import { storiesOf } from '@storybook/react';
 
-import Badge from 'ui/components/Badge';
-import type { Props as BadgeProps } from 'ui/components/Badge';
+import Badge from 'amo/components/Badge';
+import type { Props as BadgeProps } from 'amo/components/Badge';
 
 import { createChapters } from '../utils';
 

@@ -2,8 +2,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Rating, { RatingBase } from 'ui/components/Rating';
-import type { Props as RatingProps } from 'ui/components/Rating';
+import Rating, { RatingBase } from 'amo/components/Rating';
+import type { Props as RatingProps } from 'amo/components/Rating';
 
 import { createChapters } from '../utils';
 import Provider from '../setup/Provider';
