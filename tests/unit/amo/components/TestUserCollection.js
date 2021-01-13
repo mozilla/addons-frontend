@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import UserCollection, {
   UserCollectionBase,
-} from 'ui/components/UserCollection';
+} from 'amo/components/UserCollection';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   function render(customProps = {}) {

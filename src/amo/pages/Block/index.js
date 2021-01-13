@@ -4,8 +4,8 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import Card from 'ui/components/Card';
-import LoadingText from 'ui/components/LoadingText';
+import Card from 'amo/components/Card';
+import LoadingText from 'amo/components/LoadingText';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import Page from 'amo/components/Page';

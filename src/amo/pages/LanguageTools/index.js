@@ -25,8 +25,8 @@ import {
   fetchLanguageTools,
   getAllLanguageTools,
 } from 'amo/reducers/languageTools';
-import Card from 'ui/components/Card';
-import LoadingText from 'ui/components/LoadingText';
+import Card from 'amo/components/Card';
+import LoadingText from 'amo/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { LanguageToolType } from 'amo/types/addons';

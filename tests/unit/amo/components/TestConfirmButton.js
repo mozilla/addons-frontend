@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 import ConfirmButton, {
   ConfirmButtonBase,
   extractId,
-} from 'ui/components/ConfirmButton';
-import ConfirmationDialog from 'ui/components/ConfirmationDialog';
+} from 'amo/components/ConfirmButton';
+import ConfirmationDialog from 'amo/components/ConfirmationDialog';
 import {
   applyUIStateChanges,
   createFakeEvent,

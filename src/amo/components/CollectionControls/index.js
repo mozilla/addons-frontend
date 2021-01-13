@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import CollectionSort from 'amo/components/CollectionSort';
-import Card from 'ui/components/Card';
+import Card from 'amo/components/Card';
 import type {
   CollectionFilters,
   CollectionType,

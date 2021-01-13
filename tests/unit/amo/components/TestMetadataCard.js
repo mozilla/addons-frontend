@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import MetadataCard from 'ui/components/MetadataCard';
-import LoadingText from 'ui/components/LoadingText';
+import MetadataCard from 'amo/components/MetadataCard';
+import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   function renderShallow({ metadata = [], ...props } = {}) {

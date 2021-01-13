@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
 import type { I18nType } from 'amo/types/i18n';
-import Permission from 'ui/components/Permission';
+import Permission from 'amo/components/Permission';
 
 /* eslint-disable no-continue */
 type Props = {|

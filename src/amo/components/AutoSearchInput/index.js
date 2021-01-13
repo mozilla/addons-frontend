@@ -23,7 +23,7 @@ import {
   autocompleteCancel,
   autocompleteStart,
 } from 'amo/reducers/autocomplete';
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { SuggestionType } from 'amo/reducers/autocomplete';

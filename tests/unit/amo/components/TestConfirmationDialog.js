@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 import ConfirmationDialog, {
   ConfirmationDialogBase,
-} from 'ui/components/ConfirmationDialog';
+} from 'amo/components/ConfirmationDialog';
 import {
   createFakeEvent,
   fakeI18n,

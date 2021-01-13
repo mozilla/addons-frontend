@@ -5,7 +5,7 @@ import ShowMoreCard, {
   extractId,
   ShowMoreCardBase,
   DEFAULT_MAX_HEIGHT,
-} from 'ui/components/ShowMoreCard';
+} from 'amo/components/ShowMoreCard';
 import {
   applyUIStateChanges,
   createFakeEvent,

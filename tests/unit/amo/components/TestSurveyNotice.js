@@ -11,7 +11,7 @@ import {
   SURVEY_CATEGORY,
 } from 'amo/constants';
 import { dismissSurvey } from 'amo/reducers/survey';
-import Notice from 'ui/components/Notice';
+import Notice from 'amo/components/Notice';
 import {
   createFakeTracking,
   dispatchClientMetadata,

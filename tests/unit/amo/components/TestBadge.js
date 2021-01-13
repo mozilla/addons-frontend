@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import Badge from 'ui/components/Badge';
-import Icon from 'ui/components/Icon';
+import Badge from 'amo/components/Badge';
+import Icon from 'amo/components/Icon';
 
 describe(__filename, () => {
   it('renders a badge', () => {

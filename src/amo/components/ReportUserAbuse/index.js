@@ -12,14 +12,14 @@ import {
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { normalizeFileNameId, sanitizeHTML } from 'amo/utils';
-import Button from 'ui/components/Button';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
+import Button from 'amo/components/Button';
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { I18nType } from 'amo/types/i18n';
 import type { UserType } from 'amo/reducers/users';
-import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
+import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 
 import './styles.scss';
 

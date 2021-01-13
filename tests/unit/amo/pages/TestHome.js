@@ -34,7 +34,7 @@ import {
   fetchHomeData,
   loadHomeData,
 } from 'amo/reducers/home';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 import {
   createAddonsApiResult,
   createFakeCollectionAddons,

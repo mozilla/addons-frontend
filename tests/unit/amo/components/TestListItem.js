@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import ListItem from 'ui/components/ListItem';
+import ListItem from 'amo/components/ListItem';
 
 describe(__filename, () => {
   const render = ({ children = <span />, ...customProps } = {}) => {

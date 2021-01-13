@@ -20,7 +20,7 @@ import {
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 
 describe(__filename, () => {
   function render({ location = createFakeLocation(), ...customProps } = {}) {

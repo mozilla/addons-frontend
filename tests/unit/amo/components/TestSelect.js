@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import Select from 'ui/components/Select';
+import Select from 'amo/components/Select';
 
 describe(__filename, () => {
   it('renders a custom class name', () => {

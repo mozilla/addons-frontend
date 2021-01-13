@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setHeroBannerOrder } from 'amo/reducers/heroBanners';
-import Card from 'ui/components/Card';
-import HeroSection from 'ui/components/HeroSection';
+import Card from 'amo/components/Card';
+import HeroSection from 'amo/components/HeroSection';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 

@@ -45,11 +45,11 @@ import {
 } from 'amo/constants';
 import { getAddonIconUrl } from 'amo/imageUtils';
 import translate from 'amo/i18n/translate';
-import Card from 'ui/components/Card';
-import LoadingText from 'ui/components/LoadingText';
-import ShowMoreCard from 'ui/components/ShowMoreCard';
-import ThemeImage from 'ui/components/ThemeImage';
-import Notice from 'ui/components/Notice';
+import Card from 'amo/components/Card';
+import LoadingText from 'amo/components/LoadingText';
+import ShowMoreCard from 'amo/components/ShowMoreCard';
+import ThemeImage from 'amo/components/ThemeImage';
+import Notice from 'amo/components/Notice';
 
 import './styles.scss';
 

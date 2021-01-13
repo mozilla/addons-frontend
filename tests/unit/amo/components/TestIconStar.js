@@ -2,14 +2,14 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import photon from 'photon-colors';
 
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 import IconStar, {
   getSvgPath,
   CLOSED_STYLE,
   DIM_CLOSED_STYLE,
   HALF_STYLE,
   OPEN_STYLE,
-} from 'ui/components/IconStar';
+} from 'amo/components/IconStar';
 
 describe(__filename, () => {
   it('sets the default color to YELLOW', () => {

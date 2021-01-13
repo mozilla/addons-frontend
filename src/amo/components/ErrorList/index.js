@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import { API_ERROR_SIGNATURE_EXPIRED } from 'amo/constants';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
-import Notice from 'ui/components/Notice';
+import Notice from 'amo/components/Notice';
 
 import './styles.scss';
 

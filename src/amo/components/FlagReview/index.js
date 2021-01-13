@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import { flagReview } from 'amo/actions/reviews';
 import { withErrorHandler } from 'amo/errorHandler';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';

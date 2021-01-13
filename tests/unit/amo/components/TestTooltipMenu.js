@@ -2,8 +2,8 @@ import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import RCTooltip from 'rc-tooltip';
 
-import ListItem from 'ui/components/ListItem';
-import TooltipMenu from 'ui/components/TooltipMenu';
+import ListItem from 'amo/components/ListItem';
+import TooltipMenu from 'amo/components/TooltipMenu';
 
 describe(__filename, () => {
   const renderProps = (customProps = {}) => {

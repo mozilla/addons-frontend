@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
-import Notice, { successType } from 'ui/components/Notice';
+import Notice, { successType } from 'amo/components/Notice';
 
 describe(__filename, () => {
   function render(customProps = {}) {

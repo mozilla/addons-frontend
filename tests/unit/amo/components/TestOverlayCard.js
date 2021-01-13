@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import Overlay from 'ui/components/Overlay';
-import OverlayCard from 'ui/components/OverlayCard';
+import Overlay from 'amo/components/Overlay';
+import OverlayCard from 'amo/components/OverlayCard';
 import { dispatchClientMetadata } from 'tests/unit/helpers';
 
 describe(__filename, () => {

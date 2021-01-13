@@ -17,7 +17,7 @@ import {
   COLLECTION_SORT_POPULARITY_DESCENDING,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
-import Select from 'ui/components/Select';
+import Select from 'amo/components/Select';
 import type {
   CollectionFilters,
   CollectionType,

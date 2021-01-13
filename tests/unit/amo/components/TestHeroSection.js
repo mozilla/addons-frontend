@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import HeroSection from 'ui/components/HeroSection';
+import HeroSection from 'amo/components/HeroSection';
 
 describe(__filename, () => {
   function shallowRender({ ...props } = {}) {

@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 
 export class LinkBase extends React.Component {
   static propTypes = {

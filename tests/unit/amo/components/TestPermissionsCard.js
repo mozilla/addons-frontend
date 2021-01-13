@@ -11,8 +11,8 @@ import {
   fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Button from 'ui/components/Button';
-import Permission from 'ui/components/Permission';
+import Button from 'amo/components/Button';
+import Permission from 'amo/components/Permission';
 
 describe(__filename, () => {
   let store;

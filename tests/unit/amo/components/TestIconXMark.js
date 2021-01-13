@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Icon from 'ui/components/Icon';
-import IconXMark from 'ui/components/IconXMark';
+import Icon from 'amo/components/Icon';
+import IconXMark from 'amo/components/IconXMark';
 
 describe(__filename, () => {
   const render = (props = {}) => {

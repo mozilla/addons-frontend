@@ -7,7 +7,7 @@ import LanguagePicker from 'amo/components/LanguagePicker';
 import Link from 'amo/components/Link';
 import { makeQueryStringWithUTM, sanitizeHTML } from 'amo/utils';
 import translate from 'amo/i18n/translate';
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 
 import './styles.scss';
 

@@ -20,7 +20,7 @@ import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import { getVersionById } from 'amo/reducers/versions';
 import { getClientCompatibility } from 'amo/utils/compatibility';
-import Notice from 'ui/components/Notice';
+import Notice from 'amo/components/Notice';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonVersionType } from 'amo/reducers/versions';

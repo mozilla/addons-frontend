@@ -8,7 +8,7 @@ import { compose } from 'redux';
 import translate from 'amo/i18n/translate';
 import withUIState from 'amo/withUIState';
 import { sanitizeHTML } from 'amo/utils';
-import Card from 'ui/components/Card';
+import Card from 'amo/components/Card';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';

@@ -3,7 +3,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import RCTooltip from 'rc-tooltip';
 
-import ListItem from 'ui/components/ListItem';
+import ListItem from 'amo/components/ListItem';
 
 import './styles.scss';
 

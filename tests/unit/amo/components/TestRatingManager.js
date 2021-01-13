@@ -33,8 +33,8 @@ import RatingManager, {
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
-import { genericType, successType } from 'ui/components/Notice';
-import UserRating from 'ui/components/UserRating';
+import { genericType, successType } from 'amo/components/Notice';
+import UserRating from 'amo/components/UserRating';
 import {
   createInternalAddonWithLang,
   createLocalizedString,

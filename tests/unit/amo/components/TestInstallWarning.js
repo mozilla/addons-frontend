@@ -23,7 +23,7 @@ import {
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
-import Notice from 'ui/components/Notice';
+import Notice from 'amo/components/Notice';
 
 describe(__filename, () => {
   let store;

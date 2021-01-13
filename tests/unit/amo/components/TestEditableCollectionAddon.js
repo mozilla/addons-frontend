@@ -17,9 +17,9 @@ import {
   setUIState,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Button from 'ui/components/Button';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
-import Icon from 'ui/components/Icon';
+import Button from 'amo/components/Button';
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
+import Icon from 'amo/components/Icon';
 
 describe(__filename, () => {
   function render(props = {}) {

@@ -5,10 +5,10 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import withUIState from 'amo/withUIState';
-import Button from 'ui/components/Button';
-import ConfirmationDialog from 'ui/components/ConfirmationDialog';
-import type { ButtonType } from 'ui/components/Button';
-import type { Props as ConfirmationDialogProps } from 'ui/components/ConfirmationDialog';
+import Button from 'amo/components/Button';
+import ConfirmationDialog from 'amo/components/ConfirmationDialog';
+import type { ButtonType } from 'amo/components/Button';
+import type { Props as ConfirmationDialogProps } from 'amo/components/ConfirmationDialog';
 
 type Props = {|
   buttonType?: ButtonType,

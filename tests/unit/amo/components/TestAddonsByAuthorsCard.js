@@ -21,8 +21,8 @@ import {
   ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_POPULAR,
 } from 'amo/constants';
-import ErrorList from 'ui/components/ErrorList';
-import LoadingText from 'ui/components/LoadingText';
+import ErrorList from 'amo/components/ErrorList';
+import LoadingText from 'amo/components/LoadingText';
 import {
   createContextWithFakeRouter,
   createInternalAddonWithLang,

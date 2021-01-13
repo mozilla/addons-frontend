@@ -4,7 +4,7 @@ import invariant from 'invariant';
 import makeClassName from 'classnames';
 import NestedStatus from 'react-nested-status';
 
-import Card from 'ui/components/Card';
+import Card from 'amo/components/Card';
 
 import './styles.scss';
 

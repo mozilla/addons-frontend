@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import CardList from 'ui/components/CardList';
+import CardList from 'amo/components/CardList';
 
 describe(__filename, () => {
   const render = (props) => {

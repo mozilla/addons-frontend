@@ -5,8 +5,8 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import IconStar from 'ui/components/IconStar';
-import Rating, { RatingBase } from 'ui/components/Rating';
+import IconStar from 'amo/components/IconStar';
+import Rating, { RatingBase } from 'amo/components/Rating';
 
 describe(__filename, () => {
   function render(customProps = {}) {

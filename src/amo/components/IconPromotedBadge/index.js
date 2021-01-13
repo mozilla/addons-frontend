@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import { LINE, RECOMMENDED, VERIFIED } from 'amo/constants';
 import translate from 'amo/i18n/translate';
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 import type { I18nType } from 'amo/types/i18n';
 import './styles.scss';
 

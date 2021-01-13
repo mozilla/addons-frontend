@@ -4,7 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'amo/i18n/translate';
-import Rating from 'ui/components/Rating';
+import Rating from 'amo/components/Rating';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';

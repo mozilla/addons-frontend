@@ -6,8 +6,8 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import IconPromotedBadge from 'ui/components/IconPromotedBadge';
-import PromotedBadge, { PromotedBadgeBase } from 'ui/components/PromotedBadge';
+import IconPromotedBadge from 'amo/components/IconPromotedBadge';
+import PromotedBadge, { PromotedBadgeBase } from 'amo/components/PromotedBadge';
 
 describe(__filename, () => {
   const render = (moreProps = {}) => {

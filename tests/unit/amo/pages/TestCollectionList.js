@@ -19,7 +19,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import UserCollection from 'ui/components/UserCollection';
+import UserCollection from 'amo/components/UserCollection';
 
 describe(__filename, () => {
   const getProps = () => ({

@@ -2,7 +2,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import Card from 'ui/components/Card';
+import Card from 'amo/components/Card';
 
 import './styles.scss';
 

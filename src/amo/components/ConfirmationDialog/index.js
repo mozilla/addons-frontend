@@ -4,9 +4,9 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'amo/i18n/translate';
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 import type { I18nType } from 'amo/types/i18n';
-import type { ButtonType } from 'ui/components/Button';
+import type { ButtonType } from 'amo/components/Button';
 
 import './styles.scss';
 

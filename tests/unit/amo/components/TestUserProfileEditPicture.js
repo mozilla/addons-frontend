@@ -4,8 +4,8 @@ import UserProfileEditPicture, {
   UserProfileEditPictureBase,
 } from 'amo/components/UserProfileEditPicture';
 import { getCurrentUser } from 'amo/reducers/users';
-import ConfirmButton from 'ui/components/ConfirmButton';
-import UserAvatar from 'ui/components/UserAvatar';
+import ConfirmButton from 'amo/components/ConfirmButton';
+import UserAvatar from 'amo/components/UserAvatar';
 import {
   applyUIStateChanges,
   dispatchClientMetadata,

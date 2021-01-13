@@ -14,9 +14,9 @@ import CollectionControls from 'amo/components/CollectionControls';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
 import Paginate from 'amo/components/Paginate';
-import ConfirmButton from 'ui/components/ConfirmButton';
-import ErrorList from 'ui/components/ErrorList';
-import LoadingText from 'ui/components/LoadingText';
+import ConfirmButton from 'amo/components/ConfirmButton';
+import ErrorList from 'amo/components/ErrorList';
+import LoadingText from 'amo/components/LoadingText';
 import {
   deleteCollection,
   deleteCollectionAddonNotes,

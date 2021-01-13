@@ -20,9 +20,9 @@ import {
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
-import CardList from 'ui/components/CardList';
-import LoadingText from 'ui/components/LoadingText';
-import Notice from 'ui/components/Notice';
+import CardList from 'amo/components/CardList';
+import LoadingText from 'amo/components/LoadingText';
+import Notice from 'amo/components/Notice';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';

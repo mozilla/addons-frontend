@@ -2,7 +2,7 @@ import * as React from 'react';
 import config from 'config';
 
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
-import ThemeImage, { ThemeImageBase } from 'ui/components/ThemeImage';
+import ThemeImage, { ThemeImageBase } from 'amo/components/ThemeImage';
 import {
   createInternalAddonWithLang,
   fakeAddon,

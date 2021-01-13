@@ -1,11 +1,11 @@
-@import '~ui/css/styles';
+@import '~amo/css/styles';
 
 .Select {
   @include padding-end(24px);
   @include padding-start(6px);
 
   appearance: none;
-  background: $grey-30 url('~ui/components/Icon/img/triangle-down-black.svg')
+  background: $grey-30 url('~amo/components/Icon/img/triangle-down-black.svg')
     no-repeat calc(100% - 10px) 50%;
   background-size: 12px;
   border: 0;

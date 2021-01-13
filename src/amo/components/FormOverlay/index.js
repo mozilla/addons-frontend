@@ -6,8 +6,8 @@ import { compose } from 'redux';
 
 import { closeFormOverlay } from 'amo/reducers/formOverlay';
 import translate from 'amo/i18n/translate';
-import Button from 'ui/components/Button';
-import IconXMark from 'ui/components/IconXMark';
+import Button from 'amo/components/Button';
+import IconXMark from 'amo/components/IconXMark';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';

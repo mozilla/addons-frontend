@@ -4,7 +4,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 
 export default class PaginatorLink extends React.Component {
   static propTypes = {

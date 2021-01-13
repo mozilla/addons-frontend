@@ -12,7 +12,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import FormOverlay, { FormOverlayBase } from 'ui/components/FormOverlay';
+import FormOverlay, { FormOverlayBase } from 'amo/components/FormOverlay';
 
 describe(__filename, () => {
   let store;

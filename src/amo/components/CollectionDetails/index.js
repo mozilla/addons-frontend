@@ -11,9 +11,9 @@ import {
 } from 'amo/reducers/collections';
 import translate from 'amo/i18n/translate';
 import { sanitizeHTML } from 'amo/utils';
-import Button from 'ui/components/Button';
-import LoadingText from 'ui/components/LoadingText';
-import MetadataCard from 'ui/components/MetadataCard';
+import Button from 'amo/components/Button';
+import LoadingText from 'amo/components/LoadingText';
+import MetadataCard from 'amo/components/MetadataCard';
 import type {
   CollectionFilters,
   CollectionType,

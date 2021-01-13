@@ -5,7 +5,7 @@ import UserProfileEditNotifications, {
   UserProfileEditNotificationsBase,
 } from 'amo/components/UserProfileEditNotifications';
 import { getCurrentUser, loadUserNotifications } from 'amo/reducers/users';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 import {
   createUserNotificationsResponse,
   dispatchSignInActions,

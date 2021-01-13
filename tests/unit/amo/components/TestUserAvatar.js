@@ -2,8 +2,8 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { getCurrentUser } from 'amo/reducers/users';
-import Icon from 'ui/components/Icon';
-import UserAvatar from 'ui/components/UserAvatar';
+import Icon from 'amo/components/Icon';
+import UserAvatar from 'amo/components/UserAvatar';
 import { dispatchSignInActions } from 'tests/unit/helpers';
 
 describe(__filename, () => {

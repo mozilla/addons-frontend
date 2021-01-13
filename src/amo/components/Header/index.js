@@ -21,8 +21,8 @@ import {
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
-import DropdownMenu from 'ui/components/DropdownMenu';
-import DropdownMenuItem from 'ui/components/DropdownMenuItem';
+import DropdownMenu from 'amo/components/DropdownMenu';
+import DropdownMenuItem from 'amo/components/DropdownMenuItem';
 
 import './styles.scss';
 

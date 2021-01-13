@@ -2,8 +2,8 @@
 import makeClassName from 'classnames';
 import * as React from 'react';
 
-import Notice from 'ui/components/Notice';
-import type { NoticeType } from 'ui/components/Notice';
+import Notice from 'amo/components/Notice';
+import type { NoticeType } from 'amo/components/Notice';
 
 import './styles.scss';
 

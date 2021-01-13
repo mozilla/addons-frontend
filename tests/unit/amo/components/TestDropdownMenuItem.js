@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import DropdownMenuItem from 'ui/components/DropdownMenuItem';
+import DropdownMenuItem from 'amo/components/DropdownMenuItem';
 import Link from 'amo/components/Link';
 
 describe(__filename, () => {

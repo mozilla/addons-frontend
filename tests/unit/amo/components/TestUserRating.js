@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { createInternalReview } from 'amo/actions/reviews';
 import { logOutUser } from 'amo/reducers/users';
-import Rating from 'ui/components/Rating';
-import UserRating, { UserRatingBase } from 'ui/components/UserRating';
+import Rating from 'amo/components/Rating';
+import UserRating, { UserRatingBase } from 'amo/components/UserRating';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,

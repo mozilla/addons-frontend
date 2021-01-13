@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 import { createFakeEvent } from 'tests/unit/helpers';
 
 describe(__filename, () => {

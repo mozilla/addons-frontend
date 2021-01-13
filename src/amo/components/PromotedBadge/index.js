@@ -5,11 +5,11 @@ import { compose } from 'redux';
 
 import { getPromotedBadgesLinkUrl } from 'amo/utils';
 import translate from 'amo/i18n/translate';
-import IconPromotedBadge from 'ui/components/IconPromotedBadge';
+import IconPromotedBadge from 'amo/components/IconPromotedBadge';
 import type {
   PromotedBadgeCategory,
   PromotedBadgeSize,
-} from 'ui/components/IconPromotedBadge';
+} from 'amo/components/IconPromotedBadge';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';

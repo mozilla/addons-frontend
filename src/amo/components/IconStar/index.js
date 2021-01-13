@@ -4,8 +4,8 @@ import makeClassName from 'classnames';
 import photon from 'photon-colors';
 import { v4 as uuidv4 } from 'uuid';
 
-import Icon from 'ui/components/Icon';
-import type { Props as IconProps } from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
+import type { Props as IconProps } from 'amo/components/Icon';
 
 export const CLOSED_STYLE = 'closed';
 export const DIM_CLOSED_STYLE = 'dimClosed';

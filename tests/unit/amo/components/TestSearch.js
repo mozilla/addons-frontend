@@ -27,7 +27,7 @@ import {
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
 import { ErrorHandler } from 'amo/errorHandler';
 import { searchStart } from 'amo/reducers/search';
-import ErrorList from 'ui/components/ErrorList';
+import ErrorList from 'amo/components/ErrorList';
 import {
   createStubErrorHandler,
   dispatchClientMetadata,

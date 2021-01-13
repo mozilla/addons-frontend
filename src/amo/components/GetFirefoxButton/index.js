@@ -11,7 +11,7 @@ import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import tracking from 'amo/tracking';
 import { isFirefox } from 'amo/utils/compatibility';
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';

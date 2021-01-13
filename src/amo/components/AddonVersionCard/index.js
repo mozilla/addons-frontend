@@ -13,7 +13,7 @@ import translate from 'amo/i18n/translate';
 import { getVersionInfo } from 'amo/reducers/versions';
 import { sanitizeUserHTML } from 'amo/utils';
 import { replaceStringsWithJSX } from 'amo/i18n/utils';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType, VersionInfoType } from 'amo/reducers/versions';
 import type { AddonType } from 'amo/types/addons';

@@ -35,11 +35,11 @@ import {
   fakeReview,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
-import ErrorList from 'ui/components/ErrorList';
-import LoadingText from 'ui/components/LoadingText';
-import UserReview from 'ui/components/UserReview';
-import Notice from 'ui/components/Notice';
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
+import ErrorList from 'amo/components/ErrorList';
+import LoadingText from 'amo/components/LoadingText';
+import UserReview from 'amo/components/UserReview';
+import Notice from 'amo/components/Notice';
 
 describe(__filename, () => {
   let store;

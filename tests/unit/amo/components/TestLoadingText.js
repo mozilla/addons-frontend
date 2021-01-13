@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   const render = (props = {}) => shallow(<LoadingText {...props} />);

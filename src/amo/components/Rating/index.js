@@ -8,8 +8,8 @@ import { compose } from 'redux';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
 import { type I18nType } from 'amo/types/i18n';
-import IconStar from 'ui/components/IconStar';
-import type { Props as IconStarProps } from 'ui/components/IconStar';
+import IconStar from 'amo/components/IconStar';
+import type { Props as IconStarProps } from 'amo/components/IconStar';
 
 import './styles.scss';
 

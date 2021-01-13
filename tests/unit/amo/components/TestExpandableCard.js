@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import ExpandableCard, {
   ExpandableCardBase,
   extractId,
-} from 'ui/components/ExpandableCard';
+} from 'amo/components/ExpandableCard';
 import {
   applyUIStateChanges,
   createFakeEvent,

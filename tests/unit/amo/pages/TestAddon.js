@@ -61,10 +61,10 @@ import {
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import ErrorList from 'ui/components/ErrorList';
-import LoadingText from 'ui/components/LoadingText';
-import ThemeImage from 'ui/components/ThemeImage';
-import Notice from 'ui/components/Notice';
+import ErrorList from 'amo/components/ErrorList';
+import LoadingText from 'amo/components/LoadingText';
+import ThemeImage from 'amo/components/ThemeImage';
+import Notice from 'amo/components/Notice';
 
 function renderProps({
   addon = createInternalAddonWithLang(fakeAddon),

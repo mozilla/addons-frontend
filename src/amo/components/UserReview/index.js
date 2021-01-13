@@ -6,12 +6,12 @@ import { compose } from 'redux';
 
 import translate from 'amo/i18n/translate';
 import { nl2br, sanitizeHTML } from 'amo/utils';
-import Icon from 'ui/components/Icon';
-import LoadingText from 'ui/components/LoadingText';
-import UserRating from 'ui/components/UserRating';
+import Icon from 'amo/components/Icon';
+import LoadingText from 'amo/components/LoadingText';
+import UserRating from 'amo/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { I18nType } from 'amo/types/i18n';
-import ShowMoreCard from 'ui/components/ShowMoreCard';
+import ShowMoreCard from 'amo/components/ShowMoreCard';
 
 import './styles.scss';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import DefinitionList, { Definition } from 'ui/components/DefinitionList';
+import DefinitionList, { Definition } from 'amo/components/DefinitionList';
 
 describe(__filename, () => {
   describe('DefinitionList component', () => {

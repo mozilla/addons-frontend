@@ -8,7 +8,7 @@ import {
   shallowUntilTarget,
   setUIState,
 } from 'tests/unit/helpers';
-import Notice, { NoticeBase } from 'ui/components/Notice';
+import Notice, { NoticeBase } from 'amo/components/Notice';
 
 const render = ({
   store = dispatchClientMetadata().store,

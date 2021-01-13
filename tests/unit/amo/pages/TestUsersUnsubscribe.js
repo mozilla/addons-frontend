@@ -11,11 +11,11 @@ import UsersUnsubscribe, {
   UsersUnsubscribeBase,
   extractId,
 } from 'amo/pages/UsersUnsubscribe';
-import Card from 'ui/components/Card';
-import LoadingText from 'ui/components/LoadingText';
+import Card from 'amo/components/Card';
+import LoadingText from 'amo/components/LoadingText';
 import { getNotificationDescription } from 'amo/utils/notifications';
 import { ErrorHandler } from 'amo/errorHandler';
-import ErrorList from 'ui/components/ErrorList';
+import ErrorList from 'amo/components/ErrorList';
 import {
   dispatchClientMetadata,
   fakeI18n,

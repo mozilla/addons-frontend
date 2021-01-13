@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import Card from 'ui/components/Card';
+import Card from 'amo/components/Card';
 
 describe(__filename, () => {
   function render(props = {}) {

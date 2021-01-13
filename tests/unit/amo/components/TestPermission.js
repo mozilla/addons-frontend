@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Icon from 'ui/components/Icon';
-import Permission from 'ui/components/Permission';
+import Icon from 'amo/components/Icon';
+import Permission from 'amo/components/Permission';
 
 describe(__filename, () => {
   const defaultProps = {

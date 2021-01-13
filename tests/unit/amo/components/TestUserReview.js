@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import { createInternalReview, setReview } from 'amo/actions/reviews';
-import Icon from 'ui/components/Icon';
-import LoadingText from 'ui/components/LoadingText';
-import UserRating from 'ui/components/UserRating';
-import UserReview, { UserReviewBase } from 'ui/components/UserReview';
+import Icon from 'amo/components/Icon';
+import LoadingText from 'amo/components/LoadingText';
+import UserRating from 'amo/components/UserRating';
+import UserReview, { UserReviewBase } from 'amo/components/UserReview';
 import {
   dispatchClientMetadata,
   fakeI18n,

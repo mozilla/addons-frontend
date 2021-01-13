@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 
-import DropdownMenu, { DropdownMenuBase } from 'ui/components/DropdownMenu';
-import DropdownMenuItem from 'ui/components/DropdownMenuItem';
-import Icon from 'ui/components/Icon';
+import DropdownMenu, { DropdownMenuBase } from 'amo/components/DropdownMenu';
+import DropdownMenuItem from 'amo/components/DropdownMenuItem';
+import Icon from 'amo/components/Icon';
 import { createFakeEvent, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {

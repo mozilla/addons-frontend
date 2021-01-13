@@ -2,8 +2,8 @@
 import * as React from 'react';
 import makeClassName from 'classnames';
 
-import Icon from 'ui/components/Icon';
-import type { Props as IconProps } from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
+import type { Props as IconProps } from 'amo/components/Icon';
 
 import './styles.scss';
 

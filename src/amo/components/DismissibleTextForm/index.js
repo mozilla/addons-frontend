@@ -10,7 +10,7 @@ import Textarea from 'react-textarea-autosize';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import createLocalState, { LocalState } from 'amo/localState';
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 import type { ElementEvent } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 

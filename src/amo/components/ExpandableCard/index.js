@@ -6,8 +6,8 @@ import { compose } from 'redux';
 
 import translate from 'amo/i18n/translate';
 import withUIState from 'amo/withUIState';
-import Card from 'ui/components/Card';
-import Icon from 'ui/components/Icon';
+import Card from 'amo/components/Card';
+import Icon from 'amo/components/Icon';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';

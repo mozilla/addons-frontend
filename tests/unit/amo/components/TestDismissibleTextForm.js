@@ -13,7 +13,7 @@ import {
 } from 'tests/unit/helpers';
 import DismissibleTextForm, {
   DismissibleTextFormBase,
-} from 'ui/components/DismissibleTextForm';
+} from 'amo/components/DismissibleTextForm';
 
 describe(__filename, () => {
   let store;

@@ -24,8 +24,8 @@ import {
   getVersionById,
 } from 'amo/reducers/versions';
 import { sanitizeUserHTML } from 'amo/utils';
-import Card from 'ui/components/Card';
-import LoadingText from 'ui/components/LoadingText';
+import Card from 'amo/components/Card';
+import LoadingText from 'amo/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonInfoType } from 'amo/reducers/addons';

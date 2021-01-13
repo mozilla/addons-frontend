@@ -6,7 +6,7 @@ import {
   dispatchClientMetadata,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Overlay, { OverlayBase, extractId } from 'ui/components/Overlay';
+import Overlay, { OverlayBase, extractId } from 'amo/components/Overlay';
 
 describe(__filename, () => {
   const getProps = ({ ...props } = {}) => {

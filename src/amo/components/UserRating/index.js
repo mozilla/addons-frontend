@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { getCurrentUser } from 'amo/reducers/users';
-import Rating, { RATING_STYLE_SIZE_TYPES } from 'ui/components/Rating';
+import Rating, { RATING_STYLE_SIZE_TYPES } from 'amo/components/Rating';
 import translate from 'amo/i18n/translate';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import makeClassName from 'classnames';
 
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 import type { UserType } from 'amo/reducers/users';
 
 type Props = {|

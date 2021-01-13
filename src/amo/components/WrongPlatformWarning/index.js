@@ -14,7 +14,7 @@ import {
   isFirefoxForAndroid,
   isFirefoxForIOS,
 } from 'amo/utils/compatibility';
-import Notice, { warningInfoType } from 'ui/components/Notice';
+import Notice, { warningInfoType } from 'amo/components/Notice';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { UserAgentInfoType } from 'amo/reducers/api';

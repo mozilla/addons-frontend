@@ -3,8 +3,8 @@ import * as React from 'react';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import HostPermissions, {
   HostPermissionsBase,
-} from 'ui/components/HostPermissions';
-import Permission from 'ui/components/Permission';
+} from 'amo/components/HostPermissions';
+import Permission from 'amo/components/Permission';
 
 describe(__filename, () => {
   const render = (customProps = {}) => {

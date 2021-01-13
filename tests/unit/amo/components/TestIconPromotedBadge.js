@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 import IconPromotedBadge, {
   IconPromotedBadgeBase,
   paths,
-} from 'ui/components/IconPromotedBadge';
+} from 'amo/components/IconPromotedBadge';
 
 describe(__filename, () => {
   const render = (moreProps = {}) => {

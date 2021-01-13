@@ -17,9 +17,9 @@ import {
   showAddonAbuseReportUI,
 } from 'amo/reducers/abuse';
 import { normalizeFileNameId, sanitizeHTML } from 'amo/utils';
-import Button from 'ui/components/Button';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
-import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
+import Button from 'amo/components/Button';
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
+import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
 import type { AddonAbuseState } from 'amo/reducers/abuse';
 import type { DispatchFunc } from 'amo/types/redux';

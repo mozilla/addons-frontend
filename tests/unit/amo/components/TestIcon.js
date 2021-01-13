@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 
 describe(__filename, () => {
   it('maps the name to a className', () => {

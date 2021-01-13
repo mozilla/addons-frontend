@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 
 import './styles.scss';
 

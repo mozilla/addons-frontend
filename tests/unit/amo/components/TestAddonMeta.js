@@ -17,8 +17,8 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import MetadataCard from 'ui/components/MetadataCard';
-import Rating from 'ui/components/Rating';
+import MetadataCard from 'amo/components/MetadataCard';
+import Rating from 'amo/components/Rating';
 
 describe(__filename, () => {
   function render({
