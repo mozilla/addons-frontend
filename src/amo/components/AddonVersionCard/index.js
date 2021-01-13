@@ -27,7 +27,7 @@ type Props = {|
   // An undefined version means the versions are still loading, whereas a null
   // version means that no version exists.
   version: AddonVersionType | null | void,
-  showButtonInsteadOfLink: boolean,
+  showLinkInsteadOfButton: boolean,
 |};
 
 type InternalProps = {|
@@ -35,7 +35,6 @@ type InternalProps = {|
   versionInfo: VersionInfoType | null,
   i18n: I18nType,
   installError: string | null,
-  showButtonInsteadOfLink: boolean,
 |};
 
 export const AddonVersionCardBase = (props: InternalProps) => {
@@ -46,7 +45,7 @@ export const AddonVersionCardBase = (props: InternalProps) => {
     installError,
     version,
     versionInfo,
-    showButtonInsteadOfLink,
+    showLinkInsteadOfButton,
   } = props;
 
   if (version === null) {
@@ -197,7 +196,7 @@ export const AddonVersionCardBase = (props: InternalProps) => {
             addon={addon}
             getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
             version={version}
-            showButtonInsteadOfLink={showButtonInsteadOfLink}
+            showLinkInsteadOfButton={showLinkInsteadOfButton}
           />
         )}
       </div>

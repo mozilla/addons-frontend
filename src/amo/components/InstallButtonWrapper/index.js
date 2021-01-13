@@ -35,7 +35,7 @@ export type Props = {|
   // working fine with 7.17.0)
   // eslint-disable-next-line react/no-unused-prop-types
   version?: AddonVersionType | null,
-  showButtonInsteadOfLink: boolean,
+  showLinkInsteadOfButton: boolean,
 |};
 
 type InternalProps = {|
@@ -47,7 +47,6 @@ type InternalProps = {|
   i18n: I18nType,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
-  showButtonInsteadOfLink: boolean,
 |};
 
 export const InstallButtonWrapperBase = (props: InternalProps) => {
@@ -71,7 +70,7 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
     setCurrentStatus,
     uninstall,
     userAgentInfo,
-    showButtonInsteadOfLink,
+    showLinkInsteadOfButton,
   } = props;
 
   let isCompatible = false;
@@ -95,19 +94,6 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
 
   const showDownloadLink = !isCompatible && installURL;
 
-  if (showButtonInsteadOfLink === false) {
-    return (
-      <div
-        className={makeClassName('InstallButtonWrapper', {
-          'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
-        })}
-      >
-        <a className={makeClassName('oldDownload')} href={installURL}>
-          {i18n.gettext('Download Older Version')}
-        </a>
-      </div>
-    );
-  }
   return (
     addon && (
       <div
@@ -115,32 +101,43 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
           'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
         })}
       >
-        <AMInstallButton
-          addon={addon}
-          canUninstall={canUninstall}
-          className={makeClassName(
-            className ? `AMInstallButton--${className}` : '',
-            {
-              'AMInstallButton--noDownloadLink': !showDownloadLink,
-            },
-          )}
-          currentVersion={currentVersion}
-          defaultButtonText={defaultButtonText}
-          disabled={!isCompatible}
-          enable={enable}
-          hasAddonManager={hasAddonManager}
-          install={install}
-          isAddonEnabled={isAddonEnabled}
-          puffy={puffy}
-          setCurrentStatus={setCurrentStatus}
-          status={installStatus}
-          uninstall={uninstall}
-        />
-        <GetFirefoxButton
-          addon={addon}
-          buttonType={getFirefoxButtonType}
-          className={className ? `GetFirefoxButton--${className}` : ''}
-        />
+        {showLinkInsteadOfButton && (
+           <a className={makeClassName('oldDownload')} href={installURL}>
+          {i18n.gettext('Download Older Version')}
+        </a>
+        )}
+
+        {!showLinkInsteadOfButton && (
+          <>
+           <AMInstallButton
+           addon={addon}
+           canUninstall={canUninstall}
+           className={makeClassName(
+             className ? `AMInstallButton--${className}` : '',
+             {
+               'AMInstallButton--noDownloadLink': !showDownloadLink,
+             },
+           )}
+           currentVersion={currentVersion}
+           defaultButtonText={defaultButtonText}
+           disabled={!isCompatible}
+           enable={enable}
+           hasAddonManager={hasAddonManager}
+           install={install}
+           isAddonEnabled={isAddonEnabled}
+           puffy={puffy}
+           setCurrentStatus={setCurrentStatus}
+           status={installStatus}
+           uninstall={uninstall}
+         />
+         <GetFirefoxButton
+           addon={addon}
+           buttonType={getFirefoxButtonType}
+           className={className ? `GetFirefoxButton--${className}` : ''}
+         />
+         </>
+        )}
+       
         {showDownloadLink ? (
           <div className="InstallButtonWrapper-download">
             <a className="InstallButtonWrapper-download-link" href={installURL}>
