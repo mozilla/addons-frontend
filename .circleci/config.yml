@@ -243,38 +243,6 @@ jobs:
             ./tests/smoke/setup_docker.sh
             tox -e smoke-tests
 
-  integration-test:
-    <<: *defaults-release
-    resource_class: large
-    steps:
-      - checkout
-      - run:
-          name: "Set Python Version"
-          command: pyenv global 3.7.0
-      - run:
-          name: Install Docker Compose
-          command: |
-            set -x
-            pip install -U pip
-            pip install docker-compose>=1.18
-            docker-compose --version
-      - run:
-          name: Set hosts
-          command: |
-            echo 127.0.0.1 olympia.test | sudo tee -a /etc/hosts
-            cat /etc/hosts
-      - run:
-          name: Run tests
-          environment:
-            MOZ_HEADLESS: 1
-            # pytest options for running 4 tests in parallel, and rerunning a test once
-            PYTEST_ADDOPTS: -n 4 --reruns 1
-          command: ./tests/frontend/run-integration-test.sh
-      - store_artifacts:
-          path: ui-test-serial.html
-      - store_artifacts:
-          path: ui-test-parallel.html
-
 workflows:
   version: 2
   default-workflow:
@@ -302,12 +270,6 @@ workflows:
             branches:
               ignore: /.*/
       - release-master:
-          filters:
-            branches:
-              only: master
-            tags:
-              ignore: /.*/
-      - integration-test:
           filters:
             branches:
               only: master
