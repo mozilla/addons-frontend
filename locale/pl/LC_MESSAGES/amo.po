@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-05 17:03+0000\n"
+"POT-Creation-Date: 2021-01-13 19:02+0000\n"
 "PO-Revision-Date: 2020-11-22 12:58+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -90,11 +90,11 @@ msgstr "Niezgodne z Firefoksem Quantum"
 msgid "Some features may require payment"
 msgstr "Część funkcji może wymagać płatności"
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:109
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Ten dodatek nie jest zgodny z tą wersją Firefoksa."
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:112
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -102,11 +102,11 @@ msgstr ""
 "Ta wersja Firefoksa nie obsługuje tego dodatku, ponieważ wymaga on ponownego "
 "uruchomienia."
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:115
 msgid "This add-on is not available on your platform."
 msgstr "Ten dodatek nie jest dostępny dla tej platformy."
 
-#: src/amo/components/AddonCompatibilityError/index.js:120
+#: src/amo/components/AddonCompatibilityError/index.js:119
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -114,7 +114,7 @@ msgstr ""
 "Ten dodatek wymaga <a href=\"%(downloadUrl)s\">nowszej wersji Firefoksa</a> "
 "(co najmniej wersji %(minVersion)s). Używany jest Firefox %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:137
+#: src/amo/components/AddonCompatibilityError/index.js:136
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -230,83 +230,83 @@ msgstr "Brak recenzji"
 msgid "Used by"
 msgstr "Używane przez"
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMoreInfo/index.js:117
 msgid "Visit stats dashboard"
 msgstr "Panel statystyk"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:136
 msgid "Custom License"
 msgstr "Niestandardowa licencja"
 
-#: src/amo/components/AddonMoreInfo/index.js:150
+#: src/amo/components/AddonMoreInfo/index.js:158
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:166
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the privacy policy for this add-on"
 msgstr "Zasady ochrony prywatności tego dodatku"
 
-#: src/amo/components/AddonMoreInfo/index.js:177
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "Read the license agreement for this add-on"
 msgstr "Licencja tego dodatku"
 
-#: src/amo/components/AddonMoreInfo/index.js:189
+#: src/amo/components/AddonMoreInfo/index.js:197
 msgid "See all versions"
 msgstr "Wszystkie wersje"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Add-on Links"
 msgstr "Strony dodatku"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:236
 msgid "Version"
 msgstr "Wersja"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "Size"
 msgstr "Rozmiar"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
-#: src/amo/components/CollectionDetails/index.js:89
+#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/CollectionDetails/index.js:93
 msgid "Last updated"
 msgstr "Ostatnia aktualizacja"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "License"
 msgstr "Licencja"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Privacy Policy"
 msgstr "Prywatność"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:276
 msgid "End-User License Agreement"
 msgstr "Licencja użytkownika"
 
-#: src/amo/components/AddonMoreInfo/index.js:276
+#: src/amo/components/AddonMoreInfo/index.js:284
 msgid "Version History"
 msgstr "Historia wersji"
 
-#: src/amo/components/AddonMoreInfo/index.js:286
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "Usage Statistics"
 msgstr "Statystyki użycia"
 
-#: src/amo/components/AddonMoreInfo/index.js:302
+#: src/amo/components/AddonMoreInfo/index.js:310
 msgid "More information"
 msgstr "Więcej informacji"
 
-#: src/amo/components/AddonMoreInfo/index.js:66
+#: src/amo/components/AddonMoreInfo/index.js:70
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "Domowa"
 
-#: src/amo/components/AddonMoreInfo/index.js:77
+#: src/amo/components/AddonMoreInfo/index.js:85
 msgid "Support site"
 msgstr "Pomoc"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:99
 msgid "Support Email"
 msgstr "Adres e-mail pomocy"
 
@@ -600,6 +600,43 @@ msgstr "Wersja %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Data wydania: %(dateReleased)s — %(fileSize)s"
 
+#: src/amo/components/AMInstallButton/index.js:198
+msgid "Enable"
+msgstr "Włącz"
+
+#: src/amo/components/AMInstallButton/index.js:201
+#: src/amo/components/EditableCollectionAddon/index.js:143
+msgid "Remove"
+msgstr "Usuń"
+
+#: src/amo/components/AMInstallButton/index.js:203
+msgid "Enabling"
+msgstr "Włączanie"
+
+#: src/amo/components/AMInstallButton/index.js:205
+msgid "Disabling"
+msgstr "Wyłączanie"
+
+#: src/amo/components/AMInstallButton/index.js:207
+msgid "Downloading"
+msgstr "Pobieranie"
+
+#: src/amo/components/AMInstallButton/index.js:209
+msgid "Installing"
+msgstr "Instalowanie"
+
+#: src/amo/components/AMInstallButton/index.js:211
+msgid "Uninstalling"
+msgstr "Odinstalowywanie"
+
+#: src/amo/components/AMInstallButton/index.js:219
+msgid "Install Theme"
+msgstr "Zainstaluj motyw"
+
+#: src/amo/components/AMInstallButton/index.js:220
+msgid "Add to Firefox"
+msgstr "Dodaj do Firefoksa"
+
 #: src/amo/components/App/index.js:185
 #: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -619,6 +656,22 @@ msgstr "Dodatki do Firefoksa na Androida (%(locale)s)"
 #: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s — dodatki do Firefoksa na Androida (%(locale)s)"
+
+#: src/amo/components/AuthenticateButton/index.js:87
+#: src/amo/components/Header/index.js:146
+msgid "Log out"
+msgstr "Wyloguj"
+
+#: src/amo/components/AuthenticateButton/index.js:88
+msgid "Register or Log in"
+msgstr "Zarejestruj się lub zaloguj"
+
+#: src/amo/components/AuthenticateButton/index.js:91
+#: src/amo/components/Header/index.js:141
+msgid ""
+"This action is currently unavailable. Please reload the page in a moment."
+msgstr ""
+"To działanie jest obecnie niedostępne. Proszę odświeżyć stronę za chwilę."
 
 #: src/amo/components/AutoSearchInput/index.js:206
 msgid "Loading"
@@ -657,24 +710,29 @@ msgstr "Usunięto z kolekcji"
 msgid "Find an add-on to include in this collection"
 msgstr "Znajdź dodatek do dołączenia do tej kolekcji"
 
-#: src/amo/components/CollectionDetails/index.js:103
+#: src/amo/components/CollectionDetails/index.js:107
 msgid "Edit this collection"
 msgstr "Edytuj tę kolekcję"
 
-#: src/amo/components/CollectionDetails/index.js:114
+#: src/amo/components/CollectionDetails/index.js:118
 msgid "Edit collection details"
 msgstr "Edytuj informacje o kolekcji"
 
-#: src/amo/components/CollectionDetails/index.js:126
+#: src/amo/components/CollectionDetails/index.js:130
 msgid "Back to collection"
 msgstr "Wróć do kolekcji"
 
-#: src/amo/components/CollectionDetails/index.js:79
-#: src/amo/components/Footer/index.js:48
+#: src/amo/components/CollectionDetails/index.js:64
+#: src/ui/components/UserCollection/index.js:54
+msgid "(no name)"
+msgstr ""
+
+#: src/amo/components/CollectionDetails/index.js:83
+#: src/amo/components/Footer/index.js:47
 msgid "Add-ons"
 msgstr "Dodatki"
 
-#: src/amo/components/CollectionDetails/index.js:83
+#: src/amo/components/CollectionDetails/index.js:87
 msgid "Creator"
 msgstr "Autor"
 
@@ -718,7 +776,7 @@ msgstr "Nazwa"
 msgid "Popularity"
 msgstr "Popularność"
 
-#: src/amo/components/ContributeCard/index.js:109
+#: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
 msgstr "Wspomóż teraz"
 
@@ -799,11 +857,6 @@ msgstr ""
 msgid "Leave a note"
 msgstr "Napisz notkę"
 
-#: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:201
-msgid "Remove"
-msgstr "Usuń"
-
 #: src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Collector's note"
 msgstr "Informacje twórcy kolekcji"
@@ -819,6 +872,32 @@ msgstr "Zapisz"
 #: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
 msgstr "Edytuj"
+
+#: src/amo/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/Errors/ServerError/index.js:30
+msgid "Server Error"
+msgstr "Błąd serwera"
+
+#: src/amo/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Wystąpił błąd i nie można ukończyć żądania. Zapisaliśmy ten błąd i postaramy "
+"się go naprawić."
+
+#: src/amo/components/ErrorPage/GenericError/index.js:33
+#: src/amo/components/ErrorPage/NotFound/index.js:35
+msgid "Error code: %(status)s."
+msgstr "Kod błędu: %(status)s."
+
+#: src/amo/components/ErrorPage/NotFound/index.js:27
+msgid "Page not found"
+msgstr "Nie odnaleziono strony"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:29
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "Nie ma nic pod podanym adresem."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
@@ -898,11 +977,6 @@ msgstr ""
 "Można <a href=\"https://github.com/mozilla/addons-frontend/issues/new/"
 "\">zgłosić błąd</a>, jeśli masz informacje mogące nam pomóc. Aby go "
 "naprawić, musimy wiedzieć, co zrobiono, że się pojawił."
-
-#: src/amo/components/Errors/ServerError/index.js:30
-#: src/core/components/ErrorPage/GenericError/index.js:24
-msgid "Server Error"
-msgstr "Błąd serwera"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid ""
@@ -999,35 +1073,35 @@ msgstr "Zawiera nieodpowiedni język"
 msgid "Flagged for inappropriate language"
 msgstr "Zgłoszono za nieodpowiedni język"
 
-#: src/amo/components/Footer/index.js:104
+#: src/amo/components/Footer/index.js:103
 msgid "Site Status"
 msgstr "Stan strony"
 
-#: src/amo/components/Footer/index.js:111
+#: src/amo/components/Footer/index.js:110
 msgid "Browsers"
 msgstr "Przeglądarki"
 
-#: src/amo/components/Footer/index.js:169
+#: src/amo/components/Footer/index.js:168
 msgid "Products"
 msgstr "Produkty"
 
-#: src/amo/components/Footer/index.js:245
+#: src/amo/components/Footer/index.js:244
 msgid "Privacy"
 msgstr "Prywatność"
 
-#: src/amo/components/Footer/index.js:253
+#: src/amo/components/Footer/index.js:252
 msgid "Cookies"
 msgstr "Ciasteczka"
 
-#: src/amo/components/Footer/index.js:261
-msgid "Legal"
-msgstr "Kwestie prawne"
-
-#: src/amo/components/Footer/index.js:27
+#: src/amo/components/Footer/index.js:26
 msgid "Go to Mozilla's homepage"
 msgstr "Strona domowa Mozilli"
 
-#: src/amo/components/Footer/index.js:271
+#: src/amo/components/Footer/index.js:260
+msgid "Legal"
+msgstr "Kwestie prawne"
+
+#: src/amo/components/Footer/index.js:270
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1037,35 +1111,35 @@ msgstr ""
 "strony jest dostępna na warunkach licencji %(startLicenseLink)sCreative "
 "Commons Attribution Share-Alike w wersji 3.0%(endLicenseLink)s lub nowszej."
 
-#: src/amo/components/Footer/index.js:53
+#: src/amo/components/Footer/index.js:52
 msgid "About"
 msgstr "O serwisie"
 
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:57
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:212
+#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:212
 msgid "Extension Workshop"
 msgstr "Warsztat rozszerzeń"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:222
+#: src/amo/components/Footer/index.js:75 src/amo/components/Header/index.js:222
 msgid "Developer Hub"
 msgstr "Strefa autora"
 
-#: src/amo/components/Footer/index.js:81
+#: src/amo/components/Footer/index.js:80
 msgid "Developer Policies"
 msgstr "Zasady programistów"
 
-#: src/amo/components/Footer/index.js:86
+#: src/amo/components/Footer/index.js:85
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:94
+#: src/amo/components/Footer/index.js:93
 msgid "Report a bug"
 msgstr "Zgłoś błąd"
 
-#: src/amo/components/Footer/index.js:99
+#: src/amo/components/Footer/index.js:98
 msgid "Review Guide"
 msgstr "Wytyczne recenzji"
 
@@ -1092,18 +1166,6 @@ msgstr "Zarządzaj moimi zgłoszeniami"
 #: src/amo/components/Header/index.js:129
 msgid "Reviewer Tools"
 msgstr "Narzędzia recenzenta"
-
-#: src/amo/components/Header/index.js:141
-#: src/core/components/AuthenticateButton/index.js:91
-msgid ""
-"This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
-"To działanie jest obecnie niedostępne. Proszę odświeżyć stronę za chwilę."
-
-#: src/amo/components/Header/index.js:146
-#: src/core/components/AuthenticateButton/index.js:87
-msgid "Log out"
-msgstr "Wyloguj"
 
 #: src/amo/components/Header/index.js:172
 msgid "Firefox Browser Add-ons"
@@ -1166,6 +1228,18 @@ msgstr ""
 "Firefox poleca wyłącznie rozszerzenia spełniające nasze standardy "
 "bezpieczeństwa i wydajności."
 
+#: src/amo/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr "Dodano %(strongStart)s%(name)s%(strongEnd)s"
+
+#: src/amo/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr "Zarządzaj dodatkami klikając Dodatki w menu programu."
+
+#: src/amo/components/InfoDialog/index.js:88
+msgid "OK"
+msgstr "OK"
+
 #: src/amo/components/InstallButtonWrapper/index.js:131
 msgid "Download file"
 msgstr "Pobierz plik"
@@ -1185,6 +1259,18 @@ msgstr ""
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
 msgstr "Zmień język"
+
+#: src/amo/components/Paginate/index.js:137
+msgid "Previous"
+msgstr "Wstecz"
+
+#: src/amo/components/Paginate/index.js:154
+msgid "Next"
+msgstr "Dalej"
+
+#: src/amo/components/Paginate/index.js:160
+msgid "Page %(currentPage)s of %(totalPages)s"
+msgstr "%(currentPage)s. strona z %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
@@ -1458,12 +1544,12 @@ msgstr ""
 msgid "Search results"
 msgstr "Wyniki wyszukiwania"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:302
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Polecane rozszerzenia"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:374
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:372
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Polecane motywy"
@@ -1508,7 +1594,7 @@ msgstr "Zweryfikowane motywy"
 msgid "Verified add-ons"
 msgstr "Zweryfikowane dodatki"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:387
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:385
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Rozszerzenia na czasie"
@@ -1536,11 +1622,11 @@ msgstr "Najwyżej oceniane motywy"
 msgid "Top rated add-ons"
 msgstr "Najwyżej oceniane dodatki"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:347
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:345
 msgid "Popular extensions"
 msgstr "Popularne rozszerzenia"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:328
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:326
 msgid "Popular themes"
 msgstr "Popularne motywy"
 
@@ -1745,15 +1831,15 @@ msgstr "Dodatki do Firefoksa"
 msgid "Go to the add-on page"
 msgstr "Strona dodatku"
 
-#: src/amo/components/SearchResult/index.js:181
+#: src/amo/components/SearchResult/index.js:180
 msgid "No theme preview available"
 msgstr "Podgląd motywu jest niedostępny"
 
-#: src/amo/components/SearchResult/index.js:216
+#: src/amo/components/SearchResult/index.js:215
 msgid "Add-on note"
 msgstr "Notka o dodatku"
 
-#: src/amo/components/SearchResult/index.js:234
+#: src/amo/components/SearchResult/index.js:233
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s użytkownik"
@@ -1814,6 +1900,18 @@ msgstr "Słowniki i pakiety językowe"
 msgid "Explore"
 msgstr "Odkrywaj"
 
+#: src/amo/components/SiteNotices/index.js:72
+msgid ""
+"Some features are temporarily disabled while we perform website maintenance. "
+"We'll be back to full capacity shortly."
+msgstr ""
+"W trakcie prac konserwacyjnych niektóre funkcje strony są tymczasowo "
+"wyłączone. Pełna funkcjonalność zostanie wkrótce przywrócona."
+
+#: src/amo/components/SiteNotices/index.js:87
+msgid "You have been logged out."
+msgstr "Wylogowano."
+
 #: src/amo/components/SponsoredAddonsShelf/index.js:210
 msgid "Sponsored extensions"
 msgstr "Sponsorowane rozszerzenia"
@@ -1837,6 +1935,18 @@ msgstr "Wszystkie motywy"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Strona domowa dodatków"
+
+#: src/amo/components/SurveyNotice/index.js:128
+msgid "Take short survey"
+msgstr "Wypełnij krótką ankietę"
+
+#: src/amo/components/SurveyNotice/index.js:136
+msgid ""
+"Thanks for visiting this site! Please take a minute or two to tell Firefox "
+"about your experience."
+msgstr ""
+"Dziękujemy za odwiedzenie tej strony! Prosimy poświęcić minutę lub dwie "
+"i powiedzieć nam o swoich wrażeniach."
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
@@ -1882,60 +1992,80 @@ msgstr ""
 "Można zainstalować ten dodatek w menedżerze dodatków. <a href="
 "\"%(newLocation)s\">Więcej informacji o dodatkach na Androida</a>."
 
-#: src/amo/pages/Addon/index.js:161 src/ui/components/ThemeImage/index.js:31
+#: src/amo/i18n/utils.js:254
+msgid "%(localizedSize)s B"
+msgstr "%(localizedSize)s B"
+
+#: src/amo/i18n/utils.js:256
+msgid "%(localizedSize)s KB"
+msgstr "%(localizedSize)s KB"
+
+#: src/amo/i18n/utils.js:258
+msgid "%(localizedSize)s MB"
+msgstr "%(localizedSize)s MB"
+
+#: src/amo/i18n/utils.js:260
+msgid "%(localizedSize)s GB"
+msgstr "%(localizedSize)s GB"
+
+#: src/amo/i18n/utils.js:262
+msgid "%(localizedSize)s TB"
+msgstr "%(localizedSize)s TB"
+
+#: src/amo/pages/Addon/index.js:160 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Podgląd „%(title)s”"
 
-#: src/amo/pages/Addon/index.js:196
+#: src/amo/pages/Addon/index.js:195
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Nie można ocenić tego dodatku, ponieważ nie ma on żadnych opublikowanych "
 "wersji."
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s recenzja"
 msgstr[1] "%(count)s recenzje"
 msgstr[2] "%(count)s recenzji"
 
-#: src/amo/pages/Addon/index.js:228
+#: src/amo/pages/Addon/index.js:227
 msgid "No reviews yet"
 msgstr "Nie ma jeszcze recenzji"
 
-#: src/amo/pages/Addon/index.js:238
+#: src/amo/pages/Addon/index.js:237
 msgid "Rate your experience"
 msgstr "Oceń swoje wrażenia"
 
-#: src/amo/pages/Addon/index.js:257
+#: src/amo/pages/Addon/index.js:256
 msgid "About this dictionary"
 msgstr "O tym słowniku"
 
-#: src/amo/pages/Addon/index.js:260
+#: src/amo/pages/Addon/index.js:259
 msgid "About this extension"
 msgstr "O tym rozszerzeniu"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:262
 msgid "About this language pack"
 msgstr "O tym pakiecie językowym"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:265
 msgid "About this theme"
 msgstr "O tym motywie"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:268
 msgid "About this add-on"
 msgstr "O tym dodatku"
 
-#: src/amo/pages/Addon/index.js:311
+#: src/amo/pages/Addon/index.js:310
 msgid "Developer comments"
 msgstr "Komentarze autora"
 
-#: src/amo/pages/Addon/index.js:334
+#: src/amo/pages/Addon/index.js:333
 msgid "Release notes for %(addonVersion)s"
 msgstr "Informacje o wydaniu %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:453
+#: src/amo/pages/Addon/index.js:452
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1943,11 +2073,11 @@ msgstr ""
 "To nie jest publiczna lista. Widzisz ją tylko z powodu podwyższonych "
 "uprawnień."
 
-#: src/amo/pages/Addon/index.js:480
+#: src/amo/pages/Addon/index.js:479
 msgid "Extension Metadata"
 msgstr "Metadane rozszerzenia"
 
-#: src/amo/pages/Addon/index.js:504
+#: src/amo/pages/Addon/index.js:503
 msgid "Screenshots"
 msgstr "Zrzuty ekranu"
 
@@ -2175,35 +2305,35 @@ msgstr "Nie ma żadnych kolekcji."
 msgid "My collections"
 msgstr "Moje kolekcje"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:147
 msgid "Abstract"
 msgstr "Abstrakcyjne"
 
-#: src/amo/pages/Home/index.js:154
+#: src/amo/pages/Home/index.js:152
 msgid "Nature"
 msgstr "Przyroda"
 
-#: src/amo/pages/Home/index.js:159
+#: src/amo/pages/Home/index.js:157
 msgid "Film & TV"
 msgstr "Filmy i telewizja"
 
-#: src/amo/pages/Home/index.js:164
+#: src/amo/pages/Home/index.js:162
 msgid "Scenery"
 msgstr "Krajobrazy"
 
-#: src/amo/pages/Home/index.js:169
+#: src/amo/pages/Home/index.js:167
 msgid "Music"
 msgstr "Muzyka"
 
-#: src/amo/pages/Home/index.js:174
+#: src/amo/pages/Home/index.js:172
 msgid "Seasonal"
 msgstr "Pory roku"
 
-#: src/amo/pages/Home/index.js:227
+#: src/amo/pages/Home/index.js:225
 msgid "Change the way Firefox looks with themes."
 msgstr "Zmień wygląd Firefoksa za pomocą motywów."
 
-#: src/amo/pages/Home/index.js:258
+#: src/amo/pages/Home/index.js:256
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2213,39 +2343,39 @@ msgstr ""
 "przeglądarki. Mogą blokować irytujące reklamy, chronić hasła, zmieniać "
 "wygląd przeglądarki i nie tylko."
 
-#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:303 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Więcej polecanych rozszerzeń"
 
-#: src/amo/pages/Home/index.js:329
+#: src/amo/pages/Home/index.js:327
 msgid "See more popular themes"
 msgstr "Więcej popularnych motywów"
 
-#: src/amo/pages/Home/index.js:348
+#: src/amo/pages/Home/index.js:346
 msgid "See more popular extensions"
 msgstr "Więcej popularnych rozszerzeń"
 
-#: src/amo/pages/Home/index.js:365 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:363 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Więcej polecanych motywów"
 
-#: src/amo/pages/Home/index.js:388 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:386 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Więcej rozszerzeń na czasie"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:63
 msgid "See more enhanced privacy extensions"
 msgstr "Więcej rozszerzeń ochrony prywatności"
 
-#: src/amo/pages/Home/index.js:66
+#: src/amo/pages/Home/index.js:64
 msgid "Enhanced privacy extensions"
 msgstr "Rozszerzenia zwiększające prywatność"
 
-#: src/amo/pages/Home/index.js:71
+#: src/amo/pages/Home/index.js:69
 msgid "See more recommended password managers"
 msgstr "Więcej polecanych menedżerów haseł"
 
-#: src/amo/pages/Home/index.js:72
+#: src/amo/pages/Home/index.js:70
 msgid "Recommended password managers"
 msgstr "Polecane menedżery haseł"
 
@@ -3043,6 +3173,45 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr "Zrezygnuj z subskrypcji"
 
+# This is application compatibility information, such as "firefox 41 and later"
+#: src/amo/reducers/versions.js:352
+msgid "%(application)s %(minVersion)s and later"
+msgstr "%(application)s %(minVersion)s i nowszy"
+
+# This is application compatibility information, such as "firefox 41 to 45"
+#: src/amo/reducers/versions.js:356
+msgid "%(application)s %(minVersion)s to %(maxVersion)s"
+msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
+
+# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#: src/amo/reducers/versions.js:376
+msgid "Works with %(listOfApplicatonsAndVersions)s"
+msgstr "Działa z: %(listOfApplicatonsAndVersions)s"
+
+#: src/amo/utils/addons.js:36
+msgid "Installation aborted because the add-on appears to be corrupt."
+msgstr "Instalacja została przerwana, ponieważ dodatek jest uszkodzony."
+
+#: src/amo/utils/addons.js:40
+msgid "Installation failed. Please try again."
+msgstr "Instalacja się nie powiodła. Proszę spróbować ponownie."
+
+#: src/amo/utils/addons.js:42
+msgid "Download failed. Please check your connection."
+msgstr "Pobranie się nie powiodło. Proszę sprawdzić połączenie z Internetem."
+
+#: src/amo/utils/addons.js:44
+msgid "An unexpected error occurred during installation."
+msgstr "Wystąpił nieoczekiwany błąd podczas instalacji."
+
+#: src/amo/utils/addons.js:46
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Wystąpił nieoczekiwany błąd podczas dezinstalacji."
+
+#: src/amo/utils/addons.js:51
+msgid "An unexpected error occurred."
+msgstr "Wystąpił nieoczekiwany błąd."
+
 #: src/amo/utils/notifications.js:10
 msgid ""
 "stay up-to-date with news and events relevant to add-on developers "
@@ -3080,170 +3249,6 @@ msgstr "zgodność mojego dodatku nie może zostać zaktualizowana"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
-
-#: src/core/components/AMInstallButton/index.js:198
-msgid "Enable"
-msgstr "Włącz"
-
-#: src/core/components/AMInstallButton/index.js:203
-msgid "Enabling"
-msgstr "Włączanie"
-
-#: src/core/components/AMInstallButton/index.js:205
-msgid "Disabling"
-msgstr "Wyłączanie"
-
-#: src/core/components/AMInstallButton/index.js:207
-msgid "Downloading"
-msgstr "Pobieranie"
-
-#: src/core/components/AMInstallButton/index.js:209
-msgid "Installing"
-msgstr "Instalowanie"
-
-#: src/core/components/AMInstallButton/index.js:211
-msgid "Uninstalling"
-msgstr "Odinstalowywanie"
-
-#: src/core/components/AMInstallButton/index.js:219
-msgid "Install Theme"
-msgstr "Zainstaluj motyw"
-
-#: src/core/components/AMInstallButton/index.js:220
-msgid "Add to Firefox"
-msgstr "Dodaj do Firefoksa"
-
-#: src/core/components/AuthenticateButton/index.js:88
-msgid "Register or Log in"
-msgstr "Zarejestruj się lub zaloguj"
-
-#: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Wystąpił błąd i nie można ukończyć żądania. Zapisaliśmy ten błąd i postaramy "
-"się go naprawić."
-
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
-msgid "Error code: %(status)s."
-msgstr "Kod błędu: %(status)s."
-
-#: src/core/components/ErrorPage/NotFound/index.js:27
-msgid "Page not found"
-msgstr "Nie odnaleziono strony"
-
-#: src/core/components/ErrorPage/NotFound/index.js:29
-msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "Nie ma nic pod podanym adresem."
-
-#: src/core/components/InfoDialog/index.js:64
-msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr "Dodano %(strongStart)s%(name)s%(strongEnd)s"
-
-#: src/core/components/InfoDialog/index.js:77
-msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr "Zarządzaj dodatkami klikając Dodatki w menu programu."
-
-#: src/core/components/InfoDialog/index.js:88
-msgid "OK"
-msgstr "OK"
-
-#: src/core/components/Paginate/index.js:137
-msgid "Previous"
-msgstr "Wstecz"
-
-#: src/core/components/Paginate/index.js:154
-msgid "Next"
-msgstr "Dalej"
-
-#: src/core/components/Paginate/index.js:160
-msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "%(currentPage)s. strona z %(totalPages)s"
-
-#: src/core/components/SiteNotices/index.js:72
-msgid ""
-"Some features are temporarily disabled while we perform website maintenance. "
-"We'll be back to full capacity shortly."
-msgstr ""
-"W trakcie prac konserwacyjnych niektóre funkcje strony są tymczasowo "
-"wyłączone. Pełna funkcjonalność zostanie wkrótce przywrócona."
-
-#: src/core/components/SiteNotices/index.js:87
-msgid "You have been logged out."
-msgstr "Wylogowano."
-
-#: src/core/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "Wypełnij krótką ankietę"
-
-#: src/core/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Dziękujemy za odwiedzenie tej strony! Prosimy poświęcić minutę lub dwie "
-"i powiedzieć nam o swoich wrażeniach."
-
-#: src/core/i18n/utils.js:254
-msgid "%(localizedSize)s B"
-msgstr "%(localizedSize)s B"
-
-#: src/core/i18n/utils.js:256
-msgid "%(localizedSize)s KB"
-msgstr "%(localizedSize)s KB"
-
-#: src/core/i18n/utils.js:258
-msgid "%(localizedSize)s MB"
-msgstr "%(localizedSize)s MB"
-
-#: src/core/i18n/utils.js:260
-msgid "%(localizedSize)s GB"
-msgstr "%(localizedSize)s GB"
-
-#: src/core/i18n/utils.js:262
-msgid "%(localizedSize)s TB"
-msgstr "%(localizedSize)s TB"
-
-# This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:352
-msgid "%(application)s %(minVersion)s and later"
-msgstr "%(application)s %(minVersion)s i nowszy"
-
-# This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:356
-msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
-
-# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:376
-msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr "Działa z: %(listOfApplicatonsAndVersions)s"
-
-#: src/core/utils/addons.js:36
-msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr "Instalacja została przerwana, ponieważ dodatek jest uszkodzony."
-
-#: src/core/utils/addons.js:40
-msgid "Installation failed. Please try again."
-msgstr "Instalacja się nie powiodła. Proszę spróbować ponownie."
-
-#: src/core/utils/addons.js:42
-msgid "Download failed. Please check your connection."
-msgstr "Pobranie się nie powiodło. Proszę sprawdzić połączenie z Internetem."
-
-#: src/core/utils/addons.js:44
-msgid "An unexpected error occurred during installation."
-msgstr "Wystąpił nieoczekiwany błąd podczas instalacji."
-
-#: src/core/utils/addons.js:46
-msgid "An unexpected error occurred during uninstallation."
-msgstr "Wystąpił nieoczekiwany błąd podczas dezinstalacji."
-
-#: src/core/utils/addons.js:51
-msgid "An unexpected error occurred."
-msgstr "Wystąpił nieoczekiwany błąd."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
@@ -3337,7 +3342,7 @@ msgstr "Rozwiń, aby wyświetlić więcej informacji"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">↓</span> Rozwiń"
 
-#: src/ui/components/UserCollection/index.js:46
+#: src/ui/components/UserCollection/index.js:45
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s dodatek"

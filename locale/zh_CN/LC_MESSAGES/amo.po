@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-05 17:03+0000\n"
+"POT-Creation-Date: 2021-01-13 19:02+0000\n"
 "PO-Revision-Date: 2020-12-22 13:06+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
@@ -89,21 +89,21 @@ msgstr "不兼容 Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "某些功能可能需要付费"
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:109
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "此附加组件不兼容您的 Firefox 版本。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:112
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr "因为此附加组件需要重启浏览器，您的 Firefox 版本并不支持。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:115
 msgid "This add-on is not available on your platform."
 msgstr "此附加组件不适用您的平台。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:120
+#: src/amo/components/AddonCompatibilityError/index.js:119
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -111,7 +111,7 @@ msgstr ""
 "此附加组件需要 <a href=\"%(downloadUrl)s\">较新版本的 Firefox</a>（至少 "
 "%(minVersion)s）。您目前使用的是 Firefox %(yourVersion)s。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:137
+#: src/amo/components/AddonCompatibilityError/index.js:136
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -213,83 +213,83 @@ msgstr "尚无评价"
 msgid "Used by"
 msgstr "用户："
 
-#: src/amo/components/AddonMoreInfo/index.js:109
+#: src/amo/components/AddonMoreInfo/index.js:117
 msgid "Visit stats dashboard"
 msgstr "前往统计面板"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:136
 msgid "Custom License"
 msgstr "自定义许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:150
+#: src/amo/components/AddonMoreInfo/index.js:158
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:166
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the privacy policy for this add-on"
 msgstr "阅读此附加组件的隐私政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:177
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "Read the license agreement for this add-on"
 msgstr "阅读此附加组件的许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:189
+#: src/amo/components/AddonMoreInfo/index.js:197
 msgid "See all versions"
 msgstr "查看所有版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Add-on Links"
 msgstr "附加组件链接"
 
-#: src/amo/components/AddonMoreInfo/index.js:228
+#: src/amo/components/AddonMoreInfo/index.js:236
 msgid "Version"
 msgstr "版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:244
 msgid "Size"
 msgstr "大小"
 
-#: src/amo/components/AddonMoreInfo/index.js:244
-#: src/amo/components/CollectionDetails/index.js:89
+#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/CollectionDetails/index.js:93
 msgid "Last updated"
 msgstr "上次更新"
 
-#: src/amo/components/AddonMoreInfo/index.js:252
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "License"
 msgstr "许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:260
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Privacy Policy"
 msgstr "隐私政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:268
+#: src/amo/components/AddonMoreInfo/index.js:276
 msgid "End-User License Agreement"
 msgstr "最终用户许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:276
+#: src/amo/components/AddonMoreInfo/index.js:284
 msgid "Version History"
 msgstr "版本历史"
 
-#: src/amo/components/AddonMoreInfo/index.js:286
+#: src/amo/components/AddonMoreInfo/index.js:294
 msgid "Usage Statistics"
 msgstr "使用统计"
 
-#: src/amo/components/AddonMoreInfo/index.js:302
+#: src/amo/components/AddonMoreInfo/index.js:310
 msgid "More information"
 msgstr "更多信息"
 
-#: src/amo/components/AddonMoreInfo/index.js:66
+#: src/amo/components/AddonMoreInfo/index.js:70
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:675
 msgid "Homepage"
 msgstr "主页"
 
-#: src/amo/components/AddonMoreInfo/index.js:77
+#: src/amo/components/AddonMoreInfo/index.js:85
 msgid "Support site"
 msgstr "用户支持网站"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:99
 msgid "Support Email"
 msgstr "支持邮箱"
 
@@ -578,6 +578,43 @@ msgstr "版本 %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "发布于 %(dateReleased)s - %(fileSize)s"
 
+#: src/amo/components/AMInstallButton/index.js:198
+msgid "Enable"
+msgstr "启用"
+
+#: src/amo/components/AMInstallButton/index.js:201
+#: src/amo/components/EditableCollectionAddon/index.js:143
+msgid "Remove"
+msgstr "移除"
+
+#: src/amo/components/AMInstallButton/index.js:203
+msgid "Enabling"
+msgstr "正在启用"
+
+#: src/amo/components/AMInstallButton/index.js:205
+msgid "Disabling"
+msgstr "禁用中"
+
+#: src/amo/components/AMInstallButton/index.js:207
+msgid "Downloading"
+msgstr "正在下载"
+
+#: src/amo/components/AMInstallButton/index.js:209
+msgid "Installing"
+msgstr "正在安装"
+
+#: src/amo/components/AMInstallButton/index.js:211
+msgid "Uninstalling"
+msgstr "正在卸载"
+
+#: src/amo/components/AMInstallButton/index.js:219
+msgid "Install Theme"
+msgstr "安装主题"
+
+#: src/amo/components/AMInstallButton/index.js:220
+msgid "Add to Firefox"
+msgstr "添加到 Firefox"
+
 #: src/amo/components/App/index.js:185
 #: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -597,6 +634,21 @@ msgstr "适用于 Android 的 Firefox 附加组件（%(locale)s）"
 #: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – 适用于 Android 的 Firefox 附加组件（%(locale)s）"
+
+#: src/amo/components/AuthenticateButton/index.js:87
+#: src/amo/components/Header/index.js:146
+msgid "Log out"
+msgstr "退出"
+
+#: src/amo/components/AuthenticateButton/index.js:88
+msgid "Register or Log in"
+msgstr "注册或登录"
+
+#: src/amo/components/AuthenticateButton/index.js:91
+#: src/amo/components/Header/index.js:141
+msgid ""
+"This action is currently unavailable. Please reload the page in a moment."
+msgstr "此操作当前不可用，请稍后刷新页面重试。"
 
 #: src/amo/components/AutoSearchInput/index.js:206
 msgid "Loading"
@@ -635,24 +687,29 @@ msgstr "已从收藏集中移除"
 msgid "Find an add-on to include in this collection"
 msgstr "搜索附加组件并加入此收藏集"
 
-#: src/amo/components/CollectionDetails/index.js:103
+#: src/amo/components/CollectionDetails/index.js:107
 msgid "Edit this collection"
 msgstr "编辑此收藏集"
 
-#: src/amo/components/CollectionDetails/index.js:114
+#: src/amo/components/CollectionDetails/index.js:118
 msgid "Edit collection details"
 msgstr "编辑收藏集信息"
 
-#: src/amo/components/CollectionDetails/index.js:126
+#: src/amo/components/CollectionDetails/index.js:130
 msgid "Back to collection"
 msgstr "返回收藏集"
 
-#: src/amo/components/CollectionDetails/index.js:79
-#: src/amo/components/Footer/index.js:48
+#: src/amo/components/CollectionDetails/index.js:64
+#: src/ui/components/UserCollection/index.js:54
+msgid "(no name)"
+msgstr ""
+
+#: src/amo/components/CollectionDetails/index.js:83
+#: src/amo/components/Footer/index.js:47
 msgid "Add-ons"
 msgstr "附加组件"
 
-#: src/amo/components/CollectionDetails/index.js:83
+#: src/amo/components/CollectionDetails/index.js:87
 msgid "Creator"
 msgstr "作者"
 
@@ -696,7 +753,7 @@ msgstr "名称"
 msgid "Popularity"
 msgstr "热门度"
 
-#: src/amo/components/ContributeCard/index.js:109
+#: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
 msgstr "我要捐款"
 
@@ -765,11 +822,6 @@ msgstr "此附加组件的作者寻求您的小小捐助以支持其继续创造
 msgid "Leave a note"
 msgstr "留下注释"
 
-#: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:201
-msgid "Remove"
-msgstr "移除"
-
 #: src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Collector's note"
 msgstr "收藏者说明"
@@ -785,6 +837,32 @@ msgstr "保存"
 #: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
 msgstr "编辑"
+
+#: src/amo/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/Errors/ServerError/index.js:30
+msgid "Server Error"
+msgstr "服务器错误"
+
+#: src/amo/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"很抱歉，但目前遇到一个错误，我们无法完成您的请求。我们已记录该错误，并会进行"
+"调查。"
+
+#: src/amo/components/ErrorPage/GenericError/index.js:33
+#: src/amo/components/ErrorPage/NotFound/index.js:35
+msgid "Error code: %(status)s."
+msgstr "错误代码：%(status)s。"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:27
+msgid "Page not found"
+msgstr "找不到页面"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:29
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "很抱歉，但我们无法用您输入的地址找到信息。"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
@@ -859,11 +937,6 @@ msgstr ""
 "如果您有其他能够帮助我们修正问题的信息，请<a href=\"https://github.com/"
 "mozilla/addons-frontend/issues/new/\">填报问题</a>。在填报时中请告诉我们您做"
 "了哪些事情后发生了错误，我们将尽力修正。"
-
-#: src/amo/components/Errors/ServerError/index.js:30
-#: src/core/components/ErrorPage/GenericError/index.js:24
-msgid "Server Error"
-msgstr "服务器错误"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid ""
@@ -960,35 +1033,35 @@ msgstr "这包含不当语言"
 msgid "Flagged for inappropriate language"
 msgstr "已标记含不当用语"
 
-#: src/amo/components/Footer/index.js:104
+#: src/amo/components/Footer/index.js:103
 msgid "Site Status"
 msgstr "网站状态"
 
-#: src/amo/components/Footer/index.js:111
+#: src/amo/components/Footer/index.js:110
 msgid "Browsers"
 msgstr "浏览器"
 
-#: src/amo/components/Footer/index.js:169
+#: src/amo/components/Footer/index.js:168
 msgid "Products"
 msgstr "产品"
 
-#: src/amo/components/Footer/index.js:245
+#: src/amo/components/Footer/index.js:244
 msgid "Privacy"
 msgstr "隐私"
 
-#: src/amo/components/Footer/index.js:253
+#: src/amo/components/Footer/index.js:252
 msgid "Cookies"
 msgstr "Cookie"
 
-#: src/amo/components/Footer/index.js:261
-msgid "Legal"
-msgstr "法律"
-
-#: src/amo/components/Footer/index.js:27
+#: src/amo/components/Footer/index.js:26
 msgid "Go to Mozilla's homepage"
 msgstr "转至 Mozilla 主页"
 
-#: src/amo/components/Footer/index.js:271
+#: src/amo/components/Footer/index.js:260
+msgid "Legal"
+msgstr "法律"
+
+#: src/amo/components/Footer/index.js:270
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -998,35 +1071,35 @@ msgstr ""
 "%(startLicenseLink)s知识共享 署名-相同方式共享 3.0%(endLicenseLink)s 或更新版"
 "本使用。"
 
-#: src/amo/components/Footer/index.js:53
+#: src/amo/components/Footer/index.js:52
 msgid "About"
 msgstr "关于"
 
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:57
 msgid "Blog"
 msgstr "博客"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:212
+#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:212
 msgid "Extension Workshop"
 msgstr "扩展工坊"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:222
+#: src/amo/components/Footer/index.js:75 src/amo/components/Header/index.js:222
 msgid "Developer Hub"
 msgstr "开发者中心"
 
-#: src/amo/components/Footer/index.js:81
+#: src/amo/components/Footer/index.js:80
 msgid "Developer Policies"
 msgstr "开发者政策"
 
-#: src/amo/components/Footer/index.js:86
+#: src/amo/components/Footer/index.js:85
 msgid "Forum"
 msgstr "论坛"
 
-#: src/amo/components/Footer/index.js:94
+#: src/amo/components/Footer/index.js:93
 msgid "Report a bug"
 msgstr "报告缺陷"
 
-#: src/amo/components/Footer/index.js:99
+#: src/amo/components/Footer/index.js:98
 msgid "Review Guide"
 msgstr "评价指南"
 
@@ -1053,17 +1126,6 @@ msgstr "管理我的提交"
 #: src/amo/components/Header/index.js:129
 msgid "Reviewer Tools"
 msgstr "审核员工具"
-
-#: src/amo/components/Header/index.js:141
-#: src/core/components/AuthenticateButton/index.js:91
-msgid ""
-"This action is currently unavailable. Please reload the page in a moment."
-msgstr "此操作当前不可用，请稍后刷新页面重试。"
-
-#: src/amo/components/Header/index.js:146
-#: src/core/components/AuthenticateButton/index.js:87
-msgid "Log out"
-msgstr "退出"
 
 #: src/amo/components/Header/index.js:172
 msgid "Firefox Browser Add-ons"
@@ -1124,6 +1186,18 @@ msgid ""
 "performance."
 msgstr "Firefox 只推荐符合我们的安全和性能标准的扩展。"
 
+#: src/amo/components/InfoDialog/index.js:64
+msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+msgstr "%(strongStart)s%(name)s%(strongEnd)s 已添加"
+
+#: src/amo/components/InfoDialog/index.js:77
+msgid "Manage your add-ons by clicking Add-ons in the menu."
+msgstr "点击菜单中的“附加组件”来管理您的附加组件。"
+
+#: src/amo/components/InfoDialog/index.js:88
+msgid "OK"
+msgstr "确定"
+
 #: src/amo/components/InstallButtonWrapper/index.js:131
 msgid "Download file"
 msgstr "下载文件"
@@ -1141,6 +1215,18 @@ msgstr "此附加组件未经 Mozilla 主动安全审计，安装前请确认您
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
 msgstr "更改语言"
+
+#: src/amo/components/Paginate/index.js:137
+msgid "Previous"
+msgstr "上一页"
+
+#: src/amo/components/Paginate/index.js:154
+msgid "Next"
+msgstr "下一页"
+
+#: src/amo/components/Paginate/index.js:160
+msgid "Page %(currentPage)s of %(totalPages)s"
+msgstr "第 %(currentPage)s 页，共 %(totalPages)s 页"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
@@ -1401,12 +1487,12 @@ msgstr "我们已收到您的报告。感谢告知。"
 msgid "Search results"
 msgstr "搜索结果"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:304
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:302
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "推荐扩展"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:374
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:372
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "推荐主题"
@@ -1451,7 +1537,7 @@ msgstr "已验证的主题"
 msgid "Verified add-ons"
 msgstr "已验证的附加组件"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:387
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:385
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "热门扩展"
@@ -1479,11 +1565,11 @@ msgstr "最受好评的主题"
 msgid "Top rated add-ons"
 msgstr "最受好评附加组件"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:347
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:345
 msgid "Popular extensions"
 msgstr "最流行的扩展"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:328
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:326
 msgid "Popular themes"
 msgstr "最流行的主题"
 
@@ -1656,15 +1742,15 @@ msgstr "Firefox 附加组件"
 msgid "Go to the add-on page"
 msgstr "访问附加组件页面"
 
-#: src/amo/components/SearchResult/index.js:181
+#: src/amo/components/SearchResult/index.js:180
 msgid "No theme preview available"
 msgstr "无主题预览可用"
 
-#: src/amo/components/SearchResult/index.js:216
+#: src/amo/components/SearchResult/index.js:215
 msgid "Add-on note"
 msgstr "附加组件说明"
 
-#: src/amo/components/SearchResult/index.js:234
+#: src/amo/components/SearchResult/index.js:233
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 个用户"
@@ -1723,6 +1809,16 @@ msgstr "字典和语言包"
 msgid "Explore"
 msgstr "探索"
 
+#: src/amo/components/SiteNotices/index.js:72
+msgid ""
+"Some features are temporarily disabled while we perform website maintenance. "
+"We'll be back to full capacity shortly."
+msgstr "在我们进行网站维护时，某些功能会被暂时禁用。我们将很快恢复全部功能。"
+
+#: src/amo/components/SiteNotices/index.js:87
+msgid "You have been logged out."
+msgstr "您已退出登录。"
+
 #: src/amo/components/SponsoredAddonsShelf/index.js:210
 msgid "Sponsored extensions"
 msgstr "付费上架的扩展"
@@ -1746,6 +1842,16 @@ msgstr "浏览所有主题"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "附加组件首页"
+
+#: src/amo/components/SurveyNotice/index.js:128
+msgid "Take short survey"
+msgstr "填写简短问卷"
+
+#: src/amo/components/SurveyNotice/index.js:136
+msgid ""
+"Thanks for visiting this site! Please take a minute or two to tell Firefox "
+"about your experience."
+msgstr "感谢您访问本网站！请花一两分钟时间告诉 Firefox 您的使用体验。"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
@@ -1789,66 +1895,86 @@ msgstr ""
 "您可以使用“附加组件管理”来安装此扩展。详细了解 <a href=\"%(newLocation)s"
 "\">Android 附加组件</a>。"
 
-#: src/amo/pages/Addon/index.js:161 src/ui/components/ThemeImage/index.js:31
+#: src/amo/i18n/utils.js:254
+msgid "%(localizedSize)s B"
+msgstr "%(localizedSize)s B"
+
+#: src/amo/i18n/utils.js:256
+msgid "%(localizedSize)s KB"
+msgstr "%(localizedSize)s KB"
+
+#: src/amo/i18n/utils.js:258
+msgid "%(localizedSize)s MB"
+msgstr "%(localizedSize)s MB"
+
+#: src/amo/i18n/utils.js:260
+msgid "%(localizedSize)s GB"
+msgstr "%(localizedSize)s GB"
+
+#: src/amo/i18n/utils.js:262
+msgid "%(localizedSize)s TB"
+msgstr "%(localizedSize)s TB"
+
+#: src/amo/pages/Addon/index.js:160 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "%(title)s 预览"
 
-#: src/amo/pages/Addon/index.js:196
+#: src/amo/pages/Addon/index.js:195
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "因为还未公开发布任何版本，无法对此附加组件评分。"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "阅读全部 %(count)s 条评价"
 
-#: src/amo/pages/Addon/index.js:228
+#: src/amo/pages/Addon/index.js:227
 msgid "No reviews yet"
 msgstr "尚无评价"
 
-#: src/amo/pages/Addon/index.js:238
+#: src/amo/pages/Addon/index.js:237
 msgid "Rate your experience"
 msgstr "为您的体验打分"
 
-#: src/amo/pages/Addon/index.js:257
+#: src/amo/pages/Addon/index.js:256
 msgid "About this dictionary"
 msgstr "关于此词典"
 
-#: src/amo/pages/Addon/index.js:260
+#: src/amo/pages/Addon/index.js:259
 msgid "About this extension"
 msgstr "关于此扩展"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:262
 msgid "About this language pack"
 msgstr "关于此语言包"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:265
 msgid "About this theme"
 msgstr "关于此主题"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:268
 msgid "About this add-on"
 msgstr "关于此附加组件"
 
-#: src/amo/pages/Addon/index.js:311
+#: src/amo/pages/Addon/index.js:310
 msgid "Developer comments"
 msgstr "开发者留言"
 
-#: src/amo/pages/Addon/index.js:334
+#: src/amo/pages/Addon/index.js:333
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s 的发布说明"
 
-#: src/amo/pages/Addon/index.js:453
+#: src/amo/pages/Addon/index.js:452
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "它没有被公开上架。您能看到它是因为提升的权限。"
 
-#: src/amo/pages/Addon/index.js:480
+#: src/amo/pages/Addon/index.js:479
 msgid "Extension Metadata"
 msgstr "扩展元数据"
 
-#: src/amo/pages/Addon/index.js:504
+#: src/amo/pages/Addon/index.js:503
 msgid "Screenshots"
 msgstr "屏幕截图"
 
@@ -2063,35 +2189,35 @@ msgstr "您没有任何收藏。"
 msgid "My collections"
 msgstr "我的收藏集"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:147
 msgid "Abstract"
 msgstr "抽象"
 
-#: src/amo/pages/Home/index.js:154
+#: src/amo/pages/Home/index.js:152
 msgid "Nature"
 msgstr "自然"
 
-#: src/amo/pages/Home/index.js:159
+#: src/amo/pages/Home/index.js:157
 msgid "Film & TV"
 msgstr "电影和电视"
 
-#: src/amo/pages/Home/index.js:164
+#: src/amo/pages/Home/index.js:162
 msgid "Scenery"
 msgstr "风景"
 
-#: src/amo/pages/Home/index.js:169
+#: src/amo/pages/Home/index.js:167
 msgid "Music"
 msgstr "音乐"
 
-#: src/amo/pages/Home/index.js:174
+#: src/amo/pages/Home/index.js:172
 msgid "Seasonal"
 msgstr "季节"
 
-#: src/amo/pages/Home/index.js:227
+#: src/amo/pages/Home/index.js:225
 msgid "Change the way Firefox looks with themes."
 msgstr "使用主题改变 Firefox 的外观。"
 
-#: src/amo/pages/Home/index.js:258
+#: src/amo/pages/Home/index.js:256
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2100,39 +2226,39 @@ msgstr ""
 "下载 Firefox 扩展与主题，它们就像是您浏览器上的应用程序，可以屏蔽讨人厌的广"
 "告、保护密码、更改浏览器外观，还有更多功能。"
 
-#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:303 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "看看更多推荐扩展"
 
-#: src/amo/pages/Home/index.js:329
+#: src/amo/pages/Home/index.js:327
 msgid "See more popular themes"
 msgstr "看看更多流行主题"
 
-#: src/amo/pages/Home/index.js:348
+#: src/amo/pages/Home/index.js:346
 msgid "See more popular extensions"
 msgstr "查看更多流行扩展"
 
-#: src/amo/pages/Home/index.js:365 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:363 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "看看更多推荐主题"
 
-#: src/amo/pages/Home/index.js:388 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:386 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "看看更多热门扩展"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:63
 msgid "See more enhanced privacy extensions"
 msgstr "看看更多隐私增强扩展"
 
-#: src/amo/pages/Home/index.js:66
+#: src/amo/pages/Home/index.js:64
 msgid "Enhanced privacy extensions"
 msgstr "隐私增强扩展"
 
-#: src/amo/pages/Home/index.js:71
+#: src/amo/pages/Home/index.js:69
 msgid "See more recommended password managers"
 msgstr "看看更多推荐的密码管理器"
 
-#: src/amo/pages/Home/index.js:72
+#: src/amo/pages/Home/index.js:70
 msgid "Recommended password managers"
 msgstr "推荐的密码管理器"
 
@@ -2880,6 +3006,45 @@ msgstr "您可以通过%(linkStart)s编辑您的个人资料%(linkEnd)s来调整
 msgid "Unsubscribe"
 msgstr "取消订阅"
 
+# This is application compatibility information, such as "firefox 41 and later"
+#: src/amo/reducers/versions.js:352
+msgid "%(application)s %(minVersion)s and later"
+msgstr "%(application)s %(minVersion)s 及更高版本"
+
+# This is application compatibility information, such as "firefox 41 to 45"
+#: src/amo/reducers/versions.js:356
+msgid "%(application)s %(minVersion)s to %(maxVersion)s"
+msgstr "%(application)s %(minVersion)s 至 %(maxVersion)s"
+
+# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#: src/amo/reducers/versions.js:376
+msgid "Works with %(listOfApplicatonsAndVersions)s"
+msgstr "适用于 %(listOfApplicatonsAndVersions)s"
+
+#: src/amo/utils/addons.js:36
+msgid "Installation aborted because the add-on appears to be corrupt."
+msgstr "安装中止，因为附加组件似乎已损坏。"
+
+#: src/amo/utils/addons.js:40
+msgid "Installation failed. Please try again."
+msgstr "安装失败。请重试。"
+
+#: src/amo/utils/addons.js:42
+msgid "Download failed. Please check your connection."
+msgstr "下载失败。请检查您的网络连接。"
+
+#: src/amo/utils/addons.js:44
+msgid "An unexpected error occurred during installation."
+msgstr "安装时发生意外错误。"
+
+#: src/amo/utils/addons.js:46
+msgid "An unexpected error occurred during uninstallation."
+msgstr "卸载时发生意外错误。"
+
+#: src/amo/utils/addons.js:51
+msgid "An unexpected error occurred."
+msgstr "发生意外错误。"
+
 #: src/amo/utils/notifications.js:10
 msgid ""
 "stay up-to-date with news and events relevant to add-on developers "
@@ -2913,166 +3078,6 @@ msgstr "无法升级我的附加组件的兼容性"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "我的附加组件的兼容性升级成功"
-
-#: src/core/components/AMInstallButton/index.js:198
-msgid "Enable"
-msgstr "启用"
-
-#: src/core/components/AMInstallButton/index.js:203
-msgid "Enabling"
-msgstr "正在启用"
-
-#: src/core/components/AMInstallButton/index.js:205
-msgid "Disabling"
-msgstr "禁用中"
-
-#: src/core/components/AMInstallButton/index.js:207
-msgid "Downloading"
-msgstr "正在下载"
-
-#: src/core/components/AMInstallButton/index.js:209
-msgid "Installing"
-msgstr "正在安装"
-
-#: src/core/components/AMInstallButton/index.js:211
-msgid "Uninstalling"
-msgstr "正在卸载"
-
-#: src/core/components/AMInstallButton/index.js:219
-msgid "Install Theme"
-msgstr "安装主题"
-
-#: src/core/components/AMInstallButton/index.js:220
-msgid "Add to Firefox"
-msgstr "添加到 Firefox"
-
-#: src/core/components/AuthenticateButton/index.js:88
-msgid "Register or Log in"
-msgstr "注册或登录"
-
-#: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"很抱歉，但目前遇到一个错误，我们无法完成您的请求。我们已记录该错误，并会进行"
-"调查。"
-
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
-msgid "Error code: %(status)s."
-msgstr "错误代码：%(status)s。"
-
-#: src/core/components/ErrorPage/NotFound/index.js:27
-msgid "Page not found"
-msgstr "找不到页面"
-
-#: src/core/components/ErrorPage/NotFound/index.js:29
-msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "很抱歉，但我们无法用您输入的地址找到信息。"
-
-#: src/core/components/InfoDialog/index.js:64
-msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr "%(strongStart)s%(name)s%(strongEnd)s 已添加"
-
-#: src/core/components/InfoDialog/index.js:77
-msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr "点击菜单中的“附加组件”来管理您的附加组件。"
-
-#: src/core/components/InfoDialog/index.js:88
-msgid "OK"
-msgstr "确定"
-
-#: src/core/components/Paginate/index.js:137
-msgid "Previous"
-msgstr "上一页"
-
-#: src/core/components/Paginate/index.js:154
-msgid "Next"
-msgstr "下一页"
-
-#: src/core/components/Paginate/index.js:160
-msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "第 %(currentPage)s 页，共 %(totalPages)s 页"
-
-#: src/core/components/SiteNotices/index.js:72
-msgid ""
-"Some features are temporarily disabled while we perform website maintenance. "
-"We'll be back to full capacity shortly."
-msgstr "在我们进行网站维护时，某些功能会被暂时禁用。我们将很快恢复全部功能。"
-
-#: src/core/components/SiteNotices/index.js:87
-msgid "You have been logged out."
-msgstr "您已退出登录。"
-
-#: src/core/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "填写简短问卷"
-
-#: src/core/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr "感谢您访问本网站！请花一两分钟时间告诉 Firefox 您的使用体验。"
-
-#: src/core/i18n/utils.js:254
-msgid "%(localizedSize)s B"
-msgstr "%(localizedSize)s B"
-
-#: src/core/i18n/utils.js:256
-msgid "%(localizedSize)s KB"
-msgstr "%(localizedSize)s KB"
-
-#: src/core/i18n/utils.js:258
-msgid "%(localizedSize)s MB"
-msgstr "%(localizedSize)s MB"
-
-#: src/core/i18n/utils.js:260
-msgid "%(localizedSize)s GB"
-msgstr "%(localizedSize)s GB"
-
-#: src/core/i18n/utils.js:262
-msgid "%(localizedSize)s TB"
-msgstr "%(localizedSize)s TB"
-
-# This is application compatibility information, such as "firefox 41 and later"
-#: src/core/reducers/versions.js:352
-msgid "%(application)s %(minVersion)s and later"
-msgstr "%(application)s %(minVersion)s 及更高版本"
-
-# This is application compatibility information, such as "firefox 41 to 45"
-#: src/core/reducers/versions.js:356
-msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr "%(application)s %(minVersion)s 至 %(maxVersion)s"
-
-# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/core/reducers/versions.js:376
-msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr "适用于 %(listOfApplicatonsAndVersions)s"
-
-#: src/core/utils/addons.js:36
-msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr "安装中止，因为附加组件似乎已损坏。"
-
-#: src/core/utils/addons.js:40
-msgid "Installation failed. Please try again."
-msgstr "安装失败。请重试。"
-
-#: src/core/utils/addons.js:42
-msgid "Download failed. Please check your connection."
-msgstr "下载失败。请检查您的网络连接。"
-
-#: src/core/utils/addons.js:44
-msgid "An unexpected error occurred during installation."
-msgstr "安装时发生意外错误。"
-
-#: src/core/utils/addons.js:46
-msgid "An unexpected error occurred during uninstallation."
-msgstr "卸载时发生意外错误。"
-
-#: src/core/utils/addons.js:51
-msgid "An unexpected error occurred."
-msgstr "发生意外错误。"
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
@@ -3162,7 +3167,7 @@ msgstr "展开阅读更多内容"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">展开以</span>阅读全文"
 
-#: src/ui/components/UserCollection/index.js:46
+#: src/ui/components/UserCollection/index.js:45
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
 msgstr[0] "共 %(total)s 个附加组件"
