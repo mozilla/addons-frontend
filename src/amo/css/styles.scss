@@ -1,3 +1,14 @@
-@import '~ui/css/vars';
+// This import will also import `./inc/vars.scss`.
 @import './inc/mixins';
-@import './inc/vars';
+
+/* Shared CSS lib code. Bear in mind that changes here impacts *everything*. */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

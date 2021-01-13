@@ -1,6 +1,5 @@
 // Add global styles
 import 'amo/components/App/styles.scss';
-import 'amo/css/inc/lib.scss';
 
 import './setup/styles.scss';
 
