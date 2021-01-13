@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-01-05 17:03+0000\n"
-"PO-Revision-Date: 2021-01-13 16:45+0000\n"
+"PO-Revision-Date: 2021-01-13 16:46+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1111,7 +1111,7 @@ msgstr "మీకు ప్రకటనలను ప్రదర్శించ�
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "క్రిప్టోగ్రఫిక్ అధీకరణ సేవలు అందిస్తుంది"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
@@ -1175,11 +1175,11 @@ msgstr "మీరు %(addonName)s‌ను ఎలా ఆనందిస్త�
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "స్టార్ రేటింగ్‌ను భద్రపరుస్తోంది"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "స్టార్ రేటింగ్ భద్రమయింది"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all five-star reviews"
