@@ -203,6 +203,34 @@ describe(__filename, () => {
       });
     });
 
+    it('trims spaces from the input', () => {
+      const onSearch = sinon.stub();
+      const root = render({ onSearch });
+
+      inputSearchQuery(root, '     ');
+
+      root
+        .find('.AutoSearchInput-submit-button')
+        .simulate('click', createFakeEvent());
+
+      sinon.assert.calledWith(onSearch, {
+        query: '',
+        operatingSystem: OS_WINDOWS,
+      });
+
+      onSearch.resetHistory();
+      inputSearchQuery(root, '  abc  ');
+
+      root
+        .find('.AutoSearchInput-submit-button')
+        .simulate('click', createFakeEvent());
+
+      sinon.assert.calledWith(onSearch, {
+        query: 'abc',
+        operatingSystem: OS_WINDOWS,
+      });
+    });
+
     it('blurs the input when submitting a search', () => {
       const root = renderAndMount();
       const blurSpy = sinon.spy(
