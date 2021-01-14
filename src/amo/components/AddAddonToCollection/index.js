@@ -156,6 +156,10 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     );
   }
 
+  getBlankName(): string {
+    return this.props.i18n.gettext('(no name)');
+  }
+
   getSelectData(): SelectData {
     const {
       addon,
@@ -218,7 +222,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
           // belongs to, they will see an error.
           collectionOptions.push(
             this.createOption({
-              text: collection.name,
+              text: collection.name || this.getBlankName(),
               key: `collection-${collection.id}`,
               onSelect: () => {
                 this.addToCollection(collection);
@@ -240,7 +244,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
       addedNotices = addonInCollections.map((collection) => {
         const notice = i18n.sprintf(
           i18n.gettext('Added to %(collectionName)s'),
-          { collectionName: collection.name },
+          { collectionName: collection.name || this.getBlankName() },
         );
         return (
           <Notice

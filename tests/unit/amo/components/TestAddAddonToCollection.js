@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import AddAddonToCollection, {
-  extractId,
   AddAddonToCollectionBase,
+  extractId,
   mapStateToProps,
 } from 'amo/components/AddAddonToCollection';
 import {
@@ -296,6 +296,26 @@ describe(__filename, () => {
       expect(option).toHaveText(firstName);
     });
 
+    it('displays "(no name)" for collections without names', () => {
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id: 234 });
+      const userId = 10;
+
+      const { firstCollection, secondCollection } = createSomeCollections({
+        firstName: null,
+        userId,
+      });
+
+      signInAndDispatchCollections({
+        userId,
+        collections: [firstCollection, secondCollection],
+      });
+
+      const root = render({ addon });
+      const option = root.find('optgroup .AddAddonToCollection-option').at(0);
+
+      expect(option).toHaveText(root.instance().getBlankName());
+    });
+
     it('shows a notice that you added to a collection', () => {
       const addon = createInternalAddonWithLang(fakeAddon);
       const firstName = 'a collection';
@@ -364,6 +384,36 @@ describe(__filename, () => {
       };
       expect(text(0)).toContain(`Added to ${firstName}`);
       expect(text(1)).toContain(`Added to ${secondName}`);
+    });
+
+    it('uses "(no name)" in the notice when the collection name is missing', () => {
+      const addon = createInternalAddonWithLang(fakeAddon);
+      const userId = 10;
+
+      const { firstCollection } = createSomeCollections({
+        firstName: null,
+        userId,
+      });
+
+      signInAndDispatchCollections({
+        userId,
+        collections: [firstCollection],
+      });
+      store.dispatch(
+        addonAddedToCollection({
+          addonId: addon.id,
+          userId,
+          collectionId: firstCollection.id,
+        }),
+      );
+
+      const root = render({ addon });
+
+      const notice = root.find(Notice);
+      expect(notice.prop('type')).toEqual('success');
+      expect(notice.childAt(0).text()).toContain(
+        `Added to ${root.instance().getBlankName()}`,
+      );
     });
 
     it('does nothing when you select the prompt', () => {
