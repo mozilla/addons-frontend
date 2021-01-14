@@ -425,8 +425,8 @@ module.exports = {
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
-  enableFeatureSponsoredShelf: true,
-  enableFeatureUseAdzerkForSponsoredShelf: true,
+  enableFeatureSponsoredShelf: false,
+  enableFeatureUseAdzerkForSponsoredShelf: false,
   enableFeatureAllowAndroidInstall: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
