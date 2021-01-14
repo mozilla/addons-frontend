@@ -72,12 +72,12 @@ run_l10n_extraction() {
     return
   fi
 
-  git commit -a -m "Extract locales"
+  git commit -a -m "Extract locales" --no-verify
 
   info "Merging locales"
   bin/merge-locales >> "$LOG_FILE" 2>&1
 
-  git commit -a -m "Merge locales"
+  git commit -a -m "Merge locales" --no-verify
 
   # We use force-push in case the branch already exists.
   git push -f "$GIT_REMOTE" "$branch"
