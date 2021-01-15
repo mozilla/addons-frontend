@@ -12,6 +12,7 @@ import type { Props as ConfirmationDialogProps } from 'ui/components/Confirmatio
 
 type Props = {|
   buttonType?: ButtonType,
+  htmlType?: string,
   cancelButtonText?: $PropertyType<ConfirmationDialogProps, 'cancelButtonText'>,
   cancelButtonType?: $PropertyType<ConfirmationDialogProps, 'cancelButtonType'>,
   children: React.Element<any> | string,
@@ -69,6 +70,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
       className,
       confirmButtonText,
       confirmButtonType,
+      htmlType,
       id,
       message,
       onConfirm,
@@ -102,6 +104,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
         ) : (
           <Button
             buttonType={buttonType}
+            htmlType={htmlType}
             className="ConfirmButton-default-button"
             onClick={this.toggleConfirmation}
           >
