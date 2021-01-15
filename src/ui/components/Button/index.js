@@ -24,6 +24,7 @@ export type Props = {|
   disabled: boolean,
   externalDark?: boolean,
   href?: string,
+  htmlType?: string,
   micro: boolean,
   name?: number,
   noLink: boolean,
@@ -50,6 +51,7 @@ export default class Button extends React.Component<Props> {
   static defaultProps = {
     buttonType: 'none',
     disabled: false,
+    htmlType: 'submit',
     micro: false,
     noLink: false,
     puffy: false,
@@ -61,6 +63,7 @@ export default class Button extends React.Component<Props> {
       children,
       className,
       href,
+      htmlType,
       micro,
       puffy,
       noLink,
@@ -133,7 +136,8 @@ export default class Button extends React.Component<Props> {
     }
 
     return (
-      <button className={getClassName()} type="submit" {...props}>
+      // eslint-disable-next-line react/button-has-type
+      <button className={getClassName()} type={htmlType} {...props}>
         {children}
       </button>
     );

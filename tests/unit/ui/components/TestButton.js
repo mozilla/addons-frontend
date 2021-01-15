@@ -147,5 +147,13 @@ describe(__filename, () => {
 
     expect(button.type()).toEqual('button');
     expect(button).toHaveProp('title', title);
+    expect(button).toHaveProp('type', 'submit');
+  });
+
+  it('renders a button with a different html type', () => {
+    const htmlType = 'button';
+    const button = render({ htmlType });
+
+    expect(button).toHaveProp('type', htmlType);
   });
 });

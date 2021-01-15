@@ -143,6 +143,15 @@ describe(__filename, () => {
     expect(root.find(ConfirmButton).children()).toHaveText(
       'Delete This Picture',
     );
+    // By default, a `ConfirmButton` (or even a `Button`) has type "submit" but
+    // we don't want that for this button as the `UserProfileEditPicture`
+    // component is meant to be rendered within the `UserProfileEdit` form.
+    // The first button with type "submit" in the form is triggered when we
+    // submit the form by pressing `enter`, and if this component had a button
+    // with type "submit", it would be the first one in the form, which is not
+    // what we want!
+    // See: https://github.com/mozilla/addons-frontend/issues/9493
+    expect(root.find(ConfirmButton)).toHaveProp('htmlType', 'button');
   });
 
   it('does not render a "delete" ConfirmButton when user has no picture URL', () => {
