@@ -13,9 +13,9 @@ import translate from 'amo/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'amo/types/addons';
 import { isAddonAuthor } from 'amo/utils';
-import Card from 'ui/components/Card';
-import DefinitionList, { Definition } from 'ui/components/DefinitionList';
-import LoadingText from 'ui/components/LoadingText';
+import Card from 'amo/components/Card';
+import DefinitionList, { Definition } from 'amo/components/DefinitionList';
+import LoadingText from 'amo/components/LoadingText';
 import {
   addQueryParams,
   getQueryParametersForAttribution,

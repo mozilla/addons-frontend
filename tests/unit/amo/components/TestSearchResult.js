@@ -24,10 +24,10 @@ import {
   normalizeSpaces,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Icon from 'ui/components/Icon';
-import LoadingText from 'ui/components/LoadingText';
-import Rating from 'ui/components/Rating';
-import PromotedBadge from 'ui/components/PromotedBadge';
+import Icon from 'amo/components/Icon';
+import LoadingText from 'amo/components/LoadingText';
+import Rating from 'amo/components/Rating';
+import PromotedBadge from 'amo/components/PromotedBadge';
 
 describe(__filename, () => {
   const baseAddon = createInternalAddonWithLang({

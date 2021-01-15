@@ -11,8 +11,8 @@ import { addAddonToCollection } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import withUIState from 'amo/withUIState';
-import Card from 'ui/components/Card';
-import Notice from 'ui/components/Notice';
+import Card from 'amo/components/Card';
+import Notice from 'amo/components/Notice';
 import type { SuggestionType } from 'amo/reducers/autocomplete';
 import type {
   CollectionFilters,

@@ -16,13 +16,13 @@ import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { normalizeFileNameId } from 'amo/utils';
 import { replaceStringsWithJSX } from 'amo/i18n/utils';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
 import type { I18nType } from 'amo/types/i18n';
-import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
+import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 
 import './styles.scss';
 

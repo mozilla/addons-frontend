@@ -15,7 +15,7 @@ import {
 } from 'amo/constants';
 import tracking from 'amo/tracking';
 import { addQueryParams } from 'amo/utils/url';
-import Notice from 'ui/components/Notice';
+import Notice from 'amo/components/Notice';
 import type { ReactRouterLocationType } from 'amo/types/router';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';

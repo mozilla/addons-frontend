@@ -12,9 +12,9 @@ import {
   addQueryParams,
   getQueryParametersForAttribution,
 } from 'amo/utils/url';
-import Card from 'ui/components/Card';
-import LoadingText from 'ui/components/LoadingText';
-import Rating from 'ui/components/Rating';
+import Card from 'amo/components/Card';
+import LoadingText from 'amo/components/LoadingText';
+import Rating from 'amo/components/Rating';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
 import { roundToOneDigit } from 'amo/components/AddonMeta';

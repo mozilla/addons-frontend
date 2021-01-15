@@ -21,7 +21,7 @@ import {
   shallowUntilTarget,
   userAgents,
 } from 'tests/unit/helpers';
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 
 describe(__filename, () => {
   function render(props = {}) {

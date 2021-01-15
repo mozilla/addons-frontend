@@ -1,0 +1,184 @@
+@import '~amo/css/styles';
+
+$micro-font-size: 11px;
+$default-font-size: 13px;
+
+/* Button */
+@mixin button(
+  $background: $blue-60,
+  $background-active: $blue-80,
+  $background-hover: $blue-70,
+  $border-color: transparent,
+  $border-radius: $border-radius-l,
+  $color: $white
+) {
+  @include font-regular();
+
+  align-items: center;
+  background: $background;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  line-height: 1.3;
+  margin: 0;
+  padding: 0 8px;
+  text-decoration: none;
+  transition-duration: all $transition-long, padding $transition-short;
+  transition-property: background-color border-color color;
+  transition-timing-function: $easing-curve;
+
+  .Icon {
+    @include margin-end(6px);
+
+    height: $default-font-size;
+    width: $default-font-size;
+  }
+
+  // We frustratingly target :link directly so we need this override.
+  &,
+  &:link {
+    color: $color;
+    font-size: $font-size-m-smaller;
+    font-weight: 400;
+
+    &.Button--puffy {
+      border-radius: 4px;
+      font-size: $font-size-puffy-buttons;
+      height: auto;
+      min-height: 48px;
+      padding: 0 16px;
+
+      .Icon {
+        @include margin-end(8px);
+
+        height: $font-size-puffy-buttons;
+        width: $font-size-puffy-buttons;
+      }
+    }
+
+    &.Button--micro {
+      &,
+      &:link {
+        font-size: $micro-font-size;
+        height: auto;
+        min-height: 24px;
+      }
+
+      .Icon {
+        @include margin-end(4px);
+
+        height: $micro-font-size;
+        width: $micro-font-size;
+      }
+
+      &:active:not(.Button--disabled) {
+        padding-top: 1px;
+      }
+
+      // Small text is difficult to read against the bright Photon colors
+      // since it is blurry. This isn't (yet) part of the spec but added this
+      // because it improves accessibility. See:
+      // https://github.com/FirefoxUX/photon/issues/264#issuecomment-364927535
+      letter-spacing: 0.01rem;
+    }
+  }
+
+  &:not(.Button--disabled),
+  &.Button--micro:not(.Button--disabled) {
+    &:hover {
+      background: $background-hover;
+    }
+
+    &:active:not(.Button--disabled) {
+      background: $background-active;
+      // This is not part of the Photon button spec, but without it only color
+      // is changed onClick of a button. Even as someone without
+      // colourblindness I find this to be so subtle as to sometimes not
+      // notice. I'd think colourblind users may not notice the mild colour
+      // shift in the button as the only indicator that it was pressed, so I
+      // added this. - @tofumatt See:
+      // https://github.com/FirefoxUX/photon/issues/265
+      padding-top: 1px;
+    }
+  }
+
+  &:focus {
+    @include focus();
+
+    // See: https://github.com/WICG/focus-visible
+    &:not(.focus-visible) {
+      box-shadow: none;
+    }
+  }
+
+  &.Button--disabled {
+    @include disabled();
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+.Button--neutral {
+  @include button(
+    $background: transparentize($grey-90, 0.9),
+    $background-active: transparentize($grey-90, 0.7),
+    $background-hover: transparentize($grey-90, 0.8),
+    $color: $grey-90
+  );
+}
+
+.Button--light {
+  @include button(
+    $background: $white,
+    $background-active: $grey-10,
+    $background-hover: $grey-20,
+    $color: $black
+  );
+}
+
+.Button--action {
+  @include button(
+    $background: $blue-60,
+    $background-active: $blue-80,
+    $background-hover: $blue-70
+  );
+}
+
+.Button--confirm {
+  @include button(
+    $background: $green-60,
+    $background-active: $green-70,
+    $background-hover: $green-80
+  );
+}
+
+.Button--warning {
+  @include button(
+    $background: $yellow-50,
+    $background-active: $yellow-60,
+    $background-hover: $yellow-70
+  );
+}
+
+.Button--alert {
+  @include button(
+    $background: $red-60,
+    $background-active: $red-80,
+    $background-hover: $red-70
+  );
+}
+
+.Button--cancel {
+  @include button(
+    $background: transparent,
+    $background-active: transparent,
+    $background-hover: transparent,
+    $color: $black
+  );
+}

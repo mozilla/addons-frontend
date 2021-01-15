@@ -14,15 +14,15 @@ import {
   CLIENT_APP_ANDROID,
 } from 'amo/constants';
 import { getCategoryResultsQuery } from 'amo/utils/categories';
-import Button from 'ui/components/Button';
-import LoadingText from 'ui/components/LoadingText';
+import Button from 'amo/components/Button';
+import LoadingText from 'amo/components/LoadingText';
 import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeCategory,
   fakeI18n,
 } from 'tests/unit/helpers';
-import ErrorList from 'ui/components/ErrorList';
+import ErrorList from 'amo/components/ErrorList';
 
 describe(__filename, () => {
   let store;

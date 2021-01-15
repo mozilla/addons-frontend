@@ -1,0 +1,330 @@
+@import '~amo/css/styles';
+@import './vars';
+
+@mixin icon($name) {
+  background: url('./img/#{$name}.svg') center no-repeat;
+  background-size: contain;
+}
+
+@mixin permission-icon($name) {
+  @include icon($name: 'permissions/#{$name}');
+}
+
+.Icon {
+  content: '';
+  display: inline-block;
+  // Do not let flex containers shrink icons.
+  flex-shrink: 0;
+  height: $default-icon-size;
+  width: $default-icon-size;
+}
+
+.Icon-arrow {
+  @include icon($name: 'arrow');
+
+  [dir='rtl'] & {
+    transform: rotate(180deg);
+  }
+}
+
+.Icon-arrow-blue {
+  @include icon($name: 'arrow-blue');
+
+  [dir='rtl'] & {
+    right: auto;
+    transform: rotate(180deg);
+  }
+}
+
+.Icon-magnifying-glass {
+  @include icon($name: 'magnifying-glass');
+}
+
+.Icon-eye {
+  @include icon($name: 'eye');
+
+  background-size: cover;
+
+  &,
+  .Button & {
+    width: 23px;
+  }
+}
+
+.Icon-mozilla {
+  @include icon($name: 'mozilla');
+
+  height: 32px;
+  width: 112px;
+}
+
+.Icon-triangle-down {
+  @include icon($name: 'triangle-down');
+}
+
+.Icon-triangle-down-black {
+  @include icon($name: 'triangle-down-black');
+}
+
+.Icon-external {
+  @include icon($name: 'external');
+  @include margin-start(5px);
+
+  height: 10px;
+  width: 10px;
+}
+
+.Icon-external-dark,
+// The Button override is to deal with @mixin button() from Button/styles.scss
+.Button--neutral:link.Button--puffy .Icon.Icon-external-dark {
+  @include icon($name: 'external-dark');
+
+  height: 10px;
+  width: 10px;
+}
+
+.Icon-anonymous-user {
+  @include icon($name: 'anonymous-user');
+}
+
+.Icon-user {
+  @include icon($name: 'user');
+}
+
+.Icon-twitter {
+  @include icon($name: 'twitter');
+}
+
+.Icon-facebook {
+  @include icon($name: 'facebook');
+}
+
+.Icon-youtube {
+  @include icon($name: 'youtube');
+}
+
+.Icon-star {
+  @include icon($name: 'star');
+}
+
+.Icon-star-yellow {
+  @include icon($name: 'star-yellow');
+}
+
+.Icon-star-empty {
+  @include icon($name: 'star-empty');
+}
+
+.Icon-star-full {
+  @include icon($name: 'star-full');
+}
+
+.Icon-star-half {
+  @include icon($name: 'star-half');
+}
+
+.Icon-user-dark {
+  @include icon($name: 'user-dark');
+}
+
+.Icon-user-fill {
+  @include icon($name: 'user-fill');
+}
+
+.Icon-browse {
+  @include icon($name: 'bullet-list');
+
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+}
+
+.Icon-themes {
+  @include icon($name: 'themes');
+
+  background-size: cover;
+  height: 45px;
+  min-width: 37.3px;
+  width: 37.3px;
+}
+
+.Icon-extensions {
+  @include icon($name: 'extensions');
+
+  background-size: cover;
+  height: 44.7px;
+  min-width: 46.3px;
+  width: 46.3px;
+}
+
+.Icon-restart {
+  @include icon($name: 'restart');
+}
+
+.Icon-inverted-caret {
+  @include icon($name: 'inverted-caret');
+}
+
+.Icon-experimental-badge {
+  @include icon($name: 'experimental-badge');
+}
+
+.Icon-plus {
+  @include icon($name: 'plus');
+}
+
+.Icon-reply-arrow {
+  @include icon($name: 'reply-arrow');
+
+  height: 11.68px;
+  width: 14px;
+
+  [dir='rtl'] & {
+    // Flip the horizontal orientation of the arrow.
+    transform: scaleX(-1);
+  }
+}
+
+.Icon-heart {
+  @include icon($name: 'heart');
+}
+
+.Icon-not-compatible {
+  @include icon($name: 'not-compatible');
+}
+
+.Icon-inline-content {
+  // An Icon with inline content (such as an SVG)
+  // does not need a background image.
+
+  background: none;
+}
+
+.Icon-requires-payment {
+  @include icon($name: 'requires-payment');
+}
+
+.Icon-comments {
+  @include icon($name: 'comments');
+}
+
+.Icon-comments-blue {
+  @include icon($name: 'comments-blue');
+}
+
+.Icon-permission-bookmarks {
+  @include permission-icon($name: 'bookmarks');
+}
+
+.Icon-permission-browserSettings,
+.Icon-permission-proxy {
+  @include permission-icon($name: 'browser');
+}
+
+.Icon-permission-browsingData {
+  @include permission-icon($name: 'info');
+}
+
+.Icon-permission-clipboardRead,
+.Icon-permission-clipboardWrite {
+  @include permission-icon($name: 'clipboard');
+}
+
+.Icon-permission-devtools {
+  @include permission-icon($name: 'dev');
+}
+
+.Icon-permission-downloads,
+.Icon-permission-downloads-open {
+  @include permission-icon($name: 'downloads');
+}
+
+.Icon-permission-find {
+  @include permission-icon($name: 'search');
+}
+
+.Icon-permission-geolocation {
+  @include permission-icon($name: 'geolocation');
+}
+
+.Icon-permission-history {
+  @include permission-icon($name: 'history');
+}
+
+.Icon-permission-management {
+  @include permission-icon($name: 'settings');
+}
+
+.Icon-permission-nativeMessaging {
+  @include permission-icon($name: 'messages');
+}
+
+.Icon-permission-notifications {
+  @include permission-icon($name: 'notifications');
+}
+
+.Icon-permission-pkcs11 {
+  @include permission-icon($name: 'cryptographic');
+}
+
+.Icon-permission-privacy,
+.Icon-permission-hostPermission {
+  @include permission-icon($name: 'privacy');
+}
+
+.Icon-permission-sessions,
+.Icon-permission-tabs,
+.Icon-permission-tabHide {
+  @include permission-icon($name: 'tabs');
+}
+
+.Icon-permission-topSites {
+  @include permission-icon($name: 'top-sites');
+}
+
+.Icon-permission-unlimitedStorage {
+  @include permission-icon($name: 'storage');
+}
+
+.Icon-permission-webNavigation {
+  @include permission-icon($name: 'navigation');
+}
+
+.Icon-developer {
+  @include icon($name: 'developer');
+}
+
+.Icon-artist {
+  @include icon($name: 'artist');
+}
+
+.Icon-delete {
+  @include icon($name: 'delete');
+}
+
+.Icon-plus-dark {
+  @include icon($name: 'plus-dark');
+}
+
+.Icon-stop-hand {
+  @include icon($name: 'stop-hand');
+}
+
+.Icon-browser {
+  @include icon($name: 'browser');
+}
+
+.Icon-video {
+  @include icon($name: 'video');
+}
+
+.Icon-trophy {
+  @include icon($name: 'trophy');
+
+  height: 12px;
+  width: 12px;
+}
+
+.Icon-line {
+  @include icon($name: 'line');
+}

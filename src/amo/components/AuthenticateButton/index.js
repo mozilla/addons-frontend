@@ -9,8 +9,8 @@ import { withRouter } from 'react-router-dom';
 import { logOutFromServer, startLoginUrl } from 'amo/api';
 import { getCurrentUser, logOutUser } from 'amo/reducers/users';
 import translate from 'amo/i18n/translate';
-import Button from 'ui/components/Button';
-import Icon from 'ui/components/Icon';
+import Button from 'amo/components/Button';
+import Icon from 'amo/components/Icon';
 import log from 'amo/logger';
 import type { AppState } from 'amo/store';
 import type { ApiState } from 'amo/reducers/api';
@@ -18,7 +18,7 @@ import type { UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterLocationType } from 'amo/types/router';
 import type { I18nType } from 'amo/types/i18n';
-import type { ButtonType } from 'ui/components/Button';
+import type { ButtonType } from 'amo/components/Button';
 
 type HandleLogInFunc = (
   location: ReactRouterLocationType,

@@ -23,8 +23,8 @@ import {
   fakeReview,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import ListItem from 'ui/components/ListItem';
-import TooltipMenu from 'ui/components/TooltipMenu';
+import ListItem from 'amo/components/ListItem';
+import TooltipMenu from 'amo/components/TooltipMenu';
 
 describe(__filename, () => {
   let store;

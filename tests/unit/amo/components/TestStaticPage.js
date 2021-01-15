@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import StaticPage from 'amo/components/StaticPage';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import Card from 'ui/components/Card';
+import Card from 'amo/components/Card';
 
 describe(__filename, () => {
   const render = ({

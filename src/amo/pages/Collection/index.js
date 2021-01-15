@@ -38,8 +38,8 @@ import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
-import Card from 'ui/components/Card';
-import ConfirmButton from 'ui/components/ConfirmButton';
+import Card from 'amo/components/Card';
+import ConfirmButton from 'amo/components/ConfirmButton';
 import type {
   CollectionFilters,
   CollectionType,

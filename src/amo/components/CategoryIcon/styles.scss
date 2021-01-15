@@ -23,7 +23,7 @@ $default-icon-size: 64px;
 }
 
 // There are currently 12 colors and this number must be kept in sync with
-// `$category-colors` in `src/ui/css/vars.scss`.
+// `$category-colors` in `src/amo/css/vars.scss`.
 
 @for $i from 1 through 12 {
   .CategoryIcon-#{$i} {

@@ -26,6 +26,7 @@ $default-line-height: 19px;
 $font-size-default: 14px;
 $font-size-micro: 10px;
 $font-size-s: 12px;
+$font-size-m-smaller: 14px;
 $font-size-m: 16px;
 $font-size-l: 28px;
 $font-size-xl: 36px;
@@ -40,16 +41,24 @@ $font-size-hero-body: 21px;
 $font-size-hero-message-headline: 24px;
 $font-size-hero-heading: 38px;
 
+$font-size-header-title: 34px;
+
+// Hero
+$hero-title-font-size: 33px;
+$hero-subtitle-font-size: 22px;
+
 // Animation Variables
 $transition-short: 150ms;
 $transition-medium: $transition-short * 3;
 $transition-long: $transition-short * 7;
+$easing-curve: cubic-bezier(0.07, 0.95, 0, 1);
 
 // Border-Radius Variables
 $border-radius-default: 9px;
 $border-radius-xs: 2px;
 $border-radius-s: 4px;
 $border-radius-m: 8px;
+$border-radius-l: 12px;
 
 // Page padding (this is the padding for an entire page that isn't full-width,
 // like the AddonsDetail page)
@@ -102,3 +111,44 @@ $max-content-width: 1366px;
 // Control the gutter to the left and right of the header and footer.
 // Mainly relevant to non-mobile screen-sizes.
 $header-footer-gutter: 24px;
+
+// Desktop variables (from specs)
+$black: #343a40;
+$white: #fff;
+$header-base-color: #0f1126;
+$footer-base-color: #051818;
+$header-search-color: #36395b;
+$action-base-color: #329af0;
+$action-hover-color: #72c3fc;
+$action-active-color: #1c7cd6;
+$cancel-base-color: $grey-50;
+$cancel-hover-color: $grey-40;
+$cancel-active-color: $grey-50;
+$confirm-base-color: #51cf66;
+$confirm-hover-color: #8ce99a;
+$confirm-active-color: #37b24d;
+$alert-base-color: #fcc419;
+$alert-hover-color: #ffe066;
+$alert-active-color: #f59f00;
+$report-base-color: #fa5252;
+$report-hover-color: #ff8787;
+$report-active-color: #e03131;
+$neutral-base-color: #adb5bd;
+$neutral-hover-color: #dee2e6;
+$neutral-active-color: #868e96;
+$light-base-color: $white;
+$light-hover-color: darken($white, 15%);
+$light-active-color: darken($white, 5%);
+$block-base-white-color: $white;
+$block-hover-white-color: #f8f9fa;
+$background-grey: #e9ecef;
+$background-gray: $background-grey;
+$type-black: $black;
+$header-accent-color: $link-color;
+$header-text-not-active-color: transparentize($white, 0.5);
+
+// Category Colors
+// There are currently 12 colors and this number must be kept in sync with
+// `src/amo/components/Categories/index.js`.
+$category-colors: $teal-70, $red-60, $magenta-60, $orange-60, $blue-50,
+  $green-70, $magenta-70, $red-50, $purple-40, $orange-70, $blue-60, $yellow-70;

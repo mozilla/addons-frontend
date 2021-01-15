@@ -27,7 +27,7 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { ErrorHandler } from 'amo/errorHandler';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   let fakeTracking;

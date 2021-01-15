@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import translate from 'amo/i18n/translate';
-import Notice from 'ui/components/Notice';
+import Notice from 'amo/components/Notice';
 import { getErrorMessage } from 'amo/utils/addons';
 import type { I18nType } from 'amo/types/i18n';
 

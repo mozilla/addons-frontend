@@ -3,7 +3,7 @@ import * as React from 'react';
 import AddonTitle, { AddonTitleBase } from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 import {
   createInternalAddonWithLang,
   createLocalizedString,

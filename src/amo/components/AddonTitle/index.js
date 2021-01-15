@@ -7,7 +7,7 @@ import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import { isRtlLang } from 'amo/i18n/utils';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 import { addQueryParams } from 'amo/utils/url';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';

@@ -28,9 +28,9 @@ import {
   shallowUntilTarget,
   simulateComponentCallback,
 } from 'tests/unit/helpers';
-import Card from 'ui/components/Card';
-import ErrorList from 'ui/components/ErrorList';
-import Notice from 'ui/components/Notice';
+import Card from 'amo/components/Card';
+import ErrorList from 'amo/components/ErrorList';
+import Notice from 'amo/components/Notice';
 
 const simulateAutoSearchCallback = (props = {}) => {
   return simulateComponentCallback({

@@ -7,7 +7,7 @@ import { fetchCategories } from 'amo/reducers/categories';
 import translate from 'amo/i18n/translate';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
-import Card from 'ui/components/Card';
+import Card from 'amo/components/Card';
 import type { AppState } from 'amo/store';
 import type { SearchFilters } from 'amo/api/search';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';

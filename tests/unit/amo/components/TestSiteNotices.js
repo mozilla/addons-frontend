@@ -3,7 +3,7 @@ import * as React from 'react';
 import SiteNotices, { SiteNoticesBase } from 'amo/components/SiteNotices';
 import { logOutUser } from 'amo/reducers/users';
 import { loadSiteStatus } from 'amo/reducers/site';
-import Notice from 'ui/components/Notice';
+import Notice from 'amo/components/Notice';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,

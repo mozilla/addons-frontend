@@ -3,8 +3,8 @@ import * as React from 'react';
 import CollectionDetails, {
   CollectionDetailsBase,
 } from 'amo/components/CollectionDetails';
-import LoadingText from 'ui/components/LoadingText';
-import MetadataCard from 'ui/components/MetadataCard';
+import LoadingText from 'amo/components/LoadingText';
+import MetadataCard from 'amo/components/MetadataCard';
 import {
   beginEditingCollectionDetails,
   collectionEditUrl,

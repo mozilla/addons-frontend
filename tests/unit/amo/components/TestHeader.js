@@ -10,7 +10,7 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'amo/constants';
-import DropdownMenu from 'ui/components/DropdownMenu';
+import DropdownMenu from 'amo/components/DropdownMenu';
 import { loadSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
 import {
   createFakeEvent,

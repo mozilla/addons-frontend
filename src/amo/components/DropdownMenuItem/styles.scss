@@ -1,0 +1,51 @@
+@import '~amo/css/styles';
+
+.DropdownMenuItem-section {
+  color: $grey-50;
+  font-size: $font-size-s;
+  line-height: 1.6;
+  margin: 16px 0 0;
+}
+
+.DropdownMenuItem-link a,
+.DropdownMenuItem-link button {
+  @include font-medium();
+
+  &,
+  &:link {
+    color: $grey-90;
+    cursor: pointer;
+    font-size: $font-size-m-smaller;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $blue-50;
+  }
+}
+
+.DropdownMenuItem--detached {
+  margin-top: 8px;
+}
+
+.DropdownMenuItem--disabled {
+  &,
+  & button {
+    @include disabled();
+
+    // We override the opacity because the default value in the `disabled()`
+    // mixin makes the text hard to read.
+
+    opacity: 0.8;
+  }
+}
+
+.DropdownMenuItem {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

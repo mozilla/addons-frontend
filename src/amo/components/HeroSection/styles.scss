@@ -1,0 +1,65 @@
+@import '~amo/css/styles';
+
+.HeroSection {
+  border-radius: $border-radius-default;
+  position: relative;
+}
+
+.HeroSection-wrapper,
+.HeroSection-link-wrapper,
+.HeroSection-link-wrapper:link {
+  align-items: flex-end;
+  color: $white;
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  min-height: 128px;
+  padding: $padding-page;
+  position: relative;
+  text-decoration: none;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
+}
+
+.HeroSection-link-wrapper:focus {
+  .HeroSection-content {
+    outline: 1px dotted $white;
+    outline: auto 5px -webkit-focus-ring-color;
+  }
+}
+
+.HeroSection-content {
+  margin: 0;
+}
+
+.HeroSection-content h3 {
+  @include font-light();
+
+  font-size: $font-size-m;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  @include respond-to(medium) {
+    font-size: $hero-title-font-size;
+  }
+}
+
+.HeroSection-content p {
+  @include font-light();
+
+  display: block;
+  font-size: $font-size-m-smaller;
+  line-height: initial;
+  margin: 10px 0 0;
+  padding: 0;
+  width: 100%;
+
+  @include respond-to(medium) {
+    font-size: $hero-subtitle-font-size;
+    margin: 20px 0 0;
+  }
+}

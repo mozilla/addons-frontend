@@ -1,0 +1,17 @@
+@import '~amo/css/styles';
+
+.Hero {
+  margin: 0 0 $padding-page;
+
+  @include respond-to(large) {
+    margin: 0 0 $padding-page-l;
+  }
+}
+
+.Hero .Card-contents {
+  padding: 12px;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
+}

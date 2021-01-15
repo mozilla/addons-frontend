@@ -7,7 +7,7 @@ import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
 import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
-import CardList from 'ui/components/CardList';
+import CardList from 'amo/components/CardList';
 import type {
   DeleteAddonNoteFunc,
   RemoveCollectionAddonFunc,

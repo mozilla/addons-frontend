@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import { getNotificationDescription } from 'amo/utils/notifications';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 import type { UserType } from 'amo/reducers/users';
 import type { I18nType } from 'amo/types/i18n';
 

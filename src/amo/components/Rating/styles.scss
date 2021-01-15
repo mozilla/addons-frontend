@@ -1,0 +1,111 @@
+@import '~amo/css/styles';
+$icon-large: 64px;
+$icon-medium: 19px;
+$icon-small: 13px;
+
+.Rating {
+  align-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  justify-content: center;
+
+  // The width of small rating stars are controlled by .Rating-star.
+  &.Rating--small {
+    grid-column-gap: 4px;
+    min-height: $icon-small;
+    width: min-content;
+
+    .IconStar {
+      display: flex;
+      height: $icon-medium;
+      width: $icon-small;
+
+      svg {
+        width: inherit;
+      }
+    }
+  }
+
+  // The width of large rating stars are controlled by the container.
+  &.Rating--large {
+    grid-column-gap: 6px;
+    max-width: 300px;
+    min-height: 48px;
+    width: 100%;
+
+    .IconStar {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  @include respond-to(extraExtraLarge) {
+    &.Rating--large {
+      grid-column-gap: 12px;
+      max-width: none;
+    }
+  }
+}
+
+@keyframes pulseOpaqueRatingStars {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+// Since dim stars are already dim, set the opacity higher.
+@keyframes pulseDimRatingStars {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.Rating-star {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+
+  &:not(.focus-visible) {
+    outline: none;
+  }
+
+  .Rating--small & {
+    min-width: $icon-small;
+  }
+
+  .Rating--loading & {
+    animation: pulseDimRatingStars 1s infinite;
+  }
+}
+
+.Rating--editable {
+  .Rating-star {
+    cursor: pointer;
+  }
+
+  &.Rating.Rating--loading .Rating-star {
+    animation-name: pulseOpaqueRatingStars;
+    // Ensure editable rating stars always render as open stars while
+    // loading, even if some are selected (e.g. while hovering).
+
+    cursor: initial;
+  }
+}
+
+.Rating-half-star {
+  [dir='rtl'] & {
+    transform: scaleX(-1);
+  }
+}

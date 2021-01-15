@@ -1,0 +1,93 @@
+@import '~amo/css/styles';
+@import '~amo/components/Icon/vars';
+
+$icon-promoted-large-size: 24px;
+$icon-promoted-small-size: 16px;
+
+.IconPromotedBadge {
+  box-sizing: border-box;
+  display: flex;
+  height: auto;
+  width: auto;
+}
+
+.IconPromotedBadge-svg {
+  box-sizing: border-box;
+  height: $default-icon-size;
+  width: $default-icon-size;
+}
+
+.IconPromotedBadge-circle-bgColor--line {
+  fill: $grey-30;
+}
+
+.IconPromotedBadge-innerCircle-bgColor {
+  fill: $white;
+}
+
+.IconPromotedBadge-circle-bgColor--recommended {
+  fill: $orange-50;
+}
+
+.IconPromotedBadge-circle-bgColor--verified {
+  fill: $green-70;
+}
+
+.IconPromotedBadge-iconPath {
+  transform-origin: 50% 50%;
+}
+
+.IconPromotedBadge-iconPath--recommended,
+.IconPromotedBadge-iconPath--verified {
+  fill: $white;
+}
+
+.IconPromotedBadge-large {
+  .IconPromotedBadge-svg {
+    height: $icon-promoted-large-size;
+    width: $icon-promoted-large-size;
+  }
+
+  &.Icon-line {
+    background-size: $icon-promoted-large-size - 4;
+    border: 1px solid $grey-30;
+    border-radius: $icon-promoted-large-size / 2;
+    height: $icon-promoted-large-size;
+    width: $icon-promoted-large-size;
+  }
+
+  .IconPromotedBadge-iconPath--recommended {
+    // Nudge the trophy into the center of the circle.
+    transform: translate(2px, 2.5px) scale(1.1);
+  }
+
+  .IconPromotedBadge-iconPath--verified {
+    // Nudge the checkmark into the center of the circle.
+    transform: translate(4px, 4px) scale(1.1);
+  }
+}
+
+.IconPromotedBadge-small {
+  .IconPromotedBadge-svg {
+    height: $icon-promoted-small-size;
+    width: $icon-promoted-small-size;
+  }
+
+  .IconPromotedBadge-iconPath--recommended {
+    // Nudge the trophy into the center of the circle.
+    transform: translate(-1.5px, -1.5px) scale(0.8);
+  }
+
+  .IconPromotedBadge-iconPath--verified {
+    // Nudge the checkmark into the center of the circle.
+    transform: translate(-0.5px, 0) scale(0.8);
+  }
+
+  &.Icon-line {
+    background-size: $icon-promoted-small-size - 2;
+    border: 1px solid $grey-30;
+    border-radius: $icon-promoted-small-size / 2;
+    height: $icon-promoted-small-size;
+    width: $icon-promoted-small-size;
+  }
+}

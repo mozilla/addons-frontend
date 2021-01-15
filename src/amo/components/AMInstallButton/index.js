@@ -31,15 +31,15 @@ import tracking, {
   getAddonEventCategory,
 } from 'amo/tracking';
 import { isFirefox } from 'amo/utils/compatibility';
-import Button from 'ui/components/Button';
-import Icon from 'ui/components/Icon';
+import Button from 'amo/components/Button';
+import Icon from 'amo/components/Icon';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { ButtonType } from 'ui/components/Button';
+import type { ButtonType } from 'amo/components/Button';
 
 import './styles.scss';
 

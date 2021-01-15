@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import translate from 'amo/i18n/translate';
 import type { AddonType } from 'amo/types/addons';
-import DefinitionList, { Definition } from 'ui/components/DefinitionList';
+import DefinitionList, { Definition } from 'amo/components/DefinitionList';
 import type { I18nType } from 'amo/types/i18n';
 import type { AppState } from 'amo/store';
 import { isAddonAuthor } from 'amo/utils';

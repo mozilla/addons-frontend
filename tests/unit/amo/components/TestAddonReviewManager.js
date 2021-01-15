@@ -18,14 +18,14 @@ import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import Link from 'amo/components/Link';
 import { ErrorHandler } from 'amo/errorHandler';
-import ErrorList from 'ui/components/ErrorList';
+import ErrorList from 'amo/components/ErrorList';
 import {
   dispatchClientMetadata,
   fakeI18n,
   fakeReview,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
 
 describe(__filename, () => {
   const getProps = (props = {}) => {

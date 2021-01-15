@@ -9,15 +9,15 @@ import {
   CLIENT_APP_FIREFOX,
   VERIFIED,
 } from 'amo/constants';
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 import {
   createFakeAutocompleteResult,
   createInternalSuggestionWithLang,
   dispatchClientMetadata,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import IconPromotedBadge from 'ui/components/IconPromotedBadge';
-import LoadingText from 'ui/components/LoadingText';
+import IconPromotedBadge from 'amo/components/IconPromotedBadge';
+import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   const shallowComponent = (props = {}) => {

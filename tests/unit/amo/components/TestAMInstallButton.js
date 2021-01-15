@@ -20,7 +20,7 @@ import {
   UNINSTALLING,
   UNKNOWN,
 } from 'amo/constants';
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
@@ -36,7 +36,7 @@ import {
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 
 // Skip `withCookies` HOC since Enzyme does not support the React Context API.
 // See: https://github.com/mozilla/addons-frontend/issues/6839

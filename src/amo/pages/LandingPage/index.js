@@ -32,7 +32,7 @@ import {
   visibleAddonType as getVisibleAddonType,
 } from 'amo/utils';
 import translate from 'amo/i18n/translate';
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 
 import './styles.scss';
 

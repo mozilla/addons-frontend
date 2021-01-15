@@ -25,7 +25,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import ErrorList from 'ui/components/ErrorList';
+import ErrorList from 'amo/components/ErrorList';
 
 describe(__filename, () => {
   let store;

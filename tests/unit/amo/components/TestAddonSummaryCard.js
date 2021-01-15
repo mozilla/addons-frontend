@@ -17,8 +17,8 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { getAddonURL } from 'amo/utils';
-import LoadingText from 'ui/components/LoadingText';
-import Rating from 'ui/components/Rating';
+import LoadingText from 'amo/components/LoadingText';
+import Rating from 'amo/components/Rating';
 
 describe(__filename, () => {
   const render = ({ addon, headerText, location, ...props }) => {

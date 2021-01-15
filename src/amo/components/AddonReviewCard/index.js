@@ -27,20 +27,20 @@ import {
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import { replaceStringsWithJSX } from 'amo/i18n/utils';
-import Button from 'ui/components/Button';
-import ConfirmationDialog from 'ui/components/ConfirmationDialog';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
-import Icon from 'ui/components/Icon';
-import LoadingText from 'ui/components/LoadingText';
-import UserReview from 'ui/components/UserReview';
-import Notice from 'ui/components/Notice';
+import Button from 'amo/components/Button';
+import ConfirmationDialog from 'amo/components/ConfirmationDialog';
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
+import Icon from 'amo/components/Icon';
+import LoadingText from 'amo/components/LoadingText';
+import UserReview from 'amo/components/UserReview';
+import Notice from 'amo/components/Notice';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonType } from 'amo/types/addons';
 import type { DispatchFunc } from 'amo/types/redux';
-import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
+import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
 

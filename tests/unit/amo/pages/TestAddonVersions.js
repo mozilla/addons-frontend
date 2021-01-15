@@ -23,8 +23,8 @@ import {
   fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import CardList from 'ui/components/CardList';
-import LoadingText from 'ui/components/LoadingText';
+import CardList from 'amo/components/CardList';
+import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   let store;

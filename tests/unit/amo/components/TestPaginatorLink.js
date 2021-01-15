@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import PaginatorLink from 'amo/components/PaginatorLink';
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 
 describe(__filename, () => {
   function render(customProps = {}) {

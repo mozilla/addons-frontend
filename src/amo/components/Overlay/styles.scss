@@ -1,0 +1,38 @@
+@import '~amo/css/styles';
+
+$z-index: 1000;
+
+.Overlay {
+  display: none;
+}
+
+.Overlay--visible {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $z-index;
+}
+
+.Overlay-background {
+  // This only works in WebKit right now, but it will look nice.
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1178765
+  // http://caniuse.com/#feat=css-backdrop-filter
+  backdrop-filter: blur(2px);
+  background: transparentize($grey-90, 0.4);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $z-index + 1;
+}
+
+.Overlay-contents {
+  display: flex;
+  z-index: $z-index + 2;
+}

@@ -30,9 +30,9 @@ import {
   SET_VIEW_CONTEXT,
 } from 'amo/constants';
 import { fetchAddon, loadAddon } from 'amo/reducers/addons';
-import Card from 'ui/components/Card';
-import ErrorList from 'ui/components/ErrorList';
-import LoadingText from 'ui/components/LoadingText';
+import Card from 'amo/components/Card';
+import ErrorList from 'amo/components/ErrorList';
+import LoadingText from 'amo/components/LoadingText';
 import {
   createCapturedErrorHandler,
   createFakeEvent,

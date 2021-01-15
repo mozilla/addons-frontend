@@ -5,9 +5,9 @@ import { compose } from 'redux';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import tracking from 'amo/tracking';
-import Button from 'ui/components/Button';
-import Card from 'ui/components/Card';
-import Icon from 'ui/components/Icon';
+import Button from 'amo/components/Button';
+import Card from 'amo/components/Card';
+import Icon from 'amo/components/Icon';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
 

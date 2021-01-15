@@ -2,7 +2,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import CategoryIcon from 'amo/components/CategoryIcon';
-import Icon from 'ui/components/Icon';
+import Icon from 'amo/components/Icon';
 
 describe(__filename, () => {
   it('renders an Icon and sets CSS classes', () => {

@@ -10,7 +10,7 @@ import { selectReview } from 'amo/reducers/reviews';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
-import Card from 'ui/components/Card';
+import Card from 'amo/components/Card';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';

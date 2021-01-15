@@ -2,7 +2,7 @@ import { compose } from 'redux';
 import * as React from 'react';
 
 import { render404IfConfigKeyIsFalse } from 'amo/utils/errors';
-import Button from 'ui/components/Button';
+import Button from 'amo/components/Button';
 
 import './styles.scss';
 

@@ -18,7 +18,7 @@ import {
   correctedLocationForPlatform,
   isFirefox,
 } from 'amo/utils/compatibility';
-import Notice, { genericWarningType } from 'ui/components/Notice';
+import Notice, { genericWarningType } from 'amo/components/Notice';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';

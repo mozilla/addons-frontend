@@ -4,8 +4,8 @@ import { oneLine } from 'common-tags';
 
 import log from 'amo/logger';
 import { findFileForPlatform } from 'amo/utils';
-import HostPermissions from 'ui/components/HostPermissions';
-import Permission from 'ui/components/Permission';
+import HostPermissions from 'amo/components/HostPermissions';
+import Permission from 'amo/components/Permission';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { PlatformFilesType } from 'amo/reducers/versions';
 import type { I18nType } from 'amo/types/i18n';

@@ -11,8 +11,8 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
 } from 'amo/constants';
-import Button from 'ui/components/Button';
-import Card from 'ui/components/Card';
+import Button from 'amo/components/Button';
+import Card from 'amo/components/Card';
 import {
   createFakeEvent,
   createFakeTracking,

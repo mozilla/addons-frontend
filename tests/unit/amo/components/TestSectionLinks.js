@@ -20,7 +20,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import DropdownMenu from 'ui/components/DropdownMenu';
+import DropdownMenu from 'amo/components/DropdownMenu';
 
 describe(__filename, () => {
   let _store;

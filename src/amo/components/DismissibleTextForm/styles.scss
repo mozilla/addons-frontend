@@ -1,0 +1,53 @@
+@import '~amo/css/styles';
+
+.DismissibleTextForm-form {
+  margin: 6px 0;
+
+  @include respond-to(medium) {
+    margin: 12px 0;
+  }
+}
+
+.DismissibleTextForm-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+
+  @include respond-to(medium) {
+    margin-top: 24px;
+  }
+}
+
+.DismissibleTextForm-dismiss {
+  align-self: center;
+}
+
+.DismissibleTextForm-submit.disabled {
+  background-color: $action-hover-color;
+  cursor: not-allowed;
+}
+
+.DismissibleTextForm-textarea {
+  margin: 0 auto;
+  // The max height ensures that the textarea won't expand beyond 600
+  // characters and instead shows a scrollbar
+
+  max-height: 230px;
+  // This is the height of two lines of text. Often the placeholder text
+  // will span two lines–because this element will grow/shrink based on
+  // the contents of the text inside it, we set a minimum height so it
+  // won't shrink when the two-line placeholder is replaced with a single
+  // character when the user starts typing.
+  min-height: 51px;
+  padding: 6px;
+  resize: none;
+  width: 100%;
+
+  @include respond-to(medium) {
+    padding: 12px;
+  }
+}
+
+.DismissibleTextForm-delete {
+  margin-right: 12px;
+}

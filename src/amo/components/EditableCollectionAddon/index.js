@@ -9,9 +9,9 @@ import { getAddonIconUrl } from 'amo/imageUtils';
 import translate from 'amo/i18n/translate';
 import withUIState from 'amo/withUIState';
 import { nl2br, normalizeFileNameId, sanitizeHTML } from 'amo/utils';
-import Button from 'ui/components/Button';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
-import Icon from 'ui/components/Icon';
+import Button from 'amo/components/Button';
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
+import Icon from 'amo/components/Icon';
 import type {
   DeleteAddonNoteFunc,
   RemoveCollectionAddonFunc,
@@ -20,7 +20,7 @@ import type {
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
+import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 
 import './styles.scss';
 

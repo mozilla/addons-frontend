@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { getPromotedCategory } from 'amo/utils/addons';
-import Icon from 'ui/components/Icon';
-import IconPromotedBadge from 'ui/components/IconPromotedBadge';
-import LoadingText from 'ui/components/LoadingText';
+import Icon from 'amo/components/Icon';
+import IconPromotedBadge from 'amo/components/IconPromotedBadge';
+import LoadingText from 'amo/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { SuggestionType } from 'amo/reducers/autocomplete';
 

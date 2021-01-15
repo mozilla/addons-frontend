@@ -23,7 +23,7 @@ import {
   fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   let store;

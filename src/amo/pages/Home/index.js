@@ -33,8 +33,8 @@ import {
 import { fetchHomeData } from 'amo/reducers/home';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
-import Card from 'ui/components/Card';
-import LoadingText from 'ui/components/LoadingText';
+import Card from 'amo/components/Card';
+import LoadingText from 'amo/components/LoadingText';
 
 import './styles.scss';
 

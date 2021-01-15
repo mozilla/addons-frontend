@@ -18,8 +18,8 @@ import {
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { visibleAddonType } from 'amo/utils';
-import DropdownMenu from 'ui/components/DropdownMenu';
-import DropdownMenuItem from 'ui/components/DropdownMenuItem';
+import DropdownMenu from 'amo/components/DropdownMenu';
+import DropdownMenuItem from 'amo/components/DropdownMenuItem';
 import type { AppState } from 'amo/store';
 import type { ViewContextType } from 'amo/reducers/viewContext';
 import type { I18nType } from 'amo/types/i18n';

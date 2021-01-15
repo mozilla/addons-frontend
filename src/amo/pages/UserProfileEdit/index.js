@@ -31,11 +31,11 @@ import { withFixedErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
 import { sanitizeHTML } from 'amo/utils';
-import Button from 'ui/components/Button';
-import Card from 'ui/components/Card';
-import LoadingText from 'ui/components/LoadingText';
-import Notice from 'ui/components/Notice';
-import OverlayCard from 'ui/components/OverlayCard';
+import Button from 'amo/components/Button';
+import Card from 'amo/components/Card';
+import LoadingText from 'amo/components/LoadingText';
+import Notice from 'amo/components/Notice';
+import OverlayCard from 'amo/components/OverlayCard';
 import type {
   NotificationsUpdateType,
   UserId,

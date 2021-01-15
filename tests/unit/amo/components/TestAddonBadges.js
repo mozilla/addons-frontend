@@ -15,8 +15,8 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Badge from 'ui/components/Badge';
-import PromotedBadge from 'ui/components/PromotedBadge';
+import Badge from 'amo/components/Badge';
+import PromotedBadge from 'amo/components/PromotedBadge';
 
 describe(__filename, () => {
   function shallowRender(props) {

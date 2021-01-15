@@ -6,7 +6,7 @@ import { oneLine } from 'common-tags';
 import { clearError, setError, setErrorMessage } from 'amo/actions/errors';
 import log from 'amo/logger';
 import { normalizeFileNameId } from 'amo/utils';
-import ErrorList from 'ui/components/ErrorList';
+import ErrorList from 'amo/components/ErrorList';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 
 function generateHandlerId({ name = '' } = {}) {

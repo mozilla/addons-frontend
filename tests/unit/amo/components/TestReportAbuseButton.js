@@ -17,9 +17,9 @@ import {
   showAddonAbuseReportUI,
   hideAddonAbuseReportUI,
 } from 'amo/reducers/abuse';
-import Button from 'ui/components/Button';
-import ErrorList from 'ui/components/ErrorList';
-import DismissibleTextForm from 'ui/components/DismissibleTextForm';
+import Button from 'amo/components/Button';
+import ErrorList from 'amo/components/ErrorList';
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
 import {
   createFakeAddonAbuseReport,
   createFakeEvent,

@@ -1,0 +1,13 @@
+@import '~amo/css/styles';
+
+.OverlayCard {
+  margin: 0 20px;
+  max-width: $max-modal-width;
+  text-align: center;
+  width: 100%;
+
+  .Card-contents {
+    max-height: 75vh;
+    overflow: auto;
+  }
+}

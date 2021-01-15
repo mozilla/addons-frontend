@@ -4,7 +4,7 @@ import AddonReviewManagerRating, {
   AddonReviewManagerRatingBase,
 } from 'amo/components/AddonReviewManagerRating';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-import Rating from 'ui/components/Rating';
+import Rating from 'amo/components/Rating';
 
 describe(__filename, () => {
   function render(otherProps = {}) {

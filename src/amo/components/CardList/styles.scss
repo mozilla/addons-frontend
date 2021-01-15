@@ -1,0 +1,33 @@
+@import '~amo/css/styles';
+
+.CardList {
+  margin: $padding-page 0;
+
+  .Card-contents {
+    background: none;
+    padding: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    > li {
+      background: $white;
+      margin-bottom: 1px;
+      padding: $padding-page;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      @include respond-to(large) {
+        padding: $padding-page-l;
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    margin: $padding-page-l 0;
+  }
+}

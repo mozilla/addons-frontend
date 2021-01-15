@@ -17,9 +17,9 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import ErrorList from 'ui/components/ErrorList';
-import IconStar from 'ui/components/IconStar';
-import LoadingText from 'ui/components/LoadingText';
+import ErrorList from 'amo/components/ErrorList';
+import IconStar from 'amo/components/IconStar';
+import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   let store;

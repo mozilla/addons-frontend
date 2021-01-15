@@ -18,7 +18,7 @@ import {
 } from 'amo/constants';
 import { searchStart } from 'amo/reducers/search';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
-import Select from 'ui/components/Select';
+import Select from 'amo/components/Select';
 import {
   createContextWithFakeRouter,
   createFakeEvent,

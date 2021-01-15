@@ -5,7 +5,7 @@ import * as React from 'react';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Page from 'amo/components/Page';
-import Card from 'ui/components/Card';
+import Card from 'amo/components/Card';
 
 import './styles.scss';
 

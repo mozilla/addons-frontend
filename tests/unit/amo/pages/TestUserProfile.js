@@ -27,11 +27,11 @@ import {
 } from 'amo/constants';
 import { ErrorHandler } from 'amo/errorHandler';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
-import ErrorList from 'ui/components/ErrorList';
-import Icon from 'ui/components/Icon';
-import LoadingText from 'ui/components/LoadingText';
-import Rating from 'ui/components/Rating';
-import UserAvatar from 'ui/components/UserAvatar';
+import ErrorList from 'amo/components/ErrorList';
+import Icon from 'amo/components/Icon';
+import LoadingText from 'amo/components/LoadingText';
+import Rating from 'amo/components/Rating';
+import UserAvatar from 'amo/components/UserAvatar';
 import {
   createStubErrorHandler,
   createUserAccountResponse,

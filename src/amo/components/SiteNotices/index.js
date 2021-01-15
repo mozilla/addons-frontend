@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import { sanitizeHTML, nl2br } from 'amo/utils';
 import translate from 'amo/i18n/translate';
-import Notice from 'ui/components/Notice';
+import Notice from 'amo/components/Notice';
 import type { I18nType } from 'amo/types/i18n';
 import type { AppState } from 'amo/store';
 

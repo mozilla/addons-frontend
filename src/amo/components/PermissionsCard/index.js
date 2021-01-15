@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import translate from 'amo/i18n/translate';
-import Button from 'ui/components/Button';
-import ShowMoreCard from 'ui/components/ShowMoreCard';
+import Button from 'amo/components/Button';
+import ShowMoreCard from 'amo/components/ShowMoreCard';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { UserAgentInfoType } from 'amo/reducers/api';

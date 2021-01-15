@@ -5,9 +5,9 @@ import { compose } from 'redux';
 
 import translate from 'amo/i18n/translate';
 import withUIState from 'amo/withUIState';
-import Button from 'ui/components/Button';
-import ConfirmButton from 'ui/components/ConfirmButton';
-import UserAvatar from 'ui/components/UserAvatar';
+import Button from 'amo/components/Button';
+import ConfirmButton from 'amo/components/ConfirmButton';
+import UserAvatar from 'amo/components/UserAvatar';
 import type { UserType } from 'amo/reducers/users';
 import type { I18nType } from 'amo/types/i18n';
 

@@ -6,7 +6,7 @@ import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
 import tracking from 'amo/tracking';
 import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'amo/constants';
 import { addQueryParams } from 'amo/utils/url';
-import LoadingText from 'ui/components/LoadingText';
+import LoadingText from 'amo/components/LoadingText';
 import type {
   HeroCallToActionType,
   SecondaryHeroShelfType,
