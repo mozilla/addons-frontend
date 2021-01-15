@@ -9,6 +9,7 @@ import {
   addAddonToCollection,
   expandCollections,
   fetchUserCollections,
+  collectionName,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'amo/errorHandler';
@@ -156,10 +157,6 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     );
   }
 
-  getBlankName(): string {
-    return this.props.i18n.gettext('(no name)');
-  }
-
   getSelectData(): SelectData {
     const {
       addon,
@@ -222,7 +219,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
           // belongs to, they will see an error.
           collectionOptions.push(
             this.createOption({
-              text: collection.name || this.getBlankName(),
+              text: collectionName({ name: collection.name, i18n }),
               key: `collection-${collection.id}`,
               onSelect: () => {
                 this.addToCollection(collection);
@@ -244,7 +241,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
       addedNotices = addonInCollections.map((collection) => {
         const notice = i18n.sprintf(
           i18n.gettext('Added to %(collectionName)s'),
-          { collectionName: collection.name || this.getBlankName() },
+          { collectionName: collectionName({ name: collection.name, i18n }) },
         );
         return (
           <Notice

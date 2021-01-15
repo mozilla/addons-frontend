@@ -8,6 +8,7 @@ import { createInternalAddon } from 'amo/reducers/addons';
 import { selectLocalizedContent } from 'amo/reducers/utils';
 import type { CollectionAddonType, ExternalAddonType } from 'amo/types/addons';
 import type { LocalizedString } from 'amo/types/api';
+import type { I18nType } from 'amo/types/i18n';
 
 export const ADD_ADDON_TO_COLLECTION: 'ADD_ADDON_TO_COLLECTION' =
   'ADD_ADDON_TO_COLLECTION';
@@ -1003,6 +1004,14 @@ export const collectionEditUrl = ({
     collectionSlug,
   })}edit/`;
 };
+
+export const collectionName = ({
+  i18n,
+  name,
+}: {|
+  i18n: I18nType,
+  name?: string,
+|}): string => name || i18n.gettext('(no name)');
 
 type Action =
   | AbortFetchCurrentCollection

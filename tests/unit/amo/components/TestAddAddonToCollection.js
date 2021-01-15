@@ -8,6 +8,7 @@ import AddAddonToCollection, {
 import {
   addAddonToCollection,
   addonAddedToCollection,
+  collectionName,
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
@@ -296,7 +297,7 @@ describe(__filename, () => {
       expect(option).toHaveText(firstName);
     });
 
-    it('displays "(no name)" for collections without names', () => {
+    it('displays expected name for collections without names', () => {
       const addon = createInternalAddonWithLang({ ...fakeAddon, id: 234 });
       const userId = 10;
 
@@ -313,7 +314,9 @@ describe(__filename, () => {
       const root = render({ addon });
       const option = root.find('optgroup .AddAddonToCollection-option').at(0);
 
-      expect(option).toHaveText(root.instance().getBlankName());
+      expect(option).toHaveText(
+        collectionName({ name: null, i18n: fakeI18n() }),
+      );
     });
 
     it('shows a notice that you added to a collection', () => {
@@ -386,7 +389,7 @@ describe(__filename, () => {
       expect(text(1)).toContain(`Added to ${secondName}`);
     });
 
-    it('uses "(no name)" in the notice when the collection name is missing', () => {
+    it('uses expected name in the notice when the collection name is missing', () => {
       const addon = createInternalAddonWithLang(fakeAddon);
       const userId = 10;
 
@@ -412,7 +415,7 @@ describe(__filename, () => {
       const notice = root.find(Notice);
       expect(notice.prop('type')).toEqual('success');
       expect(notice.childAt(0).text()).toContain(
-        `Added to ${root.instance().getBlankName()}`,
+        `Added to ${collectionName({ name: null, i18n: fakeI18n() })}`,
       );
     });
 

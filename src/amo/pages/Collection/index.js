@@ -16,6 +16,7 @@ import Page from 'amo/components/Page';
 import { isFeaturedCollection } from 'amo/pages/Home';
 import {
   collectionEditUrl,
+  collectionName,
   collectionUrl,
   convertFiltersToQueryParams,
   deleteCollectionAddonNotes,
@@ -517,14 +518,14 @@ export class CollectionBase extends React.Component<InternalProps> {
         : i18n.gettext(`Download and create Firefox collections to keep track
           of favorite extensions and themes. Explore the %(collectionName)s.`),
       {
-        collectionName: collection.name,
+        collectionName: collectionName({ name: collection.name, i18n }),
         collectionDescription: collection.description,
       },
     );
   }
 
   render() {
-    const { collection, errorHandler } = this.props;
+    const { collection, errorHandler, i18n } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
@@ -539,7 +540,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         <div className="Collection">
           {collection && (
             <Helmet>
-              <title>{collection.name}</title>
+              <title>{collectionName({ name: collection.name, i18n })}</title>
               <meta name="description" content={this.getPageDescription()} />
             </Helmet>
           )}

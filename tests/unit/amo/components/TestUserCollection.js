@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { collectionName } from 'amo/reducers/collections';
 import UserCollection, {
   UserCollectionBase,
 } from 'amo/components/UserCollection';
@@ -52,7 +53,7 @@ describe(__filename, () => {
     const root = render(props);
 
     expect(root.find('.UserCollection-name').children()).toHaveText(
-      '(no name)',
+      collectionName({ name: null, i18n: fakeI18n() }),
     );
   });
 

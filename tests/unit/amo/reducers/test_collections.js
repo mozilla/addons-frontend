@@ -8,6 +8,7 @@ import reducer, {
   beginCollectionModification,
   beginEditingCollectionDetails,
   collectionEditUrl,
+  collectionName,
   collectionUrl,
   convertFiltersToQueryParams,
   createCollection,
@@ -42,6 +43,7 @@ import {
   createInternalCollectionWithLang,
   createStubErrorHandler,
   fakeAddon,
+  fakeI18n,
   onLocationChanged,
 } from 'tests/unit/helpers';
 
@@ -1116,6 +1118,19 @@ describe(__filename, () => {
         '/base/url/edit/',
       );
       sinon.assert.calledWith(_collectionUrl, { ...params });
+    });
+  });
+
+  describe('collectionName', () => {
+    it('returns the collection name if it exists', () => {
+      const name = 'some name';
+      expect(collectionName({ name, i18n: fakeI18n() })).toEqual(name);
+    });
+
+    it('returns the expected string if name is missing', () => {
+      expect(collectionName({ name: null, i18n: fakeI18n() })).toEqual(
+        '(no name)',
+      );
     });
   });
 

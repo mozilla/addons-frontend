@@ -8,6 +8,7 @@ import MetadataCard from 'amo/components/MetadataCard';
 import {
   beginEditingCollectionDetails,
   collectionEditUrl,
+  collectionName,
   collectionUrl,
   convertFiltersToQueryParams,
 } from 'amo/reducers/collections';
@@ -88,7 +89,7 @@ describe(__filename, () => {
     const root = render({ collection });
 
     expect(root.find('.CollectionDetails-title').children()).toHaveText(
-      '(no name)',
+      collectionName({ name: null, i18n: fakeI18n() }),
     );
   });
 

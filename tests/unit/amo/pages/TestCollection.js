@@ -18,6 +18,7 @@ import ConfirmButton from 'amo/components/ConfirmButton';
 import ErrorList from 'amo/components/ErrorList';
 import LoadingText from 'amo/components/LoadingText';
 import {
+  collectionName,
   deleteCollection,
   deleteCollectionAddonNotes,
   fetchCurrentCollection,
@@ -975,6 +976,22 @@ describe(__filename, () => {
     expect(wrapper.find('title')).toHaveText(defaultCollectionName);
   });
 
+  it('renders an HTML title for a collection with a missing name', () => {
+    const { store } = dispatchClientMetadata();
+
+    _loadCurrentCollection({
+      detail: createFakeCollectionDetail({
+        name: null,
+      }),
+      store,
+    });
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find('title')).toHaveText(
+      collectionName({ name: null, i18n: fakeI18n() }),
+    );
+  });
+
   it('does not render an HTML title when there is no collection loaded', () => {
     const wrapper = renderComponent();
     expect(wrapper.find('title')).toHaveLength(0);
@@ -1497,6 +1514,27 @@ describe(__filename, () => {
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
       new RegExp(`Explore the ${name}.`),
+    );
+  });
+
+  it('renders a "description" meta tag for a collection with a missing name', () => {
+    const name = null;
+    const description = '';
+
+    const { store } = dispatchClientMetadata();
+    const detail = createFakeCollectionDetail({ description, name });
+    _loadCurrentCollection({ detail, store });
+
+    const root = renderComponent({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(
+        collectionName({
+          name,
+          i18n: fakeI18n(),
+        }),
+      ),
     );
   });
 
