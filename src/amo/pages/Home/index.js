@@ -14,7 +14,6 @@ import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
-import SponsoredAddonsShelf from 'amo/components/SponsoredAddonsShelf';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
@@ -23,7 +22,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_PROMOTED_SHELF,
   RECOMMENDED,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
@@ -209,7 +207,6 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
-      _config,
       _getFeaturedCollectionsMetadata,
       collections,
       errorHandler,
@@ -281,12 +278,6 @@ export class HomeBase extends React.Component {
           ) : null}
 
           <div className="Home-content">
-            {_config.get('enableFeatureSponsoredShelf') && isDesktopSite ? (
-              <SponsoredAddonsShelf
-                addonInstallSource={INSTALL_SOURCE_PROMOTED_SHELF}
-              />
-            ) : null}
-
             {isDesktopSite ? (
               <SecondaryHero
                 shelfData={heroShelves ? heroShelves.secondary : undefined}

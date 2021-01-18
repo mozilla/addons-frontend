@@ -1,15 +1,11 @@
 /* global window */
 import {
-  SPONSORED_INSTALL_CONVERSION_INFO_KEY,
   Tracking,
   isDoNotTrackEnabled,
   formatDataForBeacon,
   getAddonEventCategory,
   getAddonTypeForTracking,
   sendBeacon,
-  sendSponsoredEventBeacon,
-  storeConversionInfo,
-  trackConversion,
 } from 'amo/tracking';
 import {
   ADDON_TYPE_DICT,
@@ -537,168 +533,6 @@ describe(__filename, () => {
       expected.append('type', type);
 
       expect(formatDataForBeacon({ data, key, type })).toEqual(expected);
-    });
-  });
-
-  describe('sendSponsoredEventBeacon', () => {
-    it('calls sendBeacon with the expected data and URL', () => {
-      const apiPath = 'some/path/';
-      const apiVersion = 'someVersion';
-      const _config = getFakeConfig({ apiPath, apiVersion });
-      const _sendBeacon = sinon.spy();
-      const data = 'some data';
-      const type = 'click';
-
-      const expectedURL = `${apiPath}${apiVersion}/shelves/sponsored/event/`;
-      const formattedData = formatDataForBeacon({ data, key: 'data', type });
-
-      sendSponsoredEventBeacon({ _config, _sendBeacon, data, type });
-      sinon.assert.calledWith(_sendBeacon, {
-        data: formattedData,
-        urlString: expectedURL,
-      });
-    });
-  });
-
-  describe('Conversion info', () => {
-    let _window;
-
-    beforeEach(() => {
-      _window = {
-        sessionStorage: {
-          getItem: sinon.stub(),
-          setItem: sinon.spy(),
-          removeItem: sinon.spy(),
-        },
-      };
-    });
-
-    describe('storeConversionInfo', () => {
-      it('stores a stringified version of the info', () => {
-        const addonId = 123;
-        const data = 'some data';
-
-        storeConversionInfo({ _window, addonId, data });
-        sinon.assert.calledWith(
-          _window.sessionStorage.setItem,
-          SPONSORED_INSTALL_CONVERSION_INFO_KEY,
-          JSON.stringify({ addonId, data }),
-        );
-      });
-
-      it('ignores a non-strinifyable value', () => {
-        // This is a BigInt, which fails JSON.stringify.
-        const addonId = 9007199254740991n;
-        const data = 'some data';
-        const _log = getFakeLogger();
-
-        storeConversionInfo({ _log, _window, addonId, data });
-        sinon.assert.notCalled(_window.sessionStorage.setItem);
-        sinon.assert.calledWith(
-          _log.warn,
-          'data not stringifyable as JSON. Not storing conversion info.',
-        );
-      });
-
-      it('can handle a missing window.sessionStorage object', () => {
-        const _log = getFakeLogger();
-        _window.sessionStorage = undefined;
-
-        storeConversionInfo({
-          _log,
-          _window,
-          addonId: 123,
-          data: 'some data',
-        });
-        sinon.assert.calledWith(
-          _log.warn,
-          'window.sessionStorage does not exist. Not storing conversion info.',
-        );
-      });
-    });
-
-    describe('trackConversion', () => {
-      const addonId = 1;
-      const data = 'some data';
-
-      it('calls window.sessionStorage to check for stored info', () => {
-        trackConversion({ _window, addonId });
-        sinon.assert.called(_window.sessionStorage.getItem);
-      });
-
-      it('sends a beacon if the addonId matches that in storage', () => {
-        const _sendSponsoredEventBeacon = sinon.spy();
-        const info = JSON.stringify({ addonId, data });
-        _window.sessionStorage.getItem.returns(info);
-
-        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
-        sinon.assert.calledWith(_sendSponsoredEventBeacon, {
-          data,
-          type: 'conversion',
-        });
-      });
-
-      it('clears sessionStorage if the addonId matches that in storage', () => {
-        const info = JSON.stringify({ addonId, data });
-        _window.sessionStorage.getItem.returns(info);
-
-        trackConversion({ _window, addonId });
-        sinon.assert.calledWith(
-          _window.sessionStorage.removeItem,
-          SPONSORED_INSTALL_CONVERSION_INFO_KEY,
-        );
-      });
-
-      it('does not send a beacon if window.sessionStorage does not exist', () => {
-        const _sendSponsoredEventBeacon = sinon.spy();
-        _window.sessionStorage = undefined;
-
-        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
-        sinon.assert.notCalled(_sendSponsoredEventBeacon);
-      });
-
-      it('does not send a beacon or clear storage if the stored data fails to parse', () => {
-        const _sendSponsoredEventBeacon = sinon.spy();
-        // Not parseable as JSON:
-        _window.sessionStorage.getItem.returns({});
-
-        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
-        sinon.assert.notCalled(_sendSponsoredEventBeacon);
-        sinon.assert.notCalled(_window.sessionStorage.removeItem);
-      });
-
-      it('does not send a beacon or clear storage if the addonId does not match', () => {
-        const _sendSponsoredEventBeacon = sinon.spy();
-        const info = JSON.stringify({ addonId, data });
-        _window.sessionStorage.getItem.returns(info);
-
-        trackConversion({
-          _sendSponsoredEventBeacon,
-          _window,
-          addonId: addonId + 1,
-        });
-        sinon.assert.notCalled(_sendSponsoredEventBeacon);
-        sinon.assert.notCalled(_window.sessionStorage.removeItem);
-      });
-
-      it('does not send a beacon or clear storage if nothing is stored', () => {
-        const _sendSponsoredEventBeacon = sinon.spy();
-        _window.sessionStorage.getItem.returns(undefined);
-
-        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
-        sinon.assert.notCalled(_sendSponsoredEventBeacon);
-        sinon.assert.notCalled(_window.sessionStorage.removeItem);
-      });
-
-      it('does not send a beacon or clear storage if data is empty', () => {
-        const _sendSponsoredEventBeacon = sinon.spy();
-        const info = JSON.stringify({ addonId, data: null });
-        _window.sessionStorage.getItem.returns(info);
-
-        trackConversion({ _sendSponsoredEventBeacon, _window, addonId });
-        sinon.assert.notCalled(_sendSponsoredEventBeacon);
-        sinon.assert.notCalled(_window.sessionStorage.removeItem);
-      });
     });
   });
 });

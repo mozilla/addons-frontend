@@ -15,7 +15,6 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Page from 'amo/components/Page';
-import SponsoredAddonsShelf from 'amo/components/SponsoredAddonsShelf';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
@@ -48,7 +47,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -111,44 +109,6 @@ describe(__filename, () => {
       expect(shelf).toHaveProp('loading', true);
     },
   );
-
-  it('renders a promoted extensions shelf if turned on', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-    });
-
-    const root = render({
-      _config: getFakeConfig({
-        enableFeatureSponsoredShelf: true,
-      }),
-      store,
-    });
-
-    expect(root.find(SponsoredAddonsShelf)).toHaveLength(1);
-  });
-
-  it('does not render a promoted extensions shelf if turned off', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-    });
-
-    const addon = fakeAddon;
-    const promotedExtensions = createAddonsApiResult([addon]);
-
-    _loadHomeData({
-      store,
-      shelves: { promotedExtensions },
-    });
-
-    const root = render({
-      _config: getFakeConfig({
-        enableFeatureSponsoredShelf: false,
-      }),
-      store,
-    });
-
-    expect(root.find(SponsoredAddonsShelf)).toHaveLength(0);
-  });
 
   it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
     'renders a recommended extensions shelf on %s',
@@ -260,19 +220,13 @@ describe(__filename, () => {
   });
 
   it('does not render most shelves on android', () => {
-    const _config = getFakeConfig({
-      enableFeatureSponsoredShelf: true,
-    });
-
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
     const root = render({
-      _config,
       includeRecommendedThemes: true,
       includeTrendingExtensions: true,
       store,
     });
 
-    expect(root.find(SponsoredAddonsShelf)).toHaveLength(0);
     expect(root.find('.Home-FeaturedCollection')).toHaveLength(0);
     expect(root.find('.Home-RecommendedThemes')).toHaveLength(0);
     expect(root.find('.Home-TrendingExtensions')).toHaveLength(0);
