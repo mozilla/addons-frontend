@@ -32,7 +32,7 @@ describe(__filename, () => {
   it.each([
     [
       'line',
-      'This is an official add-on built by the creators of Mozilla Firefox.',
+      'Official add-on built by Mozilla Firefox. Meets security and performance standards.',
     ],
     [
       'recommended',
