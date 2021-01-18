@@ -40,7 +40,7 @@ export const PromotedBadgeBase = ({
     case 'line':
       label = i18n.gettext('By Firefox');
       linkTitle = i18n.gettext(
-        'This is an official add-on built by the creators of Mozilla Firefox.',
+        'Official add-on built by Mozilla Firefox. Meets security and performance standards.',
       );
       break;
 
