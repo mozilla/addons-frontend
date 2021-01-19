@@ -23,9 +23,6 @@ import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 
-export const ANDROID_SUMO_LINK_DESTINATION =
-  'https://support.mozilla.org/kb/find-and-install-add-ons-firefox-android';
-
 type Props = {|
   addon?: AddonType | null,
   className?: string,
@@ -90,16 +87,8 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
       _isFirefoxForAndroid(userAgentInfo) &&
       _isAndroidInstallable({ addon })
     ) {
-      // Compatible with Fenix add-on detail page.
-      message = i18n.sprintf(
-        i18n.gettext(
-          `You can install this add-on in the Add-ons Manager.
-          Learn more about <a href="%(newLocation)s">add-ons for Android</a>.`,
-        ),
-        {
-          newLocation: ANDROID_SUMO_LINK_DESTINATION,
-        },
-      );
+      // Compatible with Fenix add-on detail page. No notice required.
+      message = null;
     } else if (newLocation === getMobileHomepageLink(lang)) {
       // Redirecting to mobile home page.
       message = i18n.sprintf(

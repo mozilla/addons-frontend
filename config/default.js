@@ -427,7 +427,7 @@ module.exports = {
 
   enableFeatureSponsoredShelf: true,
   enableFeatureUseAdzerkForSponsoredShelf: true,
-  enableFeatureAllowAndroidInstall: false,
+  enableFeatureAllowAndroidInstall: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

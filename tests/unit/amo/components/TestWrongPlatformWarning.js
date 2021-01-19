@@ -2,7 +2,6 @@ import * as React from 'react';
 import UAParser from 'ua-parser-js';
 
 import WrongPlatformWarning, {
-  ANDROID_SUMO_LINK_DESTINATION,
   WrongPlatformWarningBase,
 } from 'amo/components/WrongPlatformWarning';
 import { getMobileHomepageLink } from 'amo/utils/compatibility';
@@ -148,20 +147,12 @@ describe(__filename, () => {
     });
   });
 
-  it('generates the expected message when user agent is Firefox for Android and add-on is compatible', () => {
+  it('returns nothing when user agent is Firefox for Android and add-on is compatible', () => {
     _isFirefoxForAndroid.returns(true);
     _isAndroidInstallable.returns(true);
     const root = render({ addon: createInternalAddonWithLang(fakeAddon) });
 
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'You can install this add-on in the Add-ons Manager.',
-    );
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'add-ons for Android',
-    );
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      `<a href="${ANDROID_SUMO_LINK_DESTINATION}">`,
-    );
+    expect(root.find('.WrongPlatformWarning')).toHaveLength(0);
   });
 
   it('generates the expected message when user agent is Firefox for iOS', () => {
