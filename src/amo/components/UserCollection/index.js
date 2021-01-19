@@ -6,6 +6,7 @@ import { compose } from 'redux';
 import translate from 'amo/i18n/translate';
 import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
+import { collectionName } from 'amo/reducers/collections';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -51,7 +52,7 @@ export const UserCollectionBase = (props: InternalProps) => {
     <li className="UserCollection" key={id}>
       <Link className="UserCollection-link" {...linkProps}>
         <h2 className="UserCollection-name">
-          {loading ? <LoadingText /> : name || i18n.gettext('(no name)')}
+          {loading ? <LoadingText /> : collectionName({ name, i18n })}
         </h2>
         <p className="UserCollection-number">{numberText || <LoadingText />}</p>
       </Link>

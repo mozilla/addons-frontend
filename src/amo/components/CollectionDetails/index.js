@@ -6,6 +6,7 @@ import { compose } from 'redux';
 import {
   beginEditingCollectionDetails,
   collectionEditUrl,
+  collectionName,
   collectionUrl,
   convertFiltersToQueryParams,
 } from 'amo/reducers/collections';
@@ -61,7 +62,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
       <div className="CollectionDetails">
         <h1 className="CollectionDetails-title">
           {collection ? (
-            collection.name || i18n.gettext('(no name)')
+            collectionName({ name: collection.name, i18n })
           ) : (
             <LoadingText />
           )}
