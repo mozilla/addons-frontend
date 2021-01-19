@@ -90,6 +90,4 @@ module.exports = {
   publicSentryDsn: null,
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
-
-  enableFeatureAllowAndroidInstall: true,
 };
