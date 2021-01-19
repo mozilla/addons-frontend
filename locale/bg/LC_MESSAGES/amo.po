@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-13 19:02+0000\n"
+"POT-Creation-Date: 2021-01-19 17:58+0000\n"
 "PO-Revision-Date: 2020-07-16 14:19+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -14,32 +14,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddAddonToCollection/index.js:176
+#: src/amo/components/AddAddonToCollection/index.js:177
 msgid "Loading…"
 msgstr "Зареждане…"
 
-#: src/amo/components/AddAddonToCollection/index.js:178
+#: src/amo/components/AddAddonToCollection/index.js:179
 msgid "Adding…"
 msgstr "Добавяне…"
 
-#: src/amo/components/AddAddonToCollection/index.js:194
+#: src/amo/components/AddAddonToCollection/index.js:195
 msgid "Select a collection…"
 msgstr "Изберете списък…"
 
-#: src/amo/components/AddAddonToCollection/index.js:201
+#: src/amo/components/AddAddonToCollection/index.js:202
 msgid "Create new collection"
 msgstr "Създаване на списък"
 
-#: src/amo/components/AddAddonToCollection/index.js:242
+#: src/amo/components/AddAddonToCollection/index.js:243
 msgid "Added to %(collectionName)s"
 msgstr "Добавено към %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:258
+#: src/amo/components/AddAddonToCollection/index.js:259
 msgid "Add to…"
 msgstr "Добавяне към…"
 
-#: src/amo/components/AddAddonToCollection/index.js:263
+#: src/amo/components/AddAddonToCollection/index.js:264
 #: src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
 msgstr "Добавяне към списък"
@@ -254,7 +254,7 @@ msgid "Size"
 msgstr "Размер"
 
 #: src/amo/components/AddonMoreInfo/index.js:252
-#: src/amo/components/CollectionDetails/index.js:93
+#: src/amo/components/CollectionDetails/index.js:94
 msgid "Last updated"
 msgstr "Последно обновяване"
 
@@ -341,16 +341,16 @@ msgid "Do you really want to delete this review?"
 msgstr "Наистина ли искате да изтриете тази картинка?"
 
 #: src/amo/components/AddonReviewCard/index.js:237
-#: src/ui/components/DismissibleTextForm/index.js:224
+#: src/amo/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Изтриване"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
+#: src/amo/components/ConfirmationDialog/index.js:60
+#: src/amo/components/DismissibleTextForm/index.js:209
 #: src/amo/pages/UserProfileEdit/index.js:898
-#: src/ui/components/ConfirmationDialog/index.js:60
-#: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
 msgstr "Отказ"
 
@@ -693,29 +693,24 @@ msgstr "Премахната от списък"
 msgid "Find an add-on to include in this collection"
 msgstr "Потърсете добавка, която да включите в този списък"
 
-#: src/amo/components/CollectionDetails/index.js:107
+#: src/amo/components/CollectionDetails/index.js:108
 msgid "Edit this collection"
 msgstr "Променяне на списъка"
 
-#: src/amo/components/CollectionDetails/index.js:118
+#: src/amo/components/CollectionDetails/index.js:119
 msgid "Edit collection details"
 msgstr "Промяна на информацията на списъка"
 
-#: src/amo/components/CollectionDetails/index.js:130
+#: src/amo/components/CollectionDetails/index.js:131
 msgid "Back to collection"
 msgstr "Назад към списъка"
 
-#: src/amo/components/CollectionDetails/index.js:64
-#: src/ui/components/UserCollection/index.js:54
-msgid "(no name)"
-msgstr ""
-
-#: src/amo/components/CollectionDetails/index.js:83
+#: src/amo/components/CollectionDetails/index.js:84
 #: src/amo/components/Footer/index.js:47
 msgid "Add-ons"
 msgstr "Добавки"
 
-#: src/amo/components/CollectionDetails/index.js:87
+#: src/amo/components/CollectionDetails/index.js:88
 msgid "Creator"
 msgstr "Създател"
 
@@ -758,6 +753,10 @@ msgstr "По име"
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Popularity"
 msgstr "По известност"
+
+#: src/amo/components/ConfirmationDialog/index.js:52
+msgid "Confirm"
+msgstr "Потвърждение"
 
 #: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
@@ -835,6 +834,18 @@ msgstr ""
 "Авторите на добавката ви приканват да допринесете за бъдещото ѝ развитие, "
 "като направите скромно дарение."
 
+#: src/amo/components/DismissibleTextForm/index.js:187
+msgid "Enter text."
+msgstr "Въведете текст"
+
+#: src/amo/components/DismissibleTextForm/index.js:188
+msgid "Submit"
+msgstr "Изпращане"
+
+#: src/amo/components/DismissibleTextForm/index.js:190
+msgid "Submitting"
+msgstr "Изпращане"
+
 #: src/amo/components/EditableCollectionAddon/index.js:133
 #: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
@@ -855,6 +866,18 @@ msgstr "Запазване"
 #: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
 msgstr "Промяна"
+
+#: src/amo/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Сесията ви е изтекла"
+
+#: src/amo/components/ErrorList/index.js:51
+msgid "An unexpected error occurred"
+msgstr "Възникна неочаквана грешка"
+
+#: src/amo/components/ErrorList/index.js:59
+msgid "Reload To Continue"
+msgstr "Презаредете, за да продължите"
 
 #: src/amo/components/ErrorPage/GenericError/index.js:24
 #: src/amo/components/Errors/ServerError/index.js:30
@@ -975,6 +998,10 @@ msgstr "Добавката е недостъпна за тази платфор�
 msgid "The page you tried to access is not available in your region."
 msgstr "Добавката е недостъпна за тази платформа."
 
+#: src/amo/components/ExpandableCard/index.js:57
+msgid "Toggle contents"
+msgstr "Превключване на съдържанието"
+
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
 msgstr "Отговор от %(userName)s"
@@ -996,12 +1023,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Сигнализиран като доклад за дефект или заявка за поддръжка"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Сигнализиран"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Сигнализиране"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Сигнализиран"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1191,10 +1218,39 @@ msgid "BY FIREFOX"
 msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:237
-#: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
+msgstr ""
+
+#: src/amo/components/HostPermissions/index.js:50
+msgid "Access your data for all websites"
+msgstr "Достъпва данните ви за всички страници"
+
+#: src/amo/components/HostPermissions/index.js:53
+msgid "Access your data for sites in the %(param)s domain"
+msgstr "Достъпва данните ви за страниците от домейна %(param)s"
+
+#: src/amo/components/HostPermissions/index.js:57
+msgid "Access your data for %(param)s"
+msgstr "Достъпва данните ви от %(param)s"
+
+#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/PromotedBadge/index.js:41
+#: src/amo/components/SearchFilters/index.js:172
+msgid "By Firefox"
+msgstr "От Firefox"
+
+#: src/amo/components/IconPromotedBadge/index.js:47
+#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/SearchFilters/index.js:170
+msgid "Recommended"
+msgstr "Препоръчани"
+
+#: src/amo/components/IconPromotedBadge/index.js:48
+#: src/amo/components/PromotedBadge/index.js:56
+#: src/amo/components/SearchFilters/index.js:176
+msgid "Verified"
 msgstr ""
 
 #: src/amo/components/InfoDialog/index.js:64
@@ -1227,6 +1283,10 @@ msgstr ""
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
 msgstr "Смяна на езика"
+
+#: src/amo/components/Notice/index.js:153
+msgid "Dismiss this notice"
+msgstr "Скриване на известието"
 
 #: src/amo/components/Paginate/index.js:137
 msgid "Previous"
@@ -1347,6 +1407,41 @@ msgstr "Съхраняванеограничено количество данн
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
 msgstr "Достъпва действията на четеца по време на разглеждане"
+
+#: src/amo/components/PromotedBadge/index.js:42
+msgid ""
+"Official add-on built by Mozilla Firefox. Meets security and performance "
+"standards."
+msgstr ""
+
+#: src/amo/components/PromotedBadge/index.js:49
+msgid ""
+"Firefox only recommends add-ons that meet our standards for security and "
+"performance."
+msgstr ""
+
+#: src/amo/components/PromotedBadge/index.js:57
+msgid ""
+"This add-on has been reviewed to meet our standards for security and "
+"performance."
+msgstr ""
+
+#: src/amo/components/Rating/index.js:100
+#, fuzzy
+msgid "Update your rating to %(starRating)s out of 5"
+msgstr "Оценка %(rating)s от 5"
+
+#: src/amo/components/Rating/index.js:106
+msgid "Rate this add-on %(starRating)s out of 5"
+msgstr "Оценете добавката на %(starRating)s от 5"
+
+#: src/amo/components/Rating/index.js:83 src/amo/components/Rating/index.js:94
+msgid "Rated %(rating)s out of 5"
+msgstr "Оценена с %(rating)s от 5"
+
+#: src/amo/components/Rating/index.js:87
+msgid "There are no ratings yet"
+msgstr "Все още няма оценки"
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
@@ -1510,12 +1605,12 @@ msgstr ""
 msgid "Search results"
 msgstr "Резултати"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:302
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:293
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Препоръчителни разширения"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:372
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Препоръчани теми"
@@ -1569,7 +1664,7 @@ msgstr "Препоръчани теми"
 msgid "Verified add-ons"
 msgstr "Препоръчани добавки"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:385
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Популярни разширения"
@@ -1597,11 +1692,11 @@ msgstr "Най-високо оценени теми"
 msgid "Top rated add-ons"
 msgstr "Най-високо оценени добавки"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:345
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
 msgid "Popular extensions"
 msgstr "Известни разширения"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:326
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
 msgid "Popular themes"
 msgstr "Известни теми"
 
@@ -1734,24 +1829,6 @@ msgstr "Популярност"
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:170
-#: src/ui/components/IconPromotedBadge/index.js:47
-#: src/ui/components/PromotedBadge/index.js:48
-msgid "Recommended"
-msgstr "Препоръчани"
-
-#: src/amo/components/SearchFilters/index.js:172
-#: src/ui/components/IconPromotedBadge/index.js:46
-#: src/ui/components/PromotedBadge/index.js:41
-msgid "By Firefox"
-msgstr "От Firefox"
-
-#: src/amo/components/SearchFilters/index.js:176
-#: src/ui/components/IconPromotedBadge/index.js:48
-#: src/ui/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr ""
-
 #: src/amo/components/SearchFilters/index.js:180
 #, fuzzy
 msgid "All Reviewed"
@@ -1857,6 +1934,14 @@ msgstr "Речници и езикови пакети"
 msgid "Explore"
 msgstr "Разглеждане"
 
+#: src/amo/components/ShowMoreCard/index.js:138
+msgid "Expand to read more"
+msgstr ""
+
+#: src/amo/components/ShowMoreCard/index.js:143
+msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
+msgstr "<span class=\"visually-hidden\">Отваряне за </span>Повече информация"
+
 #: src/amo/components/SiteNotices/index.js:72
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
@@ -1865,15 +1950,6 @@ msgstr ""
 
 #: src/amo/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:210
-#, fuzzy
-msgid "Sponsored extensions"
-msgstr "Най-високо оценени разширения"
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:223
-msgid "What is this?"
 msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:24
@@ -1902,11 +1978,21 @@ msgid ""
 "about your experience."
 msgstr ""
 
-#: src/amo/components/UserProfileEditPicture/index.js:106
+#: src/amo/components/ThemeImage/index.js:31 src/amo/pages/Addon/index.js:160
+msgid "Preview of %(title)s"
+msgstr "Преглед на %(title)s"
+
+#: src/amo/components/UserCollection/index.js:46
+msgid "%(total)s add-on"
+msgid_plural "%(total)s add-ons"
+msgstr[0] "%(total)s добавка"
+msgstr[1] "%(total)s добавки"
+
+#: src/amo/components/UserProfileEditPicture/index.js:107
 msgid "Do you really want to delete this picture?"
 msgstr "Наистина ли искате да изтриете тази картинка?"
 
-#: src/amo/components/UserProfileEditPicture/index.js:109
+#: src/amo/components/UserProfileEditPicture/index.js:110
 msgid "Delete This Picture"
 msgstr "Изтриване на тази снимка"
 
@@ -1922,14 +2008,11 @@ msgstr "Профилна снимка"
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/amo/components/WrongPlatformWarning/index.js:106
-#, fuzzy
-msgid ""
-"To find add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
-msgstr "Добавката е несъвместима с това издание на Firefox."
+#: src/amo/components/UserReview/index.js:103
+msgid "Developer response"
+msgstr "Отговор от разработчика"
 
-#: src/amo/components/WrongPlatformWarning/index.js:85
+#: src/amo/components/WrongPlatformWarning/index.js:82
 msgid ""
 "This add-on is not compatible with this browser. Try installing it on "
 "Firefox for desktop."
@@ -1938,10 +2021,11 @@ msgstr ""
 "за настолен компютър."
 
 #: src/amo/components/WrongPlatformWarning/index.js:95
+#, fuzzy
 msgid ""
-"You can install this add-on in the Add-ons Manager. Learn more about <a href="
-"\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+"To find add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
+msgstr "Добавката е несъвместима с това издание на Firefox."
 
 #: src/amo/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -1962,10 +2046,6 @@ msgstr ""
 #: src/amo/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr ""
-
-#: src/amo/pages/Addon/index.js:160 src/ui/components/ThemeImage/index.js:31
-msgid "Preview of %(title)s"
-msgstr "Преглед на %(title)s"
 
 #: src/amo/pages/Addon/index.js:195
 msgid "This add-on cannot be rated because no versions have been published."
@@ -2167,37 +2247,37 @@ msgstr "Всички категории разширения"
 msgid "All theme categories"
 msgstr "Всички категории теми"
 
-#: src/amo/pages/Collection/index.js:393
+#: src/amo/pages/Collection/index.js:394
 msgid "Do you really want to delete this collection?"
 msgstr "Наистина ли искате да изтриете списъка?"
 
-#: src/amo/pages/Collection/index.js:396
+#: src/amo/pages/Collection/index.js:397
 msgid "Delete this collection"
 msgstr "Изтриване на списъка"
 
-#: src/amo/pages/Collection/index.js:415
+#: src/amo/pages/Collection/index.js:416
 msgid "Log in to create a collection"
 msgstr "Впишете се, за да създавате списъци"
 
-#: src/amo/pages/Collection/index.js:416
+#: src/amo/pages/Collection/index.js:417
 msgid "Log in to edit this collection"
 msgstr "Впишете се, за да промените списъка"
 
-#: src/amo/pages/Collection/index.js:449
+#: src/amo/pages/Collection/index.js:450
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:452
+#: src/amo/pages/Collection/index.js:453
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:514
+#: src/amo/pages/Collection/index.js:515
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:517
+#: src/amo/pages/Collection/index.js:518
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2229,35 +2309,35 @@ msgstr "Нямате списъци."
 msgid "My collections"
 msgstr "Мои списъци"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:145
 msgid "Abstract"
 msgstr "Абстрактни"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:150
 msgid "Nature"
 msgstr "Природа"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:155
 msgid "Film & TV"
 msgstr "Филми и телевизия"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:160
 msgid "Scenery"
 msgstr "Пейзажи"
 
-#: src/amo/pages/Home/index.js:167
+#: src/amo/pages/Home/index.js:165
 msgid "Music"
 msgstr "Музика"
 
-#: src/amo/pages/Home/index.js:172
+#: src/amo/pages/Home/index.js:170
 msgid "Seasonal"
 msgstr "Сезонни"
 
-#: src/amo/pages/Home/index.js:225
+#: src/amo/pages/Home/index.js:222
 msgid "Change the way Firefox looks with themes."
 msgstr "Променете облика на Firefox с теми."
 
-#: src/amo/pages/Home/index.js:256
+#: src/amo/pages/Home/index.js:253
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2267,39 +2347,39 @@ msgstr ""
 "четец. Могат да блокират досадните реклами, да защитават паролите, да "
 "променят облика на четеца и други."
 
-#: src/amo/pages/Home/index.js:303 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:294 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Повече препоръчани разширения"
 
-#: src/amo/pages/Home/index.js:327
+#: src/amo/pages/Home/index.js:318
 msgid "See more popular themes"
 msgstr "Повече известни теми"
 
-#: src/amo/pages/Home/index.js:346
+#: src/amo/pages/Home/index.js:337
 msgid "See more popular extensions"
 msgstr "Повече известни разширения"
 
-#: src/amo/pages/Home/index.js:363 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Повече препоръчани теми"
 
-#: src/amo/pages/Home/index.js:386 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Повече набиращи популярност разширения"
 
-#: src/amo/pages/Home/index.js:63
+#: src/amo/pages/Home/index.js:61
 msgid "See more enhanced privacy extensions"
 msgstr "Повече за подобряване на поверителността"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:62
 msgid "Enhanced privacy extensions"
 msgstr "Разширения за подобряване на поверителността"
 
-#: src/amo/pages/Home/index.js:69
+#: src/amo/pages/Home/index.js:67
 msgid "See more recommended password managers"
 msgstr "Повече препоръчани за управление на пароли"
 
-#: src/amo/pages/Home/index.js:70
+#: src/amo/pages/Home/index.js:68
 msgid "Recommended password managers"
 msgstr "Препоръчани за управление на пароли"
 
@@ -2995,6 +3075,10 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
+#: src/amo/reducers/collections.js:1014
+msgid "(no name)"
+msgstr ""
+
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:352
 msgid "%(application)s %(minVersion)s and later"
@@ -3070,104 +3154,9 @@ msgstr ""
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
-#: src/ui/components/ConfirmationDialog/index.js:52
-msgid "Confirm"
-msgstr "Потвърждение"
-
-#: src/ui/components/DismissibleTextForm/index.js:187
-msgid "Enter text."
-msgstr "Въведете текст"
-
-#: src/ui/components/DismissibleTextForm/index.js:188
-msgid "Submit"
-msgstr "Изпращане"
-
-#: src/ui/components/DismissibleTextForm/index.js:190
-msgid "Submitting"
-msgstr "Изпращане"
-
-#: src/ui/components/ErrorList/index.js:44
-msgid "Your session has expired"
-msgstr "Сесията ви е изтекла"
-
-#: src/ui/components/ErrorList/index.js:51
-msgid "An unexpected error occurred"
-msgstr "Възникна неочаквана грешка"
-
-#: src/ui/components/ErrorList/index.js:59
-msgid "Reload To Continue"
-msgstr "Презаредете, за да продължите"
-
-#: src/ui/components/ExpandableCard/index.js:57
-msgid "Toggle contents"
-msgstr "Превключване на съдържанието"
-
-#: src/ui/components/HostPermissions/index.js:50
-msgid "Access your data for all websites"
-msgstr "Достъпва данните ви за всички страници"
-
-#: src/ui/components/HostPermissions/index.js:53
-msgid "Access your data for sites in the %(param)s domain"
-msgstr "Достъпва данните ви за страниците от домейна %(param)s"
-
-#: src/ui/components/HostPermissions/index.js:57
-msgid "Access your data for %(param)s"
-msgstr "Достъпва данните ви от %(param)s"
-
-#: src/ui/components/Notice/index.js:153
-msgid "Dismiss this notice"
-msgstr "Скриване на известието"
-
-#: src/ui/components/PromotedBadge/index.js:42
-msgid "This is an official add-on built by the creators of Mozilla Firefox."
-msgstr ""
-
-#: src/ui/components/PromotedBadge/index.js:49
-msgid ""
-"Firefox only recommends add-ons that meet our standards for security and "
-"performance."
-msgstr ""
-
-#: src/ui/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-
-#: src/ui/components/Rating/index.js:100
 #, fuzzy
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Оценка %(rating)s от 5"
-
-#: src/ui/components/Rating/index.js:106
-msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Оценете добавката на %(starRating)s от 5"
-
-#: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
-msgid "Rated %(rating)s out of 5"
-msgstr "Оценена с %(rating)s от 5"
-
-#: src/ui/components/Rating/index.js:87
-msgid "There are no ratings yet"
-msgstr "Все още няма оценки"
-
-#: src/ui/components/ShowMoreCard/index.js:138
-msgid "Expand to read more"
-msgstr ""
-
-#: src/ui/components/ShowMoreCard/index.js:143
-msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Отваряне за </span>Повече информация"
-
-#: src/ui/components/UserCollection/index.js:45
-msgid "%(total)s add-on"
-msgid_plural "%(total)s add-ons"
-msgstr[0] "%(total)s добавка"
-msgstr[1] "%(total)s добавки"
-
-#: src/ui/components/UserReview/index.js:103
-msgid "Developer response"
-msgstr "Отговор от разработчика"
+#~ msgid "Sponsored extensions"
+#~ msgstr "Най-високо оценени разширения"
 
 #, fuzzy
 #~ msgid "Unavailable for legal reasons"

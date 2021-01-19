@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-13 19:02+0000\n"
+"POT-Creation-Date: 2021-01-19 17:58+0000\n"
 "PO-Revision-Date: 2020-12-10 09:32+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,32 +14,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddAddonToCollection/index.js:176
+#: src/amo/components/AddAddonToCollection/index.js:177
 msgid "Loading…"
 msgstr "Chargement…"
 
-#: src/amo/components/AddAddonToCollection/index.js:178
+#: src/amo/components/AddAddonToCollection/index.js:179
 msgid "Adding…"
 msgstr "Ajout…"
 
-#: src/amo/components/AddAddonToCollection/index.js:194
+#: src/amo/components/AddAddonToCollection/index.js:195
 msgid "Select a collection…"
 msgstr "Sélectionner une collection…"
 
-#: src/amo/components/AddAddonToCollection/index.js:201
+#: src/amo/components/AddAddonToCollection/index.js:202
 msgid "Create new collection"
 msgstr "Créer une nouvelle collection"
 
-#: src/amo/components/AddAddonToCollection/index.js:242
+#: src/amo/components/AddAddonToCollection/index.js:243
 msgid "Added to %(collectionName)s"
 msgstr "Ajouté à %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:258
+#: src/amo/components/AddAddonToCollection/index.js:259
 msgid "Add to…"
 msgstr "Ajouter à…"
 
-#: src/amo/components/AddAddonToCollection/index.js:263
+#: src/amo/components/AddAddonToCollection/index.js:264
 #: src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
 msgstr "Ajouter à la collection"
@@ -265,7 +265,7 @@ msgid "Size"
 msgstr "Taille"
 
 #: src/amo/components/AddonMoreInfo/index.js:252
-#: src/amo/components/CollectionDetails/index.js:93
+#: src/amo/components/CollectionDetails/index.js:94
 msgid "Last updated"
 msgstr "Dernière mise à jour"
 
@@ -352,16 +352,16 @@ msgid "Do you really want to delete this review?"
 msgstr "Souhaitez-vous vraiment supprimer cette évaluation ?"
 
 #: src/amo/components/AddonReviewCard/index.js:237
-#: src/ui/components/DismissibleTextForm/index.js:224
+#: src/amo/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Supprimer"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
+#: src/amo/components/ConfirmationDialog/index.js:60
+#: src/amo/components/DismissibleTextForm/index.js:209
 #: src/amo/pages/UserProfileEdit/index.js:898
-#: src/ui/components/ConfirmationDialog/index.js:60
-#: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -708,29 +708,24 @@ msgstr "Supprimé de la collection"
 msgid "Find an add-on to include in this collection"
 msgstr "Rechercher un module à inclure dans cette collection"
 
-#: src/amo/components/CollectionDetails/index.js:107
+#: src/amo/components/CollectionDetails/index.js:108
 msgid "Edit this collection"
 msgstr "Modifier cette collection"
 
-#: src/amo/components/CollectionDetails/index.js:118
+#: src/amo/components/CollectionDetails/index.js:119
 msgid "Edit collection details"
 msgstr "Modifier les détails de la collection"
 
-#: src/amo/components/CollectionDetails/index.js:130
+#: src/amo/components/CollectionDetails/index.js:131
 msgid "Back to collection"
 msgstr "Revenir à la collection"
 
-#: src/amo/components/CollectionDetails/index.js:64
-#: src/ui/components/UserCollection/index.js:54
-msgid "(no name)"
-msgstr ""
-
-#: src/amo/components/CollectionDetails/index.js:83
+#: src/amo/components/CollectionDetails/index.js:84
 #: src/amo/components/Footer/index.js:47
 msgid "Add-ons"
 msgstr "Modules complémentaires"
 
-#: src/amo/components/CollectionDetails/index.js:87
+#: src/amo/components/CollectionDetails/index.js:88
 msgid "Creator"
 msgstr "Créateur"
 
@@ -773,6 +768,10 @@ msgstr "Nom"
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Popularity"
 msgstr "Popularité"
+
+#: src/amo/components/ConfirmationDialog/index.js:52
+msgid "Confirm"
+msgstr "Confirmer"
 
 #: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
@@ -850,6 +849,18 @@ msgstr ""
 "Les auteurs de ce module demandent que vous les aidiez à assurer la "
 "poursuite de leur travail en leur versant une petite contribution."
 
+#: src/amo/components/DismissibleTextForm/index.js:187
+msgid "Enter text."
+msgstr "Saisissez du texte."
+
+#: src/amo/components/DismissibleTextForm/index.js:188
+msgid "Submit"
+msgstr "Envoyer"
+
+#: src/amo/components/DismissibleTextForm/index.js:190
+msgid "Submitting"
+msgstr "Envoi en cours"
+
 #: src/amo/components/EditableCollectionAddon/index.js:133
 #: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
@@ -870,6 +881,18 @@ msgstr "Enregistrer"
 #: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
 msgstr "Modifier"
+
+#: src/amo/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Votre session a expiré"
+
+#: src/amo/components/ErrorList/index.js:51
+msgid "An unexpected error occurred"
+msgstr "Une erreur inattendue s’est produite"
+
+#: src/amo/components/ErrorList/index.js:59
+msgid "Reload To Continue"
+msgstr "Rechargez la page pour continuer"
 
 #: src/amo/components/ErrorPage/GenericError/index.js:24
 #: src/amo/components/Errors/ServerError/index.js:30
@@ -1011,6 +1034,10 @@ msgstr ""
 "La page à laquelle vous avez tenté d’accéder n’est pas disponible dans votre "
 "région."
 
+#: src/amo/components/ExpandableCard/index.js:57
+msgid "Toggle contents"
+msgstr "Activer/Désactiver les contenus"
+
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
 msgstr "Avis de %(userName)s"
@@ -1032,12 +1059,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Signalé comme un rapport de bogue ou une demande d’assistance"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Signalé"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Signaler"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Signalé"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1226,13 +1253,42 @@ msgid "BY FIREFOX"
 msgstr "PAR FIREFOX"
 
 #: src/amo/components/HeroRecommendation/index.js:237
-#: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
 msgstr ""
 "Firefox ne recommande que des extensions conformes à nos normes en matière "
 "de sécurité et de performances."
+
+#: src/amo/components/HostPermissions/index.js:50
+msgid "Access your data for all websites"
+msgstr "Accéder à vos données pour tous les sites web"
+
+#: src/amo/components/HostPermissions/index.js:53
+msgid "Access your data for sites in the %(param)s domain"
+msgstr "Accéder à vos données pour les sites du domaine %(param)s"
+
+#: src/amo/components/HostPermissions/index.js:57
+msgid "Access your data for %(param)s"
+msgstr "Accéder à vos données pour %(param)s"
+
+#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/PromotedBadge/index.js:41
+#: src/amo/components/SearchFilters/index.js:172
+msgid "By Firefox"
+msgstr "Par Firefox"
+
+#: src/amo/components/IconPromotedBadge/index.js:47
+#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/SearchFilters/index.js:170
+msgid "Recommended"
+msgstr "Recommandé"
+
+#: src/amo/components/IconPromotedBadge/index.js:48
+#: src/amo/components/PromotedBadge/index.js:56
+#: src/amo/components/SearchFilters/index.js:176
+msgid "Verified"
+msgstr "Vérifié"
 
 #: src/amo/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
@@ -1266,6 +1322,10 @@ msgstr ""
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
 msgstr "Changer la langue"
+
+#: src/amo/components/Notice/index.js:153
+msgid "Dismiss this notice"
+msgstr "Cacher ce message"
 
 #: src/amo/components/Paginate/index.js:137
 msgid "Previous"
@@ -1388,6 +1448,44 @@ msgstr "Stocker une quantité illimitée de données côté client"
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
 msgstr "Accéder à l’activité du navigateur pendant la navigation"
+
+#: src/amo/components/PromotedBadge/index.js:42
+msgid ""
+"Official add-on built by Mozilla Firefox. Meets security and performance "
+"standards."
+msgstr ""
+
+#: src/amo/components/PromotedBadge/index.js:49
+msgid ""
+"Firefox only recommends add-ons that meet our standards for security and "
+"performance."
+msgstr ""
+"Firefox ne recommande que des modules conformes à nos normes en matière de "
+"sécurité et de performances."
+
+#: src/amo/components/PromotedBadge/index.js:57
+msgid ""
+"This add-on has been reviewed to meet our standards for security and "
+"performance."
+msgstr ""
+"Après examen, ce module complémentaire a été reconnu conforme à nos normes "
+"de sécurité et de performance."
+
+#: src/amo/components/Rating/index.js:100
+msgid "Update your rating to %(starRating)s out of 5"
+msgstr "Changer votre note en %(starRating)s sur 5"
+
+#: src/amo/components/Rating/index.js:106
+msgid "Rate this add-on %(starRating)s out of 5"
+msgstr "Donner une note de %(starRating)s sur 5 à ce module"
+
+#: src/amo/components/Rating/index.js:83 src/amo/components/Rating/index.js:94
+msgid "Rated %(rating)s out of 5"
+msgstr "Noté %(rating)s sur 5"
+
+#: src/amo/components/Rating/index.js:87
+msgid "There are no ratings yet"
+msgstr "Il n’y a aucune note pour l’instant"
 
 #: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
@@ -1556,12 +1654,12 @@ msgstr ""
 msgid "Search results"
 msgstr "Résultats de la recherche"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:302
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:293
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Extensions recommandées"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:372
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Thèmes recommandés"
@@ -1606,7 +1704,7 @@ msgstr "Thèmes vérifiés"
 msgid "Verified add-ons"
 msgstr "Modules vérifiés"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:385
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Modules vedettes"
@@ -1634,11 +1732,11 @@ msgstr "Thèmes les mieux notés"
 msgid "Top rated add-ons"
 msgstr "Modules les mieux notés"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:345
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
 msgid "Popular extensions"
 msgstr "Extensions populaires"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:326
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
 msgid "Popular themes"
 msgstr "Thèmes populaires"
 
@@ -1769,24 +1867,6 @@ msgstr "Tendance"
 msgid "Any"
 msgstr "Tout"
 
-#: src/amo/components/SearchFilters/index.js:170
-#: src/ui/components/IconPromotedBadge/index.js:47
-#: src/ui/components/PromotedBadge/index.js:48
-msgid "Recommended"
-msgstr "Recommandé"
-
-#: src/amo/components/SearchFilters/index.js:172
-#: src/ui/components/IconPromotedBadge/index.js:46
-#: src/ui/components/PromotedBadge/index.js:41
-msgid "By Firefox"
-msgstr "Par Firefox"
-
-#: src/amo/components/SearchFilters/index.js:176
-#: src/ui/components/IconPromotedBadge/index.js:48
-#: src/ui/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr "Vérifié"
-
 #: src/amo/components/SearchFilters/index.js:180
 msgid "All Reviewed"
 msgstr "Tous les modules vérifiés"
@@ -1891,6 +1971,16 @@ msgstr "Dictionnaires et paquetages linguistiques"
 msgid "Explore"
 msgstr "Explorer"
 
+#: src/amo/components/ShowMoreCard/index.js:138
+msgid "Expand to read more"
+msgstr "Développer pour lire la suite"
+
+#: src/amo/components/ShowMoreCard/index.js:143
+msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
+msgstr ""
+"<span class=\"visually-hidden\">Développer pour afficher</span> Plus "
+"d’informations"
+
 #: src/amo/components/SiteNotices/index.js:72
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
@@ -1903,14 +1993,6 @@ msgstr ""
 #: src/amo/components/SiteNotices/index.js:87
 msgid "You have been logged out."
 msgstr "Vous avez été déconnecté·e."
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:210
-msgid "Sponsored extensions"
-msgstr "Extensions sponsorisées"
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:223
-msgid "What is this?"
-msgstr "Qu’est-ce que c’est ?"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -1940,11 +2022,21 @@ msgstr ""
 "Merci d’avoir parcouru ce site ! Veuillez prendre une minute ou deux pour "
 "faire part de votre expérience à l’équipe de Firefox."
 
-#: src/amo/components/UserProfileEditPicture/index.js:106
+#: src/amo/components/ThemeImage/index.js:31 src/amo/pages/Addon/index.js:160
+msgid "Preview of %(title)s"
+msgstr "Aperçu de %(title)s"
+
+#: src/amo/components/UserCollection/index.js:46
+msgid "%(total)s add-on"
+msgid_plural "%(total)s add-ons"
+msgstr[0] "%(total)s module"
+msgstr[1] "%(total)s modules"
+
+#: src/amo/components/UserProfileEditPicture/index.js:107
 msgid "Do you really want to delete this picture?"
 msgstr "Voulez-vous vraiment supprimer cette image ?"
 
-#: src/amo/components/UserProfileEditPicture/index.js:109
+#: src/amo/components/UserProfileEditPicture/index.js:110
 msgid "Delete This Picture"
 msgstr "Supprimer cette photo"
 
@@ -1960,15 +2052,11 @@ msgstr "Photo de profil"
 msgid "Choose Photo…"
 msgstr "Sélectionner une photo…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:106
-msgid ""
-"To find add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
-msgstr ""
-"Pour découvrir des modules compatibles avec Firefox pour Android, <a href="
-"\"%(newLocation)s\">cliquez ici</a>."
+#: src/amo/components/UserReview/index.js:103
+msgid "Developer response"
+msgstr "Réponse du développeur"
 
-#: src/amo/components/WrongPlatformWarning/index.js:85
+#: src/amo/components/WrongPlatformWarning/index.js:82
 msgid ""
 "This add-on is not compatible with this browser. Try installing it on "
 "Firefox for desktop."
@@ -1978,12 +2066,11 @@ msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:95
 msgid ""
-"You can install this add-on in the Add-ons Manager. Learn more about <a href="
-"\"%(newLocation)s\">add-ons for Android</a>."
+"To find add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
 msgstr ""
-"Vous pouvez installer ce module depuis le gestionnaire de modules "
-"complémentaires. Apprenez-en davantage sur les <a href=\"%(newLocation)s"
-"\">modules complémentaires pour Android</a>."
+"Pour découvrir des modules compatibles avec Firefox pour Android, <a href="
+"\"%(newLocation)s\">cliquez ici</a>."
 
 #: src/amo/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -2004,10 +2091,6 @@ msgstr "%(localizedSize)s Go"
 #: src/amo/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s To"
-
-#: src/amo/pages/Addon/index.js:160 src/ui/components/ThemeImage/index.js:31
-msgid "Preview of %(title)s"
-msgstr "Aperçu de %(title)s"
 
 #: src/amo/pages/Addon/index.js:195
 msgid "This add-on cannot be rated because no versions have been published."
@@ -2227,33 +2310,33 @@ msgstr "Toutes les catégories d’extensions"
 msgid "All theme categories"
 msgstr "Toutes les catégories de thèmes"
 
-#: src/amo/pages/Collection/index.js:393
+#: src/amo/pages/Collection/index.js:394
 msgid "Do you really want to delete this collection?"
 msgstr "Voulez-vous vraiment supprimer cette collection ?"
 
-#: src/amo/pages/Collection/index.js:396
+#: src/amo/pages/Collection/index.js:397
 msgid "Delete this collection"
 msgstr "Supprimer cette collection"
 
-#: src/amo/pages/Collection/index.js:415
+#: src/amo/pages/Collection/index.js:416
 msgid "Log in to create a collection"
 msgstr "Connectez-vous pour créer une collection"
 
-#: src/amo/pages/Collection/index.js:416
+#: src/amo/pages/Collection/index.js:417
 msgid "Log in to edit this collection"
 msgstr "Connectez-vous pour modifier cette collection"
 
-#: src/amo/pages/Collection/index.js:449
+#: src/amo/pages/Collection/index.js:450
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Créez d’abord votre collection, puis vous pourrez ajouter des extensions et "
 "des thèmes."
 
-#: src/amo/pages/Collection/index.js:452
+#: src/amo/pages/Collection/index.js:453
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Recherchez des extensions et des thèmes à ajouter à votre collection."
 
-#: src/amo/pages/Collection/index.js:514
+#: src/amo/pages/Collection/index.js:515
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2261,7 +2344,7 @@ msgstr ""
 "Téléchargez et créez des collections Firefox pour suivre vos extensions et "
 "thèmes favoris. Explorez les %(collectionName)s — %(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:517
+#: src/amo/pages/Collection/index.js:518
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2297,35 +2380,35 @@ msgstr "Vous n’avez aucune collection."
 msgid "My collections"
 msgstr "Mes collections"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:145
 msgid "Abstract"
 msgstr "Abstrait"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:150
 msgid "Nature"
 msgstr "Nature"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:155
 msgid "Film & TV"
 msgstr "Films et TV"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:160
 msgid "Scenery"
 msgstr "Paysages"
 
-#: src/amo/pages/Home/index.js:167
+#: src/amo/pages/Home/index.js:165
 msgid "Music"
 msgstr "Musique"
 
-#: src/amo/pages/Home/index.js:172
+#: src/amo/pages/Home/index.js:170
 msgid "Seasonal"
 msgstr "Saisonnier"
 
-#: src/amo/pages/Home/index.js:225
+#: src/amo/pages/Home/index.js:222
 msgid "Change the way Firefox looks with themes."
 msgstr "Changez le style de Firefox à l’aide de thèmes."
 
-#: src/amo/pages/Home/index.js:256
+#: src/amo/pages/Home/index.js:253
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2336,39 +2419,39 @@ msgstr ""
 "publicités agaçantes, protéger les mots de passe, modifier l’apparence du "
 "navigateur, etc."
 
-#: src/amo/pages/Home/index.js:303 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:294 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Voir plus d’extensions recommandées"
 
-#: src/amo/pages/Home/index.js:327
+#: src/amo/pages/Home/index.js:318
 msgid "See more popular themes"
 msgstr "Voir plus de thèmes populaires"
 
-#: src/amo/pages/Home/index.js:346
+#: src/amo/pages/Home/index.js:337
 msgid "See more popular extensions"
 msgstr "Voir plus d’extensions populaires"
 
-#: src/amo/pages/Home/index.js:363 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
 msgstr "Voir plus de thèmes recommandés"
 
-#: src/amo/pages/Home/index.js:386 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Voir plus d’extensions populaires"
 
-#: src/amo/pages/Home/index.js:63
+#: src/amo/pages/Home/index.js:61
 msgid "See more enhanced privacy extensions"
 msgstr "Voir plus d’extensions pour le respect de la vie privée"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:62
 msgid "Enhanced privacy extensions"
 msgstr "Extensions pour protéger mieux votre vie privée"
 
-#: src/amo/pages/Home/index.js:69
+#: src/amo/pages/Home/index.js:67
 msgid "See more recommended password managers"
 msgstr "Voir plus de gestionnaires de mots de passe recommandés"
 
-#: src/amo/pages/Home/index.js:70
+#: src/amo/pages/Home/index.js:68
 msgid "Recommended password managers"
 msgstr "Gestionnaires de mots de passe recommandés"
 
@@ -3201,6 +3284,10 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr "Se désinscrire"
 
+#: src/amo/reducers/collections.js:1014
+msgid "(no name)"
+msgstr ""
+
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:352
 msgid "%(application)s %(minVersion)s and later"
@@ -3278,110 +3365,23 @@ msgstr "la compatibilité de mon module n’a pas pu être mise à jour"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "la compatibilité de mon module a été mise à jour avec succès"
 
-#: src/ui/components/ConfirmationDialog/index.js:52
-msgid "Confirm"
-msgstr "Confirmer"
+#~ msgid "Sponsored extensions"
+#~ msgstr "Extensions sponsorisées"
 
-#: src/ui/components/DismissibleTextForm/index.js:187
-msgid "Enter text."
-msgstr "Saisissez du texte."
+#~ msgid "What is this?"
+#~ msgstr "Qu’est-ce que c’est ?"
 
-#: src/ui/components/DismissibleTextForm/index.js:188
-msgid "Submit"
-msgstr "Envoyer"
+#~ msgid ""
+#~ "You can install this add-on in the Add-ons Manager. Learn more about <a "
+#~ "href=\"%(newLocation)s\">add-ons for Android</a>."
+#~ msgstr ""
+#~ "Vous pouvez installer ce module depuis le gestionnaire de modules "
+#~ "complémentaires. Apprenez-en davantage sur les <a href=\"%(newLocation)s"
+#~ "\">modules complémentaires pour Android</a>."
 
-#: src/ui/components/DismissibleTextForm/index.js:190
-msgid "Submitting"
-msgstr "Envoi en cours"
-
-#: src/ui/components/ErrorList/index.js:44
-msgid "Your session has expired"
-msgstr "Votre session a expiré"
-
-#: src/ui/components/ErrorList/index.js:51
-msgid "An unexpected error occurred"
-msgstr "Une erreur inattendue s’est produite"
-
-#: src/ui/components/ErrorList/index.js:59
-msgid "Reload To Continue"
-msgstr "Rechargez la page pour continuer"
-
-#: src/ui/components/ExpandableCard/index.js:57
-msgid "Toggle contents"
-msgstr "Activer/Désactiver les contenus"
-
-#: src/ui/components/HostPermissions/index.js:50
-msgid "Access your data for all websites"
-msgstr "Accéder à vos données pour tous les sites web"
-
-#: src/ui/components/HostPermissions/index.js:53
-msgid "Access your data for sites in the %(param)s domain"
-msgstr "Accéder à vos données pour les sites du domaine %(param)s"
-
-#: src/ui/components/HostPermissions/index.js:57
-msgid "Access your data for %(param)s"
-msgstr "Accéder à vos données pour %(param)s"
-
-#: src/ui/components/Notice/index.js:153
-msgid "Dismiss this notice"
-msgstr "Cacher ce message"
-
-#: src/ui/components/PromotedBadge/index.js:42
-msgid "This is an official add-on built by the creators of Mozilla Firefox."
-msgstr ""
-"Il s’agit d’un module officiel conçu par les créateurs de Mozilla Firefox."
-
-#: src/ui/components/PromotedBadge/index.js:49
-msgid ""
-"Firefox only recommends add-ons that meet our standards for security and "
-"performance."
-msgstr ""
-"Firefox ne recommande que des modules conformes à nos normes en matière de "
-"sécurité et de performances."
-
-#: src/ui/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-"Après examen, ce module complémentaire a été reconnu conforme à nos normes "
-"de sécurité et de performance."
-
-#: src/ui/components/Rating/index.js:100
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Changer votre note en %(starRating)s sur 5"
-
-#: src/ui/components/Rating/index.js:106
-msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Donner une note de %(starRating)s sur 5 à ce module"
-
-#: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
-msgid "Rated %(rating)s out of 5"
-msgstr "Noté %(rating)s sur 5"
-
-#: src/ui/components/Rating/index.js:87
-msgid "There are no ratings yet"
-msgstr "Il n’y a aucune note pour l’instant"
-
-#: src/ui/components/ShowMoreCard/index.js:138
-msgid "Expand to read more"
-msgstr "Développer pour lire la suite"
-
-#: src/ui/components/ShowMoreCard/index.js:143
-msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
-"<span class=\"visually-hidden\">Développer pour afficher</span> Plus "
-"d’informations"
-
-#: src/ui/components/UserCollection/index.js:45
-msgid "%(total)s add-on"
-msgid_plural "%(total)s add-ons"
-msgstr[0] "%(total)s module"
-msgstr[1] "%(total)s modules"
-
-#: src/ui/components/UserReview/index.js:103
-msgid "Developer response"
-msgstr "Réponse du développeur"
+#~ msgid "This is an official add-on built by the creators of Mozilla Firefox."
+#~ msgstr ""
+#~ "Il s’agit d’un module officiel conçu par les créateurs de Mozilla Firefox."
 
 #~ msgid ""
 #~ "To find add-ons compatible with Firefox on desktop, <a href="

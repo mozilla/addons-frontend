@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-13 19:02+0000\n"
+"POT-Creation-Date: 2021-01-19 17:58+0000\n"
 "PO-Revision-Date: 2018-06-01 14:56+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddAddonToCollection/index.js:176
+#: src/amo/components/AddAddonToCollection/index.js:177
 msgid "Loading…"
 msgstr "در حال جستجو…"
 
-#: src/amo/components/AddAddonToCollection/index.js:178
+#: src/amo/components/AddAddonToCollection/index.js:179
 #, fuzzy
 msgid "Adding…"
 msgstr "در حال جستجو…"
 
-#: src/amo/components/AddAddonToCollection/index.js:194
+#: src/amo/components/AddAddonToCollection/index.js:195
 #, fuzzy
 msgid "Select a collection…"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/AddAddonToCollection/index.js:201
+#: src/amo/components/AddAddonToCollection/index.js:202
 #, fuzzy
 msgid "Create new collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/AddAddonToCollection/index.js:242
+#: src/amo/components/AddAddonToCollection/index.js:243
 msgid "Added to %(collectionName)s"
 msgstr ""
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:258
+#: src/amo/components/AddAddonToCollection/index.js:259
 msgid "Add to…"
 msgstr ""
 
-#: src/amo/components/AddAddonToCollection/index.js:263
+#: src/amo/components/AddAddonToCollection/index.js:264
 #: src/amo/components/CollectionAddAddon/index.js:173
 #, fuzzy
 msgid "Add to collection"
@@ -269,7 +269,7 @@ msgid "Size"
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:252
-#: src/amo/components/CollectionDetails/index.js:93
+#: src/amo/components/CollectionDetails/index.js:94
 msgid "Last updated"
 msgstr "آخرین بروزرسانی"
 
@@ -366,16 +366,16 @@ msgid "Do you really want to delete this review?"
 msgstr "ویرایش این مجموعه"
 
 #: src/amo/components/AddonReviewCard/index.js:237
-#: src/ui/components/DismissibleTextForm/index.js:224
+#: src/amo/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
+#: src/amo/components/ConfirmationDialog/index.js:60
+#: src/amo/components/DismissibleTextForm/index.js:209
 #: src/amo/pages/UserProfileEdit/index.js:898
-#: src/ui/components/ConfirmationDialog/index.js:60
-#: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
 msgstr "لغو"
 
@@ -755,31 +755,26 @@ msgstr "ویرایش این مجموعه"
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionDetails/index.js:107
+#: src/amo/components/CollectionDetails/index.js:108
 msgid "Edit this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/CollectionDetails/index.js:118
+#: src/amo/components/CollectionDetails/index.js:119
 #, fuzzy
 msgid "Edit collection details"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/CollectionDetails/index.js:130
+#: src/amo/components/CollectionDetails/index.js:131
 #, fuzzy
 msgid "Back to collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/CollectionDetails/index.js:64
-#: src/ui/components/UserCollection/index.js:54
-msgid "(no name)"
-msgstr ""
-
-#: src/amo/components/CollectionDetails/index.js:83
+#: src/amo/components/CollectionDetails/index.js:84
 #: src/amo/components/Footer/index.js:47
 msgid "Add-ons"
 msgstr "افزونه‌ها"
 
-#: src/amo/components/CollectionDetails/index.js:87
+#: src/amo/components/CollectionDetails/index.js:88
 msgid "Creator"
 msgstr "سازنده"
 
@@ -825,6 +820,10 @@ msgstr ""
 #, fuzzy
 msgid "Popularity"
 msgstr "محبوب‌ترین پوسته‌ها"
+
+#: src/amo/components/ConfirmationDialog/index.js:52
+msgid "Confirm"
+msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
@@ -902,6 +901,18 @@ msgstr ""
 "مولفان این افزونه از شما درخواست می‌کنند که به ادامه یافتن توسعه‌ی آن با یک "
 "مشارکت کوچک کمک کنید."
 
+#: src/amo/components/DismissibleTextForm/index.js:187
+msgid "Enter text."
+msgstr "متن وارد کنید."
+
+#: src/amo/components/DismissibleTextForm/index.js:188
+msgid "Submit"
+msgstr "ارسال"
+
+#: src/amo/components/DismissibleTextForm/index.js:190
+msgid "Submitting"
+msgstr "در حال ثبت"
+
 #: src/amo/components/EditableCollectionAddon/index.js:133
 #: src/amo/components/EditableCollectionAddon/index.js:151
 #, fuzzy
@@ -925,6 +936,18 @@ msgstr ""
 #: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
 msgstr ""
+
+#: src/amo/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "جلسه شما منقضی شده است"
+
+#: src/amo/components/ErrorList/index.js:51
+msgid "An unexpected error occurred"
+msgstr "یک خطای پیش‌بینی نشده رخ داد"
+
+#: src/amo/components/ErrorList/index.js:59
+msgid "Reload To Continue"
+msgstr "برای ادامه دوباره بارگذاری کنید"
 
 #: src/amo/components/ErrorPage/GenericError/index.js:24
 #: src/amo/components/Errors/ServerError/index.js:30
@@ -1045,6 +1068,10 @@ msgstr "این افزونه با پلتفرم شما سازگار نیست."
 msgid "The page you tried to access is not available in your region."
 msgstr "این افزونه با پلتفرم شما سازگار نیست."
 
+#: src/amo/components/ExpandableCard/index.js:57
+msgid "Toggle contents"
+msgstr "تغییر وضعیت محتویات"
+
 #: src/amo/components/FeaturedAddonReview/index.js:83
 #, fuzzy
 msgid "Response by %(userName)s"
@@ -1068,12 +1095,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "گزارش شد"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "گزارش"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "گزارش شد"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1272,10 +1299,41 @@ msgid "BY FIREFOX"
 msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:237
-#: src/amo/components/SponsoredAddonsShelf/index.js:219
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
+msgstr ""
+
+#: src/amo/components/HostPermissions/index.js:50
+msgid "Access your data for all websites"
+msgstr ""
+
+#: src/amo/components/HostPermissions/index.js:53
+msgid "Access your data for sites in the %(param)s domain"
+msgstr ""
+
+#: src/amo/components/HostPermissions/index.js:57
+msgid "Access your data for %(param)s"
+msgstr ""
+
+#: src/amo/components/IconPromotedBadge/index.js:46
+#: src/amo/components/PromotedBadge/index.js:41
+#: src/amo/components/SearchFilters/index.js:172
+#, fuzzy
+msgid "By Firefox"
+msgstr "برای فایرفاکس"
+
+#: src/amo/components/IconPromotedBadge/index.js:47
+#: src/amo/components/PromotedBadge/index.js:48
+#: src/amo/components/SearchFilters/index.js:170
+#, fuzzy
+msgid "Recommended"
+msgstr "کاربرها"
+
+#: src/amo/components/IconPromotedBadge/index.js:48
+#: src/amo/components/PromotedBadge/index.js:56
+#: src/amo/components/SearchFilters/index.js:176
+msgid "Verified"
 msgstr ""
 
 #: src/amo/components/InfoDialog/index.js:64
@@ -1309,6 +1367,10 @@ msgstr ""
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
 msgstr "تغییر زبان"
+
+#: src/amo/components/Notice/index.js:153
+msgid "Dismiss this notice"
+msgstr ""
 
 #: src/amo/components/Paginate/index.js:137
 msgid "Previous"
@@ -1430,6 +1492,43 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
+msgstr ""
+
+#: src/amo/components/PromotedBadge/index.js:42
+msgid ""
+"Official add-on built by Mozilla Firefox. Meets security and performance "
+"standards."
+msgstr ""
+
+#: src/amo/components/PromotedBadge/index.js:49
+msgid ""
+"Firefox only recommends add-ons that meet our standards for security and "
+"performance."
+msgstr ""
+
+#: src/amo/components/PromotedBadge/index.js:57
+msgid ""
+"This add-on has been reviewed to meet our standards for security and "
+"performance."
+msgstr ""
+
+#: src/amo/components/Rating/index.js:100
+#, fuzzy
+msgid "Update your rating to %(starRating)s out of 5"
+msgstr "دارای رتبه %(rating)s از ۵"
+
+#: src/amo/components/Rating/index.js:106
+#, fuzzy
+msgid "Rate this add-on %(starRating)s out of 5"
+msgstr "دارای رتبه %(rating)s از ۵"
+
+#: src/amo/components/Rating/index.js:83 src/amo/components/Rating/index.js:94
+#, fuzzy
+msgid "Rated %(rating)s out of 5"
+msgstr "دارای رتبه %(rating)s از ۵"
+
+#: src/amo/components/Rating/index.js:87
+msgid "There are no ratings yet"
 msgstr ""
 
 #: src/amo/components/RatingManager/index.js:118
@@ -1606,13 +1705,13 @@ msgstr ""
 msgid "Search results"
 msgstr "نتایج جستجو"
 
-#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:302
+#: src/amo/components/Search/index.js:126 src/amo/pages/Home/index.js:293
 #: src/amo/pages/LandingPage/index.js:124
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "یافتن افزونه"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:372
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:363
 #: src/amo/pages/LandingPage/index.js:156
 #, fuzzy
 msgid "Recommended themes"
@@ -1668,7 +1767,7 @@ msgstr "پوسته‌های منتخب"
 msgid "Verified add-ons"
 msgstr "افزونه‌های منتخب"
 
-#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:385
+#: src/amo/components/Search/index.js:173 src/amo/pages/Home/index.js:376
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "افزونه‌های داغ"
@@ -1696,11 +1795,11 @@ msgstr "پوسته‌های با بیشترین امتیاز"
 msgid "Top rated add-ons"
 msgstr "افزونه‌های با بیشترین امتیاز"
 
-#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:345
+#: src/amo/components/Search/index.js:197 src/amo/pages/Home/index.js:336
 msgid "Popular extensions"
 msgstr "محبوب‌ترین افزونه‌ها"
 
-#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:326
+#: src/amo/components/Search/index.js:200 src/amo/pages/Home/index.js:317
 msgid "Popular themes"
 msgstr "محبوب‌ترین پوسته‌ها"
 
@@ -1837,26 +1936,6 @@ msgstr ""
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:170
-#: src/ui/components/IconPromotedBadge/index.js:47
-#: src/ui/components/PromotedBadge/index.js:48
-#, fuzzy
-msgid "Recommended"
-msgstr "کاربرها"
-
-#: src/amo/components/SearchFilters/index.js:172
-#: src/ui/components/IconPromotedBadge/index.js:46
-#: src/ui/components/PromotedBadge/index.js:41
-#, fuzzy
-msgid "By Firefox"
-msgstr "برای فایرفاکس"
-
-#: src/amo/components/SearchFilters/index.js:176
-#: src/ui/components/IconPromotedBadge/index.js:48
-#: src/ui/components/PromotedBadge/index.js:56
-msgid "Verified"
-msgstr ""
-
 #: src/amo/components/SearchFilters/index.js:180
 #, fuzzy
 msgid "All Reviewed"
@@ -1965,6 +2044,14 @@ msgstr "لغت‌نامه‌ها و بسته‌های زبان"
 msgid "Explore"
 msgstr "کشف کنید"
 
+#: src/amo/components/ShowMoreCard/index.js:138
+msgid "Expand to read more"
+msgstr ""
+
+#: src/amo/components/ShowMoreCard/index.js:143
+msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
+msgstr "<span class=\"visually-hidden\"> باز کردن </span> برای خواندن بیشتر"
+
 #: src/amo/components/SiteNotices/index.js:72
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
@@ -1973,15 +2060,6 @@ msgstr ""
 
 #: src/amo/components/SiteNotices/index.js:87
 msgid "You have been logged out."
-msgstr ""
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:210
-#, fuzzy
-msgid "Sponsored extensions"
-msgstr "افزونه‌های با بیشترین امتیاز"
-
-#: src/amo/components/SponsoredAddonsShelf/index.js:223
-msgid "What is this?"
 msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:24
@@ -2010,11 +2088,22 @@ msgid ""
 "about your experience."
 msgstr ""
 
-#: src/amo/components/UserProfileEditPicture/index.js:106
+#: src/amo/components/ThemeImage/index.js:31 src/amo/pages/Addon/index.js:160
+msgid "Preview of %(title)s"
+msgstr ""
+
+#: src/amo/components/UserCollection/index.js:46
+#, fuzzy
+msgid "%(total)s add-on"
+msgid_plural "%(total)s add-ons"
+msgstr[0] "%(count)s افزونه یافت شد"
+msgstr[1] "%(count)s افزونه یافت شد"
+
+#: src/amo/components/UserProfileEditPicture/index.js:107
 msgid "Do you really want to delete this picture?"
 msgstr ""
 
-#: src/amo/components/UserProfileEditPicture/index.js:109
+#: src/amo/components/UserProfileEditPicture/index.js:110
 #, fuzzy
 msgid "Delete This Picture"
 msgstr "ویرایش این مجموعه"
@@ -2033,14 +2122,11 @@ msgstr "نمایش نمایه"
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/amo/components/WrongPlatformWarning/index.js:106
-#, fuzzy
-msgid ""
-"To find add-ons compatible with Firefox for Android, <a href="
-"\"%(newLocation)s\">click here</a>."
-msgstr "این افزونه با نسخهٔ فعلی فایرفاکس شما سازگار نیست."
+#: src/amo/components/UserReview/index.js:103
+msgid "Developer response"
+msgstr "پاسخ توسعه‌دهنده"
 
-#: src/amo/components/WrongPlatformWarning/index.js:85
+#: src/amo/components/WrongPlatformWarning/index.js:82
 #, fuzzy
 msgid ""
 "This add-on is not compatible with this browser. Try installing it on "
@@ -2048,10 +2134,11 @@ msgid ""
 msgstr "این افزونه با نسخهٔ فعلی فایرفاکس شما سازگار نیست."
 
 #: src/amo/components/WrongPlatformWarning/index.js:95
+#, fuzzy
 msgid ""
-"You can install this add-on in the Add-ons Manager. Learn more about <a href="
-"\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+"To find add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
+msgstr "این افزونه با نسخهٔ فعلی فایرفاکس شما سازگار نیست."
 
 #: src/amo/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -2071,10 +2158,6 @@ msgstr ""
 
 #: src/amo/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
-
-#: src/amo/pages/Addon/index.js:160 src/ui/components/ThemeImage/index.js:31
-msgid "Preview of %(title)s"
 msgstr ""
 
 #: src/amo/pages/Addon/index.js:195
@@ -2295,41 +2378,41 @@ msgstr "تمام ضمیمه‌های این دسته را مرور کنید."
 msgid "All theme categories"
 msgstr "بررسی تمام بسته‌بندی‌ها"
 
-#: src/amo/pages/Collection/index.js:393
+#: src/amo/pages/Collection/index.js:394
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:396
+#: src/amo/pages/Collection/index.js:397
 #, fuzzy
 msgid "Delete this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:415
+#: src/amo/pages/Collection/index.js:416
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:416
+#: src/amo/pages/Collection/index.js:417
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/pages/Collection/index.js:449
+#: src/amo/pages/Collection/index.js:450
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:452
+#: src/amo/pages/Collection/index.js:453
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:514
+#: src/amo/pages/Collection/index.js:515
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:517
+#: src/amo/pages/Collection/index.js:518
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2366,81 +2449,81 @@ msgstr "ویرایش این مجموعه"
 msgid "My collections"
 msgstr "نمایش مجموعهٔ من"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:145
 msgid "Abstract"
 msgstr "انتضاعی"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:150
 msgid "Nature"
 msgstr "طبیعت"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:155
 msgid "Film & TV"
 msgstr "فیلم و تلویزیون"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:160
 msgid "Scenery"
 msgstr "منظره"
 
-#: src/amo/pages/Home/index.js:167
+#: src/amo/pages/Home/index.js:165
 msgid "Music"
 msgstr "موزیک"
 
-#: src/amo/pages/Home/index.js:172
+#: src/amo/pages/Home/index.js:170
 msgid "Seasonal"
 msgstr "فصلی"
 
-#: src/amo/pages/Home/index.js:225
+#: src/amo/pages/Home/index.js:222
 msgid "Change the way Firefox looks with themes."
 msgstr "ظاهر Firefox را با تم‌ها تغییر دهید."
 
-#: src/amo/pages/Home/index.js:256
+#: src/amo/pages/Home/index.js:253
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:303 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:294 src/amo/pages/LandingPage/index.js:133
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "دیدن افزونه‌های داغ بیشتر"
 
-#: src/amo/pages/Home/index.js:327
+#: src/amo/pages/Home/index.js:318
 #, fuzzy
 msgid "See more popular themes"
 msgstr "افزونه‌های محبوب بیشتر"
 
-#: src/amo/pages/Home/index.js:346
+#: src/amo/pages/Home/index.js:337
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "دیدن افزونه‌های با امتیاز بالای بیشتر"
 
-#: src/amo/pages/Home/index.js:363 src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:165
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "دیدن پوسته‌های منتخب بیشتر"
 
-#: src/amo/pages/Home/index.js:386 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Home/index.js:377 src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "دیدن افزونه‌های داغ بیشتر"
 
-#: src/amo/pages/Home/index.js:63
+#: src/amo/pages/Home/index.js:61
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "دیدن افزونه‌های منتخب بیشتر"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:62
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "برترین افزونه‌های حریم‌خصوصی"
 
-#: src/amo/pages/Home/index.js:69
+#: src/amo/pages/Home/index.js:67
 #, fuzzy
 msgid "See more recommended password managers"
 msgstr "دیدن پوسته‌های منتخب بیشتر"
 
-#: src/amo/pages/Home/index.js:70
+#: src/amo/pages/Home/index.js:68
 #, fuzzy
 msgid "Recommended password managers"
 msgstr "مدیریت گذرواژه‌ها"
@@ -3131,6 +3214,10 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr ""
 
+#: src/amo/reducers/collections.js:1014
+msgid "(no name)"
+msgstr ""
+
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:352
 msgid "%(application)s %(minVersion)s and later"
@@ -3207,107 +3294,9 @@ msgstr ""
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
-#: src/ui/components/ConfirmationDialog/index.js:52
-msgid "Confirm"
-msgstr ""
-
-#: src/ui/components/DismissibleTextForm/index.js:187
-msgid "Enter text."
-msgstr "متن وارد کنید."
-
-#: src/ui/components/DismissibleTextForm/index.js:188
-msgid "Submit"
-msgstr "ارسال"
-
-#: src/ui/components/DismissibleTextForm/index.js:190
-msgid "Submitting"
-msgstr "در حال ثبت"
-
-#: src/ui/components/ErrorList/index.js:44
-msgid "Your session has expired"
-msgstr "جلسه شما منقضی شده است"
-
-#: src/ui/components/ErrorList/index.js:51
-msgid "An unexpected error occurred"
-msgstr "یک خطای پیش‌بینی نشده رخ داد"
-
-#: src/ui/components/ErrorList/index.js:59
-msgid "Reload To Continue"
-msgstr "برای ادامه دوباره بارگذاری کنید"
-
-#: src/ui/components/ExpandableCard/index.js:57
-msgid "Toggle contents"
-msgstr "تغییر وضعیت محتویات"
-
-#: src/ui/components/HostPermissions/index.js:50
-msgid "Access your data for all websites"
-msgstr ""
-
-#: src/ui/components/HostPermissions/index.js:53
-msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
-
-#: src/ui/components/HostPermissions/index.js:57
-msgid "Access your data for %(param)s"
-msgstr ""
-
-#: src/ui/components/Notice/index.js:153
-msgid "Dismiss this notice"
-msgstr ""
-
-#: src/ui/components/PromotedBadge/index.js:42
-msgid "This is an official add-on built by the creators of Mozilla Firefox."
-msgstr ""
-
-#: src/ui/components/PromotedBadge/index.js:49
-msgid ""
-"Firefox only recommends add-ons that meet our standards for security and "
-"performance."
-msgstr ""
-
-#: src/ui/components/PromotedBadge/index.js:57
-msgid ""
-"This add-on has been reviewed to meet our standards for security and "
-"performance."
-msgstr ""
-
-#: src/ui/components/Rating/index.js:100
 #, fuzzy
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "دارای رتبه %(rating)s از ۵"
-
-#: src/ui/components/Rating/index.js:106
-#, fuzzy
-msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "دارای رتبه %(rating)s از ۵"
-
-#: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
-#, fuzzy
-msgid "Rated %(rating)s out of 5"
-msgstr "دارای رتبه %(rating)s از ۵"
-
-#: src/ui/components/Rating/index.js:87
-msgid "There are no ratings yet"
-msgstr ""
-
-#: src/ui/components/ShowMoreCard/index.js:138
-msgid "Expand to read more"
-msgstr ""
-
-#: src/ui/components/ShowMoreCard/index.js:143
-msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\"> باز کردن </span> برای خواندن بیشتر"
-
-#: src/ui/components/UserCollection/index.js:45
-#, fuzzy
-msgid "%(total)s add-on"
-msgid_plural "%(total)s add-ons"
-msgstr[0] "%(count)s افزونه یافت شد"
-msgstr[1] "%(count)s افزونه یافت شد"
-
-#: src/ui/components/UserReview/index.js:103
-msgid "Developer response"
-msgstr "پاسخ توسعه‌دهنده"
+#~ msgid "Sponsored extensions"
+#~ msgstr "افزونه‌های با بیشترین امتیاز"
 
 #, fuzzy
 #~ msgid "Promoted Add-Ons"
