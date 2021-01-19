@@ -73,7 +73,6 @@ function componentWithInstallHelpers() {
 
 const defaultProps = ({
   _addonManager = getFakeAddonManagerWrapper(),
-  _trackConversion = sinon.spy(),
   addon = createInternalAddonWithLang(fakeAddon),
   store = dispatchClientMetadata().store,
   ...overrides
@@ -82,7 +81,6 @@ const defaultProps = ({
 
   return {
     _addonManager,
-    _trackConversion,
     addon,
     store,
     ...overrides,
@@ -1157,48 +1155,6 @@ describe(__filename, () => {
               INSTALL_ACTION,
             ),
             label: addon.guid,
-          });
-        });
-      });
-
-      describe('Conversion tracking', () => {
-        const addon = createInternalAddonWithLang(fakeAddon);
-
-        it('calls trackConversion after a successful install', () => {
-          _loadVersions({ store });
-          const _trackConversion = sinon.spy();
-
-          const { root } = renderWithInstallHelpers({
-            _trackConversion,
-            addon,
-            store,
-          });
-          const { install } = root.instance().props;
-
-          return install(addon).then(() => {
-            sinon.assert.calledWith(_trackConversion, { addonId: addon.id });
-          });
-        });
-
-        it('does not call trackConversion if the install fails', () => {
-          _loadVersions({ store });
-          const _trackConversion = sinon.spy();
-
-          const { root } = renderWithInstallHelpers({
-            _addonManager: getFakeAddonManagerWrapper({
-              // Make the install fail.
-              install: sinon
-                .stub()
-                .returns(Promise.reject(new Error('install error'))),
-            }),
-            _trackConversion,
-            addon,
-            store,
-          });
-          const { install } = root.instance().props;
-
-          return install(addon).then(() => {
-            sinon.assert.notCalled(_trackConversion);
           });
         });
       });

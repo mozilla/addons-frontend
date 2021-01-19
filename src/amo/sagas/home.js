@@ -6,7 +6,6 @@ import { getCollectionAddons } from 'amo/api/collections';
 import { getHeroShelves } from 'amo/api/hero';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
-  LANDING_PAGE_PROMOTED_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
   ADDON_TYPE_EXTENSION,
@@ -15,7 +14,6 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
-  SPONSORED,
 } from 'amo/constants';
 import {
   FETCH_HOME_DATA,
@@ -134,16 +132,6 @@ export function* fetchHomeData({
         },
       };
 
-      const promotedExtensionsParams: SearchParams = {
-        api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
-          page_size: String(LANDING_PAGE_PROMOTED_EXTENSION_COUNT),
-          promoted: SPONSORED,
-          sort: SEARCH_SORT_RANDOM,
-        },
-      };
-
       let shelves = {};
       try {
         shelves = yield all({
@@ -156,7 +144,6 @@ export function* fetchHomeData({
           trendingExtensions: includeTrendingExtensions
             ? call(searchApi, trendingExtensionsParams)
             : null,
-          promotedExtensions: call(searchApi, promotedExtensionsParams),
         });
       } catch (error) {
         log.warn(`Home add-ons failed to load: ${error}`);

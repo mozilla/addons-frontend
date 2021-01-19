@@ -33,8 +33,6 @@ import {
 import log from 'amo/logger';
 import { convertBoolean } from 'amo/utils';
 
-export const SPONSORED_INSTALL_CONVERSION_INFO_KEY = 'sponsoredConversionInfo';
-
 type IsDoNoTrackEnabledParams = {|
   _log: typeof log,
   _navigator: ?typeof navigator,
@@ -302,96 +300,6 @@ export const formatDataForBeacon = ({
     formData.append('type', type);
   }
   return formData;
-};
-
-export const sendSponsoredEventBeacon = ({
-  _config = config,
-  _sendBeacon = sendBeacon,
-  data,
-  type,
-}: {
-  _config?: typeof config,
-  _sendBeacon?: typeof sendBeacon,
-  data: string,
-  type: string,
-}) => {
-  const sponsoredEventURL = `${_config.get('apiPath')}${_config.get(
-    'apiVersion',
-  )}/shelves/sponsored/event/`;
-
-  _sendBeacon({
-    data: formatDataForBeacon({ data, key: 'data', type }),
-    urlString: sponsoredEventURL,
-  });
-};
-
-export const storeConversionInfo = ({
-  _log = log,
-  _window = typeof window !== 'undefined' ? window : {},
-  addonId,
-  data,
-}: {
-  _log?: typeof log,
-  _window?: typeof window | Object,
-  addonId: number,
-  data: string,
-}) => {
-  if (_window.sessionStorage) {
-    let item;
-    try {
-      item = JSON.stringify({ addonId, data });
-    } catch (e) {
-      _log.warn('data not stringifyable as JSON. Not storing conversion info.');
-      return;
-    }
-
-    _window.sessionStorage.setItem(SPONSORED_INSTALL_CONVERSION_INFO_KEY, item);
-  } else {
-    _log.warn(
-      'window.sessionStorage does not exist. Not storing conversion info.',
-    );
-  }
-};
-
-export const trackConversion = ({
-  _sendSponsoredEventBeacon = sendSponsoredEventBeacon,
-  _window = typeof window !== 'undefined' ? window : {},
-  addonId,
-}: {
-  _sendSponsoredEventBeacon?: typeof sendSponsoredEventBeacon,
-  _window?: typeof window | Object,
-  addonId: number,
-} = {}) => {
-  let info;
-  if (_window.sessionStorage) {
-    info = _window.sessionStorage.getItem(
-      SPONSORED_INSTALL_CONVERSION_INFO_KEY,
-    );
-  } else {
-    log.warn(
-      'window.sessionStorage does not exist. Not retrieving conversion info.',
-    );
-    return;
-  }
-
-  if (info) {
-    try {
-      info = JSON.parse(info);
-    } catch (e) {
-      log.warn('Could not parse stored conversion info.');
-      info = null;
-    }
-  }
-
-  if (info) {
-    const { addonId: storedAddonId, data } = info;
-
-    if (addonId === storedAddonId && data) {
-      _sendSponsoredEventBeacon({ data, type: 'conversion' });
-
-      _window.sessionStorage.removeItem(SPONSORED_INSTALL_CONVERSION_INFO_KEY);
-    }
-  }
 };
 
 export default new Tracking();

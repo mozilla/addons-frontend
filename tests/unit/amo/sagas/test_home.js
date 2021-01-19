@@ -4,7 +4,6 @@ import * as collectionsApi from 'amo/api/collections';
 import * as heroApi from 'amo/api/hero';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
-  LANDING_PAGE_PROMOTED_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
   ADDON_TYPE_EXTENSION,
@@ -13,7 +12,6 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
-  SPONSORED,
 } from 'amo/constants';
 import homeReducer, {
   abortFetchHomeData,
@@ -169,20 +167,6 @@ describe(__filename, () => {
         })
         .resolves(trendingExtensions);
 
-      const promotedExtensions = createAddonsApiResult([fakeAddon]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            addonType: ADDON_TYPE_EXTENSION,
-            page_size: String(LANDING_PAGE_PROMOTED_EXTENSION_COUNT),
-            promoted: SPONSORED,
-            sort: SEARCH_SORT_RANDOM,
-          },
-        })
-        .resolves(promotedExtensions);
-
       const heroShelves = createHeroShelves();
       mockHeroApi
         .expects('getHeroShelves')
@@ -205,7 +189,6 @@ describe(__filename, () => {
           recommendedThemes,
           popularExtensions,
           popularThemes,
-          promotedExtensions,
           trendingExtensions,
         },
       });
@@ -274,9 +257,6 @@ describe(__filename, () => {
       const popularThemes = createAddonsApiResult([fakeAddon]);
       mockSearchApi.expects('search').resolves(popularThemes);
 
-      const promotedExtensions = createAddonsApiResult([fakeAddon]);
-      mockSearchApi.expects('search').resolves(promotedExtensions);
-
       const heroShelves = createHeroShelves();
       mockHeroApi.expects('getHeroShelves').resolves(heroShelves);
 
@@ -293,7 +273,6 @@ describe(__filename, () => {
           recommendedThemes,
           popularExtensions,
           popularThemes,
-          promotedExtensions,
           trendingExtensions: null,
         },
       });
@@ -318,9 +297,6 @@ describe(__filename, () => {
       const trendingExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi.expects('search').resolves(trendingExtensions);
 
-      const promotedExtensions = createAddonsApiResult([fakeAddon]);
-      mockSearchApi.expects('search').resolves(promotedExtensions);
-
       const heroShelves = createHeroShelves();
       mockHeroApi.expects('getHeroShelves').resolves(heroShelves);
 
@@ -337,7 +313,6 @@ describe(__filename, () => {
           recommendedThemes: null,
           popularExtensions,
           popularThemes,
-          promotedExtensions,
           trendingExtensions,
         },
       });
@@ -371,9 +346,6 @@ describe(__filename, () => {
         const trendingExtensions = createAddonsApiResult([fakeAddon]);
         mockSearchApi.expects('search').resolves(trendingExtensions);
 
-        const promotedExtensions = createAddonsApiResult([fakeAddon]);
-        mockSearchApi.expects('search').resolves(promotedExtensions);
-
         const heroShelves = createHeroShelves();
         mockHeroApi.expects('getHeroShelves').resolves(heroShelves);
 
@@ -392,7 +364,6 @@ describe(__filename, () => {
             recommendedThemes: null,
             popularExtensions,
             popularThemes,
-            promotedExtensions,
             trendingExtensions,
           },
         });

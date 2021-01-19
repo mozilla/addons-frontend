@@ -11,4 +11,3 @@ import './amo/HeroRecommendation';
 import './amo/IconPromotedBadge';
 import './amo/PromotedBadge';
 import './amo/Rating';
-import './amo/SponsoredAddonsShelf';

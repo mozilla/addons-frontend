@@ -108,8 +108,6 @@ module.exports = {
     'enableDevTools',
     'enableFeatureBlockPage',
     'enableFeatureExperienceSurvey',
-    'enableFeatureSponsoredShelf',
-    'enableFeatureUseAdzerkForSponsoredShelf',
     'enableFeatureAllowAndroidInstall',
     'enableRequestID',
     'enableStrictMode',
@@ -425,8 +423,6 @@ module.exports = {
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
-  enableFeatureSponsoredShelf: true,
-  enableFeatureUseAdzerkForSponsoredShelf: true,
   enableFeatureAllowAndroidInstall: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
