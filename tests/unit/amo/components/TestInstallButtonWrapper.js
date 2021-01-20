@@ -325,7 +325,7 @@ describe(__filename, () => {
       version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper')).toHaveLength(1);
+    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(1);
   });
 
   it('does not display a download link when the browser is compatible', () => {
