@@ -283,11 +283,14 @@ export const createFakeAddonInfo = ({
   };
 };
 
-export const fakePrimaryHeroShelfExternal = Object.freeze({
+export const fakePrimaryHeroShelfExternalAddon = Object.freeze({
   id: 1,
   guid: 'some-guid',
-  homepage: 'https://mozilla.org',
-  name: 'some external name',
+  homepage: {
+    'url': createLocalizedString('http://hamsterdance.com/'),
+    'outgoing': createLocalizedString('https://outgoing.mozilla.org/hamster'),
+  },
+  name: createLocalizedString('some external name'),
   type: ADDON_TYPE_EXTENSION,
 });
 

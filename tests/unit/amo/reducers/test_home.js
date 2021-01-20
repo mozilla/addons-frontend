@@ -6,14 +6,17 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
 } from 'amo/constants';
+import { selectLocalizedUrlWithOutgoing } from 'amo/reducers/addons';
 import homeReducer, {
   abortFetchHomeData,
   createInternalHeroShelves,
+  createInternalPrimaryHeroShelfExternalAddon,
   fetchHomeData,
   initialState,
   loadHomeData,
 } from 'amo/reducers/home';
 import { setClientApp, setLang } from 'amo/reducers/api';
+import { selectLocalizedContent } from 'amo/reducers/utils';
 import {
   createAddonsApiResult,
   createFakeCollectionAddon,
@@ -23,7 +26,7 @@ import {
   createSecondaryHeroShelf,
   dispatchClientMetadata,
   fakeAddon,
-  fakePrimaryHeroShelfExternal,
+  fakePrimaryHeroShelfExternalAddon,
   getFakeConfig,
   createHeroShelves,
 } from 'tests/unit/helpers';
@@ -378,7 +381,7 @@ describe(__filename, () => {
     });
 
     it('works when an addon is not defined', () => {
-      const external = fakePrimaryHeroShelfExternal;
+      const external = fakePrimaryHeroShelfExternalAddon;
       const heroShelves = createHeroShelves({
         primaryProps: {
           addon: undefined,
@@ -390,7 +393,7 @@ describe(__filename, () => {
         createInternalHeroShelves(heroShelves, lang).primary,
       ).toMatchObject({
         addon: undefined,
-        external,
+        external: createInternalPrimaryHeroShelfExternalAddon(external, lang),
       });
     });
 
@@ -499,6 +502,22 @@ describe(__filename, () => {
       expect(() => createInternalHeroShelves(heroShelves, lang)).toThrow(
         /Either primary.addon or primary.external is required/,
       );
+    });
+  });
+
+  describe('createInternalPrimaryHeroShelfExternalAddon', () => {
+    it('creates an internal representation of an external add-on', () => {
+      const external = fakePrimaryHeroShelfExternalAddon;
+
+      expect(
+        createInternalPrimaryHeroShelfExternalAddon(external, lang),
+      ).toEqual({
+        guid: external.guid,
+        homepage: selectLocalizedUrlWithOutgoing(external.homepage, lang),
+        id: external.id,
+        name: selectLocalizedContent(external.name, lang),
+        type: external.type,
+      });
     });
   });
 });

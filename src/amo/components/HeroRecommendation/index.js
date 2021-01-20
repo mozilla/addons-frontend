@@ -78,11 +78,13 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     }
 
     invariant(external, 'Either an addon or an external is required');
-    return addQueryParams(external.homepage, {
-      utm_source: DEFAULT_UTM_SOURCE,
-      utm_medium: DEFAULT_UTM_MEDIUM,
-      utm_content: PRIMARY_HERO_SRC,
-    });
+    return external.homepage
+      ? addQueryParams(external.homepage.url, {
+          utm_source: DEFAULT_UTM_SOURCE,
+          utm_medium: DEFAULT_UTM_MEDIUM,
+          utm_content: PRIMARY_HERO_SRC,
+        })
+      : null;
   };
 
   onHeroClick = () => {
@@ -164,38 +166,43 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
         `className ${gradientsClassName} generated from the API response. This should match a selector in styles.scss`,
       );
 
-      const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
-      const linkProps = _checkInternalURL({
-        urlString: this.makeCallToActionURL(),
-      }).isInternal
-        ? {}
-        : { rel: 'noopener noreferrer', target: '_blank' };
+      const callToActionURL = this.makeCallToActionURL();
 
-      if (addon) {
-        heading = addon.name;
-        link = (
-          <Link
-            className="HeroRecommendation-link"
-            onClick={this.onHeroClick}
-            to={this.makeCallToActionURL()}
-          >
-            {linkInsides}
-          </Link>
-        );
-      } else if (external) {
-        heading = external.name;
-        link = (
-          <a
-            className="HeroRecommendation-link"
-            href={this.makeCallToActionURL()}
-            onClick={this.onHeroClick}
-            {...linkProps}
-          >
-            {linkInsides}
-          </a>
-        );
+      if (callToActionURL) {
+        const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
+        const linkProps = _checkInternalURL({
+          urlString: callToActionURL,
+        }).isInternal
+          ? {}
+          : { rel: 'noopener noreferrer', target: '_blank' };
+        if (addon) {
+          heading = addon.name;
+          link = (
+            <Link
+              className="HeroRecommendation-link"
+              onClick={this.onHeroClick}
+              to={callToActionURL}
+            >
+              {linkInsides}
+            </Link>
+          );
+        } else if (external) {
+          heading = external.name;
+          link = (
+            <a
+              className="HeroRecommendation-link"
+              href={callToActionURL}
+              onClick={this.onHeroClick}
+              {...linkProps}
+            >
+              {linkInsides}
+            </a>
+          );
+        }
       }
-    } else {
+    }
+
+    if (!addon && !external) {
       gradientsClassName = `HeroRecommendation--loading`;
       loading = true;
     }
