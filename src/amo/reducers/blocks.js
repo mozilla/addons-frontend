@@ -1,14 +1,16 @@
 /* @flow */
 import invariant from 'invariant';
 
-import type { UrlWithOutgoing } from 'amo/types/api';
+import { SET_LANG } from 'amo/reducers/api';
+import { selectLocalizedContent } from 'amo/reducers/utils';
+import type { LocalizedString, UrlWithOutgoing } from 'amo/types/api';
 
 export const FETCH_BLOCK: 'FETCH_BLOCK' = 'FETCH_BLOCK';
 export const ABORT_FETCH_BLOCK: 'ABORT_FETCH_BLOCK' = 'ABORT_FETCH_BLOCK';
 export const LOAD_BLOCK: 'LOAD_BLOCK' = 'LOAD_BLOCK';
 
 export type ExternalBlockType = {|
-  addon_name: string | null,
+  addon_name: LocalizedString | null,
   created: string,
   guid: string,
   id: number,
@@ -21,14 +23,19 @@ export type ExternalBlockType = {|
 
 export type BlockType = {|
   ...ExternalBlockType,
+  name: string,
 |};
 
 export type BlocksState = {|
   blocks: { [guid: string]: BlockType },
+  lang: string,
 |};
 
 export const initialState: BlocksState = {
   blocks: {},
+  // We default lang to '' to avoid having to add a lot of invariants to our
+  // code, and protect against a lang of '' in selectLocalizedContent.
+  lang: '',
 };
 
 type FetchBlockParams = {|
@@ -90,6 +97,16 @@ export const loadBlock = ({ block }: LoadBlockParams): LoadBlockAction => {
   };
 };
 
+export const createInternalBlock = (
+  block: ExternalBlockType,
+  lang: string,
+): BlockType => {
+  return {
+    ...block,
+    name: selectLocalizedContent(block.addon_name, lang),
+  };
+};
+
 type Action = FetchBlockAction | AbortFetchBlockAction | LoadBlockAction;
 
 const reducer = (
@@ -112,10 +129,16 @@ const reducer = (
         ...state,
         blocks: {
           ...state.blocks,
-          [block.guid]: block,
+          [block.guid]: createInternalBlock(block, state.lang),
         },
       };
     }
+
+    case SET_LANG:
+      return {
+        ...state,
+        lang: action.payload.lang,
+      };
 
     default:
       return state;

@@ -1,9 +1,14 @@
+import { setLang } from 'amo/reducers/api';
 import blocksReducer, {
   abortFetchBlock,
+  createInternalBlock,
   initialState,
   loadBlock,
 } from 'amo/reducers/blocks';
-import { createFakeBlockResult } from 'tests/unit/helpers';
+import {
+  createFakeBlockResult,
+  createLocalizedString,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {
@@ -28,11 +33,17 @@ describe(__filename, () => {
 
     it('stores a block in its state', () => {
       const guid = 'some-guid';
-      const block = createFakeBlockResult({ guid });
-      const state = blocksReducer(undefined, {});
+      const lang = 'fr';
+      const name = 'some name';
+      const block = createFakeBlockResult({
+        addon_name: createLocalizedString(name, lang),
+        guid,
+      });
+      const state = blocksReducer(undefined, setLang('fr'));
 
       const newState = blocksReducer(state, loadBlock({ block }));
-      expect(newState.blocks[guid]).toEqual(block);
+      expect(newState.blocks[guid]).toEqual(createInternalBlock(block, lang));
+      expect(newState.blocks[guid].name).toEqual(name);
     });
 
     it('preserves existing blocks when loading new blocks', () => {
@@ -40,7 +51,7 @@ describe(__filename, () => {
       const guid2 = 'some-guid-2';
       const block1 = createFakeBlockResult({ guid: guid1 });
       const block2 = createFakeBlockResult({ guid: guid2 });
-      const state = blocksReducer(undefined, {});
+      const state = blocksReducer(undefined, setLang('fr'));
 
       let newState = blocksReducer(state, loadBlock({ block: block1 }));
       newState = blocksReducer(newState, loadBlock({ block: block2 }));
