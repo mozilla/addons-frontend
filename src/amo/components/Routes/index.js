@@ -45,7 +45,7 @@ type Props = {|
 // TODO: remove the comment below once
 // https://github.com/yannickcr/eslint-plugin-react/issues/2298 is fixed.
 // eslint-disable-next-line react/prop-types
-const Routes = ({ _config = config }: Props = {}) => (
+const Routes = ({ _config = config }: Props = {}): React.Node => (
   <Switch>
     <Route exact path="/:lang/about" component={About} />
     {/* TODO: Post launch update this URL and redirect see #3374/ */}

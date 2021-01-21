@@ -37,7 +37,7 @@ export class HeroBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const { heroBanners, name, sections } = this.props;
     const orderStyle = heroBanners[name]
       ? `Hero-order-${heroBanners[name].order.join('-')}`
@@ -57,7 +57,7 @@ export class HeroBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): {|heroBanners: any|} => {
   return { heroBanners: state.heroBanners };
 };
 

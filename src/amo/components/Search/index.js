@@ -1,5 +1,5 @@
 /* @flow */
-import deepEqual from 'deep-eql';
+import type {ViewContextType} from "../../reducers/viewContext";import deepEqual from 'deep-eql';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
@@ -60,7 +60,16 @@ type InternalProps = {|
 |};
 
 export class SearchBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+  LinkComponent: any,
+  count: number,
+  enableSearchFilters: boolean,
+  filters: {...},
+  filtersUsedForResults: {...},
+  paginationQueryParams: null,
+  pathname: string,
+  results: Array<any>,
+|} = {
     LinkComponent: Link,
     count: 0,
     enableSearchFilters: true,
@@ -114,7 +123,7 @@ export class SearchBase extends React.Component<InternalProps> {
     }
   }
 
-  renderHelmetTitle() {
+  renderHelmetTitle(): React.Node {
     const { i18n, filters } = this.props;
 
     let title = i18n.gettext('Search results');
@@ -218,7 +227,7 @@ export class SearchBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node | React.Element<"div"> {
     const {
       LinkComponent,
       count,
@@ -288,7 +297,14 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): {|
+  context: ViewContextType,
+  count: number,
+  filtersUsedForResults: null | SearchFiltersType,
+  loading: boolean,
+  pageSize: null | string,
+  results: Array<AddonType | CollectionAddonType>,
+|} => {
   return {
     context: state.viewContext.context,
     count: state.search.count,
@@ -301,7 +317,7 @@ export const mapStateToProps = (state: AppState) => {
 
 // This ID does not need to differentiate between component instances because
 // the error handler gets cleared every time the search filters change.
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): void | string => {
   return ownProps.filters.page;
 };
 

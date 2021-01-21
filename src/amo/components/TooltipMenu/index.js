@@ -18,7 +18,7 @@ type Props = {|
 export default class TooltipMenu extends React.Component<Props> {
   container: React.ElementRef<'div'> | null;
 
-  render() {
+  render(): React.Element<"div"> {
     const {
       idPrefix,
       items,

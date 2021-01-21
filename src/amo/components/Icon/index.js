@@ -12,7 +12,7 @@ export type Props = {|
 |};
 
 export default class Icon extends React.Component<Props> {
-  render() {
+  render(): React.Element<"span"> {
     const { alt, children, className, name, ...props } = this.props;
 
     let altSpan;

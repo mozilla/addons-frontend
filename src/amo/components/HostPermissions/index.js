@@ -87,7 +87,7 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
     return hostPermissions;
   }
 
-  render() {
+  render(): React.Node {
     const { permissions } = this.props;
     const hostPermissions = [];
 

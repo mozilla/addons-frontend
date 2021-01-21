@@ -20,7 +20,7 @@ type Props = {|
 |};
 
 export default class FeaturedCollectionCard extends React.Component<Props> {
-  render() {
+  render(): React.Node {
     const {
       addons,
       className,

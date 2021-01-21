@@ -167,7 +167,9 @@ type Action =
 export default function abuseReducer(
   state: AbuseState = initialState,
   action: Action,
-) {
+): 
+  | AbuseState
+  | {|bySlug: {[addonSlug: string]: AddonAbuseState}, loading: boolean|} {
   switch (action.type) {
     case HIDE_ADDON_ABUSE_REPORT_UI: {
       const { addon } = action.payload;

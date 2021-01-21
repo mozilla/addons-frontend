@@ -39,7 +39,7 @@ export const AddonSummaryCardBase = ({
   headerText,
   i18n,
   location,
-}: InternalProps) => {
+}: InternalProps): React.Node => {
   const queryParamsForAttribution = getQueryParametersForAttribution(location);
   const addonUrl = addon
     ? addQueryParams(getAddonURL(addon.slug), queryParamsForAttribution)

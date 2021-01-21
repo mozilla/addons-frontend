@@ -35,7 +35,7 @@ const sanitizeNoticeHTML = (text: string) => {
 };
 
 export class SiteNoticesBase extends React.Component<InternalProps> {
-  render() {
+  render(): Array<React.Node> {
     const {
       i18n,
       siteIsReadOnly,
@@ -101,4 +101,4 @@ const mapStateToProps = (state: AppState): MappedProps => {
   };
 };
 
-export default compose(connect(mapStateToProps), translate())(SiteNoticesBase);
+export default (compose(connect(mapStateToProps), translate())(SiteNoticesBase): any);

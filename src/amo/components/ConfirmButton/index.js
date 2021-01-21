@@ -44,16 +44,16 @@ type InternalProps = {|
 |};
 
 export class ConfirmButtonBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|buttonType: string|} = {
     buttonType: 'neutral',
   };
 
-  onConfirm = (e: SyntheticEvent<HTMLButtonElement>) => {
+  onConfirm: ((e: SyntheticEvent<HTMLButtonElement>) => void) = (e: SyntheticEvent<HTMLButtonElement>) => {
     this.props.setUIState({ showConfirmation: false });
     this.props.onConfirm(e);
   };
 
-  toggleConfirmation = (e: SyntheticEvent<HTMLButtonElement>) => {
+  toggleConfirmation: ((e: SyntheticEvent<HTMLButtonElement>) => void) = (e: SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     this.props.setUIState({
@@ -61,7 +61,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
     });
   };
 
-  render() {
+  render(): React.Element<"div"> {
     const {
       buttonType,
       cancelButtonText,
@@ -116,7 +116,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   return ownProps.id;
 };
 

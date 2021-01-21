@@ -63,7 +63,7 @@ export class BlockBase extends React.Component<InternalProps> {
     }
   }
 
-  renderReason() {
+  renderReason(): null | React.Element<"p"> {
     const { block } = this.props;
 
     if (block && block.reason === null) {
@@ -78,7 +78,7 @@ export class BlockBase extends React.Component<InternalProps> {
     );
   }
 
-  renderDateAndURL() {
+  renderDateAndURL(): React.Node | Array<React.Element<"a"> | string> {
     const { block, i18n } = this.props;
 
     if (!block) {
@@ -104,7 +104,7 @@ export class BlockBase extends React.Component<InternalProps> {
     return content;
   }
 
-  renderVersions() {
+  renderVersions(): React.Node | string {
     const { block, i18n } = this.props;
 
     if (!block) {
@@ -121,7 +121,7 @@ export class BlockBase extends React.Component<InternalProps> {
     });
   }
 
-  render() {
+  render(): React.Node {
     const { block, errorHandler, i18n } = this.props;
 
     if (errorHandler.hasError()) {
@@ -219,7 +219,7 @@ const mapStateToProps = (
   };
 };
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): string => {
   return ownProps.match.params.guid;
 };
 

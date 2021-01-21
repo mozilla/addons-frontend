@@ -33,7 +33,7 @@ type InternalProps = {|
 |};
 
 export class OverlayBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|visibleOnLoad: boolean|} = {
     visibleOnLoad: false,
   };
 
@@ -59,7 +59,7 @@ export class OverlayBase extends React.Component<InternalProps> {
     }
   }
 
-  onClickBackground = (event: SyntheticEvent<any>) => {
+  onClickBackground: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     if (this.props.onEscapeOverlay) {
       this.props.onEscapeOverlay();
@@ -68,11 +68,11 @@ export class OverlayBase extends React.Component<InternalProps> {
     this.hide();
   };
 
-  hide = () => {
+  hide: (() => void) = () => {
     this.props.setUIState({ visible: false });
   };
 
-  render() {
+  render(): React.Element<"div"> {
     const { children, className, id, uiState } = this.props;
 
     invariant(children, 'The children property is required');
@@ -95,7 +95,7 @@ export class OverlayBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   return ownProps.id;
 };
 

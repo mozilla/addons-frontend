@@ -33,14 +33,14 @@ type InternalProps = {|
 const initialUIState: UIStateType = { expanded: false };
 
 export class ExpandableCardBase extends React.Component<InternalProps> {
-  onClick = (event: SyntheticEvent<any>) => {
+  onClick: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     const { uiState } = this.props;
     event.preventDefault();
 
     this.props.setUIState({ expanded: !uiState.expanded });
   };
 
-  render() {
+  render(): React.Node {
     const { children, className, header, id, i18n, uiState } = this.props;
     const { expanded } = uiState;
 
@@ -77,7 +77,7 @@ export class ExpandableCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (props: Props) => {
+export const extractId = (props: Props): string => {
   return props.id;
 };
 

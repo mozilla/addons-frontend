@@ -1,5 +1,5 @@
 /* @flow */
-import * as React from 'react';
+import type {UserId} from "../../reducers/users";import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -21,7 +21,7 @@ type InternalProps = {|
 |};
 
 export class AddonAuthorLinksBase extends React.Component<InternalProps> {
-  render() {
+  render(): null | React.Node {
     const { addon, i18n, currentUserID } = this.props;
 
     if (addon === null) {
@@ -64,7 +64,7 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): {|currentUserID: null | UserId|} => {
   return {
     currentUserID: state.users.currentUserID,
   };

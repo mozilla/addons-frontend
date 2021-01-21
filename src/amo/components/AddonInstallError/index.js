@@ -17,7 +17,7 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export const AddonInstallErrorBase = (props: InternalProps) => {
+export const AddonInstallErrorBase = (props: InternalProps): null | React.Node => {
   const { error, i18n } = props;
   if (!error) {
     return null;

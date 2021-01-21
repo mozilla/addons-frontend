@@ -27,7 +27,7 @@ type InternalProps = {|
 |};
 
 export class CategoriesPageBase extends React.Component<InternalProps> {
-  getPageTitle(addonType: string) {
+  getPageTitle(addonType: string): null | string {
     const { i18n } = this.props;
 
     switch (addonType) {
@@ -40,7 +40,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const { match } = this.props;
     const addonType = apiAddonType(match.params.visibleAddonType);
 

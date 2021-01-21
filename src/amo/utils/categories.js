@@ -7,7 +7,7 @@ export type GetCategoryResultsQueryParams = { addonType: string, slug: string };
 export const getCategoryResultsQuery = ({
   addonType,
   slug,
-}: GetCategoryResultsQueryParams) => {
+}: GetCategoryResultsQueryParams): any => {
   return convertFiltersToQueryParams({
     addonType,
     category: slug,

@@ -25,7 +25,7 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export const UserCollectionBase = (props: InternalProps) => {
+export const UserCollectionBase = (props: InternalProps): React.Element<"li"> => {
   const { authorId, id, loading, name, numberOfAddons, slug, i18n } = props;
 
   const linkProps = {};

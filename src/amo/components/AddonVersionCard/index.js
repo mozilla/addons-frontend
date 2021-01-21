@@ -36,7 +36,7 @@ type InternalProps = {|
   installError: string | null,
 |};
 
-export const AddonVersionCardBase = (props: InternalProps) => {
+export const AddonVersionCardBase = (props: InternalProps): React.Element<"li"> => {
   const { addon, headerText, i18n, installError, version, versionInfo } = props;
 
   if (version === null) {
@@ -195,7 +195,7 @@ export const AddonVersionCardBase = (props: InternalProps) => {
   );
 };
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+export function mapStateToProps(state: AppState, ownProps: InternalProps): {|installError: null | string, versionInfo: null | VersionInfoType|} {
   const { addon, i18n, version } = ownProps;
 
   let installedAddon = {};

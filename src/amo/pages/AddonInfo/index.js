@@ -134,7 +134,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const {
       addon,
       addonInfo,
@@ -239,7 +239,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   };
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   const {
     infoType,
     match: {

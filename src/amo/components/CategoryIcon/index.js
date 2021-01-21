@@ -12,7 +12,7 @@ type Props = {|
   color: number,
 |};
 
-const CategoryIcon = ({ alt, className, color, name }: Props) => {
+const CategoryIcon = ({ alt, className, color, name }: Props): React.Node => {
   return (
     <Icon
       alt={alt}

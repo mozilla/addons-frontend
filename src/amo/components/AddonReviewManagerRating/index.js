@@ -27,7 +27,7 @@ export const AddonReviewManagerRatingBase = ({
   i18n,
   onSelectRating,
   rating,
-}: InternalProps) => {
+}: InternalProps): React.Element<"div"> => {
   const readOnly = !onSelectRating;
 
   return (

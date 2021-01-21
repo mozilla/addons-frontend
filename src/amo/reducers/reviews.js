@@ -75,7 +75,7 @@ export function reviewListURL({
   id?: number,
   location?: ReactRouterLocationType,
   score?: number | string,
-|}) {
+|}): string {
   invariant(addonSlug, 'addonSlug is required');
   const path = `/addon/${addonSlug}/reviews/${id ? `${id}/` : ''}`;
 
@@ -219,7 +219,7 @@ export function selectReviewPermissions({
   reviewsState: ReviewsState,
   addonId: number,
   userId: number,
-|}) {
+|}): void | {|canReplyToReviews: boolean | null, loading: boolean|} {
   return reviewsState.permissions[makePermissionsKey({ addonId, userId })];
 }
 
@@ -321,7 +321,7 @@ export const makeLatestUserReviewKey = ({
 }: {|
   userId: number,
   addonId: number,
-|}) => {
+|}): string => {
   return `user-${userId}/addon-${addonId}`;
 };
 
@@ -355,7 +355,21 @@ export const addReviewToState = ({
 }: {|
   state: ReviewsState,
   review: UserReviewType,
-|}) => {
+|}): {|
+  byAddon: ReviewsByAddon,
+  byId: ReviewsById,
+  byUserId: ReviewsByUserId,
+  flashMessage?: FlashMessageType,
+  groupedRatings: {[addonId: number]: ?GroupedRatingsType},
+  latestUserReview: {[userIdAddonId: string]: number | null},
+  loadingForSlug: {[slug: string]: boolean},
+  permissions: {
+    [addonIdAndUserId: string]: 
+      | {|canReplyToReviews: boolean | null, loading: boolean|}
+      | void,
+  },
+  view: {[reviewId: number]: ViewStateByReviewId},
+|} => {
   const existingReview = selectReview(state, review.id);
   const ratingOrReviewExists = Boolean(existingReview);
 
@@ -432,7 +446,23 @@ export default function reviewsReducer(
   {
     _addReviewToState = addReviewToState,
   }: {| _addReviewToState: typeof addReviewToState |} = {},
-) {
+): 
+  | ReviewsState
+  | {|
+    byAddon: ReviewsByAddon,
+    byId: ReviewsById,
+    byUserId: ReviewsByUserId,
+    flashMessage?: FlashMessageType,
+    groupedRatings: {[addonId: number]: ?GroupedRatingsType},
+    latestUserReview: {[userIdAddonId: string]: number | null},
+    loadingForSlug: {[slug: string]: boolean},
+    permissions: {
+      [addonIdAndUserId: string]: 
+        | {|canReplyToReviews: boolean | null, loading: boolean|}
+        | void,
+    },
+    view: {[reviewId: number]: ViewStateByReviewId},
+  |} {
   switch (action.type) {
     case BEGIN_DELETE_ADDON_REVIEW:
       return changeViewState({

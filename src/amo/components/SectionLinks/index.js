@@ -40,7 +40,7 @@ type Props = {|
 type InternalProps = { ...Props };
 
 export class SectionLinksBase extends React.Component<InternalProps> {
-  setClientApp = (event: Object) => {
+  setClientApp: ((event: any) => void) = (event: Object) => {
     event.preventDefault();
 
     const { dispatch, history } = this.props;
@@ -51,7 +51,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
     history.push(event.currentTarget.getAttribute('href'));
   };
 
-  render() {
+  render(): React.Element<"ul"> {
     const { className, clientApp, i18n, viewContext } = this.props;
     const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(
       viewContext,
@@ -171,7 +171,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+export function mapStateToProps(state: AppState): {|clientApp: null | string, viewContext: ViewContextType|} {
   return {
     clientApp: state.api.clientApp,
     viewContext: state.viewContext.context,

@@ -643,7 +643,16 @@ export const createAddonReview = ({
   errorHandlerId,
   score,
   versionId,
-}: CreateAddonReviewParams) => {
+}: CreateAddonReviewParams): {|
+  payload: {|
+    addonId: number,
+    body: void | string,
+    errorHandlerId: string,
+    score: number,
+    versionId: number,
+  |},
+  type: "CREATE_ADDON_REVIEW",
+|} => {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(score, 'score is required');
@@ -672,7 +681,15 @@ export const updateAddonReview = ({
   errorHandlerId,
   score,
   reviewId,
-}: UpdateAddonReviewParams) => {
+}: UpdateAddonReviewParams): {|
+  payload: {|
+    body: void | string,
+    errorHandlerId: string,
+    reviewId: number,
+    score: void | number,
+  |},
+  type: "UPDATE_ADDON_REVIEW",
+|} => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');
 
@@ -738,7 +755,15 @@ export const deleteAddonReview = ({
   errorHandlerId,
   isReplyToReviewId,
   reviewId,
-}: DeleteAddonReviewParams) => {
+}: DeleteAddonReviewParams): {|
+  payload: {|
+    addonId: number,
+    errorHandlerId: string,
+    isReplyToReviewId: void | number,
+    reviewId: number,
+  |},
+  type: "DELETE_ADDON_REVIEW",
+|} => {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');

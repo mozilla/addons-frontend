@@ -34,13 +34,13 @@ type InternalProps = {|
 |};
 
 export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|_config: any, appendDefaultTitle: boolean, withTwitterMeta: boolean|} = {
     _config: config,
     appendDefaultTitle: true,
     withTwitterMeta: false,
   };
 
-  getImage() {
+  getImage(): string {
     const { image } = this.props;
 
     if (image) {
@@ -50,7 +50,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return defaultImage;
   }
 
-  getTitle() {
+  getTitle(): string {
     const {
       clientApp,
       i18n,
@@ -82,7 +82,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return i18n.sprintf(i18nTitle, i18nValues);
   }
 
-  renderOpenGraph() {
+  renderOpenGraph(): Array<React.Element<"meta">> {
     const {
       _config,
       description,
@@ -117,7 +117,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return tags;
   }
 
-  renderTwitter() {
+  renderTwitter(): null | Array<React.Element<"meta">> {
     if (!this.props.withTwitterMeta) {
       return null;
     }
@@ -134,7 +134,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return tags;
   }
 
-  render() {
+  render(): React.Node {
     const { date, description, lastModified } = this.props;
 
     return (

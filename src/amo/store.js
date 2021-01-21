@@ -73,7 +73,7 @@ import type { VersionsState } from 'amo/reducers/versions';
 import type { ReactRouterHistoryType, LocationType } from 'amo/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'amo/types/store';
 
-export const minimalReduxLogger = () => (next: (action: Object) => Object) => (
+export const minimalReduxLogger = (): ((next: (action: any) => any) => (action: any) => any) => (next: (action: Object) => Object) => (
   action: Object,
 ) => {
   log.info(`Dispatching ${action.type}`);
@@ -102,7 +102,7 @@ export function middleware({
   _window?: typeof window | null,
   sagaMiddleware?: Object | null,
   routerMiddleware?: Object | null,
-|} = {}) {
+|} = {}): any {
   const isDev = _config.get('isDevelopment');
 
   const callbacks = [];
@@ -225,7 +225,7 @@ export const reducers: AppReducersType = {
 export default function createStore({
   history = createMemoryHistory(),
   initialState = {},
-}: CreateStoreParams = {}) {
+}: CreateStoreParams = {}): {|sagaMiddleware: any, store: any|} {
   const sagaMiddleware = createSagaMiddleware();
   const store = defaultCreateStore(
     createRootReducer({ history, reducers }),

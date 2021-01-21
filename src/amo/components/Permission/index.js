@@ -10,7 +10,7 @@ type PermissionProps = {|
 |};
 
 export default class Permission extends React.Component<PermissionProps> {
-  render() {
+  render(): React.Element<"li"> {
     const { type, description } = this.props;
     return (
       <li className={makeClassName('Permission')}>

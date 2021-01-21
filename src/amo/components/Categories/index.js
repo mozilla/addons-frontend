@@ -59,7 +59,7 @@ type InternalProps = {|
 export const categoryResultsLinkTo = ({
   addonType,
   slug,
-}: GetCategoryResultsQueryParams) => {
+}: GetCategoryResultsQueryParams): {|pathname: string, query: any|} => {
   return {
     pathname: '/search/',
     query: getCategoryResultsQuery({
@@ -98,7 +98,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     /* eslint-disable react/no-array-index-key */
     const {
       addonType,

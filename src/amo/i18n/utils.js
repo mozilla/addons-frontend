@@ -10,14 +10,14 @@ import { RTL, LTR } from 'amo/constants';
 import type { I18nType } from 'amo/types/i18n';
 
 const defaultLang = config.get('defaultLang');
-const langs = config.get('langs');
+const langs: any = config.get('langs');
 const langMap = config.get('langMap');
 // The full list of supported langs including those that
 // will be mapped by sanitizeLanguage.
-const supportedLangs = langs.concat(Object.keys(langMap));
+const supportedLangs: any = langs.concat(Object.keys(langMap));
 const rtlLangs = config.get('rtlLangs');
 
-export function localeToLang(locale?: any, log_?: typeof log = log) {
+export function localeToLang(locale?: any, log_?: typeof log = log): any | void | string {
   let lang;
   if (locale && locale.split) {
     const parts = locale.split('_');
@@ -40,7 +40,7 @@ export function localeToLang(locale?: any, log_?: typeof log = log) {
   return lang;
 }
 
-export function langToLocale(language?: any, log_?: typeof log = log) {
+export function langToLocale(language?: any, log_?: typeof log = log): any | void | string {
   let locale;
   if (language && language.split) {
     const parts = language.split('-');
@@ -63,11 +63,11 @@ export function langToLocale(language?: any, log_?: typeof log = log) {
   return locale;
 }
 
-export function normalizeLang(lang?: string) {
+export function normalizeLang(lang?: string): any | void | string {
   return localeToLang(langToLocale(lang));
 }
 
-export function normalizeLocale(locale: string) {
+export function normalizeLocale(locale: string): any | void | string {
   return langToLocale(localeToLang(locale));
 }
 
@@ -78,7 +78,7 @@ type IsSupportedLangOptions = {|
 export function isSupportedLang(
   lang?: string,
   { _supportedLangs = supportedLangs }: IsSupportedLangOptions = {},
-) {
+): any {
   return _supportedLangs.includes(lang);
 }
 
@@ -89,11 +89,11 @@ type IsValidLangOptions = {|
 export function isValidLang(
   lang?: string,
   { _langs = langs }: IsValidLangOptions = {},
-) {
+): any {
   return _langs.includes(lang);
 }
 
-export function sanitizeLanguage(langOrLocale?: string) {
+export function sanitizeLanguage(langOrLocale?: string): any | void | string {
   let language = normalizeLang(langOrLocale);
   // Only look in the un-mapped lang list.
   if (!isValidLang(language)) {
@@ -105,12 +105,12 @@ export function sanitizeLanguage(langOrLocale?: string) {
   return language;
 }
 
-export function isRtlLang(lang: string) {
+export function isRtlLang(lang: string): any {
   const language = sanitizeLanguage(lang);
   return rtlLangs.includes(language);
 }
 
-export function getDirection(lang: string) {
+export function getDirection(lang: string): string {
   return isRtlLang(lang) ? RTL : LTR;
 }
 
@@ -170,7 +170,7 @@ type GetLangFromHeaderOptions = {|
 export function getLangFromHeader(
   acceptLanguage: string,
   { _supportedLangs }: GetLangFromHeaderOptions = {},
-) {
+): any | void | string {
   let userLang;
   if (acceptLanguage) {
     const langList = parseAcceptLanguage(acceptLanguage);
@@ -203,7 +203,7 @@ type GetLanguageParams = {|
  * - Return object with lang and isLangFromHeader hint.
  *
  */
-export function getLanguage({ lang, acceptLanguage }: GetLanguageParams = {}) {
+export function getLanguage({ lang, acceptLanguage }: GetLanguageParams = {}): {|isLangFromHeader: boolean, lang: any | void | string|} {
   let userLang = lang;
   let isLangFromHeader = false;
   // If we don't have a supported userLang yet try accept-language.
@@ -218,7 +218,7 @@ export function getLanguage({ lang, acceptLanguage }: GetLanguageParams = {}) {
 }
 
 // moment uses locales like "en-gb" whereas we use "en_GB".
-export function makeMomentLocale(locale: string) {
+export function makeMomentLocale(locale: string): string {
   return locale.replace('_', '-').toLowerCase();
 }
 
@@ -315,7 +315,7 @@ export function makeI18n(
     // $FlowFixMe
     _Intl = typeof Intl !== 'undefined' ? Intl : undefined,
   }: makeI18nOptions = {},
-) {
+): any {
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
 

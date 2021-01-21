@@ -1,5 +1,7 @@
 /* @flow */
-import makeClassName from 'classnames';
+import type {CollectionAddonType} from "../../types/addons";
+import type {SuggestionType} from "../../reducers/autocomplete";
+import type {PromotedCategoryType} from "../../constants";import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -49,12 +51,29 @@ const WARNING_LINK_DESTINATION = getPromotedBadgesLinkUrl({
 });
 
 export class InstallWarningBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+  _correctedLocationForPlatform: (
+    {|
+      clientApp: string,
+      isHomePage?: boolean,
+      lang: string,
+      location: ReactRouterLocationType,
+      userAgentInfo: UserAgentInfoType,
+    |}
+  ) => string | null,
+  _getPromotedCategory: (
+    {|
+      addon: ?(AddonType | CollectionAddonType | SuggestionType),
+      clientApp: string,
+      forBadging?: boolean,
+    |}
+  ) => PromotedCategoryType | null,
+|} = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
     _getPromotedCategory: getPromotedCategory,
   };
 
-  couldShowWarning = () => {
+  couldShowWarning: (() => boolean) = () => {
     const {
       _correctedLocationForPlatform,
       _couldShowWarning,
@@ -89,7 +108,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
             !EXCLUDE_WARNING_CATEGORIES.includes(promotedCategory));
   };
 
-  render() {
+  render(): null | React.Node {
     const { className, i18n } = this.props;
 
     if (this.couldShowWarning()) {
@@ -111,7 +130,11 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): {|
+  clientApp: null | string,
+  lang: null | string,
+  userAgentInfo: UserAgentInfoType,
+|} => {
   return {
     clientApp: state.api.clientApp,
     lang: state.api.lang,

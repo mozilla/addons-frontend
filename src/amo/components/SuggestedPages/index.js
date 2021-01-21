@@ -16,7 +16,7 @@ type InternalProps = {|
 |};
 
 export class SuggestedPagesBase extends React.Component<InternalProps> {
-  render() {
+  render(): React.Element<"section"> {
     const { i18n } = this.props;
 
     return (
@@ -43,4 +43,4 @@ export class SuggestedPagesBase extends React.Component<InternalProps> {
   }
 }
 
-export default compose(translate())(SuggestedPagesBase);
+export default (compose(translate())(SuggestedPagesBase): any);

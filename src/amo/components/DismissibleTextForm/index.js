@@ -100,7 +100,7 @@ export class DismissibleTextFormBase extends React.Component<
     }
   }
 
-  createLocalState() {
+  createLocalState(): LocalState {
     const { _createLocalState, id } = this.props;
     return _createLocalState(id);
   }
@@ -117,7 +117,7 @@ export class DismissibleTextFormBase extends React.Component<
     }
   }
 
-  onDelete = (event: SyntheticEvent<any>) => {
+  onDelete: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
     invariant(this.props.onDelete, 'onDelete() is not defined');
@@ -125,7 +125,7 @@ export class DismissibleTextFormBase extends React.Component<
     this.localState.clear();
   };
 
-  onDismiss = (event: SyntheticEvent<any>) => {
+  onDismiss: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     const { onDismiss } = this.props;
     event.preventDefault();
     invariant(onDismiss, 'onDismiss() is required');
@@ -135,13 +135,13 @@ export class DismissibleTextFormBase extends React.Component<
     this.localState.clear();
   };
 
-  onSubmit = (event: SyntheticEvent<any>) => {
+  onSubmit: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     this.props.onSubmit({ event, text: this.state.text });
     this.localState.clear();
   };
 
-  persistState = this.props._debounce(
+  persistState: any = this.props._debounce(
     (state) => {
       // After a few keystrokes, save the text to a local store
       // so we can recover from crashes.
@@ -151,7 +151,7 @@ export class DismissibleTextFormBase extends React.Component<
     { trailing: true },
   );
 
-  onTextChange = (event: ElementEvent<HTMLInputElement>) => {
+  onTextChange: ((event: ElementEvent<HTMLInputElement>) => void) = (event: ElementEvent<HTMLInputElement>) => {
     event.preventDefault();
 
     const newState = { text: event.target.value };
@@ -159,7 +159,7 @@ export class DismissibleTextFormBase extends React.Component<
     this.persistState(newState);
   };
 
-  render() {
+  render(): React.Element<"form"> {
     const {
       className,
       dismissButtonText,

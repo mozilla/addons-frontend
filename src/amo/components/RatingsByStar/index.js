@@ -27,7 +27,33 @@ type InternalProps = {|
 |};
 
 export class RatingsByStarBase extends React.Component<InternalProps> {
-  renderBarValue(starCount: number) {
+  constructor(props: InternalProps) {
+    super(props);
+
+    // TODO: this is intended to load on the server (before mount) but it
+    // does not.
+    // See: https://github.com/mozilla/addons-frontend/issues/5854
+    this.loadDataIfNeeded();
+  }
+
+  componentDidUpdate() {
+    this.loadDataIfNeeded();
+  }
+
+  loadDataIfNeeded() {
+    const { addon, dispatch, errorHandler, groupedRatings } = this.props;
+
+    if (!errorHandler.hasError() && addon && !groupedRatings) {
+      dispatch(
+        fetchGroupedRatings({
+          addonId: addon.id,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+    }
+  }
+
+  renderBarValue(starCount: number): React.Element<'div'> {
     const { addon } = this.props;
     invariant(addon, 'addon is required');
 
@@ -50,7 +76,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Element<'div'> {
     const { addon, i18n, location } = this.props;
     const loading = !addon;
 

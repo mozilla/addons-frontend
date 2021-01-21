@@ -36,7 +36,12 @@ type InternalProps = {|
 |};
 
 export class RatingBase extends React.Component<InternalProps, StateType> {
-  static defaultProps = {
+  static defaultProps: {|
+  className: string,
+  readOnly: boolean,
+  styleSize: string,
+  yellowStars: boolean,
+|} = {
     className: '',
     readOnly: false,
     styleSize: 'large',
@@ -48,12 +53,12 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     this.state = { hoveringOverStar: null };
   }
 
-  _setState(newState: $Shape<StateType>) {
+  _setState(newState: $Shape<StateType>): any | void {
     const setState = this.props._setState || this.setState.bind(this);
     return setState(newState);
   }
 
-  onSelectRating = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onSelectRating: ((event: SyntheticEvent<HTMLButtonElement>) => void) = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
     const button = event.currentTarget;
@@ -71,7 +76,11 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   // Helper function used to render title attributes
   // for each individual star, as well as the wrapper
   // that surrounds the read-only set of stars.
-  renderTitle = (
+  renderTitle: ((
+  rating: ?number,
+  readOnly: boolean | void,
+  starRating: number | null
+) => string) = (
     rating: ?number,
     readOnly: boolean | void,
     starRating: number | null,
@@ -108,14 +117,14 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     );
   };
 
-  onHoverStar = (star: number) => {
+  onHoverStar: ((star: number) => void) = (star: number) => {
     if (this.props.readOnly) {
       return;
     }
     this._setState({ hoveringOverStar: star });
   };
 
-  stopHovering = () => {
+  stopHovering: (() => void) = () => {
     if (this.props.readOnly) {
       return;
     }
@@ -188,17 +197,17 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     });
   }
 
-  renderStar(props: IconStarProps) {
+  renderStar(props: IconStarProps): React.Node {
     return <IconStar {...props} />;
   }
 
-  isLoading() {
+  isLoading(): boolean {
     // When rating is undefined, the rating is still loading.
     // When rating is null, the rating has been loaded but it's empty.
     return this.props.rating === undefined;
   }
 
-  render() {
+  render(): React.Element<"div"> {
     const { className, rating, readOnly, styleSize } = this.props;
     if (!styleSize || !RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(

@@ -30,7 +30,7 @@ type Props = {|
 |};
 
 export class FormOverlayBase extends React.Component<Props> {
-  static defaultProps = {
+  static defaultProps: {|isOpen: boolean, isSubmitting: boolean|} = {
     isOpen: false,
     isSubmitting: false,
   };
@@ -42,21 +42,21 @@ export class FormOverlayBase extends React.Component<Props> {
     dispatch(closeFormOverlay(id));
   }
 
-  onClickBackground = (event: SyntheticEvent<any>) => {
+  onClickBackground: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     this.closeOverlay(event);
   };
 
-  onClickExIcon = (event: SyntheticEvent<any>) => {
+  onClickExIcon: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     this.closeOverlay(event);
   };
 
-  onClickOverlay = (event: SyntheticEvent<any>) => {
+  onClickOverlay: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     // Prevent the click event from propagating to parent elements.
     // This stops the overlay from closing when clicking inside it.
     event.stopPropagation();
   };
 
-  onCancel = (event: SyntheticEvent<any>) => {
+  onCancel: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     const { onCancel } = this.props;
     if (onCancel) {
       onCancel();
@@ -64,7 +64,7 @@ export class FormOverlayBase extends React.Component<Props> {
     this.closeOverlay(event);
   };
 
-  onSubmit = (event: SyntheticEvent<any>) => {
+  onSubmit: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     const { onSubmit } = this.props;
     event.preventDefault();
     event.stopPropagation();
@@ -73,7 +73,7 @@ export class FormOverlayBase extends React.Component<Props> {
     }
   };
 
-  render() {
+  render(): null | React.Element<"div"> {
     const {
       children,
       className,

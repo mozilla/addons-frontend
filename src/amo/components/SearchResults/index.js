@@ -24,13 +24,13 @@ type InternalProps = {|
 |};
 
 export class SearchResultsBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|count: number, filters: {...}, results: Array<any>|} = {
     count: 0,
     filters: {},
     results: [],
   };
 
-  render() {
+  render(): React.Element<"div"> {
     const { count, filters, i18n, loading, paginator, results } = this.props;
     const { query } = filters;
 

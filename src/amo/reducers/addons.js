@@ -368,7 +368,17 @@ type Action =
 export default function addonsReducer(
   state: AddonsState = initialState,
   action: Action,
-) {
+): 
+  | AddonsState
+  | {|
+    byGUID: {[addonGUID: string]: AddonID},
+    byID: {[addonId: string]: AddonType},
+    byIdInURL: {[id: string]: AddonID},
+    bySlug: {[addonSlug: string]: AddonID},
+    infoBySlug: {[slug: string]: {|info: AddonInfoType, loading: boolean|}},
+    lang: string,
+    loadingByIdInURL: {[id: string]: boolean},
+  |} {
   switch (action.type) {
     case SET_LANG:
       return {

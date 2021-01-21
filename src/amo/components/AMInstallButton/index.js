@@ -1,5 +1,5 @@
 /* @flow */
-/* global window */
+import type {Tracking} from "../../tracking";/* global window */
 import makeClassName from 'classnames';
 import config from 'config';
 import invariant from 'invariant';
@@ -82,7 +82,13 @@ type ButtonProps = {|
 const TRANSITION_TIMEOUT = 150;
 
 export class AMInstallButtonBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+  _config: any,
+  _log: any,
+  _tracking: Tracking,
+  _window: any | {...},
+  puffy: boolean,
+|} = {
     _config: config,
     _log: log,
     _tracking: tracking,
@@ -90,7 +96,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     puffy: true,
   };
 
-  installOpenSearch = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  installOpenSearch: ((event: SyntheticEvent<HTMLAnchorElement>) => boolean) = (event: SyntheticEvent<HTMLAnchorElement>) => {
     const { _log, _window, addon } = this.props;
 
     event.preventDefault();
@@ -110,7 +116,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     return false;
   };
 
-  installExtension = async (event: SyntheticEvent<HTMLAnchorElement>) => {
+  installExtension: ((event: SyntheticEvent<HTMLAnchorElement>) => Promise<boolean>) = async (event: SyntheticEvent<HTMLAnchorElement>) => {
     const { addon, enable, install, isAddonEnabled } = this.props;
 
     event.preventDefault();
@@ -129,7 +135,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     return false;
   };
 
-  uninstallAddon = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  uninstallAddon: ((event: SyntheticEvent<HTMLAnchorElement>) => boolean) = (event: SyntheticEvent<HTMLAnchorElement>) => {
     const { addon, uninstall } = this.props;
     const { guid, name, type } = addon;
 
@@ -141,7 +147,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     return false;
   };
 
-  enableAddon = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  enableAddon: ((event: SyntheticEvent<HTMLAnchorElement>) => boolean) = (event: SyntheticEvent<HTMLAnchorElement>) => {
     const { enable } = this.props;
 
     event.preventDefault();
@@ -172,7 +178,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     });
   }
 
-  showLoadingAnimation() {
+  showLoadingAnimation(): boolean {
     const { addon, status } = this.props;
 
     if (ADDON_TYPE_STATIC_THEME === addon.type && status === INSTALLED) {
@@ -190,7 +196,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     ].includes(status);
   }
 
-  getButtonText() {
+  getButtonText(): string {
     const { addon, i18n, status, defaultButtonText } = this.props;
 
     switch (status) {
@@ -221,7 +227,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     }
   }
 
-  getIconName() {
+  getIconName(): string {
     const { status } = this.props;
 
     switch (status) {
@@ -235,7 +241,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): null | React.Node {
     const {
       canUninstall,
       className,
@@ -342,7 +348,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+export function mapStateToProps(state: AppState): {|userAgentInfo: UserAgentInfoType|} {
   return {
     userAgentInfo: state.api.userAgentInfo,
   };

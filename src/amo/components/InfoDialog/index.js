@@ -26,15 +26,15 @@ type InternalProps = {|
 |};
 
 export class InfoDialogBase extends React.Component<InternalProps> {
-  closeInfoDialog = () => {
+  closeInfoDialog: (() => void) = () => {
     this.props.dispatch(closeInfoDialog());
   };
 
-  handleClickOutside = () => {
+  handleClickOutside: (() => void) = () => {
     this.closeInfoDialog();
   };
 
-  render() {
+  render(): null | React.Element<"div"> {
     const { addonName, i18n, imageURL, show } = this.props;
 
     if (!show) {
@@ -92,7 +92,7 @@ export class InfoDialogBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): {|addonName: string | null, imageURL: string | null, show: boolean|} => {
   const { data, show } = state.infoDialog;
 
   return {

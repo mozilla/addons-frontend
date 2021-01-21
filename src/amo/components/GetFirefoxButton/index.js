@@ -47,7 +47,7 @@ type InternalProps = {|
   userAgentInfo: UserAgentInfoType,
 |};
 
-export const GetFirefoxButtonBase = (props: InternalProps) => {
+export const GetFirefoxButtonBase = (props: InternalProps): null | React.Node => {
   const { addon, buttonType, className, i18n, userAgentInfo } = props;
   const _base64url = props._base64url || base64url;
   const _tracking = props._tracking || tracking;
@@ -111,7 +111,7 @@ export const GetFirefoxButtonBase = (props: InternalProps) => {
   );
 };
 
-export function mapStateToProps(state: AppState) {
+export function mapStateToProps(state: AppState): {|userAgentInfo: UserAgentInfoType|} {
   return {
     userAgentInfo: state.api.userAgentInfo,
   };

@@ -22,7 +22,7 @@ type Props = {|
 |};
 
 export class PermissionsCardBase extends React.Component<Props> {
-  render() {
+  render(): null | React.Node {
     const { version, i18n, userAgentInfo } = this.props;
 
     if (!version) {
@@ -96,7 +96,7 @@ export class PermissionsCardBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): {|userAgentInfo: UserAgentInfoType|} => {
   return {
     userAgentInfo: state.api.userAgentInfo,
   };
