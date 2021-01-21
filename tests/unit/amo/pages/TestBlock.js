@@ -12,6 +12,7 @@ import { ErrorHandler } from 'amo/errorHandler';
 import { createApiError } from 'amo/api';
 import {
   createFakeBlockResult,
+  createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeI18n,
@@ -174,8 +175,11 @@ describe(__filename, () => {
 
   it('renders the name of the add-on in the title/header when the block has one', () => {
     const guid = 'some-guid';
-    const addonName = 'some-addon-name';
-    const block = createFakeBlockResult({ guid, addonName });
+    const name = 'some-addon-name';
+    const block = createFakeBlockResult({
+      guid,
+      addonName: createLocalizedString(name),
+    });
 
     const { store } = dispatchClientMetadata();
     store.dispatch(loadBlock({ block }));
@@ -184,7 +188,7 @@ describe(__filename, () => {
 
     expect(root.find(Card)).toHaveProp(
       'header',
-      expect.stringMatching(`${addonName} has been`),
+      expect.stringMatching(`${name} has been`),
     );
   });
 
