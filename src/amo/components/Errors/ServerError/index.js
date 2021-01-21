@@ -16,7 +16,7 @@ type InternalProps = {|
 |};
 
 export class ServerErrorBase extends React.Component<InternalProps> {
-  render() {
+  render(): React.Node {
     const { i18n } = this.props;
 
     const fileAnIssueText = i18n.gettext(`

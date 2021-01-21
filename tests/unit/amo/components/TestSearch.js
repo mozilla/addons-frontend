@@ -416,7 +416,7 @@ describe(__filename, () => {
       expect(mapStateToProps(state)).toEqual({
         context: state.viewContext.context,
         count: state.search.count,
-        filtersUsedForResults: state.search.filters,
+        filtersUsedForResults: {},
         loading: state.search.loading,
         pageSize: state.search.pageSize,
         results: state.search.results,

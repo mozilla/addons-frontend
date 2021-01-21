@@ -37,17 +37,9 @@ import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 
-type Props = {|
-  addonType?: string,
-  authorDisplayName: string | null,
-  authorIds: Array<number> | null,
-  className?: string,
-  errorHandler?: ErrorHandlerType,
-  forAddonSlug?: string,
-  numberOfAddons: number,
+type DefaultProps = {|
   pageParam: string,
   paginate: boolean,
-  pathname?: string,
   showMore?: boolean,
 
   // AddonsCard accepts these props which are drilled in.
@@ -55,13 +47,29 @@ type Props = {|
   type?: 'horizontal' | 'vertical',
 |};
 
-type InternalProps = {|
-  ...Props,
+type Props = {|
+  ...DefaultProps,
+  addonType?: string,
+  authorDisplayName: string | null,
+  authorIds: Array<number> | null,
+  className?: string,
+  errorHandler?: ErrorHandlerType,
+  forAddonSlug?: string,
+  numberOfAddons: number,
+  pathname?: string,
+|};
+
+type PropsFromState = {|
   addons: Array<AddonType> | null,
   count: number | null,
+  loading: boolean | null,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   i18n: I18nType,
-  loading: boolean | null,
   location: ReactRouterLocationType,
 |};
 
@@ -78,7 +86,7 @@ type FiltersForPagination = {|
 |};
 
 export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     pageParam: 'page',
     paginate: false,
     showMore: true,
@@ -209,7 +217,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): any | null | React.Node {
     const {
       addonType,
       addons,
@@ -378,10 +386,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (
-  state: AppState,
-  ownProps: Props,
-): $Shape<InternalProps> => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addonType, authorIds, forAddonSlug, numberOfAddons } = ownProps;
 
   let addons = null;

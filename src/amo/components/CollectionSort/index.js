@@ -34,16 +34,26 @@ export type Props = {|
   filters: CollectionFilters,
 |};
 
+type PropsFromState = {|
+  clientApp: string,
+  lang: string,
+|};
+
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   clientApp: string,
   i18n: I18nType,
   lang: string,
   history: ReactRouterHistoryType,
 |};
 
+type SortOption = {| label: string, value: string |};
+
 export class CollectionSortBase extends React.Component<InternalProps> {
-  onSortSelect = (event: SyntheticEvent<HTMLSelectElement>) => {
+  onSortSelect: (event: SyntheticEvent<HTMLSelectElement>) => void = (
+    event: SyntheticEvent<HTMLSelectElement>,
+  ) => {
     const {
       collection,
       clientApp,
@@ -72,7 +82,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
     });
   };
 
-  sortOptions() {
+  sortOptions(): Array<SortOption> {
     const { i18n } = this.props;
 
     return [
@@ -95,7 +105,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
     ];
   }
 
-  render() {
+  render(): React.Node {
     const { filters, i18n } = this.props;
 
     return (
@@ -123,7 +133,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     clientApp: state.api.clientApp,
     lang: state.api.lang,

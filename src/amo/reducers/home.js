@@ -399,6 +399,7 @@ const reducer = (
         heroShelves: createInternalHeroShelves(heroShelves, state.lang),
         isLoading: false,
         resultsLoaded: true,
+        // $FlowIgnore: flow can't be sure that reduce result will patch the shelves type definition, let's trust the test coverage here.
         shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
           const response = shelves[shelfName];
 

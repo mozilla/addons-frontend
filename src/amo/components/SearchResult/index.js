@@ -22,16 +22,13 @@ import Rating from 'amo/components/Rating';
 import PromotedBadge from 'amo/components/PromotedBadge';
 import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'amo/types/addons';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterHistoryType } from 'amo/types/router';
 
 import './styles.scss';
 
-type Props = {|
-  addon?: AddonType | CollectionAddonType,
-  addonInstallSource?: string,
-  onClick?: (addon: AddonType | CollectionAddonType) => void,
-  onImpression?: (addon: AddonType | CollectionAddonType) => void,
+type DeafultProps = {|
   showFullSizePreview?: boolean,
   showMetadata?: boolean,
   showPromotedBadge?: boolean,
@@ -39,17 +36,32 @@ type Props = {|
   useThemePlaceholder?: boolean,
 |};
 
-type InternalProps = {|
-  ...Props,
-  _getPromotedCategory: typeof getPromotedCategory,
+type Props = {|
+  ...DeafultProps,
+  addon?: AddonType | CollectionAddonType,
+  addonInstallSource?: string,
+  onClick?: (addon: AddonType | CollectionAddonType) => void,
+  onImpression?: (addon: AddonType | CollectionAddonType) => void,
+|};
+
+type PropsFromState = {|
   clientApp: string,
-  history: ReactRouterHistoryType,
-  i18n: I18nType,
   lang: string,
 |};
 
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  _getPromotedCategory: typeof getPromotedCategory,
+  history: ReactRouterHistoryType,
+  i18n: I18nType,
+|};
+
 export class SearchResultBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+    ...DeafultProps,
+    _getPromotedCategory: typeof getPromotedCategory,
+  |} = {
     _getPromotedCategory: getPromotedCategory,
     showFullSizePreview: false,
     showMetadata: true,
@@ -61,7 +73,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
   getAddonLink(
     addon: AddonType | CollectionAddonType,
     addonInstallSource?: string,
-  ) {
+  ): string {
     let linkTo = getAddonURL(addon.slug);
 
     if (addonInstallSource) {
@@ -75,7 +87,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     return linkTo;
   }
 
-  onClickAddon = (e: SyntheticEvent<HTMLAnchorElement>) => {
+  onClickAddon: HTMLElementEventHandler = (e: ElementEvent) => {
     const { addon, onClick } = this.props;
 
     e.stopPropagation();
@@ -84,7 +96,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
   };
 
-  renderResult() {
+  renderResult(): React.Node {
     const {
       _getPromotedCategory,
       addon,
@@ -250,7 +262,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     );
   }
 
-  onClickResult = () => {
+  onClickResult: () => void = () => {
     const {
       addon,
       addonInstallSource,
@@ -271,7 +283,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
   };
 
-  render() {
+  render(): React.Node {
     const { addon, useThemePlaceholder } = this.props;
 
     const result = this.renderResult();
@@ -293,7 +305,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     clientApp: state.api.clientApp,
     lang: state.api.lang,

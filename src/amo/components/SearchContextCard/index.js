@@ -18,16 +18,20 @@ import './styles.scss';
 
 type Props = {||};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   categoryName: string | null,
   count: number,
+  filters: SearchFilters | Object,
+  hasCategory: boolean,
+  loadingSearch: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  filters: SearchFilters,
-  hasCategory: boolean,
   i18n: I18nType,
-  loadingSearch: boolean,
 |};
 
 export class SearchContextCardBase extends React.Component<InternalProps> {
@@ -41,7 +45,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const { categoryName, count, filters, i18n, loadingSearch } = this.props;
     const { addonType, query } = filters;
     let searchText;
@@ -168,7 +172,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+function mapStateToProps(state: AppState): PropsFromState {
   const { search } = state;
   const { filters } = search;
 

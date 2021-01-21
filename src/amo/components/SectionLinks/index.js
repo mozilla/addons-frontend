@@ -30,17 +30,23 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
+|};
+
+type PropsFromState = {|
   clientApp: string,
-  dispatch: DispatchFunc,
-  i18n: I18nType,
-  history: ReactRouterHistoryType,
   viewContext: ViewContextType,
 |};
 
-type InternalProps = { ...Props };
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  i18n: I18nType,
+  history: ReactRouterHistoryType,
+|};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
-  setClientApp = (event: Object) => {
+  setClientApp: (event: any) => void = (event: Object) => {
     event.preventDefault();
 
     const { dispatch, history } = this.props;
@@ -51,7 +57,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
     history.push(event.currentTarget.getAttribute('href'));
   };
 
-  render() {
+  render(): React.Node {
     const { className, clientApp, i18n, viewContext } = this.props;
     const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(
       viewContext,
@@ -171,7 +177,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+function mapStateToProps(state: AppState): PropsFromState {
   return {
     clientApp: state.api.clientApp,
     viewContext: state.viewContext.context,

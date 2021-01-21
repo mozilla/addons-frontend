@@ -40,7 +40,7 @@ export const SecondaryHeroBase = ({
   _stripLangFromAmoUrl = stripLangFromAmoUrl,
   _tracking = tracking,
   shelfData,
-}: InternalProps) => {
+}: InternalProps): null | React.Node => {
   if (shelfData === null) {
     // No data was returned for the secondary shelf from the API.
     return null;

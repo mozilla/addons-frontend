@@ -8,7 +8,9 @@ import log from 'amo/logger';
 import { getDisplayName } from 'amo/utils';
 import type { ConfigType } from 'amo/types/config';
 
-export const getErrorComponent = (status: number | null) => {
+export const getErrorComponent = (
+  status: number | null,
+): React.ComponentType<any> => {
   switch (status) {
     case 404:
       return NotFound;
@@ -39,7 +41,7 @@ export const getErrorComponent = (status: number | null) => {
 export function render404IfConfigKeyIsFalse(
   configKey: string,
   { _config = config }: {| _config: ConfigType |} = {},
-) {
+): (Component: React.ComponentType<any>) => (props: any) => React.Node {
   if (!configKey) {
     throw new TypeError('configKey cannot be empty');
   }

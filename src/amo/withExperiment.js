@@ -78,13 +78,15 @@ type withExperimentProps = {|
   variants: ExperimentVariant[],
 |};
 
+type ExpermientVariant = {| id: string, percentage: number |};
+
 export const getVariant = ({
   randomizer = Math.random,
   variants,
 }: {|
   randomizer?: () => number,
   variants: ExperimentVariant[],
-|}) => {
+|}): ExpermientVariant => {
   invariant(
     variants.reduce((total, variant) => total + variant.percentage, 0) === 1,
     'The sum of all percentages in `variants` must be 1',
@@ -125,7 +127,11 @@ export const withExperiment = ({
   cookieConfig = defaultCookieConfig,
   id: defaultId,
   variants: defaultVariants,
-}: withExperimentProps) => (WrappedComponent: React.ComponentType<any>) => {
+}: withExperimentProps): ((
+  WrappedComponent: React.ComponentType<any>,
+) => React.ComponentType<any>) => (
+  WrappedComponent: React.ComponentType<any>,
+) => {
   invariant(defaultId, 'id is required');
   invariant(defaultVariants, 'variants is required');
 

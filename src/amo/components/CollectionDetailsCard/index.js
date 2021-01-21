@@ -25,11 +25,15 @@ export type Props = {|
   filters: CollectionFilters,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   editingCollectionDetails: boolean,
   hasEditPermission: boolean,
   hasMaintainerPermission: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
 |};
 
 export const CollectionDetailsCardBase = ({
@@ -40,7 +44,7 @@ export const CollectionDetailsCardBase = ({
   filters,
   hasEditPermission,
   hasMaintainerPermission,
-}: InternalProps) => {
+}: InternalProps): React.Node => {
   if (creating || editingCollectionDetails) {
     return (
       <CollectionManager
@@ -62,7 +66,10 @@ export const CollectionDetailsCardBase = ({
   );
 };
 
-export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
+const mapStateToProps = (
+  state: AppState,
+  ownProps: InternalProps,
+): PropsFromState => {
   const { collection } = ownProps;
 
   const currentUser = getCurrentUser(state.users);

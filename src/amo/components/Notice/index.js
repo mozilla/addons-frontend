@@ -8,6 +8,7 @@ import translate from 'amo/i18n/translate';
 import withUIState from 'amo/withUIState';
 import Button from 'amo/components/Button';
 import IconXMark from 'amo/components/IconXMark';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -58,7 +59,7 @@ type Props = {|
   dismissible?: boolean,
   id?: string,
   light?: boolean,
-  onDismiss?: (SyntheticEvent<any>) => void,
+  onDismiss?: HTMLElementEventHandler,
   type: NoticeType,
 |};
 
@@ -75,14 +76,14 @@ type InternalProps = {|
  * See https://design.firefox.com/photon/components/message-bars.html
  */
 export class NoticeBase extends React.Component<InternalProps> {
-  onDismissNotice = (event: SyntheticEvent<any>) => {
+  onDismissNotice: HTMLElementEventHandler = (event: ElementEvent) => {
     this.props.setUIState({ wasDismissed: true });
     if (this.props.onDismiss) {
       this.props.onDismiss(event);
     }
   };
 
-  render() {
+  render(): null | React.Node {
     const {
       actionHref,
       actionOnClick,

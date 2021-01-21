@@ -42,7 +42,7 @@ import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonType } from 'amo/types/addons';
-import type { ElementEvent } from 'amo/types/dom';
+import type { TypedElementEvent } from 'amo/types/dom';
 import type { DispatchFunc } from 'amo/types/redux';
 import type {
   ReactRouterHistoryType,
@@ -70,23 +70,27 @@ type Props = {|
   |},
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   addon: AddonType | null,
   addonIsLoading: boolean,
   areReviewsLoading: boolean,
   checkingIfSiteUserCanReply: boolean,
-  clientApp: ?string,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
-  history: ReactRouterHistoryType,
-  i18n: I18nType,
-  lang: ?string,
+  clientApp: string,
+  lang: string,
   pageSize: string | null,
   reviewCount: number | null,
   reviews: ?Array<UserReviewType>,
   siteUser: UserType | null,
   siteUserCanReplyToReviews: boolean | null,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  history: ReactRouterHistoryType,
+  i18n: I18nType,
 |};
 
 export class AddonReviewListBase extends React.Component<InternalProps> {
@@ -186,7 +190,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     }
   }
 
-  addonURL() {
+  addonURL(): string {
     const { addon } = this.props;
     if (!addon) {
       throw new Error('cannot access addonURL() with a falsey addon property');
@@ -194,7 +198,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     return getAddonURL(addon.slug);
   }
 
-  getPageDescription() {
+  getPageDescription(): string {
     const { addon, i18n } = this.props;
 
     invariant(addon, 'addon is required');
@@ -206,7 +210,9 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
-  onSelectOption = (event: ElementEvent<HTMLSelectElement>) => {
+  onSelectOption: (event: TypedElementEvent<HTMLSelectElement>) => void = (
+    event: TypedElementEvent<HTMLSelectElement>,
+  ) => {
     const { addon, clientApp, history, lang, location } = this.props;
     invariant(addon, 'addon is required');
 
@@ -219,10 +225,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       location,
     });
 
-    history.push(`/${lang || ''}/${clientApp || ''}${listURL}`);
+    history.push(`/${lang}/${clientApp}${listURL}`);
   };
 
-  filterByScoreSelector() {
+  filterByScoreSelector(): React.Node {
     const { addon, i18n, location } = this.props;
 
     return (
@@ -246,7 +252,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const {
       addon,
       errorHandler,
@@ -382,10 +388,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(
-  state: AppState,
-  ownProps: Props,
-): $Shape<InternalProps> {
+function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
   const { addonSlug } = ownProps.match.params;
   const addon = getAddonByIdInURL(state.addons, addonSlug);
   const reviewData = selectReviews({
@@ -430,7 +433,7 @@ export function mapStateToProps(
   };
 }
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): string => {
   const {
     location,
     match: { params },

@@ -14,13 +14,17 @@ type Props = {|
   ...HeadMetaTagsProps,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   location: LocationType,
 |};
 
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+|};
+
 export class UserProfileHeadBase extends React.Component<InternalProps> {
-  computeQueryString() {
+  computeQueryString(): string {
     const { query, search } = this.props.location;
 
     // `page_e` and `page_t` are defined in the `UserProfile` component.
@@ -59,7 +63,7 @@ export class UserProfileHeadBase extends React.Component<InternalProps> {
     return queryString;
   }
 
-  render() {
+  render(): React.Node {
     const { location, ...props } = this.props;
 
     const queryString = this.computeQueryString();
@@ -78,7 +82,7 @@ export class UserProfileHeadBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   const { location } = state.router;
 
   return {

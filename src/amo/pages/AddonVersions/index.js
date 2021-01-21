@@ -48,15 +48,19 @@ type Props = {|
   |},
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   addon: AddonType | null,
   addonIsLoading: boolean,
   areVersionsLoading: boolean,
+  versions: Array<AddonVersionType> | null | void,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  versions: Array<AddonVersionType> | void,
 |};
 
 export class AddonVersionsBase extends React.Component<InternalProps> {
@@ -107,7 +111,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const { addon, errorHandler, i18n, versions } = this.props;
 
     let latestVersion;
@@ -197,7 +201,10 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+function mapStateToProps(
+  state: AppState,
+  ownProps: InternalProps,
+): PropsFromState {
   const { slug } = ownProps.match.params;
   const addon = getAddonByIdInURL(state.addons, slug);
   const areVersionsLoading = getLoadingBySlug({ slug, state: state.versions });
@@ -213,7 +220,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   };
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   const {
     location,
     match: { params },

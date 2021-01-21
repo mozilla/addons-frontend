@@ -19,23 +19,33 @@ import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterHistoryType } from 'amo/types/router';
 
 type Props = {|
-  apiLang: string | null,
   className?: string,
-  clientApp: string | null,
-  history: ReactRouterHistoryType,
-  i18n: I18nType,
   pathname: string,
 |};
 
-export class SearchFormBase extends React.Component<Props> {
-  onSearch = (filters: SearchFilters) => {
+type PropsFromState = {|
+  lang: string,
+  clientApp: string,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  history: ReactRouterHistoryType,
+  i18n: I18nType,
+|};
+
+export class SearchFormBase extends React.Component<InternalProps> {
+  onSearch: (filters: SearchFilters) => void = (filters: SearchFilters) => {
     this.props.history.push({
       pathname: this.baseSearchURL(),
       query: convertFiltersToQueryParams(filters),
     });
   };
 
-  onSuggestionSelected = (suggestion: SuggestionType) => {
+  onSuggestionSelected: (suggestion: SuggestionType) => void = (
+    suggestion: SuggestionType,
+  ) => {
     const { pathname } = url.parse(suggestion.url);
 
     if (pathname) {
@@ -43,13 +53,13 @@ export class SearchFormBase extends React.Component<Props> {
     }
   };
 
-  baseSearchURL() {
-    const { apiLang, clientApp, pathname } = this.props;
-    return `/${apiLang || ''}/${clientApp || ''}${pathname}`;
+  baseSearchURL(): string {
+    const { lang, clientApp, pathname } = this.props;
+    return `/${lang}/${clientApp}${pathname}`;
   }
 
-  render() {
-    const { className, i18n, apiLang, clientApp } = this.props;
+  render(): React.Node {
+    const { className, i18n, lang, clientApp } = this.props;
     const openSearchTitle =
       clientApp === CLIENT_APP_ANDROID
         ? i18n.gettext('Firefox Add-ons for Android')
@@ -61,7 +71,7 @@ export class SearchFormBase extends React.Component<Props> {
             title={openSearchTitle}
             rel="search"
             type="application/opensearchdescription+xml"
-            href={`/${apiLang || ''}/${clientApp || ''}/opensearch.xml`}
+            href={`/${lang}/${clientApp}/opensearch.xml`}
           />
         </Helmet>
 
@@ -85,10 +95,10 @@ export class SearchFormBase extends React.Component<Props> {
   }
 }
 
-export function mapStateToProps(state: AppState): $Shape<Props> {
+function mapStateToProps(state: AppState): PropsFromState {
   const { api } = state;
 
-  return { apiLang: api.lang, clientApp: api.clientApp };
+  return { lang: api.lang, clientApp: api.clientApp };
 }
 
 const SearchForm: React.ComponentType<Props> = compose(

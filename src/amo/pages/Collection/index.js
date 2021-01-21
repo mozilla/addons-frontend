@@ -48,6 +48,7 @@ import type {
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { CollectionAddonType } from 'amo/types/addons';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 import type {
@@ -60,25 +61,32 @@ import './styles.scss';
 
 export const DEFAULT_ADDON_PLACEHOLDER_COUNT = 3;
 
-export type Props = {|
-  collection: CollectionType | null,
+export type DefaultProps = {|
   creating: boolean,
   editing: boolean,
+|};
+
+export type Props = DefaultProps;
+
+type PropsFromState = {|
+  clientApp: string,
+  collection: CollectionType | null,
+  filters: CollectionFilters,
+  isLoggedIn: boolean,
+  isOwner: boolean,
+  lang: string,
   loading: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
+  ...DefaultProps,
   _isFeaturedCollection: typeof isFeaturedCollection,
-  clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  filters: CollectionFilters,
   history: ReactRouterHistoryType,
   i18n: I18nType,
-  isLoggedIn: boolean,
-  isOwner: boolean,
-  lang: string,
   location: ReactRouterLocationType,
   match: {|
     ...ReactRouterMatchType,
@@ -129,7 +137,10 @@ export const computeNewCollectionPage = ({
 export class CollectionBase extends React.Component<InternalProps> {
   addonPlaceholderCount: number;
 
-  static defaultProps = {
+  static defaultProps: {|
+    ...DefaultProps,
+    _isFeaturedCollection: typeof isFeaturedCollection,
+  |} = {
     _isFeaturedCollection: isFeaturedCollection,
     creating: false,
     editing: false,
@@ -157,7 +168,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     this.maybeResetAddonPlaceholderCount();
   }
 
-  onDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onDelete: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
     const { dispatch, errorHandler, collection } = this.props;
@@ -377,7 +388,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   };
 
-  renderDeleteButton() {
+  renderDeleteButton(): null | React.Node {
     const { i18n, isOwner } = this.props;
 
     if (!isOwner) {
@@ -399,7 +410,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   }
 
-  renderCollection() {
+  renderCollection(): React.Node {
     const {
       _isFeaturedCollection,
       collection,
@@ -505,7 +516,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   }
 
-  getPageDescription() {
+  getPageDescription(): string {
     const { collection, i18n } = this.props;
 
     invariant(collection, 'collection is required');
@@ -524,7 +535,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { collection, errorHandler, i18n } = this.props;
 
     if (errorHandler.hasError()) {
@@ -554,7 +565,10 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: InternalProps,
+): PropsFromState => {
   const { api, collections } = state;
 
   const { loading } = collections.current;
@@ -569,8 +583,9 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   const currentUser = getCurrentUser(state.users);
   const collection = creating ? null : getCurrentCollection(state.collections);
 
-  const isOwner =
-    collection && currentUser && collection.authorId === currentUser.id;
+  const isOwner = Boolean(
+    collection && currentUser && collection.authorId === currentUser.id,
+  );
 
   return {
     clientApp: api.clientApp,
@@ -583,7 +598,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   };
 };
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): string => {
   return [
     ownProps.match.params.userId,
     ownProps.match.params.slug,

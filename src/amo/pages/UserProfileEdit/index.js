@@ -42,9 +42,10 @@ import type {
   UserType,
 } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
-import type { DispatchFunc } from 'amo/types/redux';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 import type {
   ReactRouterHistoryType,
   ReactRouterLocationType,
@@ -53,19 +54,31 @@ import type {
 
 import './styles.scss';
 
-type Props = {|
-  _window: typeof window | Object,
+type Props = {||};
+
+type PropsFromState = {|
   clientApp: string,
   currentUser: UserType | null,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
-  history: ReactRouterHistoryType,
-  i18n: I18nType,
   isEditingCurrentUser: boolean,
   isReviewer: boolean,
   isUpdating: boolean,
   lang: string,
+  user: UserType | null,
+  userId: UserId,
+|};
+
+type DefaultProps = {|
+  _window: typeof window | Object,
+|};
+
+type InternalProps = {|
+  ...PropsFromState,
+  ...DefaultProps,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  history: ReactRouterHistoryType,
+  i18n: I18nType,
   location: ReactRouterLocationType,
   // `match` is used in `mapStateToProps()`
   // eslint-disable-next-line react/no-unused-prop-types
@@ -73,8 +86,6 @@ type Props = {|
     ...ReactRouterMatchType,
     params: {| userId: string |},
   |},
-  user: UserType | null,
-  userId: UserId,
 |};
 
 type FormValues = {|
@@ -95,12 +106,12 @@ type State = {|
   successMessage: string | null,
 |};
 
-export class UserProfileEditBase extends React.Component<Props, State> {
-  static defaultProps = {
+export class UserProfileEditBase extends React.Component<InternalProps, State> {
+  static defaultProps: DefaultProps = {
     _window: typeof window !== 'undefined' ? window : {},
   };
 
-  constructor(props: Props) {
+  constructor(props: InternalProps) {
     super(props);
 
     const { dispatch, errorHandler, userId, user } = props;
@@ -136,7 +147,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
   }
 
-  componentDidUpdate(prevProps: Props, prevState: State) {
+  componentDidUpdate(prevProps: InternalProps, prevState: State) {
     const {
       isUpdating: wasUpdating,
       user: oldUser,
@@ -230,13 +241,15 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     this.props.errorHandler.clear();
   }
 
-  onDeleteProfile = (e: SyntheticEvent<HTMLButtonElement>) => {
+  onDeleteProfile: HTMLElementEventHandler = (e: ElementEvent) => {
     e.preventDefault();
 
     this.setState({ showProfileDeletionModal: true });
   };
 
-  onCancelProfileDeletion = (e: SyntheticEvent<HTMLButtonElement> | null) => {
+  onCancelProfileDeletion: (e: ElementEvent | null) => void = (
+    e: ElementEvent | null,
+  ) => {
     if (e) {
       e.preventDefault();
     }
@@ -244,7 +257,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     this.setState({ showProfileDeletionModal: false });
   };
 
-  onConfirmProfileDeletion = (e: SyntheticEvent<HTMLButtonElement>) => {
+  onConfirmProfileDeletion: HTMLElementEventHandler = (e: ElementEvent) => {
     e.preventDefault();
 
     const {
@@ -274,14 +287,16 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     history.push(`/${lang}/${clientApp}`);
   };
 
-  onPictureLoaded = (e: ProgressEvent) => {
+  onPictureLoaded: (e: ProgressEvent) => void = (e: ProgressEvent) => {
     // $FlowFixMe: `result` should exist.
     const { result } = e.target;
 
     this.setState({ pictureData: result });
   };
 
-  onPictureChange = (event: SyntheticEvent<HTMLInputElement>) => {
+  onPictureChange: (event: SyntheticEvent<HTMLInputElement>) => void = (
+    event: SyntheticEvent<HTMLInputElement>,
+  ) => {
     event.preventDefault();
 
     const { files } = event.currentTarget;
@@ -298,7 +313,9 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
   };
 
-  onNotificationChange = (event: SyntheticEvent<HTMLInputElement>) => {
+  onNotificationChange: (event: SyntheticEvent<HTMLInputElement>) => void = (
+    event: SyntheticEvent<HTMLInputElement>,
+  ) => {
     event.stopPropagation();
 
     const { name, checked } = event.currentTarget;
@@ -312,7 +329,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }));
   };
 
-  onPictureDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onPictureDelete: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
     const { dispatch, errorHandler, user } = this.props;
@@ -327,7 +344,9 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     );
   };
 
-  onFieldChange = (event: SyntheticEvent<HTMLInputElement>) => {
+  onFieldChange: (event: SyntheticEvent<HTMLInputElement>) => void = (
+    event: SyntheticEvent<HTMLInputElement>,
+  ) => {
     event.preventDefault();
 
     const { name, value } = event.currentTarget;
@@ -338,7 +357,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     });
   };
 
-  onSubmit = (event: SyntheticEvent<any>) => {
+  onSubmit: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
     const { dispatch, errorHandler, user } = this.props;
@@ -411,13 +430,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     };
   }
 
-  loadPicture = (picture: File) => {
+  loadPicture: (picture: File) => void = (picture: File) => {
     const reader = new FileReader();
     reader.onload = this.onPictureLoaded;
     reader.readAsDataURL(picture);
   };
 
-  preventSubmit() {
+  preventSubmit(): boolean {
     const { user, isUpdating } = this.props;
     const { displayName } = this.state;
 
@@ -429,7 +448,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     );
   }
 
-  renderProfileAside() {
+  renderProfileAside(): string | Array<React.Node> {
     const { user, i18n, isEditingCurrentUser } = this.props;
 
     if (!user) {
@@ -451,7 +470,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         );
   }
 
-  renderBiographyLabel() {
+  renderBiographyLabel(): React.Node | string {
     const { user, i18n, isEditingCurrentUser } = this.props;
 
     if (!user) {
@@ -465,7 +484,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         });
   }
 
-  render() {
+  render(): React.Node {
     const {
       currentUser,
       errorHandler,
@@ -907,7 +926,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props) {
+export function mapStateToProps(
+  state: AppState,
+  ownProps: InternalProps,
+): PropsFromState {
   const { clientApp, lang } = state.api;
 
   const { params } = ownProps.match;
@@ -916,7 +938,9 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   const currentUser = getCurrentUser(state.users);
   const user = params.userId ? getUserById(state.users, userId) : currentUser;
 
-  let hasEditPermission = currentUser && user && currentUser.id === user.id;
+  let hasEditPermission = Boolean(
+    currentUser && user && currentUser.id === user.id,
+  );
   if (currentUser && hasPermission(state, USERS_EDIT)) {
     hasEditPermission = true;
   }
@@ -938,7 +962,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   };
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: InternalProps): string => {
   return ownProps.match.params.userId;
 };
 

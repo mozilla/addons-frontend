@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 
 import type { AbuseReporter } from 'amo/api/abuse';
+import type { UserId } from 'amo/reducers/users';
 
 export const ABORT_USER_ABUSE_REPORT: 'ABORT_USER_ABUSE_REPORT' =
   'ABORT_USER_ABUSE_REPORT';
@@ -15,7 +16,7 @@ export const SHOW_USER_ABUSE_REPORT_UI: 'SHOW_USER_ABUSE_REPORT_UI' =
   'SHOW_USER_ABUSE_REPORT_UI';
 
 type AbortUserAbuseReportParams = {|
-  userId: number,
+  userId: UserId,
 |};
 
 type AbortUserAbuseReportAction = {|
@@ -35,7 +36,7 @@ export function abortUserAbuseReport({
 }
 
 type HideUserAbuseReportUIParams = {|
-  userId: number,
+  userId: UserId,
 |};
 
 type HideUserAbuseReportUIAction = {|
@@ -57,7 +58,7 @@ export function hideUserAbuseReportUI({
 type LoadUserAbuseReportParams = {|
   message: string,
   reporter: AbuseReporter,
-  userId: number,
+  userId: UserId,
 |};
 
 type LoadUserAbuseReportAction = {|
@@ -65,7 +66,7 @@ type LoadUserAbuseReportAction = {|
   payload: {|
     message: string,
     reportedByUserId: number | null,
-    userId: number,
+    userId: UserId,
   |},
 |};
 
@@ -89,7 +90,7 @@ export function loadUserAbuseReport({
 export type SendUserAbuseReportParams = {|
   errorHandlerId: string,
   message: string,
-  userId: number,
+  userId: UserId,
 |};
 
 export type SendUserAbuseReportAction = {|
@@ -113,7 +114,7 @@ export function sendUserAbuseReport({
 }
 
 type ShowUserAbuseReportUIParams = {|
-  userId: number,
+  userId: UserId,
 |};
 
 type ShowUserAbuseReportUIActions = {|
@@ -132,10 +133,6 @@ export function showUserAbuseReportUI({
   };
 }
 
-export const initialState = {
-  byUserId: {},
-};
-
 export type UserAbuseReportState = {|
   hasSubmitted?: boolean,
   isSubmitting: boolean,
@@ -146,7 +143,7 @@ export type UserAbuseReportState = {|
 
 export type UserAbuseReportsState = {|
   byUserId: {
-    [userId: number]: UserAbuseReportState,
+    [userId: UserId]: UserAbuseReportState,
   },
 |};
 
@@ -157,10 +154,14 @@ export type UserAbuseReportActionType =
   | ShowUserAbuseReportUIActions
   | LoadUserAbuseReportAction;
 
+export const initialState: UserAbuseReportsState = {
+  byUserId: {},
+};
+
 export default function userAbuseReportReducer(
   state: UserAbuseReportsState = initialState,
   action: UserAbuseReportActionType,
-) {
+): UserAbuseReportsState {
   switch (action.type) {
     case ABORT_USER_ABUSE_REPORT: {
       const { userId } = action.payload;

@@ -23,6 +23,7 @@ import {
 import Icon from 'amo/components/Icon';
 import type { AppState } from 'amo/store';
 import type { SuggestionType } from 'amo/reducers/autocomplete';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterLocationType } from 'amo/types/router';
@@ -49,15 +50,20 @@ type Props = {|
   showInputLabel?: boolean,
 |};
 
-type MappedProps = {|
+type DefaultProps = {|
+  debounce: typeof defaultDebounce,
+  showInputLabel?: boolean,
+|};
+
+type PropsFromState = {|
   suggestions: Array<SuggestionType>,
   loadingSuggestions: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
-  ...MappedProps,
-  debounce: typeof defaultDebounce,
+  ...DefaultProps,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -91,7 +97,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
   searchInput: React.ElementRef<'input'> | null;
 
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     debounce: defaultDebounce,
     showInputLabel: true,
   };
@@ -120,7 +126,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     };
   }
 
-  getSearchValueFromProps({ location, inputName }: InternalProps) {
+  getSearchValueFromProps({ location, inputName }: InternalProps): string {
     if (!location.query) {
       return '';
     }
@@ -128,7 +134,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     return location.query[inputName] || '';
   }
 
-  createFiltersFromQuery(query: string) {
+  createFiltersFromQuery(query: string): Object {
     const { location } = this.props;
     // Preserve any existing search filters.
     let filtersFromLocation = {};
@@ -153,12 +159,12 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     };
   }
 
-  handleSuggestionsClearRequested = () => {
+  handleSuggestionsClearRequested: () => void = () => {
     this.setState({ autocompleteIsOpen: false });
     this.props.dispatch(autocompleteCancel());
   };
 
-  handleSuggestionsFetchRequested = ({
+  handleSuggestionsFetchRequested: (OnSuggestionsFetchRequestedParams) => void = ({
     value,
   }: OnSuggestionsFetchRequestedParams) => {
     if (!value) {
@@ -206,7 +212,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     return this.props.suggestions;
   }
 
-  handleSearch = (event: SyntheticEvent<any>) => {
+  handleSearch: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
     if (this.searchInput) {
@@ -232,8 +238,8 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     }
   };
 
-  handleSearchChange = (
-    event: SyntheticEvent<HTMLInputElement>,
+  handleSearchChange: (event: ElementEvent, OnSearchChangeParams) => void = (
+    event: ElementEvent,
     { newValue }: OnSearchChangeParams,
   ) => {
     const searchValue = newValue || '';
@@ -242,8 +248,11 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     }
   };
 
-  handleSuggestionSelected = (
-    event: SyntheticEvent<any>,
+  handleSuggestionSelected: (
+    event: ElementEvent,
+    {| suggestion: SuggestionType |},
+  ) => void = (
+    event: ElementEvent,
     { suggestion }: {| suggestion: SuggestionType |},
   ) => {
     event.preventDefault();
@@ -257,7 +266,9 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     this.props.onSuggestionSelected(suggestion);
   };
 
-  renderSuggestion = (suggestion: SuggestionType) => {
+  renderSuggestion: (suggestion: SuggestionType) => React.Node = (
+    suggestion: SuggestionType,
+  ) => {
     const { loadingSuggestions, selectSuggestionText } = this.props;
 
     return (
@@ -269,7 +280,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     );
   };
 
-  render() {
+  render(): React.Node {
     const {
       errorHandler,
       i18n,
@@ -354,7 +365,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   }
 }
 
-const mapStateToProps = (state: AppState): MappedProps => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,

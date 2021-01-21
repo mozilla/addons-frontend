@@ -31,6 +31,7 @@ import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'amo/constants';
 import ErrorPage from 'amo/components/ErrorPage';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
+import type { MozAddonManagerType } from 'amo/addonManager';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
@@ -41,22 +42,26 @@ interface MozNavigator extends Navigator {
   mozAddonManager?: Object;
 }
 
+type PropsFromState = {|
+  authToken: string | null,
+  clientApp: string,
+  lang: string,
+  userAgent: string | null,
+|};
+
 type Props = {|
+  ...PropsFromState,
   _addChangeListeners: (callback: Function, mozAddonManager?: Object) => void,
   _navigator: typeof navigator,
-  authToken?: string,
   authTokenValidFor?: number,
-  clientApp: string,
   handleGlobalEvent: () => void,
   i18n: I18nType,
-  lang: string,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
   setUserAgent: (userAgent: string) => void,
-  userAgent: string,
 |};
 
-export function getErrorPage(status: number | null) {
+export function getErrorPage(status: number | null): () => React.Node {
   switch (status) {
     case 401:
       return NotAuthorizedPage;
@@ -70,7 +75,31 @@ export function getErrorPage(status: number | null) {
 export class AppBase extends React.Component<Props> {
   scheduledLogout: TimeoutID;
 
-  static defaultProps = {
+  static defaultProps: {|
+    _addChangeListeners: (
+      callback: ({|
+        canUninstall: boolean,
+        guid: string,
+        needsRestart: boolean,
+        status: $Values<{|
+          onDisabled: string,
+          onDisabling: string,
+          onEnabled: string,
+          onEnabling: string,
+          onInstalled: string,
+          onInstalling: string,
+          onUninstalled: string,
+          onUninstalling: string,
+        |}>,
+      |}) => Promise<void>,
+      mozAddonManager: MozAddonManagerType,
+      _?: {| _log: any |},
+    ) => any,
+    _navigator: Navigator | null,
+    authTokenValidFor: any,
+    mozAddonManager: any | { ... } | void,
+    userAgent: null,
+  |} = {
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
     authTokenValidFor: config.get('authTokenValidFor'),
@@ -174,7 +203,7 @@ export class AppBase extends React.Component<Props> {
     }, setTimeoutDelay);
   }
 
-  render() {
+  render(): React.Node {
     const { clientApp, i18n, lang } = this.props;
 
     const i18nValues = {
@@ -218,14 +247,20 @@ export class AppBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => ({
+export const mapStateToProps = (state: AppState): PropsFromState => ({
   authToken: state.api && state.api.token,
   clientApp: state.api.clientApp,
   lang: state.api.lang,
   userAgent: state.api.userAgent,
 });
 
-export function mapDispatchToProps(dispatch: DispatchFunc) {
+export function mapDispatchToProps(
+  dispatch: DispatchFunc,
+): {|
+  handleGlobalEvent: (payload: InstalledAddon) => void,
+  logOutUser: () => void,
+  setUserAgent: (userAgent: string) => void,
+|} {
   return {
     logOutUser() {
       dispatch(logOutUserAction());

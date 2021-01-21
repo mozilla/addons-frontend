@@ -10,6 +10,7 @@ import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { FlagState } from 'amo/reducers/reviews';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { DispatchFunc } from 'amo/types/redux';
 
@@ -20,15 +21,19 @@ type Props = {|
   wasFlaggedText: string,
 |};
 
-type InternalProps = {|
-  ...Props,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
+type PropsFromState = {|
   flagState: FlagState,
 |};
 
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+|};
+
 export class FlagReviewBase extends React.Component<InternalProps> {
-  onClick = (event: SyntheticEvent<any>) => {
+  onClick: HTMLElementEventHandler = (event: ElementEvent) => {
     const { errorHandler, dispatch, review, reason } = this.props;
     event.preventDefault();
 
@@ -41,7 +46,7 @@ export class FlagReviewBase extends React.Component<InternalProps> {
     );
   };
 
-  renderControls() {
+  renderControls(): React.Node {
     const { errorHandler, flagState, buttonText, wasFlaggedText } = this.props;
 
     if (flagState) {
@@ -64,7 +69,7 @@ export class FlagReviewBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { errorHandler } = this.props;
 
     return (
@@ -76,7 +81,7 @@ export class FlagReviewBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   let flagState = {};
 
   if (ownProps.review) {

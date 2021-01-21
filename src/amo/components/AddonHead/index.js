@@ -28,22 +28,30 @@ type Props = {|
   addon: AddonType | null,
 |};
 
-type InternalProps = {|
-  ...Props,
+type DeafultProps = {|
   _getAddonJsonLinkedData: typeof getAddonJsonLinkedData,
+|};
+
+type PropsFromState = {|
   clientApp: string,
   currentVersion: AddonVersionType | null,
-  i18n: I18nType,
   lang: string,
   versionInfo: VersionInfoType | null,
 |};
 
+type InternalProps = {|
+  ...Props,
+  ...DeafultProps,
+  ...PropsFromState,
+  i18n: I18nType,
+|};
+
 export class AddonHeadBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DeafultProps = {
     _getAddonJsonLinkedData: getAddonJsonLinkedData,
   };
 
-  getPageTitle() {
+  getPageTitle(): string {
     const { addon, clientApp, i18n, lang } = this.props;
 
     invariant(addon, 'addon is required');
@@ -114,7 +122,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     return i18n.sprintf(localizedTitle, i18nValues);
   }
 
-  getPageDescription() {
+  getPageDescription(): string {
     const { addon, i18n } = this.props;
 
     invariant(addon, 'addon is required');
@@ -128,7 +136,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): null | React.Node {
     const {
       _getAddonJsonLinkedData,
       addon,
@@ -171,7 +179,10 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
+const mapStateToProps = (
+  state: AppState,
+  ownProps: InternalProps,
+): PropsFromState => {
   const { addon, i18n } = ownProps;
   const { clientApp, lang } = state.api;
   let currentVersion = null;

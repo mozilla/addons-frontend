@@ -54,7 +54,10 @@ export const sendServerRedirect = ({
 
 type Action = SendServerRedirectAction;
 
-const reducer = (state: RedirectToState = initialState, action: Action) => {
+const reducer = (
+  state: RedirectToState = initialState,
+  action: Action,
+): RedirectToState => {
   switch (action.type) {
     case SEND_SERVER_REDIRECT: {
       const { payload } = action;

@@ -1,6 +1,7 @@
 /* @flow */
 import { callApi } from 'amo/api';
 import type { ApiState } from 'amo/reducers/api';
+import type { UserId } from 'amo/reducers/users';
 
 /*
  * A reporter object, returned by Abuse Report APIs
@@ -25,7 +26,21 @@ export type ReportAddonParams = {|
   message: string,
 |};
 
-export function reportAddon({ addonSlug, api, message }: ReportAddonParams) {
+export type ReportAddonResponse = {|
+  addon: {|
+    guid: string,
+    id: number,
+    slug: string,
+  |},
+  message: string | null,
+  reporter: AbuseReporter | null,
+|};
+
+export function reportAddon({
+  addonSlug,
+  api,
+  message,
+}: ReportAddonParams): Promise<ReportAddonResponse> {
   return callApi({
     auth: true,
     endpoint: 'abuse/report/addon',
@@ -38,7 +53,7 @@ export function reportAddon({ addonSlug, api, message }: ReportAddonParams) {
 export type ReportUserParams = {|
   api: ApiState,
   message: string,
-  userId: number,
+  userId: UserId,
 |};
 
 export type ReportUserResponse = {|

@@ -13,7 +13,12 @@ import type { AddonType } from 'amo/types/addons';
 
 import './styles.scss';
 
+type DefaultProps = {|
+  placeholderCount: number,
+|};
+
 type Props = {|
+  ...DefaultProps,
   addonInstallSource?: string,
   addons?: Array<AddonType> | null,
   className?: string,
@@ -22,15 +27,14 @@ type Props = {|
   header?: React.Node,
   isTheme?: boolean,
   loading: boolean,
-  placeholderCount: number,
 |};
 
 export default class LandingAddonsCard extends React.Component<Props> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     placeholderCount: LANDING_PAGE_EXTENSION_COUNT,
   };
 
-  render() {
+  render(): React.Node {
     const {
       addonInstallSource,
       addons,

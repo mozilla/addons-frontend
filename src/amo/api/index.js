@@ -16,9 +16,11 @@ import {
   fixFiltersForClientApp,
 } from 'amo/searchUtils';
 import { addQueryParams } from 'amo/utils/url';
-import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { ApiState } from 'amo/reducers/api';
+import type { ExternalSuggestion } from 'amo/reducers/autocomplete';
+import type { ExternalAddonType } from 'amo/types/addons';
 import type { LocalizedString, PaginatedApiResponse } from 'amo/types/api';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
@@ -26,7 +28,7 @@ const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 export const DEFAULT_API_PAGE_SIZE = 25;
 export const REGION_CODE_HEADER = 'X-Country-Code';
 
-export function makeQueryString(query: { [key: string]: any }) {
+export function makeQueryString(query: { [key: string]: any }): string {
   const resolvedQuery = { ...query };
   Object.keys(resolvedQuery).forEach((key) => {
     const value = resolvedQuery[key];
@@ -49,7 +51,7 @@ export function createApiError({
   apiURL,
   response,
   jsonResponse,
-}: CreateApiErrorParams) {
+}: CreateApiErrorParams): Error {
   let urlId = '[unknown URL]';
   if (apiURL) {
     // Strip the host since we already know that.
@@ -95,7 +97,7 @@ export function callApi({
   _config = config,
   version = _config.get('apiVersion'),
   _log = log,
-}: CallApiParams): Promise<any> {
+}: CallApiParams): Promise<Object> {
   if (!endpoint) {
     return Promise.reject(
       new Error(`endpoint URL cannot be falsy: "${endpoint}"`),
@@ -241,7 +243,7 @@ export function fetchAddon({
   api,
   showGroupedRatings = false,
   slug,
-}: FetchAddonParams) {
+}: FetchAddonParams): Promise<ExternalAddonType> {
   const { clientApp, userAgentInfo } = api;
   const appVersion = userAgentInfo.browser.version;
   if (!appVersion) {
@@ -252,7 +254,7 @@ export function fetchAddon({
 
   return callApi({
     endpoint: addQueryParams(`addons/addon/${slug}`, {
-      app: clientApp || '',
+      app: clientApp,
       appversion: appVersion || '',
       show_grouped_ratings: String(showGroupedRatings),
     }),
@@ -267,7 +269,7 @@ export function startLoginUrl({
 }: {|
   _config?: typeof config,
   location: ReactRouterLocationType,
-|}) {
+|}): string {
   const params = {
     config: _config.get('fxaConfig'),
     to: url.format({ ...location }),
@@ -279,7 +281,11 @@ export function startLoginUrl({
   )}/accounts/login/start/${query}`;
 }
 
-export function logOutFromServer({ api }: {| api: ApiState |}) {
+export function logOutFromServer({
+  api,
+}: {|
+  api: ApiState,
+|}): Promise<Object> {
   return callApi({
     auth: true,
     credentials: true,
@@ -302,7 +308,7 @@ export function autocomplete({
   _fixFiltersForClientApp = fixFiltersForClientApp,
   api,
   filters,
-}: AutocompleteParams) {
+}: AutocompleteParams): Promise<Array<ExternalSuggestion>> {
   const filtersWithAppVersion = addVersionCompatibilityToFilters({
     filters: _fixFiltersForClientApp({ api, filters }),
     userAgentInfo: api.userAgentInfo,

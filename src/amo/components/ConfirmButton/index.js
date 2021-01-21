@@ -9,13 +9,18 @@ import Button from 'amo/components/Button';
 import ConfirmationDialog from 'amo/components/ConfirmationDialog';
 import type { ButtonType } from 'amo/components/Button';
 import type { Props as ConfirmationDialogProps } from 'amo/components/ConfirmationDialog';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
+
+type DefaultProps = {|
+  buttonType?: ButtonType,
+|};
 
 type Props = {|
-  buttonType?: ButtonType,
+  ...DefaultProps,
   htmlType?: string,
   cancelButtonText?: $PropertyType<ConfirmationDialogProps, 'cancelButtonText'>,
   cancelButtonType?: $PropertyType<ConfirmationDialogProps, 'cancelButtonType'>,
-  children: React.Element<any> | string,
+  children: React.Node | string,
   className?: string,
   confirmButtonText?: $PropertyType<
     ConfirmationDialogProps,
@@ -44,16 +49,16 @@ type InternalProps = {|
 |};
 
 export class ConfirmButtonBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     buttonType: 'neutral',
   };
 
-  onConfirm = (e: SyntheticEvent<HTMLButtonElement>) => {
+  onConfirm: HTMLElementEventHandler = (e: ElementEvent) => {
     this.props.setUIState({ showConfirmation: false });
     this.props.onConfirm(e);
   };
 
-  toggleConfirmation = (e: SyntheticEvent<HTMLButtonElement>) => {
+  toggleConfirmation: HTMLElementEventHandler = (e: ElementEvent) => {
     e.preventDefault();
 
     this.props.setUIState({
@@ -61,7 +66,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
     });
   };
 
-  render() {
+  render(): React.Node {
     const {
       buttonType,
       cancelButtonText,
@@ -116,7 +121,7 @@ export class ConfirmButtonBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   return ownProps.id;
 };
 

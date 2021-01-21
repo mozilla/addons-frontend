@@ -31,26 +31,34 @@ import './style.scss';
 
 type Props = {|
   addon: AddonType | null,
-  version?: AddonVersionType | null,
+  version: AddonVersionType | null,
+|};
+
+type DeafultProps = {|
+  _getClientCompatibility: typeof getClientCompatibility,
+  _log: typeof log,
+|};
+
+type PropsFromState = {|
+  clientApp: string,
+  currentVersion: AddonVersionType | null,
+  userAgentInfo: UserAgentInfoType,
 |};
 
 type InternalProps = {|
   ...Props,
-  _getClientCompatibility: typeof getClientCompatibility,
-  _log: typeof log,
-  clientApp: string,
-  currentVersion: AddonVersionType | null,
+  ...DeafultProps,
+  ...PropsFromState,
   i18n: I18nType,
-  userAgentInfo: UserAgentInfoType,
 |};
 
 export class AddonCompatibilityErrorBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DeafultProps = {
     _log: log,
     _getClientCompatibility: getClientCompatibility,
   };
 
-  render() {
+  render(): null | React.Node {
     const {
       _getClientCompatibility,
       _log,
@@ -151,7 +159,7 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props) {
+function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
   const { addon, version } = ownProps;
 
   let currentVersion = version;

@@ -22,9 +22,14 @@ import type {
   CollectionFilters,
   CollectionType,
 } from 'amo/reducers/collections';
+import type { UserId } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
-import type { ElementEvent } from 'amo/types/dom';
+import type {
+  ElementEvent,
+  HTMLElementEventHandler,
+  TypedElementEvent,
+} from 'amo/types/dom';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { DispatchFunc } from 'amo/types/redux';
 import type {
@@ -40,17 +45,21 @@ type Props = {|
   filters: CollectionFilters,
 |};
 
+type PropsFromState = {|
+  clientApp: string,
+  currentUserId: UserId | null,
+  isCollectionBeingModified: boolean,
+  siteLang: string,
+|};
+
 type InternalProps = {|
   ...Props,
-  clientApp: string,
-  currentUserId: number,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
   i18n: I18nType,
-  isCollectionBeingModified: boolean,
   location: ReactRouterLocationType,
-  siteLang: string,
 |};
 
 type State = {|
@@ -80,7 +89,10 @@ export class CollectionManagerBase extends React.Component<
   InternalProps,
   State,
 > {
-  static getDerivedStateFromProps(props: InternalProps, state: State) {
+  static getDerivedStateFromProps(
+    props: InternalProps,
+    state: State,
+  ): null | State {
     if (props.collection && props.collection.id !== state.collectionId) {
       // Only reset the form when receiving a collection that the user is not
       // already editing. This prevents clearing the form in a few scenarios
@@ -97,7 +109,7 @@ export class CollectionManagerBase extends React.Component<
     this.state = propsToState(props);
   }
 
-  onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onCancel: HTMLElementEventHandler = (event: ElementEvent) => {
     const { clientApp, creating, dispatch, history, siteLang } = this.props;
 
     if (creating) {
@@ -110,7 +122,7 @@ export class CollectionManagerBase extends React.Component<
     dispatch(finishEditingCollectionDetails());
   };
 
-  onSubmit = (event: SyntheticEvent<any>) => {
+  onSubmit: HTMLElementEventHandler = (event: ElementEvent) => {
     const {
       collection,
       creating,
@@ -140,7 +152,7 @@ export class CollectionManagerBase extends React.Component<
       slug,
     };
 
-    if (creating) {
+    if (creating && currentUserId) {
       dispatch(
         createCollection({
           ...payload,
@@ -168,8 +180,10 @@ export class CollectionManagerBase extends React.Component<
     }
   };
 
-  onTextInput = (
-    event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>,
+  onTextInput: (
+    event: TypedElementEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void = (
+    event: TypedElementEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     event.preventDefault();
     const { name, value } = event.target;
@@ -203,7 +217,7 @@ export class CollectionManagerBase extends React.Component<
     }
   };
 
-  render() {
+  render(): React.Node {
     const {
       collection,
       creating,
@@ -326,12 +340,12 @@ export class CollectionManagerBase extends React.Component<
   }
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   const { collection } = ownProps;
   return `collection-${collection ? collection.slug : ''}`;
 };
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   const currentUser = getCurrentUser(state.users);
 
   return {

@@ -46,7 +46,7 @@ import Rating from 'amo/components/Rating';
 import UserAvatar from 'amo/components/UserAvatar';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { UserType } from 'amo/reducers/users';
+import type { UserId, UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'amo/types/redux';
 import type {
   ReactRouterLocationType,
@@ -65,22 +65,26 @@ type Props = {|
   |},
 |};
 
-type InternalProps = {|
-  ...Props,
-  canAdminUser: boolean,
-  canEditProfile: boolean,
+type PropsFromState = {|
+  canAdminUser: boolean | null,
+  canEditProfile: boolean | null,
   clientApp: string,
   currentUser: UserType | null,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
-  i18n: I18nType,
-  isOwner: boolean,
+  isOwner: boolean | null,
   lang: string,
   pageSize: string | null,
   reviewCount: number | null,
   reviews: Array<UserReviewType> | null,
   shouldRedirect: boolean,
   user: UserType | null,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
 |};
 
 export class UserProfileBase extends React.Component<InternalProps> {
@@ -175,7 +179,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
     }
   }
 
-  getUserId() {
+  getUserId(): UserId | string {
     const {
       match: { params },
       user,
@@ -184,11 +188,11 @@ export class UserProfileBase extends React.Component<InternalProps> {
     return user ? user.id : params.userId;
   }
 
-  getURL() {
+  getURL(): string {
     return `/user/${this.getUserId()}/`;
   }
 
-  getEditURL() {
+  getEditURL(): string {
     const {
       currentUser,
       match: { params },
@@ -207,7 +211,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
     return (location.query && location.query.page) || '1';
   }
 
-  renderReviews() {
+  renderReviews(): null | React.Node {
     const {
       location,
       i18n,
@@ -256,7 +260,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
     );
   }
 
-  getMetaDescription() {
+  getMetaDescription(): null | string {
     const { i18n, user } = this.props;
 
     if (!user) {
@@ -283,7 +287,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
     return i18n.sprintf(description, { user: user.name });
   }
 
-  render() {
+  render(): React.Node {
     const {
       canAdminUser,
       canEditProfile,
@@ -486,7 +490,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props) {
+function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
   const { params } = ownProps.match;
 
   const { clientApp, lang } = state.api;
@@ -535,7 +539,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   };
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   return ownProps.match.params.userId;
 };
 

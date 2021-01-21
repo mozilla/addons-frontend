@@ -97,9 +97,7 @@ export class PermissionUtils {
   }
 
   // Format and sequence all the Permission components.
-  formatPermissions(
-    addonPermissions: Array<string>,
-  ): Array<React.Element<typeof HostPermissions | typeof Permission>> {
+  formatPermissions(addonPermissions: Array<string>): Array<React.Node> {
     const permissionsToDisplay = [];
     const permissions = { hosts: [], permissions: [] };
 

@@ -52,7 +52,9 @@ const sortedLanguages = Object.keys(unfilteredLanguages)
 
 const sortedLocales = sortedLanguages.map((language) => language.locale);
 
-export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
+export const LanguageToolList = ({
+  languageTools,
+}: LanguageToolListProps): null | React.Node => {
   if (!languageTools || !languageTools.length) {
     return null;
   }
@@ -70,16 +72,23 @@ export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
   );
 };
 
-type Props = {|
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+type Props = {||};
+
+type PropsFromState = {|
   lang: string,
   languageTools: Array<LanguageToolType>,
 |};
 
-export class LanguageToolsBase extends React.Component<Props> {
-  constructor(props: Props) {
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
+|};
+
+export class LanguageToolsBase extends React.Component<InternalProps> {
+  constructor(props: InternalProps) {
     super(props);
 
     const { dispatch, errorHandler, languageTools } = props;
@@ -91,7 +100,7 @@ export class LanguageToolsBase extends React.Component<Props> {
     }
   }
 
-  languageToolsInYourLocale() {
+  languageToolsInYourLocale(): null | React.Node {
     const { i18n, lang, languageTools } = this.props;
 
     const languageToolsInYourLocale = languageTools.filter((languageTool) => {
@@ -142,7 +151,7 @@ export class LanguageToolsBase extends React.Component<Props> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { languageTools, errorHandler, i18n } = this.props;
 
     const header = i18n.gettext('Dictionaries and Language Packs');
@@ -277,7 +286,7 @@ export class LanguageToolsBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     lang: state.api.lang,
     languageTools: getAllLanguageTools(state),

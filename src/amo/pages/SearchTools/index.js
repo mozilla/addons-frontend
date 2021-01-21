@@ -18,16 +18,19 @@ import type { DispatchFunc } from 'amo/types/redux';
 import type { I18nType } from 'amo/types/i18n';
 import type { SearchFilters } from 'amo/components/AutoSearchInput';
 
-type Props = {|
+type Props = {||};
+
+type PropsFromState = {|
+  clientApp: string,
   filters: SearchFilters,
+  lang: string,
 |};
 
 type InternalProps = {|
   ...Props,
-  clientApp: string,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   i18n: I18nType,
-  lang: string,
 |};
 
 export class SearchToolsBase extends React.Component<InternalProps> {
@@ -51,7 +54,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { filters, i18n } = this.props;
 
     return (
@@ -75,7 +78,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+function mapStateToProps(state: AppState): PropsFromState {
   const filters = {
     sort: SEARCH_SORT_TOP_RATED,
   };

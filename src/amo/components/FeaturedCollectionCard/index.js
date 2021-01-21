@@ -4,6 +4,7 @@ import makeClassNames from 'classnames';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { INSTALL_SOURCE_FEATURED_COLLECTION } from 'amo/constants';
+import type { UserId } from 'amo/reducers/users';
 import type { AddonType } from 'amo/types/addons';
 
 import './styles.scss';
@@ -16,11 +17,11 @@ type Props = {|
   isTheme: boolean,
   loading: boolean,
   slug: string,
-  userId: number,
+  userId: UserId,
 |};
 
 export default class FeaturedCollectionCard extends React.Component<Props> {
-  render() {
+  render(): React.Node {
     const {
       addons,
       className,

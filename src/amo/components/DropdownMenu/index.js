@@ -6,13 +6,13 @@ import onClickOutside from 'react-onclickoutside';
 
 import log from 'amo/logger';
 import Icon from 'amo/components/Icon';
-import DropdownMenuItem from 'amo/components/DropdownMenuItem';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 
 import './styles.scss';
 
 type Props = {|
   text: string,
-  children?: React.ChildrenArray<React.Element<typeof DropdownMenuItem>>,
+  children?: React.ChildrenArray<React.Node>,
   className?: string,
 |};
 
@@ -27,7 +27,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     this.state = { buttonIsActive: false };
   }
 
-  handleOnClick = (event: SyntheticEvent<any>) => {
+  handleOnClick: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
     this.setState((previousState) => ({
@@ -35,7 +35,9 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     }));
   };
 
-  handleOnClickForLinks = (event: SyntheticInputEvent<any>) => {
+  handleOnClickForLinks: (event: SyntheticInputEvent<HTMLElement>) => void = (
+    event: SyntheticInputEvent<HTMLElement>,
+  ) => {
     // If a link inside the menu is clicked, we should close the dropdown.
     // See: https://github.com/mozilla/addons-frontend/issues/3452
     if (event.target && event.target.tagName === 'A') {
@@ -45,19 +47,19 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     }
   };
 
-  handleClickOutside = () => {
+  handleClickOutside: () => void = () => {
     this.setState({ buttonIsActive: false });
   };
 
-  handleOnMouseEnter = () => {
+  handleOnMouseEnter: () => void = () => {
     this.setState({ buttonIsActive: true });
   };
 
-  handleOnMouseLeave = () => {
+  handleOnMouseLeave: () => void = () => {
     this.setState({ buttonIsActive: false });
   };
 
-  render() {
+  render(): React.Node {
     const { children, className, text } = this.props;
 
     // ESLint doesn't like the event handlers we attach to the
@@ -102,4 +104,4 @@ export class DropdownMenuBase extends React.Component<Props, State> {
   }
 }
 
-export default onClickOutside(DropdownMenuBase);
+export default (onClickOutside(DropdownMenuBase): React.ComponentType<Props>);

@@ -17,19 +17,23 @@ export type ButtonType =
   | 'alert'
   | 'none';
 
-export type Props = {|
+export type DefaultProps = {|
   buttonType: ButtonType,
-  children?: React.Node,
-  className?: string,
   disabled: boolean,
-  externalDark?: boolean,
-  href?: string,
   htmlType?: string,
   micro: boolean,
-  name?: number,
   noLink: boolean,
-  onClick?: Function | null,
   puffy: boolean,
+|};
+
+export type Props = {|
+  ...DefaultProps,
+  children?: React.Node,
+  className?: string,
+  externalDark?: boolean,
+  href?: string,
+  name?: number,
+  onClick?: Function | null,
   title?: string | null,
   // TODO: make a better Object type.
   to?: string | Object,
@@ -48,7 +52,7 @@ const BUTTON_TYPES = [
 ];
 
 export default class Button extends React.Component<Props> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     buttonType: 'none',
     disabled: false,
     htmlType: 'submit',
@@ -57,7 +61,7 @@ export default class Button extends React.Component<Props> {
     puffy: false,
   };
 
-  render() {
+  render(): React.Node {
     const {
       buttonType,
       children,

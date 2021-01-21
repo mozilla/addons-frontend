@@ -31,19 +31,26 @@ export const TAAR_COHORT_INCLUDED = 'TAAR_COHORT_INCLUDED';
 export const TAAR_EXPERIMENT_PARTICIPANT = 'TAAR-LITE-AB';
 export const TAAR_EXPERIMENT_PARTICIPANT_DIMENSION = 'dimension5';
 
+type DefaultProps = {|
+  tracking: typeof defaultTracking,
+|};
+
+type PropsFromState = {|
+  recommendations: Recommendations | null,
+|};
+
 type Props = {|
+  ...DefaultProps,
+  ...PropsFromState,
   addon: AddonType | null,
   className?: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  recommendations: Recommendations | null,
-  tracking: typeof defaultTracking,
 |};
 
 export class AddonRecommendationsBase extends React.Component<Props> {
-  static defaultProps = {
-    recommendations: null,
+  static defaultProps: DefaultProps = {
     tracking: defaultTracking,
   };
 
@@ -114,7 +121,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     );
   }
 
-  render() {
+  render(): null | React.Node {
     const { className, i18n, recommendations, errorHandler } = this.props;
 
     if (!recommendations) {
@@ -158,7 +165,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addon } = ownProps;
   const recommendations = addon
     ? getRecommendationsByGuid({

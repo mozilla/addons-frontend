@@ -13,6 +13,7 @@ import { getCategoryResultsQuery } from 'amo/utils/categories';
 import Button from 'amo/components/Button';
 import Card from 'amo/components/Card';
 import LoadingText from 'amo/components/LoadingText';
+import type { CategoriesState } from 'amo/reducers/categories';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { DispatchFunc } from 'amo/types/redux';
@@ -21,7 +22,7 @@ import type { GetCategoryResultsQueryParams } from 'amo/utils/categories';
 
 import './styles.scss';
 
-type CategoryType = {|
+export type CategoryType = {|
   application: string,
   description?: string,
   id: number,
@@ -32,34 +33,29 @@ type CategoryType = {|
   weight: number,
 |};
 
-type CategoriesStateType = {|
-  categories: {
-    [clientApp: string]: void | {
-      [addonType: string]: void | { [categorySlug: string]: CategoryType },
-    },
-  },
-  loading: boolean,
-|};
-
 type Props = {|
   addonType: string,
   className?: string,
 |};
 
+type PropsFromState = {|
+  categoriesState: $PropertyType<CategoriesState, 'categories'>,
+  clientApp: string,
+  loading: boolean,
+|};
+
 type InternalProps = {|
   ...Props,
-  categoriesState: $PropertyType<CategoriesStateType, 'categories'>,
-  clientApp: string,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  loading: boolean,
 |};
 
 export const categoryResultsLinkTo = ({
   addonType,
   slug,
-}: GetCategoryResultsQueryParams) => {
+}: GetCategoryResultsQueryParams): {| pathname: string, query: any |} => {
   return {
     pathname: '/search/',
     query: getCategoryResultsQuery({
@@ -98,7 +94,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     /* eslint-disable react/no-array-index-key */
     const {
       addonType,
@@ -180,7 +176,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+export function mapStateToProps(state: AppState): PropsFromState {
   return {
     categoriesState: state.categories.categories,
     clientApp: state.api.clientApp,

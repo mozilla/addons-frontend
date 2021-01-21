@@ -8,6 +8,7 @@ import translate from 'amo/i18n/translate';
 import withUIState from 'amo/withUIState';
 import Card from 'amo/components/Card';
 import Icon from 'amo/components/Icon';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -17,9 +18,9 @@ type UIStateType = {|
 |};
 
 type Props = {|
-  children: React.Element<any> | string,
+  children: React.Node | string,
   className?: string,
-  header?: React.Element<any> | string,
+  header?: React.Node | string,
   id: string,
 |};
 
@@ -33,14 +34,14 @@ type InternalProps = {|
 const initialUIState: UIStateType = { expanded: false };
 
 export class ExpandableCardBase extends React.Component<InternalProps> {
-  onClick = (event: SyntheticEvent<any>) => {
+  onClick: HTMLElementEventHandler = (event: ElementEvent) => {
     const { uiState } = this.props;
     event.preventDefault();
 
     this.props.setUIState({ expanded: !uiState.expanded });
   };
 
-  render() {
+  render(): React.Node {
     const { children, className, header, id, i18n, uiState } = this.props;
     const { expanded } = uiState;
 
@@ -77,7 +78,7 @@ export class ExpandableCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (props: Props) => {
+export const extractId = (props: Props): string => {
   return props.id;
 };
 

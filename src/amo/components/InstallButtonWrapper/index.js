@@ -37,18 +37,22 @@ export type Props = {|
   version?: AddonVersionType | null,
 |};
 
-type InternalProps = {|
-  ...Props,
-  ...WithInstallHelpersInjectedProps,
+type PropsFromState = {|
   canUninstall: $PropertyType<InstalledAddon, 'canUninstall'>,
   clientApp: string,
   currentVersion: AddonVersionType | null,
-  i18n: I18nType,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
 |};
 
-export const InstallButtonWrapperBase = (props: InternalProps) => {
+type InternalProps = {|
+  ...Props,
+  ...WithInstallHelpersInjectedProps,
+  ...PropsFromState,
+  i18n: I18nType,
+|};
+
+export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
   const {
     _findInstallURL = findInstallURL,
     _getClientCompatibility = getClientCompatibility,
@@ -138,11 +142,14 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
   );
 };
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+function mapStateToProps(
+  state: AppState,
+  ownProps: InternalProps,
+): PropsFromState {
   const { addon, version } = ownProps;
   const installedAddon = (addon && state.installations[addon.guid]) || {};
 
-  let currentVersion = version;
+  let currentVersion = version || null;
 
   if (addon && addon.currentVersionId && !currentVersion) {
     currentVersion = getVersionById({

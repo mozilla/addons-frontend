@@ -45,25 +45,33 @@ type Props = {|
   shelfData?: PrimaryHeroShelfType,
 |};
 
-export type InternalProps = {|
-  ...Props,
-  _checkInternalURL: typeof checkInternalURL,
-  _getPromotedCategory: typeof getPromotedCategory,
-  _tracking: typeof tracking,
+export type PropsFromState = {|
   clientApp: string,
-  i18n: I18nType,
   siteIsReadOnly: boolean,
   siteNotice: string | null,
 |};
 
+export type DeafultProps = {|
+  _checkInternalURL: typeof checkInternalURL,
+  _getPromotedCategory: typeof getPromotedCategory,
+  _tracking: typeof tracking,
+|};
+
+export type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  ...DeafultProps,
+  i18n: I18nType,
+|};
+
 export class HeroRecommendationBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DeafultProps = {
     _checkInternalURL: checkInternalURL,
     _getPromotedCategory: getPromotedCategory,
     _tracking: tracking,
   };
 
-  makeCallToActionURL = () => {
+  makeCallToActionURL: () => null | string = () => {
     const { shelfData } = this.props;
     invariant(shelfData, 'The shelfData property is required');
 
@@ -87,7 +95,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       : null;
   };
 
-  onHeroClick = () => {
+  onHeroClick: () => void = () => {
     const { _tracking, shelfData } = this.props;
 
     invariant(shelfData, 'The shelfData property is required');
@@ -101,7 +109,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     });
   };
 
-  onHeroImpression = () => {
+  onHeroImpression: () => void = () => {
     const { _tracking, shelfData } = this.props;
 
     invariant(shelfData, 'The shelfData property is required');
@@ -131,7 +139,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): null | React.Node {
     const {
       _checkInternalURL,
       _getPromotedCategory,
@@ -314,7 +322,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     clientApp: state.api.clientApp,
     siteIsReadOnly: state.site.readOnly,

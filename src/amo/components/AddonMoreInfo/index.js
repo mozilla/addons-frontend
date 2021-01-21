@@ -20,8 +20,9 @@ import {
   addQueryParams,
   getQueryParametersForAttribution,
 } from 'amo/utils/url';
-import type { AppState } from 'amo/store';
+import type { UserId } from 'amo/reducers/users';
 import type { AddonVersionType, VersionInfoType } from 'amo/reducers/versions';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
@@ -30,17 +31,21 @@ type Props = {|
   i18n: I18nType,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   hasStatsPermission: boolean,
-  userId: number | null,
+  userId: UserId | null,
   currentVersion: AddonVersionType | null,
   versionInfo: VersionInfoType | null,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
   location: ReactRouterLocationType,
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
-  listContent() {
+  listContent(): React.Node {
     const {
       addon,
       currentVersion,
@@ -213,7 +218,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     versionLastUpdated,
     versionLicenseLink = null,
     versionHistoryLink = null,
-  }: Object) {
+  }: Object): React.Node {
     const { addon, i18n } = this.props;
     return (
       <>
@@ -303,7 +308,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { i18n } = this.props;
 
     return (
@@ -314,7 +319,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addon, i18n } = ownProps;
   let currentVersion = null;
   let versionInfo = null;

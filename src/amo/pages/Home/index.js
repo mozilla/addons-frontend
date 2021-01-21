@@ -408,7 +408,7 @@ export class HomeBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+function mapStateToProps(state) {
   return {
     collections: state.home.collections,
     heroShelves: state.home.heroShelves,

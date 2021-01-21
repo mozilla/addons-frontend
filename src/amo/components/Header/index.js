@@ -236,7 +236,7 @@ export class HeaderBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     api: state.api,
     clientApp: state.api.clientApp,

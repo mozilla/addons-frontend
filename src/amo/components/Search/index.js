@@ -29,8 +29,9 @@ import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
-import type { AppState } from 'amo/store';
 import type { SearchFilters as SearchFiltersType } from 'amo/api/search';
+import type { ViewContextType } from 'amo/reducers/viewContext';
+import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
@@ -38,37 +39,50 @@ import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 
-type Props = {|
+type DefaultExternalProps = {|
   enableSearchFilters?: boolean,
-  filters: SearchFiltersType,
+  filters: SearchFiltersType | Object,
   paginationQueryParams?: Object,
+|};
+
+type DefaultInternalProps = {|
+  LinkComponent: React.Node,
+|};
+
+type DefaultProps = {|
+  ...DefaultExternalProps,
+  ...DefaultInternalProps,
+|};
+
+type Props = {|
   pathname?: string,
+  ...DefaultExternalProps,
+|};
+
+type PropsFromState = {|
+  context: ViewContextType,
+  count: number,
+  filtersUsedForResults: SearchFiltersType | Object,
+  loading: boolean,
+  pageSize: string | null,
+  results: Array<AddonType | CollectionAddonType>,
 |};
 
 type InternalProps = {|
   ...Props,
-  LinkComponent: React.Node,
-  context: string,
-  count: number,
+  ...PropsFromState,
+  ...DefaultProps,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  filtersUsedForResults: SearchFiltersType | null,
   i18n: I18nType,
-  loading: boolean,
-  pageSize: string,
-  results: Array<AddonType | CollectionAddonType>,
 |};
 
 export class SearchBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     LinkComponent: Link,
-    count: 0,
     enableSearchFilters: true,
     filters: {},
-    filtersUsedForResults: {},
     paginationQueryParams: null,
-    pathname: '/search/',
-    results: [],
   };
 
   constructor(props: InternalProps) {
@@ -114,7 +128,7 @@ export class SearchBase extends React.Component<InternalProps> {
     }
   }
 
-  renderHelmetTitle() {
+  renderHelmetTitle(): React.Node {
     const { i18n, filters } = this.props;
 
     let title = i18n.gettext('Search results');
@@ -218,7 +232,7 @@ export class SearchBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const {
       LinkComponent,
       count,
@@ -231,6 +245,8 @@ export class SearchBase extends React.Component<InternalProps> {
       pathname,
       results,
     } = this.props;
+
+    const defaultPathname = '/search/';
 
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
@@ -273,7 +289,10 @@ export class SearchBase extends React.Component<InternalProps> {
         <SearchContextCard />
 
         {enableSearchFilters ? (
-          <SearchFilters filters={filters} pathname={pathname} />
+          <SearchFilters
+            filters={filters}
+            pathname={pathname || defaultPathname}
+          />
         ) : null}
 
         <SearchResults
@@ -288,11 +307,11 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     context: state.viewContext.context,
     count: state.search.count,
-    filtersUsedForResults: state.search.filters,
+    filtersUsedForResults: state.search.filters || {},
     loading: state.search.loading,
     pageSize: state.search.pageSize,
     results: state.search.results,
@@ -301,7 +320,7 @@ export const mapStateToProps = (state: AppState) => {
 
 // This ID does not need to differentiate between component instances because
 // the error handler gets cleared every time the search filters change.
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): void | string => {
   return ownProps.filters.page;
 };
 

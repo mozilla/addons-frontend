@@ -22,10 +22,14 @@ type Props = {|
   queryParamsForAttribution?: { [name: string]: string },
 |};
 
+type PropsFromState = {|
+  isRTL: boolean,
+|};
+
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   i18n: I18nType,
-  isRTL: boolean,
 |};
 
 export const AddonTitleBase = ({
@@ -35,7 +39,7 @@ export const AddonTitleBase = ({
   isRTL,
   linkToAddon = false,
   queryParamsForAttribution = {},
-}: InternalProps) => {
+}: InternalProps): React.Node => {
   const authors = [];
 
   if (addon && addon.authors) {
@@ -104,9 +108,9 @@ export const AddonTitleBase = ({
   );
 };
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
-    isRTL: isRtlLang(state.api.lang || ''),
+    isRTL: isRtlLang(state.api.lang),
   };
 };
 

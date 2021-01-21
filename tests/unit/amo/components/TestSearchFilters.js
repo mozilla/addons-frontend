@@ -15,7 +15,6 @@ import {
   SEARCH_SORT_RELEVANCE,
   SEARCH_SORT_TRENDING,
 } from 'amo/constants';
-import { searchStart } from 'amo/reducers/search';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import Select from 'amo/components/Select';
 import {
@@ -23,7 +22,6 @@ import {
   createFakeEvent,
   createFakeHistory,
   createFakeLocation,
-  createStubErrorHandler,
   dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
@@ -38,12 +36,9 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store,
     ...props
   } = {}) {
-    const errorHandler = createStubErrorHandler();
-
-    store.dispatch(searchStart({ errorHandlerId: errorHandler.id, filters }));
-
     return shallowUntilTarget(
       <SearchFilters
+        filters={filters}
         i18n={fakeI18n()}
         pathname={pathname}
         store={store}

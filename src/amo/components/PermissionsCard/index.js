@@ -17,8 +17,13 @@ type Props = {|
   i18n: I18nType,
 |};
 
-export class PermissionsCardBase extends React.Component<Props> {
-  render() {
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+|};
+
+export class PermissionsCardBase extends React.Component<InternalProps> {
+  render(): null | React.Node {
     const { version, i18n } = this.props;
 
     if (!version || !version.file) {

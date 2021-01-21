@@ -6,17 +6,24 @@ import { withRouter } from 'react-router-dom';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
 type Props = {|
-  _window: typeof window,
   children: React.Node,
-  location: ReactRouterLocationType,
 |};
 
-export class ScrollToTopBase extends React.Component<Props> {
-  static defaultProps = {
+type DefaultProps = {|
+  _window: typeof window,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...DefaultProps,
+  location: ReactRouterLocationType,
+|};
+export class ScrollToTopBase extends React.Component<InternalProps> {
+  static defaultProps: DefaultProps = {
     _window: typeof window !== 'undefined' ? window : null,
   };
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps: InternalProps) {
     const { _window, location } = this.props;
 
     if (_window && location !== prevProps.location) {
@@ -24,9 +31,9 @@ export class ScrollToTopBase extends React.Component<Props> {
     }
   }
 
-  render() {
+  render(): React.Node {
     return this.props.children;
   }
 }
 
-export default withRouter(ScrollToTopBase);
+export default (withRouter(ScrollToTopBase): React.ComponentType<Props>);

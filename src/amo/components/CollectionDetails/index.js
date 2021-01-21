@@ -19,6 +19,7 @@ import type {
   CollectionFilters,
   CollectionType,
 } from 'amo/reducers/collections';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 
@@ -39,7 +40,7 @@ type InternalProps = {|
 |};
 
 export class CollectionDetailsBase extends React.Component<InternalProps> {
-  onEditDetails = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onEditDetails: HTMLElementEventHandler = (event: ElementEvent) => {
     const { dispatch } = this.props;
 
     event.preventDefault();
@@ -48,7 +49,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
     dispatch(beginEditingCollectionDetails());
   };
 
-  render() {
+  render(): React.Node {
     const {
       collection,
       editing,

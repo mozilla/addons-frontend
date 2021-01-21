@@ -15,7 +15,7 @@ type Props = {|
   children: React.Node,
 |};
 
-const StaticPage = (props: Props) => {
+const StaticPage = (props: Props): React.Node => {
   const { title, metaDescription, children } = props;
 
   return (

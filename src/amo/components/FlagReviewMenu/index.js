@@ -19,25 +19,33 @@ import type { I18nType } from 'amo/types/i18n';
 import type { UserType } from 'amo/reducers/users';
 import type { UserReviewType } from 'amo/actions/reviews';
 
-type Props = {|
+type DefaultProps = {|
   isDeveloperReply?: boolean,
+|};
+
+type Props = {|
+  ...DefaultProps,
   openerClass?: string,
   review: UserReviewType,
 |};
 
-type InternalProps = {|
-  ...Props,
-  i18n: I18nType,
+type PropsFromState = {|
   siteUser: UserType | null,
   wasFlagged: boolean,
 |};
 
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  i18n: I18nType,
+|};
+
 export class FlagReviewMenuBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     isDeveloperReply: false,
   };
 
-  render() {
+  render(): React.Node {
     const {
       i18n,
       isDeveloperReply,
@@ -129,7 +137,7 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   let wasFlagged = false;
 
   if (ownProps.review) {

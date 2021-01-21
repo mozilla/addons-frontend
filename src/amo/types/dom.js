@@ -7,9 +7,17 @@
 // For example, you could express an input event handler
 // like:
 //
-// onInput = (event: ElementEvent<HTMLInputElement>) => {
+// onInput = (event: TypedElementEvent<HTMLInputElement>) => {
 //   console.log(event.target.value);
 // }
-export type ElementEvent<TargetType> = {
+export type TypedElementEvent<TargetType> = {
   target: TargetType,
 } & Event;
+
+export type ElementEvent = SyntheticEvent<HTMLElement>;
+
+export type HTMLElementEventHandlerWithTarget<TargetType> = (
+  event: TypedElementEvent<TargetType>,
+) => void;
+
+export type HTMLElementEventHandler = (event: ElementEvent) => void;

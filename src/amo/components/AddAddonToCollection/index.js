@@ -18,13 +18,17 @@ import log from 'amo/logger';
 import Card from 'amo/components/Card';
 import Select from 'amo/components/Select';
 import Notice from 'amo/components/Notice';
+import type { CollectionType } from 'amo/reducers/collections';
+import type { UserId } from 'amo/reducers/users';
+import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
+import type {
+  TypedElementEvent,
+  HTMLElementEventHandlerWithTarget,
+} from 'amo/types/dom';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
-import type { CollectionType } from 'amo/reducers/collections';
-import type { AppState } from 'amo/store';
-import type { ElementEvent } from 'amo/types/dom';
 import type { ReactRouterHistoryType } from 'amo/types/router';
 
 import './styles.scss';
@@ -33,21 +37,25 @@ type Props = {|
   addon: AddonType | null,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   // These are all user collections that the current add-on is a part of.
   addonInCollections: Array<CollectionType> | null,
   clientApp: string,
-  currentUserId: number | null,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
-  i18n: I18nType,
-  history: ReactRouterHistoryType,
+  currentUserId: UserId | null,
   lang: string,
   loadingAddonsInCollections: boolean,
   loadingUserCollections: boolean,
   // These are all collections belonging to the user.
   userCollections: Array<CollectionType> | null,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
+  history: ReactRouterHistoryType,
 |};
 
 type OnSelectOptionType = () => void;
@@ -102,7 +110,9 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     }
   }
 
-  onSelectOption = (event: ElementEvent<HTMLSelectElement>) => {
+  onSelectOption: HTMLElementEventHandlerWithTarget<HTMLSelectElement> = (
+    event: TypedElementEvent<HTMLSelectElement>,
+  ) => {
     event.preventDefault();
     const key = event.target.value;
     const handleOption = this.optionSelectHandlers[key];
@@ -146,7 +156,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     key: string,
     // eslint-disable-next-line react/no-unused-prop-types
     onSelect?: OnSelectOptionType,
-  }) {
+  }): React.Node {
     if (onSelect) {
       this.optionSelectHandlers[key] = onSelect;
     }
@@ -232,7 +242,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     return { actionOptions, collectionOptions, disabled: false };
   }
 
-  render() {
+  render(): React.Node {
     const { errorHandler, i18n, addonInCollections } = this.props;
     const { actionOptions, collectionOptions, disabled } = this.getSelectData();
 
@@ -280,7 +290,10 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): PropsFromState => {
   const { collections, users } = state;
   const currentUser = getCurrentUser(users);
   const currentUserId = currentUser && currentUser.id;
@@ -310,7 +323,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   };
 };
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): string => {
   const { addon, currentUserId } = ownProps;
 
   return `${addon ? addon.id : ''}-${currentUserId || ''}`;

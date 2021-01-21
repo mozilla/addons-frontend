@@ -9,6 +9,7 @@ import translate from 'amo/i18n/translate';
 import withUIState from 'amo/withUIState';
 import { sanitizeHTML } from 'amo/utils';
 import Card from 'amo/components/Card';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -22,13 +23,17 @@ type UIStateType = {|
   readMoreExpanded: boolean,
 |};
 
-type Props = {|
-  contentId: number | string | null,
-  children: React.Element<any>,
-  className?: string,
-  header?: React.Element<any> | string,
-  id: string,
+type DefaultProps = {|
   maxHeight: number,
+|};
+
+type Props = {|
+  ...DefaultProps,
+  contentId: number | string | null,
+  children: React.Node,
+  className?: string,
+  header?: React.Node | string,
+  id: string,
 |};
 
 type InternalProps = {|
@@ -46,7 +51,7 @@ const initialUIState: UIStateType = {
 export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
 
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     maxHeight: DEFAULT_MAX_HEIGHT,
   };
 
@@ -85,7 +90,9 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     });
   }
 
-  truncateToMaxHeight = (contents: HTMLElement | null) => {
+  truncateToMaxHeight: (contents: HTMLElement | null) => void = (
+    contents: HTMLElement | null,
+  ) => {
     const { maxHeight, uiState } = this.props;
     if (contents) {
       // If the contents are short enough they don't need a "show more" link; the
@@ -99,7 +106,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     }
   };
 
-  onClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  onClick: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
     this.props.setUIState({
@@ -108,7 +115,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     });
   };
 
-  render() {
+  render(): React.Node {
     const { children, className, header, id, i18n, uiState } = this.props;
     const { showAllContent } = uiState;
 
@@ -154,11 +161,11 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (props: Props) => {
+export const extractId = (props: Props): string => {
   return props.id;
 };
 
-export default compose(
+export default (compose(
   translate(),
   withUIState({
     fileName: __filename,
@@ -166,4 +173,4 @@ export default compose(
     initialState: initialUIState,
     resetOnUnmount: true,
   }),
-)(ShowMoreCardBase);
+)(ShowMoreCardBase): React.ComponentType<Props>);

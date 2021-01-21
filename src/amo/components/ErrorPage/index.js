@@ -11,20 +11,27 @@ import type { AppState } from 'amo/store';
 import type { ErrorPageState } from 'amo/reducers/errorPage';
 import type { DispatchFunc } from 'amo/types/redux';
 
-type Props = {|
-  children: React.Node,
+type DefaultProps = {|
   getErrorComponent?: typeof getErrorComponentDefault,
+|};
+
+type Props = {|
+  ...DefaultProps,
+  children: React.Node,
+|};
+
+type PropsFromState = {|
+  errorPage: ErrorPageState,
 |};
 
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   dispatch: DispatchFunc,
-  errorPage: ErrorPageState,
 |};
 
 export class ErrorPageBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    errorPage: {},
+  static defaultProps: DefaultProps = {
     getErrorComponent: getErrorComponentDefault,
   };
 
@@ -36,7 +43,7 @@ export class ErrorPageBase extends React.Component<InternalProps> {
     log.error('Caught application error:', error, info);
   }
 
-  render() {
+  render(): React.Node {
     const { children, errorPage, getErrorComponent } = this.props;
     invariant(getErrorComponent, 'getErrorComponent() is undefined');
 
@@ -51,7 +58,7 @@ export class ErrorPageBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: AppState): PropsFromState => ({
   errorPage: state.errorPage,
 });
 

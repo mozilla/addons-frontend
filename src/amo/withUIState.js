@@ -15,7 +15,7 @@ export const generateId = ({
 }: {|
   fileName: string,
   id: string,
-|}) => {
+|}): string => {
   invariant(fileName, 'fileName is required');
   invariant(typeof id === 'string', 'id must be a string');
 
@@ -32,7 +32,10 @@ export const createUIStateMapper = ({
   extractId?: ExtractIdFunc,
   fileName?: string,
   uiStateID?: string,
-|}) => {
+|}): ((
+  state: AppState,
+  props: Object,
+) => {| uiState: Object, uiStateID: string |}) => {
   invariant(initialState, 'initialState is required');
   const mapStateToProps = (state: AppState, props: Object) => {
     let computedUIStateID;
@@ -60,7 +63,7 @@ export const mergeUIStateProps = (
   stateProps: Object,
   dispatchProps: Object,
   ownProps: Object,
-) => {
+): Object => {
   const { dispatch } = dispatchProps;
   return {
     ...ownProps,

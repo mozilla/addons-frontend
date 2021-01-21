@@ -3,14 +3,12 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 import RCTooltip from 'rc-tooltip';
 
-import ListItem from 'amo/components/ListItem';
-
 import './styles.scss';
 
 type Props = {|
   className?: string,
   idPrefix?: string,
-  items: Array<null | React.Element<typeof ListItem>>,
+  items: Array<null | React.Node>,
   openerClass?: string,
   openerText: string,
   openerTitle?: string,
@@ -19,7 +17,7 @@ type Props = {|
 export default class TooltipMenu extends React.Component<Props> {
   container: React.ElementRef<'div'> | null;
 
-  render() {
+  render(): React.Node {
     const {
       className,
       idPrefix,

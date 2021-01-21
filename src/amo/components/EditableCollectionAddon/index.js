@@ -19,6 +19,7 @@ import type {
 } from 'amo/pages/Collection';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonType, CollectionAddonType } from 'amo/types/addons';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 
@@ -46,18 +47,18 @@ type InternalProps = {|
   uiState: UIStateType,
 |};
 
-export const extractId = (ownProps: Props | InternalProps) => {
+export const extractId = (ownProps: Props | InternalProps): string => {
   const { addon } = ownProps;
   return `editable-collection-addon-${addon.id}`;
 };
 
 export class EditableCollectionAddonBase extends React.Component<InternalProps> {
-  onEditNote = (event: SyntheticEvent<HTMLElement>) => {
+  onEditNote: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
     this.props.setUIState({ editingNote: true });
   };
 
-  onDeleteNote = () => {
+  onDeleteNote: () => void = () => {
     const {
       addon: { id: addonId },
       deleteNote,
@@ -67,11 +68,11 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
     deleteNote(addonId, errorHandler);
   };
 
-  onDismissNoteForm = () => {
+  onDismissNoteForm: () => void = () => {
     this.props.setUIState({ editingNote: false });
   };
 
-  onRemoveAddon = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onRemoveAddon: HTMLElementEventHandler = (event: ElementEvent) => {
     const {
       addon: { id: addonId },
       removeAddon,
@@ -85,7 +86,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
     removeAddon(addonId);
   };
 
-  onSaveNote = (notes: OnSubmitParams) => {
+  onSaveNote: (notes: OnSubmitParams) => void = (notes: OnSubmitParams) => {
     const {
       addon: { id: addonId },
       errorHandler,
@@ -97,7 +98,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
     saveNote(addonId, errorHandler, notes.text);
   };
 
-  render() {
+  render(): React.Node {
     const { addon, className, errorHandler, i18n } = this.props;
     const showNotes = addon.notes || this.props.uiState.editingNote;
     const iconURL = getAddonIconUrl(addon);

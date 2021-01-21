@@ -9,15 +9,19 @@ import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
+type DefaultProps = {|
+  pageParam?: string,
+  showPages?: number,
+|};
+
 type Props = {|
+  ...DefaultProps,
   LinkComponent: React.Node,
   count: number,
   currentPage?: string,
-  pageParam?: string,
   pathname?: string,
   perPage: number,
   queryParams?: Object,
-  showPages?: number,
 |};
 
 type InternalProps = {|
@@ -40,18 +44,18 @@ function makePageNumbers({
 }
 
 export class PaginateBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     pageParam: 'page',
     showPages: 7,
   };
 
-  getCurrentPage() {
+  getCurrentPage(): number {
     const currentPage = parseInt(this.props.currentPage, 10);
 
     return Number.isNaN(currentPage) || currentPage < 1 ? 1 : currentPage;
   }
 
-  pageCount() {
+  pageCount(): number {
     const { count, perPage } = this.props;
 
     invariant(typeof perPage === 'number', 'perPage is required');
@@ -63,7 +67,7 @@ export class PaginateBase extends React.Component<InternalProps> {
     return Math.ceil(count / perPage);
   }
 
-  visiblePages({ pageCount }: {| pageCount: number |}) {
+  visiblePages({ pageCount }: {| pageCount: number |}): Array<number> {
     const { showPages } = this.props;
     if (!showPages) {
       return [];
@@ -94,7 +98,7 @@ export class PaginateBase extends React.Component<InternalProps> {
     return makePageNumbers({ start, end });
   }
 
-  render() {
+  render(): null | React.Node {
     const {
       LinkComponent,
       count,
