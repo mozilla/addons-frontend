@@ -8,24 +8,41 @@ import {
   LANDING_PAGE_THEME_COUNT,
   ADDON_TYPE_STATIC_THEME,
 } from 'amo/constants';
-import { createInternalAddon } from 'amo/reducers/addons';
+import {
+  createInternalAddon,
+  selectLocalizedUrlWithOutgoing,
+} from 'amo/reducers/addons';
 import { SET_CLIENT_APP, SET_LANG } from 'amo/reducers/api';
+import { selectLocalizedContent } from 'amo/reducers/utils';
 import type { SetClientAppAction } from 'amo/reducers/api';
 import type {
   AddonType,
   ExternalAddonType,
   PartialExternalAddonType,
 } from 'amo/types/addons';
+import type {
+  LocalizedString,
+  LocalizedUrlWithOutgoing,
+  UrlWithOutgoing,
+} from 'amo/types/api';
 
 export const ABORT_FETCH_HOME_DATA: 'ABORT_FETCH_HOME_DATA' =
   'ABORT_FETCH_HOME_DATA';
 export const FETCH_HOME_DATA: 'FETCH_HOME_DATA' = 'FETCH_HOME_DATA';
 export const LOAD_HOME_DATA: 'LOAD_HOME_DATA' = 'LOAD_HOME_DATA';
 
-export type PrimaryHeroShelfExternalType = {|
+export type PrimaryHeroShelfExternalAddonType = {|
   id: string,
   guid: string,
-  homepage: string,
+  homepage: LocalizedUrlWithOutgoing,
+  name: LocalizedString,
+  type: string,
+|};
+
+export type InternalPrimaryHeroShelfExternalAddonType = {|
+  id: string,
+  guid: string,
+  homepage: UrlWithOutgoing | null,
   name: string,
   type: string,
 |};
@@ -50,7 +67,7 @@ type ExternalPrimaryHeroShelfWithAddonType = {|
 type ExternalPrimaryHeroShelfWithExternalType = {|
   ...BaseExternalPrimaryHeroShelfType,
   addon: void,
-  external: PrimaryHeroShelfExternalType,
+  external: PrimaryHeroShelfExternalAddonType,
 |};
 
 export type ExternalPrimaryHeroShelfType =
@@ -73,7 +90,7 @@ type PrimaryHeroShelfWithAddonType = {|
 type PrimaryHeroShelfWithExternalType = {|
   ...BasePrimaryHeroShelfType,
   addon: void,
-  external: PrimaryHeroShelfExternalType,
+  external: InternalPrimaryHeroShelfExternalAddonType,
 |};
 
 export type PrimaryHeroShelfType =
@@ -220,6 +237,21 @@ const createInternalAddons = (
   return response.results.map((addon) => createInternalAddon(addon, lang));
 };
 
+export const createInternalPrimaryHeroShelfExternalAddon = (
+  external: PrimaryHeroShelfExternalAddonType,
+  lang: string,
+): InternalPrimaryHeroShelfExternalAddonType => {
+  const { id, guid, homepage, name, type } = external;
+
+  return {
+    id,
+    guid,
+    homepage: selectLocalizedUrlWithOutgoing(homepage, lang),
+    name: selectLocalizedContent(name, lang),
+    type,
+  };
+};
+
 export const createInternalHeroShelves = (
   heroShelves: ExternalHeroShelvesType,
   lang: string,
@@ -253,7 +285,10 @@ export const createInternalHeroShelves = (
   const primaryShelf: PrimaryHeroShelfWithExternalType = {
     ...basePrimaryShelf,
     addon: undefined,
-    external: primary.external,
+    external: createInternalPrimaryHeroShelfExternalAddon(
+      primary.external,
+      lang,
+    ),
   };
   return { primary: primaryShelf, secondary };
 };

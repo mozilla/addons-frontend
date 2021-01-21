@@ -33,7 +33,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakePrimaryHeroShelfExternal,
+  fakePrimaryHeroShelfExternalAddon,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -129,7 +129,10 @@ describe(__filename, () => {
     it('renders a heading', () => {
       const name = 'External Name';
       const shelfData = createShelfData({
-        external: { ...fakePrimaryHeroShelfExternal, name },
+        external: {
+          ...fakePrimaryHeroShelfExternalAddon,
+          name: createLocalizedString(name),
+        },
       });
 
       const root = render({ shelfData });
@@ -138,9 +141,14 @@ describe(__filename, () => {
     });
 
     it('renders a link', () => {
-      const homepage = 'https://somehomepage.com';
+      const homepage = {
+        'url': createLocalizedString('http://hamsterdance.com/'),
+        'outgoing': createLocalizedString(
+          'https://outgoing.mozilla.org/hamster',
+        ),
+      };
       const shelfData = createShelfData({
-        external: { ...fakePrimaryHeroShelfExternal, homepage },
+        external: { ...fakePrimaryHeroShelfExternalAddon, homepage },
       });
 
       const root = render({ shelfData });
@@ -152,8 +160,15 @@ describe(__filename, () => {
     });
 
     it('configures an external link to open in a new tab', () => {
+      const url = 'http://hamsterdance.com/';
+      const homepage = {
+        'url': createLocalizedString(url),
+        'outgoing': createLocalizedString(
+          'https://outgoing.mozilla.org/hamster',
+        ),
+      };
       const _checkInternalURL = sinon.stub().returns({ isInternal: false });
-      const external = fakePrimaryHeroShelfExternal;
+      const external = { ...fakePrimaryHeroShelfExternalAddon, homepage };
       const shelfData = createShelfData({ external });
 
       const root = render({ _checkInternalURL, shelfData });
@@ -163,13 +178,20 @@ describe(__filename, () => {
       expect(link).toHaveProp('target', '_blank');
       sinon.assert.calledWith(
         _checkInternalURL,
-        sinon.match({ urlString: sinon.match(external.homepage) }),
+        sinon.match({ urlString: sinon.match(url) }),
       );
     });
 
     it('does not configure an internal link to open in a new tab', () => {
+      const url = 'http://hamsterdance.com/';
+      const homepage = {
+        'url': createLocalizedString(url),
+        'outgoing': createLocalizedString(
+          'https://outgoing.mozilla.org/hamster',
+        ),
+      };
       const _checkInternalURL = sinon.stub().returns({ isInternal: true });
-      const external = fakePrimaryHeroShelfExternal;
+      const external = { ...fakePrimaryHeroShelfExternalAddon, homepage };
       const shelfData = createShelfData({ external });
 
       const root = render({ _checkInternalURL, shelfData });
@@ -179,7 +201,7 @@ describe(__filename, () => {
       expect(link).not.toHaveProp('target');
       sinon.assert.calledWith(
         _checkInternalURL,
-        sinon.match({ urlString: sinon.match(external.homepage) }),
+        sinon.match({ urlString: sinon.match(url) }),
       );
     });
   });
@@ -329,15 +351,21 @@ describe(__filename, () => {
     });
 
     it('creates a URL for an external entry', () => {
-      const homepage = 'https://somehomepage.com';
+      const url = 'http://hamsterdance.com/';
+      const homepage = {
+        'url': createLocalizedString(url),
+        'outgoing': createLocalizedString(
+          'https://outgoing.mozilla.org/hamster',
+        ),
+      };
       const shelfData = createShelfData({
-        external: { ...fakePrimaryHeroShelfExternal, homepage },
+        external: { ...fakePrimaryHeroShelfExternalAddon, homepage },
       });
 
       const root = render({ shelfData });
 
       expect(root.instance().makeCallToActionURL()).toEqual(
-        addQueryParams(homepage, {
+        addQueryParams(url, {
           utm_source: DEFAULT_UTM_SOURCE,
           utm_medium: DEFAULT_UTM_MEDIUM,
           utm_content: PRIMARY_HERO_SRC,
@@ -349,7 +377,7 @@ describe(__filename, () => {
   describe('tracking', () => {
     const withAddonShelfData = createShelfData({ addon: fakeAddon });
     const withExternalShelfData = createShelfData({
-      external: fakePrimaryHeroShelfExternal,
+      external: fakePrimaryHeroShelfExternalAddon,
     });
 
     it.each([
