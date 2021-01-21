@@ -160,8 +160,15 @@ describe(__filename, () => {
     });
 
     it('configures an external link to open in a new tab', () => {
+      const url = 'http://hamsterdance.com/';
+      const homepage = {
+        'url': createLocalizedString(url),
+        'outgoing': createLocalizedString(
+          'https://outgoing.mozilla.org/hamster',
+        ),
+      };
       const _checkInternalURL = sinon.stub().returns({ isInternal: false });
-      const external = fakePrimaryHeroShelfExternalAddon;
+      const external = { ...fakePrimaryHeroShelfExternalAddon, homepage };
       const shelfData = createShelfData({ external });
 
       const root = render({ _checkInternalURL, shelfData });
@@ -169,11 +176,22 @@ describe(__filename, () => {
       const link = root.find('.HeroRecommendation-link');
       expect(link).toHaveProp('rel', 'noopener noreferrer');
       expect(link).toHaveProp('target', '_blank');
+      sinon.assert.calledWith(
+        _checkInternalURL,
+        sinon.match({ urlString: sinon.match(url) }),
+      );
     });
 
     it('does not configure an internal link to open in a new tab', () => {
+      const url = 'http://hamsterdance.com/';
+      const homepage = {
+        'url': createLocalizedString(url),
+        'outgoing': createLocalizedString(
+          'https://outgoing.mozilla.org/hamster',
+        ),
+      };
       const _checkInternalURL = sinon.stub().returns({ isInternal: true });
-      const external = fakePrimaryHeroShelfExternalAddon;
+      const external = { ...fakePrimaryHeroShelfExternalAddon, homepage };
       const shelfData = createShelfData({ external });
 
       const root = render({ _checkInternalURL, shelfData });
@@ -181,6 +199,10 @@ describe(__filename, () => {
       const link = root.find('.HeroRecommendation-link');
       expect(link).not.toHaveProp('rel');
       expect(link).not.toHaveProp('target');
+      sinon.assert.calledWith(
+        _checkInternalURL,
+        sinon.match({ urlString: sinon.match(url) }),
+      );
     });
   });
 
