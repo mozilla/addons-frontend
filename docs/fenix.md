@@ -1,6 +1,6 @@
 # Fenix
 
-It is sometimes useful to test AMO with a Fenix build pointing to -dev or -stage given the tight integration between these two components. In the sequel of this page, we describe how to construct a custom Fenix build.
+It is sometimes useful to test AMO with a Fenix build pointing to -dev or -stage given the tight integration between these two components. We describe how to construct a custom Fenix build below.
 
 The first step is to get a working Android development environment. The easiest way is to install [Android Studio](https://developer.android.com/studio). Follow the [Fenix build instructions](https://github.com/mozilla-mobile/fenix#build-instructions) to get the Fenix code and construct a debug build (which will download the dependencies and compile the code).
 
