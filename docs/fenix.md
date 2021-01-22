@@ -54,3 +54,5 @@ The last step is to configure some prefs to be able to install -dev/-stage add-o
 - `xpinstall.signatures.dev-root` set to `true`
 
 You should now be able to install add-ons from https://addons.allizom.org/ based on the list specified above.
+
+Note: the commands above usually output different APKs for different architectures. All generated APKs can be found in `app/build/outputs/apk/debug` in case you need to share them.
