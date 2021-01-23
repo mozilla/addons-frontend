@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-01-19 17:58+0000\n"
-"PO-Revision-Date: 2021-01-20 17:20+0000\n"
+"PO-Revision-Date: 2021-01-23 14:29+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2159,7 +2159,7 @@ msgstr "సిఫారసుచేయబడ్డ సంకేతపదాల �
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
-msgstr ""
+msgstr "మరిన్ని మేటిగా రేటైన పొడగింతలను చూడండి"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
@@ -2360,7 +2360,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "నేను పొడగింత రచయితను, నేను ప్రతికూలమైన సమీక్షలను లేక రేటింగులను తొలగించగలనా?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
