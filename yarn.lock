@@ -8632,10 +8632,10 @@ html-encoding-sniffer@^2.0.1:
   dependencies:
     whatwg-encoding "^1.0.5"
 
-html-entities@2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.0.6.tgz#e773b9acfad65718dd194e599f1b11cf5704b925"
-  integrity sha512-SiH2gwQT78XunjDZfXAa6KrE91kzZUGbef3PL9JmWS+DhL48/+FC+1sNh++/titGzIs8NvH+xuNam/FwV7mJsQ==
+html-entities@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.1.0.tgz#f5de1f8d5e1f16859a74aa73a90f0db502ca723a"
+  integrity sha512-u+OHVGMH5P1HlaTFp3M4HolRnWepgx5rAnYBo+7/TrBZahuJjgQ4TMv2GjQ4IouGDzkgXYeOI/NQuF95VOUOsQ==
 
 html-entities@^1.2.0, html-entities@^1.2.1:
   version "1.4.0"
