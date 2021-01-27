@@ -1360,11 +1360,6 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@types/anymatch@*":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
-  integrity sha512-/+CRPXpBDpo2RK9C68N3b2cOvO0Cf5B9aPijHsoDQTHivnGSObdOF2BRQOYjojWTDy6nQvMjmqRXIxH55VjxxA==
-
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.12"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.12.tgz#4d8e9e51eb265552a7e4f1ff2219ab6133bdfb2d"
@@ -1615,11 +1610,6 @@
     "@types/mime" "^1"
     "@types/node" "*"
 
-"@types/source-list-map@*":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
-  integrity sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==
-
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
@@ -1629,18 +1619,6 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.0.tgz#7036640b4e21cc2f259ae826ce843d277dad8cff"
   integrity sha512-RJJrrySY7A8havqpGObOB4W92QXKJo63/jFLLgpvOtsGUqbQZ9Sbgl35KMm1DjC6j7AvmmU2bIno+3IyEaemaw==
-
-"@types/tapable@*", "@types/tapable@^1.0.5":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.6.tgz#a9ca4b70a18b270ccb2bc0aaafefd1d486b7ea74"
-  integrity sha512-W+bw9ds02rAQaMvaLYxAbJ6cvguW/iJXNT6lTssS1ps6QdrMKttqEAMEG/b5CR8TZl3/L7/lH0ZV5nNR1LXikA==
-
-"@types/uglify-js@*":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.12.0.tgz#2bb061c269441620d46b946350c8f16d52ef37c5"
-  integrity sha512-sYAF+CF9XZ5cvEBkI7RtrG9g2GtMBkviTnBxYYyq+8BWvO4QtXfwwR6a2LFwCi4evMKZfpv6U43ViYvv17Wz3Q==
-  dependencies:
-    source-map "^0.6.1"
 
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2":
   version "2.0.3"
@@ -1662,27 +1640,6 @@
     "@types/node" "*"
     "@types/unist" "*"
     "@types/vfile-message" "*"
-
-"@types/webpack-sources@*":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@types/webpack-sources/-/webpack-sources-2.1.0.tgz#8882b0bd62d1e0ce62f183d0d01b72e6e82e8c10"
-  integrity sha512-LXn/oYIpBeucgP1EIJbKQ2/4ZmpvRl+dlrFdX7+94SKRUV3Evy3FsfMZY318vGhkWUS5MPhtOM3w1/hCOAOXcg==
-  dependencies:
-    "@types/node" "*"
-    "@types/source-list-map" "*"
-    source-map "^0.7.3"
-
-"@types/webpack@^4.41.8":
-  version "4.41.26"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.26.tgz#27a30d7d531e16489f9c7607c747be6bc1a459ef"
-  integrity sha512-7ZyTfxjCRwexh+EJFwRUM+CDB2XvgHl4vfuqf1ZKrgGvcS5BrNvPQqJh3tsZ0P6h6Aa1qClVHaJZszLPzpqHeA==
-  dependencies:
-    "@types/anymatch" "*"
-    "@types/node" "*"
-    "@types/tapable" "*"
-    "@types/uglify-js" "*"
-    "@types/webpack-sources" "*"
-    source-map "^0.6.0"
 
 "@types/yargs-parser@*":
   version "20.2.0"
@@ -3953,7 +3910,7 @@ deepmerge@^4.2.2:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
   integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
 
-define-properties@^1.1.2, define-properties@^1.1.3:
+define-properties@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/define-properties/-/define-properties-1.1.3.tgz#cf88da6cbee26fe6db7094f61d870cbd84cee9f1"
   integrity sha512-3MqfYKj2lLzdMSf8ZIZE/V+Zuy+BgD6f164e8K2w7dgnpKArBDerGYpM46IYYcjnkdPNMjPk9A6VFB8+3SKlXQ==
@@ -5897,20 +5854,17 @@ html-tags@^3.1.0:
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.1.0.tgz#7b5e6f7e665e9fb41f30007ed9e0d41e97fb2140"
   integrity sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg==
 
-html-webpack-plugin@^4.0.0:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-4.5.2.tgz#76fc83fa1a0f12dd5f7da0404a54e2699666bc12"
-  integrity sha512-q5oYdzjKUIPQVjOosjgvCHQOv9Ett9CYYHlgvJeXG0qQvdSojnBq4vAdQBwn1+yGveAwHCoe/rMR86ozX3+c2A==
+html-webpack-plugin@@next:
+  version "5.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-5.0.0-beta.6.tgz#aab868a3c1607828699ebbbb44cde9d6f3615cb3"
+  integrity sha512-wjdhOnJlo5c8uN3OahRm2eaLKL8gEQ4ZNOkwQc8BStyudpFLTsg28m6wbf00keXiRPesk2Pad9CYeKpxbffApg==
   dependencies:
     "@types/html-minifier-terser" "^5.0.0"
-    "@types/tapable" "^1.0.5"
-    "@types/webpack" "^4.41.8"
     html-minifier-terser "^5.0.1"
-    loader-utils "^1.2.3"
+    loader-utils "^2.0.0"
     lodash "^4.17.20"
     pretty-error "^2.1.1"
-    tapable "^1.1.3"
-    util.promisify "1.0.0"
+    tapable "^2.0.0"
 
 htmlparser2@^3.10.0, htmlparser2@^3.10.1:
   version "3.10.1"
@@ -8815,14 +8769,14 @@ object.fromentries@^2.0.2, object.fromentries@^2.0.3:
     es-abstract "^1.18.0-next.2"
     has "^1.0.3"
 
-object.getownpropertydescriptors@^2.0.3, object.getownpropertydescriptors@^2.1.0, object.getownpropertydescriptors@^2.1.1:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.1.2.tgz#1bd63aeacf0d5d2d2f31b5e393b03a7c601a23f7"
-  integrity sha512-WtxeKSzfBjlzL+F9b7M7hewDzMwy+C8NRssHd1YrNlzHzIDrXcXiNOMrezdAEM4UXixgV+vvnyBeN7Rygl2ttQ==
+object.getownpropertydescriptors@^2.1.0, object.getownpropertydescriptors@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.1.1.tgz#0dfda8d108074d9c563e80490c883b6661091544"
+  integrity sha512-6DtXgZ/lIZ9hqx4GtZETobXLR/ZLaa0aqV0kzbn80Rf8Z2e/XFnhA0I7p07N2wH8bBBltr2xQPi6sbKWAY2Eng==
   dependencies:
-    call-bind "^1.0.2"
+    call-bind "^1.0.0"
     define-properties "^1.1.3"
-    es-abstract "^1.18.0-next.2"
+    es-abstract "^1.18.0-next.1"
 
 object.omit@^2.0.0:
   version "2.0.1"
@@ -12158,12 +12112,7 @@ table@^6.0.4, table@^6.0.7:
     slice-ansi "^4.0.0"
     string-width "^4.2.0"
 
-tapable@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
-  integrity sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==
-
-tapable@^2.1.1, tapable@^2.2.0:
+tapable@^2.0.0, tapable@^2.1.1, tapable@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.0.tgz#5c373d281d9c672848213d0e037d1c4165ab426b"
   integrity sha512-FBk4IesMV1rBxX2tfiK8RAmogtWn53puLOQlvO8XuwlgxcYbP4mVPS9Ph4aeamSyyVjOl24aYWAuc8U5kCVwMw==
@@ -12564,6 +12513,11 @@ type-is@^1.6.15, type-is@~1.6.17, type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
+typed-assert@^1.0.4:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/typed-assert/-/typed-assert-1.0.7.tgz#30bb56ace265736fc3075b07414028077f77a8e2"
+  integrity sha512-TiBedJnGT3nNss19TyQ/JLwXy57pNDYBAja1gC0uLCKN4ps7FF3sSh71oImHDiKk8i5EuQ1G0CEOPeeA+ClWXQ==
+
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/typedarray-to-buffer/-/typedarray-to-buffer-3.1.5.tgz#a97ee7a9ff42691b9f783ff1bc5112fe3fca9080"
@@ -12868,14 +12822,6 @@ util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-util.promisify@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/util.promisify/-/util.promisify-1.0.0.tgz#440f7165a459c9a16dc145eb8e72f35687097030"
-  integrity sha512-i+6qA2MPhvoKLuxnJNpXAGhg7HphQOSUq2LKMZD0m15EiskXUkMvKdF4Uui0WYeCUGea+o2cw/ZuwehtfsrNkA==
-  dependencies:
-    define-properties "^1.1.2"
-    object.getownpropertydescriptors "^2.0.3"
-
 util.promisify@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/util.promisify/-/util.promisify-1.1.1.tgz#77832f57ced2c9478174149cae9b96e9918cd54b"
@@ -13122,7 +13068,7 @@ webpack-merge@^5.7.3:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"
 
-webpack-sources@^1.1.0, webpack-sources@^1.3.0, webpack-sources@^1.4.3:
+webpack-sources@^1.1.0, webpack-sources@^1.4.3:
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-1.4.3.tgz#eedd8ec0b928fbf1cbfe994e22d2d890f330a933"
   integrity sha512-lgTS3Xhv1lCOKo7SA5TjKXMjpSM4sBjNV5+q2bqesbSPs5FjGmU6jjtBSkX9b4qW87vDIsCIlUPOEhbZrMdjeQ==
@@ -13138,12 +13084,12 @@ webpack-sources@^2.1.1:
     source-list-map "^2.0.1"
     source-map "^0.6.1"
 
-webpack-subresource-integrity@^1.3.0:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/webpack-subresource-integrity/-/webpack-subresource-integrity-1.5.2.tgz#e40b6578d3072e2d24104975249c52c66e9a743e"
-  integrity sha512-GBWYBoyalbo5YClwWop9qe6Zclp8CIXYGIz12OPclJhIrSplDxs1Ls1JDMH8xBPPrg1T6ISaTW9Y6zOrwEiAzw==
+webpack-subresource-integrity@@next:
+  version "5.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/webpack-subresource-integrity/-/webpack-subresource-integrity-5.0.0-alpha.1.tgz#f6d036faaef1a0dfc1b5322342d1c611e0d08976"
+  integrity sha512-NjJpiTX5aSvp8SyCv9je9EUq3jOvTOsds0HQ9K+BjtpTe/mS//2D4SKuBl1WZnWIJdkzzwD5ciuf2ZPr+8eLbw==
   dependencies:
-    webpack-sources "^1.3.0"
+    typed-assert "^1.0.4"
 
 webpack@^5.0.0:
   version "5.17.0"

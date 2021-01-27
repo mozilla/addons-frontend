@@ -6,7 +6,7 @@ import fs from 'fs';
 import path from 'path';
 
 import webpack from 'webpack';
-import SriPlugin from 'webpack-subresource-integrity';
+import { SubresourceIntegrityPlugin } from 'webpack-subresource-integrity';
 import tmp from 'tmp';
 
 import SriDataPlugin from 'amo/server/sriDataPlugin';
@@ -36,7 +36,9 @@ describe(__filename, () => {
 
     const plugins = [];
     if (includeSriPlugin) {
-      plugins.push(new SriPlugin({ hashFuncNames: ['sha512'] }));
+      plugins.push(
+        new SubresourceIntegrityPlugin({ hashFuncNames: ['sha512'] }),
+      );
     }
     plugins.push(new SriDataPlugin({ saveAs: sriFile }));
 
