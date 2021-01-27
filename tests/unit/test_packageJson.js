@@ -20,7 +20,17 @@ const packageJson = JSON.parse(
 
 // eslint: there is an issue with 6.2.0 and the `no-unused-vars` rule, see:
 // https://github.com/eslint/eslint/issues/12117
-const skipDevDeps = ['prettier', 'pretty-quick', 'enzyme', 'eslint'];
+
+// html-webpack-plugin and webpack-subresource-integrity: we're using unstable
+// versions.
+const skipDevDeps = [
+  'prettier',
+  'pretty-quick',
+  'enzyme',
+  'eslint',
+  'html-webpack-plugin',
+  'webpack-subresource-integrity',
+];
 
 describe(__filename, () => {
   Object.keys(packageJson.devDependencies).forEach((key) => {

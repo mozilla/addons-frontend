@@ -3,7 +3,7 @@ import path from 'path';
 
 import config from 'config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import SriPlugin from 'webpack-subresource-integrity';
+import { SubresourceIntegrityPlugin } from 'webpack-subresource-integrity';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
@@ -85,7 +85,7 @@ export default {
       chunkFilename: '[name]-[hash].css',
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
-    new SriPlugin({ hashFuncNames: ['sha512'] }),
+    new SubresourceIntegrityPlugin({ hashFuncNames: ['sha512'] }),
     new SriDataPlugin({
       saveAs: path.join(__dirname, 'dist', 'sri.json'),
     }),
