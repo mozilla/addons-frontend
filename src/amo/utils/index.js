@@ -53,7 +53,7 @@ import {
 } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';
 import type { UserAgentInfoType } from 'amo/reducers/api';
-import type { PlatformFilesType } from 'amo/reducers/versions';
+import type { AddonFileType, PlatformFilesType } from 'amo/reducers/versions';
 
 /*
  * Return a base62 object that encodes/decodes just like how Django does it
@@ -166,7 +166,7 @@ export const stripLangFromAmoUrl = ({
   return urlString;
 };
 
-export function getClientConfig(_config: typeof config): {...} {
+export function getClientConfig(_config: typeof config): { ... } {
   const clientConfig = {};
   for (const key of _config.get('clientConfigKeys')) {
     clientConfig[key] = _config.get(key);
@@ -238,7 +238,7 @@ export function nl2br(text: ?string): string {
  * Developer Hub when you hover over the *Some HTML Supported* link under
  * the textarea field.
  */
-export function sanitizeUserHTML(text: ?string): {|__html: string|} {
+export function sanitizeUserHTML(text: ?string): {| __html: string |} {
   return sanitizeHTML(nl2br(text), [
     'a',
     'abbr',
@@ -352,7 +352,9 @@ export function isValidTrailingSlashUrlException(
  * instead. If the callback runs without an error, its return value is not
  * altered. In other words, it may or may not return a promise and that's ok.
  */
-export const safePromise = (callback: Function): ((...args: any) => any | Promise<mixed>) => (...args: any) => {
+export const safePromise = (
+  callback: Function,
+): ((...args: any) => any | Promise<mixed>) => (...args: any) => {
   try {
     return callback(...args);
   } catch (error) {
@@ -443,7 +445,7 @@ export const findFileForPlatform = ({
 }: {|
   userAgentInfo: UserAgentInfoType,
   platformFiles: PlatformFilesType,
-|}) => {
+|}): AddonFileType | null | void => {
   invariant(userAgentInfo, 'userAgentInfo is required');
   invariant(platformFiles, 'platformFiles is required');
 

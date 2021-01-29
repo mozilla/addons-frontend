@@ -133,7 +133,7 @@ export function showUserAbuseReportUI({
 }
 
 export const initialState = {
-  byUserId: ({}: {...}),
+  byUserId: ({}: { ... }),
 };
 
 export type UserAbuseReportState = {|
@@ -160,7 +160,7 @@ export type UserAbuseReportActionType =
 export default function userAbuseReportReducer(
   state: UserAbuseReportsState = initialState,
   action: UserAbuseReportActionType,
-): UserAbuseReportsState | {|byUserId: {[userId: number]: UserAbuseReportState}|} {
+): UserAbuseReportsState {
   switch (action.type) {
     case ABORT_USER_ABUSE_REPORT: {
       const { userId } = action.payload;

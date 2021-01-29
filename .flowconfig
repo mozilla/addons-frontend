@@ -28,4 +28,4 @@ log.file=./flow/logs/flow.log
 # suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 # suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore
 # See https://github.com/mozilla/addons-frontend/pull/9662#issuecomment-700216484
-types_first=false
+types_first=true
