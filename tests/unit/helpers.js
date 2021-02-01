@@ -1395,15 +1395,6 @@ export const fakeEventData = Object.freeze({
   conversion: 'some-conversion-data',
 });
 
-export const fakeSponsoredShelf = Object.freeze({
-  results: Array(6).fill({
-    ...fakeAddon,
-    event_data: fakeEventData,
-  }),
-  impression_data: 'some data',
-  impression_url: 'https://mozilla.org/',
-});
-
 export const createInternalAddonWithLang = (
   addon,
   lang = DEFAULT_LANG_IN_TESTS,

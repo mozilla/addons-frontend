@@ -22,7 +22,6 @@ import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
 import recommendations from 'amo/reducers/recommendations';
 import reviews from 'amo/reducers/reviews';
-import shelves from 'amo/reducers/shelves';
 import userAbuseReports from 'amo/reducers/userAbuseReports';
 import users from 'amo/reducers/users';
 import viewContext from 'amo/reducers/viewContext';
@@ -52,7 +51,6 @@ import type { HomeState } from 'amo/reducers/home';
 import type { LandingState } from 'amo/reducers/landing';
 import type { RecommendationsState } from 'amo/reducers/recommendations';
 import type { ReviewsState } from 'amo/reducers/reviews';
-import type { ShelvesState } from 'amo/reducers/shelves';
 import type { UserAbuseReportsState } from 'amo/reducers/userAbuseReports';
 import type { UsersState } from 'amo/reducers/users';
 import type { ViewContextState } from 'amo/reducers/viewContext';
@@ -157,7 +155,6 @@ type InternalAppState = {|
   redirectTo: RedirectToState,
   reviews: ReviewsState,
   search: SearchState,
-  shelves: ShelvesState,
   site: SiteState,
   survey: SurveyState,
   uiState: UIStateState,
@@ -216,7 +213,6 @@ export const reducers: AppReducersType = {
   redirectTo,
   reviews,
   search,
-  shelves,
   site,
   survey,
   uiState,

@@ -59,11 +59,6 @@ export type PromotedType = {|
   apps: Array<string>,
 |};
 
-type EventDataType = {|
-  click: string,
-  conversion: string,
-|};
-
 export type ExternalPreviewType = {|
   caption: LocalizedString | null,
   image_size: [number, number],
@@ -138,8 +133,6 @@ export type ExternalAddonType = {|
   type: AddonTypeType,
   url: string,
   weekly_downloads: number,
-  // These fields only exist for addons returned from the sponsored endpoint.
-  event_data?: EventDataType,
 |};
 
 export type PartialExternalAddonType = {|

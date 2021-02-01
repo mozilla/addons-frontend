@@ -197,7 +197,6 @@ export function createInternalAddon(
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
     categories: apiAddon.categories,
-    event_data: apiAddon.event_data,
     contributions_url: apiAddon.contributions_url,
     created: apiAddon.created,
     default_locale: apiAddon.default_locale,
