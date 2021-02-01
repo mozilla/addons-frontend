@@ -97,7 +97,7 @@ describe(__filename, () => {
     );
   });
 
-  it('only fetches groupedRatings when needed', () => {
+  it('does not fetch groupedRatings when they are already loaded', () => {
     const addon = createInternalAddonWithLang({ ...fakeAddon, id: 222 });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     store.dispatch(
@@ -117,6 +117,20 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
     // Simulate any kind of props update.
     root.setProps();
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not fetch groupedRatings when they are already being fetched', () => {
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 222 });
+    store.dispatch(
+      fetchGroupedRatings({
+        addonId: addon.id,
+        errorHandlerId: 'some-id',
+      }),
+    );
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    render({ addon });
 
     sinon.assert.notCalled(dispatchSpy);
   });
