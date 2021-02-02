@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-19 17:58+0000\n"
+"POT-Creation-Date: 2021-02-02 17:16+0000\n"
 "PO-Revision-Date: 2020-12-06 08:31+0000\n"
 "Last-Translator: julen <julenx@gmail.com>\n"
 "Language-Team: none\n"
@@ -987,11 +987,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1161,26 +1161,26 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:167
+#: src/amo/components/HeroRecommendation/index.js:172
 #, fuzzy
 msgid "Get the extension"
 msgstr "Gehigarriak"
 
 # If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:206
+#: src/amo/components/HeroRecommendation/index.js:213
 msgid "SPONSORED"
 msgstr ""
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:217
+#: src/amo/components/HeroRecommendation/index.js:224
 msgid "RECOMMENDED"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:221
+#: src/amo/components/HeroRecommendation/index.js:228
 msgid "BY FIREFOX"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:237
+#: src/amo/components/HeroRecommendation/index.js:244
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1442,23 +1442,23 @@ msgstr ""
 msgid "Star rating saved"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:95
+#: src/amo/components/RatingsByStar/index.js:110
 msgid "Read all five-star reviews"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:96
+#: src/amo/components/RatingsByStar/index.js:111
 msgid "Read all four-star reviews"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:97
+#: src/amo/components/RatingsByStar/index.js:112
 msgid "Read all three-star reviews"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:98
+#: src/amo/components/RatingsByStar/index.js:113
 msgid "Read all two-star reviews"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:99
+#: src/amo/components/RatingsByStar/index.js:114
 msgid "Read all one-star reviews"
 msgstr ""
 

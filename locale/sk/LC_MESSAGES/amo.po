@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-19 17:58+0000\n"
+"POT-Creation-Date: 2021-02-02 17:16+0000\n"
 "PO-Revision-Date: 2021-01-10 20:35+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -1047,12 +1047,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Nahlásené ako správa o chybe, alebo žiadosť o podporu"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Nahlásiť"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Nahlásené"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Nahlásiť"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1223,25 +1223,25 @@ msgstr "Upraviť môj profil"
 msgid "Tools"
 msgstr "Nástroje"
 
-#: src/amo/components/HeroRecommendation/index.js:167
+#: src/amo/components/HeroRecommendation/index.js:172
 msgid "Get the extension"
 msgstr "Získať rozšírenie"
 
 # If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:206
+#: src/amo/components/HeroRecommendation/index.js:213
 msgid "SPONSORED"
 msgstr "SPONZOROVANÉ"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:217
+#: src/amo/components/HeroRecommendation/index.js:224
 msgid "RECOMMENDED"
 msgstr "ODPORÚČANÉ"
 
-#: src/amo/components/HeroRecommendation/index.js:221
+#: src/amo/components/HeroRecommendation/index.js:228
 msgid "BY FIREFOX"
 msgstr "OD FIREFOXU"
 
-#: src/amo/components/HeroRecommendation/index.js:237
+#: src/amo/components/HeroRecommendation/index.js:244
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1511,23 +1511,23 @@ msgstr "Ukladám hodnotenie"
 msgid "Star rating saved"
 msgstr "Hodnotenie bolo uložené"
 
-#: src/amo/components/RatingsByStar/index.js:95
+#: src/amo/components/RatingsByStar/index.js:110
 msgid "Read all five-star reviews"
 msgstr "Všetky recenzie s 5 hviezdičkami"
 
-#: src/amo/components/RatingsByStar/index.js:96
+#: src/amo/components/RatingsByStar/index.js:111
 msgid "Read all four-star reviews"
 msgstr "Všetky recenzie s 4 hviezdičkami"
 
-#: src/amo/components/RatingsByStar/index.js:97
+#: src/amo/components/RatingsByStar/index.js:112
 msgid "Read all three-star reviews"
 msgstr "Všetky recenzie s 3 hviezdičkami"
 
-#: src/amo/components/RatingsByStar/index.js:98
+#: src/amo/components/RatingsByStar/index.js:113
 msgid "Read all two-star reviews"
 msgstr "Všetky recenzie s 2 hviezdičkami"
 
-#: src/amo/components/RatingsByStar/index.js:99
+#: src/amo/components/RatingsByStar/index.js:114
 msgid "Read all one-star reviews"
 msgstr "Všetky recenzie s 1 hviezdičkou"
 

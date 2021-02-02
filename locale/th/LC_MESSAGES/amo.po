@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-19 17:58+0000\n"
+"POT-Creation-Date: 2021-02-02 17:16+0000\n"
 "PO-Revision-Date: 2020-11-24 13:21+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1001,12 +1001,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "ตั้งค่าสถานะว่าเป็นการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "ตั้งค่าสถานะ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "ตั้งค่าสถานะแล้ว"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "ตั้งค่าสถานะ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1176,25 +1176,25 @@ msgstr "แก้ไขโปรไฟล์ของฉัน"
 msgid "Tools"
 msgstr "เครื่องมือ"
 
-#: src/amo/components/HeroRecommendation/index.js:167
+#: src/amo/components/HeroRecommendation/index.js:172
 msgid "Get the extension"
 msgstr "รับส่วนขยาย"
 
 # If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:206
+#: src/amo/components/HeroRecommendation/index.js:213
 msgid "SPONSORED"
 msgstr ""
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:217
+#: src/amo/components/HeroRecommendation/index.js:224
 msgid "RECOMMENDED"
 msgstr "แนะนำ"
 
-#: src/amo/components/HeroRecommendation/index.js:221
+#: src/amo/components/HeroRecommendation/index.js:228
 msgid "BY FIREFOX"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:237
+#: src/amo/components/HeroRecommendation/index.js:244
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -1461,23 +1461,23 @@ msgstr "กำลังบันทึกการจัดอันดับด
 msgid "Star rating saved"
 msgstr "บันทึกการจัดอันดับดาวแล้ว"
 
-#: src/amo/components/RatingsByStar/index.js:95
+#: src/amo/components/RatingsByStar/index.js:110
 msgid "Read all five-star reviews"
 msgstr "อ่านบทวิจารณ์ห้าดาวทั้งหมด"
 
-#: src/amo/components/RatingsByStar/index.js:96
+#: src/amo/components/RatingsByStar/index.js:111
 msgid "Read all four-star reviews"
 msgstr "อ่านบทวิจารณ์สี่ดาวทั้งหมด"
 
-#: src/amo/components/RatingsByStar/index.js:97
+#: src/amo/components/RatingsByStar/index.js:112
 msgid "Read all three-star reviews"
 msgstr "อ่านบทวิจารณ์สามดาวทั้งหมด"
 
-#: src/amo/components/RatingsByStar/index.js:98
+#: src/amo/components/RatingsByStar/index.js:113
 msgid "Read all two-star reviews"
 msgstr "อ่านบทวิจารณ์สองดาวทั้งหมด"
 
-#: src/amo/components/RatingsByStar/index.js:99
+#: src/amo/components/RatingsByStar/index.js:114
 msgid "Read all one-star reviews"
 msgstr "อ่านบทวิจารณ์หนึ่งดาวทั้งหมด"
 
