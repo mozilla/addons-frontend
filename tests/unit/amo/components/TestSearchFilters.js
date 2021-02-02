@@ -10,7 +10,6 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   RECOMMENDED,
-  OS_LINUX,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_RECOMMENDED,
   SEARCH_SORT_RELEVANCE,
@@ -87,28 +86,6 @@ describe(__filename, () => {
       pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
         addonType: ADDON_TYPE_EXTENSION,
-        query: 'Music player',
-      }),
-    });
-  });
-
-  it('changes the URL when a new OS filter is selected', () => {
-    const root = render({ filters: { query: 'Music player' } });
-
-    const select = root.find('.SearchFilters-OperatingSystem');
-    const currentTarget = {
-      getAttribute: () => {
-        return select.prop('name');
-      },
-      value: OS_LINUX,
-    };
-
-    select.simulate('change', createFakeEvent({ currentTarget }));
-
-    sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
-      query: convertFiltersToQueryParams({
-        operatingSystem: OS_LINUX,
         query: 'Music player',
       }),
     });
