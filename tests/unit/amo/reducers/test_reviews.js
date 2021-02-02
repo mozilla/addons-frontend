@@ -6,6 +6,7 @@ import {
   cancelDeleteAddonReview,
   createInternalReview,
   deleteAddonReview,
+  fetchGroupedRatings,
   fetchReview,
   fetchReviewPermissions,
   fetchReviews,
@@ -36,6 +37,7 @@ import reviewsReducer, {
   createGroupedRatings,
   expandReviewObjects,
   getReviewsByUserId,
+  groupedRatingsAreLoading,
   initialState,
   makeLatestUserReviewKey,
   reviewListURL,
@@ -1479,7 +1481,74 @@ describe(__filename, () => {
     });
   });
 
-  describe('setGroupedRatings', () => {
+  describe('groupedRatings', () => {
+    it('sets and clears a loading flag when fetching and loading grouped ratings', () => {
+      const addonId = 432;
+      const grouping = {
+        1: 64,
+        2: 122,
+        3: 456,
+        4: 1243,
+        5: 922,
+      };
+
+      let state = reviewsReducer(
+        undefined,
+        fetchGroupedRatings({
+          addonId,
+          errorHandlerId: 'some-id',
+        }),
+      );
+
+      expect(groupedRatingsAreLoading({ reviews: state }, addonId)).toEqual(
+        true,
+      );
+
+      state = reviewsReducer(
+        state,
+        setGroupedRatings({
+          addonId,
+          grouping,
+        }),
+      );
+
+      expect(groupedRatingsAreLoading({ reviews: state }, addonId)).toEqual(
+        false,
+      );
+    });
+
+    it('preserves the loading flag when loading a new group', () => {
+      const addonId1 = 432;
+      const addonId2 = 987;
+      const grouping = {
+        1: 64,
+        2: 122,
+        3: 456,
+        4: 1243,
+        5: 922,
+      };
+
+      let state = reviewsReducer(
+        undefined,
+        fetchGroupedRatings({
+          addonId: addonId1,
+          errorHandlerId: 'some-id',
+        }),
+      );
+
+      state = reviewsReducer(
+        state,
+        setGroupedRatings({
+          addonId: addonId2,
+          grouping,
+        }),
+      );
+
+      expect(groupedRatingsAreLoading({ reviews: state }, addonId1)).toEqual(
+        true,
+      );
+    });
+
     it('stores grouped ratings', () => {
       const addonId = 432;
       const grouping = {

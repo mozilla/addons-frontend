@@ -8,7 +8,10 @@ import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
 import { fetchGroupedRatings } from 'amo/actions/reviews';
-import { reviewListURL } from 'amo/reducers/reviews';
+import {
+  groupedRatingsAreLoading as getGroupedRatingsAreLoading,
+  reviewListURL,
+} from 'amo/reducers/reviews';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import LoadingText from 'amo/components/LoadingText';
@@ -32,6 +35,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   groupedRatings?: GroupedRatingsType,
+  groupedRatingsAreLoading: boolean,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
@@ -51,9 +55,20 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
   }
 
   loadDataIfNeeded() {
-    const { addon, dispatch, errorHandler, groupedRatings } = this.props;
+    const {
+      addon,
+      dispatch,
+      errorHandler,
+      groupedRatings,
+      groupedRatingsAreLoading,
+    } = this.props;
 
-    if (!errorHandler.hasError() && addon && !groupedRatings) {
+    if (
+      !errorHandler.hasError() &&
+      addon &&
+      !groupedRatings &&
+      !groupedRatingsAreLoading
+    ) {
       dispatch(
         fetchGroupedRatings({
           addonId: addon.id,
@@ -171,12 +186,10 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 }
 
 const mapStateToProps = (state: AppState, ownProps: Props) => {
-  let groupedRatings;
-  if (ownProps.addon) {
-    groupedRatings = state.reviews.groupedRatings[ownProps.addon.id];
-  }
+  const addonId = ownProps.addon ? ownProps.addon.id : null;
   return {
-    groupedRatings,
+    groupedRatings: addonId ? state.reviews.groupedRatings[addonId] : undefined,
+    groupedRatingsAreLoading: getGroupedRatingsAreLoading(state, addonId),
   };
 };
 

@@ -8,6 +8,7 @@ import {
   BEGIN_DELETE_ADDON_REVIEW,
   CANCEL_DELETE_ADDON_REVIEW,
   DELETE_ADDON_REVIEW,
+  FETCH_GROUPED_RATINGS,
   FETCH_REVIEW,
   FETCH_REVIEW_PERMISSIONS,
   FETCH_REVIEWS,
@@ -40,6 +41,7 @@ import type {
   BeginDeleteAddonReviewAction,
   CancelDeleteAddonReviewAction,
   DeleteAddonReviewAction,
+  FetchGroupedRatingsAction,
   FetchReviewAction,
   FetchReviewPermissionsAction,
   FetchReviewsAction,
@@ -165,6 +167,9 @@ export type ReviewsState = {|
   loadingForSlug: {
     [slug: string]: boolean,
   },
+  loadingGroupedForId: {
+    [addonId: number]: boolean,
+  },
 |};
 
 export const initialState: ReviewsState = {
@@ -178,6 +183,7 @@ export const initialState: ReviewsState = {
   view: {},
   flashMessage: undefined,
   loadingForSlug: {},
+  loadingGroupedForId: {},
 };
 
 export function selectReviews({
@@ -424,10 +430,18 @@ export const reviewsAreLoading = (
   return Boolean(state.reviews.loadingForSlug[addonSlug]);
 };
 
+export const groupedRatingsAreLoading = (
+  state: AppState,
+  addonId: number | null,
+): boolean => {
+  return Boolean(addonId && state.reviews.loadingGroupedForId[addonId]);
+};
+
 type ReviewActionType =
   | BeginDeleteAddonReviewAction
   | CancelDeleteAddonReviewAction
   | DeleteAddonReviewAction
+  | FetchGroupedRatingsAction
   | FetchReviewAction
   | FetchReviewPermissionsAction
   | FetchReviewsAction
@@ -656,6 +670,16 @@ export default function reviewsReducer(
         },
       };
     }
+    case FETCH_GROUPED_RATINGS: {
+      const { payload } = action;
+      return {
+        ...state,
+        loadingGroupedForId: {
+          ...state.loadingGroupedForId,
+          [payload.addonId]: true,
+        },
+      };
+    }
     case SET_GROUPED_RATINGS: {
       const { payload } = action;
       return {
@@ -663,6 +687,10 @@ export default function reviewsReducer(
         groupedRatings: {
           ...state.groupedRatings,
           [payload.addonId]: createGroupedRatings(payload.grouping),
+        },
+        loadingGroupedForId: {
+          ...state.loadingGroupedForId,
+          [payload.addonId]: false,
         },
       };
     }
