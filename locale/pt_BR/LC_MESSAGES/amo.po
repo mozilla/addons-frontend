@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-02-02 17:16+0000\n"
-"PO-Revision-Date: 2021-02-03 11:29+0000\n"
+"PO-Revision-Date: 2021-02-03 13:25+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -272,7 +272,7 @@ msgstr "Site de suporte"
 
 #: src/amo/components/AddonMoreInfo/index.js:99
 msgid "Support Email"
-msgstr "E-mail de suporte"
+msgstr "Email de suporte"
 
 #: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
@@ -2615,15 +2615,15 @@ msgstr "Conta de %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
-msgstr "Endereço de e-mail"
+msgstr "Endereço de email"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Email address cannot be changed here"
-msgstr "O endereço de e-mail não pode ser alterado aqui"
+msgstr "O endereço de email não pode ser alterado aqui"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "Você pode alterar o seu e-mail da Contas Firefox. %(startLink)sPrecisa de ajuda?%(endLink)s"
+msgstr "Você pode alterar seu endereço de email em Contas Firefox. %(startLink)sPrecisa de ajuda?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
@@ -2659,12 +2659,11 @@ msgstr "Notificações"
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr "De tempos em tempos, a Mozilla pode enviar e-mails para você sobre novos lançamentos e eventos sobre extensões. Selecione os tópicos nos quais você tem interesse."
+msgstr "De tempos em tempos, a Mozilla pode enviar emails para você sobre novos lançamentos e eventos sobre extensões. Selecione os tópicos que te interessam."
 
 #: src/amo/pages/UserProfileEdit/index.js:777
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
-"Ocasionalmente, a Mozilla poderá enviar um e-mail a este usuário sobre os próximos lançamentos e eventos de extensões. Por favor, selecione os tópicos cujo os quais este usuário possa ter interesse."
+msgstr "De tempos em tempos, a Mozilla pode enviar emails para este usuário sobre novos lançamentos e eventos sobre extensões. Selecione os tópicos que este usuário pode se interessar."
 
 #: src/amo/pages/UserProfileEdit/index.js:792
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
@@ -2719,7 +2718,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:874
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr "Quando você usar esse endereço de e-mail para acessar sua conta novamente em addons.mozilla.org, seu perfil no Firefox Add-ons não terá acesso a nenhum conteúdo seu anterior."
+msgstr "Quando você usar esse endereço de email para acessar sua conta novamente em addons.mozilla.org, seu perfil no Firefox Add-ons não terá acesso a nenhum conteúdo seu anterior."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
@@ -2728,7 +2727,7 @@ msgstr "Sua inscrição foi cancelada com sucesso!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr "O endereço de e-mail %(strongStart)s%(email)s%(strongEnd)s não receberá mais mensagens quando:"
+msgstr "O endereço de email %(strongStart)s%(email)s%(strongEnd)s não receberá mais mensagens quando:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
