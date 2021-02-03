@@ -1,6 +1,6 @@
 # Addons-frontend 🔥
 
-[![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg)](https://github.com/mozilla/addons-frontend/blob/master/CODE_OF_CONDUCT.md) [![CircleCI](https://circleci.com/gh/mozilla/addons-frontend.svg?style=svg)](https://circleci.com/gh/mozilla/addons-frontend) [![codecov](https://codecov.io/gh/mozilla/addons-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/mozilla/addons-frontend) [![Documentation](https://readthedocs.org/projects/addons-frontend/badge/?version=latest)](http://addons-frontend.readthedocs.io/en/latest/)
+[![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg)](https://github.com/mozilla/addons-frontend/blob/d6a53c83b19434799f0f4f30ec8e052c603486f9/.github/CODE_OF_CONDUCT.md) [![CircleCI](https://circleci.com/gh/mozilla/addons-frontend.svg?style=svg)](https://circleci.com/gh/mozilla/addons-frontend) [![codecov](https://codecov.io/gh/mozilla/addons-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/mozilla/addons-frontend) [![Documentation](https://readthedocs.org/projects/addons-frontend/badge/?version=latest)](http://addons-frontend.readthedocs.io/en/latest/)
 
 Front-end infrastructure and code to complement [mozilla/addons-server](https://github.com/mozilla/addons-server).
 
