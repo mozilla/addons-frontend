@@ -14,10 +14,7 @@ import { SEARCH_SORT_RANDOM } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import { getAddonIconUrl } from 'amo/imageUtils';
 import log from 'amo/logger';
-import {
-  convertOSToFilterValue,
-  convertQueryParamsToFilters,
-} from 'amo/searchUtils';
+import { convertQueryParamsToFilters } from 'amo/searchUtils';
 import translate from 'amo/i18n/translate';
 import {
   autocompleteCancel,
@@ -134,7 +131,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   }
 
   createFiltersFromQuery(query: string) {
-    const { location, userAgentInfo } = this.props;
+    const { location } = this.props;
     // Preserve any existing search filters.
     let filtersFromLocation = {};
     if (location) {
@@ -153,7 +150,6 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     }
 
     return {
-      operatingSystem: convertOSToFilterValue(userAgentInfo.os.name),
       ...filtersFromLocation,
       query,
     };

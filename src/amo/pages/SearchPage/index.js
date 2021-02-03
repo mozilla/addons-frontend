@@ -11,7 +11,6 @@ import {
   ADDON_TYPE_LANG,
 } from 'amo/constants';
 import { makeQueryString } from 'amo/api';
-import log from 'amo/logger';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   convertFiltersToQueryParams,
@@ -43,17 +42,9 @@ export class SearchPageBase extends React.Component<InternalProps> {
     let shouldRedirect = false;
     const newFilters = { ...filters };
 
-    // The legacy frontend uses `all` to express "all platforms" but we now use
-    // no parameter (empty) to target all platforms. In addition, the query
-    // parameter `platform` is mapped to the `operatingSystem` filter.
-    // See: https://github.com/mozilla/addons-frontend/issues/3870.
-    if (
-      newFilters.operatingSystem &&
-      newFilters.operatingSystem.toLowerCase() === 'all'
-    ) {
-      log.info('`operatingSystem` filter is set to "all", omitting it.');
-      delete newFilters.operatingSystem;
-
+    // We removed the `platform` parameter, so if it's present, remove it and
+    // redirect.
+    if (location.query.platform) {
       shouldRedirect = true;
     }
 

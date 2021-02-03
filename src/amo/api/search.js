@@ -20,7 +20,6 @@ export type SearchFilters = {|
   compatibleWithVersion?: number | string,
   exclude_addons?: string,
   guid?: string,
-  operatingSystem?: string,
   page?: string,
   page_size?: string,
   promoted?: string,
