@@ -22,7 +22,6 @@ import {
 } from 'amo/reducers/autocomplete';
 import Icon from 'amo/components/Icon';
 import type { AppState } from 'amo/store';
-import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { SuggestionType } from 'amo/reducers/autocomplete';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
@@ -53,7 +52,6 @@ type Props = {|
 type MappedProps = {|
   suggestions: Array<SuggestionType>,
   loadingSuggestions: boolean,
-  userAgentInfo: UserAgentInfoType,
 |};
 
 type InternalProps = {|
@@ -360,7 +358,6 @@ const mapStateToProps = (state: AppState): MappedProps => {
   return {
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
-    userAgentInfo: state.api.userAgentInfo,
   };
 };
 
