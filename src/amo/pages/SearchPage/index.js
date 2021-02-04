@@ -42,7 +42,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
     let shouldRedirect = false;
     const newFilters = { ...filters };
 
-    // We removed the `platform` parameter, so if it's present, remove it and
+    // We removed the `platform` parameter, so if it's present, ignore it and
     // redirect.
     if (location.query.platform) {
       shouldRedirect = true;
