@@ -11,8 +11,6 @@ import AutoSearchInput, {
 import SearchSuggestion from 'amo/components/SearchSuggestion';
 import {
   ADDON_TYPE_EXTENSION,
-  OS_LINUX,
-  OS_WINDOWS,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
 } from 'amo/constants';
@@ -199,7 +197,6 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(onSearch, {
         query,
-        operatingSystem: OS_WINDOWS,
       });
     });
 
@@ -215,7 +212,6 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(onSearch, {
         query: '',
-        operatingSystem: OS_WINDOWS,
       });
 
       onSearch.resetHistory();
@@ -227,7 +223,6 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(onSearch, {
         query: 'abc',
-        operatingSystem: OS_WINDOWS,
       });
     });
 
@@ -287,7 +282,7 @@ describe(__filename, () => {
         dispatchSpy,
         autocompleteStart({
           errorHandlerId: root.instance().props.errorHandler.id,
-          filters: { query, operatingSystem: OS_WINDOWS },
+          filters: { query },
         }),
       );
     });
@@ -374,7 +369,6 @@ describe(__filename, () => {
           errorHandlerId: root.instance().props.errorHandler.id,
           filters: {
             addonType: ADDON_TYPE_EXTENSION,
-            operatingSystem: OS_WINDOWS,
             query,
           },
         }),
@@ -398,31 +392,6 @@ describe(__filename, () => {
         autocompleteStart({
           errorHandlerId: errorHandler.id,
           filters: {
-            operatingSystem: OS_WINDOWS,
-            query,
-          },
-        }),
-      );
-    });
-
-    it('lets you override the default operating system', () => {
-      const { store } = dispatchClientMetadata();
-      const dispatch = sinon.spy(store, 'dispatch');
-      const locationQuery = { platform: OS_LINUX };
-      const root = render({
-        store,
-        location: createFakeLocation({ query: locationQuery }),
-      });
-
-      const query = 'ad blocker';
-      fetchSuggestions({ root, query });
-
-      sinon.assert.calledWith(
-        dispatch,
-        autocompleteStart({
-          errorHandlerId: root.instance().props.errorHandler.id,
-          filters: {
-            operatingSystem: OS_LINUX,
             query,
           },
         }),

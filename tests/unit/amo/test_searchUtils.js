@@ -11,13 +11,11 @@ import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
-  convertOSToFilterValue,
   fixFiltersForClientApp,
 } from 'amo/searchUtils';
 import {
   dispatchClientMetadata,
   getFakeConfig,
-  userAgents,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
@@ -176,48 +174,6 @@ describe(__filename, () => {
         compatibleWithVersion: '57.0',
         page: '4',
       });
-    });
-  });
-
-  describe('convertOSToFilterValue', () => {
-    function getOSNameFromUserAgent(userAgent) {
-      const { store } = dispatchClientMetadata({ userAgent });
-      return store.getState().api.userAgentInfo.os.name;
-    }
-
-    it('converts Windows to filter', () => {
-      const osName = getOSNameFromUserAgent(userAgents.firefox[1]);
-      const osFilterValue = convertOSToFilterValue(osName);
-
-      expect(osFilterValue).toEqual('windows');
-    });
-
-    it('converts Mac to filter', () => {
-      const osName = getOSNameFromUserAgent(userAgents.firefox[2]);
-      const osFilterValue = convertOSToFilterValue(osName);
-
-      expect(osFilterValue).toEqual('mac');
-    });
-
-    it('converts Linux to filter', () => {
-      const osName = getOSNameFromUserAgent(userAgents.firefox[0]);
-      const osFilterValue = convertOSToFilterValue(osName);
-
-      expect(osFilterValue).toEqual('linux');
-    });
-
-    it('converts Android to undefined (we use clientApp for Android)', () => {
-      const osName = getOSNameFromUserAgent(userAgents.firefoxAndroid[0]);
-      const osFilterValue = convertOSToFilterValue(osName);
-
-      expect(osFilterValue).toEqual(undefined);
-    });
-
-    it('converts an unexpected value to undefined', () => {
-      const osName = getOSNameFromUserAgent(userAgents.firefoxOS[0]);
-      const osFilterValue = convertOSToFilterValue(osName);
-
-      expect(osFilterValue).toEqual(undefined);
     });
   });
 
