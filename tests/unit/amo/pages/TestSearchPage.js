@@ -5,7 +5,7 @@ import SearchPage, {
   SearchPageBase,
   mapStateToProps,
 } from 'amo/pages/SearchPage';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX, OS_MAC } from 'amo/constants';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   createFakeLocation,
@@ -153,11 +153,11 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('dispatches a server redirect when `platform` parameter is "all"', () => {
+  it('dispatches a server redirect when `platform` is set', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
-      location: createFakeLocation({ query: { platform: 'all' } }),
+      location: createFakeLocation({ query: { platform: 'whatever' } }),
       store,
     });
 
@@ -169,17 +169,6 @@ describe(__filename, () => {
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
-  });
-
-  it('does not dispatch a server redirect when `platform` is not "all"', () => {
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    render({
-      location: createFakeLocation({ query: { platform: OS_MAC } }),
-      store,
-    });
-
-    sinon.assert.notCalled(fakeDispatch);
   });
 
   it('redirects without affecting the other parameters', () => {

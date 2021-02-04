@@ -10,9 +10,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   LINE,
-  OS_LINUX,
-  OS_MAC,
-  OS_WINDOWS,
   RECOMMENDED,
   REVIEWED_FILTER,
   SEARCH_SORT_POPULAR,
@@ -136,17 +133,6 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     return options;
   }
 
-  operatingSystemOptions() {
-    const { i18n } = this.props;
-
-    return [
-      { children: i18n.gettext('All'), value: NO_FILTER },
-      { children: i18n.gettext('Windows'), value: OS_WINDOWS },
-      { children: i18n.gettext('macOS'), value: OS_MAC },
-      { children: i18n.gettext('Linux'), value: OS_LINUX },
-    ];
-  }
-
   sortOptions() {
     const { i18n } = this.props;
 
@@ -239,24 +225,6 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
               </Select>
             </div>
           )}
-
-          <label
-            className="SearchFilters-OperatingSystem-label SearchFilters-label"
-            htmlFor="SearchFilters-OperatingSystem"
-          >
-            {i18n.gettext('Operating System')}
-          </label>
-          <Select
-            className="SearchFilters-OperatingSystem SearchFilters-select"
-            id="SearchFilters-OperatingSystem"
-            name="operatingSystem"
-            onChange={this.onSelectElementChange}
-            value={filters.operatingSystem || NO_FILTER}
-          >
-            {this.operatingSystemOptions().map((option) => {
-              return <option key={option.value} {...option} />;
-            })}
-          </Select>
 
           {/* Hide the badging filter on Android. */}
           {clientApp !== CLIENT_APP_ANDROID && (

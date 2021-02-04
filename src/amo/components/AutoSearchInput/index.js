@@ -14,10 +14,7 @@ import { SEARCH_SORT_RANDOM } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import { getAddonIconUrl } from 'amo/imageUtils';
 import log from 'amo/logger';
-import {
-  convertOSToFilterValue,
-  convertQueryParamsToFilters,
-} from 'amo/searchUtils';
+import { convertQueryParamsToFilters } from 'amo/searchUtils';
 import translate from 'amo/i18n/translate';
 import {
   autocompleteCancel,
@@ -25,7 +22,6 @@ import {
 } from 'amo/reducers/autocomplete';
 import Icon from 'amo/components/Icon';
 import type { AppState } from 'amo/store';
-import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { SuggestionType } from 'amo/reducers/autocomplete';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
@@ -56,7 +52,6 @@ type Props = {|
 type MappedProps = {|
   suggestions: Array<SuggestionType>,
   loadingSuggestions: boolean,
-  userAgentInfo: UserAgentInfoType,
 |};
 
 type InternalProps = {|
@@ -134,7 +129,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   }
 
   createFiltersFromQuery(query: string) {
-    const { location, userAgentInfo } = this.props;
+    const { location } = this.props;
     // Preserve any existing search filters.
     let filtersFromLocation = {};
     if (location) {
@@ -153,7 +148,6 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     }
 
     return {
-      operatingSystem: convertOSToFilterValue(userAgentInfo.os.name),
       ...filtersFromLocation,
       query,
     };
@@ -364,7 +358,6 @@ const mapStateToProps = (state: AppState): MappedProps => {
   return {
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
-    userAgentInfo: state.api.userAgentInfo,
   };
 };
 

@@ -9,12 +9,6 @@ import {
 import log from 'amo/logger';
 import { USER_AGENT_OS_IOS } from 'amo/reducers/api';
 
-export const operatingSystems = {
-  Linux: 'linux',
-  'Mac OS': 'mac',
-  Windows: 'windows',
-};
-
 export const paramsToFilter = {
   app: 'clientApp',
   appversion: 'compatibleWithVersion',
@@ -25,7 +19,6 @@ export const paramsToFilter = {
   page: 'page',
   // TODO: Change our filter to `pageSize`, for consistency.
   page_size: 'page_size',
-  platform: 'operatingSystem',
   promoted: 'promoted',
   q: 'query',
   sort: 'sort',
@@ -110,18 +103,6 @@ export function convertQueryParamsToFilters(params) {
     }
     return object;
   }, {});
-}
-
-export function convertOSToFilterValue(name) {
-  if (name in operatingSystems) {
-    return operatingSystems[name];
-  }
-
-  log.info(
-    `operatingSystem "${name}" not recognized so falling back to no OS.`,
-  );
-
-  return undefined;
 }
 
 export const fixFiltersForClientApp = ({ api, filters }) => {
