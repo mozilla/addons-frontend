@@ -1,18 +1,17 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
 
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
-  LANDING_PAGE_EXTENSION_COUNT,
-  LANDING_PAGE_THEME_COUNT,
-  ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_FIREFOX,
-} from 'amo/constants';
-import { selectLocalizedUrlWithOutgoing } from 'amo/reducers/addons';
+  createInternalAddon,
+  selectLocalizedUrlWithOutgoing,
+} from 'amo/reducers/addons';
 import homeReducer, {
   abortFetchHomeData,
   createInternalHeroCallToAction,
-  createInternalHeroShelves,
+  createInternalHomeShelves,
   createInternalPrimaryHeroShelfExternalAddon,
   createInternalSecondaryHeroModule,
+  createInternalShelf,
   fetchHomeData,
   initialState,
   loadHomeData,
@@ -21,16 +20,16 @@ import { setClientApp, setLang } from 'amo/reducers/api';
 import { selectLocalizedContent } from 'amo/reducers/utils';
 import {
   createAddonsApiResult,
-  createFakeCollectionAddon,
-  createFakeCollectionAddonsListResponse,
+  createHomeShelves,
   createInternalAddonWithLang,
+  createLocalizedString,
   createPrimaryHeroShelf,
   createSecondaryHeroShelf,
   dispatchClientMetadata,
   fakeAddon,
+  fakeShelf,
   fakePrimaryHeroShelfExternalAddon,
   getFakeConfig,
-  createHeroShelves,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -39,23 +38,27 @@ describe(__filename, () => {
   describe('reducer', () => {
     const _loadHomeData = ({
       store,
-      collections = [],
-      heroShelves = createHeroShelves({ primaryProps: { addon: fakeAddon } }),
+      homeShelves = createHomeShelves({
+        resultsProps: [fakeShelf],
+        primaryProps: { addon: fakeAddon },
+      }),
       shelves = {},
     }) => {
       // We need a state with setLang called for any tests that load add-ons or collections.
       store.dispatch(setLang(lang));
       store.dispatch(
         loadHomeData({
-          collections,
-          heroShelves,
+          homeShelves,
           shelves,
         }),
       );
     };
 
-    const _createHeroShelves = (primaryProps = { addon: fakeAddon }) => {
-      return createHeroShelves({ primaryProps });
+    const _createHomeShelves = (
+      resultsProps = [fakeShelf],
+      primaryProps = { addon: fakeAddon },
+    ) => {
+      return createHomeShelves({ resultsProps, primaryProps });
     };
 
     it('initializes properly', () => {
@@ -68,33 +71,25 @@ describe(__filename, () => {
       expect(state).toEqual(initialState);
     });
 
-    it('loads collections', () => {
+    it('loads just homeShelves', () => {
       const { store } = dispatchClientMetadata();
 
+      const homeShelves = _createHomeShelves();
       _loadHomeData({
         store,
-        collections: [
-          createFakeCollectionAddonsListResponse({
-            addons: Array(10).fill(createFakeCollectionAddon()),
-          }),
-        ],
+        homeShelves,
+        shelves: {},
       });
 
       const homeState = store.getState().home;
 
-      expect(homeState.resultsLoaded).toEqual(true);
-      expect(homeState.collections).toHaveLength(1);
-      expect(homeState.collections[0]).toHaveLength(
-        LANDING_PAGE_EXTENSION_COUNT,
+      expect(homeState.homeShelves).toEqual(
+        createInternalHomeShelves(homeShelves, lang),
       );
-      expect(homeState.collections[0]).toEqual(
-        Array(LANDING_PAGE_EXTENSION_COUNT).fill(
-          createInternalAddonWithLang(fakeAddon),
-        ),
-      );
+      expect(homeState.shelves).toEqual({});
     });
 
-    it('loads shelves', () => {
+    it('loads just shelves', () => {
       const { store } = dispatchClientMetadata();
       const shelfName1 = 'someShelfName1';
       const shelfName2 = 'someShelfName2';
@@ -103,6 +98,7 @@ describe(__filename, () => {
 
       _loadHomeData({
         store,
+        homeShelves: null,
         shelves: {
           [shelfName1]: createAddonsApiResult([addon1]),
           [shelfName2]: createAddonsApiResult([addon2]),
@@ -117,108 +113,31 @@ describe(__filename, () => {
       expect(homeState.shelves[shelfName2]).toEqual([
         createInternalAddonWithLang(addon2),
       ]);
+      expect(homeState.homeShelves).toEqual(null);
     });
 
-    it('loads hero shelves', () => {
+    it('loads both homeShelves and shelves', () => {
       const { store } = dispatchClientMetadata();
-
-      const heroShelves = _createHeroShelves();
-      _loadHomeData({
-        store,
-        heroShelves,
-      });
-
-      const homeState = store.getState().home;
-
-      expect(homeState.heroShelves).toEqual(
-        createInternalHeroShelves(heroShelves, lang),
-      );
-    });
-
-    it('sets null when a shelf has no response', () => {
-      const { store } = dispatchClientMetadata();
-      const shelfName1 = 'someShelfName1';
-      const shelfName2 = 'someShelfName2';
-      const addon1 = { ...fakeAddon, slug: 'addon1' };
+      const addon = fakeAddon;
+      const shelfName = 'someShelf';
+      const homeShelves = _createHomeShelves();
 
       _loadHomeData({
         store,
+        homeShelves,
         shelves: {
-          [shelfName1]: createAddonsApiResult([addon1]),
-          [shelfName2]: null,
+          [shelfName]: createAddonsApiResult([addon]),
         },
       });
 
       const homeState = store.getState().home;
 
-      expect(homeState.shelves[shelfName1]).toEqual([
-        createInternalAddonWithLang(addon1),
-      ]);
-      expect(homeState.shelves[shelfName2]).toEqual(null);
-    });
-
-    it('loads the the correct amount of theme add-ons in a collection to display on homepage', () => {
-      const { store } = dispatchClientMetadata();
-
-      _loadHomeData({
-        store,
-        collections: [
-          createFakeCollectionAddonsListResponse({
-            addons: Array(10).fill({
-              ...createFakeCollectionAddon({
-                addon: {
-                  ...fakeAddon,
-                  type: ADDON_TYPE_STATIC_THEME,
-                },
-              }),
-            }),
-          }),
-        ],
-      });
-
-      const homeState = store.getState().home;
-
-      expect(homeState.resultsLoaded).toEqual(true);
-      expect(homeState.collections).toHaveLength(1);
-
-      expect(homeState.collections[0]).toEqual(
-        Array(LANDING_PAGE_THEME_COUNT).fill(
-          createInternalAddonWithLang({
-            ...fakeAddon,
-            type: ADDON_TYPE_STATIC_THEME,
-          }),
-        ),
+      expect(homeState.homeShelves).toEqual(
+        createInternalHomeShelves(homeShelves, lang),
       );
-    });
-
-    it('loads a null for a missing collection', () => {
-      const { store } = dispatchClientMetadata();
-
-      _loadHomeData({
-        store,
-        collections: [null],
-      });
-
-      const homeState = store.getState().home;
-
-      expect(homeState.collections).toHaveLength(1);
-      expect(homeState.collections[0]).toEqual(null);
-    });
-
-    it('returns null for an empty collection', () => {
-      const { store } = dispatchClientMetadata();
-
-      _loadHomeData({
-        store,
-        collections: [
-          createFakeCollectionAddonsListResponse({
-            addons: [],
-          }),
-        ],
-      });
-
-      const homeState = store.getState().home;
-      expect(homeState.collections).toEqual([null]);
+      expect(homeState.shelves[shelfName]).toEqual([
+        createInternalAddonWithLang(addon),
+      ]);
     });
 
     it('sets `resultsLoaded` to `false` and `isLoading` to `true` when fetching home add-ons', () => {
@@ -227,7 +146,6 @@ describe(__filename, () => {
       const state = homeReducer(
         loadedState,
         fetchHomeData({
-          collectionsToFetch: [],
           errorHandlerId: 'some-error-handler-id',
         }),
       );
@@ -241,7 +159,6 @@ describe(__filename, () => {
 
       store.dispatch(
         fetchHomeData({
-          collectionsToFetch: [],
           errorHandlerId: 'some-error-handler-id',
         }),
       );
@@ -257,7 +174,6 @@ describe(__filename, () => {
       let state = homeReducer(
         undefined,
         fetchHomeData({
-          collectionsToFetch: [],
           errorHandlerId: 'some-error-handler-id',
         }),
       );
@@ -272,15 +188,15 @@ describe(__filename, () => {
 
       _loadHomeData({
         store,
-        collections: [
-          createFakeCollectionAddonsListResponse({
-            addons: Array(10).fill(createFakeCollectionAddon()),
-          }),
-        ],
+        homeShelves: {
+          results: [fakeShelf],
+          primary: null,
+          secondary: null,
+        },
       });
 
       const prevState = store.getState().home;
-      expect(prevState.collections).toHaveLength(1);
+      expect(prevState.homeShelves.results).toHaveLength(1);
 
       const state = homeReducer(prevState, setClientApp(CLIENT_APP_FIREFOX));
       const initialStateWithLang = homeReducer(initialState, setLang(lang));
@@ -309,15 +225,15 @@ describe(__filename, () => {
 
       _loadHomeData({
         store,
-        collections: [
-          createFakeCollectionAddonsListResponse({
-            addons: Array(10).fill(createFakeCollectionAddon()),
-          }),
-        ],
+        homeShelves: {
+          results: [fakeShelf],
+          primary: null,
+          secondary: null,
+        },
       });
 
       let state = store.getState().home;
-      expect(state.collections).toHaveLength(1);
+      expect(state.homeShelves.results).toHaveLength(1);
 
       // Perform two client-side location changes.
       state = homeReducer(state, { type: LOCATION_CHANGE }, _config);
@@ -332,15 +248,15 @@ describe(__filename, () => {
 
       _loadHomeData({
         store,
-        collections: [
-          createFakeCollectionAddonsListResponse({
-            addons: Array(10).fill(createFakeCollectionAddon()),
-          }),
-        ],
+        homeShelves: {
+          results: [fakeShelf],
+          primary: null,
+          secondary: null,
+        },
       });
 
       const firstState = store.getState().home;
-      expect(firstState.collections).toHaveLength(1);
+      expect(firstState.homeShelves.results).toHaveLength(1);
 
       const newState = homeReducer(
         firstState,
@@ -355,29 +271,34 @@ describe(__filename, () => {
     });
   });
 
-  describe('createInternalHeroShelves', () => {
-    it('creates an internal representation of hero shelves', () => {
+  describe('createInternalHomeShelves', () => {
+    it('creates an internal representation of home shelves', () => {
       const addon = fakeAddon;
-      const heroShelves = createHeroShelves({
+      const shelf = fakeShelf;
+      const homeShelves = createHomeShelves({
+        resultsProps: [shelf],
         primaryProps: { addon, external: undefined },
       });
 
-      expect(createInternalHeroShelves(heroShelves, lang)).toEqual({
+      expect(createInternalHomeShelves(homeShelves, lang)).toEqual({
+        results: homeShelves.results.map((result) =>
+          createInternalShelf(result, lang),
+        ),
         primary: {
           addon: createInternalAddonWithLang(addon),
-          description: heroShelves.primary.description[lang],
+          description: homeShelves.primary.description[lang],
           external: undefined,
-          featuredImage: heroShelves.primary.featured_image,
+          featuredImage: homeShelves.primary.featured_image,
           gradient: {
-            end: heroShelves.primary.gradient.end,
-            start: heroShelves.primary.gradient.start,
+            end: homeShelves.primary.gradient.end,
+            start: homeShelves.primary.gradient.start,
           },
         },
         secondary: {
-          cta: createInternalHeroCallToAction(heroShelves.secondary.cta, lang),
-          description: heroShelves.secondary.description[lang],
-          headline: heroShelves.secondary.headline[lang],
-          modules: heroShelves.secondary.modules.map((module) =>
+          cta: createInternalHeroCallToAction(homeShelves.secondary.cta, lang),
+          description: homeShelves.secondary.description[lang],
+          headline: homeShelves.secondary.headline[lang],
+          modules: homeShelves.secondary.modules.map((module) =>
             createInternalSecondaryHeroModule(module, lang),
           ),
         },
@@ -386,7 +307,7 @@ describe(__filename, () => {
 
     it('works when an addon is not defined', () => {
       const external = fakePrimaryHeroShelfExternalAddon;
-      const heroShelves = createHeroShelves({
+      const homeShelves = createHomeShelves({
         primaryProps: {
           addon: undefined,
           external,
@@ -394,7 +315,7 @@ describe(__filename, () => {
       });
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).primary,
+        createInternalHomeShelves(homeShelves, lang).primary,
       ).toMatchObject({
         addon: undefined,
         external: createInternalPrimaryHeroShelfExternalAddon(external, lang),
@@ -403,7 +324,7 @@ describe(__filename, () => {
 
     it('works when external is not defined', () => {
       const addon = fakeAddon;
-      const heroShelves = createHeroShelves({
+      const homeShelves = createHomeShelves({
         primaryProps: {
           addon,
           external: undefined,
@@ -411,7 +332,7 @@ describe(__filename, () => {
       });
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).primary,
+        createInternalHomeShelves(homeShelves, lang).primary,
       ).toMatchObject({
         addon: createInternalAddonWithLang(addon),
         external: undefined,
@@ -420,7 +341,7 @@ describe(__filename, () => {
 
     it('works when primary description is null', () => {
       const addon = fakeAddon;
-      const heroShelves = createHeroShelves({
+      const homeShelves = createHomeShelves({
         primaryProps: {
           addon,
           description: null,
@@ -428,7 +349,7 @@ describe(__filename, () => {
       });
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).primary,
+        createInternalHomeShelves(homeShelves, lang).primary,
       ).toMatchObject({
         addon: createInternalAddonWithLang(addon),
         description: null,
@@ -436,16 +357,16 @@ describe(__filename, () => {
     });
 
     it('works when secondary cta is null', () => {
-      const heroShelves = createHeroShelves({
+      const homeShelves = createHomeShelves({
         primaryProps: { addon: fakeAddon },
         secondaryProps: { cta: null },
       });
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).secondary,
+        createInternalHomeShelves(homeShelves, lang).secondary,
       ).toMatchObject({
         cta: null,
-        description: heroShelves.secondary.description[lang],
+        description: homeShelves.secondary.description[lang],
       });
     });
 
@@ -454,10 +375,14 @@ describe(__filename, () => {
       const secondaryShelf = createSecondaryHeroShelf();
       // Replace the default cta in module 1 with null.
       secondaryShelf.modules[0].cta = null;
-      const heroShelves = { primary: primaryShelf, secondary: secondaryShelf };
+      const homeShelves = {
+        results: [],
+        primary: primaryShelf,
+        secondary: secondaryShelf,
+      };
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).secondary,
+        createInternalHomeShelves(homeShelves, lang).secondary,
       ).toMatchObject({
         modules: [
           createInternalSecondaryHeroModule(secondaryShelf.modules[0], lang),
@@ -468,48 +393,81 @@ describe(__filename, () => {
     });
 
     it('works when primary is null', () => {
-      const heroShelves = {
+      const homeShelves = {
+        results: [],
         primary: null,
         secondary: createSecondaryHeroShelf(),
       };
 
-      expect(createInternalHeroShelves(heroShelves, lang).primary).toEqual(
+      expect(createInternalHomeShelves(homeShelves, lang).primary).toEqual(
         null,
       );
     });
 
     it('works when secondary is null', () => {
-      const heroShelves = {
+      const homeShelves = {
+        results: [],
         primary: createPrimaryHeroShelf(),
         secondary: null,
       };
 
-      expect(createInternalHeroShelves(heroShelves, lang).secondary).toEqual(
+      expect(createInternalHomeShelves(homeShelves, lang).secondary).toEqual(
         null,
       );
     });
 
     it('works when both primary and secondary are null', () => {
-      const heroShelves = { primary: null, secondary: null };
+      const homeShelves = { results: [], primary: null, secondary: null };
 
-      expect(createInternalHeroShelves(heroShelves, lang).primary).toEqual(
+      expect(createInternalHomeShelves(homeShelves, lang).primary).toEqual(
         null,
       );
-      expect(createInternalHeroShelves(heroShelves, lang).secondary).toEqual(
+      expect(createInternalHomeShelves(homeShelves, lang).secondary).toEqual(
         null,
       );
     });
 
     it('throws an exception if neither an addon nor an external entry is provided', () => {
-      const heroShelves = createHeroShelves();
-      // createHeroShelves won't allow an invalid shelf to be created, so we
+      const homeShelves = createHomeShelves();
+      // createhomeShelves won't allow an invalid shelf to be created, so we
       // must do this.
-      heroShelves.primary.addon = undefined;
-      heroShelves.primary.external = undefined;
+      homeShelves.primary.addon = undefined;
+      homeShelves.primary.external = undefined;
 
-      expect(() => createInternalHeroShelves(heroShelves, lang)).toThrow(
+      expect(() => createInternalHomeShelves(homeShelves, lang)).toThrow(
         /Either primary.addon or primary.external is required/,
       );
+    });
+  });
+
+  describe('createInternalShelf', () => {
+    it('creates an internal representation of a shelf', () => {
+      const addon = fakeAddon;
+      const footerText = 'Footer text';
+      const footerURL = 'http://testserver/extensions/';
+      const title = 'Some title';
+      const shelf = {
+        addons: [addon],
+        criteria: '?sort=rating&type=statictheme',
+        endpoint: 'search-themes',
+        footer: {
+          url: createLocalizedString(footerURL),
+          text: createLocalizedString(footerText),
+          outgoing: '',
+        },
+        title: createLocalizedString(title),
+        url:
+          'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
+      };
+
+      expect(createInternalShelf(shelf, lang)).toEqual({
+        addons: [createInternalAddon(addon, lang)],
+        criteria: shelf.criteria,
+        endpoint: shelf.endpoint,
+        footer: createInternalHeroCallToAction(shelf.footer, lang),
+        title,
+        url: shelf.url,
+      });
     });
   });
 

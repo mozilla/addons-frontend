@@ -12,15 +12,15 @@ import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'amo/constants';
 import {
   createFakeEvent,
   createFakeTracking,
-  createHeroShelves,
-  createInternalHeroShelvesWithLang,
+  createHomeShelves,
+  createInternalHomeShelvesWithLang,
   fakeAddon,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const createShelfData = (secondaryProps = {}) => {
-    return createInternalHeroShelvesWithLang(
-      createHeroShelves({ primaryProps: { addon: fakeAddon }, secondaryProps }),
+    return createInternalHomeShelvesWithLang(
+      createHomeShelves({ primaryProps: { addon: fakeAddon }, secondaryProps }),
     ).secondary;
   };
 

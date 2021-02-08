@@ -33,8 +33,6 @@ import {
   CLIENT_APP_FIREFOX,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
-  INSTALL_SOURCE_COLLECTION,
-  INSTALL_SOURCE_FEATURED_COLLECTION,
 } from 'amo/constants';
 import { ErrorHandler } from 'amo/errorHandler';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
@@ -728,42 +726,6 @@ describe(__filename, () => {
     expect(paginator).toHaveProp('pathname', `/collections/${userId}/${slug}/`);
     expect(paginator).toHaveProp('queryParams', filters);
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
-  });
-
-  it('declares an install source for non-featured collections', () => {
-    const { store } = dispatchClientMetadata();
-
-    _loadCurrentCollection({ store });
-
-    const _isFeaturedCollection = sinon.spy(() => false);
-    const wrapper = renderComponent({
-      store,
-      _isFeaturedCollection,
-    });
-
-    expect(wrapper.find(AddonsCard)).toHaveProp(
-      'addonInstallSource',
-      INSTALL_SOURCE_COLLECTION,
-    );
-    sinon.assert.called(_isFeaturedCollection);
-  });
-
-  it('declares an install source for featured collections', () => {
-    const { store } = dispatchClientMetadata();
-
-    _loadCurrentCollection({ store });
-
-    const _isFeaturedCollection = sinon.spy(() => true);
-    const wrapper = renderComponent({
-      store,
-      _isFeaturedCollection,
-    });
-
-    expect(wrapper.find(AddonsCard)).toHaveProp(
-      'addonInstallSource',
-      INSTALL_SOURCE_FEATURED_COLLECTION,
-    );
-    sinon.assert.called(_isFeaturedCollection);
   });
 
   it('renders a CollectionControls component', () => {
