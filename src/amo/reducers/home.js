@@ -146,26 +146,58 @@ export type HeroShelvesType = {|
   secondary: SecondaryHeroShelfType,
 |};
 
+export type ExternalResultShelfType = {|
+  title: string,
+  url: string,
+  endpoint: string,
+  criteria: string,
+  footer_text: string | null,
+  footer_pathname: string | null,
+  addons: Array<ExternalAddonType>,
+|};
+
+export type ResultShelfType = {|
+  title: string,
+  url: string,
+  endpoint: string,
+  criteria: string,
+  footer_text: string | null,
+  footer_pathname: string | null,
+  addons: Array<AddonType>,
+|};
+
+export type ExternalHomeShelvesType = {|
+  results: Array<ExternalResultShelfType>,
+  primary: ExternalPrimaryHeroShelfType,
+  secondary: SecondaryHeroShelfType,
+|};
+
+export type HomeShelvesType = {|
+  results: Array<ResultShelfType>,
+  primary: PrimaryHeroShelfType,
+  secondary: SecondaryHeroShelfType,
+|};
+
 export type HomeState = {
-  collections: Array<Object | null>,
-  heroShelves: HeroShelvesType | null,
+  homeShelves: HomeShelvesType,
   isLoading: boolean,
   lang: string,
   resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
-  shelves: { [shelfName: string]: Array<AddonType> | null },
 };
 
 export const initialState: HomeState = {
-  collections: [],
-  heroShelves: null,
+  homeShelves: {
+    results: [],
+    primary: null,
+    secondary: null,
+  },
   isLoading: false,
   // We default lang to '' to avoid having to add a lot of invariants to our
   // code, and protect against a lang of '' in selectLocalizedContent.
   lang: '',
   resetStateOnNextChange: false,
   resultsLoaded: false,
-  shelves: {},
 };
 
 export type AbortFetchHomeDataAction = {| type: typeof ABORT_FETCH_HOME_DATA |};
@@ -209,15 +241,8 @@ export const fetchHomeData = ({
   };
 };
 
-type ApiAddonsResponse = {|
-  count: number,
-  results: Array<ExternalAddonType>,
-|};
-
 type LoadHomeDataParams = {|
-  collections: Array<Object | null>,
-  heroShelves: ExternalHeroShelvesType | null,
-  shelves: { [shelfName: string]: ApiAddonsResponse },
+  homeShelves: ExternalHomeShelvesType,
 |};
 
 type LoadHomeDataAction = {|
@@ -226,19 +251,14 @@ type LoadHomeDataAction = {|
 |};
 
 export const loadHomeData = ({
-  collections,
-  heroShelves,
-  shelves,
+  homeShelves,
 }: LoadHomeDataParams): LoadHomeDataAction => {
-  invariant(collections, 'collections is required');
-  invariant(shelves, 'shelves is required');
+  invariant(homeShelves, 'homeShelves is required');
 
   return {
     type: LOAD_HOME_DATA,
     payload: {
-      collections,
-      heroShelves,
-      shelves,
+      homeShelves,
     },
   };
 };
@@ -248,13 +268,6 @@ type Action =
   | FetchHomeDataAction
   | LoadHomeDataAction
   | SetClientAppAction;
-
-const createInternalAddons = (
-  response: ApiAddonsResponse,
-  lang: string,
-): Array<AddonType> => {
-  return response.results.map((addon) => createInternalAddon(addon, lang));
-};
 
 export const createInternalPrimaryHeroShelfExternalAddon = (
   external: PrimaryHeroShelfExternalAddonType,
@@ -293,11 +306,34 @@ export const createInternalSecondaryHeroModule = (
   };
 };
 
-export const createInternalHeroShelves = (
-  heroShelves: ExternalHeroShelvesType,
+export const createInternalHomeShelves = (
+  homeShelves: ExternalHomeShelvesType,
   lang: string,
-): HeroShelvesType => {
-  const { primary, secondary } = heroShelves;
+): HomeShelvesType => {
+  const { results, primary, secondary } = homeShelves;
+
+  const customShelves = results.map((result) => {
+    const { addons } = result;
+
+    const sliceEnd =
+      ADDON_TYPE_STATIC_THEME === result.addons[0].type
+        ? LANDING_PAGE_THEME_COUNT
+        : LANDING_PAGE_EXTENSION_COUNT;
+
+    const shelfAddons = addons.slice(0, sliceEnd).map((addon) => {
+      return createInternalAddon(addon, lang);
+    });
+
+    return {
+      title: result.title,
+      url: result.url,
+      endpoint: result.endpoint,
+      criteria: result.criteria,
+      footer_text: result.footer_text,
+      footer_pathname: result.footer_pathname,
+      addons: shelfAddons,
+    };
+  });
 
   let secondaryShelf: SecondaryHeroShelfType | null = null;
   if (secondary !== null) {
@@ -314,7 +350,7 @@ export const createInternalHeroShelves = (
   }
 
   if (primary === null) {
-    return { primary: null, secondary: secondaryShelf };
+    return { results: customShelves, primary: null, secondary: secondaryShelf };
   }
 
   invariant(
@@ -334,7 +370,11 @@ export const createInternalHeroShelves = (
       addon: createInternalAddon(primary.addon, lang),
       external: undefined,
     };
-    return { primary: primaryShelf, secondary: secondaryShelf };
+    return {
+      results: customShelves,
+      primary: primaryShelf,
+      secondary: secondaryShelf,
+    };
   }
 
   const primaryShelf: PrimaryHeroShelfWithExternalType = {
@@ -345,7 +385,11 @@ export const createInternalHeroShelves = (
       lang,
     ),
   };
-  return { primary: primaryShelf, secondary: secondaryShelf };
+  return {
+    results: customShelves,
+    primary: primaryShelf,
+    secondary: secondaryShelf,
+  };
 };
 
 const reducer = (
@@ -380,38 +424,13 @@ const reducer = (
       };
 
     case LOAD_HOME_DATA: {
-      const { collections, heroShelves, shelves } = action.payload;
+      const { homeShelves } = action.payload;
 
       return {
         ...state,
-        collections: collections.map((collection) => {
-          if (collection && collection.results && collection.results.length) {
-            const sliceEnd =
-              ADDON_TYPE_STATIC_THEME === collection.results[0].addon.type
-                ? LANDING_PAGE_THEME_COUNT
-                : LANDING_PAGE_EXTENSION_COUNT;
-            return collection.results.slice(0, sliceEnd).map((item) => {
-              return createInternalAddon(item.addon, state.lang);
-            });
-          }
-          return null;
-        }),
-        heroShelves: heroShelves
-          ? createInternalHeroShelves(heroShelves, state.lang)
-          : null,
+        homeShelves: createInternalHomeShelves(homeShelves, state.lang),
         isLoading: false,
         resultsLoaded: true,
-        // $FlowIgnore: flow can't be sure that reduce result will patch the shelves type definition, let's trust the test coverage here.
-        shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
-          const response = shelves[shelfName];
-
-          return {
-            ...shelvesToLoad,
-            [shelfName]: response
-              ? createInternalAddons(response, state.lang)
-              : null,
-          };
-        }, {}),
       };
     }
 

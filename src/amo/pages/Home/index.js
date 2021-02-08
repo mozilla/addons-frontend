@@ -7,11 +7,10 @@ import { compose } from 'redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import Card from 'amo/components/Card';
 import CategoryIcon from 'amo/components/CategoryIcon';
-import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
-import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import HomepageShelves from 'amo/components/HomepageShelves';
 import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
 import Page from 'amo/components/Page';
@@ -19,14 +18,9 @@ import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   INSTALL_SOURCE_FEATURED,
-  RECOMMENDED,
-  SEARCH_SORT_POPULAR,
-  SEARCH_SORT_RANDOM,
-  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
@@ -42,18 +36,6 @@ export const FEATURED_COLLECTIONS = [
   { slug: 'privacy-matters', userId: MOZILLA_USER_ID },
   { slug: 'password-managers', userId: MOZILLA_USER_ID },
 ];
-
-export const isFeaturedCollection = (
-  collection,
-  { featuredCollections = FEATURED_COLLECTIONS } = {},
-) => {
-  return featuredCollections.some((featured) => {
-    return (
-      featured.slug === collection.slug &&
-      featured.userId === collection.authorId
-    );
-  });
-};
 
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
@@ -74,19 +56,15 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
 
 export class HomeBase extends React.Component {
   static propTypes = {
-    _config: PropTypes.object,
-    _getFeaturedCollectionsMetadata: PropTypes.func,
-    collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    heroShelves: PropTypes.object,
+    homeShelves: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     includeRecommendedThemes: PropTypes.bool,
     includeTrendingExtensions: PropTypes.bool,
     isDesktopSite: PropTypes.bool,
     isLoading: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
-    shelves: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
@@ -194,14 +172,14 @@ export class HomeBase extends React.Component {
   }
 
   renderHeroHeader() {
-    const { heroShelves } = this.props;
+    const { homeShelves } = this.props;
     return (
       <div className="Home-heroHeader">
         <h2 className="Home-heroHeader-title">
-          {heroShelves ? heroShelves.secondary.headline : <LoadingText />}
+          {homeShelves ? homeShelves.secondary.headline : <LoadingText />}
         </h2>
         <h3 className="Home-heroHeader-subtitle">
-          {heroShelves ? heroShelves.secondary.description : <LoadingText />}
+          {homeShelves ? homeShelves.secondary.description : <LoadingText />}
         </h3>
       </div>
     );
@@ -209,44 +187,17 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
-      _getFeaturedCollectionsMetadata,
-      collections,
       errorHandler,
-      heroShelves,
+      homeShelves,
       i18n,
-      includeRecommendedThemes,
-      includeTrendingExtensions,
       isDesktopSite,
       resultsLoaded,
-      shelves,
     } = this.props;
 
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
 
-    const featuredCollectionsMetadata = _getFeaturedCollectionsMetadata(i18n);
-
     const loading = resultsLoaded === false;
-
-    // This is a helper function (closure) configured to render a featured
-    // collection by index.
-    const renderFeaturedCollection = (index) => {
-      const metadata = featuredCollectionsMetadata[index];
-
-      const collection = collections[index];
-      if (loading || collection) {
-        return (
-          <FeaturedCollectionCard
-            addons={collection}
-            className="Home-FeaturedCollection"
-            loading={loading}
-            {...metadata}
-          />
-        );
-      }
-
-      return null;
-    };
 
     return (
       <Page isHomePage showWrongPlatformWarning={!isDesktopSite}>
@@ -275,120 +226,34 @@ export class HomeBase extends React.Component {
           {isDesktopSite ? (
             <HeroRecommendation
               errorHandler={errorHandler}
-              shelfData={heroShelves ? heroShelves.primary : undefined}
+              shelfData={homeShelves ? homeShelves.primary : undefined}
             />
           ) : null}
 
           <div className="Home-content">
             {isDesktopSite ? (
               <SecondaryHero
-                shelfData={heroShelves ? heroShelves.secondary : undefined}
+                shelfData={homeShelves ? homeShelves.secondary : undefined}
               />
             ) : null}
 
             {!isDesktopSite ? this.renderHeroHeader() : null}
 
-            <LandingAddonsCard
-              addonInstallSource={INSTALL_SOURCE_FEATURED}
-              addons={shelves.recommendedExtensions}
-              className="Home-RecommendedExtensions"
-              header={i18n.gettext('Recommended extensions')}
-              footerText={i18n.gettext('See more recommended extensions')}
-              footerLink={{
-                pathname: '/search/',
-                query: {
-                  addonType: ADDON_TYPE_EXTENSION,
-                  promoted: RECOMMENDED,
-                  sort: SEARCH_SORT_RANDOM,
-                },
-              }}
-              loading={loading}
-              placeholderCount={
-                isDesktopSite
-                  ? LANDING_PAGE_EXTENSION_COUNT
-                  : MOBILE_HOME_PAGE_EXTENSION_COUNT
-              }
-            />
+            {homeShelves ? (
+              <HomepageShelves
+                addonInstallSource={INSTALL_SOURCE_FEATURED}
+                loading={loading}
+                placeholderCount={
+                  isDesktopSite
+                    ? LANDING_PAGE_EXTENSION_COUNT
+                    : MOBILE_HOME_PAGE_EXTENSION_COUNT
+                }
+                shelves={homeShelves.results}
+              />
+            ) : null}
 
             {isDesktopSite ? (
               <>
-                <LandingAddonsCard
-                  addonInstallSource={INSTALL_SOURCE_FEATURED}
-                  addons={shelves.popularThemes}
-                  className="Home-PopularThemes"
-                  header={i18n.gettext('Popular themes')}
-                  footerText={i18n.gettext('See more popular themes')}
-                  footerLink={{
-                    pathname: '/search/',
-                    query: {
-                      addonType: ADDON_TYPE_STATIC_THEME,
-                      sort: SEARCH_SORT_POPULAR,
-                    },
-                  }}
-                  isTheme
-                  loading={loading}
-                />
-
-                {renderFeaturedCollection(0)}
-
-                <LandingAddonsCard
-                  addonInstallSource={INSTALL_SOURCE_FEATURED}
-                  addons={shelves.popularExtensions}
-                  className="Home-PopularExtensions"
-                  header={i18n.gettext('Popular extensions')}
-                  footerText={i18n.gettext('See more popular extensions')}
-                  footerLink={{
-                    pathname: '/search/',
-                    query: {
-                      addonType: ADDON_TYPE_EXTENSION,
-                      promoted: RECOMMENDED,
-                      sort: SEARCH_SORT_POPULAR,
-                    },
-                  }}
-                  loading={loading}
-                />
-
-                {includeRecommendedThemes && (
-                  <LandingAddonsCard
-                    addonInstallSource={INSTALL_SOURCE_FEATURED}
-                    addons={shelves.recommendedThemes}
-                    className="Home-RecommendedThemes"
-                    footerText={i18n.gettext('See more recommended themes')}
-                    footerLink={{
-                      pathname: '/search/',
-                      query: {
-                        addonType: ADDON_TYPE_STATIC_THEME,
-                        promoted: RECOMMENDED,
-                        sort: SEARCH_SORT_RANDOM,
-                      },
-                    }}
-                    header={i18n.gettext('Recommended themes')}
-                    isTheme
-                    loading={loading}
-                  />
-                )}
-
-                {renderFeaturedCollection(1)}
-
-                {includeTrendingExtensions && (
-                  <LandingAddonsCard
-                    addonInstallSource={INSTALL_SOURCE_FEATURED}
-                    addons={shelves.trendingExtensions}
-                    className="Home-TrendingExtensions"
-                    header={i18n.gettext('Trending extensions')}
-                    footerText={i18n.gettext('See more trending extensions')}
-                    footerLink={{
-                      pathname: '/search/',
-                      query: {
-                        addonType: ADDON_TYPE_EXTENSION,
-                        promoted: RECOMMENDED,
-                        sort: SEARCH_SORT_TRENDING,
-                      },
-                    }}
-                    loading={loading}
-                  />
-                )}
-
                 <Card
                   className="Home-SubjectShelf Home-CuratedThemes"
                   header={themesHeader}
@@ -412,12 +277,10 @@ export class HomeBase extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    collections: state.home.collections,
-    heroShelves: state.home.heroShelves,
+    homeShelves: state.home.homeShelves,
     isDesktopSite: state.api.clientApp === CLIENT_APP_FIREFOX,
     isLoading: state.home.isLoading,
     resultsLoaded: state.home.resultsLoaded,
-    shelves: state.home.shelves,
   };
 }
 
