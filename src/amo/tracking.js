@@ -3,6 +3,7 @@
 import { oneLine } from 'common-tags';
 import config from 'config';
 import invariant from 'invariant';
+import { getCLS, getFID, getLCP } from 'web-vitals';
 
 import {
   ADDON_TYPE_DICT,
@@ -67,6 +68,9 @@ export function isDoNotTrackEnabled({
 type TrackingParams = {|
   _config: typeof config,
   _isDoNotTrackEnabled: typeof isDoNotTrackEnabled,
+  _getCLS: typeof getCLS,
+  _getFID: typeof getFID,
+  _getLCP: typeof getLCP,
 |};
 
 export class Tracking {
@@ -76,12 +80,17 @@ export class Tracking {
 
   trackingEnabled: boolean;
 
+  sendWebVitals: boolean;
+
   // Tracking ID
   id: string;
 
   constructor({
     _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
+    _getCLS = getCLS,
+    _getFID = getFID,
+    _getLCP = getLCP,
   }: TrackingParams = {}) {
     if (typeof window === 'undefined') {
       return;
@@ -133,7 +142,46 @@ export class Tracking {
       // Set a custom dimension; this allows us to tell which front-end
       // (addons-frontend vs addons-server) is being used in analytics.
       ga('set', 'dimension3', 'addons-frontend');
+
+      if (convertBoolean(_config.get('trackingSendWebVitals'))) {
+        this.log('trackingSendWebVitals is enabled');
+
+        const sendWebVitalStats = this.sendWebVitalStats.bind(this);
+        _getCLS(sendWebVitalStats);
+        _getFID(sendWebVitalStats);
+        _getLCP(sendWebVitalStats);
+      }
     }
+  }
+
+  sendWebVitalStats({
+    name,
+    delta,
+    id,
+  }: {|
+    name: string,
+    delta: number,
+    id: number,
+  |}) {
+    this.log('sendWebVitalStats', { name, delta, id });
+
+    this._ga('send', 'event', {
+      eventCategory: 'Web Vitals',
+      eventAction: name,
+      // The `id` value will be unique to the current page load. When sending
+      // multiple values from the same page (e.g. for CLS), Google Analytics
+      // can compute a total by grouping on this ID (note: requires
+      // `eventLabel` to be a dimension in your report).
+      eventLabel: id,
+      // Google Analytics metrics must be integers, so the value is rounded.
+      // For CLS the value is first multiplied by 1000 for greater precision
+      // (note: increase the multiplier for greater precision if needed).
+      eventValue: Math.round(name === 'CLS' ? delta * 1000 : delta),
+      // Use a non-interaction event to avoid affecting bounce rate.
+      nonInteraction: true,
+      // Use `sendBeacon()` if the browser supports it.
+      transport: 'beacon',
+    });
   }
 
   log(message: string, obj?: Object) {

@@ -200,6 +200,66 @@ describe(__filename, () => {
       tracking.setDimension({ dimension, value });
       sinon.assert.calledWith(window.ga, 'set', dimension, value);
     });
+
+    it('should not send the web vitals when trackingSendWebVitals is false', () => {
+      const _getCLS = sinon.stub();
+      const _getFID = sinon.stub();
+      const _getLCP = sinon.stub();
+
+      createTracking({
+        configOverrides: { trackingSendWebVitals: false },
+        paramOverrides: {
+          _getCLS,
+          _getFID,
+          _getLCP,
+        },
+      });
+
+      sinon.assert.notCalled(_getCLS);
+      sinon.assert.notCalled(_getFID);
+      sinon.assert.notCalled(_getLCP);
+    });
+
+    it('should send the web vitals when trackingSendWebVitals is true', () => {
+      const _getCLS = sinon.stub();
+      const _getFID = sinon.stub();
+      const _getLCP = sinon.stub();
+
+      createTracking({
+        configOverrides: { trackingSendWebVitals: true },
+        paramOverrides: {
+          _getCLS,
+          _getFID,
+          _getLCP,
+        },
+      });
+
+      sinon.assert.calledOnce(_getCLS);
+      sinon.assert.calledOnce(_getFID);
+      sinon.assert.calledOnce(_getLCP);
+    });
+  });
+
+  describe('sendWebVitalStats', () => {
+    it('sends web vitals data to GA', () => {
+      const tracking = createTracking();
+      const fakeCLS = {
+        name: 'CLS',
+        id: 'some-id',
+        delta: 123,
+      };
+
+      tracking.sendWebVitalStats(fakeCLS);
+
+      sinon.assert.calledWith(window.ga, 'send', 'event', {
+        eventCategory: 'Web Vitals',
+        eventAction: fakeCLS.name,
+        eventLabel: fakeCLS.id,
+        eventValue: Math.round(fakeCLS.delta * 1000),
+        nonInteraction: true,
+        transport: 'beacon',
+      });
+    });
   });
 
   describe('getAddonTypeForTracking', () => {

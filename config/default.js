@@ -127,6 +127,7 @@ module.exports = {
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
+    'trackingSendWebVitals',
     'unsupportedHrefLangs',
     'validClientAppUrlExceptions',
     'validClientApplications',
@@ -294,6 +295,8 @@ module.exports = {
   trackingId: 'UA-36116321-7',
   // send a page view on initialization.
   trackingSendInitPageView: true,
+  // send web vitals stats to GA
+  trackingSendWebVitals: false,
 
   enablePostCssLoader: true,
 

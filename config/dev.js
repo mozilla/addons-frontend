@@ -13,6 +13,8 @@ module.exports = {
 
   enableDevTools: true,
 
+  trackingSendWebVitals: true,
+
   // Content security policy.
   CSP: {
     directives: {
