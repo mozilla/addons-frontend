@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-02 17:16+0000\n"
+"POT-Creation-Date: 2021-02-09 17:29+0000\n"
 "PO-Revision-Date: 2021-01-21 03:36+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -656,16 +656,16 @@ msgid ""
 msgstr ""
 "Hành động này hiện không có sẵn. Vui lòng tải lại trang trong giây lát."
 
-#: src/amo/components/AutoSearchInput/index.js:206
+#: src/amo/components/AutoSearchInput/index.js:200
 msgid "Loading"
 msgstr "Đang tải"
 
-#: src/amo/components/AutoSearchInput/index.js:301
+#: src/amo/components/AutoSearchInput/index.js:295
 msgid "Find add-ons"
 msgstr "Tìm tiện ích"
 
-#: src/amo/components/AutoSearchInput/index.js:326
-#: src/amo/components/AutoSearchInput/index.js:354
+#: src/amo/components/AutoSearchInput/index.js:320
+#: src/amo/components/AutoSearchInput/index.js:348
 msgid "Search"
 msgstr "Tìm kiếm"
 
@@ -1258,19 +1258,19 @@ msgstr "Truy cập dữ liệu của bạn cho %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:158
 msgid "By Firefox"
 msgstr "Bởi Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Recommended"
 msgstr "Được đề xuất"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Verified"
 msgstr "Đã xác minh"
 
@@ -1786,76 +1786,59 @@ msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s chủ đề tìm thấy cho \"%(query)s\" trong %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:127
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:124
 msgid "All"
 msgstr "Tất cả"
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Extension"
 msgstr "Tiện ích mở rộng"
 
-#: src/amo/components/SearchFilters/index.js:132
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Theme"
 msgstr "Chủ đề"
 
-#: src/amo/components/SearchFilters/index.js:144
-msgid "Windows"
-msgstr "Windows"
-
-#: src/amo/components/SearchFilters/index.js:145
-msgid "macOS"
-msgstr "macOS"
-
-#: src/amo/components/SearchFilters/index.js:146
-msgid "Linux"
-msgstr "Linux"
-
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Relevance"
 msgstr "Mức độ liên quan"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Recently Updated"
 msgstr "Được cập nhật gần đây"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Most Users"
 msgstr "Hầu hết người dùng"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Top Rated"
 msgstr "Được xếp hạng cao nhất"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Trending"
 msgstr "Xu hướng"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Any"
 msgstr "Bất kỳ"
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:166
 msgid "All Reviewed"
 msgstr "Tất cả được đánh giá"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Filter results"
 msgstr "Lọc kết quả"
 
-#: src/amo/components/SearchFilters/index.js:205
+#: src/amo/components/SearchFilters/index.js:191
 msgid "Sort by"
 msgstr "Sắp xếp theo"
 
-#: src/amo/components/SearchFilters/index.js:227
+#: src/amo/components/SearchFilters/index.js:213
 msgid "Add-on Type"
 msgstr "Kiểu tiện ích"
 
-#: src/amo/components/SearchFilters/index.js:247
-msgid "Operating System"
-msgstr "Hệ điều hành"
-
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:236
 msgid "Badging"
 msgstr "Huy hiệu"
 
@@ -3301,6 +3284,18 @@ msgstr "khả năng tương thích của tiện ích của tôi không thể đ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "khả năng tương thích của tiện ích của tôi được nâng cấp thành công"
+
+#~ msgid "Windows"
+#~ msgstr "Windows"
+
+#~ msgid "macOS"
+#~ msgstr "macOS"
+
+#~ msgid "Linux"
+#~ msgstr "Linux"
+
+#~ msgid "Operating System"
+#~ msgstr "Hệ điều hành"
 
 #~ msgid "Sponsored extensions"
 #~ msgstr "Tiện ích mở rộng được tài trợ"

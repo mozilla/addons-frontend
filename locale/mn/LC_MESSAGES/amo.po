@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-02 17:16+0000\n"
+"POT-Creation-Date: 2021-02-09 17:29+0000\n"
 "PO-Revision-Date: 2018-06-01 19:18+0000\n"
 "Last-Translator: Patrick CHEW <pchew@change.org>\n"
 "Language-Team: none\n"
@@ -662,16 +662,16 @@ msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
 
-#: src/amo/components/AutoSearchInput/index.js:206
+#: src/amo/components/AutoSearchInput/index.js:200
 msgid "Loading"
 msgstr "Ачаалж байна"
 
-#: src/amo/components/AutoSearchInput/index.js:301
+#: src/amo/components/AutoSearchInput/index.js:295
 msgid "Find add-ons"
 msgstr ""
 
-#: src/amo/components/AutoSearchInput/index.js:326
-#: src/amo/components/AutoSearchInput/index.js:354
+#: src/amo/components/AutoSearchInput/index.js:320
+#: src/amo/components/AutoSearchInput/index.js:348
 msgid "Search"
 msgstr ""
 
@@ -1214,19 +1214,19 @@ msgstr ""
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:158
 msgid "By Firefox"
 msgstr ""
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Recommended"
 msgstr ""
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Verified"
 msgstr ""
 
@@ -1731,77 +1731,60 @@ msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/SearchFilters/index.js:127
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:124
 msgid "All"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Extension"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:132
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Theme"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:144
-msgid "Windows"
-msgstr ""
-
-#: src/amo/components/SearchFilters/index.js:145
-msgid "macOS"
-msgstr ""
-
-#: src/amo/components/SearchFilters/index.js:146
-msgid "Linux"
-msgstr ""
-
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Relevance"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Recently Updated"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Most Users"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Top Rated"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Trending"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:166
 #, fuzzy
 msgid "All Reviewed"
 msgstr "Миний тоймыг засварлах"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Filter results"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:205
+#: src/amo/components/SearchFilters/index.js:191
 msgid "Sort by"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:227
+#: src/amo/components/SearchFilters/index.js:213
 msgid "Add-on Type"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:247
-msgid "Operating System"
-msgstr ""
-
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:236
 msgid "Badging"
 msgstr ""
 

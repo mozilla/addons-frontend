@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-02 17:16+0000\n"
+"POT-Creation-Date: 2021-02-09 17:29+0000\n"
 "PO-Revision-Date: 2021-01-24 13:06+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
@@ -669,16 +669,16 @@ msgstr ""
 "Esta ação não está disponível neste momento. Por favor, recarregue a página "
 "dentro de alguns instantes."
 
-#: src/amo/components/AutoSearchInput/index.js:206
+#: src/amo/components/AutoSearchInput/index.js:200
 msgid "Loading"
 msgstr "A carregar"
 
-#: src/amo/components/AutoSearchInput/index.js:301
+#: src/amo/components/AutoSearchInput/index.js:295
 msgid "Find add-ons"
 msgstr "Encontrar extras"
 
-#: src/amo/components/AutoSearchInput/index.js:326
-#: src/amo/components/AutoSearchInput/index.js:354
+#: src/amo/components/AutoSearchInput/index.js:320
+#: src/amo/components/AutoSearchInput/index.js:348
 msgid "Search"
 msgstr "Pesquisar"
 
@@ -1267,19 +1267,19 @@ msgstr "Aceder aos seus dados para %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:158
 msgid "By Firefox"
 msgstr "Por Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Recommended"
 msgstr "Recomendados"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Verified"
 msgstr "Verificado"
 
@@ -1807,76 +1807,59 @@ msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s tema encontrado para \"%(query)s\" em %(categoryName)s"
 msgstr[1] "%(count)s temas encontrados para \"%(query)s\" em %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:127
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:124
 msgid "All"
 msgstr "Todos"
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Extension"
 msgstr "Extensão"
 
-#: src/amo/components/SearchFilters/index.js:132
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:144
-msgid "Windows"
-msgstr "Windows"
-
-#: src/amo/components/SearchFilters/index.js:145
-msgid "macOS"
-msgstr "macOS"
-
-#: src/amo/components/SearchFilters/index.js:146
-msgid "Linux"
-msgstr "Linux"
-
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Relevance"
 msgstr "Relevância"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Recently Updated"
 msgstr "Recentemente atualizado"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Most Users"
 msgstr "Maior número de utilizadores"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Top Rated"
 msgstr "Top de avaliações"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Trending"
 msgstr "Tendência"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Any"
 msgstr "Qualquer"
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:166
 msgid "All Reviewed"
 msgstr "Todos os analisados"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Filter results"
 msgstr "Filtrar resultados"
 
-#: src/amo/components/SearchFilters/index.js:205
+#: src/amo/components/SearchFilters/index.js:191
 msgid "Sort by"
 msgstr "Ordenar por"
 
-#: src/amo/components/SearchFilters/index.js:227
+#: src/amo/components/SearchFilters/index.js:213
 msgid "Add-on Type"
 msgstr "Tipo de extra"
 
-#: src/amo/components/SearchFilters/index.js:247
-msgid "Operating System"
-msgstr "Sistema operativo"
-
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:236
 msgid "Badging"
 msgstr "Atribuição de distintivo"
 
@@ -3323,6 +3306,18 @@ msgstr "a compatibilidade do meu extra não pode ser atualizada"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a compatibilidade do meu extra é atualizada com sucesso"
+
+#~ msgid "Windows"
+#~ msgstr "Windows"
+
+#~ msgid "macOS"
+#~ msgstr "macOS"
+
+#~ msgid "Linux"
+#~ msgstr "Linux"
+
+#~ msgid "Operating System"
+#~ msgstr "Sistema operativo"
 
 #~ msgid "Sponsored extensions"
 #~ msgstr "Extensões patrocinadas"

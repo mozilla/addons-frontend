@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-02 17:16+0000\n"
+"POT-Creation-Date: 2021-02-09 17:29+0000\n"
 "PO-Revision-Date: 2021-01-20 12:30+0000\n"
 "Last-Translator: kemia051 <kemia051@gmail.com>\n"
 "Language-Team: none\n"
@@ -675,16 +675,16 @@ msgstr ""
 "Ez a művelet jelenleg nem érhető el. Egy pillanat múlva töltse újra az "
 "oldalt."
 
-#: src/amo/components/AutoSearchInput/index.js:206
+#: src/amo/components/AutoSearchInput/index.js:200
 msgid "Loading"
 msgstr "Betöltés"
 
-#: src/amo/components/AutoSearchInput/index.js:301
+#: src/amo/components/AutoSearchInput/index.js:295
 msgid "Find add-ons"
 msgstr "Kiegészítők keresése"
 
-#: src/amo/components/AutoSearchInput/index.js:326
-#: src/amo/components/AutoSearchInput/index.js:354
+#: src/amo/components/AutoSearchInput/index.js:320
+#: src/amo/components/AutoSearchInput/index.js:348
 msgid "Search"
 msgstr "Keresés"
 
@@ -1272,19 +1272,19 @@ msgstr "Az adatai elérése itt: %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:158
 msgid "By Firefox"
 msgstr "A Firefox által"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Recommended"
 msgstr "Ajánlott"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Verified"
 msgstr "Ellenőrzött"
 
@@ -1816,76 +1816,59 @@ msgstr[1] ""
 "%(count)s téma található a(z) „%(query)s” keresésre a(z) %(categoryName)s "
 "kategóriában"
 
-#: src/amo/components/SearchFilters/index.js:127
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:124
 msgid "All"
 msgstr "Összes"
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Extension"
 msgstr "Kiegészítő"
 
-#: src/amo/components/SearchFilters/index.js:132
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Theme"
 msgstr "Téma"
 
-#: src/amo/components/SearchFilters/index.js:144
-msgid "Windows"
-msgstr "Windows"
-
-#: src/amo/components/SearchFilters/index.js:145
-msgid "macOS"
-msgstr "macOS"
-
-#: src/amo/components/SearchFilters/index.js:146
-msgid "Linux"
-msgstr "Linux"
-
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Relevance"
 msgstr "Relevancia"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Recently Updated"
 msgstr "Legutóbb frissítve"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Most Users"
 msgstr "Legtöbb felhasználó"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Top Rated"
 msgstr "Legjobbra értékelt"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Trending"
 msgstr "Felkapott"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Any"
 msgstr "Bármely"
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:166
 msgid "All Reviewed"
 msgstr "Összes értékelt"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Filter results"
 msgstr "Találatok szűrése"
 
-#: src/amo/components/SearchFilters/index.js:205
+#: src/amo/components/SearchFilters/index.js:191
 msgid "Sort by"
 msgstr "Rendezés"
 
-#: src/amo/components/SearchFilters/index.js:227
+#: src/amo/components/SearchFilters/index.js:213
 msgid "Add-on Type"
 msgstr "Kiegészítő típusa"
 
-#: src/amo/components/SearchFilters/index.js:247
-msgid "Operating System"
-msgstr "Operációs rendszer"
-
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:236
 msgid "Badging"
 msgstr "Jelvényezés"
 
@@ -3342,6 +3325,18 @@ msgstr "a kiegészítőm kompatibilitása nem frissíthető"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a kiegészítőm kompatibilitása sikeresen frissítve"
+
+#~ msgid "Windows"
+#~ msgstr "Windows"
+
+#~ msgid "macOS"
+#~ msgstr "macOS"
+
+#~ msgid "Linux"
+#~ msgstr "Linux"
+
+#~ msgid "Operating System"
+#~ msgstr "Operációs rendszer"
 
 #~ msgid "Sponsored extensions"
 #~ msgstr "Szponzorált kiegészítők"

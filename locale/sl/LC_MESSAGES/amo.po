@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-02 17:16+0000\n"
+"POT-Creation-Date: 2021-02-09 17:29+0000\n"
 "PO-Revision-Date: 2021-01-28 17:44+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
@@ -667,16 +667,16 @@ msgid ""
 msgstr ""
 "To dejanje trenutno ni na voljo. Čez nekaj trenutkov znova naložite stran."
 
-#: src/amo/components/AutoSearchInput/index.js:206
+#: src/amo/components/AutoSearchInput/index.js:200
 msgid "Loading"
 msgstr "Nalaganje"
 
-#: src/amo/components/AutoSearchInput/index.js:301
+#: src/amo/components/AutoSearchInput/index.js:295
 msgid "Find add-ons"
 msgstr "Najdi dodatke"
 
-#: src/amo/components/AutoSearchInput/index.js:326
-#: src/amo/components/AutoSearchInput/index.js:354
+#: src/amo/components/AutoSearchInput/index.js:320
+#: src/amo/components/AutoSearchInput/index.js:348
 msgid "Search"
 msgstr "Išči"
 
@@ -1265,19 +1265,19 @@ msgstr "dostopa do vaših podatkov za %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:158
 msgid "By Firefox"
 msgstr "Firefoxovo"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Recommended"
 msgstr "Priporočeno"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Verified"
 msgstr "Preverjeno"
 
@@ -1817,76 +1817,59 @@ msgstr[1] "%(count)s najdeni temi za \"%(query)s\" v %(categoryName)s"
 msgstr[2] "%(count)s najdene teme za \"%(query)s\" v %(categoryName)s"
 msgstr[3] "%(count)s najdenih tem za \"%(query)s\" v %(categoryName)s"
 
-#: src/amo/components/SearchFilters/index.js:127
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:124
 msgid "All"
 msgstr "Vse"
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Extension"
 msgstr "Razširitev"
 
-#: src/amo/components/SearchFilters/index.js:132
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:144
-msgid "Windows"
-msgstr "Windows"
-
-#: src/amo/components/SearchFilters/index.js:145
-msgid "macOS"
-msgstr "macOS"
-
-#: src/amo/components/SearchFilters/index.js:146
-msgid "Linux"
-msgstr "Linux"
-
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Relevance"
 msgstr "Ustreznost"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Recently Updated"
 msgstr "Nedavno posodobljeno"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Most Users"
 msgstr "Največ uporabnikov"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Top Rated"
 msgstr "Najbolje ocenjeni"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Trending"
 msgstr "Priljubljeno"
 
-#: src/amo/components/SearchFilters/index.js:169
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Any"
 msgstr "Katerikoli"
 
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:166
 msgid "All Reviewed"
 msgstr "Vsi pregledani"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Filter results"
 msgstr "Filtriranje rezultatov"
 
-#: src/amo/components/SearchFilters/index.js:205
+#: src/amo/components/SearchFilters/index.js:191
 msgid "Sort by"
 msgstr "Razvrsti po"
 
-#: src/amo/components/SearchFilters/index.js:227
+#: src/amo/components/SearchFilters/index.js:213
 msgid "Add-on Type"
 msgstr "Vrsta dodatka"
 
-#: src/amo/components/SearchFilters/index.js:247
-msgid "Operating System"
-msgstr "Operacijski sistem"
-
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:236
 msgid "Badging"
 msgstr "Označevanje"
 
@@ -3328,6 +3311,18 @@ msgstr "združljivosti mojega dodatka ni mogoče nadgraditi"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "združljivost mojega dodatka je uspešno nadgrajena"
+
+#~ msgid "Windows"
+#~ msgstr "Windows"
+
+#~ msgid "macOS"
+#~ msgstr "macOS"
+
+#~ msgid "Linux"
+#~ msgstr "Linux"
+
+#~ msgid "Operating System"
+#~ msgstr "Operacijski sistem"
 
 #~ msgid "Sponsored extensions"
 #~ msgstr "Sponzorirane razširitve"
