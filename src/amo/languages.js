@@ -545,6 +545,10 @@ export const unfilteredLanguages = {
     English: 'Swahili',
     native: 'Kiswahili',
   },
+  szl: {
+    English: 'Silesian',
+    native: '\u015al\u014dnski',
+  },
   ta: {
     English: 'Tamil',
     native: '\u0ba4\u0bae\u0bbf\u0bb4\u0bcd',
