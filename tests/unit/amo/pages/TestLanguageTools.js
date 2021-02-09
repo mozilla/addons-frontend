@@ -260,6 +260,13 @@ describe(__filename, () => {
         target_locale: 'az-IR',
         type: ADDON_TYPE_DICT,
       }),
+      createFakeLanguageTool({
+        id: 3,
+        lang,
+        name: 'Azerbaijani Foo',
+        target_locale: 'az-IR-foo',
+        type: ADDON_TYPE_DICT,
+      }),
     ];
 
     const { store } = dispatchClientMetadata({ lang });
@@ -276,6 +283,7 @@ describe(__filename, () => {
     ]);
     expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
       createInternalLanguageTool(addons[1], lang),
+      createInternalLanguageTool(addons[2], lang),
     ]);
   });
 
