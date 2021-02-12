@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import config from 'config';
+
 import { setViewContext } from 'amo/actions/viewContext';
 import Home, {
   FEATURED_COLLECTIONS,
@@ -541,14 +543,15 @@ describe(__filename, () => {
     const heroShelves = _createHeroShelves();
     _loadHomeData({ store, heroShelves });
     const root = render({ store });
+    const lang = config.get('defaultLang');
 
     expect(root.find('.Home-heroHeader-title')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-subtitle')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-title').text()).toContain(
-      heroShelves.secondary.headline,
+      heroShelves.secondary.headline[lang],
     );
     expect(root.find('.Home-heroHeader-subtitle').text()).toContain(
-      heroShelves.secondary.description,
+      heroShelves.secondary.description[lang],
     );
   });
 

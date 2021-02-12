@@ -363,7 +363,7 @@ describe(__filename, () => {
       expect(createInternalHeroShelves(heroShelves, lang)).toEqual({
         primary: {
           addon: createInternalAddonWithLang(addon),
-          description: heroShelves.primary.description,
+          description: heroShelves.primary.description[lang],
           external: undefined,
           featuredImage: heroShelves.primary.featured_image,
           gradient: {
@@ -372,10 +372,24 @@ describe(__filename, () => {
           },
         },
         secondary: {
-          cta: heroShelves.secondary.cta,
-          description: heroShelves.secondary.description,
-          headline: heroShelves.secondary.headline,
-          modules: heroShelves.secondary.modules,
+          cta: {
+            url: heroShelves.secondary.cta.url,
+            outgoing: heroShelves.secondary.cta.outgoing,
+            text: heroShelves.secondary.cta.text[lang],
+          },
+          description: heroShelves.secondary.description[lang],
+          headline: heroShelves.secondary.headline[lang],
+          modules: heroShelves.secondary.modules.map((module) => {
+            return {
+              icon: module.icon,
+              description: module.description[lang],
+              cta: {
+                url: module.cta.url,
+                outgoing: module.cta.outgoing,
+                text: module.cta.text[lang],
+              },
+            };
+          }),
         },
       });
     });
@@ -441,7 +455,7 @@ describe(__filename, () => {
         createInternalHeroShelves(heroShelves, lang).secondary,
       ).toMatchObject({
         cta: null,
-        description: heroShelves.secondary.description,
+        description: heroShelves.secondary.description[lang],
       });
     });
 
@@ -455,7 +469,31 @@ describe(__filename, () => {
       expect(
         createInternalHeroShelves(heroShelves, lang).secondary,
       ).toMatchObject({
-        modules: heroShelves.secondary.modules,
+        modules: [
+          {
+            icon: heroShelves.secondary.modules[0].icon,
+            description: heroShelves.secondary.modules[0].description[lang],
+            cta: null,
+          },
+          {
+            icon: heroShelves.secondary.modules[1].icon,
+            description: heroShelves.secondary.modules[1].description[lang],
+            cta: {
+              url: heroShelves.secondary.modules[1].cta.url,
+              outgoing: heroShelves.secondary.modules[1].cta.outgoing,
+              text: heroShelves.secondary.modules[1].cta.text[lang],
+            },
+          },
+          {
+            icon: heroShelves.secondary.modules[2].icon,
+            description: heroShelves.secondary.modules[2].description[lang],
+            cta: {
+              url: heroShelves.secondary.modules[2].cta.url,
+              outgoing: heroShelves.secondary.modules[2].cta.outgoing,
+              text: heroShelves.secondary.modules[2].cta.text[lang],
+            },
+          },
+        ],
       });
     });
 
