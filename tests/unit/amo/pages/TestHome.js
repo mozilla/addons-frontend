@@ -1,5 +1,4 @@
 import * as React from 'react';
-import config from 'config';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Home, {
@@ -36,6 +35,7 @@ import {
 } from 'amo/reducers/home';
 import LoadingText from 'amo/components/LoadingText';
 import {
+  DEFAULT_LANG_IN_TESTS,
   createAddonsApiResult,
   createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
@@ -542,15 +542,14 @@ describe(__filename, () => {
     const heroShelves = _createHeroShelves();
     _loadHomeData({ store, heroShelves });
     const root = render({ store });
-    const lang = config.get('defaultLang');
 
     expect(root.find('.Home-heroHeader-title')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-subtitle')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-title').text()).toContain(
-      heroShelves.secondary.headline[lang],
+      heroShelves.secondary.headline[DEFAULT_LANG_IN_TESTS],
     );
     expect(root.find('.Home-heroHeader-subtitle').text()).toContain(
-      heroShelves.secondary.description[lang],
+      heroShelves.secondary.description[DEFAULT_LANG_IN_TESTS],
     );
   });
 

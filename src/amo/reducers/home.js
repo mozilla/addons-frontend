@@ -271,7 +271,7 @@ export const createInternalPrimaryHeroShelfExternalAddon = (
   };
 };
 
-export const createInternalToCallToAction = (
+export const createInternalHeroCallToAction = (
   cta: ExternalHeroCallToActionType,
   lang: string,
 ): HeroCallToActionType => {
@@ -289,7 +289,7 @@ export const createInternalSecondaryHeroModule = (
   return {
     icon: module.icon,
     description: selectLocalizedContent(module.description, lang),
-    cta: module.cta ? createInternalToCallToAction(module.cta, lang) : null,
+    cta: module.cta ? createInternalHeroCallToAction(module.cta, lang) : null,
   };
 };
 
@@ -305,7 +305,7 @@ export const createInternalHeroShelves = (
       headline: selectLocalizedContent(secondary.headline, lang),
       description: selectLocalizedContent(secondary.description, lang),
       cta: secondary.cta
-        ? createInternalToCallToAction(secondary.cta, lang)
+        ? createInternalHeroCallToAction(secondary.cta, lang)
         : null,
       modules: secondary.modules.map((module) =>
         createInternalSecondaryHeroModule(module, lang),

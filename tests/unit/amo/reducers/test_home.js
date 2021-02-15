@@ -9,8 +9,10 @@ import {
 import { selectLocalizedUrlWithOutgoing } from 'amo/reducers/addons';
 import homeReducer, {
   abortFetchHomeData,
+  createInternalHeroCallToAction,
   createInternalHeroShelves,
   createInternalPrimaryHeroShelfExternalAddon,
+  createInternalSecondaryHeroModule,
   fetchHomeData,
   initialState,
   loadHomeData,
@@ -372,24 +374,12 @@ describe(__filename, () => {
           },
         },
         secondary: {
-          cta: {
-            url: heroShelves.secondary.cta.url,
-            outgoing: heroShelves.secondary.cta.outgoing,
-            text: heroShelves.secondary.cta.text[lang],
-          },
+          cta: createInternalHeroCallToAction(heroShelves.secondary.cta, lang),
           description: heroShelves.secondary.description[lang],
           headline: heroShelves.secondary.headline[lang],
-          modules: heroShelves.secondary.modules.map((module) => {
-            return {
-              icon: module.icon,
-              description: module.description[lang],
-              cta: {
-                url: module.cta.url,
-                outgoing: module.cta.outgoing,
-                text: module.cta.text[lang],
-              },
-            };
-          }),
+          modules: heroShelves.secondary.modules.map((module) =>
+            createInternalSecondaryHeroModule(module, lang),
+          ),
         },
       });
     });
@@ -470,29 +460,9 @@ describe(__filename, () => {
         createInternalHeroShelves(heroShelves, lang).secondary,
       ).toMatchObject({
         modules: [
-          {
-            icon: heroShelves.secondary.modules[0].icon,
-            description: heroShelves.secondary.modules[0].description[lang],
-            cta: null,
-          },
-          {
-            icon: heroShelves.secondary.modules[1].icon,
-            description: heroShelves.secondary.modules[1].description[lang],
-            cta: {
-              url: heroShelves.secondary.modules[1].cta.url,
-              outgoing: heroShelves.secondary.modules[1].cta.outgoing,
-              text: heroShelves.secondary.modules[1].cta.text[lang],
-            },
-          },
-          {
-            icon: heroShelves.secondary.modules[2].icon,
-            description: heroShelves.secondary.modules[2].description[lang],
-            cta: {
-              url: heroShelves.secondary.modules[2].cta.url,
-              outgoing: heroShelves.secondary.modules[2].cta.outgoing,
-              text: heroShelves.secondary.modules[2].cta.text[lang],
-            },
-          },
+          createInternalSecondaryHeroModule(secondaryShelf.modules[0], lang),
+          createInternalSecondaryHeroModule(secondaryShelf.modules[1], lang),
+          createInternalSecondaryHeroModule(secondaryShelf.modules[2], lang),
         ],
       });
     });
@@ -540,6 +510,45 @@ describe(__filename, () => {
       expect(() => createInternalHeroShelves(heroShelves, lang)).toThrow(
         /Either primary.addon or primary.external is required/,
       );
+    });
+  });
+
+  describe('createInternalHeroCallToAction', () => {
+    it('creates an internal representation of the call to action property', () => {
+      const secondaryShelf = createSecondaryHeroShelf();
+
+      expect(
+        createInternalHeroCallToAction(secondaryShelf.cta, lang),
+      ).toMatchObject({
+        url: secondaryShelf.cta.url,
+        outgoing: secondaryShelf.cta.outgoing,
+        text: secondaryShelf.cta.text[lang],
+      });
+    });
+  });
+
+  describe('createInternalSecondaryHeroModule', () => {
+    it('creates an internal representation of a module of the secondary hero', () => {
+      const secondaryShelf = createSecondaryHeroShelf();
+      const module = secondaryShelf.modules[0];
+
+      expect(createInternalSecondaryHeroModule(module, lang)).toMatchObject({
+        icon: module.icon,
+        description: module.description[lang],
+        cta: createInternalHeroCallToAction(module.cta, lang),
+      });
+    });
+
+    it('works when the cta is null', () => {
+      const secondaryShelf = createSecondaryHeroShelf();
+      const module = secondaryShelf.modules[0];
+      module.cta = null;
+
+      expect(createInternalSecondaryHeroModule(module, lang)).toMatchObject({
+        icon: module.icon,
+        description: module.description[lang],
+        cta: null,
+      });
     });
   });
 
