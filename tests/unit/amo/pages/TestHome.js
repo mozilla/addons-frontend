@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import config from 'config';
 
 import { setViewContext } from 'amo/actions/viewContext';
