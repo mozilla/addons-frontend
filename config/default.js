@@ -296,7 +296,7 @@ module.exports = {
   // send a page view on initialization.
   trackingSendInitPageView: true,
   // send web vitals stats to GA
-  trackingSendWebVitals: false,
+  trackingSendWebVitals: true,
 
   enablePostCssLoader: true,
 
