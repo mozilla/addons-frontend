@@ -77,10 +77,6 @@ module.exports = {
         // webpack injects inline CSS
         "'unsafe-inline'",
       ],
-      // This is needed because `prefetchSrc` isn't supported by FF yet.
-      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
-      defaultSrc: [webpackHost],
-      prefetchSrc: [webpackHost],
     },
     reportOnly: true,
   },

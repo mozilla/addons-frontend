@@ -16,12 +16,11 @@ import NestedStatus from 'react-nested-status';
 import { END } from 'redux-saga';
 import cookiesMiddleware from 'universal-cookie-express';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
-import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 
 import log from 'amo/logger';
 import { REGION_CODE_HEADER, createApiError } from 'amo/api';
 import Root from 'amo/components/Root';
-import { AMO_REQUEST_ID_HEADER, WEBPACK_ENTRYPOINT } from 'amo/constants';
+import { AMO_REQUEST_ID_HEADER } from 'amo/constants';
 import ServerHtml from 'amo/components/ServerHtml';
 import * as middleware from 'amo/middleware';
 import requestId from 'amo/middleware/requestId';
@@ -65,12 +64,6 @@ export function getPageProps({ store, req, res, config }) {
       )
     : {};
 
-  // Code-splitting.
-  const chunkExtractor = new ChunkExtractor({
-    stats: JSON.parse(fs.readFileSync(config.get('loadableStatsFile'))),
-    entrypoints: [WEBPACK_ENTRYPOINT],
-  });
-
   // Check the lang supplied by res.locals.lang for validity
   // or fall-back to the default.
   const lang = isValidLang(res.locals.lang)
@@ -100,7 +93,6 @@ export function getPageProps({ store, req, res, config }) {
 
   return {
     assets: webpackIsomorphicTools.assets(),
-    chunkExtractor,
     htmlLang: lang,
     htmlDir: dir,
     includeSri: isDeployed,
@@ -361,16 +353,14 @@ function baseServer(
 
       const props = {
         component: (
-          <ChunkExtractorManager extractor={pageProps.chunkExtractor}>
-            <Root
-              cookies={req.universalCookies}
-              history={history}
-              i18n={i18n}
-              store={store}
-            >
-              <App />
-            </Root>
-          </ChunkExtractorManager>
+          <Root
+            cookies={req.universalCookies}
+            history={history}
+            i18n={i18n}
+            store={store}
+          >
+            <App />
+          </Root>
         ),
       };
 
@@ -564,8 +554,7 @@ export function runServer({
       });
     })
     .catch((err) => {
-      // eslint-disable-next-line amo/only-log-strings
-      log.error('%o', { err });
+      log.error(`${err}`);
 
       if (exitProcess) {
         process.exit(1);

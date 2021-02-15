@@ -4,7 +4,6 @@ import CircularDependencyPlugin from 'circular-dependency-plugin';
 import config from 'config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
-import LoadablePlugin from '@loadable/webpack-plugin';
 
 import 'amo/polyfill';
 import { getClientConfig } from 'amo/utils';
@@ -129,10 +128,7 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
   ];
 }
 
-export function getPlugins({
-  excludeOtherAppLocales = true,
-  includeLoadablePlugin = true,
-} = {}) {
+export function getPlugins({ excludeOtherAppLocales = true } = {}) {
   const clientConfig = getClientConfig(config);
 
   const plugins = [
@@ -160,13 +156,6 @@ export function getPlugins({
       failOnError: true,
     }),
   ];
-
-  if (includeLoadablePlugin) {
-    // We need this file to be written on disk so that our server code can read
-    // it. In development mode, webpack usually serves the file from memory but
-    // that's not what we want for this file.
-    plugins.push(new LoadablePlugin({ writeToDisk: true }));
-  }
 
   if (excludeOtherAppLocales) {
     plugins.push(

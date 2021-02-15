@@ -21,10 +21,7 @@ module.exports = {
           ...getStyleRules({ bundleStylesWithJs: true }),
         ],
       },
-      plugins: [
-        ...config.plugins,
-        ...getPlugins({ includeLoadablePlugin: false }),
-      ],
+      plugins: [...config.plugins, ...getPlugins()],
       resolve: webpackProdConfig.resolve,
     };
   },

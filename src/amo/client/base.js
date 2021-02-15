@@ -7,7 +7,6 @@ import { createBrowserHistory } from 'history';
 import RavenJs from 'raven-js';
 import * as React from 'react';
 import { render } from 'react-dom';
-import { loadableReady } from '@loadable/component';
 
 import Root from 'amo/components/Root';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'amo/i18n/utils';
@@ -123,14 +122,12 @@ export default async function createClient(
   const i18n = makeI18n(i18nData, lang);
 
   const renderApp = (App) => {
-    return loadableReady(() => {
-      render(
-        <Root history={history} i18n={i18n} store={store}>
-          <App />
-        </Root>,
-        document.getElementById('react-view'),
-      );
-    });
+    render(
+      <Root history={history} i18n={i18n} store={store}>
+        <App />
+      </Root>,
+      document.getElementById('react-view'),
+    );
   };
 
   return { history, renderApp, store };
