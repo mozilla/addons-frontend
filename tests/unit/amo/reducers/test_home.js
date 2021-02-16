@@ -9,8 +9,10 @@ import {
 import { selectLocalizedUrlWithOutgoing } from 'amo/reducers/addons';
 import homeReducer, {
   abortFetchHomeData,
+  createInternalHeroCallToAction,
   createInternalHeroShelves,
   createInternalPrimaryHeroShelfExternalAddon,
+  createInternalSecondaryHeroModule,
   fetchHomeData,
   initialState,
   loadHomeData,
@@ -363,7 +365,7 @@ describe(__filename, () => {
       expect(createInternalHeroShelves(heroShelves, lang)).toEqual({
         primary: {
           addon: createInternalAddonWithLang(addon),
-          description: heroShelves.primary.description,
+          description: heroShelves.primary.description[lang],
           external: undefined,
           featuredImage: heroShelves.primary.featured_image,
           gradient: {
@@ -372,10 +374,12 @@ describe(__filename, () => {
           },
         },
         secondary: {
-          cta: heroShelves.secondary.cta,
-          description: heroShelves.secondary.description,
-          headline: heroShelves.secondary.headline,
-          modules: heroShelves.secondary.modules,
+          cta: createInternalHeroCallToAction(heroShelves.secondary.cta, lang),
+          description: heroShelves.secondary.description[lang],
+          headline: heroShelves.secondary.headline[lang],
+          modules: heroShelves.secondary.modules.map((module) =>
+            createInternalSecondaryHeroModule(module, lang),
+          ),
         },
       });
     });
@@ -441,7 +445,7 @@ describe(__filename, () => {
         createInternalHeroShelves(heroShelves, lang).secondary,
       ).toMatchObject({
         cta: null,
-        description: heroShelves.secondary.description,
+        description: heroShelves.secondary.description[lang],
       });
     });
 
@@ -455,7 +459,11 @@ describe(__filename, () => {
       expect(
         createInternalHeroShelves(heroShelves, lang).secondary,
       ).toMatchObject({
-        modules: heroShelves.secondary.modules,
+        modules: [
+          createInternalSecondaryHeroModule(secondaryShelf.modules[0], lang),
+          createInternalSecondaryHeroModule(secondaryShelf.modules[1], lang),
+          createInternalSecondaryHeroModule(secondaryShelf.modules[2], lang),
+        ],
       });
     });
 
@@ -502,6 +510,43 @@ describe(__filename, () => {
       expect(() => createInternalHeroShelves(heroShelves, lang)).toThrow(
         /Either primary.addon or primary.external is required/,
       );
+    });
+  });
+
+  describe('createInternalHeroCallToAction', () => {
+    it('creates an internal representation of the call to action property', () => {
+      const secondaryShelf = createSecondaryHeroShelf();
+
+      expect(createInternalHeroCallToAction(secondaryShelf.cta, lang)).toEqual({
+        url: secondaryShelf.cta.url,
+        outgoing: secondaryShelf.cta.outgoing,
+        text: secondaryShelf.cta.text[lang],
+      });
+    });
+  });
+
+  describe('createInternalSecondaryHeroModule', () => {
+    it('creates an internal representation of a module of the secondary hero', () => {
+      const secondaryShelf = createSecondaryHeroShelf();
+      const module = secondaryShelf.modules[0];
+
+      expect(createInternalSecondaryHeroModule(module, lang)).toEqual({
+        icon: module.icon,
+        description: module.description[lang],
+        cta: createInternalHeroCallToAction(module.cta, lang),
+      });
+    });
+
+    it('works when the cta is null', () => {
+      const secondaryShelf = createSecondaryHeroShelf();
+      const module = secondaryShelf.modules[0];
+      module.cta = null;
+
+      expect(createInternalSecondaryHeroModule(module, lang)).toEqual({
+        icon: module.icon,
+        description: module.description[lang],
+        cta: null,
+      });
     });
   });
 

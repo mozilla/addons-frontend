@@ -35,6 +35,7 @@ import {
 } from 'amo/reducers/home';
 import LoadingText from 'amo/components/LoadingText';
 import {
+  DEFAULT_LANG_IN_TESTS,
   createAddonsApiResult,
   createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
@@ -545,10 +546,10 @@ describe(__filename, () => {
     expect(root.find('.Home-heroHeader-title')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-subtitle')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-title').text()).toContain(
-      heroShelves.secondary.headline,
+      heroShelves.secondary.headline[DEFAULT_LANG_IN_TESTS],
     );
     expect(root.find('.Home-heroHeader-subtitle').text()).toContain(
-      heroShelves.secondary.description,
+      heroShelves.secondary.description[DEFAULT_LANG_IN_TESTS],
     );
   });
 

@@ -303,7 +303,7 @@ export const createPrimaryHeroShelf = ({
 } = {}) => {
   return {
     addon,
-    description,
+    description: createLocalizedString(description),
     external:
       addon === undefined && external === undefined
         ? 'external-link'
@@ -352,10 +352,28 @@ export const createSecondaryHeroShelf = ({
   ],
 } = {}) => {
   return {
-    cta,
-    description,
-    headline,
-    modules,
+    cta: cta
+      ? {
+          url: cta.url,
+          outgoing: cta.outgoing,
+          text: createLocalizedString(cta.text),
+        }
+      : null,
+    description: createLocalizedString(description),
+    headline: createLocalizedString(headline),
+    modules: modules.map((module) => {
+      return {
+        icon: module.icon,
+        description: createLocalizedString(module.description),
+        cta: module.cta
+          ? {
+              url: module.cta.url,
+              outgoing: module.cta.outgoing,
+              text: createLocalizedString(module.cta.text),
+            }
+          : null,
+      };
+    }),
   };
 };
 

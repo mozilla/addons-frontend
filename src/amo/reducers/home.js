@@ -55,7 +55,7 @@ type HeroGradientType = {|
 type BaseExternalPrimaryHeroShelfType = {|
   gradient: HeroGradientType,
   featured_image: string | null,
-  description: string | null,
+  description: LocalizedString | null,
 |};
 
 type ExternalPrimaryHeroShelfWithAddonType = {|
@@ -98,6 +98,25 @@ export type PrimaryHeroShelfType =
   | PrimaryHeroShelfWithExternalType
   | null;
 
+export type ExternalHeroCallToActionType = {|
+  url: string,
+  outgoing: string,
+  text: LocalizedString | null,
+|};
+
+export type ExternalSecondaryHeroModuleType = {|
+  icon: string,
+  description: LocalizedString | null,
+  cta: ExternalHeroCallToActionType | null,
+|};
+
+export type ExternalSecondaryHeroShelfType = {|
+  headline: LocalizedString | null,
+  description: LocalizedString | null,
+  cta: ExternalHeroCallToActionType | null,
+  modules: Array<ExternalSecondaryHeroModuleType>,
+|} | null;
+
 export type HeroCallToActionType = {|
   url: string,
   outgoing: string,
@@ -119,7 +138,7 @@ export type SecondaryHeroShelfType = {|
 
 export type ExternalHeroShelvesType = {|
   primary: ExternalPrimaryHeroShelfType,
-  secondary: SecondaryHeroShelfType,
+  secondary: ExternalSecondaryHeroShelfType,
 |};
 
 export type HeroShelvesType = {|
@@ -252,14 +271,50 @@ export const createInternalPrimaryHeroShelfExternalAddon = (
   };
 };
 
+export const createInternalHeroCallToAction = (
+  cta: ExternalHeroCallToActionType,
+  lang: string,
+): HeroCallToActionType => {
+  return {
+    url: cta.url,
+    outgoing: cta.outgoing,
+    text: selectLocalizedContent(cta.text, lang),
+  };
+};
+
+export const createInternalSecondaryHeroModule = (
+  module: ExternalSecondaryHeroModuleType,
+  lang: string,
+): SecondaryHeroModuleType => {
+  return {
+    icon: module.icon,
+    description: selectLocalizedContent(module.description, lang),
+    cta: module.cta ? createInternalHeroCallToAction(module.cta, lang) : null,
+  };
+};
+
 export const createInternalHeroShelves = (
   heroShelves: ExternalHeroShelvesType,
   lang: string,
 ): HeroShelvesType => {
   const { primary, secondary } = heroShelves;
 
+  let secondaryShelf: SecondaryHeroShelfType | null = null;
+  if (secondary !== null) {
+    secondaryShelf = {
+      headline: selectLocalizedContent(secondary.headline, lang),
+      description: selectLocalizedContent(secondary.description, lang),
+      cta: secondary.cta
+        ? createInternalHeroCallToAction(secondary.cta, lang)
+        : null,
+      modules: secondary.modules.map((module) =>
+        createInternalSecondaryHeroModule(module, lang),
+      ),
+    };
+  }
+
   if (primary === null) {
-    return { primary: null, secondary };
+    return { primary: null, secondary: secondaryShelf };
   }
 
   invariant(
@@ -270,7 +325,7 @@ export const createInternalHeroShelves = (
   const basePrimaryShelf = {
     gradient: primary.gradient,
     featuredImage: primary.featured_image,
-    description: primary.description,
+    description: selectLocalizedContent(primary.description, lang),
   };
 
   if (primary.addon) {
@@ -279,7 +334,7 @@ export const createInternalHeroShelves = (
       addon: createInternalAddon(primary.addon, lang),
       external: undefined,
     };
-    return { primary: primaryShelf, secondary };
+    return { primary: primaryShelf, secondary: secondaryShelf };
   }
 
   const primaryShelf: PrimaryHeroShelfWithExternalType = {
@@ -290,7 +345,7 @@ export const createInternalHeroShelves = (
       lang,
     ),
   };
-  return { primary: primaryShelf, secondary };
+  return { primary: primaryShelf, secondary: secondaryShelf };
 };
 
 const reducer = (
