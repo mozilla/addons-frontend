@@ -353,6 +353,17 @@ describe(__filename, () => {
     expect(root.find(InstallButtonWrapper)).toHaveProp('addon', addon);
   });
 
+  it('passes a showLinkInsteadOfButton to InstallButtonWrapper', () => {
+    const showLinkInsteadOfButton = false;
+
+    const root = render({ showLinkInsteadOfButton });
+
+    expect(root.find(InstallButtonWrapper)).toHaveProp(
+      'showLinkInsteadOfButton',
+      showLinkInsteadOfButton,
+    );
+  });
+
   it('does not render an InstallButtonWrapper if there is no add-on', () => {
     const root = render({ addon: null });
 
