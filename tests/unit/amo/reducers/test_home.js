@@ -517,9 +517,7 @@ describe(__filename, () => {
     it('creates an internal representation of the call to action property', () => {
       const secondaryShelf = createSecondaryHeroShelf();
 
-      expect(
-        createInternalHeroCallToAction(secondaryShelf.cta, lang),
-      ).toMatchObject({
+      expect(createInternalHeroCallToAction(secondaryShelf.cta, lang)).toEqual({
         url: secondaryShelf.cta.url,
         outgoing: secondaryShelf.cta.outgoing,
         text: secondaryShelf.cta.text[lang],
@@ -532,7 +530,7 @@ describe(__filename, () => {
       const secondaryShelf = createSecondaryHeroShelf();
       const module = secondaryShelf.modules[0];
 
-      expect(createInternalSecondaryHeroModule(module, lang)).toMatchObject({
+      expect(createInternalSecondaryHeroModule(module, lang)).toEqual({
         icon: module.icon,
         description: module.description[lang],
         cta: createInternalHeroCallToAction(module.cta, lang),
@@ -544,7 +542,7 @@ describe(__filename, () => {
       const module = secondaryShelf.modules[0];
       module.cta = null;
 
-      expect(createInternalSecondaryHeroModule(module, lang)).toMatchObject({
+      expect(createInternalSecondaryHeroModule(module, lang)).toEqual({
         icon: module.icon,
         description: module.description[lang],
         cta: null,
