@@ -5,7 +5,6 @@ import type { FlagReviewReasonType } from 'amo/constants';
 import type {
   ExternalReviewReplyType,
   ExternalReviewType,
-  GroupedRatingsType,
 } from 'amo/api/reviews';
 import type { UserId } from 'amo/reducers/users';
 
@@ -14,8 +13,6 @@ export const SHOW_EDIT_REVIEW_FORM: 'SHOW_EDIT_REVIEW_FORM' =
   'SHOW_EDIT_REVIEW_FORM';
 export const SHOW_REPLY_TO_REVIEW_FORM: 'SHOW_REPLY_TO_REVIEW_FORM' =
   'SHOW_REPLY_TO_REVIEW_FORM';
-export const FETCH_GROUPED_RATINGS: 'FETCH_GROUPED_RATINGS' =
-  'FETCH_GROUPED_RATINGS';
 export const FETCH_REVIEW: 'FETCH_REVIEW' = 'FETCH_REVIEW';
 export const FETCH_REVIEW_PERMISSIONS: 'FETCH_REVIEW_PERMISSIONS' =
   'FETCH_REVIEW_PERMISSIONS';
@@ -32,7 +29,6 @@ export const HIDE_EDIT_REVIEW_FORM: 'HIDE_EDIT_REVIEW_FORM' =
 export const HIDE_REPLY_TO_REVIEW_FORM: 'HIDE_REPLY_TO_REVIEW_FORM' =
   'HIDE_REPLY_TO_REVIEW_FORM';
 export const SET_ADDON_REVIEWS: 'SET_ADDON_REVIEWS' = 'SET_ADDON_REVIEWS';
-export const SET_GROUPED_RATINGS: 'SET_GROUPED_RATINGS' = 'SET_GROUPED_RATINGS';
 export const SET_INTERNAL_REVIEW: 'SET_INTERNAL_REVIEW' = 'SET_INTERNAL_REVIEW';
 export const SET_USER_REVIEWS: 'SET_USER_REVIEWS' = 'SET_USER_REVIEWS';
 export const SET_REVIEW: 'SET_REVIEW' = 'SET_REVIEW';
@@ -254,50 +250,6 @@ export function setReviewPermissions({
   return {
     type: SET_REVIEW_PERMISSIONS,
     payload: { addonId, userId, canReplyToReviews },
-  };
-}
-
-type FetchGroupedRatingsParams = {|
-  addonId: number,
-  errorHandlerId: string,
-|};
-
-export type FetchGroupedRatingsAction = {|
-  type: typeof FETCH_GROUPED_RATINGS,
-  payload: FetchGroupedRatingsParams,
-|};
-
-export function fetchGroupedRatings({
-  addonId,
-  errorHandlerId,
-}: FetchGroupedRatingsParams): FetchGroupedRatingsAction {
-  invariant(addonId, 'addonId is required');
-  invariant(errorHandlerId, 'errorHandlerId is required');
-  return {
-    type: FETCH_GROUPED_RATINGS,
-    payload: { addonId, errorHandlerId },
-  };
-}
-
-type SetGroupedRatingsParams = {|
-  addonId: number,
-  grouping: GroupedRatingsType,
-|};
-
-export type SetGroupedRatingsAction = {|
-  type: typeof SET_GROUPED_RATINGS,
-  payload: SetGroupedRatingsParams,
-|};
-
-export function setGroupedRatings({
-  addonId,
-  grouping,
-}: SetGroupedRatingsParams): SetGroupedRatingsAction {
-  invariant(addonId, 'addonId is required');
-  invariant(grouping, 'grouping is required');
-  return {
-    type: SET_GROUPED_RATINGS,
-    payload: { addonId, grouping },
   };
 }
 

@@ -107,7 +107,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     const addonHasChanged = oldAddon && oldAddon.slug !== slug;
 
     if ((!addon || addonHasChanged) && !addonIsLoading) {
-      dispatch(fetchAddon({ slug, errorHandler }));
+      dispatch(fetchAddon({ showGroupedRatings: true, slug, errorHandler }));
     }
 
     if (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE) {

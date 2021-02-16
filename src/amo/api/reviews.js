@@ -143,28 +143,15 @@ export type GetReviewsParams = {|
   page?: string,
   page_size?: string,
   score?: string,
-  show_grouped_ratings?: boolean,
   show_permissions_for?: number,
   user?: number,
   version?: number,
-|};
-
-// A count of add-on ratings per star. These will all be 0 for add-ons
-// that have not yet been rated.
-export type GroupedRatingsType = {|
-  '1': number,
-  '2': number,
-  '3': number,
-  '4': number,
-  '5': number,
 |};
 
 export type GetReviewsApiResponse = {|
   ...PaginatedApiResponse<ExternalReviewType>,
   // This is undefined unless the request contained addon and show_permissions_for.
   can_reply?: boolean,
-  // This is undefined unless the request contained ?show_grouped_ratings=true.
-  grouped_ratings?: GroupedRatingsType,
 |};
 
 export function getReviews({

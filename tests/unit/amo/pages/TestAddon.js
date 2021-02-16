@@ -328,6 +328,7 @@ describe(__filename, () => {
       dispatchSpy,
       fetchAddonAction({
         errorHandler: root.instance().props.errorHandler,
+        showGroupedRatings: true,
         slug,
       }),
     );
@@ -342,6 +343,7 @@ describe(__filename, () => {
     store.dispatch(
       fetchAddonAction({
         errorHandler,
+        showGroupedRatings: true,
         slug,
       }),
     );
@@ -384,6 +386,7 @@ describe(__filename, () => {
       dispatchSpy,
       fetchAddonAction({
         errorHandler: root.instance().props.errorHandler,
+        showGroupedRatings: true,
         slug,
       }),
     );
@@ -403,6 +406,7 @@ describe(__filename, () => {
       dispatchSpy,
       fetchAddonAction({
         errorHandler: root.instance().props.errorHandler,
+        showGroupedRatings: true,
         slug,
       }),
     );

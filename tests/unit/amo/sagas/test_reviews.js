@@ -13,7 +13,6 @@ import {
   createAddonReview,
   createInternalReview,
   deleteAddonReview,
-  fetchGroupedRatings,
   fetchLatestUserReview,
   fetchReview,
   fetchReviewPermissions,
@@ -25,7 +24,6 @@ import {
   hideReplyToReviewForm,
   sendReplyToReview,
   setAddonReviews,
-  setGroupedRatings,
   flashReviewMessage,
   setReview,
   setReviewPermissions,
@@ -221,92 +219,6 @@ describe(__filename, () => {
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
-    });
-  });
-
-  describe('fetchGroupedRatings', () => {
-    function _fetchGroupedRatings(params = {}) {
-      sagaTester.dispatch(
-        fetchGroupedRatings({
-          errorHandlerId: errorHandler.id,
-          addonId: fakeAddon.id,
-          ...params,
-        }),
-      );
-    }
-
-    const groupedRatingsResponse = (
-      grouping = {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-      },
-    ) => {
-      // When requesting with show_grouped_ratings=true, a special
-      // response page is returned with 0 results and a new
-      // grouped_ratings object.
-      return apiResponsePage({
-        results: [],
-        grouped_ratings: grouping,
-      });
-    };
-
-    it('fetches and sets grouped ratings', async () => {
-      const addonId = 54123;
-      const grouping = {
-        1: 5,
-        2: 9,
-        3: 22,
-        4: 899,
-        5: 422,
-      };
-      mockApi
-        .expects('getReviews')
-        .once()
-        .withArgs({
-          addon: addonId,
-          apiState,
-          show_grouped_ratings: true,
-        })
-        .returns(Promise.resolve(groupedRatingsResponse(grouping)));
-
-      _fetchGroupedRatings({ addonId });
-
-      const expectedAction = setGroupedRatings({
-        addonId,
-        grouping,
-      });
-      const action = await sagaTester.waitFor(expectedAction.type);
-      mockApi.verify();
-
-      expect(action).toEqual(expectedAction);
-    });
-
-    it('dispatches an error', async () => {
-      const error = new Error('some API error maybe');
-      mockApi.expects('getReviews').returns(Promise.reject(error));
-
-      _fetchGroupedRatings();
-
-      const expectedAction = errorHandler.createErrorAction(error);
-      const action = await sagaTester.waitFor(expectedAction.type);
-
-      expect(action).toEqual(expectedAction);
-    });
-
-    it('handles an empty grouped_ratings response', async () => {
-      mockApi.expects('getReviews').returns(groupedRatingsResponse(null));
-
-      _fetchGroupedRatings();
-
-      const exampleErrorAction = errorHandler.createErrorAction(new Error());
-      const errorAction = await sagaTester.waitFor(exampleErrorAction.type);
-
-      expect(errorAction.payload.error.message).toMatch(
-        /returned an empty grouped_ratings object/,
-      );
     });
   });
 

@@ -233,10 +233,15 @@ export function callApi({
 
 export type FetchAddonParams = {|
   api: ApiState,
+  showGroupedRatings?: boolean,
   slug: string,
 |};
 
-export function fetchAddon({ api, slug }: FetchAddonParams) {
+export function fetchAddon({
+  api,
+  showGroupedRatings = false,
+  slug,
+}: FetchAddonParams) {
   const { clientApp, userAgentInfo } = api;
   const appVersion = userAgentInfo.browser.version;
   if (!appVersion) {
@@ -249,6 +254,7 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
     endpoint: addQueryParams(`addons/addon/${slug}`, {
       app: clientApp || '',
       appversion: appVersion || '',
+      show_grouped_ratings: String(showGroupedRatings),
     }),
     auth: true,
     apiState: api,

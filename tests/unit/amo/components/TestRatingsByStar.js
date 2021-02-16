@@ -1,13 +1,8 @@
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import { fetchGroupedRatings, setGroupedRatings } from 'amo/actions/reviews';
-import RatingsByStar, {
-  extractId,
-  RatingsByStarBase,
-} from 'amo/components/RatingsByStar';
+import RatingsByStar, { RatingsByStarBase } from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { ErrorHandler } from 'amo/errorHandler';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
@@ -17,7 +12,6 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import ErrorList from 'amo/components/ErrorList';
 import IconStar from 'amo/components/IconStar';
 import LoadingText from 'amo/components/LoadingText';
 
@@ -52,88 +46,11 @@ describe(__filename, () => {
         count: Object.values(grouping).reduce(
           (total, currentValue) => total + currentValue,
         ),
+        grouped_counts: grouping,
       },
       ...addonParams,
     });
   };
-
-  const createErrorHandlerWithError = () => {
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(new Error('some unexpected error'));
-    return errorHandler;
-  };
-
-  it('fetches groupedRatings upon construction', () => {
-    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 222 });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ addon });
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      fetchGroupedRatings({
-        addonId: addon.id,
-        errorHandlerId: root.instance().props.errorHandler.id,
-      }),
-    );
-  });
-
-  it('fetches groupedRatings on update', () => {
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ addon: null });
-
-    dispatchSpy.resetHistory();
-    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 222 });
-    root.setProps({ addon });
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      fetchGroupedRatings({
-        addonId: addon.id,
-        errorHandlerId: root.instance().props.errorHandler.id,
-      }),
-    );
-  });
-
-  it('does not fetch groupedRatings when they are already loaded', () => {
-    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 222 });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    store.dispatch(
-      setGroupedRatings({
-        addonId: addon.id,
-        grouping: {
-          5: 1,
-          4: 0,
-          3: 0,
-          2: 0,
-          1: 0,
-        },
-      }),
-    );
-    const root = render({ addon });
-
-    dispatchSpy.resetHistory();
-    // Simulate any kind of props update.
-    root.setProps();
-
-    sinon.assert.notCalled(dispatchSpy);
-  });
-
-  it('does not fetch groupedRatings when they are already being fetched', () => {
-    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 222 });
-    store.dispatch(
-      fetchGroupedRatings({
-        addonId: addon.id,
-        errorHandlerId: 'some-id',
-      }),
-    );
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    render({ addon });
-
-    sinon.assert.notCalled(dispatchSpy);
-  });
 
   it('renders a loading state without an add-on', () => {
     const root = render({ addon: null });
@@ -145,12 +62,6 @@ describe(__filename, () => {
     expect(root.find('.RatingsByStar-barValue')).toHaveLength(0);
   });
 
-  it('renders a loading state without grouped ratings', () => {
-    const root = render({ addon: createInternalAddonWithLang(fakeAddon) });
-
-    expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
-  });
-
   it('renders star labels, bars and links', () => {
     const grouping = {
       5: 964,
@@ -160,7 +71,6 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
     const counts = root.find('.RatingsByStar-star').find(Link);
     const bars = root.find('.RatingsByStar-barContainer').find(Link);
@@ -197,7 +107,6 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
     const counts = root.find('.RatingsByStar-count').find(Link);
 
@@ -228,7 +137,6 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon, location });
     const counts = root.find('.RatingsByStar-count').find(Link);
 
@@ -267,7 +175,6 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
 
     const barValues = root.find('.RatingsByStar-barValue');
@@ -288,7 +195,6 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
 
     const barValues = root.find('.RatingsByStar-barValue');
@@ -300,25 +206,9 @@ describe(__filename, () => {
     expect(barValues.at(1)).toHaveClassName('RatingsByStar-partialBar');
   });
 
-  it('renders 0% bar values when ratings do not exist', () => {
-    const grouping = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
-    const addon = addonForGrouping(grouping, {
-      // This add-on does not have any ratings yet.
-      ratings: undefined,
-    });
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
-    const root = render({ addon });
-
-    const barValues = root.find('.RatingsByStar-barValue');
-    for (const index of [0, 1, 2, 3, 4]) {
-      expect(barValues.at(index)).toHaveProp('style', { width: '0%' });
-    }
-  });
-
   it('renders 0% bar values when ratings are all 0', () => {
     const grouping = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
     const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
 
     const barValues = root.find('.RatingsByStar-barValue');
@@ -336,47 +226,10 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon, i18n: fakeI18n({ lang: 'de' }) });
 
     expect(
       root.find('.RatingsByStar-count').at(0).find(Link).children(),
     ).toHaveText('1.000');
-  });
-
-  it('renders errors', () => {
-    const errorHandler = createErrorHandlerWithError();
-    const root = render({ errorHandler });
-
-    expect(root.find(ErrorList)).toHaveLength(1);
-  });
-
-  it('does not fetch data when there is an error', () => {
-    const errorHandler = createErrorHandlerWithError();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
-    render({ errorHandler, addon: createInternalAddonWithLang(fakeAddon) });
-
-    sinon.assert.notCalled(dispatchSpy);
-  });
-
-  it('does not render a loading state when there is an error', () => {
-    const errorHandler = createErrorHandlerWithError();
-
-    // Render without setGroupedRatings to trigger a loading state.
-    const root = render({ errorHandler });
-
-    expect(root.find(LoadingText)).toHaveLength(0);
-  });
-
-  describe('extractId', () => {
-    it('returns empty without an add-on', () => {
-      expect(extractId(getProps({ addon: null }))).toEqual('');
-    });
-
-    it('makes an ID with the add-on', () => {
-      const addon = createInternalAddonWithLang({ ...fakeAddon, id: 1 });
-      expect(extractId(getProps({ addon }))).toEqual(`addon-${addon.id}`);
-    });
   });
 });

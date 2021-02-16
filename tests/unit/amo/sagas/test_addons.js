@@ -53,10 +53,14 @@ describe(__filename, () => {
       mockApi
         .expects('fetchAddon')
         .once()
-        .withArgs({ slug: fakeAddon.slug, api: { ...apiState } })
+        .withArgs({
+          showGroupedRatings: true,
+          slug: fakeAddon.slug,
+          api: { ...apiState },
+        })
         .returns(Promise.resolve(fakeAddon));
 
-      _fetchAddon({ slug: fakeAddon.slug });
+      _fetchAddon({ showGroupedRatings: true, slug: fakeAddon.slug });
 
       const expectedAction = loadAddon({
         addon: fakeAddon,
