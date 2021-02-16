@@ -2,7 +2,6 @@
 import config from 'config';
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import loadable from '@loadable/component';
 
 import Addon from 'amo/pages/Addon';
 import AddonInfo, {
@@ -33,30 +32,9 @@ import UsersUnsubscribe from 'amo/pages/UsersUnsubscribe';
 import SimulateAsyncError from 'amo/pages/error-simulation/SimulateAsyncError';
 import SimulateClientError from 'amo/pages/error-simulation/SimulateClientError';
 import SimulateSyncError from 'amo/pages/error-simulation/SimulateSyncError';
+import About from 'amo/pages/StaticPages/About';
+import ReviewGuide from 'amo/pages/StaticPages/ReviewGuide';
 import type { ConfigType } from 'amo/types/config';
-
-// About `loadable()` and code-splitting:
-//
-// 1. Set `webpackChunkName` to the name of the page component
-// 2. Set `webpackPreload: true` as already done below
-//
-// Important: We do not use `webpackPrefetch: true` to prevent webpack to
-// inject anything in the HTML returned by the server. Webpack does not inject
-// anything when `webpackPreload` is set to `true` but '@loadable/server'
-// gathers these chunks and we render the appropriate tags in the HTML in
-// `ServerHtml`.
-
-const About = loadable(() =>
-  import(
-    /* webpackPreload: true, webpackChunkName: "About" */ '../../pages/StaticPages/About'
-  ),
-);
-
-const ReviewGuide = loadable(() =>
-  import(
-    /* webpackPreload: true, webpackChunkName: "ReviewGuide" */ '../../pages/StaticPages/ReviewGuide'
-  ),
-);
 
 type Props = {|
   _config?: ConfigType,

@@ -8,15 +8,9 @@ import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlPro
 
 const addonsFrontendCDN = 'https://addons-amo.cdn.mozilla.net';
 const basePath = path.resolve(__dirname, '../');
-const distPath = path.join(basePath, 'dist');
-const loadableStatsFilename = 'loadable-stats.json';
 
 module.exports = {
   basePath,
-
-  // This is needed for code-splitting.
-  loadableStatsFilename,
-  loadableStatsFile: path.join(distPath, loadableStatsFilename),
 
   // The base URL of the site (for SEO purpose).
   baseURL: baseUrlProd,
@@ -142,6 +136,7 @@ module.exports = {
   // from ./lib/shared.js
   CSP: {
     directives: {
+      defaultSrc: ["'none'"],
       baseUri: ["'self'"],
       childSrc: ["'none'"],
       connectSrc: [analyticsHost, apiProdHost, sentryHost],
@@ -157,10 +152,6 @@ module.exports = {
       manifestSrc: ["'none'"],
       mediaSrc: ["'none'"],
       objectSrc: ["'none'"],
-      // This is needed because `prefetchSrc` isn't supported by FF yet.
-      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
-      defaultSrc: [addonsFrontendCDN],
-      prefetchSrc: [addonsFrontendCDN],
       // Script is limited to the amo specific CDN.
       scriptSrc: [
         addonsFrontendCDN,

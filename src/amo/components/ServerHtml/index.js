@@ -16,7 +16,6 @@ export default class ServerHtml extends Component {
   static propTypes = {
     appState: PropTypes.object.isRequired,
     assets: PropTypes.object.isRequired,
-    chunkExtractor: PropTypes.object.isRequired,
     component: PropTypes.element.isRequired,
     htmlDir: PropTypes.string,
     htmlLang: PropTypes.string,
@@ -111,93 +110,8 @@ export default class ServerHtml extends Component {
     )}`;
   }
 
-  renderStyles() {
-    const { chunkExtractor } = this.props;
-
-    return chunkExtractor
-      .getMainAssets('style')
-      .filter(
-        // We render the main bundle with `getScript()`, so we skip it here.
-        (asset) => asset.chunk !== APP_NAME,
-      )
-      .map((asset) => {
-        const sriProps = this.getSriProps(asset.filename);
-
-        return (
-          <link
-            data-chunk={asset.chunk}
-            href={asset.url}
-            key={asset.url}
-            rel="stylesheet"
-            type="text/css"
-            {...sriProps}
-          />
-        );
-      });
-  }
-
-  renderPreLinks() {
-    const { chunkExtractor } = this.props;
-
-    return (
-      chunkExtractor
-        .getPreAssets()
-        // We want to retrieve the bundles with "webpackPreload: true" only, and
-        // not the main bundle (amo).
-        .filter((asset) => asset.type === 'childAsset')
-        // We return both "preload" and "prefetch" links to maximize browser
-        // support, even though both links don't have the same goal.
-        .map((asset) => [
-          <link
-            as={asset.scriptType}
-            data-parent-chunk={asset.chunk}
-            href={asset.url}
-            key={`preload-${asset.url}`}
-            rel="preload"
-          />,
-          <link
-            as={asset.scriptType}
-            data-parent-chunk={asset.chunk}
-            href={asset.url}
-            key={`prefetch-${asset.url}`}
-            rel="prefetch"
-          />,
-        ])
-    );
-  }
-
-  renderAsyncScripts() {
-    const { chunkExtractor } = this.props;
-
-    return chunkExtractor
-      .getMainAssets('script')
-      .filter(
-        // We render the main bundle with `getScript()`, so we skip it here.
-        (asset) => asset.chunk !== APP_NAME,
-      )
-      .map((asset) => {
-        const sriProps = this.getSriProps(asset.filename);
-
-        return (
-          <script
-            async
-            data-chunk={asset.chunk}
-            key={asset.url}
-            src={asset.url}
-            {...sriProps}
-          />
-        );
-      });
-  }
-
   render() {
-    const {
-      appState,
-      chunkExtractor,
-      component,
-      htmlDir,
-      htmlLang,
-    } = this.props;
+    const { appState, component, htmlDir, htmlLang } = this.props;
 
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
@@ -215,10 +129,8 @@ export default class ServerHtml extends Component {
 
           <link rel="shortcut icon" href={this.getFaviconLink()} />
           {head.link.toComponent()}
-          {this.renderPreLinks()}
 
           {this.getStyle()}
-          {this.renderStyles()}
 
           {head.script.toComponent()}
         </head>
@@ -232,11 +144,9 @@ export default class ServerHtml extends Component {
             type="application/json"
             id="redux-store-state"
           />
-          {chunkExtractor.getRequiredChunksScriptElements()}
 
           {this.getAnalytics()}
           {this.getScript()}
-          {this.renderAsyncScripts()}
         </body>
       </html>
     );

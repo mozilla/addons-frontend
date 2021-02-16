@@ -1,7 +1,3 @@
-import path from 'path';
-
-const fixturesPath = path.join(__dirname, '..', 'tests', '__fixtures__');
-
 // Put any test configuration overrides here.
 module.exports = {
   // No test should touch the API so seeing this would indicate a bug.
@@ -15,9 +11,6 @@ module.exports = {
 
   // Force-disable Sentry
   publicSentryDsn: null,
-
-  // We use a fake/incomplete file for the test suite.
-  loadableStatsFile: path.join(fixturesPath, 'loadable-stats.json'),
 
   mozillaUserId: 1337,
 };

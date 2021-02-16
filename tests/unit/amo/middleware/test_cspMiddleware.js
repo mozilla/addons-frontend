@@ -59,11 +59,11 @@ describe(__filename, () => {
       jest.resetModules();
     });
 
-    it('should default default-src to the CDN', () => {
+    it('should default default-src to "\'none\'"', () => {
       // eslint-disable-next-line global-require
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      expect(cspConfig.defaultSrc).toEqual([cdnHosts.production]);
+      expect(cspConfig.defaultSrc).toEqual(["'none'"]);
     });
 
     it('should default base-uri to "\'self\'"', () => {

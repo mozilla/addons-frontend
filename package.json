@@ -173,8 +173,6 @@
   },
   "homepage": "https://github.com/mozilla/addons-frontend#readme",
   "dependencies": {
-    "@loadable/component": "5.14.1",
-    "@loadable/server": "5.14.0",
     "@mozilla-protocol/tokens": "5.0.5",
     "@willdurand/isomorphic-formdata": "1.2.0",
     "base62": "2.0.1",
@@ -258,14 +256,11 @@
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@emotion/core": "^11.0.0",
-    "@loadable/babel-plugin": "^5.7.1",
-    "@loadable/webpack-plugin": "^5.2.1",
     "@storybook/addon-docs": "^6.0.21",
     "@storybook/addons": "^6.0.0",
     "@storybook/react": "^6.0.0",
