@@ -24,7 +24,7 @@ import type {
 import type { Saga } from 'amo/types/sagas';
 
 export function* fetchAddon({
-  payload: { errorHandlerId, slug },
+  payload: { errorHandlerId, showGroupedRatings, slug },
 }: FetchAddonAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -32,7 +32,11 @@ export function* fetchAddon({
   try {
     const state = yield select(getState);
 
-    const params: FetchAddonParams = { api: state.api, slug };
+    const params: FetchAddonParams = {
+      api: state.api,
+      showGroupedRatings,
+      slug,
+    };
     const addon = yield call(fetchAddonFromApi, params);
 
     yield put(loadAddon({ addon, slug }));

@@ -95,6 +95,7 @@ describe(__filename, () => {
       dispatch,
       fetchAddon({
         errorHandler,
+        showGroupedRatings: true,
         slug,
       }),
     );
@@ -118,6 +119,7 @@ describe(__filename, () => {
       fakeDispatch,
       fetchAddon({
         errorHandler,
+        showGroupedRatings: true,
         slug,
       }),
     );
@@ -140,6 +142,7 @@ describe(__filename, () => {
       fakeDispatch,
       fetchAddon({
         errorHandler,
+        showGroupedRatings: true,
         slug,
       }),
     );
@@ -168,6 +171,7 @@ describe(__filename, () => {
       dispatch,
       fetchAddon({
         errorHandler,
+        showGroupedRatings: true,
         slug: newSlug,
       }),
     );

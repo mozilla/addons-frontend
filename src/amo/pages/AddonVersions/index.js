@@ -94,7 +94,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
     const addonHasChanged = oldAddon && oldAddon.slug !== slug;
 
     if ((!addon || addonHasChanged) && !addonIsLoading) {
-      dispatch(fetchAddon({ slug, errorHandler }));
+      dispatch(fetchAddon({ showGroupedRatings: true, slug, errorHandler }));
     }
 
     if (!areVersionsLoading && (!versions || addonHasChanged)) {

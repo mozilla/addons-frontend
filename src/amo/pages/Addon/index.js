@@ -117,7 +117,13 @@ export class AddonBase extends React.Component {
 
         dispatch(setViewContext(addon.type));
       } else if (!addonIsLoading) {
-        dispatch(fetchAddon({ slug: params.slug, errorHandler }));
+        dispatch(
+          fetchAddon({
+            showGroupedRatings: true,
+            slug: params.slug,
+            errorHandler,
+          }),
+        );
       }
     }
   }
@@ -145,7 +151,13 @@ export class AddonBase extends React.Component {
     }
 
     if (!addonIsLoading && (!newAddon || oldParams.slug !== params.slug)) {
-      dispatch(fetchAddon({ slug: params.slug, errorHandler }));
+      dispatch(
+        fetchAddon({
+          showGroupedRatings: true,
+          slug: params.slug,
+          errorHandler,
+        }),
+      );
     }
   }
 

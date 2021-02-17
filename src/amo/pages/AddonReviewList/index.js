@@ -123,7 +123,13 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
     if (!addon) {
       if (!addonIsLoading) {
-        dispatch(fetchAddon({ slug: addonSlug, errorHandler }));
+        dispatch(
+          fetchAddon({
+            showGroupedRatings: true,
+            slug: addonSlug,
+            errorHandler,
+          }),
+        );
       }
     } else if (
       // This is the first time rendering the component.

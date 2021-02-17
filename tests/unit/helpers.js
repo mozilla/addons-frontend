@@ -39,7 +39,7 @@ import * as coreApi from 'amo/api';
 import { getAddonStatus } from 'amo/addonManager';
 import { ErrorHandler } from 'amo/errorHandler';
 import { makeI18n } from 'amo/i18n/utils';
-import { createInternalAddon } from 'amo/reducers/addons';
+import { createGroupedRatings, createInternalAddon } from 'amo/reducers/addons';
 import {
   autocompleteLoad,
   autocompleteStart,
@@ -149,6 +149,7 @@ export const fakeAddon = Object.freeze({
   ratings: {
     average: 3.5,
     count: 10,
+    grouped_counts: createGroupedRatings(),
     text_count: 5,
   },
   requires_payment: false,

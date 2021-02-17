@@ -155,7 +155,6 @@ describe(__filename, () => {
       const params = {
         user: 123,
         addon: 321,
-        show_grouped_ratings: 1,
         score: 5,
       };
       const fakeResponse = getReviewsResponse({ reviews: [fakeReview] });

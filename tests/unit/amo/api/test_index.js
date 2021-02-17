@@ -553,6 +553,34 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
+    it('can accept and pass showGroupedRatings', async () => {
+      mockWindow
+        .expects('fetch')
+        .withArgs(
+          urlWithTheseParams({
+            show_grouped_ratings: 'true',
+          }),
+        )
+        .returns(mockResponse());
+
+      await _fetchAddon({ showGroupedRatings: true });
+      mockWindow.verify();
+    });
+
+    it('defaults showGroupedRatings to false', async () => {
+      mockWindow
+        .expects('fetch')
+        .withArgs(
+          urlWithTheseParams({
+            show_grouped_ratings: 'false',
+          }),
+        )
+        .returns(mockResponse());
+
+      await _fetchAddon();
+      mockWindow.verify();
+    });
+
     it('passes app and appversion', async () => {
       const userAgent =
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:61.0) Gecko/20100101 Firefox/61.0';

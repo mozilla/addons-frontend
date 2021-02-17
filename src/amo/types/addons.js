@@ -79,6 +79,16 @@ export type PreviewType = {|
   w: number,
 |};
 
+// A count of add-on ratings per star. These will all be 0 for add-ons
+// that have not yet been rated.
+export type GroupedRatingsType = {|
+  '1': number,
+  '2': number,
+  '3': number,
+  '4': number,
+  '5': number,
+|};
+
 /*
  * This is the external API representation of an add-on.
  *
@@ -119,6 +129,7 @@ export type ExternalAddonType = {|
     average: number,
     bayesian_average: number,
     count: number,
+    grouped_counts: GroupedRatingsType,
     text_count: number,
   |},
   requires_payment?: boolean,

@@ -1,5 +1,4 @@
 /* @flow */
-import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { delay } from 'redux-saga/lib/internal/utils';
@@ -17,7 +16,6 @@ import {
   ABORTED,
   CREATE_ADDON_REVIEW,
   DELETE_ADDON_REVIEW,
-  FETCH_GROUPED_RATINGS,
   FETCH_LATEST_USER_REVIEW,
   FETCH_REVIEW,
   FETCH_REVIEW_PERMISSIONS,
@@ -37,7 +35,6 @@ import {
   hideFlashedReviewMessage,
   hideReplyToReviewForm,
   setAddonReviews,
-  setGroupedRatings,
   setLatestReview,
   setReview,
   setReviewPermissions,
@@ -63,7 +60,6 @@ import type {
 import type {
   CreateAddonReviewAction,
   DeleteAddonReviewAction,
-  FetchGroupedRatingsAction,
   FetchLatestUserReviewAction,
   FetchReviewAction,
   FetchReviewPermissionsAction,
@@ -148,41 +144,6 @@ function* fetchReviewPermissions({
   } catch (error) {
     log.warn(
       `Failed to load review permissions for add-on ID ${addonId}, user ID ${userId}: ${error}`,
-    );
-    yield put(errorHandler.createErrorAction(error));
-  }
-}
-
-function* fetchGroupedRatings({
-  payload: { errorHandlerId, addonId },
-}: FetchGroupedRatingsAction): Saga {
-  const errorHandler = createErrorHandler(errorHandlerId);
-  try {
-    const state = yield select(getState);
-
-    const params: GetReviewsParams = {
-      addon: addonId,
-      apiState: state.api,
-      show_grouped_ratings: true,
-    };
-    const response: GetReviewsApiResponse = yield call(getReviews, params);
-
-    if (!response.grouped_ratings) {
-      // This is unlikely to happen but if it does we should stop the show.
-      throw new Error(
-        oneLine`The request to getReviews({ show_grouped_ratings: true })
-        unexpectedly returned an empty grouped_ratings object`,
-      );
-    }
-    yield put(
-      setGroupedRatings({
-        addonId,
-        grouping: response.grouped_ratings,
-      }),
-    );
-  } catch (error) {
-    log.warn(
-      `Failed to fetch grouped ratings for add-on ID ${addonId}: ${error}`,
     );
     yield put(errorHandler.createErrorAction(error));
   }
@@ -457,7 +418,6 @@ function* fetchReview({
 }
 
 export default function* reviewsSaga(options?: Options): Saga {
-  yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
   yield takeLatest(FETCH_LATEST_USER_REVIEW, fetchLatestUserReview);
   yield takeLatest(FETCH_REVIEW, fetchReview);
   yield takeLatest(FETCH_REVIEW_PERMISSIONS, fetchReviewPermissions);

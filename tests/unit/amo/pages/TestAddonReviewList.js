@@ -258,6 +258,7 @@ describe(__filename, () => {
         dispatch,
         fetchAddon({
           slug: addonSlug,
+          showGroupedRatings: true,
           errorHandler,
         }),
       );
@@ -281,6 +282,7 @@ describe(__filename, () => {
         fakeDispatch,
         fetchAddon({
           slug: addonSlug,
+          showGroupedRatings: true,
           errorHandler,
         }),
       );

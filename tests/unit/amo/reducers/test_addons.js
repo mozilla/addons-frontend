@@ -5,6 +5,7 @@ import {
 } from 'amo/actions/reviews';
 import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import addons, {
+  createGroupedRatings,
   createInternalAddon,
   createInternalAddonInfo,
   createInternalPreviews,
@@ -471,6 +472,10 @@ describe(__filename, () => {
       return addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     }
 
+    function reviewWithScore(score) {
+      return createInternalReview({ ...fakeReview, score });
+    }
+
     function average(numbers) {
       return numbers.reduce((total, num) => total + num, 0) / numbers.length;
     }
@@ -479,6 +484,131 @@ describe(__filename, () => {
       const state = addons(initialState, _updateRatingCounts());
 
       expect(state).toEqual(initialState);
+    });
+
+    it('increment group counts for a new rating', () => {
+      const addon = fakeAddon;
+      let state = initStateWithAddon(addon);
+
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: null,
+          newReview: reviewWithScore(5),
+        }),
+      );
+      const storedAddon = getAddonByID(state, addon.id);
+      expect(storedAddon.ratings.grouped_counts[5]).toEqual(1);
+    });
+
+    it('shifts rating counts', () => {
+      const oneStarCount = 5;
+      const fiveStarCount = 30;
+      const addon = addonWithRatings({
+        grouped_counts: createGroupedRatings({
+          1: oneStarCount,
+          5: fiveStarCount,
+        }),
+      });
+
+      let state = initStateWithAddon(addon);
+
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: reviewWithScore(1),
+          newReview: reviewWithScore(5),
+        }),
+      );
+      const storedAddon = getAddonByID(state, addon.id);
+      expect(storedAddon.ratings.grouped_counts[1]).toEqual(oneStarCount - 1);
+      expect(storedAddon.ratings.grouped_counts[5]).toEqual(fiveStarCount + 1);
+    });
+
+    it('handles no score change', () => {
+      const fiveStarCount = 30;
+      const addon = addonWithRatings({
+        grouped_counts: createGroupedRatings({
+          5: fiveStarCount,
+        }),
+      });
+
+      let state = initStateWithAddon(addon);
+
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: reviewWithScore(5),
+          newReview: reviewWithScore(5),
+        }),
+      );
+      const storedAddon = getAddonByID(state, addon.id);
+      expect(storedAddon.ratings.grouped_counts[5]).toEqual(fiveStarCount);
+    });
+
+    it('automatically initializes grouped ratings', () => {
+      const addon = fakeAddon;
+
+      let state = initStateWithAddon(addon);
+
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: null,
+          newReview: reviewWithScore(3),
+        }),
+      );
+      const storedAddon = getAddonByID(state, addon.id);
+      expect(storedAddon.ratings.grouped_counts).toEqual(
+        createGroupedRatings({ 3: 1 }),
+      );
+    });
+
+    it('does not decrement 0 counts', () => {
+      const addon = addonWithRatings({
+        grouped_counts: createGroupedRatings({
+          5: 0,
+        }),
+      });
+
+      let state = initStateWithAddon(addon);
+
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: reviewWithScore(5),
+          newReview: reviewWithScore(4),
+        }),
+      );
+      const storedAddon = getAddonByID(state, addon.id);
+      expect(storedAddon.ratings.grouped_counts[5]).toEqual(0);
+    });
+
+    it('handles a new review without a score', () => {
+      const fiveStarCount = 10;
+      const addon = addonWithRatings({
+        grouped_counts: createGroupedRatings({
+          5: fiveStarCount,
+        }),
+      });
+
+      let state = initStateWithAddon(addon);
+
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: null,
+          newReview: reviewWithScore(null),
+        }),
+      );
+      const storedAddon = getAddonByID(state, addon.id);
+      expect(storedAddon.ratings.grouped_counts[5]).toEqual(fiveStarCount);
     });
 
     it('increments only the rating count for a newly added score', () => {

@@ -1,6 +1,5 @@
 /* @flow */
 import { oneLine } from 'common-tags';
-import deepcopy from 'deepcopy';
 import invariant from 'invariant';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
@@ -8,7 +7,6 @@ import {
   BEGIN_DELETE_ADDON_REVIEW,
   CANCEL_DELETE_ADDON_REVIEW,
   DELETE_ADDON_REVIEW,
-  FETCH_GROUPED_RATINGS,
   FETCH_REVIEW,
   FETCH_REVIEW_PERMISSIONS,
   FETCH_REVIEWS,
@@ -19,7 +17,6 @@ import {
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
-  SET_GROUPED_RATINGS,
   SET_INTERNAL_REVIEW,
   SET_LATEST_REVIEW,
   SET_REVIEW,
@@ -30,7 +27,6 @@ import {
   SHOW_EDIT_REVIEW_FORM,
   SHOW_REPLY_TO_REVIEW_FORM,
   UNLOAD_ADDON_REVIEWS,
-  UPDATE_RATING_COUNTS,
   createInternalReview,
 } from 'amo/actions/reviews';
 import {
@@ -41,7 +37,6 @@ import type {
   BeginDeleteAddonReviewAction,
   CancelDeleteAddonReviewAction,
   DeleteAddonReviewAction,
-  FetchGroupedRatingsAction,
   FetchReviewAction,
   FetchReviewPermissionsAction,
   FetchReviewsAction,
@@ -55,7 +50,6 @@ import type {
   SetAddonReviewsAction,
   SetInternalReviewAction,
   SetLatestReviewAction,
-  SetGroupedRatingsAction,
   FlashReviewMessageAction,
   SetReviewAction,
   SetReviewPermissionsAction,
@@ -67,7 +61,6 @@ import type {
   UpdateRatingCountsAction,
   UserReviewType,
 } from 'amo/actions/reviews';
-import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { AppState } from 'amo/store';
 import type { ReactRouterLocationType } from 'amo/types/router';
@@ -156,9 +149,6 @@ export type ReviewsState = {|
     // or null if one does not exist yet.
     [userIdAddonId: string]: number | null,
   },
-  groupedRatings: {
-    [addonId: number]: ?GroupedRatingsType,
-  },
   view: {
     [reviewId: number]: ViewStateByReviewId,
   },
@@ -166,9 +156,6 @@ export type ReviewsState = {|
   flashMessage?: FlashMessageType,
   loadingForSlug: {
     [slug: string]: boolean,
-  },
-  loadingGroupedForId: {
-    [addonId: number]: boolean,
   },
 |};
 
@@ -178,12 +165,10 @@ export const initialState: ReviewsState = {
   byId: {},
   byUserId: {},
   latestUserReview: {},
-  groupedRatings: {},
   // This stores review-related UI state.
   view: {},
   flashMessage: undefined,
   loadingForSlug: {},
-  loadingGroupedForId: {},
 };
 
 export function selectReviews({
@@ -207,21 +192,6 @@ export function selectReviews({
     return null;
   }
   return reviewData.data;
-}
-
-export function createGroupedRatings(
-  grouping: $Shape<GroupedRatingsType> = {},
-): GroupedRatingsType {
-  return {
-    /* eslint-disable quote-props */
-    '1': 0,
-    '2': 0,
-    '3': 0,
-    '4': 0,
-    '5': 0,
-    /* eslint-enable quote-props */
-    ...grouping,
-  };
 }
 
 export const selectReview = (
@@ -430,18 +400,10 @@ export const reviewsAreLoading = (
   return Boolean(state.reviews.loadingForSlug[addonSlug]);
 };
 
-export const groupedRatingsAreLoading = (
-  state: AppState,
-  addonId: number | null,
-): boolean => {
-  return Boolean(addonId && state.reviews.loadingGroupedForId[addonId]);
-};
-
 type ReviewActionType =
   | BeginDeleteAddonReviewAction
   | CancelDeleteAddonReviewAction
   | DeleteAddonReviewAction
-  | FetchGroupedRatingsAction
   | FetchReviewAction
   | FetchReviewPermissionsAction
   | FetchReviewsAction
@@ -454,7 +416,6 @@ type ReviewActionType =
   | ReviewWasFlaggedAction
   | SendReplyToReviewAction
   | SetAddonReviewsAction
-  | SetGroupedRatingsAction
   | SetInternalReviewAction
   | SetLatestReviewAction
   | SetReviewAction
@@ -670,52 +631,6 @@ export default function reviewsReducer(
         },
       };
     }
-    case FETCH_GROUPED_RATINGS: {
-      const { payload } = action;
-      return {
-        ...state,
-        loadingGroupedForId: {
-          ...state.loadingGroupedForId,
-          [payload.addonId]: true,
-        },
-      };
-    }
-    case SET_GROUPED_RATINGS: {
-      const { payload } = action;
-      return {
-        ...state,
-        groupedRatings: {
-          ...state.groupedRatings,
-          [payload.addonId]: createGroupedRatings(payload.grouping),
-        },
-        loadingGroupedForId: {
-          ...state.loadingGroupedForId,
-          [payload.addonId]: false,
-        },
-      };
-    }
-    case UPDATE_RATING_COUNTS: {
-      const { addonId, oldReview, newReview } = action.payload;
-
-      const addonRatings =
-        state.groupedRatings[addonId] || createGroupedRatings();
-
-      const newAddonRatings = deepcopy(addonRatings);
-      if (oldReview && newAddonRatings[oldReview.score] > 0) {
-        newAddonRatings[oldReview.score] -= 1;
-      }
-      if (newReview && newReview.score) {
-        newAddonRatings[newReview.score] += 1;
-      }
-
-      return {
-        ...state,
-        groupedRatings: {
-          ...state.groupedRatings,
-          [addonId]: newAddonRatings,
-        },
-      };
-    }
     case FLASH_REVIEW_MESSAGE: {
       const { payload } = action;
       return {
@@ -758,10 +673,6 @@ export default function reviewsReducer(
           byUserId: {
             ...newState.byUserId,
             [userId]: undefined,
-          },
-          groupedRatings: {
-            ...newState.groupedRatings,
-            [reviewAddon.id]: undefined,
           },
           permissions: {
             ...newState.permissions,

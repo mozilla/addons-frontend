@@ -17,6 +17,7 @@ import type {
   AddonType,
   ExternalAddonType,
   ExternalPreviewType,
+  GroupedRatingsType,
   PartialExternalAddonType,
   PreviewType,
 } from 'amo/types/addons';
@@ -64,6 +65,7 @@ export const initialState: AddonsState = {
 
 type FetchAddonParams = {|
   errorHandler: ErrorHandlerType,
+  showGroupedRatings?: boolean,
   slug: string,
 |};
 
@@ -71,12 +73,14 @@ export type FetchAddonAction = {|
   type: typeof FETCH_ADDON,
   payload: {|
     errorHandlerId: string,
+    showGroupedRatings?: boolean,
     slug: string,
   |},
 |};
 
 export function fetchAddon({
   errorHandler,
+  showGroupedRatings = false,
   slug,
 }: FetchAddonParams): FetchAddonAction {
   if (!errorHandler) {
@@ -87,7 +91,7 @@ export function fetchAddon({
   }
   return {
     type: FETCH_ADDON,
-    payload: { errorHandlerId: errorHandler.id, slug },
+    payload: { errorHandlerId: errorHandler.id, showGroupedRatings, slug },
   };
 }
 
@@ -338,6 +342,21 @@ export const createInternalAddonInfo = (
   };
 };
 
+export function createGroupedRatings(
+  grouping: $Shape<GroupedRatingsType> = {},
+): GroupedRatingsType {
+  return {
+    /* eslint-disable quote-props */
+    '1': 0,
+    '2': 0,
+    '3': 0,
+    '4': 0,
+    '5': 0,
+    /* eslint-enable quote-props */
+    ...grouping,
+  };
+}
+
 type Action =
   | FetchAddonAction
   | FetchAddonInfoAction
@@ -445,6 +464,21 @@ export default function addonsReducer(
       let ratingCount = ratings ? ratings.count : 0;
       let reviewCount = ratings ? ratings.text_count : 0;
 
+      const newGroupedRatings = ratings
+        ? { ...ratings.grouped_counts }
+        : createGroupedRatings();
+
+      if (
+        oldReview &&
+        oldReview.score &&
+        newGroupedRatings[oldReview.score] > 0
+      ) {
+        newGroupedRatings[oldReview.score] -= 1;
+      }
+      if (newReview && newReview.score) {
+        newGroupedRatings[newReview.score] += 1;
+      }
+
       let countForAverage = ratingCount;
       if (average && countForAverage && oldReview && oldReview.score) {
         // If average and countForAverage are defined and greater than 0,
@@ -495,6 +529,7 @@ export default function addonsReducer(
               // approximation.
               bayesian_average: average,
               count: ratingCount,
+              grouped_counts: newGroupedRatings,
               text_count: reviewCount,
             },
           },
