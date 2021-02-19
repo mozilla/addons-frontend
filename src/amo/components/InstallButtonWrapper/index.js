@@ -48,7 +48,9 @@ type InternalProps = {|
   userAgentInfo: UserAgentInfoType,
 |};
 
-export const InstallButtonWrapperBase = (props: InternalProps): React.Element<"div"> => {
+export const InstallButtonWrapperBase = (
+  props: InternalProps,
+): React.Element<'div'> => {
   const {
     _findInstallURL = findInstallURL,
     _getClientCompatibility = getClientCompatibility,
@@ -137,23 +139,26 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Element<"d
   );
 };
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps): {|
+export function mapStateToProps(
+  state: AppState,
+  ownProps: InternalProps,
+): {|
   canUninstall: void | boolean,
   clientApp: null | string,
   currentVersion: ?AddonVersionType,
-  installStatus: 
-    | "DISABLED"
-    | "DISABLING"
-    | "DOWNLOADING"
-    | "ENABLED"
-    | "ENABLING"
-    | "ERROR"
-    | "INACTIVE"
-    | "INSTALLED"
-    | "INSTALLING"
-    | "UNINSTALLED"
-    | "UNINSTALLING"
-    | "UNKNOWN",
+  installStatus:
+    | 'DISABLED'
+    | 'DISABLING'
+    | 'DOWNLOADING'
+    | 'ENABLED'
+    | 'ENABLING'
+    | 'ERROR'
+    | 'INACTIVE'
+    | 'INSTALLED'
+    | 'INSTALLING'
+    | 'UNINSTALLED'
+    | 'UNINSTALLING'
+    | 'UNKNOWN',
   userAgentInfo: UserAgentInfoType,
 |} {
   const { addon, version } = ownProps;

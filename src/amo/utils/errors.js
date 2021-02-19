@@ -39,7 +39,7 @@ export const getErrorComponent = (status: number | null): any => {
 export function render404IfConfigKeyIsFalse(
   configKey: string,
   { _config = config }: {| _config: ConfigType |} = {},
-): ((Component: React.ComponentType<any>) => (props: any) => React.Node) {
+): (Component: React.ComponentType<any>) => (props: any) => React.Node {
   if (!configKey) {
     throw new TypeError('configKey cannot be empty');
   }

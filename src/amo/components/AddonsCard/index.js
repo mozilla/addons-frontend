@@ -51,12 +51,12 @@ type Props = {|
 
 export default class AddonsCard extends React.Component<Props> {
   static defaultProps: {|
-  editing: boolean,
-  loading: boolean,
-  placeholderCount: number,
-  showPromotedBadge: boolean,
-  useThemePlaceholder: boolean,
-|} = {
+    editing: boolean,
+    loading: boolean,
+    placeholderCount: number,
+    showPromotedBadge: boolean,
+    useThemePlaceholder: boolean,
+  |} = {
     editing: false,
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,

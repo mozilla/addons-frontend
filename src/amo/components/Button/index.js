@@ -49,13 +49,13 @@ const BUTTON_TYPES = [
 
 export default class Button extends React.Component<Props> {
   static defaultProps: {|
-  buttonType: string,
-  disabled: boolean,
-  htmlType: string,
-  micro: boolean,
-  noLink: boolean,
-  puffy: boolean,
-|} = {
+    buttonType: ButtonType,
+    disabled: boolean,
+    htmlType: string,
+    micro: boolean,
+    noLink: boolean,
+    puffy: boolean,
+  |} = {
     buttonType: 'none',
     disabled: false,
     htmlType: 'submit',
@@ -64,7 +64,7 @@ export default class Button extends React.Component<Props> {
     puffy: false,
   };
 
-  render(): React.Node | React.Element<"button"> | React.Element<"span"> {
+  render(): React.Node | React.Element<'button'> | React.Element<'span'> {
     const {
       buttonType,
       children,

@@ -167,25 +167,29 @@ type Action =
 export default function abuseReducer(
   state: AbuseState = initialState,
   action: Action,
-): 
+):
   | AbuseState
-  | {|bySlug: {[string]: AddonAbuseState}, loading: boolean|}
-  | {|bySlug: {[addonSlug: string]: AddonAbuseState}, loading: boolean|} {
+  | {| bySlug: { [string]: AddonAbuseState }, loading: boolean |}
+  | {| bySlug: { [addonSlug: string]: AddonAbuseState }, loading: boolean |} {
   switch (action.type) {
     case HIDE_ADDON_ABUSE_REPORT_UI: {
       const { addon } = action.payload;
 
-      return {
+      const result: AbuseState = {
         ...state,
         bySlug: {
           ...state.bySlug,
           [addon.slug]: { ...state.bySlug[addon.slug], uiVisible: false },
         },
       };
+      return result;
     }
     case LOAD_ADDON_ABUSE_REPORT: {
       const { addon, message, reporter } = action.payload;
-      return {
+      const result: {|
+        bySlug: { [string]: AddonAbuseState },
+        loading: boolean,
+      |} = {
         ...state,
         bySlug: {
           ...state.bySlug,
@@ -193,19 +197,24 @@ export default function abuseReducer(
         },
         loading: false,
       };
+      return result;
     }
     case SEND_ADDON_ABUSE_REPORT:
       return { ...state, loading: true };
     case SHOW_ADDON_ABUSE_REPORT_UI: {
       const { addon } = action.payload;
 
-      return {
+      const result: {|
+        bySlug: { [string]: AddonAbuseState },
+        loading: boolean,
+      |} = {
         ...state,
         bySlug: {
           ...state.bySlug,
           [addon.slug]: { ...state.bySlug[addon.slug], uiVisible: true },
         },
       };
+      return result;
     }
     case FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX:
       return { ...state, loading: false };

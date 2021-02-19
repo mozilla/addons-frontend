@@ -40,7 +40,11 @@ type InternalProps = {|
 |};
 
 export class SurveyNoticeBase extends React.Component<InternalProps> {
-  static defaultProps: {|_config: any, _supportedLangs: Array<string>, _tracking: any|} = {
+  static defaultProps: {|
+    _config: any,
+    _supportedLangs: Array<string>,
+    _tracking: any,
+  |} = {
     _config: config,
     _supportedLangs: [
       'de',
@@ -79,7 +83,7 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
     );
   }
 
-  dismissNotice: (() => void) = () => {
+  dismissNotice: () => void = () => {
     const { _config, cookies, dispatch } = this.props;
     dispatch(dismissSurvey());
     // Even though a dismissal action is dispatched here, also save a
@@ -94,12 +98,12 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
     });
   };
 
-  onDismiss: (() => void) = () => {
+  onDismiss: () => void = () => {
     this.dismissNotice();
     this.track(SURVEY_ACTION_DISMISSED);
   };
 
-  onClickSurveyLink: (() => void) = () => {
+  onClickSurveyLink: () => void = () => {
     this.dismissNotice();
     this.track(SURVEY_ACTION_VISITED);
   };

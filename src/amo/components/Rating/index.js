@@ -37,11 +37,11 @@ type InternalProps = {|
 
 export class RatingBase extends React.Component<InternalProps, StateType> {
   static defaultProps: {|
-  className: string,
-  readOnly: boolean,
-  styleSize: string,
-  yellowStars: boolean,
-|} = {
+    className: string,
+    readOnly: boolean,
+    styleSize: string,
+    yellowStars: boolean,
+  |} = {
     className: '',
     readOnly: false,
     styleSize: 'large',
@@ -58,7 +58,9 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     return setState(newState);
   }
 
-  onSelectRating: ((event: SyntheticEvent<HTMLButtonElement>) => void) = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onSelectRating: (event: SyntheticEvent<HTMLButtonElement>) => void = (
+    event: SyntheticEvent<HTMLButtonElement>,
+  ) => {
     event.preventDefault();
     event.stopPropagation();
     const button = event.currentTarget;
@@ -76,11 +78,11 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   // Helper function used to render title attributes
   // for each individual star, as well as the wrapper
   // that surrounds the read-only set of stars.
-  renderTitle: ((
-  rating: ?number,
-  readOnly: boolean | void,
-  starRating: number | null
-) => string) = (
+  renderTitle: (
+    rating: ?number,
+    readOnly: boolean | void,
+    starRating: number | null,
+  ) => string = (
     rating: ?number,
     readOnly: boolean | void,
     starRating: number | null,
@@ -117,14 +119,14 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     );
   };
 
-  onHoverStar: ((star: number) => void) = (star: number) => {
+  onHoverStar: (star: number) => void = (star: number) => {
     if (this.props.readOnly) {
       return;
     }
     this._setState({ hoveringOverStar: star });
   };
 
-  stopHovering: (() => void) = () => {
+  stopHovering: () => void = () => {
     if (this.props.readOnly) {
       return;
     }
@@ -207,7 +209,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     return this.props.rating === undefined;
   }
 
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const { className, rating, readOnly, styleSize } = this.props;
     if (!styleSize || !RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(

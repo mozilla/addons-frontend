@@ -27,7 +27,7 @@ type InternalProps = {|
 |};
 
 export class RatingsByStarBase extends React.Component<InternalProps> {
-  renderBarValue(starCount: number): React.Element<"div"> {
+  renderBarValue(starCount: number): React.Element<'div'> {
     const { addon } = this.props;
     invariant(addon, 'addon is required');
 
@@ -50,7 +50,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     );
   }
 
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const { addon, i18n, location } = this.props;
     const loading = !addon;
 

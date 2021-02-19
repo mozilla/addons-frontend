@@ -26,7 +26,7 @@ type Props = {|
 |};
 
 export default class LandingAddonsCard extends React.Component<Props> {
-  static defaultProps: {|placeholderCount: number|} = {
+  static defaultProps: {| placeholderCount: number |} = {
     placeholderCount: LANDING_PAGE_EXTENSION_COUNT,
   };
 

@@ -25,7 +25,11 @@ export type ReportAddonParams = {|
   message: string,
 |};
 
-export function reportAddon({ addonSlug, api, message }: ReportAddonParams): Promise<any> {
+export function reportAddon({
+  addonSlug,
+  api,
+  message,
+}: ReportAddonParams): Promise<any> {
   return callApi({
     auth: true,
     endpoint: 'abuse/report/addon',

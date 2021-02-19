@@ -51,7 +51,9 @@ type InternalProps = {|
 |};
 
 export class SearchFiltersBase extends React.Component<InternalProps> {
-  onSelectElementChange: ((event: SyntheticEvent<HTMLSelectElement>) => boolean) = (event: SyntheticEvent<HTMLSelectElement>) => {
+  onSelectElementChange: (
+    event: SyntheticEvent<HTMLSelectElement>,
+  ) => boolean = (event: SyntheticEvent<HTMLSelectElement>) => {
     event.preventDefault();
 
     const { filters } = this.props;
@@ -117,7 +119,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     });
   }
 
-  addonTypeOptions(): Array<{|children: string, value: string|}> {
+  addonTypeOptions(): Array<{| children: string, value: string |}> {
     const { i18n } = this.props;
 
     const options = [
@@ -133,7 +135,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     return options;
   }
 
-  sortOptions(): Array<{|children: string, value: string|}> {
+  sortOptions(): Array<{| children: string, value: string |}> {
     const { i18n } = this.props;
 
     return [
@@ -148,7 +150,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     ];
   }
 
-  promotedOptions(): Array<{|children: string, value: string|}> {
+  promotedOptions(): Array<{| children: string, value: string |}> {
     const { i18n } = this.props;
 
     return [
@@ -254,7 +256,9 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState): {|
+export function mapStateToProps(
+  state: AppState,
+): {|
   clientApp: null | string,
   filters: null | SearchFiltersType,
   lang: null | string,

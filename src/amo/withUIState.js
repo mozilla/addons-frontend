@@ -32,7 +32,10 @@ export const createUIStateMapper = ({
   extractId?: ExtractIdFunc,
   fileName?: string,
   uiStateID?: string,
-|}): ((state: AppState, props: any) => {|uiState: any, uiStateID: any | string|}) => {
+|}): ((
+  state: AppState,
+  props: any,
+) => {| uiState: any, uiStateID: any | string |}) => {
   invariant(initialState, 'initialState is required');
   const mapStateToProps = (state: AppState, props: Object) => {
     let computedUIStateID;

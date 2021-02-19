@@ -12,6 +12,7 @@ const render = ({ category = 'line', size = 'large' } = {}) => {
   return <IconPromotedBadge category={category} size={size} />;
 };
 
+// $FlowIgnore: flow doesn't like module to be used in this way, let's not care about flow options here.
 storiesOf('IconPromotedBadge', module)
   .addParameters({
     component: IconPromotedBadgeBase,

@@ -52,7 +52,9 @@ const sortedLanguages = Object.keys(unfilteredLanguages)
 
 const sortedLocales = sortedLanguages.map((language) => language.locale);
 
-export const LanguageToolList = ({ languageTools }: LanguageToolListProps): null | React.Element<"ul"> => {
+export const LanguageToolList = ({
+  languageTools,
+}: LanguageToolListProps): null | React.Element<'ul'> => {
   if (!languageTools || !languageTools.length) {
     return null;
   }
@@ -91,7 +93,7 @@ export class LanguageToolsBase extends React.Component<Props> {
     }
   }
 
-  languageToolsInYourLocale(): null | React.Element<"div"> {
+  languageToolsInYourLocale(): null | React.Element<'div'> {
     const { i18n, lang, languageTools } = this.props;
 
     const languageToolsInYourLocale = languageTools.filter((languageTool) => {
@@ -277,7 +279,9 @@ export class LanguageToolsBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|lang: null | string, languageTools: Array<LanguageToolType>|} => {
+export const mapStateToProps = (
+  state: AppState,
+): {| lang: null | string, languageTools: Array<LanguageToolType> |} => {
   return {
     lang: state.api.lang,
     languageTools: getAllLanguageTools(state),

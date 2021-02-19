@@ -13,7 +13,7 @@ type Props = {|
 // you to fill an array with <li> components that have a common
 // class name. You still have to manually define a key prop.
 export default class ListItem extends React.Component<Props> {
-  render(): React.Element<"li"> {
+  render(): React.Element<'li'> {
     const { children, className } = this.props;
     return <li className={makeClassName('ListItem', className)}>{children}</li>;
   }

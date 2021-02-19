@@ -102,7 +102,9 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     }
   }
 
-  onSelectOption: ((event: ElementEvent<HTMLSelectElement>) => void) = (event: ElementEvent<HTMLSelectElement>) => {
+  onSelectOption: (event: ElementEvent<HTMLSelectElement>) => void = (
+    event: ElementEvent<HTMLSelectElement>,
+  ) => {
     event.preventDefault();
     const key = event.target.value;
     const handleOption = this.optionSelectHandlers[key];
@@ -146,7 +148,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     key: string,
     // eslint-disable-next-line react/no-unused-prop-types
     onSelect?: OnSelectOptionType,
-  }): React.Element<"option"> {
+  }): React.Element<'option'> {
     if (onSelect) {
       this.optionSelectHandlers[key] = onSelect;
     }
@@ -280,7 +282,10 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props): {|
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): {|
   addonInCollections: null | Array<CollectionType>,
   clientApp: null | string,
   currentUserId: any,

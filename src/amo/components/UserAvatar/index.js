@@ -12,7 +12,12 @@ type Props = {|
   user: UserType | null,
 |};
 
-const UserAvatar = ({ altText, className, preview, user }: Props): React.Element<"div"> => {
+const UserAvatar = ({
+  altText,
+  className,
+  preview,
+  user,
+}: Props): React.Element<'div'> => {
   const _className = makeClassName('UserAvatar', className);
 
   let image = preview && preview.length ? preview : null;

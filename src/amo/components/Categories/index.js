@@ -18,10 +18,11 @@ import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { I18nType } from 'amo/types/i18n';
 import type { GetCategoryResultsQueryParams } from 'amo/utils/categories';
+import type { CategoryMapType, CategoriesState } from 'amo/reducers/categories';
 
 import './styles.scss';
 
-type CategoryType = {|
+export type CategoryType = {|
   application: string,
   description?: string,
   id: number,
@@ -32,15 +33,6 @@ type CategoryType = {|
   weight: number,
 |};
 
-type CategoriesStateType = {|
-  categories: {
-    [clientApp: string]: void | {
-      [addonType: string]: void | { [categorySlug: string]: CategoryType },
-    },
-  },
-  loading: boolean,
-|};
-
 type Props = {|
   addonType: string,
   className?: string,
@@ -48,7 +40,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  categoriesState: $PropertyType<CategoriesStateType, 'categories'>,
+  categoriesState: $PropertyType<CategoriesState, 'categories'>,
   clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -59,7 +51,7 @@ type InternalProps = {|
 export const categoryResultsLinkTo = ({
   addonType,
   slug,
-}: GetCategoryResultsQueryParams): {|pathname: string, query: any|} => {
+}: GetCategoryResultsQueryParams): {| pathname: string, query: any |} => {
   return {
     pathname: '/search/',
     query: getCategoryResultsQuery({
@@ -180,7 +172,13 @@ export class CategoriesBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+export function mapStateToProps(
+  state: AppState,
+): {
+  categoriesState: ?CategoryMapType,
+  clientApp: ?string,
+  loading: boolean,
+} {
   return {
     categoriesState: state.categories.categories,
     clientApp: state.api.clientApp,

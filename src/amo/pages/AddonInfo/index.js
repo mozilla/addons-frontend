@@ -1,18 +1,5 @@
 /* @flow */
-import type {UrlWithOutgoing} from "../../types/api";
-import type {
-  PromotedType,
-  PreviewType,
-  GroupedRatingsType,
-  AddonStatusType,
-  AddonAuthorType,
-} from "../../types/addons";
-import type {
-  VersionIdType,
-  PartialExternalAddonVersionType,
-  ExternalAddonVersionType,
-} from "../../reducers/versions";
-import type {AddonTypeType} from "../../constants";import makeClassName from 'classnames';
+import makeClassName from 'classnames';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
@@ -42,11 +29,26 @@ import LoadingText from 'amo/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonInfoType } from 'amo/reducers/addons';
-import type { AddonVersionType } from 'amo/reducers/versions';
-import type { AddonType } from 'amo/types/addons';
+import type {
+  AddonVersionType,
+  VersionIdType,
+  PartialExternalAddonVersionType,
+  ExternalAddonVersionType,
+} from 'amo/reducers/versions';
+import type {
+  AddonType,
+  PromotedType,
+  PreviewType,
+  GroupedRatingsType,
+  AddonStatusType,
+  AddonAuthorType,
+} from 'amo/types/addons';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterMatchType } from 'amo/types/router';
 import type { I18nType } from 'amo/types/i18n';
+
+import type { AddonTypeType } from '../../constants';
+import type { UrlWithOutgoing } from '../../types/api';
 
 import './styles.scss';
 
@@ -229,62 +231,65 @@ export class AddonInfoBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps): {|
-  addon: 
+export function mapStateToProps(
+  state: AppState,
+  ownProps: InternalProps,
+): {|
+  addon:
     | null
     | AddonType
     | {|
-      authors?: Array<AddonAuthorType>,
-      average_daily_users?: number,
-      categories?: any,
-      contributions_url: UrlWithOutgoing | null,
-      created: Date,
-      currentVersionId: VersionIdType | null,
-      current_version?: 
-        | ExternalAddonVersionType
-        | PartialExternalAddonVersionType,
-      default_locale: string,
-      description: string | null,
-      developer_comments: string | null,
-      edit_url?: string,
-      guid: string,
-      has_eula?: boolean,
-      has_privacy_policy?: boolean,
-      homepage: UrlWithOutgoing | null,
-      icon_url?: string,
-      id: number,
-      isMozillaSignedExtension: boolean,
-      isRestartRequired: boolean,
-      isWebExtension: boolean,
-      is_disabled?: boolean,
-      is_experimental?: boolean,
-      is_source_public?: boolean,
-      last_updated: Date | null,
-      latest_unlisted_version?: ?ExternalAddonVersionType,
-      locale_disambiguation?: string,
-      name: string,
-      previews?: Array<PreviewType>,
-      promoted: PromotedType | null,
-      ratings?: {|
-        average: number,
-        bayesian_average: number,
-        count: number,
-        grouped_counts: GroupedRatingsType,
-        text_count: number,
+        authors?: Array<AddonAuthorType>,
+        average_daily_users?: number,
+        categories?: any,
+        contributions_url: UrlWithOutgoing | null,
+        created: Date,
+        currentVersionId: VersionIdType | null,
+        current_version?:
+          | ExternalAddonVersionType
+          | PartialExternalAddonVersionType,
+        default_locale: string,
+        description: string | null,
+        developer_comments: string | null,
+        edit_url?: string,
+        guid: string,
+        has_eula?: boolean,
+        has_privacy_policy?: boolean,
+        homepage: UrlWithOutgoing | null,
+        icon_url?: string,
+        id: number,
+        isMozillaSignedExtension: boolean,
+        isRestartRequired: boolean,
+        isWebExtension: boolean,
+        is_disabled?: boolean,
+        is_experimental?: boolean,
+        is_source_public?: boolean,
+        last_updated: Date | null,
+        latest_unlisted_version?: ?ExternalAddonVersionType,
+        locale_disambiguation?: string,
+        name: string,
+        previews?: Array<PreviewType>,
+        promoted: PromotedType | null,
+        ratings?: {|
+          average: number,
+          bayesian_average: number,
+          count: number,
+          grouped_counts: GroupedRatingsType,
+          text_count: number,
+        |},
+        requires_payment?: boolean,
+        review_url?: string,
+        slug: string,
+        status?: AddonStatusType,
+        summary: string | null,
+        support_email: string | null,
+        support_url: UrlWithOutgoing | null,
+        tags?: Array<string>,
+        target_locale?: string,
+        type: AddonTypeType,
+        url: string,
+        weekly_downloads: number,
       |},
-      requires_payment?: boolean,
-      review_url?: string,
-      slug: string,
-      status?: AddonStatusType,
-      summary: string | null,
-      support_email: string | null,
-      support_url: UrlWithOutgoing | null,
-      tags?: Array<string>,
-      target_locale?: string,
-      type: AddonTypeType,
-      url: string,
-      weekly_downloads: number,
-    |},
   addonInfo: null | AddonInfoType,
   addonInfoIsLoading: boolean,
   addonIsLoading: boolean,

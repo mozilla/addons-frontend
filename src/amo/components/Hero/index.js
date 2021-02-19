@@ -57,7 +57,7 @@ export class HeroBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|heroBanners: any|} => {
+export const mapStateToProps = (state: AppState): {| heroBanners: any |} => {
   return { heroBanners: state.heroBanners };
 };
 

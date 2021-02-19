@@ -33,7 +33,7 @@ type InternalProps = {|
 |};
 
 export class FlagReviewMenuBase extends React.Component<InternalProps> {
-  static defaultProps: {|isDeveloperReply: boolean|} = {
+  static defaultProps: {| isDeveloperReply: boolean |} = {
     isDeveloperReply: false,
   };
 

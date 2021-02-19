@@ -651,7 +651,7 @@ export const createAddonReview = ({
     score: number,
     versionId: number,
   |},
-  type: "CREATE_ADDON_REVIEW",
+  type: 'CREATE_ADDON_REVIEW',
 |} => {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
@@ -688,7 +688,7 @@ export const updateAddonReview = ({
     reviewId: number,
     score: void | number,
   |},
-  type: "UPDATE_ADDON_REVIEW",
+  type: 'UPDATE_ADDON_REVIEW',
 |} => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');
@@ -762,7 +762,7 @@ export const deleteAddonReview = ({
     isReplyToReviewId: void | number,
     reviewId: number,
   |},
-  type: "DELETE_ADDON_REVIEW",
+  type: 'DELETE_ADDON_REVIEW',
 |} => {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');

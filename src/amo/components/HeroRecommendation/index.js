@@ -1,7 +1,5 @@
 /* @flow */
-import type {CollectionAddonType, AddonType} from "../../types/addons";
-import type {SuggestionType} from "../../reducers/autocomplete";
-import type {PromotedCategoryType} from "../../constants";import makeClassName from 'classnames';
+import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -33,6 +31,10 @@ import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 
+import type { PromotedCategoryType } from '../../constants';
+import type { SuggestionType } from '../../reducers/autocomplete';
+import type { CollectionAddonType, AddonType } from '../../types/addons';
+
 import './styles.scss';
 
 export const PRIMARY_HERO_CLICK_ACTION = 'primary-hero-click';
@@ -60,24 +62,24 @@ export type InternalProps = {|
 
 export class HeroRecommendationBase extends React.Component<InternalProps> {
   static defaultProps: {|
-  _checkInternalURL: (
-    {|_config?: any, urlString: string|}
-  ) => {isInternal: boolean, relativeURL: string,...},
-  _getPromotedCategory: (
-    {|
+    _checkInternalURL: ({| _config?: any, urlString: string |}) => {
+      isInternal: boolean,
+      relativeURL: string,
+      ...
+    },
+    _getPromotedCategory: ({|
       addon: ?(AddonType | CollectionAddonType | SuggestionType),
       clientApp: string,
       forBadging?: boolean,
-    |}
-  ) => PromotedCategoryType | null,
-  _tracking: any,
-|} = {
+    |}) => PromotedCategoryType | null,
+    _tracking: any,
+  |} = {
     _checkInternalURL: checkInternalURL,
     _getPromotedCategory: getPromotedCategory,
     _tracking: tracking,
   };
 
-  makeCallToActionURL: (() => null | string) = () => {
+  makeCallToActionURL: () => null | string = () => {
     const { shelfData } = this.props;
     invariant(shelfData, 'The shelfData property is required');
 
@@ -101,7 +103,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       : null;
   };
 
-  onHeroClick: (() => void) = () => {
+  onHeroClick: () => void = () => {
     const { _tracking, shelfData } = this.props;
 
     invariant(shelfData, 'The shelfData property is required');
@@ -115,7 +117,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     });
   };
 
-  onHeroImpression: (() => void) = () => {
+  onHeroImpression: () => void = () => {
     const { _tracking, shelfData } = this.props;
 
     invariant(shelfData, 'The shelfData property is required');
@@ -145,7 +147,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     }
   }
 
-  render(): null | React.Element<"section"> {
+  render(): null | React.Element<'section'> {
     const {
       _checkInternalURL,
       _getPromotedCategory,

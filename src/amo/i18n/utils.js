@@ -17,7 +17,10 @@ const langMap = config.get('langMap');
 const supportedLangs: any = langs.concat(Object.keys(langMap));
 const rtlLangs = config.get('rtlLangs');
 
-export function localeToLang(locale?: any, log_?: typeof log = log): any | void | string {
+export function localeToLang(
+  locale?: any,
+  log_?: typeof log = log,
+): any | void | string {
   let lang;
   if (locale && locale.split) {
     const parts = locale.split('_');
@@ -40,7 +43,10 @@ export function localeToLang(locale?: any, log_?: typeof log = log): any | void 
   return lang;
 }
 
-export function langToLocale(language?: any, log_?: typeof log = log): any | void | string {
+export function langToLocale(
+  language?: any,
+  log_?: typeof log = log,
+): any | void | string {
   let locale;
   if (language && language.split) {
     const parts = language.split('-');
@@ -203,7 +209,13 @@ type GetLanguageParams = {|
  * - Return object with lang and isLangFromHeader hint.
  *
  */
-export function getLanguage({ lang, acceptLanguage }: GetLanguageParams = {}): {|isLangFromHeader: boolean, lang: any | void | string|} {
+export function getLanguage({
+  lang,
+  acceptLanguage,
+}: GetLanguageParams = {}): {|
+  isLangFromHeader: boolean,
+  lang: any | void | string,
+|} {
   let userLang = lang;
   let isLangFromHeader = false;
   // If we don't have a supported userLang yet try accept-language.

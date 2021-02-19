@@ -45,11 +45,11 @@ export const extractId = (props: Props | InternalProps): string => {
 };
 
 export class AddonReviewManagerBase extends React.Component<InternalProps> {
-  static defaultProps: {|puffyButtons: boolean|} = {
+  static defaultProps: {| puffyButtons: boolean |} = {
     puffyButtons: false,
   };
 
-  onSubmitRating: ((score: number) => void) = (score: number) => {
+  onSubmitRating: (score: number) => void = (score: number) => {
     const { errorHandler, dispatch, review } = this.props;
 
     dispatch(
@@ -61,7 +61,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     );
   };
 
-  onSubmitReview: ((OnSubmitParams) => void) = ({ text }: OnSubmitParams) => {
+  onSubmitReview: (OnSubmitParams) => void = ({ text }: OnSubmitParams) => {
     const { errorHandler, dispatch, review } = this.props;
 
     dispatch(
@@ -73,7 +73,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     );
   };
 
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const {
       errorHandler,
       i18n,

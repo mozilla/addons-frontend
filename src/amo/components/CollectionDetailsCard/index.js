@@ -62,7 +62,10 @@ export const CollectionDetailsCardBase = ({
   );
 };
 
-export const mapStateToProps = (state: AppState, ownProps: InternalProps): {|
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: InternalProps,
+): {|
   editingCollectionDetails: boolean,
   hasEditPermission: boolean,
   hasMaintainerPermission: boolean,

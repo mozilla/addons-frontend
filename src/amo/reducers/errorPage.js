@@ -52,20 +52,7 @@ type Action = LoadErrorPageAction;
 export default function errorPage(
   state: ErrorPageState = initialState,
   action: Action,
-): 
-  | ErrorPageState
-  | {|
-    clearOnNext: boolean,
-    error: ErrorType,
-    hasError: boolean,
-    statusCode: number,
-  |}
-  | {|
-    clearOnNext: boolean,
-    error: ErrorType | null,
-    hasError: boolean,
-    statusCode: number | null,
-  |} {
+): ErrorPageState {
   const { payload } = action;
 
   switch (action.type) {
@@ -83,7 +70,7 @@ export default function errorPage(
       // Default to a 500 error if we don't have a status code from our
       // response. See:
       // github.com/mozilla/addons-frontend/pull/1685#discussion_r99243105
-      let statusCode = 500;
+      let statusCode: number = 500;
       if (
         payload.error &&
         payload.error.response &&
@@ -92,9 +79,11 @@ export default function errorPage(
         statusCode = payload.error.response.status;
       }
 
+      const { error } = payload;
+
       return {
         ...state,
-        error: payload.error,
+        error,
         hasError: true,
         statusCode,
       };

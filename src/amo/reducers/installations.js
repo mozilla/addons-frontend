@@ -16,25 +16,27 @@ import {
 } from 'amo/constants';
 import type { AddonType } from 'amo/types/addons';
 
+export type InstalledAddonStatus =
+  | 'DISABLED'
+  | 'DISABLING'
+  | 'DOWNLOADING'
+  | 'ENABLED'
+  | 'ENABLING'
+  | 'ERROR'
+  | 'INACTIVE'
+  | 'INSTALLED'
+  | 'INSTALLING'
+  | 'UNINSTALLED'
+  | 'UNINSTALLING'
+  | 'UNKNOWN';
+
 export type InstalledAddon = {
   canUninstall?: boolean,
   downloadProgress?: number,
   error?: string,
   guid: $PropertyType<AddonType, 'guid'>,
   needsRestart?: boolean,
-  status:
-    | 'DISABLED'
-    | 'DISABLING'
-    | 'DOWNLOADING'
-    | 'ENABLED'
-    | 'ENABLING'
-    | 'ERROR'
-    | 'INACTIVE'
-    | 'INSTALLED'
-    | 'INSTALLING'
-    | 'UNINSTALLED'
-    | 'UNINSTALLING'
-    | 'UNKNOWN',
+  status: InstalledAddonStatus,
   url?: $PropertyType<AddonType, 'url'>,
 };
 
@@ -84,7 +86,7 @@ export const setInstallError = ({
 export default function installations(
   state: InstallationsState = {},
   { type, payload }: InstallationAction,
-): InstallationsState | {[$PropertyType<AddonType, "guid">]: InstalledAddon} {
+): InstallationsState | { [$PropertyType<AddonType, 'guid'>]: InstalledAddon } {
   function updateAddon(newProps: Object): InstalledAddon {
     const { guid } = payload;
     const addon = state[guid];

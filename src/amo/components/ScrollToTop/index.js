@@ -12,7 +12,7 @@ type Props = {|
 |};
 
 export class ScrollToTopBase extends React.Component<Props> {
-  static defaultProps: {|_window: any | null|} = {
+  static defaultProps: {| _window: any | null |} = {
     _window: typeof window !== 'undefined' ? window : null,
   };
 

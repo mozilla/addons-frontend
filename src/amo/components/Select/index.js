@@ -9,7 +9,11 @@ type Props = {
   children?: React.Node,
 };
 
-const Select = ({ children, className, ...selectProps }: Props): React.Element<"select"> => {
+const Select = ({
+  children,
+  className,
+  ...selectProps
+}: Props): React.Element<'select'> => {
   return (
     <select {...selectProps} className={makeClassName('Select', className)}>
       {children}

@@ -1,7 +1,5 @@
 /* @flow */
-import type {CollectionAddonType} from "../../types/addons";
-import type {SuggestionType} from "../../reducers/autocomplete";
-import type {PromotedCategoryType} from "../../constants";import * as React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -12,8 +10,11 @@ import { isQuantumCompatible } from 'amo/utils/compatibility';
 import Badge from 'amo/components/Badge';
 import PromotedBadge from 'amo/components/PromotedBadge';
 import type { AppState } from 'amo/store';
-import type { AddonType } from 'amo/types/addons';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
+
+import type { PromotedCategoryType } from '../../constants';
+import type { SuggestionType } from '../../reducers/autocomplete';
 
 import './styles.scss';
 
@@ -30,18 +31,16 @@ type InternalProps = {|
 
 export class AddonBadgesBase extends React.Component<InternalProps> {
   static defaultProps: {|
-  _getPromotedCategory: (
-    {|
+    _getPromotedCategory: ({|
       addon: ?(AddonType | CollectionAddonType | SuggestionType),
       clientApp: string,
       forBadging?: boolean,
-    |}
-  ) => PromotedCategoryType | null,
-|} = {
+    |}) => PromotedCategoryType | null,
+  |} = {
     _getPromotedCategory: getPromotedCategory,
   };
 
-  render(): null | React.Element<"div"> {
+  render(): null | React.Element<'div'> {
     const { _getPromotedCategory, addon, clientApp, i18n } = this.props;
 
     if (!addon) {
@@ -89,7 +88,9 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|clientApp: null | string|} => {
+export const mapStateToProps = (
+  state: AppState,
+): {| clientApp: null | string |} => {
   return {
     clientApp: state.api.clientApp,
   };

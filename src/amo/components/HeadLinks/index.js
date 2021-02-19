@@ -23,7 +23,7 @@ type InternalProps = {|
 |};
 
 export class HeadLinksBase extends React.PureComponent<InternalProps> {
-  static defaultProps: {|_config: any, _hrefLangs: any|} = {
+  static defaultProps: {| _config: any, _hrefLangs: any |} = {
     _config: config,
     _hrefLangs: hrefLangs,
   };

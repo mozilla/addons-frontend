@@ -73,20 +73,7 @@ type Action =
 export default function siteReducer(
   state: SiteState = initialState,
   action: Action,
-): 
-  | SiteState
-  | {
-    loadedPageIsAnonymous: boolean,
-    notice: null | string,
-    readOnly: boolean,
-    ...,
-  }
-  | {
-    loadedPageIsAnonymous: boolean,
-    notice: string | null,
-    readOnly: boolean,
-    ...,
-  } {
+): SiteState {
   switch (action.type) {
     case LOAD_SITE_STATUS:
       return {

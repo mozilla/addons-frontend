@@ -52,12 +52,14 @@ export const extractId = (ownProps: Props | InternalProps): string => {
 };
 
 export class EditableCollectionAddonBase extends React.Component<InternalProps> {
-  onEditNote: ((event: SyntheticEvent<HTMLElement>) => void) = (event: SyntheticEvent<HTMLElement>) => {
+  onEditNote: (event: SyntheticEvent<HTMLElement>) => void = (
+    event: SyntheticEvent<HTMLElement>,
+  ) => {
     event.preventDefault();
     this.props.setUIState({ editingNote: true });
   };
 
-  onDeleteNote: (() => void) = () => {
+  onDeleteNote: () => void = () => {
     const {
       addon: { id: addonId },
       deleteNote,
@@ -67,11 +69,13 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
     deleteNote(addonId, errorHandler);
   };
 
-  onDismissNoteForm: (() => void) = () => {
+  onDismissNoteForm: () => void = () => {
     this.props.setUIState({ editingNote: false });
   };
 
-  onRemoveAddon: ((event: SyntheticEvent<HTMLButtonElement>) => void) = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onRemoveAddon: (event: SyntheticEvent<HTMLButtonElement>) => void = (
+    event: SyntheticEvent<HTMLButtonElement>,
+  ) => {
     const {
       addon: { id: addonId },
       removeAddon,
@@ -85,7 +89,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
     removeAddon(addonId);
   };
 
-  onSaveNote: ((notes: OnSubmitParams) => void) = (notes: OnSubmitParams) => {
+  onSaveNote: (notes: OnSubmitParams) => void = (notes: OnSubmitParams) => {
     const {
       addon: { id: addonId },
       errorHandler,
@@ -97,7 +101,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
     saveNote(addonId, errorHandler, notes.text);
   };
 
-  render(): React.Element<"li"> {
+  render(): React.Element<'li'> {
     const { addon, className, errorHandler, i18n } = this.props;
     const showNotes = addon.notes || this.props.uiState.editingNote;
     const iconURL = getAddonIconUrl(addon);

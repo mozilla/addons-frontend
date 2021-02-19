@@ -219,7 +219,7 @@ export function selectReviewPermissions({
   reviewsState: ReviewsState,
   addonId: number,
   userId: number,
-|}): void | {|canReplyToReviews: boolean | null, loading: boolean|} {
+|}): void | {| canReplyToReviews: boolean | null, loading: boolean |} {
   return reviewsState.permissions[makePermissionsKey({ addonId, userId })];
 }
 
@@ -360,14 +360,15 @@ export const addReviewToState = ({
   byId: ReviewsById,
   byUserId: ReviewsByUserId,
   flashMessage?: FlashMessageType,
-  latestUserReview: {[userIdAddonId: string]: number | null},
-  loadingForSlug: {[slug: string]: boolean},
+  latestUserReview: { [userIdAddonId: string]: number | null },
+  loadingForSlug: { [slug: string]: boolean },
   permissions: {
-    [addonIdAndUserId: string]: 
-      | {|canReplyToReviews: boolean | null, loading: boolean|}
-      | void,
+    [addonIdAndUserId: string]: {|
+      canReplyToReviews: boolean | null,
+      loading: boolean,
+    |} | void,
   },
-  view: {[reviewId: number]: ViewStateByReviewId},
+  view: { [reviewId: number]: ViewStateByReviewId },
 |} => {
   const existingReview = selectReview(state, review.id);
   const ratingOrReviewExists = Boolean(existingReview);
@@ -445,7 +446,7 @@ export default function reviewsReducer(
   {
     _addReviewToState = addReviewToState,
   }: {| _addReviewToState: typeof addReviewToState |} = {},
-) {
+): ReviewsState {
   switch (action.type) {
     case BEGIN_DELETE_ADDON_REVIEW:
       return changeViewState({

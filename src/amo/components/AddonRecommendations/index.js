@@ -42,7 +42,7 @@ type Props = {|
 |};
 
 export class AddonRecommendationsBase extends React.Component<Props> {
-  static defaultProps: {|recommendations: null, tracking: any|} = {
+  static defaultProps: {| recommendations: null, tracking: any |} = {
     recommendations: null,
     tracking: defaultTracking,
   };

@@ -97,7 +97,10 @@ export class SearchPageBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps): {|clientApp: null | string, filters: any, lang: null | string|} {
+export function mapStateToProps(
+  state: AppState,
+  ownProps: InternalProps,
+): {| clientApp: null | string, filters: any, lang: null | string |} {
   const { location } = ownProps;
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);

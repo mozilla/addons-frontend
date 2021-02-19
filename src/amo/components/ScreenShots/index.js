@@ -76,7 +76,7 @@ type Props = {|
 |};
 
 export default class ScreenShots extends React.Component<Props> {
-  onClose: ((photoswipe: any) => void) = (photoswipe: Object) => {
+  onClose: (photoswipe: any) => void = (photoswipe: Object) => {
     const index = photoswipe.getCurrentIndex();
 
     invariant(this.viewport, 'viewport ref is required');
@@ -92,7 +92,7 @@ export default class ScreenShots extends React.Component<Props> {
 
   viewport: HTMLElement | null;
 
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const { previews } = this.props;
 
     return (

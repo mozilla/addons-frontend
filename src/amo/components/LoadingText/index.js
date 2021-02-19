@@ -13,9 +13,9 @@ type Props = {|
 const possibleWidths = [20, 40, 60, 80, 100];
 
 export default class LoadingText extends React.Component<Props> {
-  static defaultProps: {|minWidth: number|} = { minWidth: 20 };
+  static defaultProps: {| minWidth: number |} = { minWidth: 20 };
 
-  render(): React.Element<"span"> {
+  render(): React.Element<'span'> {
     const { className, minWidth, width } = this.props;
 
     // We start each animation with a slightly different delay so content

@@ -1,5 +1,4 @@
 /* @flow */
-import type {MozAddonManagerType} from "../../addonManager";/* global Navigator, navigator */
 import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
@@ -35,6 +34,9 @@ import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
 import type { I18nType } from 'amo/types/i18n';
+
+import type { MozAddonManagerType } from '../../addonManager'; /* global Navigator, navigator */
+
 /* eslint-enable import/first */
 
 interface MozNavigator extends Navigator {
@@ -56,7 +58,7 @@ type Props = {|
   userAgent: string,
 |};
 
-export function getErrorPage(status: number | null): (() => any) {
+export function getErrorPage(status: number | null): () => any {
   switch (status) {
     case 401:
       return NotAuthorizedPage;
@@ -71,34 +73,30 @@ export class AppBase extends React.Component<Props> {
   scheduledLogout: TimeoutID;
 
   static defaultProps: {|
-  _addChangeListeners: (
-    callback: (
-      {|
+    _addChangeListeners: (
+      callback: ({|
         canUninstall: boolean,
         guid: string,
         needsRestart: boolean,
-        status: $Values<
-          {|
-            onDisabled: string,
-            onDisabling: string,
-            onEnabled: string,
-            onEnabling: string,
-            onInstalled: string,
-            onInstalling: string,
-            onUninstalled: string,
-            onUninstalling: string,
-          |},
-        >,
-      |}
-    ) => void,
-    mozAddonManager: MozAddonManagerType,
-    _?: {|_log: any|}
-  ) => any,
-  _navigator: Navigator | null,
-  authTokenValidFor: any,
-  mozAddonManager: any | {...} | void,
-  userAgent: null,
-|} = {
+        status: $Values<{|
+          onDisabled: string,
+          onDisabling: string,
+          onEnabled: string,
+          onEnabling: string,
+          onInstalled: string,
+          onInstalling: string,
+          onUninstalled: string,
+          onUninstalling: string,
+        |}>,
+      |}) => void,
+      mozAddonManager: MozAddonManagerType,
+      _?: {| _log: any |},
+    ) => any,
+    _navigator: Navigator | null,
+    authTokenValidFor: any,
+    mozAddonManager: any | { ... } | void,
+    userAgent: null,
+  |} = {
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
     authTokenValidFor: config.get('authTokenValidFor'),
@@ -246,7 +244,9 @@ export class AppBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|
+export const mapStateToProps = (
+  state: AppState,
+): {|
   authToken: null | string,
   clientApp: null | string,
   lang: null | string,
@@ -258,7 +258,9 @@ export const mapStateToProps = (state: AppState): {|
   userAgent: state.api.userAgent,
 });
 
-export function mapDispatchToProps(dispatch: DispatchFunc): {|
+export function mapDispatchToProps(
+  dispatch: DispatchFunc,
+): {|
   handleGlobalEvent(payload: InstalledAddon): void,
   logOutUser(): void,
   setUserAgent(userAgent: string): void,

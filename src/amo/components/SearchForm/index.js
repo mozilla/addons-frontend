@@ -28,14 +28,16 @@ type Props = {|
 |};
 
 export class SearchFormBase extends React.Component<Props> {
-  onSearch: ((filters: SearchFilters) => void) = (filters: SearchFilters) => {
+  onSearch: (filters: SearchFilters) => void = (filters: SearchFilters) => {
     this.props.history.push({
       pathname: this.baseSearchURL(),
       query: convertFiltersToQueryParams(filters),
     });
   };
 
-  onSuggestionSelected: ((suggestion: SuggestionType) => void) = (suggestion: SuggestionType) => {
+  onSuggestionSelected: (suggestion: SuggestionType) => void = (
+    suggestion: SuggestionType,
+  ) => {
     const { pathname } = url.parse(suggestion.url);
 
     if (pathname) {

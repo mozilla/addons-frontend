@@ -1,5 +1,5 @@
 /* @flow */
-import type {ViewContextType} from "../../reducers/viewContext";import deepEqual from 'deep-eql';
+import deepEqual from 'deep-eql';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
@@ -36,6 +36,8 @@ import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 
+import type { ViewContextType } from '../../reducers/viewContext';
+
 import './styles.scss';
 
 type Props = {|
@@ -61,15 +63,15 @@ type InternalProps = {|
 
 export class SearchBase extends React.Component<InternalProps> {
   static defaultProps: {|
-  LinkComponent: any,
-  count: number,
-  enableSearchFilters: boolean,
-  filters: {...},
-  filtersUsedForResults: {...},
-  paginationQueryParams: null,
-  pathname: string,
-  results: Array<any>,
-|} = {
+    LinkComponent: any,
+    count: number,
+    enableSearchFilters: boolean,
+    filters: { ... },
+    filtersUsedForResults: { ... },
+    paginationQueryParams: null,
+    pathname: string,
+    results: Array<any>,
+  |} = {
     LinkComponent: Link,
     count: 0,
     enableSearchFilters: true,
@@ -227,7 +229,7 @@ export class SearchBase extends React.Component<InternalProps> {
     );
   }
 
-  render(): React.Node | React.Element<"div"> {
+  render(): React.Node | React.Element<'div'> {
     const {
       LinkComponent,
       count,
@@ -297,7 +299,9 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|
+export const mapStateToProps = (
+  state: AppState,
+): {|
   context: ViewContextType,
   count: number,
   filtersUsedForResults: null | SearchFiltersType,

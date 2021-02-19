@@ -83,12 +83,12 @@ const TRANSITION_TIMEOUT = 150;
 
 export class AMInstallButtonBase extends React.Component<InternalProps> {
   static defaultProps: {|
-  _config: any,
-  _log: any,
-  _tracking: any,
-  _window: any | {...},
-  puffy: boolean,
-|} = {
+    _config: any,
+    _log: any,
+    _tracking: any,
+    _window: any | { ... },
+    puffy: boolean,
+  |} = {
     _config: config,
     _log: log,
     _tracking: tracking,
@@ -96,7 +96,9 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     puffy: true,
   };
 
-  installOpenSearch: ((event: SyntheticEvent<HTMLAnchorElement>) => boolean) = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  installOpenSearch: (event: SyntheticEvent<HTMLAnchorElement>) => boolean = (
+    event: SyntheticEvent<HTMLAnchorElement>,
+  ) => {
     const { _log, _window, addon } = this.props;
 
     event.preventDefault();
@@ -116,7 +118,9 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     return false;
   };
 
-  installExtension: ((event: SyntheticEvent<HTMLAnchorElement>) => Promise<boolean>) = async (event: SyntheticEvent<HTMLAnchorElement>) => {
+  installExtension: (
+    event: SyntheticEvent<HTMLAnchorElement>,
+  ) => Promise<boolean> = async (event: SyntheticEvent<HTMLAnchorElement>) => {
     const { addon, enable, install, isAddonEnabled } = this.props;
 
     event.preventDefault();
@@ -135,7 +139,9 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     return false;
   };
 
-  uninstallAddon: ((event: SyntheticEvent<HTMLAnchorElement>) => boolean) = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  uninstallAddon: (event: SyntheticEvent<HTMLAnchorElement>) => boolean = (
+    event: SyntheticEvent<HTMLAnchorElement>,
+  ) => {
     const { addon, uninstall } = this.props;
     const { guid, name, type } = addon;
 
@@ -147,7 +153,9 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     return false;
   };
 
-  enableAddon: ((event: SyntheticEvent<HTMLAnchorElement>) => boolean) = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  enableAddon: (event: SyntheticEvent<HTMLAnchorElement>) => boolean = (
+    event: SyntheticEvent<HTMLAnchorElement>,
+  ) => {
     const { enable } = this.props;
 
     event.preventDefault();
@@ -348,7 +356,9 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState): {|userAgentInfo: UserAgentInfoType|} {
+export function mapStateToProps(
+  state: AppState,
+): {| userAgentInfo: UserAgentInfoType |} {
   return {
     userAgentInfo: state.api.userAgentInfo,
   };

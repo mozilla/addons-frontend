@@ -33,7 +33,9 @@ type InternalProps = {|
 const initialUIState: UIStateType = { expanded: false };
 
 export class ExpandableCardBase extends React.Component<InternalProps> {
-  onClick: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
+  onClick: (event: SyntheticEvent<any>) => void = (
+    event: SyntheticEvent<any>,
+  ) => {
     const { uiState } = this.props;
     event.preventDefault();
 

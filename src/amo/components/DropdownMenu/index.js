@@ -27,7 +27,9 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     this.state = { buttonIsActive: false };
   }
 
-  handleOnClick: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
+  handleOnClick: (event: SyntheticEvent<any>) => void = (
+    event: SyntheticEvent<any>,
+  ) => {
     event.preventDefault();
 
     this.setState((previousState) => ({
@@ -35,7 +37,9 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     }));
   };
 
-  handleOnClickForLinks: ((event: SyntheticInputEvent<any>) => void) = (event: SyntheticInputEvent<any>) => {
+  handleOnClickForLinks: (event: SyntheticInputEvent<any>) => void = (
+    event: SyntheticInputEvent<any>,
+  ) => {
     // If a link inside the menu is clicked, we should close the dropdown.
     // See: https://github.com/mozilla/addons-frontend/issues/3452
     if (event.target && event.target.tagName === 'A') {
@@ -45,19 +49,19 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     }
   };
 
-  handleClickOutside: (() => void) = () => {
+  handleClickOutside: () => void = () => {
     this.setState({ buttonIsActive: false });
   };
 
-  handleOnMouseEnter: (() => void) = () => {
+  handleOnMouseEnter: () => void = () => {
     this.setState({ buttonIsActive: true });
   };
 
-  handleOnMouseLeave: (() => void) = () => {
+  handleOnMouseLeave: () => void = () => {
     this.setState({ buttonIsActive: false });
   };
 
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const { children, className, text } = this.props;
 
     // ESLint doesn't like the event handlers we attach to the

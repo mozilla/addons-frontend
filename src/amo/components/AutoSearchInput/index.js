@@ -91,7 +91,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
   searchInput: React.ElementRef<'input'> | null;
 
-  static defaultProps: {|debounce: any, showInputLabel: boolean|} = {
+  static defaultProps: {| debounce: any, showInputLabel: boolean |} = {
     debounce: defaultDebounce,
     showInputLabel: true,
   };
@@ -128,7 +128,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     return location.query[inputName] || '';
   }
 
-  createFiltersFromQuery(query: string) {
+  createFiltersFromQuery(query: string): Object {
     const { location } = this.props;
     // Preserve any existing search filters.
     let filtersFromLocation = {};
@@ -153,12 +153,12 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     };
   }
 
-  handleSuggestionsClearRequested: (() => void) = () => {
+  handleSuggestionsClearRequested: () => void = () => {
     this.setState({ autocompleteIsOpen: false });
     this.props.dispatch(autocompleteCancel());
   };
 
-  handleSuggestionsFetchRequested: ((OnSuggestionsFetchRequestedParams) => void) = ({
+  handleSuggestionsFetchRequested: (OnSuggestionsFetchRequestedParams) => void = ({
     value,
   }: OnSuggestionsFetchRequestedParams) => {
     if (!value) {
@@ -206,7 +206,9 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     return this.props.suggestions;
   }
 
-  handleSearch: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
+  handleSearch: (event: SyntheticEvent<any>) => void = (
+    event: SyntheticEvent<any>,
+  ) => {
     event.preventDefault();
 
     if (this.searchInput) {
@@ -232,7 +234,10 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     }
   };
 
-  handleSearchChange: ((event: SyntheticEvent<HTMLInputElement>, OnSearchChangeParams) => void) = (
+  handleSearchChange: (
+    event: SyntheticEvent<HTMLInputElement>,
+    OnSearchChangeParams,
+  ) => void = (
     event: SyntheticEvent<HTMLInputElement>,
     { newValue }: OnSearchChangeParams,
   ) => {
@@ -242,7 +247,10 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     }
   };
 
-  handleSuggestionSelected: ((event: SyntheticEvent<any>, {|suggestion: SuggestionType|}) => void) = (
+  handleSuggestionSelected: (
+    event: SyntheticEvent<any>,
+    {| suggestion: SuggestionType |},
+  ) => void = (
     event: SyntheticEvent<any>,
     { suggestion }: {| suggestion: SuggestionType |},
   ) => {
@@ -257,7 +265,9 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     this.props.onSuggestionSelected(suggestion);
   };
 
-  renderSuggestion: ((suggestion: SuggestionType) => React.Node) = (suggestion: SuggestionType) => {
+  renderSuggestion: (suggestion: SuggestionType) => React.Node = (
+    suggestion: SuggestionType,
+  ) => {
     const { loadingSuggestions, selectSuggestionText } = this.props;
 
     return (
@@ -269,7 +279,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     );
   };
 
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const {
       errorHandler,
       i18n,

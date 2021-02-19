@@ -41,6 +41,7 @@ const render = (
   return <HeroRecommendationBase {...props} />;
 };
 
+// $FlowIgnore: flow doesn't like module to be used in this way, let's not care about flow options here.
 storiesOf('HeroRecommendation', module)
   .addParameters({ component: HeroRecommendationBase })
   .addDecorator((story) => (

@@ -39,7 +39,9 @@ type InternalProps = {|
 |};
 
 export class CollectionDetailsBase extends React.Component<InternalProps> {
-  onEditDetails: ((event: SyntheticEvent<HTMLButtonElement>) => void) = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onEditDetails: (event: SyntheticEvent<HTMLButtonElement>) => void = (
+    event: SyntheticEvent<HTMLButtonElement>,
+  ) => {
     const { dispatch } = this.props;
 
     event.preventDefault();
@@ -48,7 +50,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
     dispatch(beginEditingCollectionDetails());
   };
 
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const {
       collection,
       editing,

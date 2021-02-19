@@ -142,7 +142,9 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|
+export const mapStateToProps = (
+  state: AppState,
+): {|
   hasCodeReviewPermission: boolean,
   hasContentReviewPermission: boolean,
   hasEditPermission: boolean,

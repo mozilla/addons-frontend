@@ -70,7 +70,14 @@ export class DismissibleTextFormBase extends React.Component<
 
   textarea: React.ElementRef<typeof Textarea>;
 
-  static defaultProps = {
+  static defaultProps: {|
+    _createLocalState: typeof createLocalState,
+    _debounce: typeof debounce,
+    isSubmitting: boolean,
+    microButtons: boolean,
+    puffyButtons: boolean,
+    reverseButtonOrder: boolean,
+  |} = {
     _createLocalState: createLocalState,
     _debounce: debounce,
     isSubmitting: false,
@@ -117,7 +124,9 @@ export class DismissibleTextFormBase extends React.Component<
     }
   }
 
-  onDelete: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
+  onDelete: (event: SyntheticEvent<any>) => void = (
+    event: SyntheticEvent<any>,
+  ) => {
     event.preventDefault();
 
     invariant(this.props.onDelete, 'onDelete() is not defined');
@@ -125,7 +134,9 @@ export class DismissibleTextFormBase extends React.Component<
     this.localState.clear();
   };
 
-  onDismiss: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
+  onDismiss: (event: SyntheticEvent<any>) => void = (
+    event: SyntheticEvent<any>,
+  ) => {
     const { onDismiss } = this.props;
     event.preventDefault();
     invariant(onDismiss, 'onDismiss() is required');
@@ -135,7 +146,9 @@ export class DismissibleTextFormBase extends React.Component<
     this.localState.clear();
   };
 
-  onSubmit: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
+  onSubmit: (event: SyntheticEvent<any>) => void = (
+    event: SyntheticEvent<any>,
+  ) => {
     event.preventDefault();
     this.props.onSubmit({ event, text: this.state.text });
     this.localState.clear();
@@ -151,7 +164,9 @@ export class DismissibleTextFormBase extends React.Component<
     { trailing: true },
   );
 
-  onTextChange: ((event: ElementEvent<HTMLInputElement>) => void) = (event: ElementEvent<HTMLInputElement>) => {
+  onTextChange: (event: ElementEvent<HTMLInputElement>) => void = (
+    event: ElementEvent<HTMLInputElement>,
+  ) => {
     event.preventDefault();
 
     const newState = { text: event.target.value };
@@ -159,7 +174,7 @@ export class DismissibleTextFormBase extends React.Component<
     this.persistState(newState);
   };
 
-  render(): React.Element<"form"> {
+  render(): React.Element<'form'> {
     const {
       className,
       dismissButtonText,

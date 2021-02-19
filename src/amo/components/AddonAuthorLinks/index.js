@@ -1,5 +1,5 @@
 /* @flow */
-import type {UserId} from "../../reducers/users";import * as React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -9,6 +9,8 @@ import DefinitionList, { Definition } from 'amo/components/DefinitionList';
 import type { I18nType } from 'amo/types/i18n';
 import type { AppState } from 'amo/store';
 import { isAddonAuthor } from 'amo/utils';
+
+import type { UserId } from '../../reducers/users';
 
 type Props = {|
   addon: AddonType | null,
@@ -64,7 +66,9 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|currentUserID: null | UserId|} => {
+export const mapStateToProps = (
+  state: AppState,
+): {| currentUserID: null | UserId |} => {
   return {
     currentUserID: state.users.currentUserID,
   };

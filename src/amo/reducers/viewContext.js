@@ -24,12 +24,14 @@ export type ViewContextActionType = {|
   payload: ViewContextState,
 |};
 
-export const initialState = { context: VIEW_CONTEXT_EXPLORE };
+export const initialState: ViewContextState = {
+  context: VIEW_CONTEXT_EXPLORE,
+};
 
 export default function viewContext(
   state: ViewContextState = initialState,
   action: ViewContextActionType,
-): ViewContextState | {|context: ViewContextType|} {
+): ViewContextState {
   switch (action.type) {
     case SET_VIEW_CONTEXT:
       return { ...state, context: action.payload.context };

@@ -486,12 +486,15 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props): {|
-  canAdminUser: boolean,
-  canEditProfile: boolean,
+export function mapStateToProps(
+  state: AppState,
+  ownProps: Props,
+): {|
+  canAdminUser: ?boolean,
+  canEditProfile: ?boolean,
   clientApp: null | string,
   currentUser: any | null,
-  isOwner: boolean,
+  isOwner: ?boolean,
   lang: null | string,
   pageSize: string | null,
   reviewCount: number | null,
