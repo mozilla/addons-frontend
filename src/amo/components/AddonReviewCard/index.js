@@ -81,7 +81,13 @@ type InternalProps = {|
 |};
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+  flaggable: boolean,
+  shortByLine: boolean,
+  showControls: boolean,
+  showRating: boolean,
+  slim: boolean,
+|} = {
     flaggable: true,
     shortByLine: false,
     showControls: true,
@@ -89,7 +95,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     slim: false,
   };
 
-  onBeginDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+  onBeginDeleteReview: ((event: SyntheticEvent<HTMLElement>) => void) = (event: SyntheticEvent<HTMLElement>) => {
     const { dispatch, review } = this.props;
     event.preventDefault();
 
@@ -97,7 +103,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(beginDeleteAddonReview({ reviewId: review.id }));
   };
 
-  onCancelDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+  onCancelDeleteReview: ((event: SyntheticEvent<HTMLElement>) => void) = (event: SyntheticEvent<HTMLElement>) => {
     const { dispatch, review } = this.props;
     event.preventDefault();
 
@@ -105,7 +111,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(cancelDeleteAddonReview({ reviewId: review.id }));
   };
 
-  onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+  onClickToDeleteReview: ((event: SyntheticEvent<HTMLElement>) => void) = (event: SyntheticEvent<HTMLElement>) => {
     const { dispatch, errorHandler, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
@@ -120,7 +126,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   };
 
-  onClickToEditReview = (event: SyntheticEvent<any>) => {
+  onClickToEditReview: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     const { dispatch, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
@@ -135,14 +141,14 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     }
   };
 
-  onCancelEditReview = () => {
+  onCancelEditReview: (() => void) = () => {
     const { dispatch, review } = this.props;
     invariant(review, 'review is required');
 
     dispatch(hideEditReviewForm({ reviewId: review.id }));
   };
 
-  onClickToBeginReviewReply = (event: SyntheticEvent<any>) => {
+  onClickToBeginReviewReply: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     const { dispatch, review } = this.props;
     if (!review) {
@@ -152,7 +158,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(showReplyToReviewForm({ reviewId: review.id }));
   };
 
-  onDismissReviewReply = () => {
+  onDismissReviewReply: (() => void) = () => {
     const { dispatch, review } = this.props;
     if (!review) {
       log.debug('Cannot hide review form because no review has been loaded.');
@@ -161,7 +167,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(hideReplyToReviewForm({ reviewId: review.id }));
   };
 
-  onSubmitReviewReply = (reviewData: OnSubmitParams) => {
+  onSubmitReviewReply: ((reviewData: OnSubmitParams) => void) = (reviewData: OnSubmitParams) => {
     const { dispatch, errorHandler, review } = this.props;
     if (!review) {
       throw new Error(
@@ -178,13 +184,13 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   };
 
-  isRatingOnly() {
+  isRatingOnly(): ?boolean {
     const { review } = this.props;
     // Return true if this review does not have any text.
     return review && !review.body;
   }
 
-  isReply() {
+  isReply(): boolean {
     const { isReplyToReviewId, review } = this.props;
     return (
       isReplyToReviewId !== undefined ||
@@ -192,7 +198,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   }
 
-  editPrompt() {
+  editPrompt(): string {
     const { i18n } = this.props;
 
     if (this.isReply()) {
@@ -202,7 +208,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Edit review');
   }
 
-  deletePrompt() {
+  deletePrompt(): string {
     const { i18n } = this.props;
 
     if (this.isReply()) {
@@ -216,7 +222,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Delete review');
   }
 
-  confirmDeletePrompt() {
+  confirmDeletePrompt(): string {
     const { i18n } = this.props;
 
     if (this.isReply()) {
@@ -230,7 +236,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Do you really want to delete this review?');
   }
 
-  confirmDeleteButtonText() {
+  confirmDeleteButtonText(): string {
     const { i18n, slim } = this.props;
 
     if (!slim) {
@@ -248,7 +254,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Delete review');
   }
 
-  cancelDeleteButtonText() {
+  cancelDeleteButtonText(): string {
     const { i18n, slim } = this.props;
 
     if (!slim) {
@@ -266,7 +272,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Keep review');
   }
 
-  renderReply() {
+  renderReply(): null | React.Element<"div"> {
     const {
       addon,
       errorHandler,
@@ -325,7 +331,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Element<"div"> {
     const {
       beginningToDeleteReview,
       className,
@@ -590,7 +596,16 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props) {
+export function mapStateToProps(state: AppState, ownProps: Props): {|
+  beginningToDeleteReview: boolean,
+  deletingReview: boolean,
+  editingReview: boolean,
+  hasUsersEditPermission: boolean,
+  replyingToReview: boolean,
+  siteUser: any,
+  siteUserCanManageReplies: boolean,
+  submittingReply: boolean,
+|} {
   let beginningToDeleteReview = false;
   let deletingReview = false;
   let editingReview = false;

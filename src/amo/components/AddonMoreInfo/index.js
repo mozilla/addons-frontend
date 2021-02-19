@@ -1,5 +1,5 @@
 /* @flow */
-import * as React from 'react';
+import type {UserId} from "../../reducers/users";import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -40,7 +40,7 @@ type InternalProps = {|
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
-  listContent() {
+  listContent(): React.Node {
     const {
       addon,
       currentVersion,
@@ -213,7 +213,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     versionLastUpdated,
     versionLicenseLink = null,
     versionHistoryLink = null,
-  }: Object) {
+  }: Object): React.Node {
     const { addon, i18n } = this.props;
     return (
       <>
@@ -303,7 +303,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { i18n } = this.props;
 
     return (
@@ -314,7 +314,12 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (state: AppState, ownProps: Props): {|
+  currentVersion: null | AddonVersionType,
+  hasStatsPermission: boolean,
+  userId: null | UserId,
+  versionInfo: null | VersionInfoType,
+|} => {
   const { addon, i18n } = ownProps;
   let currentVersion = null;
   let versionInfo = null;

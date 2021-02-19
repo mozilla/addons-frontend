@@ -31,7 +31,7 @@ export const ContributeCardBase = ({
   _tracking = tracking,
   addon,
   i18n,
-}: InternalProps) => {
+}: InternalProps): null | React.Node => {
   if (!addon || (addon && !addon.contributions_url)) {
     return null;
   }

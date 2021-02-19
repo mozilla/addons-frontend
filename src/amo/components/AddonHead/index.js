@@ -39,11 +39,19 @@ type InternalProps = {|
 |};
 
 export class AddonHeadBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+  _getAddonJsonLinkedData: (
+    {|
+      addon: AddonType,
+      currentVersion: AddonVersionType | null,
+      ratingThreshold?: number,
+    |}
+  ) => any,
+|} = {
     _getAddonJsonLinkedData: getAddonJsonLinkedData,
   };
 
-  getPageTitle() {
+  getPageTitle(): string {
     const { addon, clientApp, i18n, lang } = this.props;
 
     invariant(addon, 'addon is required');
@@ -114,7 +122,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     return i18n.sprintf(localizedTitle, i18nValues);
   }
 
-  getPageDescription() {
+  getPageDescription(): string {
     const { addon, i18n } = this.props;
 
     invariant(addon, 'addon is required');
@@ -128,7 +136,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): null | React.Node {
     const {
       _getAddonJsonLinkedData,
       addon,

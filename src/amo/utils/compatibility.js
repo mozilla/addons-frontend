@@ -83,7 +83,7 @@ export const isFirefox = ({
   userAgentInfo,
 }: {|
   userAgentInfo: UserAgentInfoType,
-|}) => {
+|}): boolean => {
   invariant(userAgentInfo, 'userAgentInfo is required');
 
   return userAgentInfo.browser.name === 'Firefox';
@@ -341,7 +341,7 @@ export const isQuantumCompatible = ({
   return addon.isWebExtension || addon.isMozillaSignedExtension;
 };
 
-export const getMobileHomepageLink = (lang: string) =>
+export const getMobileHomepageLink = (lang: string): string =>
   `/${lang}/${CLIENT_APP_ANDROID}/`;
 
 export const correctedLocationForPlatform = ({

@@ -350,4 +350,4 @@ export const formatDataForBeacon = ({
   return formData;
 };
 
-export default new Tracking();
+export default (new Tracking(): Tracking);

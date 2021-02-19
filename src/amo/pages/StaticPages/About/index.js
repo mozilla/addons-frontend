@@ -11,7 +11,7 @@ type Props = {|
 |};
 
 export class AboutBase extends React.Component<Props> {
-  render() {
+  render(): React.Node {
     const { i18n } = this.props;
 
     return (
@@ -231,4 +231,4 @@ export class AboutBase extends React.Component<Props> {
   }
 }
 
-export default translate()(AboutBase);
+export default (translate()(AboutBase): React.ComponentType<any>);

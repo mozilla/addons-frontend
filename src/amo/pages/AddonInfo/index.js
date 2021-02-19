@@ -1,5 +1,18 @@
 /* @flow */
-import makeClassName from 'classnames';
+import type {UrlWithOutgoing} from "../../types/api";
+import type {
+  PromotedType,
+  PreviewType,
+  GroupedRatingsType,
+  AddonStatusType,
+  AddonAuthorType,
+} from "../../types/addons";
+import type {
+  VersionIdType,
+  PartialExternalAddonVersionType,
+  ExternalAddonVersionType,
+} from "../../reducers/versions";
+import type {AddonTypeType} from "../../constants";import makeClassName from 'classnames';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
@@ -134,7 +147,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const {
       addon,
       addonInfo,
@@ -216,7 +229,68 @@ export class AddonInfoBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+export function mapStateToProps(state: AppState, ownProps: InternalProps): {|
+  addon: 
+    | null
+    | AddonType
+    | {|
+      authors?: Array<AddonAuthorType>,
+      average_daily_users?: number,
+      categories?: any,
+      contributions_url: UrlWithOutgoing | null,
+      created: Date,
+      currentVersionId: VersionIdType | null,
+      current_version?: 
+        | ExternalAddonVersionType
+        | PartialExternalAddonVersionType,
+      default_locale: string,
+      description: string | null,
+      developer_comments: string | null,
+      edit_url?: string,
+      guid: string,
+      has_eula?: boolean,
+      has_privacy_policy?: boolean,
+      homepage: UrlWithOutgoing | null,
+      icon_url?: string,
+      id: number,
+      isMozillaSignedExtension: boolean,
+      isRestartRequired: boolean,
+      isWebExtension: boolean,
+      is_disabled?: boolean,
+      is_experimental?: boolean,
+      is_source_public?: boolean,
+      last_updated: Date | null,
+      latest_unlisted_version?: ?ExternalAddonVersionType,
+      locale_disambiguation?: string,
+      name: string,
+      previews?: Array<PreviewType>,
+      promoted: PromotedType | null,
+      ratings?: {|
+        average: number,
+        bayesian_average: number,
+        count: number,
+        grouped_counts: GroupedRatingsType,
+        text_count: number,
+      |},
+      requires_payment?: boolean,
+      review_url?: string,
+      slug: string,
+      status?: AddonStatusType,
+      summary: string | null,
+      support_email: string | null,
+      support_url: UrlWithOutgoing | null,
+      tags?: Array<string>,
+      target_locale?: string,
+      type: AddonTypeType,
+      url: string,
+      weekly_downloads: number,
+    |},
+  addonInfo: null | AddonInfoType,
+  addonInfoIsLoading: boolean,
+  addonIsLoading: boolean,
+  addonVersion: null | AddonVersionType,
+  addonVersionIsLoading: boolean,
+|} {
   const { slug } = ownProps.match.params;
   const addon = getAddonByIdInURL(state.addons, slug);
 
@@ -239,7 +313,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   };
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   const {
     infoType,
     match: {

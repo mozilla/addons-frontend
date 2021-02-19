@@ -28,14 +28,14 @@ type Props = {|
 |};
 
 export class SearchFormBase extends React.Component<Props> {
-  onSearch = (filters: SearchFilters) => {
+  onSearch: ((filters: SearchFilters) => void) = (filters: SearchFilters) => {
     this.props.history.push({
       pathname: this.baseSearchURL(),
       query: convertFiltersToQueryParams(filters),
     });
   };
 
-  onSuggestionSelected = (suggestion: SuggestionType) => {
+  onSuggestionSelected: ((suggestion: SuggestionType) => void) = (suggestion: SuggestionType) => {
     const { pathname } = url.parse(suggestion.url);
 
     if (pathname) {
@@ -43,12 +43,12 @@ export class SearchFormBase extends React.Component<Props> {
     }
   };
 
-  baseSearchURL() {
+  baseSearchURL(): string {
     const { apiLang, clientApp, pathname } = this.props;
     return `/${apiLang || ''}/${clientApp || ''}${pathname}`;
   }
 
-  render() {
+  render(): React.Node {
     const { className, i18n, apiLang, clientApp } = this.props;
     const openSearchTitle =
       clientApp === CLIENT_APP_ANDROID

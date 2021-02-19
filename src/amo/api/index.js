@@ -26,7 +26,7 @@ const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 export const DEFAULT_API_PAGE_SIZE = 25;
 export const REGION_CODE_HEADER = 'X-Country-Code';
 
-export function makeQueryString(query: { [key: string]: any }) {
+export function makeQueryString(query: { [key: string]: any }): string {
   const resolvedQuery = { ...query };
   Object.keys(resolvedQuery).forEach((key) => {
     const value = resolvedQuery[key];
@@ -49,7 +49,7 @@ export function createApiError({
   apiURL,
   response,
   jsonResponse,
-}: CreateApiErrorParams) {
+}: CreateApiErrorParams): Error {
   let urlId = '[unknown URL]';
   if (apiURL) {
     // Strip the host since we already know that.
@@ -241,7 +241,7 @@ export function fetchAddon({
   api,
   showGroupedRatings = false,
   slug,
-}: FetchAddonParams) {
+}: FetchAddonParams): Promise<any> {
   const { clientApp, userAgentInfo } = api;
   const appVersion = userAgentInfo.browser.version;
   if (!appVersion) {
@@ -267,7 +267,7 @@ export function startLoginUrl({
 }: {|
   _config?: typeof config,
   location: ReactRouterLocationType,
-|}) {
+|}): string {
   const params = {
     config: _config.get('fxaConfig'),
     to: url.format({ ...location }),
@@ -279,7 +279,7 @@ export function startLoginUrl({
   )}/accounts/login/start/${query}`;
 }
 
-export function logOutFromServer({ api }: {| api: ApiState |}) {
+export function logOutFromServer({ api }: {| api: ApiState |}): Promise<any> {
   return callApi({
     auth: true,
     credentials: true,
@@ -302,7 +302,7 @@ export function autocomplete({
   _fixFiltersForClientApp = fixFiltersForClientApp,
   api,
   filters,
-}: AutocompleteParams) {
+}: AutocompleteParams): Promise<any> {
   const filtersWithAppVersion = addVersionCompatibilityToFilters({
     filters: _fixFiltersForClientApp({ api, filters }),
     userAgentInfo: api.userAgentInfo,

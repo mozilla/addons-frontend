@@ -72,6 +72,6 @@ export class LocalState {
 export default function createLocalState(
   id: string,
   options?: LocalStateOptions,
-) {
+): LocalState {
   return new LocalState(id, options);
 }

@@ -28,7 +28,7 @@ type InternalProps = {|
 |};
 
 export class FlagReviewBase extends React.Component<InternalProps> {
-  onClick = (event: SyntheticEvent<any>) => {
+  onClick: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     const { errorHandler, dispatch, review, reason } = this.props;
     event.preventDefault();
 
@@ -41,7 +41,7 @@ export class FlagReviewBase extends React.Component<InternalProps> {
     );
   };
 
-  renderControls() {
+  renderControls(): React.Element<"button"> | React.Node | string {
     const { errorHandler, flagState, buttonText, wasFlaggedText } = this.props;
 
     if (flagState) {
@@ -64,7 +64,7 @@ export class FlagReviewBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Element<"div"> {
     const { errorHandler } = this.props;
 
     return (

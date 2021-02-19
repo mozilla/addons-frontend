@@ -57,7 +57,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
     }
   }
 
-  renderCollections() {
+  renderCollections(): React.Node {
     const { i18n, collections } = this.props;
     const noCollectionsText = i18n.gettext('You do not have any collections.');
 
@@ -102,7 +102,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { i18n, isLoggedIn } = this.props;
 
     return (
@@ -144,7 +144,12 @@ export class CollectionListBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): {|
+  collections: null | Array<CollectionType>,
+  currentUserId: any,
+  isLoggedIn: any,
+  loadingUserCollections: boolean,
+|} => {
   const { collections, users } = state;
 
   const currentUser = getCurrentUser(users);
@@ -164,7 +169,7 @@ export const mapStateToProps = (state: AppState) => {
   };
 };
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): number | string => {
   const { currentUserId } = ownProps;
   return currentUserId || '';
 };

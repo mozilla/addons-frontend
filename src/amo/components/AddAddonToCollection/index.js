@@ -102,7 +102,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     }
   }
 
-  onSelectOption = (event: ElementEvent<HTMLSelectElement>) => {
+  onSelectOption: ((event: ElementEvent<HTMLSelectElement>) => void) = (event: ElementEvent<HTMLSelectElement>) => {
     event.preventDefault();
     const key = event.target.value;
     const handleOption = this.optionSelectHandlers[key];
@@ -146,7 +146,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     key: string,
     // eslint-disable-next-line react/no-unused-prop-types
     onSelect?: OnSelectOptionType,
-  }) {
+  }): React.Element<"option"> {
     if (onSelect) {
       this.optionSelectHandlers[key] = onSelect;
     }
@@ -232,7 +232,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
     return { actionOptions, collectionOptions, disabled: false };
   }
 
-  render() {
+  render(): React.Node {
     const { errorHandler, i18n, addonInCollections } = this.props;
     const { actionOptions, collectionOptions, disabled } = this.getSelectData();
 
@@ -280,7 +280,15 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (state: AppState, ownProps: Props): {|
+  addonInCollections: null | Array<CollectionType>,
+  clientApp: null | string,
+  currentUserId: any,
+  lang: null | string,
+  loadingAddonsInCollections: boolean,
+  loadingUserCollections: boolean,
+  userCollections: null | Array<CollectionType>,
+|} => {
   const { collections, users } = state;
   const currentUser = getCurrentUser(users);
   const currentUserId = currentUser && currentUser.id;
@@ -310,7 +318,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   };
 };
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): string => {
   const { addon, currentUserId } = ownProps;
 
   return `${addon ? addon.id : ''}-${currentUserId || ''}`;

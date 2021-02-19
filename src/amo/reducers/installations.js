@@ -84,7 +84,7 @@ export const setInstallError = ({
 export default function installations(
   state: InstallationsState = {},
   { type, payload }: InstallationAction,
-) {
+): InstallationsState | {[$PropertyType<AddonType, "guid">]: InstalledAddon} {
   function updateAddon(newProps: Object): InstalledAddon {
     const { guid } = payload;
     const addon = state[guid];

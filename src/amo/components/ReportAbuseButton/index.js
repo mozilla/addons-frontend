@@ -1,5 +1,6 @@
 /* @flow */
-import makeClassName from 'classnames';
+import type {AbuseReporter} from "../../api/abuse";
+import type {MozAddonManagerType} from "../../addonManager";import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -44,11 +45,13 @@ type InternalProps = {|
 |};
 
 export class ReportAbuseButtonBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+  _hasAbuseReportPanelEnabled: (_mozAddonManager?: MozAddonManagerType) => any,
+|} = {
     _hasAbuseReportPanelEnabled: hasAbuseReportPanelEnabled,
   };
 
-  dismissReportUI = () => {
+  dismissReportUI: (() => void) = () => {
     const { addon, dispatch, loading } = this.props;
 
     if (loading) {
@@ -61,7 +64,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     dispatch(hideAddonAbuseReportUI({ addon }));
   };
 
-  sendReport = ({ text }: OnSubmitParams) => {
+  sendReport: ((OnSubmitParams) => void) = ({ text }: OnSubmitParams) => {
     // The button isn't clickable if there is no content, but just in case:
     // we verify there's a message to send.
     if (!text.trim().length) {
@@ -81,7 +84,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     );
   };
 
-  onReportButtonClick = async (event: SyntheticEvent<any>) => {
+  onReportButtonClick: ((event: SyntheticEvent<any>) => Promise<void>) = async (event: SyntheticEvent<any>) => {
     const { _hasAbuseReportPanelEnabled, addon, dispatch } = this.props;
 
     event.preventDefault();
@@ -102,7 +105,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     dispatch(showAddonAbuseReportUI({ addon }));
   };
 
-  render() {
+  render(): null | React.Element<"div"> {
     const { abuseReport, addon, errorHandler, i18n, loading } = this.props;
 
     if (!addon) {
@@ -208,7 +211,17 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (state: AppState, ownProps: Props): {|
+  abuseReport: 
+    | {|
+      buttonEnabled?: boolean,
+      message: string | null,
+      reporter: AbuseReporter | null,
+      uiVisible?: boolean,
+    |}
+    | {...},
+  loading: boolean,
+|} => {
   const { addon } = ownProps;
 
   return {

@@ -19,7 +19,7 @@ const RatingManagerNotice = ({
   hideMessage,
   message,
   type,
-}: Props) => {
+}: Props): React.Node | React.Element<"span"> => {
   const props = {
     className: makeClassName('RatingManagerNotice-savedRating', className, {
       'RatingManagerNotice-savedRating-hidden': hideMessage,

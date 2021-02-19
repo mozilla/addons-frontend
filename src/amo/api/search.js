@@ -39,7 +39,7 @@ export function search({
   api,
   auth = false,
   filters = {},
-}: SearchParams) {
+}: SearchParams): Promise<any> {
   const newFilters = addVersionCompatibilityToFilters({
     filters: _fixFiltersForClientApp({ api, filters }),
     userAgentInfo: api.userAgentInfo,

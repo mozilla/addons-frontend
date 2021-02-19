@@ -68,7 +68,7 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Element<"div"> {
     const {
       addon,
       errorHandler,
@@ -117,7 +117,7 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+export function mapStateToProps(state: AppState, ownProps: InternalProps): {|featuredReview: ?UserReviewType, loadingReview: boolean|} {
   const { reviewId } = ownProps;
   const featuredReview = reviewId
     ? selectReview(state.reviews, reviewId)
@@ -132,7 +132,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   };
 }
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): number => {
   return ownProps.reviewId;
 };
 

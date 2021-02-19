@@ -52,12 +52,12 @@ type InternalProps = {|
 |};
 
 export class AuthenticateButtonBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|buttonType: string, noIcon: boolean|} = {
     buttonType: 'action',
     noIcon: false,
   };
 
-  onClick = (event: Event) => {
+  onClick: ((event: Event) => void) = (event: Event) => {
     event.preventDefault();
     event.stopPropagation();
     const { api, handleLogIn, handleLogOut, location, siteUser } = this.props;
@@ -71,7 +71,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
     }
   };
 
-  render() {
+  render(): React.Node {
     const {
       buttonType,
       className,

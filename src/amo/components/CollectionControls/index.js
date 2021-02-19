@@ -17,7 +17,7 @@ export type Props = {|
 |};
 
 export default class CollectionControls extends React.Component<Props> {
-  render() {
+  render(): React.Node {
     const { collection, editing, filters } = this.props;
 
     return (

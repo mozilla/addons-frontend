@@ -75,14 +75,14 @@ type InternalProps = {|
  * See https://design.firefox.com/photon/components/message-bars.html
  */
 export class NoticeBase extends React.Component<InternalProps> {
-  onDismissNotice = (event: SyntheticEvent<any>) => {
+  onDismissNotice: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
     this.props.setUIState({ wasDismissed: true });
     if (this.props.onDismiss) {
       this.props.onDismiss(event);
     }
   };
 
-  render() {
+  render(): null | React.Element<"div"> {
     const {
       actionHref,
       actionOnClick,

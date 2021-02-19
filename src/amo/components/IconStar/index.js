@@ -12,7 +12,7 @@ export const DIM_CLOSED_STYLE = 'dimClosed';
 export const HALF_STYLE = 'half';
 export const OPEN_STYLE = 'open';
 
-export const getSvgPath = (starStyle: string) => {
+export const getSvgPath = (starStyle: string): string => {
   switch (starStyle) {
     case CLOSED_STYLE:
     case DIM_CLOSED_STYLE:
@@ -41,7 +41,7 @@ const IconStar = ({
   readOnly = false,
   yellow = true,
   ...iconProps
-}: Props) => {
+}: Props): React.Node => {
   let color = photon.YELLOW_50;
 
   if (!yellow) {

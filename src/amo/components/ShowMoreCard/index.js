@@ -45,7 +45,7 @@ const initialUIState: UIStateType = {
 export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
 
-  static defaultProps = {
+  static defaultProps: {|maxHeight: number|} = {
     maxHeight: DEFAULT_MAX_HEIGHT,
   };
 
@@ -103,7 +103,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     });
   }
 
-  truncateToMaxHeight = (contents: HTMLElement | null) => {
+  truncateToMaxHeight: ((contents: HTMLElement | null) => void) = (contents: HTMLElement | null) => {
     const { maxHeight, uiState } = this.props;
     if (contents) {
       // If the contents are short enough they don't need a "show more" link; the
@@ -117,7 +117,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     }
   };
 
-  onClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  onClick: ((event: SyntheticEvent<HTMLAnchorElement>) => void) = (event: SyntheticEvent<HTMLAnchorElement>) => {
     event.preventDefault();
 
     this.props.setUIState({
@@ -126,7 +126,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     });
   };
 
-  render() {
+  render(): React.Node {
     const { children, className, header, id, i18n, uiState } = this.props;
     const { showAllContent } = uiState;
 
@@ -172,11 +172,11 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (props: Props) => {
+export const extractId = (props: Props): string => {
   return props.id;
 };
 
-export default compose(
+export default (compose(
   translate(),
   withUIState({
     fileName: __filename,
@@ -184,4 +184,4 @@ export default compose(
     initialState: initialUIState,
     resetOnUnmount: true,
   }),
-)(ShowMoreCardBase);
+)(ShowMoreCardBase): any);

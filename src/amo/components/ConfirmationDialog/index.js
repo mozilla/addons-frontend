@@ -38,7 +38,7 @@ export const ConfirmationDialogBase = ({
   onConfirm,
   message,
   puffyButtons,
-}: InternalProps) => {
+}: InternalProps): React.Element<"div"> => {
   return (
     <div className={makeClassName('ConfirmationDialog', className)}>
       {message && <span className="ConfirmationDialog-message">{message}</span>}

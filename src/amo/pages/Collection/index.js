@@ -129,7 +129,7 @@ export const computeNewCollectionPage = ({
 export class CollectionBase extends React.Component<InternalProps> {
   addonPlaceholderCount: number;
 
-  static defaultProps = {
+  static defaultProps: {|_isFeaturedCollection: any, creating: boolean, editing: boolean|} = {
     _isFeaturedCollection: isFeaturedCollection,
     creating: false,
     editing: false,
@@ -157,7 +157,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     this.maybeResetAddonPlaceholderCount();
   }
 
-  onDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onDelete: ((event: SyntheticEvent<HTMLButtonElement>) => void) = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     const { dispatch, errorHandler, collection } = this.props;
@@ -377,7 +377,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   };
 
-  renderDeleteButton() {
+  renderDeleteButton(): null | React.Node {
     const { i18n, isOwner } = this.props;
 
     if (!isOwner) {
@@ -399,7 +399,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   }
 
-  renderCollection() {
+  renderCollection(): React.Node | React.Element<"div"> {
     const {
       _isFeaturedCollection,
       collection,
@@ -505,7 +505,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   }
 
-  getPageDescription() {
+  getPageDescription(): string {
     const { collection, i18n } = this.props;
 
     invariant(collection, 'collection is required');
@@ -524,7 +524,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { collection, errorHandler, i18n } = this.props;
 
     if (errorHandler.hasError()) {
@@ -554,7 +554,15 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
+export const mapStateToProps = (state: AppState, ownProps: InternalProps): {|
+  clientApp: null | string,
+  collection: null | CollectionType,
+  filters: {|collectionSort: string, page: string|},
+  isLoggedIn: any,
+  isOwner: null | boolean,
+  lang: null | string,
+  loading: boolean,
+|} => {
   const { api, collections } = state;
 
   const { loading } = collections.current;
@@ -583,7 +591,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   };
 };
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): string => {
   return [
     ownProps.match.params.userId,
     ownProps.match.params.slug,

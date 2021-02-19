@@ -40,7 +40,7 @@ type InternalProps = {|
 |};
 
 export class SurveyNoticeBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|_config: any, _supportedLangs: Array<string>, _tracking: any|} = {
     _config: config,
     _supportedLangs: [
       'de',
@@ -70,7 +70,7 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
     }
   }
 
-  shouldShowNotice() {
+  shouldShowNotice(): boolean {
     const { _config, _supportedLangs, siteLang, wasDismissed } = this.props;
     return (
       _config.get('enableFeatureExperienceSurvey') &&
@@ -79,7 +79,7 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
     );
   }
 
-  dismissNotice = () => {
+  dismissNotice: (() => void) = () => {
     const { _config, cookies, dispatch } = this.props;
     dispatch(dismissSurvey());
     // Even though a dismissal action is dispatched here, also save a
@@ -94,17 +94,17 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
     });
   };
 
-  onDismiss = () => {
+  onDismiss: (() => void) = () => {
     this.dismissNotice();
     this.track(SURVEY_ACTION_DISMISSED);
   };
 
-  onClickSurveyLink = () => {
+  onClickSurveyLink: (() => void) = () => {
     this.dismissNotice();
     this.track(SURVEY_ACTION_VISITED);
   };
 
-  render() {
+  render(): null | React.Node {
     const { i18n, location } = this.props;
 
     if (!this.shouldShowNotice()) {

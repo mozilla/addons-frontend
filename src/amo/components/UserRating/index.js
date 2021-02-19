@@ -19,7 +19,7 @@ type Props = {|
   styleSize?: $Keys<typeof RATING_STYLE_SIZE_TYPES>,
 |};
 
-export const UserRatingBase = (props: Props) => {
+export const UserRatingBase = (props: Props): React.Node => {
   const {
     className,
     isOwner,

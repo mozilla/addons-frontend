@@ -51,7 +51,7 @@ type GetAddonStatusParams = {|
   type?: string,
 |};
 
-export function getAddonStatus({ addon, type }: GetAddonStatusParams) {
+export function getAddonStatus({ addon, type }: GetAddonStatusParams): string {
   const { isActive, isEnabled } = addon;
 
   let status = DISABLED;
@@ -68,7 +68,7 @@ export function getAddonStatus({ addon, type }: GetAddonStatusParams) {
 
 export function hasAddonManager({
   navigator,
-}: { navigator: PrivilegedNavigatorType } = {}) {
+}: { navigator: PrivilegedNavigatorType } = {}): boolean {
   if (typeof window === 'undefined') {
     return false;
   }
@@ -78,7 +78,7 @@ export function hasAddonManager({
 
 export function hasPermissionPromptsEnabled({
   navigator,
-}: { navigator: PrivilegedNavigatorType } = {}) {
+}: { navigator: PrivilegedNavigatorType } = {}): any | void | boolean {
   if (hasAddonManager({ navigator })) {
     const _navigator = navigator || window.navigator;
     return _navigator.mozAddonManager.permissionPromptsEnabled;
@@ -106,7 +106,7 @@ export function getAddon(
 
 export function hasAbuseReportPanelEnabled(
   _mozAddonManager?: MozAddonManagerType = window.navigator.mozAddonManager,
-) {
+): boolean {
   if (_mozAddonManager || hasAddonManager()) {
     return _mozAddonManager.abuseReportPanelEnabled || false;
   }
@@ -116,7 +116,7 @@ export function hasAbuseReportPanelEnabled(
 export function reportAbuse(
   addonId: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
-) {
+): void | Promise<mixed> | Promise<boolean> {
   if (hasAbuseReportPanelEnabled(_mozAddonManager)) {
     return (
       _mozAddonManager.reportAbuse && _mozAddonManager.reportAbuse(addonId)
@@ -141,7 +141,7 @@ export function install(
     hash,
     onIgnoredRejection = () => {},
   }: OptionalInstallParams = {},
-) {
+): Promise<void> {
   return _mozAddonManager
     .createInstall({ url: _url, hash })
     .then((installObj) => {
@@ -170,7 +170,7 @@ export function install(
 export function uninstall(
   guid: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
-) {
+): Promise<void> {
   return getAddon(guid, { _mozAddonManager }).then((addon) => {
     log.info(`Requesting uninstall of ${guid}`);
     return addon.uninstall();
@@ -192,7 +192,7 @@ export function addChangeListeners(
   |}) => void,
   mozAddonManager: MozAddonManagerType,
   { _log = log }: {| _log: typeof log |} = {},
-) {
+): ((e: AddonChangeEvent) => void | Promise<void>) {
   function handleChangeEvent(e: AddonChangeEvent) {
     const { id: guid, type, needsRestart } = e;
 
@@ -272,7 +272,7 @@ export function addChangeListeners(
 export function enable(
   guid: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
-) {
+): Promise<void> {
   return getAddon(guid, { _mozAddonManager }).then((addon) => {
     log.info(`Enable ${guid}`);
     if (addon.setEnabled) {

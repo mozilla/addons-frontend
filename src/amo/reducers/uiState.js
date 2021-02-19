@@ -15,7 +15,7 @@ export const selectUIState = ({
 }: {|
   uiState: UIStateState,
   uiStateID: string,
-|}) => {
+|}): any => {
   return uiState[uiStateID];
 };
 
@@ -44,7 +44,7 @@ type UIStateActions = SetUIStateAction;
 export default function uiStateReducer(
   state: UIStateState = initialState,
   action: UIStateActions,
-) {
+): UIStateState | {[string]: any} {
   switch (action.type) {
     case SET_UI_STATE: {
       const { change, id } = action.payload;

@@ -82,7 +82,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const { filters } = this.props;
 
     return (
@@ -97,7 +97,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+export function mapStateToProps(state: AppState, ownProps: InternalProps): {|clientApp: null | string, filters: any, lang: null | string|} {
   const { location } = ownProps;
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);

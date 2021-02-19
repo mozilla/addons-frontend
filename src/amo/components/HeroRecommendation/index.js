@@ -1,5 +1,7 @@
 /* @flow */
-import makeClassName from 'classnames';
+import type {CollectionAddonType, AddonType} from "../../types/addons";
+import type {SuggestionType} from "../../reducers/autocomplete";
+import type {PromotedCategoryType} from "../../constants";import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -57,13 +59,25 @@ export type InternalProps = {|
 |};
 
 export class HeroRecommendationBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+  _checkInternalURL: (
+    {|_config?: any, urlString: string|}
+  ) => {isInternal: boolean, relativeURL: string,...},
+  _getPromotedCategory: (
+    {|
+      addon: ?(AddonType | CollectionAddonType | SuggestionType),
+      clientApp: string,
+      forBadging?: boolean,
+    |}
+  ) => PromotedCategoryType | null,
+  _tracking: any,
+|} = {
     _checkInternalURL: checkInternalURL,
     _getPromotedCategory: getPromotedCategory,
     _tracking: tracking,
   };
 
-  makeCallToActionURL = () => {
+  makeCallToActionURL: (() => null | string) = () => {
     const { shelfData } = this.props;
     invariant(shelfData, 'The shelfData property is required');
 
@@ -87,7 +101,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       : null;
   };
 
-  onHeroClick = () => {
+  onHeroClick: (() => void) = () => {
     const { _tracking, shelfData } = this.props;
 
     invariant(shelfData, 'The shelfData property is required');
@@ -101,7 +115,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     });
   };
 
-  onHeroImpression = () => {
+  onHeroImpression: (() => void) = () => {
     const { _tracking, shelfData } = this.props;
 
     invariant(shelfData, 'The shelfData property is required');
@@ -131,7 +145,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): null | React.Element<"section"> {
     const {
       _checkInternalURL,
       _getPromotedCategory,

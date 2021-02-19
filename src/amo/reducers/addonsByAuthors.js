@@ -132,7 +132,7 @@ export const loadAddonsByAuthors = ({
 export const joinAuthorIdsAndAddonType = (
   authorIds: Array<number>,
   addonType?: string,
-) => {
+): string => {
   return authorIds.sort().join('-') + (addonType ? `-${addonType}` : '');
 };
 
@@ -154,7 +154,7 @@ export const getCountForAuthorIds = (
   addonsByAuthorsState: AddonsByAuthorsState,
   authorIds: Array<number>,
   addonType?: string,
-) => {
+): null | number => {
   return (
     addonsByAuthorsState.countFor[
       joinAuthorIdsAndAddonType(authorIds, addonType)

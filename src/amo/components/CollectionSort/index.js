@@ -43,7 +43,7 @@ type InternalProps = {|
 |};
 
 export class CollectionSortBase extends React.Component<InternalProps> {
-  onSortSelect = (event: SyntheticEvent<HTMLSelectElement>) => {
+  onSortSelect: ((event: SyntheticEvent<HTMLSelectElement>) => void) = (event: SyntheticEvent<HTMLSelectElement>) => {
     const {
       collection,
       clientApp,
@@ -72,7 +72,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
     });
   };
 
-  sortOptions() {
+  sortOptions(): Array<{|label: string, value: string|}> {
     const { i18n } = this.props;
 
     return [
@@ -95,7 +95,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
     ];
   }
 
-  render() {
+  render(): React.Element<"form"> {
     const { filters, i18n } = this.props;
 
     return (
@@ -123,7 +123,7 @@ export class CollectionSortBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): {|clientApp: null | string, lang: null | string|} => {
   return {
     clientApp: state.api.clientApp,
     lang: state.api.lang,

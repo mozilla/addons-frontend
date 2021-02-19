@@ -72,7 +72,7 @@ export const UserProfileEditNotificationsBase = ({
   i18n,
   onChange,
   user,
-}: InternalProps) => {
+}: InternalProps): React.Element<"div"> => {
   let notifications = [];
   if (!user || !user.notifications) {
     for (let i = 0; i < 2; i++) {

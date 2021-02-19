@@ -64,7 +64,7 @@ function reviewBody({
   );
 }
 
-export const UserReviewBase = (props: InternalProps) => {
+export const UserReviewBase = (props: InternalProps): React.Element<"div"> => {
   const {
     byLine,
     children,

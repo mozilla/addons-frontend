@@ -6,7 +6,7 @@ export type LanguageToolsParams = {|
   api: ApiState,
 |};
 
-export function languageTools({ api }: LanguageToolsParams) {
+export function languageTools({ api }: LanguageToolsParams): Promise<any> {
   return callApi({
     auth: true,
     endpoint: 'addons/language-tools',

@@ -71,7 +71,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const { errorHandler, i18n, isUnsubscribed, match } = this.props;
     const { token, notificationName } = match.params;
 
@@ -156,7 +156,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): any => {
   const { match } = ownProps;
   const { hash, notificationName, token } = match.params;
 

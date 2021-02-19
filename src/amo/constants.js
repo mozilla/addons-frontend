@@ -95,7 +95,7 @@ export const API_ADDON_TYPES_MAPPING = {
   extensions: ADDON_TYPE_EXTENSION,
   themes: ADDON_TYPE_STATIC_THEME,
 };
-export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(
+export const VISIBLE_ADDON_TYPES_MAPPING: {...} = Object.keys(
   API_ADDON_TYPES_MAPPING,
 ).reduce(
   (object, key: string) => ({

@@ -39,7 +39,7 @@ type InternalProps = {|
 |};
 
 export class ReportUserAbuseBase extends React.Component<InternalProps> {
-  hideReportUI = () => {
+  hideReportUI: (() => void) = () => {
     const { dispatch, user } = this.props;
 
     if (user) {
@@ -47,7 +47,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
     }
   };
 
-  sendReport = (reportData: OnSubmitParams) => {
+  sendReport: ((reportData: OnSubmitParams) => void) = (reportData: OnSubmitParams) => {
     const { dispatch, errorHandler, user } = this.props;
 
     if (user) {
@@ -61,7 +61,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
     }
   };
 
-  showReportUI = () => {
+  showReportUI: (() => void) = () => {
     const { dispatch, user } = this.props;
 
     if (user) {
@@ -69,7 +69,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
     }
   };
 
-  render() {
+  render(): React.Element<"div"> {
     const {
       className,
       errorHandler,
@@ -173,7 +173,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (state: AppState, ownProps: Props): {|hasSubmitted: boolean, isSubmitting: boolean, uiVisible: boolean|} => {
   const abuseReport =
     ownProps.user && state.userAbuseReports.byUserId[ownProps.user.id]
       ? state.userAbuseReports.byUserId[ownProps.user.id]

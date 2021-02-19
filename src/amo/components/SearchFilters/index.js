@@ -51,7 +51,7 @@ type InternalProps = {|
 |};
 
 export class SearchFiltersBase extends React.Component<InternalProps> {
-  onSelectElementChange = (event: SyntheticEvent<HTMLSelectElement>) => {
+  onSelectElementChange: ((event: SyntheticEvent<HTMLSelectElement>) => boolean) = (event: SyntheticEvent<HTMLSelectElement>) => {
     event.preventDefault();
 
     const { filters } = this.props;
@@ -117,7 +117,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     });
   }
 
-  addonTypeOptions() {
+  addonTypeOptions(): Array<{|children: string, value: string|}> {
     const { i18n } = this.props;
 
     const options = [
@@ -133,7 +133,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     return options;
   }
 
-  sortOptions() {
+  sortOptions(): Array<{|children: string, value: string|}> {
     const { i18n } = this.props;
 
     return [
@@ -148,7 +148,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     ];
   }
 
-  promotedOptions() {
+  promotedOptions(): Array<{|children: string, value: string|}> {
     const { i18n } = this.props;
 
     return [
@@ -169,7 +169,7 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     ];
   }
 
-  render() {
+  render(): React.Node {
     const { clientApp, filters, i18n } = this.props;
 
     const expandableCardName = 'SearchFilters';
@@ -254,7 +254,11 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+export function mapStateToProps(state: AppState): {|
+  clientApp: null | string,
+  filters: null | SearchFiltersType,
+  lang: null | string,
+|} {
   return {
     clientApp: state.api.clientApp,
     filters: state.search.filters,
@@ -262,7 +266,7 @@ export function mapStateToProps(state: AppState) {
   };
 }
 
-const SearchFilters = compose(
+const SearchFilters: any = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),

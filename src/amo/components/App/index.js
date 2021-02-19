@@ -1,5 +1,5 @@
 /* @flow */
-/* global Navigator, navigator */
+import type {MozAddonManagerType} from "../../addonManager";/* global Navigator, navigator */
 import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
@@ -56,7 +56,7 @@ type Props = {|
   userAgent: string,
 |};
 
-export function getErrorPage(status: number | null) {
+export function getErrorPage(status: number | null): (() => any) {
   switch (status) {
     case 401:
       return NotAuthorizedPage;
@@ -70,7 +70,35 @@ export function getErrorPage(status: number | null) {
 export class AppBase extends React.Component<Props> {
   scheduledLogout: TimeoutID;
 
-  static defaultProps = {
+  static defaultProps: {|
+  _addChangeListeners: (
+    callback: (
+      {|
+        canUninstall: boolean,
+        guid: string,
+        needsRestart: boolean,
+        status: $Values<
+          {|
+            onDisabled: string,
+            onDisabling: string,
+            onEnabled: string,
+            onEnabling: string,
+            onInstalled: string,
+            onInstalling: string,
+            onUninstalled: string,
+            onUninstalling: string,
+          |},
+        >,
+      |}
+    ) => void,
+    mozAddonManager: MozAddonManagerType,
+    _?: {|_log: any|}
+  ) => any,
+  _navigator: Navigator | null,
+  authTokenValidFor: any,
+  mozAddonManager: any | {...} | void,
+  userAgent: null,
+|} = {
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
     authTokenValidFor: config.get('authTokenValidFor'),
@@ -174,7 +202,7 @@ export class AppBase extends React.Component<Props> {
     }, setTimeoutDelay);
   }
 
-  render() {
+  render(): React.Node {
     const { clientApp, i18n, lang } = this.props;
 
     const i18nValues = {
@@ -218,14 +246,23 @@ export class AppBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => ({
+export const mapStateToProps = (state: AppState): {|
+  authToken: null | string,
+  clientApp: null | string,
+  lang: null | string,
+  userAgent: null | string,
+|} => ({
   authToken: state.api && state.api.token,
   clientApp: state.api.clientApp,
   lang: state.api.lang,
   userAgent: state.api.userAgent,
 });
 
-export function mapDispatchToProps(dispatch: DispatchFunc) {
+export function mapDispatchToProps(dispatch: DispatchFunc): {|
+  handleGlobalEvent(payload: InstalledAddon): void,
+  logOutUser(): void,
+  setUserAgent(userAgent: string): void,
+|} {
   return {
     logOutUser() {
       dispatch(logOutUserAction());

@@ -52,7 +52,20 @@ type Action = LoadErrorPageAction;
 export default function errorPage(
   state: ErrorPageState = initialState,
   action: Action,
-) {
+): 
+  | ErrorPageState
+  | {|
+    clearOnNext: boolean,
+    error: ErrorType,
+    hasError: boolean,
+    statusCode: number,
+  |}
+  | {|
+    clearOnNext: boolean,
+    error: ErrorType | null,
+    hasError: boolean,
+    statusCode: number | null,
+  |} {
   const { payload } = action;
 
   switch (action.type) {

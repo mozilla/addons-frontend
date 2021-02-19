@@ -10,7 +10,7 @@ type DefinitionProps = {|
   term: React.Node,
 |};
 
-export const Definition = ({ children, className, term }: DefinitionProps) => {
+export const Definition = ({ children, className, term }: DefinitionProps): React.Node => {
   return (
     <>
       <dt className="Definition-dt">{term}</dt>
@@ -24,7 +24,7 @@ type DefinitionListProps = {|
   children: React.ChildrenArray<React.Element<typeof Definition> | null>,
 |};
 
-const DefinitionList = ({ className, children }: DefinitionListProps) => {
+const DefinitionList = ({ className, children }: DefinitionListProps): React.Element<"dl"> => {
   return (
     <dl className={makeClassName('DefinitionList', className)}>{children}</dl>
   );

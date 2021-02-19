@@ -186,7 +186,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     }
   }
 
-  addonURL() {
+  addonURL(): any {
     const { addon } = this.props;
     if (!addon) {
       throw new Error('cannot access addonURL() with a falsey addon property');
@@ -194,7 +194,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     return getAddonURL(addon.slug);
   }
 
-  getPageDescription() {
+  getPageDescription(): string {
     const { addon, i18n } = this.props;
 
     invariant(addon, 'addon is required');
@@ -206,7 +206,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
-  onSelectOption = (event: ElementEvent<HTMLSelectElement>) => {
+  onSelectOption: ((event: ElementEvent<HTMLSelectElement>) => void) = (event: ElementEvent<HTMLSelectElement>) => {
     const { addon, clientApp, history, lang, location } = this.props;
     invariant(addon, 'addon is required');
 
@@ -222,7 +222,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     history.push(`/${lang || ''}/${clientApp || ''}${listURL}`);
   };
 
-  filterByScoreSelector() {
+  filterByScoreSelector(): React.Node {
     const { addon, i18n, location } = this.props;
 
     return (
@@ -246,7 +246,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const {
       addon,
       errorHandler,
@@ -430,7 +430,7 @@ export function mapStateToProps(
   };
 }
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): string => {
   const {
     location,
     match: { params },

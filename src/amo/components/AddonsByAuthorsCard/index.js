@@ -78,7 +78,13 @@ type FiltersForPagination = {|
 |};
 
 export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+  pageParam: string,
+  paginate: boolean,
+  showMore: boolean,
+  showSummary: boolean,
+  type: string,
+|} = {
     pageParam: 'page',
     paginate: false,
     showMore: true,
@@ -209,7 +215,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): any | null | React.Node {
     const {
       addonType,
       addons,

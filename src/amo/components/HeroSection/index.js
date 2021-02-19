@@ -14,11 +14,11 @@ type Props = {|
 |};
 
 export default class HeroSection extends React.Component<Props> {
-  static defaultProps = {
+  static defaultProps: {|styleName: string|} = {
     styleName: 'default',
   };
 
-  render() {
+  render(): React.Element<"div"> {
     const { children, linkTo, styleName } = this.props;
 
     return (

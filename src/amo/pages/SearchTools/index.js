@@ -51,7 +51,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { filters, i18n } = this.props;
 
     return (
@@ -75,7 +75,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+export function mapStateToProps(state: AppState): {|clientApp: null | string, filters: {|sort: string|}, lang: null | string|} {
   const filters = {
     sort: SEARCH_SORT_TOP_RATED,
   };
