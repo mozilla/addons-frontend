@@ -23,7 +23,7 @@ import {
   OS_ALL,
 } from 'amo/constants';
 import { createInternalCollection } from 'amo/reducers/collections';
-import { createInternalHeroShelves } from 'amo/reducers/home';
+import { createInternalHomeShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
 import { getDjangoBase62, addQueryParamsToHistory } from 'amo/utils';
 import { setError } from 'amo/actions/errors';
@@ -378,7 +378,7 @@ export const createSecondaryHeroShelf = ({
   };
 };
 
-export const createHeroShelves = ({
+export const createHomeShelves = ({
   primaryProps = {},
   secondaryProps = {},
 } = {}) => {
@@ -1428,11 +1428,11 @@ export const createInternalVersionWithLang = (
   return createInternalVersion(version, lang);
 };
 
-export const createInternalHeroShelvesWithLang = (
-  heroShelves,
+export const createInternalHomeShelvesWithLang = (
+  homeShelves,
   lang = DEFAULT_LANG_IN_TESTS,
 ) => {
-  return createInternalHeroShelves(heroShelves, lang);
+  return createInternalHomeShelves(homeShelves, lang);
 };
 
 export const createInternalCollectionWithLang = ({

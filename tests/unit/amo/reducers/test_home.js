@@ -10,7 +10,7 @@ import { selectLocalizedUrlWithOutgoing } from 'amo/reducers/addons';
 import homeReducer, {
   abortFetchHomeData,
   createInternalHeroCallToAction,
-  createInternalHeroShelves,
+  createInternalHomeShelves,
   createInternalPrimaryHeroShelfExternalAddon,
   createInternalSecondaryHeroModule,
   fetchHomeData,
@@ -30,7 +30,7 @@ import {
   fakeAddon,
   fakePrimaryHeroShelfExternalAddon,
   getFakeConfig,
-  createHeroShelves,
+  createHomeShelves,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -40,7 +40,7 @@ describe(__filename, () => {
     const _loadHomeData = ({
       store,
       collections = [],
-      heroShelves = createHeroShelves({ primaryProps: { addon: fakeAddon } }),
+      homeShelves = createHomeShelves({ primaryProps: { addon: fakeAddon } }),
       shelves = {},
     }) => {
       // We need a state with setLang called for any tests that load add-ons or collections.
@@ -48,14 +48,14 @@ describe(__filename, () => {
       store.dispatch(
         loadHomeData({
           collections,
-          heroShelves,
+          homeShelves,
           shelves,
         }),
       );
     };
 
-    const _createHeroShelves = (primaryProps = { addon: fakeAddon }) => {
-      return createHeroShelves({ primaryProps });
+    const _createHomeShelves = (primaryProps = { addon: fakeAddon }) => {
+      return createHomeShelves({ primaryProps });
     };
 
     it('initializes properly', () => {
@@ -122,16 +122,16 @@ describe(__filename, () => {
     it('loads hero shelves', () => {
       const { store } = dispatchClientMetadata();
 
-      const heroShelves = _createHeroShelves();
+      const homeShelves = _createHomeShelves();
       _loadHomeData({
         store,
-        heroShelves,
+        homeShelves,
       });
 
       const homeState = store.getState().home;
 
-      expect(homeState.heroShelves).toEqual(
-        createInternalHeroShelves(heroShelves, lang),
+      expect(homeState.homeShelves).toEqual(
+        createInternalHomeShelves(homeShelves, lang),
       );
     });
 
@@ -157,7 +157,7 @@ describe(__filename, () => {
       expect(homeState.shelves[shelfName2]).toEqual(null);
     });
 
-    it('loads the the correct amount of theme add-ons in a collection to display on homepage', () => {
+    it('loads the correct amount of theme add-ons in a collection to display on homepage', () => {
       const { store } = dispatchClientMetadata();
 
       _loadHomeData({
@@ -355,29 +355,30 @@ describe(__filename, () => {
     });
   });
 
-  describe('createInternalHeroShelves', () => {
+  describe('createInternalHomeShelves', () => {
     it('creates an internal representation of hero shelves', () => {
       const addon = fakeAddon;
-      const heroShelves = createHeroShelves({
+      const homeShelves = createHomeShelves({
         primaryProps: { addon, external: undefined },
       });
 
-      expect(createInternalHeroShelves(heroShelves, lang)).toEqual({
+      expect(createInternalHomeShelves(homeShelves, lang)).toEqual({
+        results: null,
         primary: {
           addon: createInternalAddonWithLang(addon),
-          description: heroShelves.primary.description[lang],
+          description: homeShelves.primary.description[lang],
           external: undefined,
-          featuredImage: heroShelves.primary.featured_image,
+          featuredImage: homeShelves.primary.featured_image,
           gradient: {
-            end: heroShelves.primary.gradient.end,
-            start: heroShelves.primary.gradient.start,
+            end: homeShelves.primary.gradient.end,
+            start: homeShelves.primary.gradient.start,
           },
         },
         secondary: {
-          cta: createInternalHeroCallToAction(heroShelves.secondary.cta, lang),
-          description: heroShelves.secondary.description[lang],
-          headline: heroShelves.secondary.headline[lang],
-          modules: heroShelves.secondary.modules.map((module) =>
+          cta: createInternalHeroCallToAction(homeShelves.secondary.cta, lang),
+          description: homeShelves.secondary.description[lang],
+          headline: homeShelves.secondary.headline[lang],
+          modules: homeShelves.secondary.modules.map((module) =>
             createInternalSecondaryHeroModule(module, lang),
           ),
         },
@@ -386,7 +387,7 @@ describe(__filename, () => {
 
     it('works when an addon is not defined', () => {
       const external = fakePrimaryHeroShelfExternalAddon;
-      const heroShelves = createHeroShelves({
+      const homeShelves = createHomeShelves({
         primaryProps: {
           addon: undefined,
           external,
@@ -394,7 +395,7 @@ describe(__filename, () => {
       });
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).primary,
+        createInternalHomeShelves(homeShelves, lang).primary,
       ).toMatchObject({
         addon: undefined,
         external: createInternalPrimaryHeroShelfExternalAddon(external, lang),
@@ -403,7 +404,7 @@ describe(__filename, () => {
 
     it('works when external is not defined', () => {
       const addon = fakeAddon;
-      const heroShelves = createHeroShelves({
+      const homeShelves = createHomeShelves({
         primaryProps: {
           addon,
           external: undefined,
@@ -411,7 +412,7 @@ describe(__filename, () => {
       });
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).primary,
+        createInternalHomeShelves(homeShelves, lang).primary,
       ).toMatchObject({
         addon: createInternalAddonWithLang(addon),
         external: undefined,
@@ -420,7 +421,7 @@ describe(__filename, () => {
 
     it('works when primary description is null', () => {
       const addon = fakeAddon;
-      const heroShelves = createHeroShelves({
+      const homeShelves = createHomeShelves({
         primaryProps: {
           addon,
           description: null,
@@ -428,7 +429,7 @@ describe(__filename, () => {
       });
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).primary,
+        createInternalHomeShelves(homeShelves, lang).primary,
       ).toMatchObject({
         addon: createInternalAddonWithLang(addon),
         description: null,
@@ -436,16 +437,16 @@ describe(__filename, () => {
     });
 
     it('works when secondary cta is null', () => {
-      const heroShelves = createHeroShelves({
+      const homeShelves = createHomeShelves({
         primaryProps: { addon: fakeAddon },
         secondaryProps: { cta: null },
       });
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).secondary,
+        createInternalHomeShelves(homeShelves, lang).secondary,
       ).toMatchObject({
         cta: null,
-        description: heroShelves.secondary.description[lang],
+        description: homeShelves.secondary.description[lang],
       });
     });
 
@@ -454,10 +455,13 @@ describe(__filename, () => {
       const secondaryShelf = createSecondaryHeroShelf();
       // Replace the default cta in module 1 with null.
       secondaryShelf.modules[0].cta = null;
-      const heroShelves = { primary: primaryShelf, secondary: secondaryShelf };
+      const homeShelves = {
+        primary: primaryShelf,
+        secondary: secondaryShelf,
+      };
 
       expect(
-        createInternalHeroShelves(heroShelves, lang).secondary,
+        createInternalHomeShelves(homeShelves, lang).secondary,
       ).toMatchObject({
         modules: [
           createInternalSecondaryHeroModule(secondaryShelf.modules[0], lang),
@@ -468,46 +472,46 @@ describe(__filename, () => {
     });
 
     it('works when primary is null', () => {
-      const heroShelves = {
+      const homeShelves = {
         primary: null,
         secondary: createSecondaryHeroShelf(),
       };
 
-      expect(createInternalHeroShelves(heroShelves, lang).primary).toEqual(
+      expect(createInternalHomeShelves(homeShelves, lang).primary).toEqual(
         null,
       );
     });
 
     it('works when secondary is null', () => {
-      const heroShelves = {
+      const homeShelves = {
         primary: createPrimaryHeroShelf(),
         secondary: null,
       };
 
-      expect(createInternalHeroShelves(heroShelves, lang).secondary).toEqual(
+      expect(createInternalHomeShelves(homeShelves, lang).secondary).toEqual(
         null,
       );
     });
 
     it('works when both primary and secondary are null', () => {
-      const heroShelves = { primary: null, secondary: null };
+      const homeShelves = { primary: null, secondary: null };
 
-      expect(createInternalHeroShelves(heroShelves, lang).primary).toEqual(
+      expect(createInternalHomeShelves(homeShelves, lang).primary).toEqual(
         null,
       );
-      expect(createInternalHeroShelves(heroShelves, lang).secondary).toEqual(
+      expect(createInternalHomeShelves(homeShelves, lang).secondary).toEqual(
         null,
       );
     });
 
     it('throws an exception if neither an addon nor an external entry is provided', () => {
-      const heroShelves = createHeroShelves();
-      // createHeroShelves won't allow an invalid shelf to be created, so we
+      const homeShelves = createHomeShelves();
+      // createhomeShelves won't allow an invalid shelf to be created, so we
       // must do this.
-      heroShelves.primary.addon = undefined;
-      heroShelves.primary.external = undefined;
+      homeShelves.primary.addon = undefined;
+      homeShelves.primary.external = undefined;
 
-      expect(() => createInternalHeroShelves(heroShelves, lang)).toThrow(
+      expect(() => createInternalHomeShelves(homeShelves, lang)).toThrow(
         /Either primary.addon or primary.external is required/,
       );
     });

@@ -1,7 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as collectionsApi from 'amo/api/collections';
-import * as heroApi from 'amo/api/hero';
+import * as homeShelvesApi from 'amo/api/homeShelves';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
@@ -25,7 +25,7 @@ import apiReducer from 'amo/reducers/api';
 import {
   createAddonsApiResult,
   createFakeCollectionAddonsListResponse,
-  createHeroShelves,
+  createHomeShelves,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -35,14 +35,14 @@ import {
 describe(__filename, () => {
   let errorHandler;
   let mockCollectionsApi;
-  let mockHeroApi;
+  let mockHomeApi;
   let mockSearchApi;
   let sagaTester;
 
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
     mockCollectionsApi = sinon.mock(collectionsApi);
-    mockHeroApi = sinon.mock(heroApi);
+    mockHomeApi = sinon.mock(homeShelvesApi);
     mockSearchApi = sinon.mock(searchApi);
     sagaTester = new SagaTester({
       initialState: dispatchClientMetadata().state,
@@ -167,11 +167,11 @@ describe(__filename, () => {
         })
         .resolves(trendingExtensions);
 
-      const heroShelves = createHeroShelves();
-      mockHeroApi
-        .expects('getHeroShelves')
+      const homeShelves = createHomeShelves();
+      mockHomeApi
+        .expects('getHomeShelves')
         .withArgs(baseArgs)
-        .resolves(heroShelves);
+        .resolves(homeShelves);
 
       _fetchHomeData({
         collectionsToFetch: [
@@ -183,7 +183,7 @@ describe(__filename, () => {
 
       const loadAction = loadHomeData({
         collections,
-        heroShelves,
+        homeShelves,
         shelves: {
           recommendedExtensions,
           recommendedThemes,
@@ -219,17 +219,17 @@ describe(__filename, () => {
         })
         .resolves(recommendedExtensions);
 
-      const heroShelves = createHeroShelves();
-      mockHeroApi
-        .expects('getHeroShelves')
+      const homeShelves = createHomeShelves();
+      mockHomeApi
+        .expects('getHomeShelves')
         .withArgs(baseArgs)
-        .resolves(heroShelves);
+        .resolves(homeShelves);
 
       _fetchHomeData({ isDesktopSite: false });
 
       const loadAction = loadHomeData({
         collections: [],
-        heroShelves,
+        homeShelves,
         shelves: {
           recommendedExtensions,
         },
@@ -257,8 +257,8 @@ describe(__filename, () => {
       const popularThemes = createAddonsApiResult([fakeAddon]);
       mockSearchApi.expects('search').resolves(popularThemes);
 
-      const heroShelves = createHeroShelves();
-      mockHeroApi.expects('getHeroShelves').resolves(heroShelves);
+      const homeShelves = createHomeShelves();
+      mockHomeApi.expects('getHomeShelves').resolves(homeShelves);
 
       _fetchHomeData({
         collectionsToFetch: [],
@@ -267,7 +267,7 @@ describe(__filename, () => {
 
       const loadAction = loadHomeData({
         collections,
-        heroShelves,
+        homeShelves,
         shelves: {
           recommendedExtensions,
           recommendedThemes,
@@ -297,8 +297,8 @@ describe(__filename, () => {
       const trendingExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi.expects('search').resolves(trendingExtensions);
 
-      const heroShelves = createHeroShelves();
-      mockHeroApi.expects('getHeroShelves').resolves(heroShelves);
+      const homeShelves = createHomeShelves();
+      mockHomeApi.expects('getHomeShelves').resolves(homeShelves);
 
       _fetchHomeData({
         collectionsToFetch: [],
@@ -307,7 +307,7 @@ describe(__filename, () => {
 
       const loadAction = loadHomeData({
         collections,
-        heroShelves,
+        homeShelves,
         shelves: {
           recommendedExtensions,
           recommendedThemes: null,
@@ -346,8 +346,8 @@ describe(__filename, () => {
         const trendingExtensions = createAddonsApiResult([fakeAddon]);
         mockSearchApi.expects('search').resolves(trendingExtensions);
 
-        const heroShelves = createHeroShelves();
-        mockHeroApi.expects('getHeroShelves').resolves(heroShelves);
+        const homeShelves = createHomeShelves();
+        mockHomeApi.expects('getHomeShelves').resolves(homeShelves);
 
         _fetchHomeData({
           collectionsToFetch: [
@@ -358,7 +358,7 @@ describe(__filename, () => {
 
         const loadAction = loadHomeData({
           collections,
-          heroShelves,
+          homeShelves,
           shelves: {
             recommendedExtensions,
             recommendedThemes: null,
@@ -385,7 +385,7 @@ describe(__filename, () => {
     it('dispatches an error for a failed collection fetch', async () => {
       const error = createApiError({ response: { status: 500 } });
 
-      mockHeroApi.expects('getHeroShelves').resolves(createHeroShelves());
+      mockHomeApi.expects('getHomeShelves').resolves(createHomeShelves());
 
       mockCollectionsApi.expects('getCollectionAddons').rejects(error);
 
@@ -399,7 +399,7 @@ describe(__filename, () => {
     it('aborts fetching for a failed collection fetch', async () => {
       const error = createApiError({ response: { status: 500 } });
 
-      mockHeroApi.expects('getHeroShelves').resolves(createHeroShelves());
+      mockHomeApi.expects('getHomeShelves').resolves(createHomeShelves());
 
       mockCollectionsApi.expects('getCollectionAddons').rejects(error);
 
@@ -415,7 +415,7 @@ describe(__filename, () => {
       const slug = 'collection-slug';
       const userId = 123;
 
-      mockHeroApi.expects('getHeroShelves').resolves(createHeroShelves());
+      mockHomeApi.expects('getHomeShelves').resolves(createHomeShelves());
 
       const firstCollection = createFakeCollectionAddonsListResponse();
       mockCollectionsApi
@@ -434,7 +434,7 @@ describe(__filename, () => {
     });
 
     it('dispatches an error for a failed search fetch for the mobile site', async () => {
-      mockHeroApi.expects('getHeroShelves').resolves(createHeroShelves());
+      mockHomeApi.expects('getHomeShelves').resolves(createHomeShelves());
 
       const error = new Error('some API error maybe');
 
@@ -448,7 +448,7 @@ describe(__filename, () => {
     });
 
     it('aborts fetching for a failed search fetch', async () => {
-      mockHeroApi.expects('getHeroShelves').resolves(createHeroShelves());
+      mockHomeApi.expects('getHomeShelves').resolves(createHomeShelves());
 
       const firstCollection = createFakeCollectionAddonsListResponse();
       mockCollectionsApi
@@ -469,10 +469,10 @@ describe(__filename, () => {
       expect(expectedAction).toEqual(abortAction);
     });
 
-    it('dispatches an error for a failed hero fetch', async () => {
+    it('dispatches an error for a failed homepage fetch', async () => {
       const error = createApiError({ response: { status: 500 } });
 
-      mockHeroApi.expects('getHeroShelves').rejects(error);
+      mockHomeApi.expects('getHomeShelves').rejects(error);
 
       _fetchHomeData();
 
@@ -481,10 +481,10 @@ describe(__filename, () => {
       expect(expectedAction).toEqual(errorAction);
     });
 
-    it('aborts fetching for a failed hero fetch', async () => {
+    it('aborts fetching for a failed homepage fetch', async () => {
       const error = createApiError({ response: { status: 500 } });
 
-      mockHeroApi.expects('getHeroShelves').rejects(error);
+      mockHomeApi.expects('getHomeShelves').rejects(error);
 
       _fetchHomeData();
 

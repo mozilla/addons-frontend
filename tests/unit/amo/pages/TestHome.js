@@ -40,10 +40,10 @@ import {
   createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
-  createHeroShelves,
+  createHomeShelves,
   createInternalAddonWithLang,
   createInternalCollectionWithLang,
-  createInternalHeroShelvesWithLang,
+  createInternalHomeShelvesWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -72,17 +72,17 @@ describe(__filename, () => {
     return shallowUntilTarget(<Home {...allProps} />, HomeBase);
   }
 
-  const _createHeroShelves = (primaryProps = { addon: fakeAddon }) => {
-    return createHeroShelves({ primaryProps });
+  const _createHomeShelves = (primaryProps = { addon: fakeAddon }) => {
+    return createHomeShelves({ primaryProps });
   };
 
   const _loadHomeData = ({
     store,
     collections = [],
-    heroShelves = _createHeroShelves(),
+    homeShelves = _createHomeShelves(),
     shelves = {},
   }) => {
-    store.dispatch(loadHomeData({ collections, heroShelves, shelves }));
+    store.dispatch(loadHomeData({ collections, homeShelves, shelves }));
   };
 
   it('renders a Page component passing `true` for `isHomePage`', () => {
@@ -541,17 +541,17 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({
       clientApp: CLIENT_APP_ANDROID,
     });
-    const heroShelves = _createHeroShelves();
-    _loadHomeData({ store, heroShelves });
+    const homeShelves = _createHomeShelves();
+    _loadHomeData({ store, homeShelves });
     const root = render({ store });
 
     expect(root.find('.Home-heroHeader-title')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-subtitle')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-title').text()).toContain(
-      heroShelves.secondary.headline[DEFAULT_LANG_IN_TESTS],
+      homeShelves.secondary.headline[DEFAULT_LANG_IN_TESTS],
     );
     expect(root.find('.Home-heroHeader-subtitle').text()).toContain(
-      heroShelves.secondary.description[DEFAULT_LANG_IN_TESTS],
+      homeShelves.secondary.description[DEFAULT_LANG_IN_TESTS],
     );
   });
 
@@ -574,8 +574,8 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({
       clientApp: CLIENT_APP_FIREFOX,
     });
-    const heroShelves = _createHeroShelves();
-    _loadHomeData({ store, heroShelves });
+    const homeShelves = _createHomeShelves();
+    _loadHomeData({ store, homeShelves });
     const root = render({ store });
 
     expect(root.find('.Home-heroHeader')).toHaveLength(0);
@@ -594,8 +594,8 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
-      const heroShelves = _createHeroShelves();
-      _loadHomeData({ store, heroShelves });
+      const homeShelves = _createHomeShelves();
+      _loadHomeData({ store, homeShelves });
 
       const root = render({ errorHandler, store });
 
@@ -604,14 +604,14 @@ describe(__filename, () => {
       expect(heroRecommendation).toHaveProp('errorHandler', errorHandler);
       expect(heroRecommendation).toHaveProp(
         'shelfData',
-        createInternalHeroShelvesWithLang(heroShelves).primary,
+        createInternalHomeShelvesWithLang(homeShelves).primary,
       );
 
       const secondaryHero = root.find(SecondaryHero);
       expect(secondaryHero).toHaveLength(1);
       expect(secondaryHero).toHaveProp(
         'shelfData',
-        createInternalHeroShelvesWithLang(heroShelves).secondary,
+        createInternalHomeShelvesWithLang(homeShelves).secondary,
       );
     });
 
@@ -634,7 +634,10 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
-      _loadHomeData({ store, heroShelves: { primary: null, secondary: null } });
+      _loadHomeData({
+        store,
+        homeShelves: { primary: null, secondary: null },
+      });
 
       const root = render({ store });
 
@@ -650,7 +653,7 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_ANDROID,
       });
-      _loadHomeData({ store, heroShelves: _createHeroShelves() });
+      _loadHomeData({ store, homeShelves: _createHomeShelves() });
 
       const root = render({ store });
 
