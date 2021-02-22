@@ -50,7 +50,6 @@ Here are some commands you can run:
 | yarn eslint | Lint the JS |
 | yarn start-func-test-server | Start a Docker container for functional tests |
 | yarn stylelint | Lint the SCSS |
-| yarn storybook | Run [storybook](https://storybook.js.org/) |
 | yarn lint | Run all the JS + SCSS linters |
 | yarn prettier | Run [Prettier][] to automatically format the entire codebase |
 | yarn prettier-dev | Run [Pretty-Quick][] to automatically compare and format modified source files against the master branch |
@@ -281,16 +280,6 @@ grip .
 ```
 
 Open its `localhost` URL and you will see the rendered `README.md` file. As you make edits, it will update automatically.
-
-### Storybook
-
-If you run `yarn storybook`, you can see storybook locally here: http://localhost:9001/.
-
-You can find the source files under the ./stories directory.
-
-Check it out on Github Pages: https://mozilla.github.io/addons-frontend/
-
-More info coming soon :)
 
 ### Building and running services
 

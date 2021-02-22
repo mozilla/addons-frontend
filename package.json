@@ -31,10 +31,6 @@
     "prettier-dev": "pretty-quick --branch master",
     "start": "npm run version-check && better-npm-run --silent node bin/server.js | pino-mozlog",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
-    "storybook": "better-npm-run storybook",
-    "storybook-build": "better-npm-run storybook-build",
-    "storybook-deploy": "storybook-to-ghpages --script storybook-build",
-    "storybook-smoke-test": "better-npm-run storybook-smoke-test",
     "test-ci": "bin/config-check.js && npm run build-locales && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
@@ -119,28 +115,6 @@
       "command": "jest",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu"
-      }
-    },
-    "storybook": {
-      "command": "start-storybook -p 9001 -c stories/setup",
-      "env": {
-        "NODE_PATH": "./:./src"
-      }
-    },
-    "storybook-build": {
-      "command": "build-storybook -c stories/setup",
-      "env": {
-        "NODE_PATH": "./:./src",
-        "NODE_ENV": "production",
-        "NODE_CONFIG_ENV": "prod"
-      }
-    },
-    "storybook-smoke-test": {
-      "command": "storybook-server -c stories/setup --smoke-test",
-      "env": {
-        "NODE_PATH": "./:./src",
-        "NODE_ENV": "production",
-        "NODE_CONFIG_ENV": "prod"
       }
     },
     "test-ci": {
@@ -261,11 +235,6 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@emotion/core": "^11.0.0",
-    "@storybook/addon-docs": "^6.0.21",
-    "@storybook/addons": "^6.0.0",
-    "@storybook/react": "^6.0.0",
-    "@storybook/storybook-deployer": "^2.8.7",
-    "@storybook/theming": "^6.0.21",
     "autoprefixer": "^10.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -318,7 +287,6 @@
     "prettier": "2.2.1",
     "pretty-quick": "3.1.0",
     "react-hot-loader": "^4.3.3",
-    "react-storybook-addon-chapters": "^3.0.0",
     "react-test-renderer": "^16.6.3",
     "redux-saga-tester": "^1.0.372",
     "rimraf": "^3.0.0",
@@ -326,7 +294,6 @@
     "semver": "^7.0.0",
     "shelljs": "^0.8.0",
     "sinon": "^9.0.0",
-    "storybook-addon-rtl": "^0.2.2",
     "style-loader": "^2.0.0",
     "stylelint": "^13.0.0",
     "stylelint-config-standard": "^20.0.0",
@@ -341,9 +308,6 @@
     "webpack-dev-middleware": "^4.0.0",
     "webpack-hot-middleware": "^2.24.3",
     "webpack-subresource-integrity": "^1.3.0"
-  },
-  "storybook-deployer": {
-    "commitMessage": "[skip ci] Deploy Storybook to Github Pages"
   },
   "bundlesize": [
     {
