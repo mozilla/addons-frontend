@@ -15,75 +15,83 @@
 
 /* Font mixins. Changes here affect *all* apps */
 @mixin font-light() {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    font-family: 'Inter Var', sans-serif;
+  }
+
   font-style: normal;
   font-weight: 300;
 }
 
 @mixin font-light-italic() {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    font-family: 'Inter Var', sans-serif;
+  }
+
   font-style: normal;
   font-weight: 300;
 }
 
 @mixin font-regular() {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    font-family: 'Inter Var', sans-serif;
+  }
+
   font-style: normal;
   font-weight: 400;
 }
 
 @mixin font-regular-italic() {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    font-family: 'Inter Var', sans-serif;
+  }
+
   font-style: italic;
   font-weight: 400;
 }
 
 @mixin font-medium() {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    font-family: 'Inter Var', sans-serif;
+  }
+
   font-style: normal;
   font-weight: 500;
 }
 
 @mixin font-medium-italic() {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    font-family: 'Inter Var', sans-serif;
+  }
+
   font-style: italic;
   font-weight: 500;
 }
 
 @mixin font-bold() {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    font-family: 'Inter Var', sans-serif;
+  }
+
   font-style: normal;
   font-weight: 600;
 }
 
 @mixin font-bold-italic() {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    font-family: 'Inter Var', sans-serif;
+  }
+
   font-style: italic;
   font-weight: 600;
-}
-
-@mixin font-opensans-regular() {
-  font-family: 'Open Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-}
-
-@mixin font-opensans-regular-italic() {
-  font-family: 'Open Sans', sans-serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
-@mixin font-opensans-bold() {
-  font-family: 'Open Sans', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-}
-
-@mixin font-opensans-bold-italic() {
-  font-family: 'Open Sans', sans-serif;
-  font-style: italic;
-  font-weight: 700;
 }
 
 /* Shared mixins. Bear in mind changes here impact *all* apps. */
