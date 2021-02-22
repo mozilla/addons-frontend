@@ -21,14 +21,12 @@ const packageJson = JSON.parse(
 // eslint: there is an issue with 6.2.0 and the `no-unused-vars` rule, see:
 // https://github.com/eslint/eslint/issues/12117
 
-// html-webpack-plugin and webpack-subresource-integrity: we're using unstable
-// versions.
+// webpack-subresource-integrity: we're using an unstable version (@next).
 const skipDevDeps = [
   'prettier',
   'pretty-quick',
   'enzyme',
   'eslint',
-  'html-webpack-plugin',
   'webpack-subresource-integrity',
 ];
 

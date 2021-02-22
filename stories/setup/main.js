@@ -7,6 +7,9 @@ const { getPlugins, getStyleRules } = require('../../webpack-common');
 module.exports = {
   stories: ['../index.js'],
   addons: ['storybook-addon-rtl/register', '@storybook/addon-docs'],
+  core: {
+    builder: 'webpack5',
+  },
   webpackFinal: (config) => {
     return {
       ...config,
