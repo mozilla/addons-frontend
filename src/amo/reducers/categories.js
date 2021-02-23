@@ -23,7 +23,7 @@ type ExternalCategory = {|
 
 // The absence of strict types is wanted because the logic in the reducer is a
 
-type CategoryMapType = {
+export type CategoryMapType = {
   [appName: string]: {
     [addonType: string]: {
       [addonSlug: string]: ExternalCategory,
@@ -141,6 +141,7 @@ export default function reducer(
         categories[appName] = {};
 
         Object.keys(categoryList[appName]).forEach((addonType) => {
+          // $FlowIgnore: flow can't be sure that the reduce result match ExternalCategory definition, let's trust the test coverage here.
           categories[appName][addonType] = categoryList[appName][addonType]
             .sort((a, b) => a.name.localeCompare(b.name))
             .reduce(

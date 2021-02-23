@@ -128,7 +128,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     return location.query[inputName] || '';
   }
 
-  createFiltersFromQuery(query: string) {
+  createFiltersFromQuery(query: string): Object {
     const { location } = this.props;
     // Preserve any existing search filters.
     let filtersFromLocation = {};

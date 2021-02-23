@@ -65,22 +65,26 @@ type Props = {|
   |},
 |};
 
-type InternalProps = {|
-  ...Props,
-  canAdminUser: boolean,
-  canEditProfile: boolean,
-  clientApp: string,
+type PropsFromState = {|
+  canAdminUser: boolean | null,
+  canEditProfile: boolean | null,
+  clientApp: string | null,
   currentUser: UserType | null,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
-  i18n: I18nType,
-  isOwner: boolean,
-  lang: string,
+  isOwner: boolean | null,
+  lang: string | null,
   pageSize: string | null,
   reviewCount: number | null,
   reviews: Array<UserReviewType> | null,
   shouldRedirect: boolean,
   user: UserType | null,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
 |};
 
 export class UserProfileBase extends React.Component<InternalProps> {
@@ -100,7 +104,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       user,
     } = props;
 
-    if (shouldRedirect && user) {
+    if (shouldRedirect && user && lang && clientApp) {
       dispatch(
         sendServerRedirect({
           status: 301,
@@ -486,7 +490,10 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props) {
+export function mapStateToProps(
+  state: AppState,
+  ownProps: Props,
+): PropsFromState {
   const { params } = ownProps.match;
 
   const { clientApp, lang } = state.api;

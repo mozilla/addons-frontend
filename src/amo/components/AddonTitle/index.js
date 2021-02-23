@@ -35,7 +35,7 @@ export const AddonTitleBase = ({
   isRTL,
   linkToAddon = false,
   queryParamsForAttribution = {},
-}: InternalProps) => {
+}: InternalProps): React.Element<string> => {
   const authors = [];
 
   if (addon && addon.authors) {

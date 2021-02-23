@@ -192,7 +192,11 @@ export type WithInstallHelpersInjectedProps = {|
 |};
 
 export class WithInstallHelpers extends React.Component<WithInstallHelpersInternalProps> {
-  static defaultProps = {
+  static defaultProps: {|
+    _addonManager: typeof addonManager,
+    _log: typeof log,
+    _tracking: typeof tracking,
+  |} = {
     _addonManager: addonManager,
     _log: log,
     _tracking: tracking,

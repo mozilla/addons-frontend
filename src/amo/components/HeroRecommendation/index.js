@@ -1,8 +1,4 @@
 /* @flow */
-import type { CollectionAddonType, AddonType } from '../../types/addons';
-import type { Tracking } from '../../tracking';
-import type { SuggestionType } from '../../reducers/autocomplete';
-import type { PromotedCategoryType } from '../../constants';
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -30,8 +26,11 @@ import tracking from 'amo/tracking';
 import { getPromotedCategory } from 'amo/utils/addons';
 import { addQueryParams } from 'amo/utils/url';
 import LoadingText from 'amo/components/LoadingText';
+import type { PromotedCategoryType } from 'amo/constants';
+import type { SuggestionType } from 'amo/reducers/autocomplete';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { AppState } from 'amo/store';
+import type { CollectionAddonType, AddonType } from 'amo/types/addons';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 
@@ -72,14 +71,14 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       clientApp: string,
       forBadging?: boolean,
     |}) => PromotedCategoryType | null,
-    _tracking: Tracking,
+    _tracking: typeof tracking,
   |} = {
     _checkInternalURL: checkInternalURL,
     _getPromotedCategory: getPromotedCategory,
     _tracking: tracking,
   };
 
-  makeCallToActionURL: () => string = () => {
+  makeCallToActionURL: () => null | string = () => {
     const { shelfData } = this.props;
     invariant(shelfData, 'The shelfData property is required');
 

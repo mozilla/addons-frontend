@@ -70,7 +70,14 @@ export class DismissibleTextFormBase extends React.Component<
 
   textarea: React.ElementRef<typeof Textarea>;
 
-  static defaultProps = {
+  static defaultProps: {|
+    _createLocalState: typeof createLocalState,
+    _debounce: typeof debounce,
+    isSubmitting: boolean,
+    microButtons: boolean,
+    puffyButtons: boolean,
+    reverseButtonOrder: boolean,
+  |} = {
     _createLocalState: createLocalState,
     _debounce: debounce,
     isSubmitting: false,

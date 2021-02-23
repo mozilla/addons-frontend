@@ -16,25 +16,27 @@ import {
 } from 'amo/constants';
 import type { AddonType } from 'amo/types/addons';
 
+export type InstalledAddonStatus =
+  | 'DISABLED'
+  | 'DISABLING'
+  | 'DOWNLOADING'
+  | 'ENABLED'
+  | 'ENABLING'
+  | 'ERROR'
+  | 'INACTIVE'
+  | 'INSTALLED'
+  | 'INSTALLING'
+  | 'UNINSTALLED'
+  | 'UNINSTALLING'
+  | 'UNKNOWN';
+
 export type InstalledAddon = {
   canUninstall?: boolean,
   downloadProgress?: number,
   error?: string,
   guid: $PropertyType<AddonType, 'guid'>,
   needsRestart?: boolean,
-  status:
-    | 'DISABLED'
-    | 'DISABLING'
-    | 'DOWNLOADING'
-    | 'ENABLED'
-    | 'ENABLING'
-    | 'ERROR'
-    | 'INACTIVE'
-    | 'INSTALLED'
-    | 'INSTALLING'
-    | 'UNINSTALLED'
-    | 'UNINSTALLING'
-    | 'UNKNOWN',
+  status: InstalledAddonStatus,
   url?: $PropertyType<AddonType, 'url'>,
 };
 

@@ -132,10 +132,6 @@ export function showUserAbuseReportUI({
   };
 }
 
-export const initialState = {
-  byUserId: ({}: { ... }),
-};
-
 export type UserAbuseReportState = {|
   hasSubmitted?: boolean,
   isSubmitting: boolean,
@@ -156,6 +152,10 @@ export type UserAbuseReportActionType =
   | SendUserAbuseReportAction
   | ShowUserAbuseReportUIActions
   | LoadUserAbuseReportAction;
+
+export const initialState: UserAbuseReportsState = {
+  byUserId: {},
+};
 
 export default function userAbuseReportReducer(
   state: UserAbuseReportsState = initialState,

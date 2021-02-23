@@ -56,14 +56,18 @@ type Props = {|
   infoType: AddonInfoTypeType,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   addon: AddonType | null,
   addonInfo: AddonInfoType | null,
   addonInfoIsLoading: boolean,
   addonIsLoading: boolean,
   addonVersion: AddonVersionType | null,
   addonVersionIsLoading: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -216,7 +220,10 @@ export class AddonInfoBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+export function mapStateToProps(
+  state: AppState,
+  ownProps: InternalProps,
+): PropsFromState {
   const { slug } = ownProps.match.params;
   const addon = getAddonByIdInURL(state.addons, slug);
 

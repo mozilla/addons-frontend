@@ -14,6 +14,7 @@ import {
   ON_UNINSTALLED_EVENT,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'amo/constants';
+import type { InstalledAddonStatus } from 'amo/reducers/installations';
 
 // This is the representation of an add-on in Firefox.
 type FirefoxAddon = {|
@@ -51,7 +52,10 @@ type GetAddonStatusParams = {|
   type?: string,
 |};
 
-export function getAddonStatus({ addon, type }: GetAddonStatusParams): string {
+export function getAddonStatus({
+  addon,
+  type,
+}: GetAddonStatusParams): InstalledAddonStatus {
   const { isActive, isEnabled } = addon;
 
   let status = DISABLED;
@@ -89,7 +93,7 @@ export function hasPermissionPromptsEnabled({
 export function getAddon(
   guid: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
-) {
+): Promise<FirefoxAddon> {
   if (_mozAddonManager || module.exports.hasAddonManager()) {
     // Resolves a promise with the addon on success.
     return _mozAddonManager.getAddonByID(guid).then((addon) => {

@@ -85,7 +85,7 @@ export class BlockBase extends React.Component<InternalProps> {
       return <LoadingText />;
     }
 
-    const content = [
+    const content: Array<React.Element<'a'> | string> = [
       i18n.sprintf(i18n.gettext('Blocked on %(date)s.'), {
         date: i18n.moment(block.created).format('ll'),
       }),
