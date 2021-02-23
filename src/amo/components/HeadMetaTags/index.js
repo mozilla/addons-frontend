@@ -34,7 +34,11 @@ type InternalProps = {|
 |};
 
 export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
-  static defaultProps: {|_config: any, appendDefaultTitle: boolean, withTwitterMeta: boolean|} = {
+  static defaultProps: {|
+    _config: any,
+    appendDefaultTitle: boolean,
+    withTwitterMeta: boolean,
+  |} = {
     _config: config,
     appendDefaultTitle: true,
     withTwitterMeta: false,
@@ -82,7 +86,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return i18n.sprintf(i18nTitle, i18nValues);
   }
 
-  renderOpenGraph(): Array<React.Element<"meta">> {
+  renderOpenGraph(): Array<React.Element<'meta'>> {
     const {
       _config,
       description,
@@ -117,7 +121,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return tags;
   }
 
-  renderTwitter(): null | Array<React.Element<"meta">> {
+  renderTwitter(): null | Array<React.Element<'meta'>> {
     if (!this.props.withTwitterMeta) {
       return null;
     }

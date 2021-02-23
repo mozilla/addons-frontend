@@ -16,7 +16,10 @@ type InternalProps = {|
   location: ReactRouterLocationType,
 |};
 
-export const AppBannerBase = ({ className, location }: InternalProps): React.Element<"div"> => {
+export const AppBannerBase = ({
+  className,
+  location,
+}: InternalProps): React.Element<'div'> => {
   return (
     <div className={makeClassName('AppBanner', className)}>
       <SiteNotices />

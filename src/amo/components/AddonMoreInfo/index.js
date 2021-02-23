@@ -1,5 +1,6 @@
 /* @flow */
-import type {UserId} from "../../reducers/users";import * as React from 'react';
+import type { UserId } from '../../reducers/users';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -314,7 +315,10 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props): {|
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): {|
   currentVersion: null | AddonVersionType,
   hasStatsPermission: boolean,
   userId: null | UserId,

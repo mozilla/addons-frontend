@@ -428,42 +428,45 @@ export const getUserById = (users: UsersState, userId: UserId): UserType => {
   return users.byID[userId];
 };
 
-export const getUserByUsername = (users: UsersState, username: string): UserType => {
+export const getUserByUsername = (
+  users: UsersState,
+  username: string,
+): UserType => {
   invariant(username, 'username is required');
   return users.byID[users.byUsername[username.toLowerCase()]];
 };
 
-export const getCurrentUser = (users: UsersState): 
-  | null
-  | {|
-    average_addon_rating: number,
-    biography: string | null,
-    created: string,
-    deleted?: boolean,
-    display_name: string | null,
-    email?: string,
-    fxa_edit_email_url?: string,
-    has_anonymous_display_name: boolean,
-    has_anonymous_username: boolean,
-    homepage: string | null,
-    id: number,
-    is_addon_developer: boolean,
-    is_artist: boolean,
-    is_verified?: boolean,
-    last_login?: string,
-    last_login_ip?: string,
-    location: string | null,
-    name: string,
-    notifications: NotificationsType | null,
-    num_addons_listed: number,
-    occupation: string | null,
-    permissions?: Array<string>,
-    picture_type: string | null,
-    picture_url: string | null,
-    read_dev_agreement?: boolean,
-    reviewer_name?: string | null,
-    username: string,
-  |} => {
+export const getCurrentUser = (
+  users: UsersState,
+): null | {|
+  average_addon_rating: number,
+  biography: string | null,
+  created: string,
+  deleted?: boolean,
+  display_name: string | null,
+  email?: string,
+  fxa_edit_email_url?: string,
+  has_anonymous_display_name: boolean,
+  has_anonymous_username: boolean,
+  homepage: string | null,
+  id: number,
+  is_addon_developer: boolean,
+  is_artist: boolean,
+  is_verified?: boolean,
+  last_login?: string,
+  last_login_ip?: string,
+  location: string | null,
+  name: string,
+  notifications: NotificationsType | null,
+  num_addons_listed: number,
+  occupation: string | null,
+  permissions?: Array<string>,
+  picture_type: string | null,
+  picture_url: string | null,
+  read_dev_agreement?: boolean,
+  reviewer_name?: string | null,
+  username: string,
+|} => {
   if (!users.currentUserID) {
     return null;
   }

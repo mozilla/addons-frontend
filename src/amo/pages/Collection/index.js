@@ -129,7 +129,11 @@ export const computeNewCollectionPage = ({
 export class CollectionBase extends React.Component<InternalProps> {
   addonPlaceholderCount: number;
 
-  static defaultProps: {|_isFeaturedCollection: any, creating: boolean, editing: boolean|} = {
+  static defaultProps: {|
+    _isFeaturedCollection: any,
+    creating: boolean,
+    editing: boolean,
+  |} = {
     _isFeaturedCollection: isFeaturedCollection,
     creating: false,
     editing: false,
@@ -157,7 +161,9 @@ export class CollectionBase extends React.Component<InternalProps> {
     this.maybeResetAddonPlaceholderCount();
   }
 
-  onDelete: ((event: SyntheticEvent<HTMLButtonElement>) => void) = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onDelete: (event: SyntheticEvent<HTMLButtonElement>) => void = (
+    event: SyntheticEvent<HTMLButtonElement>,
+  ) => {
     event.preventDefault();
 
     const { dispatch, errorHandler, collection } = this.props;
@@ -399,7 +405,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     );
   }
 
-  renderCollection(): React.Node | React.Element<"div"> {
+  renderCollection(): React.Node | React.Element<'div'> {
     const {
       _isFeaturedCollection,
       collection,
@@ -554,10 +560,13 @@ export class CollectionBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: InternalProps): {|
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: InternalProps,
+): {|
   clientApp: null | string,
   collection: null | CollectionType,
-  filters: {|collectionSort: string, page: string|},
+  filters: {| collectionSort: string, page: string |},
   isLoggedIn: boolean,
   isOwner: null | boolean,
   lang: null | string,

@@ -23,7 +23,10 @@ type InternalProps = {|
 |};
 
 export class ErrorPageBase extends React.Component<InternalProps> {
-  static defaultProps: {|errorPage: {...}, getErrorComponent: (status: number | null) => any|} = {
+  static defaultProps: {|
+    errorPage: { ... },
+    getErrorComponent: (status: number | null) => any,
+  |} = {
     errorPage: {},
     getErrorComponent: getErrorComponentDefault,
   };
@@ -51,7 +54,9 @@ export class ErrorPageBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|errorPage: ErrorPageState|} => ({
+export const mapStateToProps = (
+  state: AppState,
+): {| errorPage: ErrorPageState |} => ({
   errorPage: state.errorPage,
 });
 

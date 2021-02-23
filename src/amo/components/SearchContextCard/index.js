@@ -168,26 +168,28 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState): {|
+export function mapStateToProps(
+  state: AppState,
+): {|
   categoryName: null | string,
   count: number,
-  filters: 
-    | {...}
+  filters:
+    | { ... }
     | {|
-      addonType?: string,
-      author?: string,
-      category?: string,
-      clientApp?: string,
-      compatibleWithVersion?: number | string,
-      exclude_addons?: string,
-      guid?: string,
-      operatingSystem?: string,
-      page?: string,
-      page_size?: string,
-      promoted?: string,
-      query?: string,
-      sort?: string,
-    |},
+        addonType?: string,
+        author?: string,
+        category?: string,
+        clientApp?: string,
+        compatibleWithVersion?: number | string,
+        exclude_addons?: string,
+        guid?: string,
+        operatingSystem?: string,
+        page?: string,
+        page_size?: string,
+        promoted?: string,
+        query?: string,
+        sort?: string,
+      |},
   hasCategory: boolean,
   loadingSearch: boolean,
 |} {

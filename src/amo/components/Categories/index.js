@@ -59,7 +59,7 @@ type InternalProps = {|
 export const categoryResultsLinkTo = ({
   addonType,
   slug,
-}: GetCategoryResultsQueryParams): {|pathname: string, query: any|} => {
+}: GetCategoryResultsQueryParams): {| pathname: string, query: any |} => {
   return {
     pathname: '/search/',
     query: getCategoryResultsQuery({

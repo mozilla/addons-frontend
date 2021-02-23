@@ -63,7 +63,7 @@ export class BlockBase extends React.Component<InternalProps> {
     }
   }
 
-  renderReason(): null | React.Element<"p"> {
+  renderReason(): null | React.Element<'p'> {
     const { block } = this.props;
 
     if (block && block.reason === null) {
@@ -78,7 +78,7 @@ export class BlockBase extends React.Component<InternalProps> {
     );
   }
 
-  renderDateAndURL(): React.Node | Array<React.Element<"a"> | string> {
+  renderDateAndURL(): React.Node | Array<React.Element<'a'> | string> {
     const { block, i18n } = this.props;
 
     if (!block) {

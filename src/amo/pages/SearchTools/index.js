@@ -75,7 +75,13 @@ export class SearchToolsBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState): {|clientApp: null | string, filters: {|sort: string|}, lang: null | string|} {
+export function mapStateToProps(
+  state: AppState,
+): {|
+  clientApp: null | string,
+  filters: {| sort: string |},
+  lang: null | string,
+|} {
   const filters = {
     sort: SEARCH_SORT_TOP_RATED,
   };

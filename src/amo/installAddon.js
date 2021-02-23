@@ -73,7 +73,10 @@ export function makeProgressHandler({
   dispatch,
   guid,
   type,
-}: MakeProgressHandlerParams): ((addonInstall: AddonInstallType, event: EventType) => void) {
+}: MakeProgressHandlerParams): (
+  addonInstall: AddonInstallType,
+  event: EventType,
+) => void {
   return (addonInstall: AddonInstallType, event: EventType) => {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
@@ -301,7 +304,9 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       });
   }
 
-  enable({ sendTrackingEvent }: EnableParams = { sendTrackingEvent: true }): Promise<void> {
+  enable(
+    { sendTrackingEvent }: EnableParams = { sendTrackingEvent: true },
+  ): Promise<void> {
     const { _addonManager, _log, _tracking, dispatch, addon } = this.props;
 
     if (!addon) {

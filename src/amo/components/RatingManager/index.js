@@ -1,6 +1,6 @@
 /* @flow */
-import type {UserId} from "../../reducers/users";
-import type {ReviewAddonType} from "../../actions/reviews";/* eslint-disable react/no-unused-prop-types */
+import type { UserId } from '../../reducers/users';
+import type { ReviewAddonType } from '../../actions/reviews'; /* eslint-disable react/no-unused-prop-types */
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -82,7 +82,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     }
   }
 
-  onSelectRating: ((score: number) => void) = (score: number) => {
+  onSelectRating: (score: number) => void = (score: number) => {
     const { addon, dispatch, errorHandler, userReview, version } = this.props;
 
     if (userReview) {
@@ -157,7 +157,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     return [STARTED_SAVE_RATING, SAVED_RATING].includes(flashMessage);
   }
 
-  renderUserRatingForm(): React.Element<"form"> {
+  renderUserRatingForm(): React.Element<'form'> {
     const {
       addon,
       beginningToDeleteReview,
@@ -236,7 +236,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     );
   }
 
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const { addon, editingReview, userReview, version } = this.props;
 
     invariant(addon, 'addon is required');
@@ -264,7 +264,10 @@ export class RatingManagerBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props): {|
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): {|
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
   editingReview: boolean,
@@ -273,20 +276,21 @@ export const mapStateToProps = (state: AppState, ownProps: Props): {|
   userReview: ?(
     | UserReviewType
     | {|
-      body?: string,
-      created: Date,
-      id: number,
-      isDeleted: boolean,
-      isDeveloperReply: boolean,
-      isLatest: boolean,
-      reply: UserReviewType | null,
-      reviewAddon: ReviewAddonType,
-      score: number | null,
-      userId: number,
-      userName: string,
-      userUrl: string,
-      versionId: number | null,
-    |}),
+        body?: string,
+        created: Date,
+        id: number,
+        isDeleted: boolean,
+        isDeveloperReply: boolean,
+        isLatest: boolean,
+        reply: UserReviewType | null,
+        reviewAddon: ReviewAddonType,
+        score: number | null,
+        userId: number,
+        userName: string,
+        userUrl: string,
+        versionId: number | null,
+      |}
+  ),
 |} => {
   const userId = state.users.currentUserID;
   let userReview;
@@ -325,7 +329,9 @@ export const mapStateToProps = (state: AppState, ownProps: Props): {|
   };
 };
 
-export const RatingManagerWithI18n: React.ComponentType<any> = translate()(RatingManagerBase);
+export const RatingManagerWithI18n: React.ComponentType<any> = translate()(
+  RatingManagerBase,
+);
 
 const RatingManager: React.ComponentType<Props> = compose(
   withRenderedErrorHandler({ name: 'RatingManager' }),

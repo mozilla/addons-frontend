@@ -1,5 +1,6 @@
 /* @flow */
-import type {Tracking} from "../../tracking";import config from 'config';
+import type { Tracking } from '../../tracking';
+import config from 'config';
 import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
 import { connect } from 'react-redux';
@@ -40,7 +41,11 @@ type InternalProps = {|
 |};
 
 export class SurveyNoticeBase extends React.Component<InternalProps> {
-  static defaultProps: {|_config: any, _supportedLangs: Array<string>, _tracking: Tracking|} = {
+  static defaultProps: {|
+    _config: any,
+    _supportedLangs: Array<string>,
+    _tracking: Tracking,
+  |} = {
     _config: config,
     _supportedLangs: [
       'de',
@@ -79,7 +84,7 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
     );
   }
 
-  dismissNotice: (() => void) = () => {
+  dismissNotice: () => void = () => {
     const { _config, cookies, dispatch } = this.props;
     dispatch(dismissSurvey());
     // Even though a dismissal action is dispatched here, also save a
@@ -94,12 +99,12 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
     });
   };
 
-  onDismiss: (() => void) = () => {
+  onDismiss: () => void = () => {
     this.dismissNotice();
     this.track(SURVEY_ACTION_DISMISSED);
   };
 
-  onClickSurveyLink: (() => void) = () => {
+  onClickSurveyLink: () => void = () => {
     this.dismissNotice();
     this.track(SURVEY_ACTION_VISITED);
   };

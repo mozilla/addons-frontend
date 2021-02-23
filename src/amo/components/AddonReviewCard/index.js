@@ -1,5 +1,6 @@
 /* @flow */
-import type {NotificationsType} from "../../reducers/users";import makeClassName from 'classnames';
+import type { NotificationsType } from '../../reducers/users';
+import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -82,12 +83,12 @@ type InternalProps = {|
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps: {|
-  flaggable: boolean,
-  shortByLine: boolean,
-  showControls: boolean,
-  showRating: boolean,
-  slim: boolean,
-|} = {
+    flaggable: boolean,
+    shortByLine: boolean,
+    showControls: boolean,
+    showRating: boolean,
+    slim: boolean,
+  |} = {
     flaggable: true,
     shortByLine: false,
     showControls: true,
@@ -95,7 +96,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     slim: false,
   };
 
-  onBeginDeleteReview: ((event: SyntheticEvent<HTMLElement>) => void) = (event: SyntheticEvent<HTMLElement>) => {
+  onBeginDeleteReview: (event: SyntheticEvent<HTMLElement>) => void = (
+    event: SyntheticEvent<HTMLElement>,
+  ) => {
     const { dispatch, review } = this.props;
     event.preventDefault();
 
@@ -103,7 +106,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(beginDeleteAddonReview({ reviewId: review.id }));
   };
 
-  onCancelDeleteReview: ((event: SyntheticEvent<HTMLElement>) => void) = (event: SyntheticEvent<HTMLElement>) => {
+  onCancelDeleteReview: (event: SyntheticEvent<HTMLElement>) => void = (
+    event: SyntheticEvent<HTMLElement>,
+  ) => {
     const { dispatch, review } = this.props;
     event.preventDefault();
 
@@ -111,7 +116,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(cancelDeleteAddonReview({ reviewId: review.id }));
   };
 
-  onClickToDeleteReview: ((event: SyntheticEvent<HTMLElement>) => void) = (event: SyntheticEvent<HTMLElement>) => {
+  onClickToDeleteReview: (event: SyntheticEvent<HTMLElement>) => void = (
+    event: SyntheticEvent<HTMLElement>,
+  ) => {
     const { dispatch, errorHandler, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
@@ -126,7 +133,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   };
 
-  onClickToEditReview: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
+  onClickToEditReview: (event: SyntheticEvent<any>) => void = (
+    event: SyntheticEvent<any>,
+  ) => {
     const { dispatch, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
@@ -141,14 +150,16 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     }
   };
 
-  onCancelEditReview: (() => void) = () => {
+  onCancelEditReview: () => void = () => {
     const { dispatch, review } = this.props;
     invariant(review, 'review is required');
 
     dispatch(hideEditReviewForm({ reviewId: review.id }));
   };
 
-  onClickToBeginReviewReply: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
+  onClickToBeginReviewReply: (event: SyntheticEvent<any>) => void = (
+    event: SyntheticEvent<any>,
+  ) => {
     event.preventDefault();
     const { dispatch, review } = this.props;
     if (!review) {
@@ -158,7 +169,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(showReplyToReviewForm({ reviewId: review.id }));
   };
 
-  onDismissReviewReply: (() => void) = () => {
+  onDismissReviewReply: () => void = () => {
     const { dispatch, review } = this.props;
     if (!review) {
       log.debug('Cannot hide review form because no review has been loaded.');
@@ -167,7 +178,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(hideReplyToReviewForm({ reviewId: review.id }));
   };
 
-  onSubmitReviewReply: ((reviewData: OnSubmitParams) => void) = (reviewData: OnSubmitParams) => {
+  onSubmitReviewReply: (reviewData: OnSubmitParams) => void = (
+    reviewData: OnSubmitParams,
+  ) => {
     const { dispatch, errorHandler, review } = this.props;
     if (!review) {
       throw new Error(
@@ -272,7 +285,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Keep review');
   }
 
-  renderReply(): null | React.Element<"div"> {
+  renderReply(): null | React.Element<'div'> {
     const {
       addon,
       errorHandler,
@@ -331,7 +344,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   }
 
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const {
       beginningToDeleteReview,
       className,
@@ -596,43 +609,44 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props): {|
+export function mapStateToProps(
+  state: AppState,
+  ownProps: Props,
+): {|
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
   editingReview: boolean,
   hasUsersEditPermission: boolean,
   replyingToReview: boolean,
-  siteUser: 
-    | null
-    | {|
-      average_addon_rating: number,
-      biography: string | null,
-      created: string,
-      deleted?: boolean,
-      display_name: string | null,
-      email?: string,
-      fxa_edit_email_url?: string,
-      has_anonymous_display_name: boolean,
-      has_anonymous_username: boolean,
-      homepage: string | null,
-      id: number,
-      is_addon_developer: boolean,
-      is_artist: boolean,
-      is_verified?: boolean,
-      last_login?: string,
-      last_login_ip?: string,
-      location: string | null,
-      name: string,
-      notifications: NotificationsType | null,
-      num_addons_listed: number,
-      occupation: string | null,
-      permissions?: Array<string>,
-      picture_type: string | null,
-      picture_url: string | null,
-      read_dev_agreement?: boolean,
-      reviewer_name?: string | null,
-      username: string,
-    |},
+  siteUser: null | {|
+    average_addon_rating: number,
+    biography: string | null,
+    created: string,
+    deleted?: boolean,
+    display_name: string | null,
+    email?: string,
+    fxa_edit_email_url?: string,
+    has_anonymous_display_name: boolean,
+    has_anonymous_username: boolean,
+    homepage: string | null,
+    id: number,
+    is_addon_developer: boolean,
+    is_artist: boolean,
+    is_verified?: boolean,
+    last_login?: string,
+    last_login_ip?: string,
+    location: string | null,
+    name: string,
+    notifications: NotificationsType | null,
+    num_addons_listed: number,
+    occupation: string | null,
+    permissions?: Array<string>,
+    picture_type: string | null,
+    picture_url: string | null,
+    read_dev_agreement?: boolean,
+    reviewer_name?: string | null,
+    username: string,
+  |},
   siteUserCanManageReplies: boolean,
   submittingReply: boolean,
 |} {

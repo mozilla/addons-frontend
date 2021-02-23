@@ -197,7 +197,10 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps): {|
+export function mapStateToProps(
+  state: AppState,
+  ownProps: InternalProps,
+): {|
   addon: null | AddonType,
   addonIsLoading: boolean,
   areVersionsLoading: boolean,

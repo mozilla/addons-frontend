@@ -1,5 +1,8 @@
 /* @flow */
-import type {GetClientCompatibilityParams, ClientCompatibilityType} from "../../utils/compatibility";/* eslint-disable react/no-danger */
+import type {
+  GetClientCompatibilityParams,
+  ClientCompatibilityType,
+} from '../../utils/compatibility'; /* eslint-disable react/no-danger */
 import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -46,11 +49,9 @@ type InternalProps = {|
 
 export class AddonCompatibilityErrorBase extends React.Component<InternalProps> {
   static defaultProps: {|
-  _getClientCompatibility: (
-    GetClientCompatibilityParams
-  ) => ClientCompatibilityType,
-  _log: any,
-|} = {
+    _getClientCompatibility: (GetClientCompatibilityParams) => ClientCompatibilityType,
+    _log: any,
+  |} = {
     _log: log,
     _getClientCompatibility: getClientCompatibility,
   };
@@ -156,7 +157,10 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props): {|
+export function mapStateToProps(
+  state: AppState,
+  ownProps: Props,
+): {|
   clientApp: null | string,
   currentVersion: ?AddonVersionType,
   userAgentInfo: UserAgentInfoType,

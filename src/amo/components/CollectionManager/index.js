@@ -80,7 +80,10 @@ export class CollectionManagerBase extends React.Component<
   InternalProps,
   State,
 > {
-  static getDerivedStateFromProps(props: InternalProps, state: State): null | State {
+  static getDerivedStateFromProps(
+    props: InternalProps,
+    state: State,
+  ): null | State {
     if (props.collection && props.collection.id !== state.collectionId) {
       // Only reset the form when receiving a collection that the user is not
       // already editing. This prevents clearing the form in a few scenarios
@@ -97,7 +100,9 @@ export class CollectionManagerBase extends React.Component<
     this.state = propsToState(props);
   }
 
-  onCancel: ((event: SyntheticEvent<HTMLButtonElement>) => void) = (event: SyntheticEvent<HTMLButtonElement>) => {
+  onCancel: (event: SyntheticEvent<HTMLButtonElement>) => void = (
+    event: SyntheticEvent<HTMLButtonElement>,
+  ) => {
     const { clientApp, creating, dispatch, history, siteLang } = this.props;
 
     if (creating) {
@@ -114,7 +119,9 @@ export class CollectionManagerBase extends React.Component<
     dispatch(finishEditingCollectionDetails());
   };
 
-  onSubmit: ((event: SyntheticEvent<any>) => void) = (event: SyntheticEvent<any>) => {
+  onSubmit: (event: SyntheticEvent<any>) => void = (
+    event: SyntheticEvent<any>,
+  ) => {
     const {
       collection,
       creating,
@@ -172,9 +179,9 @@ export class CollectionManagerBase extends React.Component<
     }
   };
 
-  onTextInput: ((event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>) => void) = (
+  onTextInput: (
     event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  ) => void = (event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     event.preventDefault();
     const { name, value } = event.target;
     const { creating } = this.props;
@@ -207,7 +214,7 @@ export class CollectionManagerBase extends React.Component<
     }
   };
 
-  render(): React.Element<"form"> {
+  render(): React.Element<'form'> {
     const {
       collection,
       creating,
@@ -335,7 +342,9 @@ export const extractId = (ownProps: Props): string => {
   return `collection-${collection ? collection.slug : ''}`;
 };
 
-export const mapStateToProps = (state: AppState): {|
+export const mapStateToProps = (
+  state: AppState,
+): {|
   clientApp: null | string,
   currentUserId: null | number,
   isCollectionBeingModified: boolean,

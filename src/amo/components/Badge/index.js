@@ -26,7 +26,7 @@ const getIconNameForType = (type) => {
   return type;
 };
 
-const Badge = ({ label, type }: Props): React.Element<"div"> => {
+const Badge = ({ label, type }: Props): React.Element<'div'> => {
   if (
     type &&
     ![

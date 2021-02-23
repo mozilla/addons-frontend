@@ -192,7 +192,7 @@ export function addChangeListeners(
   |}) => void,
   mozAddonManager: MozAddonManagerType,
   { _log = log }: {| _log: typeof log |} = {},
-): ((e: AddonChangeEvent) => void | Promise<void>) {
+): (e: AddonChangeEvent) => void | Promise<void> {
   function handleChangeEvent(e: AddonChangeEvent) {
     const { id: guid, type, needsRestart } = e;
 

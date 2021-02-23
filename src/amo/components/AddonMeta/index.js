@@ -30,7 +30,7 @@ export const roundToOneDigit = (value: number | null): number => {
 };
 
 export class AddonMetaBase extends React.Component<InternalProps> {
-  render(): React.Element<"div"> {
+  render(): React.Element<'div'> {
     const { addon, i18n, location } = this.props;
 
     let averageRating;

@@ -35,15 +35,15 @@ type InternalProps = {|
 const initialUIState: UIStateType = { hasFocus: false };
 
 export class UserProfileEditPictureBase extends React.Component<InternalProps> {
-  onFocus: (() => void) = () => {
+  onFocus: () => void = () => {
     this.props.setUIState({ hasFocus: true });
   };
 
-  onBlur: (() => void) = () => {
+  onBlur: () => void = () => {
     this.props.setUIState({ hasFocus: false });
   };
 
-  render(): React.Element<"section"> {
+  render(): React.Element<'section'> {
     const {
       i18n,
       name,

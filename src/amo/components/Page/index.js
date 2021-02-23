@@ -42,7 +42,7 @@ export const PageBase = ({
   isHomePage = false,
   location,
   showWrongPlatformWarning = true,
-}: InternalProps): React.Element<"div"> => {
+}: InternalProps): React.Element<'div'> => {
   let errorContent;
   if (errorHandler && errorHandler.hasError()) {
     // 401 and 403 for an add-on lookup is made to look like a 404 on purpose.
@@ -97,7 +97,9 @@ export const PageBase = ({
   );
 };
 
-export const mapStateToProps = (state: AppState): {|clientApp: null | string|} => {
+export const mapStateToProps = (
+  state: AppState,
+): {| clientApp: null | string |} => {
   return {
     clientApp: state.api.clientApp,
   };

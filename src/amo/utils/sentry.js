@@ -4,6 +4,8 @@ type GetSentryReleaseParams = {|
   version: string,
 |};
 
-export const getSentryRelease = ({ version }: GetSentryReleaseParams): string => {
+export const getSentryRelease = ({
+  version,
+}: GetSentryReleaseParams): string => {
   return `addons-frontend@${version}`;
 };

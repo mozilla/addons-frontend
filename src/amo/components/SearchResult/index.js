@@ -1,6 +1,7 @@
 /* @flow */
-import type {SuggestionType} from "../../reducers/autocomplete";
-import type {PromotedCategoryType} from "../../constants";import makeClassName from 'classnames';
+import type { SuggestionType } from '../../reducers/autocomplete';
+import type { PromotedCategoryType } from '../../constants';
+import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -50,18 +51,16 @@ type InternalProps = {|
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps: {|
-  _getPromotedCategory: (
-    {|
+    _getPromotedCategory: ({|
       addon: ?(AddonType | CollectionAddonType | SuggestionType),
       clientApp: string,
       forBadging?: boolean,
-    |}
-  ) => PromotedCategoryType | null,
-  showMetadata: boolean,
-  showPromotedBadge: boolean,
-  showSummary: boolean,
-  useThemePlaceholder: boolean,
-|} = {
+    |}) => PromotedCategoryType | null,
+    showMetadata: boolean,
+    showPromotedBadge: boolean,
+    showSummary: boolean,
+    useThemePlaceholder: boolean,
+  |} = {
     _getPromotedCategory: getPromotedCategory,
     showMetadata: true,
     showPromotedBadge: true,
@@ -86,7 +85,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
     return linkTo;
   }
 
-  onClickAddon: ((e: SyntheticEvent<HTMLAnchorElement>) => void) = (e: SyntheticEvent<HTMLAnchorElement>) => {
+  onClickAddon: (e: SyntheticEvent<HTMLAnchorElement>) => void = (
+    e: SyntheticEvent<HTMLAnchorElement>,
+  ) => {
     const { addon, onClick } = this.props;
 
     e.stopPropagation();
@@ -95,7 +96,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
   };
 
-  renderResult(): React.Element<"div"> {
+  renderResult(): React.Element<'div'> {
     const {
       _getPromotedCategory,
       addon,
@@ -260,7 +261,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     );
   }
 
-  onClickResult: (() => void) = () => {
+  onClickResult: () => void = () => {
     const {
       addon,
       addonInstallSource,
@@ -281,7 +282,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
   };
 
-  render(): React.Element<"li"> {
+  render(): React.Element<'li'> {
     const { addon, useThemePlaceholder } = this.props;
 
     const result = this.renderResult();
@@ -303,7 +304,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|clientApp: null | string, lang: null | string|} => {
+export const mapStateToProps = (
+  state: AppState,
+): {| clientApp: null | string, lang: null | string |} => {
   return {
     clientApp: state.api.clientApp,
     lang: state.api.lang,

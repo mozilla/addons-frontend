@@ -144,7 +144,9 @@ export class CollectionListBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|
+export const mapStateToProps = (
+  state: AppState,
+): {|
   collections: null | Array<CollectionType>,
   currentUserId: null | number,
   isLoggedIn: boolean,

@@ -206,7 +206,9 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
-  onSelectOption: ((event: ElementEvent<HTMLSelectElement>) => void) = (event: ElementEvent<HTMLSelectElement>) => {
+  onSelectOption: (event: ElementEvent<HTMLSelectElement>) => void = (
+    event: ElementEvent<HTMLSelectElement>,
+  ) => {
     const { addon, clientApp, history, lang, location } = this.props;
     invariant(addon, 'addon is required');
 

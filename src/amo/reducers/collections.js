@@ -958,7 +958,9 @@ export const expandCollections = (
     : null;
 };
 
-export const convertFiltersToQueryParams = (filters: CollectionFilters): {|collection_sort: string, page: string|} => {
+export const convertFiltersToQueryParams = (
+  filters: CollectionFilters,
+): {| collection_sort: string, page: string |} => {
   return {
     page: filters.page,
     collection_sort: filters.collectionSort,

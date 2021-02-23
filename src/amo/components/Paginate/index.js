@@ -40,7 +40,7 @@ function makePageNumbers({
 }
 
 export class PaginateBase extends React.Component<InternalProps> {
-  static defaultProps: {|pageParam: string, showPages: number|} = {
+  static defaultProps: {| pageParam: string, showPages: number |} = {
     pageParam: 'page',
     showPages: 7,
   };
@@ -94,7 +94,7 @@ export class PaginateBase extends React.Component<InternalProps> {
     return makePageNumbers({ start, end });
   }
 
-  render(): null | React.Element<"div"> {
+  render(): null | React.Element<'div'> {
     const {
       LinkComponent,
       count,

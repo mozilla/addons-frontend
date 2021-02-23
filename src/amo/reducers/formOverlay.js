@@ -13,7 +13,7 @@ export type FormOverlayState = {
   |},
 };
 
-export const initialState: {...} = {};
+export const initialState: { ... } = {};
 
 type FormOverlayPayload = {| id: string |};
 

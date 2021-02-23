@@ -31,7 +31,7 @@ export const SearchSuggestionBase = ({
   clientApp,
   loading,
   suggestion,
-}: InternalProps): React.Element<"p"> => {
+}: InternalProps): React.Element<'p'> => {
   const { iconUrl, name, type } = suggestion;
 
   const promotedCategory = _getPromotedCategory({
@@ -65,7 +65,9 @@ export const SearchSuggestionBase = ({
   );
 };
 
-export const mapStateToProps = (state: AppState): {|clientApp: null | string|} => {
+export const mapStateToProps = (
+  state: AppState,
+): {| clientApp: null | string |} => {
   return {
     clientApp: state.api.clientApp,
   };

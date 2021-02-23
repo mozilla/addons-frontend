@@ -30,7 +30,7 @@ export const PromotedBadgeBase = ({
   i18n,
   onClick = null,
   size,
-}: InternalProps): React.Element<"div"> => {
+}: InternalProps): React.Element<'div'> => {
   let label;
   let linkTitle;
   const linkUrl = getPromotedBadgesLinkUrl({

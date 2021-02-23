@@ -96,7 +96,9 @@ export class PermissionsCardBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|userAgentInfo: UserAgentInfoType|} => {
+export const mapStateToProps = (
+  state: AppState,
+): {| userAgentInfo: UserAgentInfoType |} => {
   return {
     userAgentInfo: state.api.userAgentInfo,
   };

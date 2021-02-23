@@ -56,7 +56,7 @@ type Props = {|
   userAgent: string,
 |};
 
-export function getErrorPage(status: number | null): (() => React.Node) {
+export function getErrorPage(status: number | null): () => React.Node {
   switch (status) {
     case 401:
       return NotAuthorizedPage;
@@ -218,7 +218,9 @@ export class AppBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState): {|
+export const mapStateToProps = (
+  state: AppState,
+): {|
   authToken: null | string,
   clientApp: null | string,
   lang: null | string,
@@ -230,7 +232,9 @@ export const mapStateToProps = (state: AppState): {|
   userAgent: state.api.userAgent,
 });
 
-export function mapDispatchToProps(dispatch: DispatchFunc): {|
+export function mapDispatchToProps(
+  dispatch: DispatchFunc,
+): {|
   handleGlobalEvent: (payload: InstalledAddon) => void,
   logOutUser: () => void,
   setUserAgent: (userAgent: string) => void,
