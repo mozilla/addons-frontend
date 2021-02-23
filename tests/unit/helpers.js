@@ -295,6 +295,28 @@ export const fakePrimaryHeroShelfExternalAddon = Object.freeze({
   type: ADDON_TYPE_EXTENSION,
 });
 
+export const createResultsShelf = ({
+  title = 'Top Rated Themes',
+  url = 'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
+  endpoint = 'search-themes',
+  criteria = '?sort=rating&type=statictheme',
+  footerText = 'See more top rated themes',
+  footerPathname = 'search/?sort=rating&type=statictheme',
+  addons = fakeAddon,
+} = {}) => {
+  return [
+    {
+      title,
+      url,
+      endpoint,
+      criteria,
+      footerText,
+      footerPathname,
+      addons,
+    },
+  ];
+};
+
 export const createPrimaryHeroShelf = ({
   addon = undefined,
   description = 'Primary shelf description',
@@ -379,10 +401,12 @@ export const createSecondaryHeroShelf = ({
 };
 
 export const createHomeShelves = ({
+  resultsProps = [],
   primaryProps = {},
   secondaryProps = {},
 } = {}) => {
   return {
+    results: createResultsShelf(resultsProps),
     primary: createPrimaryHeroShelf(primaryProps),
     secondary: createSecondaryHeroShelf(secondaryProps),
   };

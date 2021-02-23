@@ -161,25 +161,25 @@ export type ResultShelfType = {|
   url: string,
   endpoint: string,
   criteria: string,
-  footer_text: string | null,
-  footer_pathname: string | null,
+  footerText: string | null,
+  footerPathname: string | null,
   addons: Array<AddonType>,
 |};
 
 export type ExternalHomeShelvesType = {|
-  results: Array<ExternalResultShelfType>,
+  results: Array<ExternalResultShelfType> | null,
   primary: ExternalPrimaryHeroShelfType,
-  secondary: SecondaryHeroShelfType,
+  secondary: ExternalSecondaryHeroShelfType,
 |};
 
 export type HomeShelvesType = {|
-  results: Array<ResultShelfType>,
+  results: Array<ResultShelfType> | null,
   primary: PrimaryHeroShelfType,
   secondary: SecondaryHeroShelfType,
 |};
 
 export type HomeState = {
-  homeShelves: HomeShelvesType,
+  homeShelves: HomeShelvesType | null,
   isLoading: boolean,
   lang: string,
   resetStateOnNextChange: boolean,
@@ -187,11 +187,7 @@ export type HomeState = {
 };
 
 export const initialState: HomeState = {
-  homeShelves: {
-    results: [],
-    primary: null,
-    secondary: null,
-  },
+  homeShelves: null,
   isLoading: false,
   // We default lang to '' to avoid having to add a lot of invariants to our
   // code, and protect against a lang of '' in selectLocalizedContent.
@@ -207,11 +203,7 @@ export const abortFetchHomeData = (): AbortFetchHomeDataAction => {
 };
 
 type FetchHomeDataParams = {|
-  collectionsToFetch: Array<Object>,
   errorHandlerId: string,
-  includeRecommendedThemes: boolean,
-  includeTrendingExtensions: boolean,
-  isDesktopSite: boolean,
 |};
 
 export type FetchHomeDataAction = {|
@@ -220,23 +212,14 @@ export type FetchHomeDataAction = {|
 |};
 
 export const fetchHomeData = ({
-  collectionsToFetch,
   errorHandlerId,
-  includeRecommendedThemes,
-  includeTrendingExtensions,
-  isDesktopSite,
 }: FetchHomeDataParams): FetchHomeDataAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(collectionsToFetch, 'collectionsToFetch is required');
 
   return {
     type: FETCH_HOME_DATA,
     payload: {
-      collectionsToFetch,
       errorHandlerId,
-      includeRecommendedThemes,
-      includeTrendingExtensions,
-      isDesktopSite,
     },
   };
 };
@@ -268,6 +251,30 @@ type Action =
   | FetchHomeDataAction
   | LoadHomeDataAction
   | SetClientAppAction;
+
+export const createInternalShelf = (
+  result: ExternalResultShelfType,
+  lang: string,
+): ResultShelfType => {
+  const sliceEnd =
+    ADDON_TYPE_STATIC_THEME === result.addons[0].type
+      ? LANDING_PAGE_THEME_COUNT
+      : LANDING_PAGE_EXTENSION_COUNT;
+
+  const shelfAddons = result.addons.slice(0, sliceEnd).map((addon) => {
+    return createInternalAddon(addon, lang);
+  });
+
+  return {
+    title: result.title,
+    url: result.url,
+    endpoint: result.endpoint,
+    criteria: result.criteria,
+    footerText: result.footer_text,
+    footerPathname: result.footer_pathname,
+    addons: shelfAddons,
+  };
+};
 
 export const createInternalPrimaryHeroShelfExternalAddon = (
   external: PrimaryHeroShelfExternalAddonType,
@@ -312,28 +319,10 @@ export const createInternalHomeShelves = (
 ): HomeShelvesType => {
   const { results, primary, secondary } = homeShelves;
 
-  const customShelves = results.map((result) => {
-    const { addons } = result;
-
-    const sliceEnd =
-      ADDON_TYPE_STATIC_THEME === result.addons[0].type
-        ? LANDING_PAGE_THEME_COUNT
-        : LANDING_PAGE_EXTENSION_COUNT;
-
-    const shelfAddons = addons.slice(0, sliceEnd).map((addon) => {
-      return createInternalAddon(addon, lang);
-    });
-
-    return {
-      title: result.title,
-      url: result.url,
-      endpoint: result.endpoint,
-      criteria: result.criteria,
-      footer_text: result.footer_text,
-      footer_pathname: result.footer_pathname,
-      addons: shelfAddons,
-    };
-  });
+  let customShelves: Array<ResultShelfType> | null = null;
+  if (results !== null) {
+    customShelves = results.map((result) => createInternalShelf(result, lang));
+  }
 
   let secondaryShelf: SecondaryHeroShelfType | null = null;
   if (secondary !== null) {
@@ -350,7 +339,11 @@ export const createInternalHomeShelves = (
   }
 
   if (primary === null) {
-    return { results: customShelves, primary: null, secondary: secondaryShelf };
+    return {
+      results: customShelves,
+      primary: null,
+      secondary: secondaryShelf,
+    };
   }
 
   invariant(
