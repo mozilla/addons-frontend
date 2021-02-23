@@ -3,7 +3,6 @@
 # DOCKERHUB_REPO - docker hub repo, format: <username>/<repo>
 # DOCKER_USER - Login user for docker hub
 # DOCKER_PASS - Login password for docker hub user
-# GH_TOKEN - A valid GitHub token (for Storybook)
 version: 2.1
 
 references:
@@ -84,7 +83,6 @@ jobs:
       - *save_build_cache
       - run: yarn lint
       - run: yarn prettier-ci
-      - run: yarn storybook-smoke-test
 
   build-next:
     <<: *defaults-next
@@ -111,15 +109,6 @@ jobs:
       - run: pyenv global 3.7.0
       - run: pip install tox
       - run: TOXENV=dennis-lint tox
-
-  deploy-storybook:
-    <<: *defaults
-    steps:
-      - checkout
-      - *restore_build_cache
-      - *run_yarn_install
-      - *save_build_cache
-      - run: yarn storybook-deploy --ci
 
   release-tag: # build for the master branch and tags
     <<: *defaults-release
@@ -253,16 +242,6 @@ workflows:
       - test-next
       - check
       - dennis-lint
-      - deploy-storybook:
-          requires:
-            - build
-            - test
-            - check
-          filters:
-            branches:
-              only: master
-            tags:
-              ignore: /.*/
       - release-tag:
           filters:
             tags:
