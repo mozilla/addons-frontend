@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import UAParser from 'ua-parser-js';
 
 import { LOG_OUT_USER } from 'amo/reducers/users';
@@ -60,9 +61,9 @@ export type UserAgentInfoType = {|
 |};
 
 export type ApiState = {
-  clientApp: string | null,
+  clientApp: string,
   // See config.get('langs') for all possible values.
-  lang: string | null,
+  lang: string,
   regionCode: string | null,
   requestId: string | null,
   token: string | null,
@@ -71,8 +72,8 @@ export type ApiState = {
 };
 
 export const initialApiState: ApiState = {
-  clientApp: null,
-  lang: null,
+  clientApp: '',
+  lang: '',
   regionCode: null,
   requestId: null,
   token: null,
@@ -101,9 +102,7 @@ export type SetClientAppAction = {|
 |};
 
 export function setClientApp(clientApp: string): SetClientAppAction {
-  if (!clientApp) {
-    throw new Error('clientApp cannot be falsey');
-  }
+  invariant(clientApp, 'clientApp cannot be falsey');
   return {
     type: SET_CLIENT_APP,
     payload: { clientApp },
