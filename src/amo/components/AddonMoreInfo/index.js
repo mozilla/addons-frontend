@@ -1,5 +1,4 @@
 /* @flow */
-import type { UserId } from '../../reducers/users';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -21,8 +20,8 @@ import {
   addQueryParams,
   getQueryParametersForAttribution,
 } from 'amo/utils/url';
-import type { AppState } from 'amo/store';
 import type { AddonVersionType, VersionInfoType } from 'amo/reducers/versions';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
@@ -31,12 +30,16 @@ type Props = {|
   i18n: I18nType,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   hasStatsPermission: boolean,
   userId: number | null,
   currentVersion: AddonVersionType | null,
   versionInfo: VersionInfoType | null,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
   location: ReactRouterLocationType,
 |};
 
@@ -318,12 +321,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 export const mapStateToProps = (
   state: AppState,
   ownProps: Props,
-): {|
-  currentVersion: null | AddonVersionType,
-  hasStatsPermission: boolean,
-  userId: null | UserId,
-  versionInfo: null | VersionInfoType,
-|} => {
+): PropsFromState => {
   const { addon, i18n } = ownProps;
   let currentVersion = null;
   let versionInfo = null;

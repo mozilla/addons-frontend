@@ -9,21 +9,25 @@ import { getCanonicalURL } from 'amo/utils';
 import { hrefLangs } from 'amo/languages';
 import type { AppState } from 'amo/store';
 
+type DefaultProps = {|
+  _config: typeof config,
+  _hrefLangs: typeof hrefLangs,
+|};
+
 type Props = {|
   queryString?: string,
 |};
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
-  _hrefLangs: typeof hrefLangs,
+  ...DefaultProps,
   currentURL: string,
   lang: string,
   locationPathname: string,
 |};
 
 export class HeadLinksBase extends React.PureComponent<InternalProps> {
-  static defaultProps: {| _config: any, _hrefLangs: any |} = {
+  static defaultProps: DefaultProps = {
     _config: config,
     _hrefLangs: hrefLangs,
   };

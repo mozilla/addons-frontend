@@ -1,12 +1,11 @@
 /* @flow */
-import type { AbuseReporter } from '../../api/abuse';
-import type { MozAddonManagerType } from '../../addonManager';
 import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { hasAbuseReportPanelEnabled } from 'amo/addonManager';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
@@ -21,13 +20,14 @@ import {
 import { normalizeFileNameId, sanitizeHTML } from 'amo/utils';
 import Button from 'amo/components/Button';
 import DismissibleTextForm from 'amo/components/DismissibleTextForm';
+import type { MozAddonManagerType } from 'amo/addonManager';
+import type { AbuseReporter } from 'amo/api/abuse';
 import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
-import type { AppState } from 'amo/store';
 import type { AddonAbuseState } from 'amo/reducers/abuse';
-import type { DispatchFunc } from 'amo/types/redux';
+import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import { hasAbuseReportPanelEnabled } from 'amo/addonManager';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

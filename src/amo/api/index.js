@@ -16,9 +16,11 @@ import {
   fixFiltersForClientApp,
 } from 'amo/searchUtils';
 import { addQueryParams } from 'amo/utils/url';
-import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { ApiState } from 'amo/reducers/api';
+import type { ExternalSuggestion } from 'amo/reducers/autocomplete';
+import type { ExternalAddonType } from 'amo/types/addons';
 import type { LocalizedString, PaginatedApiResponse } from 'amo/types/api';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
@@ -95,7 +97,7 @@ export function callApi({
   _config = config,
   version = _config.get('apiVersion'),
   _log = log,
-}: CallApiParams): Promise<any> {
+}: CallApiParams): Promise<Object> {
   if (!endpoint) {
     return Promise.reject(
       new Error(`endpoint URL cannot be falsy: "${endpoint}"`),
@@ -241,7 +243,7 @@ export function fetchAddon({
   api,
   showGroupedRatings = false,
   slug,
-}: FetchAddonParams): Promise<any> {
+}: FetchAddonParams): Promise<ExternalAddonType> {
   const { clientApp, userAgentInfo } = api;
   const appVersion = userAgentInfo.browser.version;
   if (!appVersion) {
@@ -279,7 +281,11 @@ export function startLoginUrl({
   )}/accounts/login/start/${query}`;
 }
 
-export function logOutFromServer({ api }: {| api: ApiState |}): Promise<any> {
+export function logOutFromServer({
+  api,
+}: {|
+  api: ApiState,
+|}): Promise<Object> {
   return callApi({
     auth: true,
     credentials: true,
@@ -302,7 +308,7 @@ export function autocomplete({
   _fixFiltersForClientApp = fixFiltersForClientApp,
   api,
   filters,
-}: AutocompleteParams): Promise<any> {
+}: AutocompleteParams): Promise<Array<ExternalSuggestion>> {
   const filtersWithAppVersion = addVersionCompatibilityToFilters({
     filters: _fixFiltersForClientApp({ api, filters }),
     userAgentInfo: api.userAgentInfo,

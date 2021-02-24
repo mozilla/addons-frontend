@@ -49,6 +49,11 @@ type Props = {|
   showInputLabel?: boolean,
 |};
 
+type DefaultProps = {|
+  debounce: typeof defaultDebounce,
+  showInputLabel?: boolean,
+|};
+
 type MappedProps = {|
   suggestions: Array<SuggestionType>,
   loadingSuggestions: boolean,
@@ -56,8 +61,8 @@ type MappedProps = {|
 
 type InternalProps = {|
   ...Props,
+  ...DefaultProps,
   ...MappedProps,
-  debounce: typeof defaultDebounce,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -91,7 +96,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
   searchInput: React.ElementRef<'input'> | null;
 
-  static defaultProps: {| debounce: any, showInputLabel: boolean |} = {
+  static defaultProps: DefaultProps = {
     debounce: defaultDebounce,
     showInputLabel: true,
   };

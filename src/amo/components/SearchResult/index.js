@@ -1,6 +1,4 @@
 /* @flow */
-import type { SuggestionType } from '../../reducers/autocomplete';
-import type { PromotedCategoryType } from '../../constants';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -22,6 +20,8 @@ import Icon from 'amo/components/Icon';
 import LoadingText from 'amo/components/LoadingText';
 import Rating from 'amo/components/Rating';
 import PromotedBadge from 'amo/components/PromotedBadge';
+import type { PromotedCategoryType } from 'amo/constants';
+import type { SuggestionType } from 'amo/reducers/autocomplete';
 import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';

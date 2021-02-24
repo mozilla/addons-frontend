@@ -14,14 +14,18 @@ import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 
+type DefaultProps = {|
+  isOpen: boolean,
+  isSubmitting: boolean,
+|};
+
 type Props = {|
+  ...DefaultProps,
   children?: React.Node,
   className?: string,
   dispatch: DispatchFunc,
   i18n: I18nType,
   id: string,
-  isOpen: boolean,
-  isSubmitting: boolean,
   onCancel?: Function,
   onSubmit?: Function,
   submitText?: string,
@@ -30,7 +34,7 @@ type Props = {|
 |};
 
 export class FormOverlayBase extends React.Component<Props> {
-  static defaultProps: {| isOpen: boolean, isSubmitting: boolean |} = {
+  static defaultProps: DefaultProps = {
     isOpen: false,
     isSubmitting: false,
   };

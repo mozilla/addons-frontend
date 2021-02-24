@@ -10,7 +10,7 @@ export const FETCH_CATEGORIES: 'FETCH_CATEGORIES' = 'FETCH_CATEGORIES';
 export const LOAD_CATEGORIES: 'LOAD_CATEGORIES' = 'LOAD_CATEGORIES';
 
 // See: https://addons-server.readthedocs.io/en/latest/topics/api/categories.html#category-list
-type ExternalCategory = {|
+export type ExternalCategory = {|
   id: string,
   name: string,
   slug: string,

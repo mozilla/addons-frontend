@@ -1,24 +1,28 @@
 /* @flow */
-import type { UserId } from '../../reducers/users';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import translate from 'amo/i18n/translate';
-import type { AddonType } from 'amo/types/addons';
 import DefinitionList, { Definition } from 'amo/components/DefinitionList';
-import type { I18nType } from 'amo/types/i18n';
-import type { AppState } from 'amo/store';
 import { isAddonAuthor } from 'amo/utils';
+import type { UserId } from 'amo/reducers/users';
+import type { AppState } from 'amo/store';
+import type { I18nType } from 'amo/types/i18n';
+import type { AddonType } from 'amo/types/addons';
 
 type Props = {|
   addon: AddonType | null,
 |};
 
+type PropsFromState = {|
+  currentUserID: null | UserId,
+|};
+
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   i18n: I18nType,
-  currentUserID: number | null,
 |};
 
 export class AddonAuthorLinksBase extends React.Component<InternalProps> {
@@ -65,9 +69,7 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (
-  state: AppState,
-): {| currentUserID: null | UserId |} => {
+export const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     currentUserID: state.users.currentUserID,
   };

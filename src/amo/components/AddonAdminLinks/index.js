@@ -21,13 +21,17 @@ type Props = {|
   addon: AddonType | null,
 |};
 
-type InternalProps = {|
-  ...Props,
-  i18n: I18nType,
+type PropsFromState = {|
   hasCodeReviewPermission: boolean,
   hasContentReviewPermission: boolean,
   hasEditPermission: boolean,
   hasStaticThemeReviewPermission: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  i18n: I18nType,
 |};
 
 export class AddonAdminLinksBase extends React.Component<InternalProps> {
@@ -142,14 +146,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (
-  state: AppState,
-): {|
-  hasCodeReviewPermission: boolean,
-  hasContentReviewPermission: boolean,
-  hasEditPermission: boolean,
-  hasStaticThemeReviewPermission: boolean,
-|} => {
+export const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     hasCodeReviewPermission: hasPermission(state, ADDONS_REVIEW),
     hasContentReviewPermission: hasPermission(state, ADDONS_CONTENT_REVIEW),

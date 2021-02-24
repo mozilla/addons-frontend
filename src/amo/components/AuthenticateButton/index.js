@@ -27,17 +27,21 @@ type HandleLogInFunc = (
 
 type HandleLogOutFunction = ({| api: ApiState |}) => Promise<void>;
 
-type Props = {|
+type DefaultProps = {|
   buttonType?: ButtonType,
+  noIcon?: boolean,
+|};
+
+type Props = {|
+  ...DefaultProps,
   className?: string,
   handleLogIn?: HandleLogInFunc,
   handleLogOut?: HandleLogOutFunction,
   logInText?: string,
   logOutText?: string,
-  noIcon?: boolean,
 |};
 
-type StateMappedProps = {|
+type PropsFromState = {|
   api: ApiState,
   handleLogIn: HandleLogInFunc,
   siteIsReadOnly: boolean,
@@ -46,13 +50,13 @@ type StateMappedProps = {|
 
 type InternalProps = {|
   ...Props,
-  ...StateMappedProps,
+  ...PropsFromState,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
 
 export class AuthenticateButtonBase extends React.Component<InternalProps> {
-  static defaultProps: {| buttonType: string, noIcon: boolean |} = {
+  static defaultProps: DefaultProps = {
     buttonType: 'action',
     noIcon: false,
   };
@@ -117,7 +121,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
 export const mapStateToProps = (
   state: AppState,
   ownProps: Props,
-): StateMappedProps => {
+): PropsFromState => {
   const defaultHandleLogIn = (location, { _window = window } = {}) => {
     // eslint-disable-next-line no-param-reassign
     _window.location = startLoginUrl({ location });

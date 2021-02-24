@@ -29,7 +29,7 @@ export function reportAddon({
   addonSlug,
   api,
   message,
-}: ReportAddonParams): Promise<any> {
+}: ReportAddonParams): Promise<Object> {
   return callApi({
     auth: true,
     endpoint: 'abuse/report/addon',

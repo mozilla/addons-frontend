@@ -1,5 +1,4 @@
 /* @flow */
-import type { Tracking } from '../../tracking';
 import config from 'config';
 import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
@@ -17,10 +16,11 @@ import {
 import tracking from 'amo/tracking';
 import { addQueryParams } from 'amo/utils/url';
 import Notice from 'amo/components/Notice';
+import type { AppState } from 'amo/store';
+import type { Tracking } from 'amo/tracking';
 import type { ReactRouterLocationType } from 'amo/types/router';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
-import type { AppState } from 'amo/store';
 
 import './styles.scss';
 

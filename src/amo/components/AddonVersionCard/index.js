@@ -29,11 +29,15 @@ type Props = {|
   version: AddonVersionType | null | void,
 |};
 
+type PropsFromState = {|
+  versionInfo: VersionInfoType | null,
+  installError: string | null,
+|};
+
 type InternalProps = {|
   ...Props,
-  versionInfo: VersionInfoType | null,
+  ...PropsFromState,
   i18n: I18nType,
-  installError: string | null,
 |};
 
 export const AddonVersionCardBase = (
@@ -200,7 +204,7 @@ export const AddonVersionCardBase = (
 export function mapStateToProps(
   state: AppState,
   ownProps: InternalProps,
-): {| installError: null | string, versionInfo: null | VersionInfoType |} {
+): PropsFromState {
   const { addon, i18n, version } = ownProps;
 
   let installedAddon = {};

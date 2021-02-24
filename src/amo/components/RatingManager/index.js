@@ -1,6 +1,5 @@
 /* @flow */
-import type { UserId } from '../../reducers/users';
-import type { ReviewAddonType } from '../../actions/reviews'; /* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/no-unused-prop-types */
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -33,13 +32,18 @@ import log from 'amo/logger';
 import { sanitizeHTML } from 'amo/utils';
 import { genericType, successType } from 'amo/components/Notice';
 import UserRating from 'amo/components/UserRating';
+import type {
+  FlashMessageType,
+  ReviewAddonType,
+  UserReviewType,
+} from 'amo/actions/reviews';
+import type { UserId } from 'amo/reducers/users';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'amo/types/errorHandler';
-import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
-import type { DispatchFunc } from 'amo/types/redux';
 import type { AddonType } from 'amo/types/addons';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 

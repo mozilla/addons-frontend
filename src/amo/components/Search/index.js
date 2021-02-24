@@ -1,5 +1,4 @@
 /* @flow */
-import type { ViewContextType } from '../../reducers/viewContext';
 import deepEqual from 'deep-eql';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
@@ -30,8 +29,9 @@ import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
-import type { AppState } from 'amo/store';
 import type { SearchFilters as SearchFiltersType } from 'amo/api/search';
+import type { ViewContextType } from 'amo/reducers/viewContext';
+import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';

@@ -39,12 +39,16 @@ export type Props = {|
   className?: string,
 |};
 
+type PropsFromState = {|
+  userAgentInfo: UserAgentInfoType,
+|};
+
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   _base64url?: typeof base64url,
   _tracking: typeof tracking,
   i18n: I18nType,
-  userAgentInfo: UserAgentInfoType,
 |};
 
 export const GetFirefoxButtonBase = (
@@ -113,9 +117,7 @@ export const GetFirefoxButtonBase = (
   );
 };
 
-export function mapStateToProps(
-  state: AppState,
-): {| userAgentInfo: UserAgentInfoType |} {
+export function mapStateToProps(state: AppState): PropsFromState {
   return {
     userAgentInfo: state.api.userAgentInfo,
   };

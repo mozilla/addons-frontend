@@ -26,13 +26,17 @@ type Props = {|
   siteUserCanReply: ?boolean,
 |};
 
+type PropsFromState = {|
+  featuredReview: ?UserReviewType,
+  loadingReview: boolean,
+|};
+
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  featuredReview?: UserReviewType,
   i18n: I18nType,
-  loadingReview: boolean,
 |};
 
 export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
@@ -120,7 +124,7 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
 export function mapStateToProps(
   state: AppState,
   ownProps: InternalProps,
-): {| featuredReview: ?UserReviewType, loadingReview: boolean |} {
+): PropsFromState {
   const { reviewId } = ownProps;
   const featuredReview = reviewId
     ? selectReview(state.reviews, reviewId)

@@ -26,7 +26,17 @@ export type OnSubmitParams = {|
   text: $PropertyType<State, 'text'>,
 |};
 
+type DefaultProps = {|
+  _createLocalState?: typeof createLocalState,
+  _debounce?: typeof debounce,
+  isSubmitting?: boolean,
+  microButtons?: boolean,
+  puffyButtons?: boolean,
+  reverseButtonOrder?: boolean,
+|};
+
 type Props = {|
+  ...DefaultProps,
   className?: string,
   dismissButtonText?: string,
   formFooter?: React.Element<any>,
@@ -34,11 +44,7 @@ type Props = {|
   onDelete?: null | (() => void),
   onDismiss?: () => void,
   onSubmit: (params: OnSubmitParams) => void,
-  isSubmitting?: boolean,
-  microButtons?: boolean,
   placeholder?: string,
-  puffyButtons?: boolean,
-  reverseButtonOrder?: boolean,
   submitButtonClassName?: string,
   submitButtonText?: string,
   submitButtonInProgressText?: string,
@@ -70,14 +76,7 @@ export class DismissibleTextFormBase extends React.Component<
 
   textarea: React.ElementRef<typeof Textarea>;
 
-  static defaultProps: {|
-    _createLocalState: typeof createLocalState,
-    _debounce: typeof debounce,
-    isSubmitting: boolean,
-    microButtons: boolean,
-    puffyButtons: boolean,
-    reverseButtonOrder: boolean,
-  |} = {
+  static defaultProps: DefaultProps = {
     _createLocalState: createLocalState,
     _debounce: debounce,
     isSubmitting: false,

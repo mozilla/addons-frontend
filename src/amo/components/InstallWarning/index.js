@@ -1,7 +1,4 @@
 /* @flow */
-import type { CollectionAddonType } from '../../types/addons';
-import type { SuggestionType } from '../../reducers/autocomplete';
-import type { PromotedCategoryType } from '../../constants';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -22,8 +19,10 @@ import {
   isFirefox,
 } from 'amo/utils/compatibility';
 import Notice, { genericWarningType } from 'amo/components/Notice';
+import type { PromotedCategoryType } from 'amo/constants';
 import type { UserAgentInfoType } from 'amo/reducers/api';
-import type { AddonType } from 'amo/types/addons';
+import type { SuggestionType } from 'amo/reducers/autocomplete';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
 

@@ -19,8 +19,12 @@ import type { I18nType } from 'amo/types/i18n';
 import type { UserType } from 'amo/reducers/users';
 import type { UserReviewType } from 'amo/actions/reviews';
 
-type Props = {|
+type DefaultProps = {|
   isDeveloperReply?: boolean,
+|};
+
+type Props = {|
+  ...DefaultProps,
   openerClass?: string,
   review: UserReviewType,
 |};
@@ -33,7 +37,7 @@ type InternalProps = {|
 |};
 
 export class FlagReviewMenuBase extends React.Component<InternalProps> {
-  static defaultProps: {| isDeveloperReply: boolean |} = {
+  static defaultProps: DefaultProps = {
     isDeveloperReply: false,
   };
 

@@ -1,5 +1,4 @@
 /* @flow */
-import type { NotificationsType } from '../../reducers/users';
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -36,27 +35,22 @@ import LoadingText from 'amo/components/LoadingText';
 import UserReview from 'amo/components/UserReview';
 import Notice from 'amo/components/Notice';
 import type { UserReviewType } from 'amo/actions/reviews';
+import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonType } from 'amo/types/addons';
-import type { DispatchFunc } from 'amo/types/redux';
-import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 
-type Props = {|
-  addon?: AddonType | null,
-  className?: string,
+type DefaultProps = {|
   flaggable?: boolean,
-  isReplyToReviewId?: number,
-  review?: UserReviewType | null,
   shortByLine?: boolean,
   showControls?: boolean,
   showRating?: boolean,
-  siteUserCanReply: ?boolean,
   // When true, this renders things *bigger* because the container is
   // more slim than usual, like the Rate Your Experience card.
   //
@@ -65,30 +59,37 @@ type Props = {|
   slim?: boolean,
 |};
 
-type InternalProps = {|
-  ...Props,
+type Props = {|
+  ...DefaultProps,
+  addon?: AddonType | null,
+  className?: string,
+  isReplyToReviewId?: number,
+  review?: UserReviewType | null,
+  siteUserCanReply: ?boolean,
+|};
+
+type PropsFromState = {|
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
-  dispatch: DispatchFunc,
   editingReview: boolean,
-  errorHandler: ErrorHandlerType,
   hasUsersEditPermission: boolean,
-  i18n: I18nType,
   replyingToReview: boolean,
   siteUser: UserType | null,
   siteUserCanManageReplies: boolean,
   submittingReply: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
   location: ReactRouterLocationType,
 |};
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
-  static defaultProps: {|
-    flaggable: boolean,
-    shortByLine: boolean,
-    showControls: boolean,
-    showRating: boolean,
-    slim: boolean,
-  |} = {
+  static defaultProps: DefaultProps = {
     flaggable: true,
     shortByLine: false,
     showControls: true,
@@ -612,44 +613,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 export function mapStateToProps(
   state: AppState,
   ownProps: Props,
-): {|
-  beginningToDeleteReview: boolean,
-  deletingReview: boolean,
-  editingReview: boolean,
-  hasUsersEditPermission: boolean,
-  replyingToReview: boolean,
-  siteUser: null | {|
-    average_addon_rating: number,
-    biography: string | null,
-    created: string,
-    deleted?: boolean,
-    display_name: string | null,
-    email?: string,
-    fxa_edit_email_url?: string,
-    has_anonymous_display_name: boolean,
-    has_anonymous_username: boolean,
-    homepage: string | null,
-    id: number,
-    is_addon_developer: boolean,
-    is_artist: boolean,
-    is_verified?: boolean,
-    last_login?: string,
-    last_login_ip?: string,
-    location: string | null,
-    name: string,
-    notifications: NotificationsType | null,
-    num_addons_listed: number,
-    occupation: string | null,
-    permissions?: Array<string>,
-    picture_type: string | null,
-    picture_url: string | null,
-    read_dev_agreement?: boolean,
-    reviewer_name?: string | null,
-    username: string,
-  |},
-  siteUserCanManageReplies: boolean,
-  submittingReply: boolean,
-|} {
+): PropsFromState {
   let beginningToDeleteReview = false;
   let deletingReview = false;
   let editingReview = false;

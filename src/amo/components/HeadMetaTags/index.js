@@ -13,20 +13,24 @@ import type { I18nType } from 'amo/types/i18n';
 
 import defaultImage from './img/default-og-image.png';
 
-export type Props = {|
+export type DefaultProps = {|
+  _config?: typeof config,
   appendDefaultTitle?: boolean,
+  withTwitterMeta?: boolean,
+|};
+
+export type Props = {|
+  ...DefaultProps,
   date?: Date | null,
   description?: string | null,
   image?: string | null,
   lastModified?: string | null,
   queryString?: string,
   title?: string | null,
-  withTwitterMeta?: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   clientApp: string,
   i18n: I18nType,
   lang: string,
@@ -34,11 +38,7 @@ type InternalProps = {|
 |};
 
 export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
-  static defaultProps: {|
-    _config: any,
-    appendDefaultTitle: boolean,
-    withTwitterMeta: boolean,
-  |} = {
+  static defaultProps: DefaultProps = {
     _config: config,
     appendDefaultTitle: true,
     withTwitterMeta: false,

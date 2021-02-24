@@ -44,15 +44,23 @@ export type Props = {|
   filters: CollectionFilters,
 |};
 
-type InternalProps = {|
-  ...Props,
+export type DefaultProps = {|
   clearTimeout: Function,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
+  setTimeout: Function,
+|};
+
+export type PropsFromState = {|
   hasAddonBeenAdded: boolean,
   hasAddonBeenRemoved: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...DefaultProps,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  setTimeout: Function,
   setUIState: (state: $Shape<UIStateType>) => void,
   uiState: UIStateType,
 |};
@@ -60,10 +68,7 @@ type InternalProps = {|
 export class CollectionAddAddonBase extends React.Component<InternalProps> {
   timeout: TimeoutID;
 
-  static defaultProps: {|
-    clearTimeout: any | (() => void),
-    setTimeout: any | (() => void),
-  |} = {
+  static defaultProps: DefaultProps = {
     setTimeout:
       typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
     clearTimeout:
@@ -188,9 +193,7 @@ export const extractId = (props: Props): string => {
   return `collection${collection ? collection.id : ''}`;
 };
 
-export const mapStateToProps = (
-  state: AppState,
-): {| hasAddonBeenAdded: boolean, hasAddonBeenRemoved: boolean |} => {
+export const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     hasAddonBeenAdded: state.collections.hasAddonBeenAdded,
     hasAddonBeenRemoved: state.collections.hasAddonBeenRemoved,

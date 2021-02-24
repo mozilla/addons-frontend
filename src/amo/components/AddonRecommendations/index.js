@@ -1,5 +1,4 @@
 /* @flow */
-import type { Tracking } from '../../tracking';
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -32,18 +31,22 @@ export const TAAR_COHORT_INCLUDED = 'TAAR_COHORT_INCLUDED';
 export const TAAR_EXPERIMENT_PARTICIPANT = 'TAAR-LITE-AB';
 export const TAAR_EXPERIMENT_PARTICIPANT_DIMENSION = 'dimension5';
 
+type DefaultProps = {|
+  recommendations: Recommendations | null,
+  tracking: typeof defaultTracking,
+|};
+
 type Props = {|
+  ...DefaultProps,
   addon: AddonType | null,
   className?: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  recommendations: Recommendations | null,
-  tracking: typeof defaultTracking,
 |};
 
 export class AddonRecommendationsBase extends React.Component<Props> {
-  static defaultProps: {| recommendations: null, tracking: Tracking |} = {
+  static defaultProps: DefaultProps = {
     recommendations: null,
     tracking: defaultTracking,
   };

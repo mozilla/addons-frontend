@@ -28,9 +28,13 @@ type Props = {|
   addon: AddonType | null,
 |};
 
+type DeafultProps = {|
+  _getAddonJsonLinkedData: typeof getAddonJsonLinkedData,
+|};
+
 type InternalProps = {|
   ...Props,
-  _getAddonJsonLinkedData: typeof getAddonJsonLinkedData,
+  ...DeafultProps,
   clientApp: string,
   currentVersion: AddonVersionType | null,
   i18n: I18nType,
@@ -39,13 +43,7 @@ type InternalProps = {|
 |};
 
 export class AddonHeadBase extends React.Component<InternalProps> {
-  static defaultProps: {|
-    _getAddonJsonLinkedData: ({|
-      addon: AddonType,
-      currentVersion: AddonVersionType | null,
-      ratingThreshold?: number,
-    |}) => any,
-  |} = {
+  static defaultProps: DeafultProps = {
     _getAddonJsonLinkedData: getAddonJsonLinkedData,
   };
 

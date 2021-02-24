@@ -1,7 +1,4 @@
 /* @flow */
-import type { CollectionAddonType } from '../../types/addons';
-import type { SuggestionType } from '../../reducers/autocomplete';
-import type { PromotedCategoryType } from '../../constants';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -22,21 +19,19 @@ type Props = {|
   addon: AddonType,
 |};
 
+type DefaultProps = {|
+  _getPromotedCategory: typeof getPromotedCategory,
+|};
+
 type InternalProps = {|
   ...Props,
-  _getPromotedCategory: typeof getPromotedCategory,
+  ...DefaultProps,
   clientApp: string,
   i18n: I18nType,
 |};
 
 export class AddonBadgesBase extends React.Component<InternalProps> {
-  static defaultProps: {|
-    _getPromotedCategory: ({|
-      addon: ?(AddonType | CollectionAddonType | SuggestionType),
-      clientApp: string,
-      forBadging?: boolean,
-    |}) => PromotedCategoryType | null,
-  |} = {
+  static defaultProps: DefaultProps = {
     _getPromotedCategory: getPromotedCategory,
   };
 

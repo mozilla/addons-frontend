@@ -1,5 +1,5 @@
 /* @flow */
-import type { Tracking } from '../../tracking'; /* global window */
+/* global window */
 import makeClassName from 'classnames';
 import config from 'config';
 import invariant from 'invariant';
@@ -33,13 +33,13 @@ import tracking, {
 import { isFirefox } from 'amo/utils/compatibility';
 import Button from 'amo/components/Button';
 import Icon from 'amo/components/Icon';
+import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
+import type { ButtonType } from 'amo/components/Button';
+import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
-import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
-import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { ButtonType } from 'amo/components/Button';
 
 import './styles.scss';
 
@@ -55,14 +55,23 @@ type Props = {|
   status: string,
 |};
 
-type InternalProps = {|
-  ...Props,
+type DefaultProps = {|
   _config: typeof config,
   _log: typeof log,
   _tracking: typeof tracking,
   _window: typeof window,
-  i18n: I18nType,
+  puffy?: boolean,
+|};
+
+type PropsFromState = {|
   userAgentInfo: UserAgentInfoType,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...DefaultProps,
+  ...PropsFromState,
+  i18n: I18nType,
 |};
 
 type TrackParams = {|
@@ -82,13 +91,7 @@ type ButtonProps = {|
 const TRANSITION_TIMEOUT = 150;
 
 export class AMInstallButtonBase extends React.Component<InternalProps> {
-  static defaultProps: {|
-    _config: any,
-    _log: any,
-    _tracking: Tracking,
-    _window: any | { ... },
-    puffy: boolean,
-  |} = {
+  static defaultProps: DefaultProps = {
     _config: config,
     _log: log,
     _tracking: tracking,
@@ -356,9 +359,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(
-  state: AppState,
-): {| userAgentInfo: UserAgentInfoType |} {
+export function mapStateToProps(state: AppState): PropsFromState {
   return {
     userAgentInfo: state.api.userAgentInfo,
   };

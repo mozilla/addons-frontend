@@ -25,11 +25,15 @@ export type Props = {|
   filters: CollectionFilters,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   editingCollectionDetails: boolean,
   hasEditPermission: boolean,
   hasMaintainerPermission: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
 |};
 
 export const CollectionDetailsCardBase = ({
@@ -65,11 +69,7 @@ export const CollectionDetailsCardBase = ({
 export const mapStateToProps = (
   state: AppState,
   ownProps: InternalProps,
-): {|
-  editingCollectionDetails: boolean,
-  hasEditPermission: boolean,
-  hasMaintainerPermission: boolean,
-|} => {
+): PropsFromState => {
   const { collection } = ownProps;
 
   const currentUser = getCurrentUser(state.users);

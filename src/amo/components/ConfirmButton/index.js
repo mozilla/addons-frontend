@@ -10,8 +10,12 @@ import ConfirmationDialog from 'amo/components/ConfirmationDialog';
 import type { ButtonType } from 'amo/components/Button';
 import type { Props as ConfirmationDialogProps } from 'amo/components/ConfirmationDialog';
 
-type Props = {|
+type DefaultProps = {|
   buttonType?: ButtonType,
+|};
+
+type Props = {|
+  ...DefaultProps,
   htmlType?: string,
   cancelButtonText?: $PropertyType<ConfirmationDialogProps, 'cancelButtonText'>,
   cancelButtonType?: $PropertyType<ConfirmationDialogProps, 'cancelButtonType'>,
@@ -44,7 +48,7 @@ type InternalProps = {|
 |};
 
 export class ConfirmButtonBase extends React.Component<InternalProps> {
-  static defaultProps: {| buttonType: string |} = {
+  static defaultProps: DefaultProps = {
     buttonType: 'neutral',
   };
 

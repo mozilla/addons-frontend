@@ -39,7 +39,7 @@ export class ErrorPageBase extends React.Component<InternalProps> {
     log.error('Caught application error:', error, info);
   }
 
-  render(): React$Node | React.Node {
+  render(): React.Node {
     const { children, errorPage, getErrorComponent } = this.props;
     invariant(getErrorComponent, 'getErrorComponent() is undefined');
 
