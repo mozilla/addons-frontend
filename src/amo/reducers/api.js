@@ -115,6 +115,7 @@ export type SetLangAction = {|
 |};
 
 export function setLang(lang: string): SetLangAction {
+  invariant(lang, 'lang cannot be falsey');
   return {
     type: SET_LANG,
     payload: { lang },
