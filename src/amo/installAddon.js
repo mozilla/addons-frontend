@@ -36,14 +36,10 @@ import {
 import * as addonManager from 'amo/addonManager';
 import { showInfoDialog } from 'amo/reducers/infoDialog';
 import { getVersionById } from 'amo/reducers/versions';
-import { findFileForPlatform, getDisplayName } from 'amo/utils';
+import { getDisplayName } from 'amo/utils';
 import { getFileHash } from 'amo/utils/addons';
 import type { AppState } from 'amo/store';
-import type { UserAgentInfoType } from 'amo/reducers/api';
-import type {
-  AddonVersionType,
-  PlatformFilesType,
-} from 'amo/reducers/versions';
+import type { AddonVersionType, AddonFileType } from 'amo/reducers/versions';
 import type { AddonType } from 'amo/types/addons';
 import type { DispatchFunc } from 'amo/types/redux';
 
@@ -117,9 +113,7 @@ export function makeProgressHandler({
 }
 
 type FindInstallUrlParams = {|
-  _findFileForPlatform?: typeof findFileForPlatform,
-  platformFiles: PlatformFilesType,
-  userAgentInfo: UserAgentInfoType,
+  file: AddonFileType,
 |};
 
 /**
@@ -127,25 +121,12 @@ type FindInstallUrlParams = {|
  * platform.
  */
 export const findInstallURL = ({
-  _findFileForPlatform = findFileForPlatform,
-  platformFiles,
-  userAgentInfo,
+  file,
 }: FindInstallUrlParams): string | void => {
-  const platformFile = _findFileForPlatform({
-    platformFiles,
-    userAgentInfo,
-  });
-
-  const installURL = platformFile && platformFile.url;
+  const installURL = file && file.url;
 
   if (!installURL) {
-    // This could happen for themes which do not have version files.
-    log.debug(
-      oneLine`No file exists for os
-      ${JSON.stringify(userAgentInfo.os)}; platform files:`,
-      platformFiles,
-    );
-
+    log.debug('findInstallURL() could not find a url');
     return undefined;
   }
 
@@ -165,7 +146,6 @@ type WithInstallHelpersInternalProps = {|
   _tracking: typeof tracking,
   currentVersion: AddonVersionType | null,
   dispatch: DispatchFunc,
-  userAgentInfo: UserAgentInfoType,
 |};
 
 type EnableParams = {|
@@ -233,14 +213,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 
   setCurrentStatus() {
-    const {
-      _addonManager,
-      _log,
-      addon,
-      currentVersion,
-      dispatch,
-      userAgentInfo,
-    } = this.props;
+    const { _addonManager, _log, addon, currentVersion, dispatch } = this.props;
 
     if (!_addonManager.hasAddonManager()) {
       _log.info('No addon manager, cannot set add-on status');
@@ -258,9 +231,14 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     }
 
     const { guid, type } = addon;
-    const { platformFiles } = currentVersion;
+    const { file } = currentVersion;
 
-    const installURL = findInstallURL({ platformFiles, userAgentInfo });
+    if (!file) {
+      _log.debug('no file, aborting setCurrentStatus()');
+      return Promise.resolve();
+    }
+
+    const installURL = findInstallURL({ file });
 
     const payload = { guid, url: installURL };
 
@@ -352,7 +330,6 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       addon,
       currentVersion,
       dispatch,
-      userAgentInfo,
     } = this.props;
 
     if (!addon) {
@@ -366,7 +343,12 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     }
 
     const { guid, name, type } = addon;
-    const { platformFiles } = currentVersion;
+    const { file } = currentVersion;
+
+    if (!file) {
+      _log.debug('no file found, aborting install().');
+      return Promise.resolve();
+    }
 
     return new Promise((resolve) => {
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
@@ -376,7 +358,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
         label: guid,
       });
 
-      const installURL = findInstallURL({ platformFiles, userAgentInfo });
+      const installURL = findInstallURL({ file });
 
       resolve(installURL);
     })
@@ -504,7 +486,6 @@ export const withInstallHelpers = (
     return {
       WrappedComponent,
       currentVersion,
-      userAgentInfo: state.api.userAgentInfo,
     };
   };
 

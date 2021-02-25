@@ -19,7 +19,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakePlatformFile,
+  fakeFile,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -94,7 +94,7 @@ describe(__filename, () => {
             ...fakeAddon.current_version,
             files: [
               {
-                ...fakePlatformFile,
+                ...fakeFile,
                 created,
               },
             ],

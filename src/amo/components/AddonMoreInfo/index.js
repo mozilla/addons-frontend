@@ -330,7 +330,6 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
     versionInfo = getVersionInfo({
       i18n,
       state: state.versions,
-      userAgentInfo: state.api.userAgentInfo,
       versionId: currentVersion.id,
     });
   }

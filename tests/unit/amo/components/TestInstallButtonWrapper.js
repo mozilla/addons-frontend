@@ -386,8 +386,7 @@ describe(__filename, () => {
     render({ _findInstallURL, version });
 
     sinon.assert.calledWith(_findInstallURL, {
-      platformFiles: version.platformFiles,
-      userAgentInfo: store.getState().api.userAgentInfo,
+      file: version.file,
     });
   });
 

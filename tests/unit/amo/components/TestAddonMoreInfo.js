@@ -21,7 +21,7 @@ import {
   dispatchSignInActions,
   fakeAddon,
   fakeI18n,
-  fakePlatformFile,
+  fakeFile,
   fakeTheme,
   fakeVersion,
   shallowUntilTarget,
@@ -208,7 +208,7 @@ describe(__filename, () => {
     _loadVersions({
       files: [
         {
-          ...fakePlatformFile,
+          ...fakeFile,
           size,
         },
       ],
@@ -493,7 +493,7 @@ describe(__filename, () => {
     _loadVersions({
       files: [
         {
-          ...fakePlatformFile,
+          ...fakeFile,
           created,
         },
       ],

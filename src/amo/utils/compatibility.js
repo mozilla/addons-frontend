@@ -23,7 +23,6 @@ import {
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   RECOMMENDED,
 } from 'amo/constants';
-import { findInstallURL } from 'amo/installAddon';
 import log from 'amo/logger';
 import { getPromotedCategory } from 'amo/utils/addons';
 import type { AddonVersionType } from 'amo/reducers/versions';
@@ -129,7 +128,6 @@ export const isAndroidInstallable = ({
 
 export type IsCompatibleWithUserAgentParams = {|
   _config?: typeof config,
-  _findInstallURL?: typeof findInstallURL,
   _log?: typeof log,
   _window?: typeof window | Object,
   addon: AddonType,
@@ -146,7 +144,6 @@ export type UserAgentCompatibilityType = {|
 
 export function isCompatibleWithUserAgent({
   _config = config,
-  _findInstallURL = findInstallURL,
   _log = log,
   addon,
   currentVersion,
@@ -184,9 +181,9 @@ export function isCompatibleWithUserAgent({
     }
   }
 
-  // At this point we need a currentVersion in order for an extension to be
-  // marked as compatible.
-  if (!currentVersion) {
+  // At this point we need a currentVersion and a file in order for an
+  // extension to be marked as compatible.
+  if (!currentVersion || !currentVersion.file) {
     return {
       compatible: false,
       reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -227,21 +224,6 @@ export function isCompatibleWithUserAgent({
     // `minVersion` is always respected, regardless of
     // `isStrictCompatibilityEnabled`'s value.
     return { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION };
-  }
-
-  // Even if an extension's version is marked compatible,
-  // we need to make sure it has a matching platform file
-  // to work around some bugs.
-  // See https://github.com/mozilla/addons-server/issues/6576
-  const { platformFiles } = currentVersion;
-  if (
-    addon.type === ADDON_TYPE_EXTENSION &&
-    !_findInstallURL({ platformFiles, userAgentInfo })
-  ) {
-    return {
-      compatible: false,
-      reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-    };
   }
 
   // If we made it here we're compatible (yay!)

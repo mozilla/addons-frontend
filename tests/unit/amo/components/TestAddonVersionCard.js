@@ -19,7 +19,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakePlatformFile,
+  fakeFile,
   fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -147,7 +147,7 @@ describe(__filename, () => {
       const size = 12345;
       const version = {
         ...fakeVersion,
-        files: [{ ...fakePlatformFile, created, size }],
+        files: [{ ...fakeFile, created, size }],
       };
       const addon = { ...fakeAddon, current_version: version };
       _loadVersions({ addon });

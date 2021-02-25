@@ -1,6 +1,5 @@
 /* @flow */
 import invariant from 'invariant';
-import { oneLine } from 'common-tags';
 
 import { LOAD_ADDONS_BY_AUTHORS } from 'amo/reducers/addonsByAuthors';
 import {
@@ -11,21 +10,11 @@ import {
 import { LOAD_HOME_DATA } from 'amo/reducers/home';
 import { LOAD_LANDING } from 'amo/reducers/landing';
 import { LOAD_RECOMMENDATIONS } from 'amo/reducers/recommendations';
-import {
-  OS_ALL,
-  OS_ANDROID,
-  OS_LINUX,
-  OS_MAC,
-  OS_WINDOWS,
-} from 'amo/constants';
-import log from 'amo/logger';
 import { LOAD_ADDON } from 'amo/reducers/addons';
 import { SET_LANG } from 'amo/reducers/api';
 import { SEARCH_LOADED } from 'amo/reducers/search';
 import { selectLocalizedContent } from 'amo/reducers/utils';
-import { findFileForPlatform } from 'amo/utils';
 import { formatFilesize } from 'amo/i18n/utils';
-import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonStatusType } from 'amo/types/addons';
 import type { LocalizedString } from 'amo/types/api';
 import type { I18nType } from 'amo/types/i18n';
@@ -49,14 +38,6 @@ export type AddonFileType = {|
   size: number,
   status: AddonStatusType,
   url: string,
-|};
-
-export type PlatformFilesType = {|
-  all: ?AddonFileType,
-  android: ?AddonFileType,
-  mac: ?AddonFileType,
-  linux: ?AddonFileType,
-  windows: ?AddonFileType,
 |};
 
 export type AddonCompatibilityType = {|
@@ -114,7 +95,7 @@ export type AddonVersionType = {
   id: VersionIdType,
   isStrictCompatibilityEnabled: boolean,
   license: VersionLicenseType | null,
-  platformFiles: PlatformFilesType,
+  file: AddonFileType | null,
   releaseNotes?: string,
   version: string,
 };
@@ -140,34 +121,6 @@ export const initialState: VersionsState = {
   lang: '',
 };
 
-export const defaultPlatformFiles: PlatformFilesType = Object.freeze({
-  [OS_ALL]: undefined,
-  [OS_ANDROID]: undefined,
-  [OS_LINUX]: undefined,
-  [OS_MAC]: undefined,
-  [OS_WINDOWS]: undefined,
-});
-
-export const createPlatformFiles = (
-  version?: ExternalAddonVersionType | PartialExternalAddonVersionType,
-): PlatformFilesType => {
-  const platformFiles = { ...defaultPlatformFiles };
-
-  if (version && version.files.length > 0) {
-    version.files.forEach((file) => {
-      // eslint-disable-next-line no-prototype-builtins
-      if (!platformFiles.hasOwnProperty(file.platform)) {
-        // You wouldn't think this is needed, but Flow.
-        invariant(version, 'version is required');
-        log.warn(oneLine`A version with id ${version.id}
-          has a file with an unknown platform: ${file.platform}`);
-      }
-      platformFiles[file.platform] = file;
-    });
-  }
-  return platformFiles;
-};
-
 export const createInternalVersion = (
   version: ExternalAddonVersionType,
   lang: string,
@@ -189,7 +142,7 @@ export const createInternalVersion = (
           url: version.license.url,
         }
       : null,
-    platformFiles: createPlatformFiles(version),
+    file: version.files.length > 0 ? version.files[0] : null,
     releaseNotes: selectLocalizedContent(version.release_notes, lang),
     version: version.version,
   };
@@ -326,27 +279,20 @@ export type VersionInfoType = {|
 |};
 
 type GetVersionInfoParams = {|
-  _findFileForPlatform?: typeof findFileForPlatform,
   i18n: I18nType,
   state: VersionsState,
-  userAgentInfo: UserAgentInfoType,
   versionId: VersionIdType,
 |};
 
 export const getVersionInfo = ({
-  _findFileForPlatform = findFileForPlatform,
   i18n,
   state,
-  userAgentInfo,
   versionId,
 }: GetVersionInfoParams): VersionInfoType | null => {
   const version = getVersionById({ id: versionId, state });
 
   if (version) {
-    const file = _findFileForPlatform({
-      platformFiles: version.platformFiles,
-      userAgentInfo,
-    });
+    const { file } = version;
 
     // translators: This is application compatibility information, such as "firefox 41 and later"
     const noMaxString = i18n.gettext(

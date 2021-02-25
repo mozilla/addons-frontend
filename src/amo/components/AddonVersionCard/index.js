@@ -209,7 +209,6 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
       ? getVersionInfo({
           i18n,
           state: state.versions,
-          userAgentInfo: state.api.userAgentInfo,
           versionId: version.id,
         })
       : null,

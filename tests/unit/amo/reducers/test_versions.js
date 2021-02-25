@@ -1,5 +1,3 @@
-import UAParser from 'ua-parser-js';
-
 import { loadAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
 import {
   loadCollectionAddons,
@@ -14,7 +12,7 @@ import {
 } from 'amo/reducers/recommendations';
 import { formatFilesize } from 'amo/i18n/utils';
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
-import { ADDON_TYPE_EXTENSION, OS_MAC, OS_WINDOWS } from 'amo/constants';
+import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import { loadAddon } from 'amo/reducers/addons';
 import { setLang } from 'amo/reducers/api';
 import { searchLoad } from 'amo/reducers/search';
@@ -29,8 +27,6 @@ import versionsReducer, {
   getVersionsBySlug,
   initialState,
   loadVersions,
-  createPlatformFiles,
-  defaultPlatformFiles,
 } from 'amo/reducers/versions';
 import {
   createAddonsApiResult,
@@ -41,9 +37,8 @@ import {
   createLocalizedString,
   fakeAddon,
   fakeI18n,
-  fakePlatformFile,
+  fakeFile,
   fakeVersion,
-  userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -146,56 +141,6 @@ describe(__filename, () => {
     expect(firstStoredVersion.license.text).toEqual(licenseText);
   });
 
-  describe('createPlatformFiles', () => {
-    it('creates a default object if there is no version', () => {
-      expect(createPlatformFiles(undefined)).toEqual(defaultPlatformFiles);
-    });
-
-    it('creates a default object if there are no files', () => {
-      expect(createPlatformFiles({ ...fakeVersion, files: [] })).toEqual(
-        defaultPlatformFiles,
-      );
-    });
-
-    it('creates a PlatformFilesType object from a version with files', () => {
-      const windowsFile = {
-        ...fakePlatformFile,
-        platform: OS_WINDOWS,
-      };
-      const macFile = {
-        ...fakePlatformFile,
-        platform: OS_MAC,
-      };
-      expect(
-        createPlatformFiles({
-          ...fakeVersion,
-          files: [windowsFile, macFile],
-        }),
-      ).toEqual({
-        ...defaultPlatformFiles,
-        [OS_WINDOWS]: windowsFile,
-        [OS_MAC]: macFile,
-      });
-    });
-
-    it('handles files for unknown platforms', () => {
-      const unknownPlatform = 'unknownPlatform';
-      const unknownFile = {
-        ...fakePlatformFile,
-        platform: unknownPlatform,
-      };
-      expect(
-        createPlatformFiles({
-          ...fakeVersion,
-          files: [unknownFile],
-        }),
-      ).toEqual({
-        ...defaultPlatformFiles,
-        [unknownPlatform]: unknownFile,
-      });
-    });
-  });
-
   describe('createInternalVersion', () => {
     it('returns an object with the expected AddonVersionType', () => {
       const licenceText = 'licence text';
@@ -219,7 +164,7 @@ describe(__filename, () => {
           text: licenceText,
           url: fakeVersion.license.url,
         },
-        platformFiles: createPlatformFiles(fakeVersion),
+        file: fakeFile,
         releaseNotes: selectLocalizedContent(fakeVersion.release_notes, lang),
         version: fakeVersion.version,
       });
@@ -247,33 +192,31 @@ describe(__filename, () => {
   });
 
   describe('getVersionInfo', () => {
-    const _getVersionInfo = ({
-      _findFileForPlatform = sinon.spy(),
-      state = initialState,
-      versionId,
-      userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox40),
-    }) => {
+    const _getVersionInfo = ({ state = initialState, versionId }) => {
       return getVersionInfo({
-        _findFileForPlatform,
         i18n: fakeI18n(),
         state,
         versionId,
-        userAgentInfo,
       });
     };
     it('returns created and filesize from a version file', () => {
       const created = Date().toString();
       const size = 1234;
-      const _findFileForPlatform = sinon.stub().returns({ created, size });
 
+      const version = {
+        ...fakeVersion,
+        files: [{ created, size }],
+      };
       const state = versionsReducer(
         stateWithLang,
-        loadVersions({ slug: 'some-slug', versions: [fakeVersion] }),
+        loadVersions({
+          slug: 'some-slug',
+          versions: [version],
+        }),
       );
 
       expect(
         _getVersionInfo({
-          _findFileForPlatform,
           state,
           versionId: fakeVersion.id,
         }),
@@ -292,16 +235,20 @@ describe(__filename, () => {
     });
 
     it('returns null for created and filesize when no file is found', () => {
-      const _findFileForPlatform = sinon.stub().returns(undefined);
-
+      const version = {
+        ...fakeVersion,
+        files: [],
+      };
       const state = versionsReducer(
         stateWithLang,
-        loadVersions({ slug: 'some-slug', versions: [fakeVersion] }),
+        loadVersions({
+          slug: 'some-slug',
+          versions: [version],
+        }),
       );
 
       expect(
         _getVersionInfo({
-          _findFileForPlatform,
           state,
           versionId: fakeVersion.id,
         }),

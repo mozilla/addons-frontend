@@ -69,7 +69,7 @@ export const fakePreview = Object.freeze({
   thumbnail_size: [200, 100],
 });
 
-export const fakePlatformFile = Object.freeze({
+export const fakeFile = Object.freeze({
   created: '2014-11-22T10:09:01Z',
   hash: 'a1b2c3d4',
   id: 57721,
@@ -105,7 +105,7 @@ export const fakeVersion = Object.freeze({
     },
   },
   edit_url: 'https://addons.m.o/addon/chill-out/edit',
-  files: [fakePlatformFile],
+  files: [fakeFile],
   id: 123,
   is_strict_compatibility_enabled: false,
   license: {
