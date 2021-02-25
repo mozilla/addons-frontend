@@ -7,27 +7,13 @@ export function getAddonIconUrl(addon) {
     : fallbackIcon;
 }
 
-export const getPreviewImage = (
-  addon,
-  { full = true, useStandardSize = true } = {},
-) => {
+export const getPreviewImage = (addon, { full = true } = {}) => {
   if (!addon.previews.length) {
     return null;
   }
 
-  let imageIndex = 0;
-
-  if (useStandardSize) {
-    if (!full) {
-      throw new Error("Currently there is no 'standard' thumbnail size");
-    }
-
-    // 720 is now the standard width for previews.
-    const width = 720;
-    imageIndex =
-      // The preview.w is the image width.
-      addon.previews.findIndex((preview) => preview.w === width);
-  }
+  // 720 is now the standard width for previews. The preview.w is the image width.
+  let imageIndex = addon.previews.findIndex((preview) => preview.w === 720);
 
   // This is a fallback for older themes that do not have this size generated.
   if (imageIndex < 0) {

@@ -71,7 +71,7 @@ describe(__filename, () => {
       expect(image).toEqual(null);
     });
 
-    it('uses the standard preview size (720) when useStandardSize is true', () => {
+    it('uses the standard preview size (720)', () => {
       const image720 = `${config.get('amoCDN')}/full/12345.png`;
       const addon = createInternalAddonWithLang({
         previews: [
@@ -91,19 +91,14 @@ describe(__filename, () => {
         ],
       });
 
-      const image = getPreviewImage(addon, { useStandardSize: true });
+      const image = getPreviewImage(addon);
       expect(image).toEqual(image720);
     });
 
-    it('uses the first preview image when useStandardSize is false', () => {
-      const image300 = `${config.get('amoCDN')}/full/12345.png`;
+    it('returns the thumb image from the previews array when full is false', () => {
+      const thumbImage = `${config.get('amoCDN')}/thumb/12345.png`;
       const addon = createInternalAddonWithLang({
         previews: [
-          {
-            ...fakePreview,
-            image_size: [300, 200],
-            image_url: image300,
-          },
           {
             ...fakePreview,
             image_size: [500, 300],
@@ -111,33 +106,16 @@ describe(__filename, () => {
           {
             ...fakePreview,
             image_size: [720, 520],
-          },
-        ],
-      });
-
-      const image = getPreviewImage(addon, { useStandardSize: false });
-      expect(image).toEqual(image300);
-    });
-
-    it('returns the thumb image from the previews array when full and useStandardSize are false', () => {
-      const thumbImage = `${config.get('amoCDN')}/full/12345.png`;
-      const addon = createInternalAddonWithLang({
-        previews: [
-          {
-            ...fakePreview,
             thumbnail_url: thumbImage,
           },
         ],
       });
 
-      const image = getPreviewImage(addon, {
-        full: false,
-        useStandardSize: false,
-      });
+      const image = getPreviewImage(addon, { full: false });
       expect(image).toEqual(thumbImage);
     });
 
-    it('uses the first preview image when useStandardSize is true but the 720 size is not present', () => {
+    it('uses the first preview image when the 720 size is not present', () => {
       const image300 = `${config.get('amoCDN')}/full/12345.png`;
       const addon = createInternalAddonWithLang({
         previews: [
@@ -153,16 +131,8 @@ describe(__filename, () => {
         ],
       });
 
-      const image = getPreviewImage(addon, { useStandardSize: true });
+      const image = getPreviewImage(addon);
       expect(image).toEqual(image300);
-    });
-
-    it('throws an error if useStandardSize is true and full is false', () => {
-      const addon = createInternalAddonWithLang(fakeAddon);
-
-      expect(() => {
-        getPreviewImage(addon, { full: false, useStandardSize: true });
-      }).toThrowError(/Currently there is no 'standard' thumbnail size/);
     });
   });
 });

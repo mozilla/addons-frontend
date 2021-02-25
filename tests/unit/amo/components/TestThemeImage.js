@@ -69,7 +69,7 @@ describe(__filename, () => {
     );
   });
 
-  it('passes useStandardSize to display a preview with 720 width', () => {
+  it('displays a preview with 720 width', () => {
     const fullImage720 = `${config.get('amoCDN')}/full/720.png`;
     const addon = createInternalAddonWithLang({
       ...fakeTheme,
@@ -86,30 +86,8 @@ describe(__filename, () => {
         },
       ],
     });
-    const root = render({ addon, useStandardSize: true });
+    const root = render({ addon });
 
     expect(root.find('.ThemeImage-image')).toHaveProp('src', fullImage720);
-  });
-
-  it('passes useStandardSize as false to display the first preview image', () => {
-    const fullImage600 = `${config.get('amoCDN')}/full/600.png`;
-    const addon = createInternalAddonWithLang({
-      ...fakeTheme,
-      type: ADDON_TYPE_STATIC_THEME,
-      previews: [
-        {
-          ...fakePreview,
-          image_size: [600, 500],
-          image_url: fullImage600,
-        },
-        {
-          ...fakePreview,
-          image_size: [720, 500],
-        },
-      ],
-    });
-    const root = render({ addon, useStandardSize: false });
-
-    expect(root.find('.ThemeImage-image')).toHaveProp('src', fullImage600);
   });
 });
