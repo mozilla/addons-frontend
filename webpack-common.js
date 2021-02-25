@@ -16,11 +16,7 @@ export function getStyleRules({
 
   const postCssPlugins = [];
   if (_config.get('enablePostCssLoader')) {
-    postCssPlugins.push(
-      autoprefixer({
-        grid: false,
-      }),
-    );
+    postCssPlugins.push(autoprefixer());
   }
 
   if (bundleStylesWithJs) {
