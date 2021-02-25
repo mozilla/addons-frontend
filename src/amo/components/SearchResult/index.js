@@ -32,6 +32,7 @@ type Props = {|
   addonInstallSource?: string,
   onClick?: (addon: AddonType | CollectionAddonType) => void,
   onImpression?: (addon: AddonType | CollectionAddonType) => void,
+  showFullSizePreview?: boolean,
   showMetadata?: boolean,
   showPromotedBadge?: boolean,
   showSummary?: boolean,
@@ -50,6 +51,7 @@ type InternalProps = {|
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
     _getPromotedCategory: getPromotedCategory,
+    showFullSizePreview: false,
     showMetadata: true,
     showPromotedBadge: true,
     showSummary: true,
@@ -90,6 +92,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       clientApp,
       i18n,
       onImpression,
+      showFullSizePreview,
       showMetadata,
       showPromotedBadge,
       showSummary,
@@ -121,7 +124,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
 
     if (addon && addon.type === ADDON_TYPE_STATIC_THEME) {
-      imageURL = getPreviewImage(addon);
+      imageURL = getPreviewImage(addon, { full: showFullSizePreview });
     }
 
     // Sets classes to handle fallback if theme preview is not available.

@@ -73,6 +73,7 @@ describe(__filename, () => {
     // Make sure it just renders AddonsCard in a loading state.
     expect(root.find(AddonsCard)).toHaveProp('addons', []);
     expect(root.find(AddonsCard)).toHaveProp('loading', true);
+    expect(root.find(AddonsCard)).toHaveProp('showFullSizePreview', true);
   });
 
   it('renders results', () => {
@@ -88,6 +89,7 @@ describe(__filename, () => {
 
     expect(root.find(AddonsCard)).toHaveProp('addons', results);
     expect(root.find(AddonsCard)).toHaveProp('loading', false);
+    expect(root.find(AddonsCard)).toHaveProp('showFullSizePreview', true);
   });
 
   it('sets add-on install source to search by default', () => {

@@ -23,7 +23,7 @@ type InternalProps = {|
 export const ThemeImageBase = ({
   addon,
   i18n,
-  roundedCorners = false
+  roundedCorners = false,
 }: InternalProps) => {
   if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
     const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
@@ -40,7 +40,7 @@ export const ThemeImageBase = ({
         <img
           alt={label}
           className="ThemeImage-image"
-          src={getPreviewImage(addon, { })}
+          src={getPreviewImage(addon, {})}
         />
       </div>
     );

@@ -328,6 +328,26 @@ describe(__filename, () => {
   });
 
   it('displays the thumbnail image as the default src for static theme', () => {
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+
+    const root = render({
+      addon: createInternalAddonWithLang({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            thumbnail_url: headerImageThumb,
+          },
+        ],
+      }),
+    });
+    const image = root.find('.SearchResult-icon');
+
+    expect(image.prop('src')).toEqual(headerImageThumb);
+  });
+
+  it('displays the full preview for static theme when showFullSizePreview: true', () => {
     const headerImageFull = 'https://addons.cdn.mozilla.net/full/12345.png';
 
     const root = render({
@@ -341,6 +361,7 @@ describe(__filename, () => {
           },
         ],
       }),
+      showFullSizePreview: true,
     });
     const image = root.find('.SearchResult-icon');
 
@@ -350,7 +371,7 @@ describe(__filename, () => {
   // TODO: This can be removed once migration happens.
   // See: https://github.com/mozilla/addons-frontend/issues/5359
   it('displays a fallback image for themes that only have 1 preview option', () => {
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/1.png';
+    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
 
     const root = render({
       addon: createInternalAddonWithLang({
@@ -359,14 +380,14 @@ describe(__filename, () => {
         previews: [
           {
             ...fakePreview,
-            image_url: headerImageFull,
+            thumbnail_url: headerImageThumb,
           },
         ],
       }),
     });
     const image = root.find('.SearchResult-icon');
 
-    expect(image.prop('src')).toEqual(headerImageFull);
+    expect(image.prop('src')).toEqual(headerImageThumb);
   });
 
   it('displays a message if the static theme preview image is unavailable', () => {
