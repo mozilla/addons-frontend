@@ -56,51 +56,16 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     }
   }
 
-  componentDidUpdate(prevProps: InternalProps) {
-    const { children: prevChildren } = prevProps;
-    const { children, uiState } = this.props;
-
-    let oldHtml =
-      prevChildren.props &&
-      prevChildren.props.dangerouslySetInnerHTML &&
-      prevChildren.props.dangerouslySetInnerHTML.__html;
-
-    let html =
-      children.props &&
-      children.props.dangerouslySetInnerHTML &&
-      children.props.dangerouslySetInnerHTML.__html;
-
-    // If it's not html, check for plain text.
-    if (!oldHtml && prevChildren && !prevChildren.props) {
-      oldHtml = prevChildren;
-    }
-
-    if (!html && children && !children.props) {
-      html = children;
-    }
-
-    // Reset UIState if component html has changed.
-    // This is needed because if you return to an addon that you've already
-    // visited the component doesn't hit unmount again and the store keeps the
-    // last component's UIState which isn't what we want.
-    if (html && oldHtml !== html) {
-      this.resetUIState();
-    }
+  componentDidUpdate() {
+    const { uiState } = this.props;
 
     // If the read more has already been expanded, we can skip the call to
-    // truncate.
-    // Ideally this would only be called one time and it wouldn't be needed
-    // after the initial set up but we need this here (vs componentDidMount) to
-    // get an accurate clientHeight.
+    // truncate.  Ideally this would only be called one time and it wouldn't be
+    // needed after the initial set up but we need this here (vs
+    // componentDidMount) to get an accurate clientHeight.
     if (!uiState.readMoreExpanded) {
       this.truncateToMaxHeight(this.contents);
     }
-  }
-
-  resetUIState() {
-    this.props.setUIState({
-      ...initialUIState,
-    });
   }
 
   truncateToMaxHeight = (contents: HTMLElement | null) => {
