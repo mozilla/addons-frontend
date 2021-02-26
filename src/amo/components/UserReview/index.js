@@ -15,6 +15,8 @@ import ShowMoreCard from 'amo/components/ShowMoreCard';
 
 import './styles.scss';
 
+export const loadingId = 'loading-text';
+
 type Props = {|
   byLine: React.Node | null,
   children?: React.Node,
@@ -34,12 +36,10 @@ function reviewBody({
   content,
   html,
   id,
-  showMoreCardChildId = '',
 }: {|
   content?: React.Node | string,
   html?: {| __html: string |},
   id: string,
-  showMoreCardChildId?: string,
 |}) {
   invariant(
     content !== undefined || html !== undefined || id !== undefined,
@@ -56,7 +56,7 @@ function reviewBody({
   return (
     <ShowMoreCard
       id={id}
-      childId={showMoreCardChildId}
+      contentId={id}
       className={makeClassName('UserReview-body', {
         // Add an extra class if the content is an empty string.
         'UserReview-emptyBody': !content && !html,
@@ -79,9 +79,7 @@ export const UserReviewBase = (props: InternalProps) => {
     showRating = false,
   } = props;
 
-  const showMoreCardId =
-    review && review.id ? String(review.id) : 'loading-text';
-  const showMoreCardChildId = review && review.id ? String(review.id) : '';
+  const showMoreCardId = review && review.id ? String(review.id) : loadingId;
   let body = reviewBody({ content: <LoadingText />, id: showMoreCardId });
 
   if (review) {
@@ -89,13 +87,11 @@ export const UserReviewBase = (props: InternalProps) => {
       body = reviewBody({
         html: sanitizeHTML(nl2br(review.body), ['br']),
         id: showMoreCardId,
-        showMoreCardChildId,
       });
     } else {
       body = reviewBody({
         content: '',
         id: showMoreCardId,
-        showMoreCardChildId,
       });
     }
   }

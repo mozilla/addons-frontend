@@ -296,7 +296,7 @@ export class AddonBase extends React.Component {
 
     return showAbout ? (
       <ShowMoreCard
-        childId={addon && addon.id}
+        contentId={addon && addon.id}
         className={showMoreCardName}
         header={title}
         id={showMoreCardName}
@@ -319,7 +319,7 @@ export class AddonBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <ShowMoreCard
-        childId={addon.id}
+        contentId={addon.id}
         className={showMoreCardName}
         header={i18n.gettext('Developer comments')}
         id={showMoreCardName}
@@ -354,7 +354,7 @@ export class AddonBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <ShowMoreCard
-        childId={addon.id}
+        contentId={addon.id}
         className={showMoreCardNotesName}
         id={showMoreCardNotesName}
         header={header}

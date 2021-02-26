@@ -23,7 +23,7 @@ type UIStateType = {|
 |};
 
 type Props = {|
-  childId: number | string | null,
+  contentId: number | string | null,
   children: React.Element<any>,
   className?: string,
   header?: React.Element<any> | string,
@@ -58,14 +58,14 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   }
 
   componentDidUpdate(prevProps: InternalProps) {
-    const { childId: prevChildId } = prevProps;
-    const { childId, uiState } = this.props;
+    const { contentId: prevContentId } = prevProps;
+    const { contentId, uiState } = this.props;
 
     // Reset UIState if component child has changed.
     // This is needed because if you return to an addon that you've already
     // visited the component doesn't hit unmount again and the store keeps the
     // last component's UIState which isn't what we want.
-    if (childId && prevChildId !== childId) {
+    if (contentId && prevContentId !== contentId) {
       this.resetUIState();
     }
 
@@ -80,11 +80,9 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   }
 
   resetUIState() {
-    if (this.props.uiState !== initialUIState) {
-      this.props.setUIState({
-        ...initialUIState,
-      });
-    }
+    this.props.setUIState({
+      ...initialUIState,
+    });
   }
 
   truncateToMaxHeight = (contents: HTMLElement | null) => {

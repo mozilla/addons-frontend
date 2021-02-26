@@ -74,7 +74,7 @@ describe(__filename, () => {
   });
 
   describe('with permissions', () => {
-    it('passes the expected childId to ShowMoreCard', () => {
+    it('passes the expected contentId to ShowMoreCard', () => {
       const id = 12345;
       const permission = 'bookmarks';
       const root = render({
@@ -84,7 +84,7 @@ describe(__filename, () => {
         }),
       });
 
-      expect(root).toHaveProp('childId', id);
+      expect(root).toHaveProp('contentId', id);
     });
 
     it('renders learn more button', () => {

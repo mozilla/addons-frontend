@@ -17,7 +17,7 @@ import {
 describe(__filename, () => {
   const getProps = ({ i18n = fakeI18n(), ...props } = {}) => {
     return {
-      childId: 123,
+      contentId: 123,
       i18n,
       id: 'showMoreCard',
       store: dispatchClientMetadata().store,
@@ -129,39 +129,24 @@ describe(__filename, () => {
     expect(contents).toHaveText('Hello I am description');
   });
 
-  it('calls resetUIState if the childId has changed', () => {
-    const root = render({ childId: 1 });
+  it('calls resetUIState if the contentId has changed', () => {
+    const root = render({ contentId: 1 });
 
     const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
-    root.setProps({ childId: 2 });
+    root.setProps({ contentId: 2 });
 
     sinon.assert.called(resetUIStateSpy);
   });
 
-  it('does not call resetUIState if the childId is the same', () => {
-    const root = render({ childId: 1 });
+  it('does not call resetUIState if the contentId is the same', () => {
+    const root = render({ contentId: 1 });
 
     const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
-    root.setProps({ childId: 1 });
+    root.setProps({ contentId: 1 });
 
     sinon.assert.notCalled(resetUIStateSpy);
-  });
-
-  it('does not allow resetUIState to call setUIState if we are in the initialState', () => {
-    const { store } = dispatchClientMetadata();
-
-    const root = render({
-      store,
-      shallowOptions: { disableLifecycleMethods: true },
-    });
-
-    root.instance().resetUIState();
-
-    expect(() => applyUIStateChanges({ root, store })).toThrowError(
-      /not dispatched any setUIState/,
-    );
   });
 
   it('executes truncateToMaxHeight when it receives props changes', () => {
