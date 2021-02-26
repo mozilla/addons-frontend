@@ -81,6 +81,20 @@ describe(__filename, () => {
     expect(root.find('.UserReview-body').children()).toHaveText('');
   });
 
+  it('passes the expected childId to ShowMoreCard', () => {
+    const id = 12345;
+    const review = _setReview({ ...fakeReview, id });
+    const root = render({ review });
+
+    expect(root.find('.UserReview-body')).toHaveProp('childId', String(id));
+  });
+
+  it('passes the expected childId to ShowMoreCard without a review', () => {
+    const root = render({ review: undefined });
+
+    expect(root.find('.UserReview-body')).toHaveProp('childId', '');
+  });
+
   it('adds UserReview-emptyBody for an empty body', () => {
     const root = render({
       review: _setReview({ ...fakeReview, body: undefined }),

@@ -23,6 +23,7 @@ type UIStateType = {|
 |};
 
 type Props = {|
+  childId: number | string | null,
   children: React.Element<any>,
   className?: string,
   header?: React.Element<any> | string,
@@ -57,33 +58,14 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   }
 
   componentDidUpdate(prevProps: InternalProps) {
-    const { children: prevChildren } = prevProps;
-    const { children, uiState } = this.props;
+    const { childId: prevChildId } = prevProps;
+    const { childId, uiState } = this.props;
 
-    let oldHtml =
-      prevChildren.props &&
-      prevChildren.props.dangerouslySetInnerHTML &&
-      prevChildren.props.dangerouslySetInnerHTML.__html;
-
-    let html =
-      children.props &&
-      children.props.dangerouslySetInnerHTML &&
-      children.props.dangerouslySetInnerHTML.__html;
-
-    // If it's not html, check for plain text.
-    if (!oldHtml && prevChildren && !prevChildren.props) {
-      oldHtml = prevChildren;
-    }
-
-    if (!html && children && !children.props) {
-      html = children;
-    }
-
-    // Reset UIState if component html has changed.
+    // Reset UIState if component child has changed.
     // This is needed because if you return to an addon that you've already
     // visited the component doesn't hit unmount again and the store keeps the
     // last component's UIState which isn't what we want.
-    if (html && oldHtml !== html) {
+    if (childId && prevChildId !== childId) {
       this.resetUIState();
     }
 
@@ -98,9 +80,11 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   }
 
   resetUIState() {
-    this.props.setUIState({
-      ...initialUIState,
-    });
+    if (this.props.uiState !== initialUIState) {
+      this.props.setUIState({
+        ...initialUIState,
+      });
+    }
   }
 
   truncateToMaxHeight = (contents: HTMLElement | null) => {
