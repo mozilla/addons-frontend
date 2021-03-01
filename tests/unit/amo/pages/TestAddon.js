@@ -611,6 +611,21 @@ describe(__filename, () => {
     );
   });
 
+  it('passes the expected contentId to ShowMoreCard for description', () => {
+    const id = '54321';
+    const root = shallowRender({
+      addon: createInternalAddonWithLang({ ...fakeAddon, id }),
+    });
+    const card = root.find('.AddonDescription');
+    expect(card).toHaveProp('contentId', id);
+  });
+
+  it('passes the expected contentId to ShowMoreCard for description with no addon', () => {
+    const root = shallowRender({ addon: null });
+    const card = root.find('.AddonDescription');
+    expect(card).toHaveProp('contentId', null);
+  });
+
   it('sets a title for the description of an extension', () => {
     const root = shallowRender();
     expect(root.find('.AddonDescription').prop('header')).toContain(
@@ -839,6 +854,20 @@ describe(__filename, () => {
     expect(root.find('.Addon-developer-comments').childAt(0).html()).toContain(
       developerComments,
     );
+  });
+
+  it('passes the expected contentId to ShowMoreCard for developer comments', () => {
+    const id = '54321';
+    const developerComments = 'some awesome developers comments';
+    const root = shallowRender({
+      addon: createInternalAddonWithLang({
+        ...fakeAddon,
+        developer_comments: createLocalizedString(developerComments),
+        id,
+      }),
+    });
+    const card = root.find('.Addon-developer-comments');
+    expect(card).toHaveProp('contentId', id);
   });
 
   it('allows some HTML tags in the developer comments', () => {
@@ -1152,6 +1181,13 @@ describe(__filename, () => {
     it('is hidden when the current version does not have release notes', () => {
       const root = renderWithVersion({ release_notes: null });
       expect(root.find('.AddonDescription-version-notes div')).toHaveLength(0);
+    });
+
+    it('passes the expected contentId', () => {
+      const id = '54321';
+      const root = shallowRender({ addon: { ...fakeAddon, id } });
+      const card = root.find('.AddonDescription-version-notes');
+      expect(card).toHaveProp('contentId', id);
     });
 
     it('shows the version string', () => {

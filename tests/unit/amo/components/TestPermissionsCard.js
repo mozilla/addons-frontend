@@ -24,6 +24,7 @@ describe(__filename, () => {
   const createVersionWithPermissions = ({
     optional = [],
     required = [],
+    versionProps = {},
   } = {}) => {
     return createInternalVersionWithLang({
       ...fakeVersion,
@@ -34,6 +35,7 @@ describe(__filename, () => {
           permissions: required,
         },
       ],
+      ...versionProps,
     });
   };
 
@@ -72,6 +74,19 @@ describe(__filename, () => {
   });
 
   describe('with permissions', () => {
+    it('passes the expected contentId to ShowMoreCard', () => {
+      const id = 12345;
+      const permission = 'bookmarks';
+      const root = render({
+        version: createVersionWithPermissions({
+          required: [permission],
+          versionProps: { id },
+        }),
+      });
+
+      expect(root).toHaveProp('contentId', id);
+    });
+
     it('renders learn more button', () => {
       const permission = 'bookmarks';
       const root = render({
