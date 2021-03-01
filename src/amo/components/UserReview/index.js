@@ -15,6 +15,8 @@ import ShowMoreCard from 'amo/components/ShowMoreCard';
 
 import './styles.scss';
 
+export const loadingId = 'loading-text';
+
 type Props = {|
   byLine: React.Node | null,
   children?: React.Node,
@@ -54,6 +56,7 @@ function reviewBody({
   return (
     <ShowMoreCard
       id={id}
+      contentId={id}
       className={makeClassName('UserReview-body', {
         // Add an extra class if the content is an empty string.
         'UserReview-emptyBody': !content && !html,
@@ -76,8 +79,7 @@ export const UserReviewBase = (props: InternalProps) => {
     showRating = false,
   } = props;
 
-  const showMoreCardId =
-    review && review.id ? String(review.id) : 'loading-text';
+  const showMoreCardId = review && review.id ? String(review.id) : loadingId;
   let body = reviewBody({ content: <LoadingText />, id: showMoreCardId });
 
   if (review) {
@@ -87,7 +89,10 @@ export const UserReviewBase = (props: InternalProps) => {
         id: showMoreCardId,
       });
     } else {
-      body = reviewBody({ content: '', id: showMoreCardId });
+      body = reviewBody({
+        content: '',
+        id: showMoreCardId,
+      });
     }
   }
 

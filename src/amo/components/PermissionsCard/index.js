@@ -52,6 +52,7 @@ export class PermissionsCardBase extends React.Component<Props> {
     return (
       <ShowMoreCard
         header={i18n.gettext('Permissions')}
+        contentId={version.id}
         className="PermissionsCard"
         id="AddonDescription-permissions-card"
         maxHeight={300}

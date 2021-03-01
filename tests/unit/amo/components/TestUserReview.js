@@ -4,7 +4,10 @@ import { createInternalReview, setReview } from 'amo/actions/reviews';
 import Icon from 'amo/components/Icon';
 import LoadingText from 'amo/components/LoadingText';
 import UserRating from 'amo/components/UserRating';
-import UserReview, { UserReviewBase } from 'amo/components/UserReview';
+import UserReview, {
+  UserReviewBase,
+  loadingId,
+} from 'amo/components/UserReview';
 import {
   dispatchClientMetadata,
   fakeI18n,
@@ -79,6 +82,20 @@ describe(__filename, () => {
     });
 
     expect(root.find('.UserReview-body').children()).toHaveText('');
+  });
+
+  it('passes the expected contentId to ShowMoreCard', () => {
+    const id = 12345;
+    const review = _setReview({ ...fakeReview, id });
+    const root = render({ review });
+
+    expect(root.find('.UserReview-body')).toHaveProp('contentId', String(id));
+  });
+
+  it('passes the expected contentId to ShowMoreCard without a review', () => {
+    const root = render({ review: undefined });
+
+    expect(root.find('.UserReview-body')).toHaveProp('contentId', loadingId);
   });
 
   it('adds UserReview-emptyBody for an empty body', () => {

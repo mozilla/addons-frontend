@@ -17,6 +17,7 @@ import {
 describe(__filename, () => {
   const getProps = ({ i18n = fakeI18n(), ...props } = {}) => {
     return {
+      contentId: 123,
       i18n,
       id: 'showMoreCard',
       store: dispatchClientMetadata().store,
@@ -128,75 +129,22 @@ describe(__filename, () => {
     expect(contents).toHaveText('Hello I am description');
   });
 
-  it("calls resetUIState if the children's html has changed", () => {
-    /* eslint-disable react/no-danger */
-    const root = render({
-      children: (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: '<span>First component text.</span>',
-          }}
-        />
-      ),
-    });
+  it('calls resetUIState if the contentId has changed', () => {
+    const root = render({ contentId: 1 });
 
     const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
-    root.setProps({
-      children: (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: '<span>This is different Text.</span>',
-          }}
-        />
-      ),
-    });
-    /* eslint-enable react/no-danger */
+    root.setProps({ contentId: 2 });
 
     sinon.assert.called(resetUIStateSpy);
   });
 
-  it("calls resetUIState if the children's text has changed", () => {
-    const root = render({
-      children: 'Some text',
-    });
+  it('does not call resetUIState if the contentId is the same', () => {
+    const root = render({ contentId: 1 });
 
     const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
 
-    root.setProps({
-      children: 'Some new text',
-    });
-
-    sinon.assert.called(resetUIStateSpy);
-  });
-
-  it("does not call resetUIState if the children's html is the same", () => {
-    /* eslint-disable react/no-danger */
-    const children = (
-      <div
-        dangerouslySetInnerHTML={{
-          __html: '<span>Some component text.</span>',
-        }}
-      />
-    );
-    /* eslint-enable react/no-danger */
-
-    const root = render({ children });
-
-    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
-
-    root.setProps({ children });
-
-    sinon.assert.notCalled(resetUIStateSpy);
-  });
-
-  it("does not call resetUIState if the children's text is the same", () => {
-    const children = 'Some text';
-    const root = render({ children });
-
-    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
-
-    root.setProps({ children });
+    root.setProps({ contentId: 1 });
 
     sinon.assert.notCalled(resetUIStateSpy);
   });
