@@ -40,7 +40,7 @@ export const ThemeImageBase = ({
         <img
           alt={label}
           className="ThemeImage-image"
-          src={getPreviewImage(addon, {})}
+          src={getPreviewImage(addon)}
         />
       </div>
     );

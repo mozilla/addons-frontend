@@ -368,8 +368,6 @@ describe(__filename, () => {
     expect(image.prop('src')).toEqual(headerImageFull);
   });
 
-  // TODO: This can be removed once migration happens.
-  // See: https://github.com/mozilla/addons-frontend/issues/5359
   it('displays a fallback image for themes that only have 1 preview option', () => {
     const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
 
