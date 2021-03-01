@@ -13,7 +13,6 @@ import './styles.scss';
 type Props = {|
   addon: AddonType | null,
   roundedCorners?: boolean,
-  useStandardSize?: boolean,
 |};
 
 type InternalProps = {|
@@ -25,7 +24,6 @@ export const ThemeImageBase = ({
   addon,
   i18n,
   roundedCorners = false,
-  useStandardSize = true,
 }: InternalProps) => {
   if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
     const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
@@ -42,7 +40,7 @@ export const ThemeImageBase = ({
         <img
           alt={label}
           className="ThemeImage-image"
-          src={getPreviewImage(addon, { useStandardSize })}
+          src={getPreviewImage(addon)}
         />
       </div>
     );

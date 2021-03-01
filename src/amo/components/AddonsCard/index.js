@@ -29,6 +29,7 @@ type Props = {|
   // that will be rendered.
   placeholderCount: number,
   type?: 'horizontal' | 'vertical',
+  showFullSizePreview?: boolean,
   showMetadata?: boolean,
   showPromotedBadge?: boolean,
   showSummary?: boolean,
@@ -73,6 +74,7 @@ export default class AddonsCard extends React.Component<Props> {
       onAddonImpression,
       placeholderCount,
       useThemePlaceholder,
+      showFullSizePreview,
       showMetadata,
       showPromotedBadge,
       showSummary,
@@ -108,6 +110,7 @@ export default class AddonsCard extends React.Component<Props> {
               key={`${addon.slug}-${addon.type}`}
               onClick={onAddonClick}
               onImpression={onAddonImpression}
+              showFullSizePreview={showFullSizePreview}
               showMetadata={showMetadata}
               showPromotedBadge={showPromotedBadge}
               showSummary={

@@ -67,6 +67,7 @@ export class SearchResultsBase extends React.Component<InternalProps> {
           footer={paginator}
           header={i18n.gettext('Search results')}
           loading={loading}
+          showFullSizePreview
         >
           {messageText ? (
             <p className="SearchResults-message">{messageText}</p>

@@ -211,4 +211,13 @@ describe(__filename, () => {
       onAddonImpression,
     );
   });
+
+  it('passes the showFullSizePreview prop through to SearchResult', () => {
+    const showFullSizePreview = true;
+    const root = render({ addons: [fakeAddon], showFullSizePreview });
+    expect(root.find(SearchResult)).toHaveProp(
+      'showFullSizePreview',
+      showFullSizePreview,
+    );
+  });
 });
