@@ -65,6 +65,30 @@ describe(__filename, () => {
     expect(root.find(TooltipMenu)).toHaveProp('openerClass', openerClass);
   });
 
+  it('passes a custom className when flagged', () => {
+    const openerClass = 'SomeClass';
+    const review = createInternalReview(fakeReview);
+    store.dispatch(
+      setReviewWasFlagged({
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: review.id,
+      }),
+    );
+
+    const root = render({ openerClass, review });
+
+    expect(root.find(TooltipMenu)).toHaveProp(
+      'className',
+      `${openerClass}--flagged`,
+    );
+  });
+
+  it('does not pass a custom className when not flagged', () => {
+    const root = render();
+
+    expect(root.find(TooltipMenu)).toHaveProp('className', undefined);
+  });
+
   describe('interacting with different users', () => {
     it('requires you to be signed in', () => {
       store.dispatch(logOutUser());

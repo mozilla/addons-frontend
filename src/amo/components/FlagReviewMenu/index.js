@@ -114,6 +114,7 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
 
     return (
       <TooltipMenu
+        className={wasFlagged ? `${String(openerClass)}--flagged` : undefined}
         idPrefix="flag-review-"
         items={items}
         openerClass={openerClass}

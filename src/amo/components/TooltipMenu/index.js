@@ -8,6 +8,7 @@ import ListItem from 'amo/components/ListItem';
 import './styles.scss';
 
 type Props = {|
+  className?: string,
   idPrefix?: string,
   items: Array<null | React.Element<typeof ListItem>>,
   openerClass?: string,
@@ -20,6 +21,7 @@ export default class TooltipMenu extends React.Component<Props> {
 
   render() {
     const {
+      className,
       idPrefix,
       items,
       openerClass,
@@ -49,7 +51,11 @@ export default class TooltipMenu extends React.Component<Props> {
         >
           <button
             aria-describedby={describedBy}
-            className={makeClassName('TooltipMenu-opener', openerClass)}
+            className={makeClassName(
+              'TooltipMenu-opener',
+              openerClass,
+              className,
+            )}
             title={openerTitle}
             type="button"
           >
