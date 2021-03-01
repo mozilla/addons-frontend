@@ -1,5 +1,4 @@
 import * as React from 'react';
-import config from 'config';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -30,48 +29,15 @@ import { getCategoryResultsPathname } from 'amo/utils/categories';
 
 import './styles.scss';
 
-export const MOZILLA_USER_ID = config.get('mozillaUserId');
-
-export const FEATURED_COLLECTIONS = [
-  { slug: 'privacy-matters', userId: MOZILLA_USER_ID },
-  { slug: 'password-managers', userId: MOZILLA_USER_ID },
-];
-
-export const getFeaturedCollectionsMetadata = (i18n) => {
-  return [
-    {
-      footerText: i18n.gettext('See more enhanced privacy extensions'),
-      header: i18n.gettext('Enhanced privacy extensions'),
-      isTheme: false,
-      ...FEATURED_COLLECTIONS[0],
-    },
-    {
-      footerText: i18n.gettext('See more recommended password managers'),
-      header: i18n.gettext('Recommended password managers'),
-      isTheme: false,
-      ...FEATURED_COLLECTIONS[1],
-    },
-  ];
-};
-
 export class HomeBase extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     homeShelves: PropTypes.object,
     i18n: PropTypes.object.isRequired,
-    includeRecommendedThemes: PropTypes.bool,
-    includeTrendingExtensions: PropTypes.bool,
     isDesktopSite: PropTypes.bool,
     isLoading: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
-  };
-
-  static defaultProps = {
-    _config: config,
-    _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
-    includeRecommendedThemes: true,
-    includeTrendingExtensions: false,
   };
 
   constructor(props) {
@@ -88,8 +54,6 @@ export class HomeBase extends React.Component {
     const {
       dispatch,
       errorHandler,
-      includeRecommendedThemes,
-      includeTrendingExtensions,
       isDesktopSite,
       isLoading,
       resultsLoaded,
@@ -104,10 +68,7 @@ export class HomeBase extends React.Component {
     if (!resultsLoaded && !isLoading) {
       dispatch(
         fetchHomeData({
-          collectionsToFetch: FEATURED_COLLECTIONS,
           errorHandlerId: errorHandler.id,
-          includeRecommendedThemes,
-          includeTrendingExtensions,
           isDesktopSite,
         }),
       );

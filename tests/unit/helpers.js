@@ -224,6 +224,19 @@ export const fakeReview = Object.freeze({
   body: 'It is Okay',
 });
 
+export const fakeShelf = Object.freeze([
+  {
+    title: createLocalizedString('Top Rated Themes'),
+    url:
+      'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
+    endpoint: 'search-themes',
+    criteria: '?sort=rating&type=statictheme',
+    footerText: createLocalizedString('See more top rated themes'),
+    footerPathname: 'search/?sort=rating&type=statictheme',
+    addons: [fakeAddon],
+  },
+]);
+
 export function createExternalReview({
   addonId = fakeReview.addon.id,
   addonSlug = fakeReview.addon.slug,
@@ -296,21 +309,21 @@ export const fakePrimaryHeroShelfExternalAddon = Object.freeze({
 });
 
 export const createResultsShelf = ({
-  title = 'Top Rated Themes',
+  title = { 'en-US': 'Top Rated Themes' },
   url = 'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
   endpoint = 'search-themes',
   criteria = '?sort=rating&type=statictheme',
-  footerText = 'See more top rated themes',
+  footerText = { 'en-US': 'See more top rated themes' },
   footerPathname = 'search/?sort=rating&type=statictheme',
-  addons = fakeAddon,
+  addons = [fakeAddon],
 } = {}) => {
   return [
     {
-      title,
+      title: createLocalizedString(title),
       url,
       endpoint,
       criteria,
-      footerText,
+      footerText: createLocalizedString(footerText),
       footerPathname,
       addons,
     },
@@ -401,12 +414,12 @@ export const createSecondaryHeroShelf = ({
 };
 
 export const createHomeShelves = ({
-  resultsProps = [],
+  resultsProps,
   primaryProps = {},
   secondaryProps = {},
 } = {}) => {
   return {
-    results: createResultsShelf(resultsProps),
+    results: resultsProps || createResultsShelf(),
     primary: createPrimaryHeroShelf(primaryProps),
     secondary: createSecondaryHeroShelf(secondaryProps),
   };

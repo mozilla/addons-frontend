@@ -19,23 +19,14 @@ export function* fetchHomeData({
 
   yield put(errorHandler.createClearingAction());
 
-  const state = yield select(getState);
-
   try {
+    const state = yield select(getState);
     let homeShelves = {};
-    try {
-      homeShelves = yield call(getHomeShelves, { api: state.api });
-    } catch (error) {
-      log.warn(`Home shelves failed to load: ${error}`);
-      throw error;
-    }
 
-    yield put(
-      loadHomeData({
-        homeShelves,
-      }),
-    );
+    homeShelves = yield call(getHomeShelves, { api: state.api });
+    yield put(loadHomeData({ homeShelves }));
   } catch (error) {
+    log.warn(`Home shelves failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
     yield put(abortFetchHomeData());
   }

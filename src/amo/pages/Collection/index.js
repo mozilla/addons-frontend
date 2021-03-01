@@ -13,7 +13,6 @@ import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
-import { isFeaturedCollection } from 'amo/pages/Home';
 import {
   collectionEditUrl,
   collectionName,
@@ -82,7 +81,6 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   ...DefaultProps,
-  _isFeaturedCollection: typeof isFeaturedCollection,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
@@ -139,9 +137,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
   static defaultProps: {|
     ...DefaultProps,
-    _isFeaturedCollection: typeof isFeaturedCollection,
   |} = {
-    _isFeaturedCollection: isFeaturedCollection,
     creating: false,
     editing: false,
   };
@@ -412,7 +408,6 @@ export class CollectionBase extends React.Component<InternalProps> {
 
   renderCollection(): React.Node {
     const {
-      _isFeaturedCollection,
       collection,
       creating,
       editing,
@@ -466,10 +461,9 @@ export class CollectionBase extends React.Component<InternalProps> {
           );
     }
 
-    const addonInstallSource =
-      collection && _isFeaturedCollection(collection)
-        ? INSTALL_SOURCE_FEATURED_COLLECTION
-        : INSTALL_SOURCE_COLLECTION;
+    const addonInstallSource = collection
+      ? INSTALL_SOURCE_FEATURED_COLLECTION
+      : INSTALL_SOURCE_COLLECTION;
 
     return (
       <div className="Collection-wrapper">

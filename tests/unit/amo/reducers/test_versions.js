@@ -35,6 +35,7 @@ import {
   createFakeCollectionDetail,
   createInternalVersionWithLang,
   createLocalizedString,
+  createResultsShelf,
   fakeAddon,
   fakeI18n,
   fakeFile,
@@ -499,27 +500,6 @@ describe(__filename, () => {
     });
 
     describe('LOAD_HOME_DATA', () => {
-      it('loads versions from shelves', () => {
-        const state = versionsReducer(
-          stateWithLang,
-          loadHomeData({
-            collections: [],
-            shelves: {
-              recommendedExtensions: createAddonsApiResult([
-                { ...fakeAddon, current_version: version },
-              ]),
-            },
-          }),
-        );
-
-        expect(
-          getVersionById({
-            state,
-            id: versionId,
-          }),
-        ).toEqual(createInternalVersionWithLang(version));
-      });
-
       it('maintains license and release notes from pre-existing versions', () => {
         let state = versionsReducer(
           stateWithLang,
@@ -541,9 +521,10 @@ describe(__filename, () => {
         state = versionsReducer(
           state,
           loadHomeData({
-            collections: [],
-            shelves: {
-              recommendedExtensions: searchResult,
+            homeShelves: {
+              results: createResultsShelf({
+                addons: [searchResult],
+              }),
             },
           }),
         );
@@ -556,53 +537,15 @@ describe(__filename, () => {
         ).toEqual(createInternalVersionWithLang(version));
       });
 
-      it('handles invalid shelves', () => {
+      it('handles invalid homeShelves', () => {
         const state = versionsReducer(
           stateWithLang,
           loadHomeData({
-            collections: [],
-            shelves: {
-              recommendedExtensions: null,
-            },
+            homeShelves: null,
           }),
         );
 
         expect(state).toEqual(stateWithLang);
-      });
-
-      it('loads versions for collections', () => {
-        const versionId2 = 111;
-        const version2 = { ...fakeVersion, id: versionId2 };
-        const fakeCollectionAddon1 = createFakeCollectionAddon({
-          addon: { ...fakeAddon, current_version: version },
-        });
-        const fakeCollectionAddon2 = createFakeCollectionAddon({
-          addon: { ...fakeAddon, current_version: version2 },
-        });
-
-        const state = versionsReducer(
-          stateWithLang,
-          loadHomeData({
-            collections: [
-              { results: [fakeCollectionAddon1] },
-              { results: [fakeCollectionAddon2] },
-            ],
-            shelves: {},
-          }),
-        );
-
-        expect(
-          getVersionById({
-            state,
-            id: versionId,
-          }),
-        ).toEqual(createInternalVersionWithLang(version));
-        expect(
-          getVersionById({
-            state,
-            id: versionId2,
-          }),
-        ).toEqual(createInternalVersionWithLang(version2));
       });
     });
 

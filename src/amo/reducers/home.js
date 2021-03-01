@@ -147,21 +147,21 @@ export type HeroShelvesType = {|
 |};
 
 export type ExternalResultShelfType = {|
-  title: string,
+  title: Object,
   url: string,
   endpoint: string,
   criteria: string,
-  footer_text: string | null,
+  footer_text: Object | null,
   footer_pathname: string | null,
   addons: Array<ExternalAddonType>,
 |};
 
 export type ResultShelfType = {|
-  title: string,
+  title: Object,
   url: string,
   endpoint: string,
   criteria: string,
-  footerText: string | null,
+  footerText: Object | null,
   footerPathname: string | null,
   addons: Array<AddonType>,
 |};
@@ -204,6 +204,7 @@ export const abortFetchHomeData = (): AbortFetchHomeDataAction => {
 
 type FetchHomeDataParams = {|
   errorHandlerId: string,
+  isDesktopSite: boolean,
 |};
 
 export type FetchHomeDataAction = {|
@@ -213,6 +214,7 @@ export type FetchHomeDataAction = {|
 
 export const fetchHomeData = ({
   errorHandlerId,
+  isDesktopSite,
 }: FetchHomeDataParams): FetchHomeDataAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
 
@@ -220,6 +222,7 @@ export const fetchHomeData = ({
     type: FETCH_HOME_DATA,
     payload: {
       errorHandlerId,
+      isDesktopSite,
     },
   };
 };
@@ -236,8 +239,6 @@ type LoadHomeDataAction = {|
 export const loadHomeData = ({
   homeShelves,
 }: LoadHomeDataParams): LoadHomeDataAction => {
-  invariant(homeShelves, 'homeShelves is required');
-
   return {
     type: LOAD_HOME_DATA,
     payload: {
@@ -266,11 +267,11 @@ export const createInternalShelf = (
   });
 
   return {
-    title: result.title,
+    title: selectLocalizedContent(result.title, lang),
     url: result.url,
     endpoint: result.endpoint,
     criteria: result.criteria,
-    footerText: result.footer_text,
+    footerText: selectLocalizedContent(result.footer_text, lang),
     footerPathname: result.footer_pathname,
     addons: shelfAddons,
   };
