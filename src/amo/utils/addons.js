@@ -63,6 +63,7 @@ export const getFileHash = ({
 |}): string | void => {
   const urlKey = installURL.split('?')[0];
   const { file } = version;
+  // The API sometimes appends ?src= to URLs so we just check the basename.
   if (file && file.url.startsWith(urlKey)) {
     return file.hash;
   }
