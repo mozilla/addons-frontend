@@ -250,12 +250,12 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       return null;
     }
 
-    const installURL = currentVersion
-      ? findInstallURL({
-          platformFiles: currentVersion.platformFiles,
-          userAgentInfo,
-        })
-      : undefined;
+    const installURL =
+      currentVersion && currentVersion.file
+        ? findInstallURL({
+            file: currentVersion.file,
+          })
+        : undefined;
 
     const buttonIsDisabled =
       disabled === true || !installURL

@@ -1,12 +1,5 @@
-import UAParser from 'ua-parser-js';
-
 import { PermissionUtils } from 'amo/components/PermissionsCard/permissions';
-import { createPlatformFiles } from 'amo/reducers/versions';
-import {
-  fakeI18n,
-  fakeVersion,
-  userAgentsByPlatform,
-} from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let permissionUtils;
@@ -16,42 +9,30 @@ describe(__filename, () => {
   });
 
   describe('getCurrentPermissions', () => {
-    let findFileForPlatformStub;
-
-    beforeEach(() => {
-      findFileForPlatformStub = sinon.stub();
-    });
-
-    const _getCurrentPermissions = ({
-      platformFiles = createPlatformFiles(fakeVersion),
-      userAgentInfo = UAParser(userAgentsByPlatform.mac.firefox57),
-      _findFileForPlatform = findFileForPlatformStub,
-    } = {}) => {
+    const _getCurrentPermissions = ({ file } = {}) => {
       return permissionUtils.getCurrentPermissions({
-        platformFiles,
-        userAgentInfo,
-        _findFileForPlatform,
+        file,
       });
     };
 
-    it('returns permissions from a found file', () => {
+    it('returns permissions from file', () => {
       const optionalPermissions = ['webRequest'];
       const permissions = ['bookmarks'];
-      findFileForPlatformStub.returns({
+
+      const file = {
         optional_permissions: optionalPermissions,
         permissions,
-      });
+      };
 
-      expect(_getCurrentPermissions()).toEqual({
+      expect(_getCurrentPermissions({ file })).toEqual({
         optional: optionalPermissions,
         required: permissions,
       });
     });
 
     it('returns empty arrays if no file was found', () => {
-      findFileForPlatformStub.returns(undefined);
-
-      expect(_getCurrentPermissions()).toEqual({
+      const file = null;
+      expect(_getCurrentPermissions({ file })).toEqual({
         optional: [],
         required: [],
       });

@@ -1,18 +1,12 @@
 import url from 'url';
 
 import config from 'config';
-import UAParser from 'ua-parser-js';
 
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  OS_ALL,
-  OS_ANDROID,
-  OS_LINUX,
-  OS_MAC,
-  OS_WINDOWS,
   PROMOTED_ADDONS_SUMO_URL,
 } from 'amo/constants';
 import {
@@ -22,7 +16,6 @@ import {
   checkInternalURL,
   convertBoolean,
   decodeHtmlEntities,
-  findFileForPlatform,
   getAddonURL,
   getCanonicalURL,
   getClientApp,
@@ -41,18 +34,14 @@ import {
   stripLangFromAmoUrl,
   visibleAddonType,
 } from 'amo/utils';
-import { createPlatformFiles } from 'amo/reducers/versions';
 import {
   createFakeHistory,
   createFakeLocation,
   createInternalAddonWithLang,
   fakeAddon,
-  fakePlatformFile,
-  fakeVersion,
   getFakeConfig,
   unexpectedSuccess,
   userAgents,
-  userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -785,162 +774,6 @@ describe(__filename, () => {
       expect(historyWithQueryParams).toHaveProperty('location.query', {
         foo: '123',
       });
-    });
-  });
-
-  describe('findFileForPlatform', () => {
-    const _findFileForPlatform = ({
-      files = [fakePlatformFile],
-      userAgent = userAgentsByPlatform.windows.firefox40,
-    } = {}) => {
-      const userAgentInfo = userAgent && UAParser(userAgent);
-      const platformFiles = createPlatformFiles({ ...fakeVersion, files });
-
-      return findFileForPlatform({
-        userAgentInfo,
-        platformFiles,
-      });
-    };
-
-    const windowsFile = {
-      ...fakePlatformFile,
-      platform: OS_WINDOWS,
-    };
-    const macFile = {
-      ...fakePlatformFile,
-      platform: OS_MAC,
-    };
-    const linuxFile = {
-      ...fakePlatformFile,
-      platform: OS_LINUX,
-    };
-    const androidFile = {
-      ...fakePlatformFile,
-      platform: OS_ANDROID,
-    };
-    const allPlatformsFile = {
-      ...fakePlatformFile,
-      platform: OS_ALL,
-    };
-
-    it('returns the correct file for Windows', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: userAgentsByPlatform.windows.firefox40,
-          files: [windowsFile, macFile],
-        }),
-      ).toEqual(windowsFile);
-    });
-
-    it('returns the correct file for Mac OS', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: userAgentsByPlatform.mac.firefox33,
-          files: [windowsFile, macFile],
-        }),
-      ).toEqual(macFile);
-    });
-
-    it('returns the correct file for Linux', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: userAgentsByPlatform.linux.firefox10,
-          files: [windowsFile, linuxFile],
-        }),
-      ).toEqual(linuxFile);
-    });
-
-    it('returns the correct file for Linux Ubuntu', () => {
-      expect(
-        _findFileForPlatform({
-          // This parses to the name Ubuntu instead of Linux.
-          userAgent: userAgentsByPlatform.linux.firefox57Ubuntu,
-          files: [windowsFile, linuxFile],
-        }),
-      ).toEqual(linuxFile);
-    });
-
-    it('returns the correct file for Unix platforms', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: userAgentsByPlatform.unix.firefox51,
-          files: [windowsFile, linuxFile],
-        }),
-      ).toEqual(linuxFile);
-    });
-
-    it('returns the correct file for BSD platforms', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: userAgentsByPlatform.bsd.firefox40FreeBSD,
-          files: [windowsFile, linuxFile],
-        }),
-      ).toEqual(linuxFile);
-    });
-
-    it('returns the correct file for Android mobile', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: userAgentsByPlatform.android.firefox40Mobile,
-          files: [windowsFile, androidFile],
-        }),
-      ).toEqual(androidFile);
-    });
-
-    it('returns the correct file for Android tablet', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: userAgentsByPlatform.android.firefox40Tablet,
-          files: [windowsFile, androidFile],
-        }),
-      ).toEqual(androidFile);
-    });
-
-    it('returns all-platform URL for unsupported platforms', () => {
-      expect(
-        _findFileForPlatform({
-          // This platform is unsupported.
-          userAgent: userAgentsByPlatform.firefoxOS.firefox26,
-          files: [windowsFile, allPlatformsFile],
-        }),
-      ).toEqual(allPlatformsFile);
-    });
-
-    it('gives preference to a specific platform URL', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: userAgentsByPlatform.windows.firefox40,
-          files: [windowsFile, allPlatformsFile],
-        }),
-      ).toEqual(windowsFile);
-    });
-
-    it('returns undefined when nothing else matches', () => {
-      expect(
-        _findFileForPlatform({
-          // This is valid for Linux.
-          userAgent: userAgentsByPlatform.linux.firefox10,
-          files: [windowsFile, macFile],
-        }),
-      ).toEqual(undefined);
-    });
-
-    it('returns undefined for user agents with an unknown platform', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: 'some-completely-wacko-user-agent-string',
-          files: [windowsFile, macFile],
-        }),
-      ).toEqual(undefined);
-    });
-
-    it('returns undefined when no files exist', () => {
-      expect(
-        _findFileForPlatform({
-          userAgent: userAgentsByPlatform.linux.firefox10,
-          files: [],
-        }),
-      ).toEqual(undefined);
     });
   });
 });

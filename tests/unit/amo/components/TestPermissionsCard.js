@@ -7,7 +7,7 @@ import {
   createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeI18n,
-  fakePlatformFile,
+  fakeFile,
   fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -30,7 +30,7 @@ describe(__filename, () => {
       ...fakeVersion,
       files: [
         {
-          ...fakePlatformFile,
+          ...fakeFile,
           optional_permissions: optional,
           permissions: required,
         },

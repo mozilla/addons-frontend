@@ -1,14 +1,11 @@
 /* @flow */
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import translate from 'amo/i18n/translate';
 import Button from 'amo/components/Button';
 import ShowMoreCard from 'amo/components/ShowMoreCard';
-import type { AppState } from 'amo/store';
 import type { AddonVersionType } from 'amo/reducers/versions';
-import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { I18nType } from 'amo/types/i18n';
 
 import { PermissionUtils } from './permissions';
@@ -18,22 +15,20 @@ import './styles.scss';
 type Props = {|
   version: AddonVersionType | null,
   i18n: I18nType,
-  userAgentInfo: UserAgentInfoType,
 |};
 
 export class PermissionsCardBase extends React.Component<Props> {
   render() {
-    const { version, i18n, userAgentInfo } = this.props;
+    const { version, i18n } = this.props;
 
-    if (!version) {
+    if (!version || !version.file) {
       return null;
     }
 
     const permissionUtils = new PermissionUtils(i18n);
 
     const addonPermissions = permissionUtils.getCurrentPermissions({
-      platformFiles: version.platformFiles,
-      userAgentInfo,
+      file: version.file,
     });
 
     if (
@@ -97,15 +92,8 @@ export class PermissionsCardBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
-  return {
-    userAgentInfo: state.api.userAgentInfo,
-  };
-};
-
-const PermissionsCard: React.ComponentType<Props> = compose(
-  connect(mapStateToProps),
-  translate(),
-)(PermissionsCardBase);
+const PermissionsCard: React.ComponentType<Props> = compose(translate())(
+  PermissionsCardBase,
+);
 
 export default PermissionsCard;

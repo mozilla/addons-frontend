@@ -291,19 +291,6 @@ describe(__filename, () => {
       ).toEqual({ compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
     });
 
-    it('is incompatible if no matching platform file exists', () => {
-      const _findInstallURL = sinon.stub().returns(undefined);
-      expect(
-        _isCompatibleWithUserAgent({
-          _findInstallURL,
-        }),
-      ).toEqual({
-        compatible: false,
-        reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-      });
-      sinon.assert.called(_findInstallURL);
-    });
-
     it('is incompatible if currentVersion is null', () => {
       expect(
         _isCompatibleWithUserAgent({

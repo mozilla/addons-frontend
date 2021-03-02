@@ -28,7 +28,6 @@ import {
   INSTALL_FAILED,
   INSTALL_STARTED_ACTION,
   OS_ALL,
-  OS_ANDROID,
   SET_ENABLE_NOT_AVAILABLE,
   START_DOWNLOAD,
   TRACKING_TYPE_INVALID,
@@ -43,7 +42,7 @@ import {
   createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeAddon,
-  fakePlatformFile,
+  fakeFile,
   fakeVersion,
   getFakeAddonManagerWrapper,
   getFakeLogger,
@@ -1048,7 +1047,7 @@ describe(__filename, () => {
             ...fakeVersion,
             files: [
               {
-                ...fakePlatformFile,
+                ...fakeFile,
                 hash: versionHash,
                 url: versionInstallURL,
               },
@@ -1063,40 +1062,6 @@ describe(__filename, () => {
             versionInstallURL,
             sinon.match.func,
             { hash: versionHash },
-          );
-        });
-      });
-
-      it('rejects when installURL is not found', () => {
-        _loadVersions({
-          store,
-          versionProps: {
-            files: [
-              {
-                platform: OS_ANDROID,
-                url: installURL,
-              },
-            ],
-          },
-        });
-
-        const addon = createInternalAddonWithLang(fakeAddon);
-        const fakeAddonManager = getFakeAddonManagerWrapper();
-        const { root, dispatch } = renderWithInstallHelpers({
-          _addonManager: fakeAddonManager,
-          addon,
-          store,
-        });
-        const { install } = root.instance().props;
-
-        return install().then(() => {
-          sinon.assert.notCalled(fakeAddonManager.install);
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallError({
-              guid: addon.guid,
-              error: FATAL_INSTALL_ERROR,
-            }),
           );
         });
       });
@@ -1339,6 +1304,29 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             _log.debug,
             'no currentVersion found, aborting install().',
+          );
+        });
+      });
+
+      it('does nothing when install() is called with a version without files', () => {
+        const _log = getFakeLogger();
+
+        const addon = createInternalAddonWithLang(fakeAddon);
+        const { root } = renderWithInstallHelpers({
+          _log,
+          addon,
+          store,
+          version: createInternalVersionWithLang({
+            ...fakeVersion,
+            files: [],
+          }),
+        });
+        const { install } = root.instance().props;
+
+        return install().then(() => {
+          sinon.assert.calledWith(
+            _log.debug,
+            'no file found, aborting install().',
           );
         });
       });

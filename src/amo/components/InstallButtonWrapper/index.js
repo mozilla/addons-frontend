@@ -83,10 +83,11 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
     isCompatible = compatibility.compatible;
   }
 
-  const installURL = currentVersion
+  const file = currentVersion ? currentVersion.file : null;
+
+  const installURL = file
     ? _findInstallURL({
-        platformFiles: currentVersion.platformFiles,
-        userAgentInfo,
+        file,
       })
     : undefined;
 

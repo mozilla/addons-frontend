@@ -62,13 +62,10 @@ export const getFileHash = ({
   version: AddonVersionType,
 |}): string | void => {
   const urlKey = installURL.split('?')[0];
-
-  for (const platform of Object.keys(version.platformFiles)) {
-    // The API sometimes appends ?src= to URLs so we just check the basename.
-    const file = version.platformFiles[platform];
-    if (file && file.url.startsWith(urlKey)) {
-      return file.hash;
-    }
+  const { file } = version;
+  // The API sometimes appends ?src= to URLs so we just check the basename.
+  if (file && file.url.startsWith(urlKey)) {
+    return file.hash;
   }
 
   log.warn(oneLine`No file hash found for addon "${addon.slug}", installURL

@@ -1,19 +1,14 @@
 /* @flow */
 import * as React from 'react';
-import { oneLine } from 'common-tags';
 
 import log from 'amo/logger';
-import { findFileForPlatform } from 'amo/utils';
 import HostPermissions from 'amo/components/HostPermissions';
 import Permission from 'amo/components/Permission';
-import type { UserAgentInfoType } from 'amo/reducers/api';
-import type { PlatformFilesType } from 'amo/reducers/versions';
+import type { AddonFileType } from 'amo/reducers/versions';
 import type { I18nType } from 'amo/types/i18n';
 
 export type GetCurrentPermissionsParams = {|
-  platformFiles: PlatformFilesType,
-  userAgentInfo: UserAgentInfoType,
-  _findFileForPlatform?: typeof findFileForPlatform,
+  file: AddonFileType,
 |};
 
 /* eslint-disable no-continue */
@@ -68,28 +63,18 @@ export class PermissionUtils {
 
   // Get lists of optional and required permissions from the correct platform file.
   getCurrentPermissions({
-    platformFiles,
-    userAgentInfo,
-    _findFileForPlatform = findFileForPlatform,
+    file,
   }: GetCurrentPermissionsParams): {
     optional: Array<string>,
     required: Array<string>,
   } {
-    const file = _findFileForPlatform({
-      userAgentInfo,
-      platformFiles,
-    });
     const permissions = {
       optional: [],
       required: [],
     };
 
     if (!file) {
-      log.debug(
-        oneLine`No file exists for os
-        ${JSON.stringify(userAgentInfo.os)}; platform files:`,
-        platformFiles,
-      );
+      log.debug('getCurrentPermissions() called with no file');
 
       return permissions;
     }
