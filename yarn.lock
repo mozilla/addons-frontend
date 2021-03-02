@@ -13844,10 +13844,10 @@ webpack-hot-middleware@^2.24.3:
     querystring "^0.2.0"
     strip-ansi "^3.0.0"
 
-webpack-isomorphic-tools@3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/webpack-isomorphic-tools/-/webpack-isomorphic-tools-3.0.6.tgz#adb490294428ebd96787bb20cf591d056b6f80a9"
-  integrity sha512-hiFXDgHAk8AxA69ok3hVVu3dJxASK0wxNzVqYnw9dULKCEclQ3OxfmIGh2O4x8BlKz14ilVrb5Mj+iP87MzpnQ==
+webpack-isomorphic-tools@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/webpack-isomorphic-tools/-/webpack-isomorphic-tools-4.0.0.tgz#2d751f72464d23729fa7496d9968fb2b501285f6"
+  integrity sha512-W8P+7VS7u+Qnp6F7knyOS0EWJq4dSZxKrnIzNTaNafK7B1syYZcq8gmtRpqM8unaLPAPkwGEph8WNNgN+KBYAQ==
   dependencies:
     babel-runtime "^6.6.1"
     colors "^1.1.2"
