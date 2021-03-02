@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-09 17:29+0000\n"
+"POT-Creation-Date: 2021-03-02 16:51+0000\n"
 "PO-Revision-Date: 2021-01-24 11:22+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -360,7 +360,7 @@ msgstr "Usuń"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:316
+#: src/amo/components/CollectionManager/index.js:312
 #: src/amo/components/ConfirmationDialog/index.js:60
 #: src/amo/components/DismissibleTextForm/index.js:209
 #: src/amo/pages/UserProfileEdit/index.js:898
@@ -731,23 +731,23 @@ msgstr "Dodatki"
 msgid "Creator"
 msgstr "Autor"
 
-#: src/amo/components/CollectionManager/index.js:240
+#: src/amo/components/CollectionManager/index.js:236
 msgid "Create collection"
 msgstr "Utwórz kolekcję"
 
-#: src/amo/components/CollectionManager/index.js:241
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Save changes"
 msgstr "Zapisz zmiany"
 
-#: src/amo/components/CollectionManager/index.js:250
+#: src/amo/components/CollectionManager/index.js:246
 msgid "Collection name"
 msgstr "Nazwa kolekcji"
 
-#: src/amo/components/CollectionManager/index.js:264
+#: src/amo/components/CollectionManager/index.js:260
 msgid "Description"
 msgstr "Opis"
 
-#: src/amo/components/CollectionManager/index.js:276
+#: src/amo/components/CollectionManager/index.js:272
 msgid "Custom URL"
 msgstr "Niestandardowy adres"
 
@@ -1296,7 +1296,7 @@ msgstr "Zarządzaj dodatkami klikając Dodatki w menu programu."
 msgid "OK"
 msgstr "OK"
 
-#: src/amo/components/InstallButtonWrapper/index.js:131
+#: src/amo/components/InstallButtonWrapper/index.js:132
 msgid "Download file"
 msgstr "Pobierz plik"
 
@@ -1332,112 +1332,112 @@ msgstr "Dalej"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "%(currentPage)s. strona z %(totalPages)s"
 
-#: src/amo/components/PermissionsCard/index.js:59
+#: src/amo/components/PermissionsCard/index.js:54
 msgid "Permissions"
 msgstr "Uprawnienia"
 
-#: src/amo/components/PermissionsCard/index.js:67
+#: src/amo/components/PermissionsCard/index.js:63
 msgid "This add-on needs to:"
 msgstr "Ten dodatek musi:"
 
-#: src/amo/components/PermissionsCard/index.js:77
+#: src/amo/components/PermissionsCard/index.js:73
 msgid "This add-on may also ask to:"
 msgstr "Ten dodatek może także chcieć:"
 
-#: src/amo/components/PermissionsCard/index.js:92
+#: src/amo/components/PermissionsCard/index.js:88
 msgid "Learn more about permissions"
 msgstr "Więcej informacji o uprawnieniach"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
 msgstr "Odczytywać i modyfikować zakładki"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify browser settings"
 msgstr "Odczytywać i modyfikować ustawienia przeglądarki"
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "Czyścić historię przeglądania, ciasteczka i powiązane dane"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
 msgstr "Pobierać dane ze schowka"
 
-#: src/amo/components/PermissionsCard/permissions.js:37
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
 msgstr "Umieszczać dane w schowku"
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 "Rozszerzać narzędzia dla programistów, aby uzyskać dostęp do danych "
 "w otwartych kartach"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 "Pobierać pliki oraz odczytywać i modyfikować historię pobranych plików "
 "przeglądarki"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
 msgstr "Otwierać pliki pobrane na komputer"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
 msgstr "Odczytywać tekst ze wszystkich otwartych kart"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Access your location"
 msgstr "Mieć dostęp do informacji o położeniu"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
-#: src/amo/components/PermissionsCard/permissions.js:61
+#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
 msgstr "Mieć dostęp do historii przeglądania"
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
 msgstr "Monitorować użycie rozszerzeń i zarządzać motywami"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
 msgstr "Wymieniać informacje z programami innymi niż Firefox"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
 msgstr "Wyświetlać powiadomienia"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
 msgstr "Dostarczać kryptograficzne usługi uwierzytelniania"
 
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
 msgstr "Kontrolować ustawienia pośrednika przeglądarki"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
 msgstr "Odczytywać i modyfikować ustawienia prywatności"
 
-#: src/amo/components/PermissionsCard/permissions.js:58
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
 msgstr "Mieć dostęp do ostatnio zamkniętych kart"
 
-#: src/amo/components/PermissionsCard/permissions.js:59
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Access browser tabs"
 msgstr "Mieć dostęp do kart przeglądarki"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
 msgstr "Ukrywać i wyświetlać karty przeglądarki"
 
-#: src/amo/components/PermissionsCard/permissions.js:62
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
 msgstr "Przechowywać nieograniczoną ilość danych na komputerze"
 
-#: src/amo/components/PermissionsCard/permissions.js:65
+#: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
 msgstr "Mieć dostęp do aktywności przeglądarki podczas nawigacji"
 
@@ -1521,23 +1521,23 @@ msgstr "Zapisywanie oceny w gwiazdkach"
 msgid "Star rating saved"
 msgstr "Zapisano ocenę w gwiazdkach"
 
-#: src/amo/components/RatingsByStar/index.js:110
+#: src/amo/components/RatingsByStar/index.js:59
 msgid "Read all five-star reviews"
 msgstr "Wszystkie pięciogwiazdkowe recenzje"
 
-#: src/amo/components/RatingsByStar/index.js:111
+#: src/amo/components/RatingsByStar/index.js:60
 msgid "Read all four-star reviews"
 msgstr "Wszystkie czterogwiazdkowe recenzje"
 
-#: src/amo/components/RatingsByStar/index.js:112
+#: src/amo/components/RatingsByStar/index.js:61
 msgid "Read all three-star reviews"
 msgstr "Wszystkie trzygwiazdkowe recenzje"
 
-#: src/amo/components/RatingsByStar/index.js:113
+#: src/amo/components/RatingsByStar/index.js:62
 msgid "Read all two-star reviews"
 msgstr "Wszystkie dwugwiazdkowe recenzje"
 
-#: src/amo/components/RatingsByStar/index.js:114
+#: src/amo/components/RatingsByStar/index.js:63
 msgid "Read all one-star reviews"
 msgstr "Wszystkie jednogwiazdkowe recenzje"
 
@@ -1896,15 +1896,15 @@ msgstr "Dodatki do Firefoksa"
 msgid "Go to the add-on page"
 msgstr "Strona dodatku"
 
-#: src/amo/components/SearchResult/index.js:180
+#: src/amo/components/SearchResult/index.js:183
 msgid "No theme preview available"
 msgstr "Podgląd motywu jest niedostępny"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:218
 msgid "Add-on note"
 msgstr "Notka o dodatku"
 
-#: src/amo/components/SearchResult/index.js:233
+#: src/amo/components/SearchResult/index.js:236
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s użytkownik"
@@ -1965,11 +1965,11 @@ msgstr "Słowniki i pakiety językowe"
 msgid "Explore"
 msgstr "Odkrywaj"
 
-#: src/amo/components/ShowMoreCard/index.js:138
+#: src/amo/components/ShowMoreCard/index.js:120
 msgid "Expand to read more"
 msgstr "Rozwiń, aby wyświetlić więcej informacji"
 
-#: src/amo/components/ShowMoreCard/index.js:143
+#: src/amo/components/ShowMoreCard/index.js:125
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">↓</span> Rozwiń"
 
@@ -2013,7 +2013,7 @@ msgstr ""
 "Dziękujemy za odwiedzenie tej strony! Prosimy poświęcić minutę lub dwie "
 "i powiedzieć nam o swoich wrażeniach."
 
-#: src/amo/components/ThemeImage/index.js:31 src/amo/pages/Addon/index.js:160
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "Podgląd „%(title)s”"
 
@@ -2044,7 +2044,7 @@ msgstr "Zdjęcie profilu"
 msgid "Choose Photo…"
 msgstr "Wybierz zdjęcie…"
 
-#: src/amo/components/UserReview/index.js:103
+#: src/amo/components/UserReview/index.js:108
 msgid "Developer response"
 msgstr "Odpowiedź autora"
 
@@ -2084,56 +2084,56 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:195
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Nie można ocenić tego dodatku, ponieważ nie ma on żadnych opublikowanych "
 "wersji."
 
-#: src/amo/pages/Addon/index.js:206
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s recenzja"
 msgstr[1] "%(count)s recenzje"
 msgstr[2] "%(count)s recenzji"
 
-#: src/amo/pages/Addon/index.js:227
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "Nie ma jeszcze recenzji"
 
-#: src/amo/pages/Addon/index.js:237
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "Oceń swoje wrażenia"
 
-#: src/amo/pages/Addon/index.js:256
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "O tym słowniku"
 
-#: src/amo/pages/Addon/index.js:259
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "O tym rozszerzeniu"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "O tym pakiecie językowym"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "O tym motywie"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "O tym dodatku"
 
-#: src/amo/pages/Addon/index.js:310
+#: src/amo/pages/Addon/index.js:324
 msgid "Developer comments"
 msgstr "Komentarze autora"
 
-#: src/amo/pages/Addon/index.js:333
+#: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
 msgstr "Informacje o wydaniu %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:452
+#: src/amo/pages/Addon/index.js:467
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2141,11 +2141,11 @@ msgstr ""
 "To nie jest publiczna lista. Widzisz ją tylko z powodu podwyższonych "
 "uprawnień."
 
-#: src/amo/pages/Addon/index.js:479
+#: src/amo/pages/Addon/index.js:494
 msgid "Extension Metadata"
 msgstr "Metadane rozszerzenia"
 
-#: src/amo/pages/Addon/index.js:503
+#: src/amo/pages/Addon/index.js:518
 msgid "Screenshots"
 msgstr "Zrzuty ekranu"
 
@@ -2161,7 +2161,7 @@ msgstr "Licencja użytkownika dodatku %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Zasady ochrony prywatności dodatku %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:197
+#: src/amo/pages/AddonReviewList/index.js:203
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2169,42 +2169,42 @@ msgstr ""
 "Recenzje i oceny dodatku %(addonName)s. Dowiedz się, co inni użytkownicy "
 "o nim myślą i dodaj go do swojej przeglądarki Firefox."
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show all reviews"
 msgstr "Wszystkie recenzje"
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only five-star reviews"
 msgstr "Tylko pięciogwiazdkowe recenzje"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only four-star reviews"
 msgstr "Tylko czterogwiazdkowe recenzje"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only three-star reviews"
 msgstr "Tylko trzygwiazdkowe recenzje"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:243
 msgid "Show only two-star reviews"
 msgstr "Tylko dwugwiazdkowe recenzje"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:244
 msgid "Show only one-star reviews"
 msgstr "Tylko jednogwiazdkowe recenzje"
 
-#: src/amo/pages/AddonReviewList/index.js:259
+#: src/amo/pages/AddonReviewList/index.js:265
 msgid "Reviews for %(addonName)s"
 msgstr "Recenzje dodatku %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:269
+#: src/amo/pages/AddonReviewList/index.js:275
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s recenzja"
 msgstr[1] "%(total)s recenzje"
 msgstr[2] "%(total)s recenzji"
 
-#: src/amo/pages/AddonReviewList/index.js:368
+#: src/amo/pages/AddonReviewList/index.js:374
 msgid "There are no reviews"
 msgstr "Nie ma żadnych recenzji"
 
@@ -3246,17 +3246,17 @@ msgid "(no name)"
 msgstr "(brak nazwy)"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/amo/reducers/versions.js:352
+#: src/amo/reducers/versions.js:298
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s i nowszy"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/amo/reducers/versions.js:356
+#: src/amo/reducers/versions.js:302
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/amo/reducers/versions.js:376
+#: src/amo/reducers/versions.js:322
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Działa z: %(listOfApplicatonsAndVersions)s"
 

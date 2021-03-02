@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-09 17:29+0000\n"
+"POT-Creation-Date: 2021-03-02 16:51+0000\n"
 "PO-Revision-Date: 2018-11-21 10:22+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -352,7 +352,7 @@ msgstr "Buang"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:316
+#: src/amo/components/CollectionManager/index.js:312
 #: src/amo/components/ConfirmationDialog/index.js:60
 #: src/amo/components/DismissibleTextForm/index.js:209
 #: src/amo/pages/UserProfileEdit/index.js:898
@@ -727,23 +727,23 @@ msgstr "Add-ons"
 msgid "Creator"
 msgstr "Pencipta"
 
-#: src/amo/components/CollectionManager/index.js:240
+#: src/amo/components/CollectionManager/index.js:236
 msgid "Create collection"
 msgstr "Cipta koleksi"
 
-#: src/amo/components/CollectionManager/index.js:241
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Save changes"
 msgstr "Simpan perubahan"
 
-#: src/amo/components/CollectionManager/index.js:250
+#: src/amo/components/CollectionManager/index.js:246
 msgid "Collection name"
 msgstr "Nama koleksi"
 
-#: src/amo/components/CollectionManager/index.js:264
+#: src/amo/components/CollectionManager/index.js:260
 msgid "Description"
 msgstr "Keterangan"
 
-#: src/amo/components/CollectionManager/index.js:276
+#: src/amo/components/CollectionManager/index.js:272
 msgid "Custom URL"
 msgstr "URL Penyesuaian"
 
@@ -1290,7 +1290,7 @@ msgstr "Urus add-ons anda dengan mengklik Add-ons dalam menu."
 msgid "OK"
 msgstr "OK"
 
-#: src/amo/components/InstallButtonWrapper/index.js:131
+#: src/amo/components/InstallButtonWrapper/index.js:132
 #, fuzzy
 msgid "Download file"
 msgstr "Memuat turun"
@@ -1325,110 +1325,110 @@ msgstr "Berikut"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Halaman %(currentPage)s daripada %(totalPages)s"
 
-#: src/amo/components/PermissionsCard/index.js:59
+#: src/amo/components/PermissionsCard/index.js:54
 msgid "Permissions"
 msgstr "Keizinan"
 
-#: src/amo/components/PermissionsCard/index.js:67
+#: src/amo/components/PermissionsCard/index.js:63
 #, fuzzy
 msgid "This add-on needs to:"
 msgstr "Add-on ini boleh:"
 
-#: src/amo/components/PermissionsCard/index.js:77
+#: src/amo/components/PermissionsCard/index.js:73
 #, fuzzy
 msgid "This add-on may also ask to:"
 msgstr "Add-on ini boleh:"
 
-#: src/amo/components/PermissionsCard/index.js:92
+#: src/amo/components/PermissionsCard/index.js:88
 msgid "Learn more about permissions"
 msgstr "Ketahui selanjutnya perihal keizinan"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
 msgstr "Baca dan ubah tandabuku"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify browser settings"
 msgstr "Baca dan ubah tetapan pelayar"
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "Buang sejarah pelayaran terkini, kuki dan data berkaitan"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
 msgstr "Dapatkan data dari klipbod"
 
-#: src/amo/components/PermissionsCard/permissions.js:37
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
 msgstr "Input data ke klipbod"
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
 msgstr "Lanjutkan alatan pembangun untuk mengakses data dalam tab terbuka"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
 msgstr "Muat turun fail, dan baca serta ubah sejarah muat turun pelayar"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
 msgstr "Buka fail yang dimuat turun ke dalam komputer anda"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
 msgstr "Baca teks dalam semua tab terbuka"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Access your location"
 msgstr "Akses lokasi anda"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
-#: src/amo/components/PermissionsCard/permissions.js:61
+#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
 msgstr "Akses sejarah pelayaran"
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
 msgstr "Pantau penggunaan ekstensi dan uruskan tema"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
 msgstr "Bertukar mesej dengan aturcara selain daripada Firefox"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
 msgstr "Papar notifikasi untuk anda"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
 msgstr "Sediakan perkhidmatan pengesahan kriptografik"
 
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
 msgstr "Kawal tetapan proksi pelayar"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
 msgstr "Baca dan ubah tetapan privasi"
 
-#: src/amo/components/PermissionsCard/permissions.js:58
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
 msgstr "Akses tab terkini ditutup"
 
-#: src/amo/components/PermissionsCard/permissions.js:59
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Access browser tabs"
 msgstr "Akses tab pelayar"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
 msgstr "Sorok dan papar tab pelayar"
 
-#: src/amo/components/PermissionsCard/permissions.js:62
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
 msgstr "Simpan data-klien tanpa had"
 
-#: src/amo/components/PermissionsCard/permissions.js:65
+#: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
 msgstr "Akses aktiviti pelayar semasa navigasi"
 
@@ -1506,25 +1506,25 @@ msgstr "Menyimpan kadaran bintang"
 msgid "Star rating saved"
 msgstr "Kadaran bintang disimpan"
 
-#: src/amo/components/RatingsByStar/index.js:110
+#: src/amo/components/RatingsByStar/index.js:59
 msgid "Read all five-star reviews"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:111
+#: src/amo/components/RatingsByStar/index.js:60
 #, fuzzy
 msgid "Read all four-star reviews"
 msgstr "Baca semua %(count)s ulasan"
 
-#: src/amo/components/RatingsByStar/index.js:112
+#: src/amo/components/RatingsByStar/index.js:61
 msgid "Read all three-star reviews"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:113
+#: src/amo/components/RatingsByStar/index.js:62
 #, fuzzy
 msgid "Read all two-star reviews"
 msgstr "Balas untuk ulasan ini"
 
-#: src/amo/components/RatingsByStar/index.js:114
+#: src/amo/components/RatingsByStar/index.js:63
 #, fuzzy
 msgid "Read all one-star reviews"
 msgstr "Baca semua %(count)s ulasan"
@@ -1877,15 +1877,15 @@ msgstr "Perihal Add-ons Firefox"
 msgid "Go to the add-on page"
 msgstr "Pergi ke halaman add-on"
 
-#: src/amo/components/SearchResult/index.js:180
+#: src/amo/components/SearchResult/index.js:183
 msgid "No theme preview available"
 msgstr "Tiada previu tema tersedia"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:218
 msgid "Add-on note"
 msgstr "Nota add-on"
 
-#: src/amo/components/SearchResult/index.js:233
+#: src/amo/components/SearchResult/index.js:236
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s pengguna"
@@ -1944,11 +1944,11 @@ msgstr "Kamus & Pek Bahasa"
 msgid "Explore"
 msgstr "Teroka"
 
-#: src/amo/components/ShowMoreCard/index.js:138
+#: src/amo/components/ShowMoreCard/index.js:120
 msgid "Expand to read more"
 msgstr ""
 
-#: src/amo/components/ShowMoreCard/index.js:143
+#: src/amo/components/ShowMoreCard/index.js:125
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Luaskan untuk</span> Baca lebih lanjut"
 
@@ -1990,7 +1990,7 @@ msgstr ""
 "Terima kasih kerana melawat laman ini! Sila luangkan satu atau dua minit "
 "untuk memaklumkan Firefox perihal pengalaman anda."
 
-#: src/amo/components/ThemeImage/index.js:31 src/amo/pages/Addon/index.js:160
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "Previu %(title)s"
 
@@ -2019,7 +2019,7 @@ msgstr "Foto profil"
 msgid "Choose Photo…"
 msgstr "Pilih Foto…"
 
-#: src/amo/components/UserReview/index.js:103
+#: src/amo/components/UserReview/index.js:108
 msgid "Developer response"
 msgstr "Respons pembangun"
 
@@ -2057,54 +2057,54 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:195
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Add-on ini tidak boleh diberi nilai kerana tiada versi yang diterbitkan."
 
-#: src/amo/pages/Addon/index.js:206
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/Addon/index.js:227
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "Belum ada ulasan"
 
-#: src/amo/pages/Addon/index.js:237
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "Nilaikan pengalaman anda"
 
-#: src/amo/pages/Addon/index.js:256
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "Perihal kamus ini"
 
-#: src/amo/pages/Addon/index.js:259
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "Perihal ekstensi ini"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "Perihal pek bahasa ini"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "Perihal tema ini"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "Perihal add-on ini"
 
-#: src/amo/pages/Addon/index.js:310
+#: src/amo/pages/Addon/index.js:324
 #, fuzzy
 msgid "Developer comments"
 msgstr "Polisi Pembangun"
 
-#: src/amo/pages/Addon/index.js:333
+#: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
 msgstr "Nota keluaran untuk %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:452
+#: src/amo/pages/Addon/index.js:467
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2112,11 +2112,11 @@ msgstr ""
 "Ini bukan penyenaraian umum. Anda cuma dapat melihatnya kerana izin dari "
 "atasan."
 
-#: src/amo/pages/Addon/index.js:479
+#: src/amo/pages/Addon/index.js:494
 msgid "Extension Metadata"
 msgstr "Metadata Ekstensi"
 
-#: src/amo/pages/Addon/index.js:503
+#: src/amo/pages/Addon/index.js:518
 msgid "Screenshots"
 msgstr "Skrinsyot"
 
@@ -2133,7 +2133,7 @@ msgstr "Perjanjian Lesen Pengguna-Akhir %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Polisi privasi %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:197
+#: src/amo/pages/AddonReviewList/index.js:203
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2141,47 +2141,47 @@ msgstr ""
 "Ulasan dan penilaian untuk %(addonName)s. Ketahui pendapat pengguna lain "
 "mengenai %(addonName)s dan tambahkannya ke Pelayar Firefox anda."
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Ulasan saya"
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:238
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:239
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:241
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:243
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Balas untuk ulasan ini"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:244
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/AddonReviewList/index.js:259
+#: src/amo/pages/AddonReviewList/index.js:265
 msgid "Reviews for %(addonName)s"
 msgstr "Ulasan untuk %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:269
+#: src/amo/pages/AddonReviewList/index.js:275
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s Bintang"
 
-#: src/amo/pages/AddonReviewList/index.js:368
+#: src/amo/pages/AddonReviewList/index.js:374
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Tiada penarafan lagi"
@@ -3238,17 +3238,17 @@ msgid "(no name)"
 msgstr ""
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/amo/reducers/versions.js:352
+#: src/amo/reducers/versions.js:298
 msgid "%(application)s %(minVersion)s and later"
 msgstr ""
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/amo/reducers/versions.js:356
+#: src/amo/reducers/versions.js:302
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr ""
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/amo/reducers/versions.js:376
+#: src/amo/reducers/versions.js:322
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-09 17:29+0000\n"
+"POT-Creation-Date: 2021-03-02 16:51+0000\n"
 "PO-Revision-Date: 2020-11-24 13:21+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -338,7 +338,7 @@ msgstr "ลบ"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:316
+#: src/amo/components/CollectionManager/index.js:312
 #: src/amo/components/ConfirmationDialog/index.js:60
 #: src/amo/components/DismissibleTextForm/index.js:209
 #: src/amo/pages/UserProfileEdit/index.js:898
@@ -703,23 +703,23 @@ msgstr "ส่วนเสริม"
 msgid "Creator"
 msgstr "ผู้สร้าง"
 
-#: src/amo/components/CollectionManager/index.js:240
+#: src/amo/components/CollectionManager/index.js:236
 msgid "Create collection"
 msgstr "สร้างชุดสะสม"
 
-#: src/amo/components/CollectionManager/index.js:241
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Save changes"
 msgstr "บันทึกการเปลี่ยนแปลง"
 
-#: src/amo/components/CollectionManager/index.js:250
+#: src/amo/components/CollectionManager/index.js:246
 msgid "Collection name"
 msgstr "ชื่อชุดสะสม"
 
-#: src/amo/components/CollectionManager/index.js:264
+#: src/amo/components/CollectionManager/index.js:260
 msgid "Description"
 msgstr "คำอธิบาย"
 
-#: src/amo/components/CollectionManager/index.js:276
+#: src/amo/components/CollectionManager/index.js:272
 msgid "Custom URL"
 msgstr "URL ที่กำหนดเอง"
 
@@ -1243,7 +1243,7 @@ msgstr "จัดการส่วนเสริมของคุณโดย
 msgid "OK"
 msgstr "ตกลง"
 
-#: src/amo/components/InstallButtonWrapper/index.js:131
+#: src/amo/components/InstallButtonWrapper/index.js:132
 #, fuzzy
 msgid "Download file"
 msgstr "กำลังดาวน์โหลด"
@@ -1280,110 +1280,110 @@ msgstr "ถัดไป"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "หน้า %(currentPage)s จาก %(totalPages)s"
 
-#: src/amo/components/PermissionsCard/index.js:59
+#: src/amo/components/PermissionsCard/index.js:54
 msgid "Permissions"
 msgstr "สิทธิอนุญาต"
 
-#: src/amo/components/PermissionsCard/index.js:67
+#: src/amo/components/PermissionsCard/index.js:63
 #, fuzzy
 msgid "This add-on needs to:"
 msgstr "ส่วนเสริมนี้สามารถ:"
 
-#: src/amo/components/PermissionsCard/index.js:77
+#: src/amo/components/PermissionsCard/index.js:73
 #, fuzzy
 msgid "This add-on may also ask to:"
 msgstr "ส่วนเสริมนี้สามารถ:"
 
-#: src/amo/components/PermissionsCard/index.js:92
+#: src/amo/components/PermissionsCard/index.js:88
 msgid "Learn more about permissions"
 msgstr "เรียนรู้เพิ่มเติมเกี่ยวกับสิทธิอนุญาต"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
 msgstr "อ่านและเปลี่ยนแปลงที่คั่นหน้า"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify browser settings"
 msgstr "อ่านและเปลี่ยนแปลงการตั้งค่าเบราว์เซอร์"
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "ล้างประวัติการเรียกดู, คุกกี้ และข้อมูลที่เกี่ยวข้องล่าสุด"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
 msgstr "รับข้อมูลจากคลิปบอร์ด"
 
-#: src/amo/components/PermissionsCard/permissions.js:37
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
 msgstr "ป้อนข้อมูลไปยังคลิปบอร์ด"
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
 msgstr "ขยายเครื่องมือนักพัฒนาเพื่อเข้าถึงข้อมูลของคุณในแท็บที่เปิดอยู่"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
 msgstr "ดาวน์โหลดไฟล์และอ่านและเปลี่ยนแปลงประวัติการดาวน์โหลดของเบราว์เซอร์"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
 msgstr "เปิดไฟล์ที่ดาวน์โหลดไปยังคอมพิวเตอร์ของคุณ"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
 msgstr "อ่านข้อความของแท็บที่เปิดอยู่ทั้งหมด"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Access your location"
 msgstr "เข้าถึงตำแหน่งที่ตั้งของคุณ"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
-#: src/amo/components/PermissionsCard/permissions.js:61
+#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
 msgstr "เข้าถึงประวัติการเรียกดู"
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
 msgstr "เฝ้าสังเกตการใช้ส่วนขยายและจัดการชุดตกแต่ง"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
 msgstr "แลกเปลี่ยนข้อความกับโปรแกรมอื่นนอกเหนือจาก Firefox"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
 msgstr "แสดงผลการแจ้งเตือนให้คุณ"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
 msgstr "ให้บริการตรวจสอบความถูกต้องของการเข้ารหัสลับ"
 
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
 msgstr "ควบคุมการตั้งค่าพร็อกซีของเบราว์เซอร์"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
 msgstr "อ่านและเปลี่ยนแปลงการตั้งค่าความเป็นส่วนตัว"
 
-#: src/amo/components/PermissionsCard/permissions.js:58
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
 msgstr "เข้าถึงแท็บที่ปิดล่าสุด"
 
-#: src/amo/components/PermissionsCard/permissions.js:59
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Access browser tabs"
 msgstr "เข้าถึงแท็บของเบราว์เซอร์"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
 msgstr "ซ่อนและแสดงแท็บของเบราว์เซอร์"
 
-#: src/amo/components/PermissionsCard/permissions.js:62
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
 msgstr "จัดเก็บข้อมูลฝั่งลูกข่ายไม่จำกัดจำนวน"
 
-#: src/amo/components/PermissionsCard/permissions.js:65
+#: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
 msgstr "เข้าถึงกิจกรรมของเบราว์เซอร์ระหว่างการนำทาง"
 
@@ -1461,23 +1461,23 @@ msgstr "กำลังบันทึกการจัดอันดับด
 msgid "Star rating saved"
 msgstr "บันทึกการจัดอันดับดาวแล้ว"
 
-#: src/amo/components/RatingsByStar/index.js:110
+#: src/amo/components/RatingsByStar/index.js:59
 msgid "Read all five-star reviews"
 msgstr "อ่านบทวิจารณ์ห้าดาวทั้งหมด"
 
-#: src/amo/components/RatingsByStar/index.js:111
+#: src/amo/components/RatingsByStar/index.js:60
 msgid "Read all four-star reviews"
 msgstr "อ่านบทวิจารณ์สี่ดาวทั้งหมด"
 
-#: src/amo/components/RatingsByStar/index.js:112
+#: src/amo/components/RatingsByStar/index.js:61
 msgid "Read all three-star reviews"
 msgstr "อ่านบทวิจารณ์สามดาวทั้งหมด"
 
-#: src/amo/components/RatingsByStar/index.js:113
+#: src/amo/components/RatingsByStar/index.js:62
 msgid "Read all two-star reviews"
 msgstr "อ่านบทวิจารณ์สองดาวทั้งหมด"
 
-#: src/amo/components/RatingsByStar/index.js:114
+#: src/amo/components/RatingsByStar/index.js:63
 msgid "Read all one-star reviews"
 msgstr "อ่านบทวิจารณ์หนึ่งดาวทั้งหมด"
 
@@ -1806,15 +1806,15 @@ msgstr "Firefox Add-ons"
 msgid "Go to the add-on page"
 msgstr "ไปยังหน้าของส่วนเสริม"
 
-#: src/amo/components/SearchResult/index.js:180
+#: src/amo/components/SearchResult/index.js:183
 msgid "No theme preview available"
 msgstr "ไม่มีตัวอย่างชุดตกแต่ง"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:218
 msgid "Add-on note"
 msgstr "หมายเหตุส่วนเสริม"
 
-#: src/amo/components/SearchResult/index.js:233
+#: src/amo/components/SearchResult/index.js:236
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ผู้ใช้"
@@ -1873,11 +1873,11 @@ msgstr "พจนานุกรมและชุดภาษา"
 msgid "Explore"
 msgstr "สำรวจ"
 
-#: src/amo/components/ShowMoreCard/index.js:138
+#: src/amo/components/ShowMoreCard/index.js:120
 msgid "Expand to read more"
 msgstr "ขยายเพื่ออ่านเพิ่มเติม"
 
-#: src/amo/components/ShowMoreCard/index.js:143
+#: src/amo/components/ShowMoreCard/index.js:125
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ่านเพิ่มเติม"
 
@@ -1917,7 +1917,7 @@ msgid ""
 "about your experience."
 msgstr ""
 
-#: src/amo/components/ThemeImage/index.js:31 src/amo/pages/Addon/index.js:160
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "ตัวอย่างของ %(title)s"
 
@@ -1946,7 +1946,7 @@ msgstr "รูปโปรไฟล์"
 msgid "Choose Photo…"
 msgstr "เลือกรูปถ่าย…"
 
-#: src/amo/components/UserReview/index.js:103
+#: src/amo/components/UserReview/index.js:108
 msgid "Developer response"
 msgstr "การตอบกลับของนักพัฒนา"
 
@@ -1983,62 +1983,62 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:195
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "ไม่สามารถให้คะแนนส่วนเสริมนี้ได้เนื่องจากยังไม่มีรุ่นที่เผยแพร่"
 
-#: src/amo/pages/Addon/index.js:206
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
 
-#: src/amo/pages/Addon/index.js:227
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "ยังไม่มีบทวิจารณ์"
 
-#: src/amo/pages/Addon/index.js:237
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "ให้คะแนนประสบการณ์ของคุณ"
 
-#: src/amo/pages/Addon/index.js:256
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "เกี่ยวกับพจนานุกรมนี้"
 
-#: src/amo/pages/Addon/index.js:259
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "เกี่ยวกับส่วนขยายนี้"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "เกี่ยวกับชุดภาษานี้"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "เกี่ยวกับชุดตกแต่งนี้"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "เกี่ยวกับส่วนเสริมนี้"
 
-#: src/amo/pages/Addon/index.js:310
+#: src/amo/pages/Addon/index.js:324
 msgid "Developer comments"
 msgstr "ความคิดเห็นของนักพัฒนา"
 
-#: src/amo/pages/Addon/index.js:333
+#: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
 msgstr "บันทึกประจำรุ่นสำหรับ %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:452
+#: src/amo/pages/Addon/index.js:467
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:479
+#: src/amo/pages/Addon/index.js:494
 msgid "Extension Metadata"
 msgstr "Metadata ส่วนขยาย"
 
-#: src/amo/pages/Addon/index.js:503
+#: src/amo/pages/Addon/index.js:518
 msgid "Screenshots"
 msgstr "ภาพหน้าจอ"
 
@@ -2054,46 +2054,46 @@ msgstr "ข้อตกลงใบอนุญาตสำหรับผู้
 msgid "Privacy policy for %(addonName)s"
 msgstr "นโยบายความเป็นส่วนตัวสำหรับ %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:197
+#: src/amo/pages/AddonReviewList/index.js:203
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show all reviews"
 msgstr "แสดงบทวิจารณ์ทั้งหมด"
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only five-star reviews"
 msgstr "แสดงบทวิจารณ์ห้าดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only four-star reviews"
 msgstr "แสดงบทวิจารณ์สี่ดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only three-star reviews"
 msgstr "แสดงบทวิจารณ์สามดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:243
 msgid "Show only two-star reviews"
 msgstr "แสดงบทวิจารณ์สองดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:244
 msgid "Show only one-star reviews"
 msgstr "แสดงบทวิจารณ์หนึ่งดาวเท่านั้น"
 
-#: src/amo/pages/AddonReviewList/index.js:259
+#: src/amo/pages/AddonReviewList/index.js:265
 msgid "Reviews for %(addonName)s"
 msgstr "บทวิจารณ์สำหรับ %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:269
+#: src/amo/pages/AddonReviewList/index.js:275
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s บทวิจารณ์"
 
-#: src/amo/pages/AddonReviewList/index.js:368
+#: src/amo/pages/AddonReviewList/index.js:374
 msgid "There are no reviews"
 msgstr "ไม่มีบทวิจารณ์"
 
@@ -3001,17 +3001,17 @@ msgid "(no name)"
 msgstr ""
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/amo/reducers/versions.js:352
+#: src/amo/reducers/versions.js:298
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s และใหม่กว่า"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/amo/reducers/versions.js:356
+#: src/amo/reducers/versions.js:302
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s ถึง %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/amo/reducers/versions.js:376
+#: src/amo/reducers/versions.js:322
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "ใช้งานได้กับ %(listOfApplicatonsAndVersions)s"
 

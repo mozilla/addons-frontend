@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-09 17:29+0000\n"
+"POT-Creation-Date: 2021-03-02 16:51+0000\n"
 "PO-Revision-Date: 2021-01-30 18:44+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -345,7 +345,7 @@ msgstr "ਹਟਾਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:316
+#: src/amo/components/CollectionManager/index.js:312
 #: src/amo/components/ConfirmationDialog/index.js:60
 #: src/amo/components/DismissibleTextForm/index.js:209
 #: src/amo/pages/UserProfileEdit/index.js:898
@@ -716,23 +716,23 @@ msgstr "ਐਡ-ਆਨ"
 msgid "Creator"
 msgstr "ਨਿਰਮਾਤਾ"
 
-#: src/amo/components/CollectionManager/index.js:240
+#: src/amo/components/CollectionManager/index.js:236
 msgid "Create collection"
 msgstr "ਸੰਗ੍ਰਹਿ ਰਚੋ"
 
-#: src/amo/components/CollectionManager/index.js:241
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Save changes"
 msgstr "ਤਬਦੀਲੀਆਂ ਨੂੰ ਸੰਭਾਲੋ"
 
-#: src/amo/components/CollectionManager/index.js:250
+#: src/amo/components/CollectionManager/index.js:246
 msgid "Collection name"
 msgstr "ਸੰਗ੍ਰਹਿ ਦਾ ਨਾਂ"
 
-#: src/amo/components/CollectionManager/index.js:264
+#: src/amo/components/CollectionManager/index.js:260
 msgid "Description"
 msgstr "ਵੇਰਵਾ"
 
-#: src/amo/components/CollectionManager/index.js:276
+#: src/amo/components/CollectionManager/index.js:272
 msgid "Custom URL"
 msgstr "ਪਸੰਦੀਦਾ URL"
 
@@ -1285,7 +1285,7 @@ msgstr "ਮੀਨੂ ਵਿੱਚ ਐਡ-ਆਨ ਕਲਿਕ ਕਰਕੇ ਆਪ
 msgid "OK"
 msgstr "ਠੀਕ ਹੈ"
 
-#: src/amo/components/InstallButtonWrapper/index.js:131
+#: src/amo/components/InstallButtonWrapper/index.js:132
 #, fuzzy
 msgid "Download file"
 msgstr "ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
@@ -1323,110 +1323,110 @@ msgstr "ਅਗਲਾ"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "ਪੰਨਾ %(currentPage)s ਦਾ %(totalPages)s"
 
-#: src/amo/components/PermissionsCard/index.js:59
+#: src/amo/components/PermissionsCard/index.js:54
 msgid "Permissions"
 msgstr "ਪਰਵਾਨਗੀਆਂ"
 
-#: src/amo/components/PermissionsCard/index.js:67
+#: src/amo/components/PermissionsCard/index.js:63
 #, fuzzy
 msgid "This add-on needs to:"
 msgstr "ਇਹ ਐਡ-ਆਨ ਕਰ ਸਕਦਾ ਹੈ:"
 
-#: src/amo/components/PermissionsCard/index.js:77
+#: src/amo/components/PermissionsCard/index.js:73
 #, fuzzy
 msgid "This add-on may also ask to:"
 msgstr "ਇਹ ਐਡ-ਆਨ ਕਰ ਸਕਦਾ ਹੈ:"
 
-#: src/amo/components/PermissionsCard/index.js:92
+#: src/amo/components/PermissionsCard/index.js:88
 msgid "Learn more about permissions"
 msgstr "ਇਜਾਜ਼ਤਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
 msgstr "ਬੁੱਕਮਾਰਕ ਪੜ੍ਹੋ ਅਤੇ ਸੋਧੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify browser settings"
 msgstr "ਬਰਾਊਜ਼ਰ ਸੈਟਿੰਗਾਂ ਨੂੰ ਪੜ੍ਹਨ ਅਤੇ ਸੋਧਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "ਤਾਜ਼ਾ ਬਰਾਊਜ਼ਿੰਗ ਅਤੀਤ, ਕੂਕੀਜ਼ ਅਤੇ ਸੰਬੰਧਿਤ ਡਾਟੇ ਨੂੰ ਸਾਫ਼ ਕਰਨ"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
 msgstr "ਕਲਿਪਬੋਰਡ ਤੋਂ ਡੇਟਾ ਪ੍ਰਾਪਤ ਕਰੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:37
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
 msgstr "ਕਲਿੱਪਬੋਰਡ 'ਚ ਡਾਟਾ ਇਨਪੁੱਟ ਕਰਨ"
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
 msgstr "ਟੈਬਾਂ ਖੋਲ੍ਹਣ ਵਿੱਚ ਤੁਹਾਡੇ ਡਾਟਾ ਲਈ ਡਿਵੈਲਪਰ ਟੂਲਾਂ ਦੀ ਪਹੁੰਚ ਵਧਾਓ"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
 msgstr "ਫ਼ਾਈਲਾਂ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰਨ ਅਤੇ ਬਰਾਊਜ਼ਰ ਦੇ ਡਾਊਨਲੋਡ ਅਤੀਤ ਨੂੰ ਪੜ੍ਹਣ ਅਤੇ ਸੋਧਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
 msgstr "ਆਪਣੇ ਕੰਪਿਊਟਰ ਤੇ ਡਾਊਨਲੋਡ ਕੀਤੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
 msgstr "ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਟੈਬਾਂ ਦੀ ਲਿਖਤ ਨੂੰ ਪੜ੍ਹੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Access your location"
 msgstr "ਤੁਹਾਡੇ ਟਿਕਾਣੇ ਲਈ ਪਹੁੰਚ"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
-#: src/amo/components/PermissionsCard/permissions.js:61
+#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
 msgstr "ਬਰਾਊਜ਼ਰ ਅਤੀਤ ਲਈ ਪਹੁੰਚ"
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਵਰਤੋਂ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਥੀਮਾਂ ਦਾ ਬੰਦੋਬਸਤ ਕਰੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:51
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਤੋਂ ਬਿਨਾਂ ਹੋਰ ਪਰੋਗਰਾਮਾਂ ਨਾਲ ਸੁਨੇਹੇ ਤਬਾਦਲਾ ਕਰੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
 msgstr "ਤੁਹਾਨੂੰ ਸੂਚਨਾਵਾਂ ਦਿਖਾਉਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
 msgstr "ਕ੍ਰਿਪਟੋਗਰਾਫ਼ਿਕ ਪਰਮਾਣਕਿਤਾ ਸੇਵਾਵਾਂ ਦੇਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
 msgstr "ਬਰਾਊਜ਼ਰ ਪਰਾਕਸੀ ਸੈਟਿੰਗਾਂ ਨੂੰ ਕੰਟਰੋਲ ਕਰੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
 msgstr "ਪਰਦੇਦਾਰੀ ਸੈਟਿੰਗਾਂ ਨੂੰ ਪੜ੍ਹਨ ਤੇ ਸੋਧਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:58
+#: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
 msgstr "ਹੁਣੇ ਹੀ ਬੰਦ ਕੀਤੀਆਂ ਟੈਬਾਂ ਲਈ ਪਹੁੰਚ"
 
-#: src/amo/components/PermissionsCard/permissions.js:59
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Access browser tabs"
 msgstr "ਬਰਾਊਜ਼ਰ ਟੈਬਾਂ ਲਈ ਪਹੁੰਚ"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
 msgstr "ਬਰਾਊਜ਼ਰ ਟੈਬਾਂ ਨੂੰ ਲੁਕਾਉਣ ਅਤੇ ਵੇਖਾਉਣ"
 
-#: src/amo/components/PermissionsCard/permissions.js:62
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
 msgstr "ਕਲਾਈਂਟ ਸਾਈਡ ਡਾਟਾ ਦੀ ਅਸੀਮ ਮਾਤਰਾ ਨੂੰ ਸਟੋਰ ਕਰੋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:65
+#: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
 msgstr "ਨੇਵੀਗੇਸ਼ਨ ਦੌਰਾਨ ਬਰਾਊਜ਼ਰ ਸਰਗਰਮੀ ਲਈ ਪਹੁੰਚ"
 
@@ -1512,23 +1512,23 @@ msgstr "ਸਟਾਰ ਰੇਟਿੰਗ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕ�
 msgid "Star rating saved"
 msgstr "ਸਟਾਰ ਰੇਟਿੰਗ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ"
 
-#: src/amo/components/RatingsByStar/index.js:110
+#: src/amo/components/RatingsByStar/index.js:59
 msgid "Read all five-star reviews"
 msgstr "ਸਾਰੇ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
-#: src/amo/components/RatingsByStar/index.js:111
+#: src/amo/components/RatingsByStar/index.js:60
 msgid "Read all four-star reviews"
 msgstr "ਚਾਰ-ਸਟਾਰ ਦੀਆਂ ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
-#: src/amo/components/RatingsByStar/index.js:112
+#: src/amo/components/RatingsByStar/index.js:61
 msgid "Read all three-star reviews"
 msgstr "ਸਾਰੇ ਤਾਰੇ ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 
-#: src/amo/components/RatingsByStar/index.js:113
+#: src/amo/components/RatingsByStar/index.js:62
 msgid "Read all two-star reviews"
 msgstr "ਸਾਰੀਆਂ ਦੋ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
-#: src/amo/components/RatingsByStar/index.js:114
+#: src/amo/components/RatingsByStar/index.js:63
 msgid "Read all one-star reviews"
 msgstr "ਸਾਰੇ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 
@@ -1867,15 +1867,15 @@ msgstr "ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ"
 msgid "Go to the add-on page"
 msgstr "ਐਡ-ਆਨ ਪੇਜ ਤੇ ਜਾਓ"
 
-#: src/amo/components/SearchResult/index.js:180
+#: src/amo/components/SearchResult/index.js:183
 msgid "No theme preview available"
 msgstr "ਕੋਈ ਥੀਮ ਝਲਕ ਨਹੀਂ ਹੈ"
 
-#: src/amo/components/SearchResult/index.js:215
+#: src/amo/components/SearchResult/index.js:218
 msgid "Add-on note"
 msgstr "ਐਡ-ਆਨ ਨੋਟ"
 
-#: src/amo/components/SearchResult/index.js:233
+#: src/amo/components/SearchResult/index.js:236
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ਵਰਤੋਂਕਾਰ"
@@ -1935,11 +1935,11 @@ msgstr "ਸ਼ਬਦ-ਕੋਸ਼ ਅਤੇ ਭਾਸ਼ਾ ਪੈਕ"
 msgid "Explore"
 msgstr "ਪੜਚੋਲ"
 
-#: src/amo/components/ShowMoreCard/index.js:138
+#: src/amo/components/ShowMoreCard/index.js:120
 msgid "Expand to read more"
 msgstr "ਹੋਰ ਪੜ੍ਹਨ ਲਈ ਫੈਲਾਓ"
 
-#: src/amo/components/ShowMoreCard/index.js:143
+#: src/amo/components/ShowMoreCard/index.js:125
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">ਫੈਲਾਓ</span> ਹੋਰ ਪੜ੍ਹੋ"
 
@@ -1982,7 +1982,7 @@ msgid ""
 msgstr ""
 "ਇਸ ਸਾਈਟ ਨੂੰ ਦੇਖਣ ਲਈ ਧੰਨਵਾਦ! ਫਾਇਰਫੌਕਸ ਨੂੰ ਆਪਣੇ ਤਜ਼ਰਬੇ ਬਾਰੇ ਦੱਸਣ ਲਈ ਇੱਕ ਜਾਂ ਦੋ ਮਿੰਟ ਦਾ ਸਮਾਂ ਲਓ।"
 
-#: src/amo/components/ThemeImage/index.js:31 src/amo/pages/Addon/index.js:160
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "%(title)s ਦੀ ਝਲਕ"
 
@@ -2012,7 +2012,7 @@ msgstr "ਪ੍ਰੋਫ਼ਾਈਲ ਫ਼ੋਟੋ"
 msgid "Choose Photo…"
 msgstr "ਫੋਟੋ ਚੁਣੋ…"
 
-#: src/amo/components/UserReview/index.js:103
+#: src/amo/components/UserReview/index.js:108
 msgid "Developer response"
 msgstr "ਵਿਕਾਸਕਾਰ ਜਵਾਬ"
 
@@ -2053,63 +2053,63 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:195
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "ਇਹ ਐਡ-ਆਨ ਨੂੰ ਦਰਜਾ ਨਹੀਂ ਦਿੱਤਾ ਜਾ ਸਕਦਾ ਕਿਉਂਕਿ ਕੋਈ ਵਰਜਨ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ।"
 
-#: src/amo/pages/Addon/index.js:206
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s ਦੀ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 msgstr[1] "ਸਾਰੇ %(count)s ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
-#: src/amo/pages/Addon/index.js:227
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "ਅਜੇ ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ"
 
-#: src/amo/pages/Addon/index.js:237
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "ਆਪਣੇ ਅਨੁਭਵ ਨੂੰ ਦਰਜਾ ਦਿਓ"
 
-#: src/amo/pages/Addon/index.js:256
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "ਇਸ ਸ਼ਬਦਕੋਸ਼ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:259
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "ਇਸ ਭਾਸ਼ਾ ਪੈਕ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "ਇਸ ਥੀਮ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "ਇਸ ਐਡ-ਆਨ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:310
+#: src/amo/pages/Addon/index.js:324
 msgid "Developer comments"
 msgstr "ਵਿਕਾਸਕਾਰ ਟਿੱਪਣੀਆਂ"
 
-#: src/amo/pages/Addon/index.js:333
+#: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s ਲਈ ਰੀਲਿਜ਼ ਨੋਟਿਸ"
 
-#: src/amo/pages/Addon/index.js:452
+#: src/amo/pages/Addon/index.js:467
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "ਇਹ ਜਨਤਕ ਸੂਚੀ ਨਹੀਂ ਹੈ। ਉੱਚੇ ਅਧਿਕਾਰਾਂ ਦੇ ਕਾਰਨ ਤੁਸੀਂ ਇਸ ਨੂੰ ਕੇਵਲ ਦੇਖ ਰਹੇ ਹੋ।"
 
-#: src/amo/pages/Addon/index.js:479
+#: src/amo/pages/Addon/index.js:494
 msgid "Extension Metadata"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਮੈਟਾਡੇਟਾ"
 
-#: src/amo/pages/Addon/index.js:503
+#: src/amo/pages/Addon/index.js:518
 msgid "Screenshots"
 msgstr "ਸਕਰੀਨਸ਼ਾਟ"
 
@@ -2125,7 +2125,7 @@ msgstr "%(addonName)s ਲਈ ਐਂਡ-ਯੂਜ਼ਰ ਲਸੰਸ ਸਮਝੌ
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਪਰਦੇਦਾਰੀ ਨੀਤੀ"
 
-#: src/amo/pages/AddonReviewList/index.js:197
+#: src/amo/pages/AddonReviewList/index.js:203
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2133,41 +2133,41 @@ msgstr ""
 "%(addonName)s ਲਈ ਸਮੀਖਿਆ ਅਤੇ ਰੇਟਿੰਗ। ਪਤਾ ਕਰੋ ਕਿ ਹੋਰ ਵਰਤੋਂਕਾਰ %(addonName)s ਬਾਰੇ ਕੀ "
 "ਸੋਚਦੇ ਹਨ ਅਤੇ ਇਸ ਨੂੰ ਆਪਣੇ ਫਾਇਰਫਾਕਸ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਜੋੜੋ।"
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show all reviews"
 msgstr "ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only five-star reviews"
 msgstr "ਕੇਵਲ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only four-star reviews"
 msgstr "ਸਿਰਫ ਚਾਰ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only three-star reviews"
 msgstr "ਸਿਰਫ ਤਿੰਨ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:243
 msgid "Show only two-star reviews"
 msgstr "ਸਿਰਫ ਦੋ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:244
 msgid "Show only one-star reviews"
 msgstr "ਸਿਰਫ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:259
+#: src/amo/pages/AddonReviewList/index.js:265
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਸਮੀਖਿਆ"
 
-#: src/amo/pages/AddonReviewList/index.js:269
+#: src/amo/pages/AddonReviewList/index.js:275
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s ਸਮੀਖਿਆ"
 msgstr[1] "%(total)s ਸਮੀਖਿਆਵਾਂ"
 
-#: src/amo/pages/AddonReviewList/index.js:368
+#: src/amo/pages/AddonReviewList/index.js:374
 msgid "There are no reviews"
 msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
@@ -3178,17 +3178,17 @@ msgid "(no name)"
 msgstr "(ਕੋਈ ਨਾਂ ਨਹੀਂ)"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/amo/reducers/versions.js:352
+#: src/amo/reducers/versions.js:298
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s ਅਤੇ ਬਾਅਦ ਵਿੱਚ"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/amo/reducers/versions.js:356
+#: src/amo/reducers/versions.js:302
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s ਤੋਂ %(maxVersion)s ਤੱਕ"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/amo/reducers/versions.js:376
+#: src/amo/reducers/versions.js:322
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "%(listOfApplicatonsAndVersions)s ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ"
 
