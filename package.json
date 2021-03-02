@@ -276,7 +276,7 @@
     "mock-express-response": "^0.3.0",
     "node-sass": "^5.0.0",
     "object.values": "^1.0.4",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "css-minimizer-webpack-plugin": "^1.2.0",
     "pino-devtools": "^2.1.0",
     "pino-pretty": "^3.0.0",
     "piping": "^1.0.0-rc.4",

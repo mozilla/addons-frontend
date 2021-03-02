@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { SubresourceIntegrityPlugin } from 'webpack-subresource-integrity';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 import TerserPlugin from 'terser-webpack-plugin';
-import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 
 import SriDataPlugin from './src/amo/server/sriDataPlugin';
 import { getPlugins, getRules } from './webpack-common';
@@ -58,24 +58,7 @@ export default {
           },
         },
       }),
-      new OptimizeCssAssetsPlugin({
-        cssProcessorPluginOptions: {
-          preset: [
-            'default',
-            {
-              svgo: {
-                plugins: [
-                  {
-                    // There is a bug in this optimization.
-                    // See https://github.com/mozilla/addons-frontend/issues/7191
-                    convertPathData: false,
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      }),
+      new CssMinimizerPlugin(),
     ],
   },
   plugins: [
