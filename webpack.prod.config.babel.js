@@ -64,8 +64,8 @@ export default {
   plugins: [
     ...getPlugins(),
     new MiniCssExtractPlugin({
-      filename: '[name]-[hash].css',
-      chunkFilename: '[name]-[hash].css',
+      filename: '[name]-[chunkhash].css',
+      chunkFilename: '[name]-[chunkhash].css',
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
     new SubresourceIntegrityPlugin({ hashFuncNames: ['sha512'] }),
