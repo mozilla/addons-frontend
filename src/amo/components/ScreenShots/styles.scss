@@ -7,10 +7,6 @@ $image-height: $screenshot-height - 20px;
 $screenshot-width: 320px;
 
 .ScreenShots {
-  .pswp-thumbnails {
-    line-height: 0;
-  }
-
   .pswp__caption__center {
     text-align: center;
   }
@@ -20,9 +16,10 @@ $screenshot-width: 320px;
   height: $screenshot-height;
 }
 
-.ScreenShots-list .pswp-thumbnails {
+.ScreenShots-list {
   display: flex;
   height: $screenshot-height;
+  line-height: 0;
   list-style-type: none;
   margin: 0;
   overflow-x: scroll;
@@ -31,20 +28,16 @@ $screenshot-width: 320px;
   width: auto;
 }
 
-.ScreenShots-list .pswp-thumbnail {
-  display: inline-block;
-  margin: 0 10px;
-
-  &:first-of-type {
-    @include margin-start(0);
-  }
-}
-
 .ScreenShots-image {
   cursor: pointer;
   display: inline-block;
   height: $image-height;
+  margin: 0 10px;
   width: $screenshot-width;
+
+  &:first-of-type {
+    @include margin-start(0);
+  }
 }
 
 // Don't stretch the images.
