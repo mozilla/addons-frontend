@@ -142,6 +142,12 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       component={CategoriesPage}
     />
 
+    <Route
+      exact
+      path="/:lang/:application/category/"
+      component={(props) => <SearchPage {...props} isForCategory />}
+    />
+
     {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
     <Route
       exact

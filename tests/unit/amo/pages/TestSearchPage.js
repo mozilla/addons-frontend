@@ -141,6 +141,25 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
+  it('dispatches the correct redirect when `isForCategory` is true', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      isForCategory: true,
+      location: createFakeLocation({ query: { atype: 5 } }),
+      store,
+    });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: '/en-US/android/category/?type=language',
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
   it('does not dispatch a server redirect when `atype` has no mapping', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -186,6 +205,18 @@ describe(__filename, () => {
     );
     sinon.assert.callCount(fakeDispatch, 1);
   });
+
+  it.each([
+    [true, 'category'],
+    [false, 'search'],
+  ])(
+    'passes the expected pathname to Search when isForCategory is %s',
+    (isForCategory, pathname) => {
+      const root = render({ isForCategory });
+
+      expect(root.find(Search)).toHaveProp('pathname', `/${pathname}/`);
+    },
+  );
 
   describe('mapStateToProps()', () => {
     const clientApp = CLIENT_APP_FIREFOX;

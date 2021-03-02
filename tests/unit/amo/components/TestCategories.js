@@ -331,7 +331,7 @@ describe(__filename, () => {
       const slug = 'some-slug';
 
       const toValue = categoryResultsLinkTo({ addonType, slug });
-      expect(toValue.pathname).toEqual('/search/');
+      expect(toValue.pathname).toEqual('/category/');
       expect(toValue.query).toEqual(
         getCategoryResultsQuery({ addonType, slug }),
       );

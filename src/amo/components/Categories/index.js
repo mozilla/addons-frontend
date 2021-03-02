@@ -61,7 +61,7 @@ export const categoryResultsLinkTo = ({
   query: QueryParams,
 |} => {
   return {
-    pathname: '/search/',
+    pathname: '/category/',
     query: getCategoryResultsQuery({
       addonType,
       slug,
