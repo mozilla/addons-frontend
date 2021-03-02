@@ -231,8 +231,11 @@ export const fakeShelf = Object.freeze([
       'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
     endpoint: 'search-themes',
     criteria: '?sort=rating&type=statictheme',
-    footerText: createLocalizedString('See more top rated themes'),
-    footerPathname: 'search/?sort=rating&type=statictheme',
+    footer: {
+      url: createLocalizedString('http://testserver/extensions/'),
+      text: createLocalizedString('See more top rated themes'),
+      outgoing: '',
+    },
     addons: [fakeAddon],
   },
 ]);
@@ -309,12 +312,15 @@ export const fakePrimaryHeroShelfExternalAddon = Object.freeze({
 });
 
 export const createResultsShelf = ({
-  title = { 'en-US': 'Top Rated Themes' },
+  title = 'Top Rated Themes',
   url = 'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
   endpoint = 'search-themes',
   criteria = '?sort=rating&type=statictheme',
-  footerText = { 'en-US': 'See more top rated themes' },
-  footerPathname = 'search/?sort=rating&type=statictheme',
+  footer = {
+    'url': 'http://testserver/extensions/',
+    'outgoing': '',
+    'text': 'See more top rated themes',
+  },
   addons = [fakeAddon],
 } = {}) => {
   return [
@@ -323,8 +329,11 @@ export const createResultsShelf = ({
       url,
       endpoint,
       criteria,
-      footerText: createLocalizedString(footerText),
-      footerPathname,
+      footer: {
+        'url': createLocalizedString(footer.url),
+        'outgoing': createLocalizedString(footer.outgoing),
+        'text': createLocalizedString(footer.text),
+      },
       addons,
     },
   ];

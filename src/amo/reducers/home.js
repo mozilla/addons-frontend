@@ -4,11 +4,6 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 import invariant from 'invariant';
 
 import {
-  LANDING_PAGE_EXTENSION_COUNT,
-  LANDING_PAGE_THEME_COUNT,
-  ADDON_TYPE_STATIC_THEME,
-} from 'amo/constants';
-import {
   createInternalAddon,
   selectLocalizedUrlWithOutgoing,
 } from 'amo/reducers/addons';
@@ -147,22 +142,20 @@ export type HeroShelvesType = {|
 |};
 
 export type ExternalResultShelfType = {|
-  title: Object,
+  title: LocalizedString,
   url: string,
   endpoint: string,
   criteria: string,
-  footer_text: Object | null,
-  footer_pathname: string | null,
+  footer: ExternalHeroCallToActionType | null,
   addons: Array<ExternalAddonType>,
 |};
 
 export type ResultShelfType = {|
-  title: Object,
+  title: LocalizedString,
   url: string,
   endpoint: string,
   criteria: string,
-  footerText: Object | null,
-  footerPathname: string | null,
+  footer: HeroCallToActionType | null,
   addons: Array<AddonType>,
 |};
 
@@ -253,30 +246,6 @@ type Action =
   | LoadHomeDataAction
   | SetClientAppAction;
 
-export const createInternalShelf = (
-  result: ExternalResultShelfType,
-  lang: string,
-): ResultShelfType => {
-  const sliceEnd =
-    ADDON_TYPE_STATIC_THEME === result.addons[0].type
-      ? LANDING_PAGE_THEME_COUNT
-      : LANDING_PAGE_EXTENSION_COUNT;
-
-  const shelfAddons = result.addons.slice(0, sliceEnd).map((addon) => {
-    return createInternalAddon(addon, lang);
-  });
-
-  return {
-    title: selectLocalizedContent(result.title, lang),
-    url: result.url,
-    endpoint: result.endpoint,
-    criteria: result.criteria,
-    footerText: selectLocalizedContent(result.footer_text, lang),
-    footerPathname: result.footer_pathname,
-    addons: shelfAddons,
-  };
-};
-
 export const createInternalPrimaryHeroShelfExternalAddon = (
   external: PrimaryHeroShelfExternalAddonType,
   lang: string,
@@ -311,6 +280,26 @@ export const createInternalSecondaryHeroModule = (
     icon: module.icon,
     description: selectLocalizedContent(module.description, lang),
     cta: module.cta ? createInternalHeroCallToAction(module.cta, lang) : null,
+  };
+};
+
+export const createInternalShelf = (
+  result: ExternalResultShelfType,
+  lang: string,
+): ResultShelfType => {
+  const shelfAddons = result.addons.map((addon) => {
+    return createInternalAddon(addon, lang);
+  });
+
+  return {
+    title: selectLocalizedContent(result.title, lang),
+    url: result.url,
+    endpoint: result.endpoint,
+    criteria: result.criteria,
+    footer: result.footer
+      ? createInternalHeroCallToAction(result.footer, lang)
+      : null,
+    addons: shelfAddons,
   };
 };
 
