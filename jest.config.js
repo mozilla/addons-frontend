@@ -8,8 +8,6 @@ module.exports = {
   moduleDirectories: ['src', 'node_modules'],
   moduleFileExtensions: ['js', 'json', 'jsx'],
   moduleNameMapper: {
-    // Prevent un-transpiled react-photoswipe code being required.
-    '^photoswipe$': '<rootDir>/node_modules/photoswipe',
     // Alias tests for tests to be able to import helpers.
     '^tests/(.*)$': '<rootDir>/tests/$1',
     // Replaces the following formats with an empty module.
