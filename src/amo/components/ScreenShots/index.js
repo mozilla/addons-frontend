@@ -1,7 +1,7 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import { Gallery, Item } from 'react-photoswipe-gallery';
-import invariant from 'invariant';
 import 'photoswipe/dist/photoswipe.css';
 import 'photoswipe/dist/default-skin/default-skin.css';
 
@@ -72,7 +72,7 @@ export default class ScreenShots extends React.Component<Props> {
                   {({ ref, open }) => (
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
                     <img
-                      alt=""
+                      alt={preview.title}
                       className="ScreenShots-image"
                       ref={ref}
                       onClick={open}
