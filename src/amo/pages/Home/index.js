@@ -19,7 +19,6 @@ import {
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
-  INSTALL_SOURCE_FEATURED,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
@@ -202,7 +201,6 @@ export class HomeBase extends React.Component {
 
             {homeShelves ? (
               <HomepageShelves
-                addonInstallSource={INSTALL_SOURCE_FEATURED}
                 loading={loading}
                 placeholderCount={
                   isDesktopSite
