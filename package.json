@@ -41,7 +41,7 @@
   },
   "betterScripts": {
     "build": {
-      "command": "npm run build-check && npm run version-check && npm run build-locales && webpack --stats verbose --progress --color --config webpack.prod.config.babel.js",
+      "command": "npm run build-check && npm run version-check && npm run build-locales && webpack --progress --color --config webpack.prod.config.babel.js",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
@@ -79,7 +79,7 @@
       }
     },
     "extract-locales": {
-      "command": "webpack --stats verbose --progress --color --config webpack.l10n.config.babel.js",
+      "command": "webpack --progress --color --config webpack.l10n.config.babel.js",
       "env": {
         "NODE_ENV": "production",
         "NODE_ICU_DATA": "./node_modules/full-icu",
