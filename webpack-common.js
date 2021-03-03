@@ -79,10 +79,12 @@ export function getAssetRules() {
     {
       test: /\.svg$/,
       use: [{ loader: 'svg-url-loader', options: urlLoaderOptions }],
+      type: 'javascript/auto',
     },
     {
       test: /\.(jpg|png|gif|webm|mp4|otf|woff|woff2)$/,
       use: [{ loader: 'url-loader', options: urlLoaderOptions }],
+      type: 'javascript/auto',
     },
   ];
 }
