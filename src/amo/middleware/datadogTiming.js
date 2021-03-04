@@ -19,11 +19,7 @@ export const datadogTiming = ({
   });
 
   client.socket.on('error', (error) => {
-    // Log an error to Sentry.
     _log.error(`DataDog client socket error: ${error}`);
-    // Log the full stack trace too:
-    // eslint-disable-next-line amo/only-log-strings
-    _log.error('%o', { err: error });
   });
 
   return responseTime((req, res, time) => {

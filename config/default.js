@@ -4,7 +4,7 @@
 
 import path from 'path';
 
-import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
+import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlProd } from './lib/shared';
 
 const addonsFrontendCDN = 'https://addons-amo.cdn.mozilla.net';
 const basePath = path.resolve(__dirname, '../');
@@ -115,7 +115,6 @@ module.exports = {
     'langs',
     'loggingLevel',
     'mozillaUserId',
-    'publicSentryDsn',
     'restrictSearchResultsToAppVersion',
     'rtlLangs',
     'trackingEnabled',
@@ -139,7 +138,7 @@ module.exports = {
       defaultSrc: ["'none'"],
       baseUri: ["'self'"],
       childSrc: ["'none'"],
-      connectSrc: [analyticsHost, apiProdHost, sentryHost],
+      connectSrc: [analyticsHost, apiProdHost],
       fontSrc: [addonsFrontendCDN],
       formAction: ["'self'"],
       frameSrc: ["'none'"],
@@ -394,10 +393,6 @@ module.exports = {
   // If true, enable a route that explicitly triggers a server error
   // to test our internal error handler.
   allowErrorSimulation: false,
-
-  sentryDsn: process.env.SENTRY_DSN || null,
-  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-prod/
-  publicSentryDsn: 'https://dbce4e759d8b4dc6a1731d3301fdaab7@sentry.prod.mozaws.net/183',
 
   // The amount of time (in seconds) that an auth token lives for.
   // This needs to match the SESSION_COOKIE_AGE in addons-server:

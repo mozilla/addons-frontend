@@ -145,7 +145,6 @@ describe(__filename, () => {
       hotShotsClient.socket.emit('error', error);
 
       sinon.assert.calledWith(_log.error, sinon.match(error.message));
-      sinon.assert.calledWithMatch(_log.error, '%o', { err: error });
     });
   });
 });

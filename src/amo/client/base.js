@@ -1,10 +1,8 @@
-/* global DEPLOYMENT_VERSION */
 import 'amo/polyfill';
 import { oneLine } from 'common-tags';
 import config from 'config';
 import FastClick from 'fastclick';
 import { createBrowserHistory } from 'history';
-import RavenJs from 'raven-js';
 import * as React from 'react';
 import { render } from 'react-dom';
 
@@ -12,14 +10,12 @@ import Root from 'amo/components/Root';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'amo/i18n/utils';
 import log from 'amo/logger';
 import { addQueryParamsToHistory } from 'amo/utils';
-import { getSentryRelease } from 'amo/utils/sentry';
 import tracking from 'amo/tracking';
 
 export default async function createClient(
   createStore,
   {
     _FastClick = FastClick,
-    _RavenJs = RavenJs,
     _config = config,
     _createBrowserHistory = createBrowserHistory,
     _tracking = tracking,
@@ -30,25 +26,6 @@ export default async function createClient(
     // eslint-disable-next-line global-require, import/no-extraneous-dependencies
     const { fetchBufferedLogs } = require('pino-devtools/src/client');
     await fetchBufferedLogs();
-  }
-
-  // This code needs to come before anything else so we get logs/errors if
-  // anything else in this function goes wrong.
-  const publicSentryDsn = _config.get('publicSentryDsn');
-  const sentryIsEnabled = Boolean(publicSentryDsn);
-  if (sentryIsEnabled) {
-    log.info(`Configured client-side Sentry with DSN ${publicSentryDsn}`);
-    _RavenJs
-      .config(publicSentryDsn, {
-        logger: 'client-js',
-        // `DEPLOYMENT_VERSION` is injected by webpack at build time (thanks to
-        // the `DefinePlugin`).
-        // See: https://github.com/mozilla/addons-frontend/issues/8270
-        release: getSentryRelease({ version: DEPLOYMENT_VERSION }),
-      })
-      .install();
-  } else {
-    log.warn('Client-side Sentry reporting was disabled by the config');
   }
 
   if (config.get('enableStrictMode')) {
@@ -94,10 +71,6 @@ export default async function createClient(
   });
 
   const { sagaMiddleware, store } = createStore({ history, initialState });
-
-  if (sentryIsEnabled) {
-    _RavenJs.setTagsContext({ amo_request_id: store.getState().api.requestId });
-  }
 
   if (sagas && sagaMiddleware) {
     sagaMiddleware.run(sagas);

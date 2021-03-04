@@ -7,9 +7,6 @@ import webpack from 'webpack';
 
 import 'amo/polyfill';
 import { getClientConfig } from 'amo/utils';
-import { getDeploymentVersion } from 'amo/utils/build';
-
-import versionJson from './version';
 
 export function getStyleRules({
   bundleStylesWithJs = false,
@@ -135,7 +132,6 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
     new webpack.DefinePlugin({
       CLIENT_CONFIG: JSON.stringify(clientConfig),
       'process.env.NODE_ENV': JSON.stringify('production'),
-      DEPLOYMENT_VERSION: JSON.stringify(getDeploymentVersion({ versionJson })),
     }),
     // Since the NodeJS code does not run from a webpack bundle, here
     // are a few replacements that affect only the client side bundle.

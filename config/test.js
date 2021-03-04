@@ -9,8 +9,5 @@ module.exports = {
   // memory we have (and more...).
   enableRequestID: false,
 
-  // Force-disable Sentry
-  publicSentryDsn: null,
-
   mozillaUserId: 1337,
 };
