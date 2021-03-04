@@ -16,12 +16,19 @@ export function getStyleRules({
 
   const postCssPlugins = [];
   if (_config.get('enablePostCssLoader')) {
-    postCssPlugins.push(
-      autoprefixer({
-        grid: false,
-      }),
-    );
+    postCssPlugins.push(autoprefixer());
   }
+
+  const cssLoaderOptions = {
+    importLoaders: 2,
+    // This is needed to be backward compatible with css-loader v2.
+    esModule: false,
+  };
+  const postcssLoaderOptions = {
+    postcssOptions: {
+      plugins: postCssPlugins,
+    },
+  };
 
   if (bundleStylesWithJs) {
     // In development, we bundle styles with the JS.
@@ -30,19 +37,9 @@ export function getStyleRules({
         test: /\.(sc|c)ss$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader', options: { importLoaders: 2 } },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: postCssPlugins,
-              },
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: { sassOptions: { outputStyle: 'expanded' } },
-          },
+          { loader: 'css-loader', options: cssLoaderOptions },
+          { loader: 'postcss-loader', options: postcssLoaderOptions },
+          { loader: 'sass-loader' },
         ],
       },
     ];
@@ -54,31 +51,9 @@ export function getStyleRules({
         test: /\.(sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: postCssPlugins,
-              },
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              sassOptions: {
-                outputStyle: 'expanded',
-              },
-            },
-          },
+          { loader: 'css-loader', options: cssLoaderOptions },
+          { loader: 'postcss-loader', options: postcssLoaderOptions },
+          { loader: 'sass-loader' },
         ],
       },
     ];
@@ -104,10 +79,12 @@ export function getAssetRules() {
     {
       test: /\.svg$/,
       use: [{ loader: 'svg-url-loader', options: urlLoaderOptions }],
+      type: 'javascript/auto',
     },
     {
       test: /\.(jpg|png|gif|webm|mp4|otf|woff|woff2)$/,
       use: [{ loader: 'url-loader', options: urlLoaderOptions }],
+      type: 'javascript/auto',
     },
   ];
 }

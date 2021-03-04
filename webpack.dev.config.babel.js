@@ -50,8 +50,8 @@ export default {
   output: {
     ...webpackConfig.output,
     path: assetsPath,
-    filename: '[name]-[hash].js',
-    chunkFilename: '[name]-[hash].js',
+    filename: '[name]-[chunkhash].js',
+    chunkFilename: '[name]-[chunkhash].js',
     // We need to remove the protocol because of `yarn amo:dev-https`.
     publicPath: `//${webpackHost}:${webpackPort}/`,
   },
