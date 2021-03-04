@@ -1,5 +1,5 @@
 // Config for the stage server.
-import { addonsServerStageCDN, analyticsHost, apiStageHost, baseUrlStage, sentryHost, stageDomain } from './lib/shared';
+import { addonsServerStageCDN, analyticsHost, apiStageHost, baseUrlStage, stageDomain } from './lib/shared';
 
 const addonsFrontendCDN = 'https://addons-amo-cdn.allizom.org';
 
@@ -17,7 +17,6 @@ module.exports = {
       connectSrc: [
         analyticsHost,
         apiStageHost,
-        sentryHost,
       ],
       fontSrc: [
         addonsFrontendCDN,
@@ -39,9 +38,6 @@ module.exports = {
   },
 
   allowErrorSimulation: true,
-
-  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-stage/
-  publicSentryDsn: 'https://8f0a256ee2c345608510155edafb71f7@sentry.prod.mozaws.net/182',
 
   extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
 };

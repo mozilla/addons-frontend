@@ -30,7 +30,6 @@ import UserProfile from 'amo/pages/UserProfile';
 import UserProfileEdit from 'amo/pages/UserProfileEdit';
 import UsersUnsubscribe from 'amo/pages/UsersUnsubscribe';
 import SimulateAsyncError from 'amo/pages/error-simulation/SimulateAsyncError';
-import SimulateClientError from 'amo/pages/error-simulation/SimulateClientError';
 import SimulateSyncError from 'amo/pages/error-simulation/SimulateSyncError';
 import About from 'amo/pages/StaticPages/About';
 import ReviewGuide from 'amo/pages/StaticPages/ReviewGuide';
@@ -199,15 +198,6 @@ const Routes = ({ _config = config }: Props = {}) => (
       component={() => (
         <Page showWrongPlatformWarning={false}>
           <SimulateSyncError />
-        </Page>
-      )}
-    />
-    <Route
-      exact
-      path="/:lang/:application/simulate-client-error/"
-      component={() => (
-        <Page showWrongPlatformWarning={false}>
-          <SimulateClientError />
         </Page>
       )}
     />

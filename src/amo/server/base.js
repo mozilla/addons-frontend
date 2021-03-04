@@ -9,7 +9,6 @@ import Express from 'express';
 import httpContext from 'express-http-context';
 import helmet from 'helmet';
 import { createMemoryHistory } from 'history';
-import Raven from 'raven';
 import * as React from 'react';
 import ReactDOM from 'react-dom/server';
 import NestedStatus from 'react-nested-status';
@@ -42,8 +41,6 @@ import {
   langToLocale,
   makeI18n,
 } from 'amo/i18n/utils';
-import { getDeploymentVersion } from 'amo/utils/build';
-import { getSentryRelease } from 'amo/utils/sentry';
 import { fetchSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
@@ -173,27 +170,6 @@ function baseServer(
     // This middleware must be set very early.
     app.use(httpContext.middleware);
     app.use(requestId);
-  }
-
-  const versionJson = JSON.parse(
-    fs.readFileSync(path.join(config.get('basePath'), 'version.json')),
-  );
-
-  const sentryDsn = config.get('sentryDsn');
-  if (sentryDsn) {
-    Raven.config(sentryDsn, {
-      logger: 'server-js',
-      release: getSentryRelease({
-        version: getDeploymentVersion({ versionJson }),
-      }),
-    }).install();
-    app.use(Raven.requestHandler());
-    _log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
-    // The error handler is defined below.
-  } else {
-    _log.warn(
-      'Sentry reporting is disabled; Set config.sentryDsn to enable it.',
-    );
   }
 
   if (config.get('useDatadog') && config.get('datadogHost')) {
@@ -425,10 +401,6 @@ function baseServer(
   });
 
   // Error handlers:
-
-  if (sentryDsn) {
-    app.use(Raven.errorHandler());
-  }
 
   app.use((error, req, res, next) => {
     try {

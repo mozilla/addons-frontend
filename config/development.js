@@ -1,5 +1,5 @@
 // Config specific to local development
-import { addonsServerDevCDN, analyticsHost, apiDevHost, sentryHost } from './lib/shared';
+import { addonsServerDevCDN, analyticsHost, apiDevHost } from './lib/shared';
 
 const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
 const webpackServerPort = 3001;
@@ -50,7 +50,6 @@ module.exports = {
         addonsServerDevCDN,
         analyticsHost,
         apiDevHost,
-        sentryHost,
         webpackHost,
         // This is needed for pino-devtools.
         `${webpackServerHost}:3010`,
@@ -80,10 +79,6 @@ module.exports = {
     },
     reportOnly: true,
   },
-
-  // By default, client side errors are not reported to Sentry during
-  // development. Override this in a local-*.js config to report errors.
-  publicSentryDsn: null,
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 };

@@ -325,9 +325,6 @@ module.exports = {
   // Serve static via Node.
   staticHost: undefined,
   enableNodeStatics: true,
-
-  // No need for Sentry.
-  publicSentryDsn: null,
 };
 ```
 
