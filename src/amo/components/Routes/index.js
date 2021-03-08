@@ -145,7 +145,7 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
 
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType(extensions|themes)/:categorySlug/"
+      path="/:lang/:application/:visibleAddonType(extensions|themes)/category/:categorySlug/"
       component={CategoryPage}
     />
 

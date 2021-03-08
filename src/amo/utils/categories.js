@@ -15,7 +15,7 @@ export const getCategoryResultsPathname = ({
   addonType,
   slug,
 }: GetCategoryResultsPathnameParams): string => {
-  return `/${visibleAddonType(addonType)}/${slug}/`;
+  return `/${visibleAddonType(addonType)}/category/${slug}/`;
 };
 
 export const getCategoryResultsQuery = (): QueryParams => {

@@ -53,14 +53,14 @@ export class CategoryPageBase extends React.Component<InternalProps> {
     // exception in mapStateToProps via apiAddonType()
     if (addonType === ADDON_TYPE_EXTENSION) {
       return categoryName
-        ? i18n.sprintf(i18n.gettext('%(categoryName)s extensions'), {
+        ? i18n.sprintf(i18n.gettext('Extensions in %(categoryName)s'), {
             categoryName,
           })
         : i18n.gettext('Extensions');
     }
 
     return categoryName
-      ? i18n.sprintf(i18n.gettext('%(categoryName)s themes'), {
+      ? i18n.sprintf(i18n.gettext('Themes in %(categoryName)s'), {
           categoryName,
         })
       : i18n.gettext('Themes');

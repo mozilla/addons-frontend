@@ -118,7 +118,7 @@ describe(__filename, () => {
 
     expect(root.find(Search)).toHaveProp(
       'pathname',
-      `/${visibleAddonType(addonType)}/${category}/`,
+      `/${visibleAddonType(addonType)}/category/${category}/`,
     );
   });
 
@@ -153,8 +153,8 @@ describe(__filename, () => {
   });
 
   it.each([
-    [ADDON_TYPE_EXTENSION, 'extensions'],
-    [ADDON_TYPE_STATIC_THEME, 'themes'],
+    [ADDON_TYPE_EXTENSION, 'Extensions'],
+    [ADDON_TYPE_STATIC_THEME, 'Themes'],
   ])('sets the expected title for type: %s', (type, expectedTitle) => {
     const slug = 'some-category';
     const name = 'Category Name';
@@ -170,7 +170,7 @@ describe(__filename, () => {
 
     expect(root.find(Search)).toHaveProp(
       'pageTitle',
-      `${name} ${expectedTitle}`,
+      `${expectedTitle} in ${name}`,
     );
   });
 

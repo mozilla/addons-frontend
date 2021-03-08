@@ -15,7 +15,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: sinon.match('/en-US/android/extensions/search-tools/'),
+        url: sinon.match('/en-US/android/extensions/category/search-tools/'),
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);

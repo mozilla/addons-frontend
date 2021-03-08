@@ -174,7 +174,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/android/extensions/${category}/?page=${page}`,
+        url: `/en-US/android/extensions/category/${category}/?page=${page}`,
       }),
     );
   });
