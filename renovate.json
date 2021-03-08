@@ -32,6 +32,13 @@
         "qhistory"
       ],
       "groupName": "history"
+    },
+    {
+      "packagePatterns": [
+        "stylelint",
+        "stylelint-config-standard"
+      ],
+      "groupName": "stylelint"
     }
   ]
 }
