@@ -6,7 +6,11 @@ import onClickOutside from 'react-onclickoutside';
 
 import log from 'amo/logger';
 import Icon from 'amo/components/Icon';
-import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
+import type {
+  ElementEvent,
+  HTMLElementEventHandler,
+  InputEvent,
+} from 'amo/types/dom';
 
 import './styles.scss';
 
@@ -35,9 +39,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     }));
   };
 
-  handleOnClickForLinks: (event: SyntheticInputEvent<HTMLElement>) => void = (
-    event: SyntheticInputEvent<HTMLElement>,
-  ) => {
+  handleOnClickForLinks: (event: InputEvent) => void = (event: InputEvent) => {
     // If a link inside the menu is clicked, we should close the dropdown.
     // See: https://github.com/mozilla/addons-frontend/issues/3452
     if (event.target && event.target.tagName === 'A') {

@@ -15,6 +15,10 @@ export type TypedElementEvent<TargetType> = {
 } & Event;
 
 export type ElementEvent = SyntheticEvent<HTMLElement>;
+export type InputEvent = SyntheticInputEvent<HTMLElement>;
+export type InputOrTextAreaEvent = TypedElementEvent<
+  HTMLInputElement | HTMLTextAreaElement,
+>;
 
 export type HTMLElementEventHandlerWithTarget<TargetType> = (
   event: TypedElementEvent<TargetType>,

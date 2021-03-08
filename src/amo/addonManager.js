@@ -36,7 +36,7 @@ export type MozAddonManagerType = {|
   createInstall: ({| url: string, hash?: string | null |}) => Promise<any>,
   getAddonByID: (guid: string) => Promise<FirefoxAddon>,
   permissionPromptsEnabled: boolean,
-  reportAbuse: (addonId: string) => Promise<boolean>,
+  reportAbuse?: (addonId: string) => Promise<boolean>,
 |};
 
 type PrivilegedNavigatorType = {|
@@ -82,12 +82,12 @@ export function hasAddonManager({
 
 export function hasPermissionPromptsEnabled({
   navigator,
-}: { navigator: PrivilegedNavigatorType } = {}): void | boolean {
+}: { navigator: PrivilegedNavigatorType } = {}): boolean {
   if (hasAddonManager({ navigator })) {
     const _navigator = navigator || window.navigator;
-    return _navigator.mozAddonManager.permissionPromptsEnabled;
+    return Boolean(_navigator.mozAddonManager.permissionPromptsEnabled);
   }
-  return undefined;
+  return false;
 }
 
 export function getAddon(
@@ -121,7 +121,10 @@ export function reportAbuse(
   addonId: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ): Promise<boolean> {
-  if (hasAbuseReportPanelEnabled(_mozAddonManager)) {
+  if (
+    hasAbuseReportPanelEnabled(_mozAddonManager) &&
+    _mozAddonManager.reportAbuse
+  ) {
     return (
       _mozAddonManager.reportAbuse && _mozAddonManager.reportAbuse(addonId)
     );

@@ -62,18 +62,18 @@ describe(__filename, () => {
   });
 
   describe('hasPermissionPromptsEnabled', () => {
-    it('is undefined if mozAddonManager is not available', () => {
-      expect(addonManager.hasPermissionPromptsEnabled()).toEqual(undefined);
+    it('is false if mozAddonManager is not available', () => {
+      expect(addonManager.hasPermissionPromptsEnabled()).toEqual(false);
     });
 
-    it('is undefined if permissionPromptsEnabled is undefined', () => {
+    it('is false if permissionPromptsEnabled is undefined', () => {
       expect(
         addonManager.hasPermissionPromptsEnabled({
           navigator: {
             mozAddonManager: {},
           },
         }),
-      ).toEqual(undefined);
+      ).toEqual(false);
     });
 
     it('is false if hasPermissionPromptsEnabled is false', () => {

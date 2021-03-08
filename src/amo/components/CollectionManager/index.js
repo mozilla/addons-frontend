@@ -28,7 +28,7 @@ import type { I18nType } from 'amo/types/i18n';
 import type {
   ElementEvent,
   HTMLElementEventHandler,
-  TypedElementEvent,
+  InputOrTextAreaEvent,
 } from 'amo/types/dom';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { DispatchFunc } from 'amo/types/redux';
@@ -180,10 +180,8 @@ export class CollectionManagerBase extends React.Component<
     }
   };
 
-  onTextInput: (
-    event: TypedElementEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => void = (
-    event: TypedElementEvent<HTMLInputElement | HTMLTextAreaElement>,
+  onTextInput: (event: InputOrTextAreaEvent) => void = (
+    event: InputOrTextAreaEvent,
   ) => {
     event.preventDefault();
     const { name, value } = event.target;

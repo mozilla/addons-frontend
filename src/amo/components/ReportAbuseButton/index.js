@@ -35,7 +35,7 @@ type Props = {|
 |};
 
 type PropsFromState = {|
-  abuseReport: AddonAbuseState | Object,
+  abuseReport: AddonAbuseState | null,
   loading: boolean,
 |};
 
@@ -167,7 +167,8 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     return (
       <div
         className={makeClassName('ReportAbuseButton', {
-          'ReportAbuseButton--is-expanded': abuseReport.uiVisible,
+          'ReportAbuseButton--is-expanded':
+            abuseReport && abuseReport.uiVisible,
         })}
       >
         <div className="ReportAbuseButton--preview">
@@ -226,7 +227,7 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
     abuseReport:
       addon && state.abuse.bySlug[addon.slug]
         ? state.abuse.bySlug[addon.slug]
-        : {},
+        : null,
     loading: state.abuse.loading,
   };
 };

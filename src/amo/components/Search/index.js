@@ -41,8 +41,8 @@ import './styles.scss';
 
 type DefaultExternalProps = {|
   enableSearchFilters?: boolean,
-  filters: SearchFiltersType | Object,
   paginationQueryParams?: Object,
+  pathname?: string,
 |};
 
 type DefaultInternalProps = {|
@@ -55,14 +55,14 @@ type DefaultProps = {|
 |};
 
 type Props = {|
-  pathname?: string,
+  filters: SearchFiltersType | null,
   ...DefaultExternalProps,
 |};
 
 type PropsFromState = {|
   context: ViewContextType,
   count: number,
-  filtersUsedForResults: SearchFiltersType | Object,
+  filtersUsedForResults: SearchFiltersType | null,
   loading: boolean,
   pageSize: string | null,
   results: Array<AddonType | CollectionAddonType>,
@@ -75,14 +75,15 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  pathname: string,
 |};
 
 export class SearchBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     LinkComponent: Link,
     enableSearchFilters: true,
-    filters: {},
     paginationQueryParams: null,
+    pathname: '/search/',
   };
 
   constructor(props: InternalProps) {
@@ -101,20 +102,21 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 
   dispatchSearch({
-    newFilters = {},
+    newFilters,
     oldFilters,
   }: {|
-    newFilters: SearchFiltersType,
-    oldFilters: ?SearchFiltersType,
+    newFilters: SearchFiltersType | null,
+    oldFilters: SearchFiltersType | null,
   |} = {}) {
     const { context, dispatch, errorHandler } = this.props;
-    const { addonType } = newFilters;
+    const fixedNewFilters = newFilters || {};
+    const { addonType } = fixedNewFilters;
 
     if (!deepEqual(oldFilters, newFilters)) {
       dispatch(
         searchStart({
           errorHandlerId: errorHandler.id,
-          filters: newFilters,
+          filters: fixedNewFilters,
         }),
       );
 
@@ -133,7 +135,7 @@ export class SearchBase extends React.Component<InternalProps> {
 
     let title = i18n.gettext('Search results');
 
-    if (filters.promoted) {
+    if (filters && filters.promoted) {
       if (filters.promoted === RECOMMENDED) {
         switch (filters.addonType) {
           case ADDON_TYPE_EXTENSION:
@@ -179,7 +181,7 @@ export class SearchBase extends React.Component<InternalProps> {
             title = i18n.gettext('Verified add-ons');
         }
       }
-    } else if (filters.sort) {
+    } else if (filters && filters.sort) {
       switch (filters.sort) {
         case SEARCH_SORT_TRENDING:
           switch (filters.addonType) {
@@ -219,7 +221,7 @@ export class SearchBase extends React.Component<InternalProps> {
           break;
         default:
       }
-    } else if (filters.query) {
+    } else if (filters && filters.query) {
       title = i18n.sprintf(i18n.gettext('Search results for "%(query)s"'), {
         query: filters.query,
       });
@@ -246,8 +248,6 @@ export class SearchBase extends React.Component<InternalProps> {
       results,
     } = this.props;
 
-    const defaultPathname = '/search/';
-
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
@@ -267,13 +267,14 @@ export class SearchBase extends React.Component<InternalProps> {
     // If paginator params aren't specified, we fallback to filters.
     const queryParams =
       paginationQueryParams || convertFiltersToQueryParams(filters);
+    const currentPage = filters ? filters.page : undefined;
 
     const paginator =
       count > Number(pageSize) ? (
         <Paginate
           LinkComponent={LinkComponent}
           count={count}
-          currentPage={filters.page}
+          currentPage={currentPage}
           pathname={pathname}
           perPage={Number(pageSize)}
           queryParams={queryParams}
@@ -289,10 +290,7 @@ export class SearchBase extends React.Component<InternalProps> {
         <SearchContextCard />
 
         {enableSearchFilters ? (
-          <SearchFilters
-            filters={filters}
-            pathname={pathname || defaultPathname}
-          />
+          <SearchFilters filters={filters || {}} pathname={pathname} />
         ) : null}
 
         <SearchResults
@@ -311,7 +309,7 @@ export const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     context: state.viewContext.context,
     count: state.search.count,
-    filtersUsedForResults: state.search.filters || {},
+    filtersUsedForResults: state.search.filters,
     loading: state.search.loading,
     pageSize: state.search.pageSize,
     results: state.search.results,
@@ -321,7 +319,7 @@ export const mapStateToProps = (state: AppState): PropsFromState => {
 // This ID does not need to differentiate between component instances because
 // the error handler gets cleared every time the search filters change.
 export const extractId = (ownProps: InternalProps): void | string => {
-  return ownProps.filters.page;
+  return ownProps.filters ? ownProps.filters.page : '';
 };
 
 const Search: React.ComponentType<Props> = compose(

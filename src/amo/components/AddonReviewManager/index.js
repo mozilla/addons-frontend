@@ -26,9 +26,13 @@ import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 
 import './styles.scss';
 
-type Props = {|
-  onCancel?: () => void,
+type DefaultProps = {|
   puffyButtons?: boolean,
+|};
+
+type Props = {|
+  ...DefaultProps,
+  onCancel?: () => void,
   review: UserReviewType,
 |};
 
@@ -49,7 +53,7 @@ export const extractId = (props: Props | InternalProps): string => {
 };
 
 export class AddonReviewManagerBase extends React.Component<InternalProps> {
-  static defaultProps: {| puffyButtons: boolean |} = {
+  static defaultProps: DefaultProps = {
     puffyButtons: false,
   };
 

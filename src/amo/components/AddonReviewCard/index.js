@@ -191,10 +191,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   };
 
-  isRatingOnly(): ?boolean {
+  isRatingOnly(): boolean {
     const { review } = this.props;
     // Return true if this review does not have any text.
-    return review && !review.body;
+    return Boolean(review && !review.body);
   }
 
   isReply(): boolean {

@@ -15,6 +15,7 @@ import Card from 'amo/components/Card';
 import LoadingText from 'amo/components/LoadingText';
 import type { CategoriesState } from 'amo/reducers/categories';
 import type { AppState } from 'amo/store';
+import type { QueryParams } from 'amo/types/api';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { I18nType } from 'amo/types/i18n';
@@ -55,7 +56,10 @@ type InternalProps = {|
 export const categoryResultsLinkTo = ({
   addonType,
   slug,
-}: GetCategoryResultsQueryParams): {| pathname: string, query: any |} => {
+}: GetCategoryResultsQueryParams): {|
+  pathname: string,
+  query: QueryParams,
+|} => {
   return {
     pathname: '/search/',
     query: getCategoryResultsQuery({

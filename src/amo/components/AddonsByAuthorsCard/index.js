@@ -41,7 +41,6 @@ type DefaultProps = {|
   pageParam: string,
   paginate: boolean,
   showMore?: boolean,
-
   // AddonsCard accepts these props which are drilled in.
   showSummary?: boolean,
   type?: 'horizontal' | 'vertical',
@@ -217,7 +216,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     );
   }
 
-  render(): any | null | React.Node {
+  render(): null | React.Node {
     const {
       addonType,
       addons,

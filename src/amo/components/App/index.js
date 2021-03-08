@@ -31,7 +31,6 @@ import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'amo/constants';
 import ErrorPage from 'amo/components/ErrorPage';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
-import type { MozAddonManagerType } from 'amo/addonManager';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
@@ -49,15 +48,20 @@ type PropsFromState = {|
   userAgent: string | null,
 |};
 
+type DefaultProps = {|
+  _addChangeListeners: (callback: Function, mozAddonManager: Object) => any,
+  _navigator: typeof navigator | null,
+  authTokenValidFor?: number,
+  mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
+  userAgent: string | null,
+|};
+
 type Props = {|
   ...PropsFromState,
-  _addChangeListeners: (callback: Function, mozAddonManager?: Object) => void,
-  _navigator: typeof navigator,
-  authTokenValidFor?: number,
+  ...DefaultProps,
   handleGlobalEvent: () => void,
   i18n: I18nType,
   logOutUser: () => void,
-  mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
   setUserAgent: (userAgent: string) => void,
 |};
 
@@ -75,31 +79,7 @@ export function getErrorPage(status: number | null): () => React.Node {
 export class AppBase extends React.Component<Props> {
   scheduledLogout: TimeoutID;
 
-  static defaultProps: {|
-    _addChangeListeners: (
-      callback: ({|
-        canUninstall: boolean,
-        guid: string,
-        needsRestart: boolean,
-        status: $Values<{|
-          onDisabled: string,
-          onDisabling: string,
-          onEnabled: string,
-          onEnabling: string,
-          onInstalled: string,
-          onInstalling: string,
-          onUninstalled: string,
-          onUninstalling: string,
-        |}>,
-      |}) => Promise<void>,
-      mozAddonManager: MozAddonManagerType,
-      _?: {| _log: any |},
-    ) => any,
-    _navigator: Navigator | null,
-    authTokenValidFor: any,
-    mozAddonManager: any | { ... } | void,
-    userAgent: null,
-  |} = {
+  static defaultProps: DefaultProps = {
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
     authTokenValidFor: config.get('authTokenValidFor'),
