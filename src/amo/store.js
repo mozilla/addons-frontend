@@ -33,7 +33,6 @@ import categories from 'amo/reducers/categories';
 import errors from 'amo/reducers/errors';
 import errorPage from 'amo/reducers/errorPage';
 import formOverlay from 'amo/reducers/formOverlay';
-import heroBanners from 'amo/reducers/heroBanners';
 import languageTools from 'amo/reducers/languageTools';
 import infoDialog from 'amo/reducers/infoDialog';
 import installations from 'amo/reducers/installations';
@@ -145,7 +144,6 @@ type InternalAppState = {|
   errorPage: ErrorPageState,
   errors: Object,
   formOverlay: FormOverlayState,
-  heroBanners: Object,
   home: HomeState,
   infoDialog: InfoDialogState,
   installations: InstallationsState,
@@ -203,7 +201,6 @@ export const reducers: AppReducersType = {
   errors,
   errorPage,
   formOverlay,
-  heroBanners,
   home,
   infoDialog,
   installations,
