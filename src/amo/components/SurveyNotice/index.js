@@ -39,6 +39,9 @@ type InternalProps = {|
   wasDismissed: boolean,
 |};
 
+// Important: we don't use this component right now. It was removed from
+// `AppBanner` in https://github.com/mozilla/addons-frontend/pull/10129
+// because it wasn't needed.
 export class SurveyNoticeBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,

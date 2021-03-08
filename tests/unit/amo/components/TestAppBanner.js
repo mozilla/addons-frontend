@@ -1,38 +1,12 @@
 import * as React from 'react';
+import { shallow } from 'enzyme';
 
-import AppBanner, { AppBannerBase } from 'amo/components/AppBanner';
-import SiteNotices from 'amo/components/SiteNotices';
-import SurveyNotice from 'amo/components/SurveyNotice';
-import {
-  createContextWithFakeRouter,
-  createFakeLocation,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import AppBanner from 'amo/components/AppBanner';
 
 describe(__filename, () => {
-  const render = (customProps = {}) => {
-    const { location, ...props } = customProps;
-    return shallowUntilTarget(<AppBanner {...props} />, AppBannerBase, {
-      shallowOptions: createContextWithFakeRouter({
-        location: location || createFakeLocation(),
-      }),
-    });
+  const render = (props = {}) => {
+    return shallow(<AppBanner {...props} />);
   };
-
-  it('renders SiteNotices and SurveyNotice components', () => {
-    const root = render();
-
-    expect(root.find(SiteNotices)).toHaveLength(1);
-    expect(root.find(SurveyNotice)).toHaveLength(1);
-  });
-
-  it('passes location to SurveyNotice', () => {
-    const location = createFakeLocation({ pathname: '/test/path' });
-
-    const root = render({ location });
-
-    expect(root.find(SurveyNotice)).toHaveProp('location', location);
-  });
 
   it('allows for a custom className', () => {
     const className = 'some-custom-className';
