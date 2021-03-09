@@ -39,7 +39,7 @@ import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
-import type { ElementEvent } from 'amo/types/dom';
+import type { AnchorEvent, ElementEvent } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -103,9 +103,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     puffy: true,
   };
 
-  installOpenSearch: (event: SyntheticEvent<HTMLAnchorElement>) => boolean = (
-    event: SyntheticEvent<HTMLAnchorElement>,
-  ) => {
+  installOpenSearch: (event: AnchorEvent) => boolean = (event: AnchorEvent) => {
     const { _log, _window, addon } = this.props;
 
     event.preventDefault();

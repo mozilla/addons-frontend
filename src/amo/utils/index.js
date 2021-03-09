@@ -29,7 +29,7 @@ import type { AddonType } from 'amo/types/addons';
  * See:
  * https://github.com/django/django/blob/0b9f366c60134a0ca2873c156b9c80acb7ffd8b5/django/amo/signing.py#L180
  */
-export function getDjangoBase62(): Object {
+export function getDjangoBase62(): typeof base62 {
   // This is the alphabet used by Django.
   base62.setCharacterSet(
     '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
@@ -135,7 +135,7 @@ export const stripLangFromAmoUrl = ({
 
 export function getClientConfig(
   _config: typeof config,
-): { [key: string]: any } {
+): { [key: string]: mixed } {
   const clientConfig = {};
   for (const key of _config.get('clientConfigKeys')) {
     clientConfig[key] = _config.get(key);
@@ -274,7 +274,7 @@ export function apiAddonType(addonType: string): string {
   return API_ADDON_TYPES_MAPPING[addonType];
 }
 
-export function visibleAddonType(addonType: string): any {
+export function visibleAddonType(addonType: string): string {
   if (
     !Object.prototype.hasOwnProperty.call(
       VISIBLE_ADDON_TYPES_MAPPING,
@@ -375,6 +375,6 @@ export const addQueryParamsToHistory = ({
   history: typeof history,
   _parse?: typeof parse,
   _stringify?: typeof stringify,
-|}): Object => {
+|}): typeof qhistory => {
   return qhistory(history, _stringify, _parse);
 };

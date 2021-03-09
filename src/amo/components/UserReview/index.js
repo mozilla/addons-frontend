@@ -54,14 +54,6 @@ function reviewBody({
   }
 
   return (
-    // TODO: I cannot figure out why Flow gets mad about this, but something
-    // similar works in FeaturecCollectionCard, where placeholderCount is not
-    // passed into LandingAddonsCard.
-    //
-    // The only difference I can see is that LandingAddonsCard doesn't use
-    // compose.
-    //
-    // $FlowFixMe: See above
     <ShowMoreCard
       id={id}
       contentId={id}

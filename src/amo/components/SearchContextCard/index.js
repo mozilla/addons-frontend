@@ -21,7 +21,7 @@ type Props = {||};
 type PropsFromState = {|
   categoryName: string | null,
   count: number,
-  filters: SearchFilters | Object,
+  filters: SearchFilters | null,
   hasCategory: boolean,
   loadingSearch: boolean,
 |};
@@ -47,7 +47,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
 
   render(): React.Node {
     const { categoryName, count, filters, i18n, loadingSearch } = this.props;
-    const { addonType, query } = filters;
+    const { addonType, query } = filters || {};
     let searchText;
 
     if (!loadingSearch) {
@@ -216,7 +216,7 @@ function mapStateToProps(state: AppState): PropsFromState {
     hasCategory: !!currentCategory,
     categoryName,
     count: search.count || 0,
-    filters: filters || {},
+    filters,
     loadingSearch: search.loading,
   };
 }

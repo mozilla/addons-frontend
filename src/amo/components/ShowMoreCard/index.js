@@ -24,7 +24,7 @@ type UIStateType = {|
 |};
 
 type DefaultProps = {|
-  maxHeight: number,
+  maxHeight?: number,
 |};
 
 type Props = {|
@@ -39,6 +39,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  maxHeight: number,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
 |};

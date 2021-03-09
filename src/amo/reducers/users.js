@@ -631,7 +631,7 @@ export const isUnsubscribedFor = (
   hash: string,
   notification: string,
   token: string,
-): null | boolean => {
+): null | boolean | void => {
   return usersState.isUnsubscribedFor[
     getUnsubscribeKey({ hash, notification, token })
   ];

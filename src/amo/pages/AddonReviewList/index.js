@@ -42,7 +42,7 @@ import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonType } from 'amo/types/addons';
-import type { TypedElementEvent } from 'amo/types/dom';
+import type { SelectEventWithTarget } from 'amo/types/dom';
 import type { DispatchFunc } from 'amo/types/redux';
 import type {
   ReactRouterHistoryType,
@@ -210,8 +210,8 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
-  onSelectOption: (event: TypedElementEvent<HTMLSelectElement>) => void = (
-    event: TypedElementEvent<HTMLSelectElement>,
+  onSelectOption: (event: SelectEventWithTarget) => void = (
+    event: SelectEventWithTarget,
   ) => {
     const { addon, clientApp, history, lang, location } = this.props;
     invariant(addon, 'addon is required');

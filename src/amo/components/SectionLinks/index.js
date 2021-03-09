@@ -22,6 +22,7 @@ import DropdownMenu from 'amo/components/DropdownMenu';
 import DropdownMenuItem from 'amo/components/DropdownMenuItem';
 import type { AppState } from 'amo/store';
 import type { ViewContextType } from 'amo/reducers/viewContext';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterHistoryType } from 'amo/types/router';
@@ -46,15 +47,21 @@ type InternalProps = {|
 |};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
-  setClientApp: (event: any) => void = (event: Object) => {
+  setClientApp: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
     const { dispatch, history } = this.props;
 
     const clientApp = event.currentTarget.getAttribute('data-clientapp');
+    const href = event.currentTarget.getAttribute('href');
 
-    dispatch(setClientApp(clientApp));
-    history.push(event.currentTarget.getAttribute('href'));
+    if (clientApp) {
+      dispatch(setClientApp(clientApp));
+    }
+
+    if (href) {
+      history.push(href);
+    }
   };
 
   render(): React.Node {

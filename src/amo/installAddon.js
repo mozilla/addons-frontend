@@ -470,8 +470,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 }
 
 export const withInstallHelpers = (
-  WrappedComponent: React.ComponentType<any>,
-): React.ComponentType<any> => {
+  WrappedComponent: React.ComponentType<mixed>,
+): React.ComponentType<mixed> => {
   // eslint-disable-next-line react/static-property-placement
   WithInstallHelpers.displayName = `WithInstallHelpers(${getDisplayName(
     WrappedComponent,

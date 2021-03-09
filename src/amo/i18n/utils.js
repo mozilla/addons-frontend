@@ -324,10 +324,12 @@ export function makeI18n(
   _Jed: typeof Jed = Jed,
   {
     // Checks required to guard against ReferenceError when Intl is not defined.
-    // $FlowFixMe
+    // Flow doesn't think `undefined` is valid here, even with the optional
+    // definition above.
+    // $FlowIgnore
     _Intl = typeof Intl !== 'undefined' ? Intl : undefined,
   }: makeI18nOptions = {},
-): Object {
+): typeof Jed {
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
 

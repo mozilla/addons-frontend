@@ -95,15 +95,17 @@ export const API_ADDON_TYPES_MAPPING = {
   extensions: ADDON_TYPE_EXTENSION,
   themes: ADDON_TYPE_STATIC_THEME,
 };
-export const VISIBLE_ADDON_TYPES_MAPPING: Object = Object.keys(
-  API_ADDON_TYPES_MAPPING,
-).reduce(
-  (object, key: string) => ({
-    ...object,
-    [API_ADDON_TYPES_MAPPING[key]]: key,
-  }),
-  {},
-);
+export const VISIBLE_ADDON_TYPES_MAPPING: {|
+  [key: string]: string,
+|} =
+  // $FlowIgnore: Flow can't be sure that the reduce result is a string.
+  Object.keys(API_ADDON_TYPES_MAPPING).reduce(
+    (object, key: string) => ({
+      ...object,
+      [API_ADDON_TYPES_MAPPING[key]]: key,
+    }),
+    {},
+  );
 
 // Incompatibility codes for clients that can't install an add-on.
 export const INCOMPATIBLE_FIREFOX_FOR_IOS = 'INCOMPATIBLE_FIREFOX_FOR_IOS';

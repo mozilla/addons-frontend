@@ -29,6 +29,7 @@ import ExpandableCard from 'amo/components/ExpandableCard';
 import Select from 'amo/components/Select';
 import type { AppState } from 'amo/store';
 import type { SearchFilters as SearchFiltersType } from 'amo/api/search';
+import type { SelectEvent } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterHistoryType } from 'amo/types/router';
 
@@ -57,9 +58,9 @@ type InternalProps = {|
 type SelectOption = {| children: string, value: string |};
 
 export class SearchFiltersBase extends React.Component<InternalProps> {
-  onSelectElementChange: (
-    event: SyntheticEvent<HTMLSelectElement>,
-  ) => boolean = (event: SyntheticEvent<HTMLSelectElement>) => {
+  onSelectElementChange: (event: SelectEvent) => boolean = (
+    event: SelectEvent,
+  ) => {
     event.preventDefault();
 
     const { filters } = this.props;
