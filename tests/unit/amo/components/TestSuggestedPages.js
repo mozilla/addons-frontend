@@ -7,7 +7,7 @@ import SuggestedPages, {
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ ...props }) => {
+  const render = ({ ...props } = {}) => {
     const allProps = { ...props, i18n: fakeI18n() };
 
     return shallowUntilTarget(

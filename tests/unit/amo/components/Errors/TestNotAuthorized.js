@@ -13,7 +13,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ ...props }) => {
+  const render = ({ ...props } = {}) => {
     const { store } = dispatchSignInActions();
 
     const error = createApiError({
