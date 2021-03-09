@@ -28,7 +28,9 @@ const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 export const DEFAULT_API_PAGE_SIZE = 25;
 export const REGION_CODE_HEADER = 'X-Country-Code';
 
-export function makeQueryString(query: { [key: string]: any }): string {
+export function makeQueryString(query: {
+  [key: string]: string | null,
+}): string {
   const resolvedQuery = { ...query };
   Object.keys(resolvedQuery).forEach((key) => {
     const value = resolvedQuery[key];

@@ -1,6 +1,5 @@
 /* @flow */
-
-type QueryParams = { [queryParam: string]: string };
+import type { QueryParams } from 'amo/types/api';
 
 type PushParams = {|
   pathname: string,

@@ -143,7 +143,7 @@ export function getClientConfig(
   return clientConfig;
 }
 
-export function convertBoolean(value: any): boolean {
+export function convertBoolean(value: mixed): boolean {
   switch (value) {
     case true:
     case 1:

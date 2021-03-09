@@ -41,12 +41,12 @@ export const getErrorComponent = (
 export function render404IfConfigKeyIsFalse(
   configKey: string,
   { _config = config }: {| _config: ConfigType |} = {},
-): (Component: React.ComponentType<any>) => (props: any) => React.Node {
+): (Component: React.ComponentType<any>) => (props: mixed) => React.Node {
   if (!configKey) {
     throw new TypeError('configKey cannot be empty');
   }
 
-  return (Component: React.ComponentType<any>) => (props: any) => {
+  return (Component: React.ComponentType<any>) => (props: mixed) => {
     if (!_config.get(configKey)) {
       log.debug(
         `config.${configKey} was false; not rendering ${getDisplayName(

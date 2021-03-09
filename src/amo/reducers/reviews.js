@@ -75,7 +75,7 @@ export function reviewListURL({
   addonSlug: string,
   id?: number,
   location?: ReactRouterLocationType,
-  score?: number | string,
+  score?: number | string | null,
 |}): string {
   invariant(addonSlug, 'addonSlug is required');
   const path = `/addon/${addonSlug}/reviews/${id ? `${id}/` : ''}`;
