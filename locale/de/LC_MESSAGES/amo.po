@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-01-19 18:29+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -1067,19 +1067,19 @@ msgstr "Dies ist ein Fehlerbericht oder eine Unterstützungs-Anfrage"
 msgid "Flagged as a bug report or support request"
 msgstr "Als Fehlerbericht oder Unterstützungs-Anfrage gemeldet"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "Gemeldet"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "Melden"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "Diese Antwort des Entwicklers melden"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "Diese Bewertung melden"
 
@@ -1994,18 +1994,6 @@ msgstr "Alle Themes anzeigen"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Startseite der Add-ons"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "An kurzer Umfrage teilnehmen"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Danke für Ihren Besuch auf dieser Website! Bitte nehmen Sie sich ein paar "
-"Minuten Zeit, um Firefox über Ihr Erlebnis zu berichten."
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3344,6 +3332,16 @@ msgstr "Die Komatibilität meines Add-ons kann nicht erhöht werden"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "Die Kompatibilität meiner Add-ons wurde erfolgreich erhöht"
+
+#~ msgid "Take short survey"
+#~ msgstr "An kurzer Umfrage teilnehmen"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "Danke für Ihren Besuch auf dieser Website! Bitte nehmen Sie sich ein paar "
+#~ "Minuten Zeit, um Firefox über Ihr Erlebnis zu berichten."
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

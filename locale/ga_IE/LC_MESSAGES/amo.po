@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -1119,20 +1119,20 @@ msgstr ""
 msgid "Flagged as a bug report or support request"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 #, fuzzy
 msgid "Flag this developer response"
 msgstr "Lárionad na bhForbróirí"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 #, fuzzy
 msgid "Flag this review"
 msgstr "Tapáil le haghaidh réamhamhairc"
@@ -2124,16 +2124,6 @@ msgstr "Brabhsáil na téamaí go léir"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Baile na mBreiseán"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr ""
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"

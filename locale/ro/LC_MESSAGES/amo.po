@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-02-28 14:49+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -1059,19 +1059,19 @@ msgstr "Aceasta este un raport al unei probleme sau o cerere de asistență"
 msgid "Flagged as a bug report or support request"
 msgstr "Semnalat(ă) ca raport de eroare sau cerere de asistență"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "Semnalat(ă)"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "Semnalează"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "Semnalează răspunsul acestui dezvoltator"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "Semnalează această recenzie"
 
@@ -2009,18 +2009,6 @@ msgstr "Răsfoiește toate temele"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Pagina de start pentru suplimente"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "Participă la un sondaj scurt"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Îți mulțumim că ai vizitat acest site! Acordă-ne un minut sau două ca să le "
-"spui celor de la Firefox despre experiența ta."
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3354,6 +3342,16 @@ msgstr "compatibilitatea suplimentului meu nu poate fi actualizată"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
+
+#~ msgid "Take short survey"
+#~ msgstr "Participă la un sondaj scurt"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "Îți mulțumim că ai vizitat acest site! Acordă-ne un minut sau două ca să "
+#~ "le spui celor de la Firefox despre experiența ta."
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

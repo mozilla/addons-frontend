@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2020-12-30 02:01+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
@@ -1019,19 +1019,19 @@ msgstr "これはバグ報告またはサポートリクエストです"
 msgid "Flagged as a bug report or support request"
 msgstr "バグ報告またはサポートリクエストとしてフラグが立てられました"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "フラグ付き"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "フラグ"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "この開発者の返信にフラグを立てる"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "このレビューにフラグを立てる"
 
@@ -1920,18 +1920,6 @@ msgstr "すべてのテーマを見る"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Add-ons ホームページ"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "簡単なアンケートに答える"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"このサイトを訪れていただきありがとうございます！ 1、2 分だけ時間を取って、あ"
-"なたの体験について Firefox に聞かせてください。"
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3177,6 +3165,16 @@ msgstr "あなたのアドオンの互換性が更新されませんでした"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "あなたのアドオンの互換性が更新されました"
+
+#~ msgid "Take short survey"
+#~ msgstr "簡単なアンケートに答える"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "このサイトを訪れていただきありがとうございます！ 1、2 分だけ時間を取って、"
+#~ "あなたの体験について Firefox に聞かせてください。"
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

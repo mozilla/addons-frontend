@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2020-12-22 11:03+0000\n"
 "Last-Translator: Shazia Mansoor <shaz_dvm@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1028,19 +1028,19 @@ msgstr "یہ ایک بگ رپورٹ یا سپورٹ کی درخواست ہے"
 msgid "Flagged as a bug report or support request"
 msgstr "بگ رپورٹ یا سپورٹ کی درخواست کے طور پر نشان لگا دیا گیا"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "نشان لگا دیا گیا"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "پرچم"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "اس ڈویلپر کے جواب کو نشان زد کریں"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 #, fuzzy
 msgid "Flag this review"
 msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
@@ -1962,18 +1962,6 @@ msgstr "تمام خیالیے براؤز کریں"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "ایڈ-اونز ابتدائی صفحہ"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "مختصر سروے لے لیں"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"اس سائٹ کا دورہ کرنے کے لئے شکریہ! اپنے تجربے کے بارے میں Firefox کو بتانے "
-"کیلئے ایک یا دو منٹ دیں۔"
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3166,6 +3154,16 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid "Take short survey"
+#~ msgstr "مختصر سروے لے لیں"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "اس سائٹ کا دورہ کرنے کے لئے شکریہ! اپنے تجربے کے بارے میں Firefox کو "
+#~ "بتانے کیلئے ایک یا دو منٹ دیں۔"
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

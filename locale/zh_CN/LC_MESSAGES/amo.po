@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-01-20 00:08+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
@@ -1012,19 +1012,19 @@ msgstr "这是一份缺陷报告或支持请求"
 msgid "Flagged as a bug report or support request"
 msgstr "已报告这是一份缺陷报告或支持请求"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "已标记"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "标记"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "报告此开发者回应需被处理"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "报告此评价需被处理"
 
@@ -1901,16 +1901,6 @@ msgstr "浏览所有主题"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "附加组件首页"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "填写简短问卷"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr "感谢您访问本网站！请花一两分钟时间告诉 Firefox 您的使用体验。"
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3142,6 +3132,14 @@ msgstr "无法升级我的附加组件的兼容性"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "我的附加组件的兼容性升级成功"
+
+#~ msgid "Take short survey"
+#~ msgstr "填写简短问卷"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr "感谢您访问本网站！请花一两分钟时间告诉 Firefox 您的使用体验。"
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

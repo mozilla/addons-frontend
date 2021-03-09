@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-01-20 12:30+0000\n"
 "Last-Translator: kemia051 <kemia051@gmail.com>\n"
 "Language-Team: none\n"
@@ -1056,19 +1056,19 @@ msgstr "Ez egy hibajelentés vagy támogatási kérés"
 msgid "Flagged as a bug report or support request"
 msgstr "Hibajelentésként vagy támogatási kérésként jelölt"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "Megjelölt"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "Megjelölés"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "Fejlesztői válasz megjelölése"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "Értékelés megjelölése"
 
@@ -1987,18 +1987,6 @@ msgstr "Összes téma tallózása"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Kiegészítők kezdőoldala"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "Töltsön ki egy rövid kérdőívet"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Köszönjük, hogy felkereste ezt az oldalt! Szánjon néhány percet, hogy "
-"elmondja a tapasztalatait a Firefoxról."
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3325,6 +3313,16 @@ msgstr "a kiegészítőm kompatibilitása nem frissíthető"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a kiegészítőm kompatibilitása sikeresen frissítve"
+
+#~ msgid "Take short survey"
+#~ msgstr "Töltsön ki egy rövid kérdőívet"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "Köszönjük, hogy felkereste ezt az oldalt! Szánjon néhány percet, hogy "
+#~ "elmondja a tapasztalatait a Firefoxról."
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

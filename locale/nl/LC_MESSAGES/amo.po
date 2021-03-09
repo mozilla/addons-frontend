@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-01-20 07:37+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -1051,19 +1051,19 @@ msgstr "Dit is een bugrapport of ondersteuningsverzoek"
 msgid "Flagged as a bug report or support request"
 msgstr "Gemarkeerd als bugrapport of ondersteuningsverzoek"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "Gemarkeerd"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "Markeren"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "Dit antwoord van de ontwikkelaar markeren"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "Deze beoordeling markeren"
 
@@ -1977,18 +1977,6 @@ msgstr "Door alle thema’s bladeren"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Add-ons-startpagina"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "De korte enquête invullen"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Bedankt voor uw bezoek aan deze website! Neem enkele minuten de tijd om "
-"Firefox over uw ervaring te vertellen."
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3311,6 +3299,16 @@ msgstr "de compatibiliteit van mijn add-on kan niet worden bijgewerkt"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "de compatibiliteit van mijn add-on is met succes bijgewerkt"
+
+#~ msgid "Take short survey"
+#~ msgstr "De korte enquête invullen"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "Bedankt voor uw bezoek aan deze website! Neem enkele minuten de tijd om "
+#~ "Firefox over uw ervaring te vertellen."
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

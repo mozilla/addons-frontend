@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-01-28 17:44+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
@@ -1048,19 +1048,19 @@ msgstr "To je poročilo o napaki ali zahteva za podporo"
 msgid "Flagged as a bug report or support request"
 msgstr "Označeno kot poročilo o napaki ali zahteva za podporo"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "Prijavljeno"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "Prijavi"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "Prijavi ta razvijalčev odgovor"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "Prijavi to oceno"
 
@@ -1990,18 +1990,6 @@ msgstr "Prebrskaj vse teme"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Domača stran dodatkov"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "Izpolnite kratek vprašalnik"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Hvala za obisk! Prosimo, vzemite si minuto časa in povejte Firefoxu o svojih "
-"izkušnjah."
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3311,6 +3299,16 @@ msgstr "združljivosti mojega dodatka ni mogoče nadgraditi"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "združljivost mojega dodatka je uspešno nadgrajena"
+
+#~ msgid "Take short survey"
+#~ msgstr "Izpolnite kratek vprašalnik"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "Hvala za obisk! Prosimo, vzemite si minuto časa in povejte Firefoxu o "
+#~ "svojih izkušnjah."
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

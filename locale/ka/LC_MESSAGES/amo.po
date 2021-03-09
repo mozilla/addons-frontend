@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-01-24 11:06+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1051,19 +1051,19 @@ msgstr "მოხსენება ხარვეზის შესახე�
 msgid "Flagged as a bug report or support request"
 msgstr "მონიშნულია როგორც მოხსენება ხარვეზის შესახებ ან მხარდაჭერის მოთხოვნა"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "გასაჩივრებულია"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "საჩივარი"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "შემმუშავებლის პასუხის გასაჩივრება"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "მიმოხილვის გასაჩივრება"
 
@@ -1985,18 +1985,6 @@ msgstr "ყველა თემის ნახვა"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "დამატების მთავარი გვერდი"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "შეავსეთ მცირე კითხვარი"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"გმადლობთ, რომ ეწვიეთ ამ საიტს! გთხოვთ, გამონახოთ ერთი-ორი წუთი და "
-"მოგვახსენოთ თქვენი აზრი."
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3329,6 +3317,16 @@ msgstr "ჩემი დამატების თავსებადობ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ჩემი დამატების თავსებადობა განახლდა წარმატებით"
+
+#~ msgid "Take short survey"
+#~ msgstr "შეავსეთ მცირე კითხვარი"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "გმადლობთ, რომ ეწვიეთ ამ საიტს! გთხოვთ, გამონახოთ ერთი-ორი წუთი და "
+#~ "მოგვახსენოთ თქვენი აზრი."
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-01-22 11:28+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1039,19 +1039,19 @@ msgstr "Bu bir hata raporu veya destek isteği"
 msgid "Flagged as a bug report or support request"
 msgstr "Hata raporu veya destek isteği olarak işaretlendi"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "İşaretlendi"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "İşaretle"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "Bu geliştirici yanıtını işaretle"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "Bu incelemeyi işaretle"
 
@@ -1968,18 +1968,6 @@ msgstr "Tüm temalara göz atın"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Eklentiler Ana Sayfası"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "Kısa ankete katılın"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Bu siteyi ziyaret ettiğiniz için teşekkürler! Görüşlerinizi Firefox'a "
-"bildirmek için bir iki dakikanızı ayırır mısınız?"
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3303,6 +3291,16 @@ msgstr "eklentimin uyumluluğu yükseltilemediğinde"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "eklentimin uyumluluğu başarıyla yükseltildiğinde"
+
+#~ msgid "Take short survey"
+#~ msgstr "Kısa ankete katılın"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "Bu siteyi ziyaret ettiğiniz için teşekkürler! Görüşlerinizi Firefox'a "
+#~ "bildirmek için bir iki dakikanızı ayırır mısınız?"
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-01-28 23:07+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1055,19 +1055,19 @@ msgstr "Isto es un reporto de defecto o requesta de supporto"
 msgid "Flagged as a bug report or support request"
 msgstr "Signalate como un reporto de defecto o requesta de supporto"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "Signalate"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "Signalar"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "Signalar iste responsa de disveloppator"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "Signalar iste revision"
 
@@ -1983,18 +1983,6 @@ msgstr "Naviga per tote le themas"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Pagina principal del additivos"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "Prende breve questionario"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Gratias pro visitar iste sito! Per favor prende un minuta o duo pro contar a "
-"Firefox circa tu experientia."
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3319,6 +3307,16 @@ msgstr "le compatibilitate de mi additivo non pote ser promovite"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "le compatibilitate de mi additivo es promovite con successo"
+
+#~ msgid "Take short survey"
+#~ msgstr "Prende breve questionario"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "Gratias pro visitar iste sito! Per favor prende un minuta o duo pro "
+#~ "contar a Firefox circa tu experientia."
 
 #~ msgid "Windows"
 #~ msgstr "Windows"

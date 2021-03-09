@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 16:51+0000\n"
+"POT-Creation-Date: 2021-03-09 17:58+0000\n"
 "PO-Revision-Date: 2021-01-19 20:32+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -1063,19 +1063,19 @@ msgstr "To jo zmólkowa rozpšawa abo pšosba wó pódpěru"
 msgid "Flagged as a bug report or support request"
 msgstr "Ako zmólkowa rozpšawa abo pšosba wó pomoc wóznamjenjony"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flagged"
 msgstr "Wóznamjenjone"
 
-#: src/amo/components/FlagReviewMenu/index.js:120
+#: src/amo/components/FlagReviewMenu/index.js:121
 msgid "Flag"
 msgstr "Wóznamjeniś"
 
-#: src/amo/components/FlagReviewMenu/index.js:123
+#: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this developer response"
 msgstr "Toś to wótegrono wuwijarja wóznamjeniś"
 
-#: src/amo/components/FlagReviewMenu/index.js:124
+#: src/amo/components/FlagReviewMenu/index.js:125
 msgid "Flag this review"
 msgstr "Toś to pógódnośenje wóznamjeniś"
 
@@ -2022,18 +2022,6 @@ msgstr "Wšykne drastwy pśeglědowaś"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Startowy bok dodankow"
-
-#: src/amo/components/SurveyNotice/index.js:128
-msgid "Take short survey"
-msgstr "Na krotkem napšašowanju se wobźěliś"
-
-#: src/amo/components/SurveyNotice/index.js:136
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Źěkujomy se za waš woglěd na toś tom websedle! Bjeŕśo se někotare minuty "
-"casa, aby wó swójom dožywjenju z Firefox wulicował."
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -3361,6 +3349,16 @@ msgstr "kompatibelnosć mójogo dodanka njedajo se pówušyś"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "Kompatibelnosć mójogo dodanka jo se wuspěšnje pówušiła"
+
+#~ msgid "Take short survey"
+#~ msgstr "Na krotkem napšašowanju se wobźěliś"
+
+#~ msgid ""
+#~ "Thanks for visiting this site! Please take a minute or two to tell "
+#~ "Firefox about your experience."
+#~ msgstr ""
+#~ "Źěkujomy se za waš woglěd na toś tom websedle! Bjeŕśo se někotare minuty "
+#~ "casa, aby wó swójom dožywjenju z Firefox wulicował."
 
 #~ msgid "Windows"
 #~ msgstr "Windows"
