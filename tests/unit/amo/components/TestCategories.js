@@ -31,7 +31,7 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  function render({ ...props }) {
+  function render({ ...props } = {}) {
     const errorHandler = createStubErrorHandler();
 
     return shallow(
