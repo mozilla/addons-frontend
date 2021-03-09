@@ -166,23 +166,22 @@ describe(__filename, () => {
   });
 
   it('renders bar value widths based on total ratings', () => {
-    // Set up an add-on with one 5-star rating and one 4-star rating.
     const grouping = {
-      5: 1,
-      4: 1,
-      3: 0,
-      2: 0,
-      1: 0,
+      5: 1, // 6.6%
+      4: 2, // 13%
+      3: 3, // 20%
+      2: 4, // 26.6%
+      1: 5, // 33.3%
     };
     const addon = addonForGrouping(grouping);
     const root = render({ addon });
 
     const barValues = root.find('.RatingsByStar-barValue');
-    expect(barValues.at(0)).toHaveProp('style', { width: '50%' });
-    expect(barValues.at(1)).toHaveProp('style', { width: '50%' });
-    expect(barValues.at(2)).toHaveProp('style', { width: '0%' });
-    expect(barValues.at(3)).toHaveProp('style', { width: '0%' });
-    expect(barValues.at(4)).toHaveProp('style', { width: '0%' });
+    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--10pct');
+    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--10pct');
+    expect(barValues.at(2)).toHaveClassName('RatingsByStar-barValue--20pct');
+    expect(barValues.at(3)).toHaveClassName('RatingsByStar-barValue--30pct');
+    expect(barValues.at(4)).toHaveClassName('RatingsByStar-barValue--30pct');
   });
 
   it('renders different styles for partial / full bars', () => {
@@ -199,10 +198,10 @@ describe(__filename, () => {
 
     const barValues = root.find('.RatingsByStar-barValue');
 
-    expect(barValues.at(0)).toHaveProp('style', { width: '100%' });
+    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--100pct');
     expect(barValues.at(0)).not.toHaveClassName('RatingsByStar-partialBar');
 
-    expect(barValues.at(1)).toHaveProp('style', { width: '0%' });
+    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--0pct');
     expect(barValues.at(1)).toHaveClassName('RatingsByStar-partialBar');
   });
 
@@ -213,7 +212,9 @@ describe(__filename, () => {
 
     const barValues = root.find('.RatingsByStar-barValue');
     for (const index of [0, 1, 2, 3, 4]) {
-      expect(barValues.at(index)).toHaveProp('style', { width: '0%' });
+      expect(barValues.at(index)).toHaveClassName(
+        'RatingsByStar-barValue--0pct',
+      );
     }
   });
 

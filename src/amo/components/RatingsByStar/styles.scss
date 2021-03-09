@@ -32,6 +32,51 @@
 .RatingsByStar-barValue {
   background-color: rgba($yellow-50, 0.75);
 
+  // Pre-defined widths based on % of stars.
+  &.RatingsByStar-barValue--0pct {
+    width: 0%;
+  }
+
+  &.RatingsByStar-barValue--10pct {
+    width: 10%;
+  }
+
+  &.RatingsByStar-barValue--20pct {
+    width: 20%;
+  }
+
+  &.RatingsByStar-barValue--30pct {
+    width: 30%;
+  }
+
+  &.RatingsByStar-barValue--40pct {
+    width: 40%;
+  }
+
+  &.RatingsByStar-barValue--50pct {
+    width: 50%;
+  }
+
+  &.RatingsByStar-barValue--60pct {
+    width: 60%;
+  }
+
+  &.RatingsByStar-barValue--70pct {
+    width: 70%;
+  }
+
+  &.RatingsByStar-barValue--80pct {
+    width: 80%;
+  }
+
+  &.RatingsByStar-barValue--90pct {
+    width: 90%;
+  }
+
+  &.RatingsByStar-barValue--100pct {
+    width: 100%;
+  }
+
   // For bars less than 100%, remove the border radius since their ends
   // will be floating somwehere in the middle of barFrame.
   &.RatingsByStar-partialBar {
