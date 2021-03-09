@@ -33,7 +33,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 
     let width = 0;
     if (addon.ratings && addon.ratings.count > 0) {
-      width = Math.round((starCount / addon.ratings.count) * 100);
+      width = Math.round((starCount / addon.ratings.count) * 10) * 10;
     }
 
     return (
@@ -41,11 +41,11 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
         className={makeClassName(
           'RatingsByStar-bar',
           'RatingsByStar-barValue',
+          `RatingsByStar-barValue--${width}pct`,
           {
             'RatingsByStar-partialBar': width < 100,
           },
         )}
-        style={{ width: `${width}%` }}
       />
     );
   }

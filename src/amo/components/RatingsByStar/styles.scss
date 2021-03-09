@@ -32,6 +32,13 @@
 .RatingsByStar-barValue {
   background-color: rgba($yellow-50, 0.75);
 
+  @for $num from 0 through 10 {
+    $pct: percentage($num / 10);
+    &.RatingsByStar-barValue--#{$num * 10}pct {
+      width: $pct;
+    }
+  }
+
   // For bars less than 100%, remove the border radius since their ends
   // will be floating somwehere in the middle of barFrame.
   &.RatingsByStar-partialBar {
