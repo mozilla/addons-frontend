@@ -24,7 +24,6 @@ import ServerHtml from 'amo/components/ServerHtml';
 import * as middleware from 'amo/middleware';
 import requestId from 'amo/middleware/requestId';
 import { loadErrorPage } from 'amo/reducers/errorPage';
-import { dismissSurvey } from 'amo/reducers/survey';
 import { addQueryParamsToHistory, convertBoolean } from 'amo/utils';
 import { viewFrontendVersionHandler } from 'amo/utils/server';
 import {
@@ -283,14 +282,6 @@ function baseServer(
             // status in its response).
             store.dispatch(fetchSiteStatus());
           }
-        }
-
-        if (
-          req.universalCookies.get(
-            config.get('dismissedExperienceSurveyCookieName'),
-          ) !== undefined
-        ) {
-          store.dispatch(dismissSurvey());
         }
 
         pageProps = getPageProps({ store, req, res, config });

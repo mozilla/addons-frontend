@@ -359,7 +359,6 @@ curl https://addons-dev.allizom.org/__frontend_version__
     },
     "feature_flags": {
         "enableFeatureAMInstallButton": true,
-        "enableFeatureExperienceSurvey": false,
         "enableFeatureStaticThemes": true
     },
     "source": "https://github.com/mozilla/addons-frontend",
