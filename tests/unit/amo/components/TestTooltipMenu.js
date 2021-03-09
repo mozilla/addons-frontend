@@ -29,6 +29,21 @@ describe(__filename, () => {
     expect(opener).toHaveClassName('MyClass');
   });
 
+  it('accepts a custom className', () => {
+    const root = render({ className: 'CustomClass' });
+
+    const opener = root.find('.TooltipMenu-opener');
+    expect(opener).toHaveClassName('CustomClass');
+  });
+
+  it('works with both a custom className and an openerClass', () => {
+    const root = render({ className: 'CustomClass', openerClass: 'MyClass' });
+
+    const opener = root.find('.TooltipMenu-opener');
+    expect(opener).toHaveClassName('MyClass');
+    expect(opener).toHaveClassName('CustomClass');
+  });
+
   it('renders an opener with text', () => {
     const openerText = 'Open the thing';
     const root = render({ openerText });
