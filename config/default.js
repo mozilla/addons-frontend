@@ -98,10 +98,8 @@ module.exports = {
     'cookieName',
     'cookieSecure',
     'defaultLang',
-    'dismissedExperienceSurveyCookieName',
     'enableDevTools',
     'enableFeatureBlockPage',
-    'enableFeatureExperienceSurvey',
     'enableFeatureAllowAndroidInstall',
     'enableRequestID',
     'enableStrictMode',
@@ -408,9 +406,6 @@ module.exports = {
   // https://github.com/mozilla/addons-frontend/issues/6362.
 
   enableFeatureBlockPage: true,
-
-  enableFeatureExperienceSurvey: false,
-  dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
   enableFeatureAllowAndroidInstall: true,
 
