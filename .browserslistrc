@@ -1,1 +1,4 @@
-last 2 versions
+# defaults
+> 0.5%, last 2 versions, Firefox ESR, not dead
+# we don't want to support IE anymore
+not ie <= 11
