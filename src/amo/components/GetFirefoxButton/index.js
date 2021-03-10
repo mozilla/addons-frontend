@@ -1,5 +1,5 @@
 /* @flow */
-import base64url from 'base64url';
+import { encode } from 'universal-base64url';
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -41,7 +41,7 @@ export type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _base64url?: typeof base64url,
+  _encode?: typeof encode,
   _tracking: typeof tracking,
   i18n: I18nType,
   userAgentInfo: UserAgentInfoType,
@@ -49,7 +49,7 @@ type InternalProps = {|
 
 export const GetFirefoxButtonBase = (props: InternalProps) => {
   const { addon, buttonType, className, i18n, userAgentInfo } = props;
-  const _base64url = props._base64url || base64url;
+  const _encode = props._encode || encode;
   const _tracking = props._tracking || tracking;
 
   const onButtonClick = () => {
@@ -80,7 +80,7 @@ export const GetFirefoxButtonBase = (props: InternalProps) => {
       );
       buttonText = i18n.gettext('Only with Firefox—Get Firefox Now');
       puffy = true;
-      utmContent = addon.guid ? `rta:${_base64url.encode(addon.guid)}` : '';
+      utmContent = addon.guid ? `rta:${_encode(addon.guid)}` : '';
       break;
     }
     case GET_FIREFOX_BUTTON_TYPE_HEADER: {

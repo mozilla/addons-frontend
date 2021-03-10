@@ -3,7 +3,7 @@ import urllib from 'url';
 
 import { LOCATION_CHANGE } from 'connected-react-router';
 import PropTypes from 'prop-types';
-import base64url from 'base64url';
+import { encode } from 'universal-base64url';
 import config from 'config';
 import invariant from 'invariant';
 import { shallow } from 'enzyme';
@@ -445,12 +445,12 @@ export function userAuthToken(
 
   let encodedToken = tokenData;
   if (!encodedToken) {
-    encodedToken = base64url.encode(JSON.stringify(data));
+    encodedToken = encode(JSON.stringify(data));
   }
 
   const base62 = getDjangoBase62();
   const timestamp = base62.encode(tokenCreatedAt);
-  const sig = base64url.encode('pretend-this-is-a-signature');
+  const sig = encode('pretend-this-is-a-signature');
 
   return `${encodedToken}:${timestamp}:${sig}`;
 }

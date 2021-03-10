@@ -1,5 +1,5 @@
 import * as React from 'react';
-import base64url from 'base64url';
+import { encode } from 'universal-base64url';
 
 import {
   abortUnsubscribeNotification,
@@ -26,7 +26,7 @@ describe(__filename, () => {
   const getParams = (overrides = {}) => {
     return {
       hash: 'some-hash',
-      token: base64url.encode('email@example.org'),
+      token: encode('email@example.org'),
       notificationName: 'new_review',
       ...overrides,
     };
@@ -149,7 +149,7 @@ describe(__filename, () => {
   describe('when user is successfully unsubscribed', () => {
     it('decodes the token to reveal the email of the user', () => {
       const email = 'some@email.example.org';
-      const params = getParams({ token: base64url.encode(email) });
+      const params = getParams({ token: encode(email) });
       const { store } = dispatchClientMetadata();
       _finishUnsubscribeNotification(store, params);
 
