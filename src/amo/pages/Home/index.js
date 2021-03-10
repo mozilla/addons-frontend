@@ -5,14 +5,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
+import Card from 'amo/components/Card';
 import CategoryIcon from 'amo/components/CategoryIcon';
-import { categoryResultsLinkTo } from 'amo/components/Categories';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
+import LoadingText from 'amo/components/LoadingText';
 import Page from 'amo/components/Page';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
@@ -28,11 +29,10 @@ import {
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
-import { fetchHomeData } from 'amo/reducers/home';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
-import Card from 'amo/components/Card';
-import LoadingText from 'amo/components/LoadingText';
+import { fetchHomeData } from 'amo/reducers/home';
+import { getCategoryResultsLinkTo } from 'amo/utils/categories';
 
 import './styles.scss';
 
@@ -176,7 +176,7 @@ export class HomeBase extends React.Component {
         {curatedThemes.map(({ color, slug, title }) => (
           <li className="Home-SubjectShelf-list-item" key={slug}>
             <Link
-              to={categoryResultsLinkTo({
+              to={getCategoryResultsLinkTo({
                 addonType: ADDON_TYPE_STATIC_THEME,
                 slug,
               })}

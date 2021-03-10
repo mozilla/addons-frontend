@@ -1,17 +1,40 @@
 /* @flow */
 import { SEARCH_SORT_POPULAR, SEARCH_SORT_RECOMMENDED } from 'amo/constants';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
+import { visibleAddonType } from 'amo/utils';
 import type { QueryParams } from 'amo/types/api';
 
-export type GetCategoryResultsQueryParams = { addonType: string, slug: string };
+export type GetCategoryResultsPathnameParams = {
+  addonType: string,
+  slug: string,
+};
 
-export const getCategoryResultsQuery = ({
+type GetCategoryResultsLinkToParams = GetCategoryResultsPathnameParams;
+
+export const getCategoryResultsPathname = ({
   addonType,
   slug,
-}: GetCategoryResultsQueryParams): QueryParams => {
+}: GetCategoryResultsPathnameParams): string => {
+  return `/${visibleAddonType(addonType)}/${slug}/`;
+};
+
+export const getCategoryResultsQuery = (): QueryParams => {
   return convertFiltersToQueryParams({
-    addonType,
-    category: slug,
     sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
   });
+};
+
+type CategoryResultsLinkTo = {|
+  pathname: string,
+  query: QueryParams,
+|};
+
+export const getCategoryResultsLinkTo = ({
+  addonType,
+  slug,
+}: GetCategoryResultsLinkToParams): CategoryResultsLinkTo => {
+  return {
+    pathname: getCategoryResultsPathname({ addonType, slug }),
+    query: getCategoryResultsQuery(),
+  };
 };

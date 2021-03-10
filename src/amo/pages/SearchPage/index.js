@@ -15,14 +15,15 @@ import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
+  fixFiltersFromLocation,
 } from 'amo/searchUtils';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import type { AppState } from 'amo/store';
 import type { SearchFilters } from 'amo/api/search';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
 type Props = {|
-  isForCategory?: boolean,
   location: ReactRouterLocationType,
 |};
 
@@ -39,17 +40,27 @@ type InternalProps = {|
 |};
 
 export class SearchPageBase extends React.Component<InternalProps> {
-  pageRoute(): string {
-    return this.props.isForCategory ? 'category' : 'search';
-  }
-
   constructor(props: InternalProps) {
     super(props);
 
     const { clientApp, filters, lang, location } = props;
 
+    let pathname = '/search/';
     let shouldRedirect = false;
     const newFilters = { ...filters };
+
+    // If this is an old category search, redirect to the new category page.
+    if (newFilters.category && newFilters.addonType) {
+      pathname = getCategoryResultsPathname({
+        addonType: newFilters.addonType,
+        slug: newFilters.category,
+      });
+
+      delete newFilters.addonType;
+      delete newFilters.category;
+
+      shouldRedirect = true;
+    }
 
     // We removed the `platform` parameter, so if it's present, ignore it and
     // redirect.
@@ -85,7 +96,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
       props.dispatch(
         sendServerRedirect({
           status: 301,
-          url: `/${lang}/${clientApp}/${this.pageRoute()}/${queryString}`,
+          url: `/${lang}/${clientApp}${pathname}${queryString}`,
         }),
       );
     }
@@ -100,7 +111,6 @@ export class SearchPageBase extends React.Component<InternalProps> {
           enableSearchFilters
           filters={filters}
           paginationQueryParams={convertFiltersToQueryParams(filters)}
-          pathname={`/${this.pageRoute()}/`}
         />
       </Page>
     );
@@ -115,20 +125,8 @@ export function mapStateToProps(
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);
 
-  // We don't allow `clientApp` or `lang` as a filter from location because
-  // they can lead to weird, unintuitive URLs where the queryParams override
-  // the `clientApp` and `lang` set elsewhere in the URL.
-  // Removing them from the filters (essentially ignoring them) means URLs
-  // like: `/en-US/firefox/search/?q=test&app=android&lang=fr` don't search
-  // for French Android add-ons.
-  // Maybe in the future this could redirect instead of ignoring bogus
-  // `location.query` data.
-  const filters = { ...filtersFromLocation };
-  delete filters.clientApp;
-  delete filters.lang;
-
   return {
-    filters,
+    filters: fixFiltersFromLocation(filtersFromLocation),
     clientApp: state.api.clientApp,
     lang: state.api.lang,
   };

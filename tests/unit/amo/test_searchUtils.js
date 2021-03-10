@@ -12,6 +12,7 @@ import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
   fixFiltersForClientApp,
+  fixFiltersFromLocation,
 } from 'amo/searchUtils';
 import {
   dispatchClientMetadata,
@@ -253,6 +254,15 @@ describe(__filename, () => {
 
       const newFilters = fixFiltersForClientApp({ api: state.api, filters });
       expect(newFilters.addonType).toEqual(undefined);
+    });
+  });
+
+  describe('fixFiltersFromLocation', () => {
+    it('removes clientApp and lang from filters', () => {
+      const page = '123';
+      const filters = { clientApp: CLIENT_APP_ANDROID, lang: 'fr', page };
+
+      expect(fixFiltersFromLocation(filters)).toEqual({ page });
     });
   });
 });

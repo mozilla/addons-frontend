@@ -12,6 +12,7 @@ import AddonInfo, {
 import AddonReviewList from 'amo/pages/AddonReviewList';
 import AddonVersions from 'amo/pages/AddonVersions';
 import CategoriesPage from 'amo/pages/CategoriesPage';
+import CategoryPage from 'amo/pages/CategoryPage';
 import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
@@ -144,8 +145,8 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
 
     <Route
       exact
-      path="/:lang/:application/category/"
-      component={(props) => <SearchPage {...props} isForCategory />}
+      path="/:lang/:application/:visibleAddonType(extensions|themes)/:categorySlug/"
+      component={CategoryPage}
     />
 
     {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}

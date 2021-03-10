@@ -1,19 +1,12 @@
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import Home, {
-  FEATURED_COLLECTIONS,
-  MOZILLA_USER_ID,
-  HomeBase,
-  getFeaturedCollectionsMetadata,
-  isFeaturedCollection,
-} from 'amo/pages/Home';
-import { categoryResultsLinkTo } from 'amo/components/Categories';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import LoadingText from 'amo/components/LoadingText';
 import Page from 'amo/components/Page';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
@@ -28,12 +21,19 @@ import {
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
+import Home, {
+  FEATURED_COLLECTIONS,
+  MOZILLA_USER_ID,
+  HomeBase,
+  getFeaturedCollectionsMetadata,
+  isFeaturedCollection,
+} from 'amo/pages/Home';
 import {
   FETCH_HOME_DATA,
   fetchHomeData,
   loadHomeData,
 } from 'amo/reducers/home';
-import LoadingText from 'amo/components/LoadingText';
+import { getCategoryResultsLinkTo } from 'amo/utils/categories';
 import {
   DEFAULT_LANG_IN_TESTS,
   createAddonsApiResult,
@@ -211,7 +211,7 @@ describe(__filename, () => {
     expectedThemes.forEach((slug) => {
       expect(
         shelf.find({
-          to: categoryResultsLinkTo({
+          to: getCategoryResultsLinkTo({
             addonType: ADDON_TYPE_STATIC_THEME,
             slug,
           }),

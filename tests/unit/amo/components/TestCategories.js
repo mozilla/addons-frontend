@@ -2,18 +2,14 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import {
-  CategoriesBase,
-  categoryResultsLinkTo,
-  mapStateToProps,
-} from 'amo/components/Categories';
+import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
 import { fetchCategories, loadCategories } from 'amo/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
 } from 'amo/constants';
-import { getCategoryResultsQuery } from 'amo/utils/categories';
+import { getCategoryResultsLinkTo } from 'amo/utils/categories';
 import Button from 'amo/components/Button';
 import LoadingText from 'amo/components/LoadingText';
 import {
@@ -211,7 +207,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(Button).prop('to')).toEqual(
-      categoryResultsLinkTo({ addonType: type, slug }),
+      getCategoryResultsLinkTo({ addonType: type, slug }),
     );
   });
 
@@ -323,18 +319,5 @@ describe(__filename, () => {
     expect(root.find('.Categories-link').at(12)).toHaveClassName(
       'Categories--category-color-1',
     );
-  });
-
-  describe('categoryResultsLinkTo', () => {
-    it('returns a "to" object', () => {
-      const addonType = ADDON_TYPE_EXTENSION;
-      const slug = 'some-slug';
-
-      const toValue = categoryResultsLinkTo({ addonType, slug });
-      expect(toValue.pathname).toEqual('/category/');
-      expect(toValue.query).toEqual(
-        getCategoryResultsQuery({ addonType, slug }),
-      );
-    });
   });
 });

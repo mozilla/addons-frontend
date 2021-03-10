@@ -125,3 +125,18 @@ export const fixFiltersForClientApp = ({ api, filters }) => {
 
   return newFilters;
 };
+
+// We don't allow `clientApp` or `lang` as a filter from location because
+// they can lead to weird, unintuitive URLs where the queryParams override
+// the `clientApp` and `lang` set elsewhere in the URL.
+// Removing them from the filters (essentially ignoring them) means URLs
+// like: `/en-US/firefox/search/?q=test&app=android&lang=fr` don't search
+// for French Android add-ons.
+// Maybe in the future this could redirect instead of ignoring bogus
+// `location.query` data.
+export const fixFiltersFromLocation = (filters) => {
+  const fixedFilters = { ...filters };
+  delete fixedFilters.clientApp;
+  delete fixedFilters.lang;
+  return fixedFilters;
+};

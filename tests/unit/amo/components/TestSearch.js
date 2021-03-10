@@ -369,6 +369,13 @@ describe(__filename, () => {
     expect(wrapper.find('title')).toHaveText('Search results for "some terms"');
   });
 
+  it('uses the pageTitle prop to override the built-in title', () => {
+    const filters = { query: 'some terms' };
+    const pageTitle = 'Some page title';
+    const wrapper = render({ filters, pageTitle });
+    expect(wrapper.find('title')).toHaveText(pageTitle);
+  });
+
   it('sets the viewContext to exploring if viewContext has changed', () => {
     const fakeDispatch = sinon.stub();
     const filters = {};

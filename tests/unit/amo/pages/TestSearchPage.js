@@ -5,7 +5,11 @@ import SearchPage, {
   SearchPageBase,
   mapStateToProps,
 } from 'amo/pages/SearchPage';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'amo/constants';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   createFakeLocation,
@@ -141,25 +145,6 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
-  it('dispatches the correct redirect when `isForCategory` is true', () => {
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    render({
-      isForCategory: true,
-      location: createFakeLocation({ query: { atype: 5 } }),
-      store,
-    });
-
-    sinon.assert.calledWith(
-      fakeDispatch,
-      sendServerRedirect({
-        status: 301,
-        url: '/en-US/android/category/?type=language',
-      }),
-    );
-    sinon.assert.callCount(fakeDispatch, 1);
-  });
-
   it('does not dispatch a server redirect when `atype` has no mapping', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -170,6 +155,28 @@ describe(__filename, () => {
     });
 
     sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('dispatches a server redirect when `category` and `addonType` is set', () => {
+    const category = 'some-category';
+    const page = '123';
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      location: createFakeLocation({
+        query: { category, page, type: ADDON_TYPE_EXTENSION },
+      }),
+      store,
+    });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/android/extensions/${category}/?page=${page}`,
+      }),
+    );
   });
 
   it('dispatches a server redirect when `platform` is set', () => {
@@ -205,18 +212,6 @@ describe(__filename, () => {
     );
     sinon.assert.callCount(fakeDispatch, 1);
   });
-
-  it.each([
-    [true, 'category'],
-    [false, 'search'],
-  ])(
-    'passes the expected pathname to Search when isForCategory is %s',
-    (isForCategory, pathname) => {
-      const root = render({ isForCategory });
-
-      expect(root.find(Search)).toHaveProp('pathname', `/${pathname}/`);
-    },
-  );
 
   describe('mapStateToProps()', () => {
     const clientApp = CLIENT_APP_FIREFOX;
