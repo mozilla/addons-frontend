@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { compose } from 'redux';
-import base64url from 'base64url';
+import { decode } from 'universal-base64url';
 import { connect } from 'react-redux';
 
 import Link from 'amo/components/Link';
@@ -125,7 +125,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
                       {
                         strongStart: '<strong>',
                         strongEnd: '</strong>',
-                        email: base64url.decode(token),
+                        email: decode(token),
                       },
                     ),
                     ['strong'],
