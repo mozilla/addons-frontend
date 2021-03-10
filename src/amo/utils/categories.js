@@ -2,6 +2,7 @@
 import { SEARCH_SORT_POPULAR, SEARCH_SORT_RECOMMENDED } from 'amo/constants';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import { visibleAddonType } from 'amo/utils';
+import type { CategoryEntry } from 'amo/reducers/categories';
 import type { QueryParams } from 'amo/types/api';
 
 export type GetCategoryResultsPathnameParams = {
@@ -37,4 +38,14 @@ export const getCategoryResultsLinkTo = ({
     pathname: getCategoryResultsPathname({ addonType, slug }),
     query: getCategoryResultsQuery(),
   };
+};
+
+export const getCategoryName = (
+  categories: CategoryEntry,
+  slug: string,
+): string | null => {
+  if (categories && categories[slug]) {
+    return categories[slug].name;
+  }
+  return null;
 };

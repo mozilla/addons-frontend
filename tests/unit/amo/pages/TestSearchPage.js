@@ -157,9 +157,10 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('dispatches a server redirect when `category` and `addonType` is set', () => {
+  it('dispatches a server redirect when `category` and `addonType` are set', () => {
     const category = 'some-category';
     const page = '123';
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     render({
@@ -174,7 +175,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/android/extensions/category/${category}/?page=${page}`,
+        url: `/en-US/${CLIENT_APP_FIREFOX}/extensions/category/${category}/?page=${page}`,
       }),
     );
   });

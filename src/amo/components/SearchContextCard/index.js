@@ -3,13 +3,14 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { fetchCategories } from 'amo/reducers/categories';
-import translate from 'amo/i18n/translate';
+import Card from 'amo/components/Card';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
-import Card from 'amo/components/Card';
-import type { AppState } from 'amo/store';
+import translate from 'amo/i18n/translate';
+import { fetchCategories } from 'amo/reducers/categories';
+import { getCategoryName } from 'amo/utils/categories';
 import type { SearchFilters } from 'amo/api/search';
+import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
@@ -204,9 +205,7 @@ function mapStateToProps(state: AppState): PropsFromState {
           const { addonType } = filters;
           const categories = appTypes[addonType];
 
-          if (categories && categories[currentCategory]) {
-            categoryName = categories[currentCategory].name;
-          }
+          categoryName = getCategoryName(categories, currentCategory);
         }
       }
     }

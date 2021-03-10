@@ -178,34 +178,6 @@ describe(__filename, () => {
     });
   });
 
-  it('removes category and addonType from the URL if category is in filters', () => {
-    const root = render({
-      filters: {
-        query: 'Music player',
-        category: 'some-category',
-        addonType: ADDON_TYPE_EXTENSION,
-      },
-    });
-
-    const select = root.find('.SearchFilters-Sort');
-    const currentTarget = {
-      getAttribute: () => {
-        return select.prop('name');
-      },
-      value: SEARCH_SORT_TRENDING,
-    };
-
-    select.simulate('change', createFakeEvent({ currentTarget }));
-
-    sinon.assert.calledWithExactly(fakeHistory.push, {
-      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
-      query: convertFiltersToQueryParams({
-        query: 'Music player',
-        sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
-      }),
-    });
-  });
-
   it('selects the sort criterion in the sort select', () => {
     const sort = SEARCH_SORT_TRENDING;
     const root = render({

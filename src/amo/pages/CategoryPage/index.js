@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import HeadLinks from 'amo/components/HeadLinks';
 import Page from 'amo/components/Page';
 import Search from 'amo/components/Search';
-import { ADDON_TYPE_EXTENSION } from 'amo/constants';
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { fetchCategories } from 'amo/reducers/categories';
@@ -16,7 +16,10 @@ import {
   fixFiltersFromLocation,
 } from 'amo/searchUtils';
 import { apiAddonType } from 'amo/utils';
-import { getCategoryResultsPathname } from 'amo/utils/categories';
+import {
+  getCategoryResultsPathname,
+  getCategoryName,
+} from 'amo/utils/categories';
 import type { SearchFilters } from 'amo/api/search';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
@@ -32,6 +35,7 @@ type Props = {|
 |};
 
 type PropsFromState = {|
+  addonType: string,
   categoryName: string | null,
   filters: SearchFilters,
 |};
@@ -45,25 +49,21 @@ type InternalProps = {|
 |};
 
 export class CategoryPageBase extends React.Component<InternalProps> {
-  getPageTitle(addonType: string, categoryName: string | null): string {
-    const { i18n } = this.props;
+  getPageTitle(categoryName: string | null): string {
+    const { addonType, i18n } = this.props;
 
-    // The only two possibilites for addonType are 'extension' and
-    // 'statictheme' because anything else would have thrown an
-    // exception in mapStateToProps via apiAddonType()
-    if (addonType === ADDON_TYPE_EXTENSION) {
+    if (addonType === ADDON_TYPE_STATIC_THEME) {
       return categoryName
-        ? i18n.sprintf(i18n.gettext('Extensions in %(categoryName)s'), {
+        ? i18n.sprintf(i18n.gettext('Themes in %(categoryName)s'), {
             categoryName,
           })
-        : i18n.gettext('Extensions');
+        : i18n.gettext('Themes');
     }
-
     return categoryName
-      ? i18n.sprintf(i18n.gettext('Themes in %(categoryName)s'), {
+      ? i18n.sprintf(i18n.gettext('Extensions in %(categoryName)s'), {
           categoryName,
         })
-      : i18n.gettext('Themes');
+      : i18n.gettext('Extensions');
   }
 
   constructor(props: InternalProps) {
@@ -77,9 +77,8 @@ export class CategoryPageBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { categoryName, filters, match } = this.props;
-    const { categorySlug, visibleAddonType } = match.params;
-    const addonType = apiAddonType(visibleAddonType);
+    const { addonType, categoryName, filters, match } = this.props;
+    const { categorySlug } = match.params;
     const filtersForSearch = {
       ...filters,
       addonType,
@@ -92,7 +91,7 @@ export class CategoryPageBase extends React.Component<InternalProps> {
         <Search
           enableSearchFilters
           filters={filtersForSearch}
-          pageTitle={this.getPageTitle(addonType, categoryName)}
+          pageTitle={this.getPageTitle(categoryName)}
           paginationQueryParams={convertFiltersToQueryParams(filters)}
           pathname={getCategoryResultsPathname({
             addonType,
@@ -104,7 +103,7 @@ export class CategoryPageBase extends React.Component<InternalProps> {
   }
 }
 
-function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { location } = state.router;
   const { categorySlug, visibleAddonType } = ownProps.match.params;
 
@@ -119,20 +118,18 @@ function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
 
     if (appTypes) {
       const categories = appTypes[addonType];
-
-      if (categories && categories[categorySlug]) {
-        categoryName = categories[categorySlug].name;
-      }
+      categoryName = getCategoryName(categories, categorySlug);
     }
   }
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);
 
   return {
+    addonType,
     categoryName,
     filters: fixFiltersFromLocation(filtersFromLocation),
   };
-}
+};
 
 const CategoryPage: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
