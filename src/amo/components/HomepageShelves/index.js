@@ -2,7 +2,6 @@
 import * as React from 'react';
 import config from 'config';
 
-import translate from 'amo/i18n/translate';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import {
   INSTALL_SOURCE_FEATURED,
@@ -10,20 +9,26 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
+import translate from 'amo/i18n/translate';
 import type { ResultShelfType } from 'amo/reducers/home';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
 export const MOZILLA_USER_ID = config.get('mozillaUserId');
 
 type Props = {|
-  i18n: Object,
   loading: boolean,
   placeholderCount: number,
   shelves: Array<ResultShelfType>,
 |};
 
-class HomepageShelves extends React.Component<Props> {
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+|};
+
+class HomepageShelves extends React.Component<InternalProps> {
   static defaultProps = {
     placeholderCount: LANDING_PAGE_EXTENSION_COUNT,
   };
@@ -34,18 +39,19 @@ class HomepageShelves extends React.Component<Props> {
     const homepageShelves: Array<React.Node> = shelves.map((shelf) => {
       const { addons, criteria, endpoint, footer, title } = shelf;
       const titleStr = title.toString();
-      const header = titleStr.replace(/\s/g, '');
-      const footerText = footer ? footer.text : 'See more';
+      const header = titleStr.replace(/\s/g, '-');
+
+      const footerText =
+        footer && footer.text
+          ? footer.text
+          : i18n.sprintf(i18n.gettext('See more %(text)s'), {
+              text: titleStr.toLowerCase(),
+            });
 
       const addonInstallSource =
         endpoint === 'collections'
           ? INSTALL_SOURCE_FEATURED_COLLECTION
           : INSTALL_SOURCE_FEATURED;
-
-      const className =
-        endpoint === 'collections'
-          ? 'Home-FeaturedCollection'
-          : `Home-${header}`;
 
       const count =
         endpoint === 'search-themes'
@@ -55,19 +61,17 @@ class HomepageShelves extends React.Component<Props> {
       const footerLink =
         endpoint === 'collections'
           ? `/collections/${MOZILLA_USER_ID}/${criteria}/`
-          : `/${criteria}/`;
+          : `/search/${criteria}/`;
 
       return (
         <LandingAddonsCard
           addonInstallSource={addonInstallSource}
           addons={addons}
-          className={className}
-          footerText={i18n.sprintf(i18n.gettext('%(text)s'), {
-            text: footerText,
-          })}
+          className={`Home-${header}`}
+          footerText={footerText}
           footerLink={footerLink}
           header={titleStr}
-          isTheme={endpoint === 'search-themes' ? true : undefined}
+          isTheme={endpoint === 'search-themes'}
           key={header}
           loading={loading}
           placeholderCount={count}
