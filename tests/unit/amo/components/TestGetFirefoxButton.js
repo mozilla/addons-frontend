@@ -1,4 +1,4 @@
-import base64url from 'base64url';
+import { encode } from 'universal-base64url';
 import * as React from 'react';
 
 import GetFirefoxButton, {
@@ -97,7 +97,7 @@ describe(__filename, () => {
           store,
         });
 
-        const utmContent = `rta:${base64url.encode(addon.guid)}`;
+        const utmContent = `rta:${encode(addon.guid)}`;
 
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
           { utm_content: utmContent },
@@ -105,33 +105,33 @@ describe(__filename, () => {
         expect(root.find('.GetFirefoxButton')).toHaveProp('href', expectedHref);
       });
 
-      it('calls base64url.encode to encode the guid of the add-on', () => {
-        const _base64url = { encode: sinon.spy() };
+      it('calls universal-base64url.encode to encode the guid of the add-on', () => {
+        const _encode = sinon.spy();
         const guid = 'some-guid';
         const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
         render({
-          _base64url,
+          _encode,
           addon,
           buttonType,
           store,
         });
 
-        sinon.assert.calledWith(_base64url.encode, addon.guid);
+        sinon.assert.calledWith(_encode, addon.guid);
       });
 
       // See: https://github.com/mozilla/addons-frontend/issues/7255
-      it('does not call base64url.encode when add-on has a `null` GUID', () => {
-        const _base64url = { encode: sinon.spy() };
+      it('does not call universal-base64url.encode when add-on has a `null` GUID', () => {
+        const _encode = sinon.spy();
         const addon = createInternalAddonWithLang({ ...fakeAddon, guid: null });
 
         render({
-          _base64url,
+          _encode,
           addon,
           buttonType,
           store,
         });
 
-        sinon.assert.notCalled(_base64url.encode);
+        sinon.assert.notCalled(_encode);
       });
 
       it('sets the button as puffy and not micro', () => {
