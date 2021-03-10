@@ -2,31 +2,112 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { getHomeShelves } from 'amo/api/homeShelves';
+import { search as searchApi } from 'amo/api/search';
+import {
+  ADDON_TYPE_EXTENSION,
+  LANDING_PAGE_EXTENSION_COUNT,
+  MOBILE_HOME_PAGE_EXTENSION_COUNT,
+  RECOMMENDED,
+  SEARCH_SORT_RANDOM,
+} from 'amo/constants';
+import log from 'amo/logger';
 import {
   FETCH_HOME_DATA,
   abortFetchHomeData,
   loadHomeData,
 } from 'amo/reducers/home';
-import log from 'amo/logger';
+import { selectLocalizedContent } from 'amo/reducers/utils';
 import { createErrorHandler, getState } from 'amo/sagas/utils';
-import type { FetchHomeDataAction } from 'amo/reducers/home';
+import type { SearchParams } from 'amo/api/search';
+import type {
+  ExternalResultShelfType,
+  FetchHomeDataAction,
+} from 'amo/reducers/home';
+import type { ExternalAddonType } from 'amo/types/addons';
 import type { Saga } from 'amo/types/sagas';
 
 export function* fetchHomeData({
-  payload: { errorHandlerId },
+  payload: { errorHandlerId, isDesktopSite },
 }: FetchHomeDataAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
 
-  try {
-    const state = yield select(getState);
-    let homeShelves = {};
+  const state = yield select(getState);
 
-    homeShelves = yield call(getHomeShelves, { api: state.api });
-    yield put(loadHomeData({ homeShelves }));
+  const recommendedSearchFilters = {
+    page_size: String(
+      isDesktopSite
+        ? LANDING_PAGE_EXTENSION_COUNT
+        : MOBILE_HOME_PAGE_EXTENSION_COUNT,
+    ),
+    promoted: RECOMMENDED,
+    sort: SEARCH_SORT_RANDOM,
+  };
+
+  const recommendedExtensionsParams: SearchParams = {
+    api: state.api,
+    filters: {
+      addonType: ADDON_TYPE_EXTENSION,
+      ...recommendedSearchFilters,
+    },
+  };
+
+  const recommendedExtensionShelf = (
+    addons: Array<ExternalAddonType>,
+  ): ExternalResultShelfType => {
+    return {
+      title: selectLocalizedContent('Recommended Extensions', state.lang),
+      url:
+        'https://addons.mozilla.org/api/v5/addons/search/?promoted=recommended&sort=random&type=extension',
+      endpoint: 'search',
+      criteria: '?promoted=recommended&sort=random&type=extension',
+      footer: {
+        url: '',
+        outgoing: '',
+        text: selectLocalizedContent(
+          'See more recommended extensions',
+          state.lang,
+        ),
+      },
+      addons,
+    };
+  };
+
+  try {
+    let homeShelves = {};
+    try {
+      homeShelves = yield call(getHomeShelves, { api: state.api });
+    } catch (error) {
+      log.warn(`Home shelves failed to load: ${error}`);
+      throw error;
+    }
+
+    if (isDesktopSite) {
+      yield put(loadHomeData({ homeShelves }));
+    } else {
+      // Mobile homepage logic
+      let recommendedExtensions;
+      try {
+        recommendedExtensions = yield call(
+          searchApi,
+          recommendedExtensionsParams,
+        );
+      } catch (error) {
+        log.warn(`Mobile home add-ons failed to load: ${error}`);
+        throw error;
+      }
+
+      yield put(
+        loadHomeData({
+          homeShelves: {
+            ...homeShelves,
+            results: [recommendedExtensionShelf(recommendedExtensions.results)],
+          },
+        }),
+      );
+    }
   } catch (error) {
-    log.warn(`Home shelves failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
     yield put(abortFetchHomeData());
   }
