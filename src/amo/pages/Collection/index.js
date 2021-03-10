@@ -32,7 +32,6 @@ import Paginate from 'amo/components/Paginate';
 import {
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   INSTALL_SOURCE_COLLECTION,
-  INSTALL_SOURCE_FEATURED_COLLECTION,
 } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
@@ -461,10 +460,6 @@ export class CollectionBase extends React.Component<InternalProps> {
           );
     }
 
-    const addonInstallSource = collection
-      ? INSTALL_SOURCE_FEATURED_COLLECTION
-      : INSTALL_SOURCE_COLLECTION;
-
     return (
       <div className="Collection-wrapper">
         <div className="Collection-detail-wrapper">
@@ -491,7 +486,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           )}
           {!creating && (
             <AddonsCard
-              addonInstallSource={addonInstallSource}
+              addonInstallSource={INSTALL_SOURCE_COLLECTION}
               addons={addons}
               deleteNote={this.deleteNote}
               editing={editing}
