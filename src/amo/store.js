@@ -2,6 +2,7 @@
 /* global window */
 import config from 'config';
 import { createMemoryHistory } from 'history';
+import * as React from 'react';
 import {
   applyMiddleware,
   compose,
@@ -70,7 +71,9 @@ import type { VersionsState } from 'amo/reducers/versions';
 import type { ReactRouterHistoryType, LocationType } from 'amo/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'amo/types/store';
 
-export const minimalReduxLogger = () => (next: (action: Object) => Object) => (
+export const minimalReduxLogger = (): ((
+  next: (action: Object) => Object,
+) => (action: Object) => Object) => (next: (action: Object) => Object) => (
   action: Object,
 ) => {
   log.info(`Dispatching ${action.type}`);
@@ -99,7 +102,7 @@ export function middleware({
   _window?: typeof window | null,
   sagaMiddleware?: Object | null,
   routerMiddleware?: Object | null,
-|} = {}) {
+|} = {}): React.ComponentType<any> {
   const isDev = _config.get('isDevelopment');
 
   const callbacks = [];
@@ -218,7 +221,7 @@ export const reducers: AppReducersType = {
 export default function createStore({
   history = createMemoryHistory(),
   initialState = {},
-}: CreateStoreParams = {}) {
+}: CreateStoreParams = {}): {| sagaMiddleware: Object, store: Object |} {
   const sagaMiddleware = createSagaMiddleware();
   const store = defaultCreateStore(
     createRootReducer({ history, reducers }),

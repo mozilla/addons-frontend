@@ -1,6 +1,6 @@
 /* @flow */
 
 export type ConfigType = {|
-  get: (key: string) => any,
-  set: (key: string, value: any) => void,
+  get: (key: string) => mixed,
+  set: (key: string, value: mixed) => void,
 |};

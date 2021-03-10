@@ -19,19 +19,27 @@ type Props = {|
   addon: AddonType,
 |};
 
+type DefaultProps = {|
+  _getPromotedCategory: typeof getPromotedCategory,
+|};
+
+type PropsFromState = {|
+  clientApp: string,
+|};
+
 type InternalProps = {|
   ...Props,
-  _getPromotedCategory: typeof getPromotedCategory,
-  clientApp: string,
+  ...DefaultProps,
+  ...PropsFromState,
   i18n: I18nType,
 |};
 
 export class AddonBadgesBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     _getPromotedCategory: getPromotedCategory,
   };
 
-  render() {
+  render(): null | React.Node {
     const { _getPromotedCategory, addon, clientApp, i18n } = this.props;
 
     if (!addon) {
@@ -79,7 +87,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     clientApp: state.api.clientApp,
   };

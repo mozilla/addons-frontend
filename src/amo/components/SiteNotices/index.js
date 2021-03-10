@@ -13,7 +13,7 @@ import './styles.scss';
 
 type Props = {||};
 
-type MappedProps = {|
+type PropsFromState = {|
   siteIsReadOnly: boolean,
   siteNotice: string | null,
   currentUserWasLoggedOut: boolean,
@@ -21,7 +21,7 @@ type MappedProps = {|
 
 type InternalProps = {|
   ...Props,
-  ...MappedProps,
+  ...PropsFromState,
   i18n: I18nType,
 |};
 
@@ -35,7 +35,7 @@ const sanitizeNoticeHTML = (text: string) => {
 };
 
 export class SiteNoticesBase extends React.Component<InternalProps> {
-  render() {
+  render(): Array<React.Node> {
     const {
       i18n,
       siteIsReadOnly,
@@ -93,7 +93,7 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState): MappedProps => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     siteIsReadOnly: state.site.readOnly,
     siteNotice: state.site.notice,
@@ -101,4 +101,7 @@ const mapStateToProps = (state: AppState): MappedProps => {
   };
 };
 
-export default compose(connect(mapStateToProps), translate())(SiteNoticesBase);
+export default (compose(
+  connect(mapStateToProps),
+  translate(),
+)(SiteNoticesBase): React.ComponentType<Props>);

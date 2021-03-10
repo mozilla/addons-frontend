@@ -43,7 +43,7 @@ type Action = CloseInfoDialogAction | ShowInfoDialogAction;
 export default function infoDialog(
   state: InfoDialogState = initialState,
   action: Action,
-) {
+): InfoDialogState {
   switch (action.type) {
     case SHOW_INFO:
       return {

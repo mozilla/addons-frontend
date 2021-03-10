@@ -11,5 +11,5 @@ export type I18nType = {|
     format: (string) => string,
     fromNow: () => string,
   |},
-  sprintf: (string, { [placeholder: string]: any }) => string,
+  sprintf: (string, { [placeholder: string]: mixed }) => string,
 |};

@@ -321,7 +321,7 @@ export class LandingPageBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+function mapStateToProps(state) {
   const { landing, viewContext } = state;
 
   return {

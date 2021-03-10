@@ -29,21 +29,30 @@ type Props = {|
   isHomePage?: boolean,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
+  clientApp: string,
+  lang: string,
+  userAgentInfo: UserAgentInfoType,
+|};
+
+type DefaultProps = {|
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
   _isAndroidInstallable: typeof isAndroidInstallable,
   _isFirefoxForAndroid: typeof isFirefoxForAndroid,
   _isFirefoxForIOS: typeof isFirefoxForIOS,
-  clientApp: string,
+  isHomePage?: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  ...DefaultProps,
   i18n: I18nType,
-  lang: string,
   location: ReactRouterLocationType,
-  userAgentInfo: UserAgentInfoType,
 |};
 
 export class WrongPlatformWarningBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
     _isAndroidInstallable: isAndroidInstallable,
     _isFirefoxForAndroid: isFirefoxForAndroid,
@@ -51,7 +60,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
     isHomePage: false,
   };
 
-  render() {
+  render(): null | React.Node {
     const {
       _correctedLocationForPlatform,
       _isAndroidInstallable,
@@ -128,7 +137,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+function mapStateToProps(state: AppState): PropsFromState {
   return {
     clientApp: state.api.clientApp,
     lang: state.api.lang,

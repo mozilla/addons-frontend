@@ -5,6 +5,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { hasAbuseReportPanelEnabled } from 'amo/addonManager';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
@@ -20,12 +21,12 @@ import { normalizeFileNameId, sanitizeHTML } from 'amo/utils';
 import Button from 'amo/components/Button';
 import DismissibleTextForm from 'amo/components/DismissibleTextForm';
 import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
-import type { AppState } from 'amo/store';
 import type { AddonAbuseState } from 'amo/reducers/abuse';
-import type { DispatchFunc } from 'amo/types/redux';
+import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
+import type { ElementEvent } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
-import { hasAbuseReportPanelEnabled } from 'amo/addonManager';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 
@@ -33,22 +34,30 @@ type Props = {|
   addon: AddonType,
 |};
 
-type InternalProps = {|
-  ...Props,
-  _hasAbuseReportPanelEnabled: typeof hasAbuseReportPanelEnabled,
-  abuseReport: AddonAbuseState,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
-  i18n: I18nType,
+type PropsFromState = {|
+  abuseReport: AddonAbuseState | null,
   loading: boolean,
 |};
 
+type DefaultProps = {|
+  _hasAbuseReportPanelEnabled: typeof hasAbuseReportPanelEnabled,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  ...DefaultProps,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
+|};
+
 export class ReportAbuseButtonBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     _hasAbuseReportPanelEnabled: hasAbuseReportPanelEnabled,
   };
 
-  dismissReportUI = () => {
+  dismissReportUI: () => void = () => {
     const { addon, dispatch, loading } = this.props;
 
     if (loading) {
@@ -61,7 +70,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     dispatch(hideAddonAbuseReportUI({ addon }));
   };
 
-  sendReport = ({ text }: OnSubmitParams) => {
+  sendReport: (OnSubmitParams) => void = ({ text }: OnSubmitParams) => {
     // The button isn't clickable if there is no content, but just in case:
     // we verify there's a message to send.
     if (!text.trim().length) {
@@ -81,7 +90,9 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     );
   };
 
-  onReportButtonClick = async (event: SyntheticEvent<any>) => {
+  onReportButtonClick: (event: ElementEvent) => Promise<void> = async (
+    event: ElementEvent,
+  ) => {
     const { _hasAbuseReportPanelEnabled, addon, dispatch } = this.props;
 
     event.preventDefault();
@@ -102,7 +113,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     dispatch(showAddonAbuseReportUI({ addon }));
   };
 
-  render() {
+  render(): null | React.Node {
     const { abuseReport, addon, errorHandler, i18n, loading } = this.props;
 
     if (!addon) {
@@ -156,7 +167,8 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     return (
       <div
         className={makeClassName('ReportAbuseButton', {
-          'ReportAbuseButton--is-expanded': abuseReport.uiVisible,
+          'ReportAbuseButton--is-expanded':
+            abuseReport && abuseReport.uiVisible,
         })}
       >
         <div className="ReportAbuseButton--preview">
@@ -208,14 +220,14 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addon } = ownProps;
 
   return {
     abuseReport:
       addon && state.abuse.bySlug[addon.slug]
         ? state.abuse.bySlug[addon.slug]
-        : {},
+        : null,
     loading: state.abuse.loading,
   };
 };

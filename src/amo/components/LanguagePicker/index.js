@@ -68,7 +68,7 @@ export class LanguagePickerBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+function mapStateToProps(state) {
   return { currentLocale: state.api.lang };
 }
 

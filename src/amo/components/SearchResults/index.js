@@ -3,19 +3,22 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
-import Paginate from 'amo/components/Paginate';
 import { INSTALL_SOURCE_FEATURED, INSTALL_SOURCE_SEARCH } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import type { SearchFilters } from 'amo/api/search';
 import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
 
-type Props = {|
+type DefaultProps = {|
   count: number,
-  filters: SearchFilters,
-  loading: boolean,
-  paginator?: React.Element<typeof Paginate> | null,
+  filters: SearchFilters | Object,
   results: Array<AddonType | CollectionAddonType>,
+|};
+
+type Props = {|
+  ...DefaultProps,
+  loading: boolean,
+  paginator?: React.Node | null,
 |};
 
 type InternalProps = {|
@@ -24,13 +27,13 @@ type InternalProps = {|
 |};
 
 export class SearchResultsBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     count: 0,
     filters: {},
     results: [],
   };
 
-  render() {
+  render(): React.Node {
     const { count, filters, i18n, loading, paginator, results } = this.props;
     const { query } = filters;
 

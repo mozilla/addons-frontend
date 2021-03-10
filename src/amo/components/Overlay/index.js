@@ -6,17 +6,22 @@ import { compose } from 'redux';
 import keydown, { Keys } from 'react-keydown';
 
 import withUIState from 'amo/withUIState';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 
 import './styles.scss';
 
 const { ESC } = Keys;
 
+type DefaultProps = {|
+  visibleOnLoad?: boolean,
+|};
+
 type Props = {|
+  ...DefaultProps,
   className?: string,
-  children: React.Element<any>,
+  children: React.Node,
   id: string,
   onEscapeOverlay?: () => void,
-  visibleOnLoad?: boolean,
 |};
 
 type UIStateType = {|
@@ -29,11 +34,11 @@ type InternalProps = {|
   ...Props,
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
-  keydown: {| event: SyntheticEvent<any> | null |},
+  keydown: {| event: ElementEvent | null |},
 |};
 
 export class OverlayBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     visibleOnLoad: false,
   };
 
@@ -59,7 +64,7 @@ export class OverlayBase extends React.Component<InternalProps> {
     }
   }
 
-  onClickBackground = (event: SyntheticEvent<any>) => {
+  onClickBackground: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
     if (this.props.onEscapeOverlay) {
       this.props.onEscapeOverlay();
@@ -68,11 +73,11 @@ export class OverlayBase extends React.Component<InternalProps> {
     this.hide();
   };
 
-  hide = () => {
+  hide: () => void = () => {
     this.props.setUIState({ visible: false });
   };
 
-  render() {
+  render(): React.Node {
     const { children, className, id, uiState } = this.props;
 
     invariant(children, 'The children property is required');
@@ -95,7 +100,7 @@ export class OverlayBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   return ownProps.id;
 };
 

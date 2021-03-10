@@ -4,18 +4,22 @@ import * as React from 'react';
 
 import './styles.scss';
 
+type DefaultProps = {|
+  minWidth: number,
+|};
+
 type Props = {|
+  ...DefaultProps,
   className?: string,
   width?: number,
-  minWidth: number,
 |};
 
 const possibleWidths = [20, 40, 60, 80, 100];
 
 export default class LoadingText extends React.Component<Props> {
-  static defaultProps = { minWidth: 20 };
+  static defaultProps: DefaultProps = { minWidth: 20 };
 
-  render() {
+  render(): React.Node {
     const { className, minWidth, width } = this.props;
 
     // We start each animation with a slightly different delay so content

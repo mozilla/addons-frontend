@@ -18,7 +18,7 @@ type InternalProps = {|
 |};
 
 export class UnavailableForLegalReasonsBase extends React.Component<InternalProps> {
-  render() {
+  render(): React.Node {
     const { i18n } = this.props;
 
     const paragraphWithLinks = replaceStringsWithJSX({

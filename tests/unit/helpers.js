@@ -1167,7 +1167,7 @@ export const createContextWithFakeRouter = ({
  *   // This is the root of your parent component (an enzyme wrapper object).
  *   root: Object,
  *   // This is the component class you want to simulate.
- *   Component: React.Element<any>,
+ *   Component: React.Node,
  *   // This is the property name for the callback.
  *   propName: string,
  * |};

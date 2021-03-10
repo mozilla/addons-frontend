@@ -423,17 +423,20 @@ export const unsubscribeNotification = ({
   };
 };
 
-export const getUserById = (users: UsersState, userId: UserId) => {
+export const getUserById = (users: UsersState, userId: UserId): UserType => {
   invariant(typeof userId === 'number', 'userId is required');
   return users.byID[userId];
 };
 
-export const getUserByUsername = (users: UsersState, username: string) => {
+export const getUserByUsername = (
+  users: UsersState,
+  username: string,
+): UserType => {
   invariant(username, 'username is required');
   return users.byID[users.byUsername[username.toLowerCase()]];
 };
 
-export const getCurrentUser = (users: UsersState) => {
+export const getCurrentUser = (users: UsersState): UserType | null => {
   if (!users.currentUserID) {
     return null;
   }
@@ -615,7 +618,7 @@ export const getUnsubscribeKey = ({
   hash,
   notification,
   token,
-}: GetUnsubscribeKeyParams) => {
+}: GetUnsubscribeKeyParams): string => {
   invariant(hash, 'hash is required');
   invariant(notification, 'notification is required');
   invariant(token, 'token is required');
@@ -628,7 +631,7 @@ export const isUnsubscribedFor = (
   hash: string,
   notification: string,
   token: string,
-) => {
+): null | boolean | void => {
   return usersState.isUnsubscribedFor[
     getUnsubscribeKey({ hash, notification, token })
   ];

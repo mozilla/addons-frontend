@@ -8,7 +8,7 @@ import './styles.scss';
 
 type Props = {| className?: string |};
 
-export const AppBannerBase = ({ className }: Props) => {
+export const AppBannerBase = ({ className }: Props): React.Node => {
   return (
     <div className={makeClassName('AppBanner', className)}>
       <SiteNotices />

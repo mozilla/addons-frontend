@@ -22,6 +22,7 @@ import DropdownMenu from 'amo/components/DropdownMenu';
 import DropdownMenuItem from 'amo/components/DropdownMenuItem';
 import type { AppState } from 'amo/store';
 import type { ViewContextType } from 'amo/reducers/viewContext';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterHistoryType } from 'amo/types/router';
@@ -30,28 +31,40 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
+|};
+
+type PropsFromState = {|
   clientApp: string,
-  dispatch: DispatchFunc,
-  i18n: I18nType,
-  history: ReactRouterHistoryType,
   viewContext: ViewContextType,
 |};
 
-type InternalProps = { ...Props };
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  i18n: I18nType,
+  history: ReactRouterHistoryType,
+|};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
-  setClientApp = (event: Object) => {
+  setClientApp: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
     const { dispatch, history } = this.props;
 
     const clientApp = event.currentTarget.getAttribute('data-clientapp');
+    const href = event.currentTarget.getAttribute('href');
 
-    dispatch(setClientApp(clientApp));
-    history.push(event.currentTarget.getAttribute('href'));
+    if (clientApp) {
+      dispatch(setClientApp(clientApp));
+    }
+
+    if (href) {
+      history.push(href);
+    }
   };
 
-  render() {
+  render(): React.Node {
     const { className, clientApp, i18n, viewContext } = this.props;
     const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(
       viewContext,
@@ -171,7 +184,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+function mapStateToProps(state: AppState): PropsFromState {
   return {
     clientApp: state.api.clientApp,
     viewContext: state.viewContext.context,

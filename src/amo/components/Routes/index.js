@@ -40,7 +40,7 @@ type Props = {|
 |};
 
 // If you add a new route here, check the nginx rules maintained by ops.
-const Routes = ({ _config = config }: Props = {}) => (
+const Routes = ({ _config = config }: Props = {}): React.Node => (
   <Switch>
     <Route exact path="/:lang/about" component={About} />
     {/* TODO: Post launch update this URL and redirect see #3374/ */}

@@ -17,17 +17,22 @@ import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 
 import './styles.scss';
 
+type DefaultProps = {|
+  editing?: boolean,
+  loading?: boolean,
+  // When loading, this is the number of placeholders
+  // that will be rendered.
+  placeholderCount: number,
+  showPromotedBadge?: boolean,
+  useThemePlaceholder?: boolean,
+|};
+
 type Props = {|
+  ...DefaultProps,
   addonInstallSource?: string,
   addons?: $ReadOnlyArray<AddonType | CollectionAddonType> | null,
   children?: React.Node,
   className?: string,
-  editing?: boolean,
-  loading?: boolean,
-  useThemePlaceholder?: boolean,
-  // When loading, this is the number of placeholders
-  // that will be rendered.
-  placeholderCount: number,
   type?: 'horizontal' | 'vertical',
   showFullSizePreview?: boolean,
   showMetadata?: boolean,
@@ -51,7 +56,7 @@ type Props = {|
 |};
 
 export default class AddonsCard extends React.Component<Props> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     editing: false,
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,
@@ -59,7 +64,7 @@ export default class AddonsCard extends React.Component<Props> {
     useThemePlaceholder: false,
   };
 
-  render() {
+  render(): React.Node {
     const {
       addonInstallSource,
       addons,

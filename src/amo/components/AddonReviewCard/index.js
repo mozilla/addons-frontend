@@ -35,27 +35,23 @@ import LoadingText from 'amo/components/LoadingText';
 import UserReview from 'amo/components/UserReview';
 import Notice from 'amo/components/Notice';
 import type { UserReviewType } from 'amo/actions/reviews';
+import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { AddonType } from 'amo/types/addons';
-import type { DispatchFunc } from 'amo/types/redux';
-import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 
-type Props = {|
-  addon?: AddonType | null,
-  className?: string,
+type DefaultProps = {|
   flaggable?: boolean,
-  isReplyToReviewId?: number,
-  review?: UserReviewType | null,
   shortByLine?: boolean,
   showControls?: boolean,
   showRating?: boolean,
-  siteUserCanReply: ?boolean,
   // When true, this renders things *bigger* because the container is
   // more slim than usual, like the Rate Your Experience card.
   //
@@ -64,24 +60,37 @@ type Props = {|
   slim?: boolean,
 |};
 
-type InternalProps = {|
-  ...Props,
+type Props = {|
+  ...DefaultProps,
+  addon?: AddonType | null,
+  className?: string,
+  isReplyToReviewId?: number,
+  review?: UserReviewType | null,
+  siteUserCanReply: ?boolean,
+|};
+
+type PropsFromState = {|
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
-  dispatch: DispatchFunc,
   editingReview: boolean,
-  errorHandler: ErrorHandlerType,
   hasUsersEditPermission: boolean,
-  i18n: I18nType,
   replyingToReview: boolean,
   siteUser: UserType | null,
   siteUserCanManageReplies: boolean,
   submittingReply: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
   location: ReactRouterLocationType,
 |};
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     flaggable: true,
     shortByLine: false,
     showControls: true,
@@ -89,7 +98,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     slim: false,
   };
 
-  onBeginDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+  onBeginDeleteReview: HTMLElementEventHandler = (event: ElementEvent) => {
     const { dispatch, review } = this.props;
     event.preventDefault();
 
@@ -97,7 +106,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(beginDeleteAddonReview({ reviewId: review.id }));
   };
 
-  onCancelDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+  onCancelDeleteReview: HTMLElementEventHandler = (event: ElementEvent) => {
     const { dispatch, review } = this.props;
     event.preventDefault();
 
@@ -105,7 +114,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(cancelDeleteAddonReview({ reviewId: review.id }));
   };
 
-  onClickToDeleteReview = (event: SyntheticEvent<HTMLElement>) => {
+  onClickToDeleteReview: HTMLElementEventHandler = (event: ElementEvent) => {
     const { dispatch, errorHandler, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
@@ -120,7 +129,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   };
 
-  onClickToEditReview = (event: SyntheticEvent<any>) => {
+  onClickToEditReview: HTMLElementEventHandler = (event: ElementEvent) => {
     const { dispatch, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
@@ -135,14 +144,16 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     }
   };
 
-  onCancelEditReview = () => {
+  onCancelEditReview: () => void = () => {
     const { dispatch, review } = this.props;
     invariant(review, 'review is required');
 
     dispatch(hideEditReviewForm({ reviewId: review.id }));
   };
 
-  onClickToBeginReviewReply = (event: SyntheticEvent<any>) => {
+  onClickToBeginReviewReply: HTMLElementEventHandler = (
+    event: ElementEvent,
+  ) => {
     event.preventDefault();
     const { dispatch, review } = this.props;
     if (!review) {
@@ -152,7 +163,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(showReplyToReviewForm({ reviewId: review.id }));
   };
 
-  onDismissReviewReply = () => {
+  onDismissReviewReply: () => void = () => {
     const { dispatch, review } = this.props;
     if (!review) {
       log.debug('Cannot hide review form because no review has been loaded.');
@@ -161,7 +172,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     dispatch(hideReplyToReviewForm({ reviewId: review.id }));
   };
 
-  onSubmitReviewReply = (reviewData: OnSubmitParams) => {
+  onSubmitReviewReply: (reviewData: OnSubmitParams) => void = (
+    reviewData: OnSubmitParams,
+  ) => {
     const { dispatch, errorHandler, review } = this.props;
     if (!review) {
       throw new Error(
@@ -178,13 +191,13 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   };
 
-  isRatingOnly() {
+  isRatingOnly(): boolean {
     const { review } = this.props;
     // Return true if this review does not have any text.
-    return review && !review.body;
+    return Boolean(review && !review.body);
   }
 
-  isReply() {
+  isReply(): boolean {
     const { isReplyToReviewId, review } = this.props;
     return (
       isReplyToReviewId !== undefined ||
@@ -192,7 +205,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   }
 
-  editPrompt() {
+  editPrompt(): string {
     const { i18n } = this.props;
 
     if (this.isReply()) {
@@ -202,7 +215,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Edit review');
   }
 
-  deletePrompt() {
+  deletePrompt(): string {
     const { i18n } = this.props;
 
     if (this.isReply()) {
@@ -216,7 +229,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Delete review');
   }
 
-  confirmDeletePrompt() {
+  confirmDeletePrompt(): string {
     const { i18n } = this.props;
 
     if (this.isReply()) {
@@ -230,7 +243,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Do you really want to delete this review?');
   }
 
-  confirmDeleteButtonText() {
+  confirmDeleteButtonText(): string {
     const { i18n, slim } = this.props;
 
     if (!slim) {
@@ -248,7 +261,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Delete review');
   }
 
-  cancelDeleteButtonText() {
+  cancelDeleteButtonText(): string {
     const { i18n, slim } = this.props;
 
     if (!slim) {
@@ -266,7 +279,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Keep review');
   }
 
-  renderReply() {
+  renderReply(): null | React.Node {
     const {
       addon,
       errorHandler,
@@ -325,7 +338,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const {
       beginningToDeleteReview,
       className,
@@ -590,7 +603,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: Props) {
+function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
   let beginningToDeleteReview = false;
   let deletingReview = false;
   let editingReview = false;

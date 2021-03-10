@@ -44,12 +44,16 @@ type Props = {|
   |},
 |};
 
+type PropsFromState = {|
+  isUnsubscribed: boolean | null | void,
+|};
+
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  isUnsubscribed: boolean,
 |};
 
 export class UsersUnsubscribeBase extends React.Component<InternalProps> {
@@ -71,7 +75,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const { errorHandler, i18n, isUnsubscribed, match } = this.props;
     const { token, notificationName } = match.params;
 
@@ -156,14 +160,14 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props): string => {
   const { match } = ownProps;
   const { hash, notificationName, token } = match.params;
 
   return getUnsubscribeKey({ hash, notification: notificationName, token });
 };
 
-const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { hash, notificationName, token } = ownProps.match.params;
 
   return {

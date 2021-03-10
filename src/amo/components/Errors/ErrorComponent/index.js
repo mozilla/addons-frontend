@@ -12,11 +12,11 @@ type Props = {|
   children: React.Node,
   className?: string,
   code: 400 | 401 | 404 | 451 | 500,
-  header: React.Element<any> | string,
+  header: React.Node | string,
 |};
 
 export default class ErrorComponent extends React.Component<Props> {
-  render() {
+  render(): React.Node {
     const { children, className, code, header } = this.props;
     const validCodes = [400, 401, 404, 451, 500];
 

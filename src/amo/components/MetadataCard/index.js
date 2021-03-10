@@ -12,7 +12,7 @@ type Props = {|
   metadata: Array<Object>,
 |};
 
-const MetadataCard = ({ className, metadata }: Props) => {
+const MetadataCard = ({ className, metadata }: Props): React.Node => {
   invariant(metadata, 'The metadata property is required');
 
   return (

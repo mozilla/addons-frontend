@@ -1,5 +1,5 @@
 /* @flow */
-/* global Event, window */
+/* global window */
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -12,13 +12,14 @@ import translate from 'amo/i18n/translate';
 import Button from 'amo/components/Button';
 import Icon from 'amo/components/Icon';
 import log from 'amo/logger';
+import type { ButtonType } from 'amo/components/Button';
 import type { AppState } from 'amo/store';
 import type { ApiState } from 'amo/reducers/api';
 import type { UserType } from 'amo/reducers/users';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
+import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterLocationType } from 'amo/types/router';
-import type { I18nType } from 'amo/types/i18n';
-import type { ButtonType } from 'amo/components/Button';
 
 type HandleLogInFunc = (
   location: ReactRouterLocationType,
@@ -27,17 +28,21 @@ type HandleLogInFunc = (
 
 type HandleLogOutFunction = ({| api: ApiState |}) => Promise<void>;
 
-type Props = {|
+type DefaultProps = {|
   buttonType?: ButtonType,
+  noIcon?: boolean,
+|};
+
+type Props = {|
+  ...DefaultProps,
   className?: string,
   handleLogIn?: HandleLogInFunc,
   handleLogOut?: HandleLogOutFunction,
   logInText?: string,
   logOutText?: string,
-  noIcon?: boolean,
 |};
 
-type StateMappedProps = {|
+type PropsFromState = {|
   api: ApiState,
   handleLogIn: HandleLogInFunc,
   siteIsReadOnly: boolean,
@@ -46,18 +51,18 @@ type StateMappedProps = {|
 
 type InternalProps = {|
   ...Props,
-  ...StateMappedProps,
+  ...PropsFromState,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
 
 export class AuthenticateButtonBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     buttonType: 'action',
     noIcon: false,
   };
 
-  onClick = (event: Event) => {
+  onClick: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
     event.stopPropagation();
     const { api, handleLogIn, handleLogOut, location, siteUser } = this.props;
@@ -71,7 +76,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
     }
   };
 
-  render() {
+  render(): React.Node {
     const {
       buttonType,
       className,
@@ -117,7 +122,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
 export const mapStateToProps = (
   state: AppState,
   ownProps: Props,
-): StateMappedProps => {
+): PropsFromState => {
   const defaultHandleLogIn = (location, { _window = window } = {}) => {
     // eslint-disable-next-line no-param-reassign
     _window.location = startLoginUrl({ location });

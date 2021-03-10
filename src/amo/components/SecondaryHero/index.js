@@ -11,6 +11,7 @@ import type {
   HeroCallToActionType,
   SecondaryHeroShelfType,
 } from 'amo/reducers/home';
+import type { AnchorEvent } from 'amo/types/dom';
 
 import './styles.scss';
 
@@ -40,7 +41,7 @@ export const SecondaryHeroBase = ({
   _stripLangFromAmoUrl = stripLangFromAmoUrl,
   _tracking = tracking,
   shelfData,
-}: InternalProps) => {
+}: InternalProps): null | React.Node => {
   if (shelfData === null) {
     // No data was returned for the secondary shelf from the API.
     return null;
@@ -49,7 +50,7 @@ export const SecondaryHeroBase = ({
   const { headline, description, cta } = shelfData || {};
   const modules = (shelfData && shelfData.modules) || Array(3).fill({});
 
-  const onHeroClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
+  const onHeroClick = (event: AnchorEvent) => {
     _tracking.sendEvent({
       action: SECONDARY_HERO_CLICK_ACTION,
       category: SECONDARY_HERO_CLICK_CATEGORY,

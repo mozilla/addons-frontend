@@ -368,7 +368,7 @@ type Action =
 export default function addonsReducer(
   state: AddonsState = initialState,
   action: Action,
-) {
+): AddonsState {
   switch (action.type) {
     case SET_LANG:
       return {

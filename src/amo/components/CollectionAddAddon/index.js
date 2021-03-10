@@ -44,23 +44,31 @@ export type Props = {|
   filters: CollectionFilters,
 |};
 
-type InternalProps = {|
-  ...Props,
-  clearTimeout: Function,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
+export type DefaultProps = {|
+  clearTimeout: (TimeoutID) => void,
+  setTimeout: (Function, delay?: number) => TimeoutID | void,
+|};
+
+export type PropsFromState = {|
   hasAddonBeenAdded: boolean,
   hasAddonBeenRemoved: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...DefaultProps,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  setTimeout: Function,
   setUIState: (state: $Shape<UIStateType>) => void,
   uiState: UIStateType,
 |};
 
 export class CollectionAddAddonBase extends React.Component<InternalProps> {
-  timeout: TimeoutID;
+  timeout: TimeoutID | void;
 
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     setTimeout:
       typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
     clearTimeout:
@@ -107,7 +115,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
     this.resetMessages();
   }
 
-  resetMessages = () => {
+  resetMessages: () => void = () => {
     this.props.setUIState({
       addonAction: null,
     });
@@ -116,7 +124,9 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
     }
   };
 
-  onAddonSelected = (suggestion: SuggestionType) => {
+  onAddonSelected: (suggestion: SuggestionType) => void = (
+    suggestion: SuggestionType,
+  ) => {
     const { collection, dispatch, errorHandler, filters } = this.props;
     const { addonId } = suggestion;
 
@@ -137,7 +147,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
     this.resetMessages();
   };
 
-  render() {
+  render(): React.Node {
     const { collection, errorHandler, i18n, uiState } = this.props;
 
     const { addonAction } = uiState;
@@ -178,12 +188,12 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
   }
 }
 
-export const extractId = (props: Props) => {
+export const extractId = (props: Props): string => {
   const { collection } = props;
   return `collection${collection ? collection.id : ''}`;
 };
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     hasAddonBeenAdded: state.collections.hasAddonBeenAdded,
     hasAddonBeenRemoved: state.collections.hasAddonBeenRemoved,

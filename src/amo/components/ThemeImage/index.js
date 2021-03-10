@@ -24,7 +24,7 @@ export const ThemeImageBase = ({
   addon,
   i18n,
   roundedCorners = false,
-}: InternalProps) => {
+}: InternalProps): null | React.Node => {
   if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
     const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
       title: addon.name,

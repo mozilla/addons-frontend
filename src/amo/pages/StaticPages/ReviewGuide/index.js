@@ -11,7 +11,7 @@ type Props = {|
 |};
 
 export class ReviewGuideBase extends React.Component<Props> {
-  render() {
+  render(): React.Node {
     const { i18n } = this.props;
 
     return (
@@ -165,4 +165,4 @@ export class ReviewGuideBase extends React.Component<Props> {
   }
 }
 
-export default translate()(ReviewGuideBase);
+export default (translate()(ReviewGuideBase): React.ComponentType<Props>);

@@ -22,7 +22,7 @@ const DropdownMenuItem = ({
   title,
   detached = false,
   disabled = false,
-}: Props) => {
+}: Props): React.Node => {
   const childIsComponent = typeof children === 'object';
   const _classNames = makeClassName(
     'DropdownMenuItem',

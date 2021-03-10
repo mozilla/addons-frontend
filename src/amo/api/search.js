@@ -10,6 +10,8 @@ import {
 } from 'amo/searchUtils';
 import log from 'amo/logger';
 import type { ApiState } from 'amo/reducers/api';
+import type { ExternalAddonType } from 'amo/types/addons';
+import type { PaginatedApiResponse } from 'amo/types/api';
 
 // See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#search
 export type SearchFilters = {|
@@ -39,7 +41,7 @@ export function search({
   api,
   auth = false,
   filters = {},
-}: SearchParams) {
+}: SearchParams): Promise<PaginatedApiResponse<ExternalAddonType>> {
   const newFilters = addVersionCompatibilityToFilters({
     filters: _fixFiltersForClientApp({ api, filters }),
     userAgentInfo: api.userAgentInfo,

@@ -31,3 +31,5 @@ export type LocalizedUrlWithOutgoing = {|
   outgoing: LocalizedString,
   url: LocalizedString,
 |};
+
+export type QueryParams = { [param: string]: string | null };

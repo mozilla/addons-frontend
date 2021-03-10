@@ -16,25 +16,29 @@ import './styles.scss';
 
 type Props = {||};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   addonName: string | null,
-  dispatch: DispatchFunc,
-  i18n: I18nType,
   imageURL: string | null,
   show: boolean,
 |};
 
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  i18n: I18nType,
+|};
+
 export class InfoDialogBase extends React.Component<InternalProps> {
-  closeInfoDialog = () => {
+  closeInfoDialog: () => void = () => {
     this.props.dispatch(closeInfoDialog());
   };
 
-  handleClickOutside = () => {
+  handleClickOutside: () => void = () => {
     this.closeInfoDialog();
   };
 
-  render() {
+  render(): null | React.Node {
     const { addonName, i18n, imageURL, show } = this.props;
 
     if (!show) {
@@ -92,7 +96,7 @@ export class InfoDialogBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   const { data, show } = state.infoDialog;
 
   return {

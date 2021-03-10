@@ -41,7 +41,7 @@ export const IconPromotedBadgeBase = ({
   i18n,
   showAlt = false,
   size,
-}: InternalProps) => {
+}: InternalProps): React.Node => {
   const altTexts = {
     line: i18n.gettext('By Firefox'),
     recommended: i18n.gettext('Recommended'),

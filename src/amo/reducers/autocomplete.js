@@ -14,7 +14,7 @@ export const AUTOCOMPLETE_CANCELLED: 'AUTOCOMPLETE_CANCELLED' =
   'AUTOCOMPLETE_CANCELLED';
 
 // See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#autocomplete
-type ExternalSuggestion = {|
+export type ExternalSuggestion = {|
   icon_url: string,
   id: number,
   name: LocalizedString,

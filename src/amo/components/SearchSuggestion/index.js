@@ -19,10 +19,14 @@ type Props = {|
   suggestion: SuggestionType,
 |};
 
+type PropsFromState = {|
+  clientApp: string,
+|};
+
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   _getPromotedCategory: typeof getPromotedCategory,
-  clientApp: string,
 |};
 
 export const SearchSuggestionBase = ({
@@ -31,7 +35,7 @@ export const SearchSuggestionBase = ({
   clientApp,
   loading,
   suggestion,
-}: InternalProps) => {
+}: InternalProps): React.Node => {
   const { iconUrl, name, type } = suggestion;
 
   const promotedCategory = _getPromotedCategory({
@@ -65,7 +69,7 @@ export const SearchSuggestionBase = ({
   );
 };
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     clientApp: state.api.clientApp,
   };

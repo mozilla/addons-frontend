@@ -11,7 +11,11 @@ import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import createLocalState, { LocalState } from 'amo/localState';
 import Button from 'amo/components/Button';
-import type { ElementEvent } from 'amo/types/dom';
+import type {
+  ElementEvent,
+  HTMLElementEventHandler,
+  TypedElementEvent,
+} from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -22,23 +26,29 @@ type State = {|
 |};
 
 export type OnSubmitParams = {|
-  event: SyntheticEvent<any>,
+  event: ElementEvent,
   text: $PropertyType<State, 'text'>,
 |};
 
+type DefaultProps = {|
+  _createLocalState?: typeof createLocalState,
+  _debounce?: typeof debounce,
+  isSubmitting?: boolean,
+  microButtons?: boolean,
+  puffyButtons?: boolean,
+  reverseButtonOrder?: boolean,
+|};
+
 type Props = {|
+  ...DefaultProps,
   className?: string,
   dismissButtonText?: string,
-  formFooter?: React.Element<any>,
+  formFooter?: React.Node,
   id: string,
   onDelete?: null | (() => void),
   onDismiss?: () => void,
   onSubmit: (params: OnSubmitParams) => void,
-  isSubmitting?: boolean,
-  microButtons?: boolean,
   placeholder?: string,
-  puffyButtons?: boolean,
-  reverseButtonOrder?: boolean,
   submitButtonClassName?: string,
   submitButtonText?: string,
   submitButtonInProgressText?: string,
@@ -70,7 +80,7 @@ export class DismissibleTextFormBase extends React.Component<
 
   textarea: React.ElementRef<typeof Textarea>;
 
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     _createLocalState: createLocalState,
     _debounce: debounce,
     isSubmitting: false,
@@ -100,7 +110,7 @@ export class DismissibleTextFormBase extends React.Component<
     }
   }
 
-  createLocalState() {
+  createLocalState(): LocalState {
     const { _createLocalState, id } = this.props;
     return _createLocalState(id);
   }
@@ -117,7 +127,7 @@ export class DismissibleTextFormBase extends React.Component<
     }
   }
 
-  onDelete = (event: SyntheticEvent<any>) => {
+  onDelete: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
     invariant(this.props.onDelete, 'onDelete() is not defined');
@@ -125,7 +135,7 @@ export class DismissibleTextFormBase extends React.Component<
     this.localState.clear();
   };
 
-  onDismiss = (event: SyntheticEvent<any>) => {
+  onDismiss: HTMLElementEventHandler = (event: ElementEvent) => {
     const { onDismiss } = this.props;
     event.preventDefault();
     invariant(onDismiss, 'onDismiss() is required');
@@ -135,13 +145,13 @@ export class DismissibleTextFormBase extends React.Component<
     this.localState.clear();
   };
 
-  onSubmit = (event: SyntheticEvent<any>) => {
+  onSubmit: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
     this.props.onSubmit({ event, text: this.state.text });
     this.localState.clear();
   };
 
-  persistState = this.props._debounce(
+  persistState: typeof debounce = this.props._debounce(
     (state) => {
       // After a few keystrokes, save the text to a local store
       // so we can recover from crashes.
@@ -151,7 +161,9 @@ export class DismissibleTextFormBase extends React.Component<
     { trailing: true },
   );
 
-  onTextChange = (event: ElementEvent<HTMLInputElement>) => {
+  onTextChange: (event: TypedElementEvent<HTMLInputElement>) => void = (
+    event: TypedElementEvent<HTMLInputElement>,
+  ) => {
     event.preventDefault();
 
     const newState = { text: event.target.value };
@@ -159,7 +171,7 @@ export class DismissibleTextFormBase extends React.Component<
     this.persistState(newState);
   };
 
-  render() {
+  render(): React.Node {
     const {
       className,
       dismissButtonText,

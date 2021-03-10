@@ -27,10 +27,14 @@ type Props = {|
   showWrongPlatformWarning?: boolean,
 |};
 
+type PropsFromState = {|
+  clientApp: string,
+|};
+
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   _log: typeof log,
-  clientApp: string,
   location: ReactRouterLocationType,
 |};
 
@@ -42,7 +46,7 @@ export const PageBase = ({
   isHomePage = false,
   location,
   showWrongPlatformWarning = true,
-}: InternalProps) => {
+}: InternalProps): React.Node => {
   let errorContent;
   if (errorHandler && errorHandler.hasError()) {
     // 401 and 403 for an add-on lookup is made to look like a 404 on purpose.
@@ -97,7 +101,7 @@ export const PageBase = ({
   );
 };
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     clientApp: state.api.clientApp,
   };

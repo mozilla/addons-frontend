@@ -72,7 +72,7 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
   generateHostPermissions({
     permissions,
     messageType,
-  }: GenerateHostPermissionsParams): Array<React.Element<typeof Permission>> {
+  }: GenerateHostPermissionsParams): Array<React.Node> {
     const hostPermissions = [];
     for (const item of permissions) {
       // Add individual Permission components for the first 4 host permissions.
@@ -87,7 +87,7 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
     return hostPermissions;
   }
 
-  render() {
+  render(): React.Node {
     const { permissions } = this.props;
     const hostPermissions = [];
 

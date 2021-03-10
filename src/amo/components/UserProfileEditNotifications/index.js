@@ -15,7 +15,7 @@ import './styles.scss';
 
 type CreateNotificationParams = {|
   enabled: boolean,
-  label: React.Element<typeof LoadingText> | string | null,
+  label: React.Node | string | null,
   mandatory: boolean,
   name: string,
   onChange?: Function,
@@ -27,7 +27,7 @@ const createNotification = ({
   mandatory,
   name,
   onChange,
-}: CreateNotificationParams): React.Element<any> | null => {
+}: CreateNotificationParams): React.Node | null => {
   if (!label) {
     log.warn(oneLine`Not rendering notification "${name}" because there is no
       corresponding label.`);
@@ -72,7 +72,7 @@ export const UserProfileEditNotificationsBase = ({
   i18n,
   onChange,
   user,
-}: InternalProps) => {
+}: InternalProps): React.Node => {
   let notifications = [];
   if (!user || !user.notifications) {
     for (let i = 0; i < 2; i++) {

@@ -62,6 +62,7 @@ import type {
   UserReviewType,
 } from 'amo/actions/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
+import type { UserId } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
@@ -74,8 +75,8 @@ export function reviewListURL({
   addonSlug: string,
   id?: number,
   location?: ReactRouterLocationType,
-  score?: number | string,
-|}) {
+  score?: number | string | null,
+|}): string {
   invariant(addonSlug, 'addonSlug is required');
   const path = `/addon/${addonSlug}/reviews/${id ? `${id}/` : ''}`;
 
@@ -115,7 +116,7 @@ type ReviewsByAddon = {
 };
 
 type ReviewsByUserId = {
-  [userId: number]: ?StoredReviewsData,
+  [userId: UserId]: ?StoredReviewsData,
 };
 
 export type FlagState = {
@@ -134,12 +135,14 @@ type ViewStateByReviewId = {|
   submittingReply: boolean,
 |};
 
+type ReviewPermissions = {|
+  loading: boolean,
+  canReplyToReviews: boolean | null,
+|};
+
 export type ReviewsState = {|
   permissions: {
-    [addonIdAndUserId: string]: {|
-      loading: boolean,
-      canReplyToReviews: boolean | null,
-    |} | void,
+    [addonIdAndUserId: string]: ReviewPermissions | void,
   },
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
@@ -206,7 +209,7 @@ function makePermissionsKey({
   userId,
 }: {|
   addonId: number,
-  userId: number,
+  userId: UserId,
 |}) {
   return `${addonId}-${userId}`;
 }
@@ -218,8 +221,8 @@ export function selectReviewPermissions({
 }: {|
   reviewsState: ReviewsState,
   addonId: number,
-  userId: number,
-|}) {
+  userId: UserId,
+|}): ReviewPermissions | void {
   return reviewsState.permissions[makePermissionsKey({ addonId, userId })];
 }
 
@@ -299,7 +302,7 @@ export const changeViewState = ({
 
 export const getReviewsByUserId = (
   reviewsState: ReviewsState,
-  userId: number,
+  userId: UserId,
 ): ReviewsData | null => {
   const storedReviewsData = reviewsState.byUserId[userId];
 
@@ -319,9 +322,9 @@ export const makeLatestUserReviewKey = ({
   userId,
   addonId,
 }: {|
-  userId: number,
+  userId: UserId,
   addonId: number,
-|}) => {
+|}): string => {
   return `user-${userId}/addon-${addonId}`;
 };
 
@@ -331,7 +334,7 @@ export const selectLatestUserReview = ({
   addonId,
 }: {|
   reviewsState: ReviewsState,
-  userId: number,
+  userId: UserId,
   addonId: number,
 |}): UserReviewType | null | void => {
   const key = makeLatestUserReviewKey({ userId, addonId });
@@ -355,7 +358,7 @@ export const addReviewToState = ({
 }: {|
   state: ReviewsState,
   review: UserReviewType,
-|}) => {
+|}): ReviewsState => {
   const existingReview = selectReview(state, review.id);
   const ratingOrReviewExists = Boolean(existingReview);
 
@@ -432,7 +435,7 @@ export default function reviewsReducer(
   {
     _addReviewToState = addReviewToState,
   }: {| _addReviewToState: typeof addReviewToState |} = {},
-) {
+): ReviewsState {
   switch (action.type) {
     case BEGIN_DELETE_ADDON_REVIEW:
       return changeViewState({

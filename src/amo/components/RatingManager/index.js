@@ -32,13 +32,14 @@ import log from 'amo/logger';
 import { sanitizeHTML } from 'amo/utils';
 import { genericType, successType } from 'amo/components/Notice';
 import UserRating from 'amo/components/UserRating';
+import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
+import type { UserId } from 'amo/reducers/users';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
-import type { ErrorHandlerType } from 'amo/types/errorHandler';
-import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
-import type { DispatchFunc } from 'amo/types/redux';
 import type { AddonType } from 'amo/types/addons';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 
@@ -47,17 +48,21 @@ type Props = {|
   version: AddonVersionType,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
-  dispatch: DispatchFunc,
   editingReview: boolean,
-  errorHandler: ErrorHandlerType,
   flashMessage?: FlashMessageType | void,
-  i18n: I18nType,
-  userId: number,
+  userId: UserId | null,
   userReview?: UserReviewType | null,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
 |};
 
 export class RatingManagerBase extends React.Component<InternalProps> {
@@ -81,7 +86,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     }
   }
 
-  onSelectRating = (score: number) => {
+  onSelectRating: (score: number) => void = (score: number) => {
     const { addon, dispatch, errorHandler, userReview, version } = this.props;
 
     if (userReview) {
@@ -111,7 +116,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     }: {|
       validAddonTypes: typeof defaultValidAddonTypes,
     |} = {},
-  ) {
+  ): string {
     const { i18n } = this.props;
     switch (addonType) {
       case ADDON_TYPE_DICT:
@@ -134,11 +139,11 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     }
   }
 
-  isSignedIn() {
+  isSignedIn(): boolean {
     return Boolean(this.props.userId);
   }
 
-  renderLogInToRate() {
+  renderLogInToRate(): React.Node {
     const { addon } = this.props;
 
     return (
@@ -150,13 +155,13 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     );
   }
 
-  isMessageVisible() {
+  isMessageVisible(): boolean {
     const { flashMessage } = this.props;
 
     return [STARTED_SAVE_RATING, SAVED_RATING].includes(flashMessage);
   }
 
-  renderUserRatingForm() {
+  renderUserRatingForm(): React.Node {
     const {
       addon,
       beginningToDeleteReview,
@@ -235,7 +240,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { addon, editingReview, userReview, version } = this.props;
 
     invariant(addon, 'addon is required');
@@ -263,7 +268,10 @@ export class RatingManagerBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): PropsFromState => {
   const userId = state.users.currentUserID;
   let userReview;
   if (userId && ownProps.addon) {
@@ -301,7 +309,9 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   };
 };
 
-export const RatingManagerWithI18n = translate()(RatingManagerBase);
+export const RatingManagerWithI18n: React.ComponentType<Props> = translate()(
+  RatingManagerBase,
+);
 
 const RatingManager: React.ComponentType<Props> = compose(
   withRenderedErrorHandler({ name: 'RatingManager' }),

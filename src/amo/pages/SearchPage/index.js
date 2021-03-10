@@ -25,12 +25,16 @@ type Props = {|
   location: ReactRouterLocationType,
 |};
 
-type InternalProps = {|
-  ...Props,
+type PropsFromState = {|
   clientApp: string,
-  dispatch: DispatchFunc,
   filters: SearchFilters,
   lang: string,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
 |};
 
 export class SearchPageBase extends React.Component<InternalProps> {
@@ -82,7 +86,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const { filters } = this.props;
 
     return (
@@ -97,7 +101,10 @@ export class SearchPageBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+export function mapStateToProps(
+  state: AppState,
+  ownProps: InternalProps,
+): PropsFromState {
   const { location } = ownProps;
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);

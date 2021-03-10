@@ -7,6 +7,7 @@ import translate from 'amo/i18n/translate';
 import Button from 'amo/components/Button';
 import type { I18nType } from 'amo/types/i18n';
 import type { ButtonType } from 'amo/components/Button';
+import type { HTMLElementEventHandler } from 'amo/types/dom';
 
 import './styles.scss';
 
@@ -17,8 +18,8 @@ export type Props = {|
   confirmButtonText?: string | null,
   confirmButtonType?: ButtonType,
   message?: string,
-  onCancel: (event: SyntheticEvent<HTMLButtonElement>) => void,
-  onConfirm: (event: SyntheticEvent<HTMLButtonElement>) => void,
+  onCancel: HTMLElementEventHandler,
+  onConfirm: HTMLElementEventHandler,
   puffyButtons?: boolean,
 |};
 
@@ -38,7 +39,7 @@ export const ConfirmationDialogBase = ({
   onConfirm,
   message,
   puffyButtons,
-}: InternalProps) => {
+}: InternalProps): React.Node => {
   return (
     <div className={makeClassName('ConfirmationDialog', className)}>
       {message && <span className="ConfirmationDialog-message">{message}</span>}

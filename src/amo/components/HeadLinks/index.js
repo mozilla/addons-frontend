@@ -9,26 +9,34 @@ import { getCanonicalURL } from 'amo/utils';
 import { hrefLangs } from 'amo/languages';
 import type { AppState } from 'amo/store';
 
+type DefaultProps = {|
+  _config: typeof config,
+  _hrefLangs: typeof hrefLangs,
+|};
+
 type Props = {|
   queryString?: string,
 |};
 
-type InternalProps = {|
-  ...Props,
-  _config: typeof config,
-  _hrefLangs: typeof hrefLangs,
+type PropsFromState = {|
   currentURL: string,
   lang: string,
   locationPathname: string,
 |};
 
+type InternalProps = {|
+  ...Props,
+  ...DefaultProps,
+  ...PropsFromState,
+|};
+
 export class HeadLinksBase extends React.PureComponent<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     _config: config,
     _hrefLangs: hrefLangs,
   };
 
-  render() {
+  render(): React.Node {
     const {
       _config,
       _hrefLangs,
@@ -75,7 +83,7 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   const { lang } = state.api;
   const { pathname, search } = state.router.location;
 

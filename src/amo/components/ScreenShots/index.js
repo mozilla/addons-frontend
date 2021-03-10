@@ -26,7 +26,7 @@ type Props = {|
 export default class ScreenShots extends React.Component<Props> {
   viewport: HTMLElement | null;
 
-  onOpenPhotoswipe = (photoswipe: Object) => {
+  onOpenPhotoswipe: (photoswipe: Object) => void = (photoswipe: Object) => {
     invariant(this.viewport, 'viewport ref is required');
 
     const list = this.viewport.querySelector('.ScreenShots-list');
@@ -44,7 +44,7 @@ export default class ScreenShots extends React.Component<Props> {
     });
   };
 
-  render() {
+  render(): React.Node {
     const { previews } = this.props;
 
     return (

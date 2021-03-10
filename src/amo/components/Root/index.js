@@ -26,7 +26,7 @@ const Root = ({
   i18n,
   store,
   cookies = null,
-}: Props) => (
+}: Props): React.Node => (
   <I18nProvider i18n={i18n}>
     <Provider store={store} key="provider">
       <ConnectedRouter history={history}>

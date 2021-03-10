@@ -69,7 +69,7 @@ export type UserReviewType = {|
   isLatest: boolean,
   score: number | null,
   reply: UserReviewType | null,
-  userId: number,
+  userId: UserId,
   userName: string,
   userUrl: string,
   versionId: number | null,
@@ -226,7 +226,7 @@ export function fetchReviewPermissions({
 
 type SetReviewPermissionsParams = {|
   addonId: number,
-  userId: number,
+  userId: UserId,
   canReplyToReviews: boolean,
 |};
 
@@ -280,7 +280,7 @@ export function updateRatingCounts({
 type FetchLatestUserReviewParams = {|
   addonId: number,
   errorHandlerId: string,
-  userId: number,
+  userId: UserId,
 |};
 
 export type FetchLatestUserReviewAction = {|
@@ -312,7 +312,7 @@ export type FetchUserReviewsAction = {|
   payload: {|
     errorHandlerId: string,
     page: string,
-    userId: number,
+    userId: UserId,
   |},
 |};
 
@@ -323,7 +323,7 @@ export function fetchUserReviews({
 }: {|
   errorHandlerId: string,
   page?: string,
-  userId: number,
+  userId: UserId,
 |}): FetchUserReviewsAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
@@ -342,7 +342,7 @@ type SetUserReviewsParams = {|
   pageSize: string,
   reviewCount: number,
   reviews: Array<ExternalReviewType>,
-  userId: number,
+  userId: UserId,
 |};
 
 export type SetUserReviewsAction = {|
@@ -601,7 +601,7 @@ export const setReviewWasFlagged = ({
 type SetLatestReviewParams = {|
   addonId: number,
   review: ExternalReviewType | null,
-  userId: number,
+  userId: UserId,
 |};
 
 export type SetLatestReviewAction = {|
@@ -643,7 +643,7 @@ export const createAddonReview = ({
   errorHandlerId,
   score,
   versionId,
-}: CreateAddonReviewParams) => {
+}: CreateAddonReviewParams): CreateAddonReviewAction => {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(score, 'score is required');
@@ -672,7 +672,7 @@ export const updateAddonReview = ({
   errorHandlerId,
   score,
   reviewId,
-}: UpdateAddonReviewParams) => {
+}: UpdateAddonReviewParams): UpdateAddonReviewAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');
 
@@ -738,7 +738,7 @@ export const deleteAddonReview = ({
   errorHandlerId,
   isReplyToReviewId,
   reviewId,
-}: DeleteAddonReviewParams) => {
+}: DeleteAddonReviewParams): DeleteAddonReviewAction => {
   invariant(addonId, 'addonId is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');

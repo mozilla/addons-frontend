@@ -28,18 +28,22 @@ type Props = {|
   user?: UserType | null,
 |};
 
-type InternalProps = {|
-  ...Props,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
+type PropsFromState = {|
   hasSubmitted: boolean,
-  i18n: I18nType,
   isSubmitting: boolean,
   uiVisible: boolean,
 |};
 
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
+|};
+
 export class ReportUserAbuseBase extends React.Component<InternalProps> {
-  hideReportUI = () => {
+  hideReportUI: () => void = () => {
     const { dispatch, user } = this.props;
 
     if (user) {
@@ -47,7 +51,9 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
     }
   };
 
-  sendReport = (reportData: OnSubmitParams) => {
+  sendReport: (reportData: OnSubmitParams) => void = (
+    reportData: OnSubmitParams,
+  ) => {
     const { dispatch, errorHandler, user } = this.props;
 
     if (user) {
@@ -61,7 +67,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
     }
   };
 
-  showReportUI = () => {
+  showReportUI: () => void = () => {
     const { dispatch, user } = this.props;
 
     if (user) {
@@ -69,7 +75,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
     }
   };
 
-  render() {
+  render(): React.Node {
     const {
       className,
       errorHandler,
@@ -173,7 +179,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const abuseReport =
     ownProps.user && state.userAbuseReports.byUserId[ownProps.user.id]
       ? state.userAbuseReports.byUserId[ownProps.user.id]

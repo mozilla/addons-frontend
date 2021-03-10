@@ -37,7 +37,17 @@ import type { ReactRouterLocationType } from 'amo/types/router';
 
 import './styles.scss';
 
+type DefaultProps = {|
+  pageParam: string,
+  paginate: boolean,
+  showMore?: boolean,
+  // AddonsCard accepts these props which are drilled in.
+  showSummary?: boolean,
+  type?: 'horizontal' | 'vertical',
+|};
+
 type Props = {|
+  ...DefaultProps,
   addonType?: string,
   authorDisplayName: string | null,
   authorIds: Array<number> | null,
@@ -45,23 +55,20 @@ type Props = {|
   errorHandler?: ErrorHandlerType,
   forAddonSlug?: string,
   numberOfAddons: number,
-  pageParam: string,
-  paginate: boolean,
   pathname?: string,
-  showMore?: boolean,
+|};
 
-  // AddonsCard accepts these props which are drilled in.
-  showSummary?: boolean,
-  type?: 'horizontal' | 'vertical',
+type PropsFromState = {|
+  addons: Array<AddonType> | null,
+  count: number | null,
+  loading: boolean | null,
 |};
 
 type InternalProps = {|
   ...Props,
-  addons: Array<AddonType> | null,
-  count: number | null,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   i18n: I18nType,
-  loading: boolean | null,
   location: ReactRouterLocationType,
 |};
 
@@ -78,7 +85,7 @@ type FiltersForPagination = {|
 |};
 
 export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     pageParam: 'page',
     paginate: false,
     showMore: true,
@@ -209,7 +216,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): null | React.Node {
     const {
       addonType,
       addons,
@@ -378,10 +385,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (
-  state: AppState,
-  ownProps: Props,
-): $Shape<InternalProps> => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addonType, authorIds, forAddonSlug, numberOfAddons } = ownProps;
 
   let addons = null;

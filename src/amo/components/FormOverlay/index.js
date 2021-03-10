@@ -9,19 +9,24 @@ import translate from 'amo/i18n/translate';
 import Button from 'amo/components/Button';
 import IconXMark from 'amo/components/IconXMark';
 import type { AppState } from 'amo/store';
+import type { ElementEvent, HTMLElementEventHandler } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 
+type PropsFromState = {|
+  isOpen: boolean,
+  isSubmitting: boolean,
+|};
+
 type Props = {|
+  ...PropsFromState,
   children?: React.Node,
   className?: string,
   dispatch: DispatchFunc,
   i18n: I18nType,
   id: string,
-  isOpen: boolean,
-  isSubmitting: boolean,
   onCancel?: Function,
   onSubmit?: Function,
   submitText?: string,
@@ -30,33 +35,28 @@ type Props = {|
 |};
 
 export class FormOverlayBase extends React.Component<Props> {
-  static defaultProps = {
-    isOpen: false,
-    isSubmitting: false,
-  };
-
-  closeOverlay(event: SyntheticEvent<any>) {
+  closeOverlay(event: ElementEvent) {
     const { id, dispatch } = this.props;
     event.preventDefault();
     event.stopPropagation();
     dispatch(closeFormOverlay(id));
   }
 
-  onClickBackground = (event: SyntheticEvent<any>) => {
+  onClickBackground: HTMLElementEventHandler = (event: ElementEvent) => {
     this.closeOverlay(event);
   };
 
-  onClickExIcon = (event: SyntheticEvent<any>) => {
+  onClickExIcon: HTMLElementEventHandler = (event: ElementEvent) => {
     this.closeOverlay(event);
   };
 
-  onClickOverlay = (event: SyntheticEvent<any>) => {
+  onClickOverlay: HTMLElementEventHandler = (event: ElementEvent) => {
     // Prevent the click event from propagating to parent elements.
     // This stops the overlay from closing when clicking inside it.
     event.stopPropagation();
   };
 
-  onCancel = (event: SyntheticEvent<any>) => {
+  onCancel: HTMLElementEventHandler = (event: ElementEvent) => {
     const { onCancel } = this.props;
     if (onCancel) {
       onCancel();
@@ -64,7 +64,7 @@ export class FormOverlayBase extends React.Component<Props> {
     this.closeOverlay(event);
   };
 
-  onSubmit = (event: SyntheticEvent<any>) => {
+  onSubmit: HTMLElementEventHandler = (event: ElementEvent) => {
     const { onSubmit } = this.props;
     event.preventDefault();
     event.stopPropagation();
@@ -73,7 +73,7 @@ export class FormOverlayBase extends React.Component<Props> {
     }
   };
 
-  render() {
+  render(): null | React.Node {
     const {
       children,
       className,
@@ -153,11 +153,14 @@ export class FormOverlayBase extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const overlayState = state.formOverlay[ownProps.id];
 
   if (!overlayState) {
-    return {};
+    return {
+      isOpen: false,
+      isSubmitting: false,
+    };
   }
 
   return {

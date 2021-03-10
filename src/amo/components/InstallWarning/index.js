@@ -30,17 +30,25 @@ type Props = {|
   addon: AddonType,
 |};
 
+type PropsFromState = {|
+  clientApp: string,
+  lang: string,
+  userAgentInfo: UserAgentInfoType,
+|};
+
+type DefaultProps = {|
+  _correctedLocationForPlatform: typeof correctedLocationForPlatform,
+  _getPromotedCategory: typeof getPromotedCategory,
+|};
+
 type InternalProps = {|
   ...Props,
-  _correctedLocationForPlatform: typeof correctedLocationForPlatform,
-  _couldShowWarning?: () => boolean,
-  _getPromotedCategory: typeof getPromotedCategory,
-  clientApp: string,
+  ...PropsFromState,
+  ...DefaultProps,
+  _couldShowWarning: () => boolean,
   className?: string,
   i18n: I18nType,
-  lang: string,
   location: ReactRouterLocationType,
-  userAgentInfo: UserAgentInfoType,
 |};
 
 export const VARIANT_INCLUDE_WARNING_PROPOSED = 'includeWarning-proposed';
@@ -49,12 +57,12 @@ const WARNING_LINK_DESTINATION = getPromotedBadgesLinkUrl({
 });
 
 export class InstallWarningBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
     _getPromotedCategory: getPromotedCategory,
   };
 
-  couldShowWarning = () => {
+  couldShowWarning: () => boolean = () => {
     const {
       _correctedLocationForPlatform,
       _couldShowWarning,
@@ -89,7 +97,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
             !EXCLUDE_WARNING_CATEGORIES.includes(promotedCategory));
   };
 
-  render() {
+  render(): null | React.Node {
     const { className, i18n } = this.props;
 
     if (this.couldShowWarning()) {
@@ -111,7 +119,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     clientApp: state.api.clientApp,
     lang: state.api.lang,

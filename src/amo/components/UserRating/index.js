@@ -11,7 +11,6 @@ import type { UserReviewType } from 'amo/actions/reviews';
 
 type Props = {|
   className?: string,
-  isOwner?: boolean,
   onSelectRating?: (rating: number) => any,
   readOnly?: boolean,
   review?: UserReviewType | null,
@@ -19,7 +18,16 @@ type Props = {|
   styleSize?: $Keys<typeof RATING_STYLE_SIZE_TYPES>,
 |};
 
-export const UserRatingBase = (props: Props) => {
+type PropsFromState = {|
+  isOwner?: boolean,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+|};
+
+export const UserRatingBase = (props: InternalProps): React.Node => {
   const {
     className,
     isOwner,
@@ -41,7 +49,7 @@ export const UserRatingBase = (props: Props) => {
   );
 };
 
-const mapStateToProps = (state: AppState, ownProps: Props) => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { review } = ownProps;
   const siteUser = getCurrentUser(state.users);
 

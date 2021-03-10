@@ -69,7 +69,10 @@ export function makeProgressHandler({
   dispatch,
   guid,
   type,
-}: MakeProgressHandlerParams) {
+}: MakeProgressHandlerParams): (
+  addonInstall: AddonInstallType,
+  event: EventType,
+) => void {
   return (addonInstall: AddonInstallType, event: EventType) => {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
@@ -138,13 +141,21 @@ type WithInstallHelpersProps = {|
   version?: AddonVersionType | null,
 |};
 
-type WithInstallHelpersInternalProps = {|
-  ...WithInstallHelpersProps,
+type WithInstallHelpersPropsFromState = {|
   WrappedComponent: React.ComponentType<any>,
+  currentVersion: AddonVersionType | null,
+|};
+
+type WithInstallHelpersDefaultProps = {|
   _addonManager: typeof addonManager,
   _log: typeof log,
   _tracking: typeof tracking,
-  currentVersion: AddonVersionType | null,
+|};
+
+type WithInstallHelpersInternalProps = {|
+  ...WithInstallHelpersProps,
+  ...WithInstallHelpersPropsFromState,
+  ...WithInstallHelpersDefaultProps,
   dispatch: DispatchFunc,
 |};
 
@@ -169,7 +180,7 @@ export type WithInstallHelpersInjectedProps = {|
 |};
 
 export class WithInstallHelpers extends React.Component<WithInstallHelpersInternalProps> {
-  static defaultProps = {
+  static defaultProps: WithInstallHelpersDefaultProps = {
     _addonManager: addonManager,
     _log: log,
     _tracking: tracking,
@@ -189,7 +200,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     }
   }
 
-  async isAddonEnabled() {
+  async isAddonEnabled(): Promise<boolean> {
     const { _addonManager, _log, addon } = this.props;
 
     if (!addon) {
@@ -212,7 +223,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     return false;
   }
 
-  setCurrentStatus() {
+  setCurrentStatus(): Promise<void> {
     const { _addonManager, _log, addon, currentVersion, dispatch } = this.props;
 
     if (!_addonManager.hasAddonManager()) {
@@ -279,7 +290,9 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       });
   }
 
-  enable({ sendTrackingEvent }: EnableParams = { sendTrackingEvent: true }) {
+  enable(
+    { sendTrackingEvent }: EnableParams = { sendTrackingEvent: true },
+  ): Promise<void> {
     const { _addonManager, _log, _tracking, dispatch, addon } = this.props;
 
     if (!addon) {
@@ -322,7 +335,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       });
   }
 
-  install() {
+  install(): Promise<void> {
     const {
       _addonManager,
       _log,
@@ -416,7 +429,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     );
   }
 
-  uninstall({ guid, type }: UninstallParams) {
+  uninstall({ guid, type }: UninstallParams): Promise<void> {
     const { _addonManager, _log, _tracking, dispatch } = this.props;
 
     dispatch(setInstallState({ guid, status: UNINSTALLING }));
@@ -438,7 +451,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       });
   }
 
-  render() {
+  render(): React.Node {
     const { WrappedComponent, _addonManager, ...passThroughProps } = this.props;
 
     // Wrapped components will receive these props.
@@ -457,8 +470,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 }
 
 export const withInstallHelpers = (
-  WrappedComponent: React.ComponentType<any>,
-) => {
+  WrappedComponent: React.ComponentType<mixed>,
+): React.ComponentType<mixed> => {
   // eslint-disable-next-line react/static-property-placement
   WithInstallHelpers.displayName = `WithInstallHelpers(${getDisplayName(
     WrappedComponent,
@@ -467,7 +480,7 @@ export const withInstallHelpers = (
   const mapStateToProps = (
     state: AppState,
     ownProps: WithInstallHelpersProps,
-  ) => {
+  ): WithInstallHelpersPropsFromState => {
     const { addon } = ownProps;
 
     invariant(typeof addon !== 'undefined', 'addon is required');

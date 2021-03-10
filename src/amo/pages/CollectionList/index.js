@@ -17,6 +17,7 @@ import Card from 'amo/components/Card';
 import CardList from 'amo/components/CardList';
 import UserCollection from 'amo/components/UserCollection';
 import type { CollectionType } from 'amo/reducers/collections';
+import type { UserId } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
@@ -26,15 +27,19 @@ import './styles.scss';
 
 export type Props = {||};
 
+export type PropsFromState = {|
+  collections: Array<CollectionType> | null,
+  currentUserId: UserId | null,
+  isLoggedIn: boolean,
+  loadingUserCollections: boolean,
+|};
+
 export type InternalProps = {|
   ...Props,
-  collections: Array<CollectionType> | null,
-  currentUserId: number | null,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  isLoggedIn: boolean,
-  loadingUserCollections: boolean,
 |};
 
 export class CollectionListBase extends React.Component<InternalProps> {
@@ -57,7 +62,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
     }
   }
 
-  renderCollections() {
+  renderCollections(): React.Node {
     const { i18n, collections } = this.props;
     const noCollectionsText = i18n.gettext('You do not have any collections.');
 
@@ -102,7 +107,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
     );
   }
 
-  render() {
+  render(): React.Node {
     const { i18n, isLoggedIn } = this.props;
 
     return (
@@ -144,7 +149,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   const { collections, users } = state;
 
   const currentUser = getCurrentUser(users);
@@ -164,7 +169,7 @@ export const mapStateToProps = (state: AppState) => {
   };
 };
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): UserId | string => {
   const { currentUserId } = ownProps;
   return currentUserId || '';
 };

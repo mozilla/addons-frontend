@@ -29,7 +29,7 @@ import type { AddonType } from 'amo/types/addons';
  * See:
  * https://github.com/django/django/blob/0b9f366c60134a0ca2873c156b9c80acb7ffd8b5/django/amo/signing.py#L180
  */
-export function getDjangoBase62() {
+export function getDjangoBase62(): typeof base62 {
   // This is the alphabet used by Django.
   base62.setCharacterSet(
     '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
@@ -37,7 +37,7 @@ export function getDjangoBase62() {
   return base62;
 }
 
-export function getAddonURL(slug: string) {
+export function getAddonURL(slug: string): string {
   return `/addon/${slug}/`;
 }
 
@@ -117,7 +117,7 @@ export const stripLangFromAmoUrl = ({
 }: {
   _checkInternalURL?: typeof checkInternalURL,
   urlString: string,
-}) => {
+}): string => {
   if (_checkInternalURL({ urlString }).isInternal) {
     const parsedUrl = url.parse(urlString, true);
 
@@ -133,7 +133,9 @@ export const stripLangFromAmoUrl = ({
   return urlString;
 };
 
-export function getClientConfig(_config: typeof config) {
+export function getClientConfig(
+  _config: typeof config,
+): { [key: string]: mixed } {
   const clientConfig = {};
   for (const key of _config.get('clientConfigKeys')) {
     clientConfig[key] = _config.get(key);
@@ -141,7 +143,7 @@ export function getClientConfig(_config: typeof config) {
   return clientConfig;
 }
 
-export function convertBoolean(value: any) {
+export function convertBoolean(value: mixed): boolean {
   switch (value) {
     case true:
     case 1:
@@ -160,7 +162,7 @@ export function convertBoolean(value: any) {
  * More complete UA detection for compatibility will take place elsewhere.
  *
  */
-export function getClientApp(userAgentString: string) {
+export function getClientApp(userAgentString: string): string {
   // We are going to return android as the application if it's *any* android browser.
   // whereas the previous behaviour was to only return 'android' for FF Android.
   // This way we are showing more relevant content, and if we prompt for the user to download
@@ -174,7 +176,7 @@ export function getClientApp(userAgentString: string) {
 export function isValidClientApp(
   value: string,
   { _config = config }: {| _config: typeof config |} = {},
-) {
+): boolean {
   return _config.get('validClientApplications').includes(value);
 }
 
@@ -205,7 +207,7 @@ export function nl2br(text: ?string): string {
  * Developer Hub when you hover over the *Some HTML Supported* link under
  * the textarea field.
  */
-export function sanitizeUserHTML(text: ?string) {
+export function sanitizeUserHTML(text: ?string): {| __html: string |} {
   return sanitizeHTML(nl2br(text), [
     'a',
     'abbr',
@@ -229,7 +231,7 @@ export function isAddonAuthor({
 }: {|
   addon: AddonType | null,
   userId: string | number | null,
-|}) {
+|}): boolean {
   if (!addon || !addon.authors || !addon.authors.length || !userId) {
     return false;
   }
@@ -244,7 +246,7 @@ export function isAllowedOrigin(
   {
     allowedOrigins = [config.get('amoCDN')],
   }: {| allowedOrigins?: Array<string> |} = {},
-) {
+): boolean {
   let parsedURL;
   try {
     parsedURL = url.parse(urlString);
@@ -258,21 +260,21 @@ export function isAllowedOrigin(
   );
 }
 
-export function apiAddonTypeIsValid(addonType: string) {
+export function apiAddonTypeIsValid(addonType: string): boolean {
   return Object.prototype.hasOwnProperty.call(
     API_ADDON_TYPES_MAPPING,
     addonType,
   );
 }
 
-export function apiAddonType(addonType: string) {
+export function apiAddonType(addonType: string): string {
   if (!apiAddonTypeIsValid(addonType)) {
     throw new Error(`"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
   }
   return API_ADDON_TYPES_MAPPING[addonType];
 }
 
-export function visibleAddonType(addonType: string) {
+export function visibleAddonType(addonType: string): string {
   if (
     !Object.prototype.hasOwnProperty.call(
       VISIBLE_ADDON_TYPES_MAPPING,
@@ -284,7 +286,7 @@ export function visibleAddonType(addonType: string) {
   return VISIBLE_ADDON_TYPES_MAPPING[addonType];
 }
 
-export function removeProtocolFromURL(urlWithProtocol: string) {
+export function removeProtocolFromURL(urlWithProtocol: string): string {
   invariant(urlWithProtocol, 'urlWithProtocol is required');
 
   // `//test.com` is a valid, protocol-relative URL which we'll allow.
@@ -294,21 +296,21 @@ export function removeProtocolFromURL(urlWithProtocol: string) {
 export function isValidLocaleUrlException(
   value: string,
   { _config = config }: { _config?: typeof config } = {},
-) {
+): boolean {
   return _config.get('validLocaleUrlExceptions').includes(value);
 }
 
 export function isValidClientAppUrlException(
   value: string,
   { _config = config }: { _config?: typeof config } = {},
-) {
+): boolean {
   return _config.get('validClientAppUrlExceptions').includes(value);
 }
 
 export function isValidTrailingSlashUrlException(
   value: string,
   { _config = config }: { _config?: typeof config } = {},
-) {
+): boolean {
   return _config.get('validTrailingSlashUrlExceptions').includes(value);
 }
 
@@ -319,7 +321,9 @@ export function isValidTrailingSlashUrlException(
  * instead. If the callback runs without an error, its return value is not
  * altered. In other words, it may or may not return a promise and that's ok.
  */
-export const safePromise = (callback: Function) => (...args: any) => {
+export const safePromise = (
+  callback: Function,
+): ((...args: any) => any | Promise<any>) => (...args: any) => {
   try {
     return callback(...args);
   } catch (error) {
@@ -330,7 +334,7 @@ export const safePromise = (callback: Function) => (...args: any) => {
 /*
  * Decodes HTML entities into their respective symbols.
  */
-export const decodeHtmlEntities = (string: string | null) => {
+export const decodeHtmlEntities = (string: string | null): string => {
   return decode(string);
 };
 
@@ -344,7 +348,7 @@ export const decodeHtmlEntities = (string: string | null) => {
  * returns a relative path but `__filename` on the server returns an
  * absolute path.
  */
-export const normalizeFileNameId = (filename: string) => {
+export const normalizeFileNameId = (filename: string): string => {
   let fileId = filename;
   if (!fileId.startsWith('src')) {
     fileId = fileId.replace(/^.*src/, 'src');
@@ -371,6 +375,6 @@ export const addQueryParamsToHistory = ({
   history: typeof history,
   _parse?: typeof parse,
   _stringify?: typeof stringify,
-|}) => {
+|}): typeof qhistory => {
   return qhistory(history, _stringify, _parse);
 };

@@ -26,18 +26,26 @@ import type { OnSubmitParams } from 'amo/components/DismissibleTextForm';
 
 import './styles.scss';
 
-type Props = {|
-  onCancel?: () => void,
+type DefaultProps = {|
   puffyButtons?: boolean,
+|};
+
+type Props = {|
+  ...DefaultProps,
+  onCancel?: () => void,
   review: UserReviewType,
+|};
+
+type PropsFromState = {|
+  flashMessage?: FlashMessageType | void,
 |};
 
 type InternalProps = {|
   ...Props,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  flashMessage?: FlashMessageType | void,
 |};
 
 export const extractId = (props: Props | InternalProps): string => {
@@ -45,11 +53,11 @@ export const extractId = (props: Props | InternalProps): string => {
 };
 
 export class AddonReviewManagerBase extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     puffyButtons: false,
   };
 
-  onSubmitRating = (score: number) => {
+  onSubmitRating: (score: number) => void = (score: number) => {
     const { errorHandler, dispatch, review } = this.props;
 
     dispatch(
@@ -61,7 +69,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     );
   };
 
-  onSubmitReview = ({ text }: OnSubmitParams) => {
+  onSubmitReview: (OnSubmitParams) => void = ({ text }: OnSubmitParams) => {
     const { errorHandler, dispatch, review } = this.props;
 
     dispatch(
@@ -73,7 +81,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     );
   };
 
-  render() {
+  render(): React.Node {
     const {
       errorHandler,
       i18n,
@@ -166,7 +174,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     flashMessage: state.reviews.flashMessage,
   };

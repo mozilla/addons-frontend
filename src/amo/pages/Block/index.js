@@ -30,9 +30,13 @@ type Props = {|
   },
 |};
 
+type PropsFromState = {|
+  block: BlockType | void | null,
+|};
+
 type InternalProps = {|
   ...Props,
-  block: BlockType | void | null,
+  ...PropsFromState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -63,7 +67,7 @@ export class BlockBase extends React.Component<InternalProps> {
     }
   }
 
-  renderReason() {
+  renderReason(): null | React.Node {
     const { block } = this.props;
 
     if (block && block.reason === null) {
@@ -78,14 +82,14 @@ export class BlockBase extends React.Component<InternalProps> {
     );
   }
 
-  renderDateAndURL() {
+  renderDateAndURL(): React.Node | Array<React.Node | string> {
     const { block, i18n } = this.props;
 
     if (!block) {
       return <LoadingText />;
     }
 
-    const content = [
+    const content: Array<React.Node | string> = [
       i18n.sprintf(i18n.gettext('Blocked on %(date)s.'), {
         date: i18n.moment(block.created).format('ll'),
       }),
@@ -104,7 +108,7 @@ export class BlockBase extends React.Component<InternalProps> {
     return content;
   }
 
-  renderVersions() {
+  renderVersions(): React.Node | string {
     const { block, i18n } = this.props;
 
     if (!block) {
@@ -121,7 +125,7 @@ export class BlockBase extends React.Component<InternalProps> {
     });
   }
 
-  render() {
+  render(): React.Node {
     const { block, errorHandler, i18n } = this.props;
 
     if (errorHandler.hasError()) {
@@ -211,7 +215,7 @@ export class BlockBase extends React.Component<InternalProps> {
 const mapStateToProps = (
   state: AppState,
   ownProps: InternalProps,
-): $Shape<InternalProps> => {
+): PropsFromState => {
   const { blocks } = state;
 
   return {
@@ -219,7 +223,7 @@ const mapStateToProps = (
   };
 };
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: InternalProps): string => {
   return ownProps.match.params.guid;
 };
 

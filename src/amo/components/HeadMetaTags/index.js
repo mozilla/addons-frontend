@@ -13,34 +13,42 @@ import type { I18nType } from 'amo/types/i18n';
 
 import defaultImage from './img/default-og-image.png';
 
-export type Props = {|
+export type DefaultProps = {|
+  _config?: typeof config,
   appendDefaultTitle?: boolean,
+  withTwitterMeta?: boolean,
+|};
+
+export type Props = {|
+  ...DefaultProps,
   date?: Date | null,
   description?: string | null,
   image?: string | null,
   lastModified?: string | null,
   queryString?: string,
   title?: string | null,
-  withTwitterMeta?: boolean,
 |};
 
-type InternalProps = {|
-  ...Props,
-  _config: typeof config,
+type PropsFromState = {|
   clientApp: string,
-  i18n: I18nType,
   lang: string,
   locationPathname: string,
 |};
 
+type InternalProps = {|
+  ...Props,
+  ...PropsFromState,
+  i18n: I18nType,
+|};
+
 export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     _config: config,
     appendDefaultTitle: true,
     withTwitterMeta: false,
   };
 
-  getImage() {
+  getImage(): string {
     const { image } = this.props;
 
     if (image) {
@@ -50,7 +58,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return defaultImage;
   }
 
-  getTitle() {
+  getTitle(): string {
     const {
       clientApp,
       i18n,
@@ -82,7 +90,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return i18n.sprintf(i18nTitle, i18nValues);
   }
 
-  renderOpenGraph() {
+  renderOpenGraph(): Array<React.Node> {
     const {
       _config,
       description,
@@ -117,7 +125,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return tags;
   }
 
-  renderTwitter() {
+  renderTwitter(): null | Array<React.Node> {
     if (!this.props.withTwitterMeta) {
       return null;
     }
@@ -134,7 +142,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return tags;
   }
 
-  render() {
+  render(): React.Node {
     const { date, description, lastModified } = this.props;
 
     return (
@@ -149,7 +157,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   const { clientApp, lang } = state.api;
   const { pathname: locationPathname } = state.router.location;
 

@@ -10,7 +10,7 @@ import type { I18nType } from 'amo/types/i18n';
 import './styles.scss';
 
 export type Props = {|
-  children?: React.Element<any> | string,
+  children?: React.Node | string,
   className?: string,
   onSelectRating: ((score: number) => void) | void,
   rating: ?number,
@@ -27,7 +27,7 @@ export const AddonReviewManagerRatingBase = ({
   i18n,
   onSelectRating,
   rating,
-}: InternalProps) => {
+}: InternalProps): React.Node => {
   const readOnly = !onSelectRating;
 
   return (

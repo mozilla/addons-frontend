@@ -2,7 +2,7 @@
 import invariant from 'invariant';
 
 import type { AddonType } from 'amo/types/addons';
-import type { AbuseReporter } from 'amo/api/abuse';
+import type { AbuseReporter, ReportAddonResponse } from 'amo/api/abuse';
 
 export const HIDE_ADDON_ABUSE_REPORT_UI: 'HIDE_ADDON_ABUSE_REPORT_UI' =
   'HIDE_ADDON_ABUSE_REPORT_UI';
@@ -54,26 +54,16 @@ export function hideAddonAbuseReportUI({
   };
 }
 
-type LoadAddonAbuseReportParams = {|
-  addon: {|
-    guid: string,
-    id: number,
-    slug: string,
-  |},
-  message: string | null,
-  reporter: AbuseReporter | null,
-|};
-
 type LoadAddonAbuseReportAction = {|
   type: typeof LOAD_ADDON_ABUSE_REPORT,
-  payload: LoadAddonAbuseReportParams,
+  payload: ReportAddonResponse,
 |};
 
 export function loadAddonAbuseReport({
   addon,
   message,
   reporter,
-}: LoadAddonAbuseReportParams): LoadAddonAbuseReportAction {
+}: ReportAddonResponse): LoadAddonAbuseReportAction {
   invariant(addon, 'addon is required');
   invariant(typeof message !== 'undefined', 'message must be defined');
   invariant(typeof reporter !== 'undefined', 'reporter must be defined');
@@ -167,7 +157,7 @@ type Action =
 export default function abuseReducer(
   state: AbuseState = initialState,
   action: Action,
-) {
+): AbuseState {
   switch (action.type) {
     case HIDE_ADDON_ABUSE_REPORT_UI: {
       const { addon } = action.payload;
