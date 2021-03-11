@@ -560,6 +560,45 @@ describe(__filename, () => {
       expect(users.currentUserWasLoggedOut).toEqual(true);
       mockUsersApi.verify();
     });
+
+    it('sets a X-Accel-Expires header if request is safe & anonymous and response is sucessful', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({ store, sagaMiddleware }).get(
+        '/en-US/firefox/',
+      );
+      // FIXME: somehow not working even though the log.debug says we're good ? (it proves we end up in the right if block...)
+      // That makes the other test results suspicious as long as this is not fixed.
+      expect(response.headers['X-Accel-Expires']).toEqual('180');
+    });
+
+    it('does not set a X-Accel-Expires header if request contained token cookie', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({ store, sagaMiddleware })
+        .get('/en-US/firefox/')
+        .set('cookie', `${defaultConfig.get('cookieName')}="foo"`);
+      expect(response.headers['X-Accel-Expires']).toBeUndefined();
+    });
+
+    it('does not set a X-Accel-Expires header if request method is not read-only', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({ store, sagaMiddleware }).post(
+        '/en-US/firefox/',
+      );
+      expect(response.headers['X-Accel-Expires']).toBeUndefined();
+    });
+
+    it('does not set a X-Accel-Expires header if response is not successful', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({ store, sagaMiddleware }).get(
+        '/en-US/firefox/',
+      );
+      // FIXME: pretend response is not successful (!= 200)
+      expect(response.headers['X-Accel-Expires']).toBeUndefined();
+    });
   });
 
   describe('createHistory', () => {
