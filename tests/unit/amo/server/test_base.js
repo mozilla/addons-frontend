@@ -567,9 +567,7 @@ describe(__filename, () => {
       const response = await testClient({ store, sagaMiddleware }).get(
         '/en-US/firefox/',
       );
-      // FIXME: somehow not working even though the log.debug says we're good ? (it proves we end up in the right if block...)
-      // That makes the other test results suspicious as long as this is not fixed.
-      expect(response.headers['X-Accel-Expires']).toEqual('180');
+      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toEqual('180');
     });
 
     it('does not set a X-Accel-Expires header if request contained token cookie', async () => {
@@ -578,7 +576,7 @@ describe(__filename, () => {
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="foo"`);
-      expect(response.headers['X-Accel-Expires']).toBeUndefined();
+      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toBeUndefined();
     });
 
     it('does not set a X-Accel-Expires header if request method is not read-only', async () => {
@@ -587,18 +585,48 @@ describe(__filename, () => {
       const response = await testClient({ store, sagaMiddleware }).post(
         '/en-US/firefox/',
       );
-      expect(response.headers['X-Accel-Expires']).toBeUndefined();
+      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toBeUndefined();
     });
 
-    it('does not set a X-Accel-Expires header if response is not successful', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+    it('does not set a X-Accel-Expires header if response is 404', async () => {
+      // Component and App setup to generate a 404 stolen from a previous test
+      // above.
+      class NotFound extends React.Component {
+        render() {
+          return (
+            <NestedStatus code={404}>
+              <h1>Not Found</h1>
+            </NestedStatus>
+          );
+        }
+      }
 
-      const response = await testClient({ store, sagaMiddleware }).get(
+      const NotFoundApp = () => (
+        <div>
+          <Route path="*" component={NotFound} />
+        </div>
+      );
+
+      const response = await testClient({ App: NotFoundApp }).get(
+        '/en-US/firefox/simulation-of-a-non-existent-page/',
+      );
+      expect(response.statusCode).toEqual(404);
+      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toBeUndefined();
+    });
+
+    it('does not set a X-Accel-Expires header if response is 500', async () => {
+      const _createHistory = () => {
+        throw new Error('oops');
+      };
+
+      const response = await testClient({ _createHistory }).get(
         '/en-US/firefox/',
       );
-      // FIXME: pretend response is not successful (!= 200)
-      expect(response.headers['X-Accel-Expires']).toBeUndefined();
+      expect(response.statusCode).toEqual(500);
+      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toBeUndefined();
     });
+
+    // FIXME: test redirect as well
   });
 
   describe('createHistory', () => {
