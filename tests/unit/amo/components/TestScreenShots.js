@@ -50,6 +50,7 @@ describe(__filename, () => {
       expect(image).toHaveProp('width', preview.thumbnail_w);
       expect(image).toHaveProp('height', preview.thumbnail_h);
       expect(image).toHaveProp('alt', preview.title);
+      expect(image).toHaveProp('loading', 'lazy');
     });
   });
 
