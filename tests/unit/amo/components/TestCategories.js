@@ -9,7 +9,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
 } from 'amo/constants';
-import { getCategoryResultsLinkTo } from 'amo/utils/categories';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import Button from 'amo/components/Button';
 import LoadingText from 'amo/components/LoadingText';
 import {
@@ -206,9 +206,9 @@ describe(__filename, () => {
       addonType: type,
     });
 
-    expect(root.find(Button).prop('to')).toEqual(
-      getCategoryResultsLinkTo({ addonType: type, slug }),
-    );
+    expect(root.find(Button).prop('to')).toEqual({
+      pathname: getCategoryResultsPathname({ addonType: type, slug }),
+    });
   });
 
   it('sorts and renders the sorted categories', () => {

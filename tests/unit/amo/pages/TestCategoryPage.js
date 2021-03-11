@@ -6,6 +6,8 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RECOMMENDED,
 } from 'amo/constants';
 import { fetchCategories, loadCategories } from 'amo/reducers/categories';
 import { visibleAddonType } from 'amo/utils';
@@ -66,7 +68,7 @@ describe(__filename, () => {
     expect(root.find(Search)).toHaveProp('enableSearchFilters', true);
   });
 
-  it('adds category and addonType to Search filters', () => {
+  it('adds category, addonType and sort to Search filters', () => {
     const category = 'some-category';
     const addonType = ADDON_TYPE_EXTENSION;
 
@@ -80,6 +82,30 @@ describe(__filename, () => {
     expect(root.find(Search).prop('filters')).toEqual({
       addonType,
       category,
+      sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+    });
+  });
+
+  it('does not override an existing sort filter', () => {
+    const category = 'some-category';
+    const addonType = ADDON_TYPE_EXTENSION;
+
+    dispatchClientMetadata({
+      store,
+      search: `?sort=${SEARCH_SORT_POPULAR}`,
+    });
+
+    const root = render({
+      params: {
+        categorySlug: category,
+        visibleAddonType: visibleAddonType(addonType),
+      },
+    });
+
+    expect(root.find(Search).prop('filters')).toEqual({
+      addonType,
+      category,
+      sort: SEARCH_SORT_POPULAR,
     });
   });
 

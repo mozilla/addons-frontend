@@ -12,7 +12,7 @@ import LoadingText from 'amo/components/LoadingText';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { fetchCategories } from 'amo/reducers/categories';
-import { getCategoryResultsLinkTo } from 'amo/utils/categories';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import type { CategoriesState } from 'amo/reducers/categories';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
@@ -148,7 +148,9 @@ export class CategoriesBase extends React.Component<InternalProps> {
                     // "$category-colors".
                     className={`Categories-link
                       Categories--category-color-${(index % 12) + 1}`}
-                    to={getCategoryResultsLinkTo({ addonType, slug })}
+                    to={{
+                      pathname: getCategoryResultsPathname({ addonType, slug }),
+                    }}
                   >
                     {name}
                   </Button>

@@ -6,7 +6,11 @@ import { compose } from 'redux';
 import HeadLinks from 'amo/components/HeadLinks';
 import Page from 'amo/components/Page';
 import Search from 'amo/components/Search';
-import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
+import {
+  ADDON_TYPE_STATIC_THEME,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RECOMMENDED,
+} from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { fetchCategories } from 'amo/reducers/categories';
@@ -79,10 +83,12 @@ export class CategoryPageBase extends React.Component<InternalProps> {
   render(): React.Node {
     const { addonType, categoryName, filters, match } = this.props;
     const { categorySlug } = match.params;
+
     const filtersForSearch = {
       ...filters,
       addonType,
       category: categorySlug,
+      sort: filters.sort || `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
     };
 
     return (

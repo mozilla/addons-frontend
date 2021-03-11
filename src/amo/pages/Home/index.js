@@ -32,7 +32,7 @@ import {
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { fetchHomeData } from 'amo/reducers/home';
-import { getCategoryResultsLinkTo } from 'amo/utils/categories';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 
 import './styles.scss';
 
@@ -176,10 +176,12 @@ export class HomeBase extends React.Component {
         {curatedThemes.map(({ color, slug, title }) => (
           <li className="Home-SubjectShelf-list-item" key={slug}>
             <Link
-              to={getCategoryResultsLinkTo({
-                addonType: ADDON_TYPE_STATIC_THEME,
-                slug,
-              })}
+              to={{
+                pathname: getCategoryResultsPathname({
+                  addonType: ADDON_TYPE_STATIC_THEME,
+                  slug,
+                }),
+              }}
               className="Home-SubjectShelf-link"
             >
               <CategoryIcon name={slug} color={color} />

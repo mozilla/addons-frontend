@@ -33,7 +33,7 @@ import {
   fetchHomeData,
   loadHomeData,
 } from 'amo/reducers/home';
-import { getCategoryResultsLinkTo } from 'amo/utils/categories';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import {
   DEFAULT_LANG_IN_TESTS,
   createAddonsApiResult,
@@ -211,10 +211,12 @@ describe(__filename, () => {
     expectedThemes.forEach((slug) => {
       expect(
         shelf.find({
-          to: getCategoryResultsLinkTo({
-            addonType: ADDON_TYPE_STATIC_THEME,
-            slug,
-          }),
+          to: {
+            pathname: getCategoryResultsPathname({
+              addonType: ADDON_TYPE_STATIC_THEME,
+              slug,
+            }),
+          },
         }),
       ).toHaveLength(1);
     });

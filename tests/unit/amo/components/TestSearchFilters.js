@@ -148,6 +148,7 @@ describe(__filename, () => {
     sinon.assert.calledWithExactly(fakeHistory.push, {
       pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
+        category: 'some-category',
         query: 'Music player',
         sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
       }),
@@ -172,6 +173,7 @@ describe(__filename, () => {
     sinon.assert.calledWithExactly(fakeHistory.push, {
       pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
+        category: 'some-category',
         query: 'Music player',
         sort: SEARCH_SORT_RECOMMENDED,
       }),

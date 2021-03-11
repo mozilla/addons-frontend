@@ -3,9 +3,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION, SEARCH_SORT_TOP_RATED } from 'amo/constants';
+import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import translate from 'amo/i18n/translate';
-import { makeQueryString } from 'amo/api';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import type { AppState } from 'amo/store';
@@ -38,9 +37,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
     dispatch(
       sendServerRedirect({
         status: 301,
-        url: `/${lang}/${clientApp}${pathname}${makeQueryString({
-          sort: SEARCH_SORT_TOP_RATED,
-        })}`,
+        url: `/${lang}/${clientApp}${pathname}`,
       }),
     );
   }
