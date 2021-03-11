@@ -15,9 +15,12 @@ import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
-export const MOZILLA_USER_ID = config.get('mozillaUserId');
+type DefaultProps = {|
+  placeholderCount: number,
+|};
 
 type Props = {|
+  ...DefaultProps,
   loading: boolean,
   placeholderCount: number,
   shelves: Array<ResultShelfType>,
@@ -29,12 +32,14 @@ type InternalProps = {|
 |};
 
 class HomepageShelves extends React.Component<InternalProps> {
-  static defaultProps = {
+  static defaultProps: DefaultProps = {
     placeholderCount: LANDING_PAGE_EXTENSION_COUNT,
   };
 
-  render() {
+  render(): React.Node {
     const { i18n, loading, placeholderCount, shelves } = this.props;
+
+    const MOZILLA_USER_ID = config.get('mozillaUserId');
 
     const homepageShelves: Array<React.Node> = shelves.map((shelf) => {
       const { addons, criteria, endpoint, footer, title } = shelf;
@@ -83,4 +88,6 @@ class HomepageShelves extends React.Component<InternalProps> {
   }
 }
 
-export default translate()(HomepageShelves);
+export default (translate()(
+  HomepageShelves,
+): React.ComponentType<InternalProps>);
