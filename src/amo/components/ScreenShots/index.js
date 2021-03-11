@@ -79,6 +79,7 @@ export default class ScreenShots extends React.Component<Props> {
                       src={preview.thumbnail_src}
                       width={preview.thumbnail_w}
                       height={preview.thumbnail_h}
+                      loading="lazy"
                     />
                   )}
                 </Item>
