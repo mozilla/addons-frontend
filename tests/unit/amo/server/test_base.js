@@ -626,7 +626,49 @@ describe(__filename, () => {
       expect(response.headers['X-Accel-Expires'.toLowerCase()]).toBeUndefined();
     });
 
-    // FIXME: test redirect as well
+    it('sets a X-Accel-Expires header if request is safe & anonymous and response is redirect', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas({
+        reducers: {
+          redirectTo: redirectToReducer,
+        },
+      });
+      const newURL = '/redirect/to/this/url';
+
+      class Redirect extends React.Component {
+        constructor(props) {
+          super(props);
+
+          store.dispatch(
+            sendServerRedirect({
+              status: 301,
+              url: newURL,
+            }),
+          );
+        }
+
+        render() {
+          return <p>a component that requests a server redirect</p>;
+        }
+      }
+
+      const RedirectApp = () => (
+        <div>
+          <Route path="*" component={Redirect} />
+        </div>
+      );
+
+      const client = testClient({
+        App: RedirectApp,
+        sagaMiddleware,
+        store,
+      });
+
+      const response = await client.get(`/en-US/firefox/`);
+
+      expect(response.status).toEqual(301);
+      expect(response.headers.location).toEqual(newURL);
+      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toEqual('180');
+    });
   });
 
   describe('createHistory', () => {
