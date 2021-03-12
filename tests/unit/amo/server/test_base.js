@@ -59,6 +59,25 @@ const StubApp = () => (
   </div>
 );
 
+// This is an example of implementing a NotFound component
+// using NestedStatus which exercises the server's logic for
+// getting the response status code from the rendered component.
+class NotFound extends React.Component {
+  render() {
+    return (
+      <NestedStatus code={404}>
+        <h1>Not Found</h1>
+      </NestedStatus>
+    );
+  }
+}
+
+const NotFoundApp = () => (
+  <div>
+    <Route path="*" component={NotFound} />
+  </div>
+);
+
 const X_ACCEL_EXPIRES_HEADER = 'x-accel-expires'; // Has to be in lowercase
 
 // eslint-disable-next-line jest/no-export
@@ -143,25 +162,6 @@ describe(__filename, () => {
     });
 
     it('returns the status code of NestedStatus', async () => {
-      // This is an example of implementing a NotFound component
-      // using NestedStatus which exercises the server's logic for
-      // getting the response status code from the rendered component.
-      class NotFound extends React.Component {
-        render() {
-          return (
-            <NestedStatus code={404}>
-              <h1>Not Found</h1>
-            </NestedStatus>
-          );
-        }
-      }
-
-      const NotFoundApp = () => (
-        <div>
-          <Route path="*" component={NotFound} />
-        </div>
-      );
-
       const response = await testClient({ App: NotFoundApp }).get(
         '/en-US/firefox/simulation-of-a-non-existent-page/',
       );
@@ -572,7 +572,7 @@ describe(__filename, () => {
       expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
     });
 
-    it('does not set a X-Accel-Expires header if request contained token cookie', async () => {
+    it('does not set a X-Accel-Expires header if request contained authentication cookie', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({ store, sagaMiddleware })
@@ -581,7 +581,7 @@ describe(__filename, () => {
       expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
     });
 
-    it('does not set a X-Accel-Expires header if request method is not read-only', async () => {
+    it('does not set a X-Accel-Expires header if request method is not safe', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({ store, sagaMiddleware }).post(
@@ -591,24 +591,6 @@ describe(__filename, () => {
     });
 
     it('does not set a X-Accel-Expires header if response is 404', async () => {
-      // Component and App setup to generate a 404 stolen from a previous test
-      // above.
-      class NotFound extends React.Component {
-        render() {
-          return (
-            <NestedStatus code={404}>
-              <h1>Not Found</h1>
-            </NestedStatus>
-          );
-        }
-      }
-
-      const NotFoundApp = () => (
-        <div>
-          <Route path="*" component={NotFound} />
-        </div>
-      );
-
       const response = await testClient({ App: NotFoundApp }).get(
         '/en-US/firefox/simulation-of-a-non-existent-page/',
       );
