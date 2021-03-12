@@ -59,6 +59,8 @@ const StubApp = () => (
   </div>
 );
 
+const X_ACCEL_EXPIRES_HEADER = 'x-accel-expires'; // Has to be in lowercase
+
 // eslint-disable-next-line jest/no-export
 export class ServerTestHelper {
   constructor() {
@@ -567,7 +569,7 @@ describe(__filename, () => {
       const response = await testClient({ store, sagaMiddleware }).get(
         '/en-US/firefox/',
       );
-      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toEqual('180');
+      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
     });
 
     it('does not set a X-Accel-Expires header if request contained token cookie', async () => {
@@ -576,7 +578,7 @@ describe(__filename, () => {
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="foo"`);
-      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toBeUndefined();
+      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
     });
 
     it('does not set a X-Accel-Expires header if request method is not read-only', async () => {
@@ -585,7 +587,7 @@ describe(__filename, () => {
       const response = await testClient({ store, sagaMiddleware }).post(
         '/en-US/firefox/',
       );
-      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toBeUndefined();
+      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
     });
 
     it('does not set a X-Accel-Expires header if response is 404', async () => {
@@ -611,7 +613,7 @@ describe(__filename, () => {
         '/en-US/firefox/simulation-of-a-non-existent-page/',
       );
       expect(response.statusCode).toEqual(404);
-      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toBeUndefined();
+      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
     });
 
     it('does not set a X-Accel-Expires header if response is 500', async () => {
@@ -623,7 +625,7 @@ describe(__filename, () => {
         '/en-US/firefox/',
       );
       expect(response.statusCode).toEqual(500);
-      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toBeUndefined();
+      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
     });
 
     it('sets a X-Accel-Expires header if request is safe & anonymous and response is redirect', async () => {
@@ -667,7 +669,7 @@ describe(__filename, () => {
 
       expect(response.status).toEqual(301);
       expect(response.headers.location).toEqual(newURL);
-      expect(response.headers['X-Accel-Expires'.toLowerCase()]).toEqual('180');
+      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
     });
   });
 
