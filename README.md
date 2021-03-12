@@ -304,20 +304,16 @@ NODE_ENV=production NODE_CONFIG_ENV=prod yarn start
 
 #### Running builds locally
 
-**To run the app locally in production mode you'll need to create a config file for local production builds.** It must be saved as `config/local-prod.js` and should look like:
+**To run the app locally in production mode you'll need to create a config file for local production builds.** Production builds can be built for different environments: `dev`, `stage` and `prod` (using the `NODE_CONFIG_ENV` env var) but only one config file is needed for these environments.
+
+The config file must be saved as `config/local.js` and should look like:
 
 ```js
-const amoCDN = 'http://127.0.0.1:4000';
-
 module.exports = {
-  // CDN URL points to the Node server.
-  amoCDN,
-
   // Configure CSP with 'self' since we serve the compiled files from `dist/`.
   CSP: {
     directives: {
       fontSrc: ["'self'"],
-      imgSrc: ["'self'", 'data:', 'https://addons.cdn.mozilla.net'],
       scriptSrc: ["'self'"],
       styleSrc: ["'self'"],
     },
