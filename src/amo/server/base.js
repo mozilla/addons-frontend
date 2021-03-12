@@ -345,6 +345,9 @@ function baseServer(
         _log.debug('Second component render after sagas have finished');
 
         const finalHTML = renderHTML({ props, pageProps, store });
+
+        // We can only call rewind() once, so only peek() to get the status
+        // code from nested component so that we can still call rewind() later.
         const componentDeclaredStatus = NestedStatus.peek();
         const { redirectTo, users } = store.getState();
 
