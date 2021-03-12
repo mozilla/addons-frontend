@@ -1,0 +1,100 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Inter Light'), url('woff2/Inter-Light.woff2') format('woff2'),
+    url('otf/Inter-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Inter Light Italic'),
+    url('woff2/Inter-LightItalic.woff2') format('woff2'),
+    url('otf/Inter-LightItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inter Regular'), url('woff2/Inter-Regular.woff2') format('woff2'),
+    url('otf/Inter-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Inter Regular Italic'),
+    url('woff2/Inter-Italic.woff2') format('woff2'),
+    url('otf/Inter-Italic.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Inter Medium'), url('woff2/Inter-Medium.woff2') format('woff2'),
+    url('otf/Inter-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Inter Medium Italic'),
+    url('woff2/Inter-MediumItalic.woff2') format('woff2'),
+    url('otf/Inter-MediumItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Inter Bold'), url('woff2/Inter-Bold.woff2') format('woff2'),
+    url('otf/Inter-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Inter Bold Italic'),
+    url('woff2/Inter-BoldItalic.woff2') format('woff2'),
+    url('otf/Inter-BoldItalic.otf') format('opentype');
+}
+
+/* -------------------------------------------------------
+Variable font.
+Usage:
+
+  font-family: 'Inter', sans-serif;
+  @supports (font-variation-settings: normal) {
+    font-family: 'Inter Var', sans-serif;
+  }
+*/
+@font-face {
+  font-display: swap;
+  font-family: 'Inter var';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('woff2/Inter-roman.var.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter var';
+  font-style: italic;
+  font-weight: 100 900;
+  src: url('woff2/Inter-italic.var.woff2') format('woff2');
+}
