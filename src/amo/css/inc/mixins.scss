@@ -14,83 +14,45 @@
 }
 
 /* Font mixins. Changes here affect *all* apps */
-@mixin font-light() {
+@mixin font-family-inter() {
   font-family: 'Inter', sans-serif;
   @supports (font-variation-settings: normal) {
     font-family: 'Inter Var', sans-serif;
   }
-
-  font-style: normal;
-  font-weight: 300;
 }
 
-@mixin font-light-italic() {
-  font-family: 'Inter', sans-serif;
-  @supports (font-variation-settings: normal) {
-    font-family: 'Inter Var', sans-serif;
-  }
+@mixin font-light() {
+  @include font-family-inter();
 
   font-style: normal;
   font-weight: 300;
 }
 
 @mixin font-regular() {
-  font-family: 'Inter', sans-serif;
-  @supports (font-variation-settings: normal) {
-    font-family: 'Inter Var', sans-serif;
-  }
+  @include font-family-inter();
 
   font-style: normal;
   font-weight: 400;
 }
 
 @mixin font-regular-italic() {
-  font-family: 'Inter', sans-serif;
-  @supports (font-variation-settings: normal) {
-    font-family: 'Inter Var', sans-serif;
-  }
+  @include font-family-inter();
 
   font-style: italic;
   font-weight: 400;
 }
 
 @mixin font-medium() {
-  font-family: 'Inter', sans-serif;
-  @supports (font-variation-settings: normal) {
-    font-family: 'Inter Var', sans-serif;
-  }
+  @include font-family-inter();
 
   font-style: normal;
-  font-weight: 500;
-}
-
-@mixin font-medium-italic() {
-  font-family: 'Inter', sans-serif;
-  @supports (font-variation-settings: normal) {
-    font-family: 'Inter Var', sans-serif;
-  }
-
-  font-style: italic;
   font-weight: 500;
 }
 
 @mixin font-bold() {
-  font-family: 'Inter', sans-serif;
-  @supports (font-variation-settings: normal) {
-    font-family: 'Inter Var', sans-serif;
-  }
+  @include font-family-inter();
 
   font-style: normal;
-  font-weight: 600;
-}
-
-@mixin font-bold-italic() {
-  font-family: 'Inter', sans-serif;
-  @supports (font-variation-settings: normal) {
-    font-family: 'Inter Var', sans-serif;
-  }
-
-  font-style: italic;
   font-weight: 600;
 }
 
