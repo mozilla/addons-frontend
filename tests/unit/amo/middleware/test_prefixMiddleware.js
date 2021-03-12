@@ -33,6 +33,7 @@ describe(__filename, () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.notCalled(fakeNext);
   });
 
@@ -43,6 +44,7 @@ describe(__filename, () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.notCalled(fakeNext);
   });
 
@@ -53,6 +55,7 @@ describe(__filename, () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever/');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
   it('should prepend a lang when missing but leave a valid app intact', () => {
@@ -62,6 +65,7 @@ describe(__filename, () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.notCalled(fakeRes.vary);
   });
 
@@ -76,6 +80,7 @@ describe(__filename, () => {
       301,
       '/en-US/validprefix/whatever',
     );
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.notCalled(fakeRes.vary);
   });
 
@@ -86,6 +91,7 @@ describe(__filename, () => {
     };
     const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    sinon.assert.notCalled(fakeRes.set);
     sinon.assert.calledWith(statusSpy, 404);
   });
 
@@ -101,6 +107,7 @@ describe(__filename, () => {
       301,
       '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
     );
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
 
@@ -116,6 +123,7 @@ describe(__filename, () => {
       301,
       '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
     );
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
 
@@ -126,6 +134,7 @@ describe(__filename, () => {
     };
     const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    sinon.assert.notCalled(fakeRes.set);
     sinon.assert.calledWith(statusSpy, 404);
   });
 
@@ -136,6 +145,7 @@ describe(__filename, () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/developers/');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.notCalled(fakeRes.vary);
   });
 
@@ -146,6 +156,7 @@ describe(__filename, () => {
     };
     const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    sinon.assert.notCalled(fakeRes.set);
     sinon.assert.calledWith(statusSpy, 404);
   });
 
@@ -158,6 +169,7 @@ describe(__filename, () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-BR/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
 
@@ -168,6 +180,7 @@ describe(__filename, () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-PT/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
   it('should vary on accept-language and user-agent', () => {
@@ -181,6 +194,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeRes.redirect, 301, '/pt-BR/firefox/whatever');
     sinon.assert.calledWith(fakeRes.vary, 'accept-language');
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
   it('should find the app based on ua string', () => {
@@ -194,6 +208,7 @@ describe(__filename, () => {
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/android/whatever');
     sinon.assert.calledWith(fakeRes.vary, 'user-agent');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
   it('should populate res.locals for a valid request', () => {
@@ -248,6 +263,7 @@ describe(__filename, () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/android?foo=2');
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 
   it('should redirect for locale url missing a trailing slash with query params', () => {
@@ -270,5 +286,6 @@ describe(__filename, () => {
       301,
       '/en-US/firefox/foo/bar?test=1&bar=2',
     );
+    sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
   });
 });

@@ -125,13 +125,13 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   if (newURL !== req.originalUrl && !newURL.startsWith('//')) {
     // Collect vary headers to apply to the redirect
     // so we can make it cacheable.
-    // TODO: Make the redirects cacheable by adding expires headers.
     if (isLangFromHeader) {
       res.vary('accept-language');
     }
     if (isApplicationFromHeader) {
       res.vary('user-agent');
     }
+    res.set('Cache-Control', ['max-age=31536000']);
     return res.redirect(301, newURL);
   }
 
