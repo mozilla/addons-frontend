@@ -346,19 +346,6 @@ After this, re-build and restart using `yarn build` and `yarn start` as document
 
 **NOTE**: At this time, it's not possible to sign in using this approach.
 
-### Working with UX Mocks
-
-When implementing user interfaces you will need to refer to the [Sketch](https://www.sketchapp.com/)-based mocks that are hosted on InVision: https://mozilla.invisionapp.com/share/YCCYEOFRH#/screens.
-
-If you need to explore the Sketch source file, you will need a license to run Sketch and you also need to install some fonts (which are free). Install [Inter](https://www.fontsquirrel.com/fonts/inter) and [Chivo](https://www.fontsquirrel.com/fonts/chivo).
-
-On MacOS, you can use the Homebrew tap [Caskroom-fonts](https://github.com/Homebrew/homebrew-cask-fonts):
-
-```
-brew tap homebrew/cask-fonts
-brew cask install font-inter font-chivo
-```
-
 ## What version is deployed?
 
 You can check to see what commit of `addons-frontend` is deployed, which A/B experiments are running, or which feature flags are enabled by making a request like this:
