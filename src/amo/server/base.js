@@ -345,13 +345,13 @@ function baseServer(
         _log.debug('Second component render after sagas have finished');
 
         const finalHTML = renderHTML({ props, pageProps, store });
-
+        const componentDeclaredStatus = NestedStatus.peek();
         const { redirectTo, users } = store.getState();
 
         const isRedirecting = redirectTo && redirectTo.url;
         const responseStatusCode = isRedirecting
           ? redirectTo.status
-          : res.statusCode;
+          : componentDeclaredStatus || res.statusCode;
         if (
           ['GET', 'HEAD'].includes(req.method) &&
           responseStatusCode >= 200 &&
@@ -363,14 +363,14 @@ function baseServer(
           // cookies. nginx config has similar config to only serve cached
           // responses to such requests.
           _log.debug(oneLine`${req.method} -> ${responseStatusCode},
-            anonymous=${!token}:
+            redirecting=${isRedirecting} anonymous=${!token}:
             response should be cached.`);
           // Note that we don't use Cache-Control, which is typically set to
           // no-store above.
           res.set('X-Accel-Expires', '180');
         } else {
           _log.debug(oneLine`${req.method} -> ${responseStatusCode},
-            anonymous=${!token}:
+            redirecting=${isRedirecting} anonymous=${!token}:
             response should *not* be cached.`);
         }
 
