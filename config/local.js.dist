@@ -1,0 +1,17 @@
+// This configuration file is used to build and run production builds locally.
+// More information in the README.md file.
+module.exports = {
+  // Configure CSP with 'self' since we serve the compiled files from `dist/`.
+  CSP: {
+    directives: {
+      fontSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'"],
+    },
+    reportOnly: true,
+  },
+
+  // Serve static via Node.
+  staticHost: undefined,
+  enableNodeStatics: true,
+};
