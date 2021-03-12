@@ -3,6 +3,7 @@ import config from 'config';
 import deepcopy from 'deepcopy';
 
 import log from 'amo/logger';
+import { ONE_YEAR_IN_SECONDS } from 'amo/constants';
 
 export function frameguard({ _config = config } = {}) {
   return helmet.frameguard(_config.get('frameGuard'));
@@ -26,6 +27,6 @@ export function hsts() {
   return helmet.hsts({
     force: true,
     includeSubDomains: false,
-    maxAge: 31536000, // seconds
+    maxAge: ONE_YEAR_IN_SECONDS,
   });
 }

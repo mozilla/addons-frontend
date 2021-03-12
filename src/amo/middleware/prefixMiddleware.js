@@ -8,6 +8,7 @@ import {
   isValidLocaleUrlException,
 } from 'amo/utils';
 import { getLanguage, isValidLang } from 'amo/i18n/utils';
+import { ONE_YEAR_IN_SECONDS } from 'amo/constants';
 import log from 'amo/logger';
 
 export function prefixMiddleware(req, res, next, { _config = config } = {}) {
@@ -131,7 +132,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     if (isApplicationFromHeader) {
       res.vary('user-agent');
     }
-    res.set('Cache-Control', ['max-age=31536000']);
+    res.set('Cache-Control', [`max-age=${ONE_YEAR_IN_SECONDS}`]);
     return res.redirect(301, newURL);
   }
 
