@@ -232,7 +232,7 @@ Authentication will work when initiated from addons-frontend and will persist to
 
 If you need to override any settings while running `yarn amo`, `yarn amo:dev`, or `yarn amo:stage`, first create a local config file named exactly like this:
 
-    touch config/local-development-amo.js
+    touch config/local-development.js
 
 Make any config changes. For example:
 
