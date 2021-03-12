@@ -304,29 +304,9 @@ NODE_ENV=production NODE_CONFIG_ENV=prod yarn start
 
 #### Running builds locally
 
-**To run the app locally in production mode you'll need to create a config file for local production builds.** Production builds can be built for different environments: `dev`, `stage` and `prod` (using the `NODE_CONFIG_ENV` env var) but only one config file is needed for these environments.
+**To run the app locally in production mode you'll need to create a config file for local production builds.** Production builds can be built for different environments: `dev`, `stage` and `prod` (controlled by the `NODE_CONFIG_ENV` env var), but only one extra config file is needed for these environments to run locally.
 
-The config file must be saved as `config/local.js` and should look like:
-
-```js
-module.exports = {
-  // Configure CSP with 'self' since we serve the compiled files from `dist/`.
-  CSP: {
-    directives: {
-      fontSrc: ["'self'"],
-      scriptSrc: ["'self'"],
-      styleSrc: ["'self'"],
-    },
-    reportOnly: true,
-  },
-
-  // Serve static via Node.
-  staticHost: undefined,
-  enableNodeStatics: true,
-};
-```
-
-After this, re-build and restart using `yarn build` and `yarn start` as documented above. If you have used `127.0.0.1` before with a different configuration, be sure to clear your cookies. The application should be available at: http://127.0.0.1:4000/.
+Rename the file named `config/local.js.dist` to `config/local.js`. After this, re-build and restart using `yarn build` and `yarn start` as documented above. If you have used `127.0.0.1` before with a different configuration, be sure to clear your cookies. The application should be available at: http://127.0.0.1:4000/.
 
 **NOTE**: At this time, it's not possible to sign in using this approach.
 
