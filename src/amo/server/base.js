@@ -260,6 +260,8 @@ function baseServer(
         store.dispatch(setRequestId(thisRequestId));
       }
 
+      const token = req.universalCookies.get(config.get('cookieName'));
+
       try {
         let sagas = appSagas;
         if (!sagas) {
@@ -270,18 +272,15 @@ function baseServer(
 
         if (isAnonymousPage) {
           store.dispatch(loadedPageIsAnonymous());
-        } else {
+        } else if (token) {
           // TODO: synchronize cookies with Redux store more automatically.
           // See https://github.com/mozilla/addons-frontend/issues/5617
-          const token = req.universalCookies.get(config.get('cookieName'));
-          if (token) {
-            store.dispatch(setAuthToken(token));
-          } else {
-            // We only need to do this without a token because the user login
-            // saga already sets the site status (the Users API returns site
-            // status in its response).
-            store.dispatch(fetchSiteStatus());
-          }
+          store.dispatch(setAuthToken(token));
+        } else {
+          // We only need to do this without a token because the user login
+          // saga already sets the site status (the Users API returns site
+          // status in its response).
+          store.dispatch(fetchSiteStatus());
         }
 
         pageProps = getPageProps({ store, req, res, config });
@@ -347,10 +346,39 @@ function baseServer(
 
         const finalHTML = renderHTML({ props, pageProps, store });
 
+        // We can only call rewind() once, so only peek() to get the status
+        // code from nested component so that we can still call rewind() later.
+        const componentDeclaredStatus = NestedStatus.peek();
         const { redirectTo, users } = store.getState();
 
+        const isRedirecting = redirectTo && redirectTo.url;
+        const responseStatusCode = isRedirecting
+          ? redirectTo.status
+          : componentDeclaredStatus || res.statusCode;
+        if (
+          ['GET', 'HEAD'].includes(req.method) &&
+          responseStatusCode >= 200 &&
+          responseStatusCode < 400 &&
+          !token
+        ) {
+          // We tell nginx to cache all succesful anonymous responses coming
+          // from "safe" requests: GET/HEAD verb, 20x/30x status, no special
+          // cookies. nginx config has similar config to only serve cached
+          // responses to such requests.
+          _log.debug(oneLine`${req.method} -> ${responseStatusCode},
+            redirecting=${isRedirecting} anonymous=${!token}:
+            response should be cached.`);
+          // Note that we don't use Cache-Control, which is typically set to
+          // no-store above.
+          res.set('X-Accel-Expires', '180');
+        } else {
+          _log.debug(oneLine`${req.method} -> ${responseStatusCode},
+            redirecting=${isRedirecting} anonymous=${!token}:
+            response should *not* be cached.`);
+        }
+
         // A redirection has been requested, let's do it.
-        if (redirectTo && redirectTo.url) {
+        if (isRedirecting) {
           _log.debug(oneLine`Redirection requested:
             url=${redirectTo.url} status=${redirectTo.status}`);
           return res.redirect(redirectTo.status, redirectTo.url);

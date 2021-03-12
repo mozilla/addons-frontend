@@ -59,6 +59,27 @@ const StubApp = () => (
   </div>
 );
 
+// This is an example of implementing a NotFound component
+// using NestedStatus which exercises the server's logic for
+// getting the response status code from the rendered component.
+class NotFound extends React.Component {
+  render() {
+    return (
+      <NestedStatus code={404}>
+        <h1>Not Found</h1>
+      </NestedStatus>
+    );
+  }
+}
+
+const NotFoundApp = () => (
+  <div>
+    <Route path="*" component={NotFound} />
+  </div>
+);
+
+const X_ACCEL_EXPIRES_HEADER = 'x-accel-expires'; // Has to be in lowercase
+
 // eslint-disable-next-line jest/no-export
 export class ServerTestHelper {
   constructor() {
@@ -141,25 +162,6 @@ describe(__filename, () => {
     });
 
     it('returns the status code of NestedStatus', async () => {
-      // This is an example of implementing a NotFound component
-      // using NestedStatus which exercises the server's logic for
-      // getting the response status code from the rendered component.
-      class NotFound extends React.Component {
-        render() {
-          return (
-            <NestedStatus code={404}>
-              <h1>Not Found</h1>
-            </NestedStatus>
-          );
-        }
-      }
-
-      const NotFoundApp = () => (
-        <div>
-          <Route path="*" component={NotFound} />
-        </div>
-      );
-
       const response = await testClient({ App: NotFoundApp }).get(
         '/en-US/firefox/simulation-of-a-non-existent-page/',
       );
@@ -559,6 +561,97 @@ describe(__filename, () => {
       expect(api.token).toEqual(null);
       expect(users.currentUserWasLoggedOut).toEqual(true);
       mockUsersApi.verify();
+    });
+
+    it('sets a X-Accel-Expires header if request is safe & anonymous and response is sucessful', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({ store, sagaMiddleware }).get(
+        '/en-US/firefox/',
+      );
+      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
+    });
+
+    it('does not set a X-Accel-Expires header if request contained authentication cookie', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({ store, sagaMiddleware })
+        .get('/en-US/firefox/')
+        .set('cookie', `${defaultConfig.get('cookieName')}="foo"`);
+      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
+    });
+
+    it('does not set a X-Accel-Expires header if request method is not safe', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({ store, sagaMiddleware }).post(
+        '/en-US/firefox/',
+      );
+      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
+    });
+
+    it('does not set a X-Accel-Expires header if response is 404', async () => {
+      const response = await testClient({ App: NotFoundApp }).get(
+        '/en-US/firefox/simulation-of-a-non-existent-page/',
+      );
+      expect(response.statusCode).toEqual(404);
+      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
+    });
+
+    it('does not set a X-Accel-Expires header if response is 500', async () => {
+      const _createHistory = () => {
+        throw new Error('oops');
+      };
+
+      const response = await testClient({ _createHistory }).get(
+        '/en-US/firefox/',
+      );
+      expect(response.statusCode).toEqual(500);
+      expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
+    });
+
+    it('sets a X-Accel-Expires header if request is safe & anonymous and response is redirect', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas({
+        reducers: {
+          redirectTo: redirectToReducer,
+        },
+      });
+      const newURL = '/redirect/to/this/url';
+
+      class Redirect extends React.Component {
+        constructor(props) {
+          super(props);
+
+          store.dispatch(
+            sendServerRedirect({
+              status: 301,
+              url: newURL,
+            }),
+          );
+        }
+
+        render() {
+          return <p>a component that requests a server redirect</p>;
+        }
+      }
+
+      const RedirectApp = () => (
+        <div>
+          <Route path="*" component={Redirect} />
+        </div>
+      );
+
+      const client = testClient({
+        App: RedirectApp,
+        sagaMiddleware,
+        store,
+      });
+
+      const response = await client.get(`/en-US/firefox/`);
+
+      expect(response.status).toEqual(301);
+      expect(response.headers.location).toEqual(newURL);
+      expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
     });
   });
 
