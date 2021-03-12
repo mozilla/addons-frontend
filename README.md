@@ -302,7 +302,9 @@ NODE_ENV=production NODE_CONFIG_ENV=prod yarn build
 NODE_ENV=production NODE_CONFIG_ENV=prod yarn start
 ```
 
-**Note: To run the app locally in production mode you'll need to create a config file for local production builds.** It must be saved as `config/local-prod-amo.js` and should look like:
+#### Running builds locally
+
+**To run the app locally in production mode you'll need to create a config file for local production builds.** It must be saved as `config/local-prod.js` and should look like:
 
 ```js
 const amoCDN = 'http://127.0.0.1:4000';
