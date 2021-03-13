@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-09 17:58+0000\n"
-"PO-Revision-Date: 2021-03-13 11:10+0000\n"
+"PO-Revision-Date: 2021-03-13 11:16+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1163,7 +1163,7 @@ msgstr "ფაილის ჩამოტვირთვა"
 
 #: src/amo/components/InstallWarning/index.js:100
 msgid "Learn more"
-msgstr "იხილეთ ვრცლად"
+msgstr "ვრცლად"
 
 #: src/amo/components/InstallWarning/index.js:104
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
