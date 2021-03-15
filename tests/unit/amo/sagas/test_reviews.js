@@ -563,7 +563,7 @@ describe(__filename, () => {
 
       const expectedAction = updateRatingCounts({
         addonId,
-        oldReview: null,
+        oldReview: undefined,
         newReview: createInternalReview(submittedReview),
       });
       const action = await sagaTester.waitFor(expectedAction.type);

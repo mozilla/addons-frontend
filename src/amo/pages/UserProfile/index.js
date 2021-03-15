@@ -502,10 +502,9 @@ function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
   let reviews = null;
   let shouldRedirect = false;
   let user = null;
-  let userId;
 
   if (/^\d+$/.test(params.userId)) {
-    userId = Number(params.userId);
+    const userId: UserId = Number(params.userId);
     user = getUserById(state.users, userId) || null;
 
     currentUser = getCurrentUser(state.users);
@@ -519,7 +518,7 @@ function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
 
     reviews = getReviewsByUserId(state.reviews, userId);
   } else {
-    userId = params.userId;
+    const { userId } = params;
     user = getUserByUsername(state.users, userId);
     shouldRedirect = true;
   }

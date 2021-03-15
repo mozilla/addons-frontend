@@ -255,7 +255,7 @@ export function setReviewPermissions({
 
 type UpdateRatingCountsParams = {|
   addonId: number,
-  oldReview: UserReviewType | null,
+  oldReview?: UserReviewType,
   newReview: UserReviewType,
 |};
 
