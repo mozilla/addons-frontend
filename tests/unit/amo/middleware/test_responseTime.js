@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 
-import { datadogTiming } from 'amo/middleware/datadogTiming';
+import { responseTime } from 'amo/middleware/responseTime';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 import { ServerTestHelper } from 'tests/unit/amo/server/test_base';
 
@@ -109,7 +109,7 @@ describe(__filename, () => {
     });
 
     it('configures the client', () => {
-      datadogTiming({ _config, _HotShots: StubHotShots });
+      responseTime({ _config, _HotShots: StubHotShots });
 
       sinon.assert.calledWithMatch(StubHotShots, {
         host: datadogHost,
@@ -118,7 +118,7 @@ describe(__filename, () => {
     });
 
     it('sets up a prefix', () => {
-      datadogTiming({ _config, _HotShots: StubHotShots });
+      responseTime({ _config, _HotShots: StubHotShots });
 
       sinon.assert.calledWithMatch(StubHotShots, {
         prefix: 'addons_frontend.server.',
@@ -127,7 +127,7 @@ describe(__filename, () => {
 
     it('sets up error handling', () => {
       const _log = getFakeLogger();
-      datadogTiming({ _config, _HotShots: StubHotShots, _log });
+      responseTime({ _config, _HotShots: StubHotShots, _log });
 
       const error = new Error('some socket error');
       hotShotsClient.socket.emit('error', error);

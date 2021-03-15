@@ -171,8 +171,7 @@ function baseServer(
     app.use(requestId);
   }
 
-  _log.info('Recording timing stats for all responses');
-  app.use(middleware.datadogTiming({ _config: config, _HotShots }));
+  app.use(middleware.responseTime({ _config: config, _HotShots }));
 
   // Set HTTP Strict Transport Security headers
   app.use(middleware.hsts());

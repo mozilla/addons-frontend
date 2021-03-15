@@ -1,10 +1,10 @@
 import config from 'config';
 import HotShots from 'hot-shots';
-import responseTime from 'response-time';
+import expressResponseTime from 'response-time';
 
 import log from 'amo/logger';
 
-export const datadogTiming = ({
+export const responseTime = ({
   _config = config,
   _log = log,
   _HotShots = HotShots,
@@ -20,7 +20,7 @@ export const datadogTiming = ({
       _log.error(`statsd client socket error: ${error}`);
     });
 
-    return responseTime((req, res, time) => {
+    return expressResponseTime((req, res, time) => {
       // TODO: generate a key based on the rendered component, which I think is
       // in server/base.js -> match() -> renderProps.components
 
@@ -36,7 +36,7 @@ export const datadogTiming = ({
   }
 
   // When there is no host configured, we only log the time.
-  return responseTime((req, res, time) => {
+  return expressResponseTime((req, res, time) => {
     _log.info(`response time: ${time}ms`);
   });
 };
