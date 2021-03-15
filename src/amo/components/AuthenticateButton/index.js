@@ -9,7 +9,8 @@ import { withRouter } from 'react-router-dom';
 import { logOutFromServer, startLoginUrl } from 'amo/api';
 import { getCurrentUser, logOutUser } from 'amo/reducers/users';
 import translate from 'amo/i18n/translate';
-import Button from 'amo/components/Button';
+//import Button from 'amo/components/Button';
+import Link from 'amo/components/Link';
 import Icon from 'amo/components/Icon';
 import log from 'amo/logger';
 import type { ButtonType } from 'amo/components/Button';
@@ -104,6 +105,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
     // https://github.com/mozilla/addons-frontend/issues/1904
     return (
       <Button
+      <Link
         href={`#${siteUser ? 'logout' : 'login'}`}
         buttonType={buttonType}
         className={className}
@@ -115,6 +117,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
         {noIcon ? null : <Icon name="user-dark" />}
         {buttonText}
       </Button>
+      </Link>
     );
   }
 }
