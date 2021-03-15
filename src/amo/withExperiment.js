@@ -52,6 +52,7 @@ export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
 // This is a special variant value that indicates the the user is not enrolled
 // in the experiment.
 export const NOT_IN_EXPERIMENT = 'notInExperiment';
+export const EXPERIMENT_ID_REGEXP: RegExp = /\d{8}_.+/;
 
 export type WithExperimentInjectedProps = {|
   isExperimentEnabled: boolean,
@@ -133,6 +134,10 @@ export const withExperiment = ({
   WrappedComponent: React.ComponentType<any>,
 ) => {
   invariant(defaultId, 'id is required');
+  invariant(
+    EXPERIMENT_ID_REGEXP.test(defaultId),
+    'id must match the pattern YYYYMMDD_experiment_id',
+  );
   invariant(defaultVariants, 'variants is required');
 
   class WithExperiment extends React.Component<withExperimentInternalProps> {

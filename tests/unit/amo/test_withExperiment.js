@@ -21,13 +21,16 @@ describe(__filename, () => {
     }
   }
 
+  const makeId = (id) => `20210219_${id}`;
+
   const renderWithExperiment = ({
     props,
     experimentProps,
     context = fakeCookies(),
   } = {}) => {
+    const id = makeId('some-id');
     const allExperimentProps = {
-      id: 'some-id',
+      id,
       ...experimentProps,
     };
 
@@ -44,7 +47,7 @@ describe(__filename, () => {
     };
 
     const SomeComponent = withExperiment({
-      id: 'some-id',
+      id,
       variants: [
         { id: 'some-variant-a', percentage: 0.5 },
         { id: 'some-variant-b', percentage: 0.5 },
@@ -92,7 +95,7 @@ describe(__filename, () => {
   });
 
   it('creates a cookie upon construction if none has been loaded', () => {
-    const id = 'hero';
+    const id = makeId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
@@ -109,7 +112,7 @@ describe(__filename, () => {
   });
 
   it('calls getVariant to set a value for a cookie upon construction if none has been loaded', () => {
-    const id = 'hero';
+    const id = makeId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
@@ -137,7 +140,7 @@ describe(__filename, () => {
   });
 
   it('sends an enrollment event upon construction if no cookie has been loaded', () => {
-    const id = 'hero';
+    const id = makeId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
@@ -172,7 +175,7 @@ describe(__filename, () => {
   });
 
   it('does not create a cookie upon construction if one has been loaded', () => {
-    const id = 'hero';
+    const id = makeId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(`${id}Experiment`),
     });
@@ -184,7 +187,7 @@ describe(__filename, () => {
   });
 
   it('does not send an enrollment event upon construction if a cookie has been loaded', () => {
-    const id = 'hero';
+    const id = makeId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(`${id}Experiment`),
     });
@@ -200,7 +203,7 @@ describe(__filename, () => {
   });
 
   it('does not send an enrollment event upon construction if the experiment is disabled', () => {
-    const id = 'hero';
+    const id = makeId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
@@ -222,7 +225,7 @@ describe(__filename, () => {
   });
 
   it('allows a custom cookie configuration', () => {
-    const id = 'custom_cookie_config';
+    const id = makeId('custom_cookie_config');
     const cookies = fakeCookies();
     const cookieConfig = { path: '/test' };
 
@@ -247,7 +250,7 @@ describe(__filename, () => {
   });
 
   it('can be disabled by configuration', () => {
-    const id = 'disabled_experiment';
+    const id = makeId('disabled_experiment');
     const cookies = fakeCookies();
     const _config = getFakeConfig({
       experiments: {
@@ -262,7 +265,7 @@ describe(__filename, () => {
   });
 
   it('sets isExperimentEnabled prop to false when experiment is disabled by config', () => {
-    const id = 'disabled_experiment';
+    const id = makeId('disabled_experiment');
     const _config = getFakeConfig({
       experiments: {
         [id]: false,
@@ -283,7 +286,7 @@ describe(__filename, () => {
   });
 
   it('sets isUserInExperiment prop to false when the experiment is disabled', () => {
-    const id = 'disabled_experiment';
+    const id = makeId('disabled_experiment');
     const _config = getFakeConfig({
       experiments: {
         [id]: false,
@@ -302,6 +305,12 @@ describe(__filename, () => {
 
     const root = render({ props: { _config } });
     expect(root).toHaveProp('isExperimentEnabled', false);
+  });
+
+  it('throws an exception for a badly formatted experimentId', () => {
+    expect(() => {
+      render({ experimentProps: { id: 'bad-id' } });
+    }).toThrow(/id must match the pattern YYYYMMDD_experiment_id/);
   });
 
   describe('getVariant', () => {
