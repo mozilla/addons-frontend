@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-09 17:58+0000\n"
-"PO-Revision-Date: 2021-03-15 11:53+0000\n"
+"PO-Revision-Date: 2021-03-15 11:55+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -881,13 +881,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Beklagar, men det oppstod ein feil med tenaren vår, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Prøv å besøkje sida seinare, sidan temaet eller utvidinga kan bli tilgjengeleg igjen. Alternativt kan du finne det du leitar etter i ein av dei tilgjengelege "
-"%(extensionStart)sutvidingane%(extensionEnd)s eller %(themeStart)stema%(themeEnd)s, eller ved å be om hjelp i  %(communityStart)sfelleskapsforuma%(communityEnd)s våre."
+"Du kan kanskje finne det du leitar etter i ein av de tilgjengelege %(extensionStart)sutvidingane%(extensionEnd)s eller %(themeStart)stema%(themeEnd)s, eller ved å be om hjelp i "
+"%(communityStart)sfellesskapsforumet vårt%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
