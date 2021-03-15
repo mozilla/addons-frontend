@@ -114,13 +114,6 @@ describe(__filename, () => {
       sinon.assert.calledWithMatch(StubHotShots, {
         host: datadogHost,
         port: datadogPort,
-      });
-    });
-
-    it('sets up a prefix', () => {
-      responseTime({ _config, _HotShots: StubHotShots });
-
-      sinon.assert.calledWithMatch(StubHotShots, {
         prefix: 'addons_frontend.server.',
       });
     });
