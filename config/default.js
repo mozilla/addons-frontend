@@ -57,10 +57,8 @@ module.exports = {
   serverHost: '127.0.0.1',
   serverPort: 4000,
 
-  // By default, sending stats to DataDog is enabled but the host setting
-  // must also be non-empty.
-  useDatadog: true,
-  // These are set with environment variables.
+  // These are set with environment variables. We do not use datadog anymore
+  // but statsd/influxdb/grafana.
   datadogHost: null,
   datadogPort: null,
 
