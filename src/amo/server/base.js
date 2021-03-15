@@ -171,10 +171,8 @@ function baseServer(
     app.use(requestId);
   }
 
-  if (config.get('useDatadog') && config.get('datadogHost')) {
-    _log.info('Recording DataDog timing stats for all responses');
-    app.use(middleware.datadogTiming({ _HotShots }));
-  }
+  _log.info('Recording timing stats for all responses');
+  app.use(middleware.datadogTiming({ _config: config, _HotShots }));
 
   // Set HTTP Strict Transport Security headers
   app.use(middleware.hsts());

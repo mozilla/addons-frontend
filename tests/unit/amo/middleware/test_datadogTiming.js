@@ -28,10 +28,10 @@ describe(__filename, () => {
 
     const testClient = (params = {}) => {
       const config = getFakeConfig({
-        useDatadog: true,
         datadogHost: 'localhost',
         datadogPort: 1111,
       });
+
       return serverTestHelper.testClient({
         config,
         _HotShots: StubHotShots,
@@ -47,20 +47,8 @@ describe(__filename, () => {
       serverTestHelper.afterEach();
     });
 
-    it('can be disabled explicitly', async () => {
+    it('requires a host to send data', async () => {
       const config = getFakeConfig({
-        useDatadog: false,
-        datadogHost: 'localhost',
-        datadogPort: 1111,
-      });
-      await testClient({ config }).get('/');
-
-      sinon.assert.notCalled(hotShotsClient.timing);
-    });
-
-    it('requires a host even when enabled', async () => {
-      const config = getFakeConfig({
-        useDatadog: true,
         datadogHost: null,
         datadogPort: null,
       });
@@ -112,15 +100,15 @@ describe(__filename, () => {
   });
 
   describe('configuration', () => {
-    it('configures the client', () => {
-      const datadogHost = 'some-datadog-host';
-      const datadogPort = 3333;
+    const datadogHost = 'some-datadog-host';
+    const datadogPort = 3333;
 
-      const _config = getFakeConfig({
-        useDatadog: true,
-        datadogHost,
-        datadogPort,
-      });
+    const _config = getFakeConfig({
+      datadogHost,
+      datadogPort,
+    });
+
+    it('configures the client', () => {
       datadogTiming({ _config, _HotShots: StubHotShots });
 
       sinon.assert.calledWithMatch(StubHotShots, {
@@ -130,7 +118,7 @@ describe(__filename, () => {
     });
 
     it('sets up a prefix', () => {
-      datadogTiming({ _HotShots: StubHotShots });
+      datadogTiming({ _config, _HotShots: StubHotShots });
 
       sinon.assert.calledWithMatch(StubHotShots, {
         prefix: 'addons_frontend.server.',
@@ -139,7 +127,7 @@ describe(__filename, () => {
 
     it('sets up error handling', () => {
       const _log = getFakeLogger();
-      datadogTiming({ _log, _HotShots: StubHotShots });
+      datadogTiming({ _config, _HotShots: StubHotShots, _log });
 
       const error = new Error('some socket error');
       hotShotsClient.socket.emit('error', error);
