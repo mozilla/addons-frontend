@@ -216,7 +216,7 @@ type ApiAddonsResponse = {|
 
 type LoadHomeDataParams = {|
   collections: Array<Object | null>,
-  heroShelves: ExternalHeroShelvesType,
+  heroShelves: ExternalHeroShelvesType | null,
   shelves: { [shelfName: string]: ApiAddonsResponse },
 |};
 
@@ -396,7 +396,9 @@ const reducer = (
           }
           return null;
         }),
-        heroShelves: createInternalHeroShelves(heroShelves, state.lang),
+        heroShelves: heroShelves
+          ? createInternalHeroShelves(heroShelves, state.lang)
+          : null,
         isLoading: false,
         resultsLoaded: true,
         // $FlowIgnore: flow can't be sure that reduce result will patch the shelves type definition, let's trust the test coverage here.

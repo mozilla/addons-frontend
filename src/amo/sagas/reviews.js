@@ -254,7 +254,7 @@ function* manageAddonReview(
     };
     let params;
 
-    let oldReview = null;
+    let oldReview;
     if (action.type === CREATE_ADDON_REVIEW) {
       params = {
         ...baseParams,

@@ -26,11 +26,11 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
   render(): null | React.Node {
     const { version, i18n } = this.props;
 
+    const permissionUtils = new PermissionUtils(i18n);
+
     if (!version || !version.file) {
       return null;
     }
-
-    const permissionUtils = new PermissionUtils(i18n);
 
     const addonPermissions = permissionUtils.getCurrentPermissions({
       file: version.file,
