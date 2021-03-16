@@ -179,6 +179,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
                   headerText={i18n.gettext('Latest version')}
                   key="latestVersion"
                   version={latestVersion}
+                  showLinkInsteadOfButton={false}
                 />
                 {olderVersions.map((version, index) => {
                   return (
@@ -189,6 +190,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
                       }
                       key={version.id}
                       version={version}
+                      showLinkInsteadOfButton
                     />
                   );
                 })}
