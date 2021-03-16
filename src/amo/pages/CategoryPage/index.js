@@ -6,12 +6,8 @@ import { compose } from 'redux';
 import HeadLinks from 'amo/components/HeadLinks';
 import Page from 'amo/components/Page';
 import Search from 'amo/components/Search';
-import {
-  ADDON_TYPE_STATIC_THEME,
-  SEARCH_SORT_POPULAR,
-  SEARCH_SORT_RECOMMENDED,
-} from 'amo/constants';
-import { withErrorHandler } from 'amo/errorHandler';
+import { ADDON_TYPE_STATIC_THEME, DEFAULT_CATEGORY_SORT } from 'amo/constants';
+import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { fetchCategories } from 'amo/reducers/categories';
 import {
@@ -88,7 +84,7 @@ export class CategoryPageBase extends React.Component<InternalProps> {
       ...filters,
       addonType,
       category: categorySlug,
-      sort: filters.sort || `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+      sort: filters.sort || DEFAULT_CATEGORY_SORT,
     };
 
     return (
@@ -137,10 +133,14 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   };
 };
 
+export const extractId = (ownProps: Props): string => {
+  return ownProps.match.params.categorySlug;
+};
+
 const CategoryPage: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'CategoryPage' }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(CategoryPageBase);
 
 export default CategoryPage;

@@ -9,6 +9,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
+  DEFAULT_CATEGORY_SORT,
 } from 'amo/constants';
 import { makeQueryString } from 'amo/api';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
@@ -58,6 +59,10 @@ export class SearchPageBase extends React.Component<InternalProps> {
 
       delete newFilters.addonType;
       delete newFilters.category;
+
+      if (newFilters.sort === DEFAULT_CATEGORY_SORT) {
+        delete newFilters.sort;
+      }
 
       shouldRedirect = true;
     }

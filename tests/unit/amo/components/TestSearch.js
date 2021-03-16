@@ -394,7 +394,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
 
-  it('returns a Not Found page when error is 404', () => {
+  it.each([400, 404])('returns a Not Found page when error is %s', (status) => {
     const { store } = dispatchClientMetadata();
 
     const errorHandler = new ErrorHandler({
@@ -403,7 +403,7 @@ describe(__filename, () => {
     });
     errorHandler.handle(
       createApiError({
-        response: { status: 404 },
+        response: { status },
         apiURL: 'https://some/api/endpoint',
         jsonResponse: { message: 'Nope.' },
       }),

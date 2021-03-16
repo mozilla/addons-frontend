@@ -256,7 +256,7 @@ export class SearchBase extends React.Component<InternalProps> {
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
-      if (errorHandler.capturedError.responseStatusCode === 404) {
+      if ([400, 404].includes(errorHandler.capturedError.responseStatusCode)) {
         return <NotFound />;
       }
     }

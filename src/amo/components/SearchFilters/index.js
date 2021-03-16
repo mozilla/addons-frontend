@@ -122,6 +122,13 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
       filters.page = '1';
     }
 
+    // If category is a filter, remove category and type as they are already
+    // included in pathname.
+    if (filters.category) {
+      delete filters.category;
+      delete filters.addonType;
+    }
+
     history.push({
       pathname: `/${lang}/${clientApp}${pathname}`,
       query: convertFiltersToQueryParams(filters),

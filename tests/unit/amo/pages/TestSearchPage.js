@@ -9,6 +9,8 @@ import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  DEFAULT_CATEGORY_SORT,
+  SEARCH_SORT_RECOMMENDED,
 } from 'amo/constants';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
@@ -165,7 +167,40 @@ describe(__filename, () => {
 
     render({
       location: createFakeLocation({
-        query: { category, page, type: ADDON_TYPE_EXTENSION },
+        query: {
+          category,
+          page,
+          sort: SEARCH_SORT_RECOMMENDED,
+          type: ADDON_TYPE_EXTENSION,
+        },
+      }),
+      store,
+    });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${CLIENT_APP_FIREFOX}/extensions/category/${category}/?page=${page}&sort=${SEARCH_SORT_RECOMMENDED}`,
+      }),
+    );
+  });
+
+  it('removes the default category sort, when present, when redirecting', () => {
+    const category = 'some-category';
+    const page = '123';
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      location: createFakeLocation({
+        query: {
+          category,
+          page,
+          sort: DEFAULT_CATEGORY_SORT,
+          type: ADDON_TYPE_EXTENSION,
+        },
       }),
       store,
     });
