@@ -256,6 +256,9 @@ export class SearchBase extends React.Component<InternalProps> {
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
+      // We treat both a 404 and a 400 from the API as a 404. This captures the
+      // case when an invalid category is passed, but is useful in other cases
+      // as well.
       if ([400, 404].includes(errorHandler.capturedError.responseStatusCode)) {
         return <NotFound />;
       }
