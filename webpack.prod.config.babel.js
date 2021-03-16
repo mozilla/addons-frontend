@@ -24,8 +24,8 @@ export default {
   output: {
     crossOriginLoading: 'anonymous',
     path: path.join(__dirname, 'dist'),
-    filename: '[name]-[chunkhash].js',
-    chunkFilename: '[name]-[chunkhash].js',
+    filename: '[name]-[contenthash].js',
+    chunkFilename: '[name]-[contenthash].js',
     publicPath: config.has('staticHost') ? `${config.get('staticHost')}/` : '/',
   },
   module: {
@@ -64,8 +64,8 @@ export default {
   plugins: [
     ...getPlugins(),
     new MiniCssExtractPlugin({
-      filename: '[name]-[chunkhash].css',
-      chunkFilename: '[name]-[chunkhash].css',
+      filename: '[name]-[contenthash].css',
+      chunkFilename: '[name]-[contenthash].css',
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
     new SubresourceIntegrityPlugin({ hashFuncNames: ['sha512'] }),
