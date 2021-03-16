@@ -13,7 +13,9 @@ export const responseTime = ({
     const client = new _HotShots({
       host: _config.get('datadogHost'),
       port: _config.get('datadogPort'),
-      prefix: 'addons_frontend.server.',
+      // `NODE_CONFIG_ENV` contains the value of `%{::env}` in ops config
+      // ('dev', 'stage' or 'prod').
+      prefix: `addons-frontend-${process.env.NODE_CONFIG_ENV}.server.`,
     });
 
     client.socket.on('error', (error) => {

@@ -109,13 +109,19 @@ describe(__filename, () => {
     });
 
     it('configures the client', () => {
+      const env = 'test';
+      const oldNodeConfigEnv = process.env.NODE_CONFIG_ENV;
+      process.env.NODE_CONFIG_ENV = env;
+
       responseTime({ _config, _HotShots: StubHotShots });
 
       sinon.assert.calledWithMatch(StubHotShots, {
         host: datadogHost,
         port: datadogPort,
-        prefix: 'addons_frontend.server.',
+        prefix: `addons-frontend-${env}.server.`,
       });
+
+      process.env.NODE_CONFIG_ENV = oldNodeConfigEnv;
     });
 
     it('sets up error handling', () => {
