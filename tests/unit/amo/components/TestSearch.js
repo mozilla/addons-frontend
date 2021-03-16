@@ -369,6 +369,13 @@ describe(__filename, () => {
     expect(wrapper.find('title')).toHaveText('Search results for "some terms"');
   });
 
+  it('uses the pageTitle prop to override the built-in title', () => {
+    const filters = { query: 'some terms' };
+    const pageTitle = 'Some page title';
+    const wrapper = render({ filters, pageTitle });
+    expect(wrapper.find('title')).toHaveText(pageTitle);
+  });
+
   it('sets the viewContext to exploring if viewContext has changed', () => {
     const fakeDispatch = sinon.stub();
     const filters = {};
@@ -387,7 +394,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
 
-  it('returns a Not Found page when error is 404', () => {
+  it.each([400, 404])('returns a Not Found page when error is %s', (status) => {
     const { store } = dispatchClientMetadata();
 
     const errorHandler = new ErrorHandler({
@@ -396,7 +403,7 @@ describe(__filename, () => {
     });
     errorHandler.handle(
       createApiError({
-        response: { status: 404 },
+        response: { status },
         apiURL: 'https://some/api/endpoint',
         jsonResponse: { message: 'Nope.' },
       }),

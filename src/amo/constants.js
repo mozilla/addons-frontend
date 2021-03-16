@@ -153,6 +153,9 @@ export const SEARCH_SORT_RELEVANCE = 'relevance';
 export const SEARCH_SORT_UPDATED = 'updated';
 export const SEARCH_SORT_RECOMMENDED = 'recommended';
 
+// Default sort sequence for the category page
+export const DEFAULT_CATEGORY_SORT = `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`;
+
 // Collection add-ons sort values
 export const COLLECTION_SORT_DATE_ADDED_ASCENDING = 'added';
 export const COLLECTION_SORT_DATE_ADDED_DESCENDING = '-added';

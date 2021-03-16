@@ -43,6 +43,7 @@ type DefaultExternalProps = {|
   enableSearchFilters?: boolean,
   paginationQueryParams?: Object,
   pathname?: string,
+  pageTitle?: string,
 |};
 
 type DefaultInternalProps = {|
@@ -131,100 +132,104 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 
   renderHelmetTitle(): React.Node {
-    const { i18n, filters } = this.props;
+    const { i18n, filters, pageTitle } = this.props;
 
-    let title = i18n.gettext('Search results');
+    let title = pageTitle;
 
-    if (filters && filters.promoted) {
-      if (filters.promoted === RECOMMENDED) {
-        switch (filters.addonType) {
-          case ADDON_TYPE_EXTENSION:
-            title = i18n.gettext('Recommended extensions');
+    if (!title) {
+      title = i18n.gettext('Search results');
+
+      if (filters && filters.promoted) {
+        if (filters.promoted === RECOMMENDED) {
+          switch (filters.addonType) {
+            case ADDON_TYPE_EXTENSION:
+              title = i18n.gettext('Recommended extensions');
+              break;
+            case ADDON_TYPE_STATIC_THEME:
+              title = i18n.gettext('Recommended themes');
+              break;
+            default:
+              title = i18n.gettext('Recommended add-ons');
+          }
+        } else if (filters.promoted === LINE) {
+          switch (filters.addonType) {
+            case ADDON_TYPE_EXTENSION:
+              title = i18n.gettext('Extensions by Firefox');
+              break;
+            case ADDON_TYPE_STATIC_THEME:
+              title = i18n.gettext('Themes by Firefox');
+              break;
+            default:
+              title = i18n.gettext('Add-ons by Firefox');
+          }
+        } else if (filters.promoted === REVIEWED_FILTER) {
+          switch (filters.addonType) {
+            case ADDON_TYPE_EXTENSION:
+              title = i18n.gettext('Reviewed extensions');
+              break;
+            case ADDON_TYPE_STATIC_THEME:
+              title = i18n.gettext('Reviewed themes');
+              break;
+            default:
+              title = i18n.gettext('Reviewed add-ons');
+          }
+        } else if (filters.promoted === VERIFIED_FILTER) {
+          switch (filters.addonType) {
+            case ADDON_TYPE_EXTENSION:
+              title = i18n.gettext('Verified extensions');
+              break;
+            case ADDON_TYPE_STATIC_THEME:
+              title = i18n.gettext('Verified themes');
+              break;
+            default:
+              title = i18n.gettext('Verified add-ons');
+          }
+        }
+      } else if (filters && filters.sort) {
+        switch (filters.sort) {
+          case SEARCH_SORT_TRENDING:
+            switch (filters.addonType) {
+              case ADDON_TYPE_EXTENSION:
+                title = i18n.gettext('Trending extensions');
+                break;
+              case ADDON_TYPE_STATIC_THEME:
+                title = i18n.gettext('Trending themes');
+                break;
+              default:
+                title = i18n.gettext('Trending add-ons');
+            }
             break;
-          case ADDON_TYPE_STATIC_THEME:
-            title = i18n.gettext('Recommended themes');
+          case SEARCH_SORT_TOP_RATED:
+            switch (filters.addonType) {
+              case ADDON_TYPE_EXTENSION:
+                title = i18n.gettext('Top rated extensions');
+                break;
+              case ADDON_TYPE_STATIC_THEME:
+                title = i18n.gettext('Top rated themes');
+                break;
+              default:
+                title = i18n.gettext('Top rated add-ons');
+            }
+            break;
+          case SEARCH_SORT_POPULAR:
+            switch (filters.addonType) {
+              case ADDON_TYPE_EXTENSION:
+                title = i18n.gettext('Popular extensions');
+                break;
+              case ADDON_TYPE_STATIC_THEME:
+                title = i18n.gettext('Popular themes');
+                break;
+              default:
+                title = i18n.gettext('Popular add-ons');
+            }
             break;
           default:
-            title = i18n.gettext('Recommended add-ons');
         }
-      } else if (filters.promoted === LINE) {
-        switch (filters.addonType) {
-          case ADDON_TYPE_EXTENSION:
-            title = i18n.gettext('Extensions by Firefox');
-            break;
-          case ADDON_TYPE_STATIC_THEME:
-            title = i18n.gettext('Themes by Firefox');
-            break;
-          default:
-            title = i18n.gettext('Add-ons by Firefox');
-        }
-      } else if (filters.promoted === REVIEWED_FILTER) {
-        switch (filters.addonType) {
-          case ADDON_TYPE_EXTENSION:
-            title = i18n.gettext('Reviewed extensions');
-            break;
-          case ADDON_TYPE_STATIC_THEME:
-            title = i18n.gettext('Reviewed themes');
-            break;
-          default:
-            title = i18n.gettext('Reviewed add-ons');
-        }
-      } else if (filters.promoted === VERIFIED_FILTER) {
-        switch (filters.addonType) {
-          case ADDON_TYPE_EXTENSION:
-            title = i18n.gettext('Verified extensions');
-            break;
-          case ADDON_TYPE_STATIC_THEME:
-            title = i18n.gettext('Verified themes');
-            break;
-          default:
-            title = i18n.gettext('Verified add-ons');
-        }
+      } else if (filters && filters.query) {
+        title = i18n.sprintf(i18n.gettext('Search results for "%(query)s"'), {
+          query: filters.query,
+        });
       }
-    } else if (filters && filters.sort) {
-      switch (filters.sort) {
-        case SEARCH_SORT_TRENDING:
-          switch (filters.addonType) {
-            case ADDON_TYPE_EXTENSION:
-              title = i18n.gettext('Trending extensions');
-              break;
-            case ADDON_TYPE_STATIC_THEME:
-              title = i18n.gettext('Trending themes');
-              break;
-            default:
-              title = i18n.gettext('Trending add-ons');
-          }
-          break;
-        case SEARCH_SORT_TOP_RATED:
-          switch (filters.addonType) {
-            case ADDON_TYPE_EXTENSION:
-              title = i18n.gettext('Top rated extensions');
-              break;
-            case ADDON_TYPE_STATIC_THEME:
-              title = i18n.gettext('Top rated themes');
-              break;
-            default:
-              title = i18n.gettext('Top rated add-ons');
-          }
-          break;
-        case SEARCH_SORT_POPULAR:
-          switch (filters.addonType) {
-            case ADDON_TYPE_EXTENSION:
-              title = i18n.gettext('Popular extensions');
-              break;
-            case ADDON_TYPE_STATIC_THEME:
-              title = i18n.gettext('Popular themes');
-              break;
-            default:
-              title = i18n.gettext('Popular add-ons');
-          }
-          break;
-        default:
-      }
-    } else if (filters && filters.query) {
-      title = i18n.sprintf(i18n.gettext('Search results for "%(query)s"'), {
-        query: filters.query,
-      });
     }
 
     return (
@@ -251,7 +256,10 @@ export class SearchBase extends React.Component<InternalProps> {
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
-      if (errorHandler.capturedError.responseStatusCode === 404) {
+      // We treat both a 404 and a 400 from the API as a 404. This captures the
+      // case when an invalid category is passed, but is useful in other cases
+      // as well.
+      if ([400, 404].includes(errorHandler.capturedError.responseStatusCode)) {
         return <NotFound />;
       }
     }

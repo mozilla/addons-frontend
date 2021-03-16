@@ -148,7 +148,6 @@ describe(__filename, () => {
     sinon.assert.calledWithExactly(fakeHistory.push, {
       pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
-        category: 'some-category',
         query: 'Music player',
         sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
       }),
@@ -173,9 +172,36 @@ describe(__filename, () => {
     sinon.assert.calledWithExactly(fakeHistory.push, {
       pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
       query: convertFiltersToQueryParams({
-        category: 'some-category',
         query: 'Music player',
         sort: SEARCH_SORT_RECOMMENDED,
+      }),
+    });
+  });
+
+  it('removes category and addonType from the URL if category is in filters', () => {
+    const root = render({
+      filters: {
+        query: 'Music player',
+        category: 'some-category',
+        addonType: ADDON_TYPE_EXTENSION,
+      },
+    });
+
+    const select = root.find('.SearchFilters-Sort');
+    const currentTarget = {
+      getAttribute: () => {
+        return select.prop('name');
+      },
+      value: SEARCH_SORT_TRENDING,
+    };
+
+    select.simulate('change', createFakeEvent({ currentTarget }));
+
+    sinon.assert.calledWithExactly(fakeHistory.push, {
+      pathname: `/en-US/${CLIENT_APP_FIREFOX}/search/`,
+      query: convertFiltersToQueryParams({
+        query: 'Music player',
+        sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
       }),
     });
   });

@@ -21,15 +21,13 @@ export type ExternalCategory = {|
   description: string | null,
 |};
 
-// The absence of strict types is wanted because the logic in the reducer is a
+export type CategoryEntry = {| [addonSlug: string]: ExternalCategory |};
 
-export type CategoryMapType = {
+export type CategoryMapType = {|
   [appName: string]: {
-    [addonType: string]: {
-      [addonSlug: string]: ExternalCategory,
-    },
+    [addonType: string]: CategoryEntry,
   },
-};
+|};
 
 export type CategoriesState = {|
   categories: null | CategoryMapType,

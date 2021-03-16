@@ -114,15 +114,24 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
   doSearch(newFilters: SearchFiltersType) {
     const { clientApp, lang, history, pathname } = this.props;
 
-    if (newFilters.page) {
+    const filters = { ...newFilters };
+
+    if (filters.page) {
       // Since it's now a new search, reset the page.
       // eslint-disable-next-line
-      newFilters.page = '1';
+      filters.page = '1';
+    }
+
+    // If category is a filter, remove category and type as they are already
+    // included in pathname.
+    if (filters.category) {
+      delete filters.category;
+      delete filters.addonType;
     }
 
     history.push({
       pathname: `/${lang}/${clientApp}${pathname}`,
-      query: convertFiltersToQueryParams(newFilters),
+      query: convertFiltersToQueryParams(filters),
     });
   }
 

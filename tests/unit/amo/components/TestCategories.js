@@ -2,18 +2,14 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import {
-  CategoriesBase,
-  categoryResultsLinkTo,
-  mapStateToProps,
-} from 'amo/components/Categories';
+import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
 import { fetchCategories, loadCategories } from 'amo/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
 } from 'amo/constants';
-import { getCategoryResultsQuery } from 'amo/utils/categories';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import Button from 'amo/components/Button';
 import LoadingText from 'amo/components/LoadingText';
 import {
@@ -210,9 +206,9 @@ describe(__filename, () => {
       addonType: type,
     });
 
-    expect(root.find(Button).prop('to')).toEqual(
-      categoryResultsLinkTo({ addonType: type, slug }),
-    );
+    expect(root.find(Button).prop('to')).toEqual({
+      pathname: getCategoryResultsPathname({ addonType: type, slug }),
+    });
   });
 
   it('sorts and renders the sorted categories', () => {
@@ -323,18 +319,5 @@ describe(__filename, () => {
     expect(root.find('.Categories-link').at(12)).toHaveClassName(
       'Categories--category-color-1',
     );
-  });
-
-  describe('categoryResultsLinkTo', () => {
-    it('returns a "to" object', () => {
-      const addonType = ADDON_TYPE_EXTENSION;
-      const slug = 'some-slug';
-
-      const toValue = categoryResultsLinkTo({ addonType, slug });
-      expect(toValue.pathname).toEqual('/search/');
-      expect(toValue.query).toEqual(
-        getCategoryResultsQuery({ addonType, slug }),
-      );
-    });
   });
 });

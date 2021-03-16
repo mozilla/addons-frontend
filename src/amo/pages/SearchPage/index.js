@@ -9,13 +9,16 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
+  DEFAULT_CATEGORY_SORT,
 } from 'amo/constants';
 import { makeQueryString } from 'amo/api';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
+  fixFiltersFromLocation,
 } from 'amo/searchUtils';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import type { AppState } from 'amo/store';
 import type { SearchFilters } from 'amo/api/search';
 import type { DispatchFunc } from 'amo/types/redux';
@@ -43,8 +46,26 @@ export class SearchPageBase extends React.Component<InternalProps> {
 
     const { clientApp, filters, lang, location } = props;
 
+    let pathname = '/search/';
     let shouldRedirect = false;
     const newFilters = { ...filters };
+
+    // If this is an old category search, redirect to the new category page.
+    if (newFilters.category && newFilters.addonType) {
+      pathname = getCategoryResultsPathname({
+        addonType: newFilters.addonType,
+        slug: newFilters.category,
+      });
+
+      delete newFilters.addonType;
+      delete newFilters.category;
+
+      if (newFilters.sort === DEFAULT_CATEGORY_SORT) {
+        delete newFilters.sort;
+      }
+
+      shouldRedirect = true;
+    }
 
     // We removed the `platform` parameter, so if it's present, ignore it and
     // redirect.
@@ -80,7 +101,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
       props.dispatch(
         sendServerRedirect({
           status: 301,
-          url: `/${lang}/${clientApp}/search/${queryString}`,
+          url: `/${lang}/${clientApp}${pathname}${queryString}`,
         }),
       );
     }
@@ -109,20 +130,8 @@ export function mapStateToProps(
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);
 
-  // We don't allow `clientApp` or `lang` as a filter from location because
-  // they can lead to weird, unintuitive URLs where the queryParams override
-  // the `clientApp` and `lang` set elsewhere in the URL.
-  // Removing them from the filters (essentially ignoring them) means URLs
-  // like: `/en-US/firefox/search/?q=test&app=android&lang=fr` don't search
-  // for French Android add-ons.
-  // Maybe in the future this could redirect instead of ignoring bogus
-  // `location.query` data.
-  const filters = { ...filtersFromLocation };
-  delete filters.clientApp;
-  delete filters.lang;
-
   return {
-    filters,
+    filters: fixFiltersFromLocation(filtersFromLocation),
     clientApp: state.api.clientApp,
     lang: state.api.lang,
   };

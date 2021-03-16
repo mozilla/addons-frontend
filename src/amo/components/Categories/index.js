@@ -6,20 +6,18 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { withErrorHandler } from 'amo/errorHandler';
-import translate from 'amo/i18n/translate';
-import { fetchCategories } from 'amo/reducers/categories';
-import { getCategoryResultsQuery } from 'amo/utils/categories';
 import Button from 'amo/components/Button';
 import Card from 'amo/components/Card';
 import LoadingText from 'amo/components/LoadingText';
+import { withErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import { fetchCategories } from 'amo/reducers/categories';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import type { CategoriesState } from 'amo/reducers/categories';
 import type { AppState } from 'amo/store';
-import type { QueryParams } from 'amo/types/api';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
-import type { DispatchFunc } from 'amo/types/redux';
 import type { I18nType } from 'amo/types/i18n';
-import type { GetCategoryResultsQueryParams } from 'amo/utils/categories';
+import type { DispatchFunc } from 'amo/types/redux';
 
 import './styles.scss';
 
@@ -52,22 +50,6 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
 |};
-
-export const categoryResultsLinkTo = ({
-  addonType,
-  slug,
-}: GetCategoryResultsQueryParams): {|
-  pathname: string,
-  query: QueryParams,
-|} => {
-  return {
-    pathname: '/search/',
-    query: getCategoryResultsQuery({
-      addonType,
-      slug,
-    }),
-  };
-};
 
 export class CategoriesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
@@ -166,7 +148,9 @@ export class CategoriesBase extends React.Component<InternalProps> {
                     // "$category-colors".
                     className={`Categories-link
                       Categories--category-color-${(index % 12) + 1}`}
-                    to={categoryResultsLinkTo({ addonType, slug })}
+                    to={{
+                      pathname: getCategoryResultsPathname({ addonType, slug }),
+                    }}
                   >
                     {name}
                   </Button>
