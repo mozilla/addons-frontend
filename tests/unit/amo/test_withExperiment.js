@@ -316,6 +316,8 @@ describe(__filename, () => {
   });
 
   it('does not have any invalid experiment ids defined in the config', () => {
+    // If this test fails it is because an experimentId does not match the
+    // expected format of YYYYMMDD_ExperimentName.
     for (const experimentId of Object.keys(config.get('experiments'))) {
       expect(EXPERIMENT_ID_REGEXP.test(experimentId)).toEqual(true);
     }
