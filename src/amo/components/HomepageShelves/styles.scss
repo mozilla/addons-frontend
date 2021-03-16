@@ -1,3 +1,6 @@
-.LandingAddonsCard-Themes .Card-contents .AddonsCard-list {
-  grid-template-columns: repeat(3, auto);
+@import '~amo/css/styles';
+
+.HomepageShelves-loading-text {
+  display: block;
+  margin: 0 0 20px;
 }

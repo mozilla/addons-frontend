@@ -142,7 +142,7 @@ export type HeroShelvesType = {|
 |};
 
 export type ExternalResultShelfType = {|
-  title: LocalizedString,
+  title: string,
   url: string,
   endpoint: string,
   criteria: string,
@@ -151,7 +151,7 @@ export type ExternalResultShelfType = {|
 |};
 
 export type ResultShelfType = {|
-  title: LocalizedString,
+  title: string,
   url: string,
   endpoint: string,
   criteria: string,
@@ -160,13 +160,13 @@ export type ResultShelfType = {|
 |};
 
 export type ExternalHomeShelvesType = {|
-  results: Array<ExternalResultShelfType> | null,
+  results: Array<ExternalResultShelfType> | [],
   primary: ExternalPrimaryHeroShelfType,
   secondary: ExternalSecondaryHeroShelfType,
 |};
 
 export type HomeShelvesType = {|
-  results: Array<ResultShelfType> | null,
+  results: Array<ResultShelfType> | [],
   primary: PrimaryHeroShelfType,
   secondary: SecondaryHeroShelfType,
 |};
@@ -177,6 +177,7 @@ export type HomeState = {
   lang: string,
   resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
+  shelves: { [shelfName: string]: Array<AddonType> | null },
 };
 
 export const initialState: HomeState = {
@@ -187,6 +188,7 @@ export const initialState: HomeState = {
   lang: '',
   resetStateOnNextChange: false,
   resultsLoaded: false,
+  shelves: {},
 };
 
 export type AbortFetchHomeDataAction = {| type: typeof ABORT_FETCH_HOME_DATA |};
@@ -220,8 +222,14 @@ export const fetchHomeData = ({
   };
 };
 
+type ApiAddonsResponse = {|
+  count: number,
+  results: Array<ExternalAddonType>,
+|};
+
 type LoadHomeDataParams = {|
-  homeShelves: ExternalHomeShelvesType,
+  homeShelves: ExternalHomeShelvesType | null,
+  shelves: { [shelfName: string]: ApiAddonsResponse },
 |};
 
 type LoadHomeDataAction = {|
@@ -231,12 +239,13 @@ type LoadHomeDataAction = {|
 
 export const loadHomeData = ({
   homeShelves,
+  shelves,
 }: LoadHomeDataParams): LoadHomeDataAction => {
+  invariant(homeShelves, 'homeShelves are required');
+  invariant(shelves, 'shelves are required');
   return {
     type: LOAD_HOME_DATA,
-    payload: {
-      homeShelves,
-    },
+    payload: { homeShelves, shelves },
   };
 };
 
@@ -245,6 +254,13 @@ type Action =
   | FetchHomeDataAction
   | LoadHomeDataAction
   | SetClientAppAction;
+
+const createInternalAddons = (
+  response: ApiAddonsResponse,
+  lang: string,
+): Array<AddonType> => {
+  return response.results.map((addon) => createInternalAddon(addon, lang));
+};
 
 export const createInternalPrimaryHeroShelfExternalAddon = (
   external: PrimaryHeroShelfExternalAddonType,
@@ -309,7 +325,7 @@ export const createInternalHomeShelves = (
 ): HomeShelvesType => {
   const { results, primary, secondary } = homeShelves;
 
-  let customShelves: Array<ResultShelfType> | null = null;
+  let customShelves: Array<ResultShelfType> = [];
   if (results !== null) {
     customShelves = results.map((result) => createInternalShelf(result, lang));
   }
@@ -407,13 +423,26 @@ const reducer = (
       };
 
     case LOAD_HOME_DATA: {
-      const { homeShelves } = action.payload;
+      const { homeShelves, shelves } = action.payload;
 
       return {
         ...state,
-        homeShelves: createInternalHomeShelves(homeShelves, state.lang),
+        homeShelves: homeShelves
+          ? createInternalHomeShelves(homeShelves, state.lang)
+          : null,
         isLoading: false,
         resultsLoaded: true,
+        // $FlowIgnore: flow can't be sure that reduce result will patch the shelves type definition, let's trust the test coverage here.
+        shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
+          const response = shelves[shelfName];
+
+          return {
+            ...shelvesToLoad,
+            [shelfName]: response
+              ? createInternalAddons(response, state.lang)
+              : null,
+          };
+        }, {}),
       };
     }
 

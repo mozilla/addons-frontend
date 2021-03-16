@@ -3,6 +3,7 @@ import * as React from 'react';
 import config from 'config';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import LoadingText from 'amo/components/LoadingText';
 import {
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_FEATURED_COLLECTION,
@@ -19,24 +20,25 @@ type DefaultProps = {|
   placeholderCount: number,
 |};
 
-type Props = {|
-  ...DefaultProps,
-  loading: boolean,
-  placeholderCount: number,
-  shelves: Array<ResultShelfType>,
-|};
-
 type InternalProps = {|
-  ...Props,
   i18n: I18nType,
 |};
 
-class HomepageShelves extends React.Component<InternalProps> {
+type Props = {|
+  ...DefaultProps,
+  ...InternalProps,
+  loading: boolean,
+  placeholderCount?: number,
+  shelves: Array<ResultShelfType>,
+|};
+
+class HomepageShelves extends React.Component<Props> {
   static defaultProps: DefaultProps = {
     placeholderCount: LANDING_PAGE_EXTENSION_COUNT,
   };
 
   render(): React.Node {
+    /* eslint-disable react/no-array-index-key */
     const { i18n, loading, placeholderCount, shelves } = this.props;
 
     const MOZILLA_USER_ID = config.get('mozillaUserId');
@@ -49,8 +51,8 @@ class HomepageShelves extends React.Component<InternalProps> {
       const footerText =
         footer && footer.text
           ? footer.text
-          : i18n.sprintf(i18n.gettext('See more %(text)s'), {
-              text: titleStr.toLowerCase(),
+          : i18n.sprintf(i18n.gettext('See more %(categoryName)s'), {
+              categoryName: titleStr.toLowerCase(),
             });
 
       const addonInstallSource =
@@ -63,10 +65,21 @@ class HomepageShelves extends React.Component<InternalProps> {
           ? LANDING_PAGE_THEME_COUNT
           : placeholderCount;
 
-      const footerLink =
+      let footerUrl;
+      if (footer && footer.url) {
+        if (footer.url.startsWith('/')) {
+          footerUrl = footer.url;
+        } else {
+          footerUrl = `/${footer.url}`;
+        }
+      }
+
+      const defaultFooterUrl =
         endpoint === 'collections'
           ? `/collections/${MOZILLA_USER_ID}/${criteria}/`
           : `/search/${criteria}/`;
+
+      const footerLink = footerUrl || defaultFooterUrl;
 
       return (
         <LandingAddonsCard
@@ -84,7 +97,28 @@ class HomepageShelves extends React.Component<InternalProps> {
       );
     });
 
-    return homepageShelves;
+    const loadingShelves = (
+      <div className="HomepageShelves-loading">
+        {Array(3)
+          .fill(0)
+          .map((value, index) => {
+            return (
+              <LandingAddonsCard
+                className="HomepageShelves-loading-text"
+                key={`HomepageShelves-loading-text-${index}`}
+                header={<LoadingText width={100} />}
+                loading={loading}
+              />
+            );
+          })}
+      </div>
+    );
+
+    return (
+      <div className="Home-HomepageShelves">
+        {loading ? loadingShelves : homepageShelves}
+      </div>
+    );
   }
 }
 

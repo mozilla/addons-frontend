@@ -16,14 +16,9 @@ import {
   abortFetchHomeData,
   loadHomeData,
 } from 'amo/reducers/home';
-import { selectLocalizedContent } from 'amo/reducers/utils';
 import { createErrorHandler, getState } from 'amo/sagas/utils';
 import type { SearchParams } from 'amo/api/search';
-import type {
-  ExternalResultShelfType,
-  FetchHomeDataAction,
-} from 'amo/reducers/home';
-import type { ExternalAddonType } from 'amo/types/addons';
+import type { FetchHomeDataAction } from 'amo/reducers/home';
 import type { Saga } from 'amo/types/sagas';
 
 export function* fetchHomeData({
@@ -53,38 +48,22 @@ export function* fetchHomeData({
     },
   };
 
-  const recommendedExtensionShelf = (
-    addons: Array<ExternalAddonType>,
-  ): ExternalResultShelfType => {
-    return {
-      title: selectLocalizedContent('Recommended Extensions', state.lang),
-      url:
-        'https://addons.mozilla.org/api/v5/addons/search/?promoted=recommended&sort=random&type=extension',
-      endpoint: 'search',
-      criteria: '?promoted=recommended&sort=random&type=extension',
-      footer: {
-        url: '',
-        outgoing: '',
-        text: selectLocalizedContent(
-          'See more recommended extensions',
-          state.lang,
-        ),
-      },
-      addons,
-    };
-  };
-
   try {
-    let homeShelves = {};
-    try {
-      homeShelves = yield call(getHomeShelves, { api: state.api });
-    } catch (error) {
-      log.warn(`Home shelves failed to load: ${error}`);
-      throw error;
-    }
-
     if (isDesktopSite) {
-      yield put(loadHomeData({ homeShelves }));
+      let homeShelves = null;
+      try {
+        homeShelves = yield call(getHomeShelves, { api: state.api });
+      } catch (error) {
+        log.warn(`Home shelves failed to load: ${error}`);
+        throw error;
+      }
+
+      yield put(
+        loadHomeData({
+          homeShelves,
+          shelves: {},
+        }),
+      );
     } else {
       // Mobile homepage logic
       let recommendedExtensions;
@@ -100,10 +79,8 @@ export function* fetchHomeData({
 
       yield put(
         loadHomeData({
-          homeShelves: {
-            ...homeShelves,
-            results: [recommendedExtensionShelf(recommendedExtensions.results)],
-          },
+          homeShelves: null,
+          shelves: { recommendedExtensions },
         }),
       );
     }

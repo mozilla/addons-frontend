@@ -10,6 +10,7 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import HomepageShelves from 'amo/components/HomepageShelves';
+import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
 import Page from 'amo/components/Page';
@@ -17,8 +18,12 @@ import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
+  INSTALL_SOURCE_FEATURED,
+  RECOMMENDED,
+  SEARCH_SORT_RANDOM,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
@@ -37,6 +42,7 @@ export class HomeBase extends React.Component {
     isDesktopSite: PropTypes.bool,
     isLoading: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
+    shelves: PropTypes.object,
   };
 
   constructor(props) {
@@ -152,6 +158,7 @@ export class HomeBase extends React.Component {
       i18n,
       isDesktopSite,
       resultsLoaded,
+      shelves,
     } = this.props;
 
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
@@ -199,7 +206,7 @@ export class HomeBase extends React.Component {
 
             {!isDesktopSite ? this.renderHeroHeader() : null}
 
-            {homeShelves ? (
+            {isDesktopSite ? (
               <HomepageShelves
                 loading={loading}
                 placeholderCount={
@@ -207,9 +214,31 @@ export class HomeBase extends React.Component {
                     ? LANDING_PAGE_EXTENSION_COUNT
                     : MOBILE_HOME_PAGE_EXTENSION_COUNT
                 }
-                shelves={homeShelves.results}
+                shelves={homeShelves ? homeShelves.results : []}
               />
-            ) : null}
+            ) : (
+              <LandingAddonsCard
+                addonInstallSource={INSTALL_SOURCE_FEATURED}
+                addons={shelves.recommendedExtensions}
+                className="Home-RecommendedExtensions"
+                header={i18n.gettext('Recommended extensions')}
+                footerText={i18n.gettext('See more recommended extensions')}
+                footerLink={{
+                  pathname: '/search/',
+                  query: {
+                    addonType: ADDON_TYPE_EXTENSION,
+                    promoted: RECOMMENDED,
+                    sort: SEARCH_SORT_RANDOM,
+                  },
+                }}
+                loading={loading}
+                placeholderCount={
+                  isDesktopSite
+                    ? LANDING_PAGE_EXTENSION_COUNT
+                    : MOBILE_HOME_PAGE_EXTENSION_COUNT
+                }
+              />
+            )}
 
             {isDesktopSite ? (
               <>
@@ -240,6 +269,7 @@ function mapStateToProps(state) {
     isDesktopSite: state.api.clientApp === CLIENT_APP_FIREFOX,
     isLoading: state.home.isLoading,
     resultsLoaded: state.home.resultsLoaded,
+    shelves: state.home.shelves,
   };
 }
 
