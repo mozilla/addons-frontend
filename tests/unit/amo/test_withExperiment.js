@@ -1,8 +1,10 @@
+import config from 'config';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import {
   EXPERIMENT_ENROLLMENT_CATEGORY,
+  EXPERIMENT_ID_REGEXP,
   NOT_IN_EXPERIMENT,
   defaultCookieConfig,
   getVariant,
@@ -311,6 +313,12 @@ describe(__filename, () => {
     expect(() => {
       render({ experimentProps: { id: 'bad-id' } });
     }).toThrow(/id must match the pattern YYYYMMDD_experiment_id/);
+  });
+
+  it('does not have any invalid experiment ids defined in the config', () => {
+    for (const experimentId of Object.keys(config.get('experiments'))) {
+      expect(EXPERIMENT_ID_REGEXP.test(experimentId)).toEqual(true);
+    }
   });
 
   describe('getVariant', () => {
