@@ -209,11 +209,7 @@ export class HomeBase extends React.Component {
             {isDesktopSite ? (
               <HomepageShelves
                 loading={loading}
-                placeholderCount={
-                  isDesktopSite
-                    ? LANDING_PAGE_EXTENSION_COUNT
-                    : MOBILE_HOME_PAGE_EXTENSION_COUNT
-                }
+                placeholderCount={LANDING_PAGE_EXTENSION_COUNT}
                 shelves={homeShelves ? homeShelves.results : []}
               />
             ) : (
@@ -232,11 +228,7 @@ export class HomeBase extends React.Component {
                   },
                 }}
                 loading={loading}
-                placeholderCount={
-                  isDesktopSite
-                    ? LANDING_PAGE_EXTENSION_COUNT
-                    : MOBILE_HOME_PAGE_EXTENSION_COUNT
-                }
+                placeholderCount={MOBILE_HOME_PAGE_EXTENSION_COUNT}
               />
             )}
 

@@ -142,7 +142,7 @@ export type HeroShelvesType = {|
 |};
 
 export type ExternalResultShelfType = {|
-  title: string,
+  title: LocalizedString,
   url: string,
   endpoint: string,
   criteria: string,
@@ -160,13 +160,13 @@ export type ResultShelfType = {|
 |};
 
 export type ExternalHomeShelvesType = {|
-  results: Array<ExternalResultShelfType> | [],
+  results: Array<ExternalResultShelfType>,
   primary: ExternalPrimaryHeroShelfType,
   secondary: ExternalSecondaryHeroShelfType,
 |};
 
 export type HomeShelvesType = {|
-  results: Array<ResultShelfType> | [],
+  results: Array<ResultShelfType>,
   primary: PrimaryHeroShelfType,
   secondary: SecondaryHeroShelfType,
 |};
@@ -325,10 +325,9 @@ export const createInternalHomeShelves = (
 ): HomeShelvesType => {
   const { results, primary, secondary } = homeShelves;
 
-  let customShelves: Array<ResultShelfType> = [];
-  if (results !== null) {
-    customShelves = results.map((result) => createInternalShelf(result, lang));
-  }
+  const customShelves: Array<ResultShelfType> = results.map((result) =>
+    createInternalShelf(result, lang),
+  );
 
   let secondaryShelf: SecondaryHeroShelfType | null = null;
   if (secondary !== null) {
