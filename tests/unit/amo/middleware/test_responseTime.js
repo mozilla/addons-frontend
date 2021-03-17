@@ -62,7 +62,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         hotShotsClient.timing,
-        'response.GET.time',
+        'response_time.GET_301',
         sinon.match.number,
       );
     });
@@ -72,7 +72,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         hotShotsClient.timing,
-        'response.POST.time',
+        'response_time.POST_200',
         sinon.match.number,
       );
     });
@@ -80,22 +80,19 @@ describe(__filename, () => {
     it('increments counts for GET responses', async () => {
       await testClient().get('/');
 
-      sinon.assert.calledWith(hotShotsClient.increment, 'response.GET.count');
+      sinon.assert.calledWith(hotShotsClient.increment, 'response.GET');
     });
 
     it('increments counts for POST responses', async () => {
       await testClient().post('/en-US/firefox/something/', {});
 
-      sinon.assert.calledWith(hotShotsClient.increment, 'response.POST.count');
+      sinon.assert.calledWith(hotShotsClient.increment, 'response.POST');
     });
 
     it('increments response status counts', async () => {
       await testClient().get('/');
 
-      sinon.assert.calledWith(
-        hotShotsClient.increment,
-        'response_code.301.count',
-      );
+      sinon.assert.calledWith(hotShotsClient.increment, 'response.301');
     });
   });
 
