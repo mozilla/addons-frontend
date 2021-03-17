@@ -32,7 +32,6 @@ export const babelOptions = {
 
 const webpackHost = config.get('webpackServerHost');
 const webpackPort = config.get('webpackServerPort');
-const assetsPath = path.resolve(__dirname, 'dist');
 
 const hmr = `webpack-hot-middleware/client?path=//${webpackHost}:${webpackPort}/__webpack_hmr`;
 
@@ -49,7 +48,6 @@ export default {
   entry: entryPoints,
   output: {
     ...webpackConfig.output,
-    path: assetsPath,
     filename: '[name]-[contenthash].js',
     chunkFilename: '[name]-[contenthash].js',
     // We need to remove the protocol because of `yarn amo:dev-https`.
