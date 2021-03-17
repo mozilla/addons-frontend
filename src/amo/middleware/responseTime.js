@@ -26,14 +26,14 @@ export const responseTime = ({
       // TODO: generate a key based on the rendered component, which I think is
       // in server/base.js -> match() -> renderProps.components
 
-      client.increment(`response_code.${res.statusCode}.count`);
+      client.increment(`response.${res.statusCode}`);
+      client.increment(`response.${req.method}`);
 
-      const responseTypeKey = `response.${req.method}`;
-      client.increment(`${responseTypeKey}.count`);
       // The time variable is response time in milleseconds.
-      client.timing(`${responseTypeKey}.time`, time);
+      const responseTimeKey = `response_time.${req.method}_${res.statusCode}`;
+      client.timing(responseTimeKey, time);
 
-      _log.info(`response time: key=${responseTypeKey}.time value=${time}ms`);
+      _log.info(`response time: key=${responseTimeKey} value=${time}ms`);
     });
   }
 
