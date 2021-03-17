@@ -16,7 +16,6 @@ import LoadingText from 'amo/components/LoadingText';
 import Page from 'amo/components/Page';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
-  LANDING_PAGE_EXTENSION_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -209,7 +208,6 @@ export class HomeBase extends React.Component {
             {isDesktopSite ? (
               <HomepageShelves
                 loading={loading}
-                placeholderCount={LANDING_PAGE_EXTENSION_COUNT}
                 shelves={homeShelves ? homeShelves.results : []}
               />
             ) : (

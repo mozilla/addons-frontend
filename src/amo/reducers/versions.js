@@ -449,25 +449,30 @@ const reducer = (
       const { homeShelves, shelves } = action.payload;
 
       const newVersions = {};
+
+      const addNewVersions = (addon) => {
+        if (addon.current_version) {
+          const currentVersion = addon.current_version;
+          let version = createInternalVersion(currentVersion, state.lang);
+          // license and release_notes are omitted from the search endpoint results,
+          // use them from an existing version if available.
+          const { id } = currentVersion;
+          const existingVersion = getVersionById({ id, state });
+          if (existingVersion) {
+            version = {
+              ...version,
+              license: existingVersion.license,
+              releaseNotes: existingVersion.releaseNotes,
+            };
+          }
+          newVersions[id] = version;
+        }
+      };
+
       if (homeShelves && homeShelves.results) {
         for (const shelf of homeShelves.results) {
           for (const addon of shelf.addons) {
-            if (addon.current_version) {
-              const currentVersion = addon.current_version;
-              let version = createInternalVersion(currentVersion, state.lang);
-              // license and release_notes are omitted from the search endpoint results,
-              // use them from an existing version if available.
-              const { id } = currentVersion;
-              const existingVersion = getVersionById({ id, state });
-              if (existingVersion) {
-                version = {
-                  ...version,
-                  license: existingVersion.license,
-                  releaseNotes: existingVersion.releaseNotes,
-                };
-              }
-              newVersions[id] = version;
-            }
+            addNewVersions(addon);
           }
         }
       }
@@ -475,22 +480,7 @@ const reducer = (
       for (const shelf of Object.keys(shelves)) {
         if (shelves[shelf]) {
           for (const addon of shelves[shelf].results) {
-            if (addon.current_version) {
-              const currentVersion = addon.current_version;
-              let version = createInternalVersion(currentVersion, state.lang);
-              // license and release_notes are omitted from the search endpoint results,
-              // use them from an existing version if available.
-              const { id } = currentVersion;
-              const existingVersion = getVersionById({ id, state });
-              if (existingVersion) {
-                version = {
-                  ...version,
-                  license: existingVersion.license,
-                  releaseNotes: existingVersion.releaseNotes,
-                };
-              }
-              newVersions[id] = version;
-            }
+            addNewVersions(addon);
           }
         }
       }
