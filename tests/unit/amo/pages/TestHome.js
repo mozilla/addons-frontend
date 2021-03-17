@@ -1,11 +1,10 @@
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import Home, { HomeBase } from 'amo/pages/Home';
-import { categoryResultsLinkTo } from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
+import HomepageShelves from 'amo/components/HomepageShelves';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LoadingText from 'amo/components/LoadingText';
 import Page from 'amo/components/Page';
@@ -16,21 +15,18 @@ import {
   CLIENT_APP_FIREFOX,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
-import Home, {
-  FEATURED_COLLECTIONS,
-  MOZILLA_USER_ID,
-  HomeBase,
-  getFeaturedCollectionsMetadata,
-  isFeaturedCollection,
-} from 'amo/pages/Home';
+import Home, { HomeBase } from 'amo/pages/Home';
+import { createInternalAddon } from 'amo/reducers/addons';
 import {
   FETCH_HOME_DATA,
+  createInternalShelf,
   fetchHomeData,
   loadHomeData,
 } from 'amo/reducers/home';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import {
   DEFAULT_LANG_IN_TESTS,
+  createAddonsApiResult,
   createHomeShelves,
   createInternalHomeShelvesWithLang,
   createStubErrorHandler,
@@ -62,15 +58,19 @@ describe(__filename, () => {
     return shallowUntilTarget(<Home {...allProps} />, HomeBase);
   }
 
-  const _createHomeShelves = (
-    resultsProps = fakeShelf,
+  const _createHomeShelves = ({
+    resultsProps = [fakeShelf],
     primaryProps = { addon: fakeAddon },
-  ) => {
+  } = {}) => {
     return createHomeShelves({ resultsProps, primaryProps });
   };
 
-  const _loadHomeData = ({ store, homeShelves = _createHomeShelves() }) => {
-    store.dispatch(loadHomeData({ homeShelves }));
+  const _loadHomeData = ({
+    store,
+    homeShelves = _createHomeShelves(),
+    shelves = {},
+  }) => {
+    store.dispatch(loadHomeData({ homeShelves, shelves }));
   };
 
   it('renders a Page component passing `true` for `isHomePage`', () => {
@@ -78,7 +78,8 @@ describe(__filename, () => {
     expect(root.find(Page)).toHaveProp('isHomePage', true);
   });
 
-  it('renders a shelf with curated themes', () => {
+  it('renders a shelf with curated themes on desktop', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
     const expectedThemes = [
       'abstract',
       'nature',
@@ -88,7 +89,7 @@ describe(__filename, () => {
       'seasonal',
     ];
 
-    const root = render();
+    const root = render({ store });
 
     const shelf = root.find('.Home-CuratedThemes');
     expect(shelf.find('.Home-SubjectShelf-text-wrapper')).toHaveLength(1);
@@ -110,16 +111,57 @@ describe(__filename, () => {
     });
   });
 
-  it('does not render most shelves on android', () => {
+  it('does not render a shelf with curated themes on mobile', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
     const root = render({
       store,
     });
 
-    expect(root.find('.Home-FeaturedCollection')).toHaveLength(0);
-    expect(root.find('.Home-RecommendedThemes')).toHaveLength(0);
-    expect(root.find('.Home-TrendingExtensions')).toHaveLength(0);
     expect(root.find('.Home-CuratedThemes')).toHaveLength(0);
+  });
+
+  it('renders only the Recommended extensions shelf on android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const root = render({
+      store,
+    });
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(1);
+    expect(root.find('.Home-RecommendedExtensions')).toHaveLength(1);
+  });
+
+  it('renders the Recommended extensions shelf in a loading state on android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const addon = fakeAddon;
+    const recommendedExtensions = createAddonsApiResult([addon]);
+    _loadHomeData({ store, shelves: { recommendedExtensions } });
+    const root = render({
+      store,
+    });
+
+    expect(root.find('.Home-RecommendedExtensions')).toHaveProp(
+      'loading',
+      false,
+    );
+    expect(root.find('.Home-RecommendedExtensions')).toHaveProp('addons', [
+      createInternalAddon(addon, DEFAULT_LANG_IN_TESTS),
+    ]);
+  });
+
+  it('renders the Recommended extensions shelf with data loaded on android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const root = render({
+      store,
+    });
+
+    expect(root.find('.Home-RecommendedExtensions')).toHaveProp(
+      'loading',
+      true,
+    );
+    expect(root.find('.Home-RecommendedExtensions')).toHaveProp(
+      'addons',
+      undefined,
+    );
   });
 
   it('renders a comment for monitoring', () => {
@@ -181,25 +223,6 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  // This test case should be updated when we change the `defaultProps`.
-  it('fetches add-ons with some defaults', () => {
-    const errorHandler = createStubErrorHandler();
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
-
-    sinon.assert.callCount(fakeDispatch, 2);
-    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
-    sinon.assert.calledWith(
-      fakeDispatch,
-      fetchHomeData({
-        errorHandlerId: errorHandler.id,
-        isDesktopSite: true,
-      }),
-    );
-  });
-
   it('does not fetch data when isLoading is true', () => {
     const { store } = dispatchClientMetadata();
 
@@ -241,23 +264,28 @@ describe(__filename, () => {
     );
   });
 
-  it('does not display a homepage shelf if there are no shelves in state', () => {
+  it('renders a HomepageShelves component on desktop, in a loading state', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
 
-    _loadHomeData({
-      store,
-      homeShelves: {
-        results: null,
-        primary: null,
-        secondary: null,
-      },
-    });
-
     const root = render({ store });
-    const shelves = root.find(LandingAddonsCard);
+    const homepageShelves = root.find(HomepageShelves);
+    expect(homepageShelves).toHaveProp('loading', true);
+    expect(homepageShelves).toHaveProp('shelves', []);
+  });
 
-    const homepageShelves = shelves.find('.Home-FeaturedCollection');
-    expect(homepageShelves).toHaveLength(0);
+  it('renders a HomepageShelves component on desktop, with shelves loaded', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+    const shelf = fakeShelf;
+    _loadHomeData({
+      homeShelves: _createHomeShelves({ resultsProps: [shelf] }),
+      store,
+    });
+    const root = render({ store });
+    const homepageShelves = root.find(HomepageShelves);
+    expect(homepageShelves).toHaveProp('loading', false);
+    expect(homepageShelves).toHaveProp('shelves', [
+      createInternalShelf(shelf, DEFAULT_LANG_IN_TESTS),
+    ]);
   });
 
   it('displays an error if clientApp is Android', () => {
@@ -386,7 +414,7 @@ describe(__filename, () => {
       });
       _loadHomeData({
         store,
-        homeShelves: { results: null, primary: null, secondary: null },
+        homeShelves: { results: [], primary: null, secondary: null },
       });
 
       const root = render({ store });

@@ -224,21 +224,19 @@ export const fakeReview = Object.freeze({
   body: 'It is Okay',
 });
 
-export const fakeShelf = Object.freeze([
-  {
-    title: createLocalizedString('Top Rated Themes'),
-    url:
-      'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
-    endpoint: 'search-themes',
-    criteria: '?sort=rating&type=statictheme',
-    footer: {
-      url: createLocalizedString('http://testserver/extensions/'),
-      text: createLocalizedString('See more top rated themes'),
-      outgoing: '',
-    },
-    addons: [fakeAddon],
+export const fakeShelf = Object.freeze({
+  title: createLocalizedString('Top Rated Themes'),
+  url:
+    'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
+  endpoint: 'search-themes',
+  criteria: '?sort=rating&type=statictheme',
+  footer: {
+    url: createLocalizedString('http://testserver/extensions/'),
+    text: createLocalizedString('See more top rated themes'),
+    outgoing: '',
   },
-]);
+  addons: [fakeAddon],
+});
 
 export function createExternalReview({
   addonId = fakeReview.addon.id,
@@ -310,34 +308,6 @@ export const fakePrimaryHeroShelfExternalAddon = Object.freeze({
   name: createLocalizedString('some external name'),
   type: ADDON_TYPE_EXTENSION,
 });
-
-export const createResultsShelf = ({
-  title = 'Top Rated Themes',
-  url = 'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
-  endpoint = 'search-themes',
-  criteria = '?sort=rating&type=statictheme',
-  footer = {
-    'url': 'http://testserver/extensions/',
-    'outgoing': '',
-    'text': 'See more top rated themes',
-  },
-  addons = [fakeAddon],
-} = {}) => {
-  return [
-    {
-      title: createLocalizedString(title),
-      url,
-      endpoint,
-      criteria,
-      footer: {
-        'url': createLocalizedString(footer.url),
-        'outgoing': createLocalizedString(footer.outgoing),
-        'text': createLocalizedString(footer.text),
-      },
-      addons,
-    },
-  ];
-};
 
 export const createPrimaryHeroShelf = ({
   addon = undefined,
@@ -428,7 +398,7 @@ export const createHomeShelves = ({
   secondaryProps = {},
 } = {}) => {
   return {
-    results: resultsProps || createResultsShelf(),
+    results: resultsProps || [fakeShelf],
     primary: createPrimaryHeroShelf(primaryProps),
     secondary: createSecondaryHeroShelf(secondaryProps),
   };

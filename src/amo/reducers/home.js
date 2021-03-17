@@ -177,7 +177,7 @@ export type HomeState = {
   lang: string,
   resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
-  shelves: { [shelfName: string]: Array<AddonType> | null },
+  shelves: { [shelfName: string]: Array<AddonType> },
 };
 
 export const initialState: HomeState = {
@@ -241,7 +241,6 @@ export const loadHomeData = ({
   homeShelves,
   shelves,
 }: LoadHomeDataParams): LoadHomeDataAction => {
-  invariant(homeShelves, 'homeShelves are required');
   invariant(shelves, 'shelves are required');
   return {
     type: LOAD_HOME_DATA,
@@ -439,7 +438,7 @@ const reducer = (
             ...shelvesToLoad,
             [shelfName]: response
               ? createInternalAddons(response, state.lang)
-              : null,
+              : [],
           };
         }, {}),
       };

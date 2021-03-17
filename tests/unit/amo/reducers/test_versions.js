@@ -35,7 +35,7 @@ import {
   createFakeCollectionDetail,
   createInternalVersionWithLang,
   createLocalizedString,
-  createResultsShelf,
+  fakeShelf,
   fakeAddon,
   fakeI18n,
   fakeFile,
@@ -500,7 +500,7 @@ describe(__filename, () => {
     });
 
     describe('LOAD_HOME_DATA', () => {
-      it('maintains license and release notes from pre-existing versions', () => {
+      it('maintains license and release notes from pre-existing versions when loading homeShelves', () => {
         let state = versionsReducer(
           stateWithLang,
           loadVersions({ slug: fakeAddon.slug, versions: [version] }),
@@ -522,9 +522,44 @@ describe(__filename, () => {
           state,
           loadHomeData({
             homeShelves: {
-              results: createResultsShelf({
-                addons: [searchResult],
-              }),
+              results: [{ ...fakeShelf, addons: [searchResult] }],
+            },
+            shelves: {},
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersionWithLang(version));
+      });
+
+      it('maintains license and release notes from pre-existing versions when loading shelves', () => {
+        let state = versionsReducer(
+          stateWithLang,
+          loadVersions({ slug: fakeAddon.slug, versions: [version] }),
+        );
+
+        // Create a search result with missing license and release_notes.
+        const result = createAddonsApiResult([
+          {
+            ...fakeAddon,
+            current_version: {
+              ...version,
+              license: undefined,
+              release_notes: undefined,
+            },
+          },
+        ]);
+
+        state = versionsReducer(
+          state,
+          loadHomeData({
+            homeShelves: null,
+            shelves: {
+              someShelf: result,
             },
           }),
         );
@@ -542,6 +577,7 @@ describe(__filename, () => {
           stateWithLang,
           loadHomeData({
             homeShelves: null,
+            shelves: {},
           }),
         );
 
