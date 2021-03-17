@@ -49,15 +49,15 @@ export function* fetchHomeData({
   };
 
   try {
-    if (isDesktopSite) {
-      let homeShelves = null;
-      try {
-        homeShelves = yield call(getHomeShelves, { api: state.api });
-      } catch (error) {
-        log.warn(`Home shelves failed to load: ${error}`);
-        throw error;
-      }
+    let homeShelves = null;
+    try {
+      homeShelves = yield call(getHomeShelves, { api: state.api });
+    } catch (error) {
+      log.warn(`Home shelves failed to load: ${error}`);
+      throw error;
+    }
 
+    if (isDesktopSite) {
       yield put(
         loadHomeData({
           homeShelves,
@@ -79,7 +79,7 @@ export function* fetchHomeData({
 
       yield put(
         loadHomeData({
-          homeShelves: null,
+          homeShelves,
           shelves: { recommendedExtensions },
         }),
       );
