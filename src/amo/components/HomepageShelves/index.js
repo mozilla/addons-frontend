@@ -14,8 +14,6 @@ import translate from 'amo/i18n/translate';
 import type { ResultShelfType } from 'amo/reducers/home';
 import type { I18nType } from 'amo/types/i18n';
 
-import './styles.scss';
-
 type InternalProps = {|
   i18n: I18nType,
 |};
@@ -71,9 +69,13 @@ class HomepageShelves extends React.Component<Props> {
             ? LANDING_PAGE_THEME_COUNT
             : LANDING_PAGE_EXTENSION_COUNT;
 
-        let footerLinkHtml;
+        let footerUrl;
         if (footer && footer.url) {
-          footerLinkHtml = <a href={footer.url}>{footerText}</a>;
+          if (footer.url.startsWith('/')) {
+            footerUrl = footer.url;
+          } else {
+            footerUrl = `/${footer.url}`;
+          }
         }
 
         const defaultFooterUrl =
@@ -81,7 +83,7 @@ class HomepageShelves extends React.Component<Props> {
             ? `/collections/${MOZILLA_USER_ID}/${criteria}/`
             : `/search/${criteria}/`;
 
-        const footerLink = footerLinkHtml || defaultFooterUrl;
+        const footerLink = footerUrl || defaultFooterUrl;
 
         return (
           <LandingAddonsCard
@@ -93,7 +95,6 @@ class HomepageShelves extends React.Component<Props> {
             header={titleStr}
             isTheme={endpoint === 'search-themes'}
             key={header}
-            loading={loading}
             placeholderCount={count}
           />
         );

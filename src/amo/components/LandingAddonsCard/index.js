@@ -26,7 +26,7 @@ type Props = {|
   footerText?: string,
   header?: React.Node,
   isTheme?: boolean,
-  loading: boolean,
+  loading?: boolean,
 |};
 
 export default class LandingAddonsCard extends React.Component<Props> {
