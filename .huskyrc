@@ -1,5 +1,6 @@
 {
     "hooks": {
-        "pre-commit": "flow && lint-staged"
-    } 
+        "pre-commit": "flow && lint-staged",
+        "post-rewrite": "flow && lint-staged"
+    }
 }
