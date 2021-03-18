@@ -5,7 +5,6 @@ import { getHomeShelves } from 'amo/api/homeShelves';
 import { search as searchApi } from 'amo/api/search';
 import {
   ADDON_TYPE_EXTENSION,
-  LANDING_PAGE_EXTENSION_COUNT,
   MOBILE_HOME_PAGE_EXTENSION_COUNT,
   RECOMMENDED,
   SEARCH_SORT_RANDOM,
@@ -34,11 +33,7 @@ export function* fetchHomeData({
     api: state.api,
     filters: {
       addonType: ADDON_TYPE_EXTENSION,
-      page_size: String(
-        isDesktopSite
-          ? LANDING_PAGE_EXTENSION_COUNT
-          : MOBILE_HOME_PAGE_EXTENSION_COUNT,
-      ),
+      page_size: String(MOBILE_HOME_PAGE_EXTENSION_COUNT),
       promoted: RECOMMENDED,
       sort: SEARCH_SORT_RANDOM,
     },
