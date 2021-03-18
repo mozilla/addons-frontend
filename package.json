@@ -308,15 +308,15 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/amo-!(i18n-)*.js",
+      "path": "./dist/static/amo-!(i18n-)*.js",
       "maxSize": "395 kB"
     },
     {
-      "path": "./dist/amo-i18n-*.js",
+      "path": "./dist/static/amo-i18n-*.js",
       "maxSize": "33 kB"
     },
     {
-      "path": "./dist/amo-*.css",
+      "path": "./dist/static/amo-*.css",
       "maxSize": "63 kB"
     }
   ]

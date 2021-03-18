@@ -13,20 +13,25 @@ import { getPlugins, getRules } from './webpack-common';
 import webpackIsomorphicToolsConfig from './src/amo/server/webpack-isomorphic-tools-config';
 import { WEBPACK_ENTRYPOINT } from './src/amo/constants';
 
-const entryPoints = { [WEBPACK_ENTRYPOINT]: 'amo/client' };
+const DIST_DIR = path.join(__dirname, 'dist');
+const STATIC_DIR = path.join(DIST_DIR, 'static');
 
 export default {
   bail: true,
   mode: 'production',
   devtool: 'source-map',
   context: path.resolve(__dirname),
-  entry: entryPoints,
+  entry: { [WEBPACK_ENTRYPOINT]: 'amo/client' },
   output: {
     crossOriginLoading: 'anonymous',
-    path: path.join(__dirname, 'dist'),
+    // This is the path used to write the files on disk.
+    path: STATIC_DIR,
     filename: '[name]-[contenthash].js',
     chunkFilename: '[name]-[contenthash].js',
-    publicPath: config.has('staticHost') ? `${config.get('staticHost')}/` : '/',
+    // This is the path used to require files in the generated bundles.
+    publicPath: `${
+      config.has('staticHost') ? config.get('staticHost') : ''
+    }/static/`,
   },
   module: {
     rules: getRules(),
@@ -69,9 +74,7 @@ export default {
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
     new SubresourceIntegrityPlugin({ hashFuncNames: ['sha512'] }),
-    new SriDataPlugin({
-      saveAs: path.join(__dirname, 'dist', 'sri.json'),
-    }),
+    new SriDataPlugin({ saveAs: path.join(DIST_DIR, 'sri.json') }),
   ],
   resolve: {
     alias: {
