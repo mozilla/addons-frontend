@@ -166,9 +166,11 @@ describe(__filename, () => {
     );
   });
 
-  it('adds a leading slash to footerLink if needed', () => {
+  it('passes an object with an href for an external link', () => {
+    const _checkInternalURL = sinon.stub().returns({ isInternal: false });
     const url = 'link';
     const root = render({
+      _checkInternalURL,
       shelves: [
         _createShelf({
           footer: { ...fakeShelf.footer, url },
@@ -176,7 +178,29 @@ describe(__filename, () => {
       ],
     });
 
-    expect(root.find(LandingAddonsCard)).toHaveProp('footerLink', `/${url}`);
+    expect(root.find(LandingAddonsCard)).toHaveProp('footerLink', {
+      href: url,
+    });
+    sinon.assert.calledWith(_checkInternalURL, { urlString: url });
+  });
+
+  it('passes a relative URL for an internal link', () => {
+    const url = 'https://some.internal/url';
+    const fixedURL = '/url';
+    const _checkInternalURL = sinon
+      .stub()
+      .returns({ isInternal: true, relativeURL: fixedURL });
+    const root = render({
+      _checkInternalURL,
+      shelves: [
+        _createShelf({
+          footer: { ...fakeShelf.footer, url },
+        }),
+      ],
+    });
+
+    expect(root.find(LandingAddonsCard)).toHaveProp('footerLink', fixedURL);
+    sinon.assert.calledWith(_checkInternalURL, { urlString: url });
   });
 
   it('generates a default footerLink for a collection', () => {

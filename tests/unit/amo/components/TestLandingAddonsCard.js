@@ -171,6 +171,16 @@ describe(__filename, () => {
     );
   });
 
+  it('accepts an object with an href for the footer link', () => {
+    const url = '/some/link/';
+    const footerLink = { href: url };
+    const root = render({ footerLink });
+    expect(root.find(AddonsCard).prop('footerLink').props.href).toEqual(url);
+    expect(root.find(AddonsCard).prop('footerLink').props.to).toEqual(
+      undefined,
+    );
+  });
+
   it.each([true, false])(
     'sets useThemePlaceholder to the value of isTheme on the AddonsCard',
     (isTheme) => {

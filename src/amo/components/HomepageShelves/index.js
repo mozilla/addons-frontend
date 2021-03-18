@@ -11,6 +11,7 @@ import {
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
+import { checkInternalURL } from 'amo/utils';
 import type { ResultShelfType } from 'amo/reducers/home';
 import type { I18nType } from 'amo/types/i18n';
 
@@ -20,6 +21,7 @@ type Props = {|
 |};
 
 type InternalProps = {|
+  _checkInternalURL: typeof checkInternalURL,
   i18n: I18nType,
   ...Props,
 |};
@@ -29,7 +31,12 @@ export const HOMESHELVES_ENDPOINT_SEARCH = 'search';
 export const HOMESHELVES_ENDPOINT_SEARCH_THEMES = 'search-themes';
 
 export const HomepageShelvesBase = (props: InternalProps): React.Node => {
-  const { i18n, loading, shelves } = props;
+  const {
+    _checkInternalURL = checkInternalURL,
+    i18n,
+    loading,
+    shelves,
+  } = props;
 
   let shelvesContent;
 
@@ -73,10 +80,11 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
 
       let footerLink;
       if (footer && footer.url) {
-        if (footer.url.startsWith('/')) {
-          footerLink = footer.url;
+        const internalUrlCheck = _checkInternalURL({ urlString: footer.url });
+        if (internalUrlCheck.isInternal) {
+          footerLink = internalUrlCheck.relativeURL;
         } else {
-          footerLink = `/${footer.url}`;
+          footerLink = { href: footer.url };
         }
       } else {
         footerLink =
