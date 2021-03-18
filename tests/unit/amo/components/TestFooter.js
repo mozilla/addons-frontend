@@ -132,5 +132,18 @@ describe(__filename, () => {
         utm_campaign: null,
       })}`,
     );
+
+    expect(root.find('.Footer-developer-policies-link')).toHaveText(
+      'Developer Policies',
+    );
+    expect(root.find('.Footer-developer-policies-link')).toHaveProp(
+      'href',
+      `${extensionWorkshopUrl}/documentation/publish/add-on-policies/${makeQueryStringWithUTM(
+        {
+          utm_medium: 'photon-footer',
+          utm_campaign: null,
+        },
+      )}`,
+    );
   });
 });

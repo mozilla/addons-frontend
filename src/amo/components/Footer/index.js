@@ -76,7 +76,17 @@ export class FooterBase extends React.Component {
                 </Link>
               </li>
               <li>
-                <a href="https://developer.mozilla.org/docs/Mozilla/Add-ons/AMO/Policy">
+                <a
+                  className="Footer-developer-policies-link"
+                  href={`${_config.get(
+                    'extensionWorkshopUrl',
+                  )}/documentation/publish/add-on-policies/${makeQueryStringWithUTM(
+                    {
+                      utm_medium: 'photon-footer',
+                      utm_campaign: null,
+                    },
+                  )}`}
+                >
                   {i18n.gettext('Developer Policies')}
                 </a>
               </li>
