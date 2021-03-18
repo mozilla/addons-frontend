@@ -112,7 +112,7 @@ export type ExternalSecondaryHeroShelfType = {|
   modules: Array<ExternalSecondaryHeroModuleType>,
 |} | null;
 
-export type HeroCallToActionType = {|
+export type CallToActionType = {|
   url: string,
   outgoing: string,
   text: string,
@@ -121,13 +121,13 @@ export type HeroCallToActionType = {|
 export type SecondaryHeroModuleType = {|
   icon: string,
   description: string,
-  cta: HeroCallToActionType | null,
+  cta: CallToActionType | null,
 |};
 
 export type SecondaryHeroShelfType = {|
   headline: string,
   description: string,
-  cta: HeroCallToActionType | null,
+  cta: CallToActionType | null,
   modules: Array<SecondaryHeroModuleType>,
 |} | null;
 
@@ -155,7 +155,7 @@ export type ResultShelfType = {|
   url: string,
   endpoint: string,
   criteria: string,
-  footer: HeroCallToActionType | null,
+  footer: CallToActionType | null,
   addons: Array<AddonType>,
 |};
 
@@ -279,7 +279,7 @@ export const createInternalPrimaryHeroShelfExternalAddon = (
 export const createInternalHeroCallToAction = (
   cta: ExternalHeroCallToActionType,
   lang: string,
-): HeroCallToActionType => {
+): CallToActionType => {
   return {
     url: cta.url,
     outgoing: cta.outgoing,

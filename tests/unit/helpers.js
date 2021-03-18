@@ -231,7 +231,7 @@ export const fakeShelf = Object.freeze({
   endpoint: 'search-themes',
   criteria: '?sort=rating&type=statictheme',
   footer: {
-    url: createLocalizedString('http://testserver/extensions/'),
+    url: 'http://testserver/extensions/',
     text: createLocalizedString('See more top rated themes'),
     outgoing: '',
   },

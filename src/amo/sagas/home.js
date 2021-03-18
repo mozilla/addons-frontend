@@ -30,21 +30,17 @@ export function* fetchHomeData({
 
   const state = yield select(getState);
 
-  const recommendedSearchFilters = {
-    page_size: String(
-      isDesktopSite
-        ? LANDING_PAGE_EXTENSION_COUNT
-        : MOBILE_HOME_PAGE_EXTENSION_COUNT,
-    ),
-    promoted: RECOMMENDED,
-    sort: SEARCH_SORT_RANDOM,
-  };
-
   const recommendedExtensionsParams: SearchParams = {
     api: state.api,
     filters: {
       addonType: ADDON_TYPE_EXTENSION,
-      ...recommendedSearchFilters,
+      page_size: String(
+        isDesktopSite
+          ? LANDING_PAGE_EXTENSION_COUNT
+          : MOBILE_HOME_PAGE_EXTENSION_COUNT,
+      ),
+      promoted: RECOMMENDED,
+      sort: SEARCH_SORT_RANDOM,
     },
   };
 
@@ -73,7 +69,7 @@ export function* fetchHomeData({
           recommendedExtensionsParams,
         );
       } catch (error) {
-        log.warn(`Mobile home add-ons failed to load: ${error}`);
+        log.warn(`Mobile homepage add-ons failed to load: ${error}`);
         throw error;
       }
 
