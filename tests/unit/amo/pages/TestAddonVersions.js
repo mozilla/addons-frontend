@@ -488,9 +488,9 @@ describe(__filename, () => {
       });
 
       const versionCards = root.find(AddonVersionCard);
-      expect(versionCards.at(0)).toHaveProp('showLinkInsteadOfButton', false);
-      expect(versionCards.at(1)).toHaveProp('showLinkInsteadOfButton', true);
-      expect(versionCards.at(2)).toHaveProp('showLinkInsteadOfButton', true);
+      expect(versionCards.at(0)).not.toHaveProp('showLinkInsteadOfButton');
+      expect(versionCards.at(1)).toHaveProp('showLinkInsteadOfButton');
+      expect(versionCards.at(2)).toHaveProp('showLinkInsteadOfButton');
     });
   });
 

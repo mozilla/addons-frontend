@@ -27,7 +27,7 @@ type Props = {|
   // An undefined version means the versions are still loading, whereas a null
   // version means that no version exists.
   version: AddonVersionType | null | void,
-  showLinkInsteadOfButton: boolean,
+  showLinkInsteadOfButton?: boolean,
 |};
 
 type PropsFromState = {|

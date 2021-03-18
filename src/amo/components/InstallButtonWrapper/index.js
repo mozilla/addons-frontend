@@ -35,7 +35,7 @@ export type Props = {|
   // working fine with 7.17.0)
   // eslint-disable-next-line react/no-unused-prop-types
   version?: AddonVersionType | null,
-  showLinkInsteadOfButton: boolean,
+  showLinkInsteadOfButton?: boolean,
 |};
 
 type PropsFromState = {|
@@ -115,9 +115,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
           'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
         })}
       >
-        {showLinkInsteadOfButton && !showDownloadLink ? (
-          showFileLink()
-        ) : (
+        {!showLinkInsteadOfButton && (
           <>
             <AMInstallButton
               addon={addon}
@@ -147,8 +145,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
             />
           </>
         )}
-
-        {showDownloadLink ? showFileLink() : null}
+        {showDownloadLink || showLinkInsteadOfButton ? showFileLink() : null}
       </div>
     )
   );
