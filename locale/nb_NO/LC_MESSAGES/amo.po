@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-18 12:45+0000\n"
+"PO-Revision-Date: 2021-03-19 06:34+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2016,14 +2016,12 @@ msgid "All theme categories"
 msgstr "Alle temakategorier"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "Kategorier"
+msgstr "Tema i %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "%(count)s utvidelse funnet i %(categoryName)s"
+msgstr "Utvidelser i %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:405
 msgid "Do you really want to delete this collection?"
