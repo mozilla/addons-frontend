@@ -28,8 +28,8 @@ describe(__filename, () => {
 
     const testClient = (params = {}) => {
       const config = getFakeConfig({
-        datadogHost: 'localhost',
-        datadogPort: 1111,
+        statsdHost: 'localhost',
+        statsdPort: 1111,
       });
 
       return serverTestHelper.testClient({
@@ -49,8 +49,8 @@ describe(__filename, () => {
 
     it('requires a host to send data', async () => {
       const config = getFakeConfig({
-        datadogHost: null,
-        datadogPort: null,
+        statsdHost: null,
+        statsdPort: null,
       });
       await testClient({ config }).get('/');
 
@@ -97,12 +97,12 @@ describe(__filename, () => {
   });
 
   describe('configuration', () => {
-    const datadogHost = 'some-datadog-host';
-    const datadogPort = 3333;
+    const statsdHost = 'some-statsd-host';
+    const statsdPort = 3333;
 
     const _config = getFakeConfig({
-      datadogHost,
-      datadogPort,
+      statsdHost,
+      statsdPort,
     });
 
     it('configures the client', () => {
@@ -113,8 +113,8 @@ describe(__filename, () => {
       responseTime({ _config, _HotShots: StubHotShots });
 
       sinon.assert.calledWithMatch(StubHotShots, {
-        host: datadogHost,
-        port: datadogPort,
+        host: statsdHost,
+        port: statsdPort,
         prefix: `addons-frontend-${env}.server.`,
       });
 

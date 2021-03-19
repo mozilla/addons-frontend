@@ -9,10 +9,10 @@ export const responseTime = ({
   _log = log,
   _HotShots = HotShots,
 } = {}) => {
-  if (_config.get('datadogHost')) {
+  if (_config.get('statsdHost')) {
     const client = new _HotShots({
-      host: _config.get('datadogHost'),
-      port: _config.get('datadogPort'),
+      host: _config.get('statsdHost'),
+      port: _config.get('statsdPort'),
       // `NODE_CONFIG_ENV` contains the value of `%{::env}` in ops config
       // ('dev', 'stage' or 'prod').
       prefix: `addons-frontend-${process.env.NODE_CONFIG_ENV}.server.`,
