@@ -39,11 +39,12 @@ describe(__filename, () => {
         // eslint-disable-next-line global-require
         const config = require('config');
         const cspConfig = config.get('CSP').directives;
-        expect(cspConfig.scriptSrc).toContain(cdnHost);
+        expect(cspConfig.scriptSrc).toContain(`${cdnHost}/static/`);
         expect(cspConfig.scriptSrc).not.toContain("'self'");
-        expect(cspConfig.imgSrc).toContain(cdnHost);
+        expect(cspConfig.imgSrc).toContain(`${cdnHost}/static/`);
+        expect(cspConfig.imgSrc).toContain(`${cdnHost}/favicon.ico`);
         expect(cspConfig.imgSrc).toContain("'self'");
-        expect(cspConfig.styleSrc).toContain(cdnHost);
+        expect(cspConfig.styleSrc).toContain(`${cdnHost}/static/`);
         expect(cspConfig.styleSrc).not.toContain("'self'");
         expect(cspConfig.connectSrc).toContain(apiHost);
         expect(cspConfig.connectSrc).not.toContain("'self'");
@@ -123,7 +124,7 @@ describe(__filename, () => {
       const cspHeader = res.get('content-security-policy');
       const policy = parse(cspHeader);
       const cdnHost = 'https://addons-amo.cdn.mozilla.net';
-      expect(policy['style-src']).toEqual([cdnHost]);
+      expect(policy['style-src']).toEqual([`${cdnHost}/static/`]);
       sinon.assert.calledOnce(nextSpy);
     });
 

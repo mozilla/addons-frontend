@@ -135,24 +135,30 @@ module.exports = {
       baseUri: ["'self'"],
       childSrc: ["'none'"],
       connectSrc: [analyticsHost, apiProdHost],
-      fontSrc: [addonsFrontendCDN],
+      fontSrc: [
+        `${addonsFrontendCDN}/static/`,
+      ],
       formAction: ["'self'"],
       frameSrc: ["'none'"],
       imgSrc: [
         "'self'",
         'data:',
         addonsServerProdCDN,
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
+        // This file isn't bundled with addons-frontend.
+        `${addonsFrontendCDN}/favicon.ico`,
       ],
       manifestSrc: ["'none'"],
       mediaSrc: ["'none'"],
       objectSrc: ["'none'"],
       // Script is limited to the amo specific CDN.
       scriptSrc: [
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
         `${analyticsHost}/analytics.js`,
       ],
-      styleSrc: [addonsFrontendCDN],
+      styleSrc: [
+        `${addonsFrontendCDN}/static/`,
+      ],
       workerSrc: ["'none'"],
       reportUri: '/__cspreport__',
     },

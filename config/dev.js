@@ -21,20 +21,22 @@ module.exports = {
         apiDevHost,
       ],
       fontSrc: [
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
       ],
       imgSrc: [
         "'self'",
         'data:',
         addonsServerDevCDN,
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
+        // This file isn't bundled with addons-frontend.
+        `${addonsFrontendCDN}/favicon.ico`,
       ],
       scriptSrc: [
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
         `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
       ],
     },
   },
