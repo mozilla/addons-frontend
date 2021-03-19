@@ -62,13 +62,13 @@ $avatar-size: 64px;
 .UserProfile-name {
   @include font-regular();
 
-  font-size: $font-size-l;
+  font-size: $font-size-heading-s;
   grid-column: 1 / span 3;
   margin: 0;
   word-break: break-all;
 
   @include respond-to(medium) {
-    font-size: $font-size-xl;
+    font-size: $font-size-heading-m;
   }
 }
 

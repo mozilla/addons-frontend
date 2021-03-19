@@ -102,7 +102,7 @@
 }
 
 .Addon-summary {
-  font-size: $font-size-m-smaller;
+  font-size: $font-size-m;
   overflow-x: auto;
 
   @include respond-to(medium) {

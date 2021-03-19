@@ -22,7 +22,7 @@ textarea {
   border-radius: $border-radius-xs;
   box-shadow: none;
   color: $black;
-  font-size: $font-size-m-smaller;
+  font-size: $font-size-m;
   line-height: 1.4;
   padding: 4px;
 }
@@ -58,7 +58,7 @@ h2 {
 }
 
 h1 {
-  font-size: $font-size-xl;
+  font-size: $font-size-heading-m;
   line-height: 1;
 }
 

@@ -57,7 +57,7 @@
 }
 
 .Home-SubjectShelf-subheading {
-  font-size: $font-size-m-smaller;
+  font-size: $font-size-m;
   margin: 0;
 }
 
@@ -99,7 +99,7 @@
 .Home-SubjectShelf-link {
   align-items: center;
   display: flex;
-  font-size: $font-size-m-smaller;
+  font-size: $font-size-m;
   text-decoration: none;
 
   @include respond-to(large) {
@@ -164,12 +164,12 @@
 }
 
 .Home-heroHeader-title {
-  font-size: $font-size-l;
+  font-size: $font-size-heading-s;
   line-height: 1;
   margin: $padding-page-l 0 20px;
 
   @include respond-to(medium) {
-    font-size: $font-size-xl;
+    font-size: $font-size-heading-m;
   }
 }
 
@@ -180,7 +180,7 @@
   margin: $padding-page 0 $padding-page-l;
 
   @include respond-to(medium) {
-    font-size: $font-size-l;
+    font-size: $font-size-heading-s;
     line-height: 1;
   }
 }

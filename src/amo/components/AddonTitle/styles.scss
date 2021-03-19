@@ -4,14 +4,14 @@
   @include font-regular();
 
   color: $black;
-  font-size: $font-size-l;
+  font-size: $font-size-heading-s;
   grid-column: 1 / span 2;
   line-height: 1.1;
   margin: 0 0 $padding-page-l;
   width: 100%;
 
   @include respond-to(medium) {
-    font-size: $font-size-xl;
+    font-size: $font-size-heading-m;
   }
 
   .AddonTitle-author {
@@ -23,12 +23,12 @@
     &,
     a,
     a:link {
-      font-size: $font-size-m;
+      font-size: $font-size-l;
       font-weight: normal;
       text-decoration: none;
 
       @include respond-to(medium) {
-        font-size: $font-size-l;
+        font-size: $font-size-heading-s;
       }
     }
   }

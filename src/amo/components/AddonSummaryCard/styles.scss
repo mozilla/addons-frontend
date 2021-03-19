@@ -43,7 +43,7 @@
   .AddonTitle {
     @include font-bold();
 
-    font-size: $font-size-m;
+    font-size: $font-size-l;
     line-height: $default-line-height;
     margin: 0;
     padding: 0;
@@ -57,14 +57,14 @@
     .AddonTitle-author {
       @include font-bold();
 
-      font-size: $font-size-m;
+      font-size: $font-size-l;
       margin: 0;
       padding: 0;
 
       a,
       a:link {
         color: $black;
-        font-size: $font-size-m;
+        font-size: $font-size-l;
         text-decoration: underline;
       }
     }
