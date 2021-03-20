@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-18 08:19+0000\n"
+"PO-Revision-Date: 2021-03-20 08:32+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2605,7 +2605,7 @@ msgstr "Le adresse de e-mail non pote esser cambiate ci"
 
 #: src/amo/pages/UserProfileEdit/index.js:618
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr "Tu pote cambiar tu adresse de e-mail sur tu contos de Firefox. %(startLink)sRequire adjuta?%(endLink)s"
+msgstr "Tu pote cambiar tu adresse de e-mail sur tu contos de Firefox. %(startLink)sRequire tu adjuta?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:635
 msgid "Manage Firefox Accounts…"
