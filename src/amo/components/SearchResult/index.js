@@ -189,6 +189,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
                 })}
                 src={imageURL}
                 alt={addon ? `${addon.name}` : ''}
+                loading="lazy"
               />
             ) : (
               <p className="SearchResult-notheme">
