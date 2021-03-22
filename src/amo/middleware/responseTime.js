@@ -33,12 +33,12 @@ export const responseTime = ({
       const responseTimeKey = `response_time.${req.method}_${res.statusCode}`;
       client.timing(responseTimeKey, time);
 
-      _log.info(`response time: key=${responseTimeKey} value=${time}ms`);
+      _log.debug(`response time: key=${responseTimeKey} value=${time}ms`);
     });
   }
 
   // When there is no host configured, we only log the time.
   return expressResponseTime((req, res, time) => {
-    _log.info(`response time: ${time}ms`);
+    _log.debug(`response time: ${time}ms`);
   });
 };
