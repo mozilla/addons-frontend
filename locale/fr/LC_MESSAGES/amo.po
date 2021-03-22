@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-01-22 14:04+0000\n"
+"PO-Revision-Date: 2021-03-22 11:25+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -2022,11 +2022,11 @@ msgstr "Toutes les catégories de thèmes"
 
 #: src/amo/pages/CategoryPage/index.js:57
 msgid "Themes in %(categoryName)s"
-msgstr ""
+msgstr "Thèmes dans %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
 msgid "Extensions in %(categoryName)s"
-msgstr ""
+msgstr "Extensions dans %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:405
 msgid "Do you really want to delete this collection?"
