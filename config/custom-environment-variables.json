@@ -1,8 +1,8 @@
 {
   "amoCDN": "AMO_CDN",
   "apiHost": "API_HOST",
-  "datadogHost": "DATADOG_HOST",
-  "datadogPort": "DATADOG_PORT",
+  "statsdHost": "STATSD_HOST",
+  "statsdPort": "STATSD_PORT",
   "CSP": "CSP",
   "fxaConfig": "FXA_CONFIG",
   "proxyApiHost": "PROXY_API_HOST",

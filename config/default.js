@@ -57,10 +57,9 @@ module.exports = {
   serverHost: '127.0.0.1',
   serverPort: 4000,
 
-  // These are set with environment variables. We do not use datadog anymore
-  // but statsd/influxdb/grafana.
-  datadogHost: null,
-  datadogPort: null,
+  // These are set with environment variables.
+  statsdHost: null,
+  statsdPort: null,
 
   // The CDN host for AMO.
   amoCDN: addonsServerProdCDN,
