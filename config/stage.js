@@ -19,20 +19,22 @@ module.exports = {
         apiStageHost,
       ],
       fontSrc: [
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
       ],
       imgSrc: [
         "'self'",
         'data:',
         addonsServerStageCDN,
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
+        // This file isn't bundled with addons-frontend.
+        `${addonsFrontendCDN}/favicon.ico`,
       ],
       scriptSrc: [
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
         `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
-        addonsFrontendCDN,
+        `${addonsFrontendCDN}/static/`,
       ],
     },
   },
