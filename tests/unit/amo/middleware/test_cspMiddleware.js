@@ -39,11 +39,20 @@ describe(__filename, () => {
         // eslint-disable-next-line global-require
         const config = require('config');
         const cspConfig = config.get('CSP').directives;
+        // We use a sub-folder on purpose, see:
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
+        expect(cspConfig.scriptSrc).not.toContain(cdnHost);
         expect(cspConfig.scriptSrc).toContain(`${cdnHost}/static/`);
         expect(cspConfig.scriptSrc).not.toContain("'self'");
+        // We use a sub-folder on purpose, see:
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
+        expect(cspConfig.imgSrc).not.toContain(cdnHost);
         expect(cspConfig.imgSrc).toContain(`${cdnHost}/static/`);
         expect(cspConfig.imgSrc).toContain(`${cdnHost}/favicon.ico`);
         expect(cspConfig.imgSrc).toContain("'self'");
+        // We use a sub-folder on purpose, see:
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
+        expect(cspConfig.styleSrc).not.toContain(cdnHost);
         expect(cspConfig.styleSrc).toContain(`${cdnHost}/static/`);
         expect(cspConfig.styleSrc).not.toContain("'self'");
         expect(cspConfig.connectSrc).toContain(apiHost);
