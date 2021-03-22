@@ -100,12 +100,6 @@
   &:first-child:nth-last-child(2),
   &:first-child:nth-last-child(2) ~ & {
     max-width: 50%;
-
-    // The above rule doesn't work when a review has been flagged, as there is a
-    // hidden sibling, so we need to override it.
-    &.AddonReviewCard-control--flagged {
-      max-width: 100%;
-    }
   }
 
   @include respond-to(medium) {
