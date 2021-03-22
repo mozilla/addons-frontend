@@ -4,11 +4,11 @@
 .PromotedBadge {
   align-items: flex-start;
   display: flex;
-  font-size: $font-size-micro;
+  font-size: $font-size-xs;
   margin-bottom: 6px;
 
   &.PromotedBadge-large {
-    font-size: $font-size-m-smaller;
+    font-size: $font-size-m;
   }
 
   .Addon-theme & {

@@ -1,10 +1,10 @@
 @import '~amo/css/styles';
 
 .SearchContextCard-header {
-  font-size: $font-size-m;
+  font-size: $font-size-l;
   margin: 0;
 
   @include respond-to(large) {
-    font-size: $font-size-l;
+    font-size: $font-size-heading-s;
   }
 }

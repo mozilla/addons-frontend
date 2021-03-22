@@ -38,11 +38,11 @@
 .LandingPage-addonType-name {
   @include font-bold();
 
-  font-size: $font-size-l;
+  font-size: $font-size-heading-s;
   margin: 0 0 6px;
 
   @include respond-to(medium) {
-    font-size: $font-size-xl;
+    font-size: $font-size-heading-m;
     margin: 0 0 12px;
   }
 }
@@ -56,7 +56,7 @@
   max-width: 600px;
 
   @include respond-to(medium) {
-    font-size: $font-size-m;
+    font-size: $font-size-l;
   }
 }
 
