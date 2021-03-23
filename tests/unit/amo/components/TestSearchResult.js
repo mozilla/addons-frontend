@@ -366,7 +366,6 @@ describe(__filename, () => {
     const image = root.find('.SearchResult-icon');
 
     expect(image.prop('src')).toEqual(headerImageFull);
-
     expect(image.prop('loading')).toEqual('lazy');
   });
 
