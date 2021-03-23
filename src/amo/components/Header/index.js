@@ -229,7 +229,12 @@ export class HeaderBase extends React.Component {
             {this.renderMenuOrAuthButton()}
           </div>
 
-          <SearchForm className="Header-search-form" pathname="/search/" />
+          <SearchForm
+            className={makeClassName('Header-search-form', {
+              'Header-search-form--desktop': clientApp === CLIENT_APP_FIREFOX,
+            })}
+            pathname="/search/"
+          />
         </div>
       </header>
     );

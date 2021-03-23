@@ -214,10 +214,6 @@
     grid-column: 3 / 3;
     grid-row: 2 / 2;
     margin-top: 6px;
-    max-width: 160px;
-  }
-
-  @include respond-to(large) {
     max-width: 250px;
   }
 
@@ -226,5 +222,11 @@
     margin: 0;
     max-width: 284px;
     width: 100%;
+  }
+}
+
+.Header-search-form--desktop {
+  @include respond-to(medium) {
+    max-width: 160px;
   }
 }

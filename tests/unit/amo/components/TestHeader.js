@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
+import SearchForm from 'amo/components/SearchForm';
 import SectionLinks from 'amo/components/SectionLinks';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
@@ -246,5 +247,25 @@ describe(__filename, () => {
     const root = renderHeader({ store });
 
     expect(root.find(SectionLinks)).toHaveLength(0);
+  });
+
+  it('adds a className to the search form for the desktop site', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+
+    const root = renderHeader({ store });
+
+    expect(root.find(SearchForm)).toHaveClassName(
+      'Header-search-form--desktop',
+    );
+  });
+
+  it('does not add a className to the search form for the mobile site', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+
+    const root = renderHeader({ store });
+
+    expect(root.find(SearchForm)).not.toHaveClassName(
+      'Header-search-form--desktop',
+    );
   });
 });
