@@ -20,6 +20,7 @@ import {
   fakeI18n,
   getFakeConfig,
   shallowUntilTarget,
+  userAgents,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -171,22 +172,38 @@ describe(__filename, () => {
     expect(link).toHaveProp('href', '/developers/addons/');
   });
 
-  it('displays a extension workshop link in header', () => {
+  it('displays devhub and extension workshop links in the header on Firefox', () => {
+    const { store } = dispatchClientMetadata({
+      userAgent: userAgents.firefox[0],
+    });
     const extensionWorkshopUrl = 'http://extensionworkshop.fr';
     const _config = getFakeConfig({ extensionWorkshopUrl });
 
-    const wrapper = renderHeader({ _config });
+    const wrapper = renderHeader({ _config, store });
 
-    const link = wrapper.find('.Header-extension-workshop-link');
-    expect(link).toHaveLength(1);
-    expect(link.children()).toHaveText('Extension Workshop');
-    expect(link).toHaveProp(
+    expect(wrapper.find('.Header-developer-hub-link')).toHaveLength(1);
+
+    const ewLink = wrapper.find('.Header-extension-workshop-link');
+    expect(ewLink).toHaveLength(1);
+    expect(ewLink.children()).toHaveText('Extension Workshop');
+    expect(ewLink).toHaveProp(
       'href',
       `${extensionWorkshopUrl}/${makeQueryStringWithUTM({
         utm_content: 'header-link',
         utm_campaign: null,
       })}`,
     );
+  });
+
+  it('does not display links for devhub and extension workshop on non-Firefox', () => {
+    const { store } = dispatchClientMetadata({
+      userAgent: userAgents.chrome[0],
+    });
+
+    const wrapper = renderHeader({ store });
+
+    expect(wrapper.find('.Header-developer-hub-link')).toHaveLength(0);
+    expect(wrapper.find('.Header-extension-workshop-link')).toHaveLength(0);
   });
 
   it('disables the logout button when the site is in readonly mode', () => {

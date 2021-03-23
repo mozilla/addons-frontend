@@ -19,6 +19,7 @@ import {
   hasAnyReviewerRelatedPermission,
 } from 'amo/reducers/users';
 import { makeQueryStringWithUTM } from 'amo/utils';
+import { isFirefox } from 'amo/utils/compatibility';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import DropdownMenu from 'amo/components/DropdownMenu';
@@ -39,6 +40,7 @@ export class HeaderBase extends React.Component {
     location: PropTypes.object.isRequired,
     siteIsReadOnly: PropTypes.bool.isRequired,
     siteUser: PropTypes.object,
+    userAgentInfo: PropTypes.object,
   };
 
   static defaultProps = { _config: config };
@@ -162,6 +164,7 @@ export class HeaderBase extends React.Component {
       isHomePage,
       loadedPageIsAnonymous,
       location,
+      userAgentInfo,
     } = this.props;
 
     const headerLink = (
@@ -174,6 +177,37 @@ export class HeaderBase extends React.Component {
         </span>
       </Link>
     );
+
+    const otherSiteLinks = isFirefox({ userAgentInfo }) ? (
+      <>
+        <Link
+          className="Header-extension-workshop-link Header-button"
+          href={`${_config.get(
+            'extensionWorkshopUrl',
+          )}/${makeQueryStringWithUTM({
+            utm_content: 'header-link',
+            utm_campaign: null,
+          })}`}
+          external
+          prependClientApp={false}
+          prependLang={false}
+          target="_blank"
+          title={i18n.gettext('Learn how to create extensions and themes')}
+        >
+          {i18n.gettext('Extension Workshop')}
+        </Link>
+        <Link
+          className="Header-developer-hub-link Header-button"
+          href="/developers/"
+          external
+          prependClientApp={false}
+          target="_blank"
+          title={i18n.gettext('Submit and manage extensions and themes')}
+        >
+          {i18n.gettext('Developer Hub')}
+        </Link>
+      </>
+    ) : null;
 
     return (
       <header
@@ -195,32 +229,7 @@ export class HeaderBase extends React.Component {
           ) : null}
 
           <div className="Header-user-and-external-links">
-            <Link
-              className="Header-extension-workshop-link Header-button"
-              href={`${_config.get(
-                'extensionWorkshopUrl',
-              )}/${makeQueryStringWithUTM({
-                utm_content: 'header-link',
-                utm_campaign: null,
-              })}`}
-              external
-              prependClientApp={false}
-              prependLang={false}
-              target="_blank"
-              title={i18n.gettext('Learn how to create extensions and themes')}
-            >
-              {i18n.gettext('Extension Workshop')}
-            </Link>
-            <Link
-              className="Header-developer-hub-link Header-button"
-              href="/developers/"
-              external
-              prependClientApp={false}
-              target="_blank"
-              title={i18n.gettext('Submit and manage extensions and themes')}
-            >
-              {i18n.gettext('Developer Hub')}
-            </Link>
+            {otherSiteLinks}
             <GetFirefoxButton
               buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
               className="Header-download-button Header-button"
@@ -244,6 +253,7 @@ const mapStateToProps = (state) => {
     loadedPageIsAnonymous: state.site.loadedPageIsAnonymous,
     siteIsReadOnly: state.site.readOnly,
     siteUser: getCurrentUser(state.users),
+    userAgentInfo: state.api.userAgentInfo,
   };
 };
 
