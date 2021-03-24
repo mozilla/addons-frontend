@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-24 13:31+0000\n"
+"PO-Revision-Date: 2021-03-24 13:37+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -2010,14 +2010,12 @@ msgid "All theme categories"
 msgstr "అన్ని అలంకార వర్గాలు"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "%(categoryName)s లోని అలంకారాలు"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "%(categoryName)sలో %(count)s పొడగింత కనబడింది"
+msgstr "%(categoryName)s లోని పొడగింతలు"
 
 #: src/amo/pages/Collection/index.js:405
 msgid "Do you really want to delete this collection?"
