@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-24 07:45+0000\n"
+"PO-Revision-Date: 2021-03-24 08:28+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1825,19 +1825,19 @@ msgstr "%(localizedSize)s ბაიტი"
 
 #: src/amo/i18n/utils.js:268
 msgid "%(localizedSize)s KB"
-msgstr "%(localizedSize)s კბაიტი"
+msgstr "%(localizedSize)s კბ"
 
 #: src/amo/i18n/utils.js:270
 msgid "%(localizedSize)s MB"
-msgstr "%(localizedSize)s მბაიტი"
+msgstr "%(localizedSize)s მბ"
 
 #: src/amo/i18n/utils.js:272
 msgid "%(localizedSize)s GB"
-msgstr "%(localizedSize)s გბაიტი"
+msgstr "%(localizedSize)s გბ"
 
 #: src/amo/i18n/utils.js:274
 msgid "%(localizedSize)s TB"
-msgstr "%(localizedSize)s ტბაიტი"
+msgstr "%(localizedSize)s ტბ"
 
 #: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
