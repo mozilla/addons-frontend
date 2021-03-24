@@ -366,7 +366,6 @@ describe(__filename, () => {
     const image = root.find('.SearchResult-icon');
 
     expect(image.prop('src')).toEqual(headerImageFull);
-    expect(image.prop('loading')).toEqual('lazy');
   });
 
   it('displays a fallback image for themes that only have 1 preview option', () => {
