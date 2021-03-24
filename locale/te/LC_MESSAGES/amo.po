@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-24 13:24+0000\n"
+"PO-Revision-Date: 2021-03-24 13:31+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -950,7 +950,7 @@ msgstr "ఇది స్పామ్"
 
 #: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
-msgstr ""
+msgstr "స్పాముగా గుర్తించబడింది"
 
 #: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
@@ -958,7 +958,7 @@ msgstr "దీనిలో అనుచితమైన భాష ఉంది"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "అనౌచిత్యమైన భాషకి గుర్తించబడింది"
 
 #: src/amo/components/Footer/index.js:103
 msgid "Site Status"
@@ -1415,7 +1415,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "దోషాలను నివేదించడానికి లేదా ఈ వాడుకరిని సంప్రదించడానికి ఈ ఫారం వాడకండి; మీ నివేదిక కేవలం Mozillaకు మాత్రమే పంపబడుతుంది, ఈ వాడుకరి కాదు."
 
 #: src/amo/components/ReportUserAbuse/index.js:147
 msgid "Explain how this user is violating our policies."
@@ -2165,7 +2165,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "మీ విహారిణి రూపురేఖలు మార్చివేసుకోండి. Firefoxకి మీకు కావలసిన రూపం ఇవ్వడానికి వేలాది అలంకారాల నుండి ఎంచుకోండి."
 
 #: src/amo/pages/LandingPage/index.js:236
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
@@ -2219,7 +2219,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "మీరు తోడ్పడాలనుకుంటే కానీ మీకు అంత సాంకేతిక పరిజ్ఞానం లేదనుకుంటే, సహాయం చేయడానికి ఇంకా మార్గాలు ఉన్నాయి:"
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
