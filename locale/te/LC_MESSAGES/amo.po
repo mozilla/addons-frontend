@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-24 13:17+0000\n"
+"PO-Revision-Date: 2021-03-24 13:24+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1355,15 +1355,15 @@ msgstr "నాలుగు నక్షత్రాల సమీక్షలన�
 
 #: src/amo/components/RatingsByStar/index.js:61
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "మూడు నక్షత్రాల సమీక్షలన్నీ చదవండి"
 
 #: src/amo/components/RatingsByStar/index.js:62
 msgid "Read all two-star reviews"
-msgstr ""
+msgstr "రెండు-నక్షత్రాల సమీక్షలన్నీ చదవండి"
 
 #: src/amo/components/RatingsByStar/index.js:63
 msgid "Read all one-star reviews"
-msgstr ""
+msgstr "ఒక-నక్షత్ర సమీక్షలన్నీ చదవండి"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
@@ -2370,7 +2370,7 @@ msgstr "చేయతగ్గవి:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "పొడగింతతో మీ అనుభవం గురించి మీ స్నేహితుడికి చెబుతున్నట్లు వ్రాయండి."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
