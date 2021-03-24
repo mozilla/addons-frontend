@@ -9,7 +9,7 @@ import { withRouter } from 'react-router-dom';
 import { logOutFromServer, startLoginUrl } from 'amo/api';
 import { getCurrentUser, logOutUser } from 'amo/reducers/users';
 import translate from 'amo/i18n/translate';
-import Link from 'amo/components/Link';
+import Button from 'amo/components/Button';
 import Icon from 'amo/components/Icon';
 import log from 'amo/logger';
 import type { ButtonType } from 'amo/components/Button';
@@ -103,7 +103,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
     // mobile browser. This is the cause of
     // https://github.com/mozilla/addons-frontend/issues/1904
     return (
-      <Link
+      <Button
         href={`#${siteUser ? 'logout' : 'login'}`}
         buttonType={buttonType}
         className={className}
@@ -114,7 +114,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
       >
         {noIcon ? null : <Icon name="user-dark" />}
         {buttonText}
-      </Link>
+      </Button>
     );
   }
 }

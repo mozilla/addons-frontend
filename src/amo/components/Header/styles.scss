@@ -165,6 +165,12 @@
 
   @include respond-to(medium) {
     @include margin-start(12px);
+    color: $white;
+    display: inline-block;
+    font-size: $font-size-s;
+    font-weight: normal;
+    padding-top: 4px;
+    text-decoration: none;
   }
 }
 
