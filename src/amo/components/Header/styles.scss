@@ -149,17 +149,12 @@
     font-weight: normal;
     padding-top: 4px;
     text-decoration: none;
+    vertical-align: baseline;
   }
- 
+
   @include respond-to(large) {
-       display: inline-block;
-   }
- }
-
-.Header-download-button {
-  @include margin-start(12px);
-
-  width: auto;
+    display: inline-block;
+  }
 }
 
 .Header-authenticate-button {
@@ -172,15 +167,21 @@
   }
 
   @include respond-to(medium) {
-  &,
-  &:link {
-    font-size: $font-size-xs;
-    font-weight: 300;
-  }
+    &,
+    &:link {
+      font-size: $font-size-xs;
+      font-weight: 300;
+    }
     @include margin-start(12px);
 
     vertical-align: baseline;
   }
+}
+
+.Header-download-button {
+  @include margin-start(12px);
+
+  width: auto;
 }
 
 .Header-SectionLinks {
