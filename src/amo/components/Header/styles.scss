@@ -133,20 +133,28 @@
 .Header-extension-workshop-link {
   display: none;
 
-  @include respond-to(large) {
-    &,
-    &:link {
-      @include margin-start(12px);
-
-      color: $white;
-      display: inline-block;
-      font-size: $font-size-s;
-      font-weight: normal;
-      padding-top: 4px;
-      text-decoration: none;
-    }
+  &,
+  &:link {
+    @include margin-start(12px);
   }
 }
+
+.Header-authenticate-button,
+.Header-developer-hub-link,
+.Header-extension-workshop-link {
+  &,
+  &:link {
+    color: $white;
+    font-size: $font-size-s;
+    font-weight: normal;
+    padding-top: 4px;
+    text-decoration: none;
+  }
+ 
+  @include respond-to(large) {
+       display: inline-block;
+   }
+ }
 
 .Header-download-button {
   @include margin-start(12px);
@@ -164,14 +172,14 @@
   }
 
   @include respond-to(medium) {
+  &,
+  &:link {
+    font-size: $font-size-xs;
+    font-weight: 300;
+  }
     @include margin-start(12px);
-    
-    color: $white;
-    display: inline-block;
-    font-size: $font-size-s;
-    font-weight: normal;
-    padding-top: 4px;
-    text-decoration: none;
+
+    vertical-align: baseline;
   }
 }
 
