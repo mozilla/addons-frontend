@@ -16,10 +16,17 @@
   color: $grey-40;
   display: inline-block;
   font-weight: 400;
-  margin: 0 12px;
+  margin: 0 8px;
   outline: none;
+  // This is required to deal with the section links wrapping at a smaller
+  // screen resolution.
+  overflow-wrap: break-word;
   padding: 0 0 2px;
   text-decoration: none;
+
+  @include respond-to(large) {
+    margin: 0 12px;
+  }
 
   &::after {
     background: transparent;
