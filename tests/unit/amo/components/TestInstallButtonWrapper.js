@@ -358,13 +358,12 @@ describe(__filename, () => {
     const _getClientCompatibility = sinon.stub().returns({
       compatible: true,
     });
-    const showLinkInsteadOfButton = false;
 
     const root = render({
       _findInstallURL,
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
-      showLinkInsteadOfButton,
+      showLinkInsteadOfButton: false,
     });
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
@@ -377,13 +376,12 @@ describe(__filename, () => {
     const _getClientCompatibility = sinon.stub().returns({
       compatible: true,
     });
-    const showLinkInsteadOfButton = true;
 
     const root = render({
       _findInstallURL,
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
-      showLinkInsteadOfButton,
+      showLinkInsteadOfButton: true,
     });
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(1);
@@ -396,13 +394,12 @@ describe(__filename, () => {
     const _getClientCompatibility = sinon.stub().returns({
       compatible: true,
     });
-    const showLinkInsteadOfButton = true;
 
     const root = render({
       _findInstallURL,
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
-      showLinkInsteadOfButton,
+      showLinkInsteadOfButton: true,
     });
 
     expect(root.find(AMInstallButton)).toHaveLength(0);
