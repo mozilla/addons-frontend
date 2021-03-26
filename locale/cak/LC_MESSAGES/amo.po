@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-26 22:28+0000\n"
+"PO-Revision-Date: 2021-03-26 22:44+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -305,17 +305,14 @@ msgid "Delete review"
 msgstr "Tiyuj tzijoxïk"
 
 #: src/amo/components/AddonReviewCard/index.js:236
-#, fuzzy
 msgid "Do you really want to delete this reply?"
-msgstr "Titikirisäx molojri'ïl richin ninuk' re mol re'"
+msgstr "¿La kan nawajo' nayüj re tzolin tzij?"
 
 #: src/amo/components/AddonReviewCard/index.js:240
-#, fuzzy
 msgid "Do you really want to delete this rating?"
-msgstr "Titikirisäx molojri'ïl richin ninuk' re mol re'"
+msgstr "¿La kan nawajo' nayüj re tzolin tzij?"
 
 #: src/amo/components/AddonReviewCard/index.js:243
-#, fuzzy
 msgid "Do you really want to delete this review?"
 msgstr "Titikirisäx molojri'ïl richin ninuk' re mol re'"
 
