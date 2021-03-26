@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-26 00:33+0000\n"
+"PO-Revision-Date: 2021-03-26 22:28+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -52,14 +52,12 @@ msgid "Review theme"
 msgstr "Kenik'öx taq wachinel"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
-#, fuzzy
 msgid "Review add-on code"
-msgstr "Kitzijoxikil %(addonName)s"
+msgstr "Tanik'oj rub'itz'ib' tz'aqat"
 
 #: src/amo/components/AddonAdminLinks/index.js:134
-#, fuzzy
 msgid "Admin Links"
-msgstr "Kiximonel Tz'aqat"
+msgstr "Ruximonel Nuk'samajel"
 
 #: src/amo/components/AddonAdminLinks/index.js:76 src/amo/components/AddonAuthorLinks/index.js:51
 msgid "Edit add-on"
