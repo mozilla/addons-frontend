@@ -21,10 +21,17 @@ import ScrollToTop from 'amo/components/ScrollToTop';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
-import { getDjangoBase62 } from 'amo/utils';
+import {
+  getDjangoBase62,
+  getClientAppAndLangFromPath,
+  isValidClientApp,
+} from 'amo/utils';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'amo/addonManager';
-import { setUserAgent as setUserAgentAction } from 'amo/reducers/api';
+import {
+  setClientApp as setClientAppAction,
+  setUserAgent as setUserAgentAction,
+} from 'amo/reducers/api';
 import { setInstallState } from 'amo/reducers/installations';
 import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'amo/constants';
 import ErrorPage from 'amo/components/ErrorPage';
@@ -34,6 +41,7 @@ import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { InstalledAddon } from 'amo/reducers/installations';
 import type { I18nType } from 'amo/types/i18n';
+import type { ReactRouterLocationType } from 'amo/types/router';
 /* eslint-enable import/first */
 
 interface MozNavigator extends Navigator {
@@ -60,7 +68,9 @@ type Props = {|
   ...DefaultProps,
   handleGlobalEvent: () => void,
   i18n: I18nType,
+  location: ReactRouterLocationType,
   logOutUser: () => void,
+  setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
 |};
 
@@ -118,10 +128,18 @@ export class AppBase extends React.Component<Props> {
   }
 
   componentDidUpdate() {
-    const { authToken } = this.props;
+    const { authToken, clientApp, location, setClientApp } = this.props;
+
+    const { clientApp: clientAppFromURL } = getClientAppAndLangFromPath(
+      location.pathname,
+    );
 
     if (authToken) {
       this.setLogOutTimer(authToken);
+    }
+
+    if (isValidClientApp(clientAppFromURL) && clientAppFromURL !== clientApp) {
+      setClientApp(clientAppFromURL);
     }
   }
 
@@ -238,6 +256,7 @@ export function mapDispatchToProps(
 ): {|
   handleGlobalEvent: (payload: InstalledAddon) => void,
   logOutUser: () => void,
+  setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
 |} {
   return {
@@ -246,6 +265,9 @@ export function mapDispatchToProps(
     },
     handleGlobalEvent(payload: InstalledAddon) {
       dispatch(setInstallState(payload));
+    },
+    setClientApp(clientApp: string) {
+      dispatch(setClientAppAction(clientApp));
     },
     setUserAgent(userAgent: string) {
       dispatch(setUserAgentAction(userAgent));

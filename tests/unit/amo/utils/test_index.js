@@ -20,6 +20,7 @@ import {
   getCanonicalURL,
   getClientApp,
   getClientConfig,
+  getClientAppAndLangFromPath,
   getPromotedBadgesLinkUrl,
   isAddonAuthor,
   isAllowedOrigin,
@@ -773,6 +774,22 @@ describe(__filename, () => {
 
       expect(historyWithQueryParams).toHaveProperty('location.query', {
         foo: '123',
+      });
+    });
+  });
+
+  describe('getClientAppAndLangFromPath', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'en-US';
+
+    it.each([
+      `/${lang}/${clientApp}/`,
+      `/${lang}/${clientApp}/extensions/`,
+      `/${lang}/${clientApp}/search/?q=test`,
+    ])('extracts a lang and clientApp from a URL: %s', (urlString) => {
+      expect(getClientAppAndLangFromPath(urlString)).toEqual({
+        clientApp,
+        lang,
       });
     });
   });

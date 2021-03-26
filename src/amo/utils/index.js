@@ -378,3 +378,15 @@ export const addQueryParamsToHistory = ({
 |}): typeof qhistory => {
   return qhistory(history, _stringify, _parse);
 };
+
+export const getClientAppAndLangFromPath = (
+  urlString: string,
+): {| lang: string, clientApp: string |} => {
+  const URLParts = urlString.split('?');
+
+  // Split on slashes after removing the leading slash.
+  const URLPathParts = URLParts[0].replace(/^\//, '').split('/');
+
+  // Get lang and app parts from the URL.
+  return { lang: URLPathParts[0], clientApp: URLPathParts[1] };
+};
