@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-20 08:32+0000\n"
-"Last-Translator: Melo46 <melo@carmu.com>\n"
+"PO-Revision-Date: 2021-03-27 23:48+0000\n"
+"Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
@@ -1282,7 +1282,7 @@ msgstr "Celar e monstrar le schedas del navigator"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
-msgstr "Immagazinar illimitate quantitate de datos del latere del cliente"
+msgstr "Immagazinar un quantitate illimitate de datos in le latere del cliente"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
