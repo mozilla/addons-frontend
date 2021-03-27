@@ -160,7 +160,7 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'This add-on is not compatible with this browser. Try installing it on Firefox for desktop.',
+      'Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop.',
     );
   });
 

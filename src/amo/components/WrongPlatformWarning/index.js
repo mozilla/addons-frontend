@@ -89,7 +89,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
     if (_isFirefoxForIOS(userAgentInfo)) {
       // Firefox for iOS.
       message = i18n.gettext(
-        `This add-on is not compatible with this browser. Try installing it on Firefox for desktop.`,
+        `Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop.`,
       );
     } else if (
       addon &&
