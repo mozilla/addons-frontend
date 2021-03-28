@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-28 16:36+0000\n"
+"PO-Revision-Date: 2021-03-28 16:38+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1632,9 +1632,8 @@ msgid "Any"
 msgstr "Mikä tahansa"
 
 #: src/amo/components/SearchFilters/index.js:184
-#, fuzzy
 msgid "All Reviewed"
-msgstr "arvio"
+msgstr "Kaikki arvioidut"
 
 #: src/amo/components/SearchFilters/index.js:204
 msgid "Filter results"
@@ -1650,7 +1649,7 @@ msgstr "Lisäosan tyyppi"
 
 #: src/amo/components/SearchFilters/index.js:254
 msgid "Badging"
-msgstr ""
+msgstr "Merkintä"
 
 #: src/amo/components/SearchForm/index.js:65
 msgid "Firefox Add-ons for Android"
