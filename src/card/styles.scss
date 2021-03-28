@@ -1,0 +1,76 @@
+@import '~amo/css/styles';
+
+.StaticAddonCard {
+  border-radius: 10px;
+  box-shadow: 0 0 4px transparentize($black, 0.5);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1em;
+
+  @include respond-to(medium) {
+    grid-template-columns: fr 1fr 1fr;
+  }
+}
+
+.AddonBadges {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0 0 0 auto;
+  width: auto;
+
+  @include respond-to(medium) {
+    grid-column: 3;
+  }
+}
+
+.AddonIcon {
+  grid-column: 1;
+  grid-row: 1;
+
+  @include respond-to(medium) {
+    grid-column: 1 / span 2;
+    min-height: 96px;
+  }
+}
+
+.AddonIconWrapper {
+  height: 48px;
+  overflow: hidden;
+  width: 48px;
+
+  @include respond-to(medium) {
+    height: 64px;
+    overflow: hidden;
+    width: 64px;
+  }
+}
+
+.AddonIconImage {
+  height: auto;
+  width: 100%;
+}
+
+.AddonTitle {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+}
+
+.AddonSummary {
+  font-size: $font-size-m;
+  grid-column: 1 / span 2;
+  grid-row: 3;
+  overflow-x: auto;
+}
+
+.GetFirefoxButton {
+  align-self: center;
+  grid-column: 1 / span 2;
+  grid-row: 4;
+  white-space: initial;
+  width: auto;
+
+  @include respond-to(medium) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+}

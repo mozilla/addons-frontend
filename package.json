@@ -9,6 +9,9 @@
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
+    "build:card": "npm run clean && bin/create-package-json-for-card && better-npm-run build:card",
+    "build:card-dev": "NODE_ENV=development npm run build:card -- --watch",
+    "build:card-prod": "NODE_ENV=production npm run build:card",
     "build-check": "bin/build-checks.js",
     "build-ci": "npm run build && npm run bundlesize",
     "build-locales": "bin/build-locales",
@@ -45,6 +48,14 @@
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
+      }
+    },
+    "build:card": {
+      "command": "webpack --config webpack.card.config.babel.js",
+      "env": {
+        "NODE_ICU_DATA": "./node_modules/full-icu",
+        "NODE_PATH": "./:./src",
+        "NODE_CONFIG_ENV": "prod"
       }
     },
     "amo:olympia": {

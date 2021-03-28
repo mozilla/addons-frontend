@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+
+const packageJson = require('../package.json');
+
+const distDir = path.join(__dirname, '..', 'dist');
+const content = `{
+  "name": "addons-frontend-card",
+  "version": "${packageJson.version}",
+  "main": "node.js",
+  "browser": "web.js",
+  "style": "style.css",
+  "dependencies": {
+    "jsdom": "${packageJson.dependencies.jsdom}",
+    "node-fetch": "2.6.1"
+  }
+}
+`;
+
+fs.writeFile(path.join(distDir, 'package.json'), content, 'utf-8', (err) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+
+  console.log('done');
+});
