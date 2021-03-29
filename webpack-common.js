@@ -62,7 +62,7 @@ export function getStyleRules({
   return styleRules;
 }
 
-export function getAssetRules() {
+function getAssetRules({ fileLimit }) {
   // Common options for URL loaders (i.e. derivatives of file-loader).
   const urlLoaderOptions = {
     encoding: 'base64',
@@ -72,7 +72,7 @@ export function getAssetRules() {
     esModule: false,
     // If a media file is less than this size in bytes, it will be linked as a
     // data: URL. Otherwise it will be linked as a separate file URL.
-    limit: 10000,
+    limit: fileLimit,
   };
 
   return [
@@ -89,7 +89,12 @@ export function getAssetRules() {
   ];
 }
 
-export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
+export function getRules({
+  babelOptions,
+  bundleStylesWithJs = false,
+  // Disable inlining (because most media files will have a size >= 1KB).
+  fileLimit = 1000,
+} = {}) {
   return [
     {
       test: /\.jsx?$/,
@@ -98,7 +103,7 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
       options: babelOptions,
     },
     ...getStyleRules({ bundleStylesWithJs }),
-    ...getAssetRules(),
+    ...getAssetRules({ fileLimit }),
   ];
 }
 
