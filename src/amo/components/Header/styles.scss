@@ -157,6 +157,12 @@
   }
 }
 
+.Header-download-button {
+  @include margin-start(12px);
+
+  width: auto;
+}
+
 .Header-authenticate-button {
   @include margin-start(6px);
 
@@ -175,13 +181,8 @@
     @include margin-start(12px);
 
     vertical-align: baseline;
+
   }
-}
-
-.Header-download-button {
-  @include margin-start(12px);
-
-  width: auto;
 }
 
 .Header-SectionLinks {
