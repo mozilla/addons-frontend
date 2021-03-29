@@ -168,6 +168,7 @@
 
   white-space: nowrap;
 
+
   .DropdownMenu-button {
     padding: 0;
   }
@@ -175,8 +176,9 @@
   @include respond-to(medium) {
     &,
     &:link {
+      color: $yellow;
       font-size: $font-size-xs;
-      font-weight: 300;
+      font-weight: 100;
     }
     @include margin-start(12px);
     
@@ -187,6 +189,12 @@
     padding-top: 4px;
     text-decoration: none;
   }
+}
+
+.Header-download-button {
+  @include margin-start(12px);
+
+  width: auto;
 }
 
 .Header-SectionLinks {

@@ -152,7 +152,6 @@ export class HeaderBase extends React.Component {
       <AuthenticateButton
         buttonType="none"
         className="Header-authenticate-button Header-button"
-        buttonType="none"
         noIcon
       />
     );
