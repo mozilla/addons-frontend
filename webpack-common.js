@@ -93,7 +93,7 @@ export function getRules({
   babelOptions,
   bundleStylesWithJs = false,
   // Disable inlining (because most media files will have a size >= 1KB).
-  fileLimit = 1000,
+  fileLimit = 1024,
 } = {}) {
   return [
     {
