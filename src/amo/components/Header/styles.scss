@@ -168,28 +168,20 @@
 
   white-space: nowrap;
 
-
   .DropdownMenu-button {
     padding: 0;
   }
 
   @include respond-to(medium) {
-  &,
+    &,
     &:link {
-
       font-size: $font-size-xs;
       font-weight: 300;
     }
     @include margin-start(12px);
-    
+
     vertical-align: baseline;
   }
-}
-
-.Header-download-button {
-  @include margin-start(12px);
-
-  width: auto;
 }
 
 .Header-SectionLinks {
