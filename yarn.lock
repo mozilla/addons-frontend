@@ -5839,10 +5839,10 @@ html-encoding-sniffer@^2.0.1:
   dependencies:
     whatwg-encoding "^1.0.5"
 
-html-entities@2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.1.tgz#3a61f1ce9dc098267ad161f1e7b7eca81361e80e"
-  integrity sha512-GqonC/ZciYWdIh/yI0R8dlWNbI6sUbqi04r0x2lzvESNGvNn9Axt9g89Zo0itnpTuAT/Fh+hezP3DioCDvwcNw==
+html-entities@2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.2.tgz#760b404685cb1d794e4f4b744332e3b00dcfe488"
+  integrity sha512-c3Ab/url5ksaT0WyleslpBEthOzWhrjQbg75y7XUsfSzi3Dgzt0l8w5e7DylRn15MTlMMD58dTfzddNS2kcAjQ==
 
 html-entities@^1.2.0:
   version "1.4.0"
