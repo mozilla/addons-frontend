@@ -107,7 +107,10 @@ export function getRules({
   ];
 }
 
-export function getPlugins({ excludeOtherAppLocales = true } = {}) {
+export function getPlugins({
+  excludeOtherAppLocales = true,
+  withBrowserWindow = true,
+} = {}) {
   const clientConfig = getClientConfig(config);
 
   const plugins = [
@@ -115,8 +118,8 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
       CLIENT_CONFIG: JSON.stringify(clientConfig),
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    // Since the NodeJS code does not run from a webpack bundle, here
-    // are a few replacements that affect only the client side bundle.
+    // Since the NodeJS code does not run from a webpack bundle, here are a few
+    // replacements that affect only the client side bundle.
     //
     // This replaces the config with a new module that has sensitive,
     // server-only keys removed.
@@ -124,16 +127,22 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
       /^config$/,
       'amo/client/config.js',
     ),
-    // This swaps the server side window object with a standard browser window.
-    new webpack.NormalModuleReplacementPlugin(
-      /amo\/window/,
-      'amo/browserWindow.js',
-    ),
     new CircularDependencyPlugin({
       exclude: /node_modules/,
       failOnError: true,
     }),
   ];
+
+  if (withBrowserWindow) {
+    plugins.push(
+      // This swaps the server side window object with a standard browser
+      // window.
+      new webpack.NormalModuleReplacementPlugin(
+        /amo\/window/,
+        'amo/browserWindow.js',
+      ),
+    );
+  }
 
   if (excludeOtherAppLocales) {
     plugins.push(
