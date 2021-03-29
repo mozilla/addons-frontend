@@ -174,20 +174,15 @@
   }
 
   @include respond-to(medium) {
-    &,
+  &,
     &:link {
-      color: $yellow;
+
       font-size: $font-size-xs;
-      font-weight: 100;
+      font-weight: 300;
     }
     @include margin-start(12px);
     
-    color: $white;
-    display: inline-block;
-    font-size: $font-size-s;
-    font-weight: normal;
-    padding-top: 4px;
-    text-decoration: none;
+    vertical-align: baseline;
   }
 }
 
