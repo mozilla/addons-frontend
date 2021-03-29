@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Footer, { FooterBase } from 'amo/components/Footer';
+import LanguagePicker from 'amo/components/LanguagePicker';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   fakeI18n,
@@ -9,7 +10,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function renderFooter({ ...props }) {
+  function renderFooter({ ...props } = {}) {
     return shallowUntilTarget(
       <Footer i18n={fakeI18n()} {...props} />,
       FooterBase,
@@ -145,5 +146,17 @@ describe(__filename, () => {
         },
       )}`,
     );
+  });
+
+  it('renders with a LanguagePicker by default', () => {
+    const root = renderFooter();
+
+    expect(root.find(LanguagePicker)).toHaveLength(1);
+  });
+
+  it('can render without a LanguagePicker', () => {
+    const root = renderFooter({ noLangPicker: true });
+
+    expect(root.find(LanguagePicker)).toHaveLength(0);
   });
 });

@@ -45,12 +45,12 @@ export const makeQueryStringWithUTM = ({
   utm_source = DEFAULT_UTM_SOURCE,
   utm_medium = DEFAULT_UTM_MEDIUM,
   utm_campaign = 'non-fx-button',
-  utm_content,
+  utm_content = null,
 }: {|
   utm_source?: string,
   utm_medium?: string,
   utm_campaign?: string | null,
-  utm_content: string,
+  utm_content?: string | null,
 |}): string => {
   return makeQueryString({
     utm_source,
