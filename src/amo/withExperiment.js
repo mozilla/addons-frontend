@@ -30,7 +30,7 @@ import { getDisplayName } from 'amo/utils';
  *  Example:
  *
  *     withExperiment({
- *      id: 'some-experiment-id',
+ *      id: '20210219_some-experiment-id',
  *      variants: [
  *        { id: 'variant-a', percentage: 0.2 },
  *        { id: 'variant-b', percentage: 0.2 },
@@ -48,6 +48,7 @@ import { getDisplayName } from 'amo/utils';
 // unless directed to do so by a requirements change.
 // See https://github.com/mozilla/addons-frontend/issues/8515
 export const DEFAULT_COOKIE_MAX_AGE = 30 * 24 * 60 * 60;
+export const EXPERIMENT_COOKIE_NAME = 'AMO-Experiments-Enabled';
 export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
 // This is a special variant value that indicates the the user is not enrolled
 // in the experiment.
@@ -81,6 +82,8 @@ type withExperimentProps = {|
 
 type ExpermientVariant = {| id: string, percentage: number |};
 
+type RegisteredExpermients = {| [experimentId: string]: string |};
+
 export const getVariant = ({
   randomizer = Math.random,
   variants,
@@ -108,11 +111,22 @@ export const getVariant = ({
   throw new Error('Unable to allocate a user to a variant');
 };
 
+export const isExperimentEnabled = ({
+  _config = config,
+  id,
+}: {|
+  _config: typeof config,
+  id: string,
+|}): boolean => {
+  return _config.get('experiments')[id] === true;
+};
+
 type withExperimentInternalProps = {|
   ...withExperimentProps,
   WrappedComponent: React.ComponentType<any>,
   _config: typeof config,
   _getVariant: typeof getVariant,
+  _isExperimentEnabled: typeof isExperimentEnabled,
   cookies: typeof Cookies,
 |};
 
@@ -141,11 +155,10 @@ export const withExperiment = ({
   invariant(defaultVariants, 'variants is required');
 
   class WithExperiment extends React.Component<withExperimentInternalProps> {
-    experimentCookie: string | void;
-
     static defaultProps = {
       _config: config,
       _getVariant: getVariant,
+      _isExperimentEnabled: isExperimentEnabled,
       id: defaultId,
       variants: defaultVariants,
     };
@@ -155,19 +168,43 @@ export const withExperiment = ({
     constructor(props: withExperimentInternalProps) {
       super(props);
 
-      if (!this.isExperimentEnabled()) {
+      const {
+        _config,
+        _getVariant,
+        _isExperimentEnabled,
+        cookies,
+        id,
+        variants,
+      } = this.props;
+
+      const registeredExperiments = this.getExperiments();
+
+      // Clear any disabled experiments from the cookie.
+      let cleanupNeeded = false;
+      const cleanedExperiments = { ...registeredExperiments };
+      for (const experimentId of Object.keys(registeredExperiments)) {
+        if (!_isExperimentEnabled({ _config, id: experimentId })) {
+          delete cleanedExperiments[experimentId];
+          cleanupNeeded = true;
+        }
+      }
+
+      if (cleanupNeeded) {
+        cookies.set(EXPERIMENT_COOKIE_NAME, cleanedExperiments, cookieConfig);
+      }
+
+      if (!_isExperimentEnabled({ _config, id })) {
         log.debug(`Experiment "${props.id}" is not enabled by config.`);
         return;
       }
 
-      const { _getVariant, cookies, id, variants } = this.props;
-
-      this.experimentCookie = cookies.get(this.getCookieName());
-
-      if (this.experimentCookie === undefined) {
+      if (!this.cookieIncludesExperiment(registeredExperiments)) {
         const variant = _getVariant({ variants });
-        this.experimentCookie = variant.id;
-        cookies.set(this.getCookieName(), this.experimentCookie, cookieConfig);
+        const newCookie = {
+          ...registeredExperiments,
+          [id]: variant.id,
+        };
+        cookies.set(EXPERIMENT_COOKIE_NAME, newCookie, cookieConfig);
         if (variant.id !== NOT_IN_EXPERIMENT) {
           // send an enrollment event
           _tracking.sendEvent({
@@ -178,26 +215,36 @@ export const withExperiment = ({
       }
     }
 
-    getCookieName() {
-      return `${this.props.id}Experiment`;
+    getExperiments() {
+      const { cookies } = this.props;
+
+      return cookies.get(EXPERIMENT_COOKIE_NAME) || {};
     }
 
-    isExperimentEnabled() {
-      const { _config, id } = this.props;
+    cookieIncludesExperiment(registeredExperiments: RegisteredExpermients) {
+      const { id } = this.props;
 
-      return _config.get('experiments')[id] === true;
+      return Object.keys(registeredExperiments).includes(id);
     }
 
     render() {
-      const { cookies, id, ...props } = this.props;
+      const {
+        _config,
+        _isExperimentEnabled,
+        cookies,
+        id,
+        ...props
+      } = this.props;
 
-      const isExperimentEnabled = this.isExperimentEnabled();
-      const variant = isExperimentEnabled
-        ? cookies.get(this.getCookieName())
-        : null;
+      const isEnabled = _isExperimentEnabled({ _config, id });
+      const registeredExperiments = this.getExperiments();
+      const variant =
+        isEnabled && this.cookieIncludesExperiment(registeredExperiments)
+          ? registeredExperiments[id]
+          : null;
 
       const exposedProps: WithExperimentInjectedProps = {
-        isExperimentEnabled,
+        isExperimentEnabled: isEnabled,
         isUserInExperiment: variant !== null && variant !== NOT_IN_EXPERIMENT,
         variant,
       };
