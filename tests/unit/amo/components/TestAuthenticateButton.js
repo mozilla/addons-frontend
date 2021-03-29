@@ -82,7 +82,7 @@ describe(__filename, () => {
     const location = createFakeLocation();
     const root = render({ handleLogIn, location, store });
 
-    expect(root.childAt(1)).toHaveText('Register or Log in');
+    expect(root.childAt(1)).toHaveText('Register or log in');
 
     const clickEvent = createFakeEvent();
     root.simulate('click', clickEvent);
