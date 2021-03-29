@@ -107,10 +107,7 @@ export function getRules({
   ];
 }
 
-export function getPlugins({
-  excludeOtherAppLocales = true,
-  withBrowserWindow = true,
-} = {}) {
+export function getPlugins({ withBrowserWindow = true } = {}) {
   const clientConfig = getClientConfig(config);
 
   const plugins = [
@@ -131,6 +128,11 @@ export function getPlugins({
       exclude: /node_modules/,
       failOnError: true,
     }),
+    // This allow us to exclude locales for other apps being built.
+    new webpack.ContextReplacementPlugin(
+      /locale$/,
+      new RegExp(`^\\.\\/.*?\\/amo\\.js$`),
+    ),
   ];
 
   if (withBrowserWindow) {
@@ -140,16 +142,6 @@ export function getPlugins({
       new webpack.NormalModuleReplacementPlugin(
         /amo\/window/,
         'amo/browserWindow.js',
-      ),
-    );
-  }
-
-  if (excludeOtherAppLocales) {
-    plugins.push(
-      // This allow us to exclude locales for other apps being built.
-      new webpack.ContextReplacementPlugin(
-        /locale$/,
-        new RegExp(`^\\.\\/.*?\\/amo\\.js$`),
       ),
     );
   }
