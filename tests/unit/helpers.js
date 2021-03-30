@@ -393,7 +393,7 @@ export const createSecondaryHeroShelf = ({
 };
 
 export const createHomeShelves = ({
-  resultsProps,
+  resultsProps = [fakeShelf],
   primaryProps = {},
   secondaryProps = {},
 } = {}) => {

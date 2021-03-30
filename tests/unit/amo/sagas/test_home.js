@@ -25,7 +25,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  let baseArgs;
+  let baseApiArgs;
   let errorHandler;
   let mockSearchApi;
   let mockShelvesApi;
@@ -45,7 +45,7 @@ describe(__filename, () => {
     sagaTester.start(homeSaga);
 
     const state = sagaTester.getState();
-    baseArgs = { api: state.api };
+    baseApiArgs = { api: state.api };
   });
 
   describe('fetchHomeData', () => {
@@ -74,7 +74,7 @@ describe(__filename, () => {
       const homeShelves = createHomeShelves();
       mockShelvesApi
         .expects('getHomeShelves')
-        .withArgs(baseArgs)
+        .withArgs(baseApiArgs)
         .resolves(homeShelves);
 
       _fetchHomeData({ isDesktopSite: true });
@@ -96,7 +96,7 @@ describe(__filename, () => {
       mockSearchApi
         .expects('search')
         .withArgs({
-          ...baseArgs,
+          ...baseApiArgs,
           filters: {
             page_size: String(MOBILE_HOME_PAGE_EXTENSION_COUNT),
             addonType: ADDON_TYPE_EXTENSION,
@@ -109,7 +109,7 @@ describe(__filename, () => {
       const homeShelves = createHomeShelves();
       mockShelvesApi
         .expects('getHomeShelves')
-        .withArgs(baseArgs)
+        .withArgs(baseApiArgs)
         .resolves(homeShelves);
 
       _fetchHomeData({ isDesktopSite: false });

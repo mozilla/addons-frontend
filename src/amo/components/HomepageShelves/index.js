@@ -42,6 +42,8 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
 
   if (loading) {
     shelvesContent = (
+      // Display loading shelves to keep components that fall below the fold from
+      // shifting after homepage shelves are loaded from the API
       <div className="HomepageShelves-loading">
         {[1, 2, 3].map((key) => {
           return (
@@ -109,7 +111,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
     });
   }
 
-  return <div className="Home-HomepageShelves">{shelvesContent}</div>;
+  return <div className="HomepageShelves">{shelvesContent}</div>;
 };
 
 const HomepageShelves: React.ComponentType<Props> = translate()(
