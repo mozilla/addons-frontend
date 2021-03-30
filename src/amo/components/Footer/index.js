@@ -1,5 +1,5 @@
+/* @flow */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import config from 'config';
 
@@ -8,21 +8,32 @@ import Link from 'amo/components/Link';
 import { makeQueryStringWithUTM, sanitizeHTML } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import Icon from 'amo/components/Icon';
+import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
-export class FooterBase extends React.Component {
-  static propTypes = {
-    _config: PropTypes.object,
-    i18n: PropTypes.object.isRequired,
-  };
+type Props = {|
+  noLangPicker?: boolean,
+|};
 
-  static defaultProps = {
+type DefaultProps = {|
+  _config: typeof config,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...DefaultProps,
+  i18n: I18nType,
+|};
+
+export class FooterBase extends React.Component<InternalProps> {
+  static defaultProps: {| ...Props, ...DefaultProps |} = {
     _config: config,
+    noLangPicker: false,
   };
 
-  render() {
-    const { _config, i18n } = this.props;
+  render(): React.Node {
+    const { _config, i18n, noLangPicker } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
     return (
@@ -293,13 +304,17 @@ export class FooterBase extends React.Component {
             )}
           />
 
-          <div className="Footer-language-picker">
-            <LanguagePicker />
-          </div>
+          {!noLangPicker && (
+            <div className="Footer-language-picker">
+              <LanguagePicker />
+            </div>
+          )}
         </div>
       </footer>
     );
   }
 }
 
-export default compose(translate())(FooterBase);
+const Footer: React.ComponentType<Props> = compose(translate())(FooterBase);
+
+export default Footer;
