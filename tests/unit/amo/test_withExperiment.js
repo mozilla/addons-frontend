@@ -109,13 +109,12 @@ describe(__filename, () => {
     expect(root).toHaveProp('isUserInExperiment', true);
   });
 
-  it('reads the experiment cookie upon construction and render', () => {
+  it('reads the experiment cookie upon render', () => {
     const cookies = fakeCookies();
 
     render({ cookies });
 
-    sinon.assert.alwaysCalledWith(cookies.get, EXPERIMENT_COOKIE_NAME);
-    sinon.assert.callCount(cookies.get, 2);
+    sinon.assert.calledWith(cookies.get, EXPERIMENT_COOKIE_NAME);
   });
 
   it('deletes the data for an experiment from the cookie if the experiment is disabled', () => {
@@ -175,9 +174,15 @@ describe(__filename, () => {
     );
   });
 
-  it('creates a cookie upon construction if the current experiment is not already in the cookie', () => {
+  it('creates a cookie upon render if the current experiment is not already in the cookie', () => {
     const experimentId = makeId('thisExperiment');
     const anotherExperimentId = makeId('anotherExperiment');
+    const _config = getFakeConfig({
+      experiments: {
+        [experimentId]: true,
+        [anotherExperimentId]: true,
+      },
+    });
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
       get: sinon.stub().returns({
@@ -189,7 +194,7 @@ describe(__filename, () => {
     render({
       cookies,
       experimentProps: { id: experimentId },
-      props: { _getVariant },
+      props: { _config, _getVariant },
     });
 
     sinon.assert.calledWith(
@@ -199,6 +204,37 @@ describe(__filename, () => {
         ...createExperimentData({ id: experimentId, variantId }),
         ...createExperimentData({ id: anotherExperimentId, variantId }),
       },
+      defaultCookieConfig,
+    );
+  });
+
+  it('adds an experiment to the cookie, and removes a disabled one, as expected', () => {
+    const experimentId = makeId('thisExperiment');
+    const anotherExperimentId = makeId('anotherExperiment');
+    const _config = getFakeConfig({
+      experiments: {
+        [experimentId]: true,
+        [anotherExperimentId]: false,
+      },
+    });
+    const variantId = 'some-variant-id';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns({
+        ...createExperimentData({ id: anotherExperimentId, variantId }),
+      }),
+    });
+    const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
+
+    render({
+      cookies,
+      experimentProps: { id: experimentId },
+      props: { _config, _getVariant },
+    });
+
+    sinon.assert.calledWith(
+      cookies.set,
+      EXPERIMENT_COOKIE_NAME,
+      createExperimentData({ id: experimentId, variantId }),
       defaultCookieConfig,
     );
   });
@@ -217,7 +253,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(cookies.set);
   });
 
-  it('sends an enrollment event upon construction if the experiment is not already present in the cookie', () => {
+  it('sends an enrollment event if the experiment is not already present in the cookie', () => {
     const experimentId = makeId('thisExperiment');
     const anotherExperimentId = makeId('anotherExperiment');
     const variantId = 'some-variant-id';
@@ -241,7 +277,7 @@ describe(__filename, () => {
     });
   });
 
-  it('does not send an enrollment event upon construction if the user is not in the experiment', () => {
+  it('does not send an enrollment event if the user is not in the experiment', () => {
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
@@ -259,7 +295,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(_tracking.sendEvent);
   });
 
-  it('does not send an enrollment event upon construction if the user is in the experiment', () => {
+  it('does not send an enrollment event if the user is in the experiment', () => {
     const id = makeId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(createExperimentData({ id })),
@@ -274,7 +310,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(_tracking.sendEvent);
   });
 
-  it('does not send an enrollment event upon construction if the experiment is disabled', () => {
+  it('does not send an enrollment event if the experiment is disabled', () => {
     const id = makeId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
