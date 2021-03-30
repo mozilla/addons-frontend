@@ -15,7 +15,10 @@ import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
-import { setUserAgent as setUserAgentAction } from 'amo/reducers/api';
+import {
+  setClientApp as setClientAppAction,
+  setUserAgent as setUserAgentAction,
+} from 'amo/reducers/api';
 import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -24,6 +27,7 @@ import {
 } from 'amo/constants';
 import {
   createContextWithFakeRouter,
+  createFakeLocation,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeI18n,
@@ -78,6 +82,16 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatch, setUserAgentAction(userAgent));
   });
 
+  it('sets up a callback for setting the clientApp', () => {
+    const dispatch = sinon.spy();
+    const { setClientApp } = mapDispatchToProps(dispatch);
+    const clientApp = CLIENT_APP_FIREFOX;
+
+    setClientApp(clientApp);
+
+    sinon.assert.calledWith(dispatch, setClientAppAction(clientApp));
+  });
+
   it('sets the userAgent as props', () => {
     const { store } = createStore();
     store.dispatch(setUserAgentAction('tofubrowser'));
@@ -99,6 +113,56 @@ describe(__filename, () => {
       dispatchSpy,
       setUserAgentAction(_navigator.userAgent),
     );
+  });
+
+  it('resets the clientApp if it does not match the URL', () => {
+    const currentClientApp = CLIENT_APP_FIREFOX;
+    const clientAppInURL = CLIENT_APP_ANDROID;
+    const { store } = dispatchClientMetadata({
+      clientApp: currentClientApp,
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const root = render({ store });
+
+    const location = createFakeLocation({
+      pathname: `/en-US/${clientAppInURL}/`,
+    });
+    root.setProps({ location });
+
+    sinon.assert.calledWith(dispatchSpy, setClientAppAction(clientAppInURL));
+  });
+
+  it('does not reset the clientApp if matches the URL', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const root = render({ store });
+
+    const location = createFakeLocation({
+      pathname: `/en-US/${clientApp}/`,
+    });
+    root.setProps({ location });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not reset the clientApp if the one on the URL is invalid', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const root = render({ store });
+
+    const location = createFakeLocation({
+      pathname: `/en-US/invalid-app/`,
+    });
+    root.setProps({ location });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   it('ignores a falsey navigator', () => {
