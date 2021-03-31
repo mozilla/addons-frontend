@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<!--
+		THIS PAGE IS FOR DEVELOPMENT PURPOSES ONLY
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>blog-utils</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.15.1/inter.min.css" integrity="sha512-LmuBiKMv0sdyc1LQk0LPrsjj3KSoVgVpAXUoFGY8Ye5Zi1mff0it3I42dkh3/NGQgtkqiHcdWOcHGUmOzYLETQ==" crossorigin="anonymous" />
+		<link href="/style.css" rel="stylesheet" type="text/css">
+		<style>
+			body {
+				font-family: Inter;
+			}
+
+			header {
+				margin-bottom: 3em;
+				text-align: center;
+			}
+
+			.content {
+				margin: 1em auto;
+				max-width: 900px;
+				padding: 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>addons-frontend-blog-utils</h1>
+		</header>
+
+		<div class="content">
+			<p>User-Agent switcher:</p>
+			<div class="addon-card" data-addon-id="853731"></div>
+
+			<p>uBlock Origin:</p>
+			<div class="addon-card" data-addon-id="607454"></div>
+
+			<p>AMO info (not a recommended extension)</p>
+			<div class="addon-card" data-addon-id="1000795"></div>
+		</div>
+
+		<footer id="footer"></footer>
+	</body>
+	<script src="/web.js"></script>
+	<script>
+		document.querySelectorAll('.addon-card').forEach(async (card) => {
+			try {
+				card.outerHTML = await AddonsFrontendBlogUtils.buildStaticAddonCard({ addonId: card.dataset.addonId });
+			} catch (e) {
+				console.error(`unable to build static card: ${e}`);
+			}
+		});
+
+		document.querySelector('#footer').outerHTML = AddonsFrontendBlogUtils.buildFooter();
+	</script>
+</html>

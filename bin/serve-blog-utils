@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+const path = require('path');
+
+const express = require('express');
+
+// config
+const port = 11000;
+const rootDir = path.join(__dirname, '..');
+
+const app = express();
+app.use(express.static(path.join(rootDir, 'dist')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(rootDir, 'src', 'blog-utils', 'index.html'));
+});
+
+app.listen(port, (err) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.info(`blog-utils dev page is running at: http://127.0.0.1:${port}`);
+  }
+});
