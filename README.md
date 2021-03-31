@@ -350,6 +350,16 @@ This project also contains code to build a library named `addons-frontend-blog-u
 
 This library is exclusively designed to work with [addons-blog][].
 
+### Release process
+
+In order to publish a new version of `addons-frontend-blog-utils`, a special tag has to be pushed to the main repository. The tag name must starts with `blog-utils-` and usually contains the version number. This can be automated using the following command:
+
+```
+npm version [major|minor|patch]
+```
+
+Once the commit and the tag have been created, push them to the main repository.
+
 ## Core technologies
 
 - Based on Redux + React
