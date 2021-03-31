@@ -246,6 +246,19 @@ function baseServer(
       // Vary the cache on Do Not Track headers.
       res.vary('DNT');
 
+      const amoCDN = config.has('amoCDN') ? config.get('amoCDN') : null;
+      const staticHost = config.has('staticHost')
+        ? config.get('staticHost')
+        : null;
+      const baseURL = config.get('baseURL');
+
+      if (amoCDN && amoCDN !== baseURL) {
+        res.append('Link', `<${amoCDN}>; rel=preconnect; crossorigin`);
+      }
+      if (staticHost && staticHost !== amoCDN && staticHost !== baseURL) {
+        res.append('Link', `<${staticHost}>; rel=preconnect; crossorigin`);
+      }
+
       const history = _createHistory({ req });
       const { sagaMiddleware, store } = createStore({ history });
 
