@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = path.join(__dirname, '..');
+const distDir = path.join(rootDir, 'dist');
+const nodeModulesDir = path.join(rootDir, 'node_modules');
+
+const mainPackageJson = require(path.join(rootDir, 'package.json'));
+const isomorphicFetchPackageJson = require(path.join(
+  nodeModulesDir,
+  'isomorphic-fetch',
+  'package.json',
+));
+
+const packageJsonForBlogUtils = `{
+  "name": "addons-frontend-blog-utils",
+  "version": "${mainPackageJson.version}",
+  "main": "node.js",
+  "browser": "web.js",
+  "style": "style.css",
+  "dependencies": {
+    "jsdom": "${mainPackageJson.dependencies.jsdom}",
+    "node-fetch": "${isomorphicFetchPackageJson.dependencies['node-fetch']}"
+  }
+}
+`;
+
+fs.writeFile(
+  path.join(distDir, 'package.json'),
+  packageJsonForBlogUtils,
+  'utf-8',
+  (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    console.log('done');
+  },
+);

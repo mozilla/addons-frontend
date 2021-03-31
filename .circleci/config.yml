@@ -65,6 +65,15 @@ jobs:
       - *save_build_cache
       - run: yarn build-ci
 
+  build-blog-utils:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_build_cache
+      - *run_yarn_install
+      - *save_build_cache
+      - run: yarn build:blog-utils-prod
+
   test:
     <<: *defaults
     steps:
@@ -244,6 +253,7 @@ workflows:
       - test-next
       - check
       - dennis-lint
+      - build-blog-utils
       - release-tag:
           filters:
             tags:

@@ -9,6 +9,9 @@
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
+    "build:blog-utils": "npm run clean && bin/create-package-json-for-blog-utils && better-npm-run build:blog-utils",
+    "build:blog-utils-dev": "NODE_ENV=development npm run build:blog-utils -- --watch",
+    "build:blog-utils-prod": "NODE_ENV=production npm run build:blog-utils",
     "build-check": "bin/build-checks.js",
     "build-ci": "npm run build && npm run bundlesize",
     "build-locales": "bin/build-locales",
@@ -45,6 +48,14 @@
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
+      }
+    },
+    "build:blog-utils": {
+      "command": "webpack --config webpack.blog-utils.config.babel.js",
+      "env": {
+        "NODE_ICU_DATA": "./node_modules/full-icu",
+        "NODE_PATH": "./:./src",
+        "NODE_CONFIG_ENV": "prod"
       }
     },
     "amo:olympia": {
