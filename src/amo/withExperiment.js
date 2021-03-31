@@ -47,7 +47,7 @@ import { getDisplayName } from 'amo/utils';
 // unless directed to do so by a requirements change.
 // See https://github.com/mozilla/addons-frontend/issues/8515
 export const DEFAULT_COOKIE_MAX_AGE = 30 * 24 * 60 * 60;
-export const EXPERIMENT_COOKIE_NAME = 'AMO-Experiments-Enabled';
+export const EXPERIMENT_COOKIE_NAME = 'frontend_active_experiments';
 export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
 // This is a special variant value that indicates the the user is not enrolled
 // in the experiment.
@@ -164,19 +164,9 @@ export const withExperiment = ({
 
     static displayName = `WithExperiment(${getDisplayName(WrappedComponent)})`;
 
-    getExperiments() {
-      const { cookies } = this.props;
+    constructor(props: withExperimentInternalProps) {
+      super(props);
 
-      return cookies.get(EXPERIMENT_COOKIE_NAME) || {};
-    }
-
-    cookieIncludesExperiment(registeredExperiments: RegisteredExpermients) {
-      const { id } = this.props;
-
-      return Object.keys(registeredExperiments).includes(id);
-    }
-
-    render() {
       const {
         _config,
         _getVariant,
@@ -184,7 +174,6 @@ export const withExperiment = ({
         cookies,
         id,
         variants,
-        ...props
       } = this.props;
 
       const isEnabled = _isExperimentEnabled({ _config, id });
@@ -222,9 +211,30 @@ export const withExperiment = ({
       if (cleanupNeeded || addExperimentToCookie) {
         cookies.set(EXPERIMENT_COOKIE_NAME, experimentsToStore, cookieConfig);
       }
+    }
+
+    getExperiments() {
+      const { cookies } = this.props;
+
+      return cookies.get(EXPERIMENT_COOKIE_NAME) || {};
+    }
+
+    cookieIncludesExperiment(registeredExperiments: RegisteredExpermients) {
+      const { id } = this.props;
+
+      return Object.keys(registeredExperiments).includes(id);
+    }
+
+    render() {
+      const { _config, _isExperimentEnabled, id, ...props } = this.props;
+
+      const isEnabled = _isExperimentEnabled({ _config, id });
+      const registeredExperiments = this.getExperiments();
 
       const variant =
-        isEnabled && experimentInCookie ? registeredExperiments[id] : null;
+        isEnabled && this.cookieIncludesExperiment(registeredExperiments)
+          ? registeredExperiments[id]
+          : null;
 
       const exposedProps: WithExperimentInjectedProps = {
         isExperimentEnabled: isEnabled,
