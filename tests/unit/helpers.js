@@ -1453,3 +1453,8 @@ export const createInternalSuggestionWithLang = (
 ) => {
   return createInternalSuggestion(suggestion, lang);
 };
+
+export const fakeVariant = Object.freeze({
+  id: 'some-variant-id',
+  percentage: 0.5,
+});
