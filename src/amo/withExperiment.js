@@ -1,11 +1,14 @@
 /* @flow */
 import config from 'config';
-import * as React from 'react';
 import invariant from 'invariant';
+import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
+import { connect } from 'react-redux';
 
+import { storeTrackingEvent } from 'amo/reducers/tracking';
 import tracking from 'amo/tracking';
 import { getDisplayName } from 'amo/utils';
+import type { DispatchFunc } from 'amo/types/redux';
 
 /*  Usage
  *
@@ -127,6 +130,7 @@ type withExperimentInternalProps = {|
   _getVariant: typeof getVariant,
   _isExperimentEnabled: typeof isExperimentEnabled,
   cookies: typeof Cookies,
+  dispatch: DispatchFunc,
 |};
 
 export const defaultCookieConfig: CookieConfig = {
@@ -172,6 +176,7 @@ export const withExperiment = ({
         _getVariant,
         _isExperimentEnabled,
         cookies,
+        dispatch,
         id,
         variants,
       } = this.props;
@@ -201,10 +206,17 @@ export const withExperiment = ({
 
         if (variantToStore.id !== NOT_IN_EXPERIMENT) {
           // send an enrollment event
-          _tracking.sendEvent({
+          const event = {
             action: variantToStore.id,
             category: [EXPERIMENT_ENROLLMENT_CATEGORY, id].join(' '),
-          });
+          };
+
+          if (_config.get('server')) {
+            // If we are on the server, store the event for later.
+            dispatch(storeTrackingEvent({ event }));
+          } else {
+            _tracking.sendEvent(event);
+          }
         }
       }
 
@@ -246,5 +258,5 @@ export const withExperiment = ({
     }
   }
 
-  return withCookies(WithExperiment);
+  return connect()(withCookies(WithExperiment));
 };

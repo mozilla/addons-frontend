@@ -34,6 +34,13 @@ import {
 import log from 'amo/logger';
 import { convertBoolean } from 'amo/utils';
 
+export type SendTrackingEventParams = {|
+  category: string,
+  action: string,
+  label?: string,
+  value?: number,
+|};
+
 type IsDoNoTrackEnabledParams = {|
   _log: typeof log,
   _navigator: ?typeof navigator,
@@ -208,17 +215,7 @@ export class Tracking {
    * obj.value      Number  No        Values must be non-negative.
    *                                  Useful to pass counts (e.g. 4 times)
    */
-  sendEvent({
-    category,
-    action,
-    label,
-    value,
-  }: {|
-    category: string,
-    action: string,
-    label?: string,
-    value?: number,
-  |} = {}) {
+  sendEvent({ category, action, label, value }: SendTrackingEventParams = {}) {
     if (!category) {
       throw new Error('sendEvent: category is required');
     }
