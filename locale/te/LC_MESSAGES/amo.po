@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-24 13:37+0000\n"
+"PO-Revision-Date: 2021-04-01 12:11+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -872,7 +872,7 @@ msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "క్షమించండి, మా సర్వరులో ఏదో లోపం వల్ల మేము మీ అభ్యర్థనను పూర్తి చేయలేకపోయాము. మేము ఈ లోపాన్ని నమోదుచేసుకున్నాం, దానిని పరిశీలిస్తాము."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
 msgid ""
@@ -910,7 +910,7 @@ msgstr "ఇది బగ్ నివేదిక లేదా మద్దత�
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "దోష నివేదికగా లేదా తోడ్పాటు అభ్యర్థనగా గుర్తించబడింది"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
@@ -1387,7 +1387,7 @@ msgstr "దుర్వినియోగం క్రింద ఈ పొడగ
 
 #: src/amo/components/ReportAbuseButton/index.js:195
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "దోషాలను నివేదించడానికి లేదా ఈ వాడుకరిని సంప్రదించడానికి ఈ ఫారం వాడకండి; మీ నివేదిక కేవలం Mozillaకు మాత్రమే పంపబడుతుంది, ఈ పొడగింత డెవలపరుకి కాదు."
 
 #: src/amo/components/ReportAbuseButton/index.js:208 src/amo/components/ReportUserAbuse/index.js:150
 msgid "Send abuse report"
