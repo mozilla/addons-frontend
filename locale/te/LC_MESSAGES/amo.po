@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-04-01 12:15+0000\n"
+"PO-Revision-Date: 2021-04-01 12:25+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -852,7 +852,7 @@ msgstr "అయ్యో! మేము ఆ పేజీని కనుగొన�
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "పొడగింత లేదా అలంకారం కోసం మీరు మరో సైటు నుండి లంకెను అనుసరించి వచ్చివుంటే, ఈ ఆంశం అందుబాటులో లేదు. అది ఇందుకు కావచ్చు:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
