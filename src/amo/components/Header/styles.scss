@@ -166,21 +166,22 @@
 .Header-authenticate-button {
   @include margin-start(6px);
 
+  display: inline-flex;
+  min-height: 24px;
   white-space: nowrap;
+
+  &,
+  &:link {
+    font-size: $font-size-xs;
+    font-weight: 300;
+  }
 
   .DropdownMenu-button {
     padding: 0;
   }
 
   @include respond-to(medium) {
-    &,
-    &:link {
-      font-size: $font-size-xs;
-      font-weight: 300;
-    }
     @include margin-start(12px);
-
-    vertical-align: baseline;
   }
 }
 
