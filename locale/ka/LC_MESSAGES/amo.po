@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-03-16 17:47+0000\n"
-"PO-Revision-Date: 2021-03-24 08:28+0000\n"
+"PO-Revision-Date: 2021-04-02 21:27+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -608,7 +608,7 @@ msgstr "გასვლა"
 
 #: src/amo/components/AuthenticateButton/index.js:93
 msgid "Register or Log in"
-msgstr "რეგისტრაცია ან შესვლა"
+msgstr "შექმნა ან შესვლა"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:141
 msgid "This action is currently unavailable. Please reload the page in a moment."
