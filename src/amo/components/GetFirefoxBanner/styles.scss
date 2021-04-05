@@ -1,0 +1,46 @@
+@import '~amo/css/styles';
+
+.GetFirefoxBanner {
+  @include respond-to(extraLarge) {
+    border-radius: 0 0 $border-radius-m $border-radius-m;
+    width: 890px;
+  }
+
+  border-radius: 0;
+  box-shadow: 0 1px 7px transparentize($black, 0.5);
+  font-size: $font-size-s;
+  left: 50%;
+  line-height: 1.5;
+  padding: 12px 40px;
+  position: fixed;
+  text-align: center;
+  transform: translate(-50%, 0);
+  width: 100%;
+  z-index: 1000;
+
+  &.Notice {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .Notice-icon {
+      display: none;
+    }
+
+    .Notice-column {
+      margin: auto 0;
+    }
+
+    .Notice-dismisser {
+      position: absolute;
+      right: 12px;
+    }
+  }
+}
+
+.GetFirefoxBanner-button {
+  &,
+  &:link {
+    color: $link-color;
+  }
+}
