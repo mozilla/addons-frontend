@@ -1,10 +1,8 @@
 /* @flow */
-import type { SendTrackingEventParams } from 'amo/tracking';
+import type { TrackingEvent } from 'amo/tracking';
 
 export const STORE_TRACKING_EVENT: 'STORE_TRACKING_EVENT' =
   'STORE_TRACKING_EVENT';
-
-export type TrackingEvent = SendTrackingEventParams;
 
 export type TrackingState = {
   events: Array<TrackingEvent>,
@@ -34,7 +32,7 @@ export const storeTrackingEvent = ({
 
 type Action = StoreTrackingEventAction;
 
-export default function siteReducer(
+export default function trackingReducer(
   state: TrackingState = initialState,
   action: Action,
 ): TrackingState {

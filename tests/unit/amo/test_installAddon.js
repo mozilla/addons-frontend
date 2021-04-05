@@ -72,6 +72,7 @@ function componentWithInstallHelpers() {
 
 const defaultProps = ({
   _addonManager = getFakeAddonManagerWrapper(),
+  _tracking = createFakeTracking(),
   addon = createInternalAddonWithLang(fakeAddon),
   store = dispatchClientMetadata().store,
   ...overrides
@@ -80,6 +81,7 @@ const defaultProps = ({
 
   return {
     _addonManager,
+    _tracking,
     addon,
     store,
     ...overrides,

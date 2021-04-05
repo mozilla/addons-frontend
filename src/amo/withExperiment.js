@@ -5,7 +5,6 @@ import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
 import { connect } from 'react-redux';
 
-import { storeTrackingEvent } from 'amo/reducers/tracking';
 import tracking from 'amo/tracking';
 import { getDisplayName } from 'amo/utils';
 import type { DispatchFunc } from 'amo/types/redux';
@@ -205,18 +204,13 @@ export const withExperiment = ({
         experimentsToStore[id] = variantToStore.id;
 
         if (variantToStore.id !== NOT_IN_EXPERIMENT) {
-          // send an enrollment event
-          const event = {
+          // Send an enrollment event.
+          // Because this might be run on the server, we must provide a dispatch argument.
+          _tracking.sendEvent({
             action: variantToStore.id,
             category: [EXPERIMENT_ENROLLMENT_CATEGORY, id].join(' '),
-          };
-
-          if (_config.get('server')) {
-            // If we are on the server, store the event for later.
-            dispatch(storeTrackingEvent({ event }));
-          } else {
-            _tracking.sendEvent(event);
-          }
+            dispatch,
+          });
         }
       }
 
@@ -258,5 +252,5 @@ export const withExperiment = ({
     }
   }
 
-  return connect()(withCookies(WithExperiment));
+  return withCookies(connect()(WithExperiment));
 };

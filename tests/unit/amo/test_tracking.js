@@ -35,12 +35,18 @@ import {
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
 } from 'amo/constants';
-import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
+import { storeTrackingEvent } from 'amo/reducers/tracking';
+import {
+  fakeTrackingEvent,
+  getFakeConfig,
+  getFakeLogger,
+} from 'tests/unit/helpers';
 
 function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
   return new Tracking({
     _isDoNotTrackEnabled: () => false,
     _config: getFakeConfig({
+      server: false,
       trackingEnabled: true,
       trackingId: 'sample-tracking-id',
       ...configOverrides,
@@ -58,17 +64,6 @@ describe(__filename, () => {
     it('should not enable GA when configured off', () => {
       createTracking({
         configOverrides: { trackingEnabled: false },
-      });
-      sinon.assert.notCalled(window.ga);
-    });
-
-    it('should not send events when tracking is configured off', () => {
-      const tracking = createTracking({
-        configOverrides: { trackingEnabled: false },
-      });
-      tracking.sendEvent({
-        category: 'whatever',
-        action: 'some-action',
       });
       sinon.assert.notCalled(window.ga);
     });
@@ -148,36 +143,6 @@ describe(__filename, () => {
       sinon.assert.calledWith(window.ga, 'set', 'page', page);
     });
 
-    it('should throw if category not set', () => {
-      const tracking = createTracking();
-      expect(() => {
-        tracking.sendEvent();
-      }).toThrowError(/category is required/);
-    });
-
-    it('should throw if action not set', () => {
-      const tracking = createTracking();
-      expect(() => {
-        tracking.sendEvent({
-          category: 'whatever',
-        });
-      }).toThrowError(/action is required/);
-    });
-
-    it('should call _ga with sendEvent', () => {
-      const tracking = createTracking();
-      const category = 'some-category';
-      const action = 'some-action';
-      tracking.sendEvent({
-        category,
-        action,
-      });
-      sinon.assert.calledWithMatch(window.ga, 'send', {
-        eventCategory: category,
-        eventAction: action,
-      });
-    });
-
     it('should call _ga when pageView is called', () => {
       const tracking = createTracking();
       const data = {
@@ -237,6 +202,85 @@ describe(__filename, () => {
       sinon.assert.calledOnce(_getCLS);
       sinon.assert.calledOnce(_getFID);
       sinon.assert.calledOnce(_getLCP);
+    });
+
+    describe('sendEvent', () => {
+      it('should not send events when tracking is configured off', () => {
+        const _config = getFakeConfig({ server: false });
+        const tracking = createTracking({
+          configOverrides: { trackingEnabled: false },
+        });
+        tracking.sendEvent({
+          _config,
+          category: 'whatever',
+          action: 'some-action',
+        });
+        sinon.assert.notCalled(window.ga);
+      });
+
+      it('should throw if category not set', () => {
+        const tracking = createTracking();
+        expect(() => {
+          tracking.sendEvent();
+        }).toThrowError(/category is required/);
+      });
+
+      it('should throw if action not set', () => {
+        const tracking = createTracking();
+        expect(() => {
+          tracking.sendEvent({
+            category: 'whatever',
+          });
+        }).toThrowError(/action is required/);
+      });
+
+      it('should call _ga with sendEvent on the client', () => {
+        const _config = getFakeConfig({ server: false });
+        const event = fakeTrackingEvent;
+        const tracking = createTracking();
+        tracking.sendEvent({
+          _config,
+          ...event,
+        });
+        sinon.assert.calledWithMatch(window.ga, 'send', {
+          eventAction: event.action,
+          eventCategory: event.category,
+          eventLabel: event.label,
+          eventValue: event.value,
+        });
+      });
+
+      it('should dispatch storeTrackingEvent on the server', () => {
+        const _config = getFakeConfig({ server: true });
+        const fakeDispatch = sinon.spy();
+        const event = fakeTrackingEvent;
+        const tracking = createTracking();
+        tracking.sendEvent({
+          _config,
+          dispatch: fakeDispatch,
+          ...event,
+        });
+        sinon.assert.calledWith(
+          fakeDispatch,
+          storeTrackingEvent({
+            event,
+          }),
+        );
+      });
+
+      it('should throw an error if called on the server without dispatch', () => {
+        const _config = getFakeConfig({ server: true });
+        const event = fakeTrackingEvent;
+        const tracking = createTracking();
+        expect(() => {
+          tracking.sendEvent({
+            _config,
+            ...event,
+          });
+        }).toThrow(
+          'The dispatch argument must be provided to sendEvent when being called on the server',
+        );
+      });
     });
   });
 

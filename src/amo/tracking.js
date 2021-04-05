@@ -32,13 +32,21 @@ import {
   UNINSTALL_THEME_CATEGORY,
 } from 'amo/constants';
 import log from 'amo/logger';
+import { storeTrackingEvent } from 'amo/reducers/tracking';
 import { convertBoolean } from 'amo/utils';
+import type { DispatchFunc } from 'amo/types/redux';
 
-export type SendTrackingEventParams = {|
-  category: string,
+export type TrackingEvent = {|
   action: string,
+  category: string,
   label?: string,
   value?: number,
+|};
+
+export type SendTrackingEventParams = {|
+  ...TrackingEvent,
+  _config?: typeof config,
+  dispatch?: DispatchFunc,
 |};
 
 type IsDoNoTrackEnabledParams = {|
@@ -215,22 +223,41 @@ export class Tracking {
    * obj.value      Number  No        Values must be non-negative.
    *                                  Useful to pass counts (e.g. 4 times)
    */
-  sendEvent({ category, action, label, value }: SendTrackingEventParams = {}) {
+  sendEvent({
+    _config = config,
+    action,
+    category,
+    dispatch,
+    label,
+    value,
+  }: SendTrackingEventParams = {}) {
     if (!category) {
       throw new Error('sendEvent: category is required');
     }
     if (!action) {
       throw new Error('sendEvent: action is required');
     }
-    const data = {
-      hitType: 'event',
-      eventCategory: category,
-      eventAction: action,
-      eventLabel: label,
-      eventValue: value,
-    };
-    this._ga('send', data);
-    this.log('sendEvent', data);
+
+    if (_config.get('server')) {
+      if (dispatch) {
+        const event = { action, category, label, value };
+        dispatch(storeTrackingEvent({ event }));
+      } else {
+        throw new Error(
+          'The dispatch argument must be provided to sendEvent when being called on the server',
+        );
+      }
+    } else {
+      const data = {
+        hitType: 'event',
+        eventCategory: category,
+        eventAction: action,
+        eventLabel: label,
+        eventValue: value,
+      };
+      this._ga('send', data);
+      this.log('sendEvent', data);
+    }
   }
 
   /*
