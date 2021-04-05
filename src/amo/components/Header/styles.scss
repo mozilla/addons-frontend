@@ -113,7 +113,7 @@
 
   @include respond-to(medium) {
     @include text-align-end();
-    
+
     grid-column: 4 / -1;
     grid-row: 1 / 2;
   }
