@@ -106,13 +106,14 @@
 }
 
 .Header-user-and-external-links {
-  @include text-align-end();
-
   grid-column: 4;
   grid-row: 1 / 2;
   margin-top: 10px;
+  text-align: center;
 
   @include respond-to(medium) {
+    @include text-align-end();
+    
     grid-column: 4 / -1;
     grid-row: 1 / 2;
   }
