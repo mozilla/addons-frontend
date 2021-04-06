@@ -16,10 +16,11 @@ describe(__filename, () => {
     };
     fakeConfig = new Map();
     fakeConfig.set('validClientApplications', ['firefox', 'android']);
-    fakeConfig.set('validLocaleUrlExceptions', ['downloads']);
+    fakeConfig.set('validLocaleUrlExceptions', ['downloads', 'robots.txt']);
     fakeConfig.set('validClientAppUrlExceptions', [
       'about',
       'developers',
+      'robots.txt',
       'validprefix',
     ]);
     fakeConfig.set('clientAppRoutes', ['about']);
@@ -287,5 +288,16 @@ describe(__filename, () => {
       '/en-US/firefox/foo/bar?test=1&bar=2',
     );
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
+  });
+
+  it('should render a 404 for urls that are both a client app and locale exception', () => {
+    const fakeReq = {
+      originalUrl: '/robots.txt',
+      headers: {},
+    };
+    const statusSpy = sinon.spy(fakeRes, 'status');
+    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    sinon.assert.notCalled(fakeRes.redirect);
+    sinon.assert.calledWith(statusSpy, 404);
   });
 });
