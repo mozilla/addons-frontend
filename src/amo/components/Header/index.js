@@ -150,6 +150,7 @@ export class HeaderBase extends React.Component {
       </DropdownMenu>
     ) : (
       <AuthenticateButton
+        buttonType="none"
         className="Header-authenticate-button Header-button"
         noIcon
       />

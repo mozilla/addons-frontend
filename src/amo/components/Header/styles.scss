@@ -106,13 +106,14 @@
 }
 
 .Header-user-and-external-links {
-  @include text-align-end();
-
   grid-column: 4;
   grid-row: 1 / 2;
   margin-top: 10px;
+  text-align: center;
 
   @include respond-to(medium) {
+    @include text-align-end();
+
     grid-column: 4 / -1;
     grid-row: 1 / 2;
   }
@@ -133,18 +134,27 @@
 .Header-extension-workshop-link {
   display: none;
 
-  @include respond-to(large) {
-    &,
-    &:link {
-      @include margin-start(12px);
+  &,
+  &:link {
+    @include margin-start(12px);
+  }
+}
 
-      color: $white;
-      display: inline-block;
-      font-size: $font-size-s;
-      font-weight: normal;
-      padding-top: 4px;
-      text-decoration: none;
-    }
+.Header-authenticate-button,
+.Header-developer-hub-link,
+.Header-extension-workshop-link {
+  &,
+  &:link {
+    color: $white;
+    font-size: $font-size-s;
+    font-weight: normal;
+    padding-top: 4px;
+    text-decoration: none;
+    vertical-align: baseline;
+  }
+
+  @include respond-to(large) {
+    display: inline-block;
   }
 }
 
@@ -157,7 +167,15 @@
 .Header-authenticate-button {
   @include margin-start(6px);
 
+  display: inline-flex;
+  min-height: 24px;
   white-space: nowrap;
+
+  &,
+  &:link {
+    font-size: $font-size-xs;
+    font-weight: 300;
+  }
 
   .DropdownMenu-button {
     padding: 0;
