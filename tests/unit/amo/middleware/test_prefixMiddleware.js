@@ -297,7 +297,7 @@ describe(__filename, () => {
     };
     const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.notCalled(fakeRes.set);
+    sinon.assert.notCalled(fakeRes.redirect);
     sinon.assert.calledWith(statusSpy, 404);
   });
 });
