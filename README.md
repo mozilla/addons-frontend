@@ -341,6 +341,15 @@ curl https://addons-dev.allizom.org/__version__
 
 :bulb: You can install the [amo-info extension](https://addons.mozilla.org/en-US/firefox/addon/amo-info/) to easily view this information.
 
+## Addons Frontend Blog Utils
+
+This project also contains code to build a library named `addons-frontend-blog-utils` and offers the following commands:
+
+- `yarn build:blog-utils-dev`: build the library and start a watcher to rebuild the library on change
+- `yarn build:blog-utils-prod`: build the library in production mode
+
+This library is exclusively designed to work with [addons-blog][].
+
 ## Core technologies
 
 - Based on Redux + React
@@ -351,3 +360,4 @@ curl https://addons-dev.allizom.org/__version__
 [bundlesize]: https://github.com/siddharthkp/bundlesize
 [jest]: https://jestjs.io/docs/en/getting-started.html
 [prettier]: https://prettier.io/
+[addons-blog]: https://github.com/mozilla/addons-blog
