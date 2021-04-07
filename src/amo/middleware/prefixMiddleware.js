@@ -36,22 +36,18 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   const clientAppRoutes = _config.get('clientAppRoutes');
 
   const hasValidLang = isValidLang(langFromURL);
-  const hasValidLocaleException = isValidLocaleUrlException(
-    appFromURL || langFromURL,
-    { _config },
-  );
+  const hasValidLocaleException = isValidLocaleUrlException(appFromURL, {
+    _config,
+  });
   const hasValidClientApp = isValidClientApp(appFromURL, { _config });
-  let hasValidClientAppUrlException = isValidClientAppUrlException(
-    appFromURL || langFromURL,
-    { _config },
-  );
+  let hasValidClientAppUrlException = isValidClientAppUrlException(appFromURL, {
+    _config,
+  });
 
   let isApplicationFromHeader = false;
   let prependedOrMovedApplication = false;
 
-  if (hasValidLocaleException && hasValidClientAppUrlException) {
-    log.debug('URL is a locale and a client app exception so using as is');
-  } else if (hasValidLocaleException) {
+  if (hasValidLocaleException) {
     log.debug(oneLine`Second part of URL is a locale exception
       (${URLPathParts[1]}); make sure the clientApp is valid`);
 
