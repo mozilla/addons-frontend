@@ -3,9 +3,9 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import translate from 'amo/i18n/translate';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import type { AppState } from 'amo/store';
