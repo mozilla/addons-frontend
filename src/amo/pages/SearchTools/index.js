@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
@@ -42,10 +43,10 @@ export class SearchToolsBase extends React.Component<InternalProps> {
     );
   }
 
-  // This will never be called, as we always do a server redirect in the
-  // constructor.
-  render(): null {
-    return null;
+  // This should never be called, as we always do a server redirect in the
+  // constructor. We show a 404 page anyway in case we cannot perform a redirect.
+  render(): React.Node {
+    return <NotFoundPage />;
   }
 }
 
