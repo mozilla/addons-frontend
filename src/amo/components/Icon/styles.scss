@@ -99,6 +99,10 @@
   @include icon($name: 'facebook');
 }
 
+.Icon-instagram {
+  @include icon($name: 'instagram');
+}
+
 .Icon-youtube {
   @include icon($name: 'youtube');
 }
