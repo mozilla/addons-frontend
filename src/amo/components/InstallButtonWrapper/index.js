@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
-import GetFirefoxButton, {
+import ExperimentalGetFirefoxButton, {
   EXPERIMENT_CONFIG,
   VARIANT_NEW,
-} from 'amo/components/GetFirefoxButton';
+} from 'amo/components/ExperimentalGetFirefoxButton';
 import AMInstallButton from 'amo/components/AMInstallButton';
 import { UNKNOWN } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -133,7 +133,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
           status={installStatus}
           uninstall={uninstall}
         />
-        <GetFirefoxButton
+        <ExperimentalGetFirefoxButton
           addon={addon}
           buttonType={getFirefoxButtonType}
           className={className ? `GetFirefoxButton--${className}` : ''}

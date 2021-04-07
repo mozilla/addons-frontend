@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import GetFirefoxButton, {
-  GET_FIREFOX_BUTTON_TYPE_ADDON,
+import ExperimentalGetFirefoxButton, {
   VARIANT_NEW,
-} from 'amo/components/GetFirefoxButton';
+} from 'amo/components/ExperimentalGetFirefoxButton';
+import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper, {
   InstallButtonWrapperBase,
 } from 'amo/components/InstallButtonWrapper';
@@ -295,7 +295,7 @@ describe(__filename, () => {
       addon,
     });
 
-    expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
+    expect(root.find(ExperimentalGetFirefoxButton)).toHaveProp('addon', addon);
   });
 
   it('passes the buttonType to GetFirefoxButton', () => {
@@ -304,7 +304,10 @@ describe(__filename, () => {
       getFirefoxButtonType: buttonType,
     });
 
-    expect(root.find(GetFirefoxButton)).toHaveProp('buttonType', buttonType);
+    expect(root.find(ExperimentalGetFirefoxButton)).toHaveProp(
+      'buttonType',
+      buttonType,
+    );
   });
 
   it('passes a custom className to AMInstallButton and GetFirefoxButton', () => {
@@ -316,7 +319,7 @@ describe(__filename, () => {
     expect(root.find(AMInstallButton)).toHaveClassName(
       `AMInstallButton--${className}`,
     );
-    expect(root.find(GetFirefoxButton)).toHaveClassName(
+    expect(root.find(ExperimentalGetFirefoxButton)).toHaveClassName(
       `GetFirefoxButton--${className}`,
     );
   });

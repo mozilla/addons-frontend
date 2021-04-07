@@ -7,7 +7,7 @@ import Button from 'amo/components/Button';
 import {
   EXPERIMENT_CONFIG,
   VARIANT_NEW,
-} from 'amo/components/GetFirefoxButton';
+} from 'amo/components/ExperimentalGetFirefoxButton';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import tracking from 'amo/tracking';

@@ -1,14 +1,16 @@
 import { encode } from 'universal-base64url';
 import * as React from 'react';
 
+import {
+  VARIANT_CURRENT,
+  VARIANT_NEW,
+} from 'amo/components/ExperimentalGetFirefoxButton';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
   GET_FIREFOX_BUTTON_TYPE_HEADER,
   GET_FIREFOX_BUTTON_TYPE_NONE,
   GET_FIREFOX_BUTTON_CLICK_ACTION,
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-  VARIANT_CURRENT,
-  VARIANT_NEW,
   GetFirefoxButtonBase,
 } from 'amo/components/GetFirefoxButton';
 import {

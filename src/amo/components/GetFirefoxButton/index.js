@@ -8,6 +8,10 @@ import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
 import {
+  VARIANT_CURRENT,
+  VARIANT_NEW,
+} from 'amo/components/ExperimentalGetFirefoxButton';
+import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
@@ -18,12 +22,10 @@ import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { getPromotedCategory } from 'amo/utils/addons';
 import { isFirefox } from 'amo/utils/compatibility';
-import { withExperiment } from 'amo/withExperiment';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -36,16 +38,6 @@ export const GET_FIREFOX_BUTTON_TYPE_NONE: 'GET_FIREFOX_BUTTON_TYPE_NONE' =
 export const GET_FIREFOX_BUTTON_CLICK_ACTION = 'download-firefox-click';
 export const GET_FIREFOX_BUTTON_CLICK_CATEGORY = 'AMO Download Firefox';
 
-export const VARIANT_CURRENT = 'current-cta';
-export const VARIANT_NEW = 'new-cta';
-
-export const EXPERIMENT_CONFIG = {
-  id: '20210404_download_cta_experiment',
-  variants: [
-    { id: VARIANT_CURRENT, percentage: 0.5 },
-    { id: VARIANT_NEW, percentage: 0.5 },
-  ],
-};
 export type GetFirefoxButtonTypeType =
   | typeof GET_FIREFOX_BUTTON_TYPE_ADDON
   | typeof GET_FIREFOX_BUTTON_TYPE_HEADER
@@ -55,6 +47,7 @@ export type Props = {|
   addon?: AddonType,
   buttonType: GetFirefoxButtonTypeType,
   className?: string,
+  useNewVersion?: boolean,
 |};
 
 export type DeafultProps = {|
@@ -72,7 +65,6 @@ type InternalProps = {|
   ...Props,
   ...DeafultProps,
   ...PropsFromState,
-  ...WithExperimentInjectedProps,
   i18n: I18nType,
 |};
 
@@ -85,30 +77,25 @@ export const GetFirefoxButtonBase = ({
   className,
   clientApp,
   i18n,
+  useNewVersion = false,
   userAgentInfo,
-  variant,
 }: InternalProps): null | React.Node => {
-  // Show the current CTA (as opposed to the new, experimental CTA).
-  const showCurrent = variant !== VARIANT_NEW;
-
   if (
     buttonType === GET_FIREFOX_BUTTON_TYPE_NONE ||
     isFirefox({ userAgentInfo }) ||
     // Also hide the button if it's in the header but we're showing the new
     // version.
-    (buttonType === GET_FIREFOX_BUTTON_TYPE_HEADER && !showCurrent)
+    (buttonType === GET_FIREFOX_BUTTON_TYPE_HEADER && useNewVersion)
   ) {
     return null;
   }
 
-  const category = variant
-    ? `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`
-    : GET_FIREFOX_BUTTON_CLICK_CATEGORY;
+  const variant = useNewVersion ? VARIANT_NEW : VARIANT_CURRENT;
 
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BUTTON_CLICK_ACTION,
-      category,
+      category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
       label: addon ? addon.guid : '',
     });
   };
@@ -136,7 +123,7 @@ export const GetFirefoxButtonBase = ({
       const supportsRTAMO =
         promotedCategory === RECOMMENDED && clientApp === CLIENT_APP_FIREFOX;
 
-      if (showCurrent) {
+      if (!useNewVersion) {
         buttonText = i18n.gettext('Only with Firefox—Get Firefox Now');
       } else {
         const downloadTextForRTAMO =
@@ -152,9 +139,7 @@ export const GetFirefoxButtonBase = ({
             : i18n.gettext(`You'll need Firefox to use this extension`);
       }
       puffy = true;
-      utmCampaign = variant
-        ? `amo-fx-cta-${addon.id}-${variant}`
-        : `amo-fx-cta-${addon.id}`;
+      utmCampaign = `amo-fx-cta-${addon.id}-${variant}`;
 
       utmContent = addon.guid ? `rta:${_encode(addon.guid)}` : '';
       break;
@@ -162,7 +147,7 @@ export const GetFirefoxButtonBase = ({
     case GET_FIREFOX_BUTTON_TYPE_HEADER: {
       buttonText = i18n.gettext('Download Firefox');
       micro = true;
-      utmCampaign = variant ? `amo-fx-cta-${variant}` : 'amo-fx-cta';
+      utmCampaign = `amo-fx-cta-${variant}`;
       utmContent = 'header-download-button';
       break;
     }
@@ -178,8 +163,8 @@ export const GetFirefoxButtonBase = ({
       className={makeClassName(
         'GetFirefoxButton-button',
         {
-          'GetFirefoxButton': showCurrent,
-          'GetFirefoxButton--current': showCurrent,
+          'GetFirefoxButton': !useNewVersion,
+          'GetFirefoxButton--current': !useNewVersion,
         },
         className,
       )}
@@ -195,7 +180,7 @@ export const GetFirefoxButtonBase = ({
     </Button>
   );
 
-  return showCurrent || buttonType === GET_FIREFOX_BUTTON_TYPE_HEADER ? (
+  return !useNewVersion || buttonType === GET_FIREFOX_BUTTON_TYPE_HEADER ? (
     buttonContent
   ) : (
     <div className="GetFirefoxButton GetFirefoxButton--new">
@@ -215,7 +200,6 @@ function mapStateToProps(state: AppState): PropsFromState {
 const GetFirefoxButton: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
-  withExperiment(EXPERIMENT_CONFIG),
 )(GetFirefoxButtonBase);
 
 export default GetFirefoxButton;
