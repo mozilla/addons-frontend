@@ -26,7 +26,7 @@ type Props = {|
   footerText?: string,
   header?: React.Node,
   isTheme?: boolean,
-  loading: boolean,
+  loading?: boolean,
 |};
 
 export default class LandingAddonsCard extends React.Component<Props> {
@@ -48,17 +48,29 @@ export default class LandingAddonsCard extends React.Component<Props> {
     } = this.props;
 
     let footerLinkHtml = null;
+    const footerLinkProps = {};
     const count = isTheme ? LANDING_PAGE_THEME_COUNT : placeholderCount;
+
     if (addons && addons.length >= count) {
-      let linkTo = footerLink;
-      if (linkTo && typeof linkTo === 'object') {
-        // As a convenience, fix the query parameter.
-        linkTo = {
-          ...linkTo,
-          query: convertFiltersToQueryParams(linkTo.query),
-        };
+      if (footerLink && typeof footerLink === 'object') {
+        // If an href has been passed, use that for the Link.
+        if (footerLink.href) {
+          footerLinkProps.href = footerLink.href;
+          footerLinkProps.prependClientApp = false;
+          footerLinkProps.prependLang = false;
+        } else {
+          // As a convenience, fix the query parameter.
+          footerLinkProps.to = {
+            ...footerLink,
+            query: convertFiltersToQueryParams(footerLink.query),
+          };
+        }
+      } else {
+        // It's just a string, so pass it into the `to` prop.
+        footerLinkProps.to = footerLink;
       }
-      footerLinkHtml = <Link to={linkTo}>{footerText}</Link>;
+
+      footerLinkHtml = <Link {...footerLinkProps}>{footerText}</Link>;
     }
 
     return (

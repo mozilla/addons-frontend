@@ -4,11 +4,6 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 import invariant from 'invariant';
 
 import {
-  LANDING_PAGE_EXTENSION_COUNT,
-  LANDING_PAGE_THEME_COUNT,
-  ADDON_TYPE_STATIC_THEME,
-} from 'amo/constants';
-import {
   createInternalAddon,
   selectLocalizedUrlWithOutgoing,
 } from 'amo/reducers/addons';
@@ -117,7 +112,7 @@ export type ExternalSecondaryHeroShelfType = {|
   modules: Array<ExternalSecondaryHeroModuleType>,
 |} | null;
 
-export type HeroCallToActionType = {|
+export type CallToActionType = {|
   url: string,
   outgoing: string,
   text: string,
@@ -126,13 +121,13 @@ export type HeroCallToActionType = {|
 export type SecondaryHeroModuleType = {|
   icon: string,
   description: string,
-  cta: HeroCallToActionType | null,
+  cta: CallToActionType | null,
 |};
 
 export type SecondaryHeroShelfType = {|
   headline: string,
   description: string,
-  cta: HeroCallToActionType | null,
+  cta: CallToActionType | null,
   modules: Array<SecondaryHeroModuleType>,
 |} | null;
 
@@ -146,19 +141,47 @@ export type HeroShelvesType = {|
   secondary: SecondaryHeroShelfType,
 |};
 
+export type ExternalResultShelfType = {|
+  title: LocalizedString,
+  url: string,
+  endpoint: string,
+  criteria: string,
+  footer: ExternalHeroCallToActionType | null,
+  addons: Array<ExternalAddonType>,
+|};
+
+export type ResultShelfType = {|
+  title: string,
+  url: string,
+  endpoint: string,
+  criteria: string,
+  footer: CallToActionType | null,
+  addons: Array<AddonType>,
+|};
+
+export type ExternalHomeShelvesType = {|
+  results: Array<ExternalResultShelfType>,
+  primary: ExternalPrimaryHeroShelfType,
+  secondary: ExternalSecondaryHeroShelfType,
+|};
+
+export type HomeShelvesType = {|
+  results: Array<ResultShelfType>,
+  primary: PrimaryHeroShelfType,
+  secondary: SecondaryHeroShelfType,
+|};
+
 export type HomeState = {
-  collections: Array<Object | null>,
-  heroShelves: HeroShelvesType | null,
+  homeShelves: HomeShelvesType | null,
   isLoading: boolean,
   lang: string,
   resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
-  shelves: { [shelfName: string]: Array<AddonType> | null },
+  shelves: { [shelfName: string]: Array<AddonType> },
 };
 
 export const initialState: HomeState = {
-  collections: [],
-  heroShelves: null,
+  homeShelves: null,
   isLoading: false,
   // We default lang to '' to avoid having to add a lot of invariants to our
   // code, and protect against a lang of '' in selectLocalizedContent.
@@ -175,10 +198,7 @@ export const abortFetchHomeData = (): AbortFetchHomeDataAction => {
 };
 
 type FetchHomeDataParams = {|
-  collectionsToFetch: Array<Object>,
   errorHandlerId: string,
-  includeRecommendedThemes: boolean,
-  includeTrendingExtensions: boolean,
   isDesktopSite: boolean,
 |};
 
@@ -188,22 +208,15 @@ export type FetchHomeDataAction = {|
 |};
 
 export const fetchHomeData = ({
-  collectionsToFetch,
   errorHandlerId,
-  includeRecommendedThemes,
-  includeTrendingExtensions,
   isDesktopSite,
 }: FetchHomeDataParams): FetchHomeDataAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(collectionsToFetch, 'collectionsToFetch is required');
 
   return {
     type: FETCH_HOME_DATA,
     payload: {
-      collectionsToFetch,
       errorHandlerId,
-      includeRecommendedThemes,
-      includeTrendingExtensions,
       isDesktopSite,
     },
   };
@@ -215,8 +228,7 @@ type ApiAddonsResponse = {|
 |};
 
 type LoadHomeDataParams = {|
-  collections: Array<Object | null>,
-  heroShelves: ExternalHeroShelvesType | null,
+  homeShelves: ExternalHomeShelvesType | null,
   shelves: { [shelfName: string]: ApiAddonsResponse },
 |};
 
@@ -226,20 +238,13 @@ type LoadHomeDataAction = {|
 |};
 
 export const loadHomeData = ({
-  collections,
-  heroShelves,
+  homeShelves,
   shelves,
 }: LoadHomeDataParams): LoadHomeDataAction => {
-  invariant(collections, 'collections is required');
-  invariant(shelves, 'shelves is required');
-
+  invariant(shelves, 'shelves are required');
   return {
     type: LOAD_HOME_DATA,
-    payload: {
-      collections,
-      heroShelves,
-      shelves,
-    },
+    payload: { homeShelves, shelves },
   };
 };
 
@@ -274,7 +279,7 @@ export const createInternalPrimaryHeroShelfExternalAddon = (
 export const createInternalHeroCallToAction = (
   cta: ExternalHeroCallToActionType,
   lang: string,
-): HeroCallToActionType => {
+): CallToActionType => {
   return {
     url: cta.url,
     outgoing: cta.outgoing,
@@ -293,11 +298,35 @@ export const createInternalSecondaryHeroModule = (
   };
 };
 
-export const createInternalHeroShelves = (
-  heroShelves: ExternalHeroShelvesType,
+export const createInternalShelf = (
+  result: ExternalResultShelfType,
   lang: string,
-): HeroShelvesType => {
-  const { primary, secondary } = heroShelves;
+): ResultShelfType => {
+  const shelfAddons = result.addons.map((addon) => {
+    return createInternalAddon(addon, lang);
+  });
+
+  return {
+    title: selectLocalizedContent(result.title, lang),
+    url: result.url,
+    endpoint: result.endpoint,
+    criteria: result.criteria,
+    footer: result.footer
+      ? createInternalHeroCallToAction(result.footer, lang)
+      : null,
+    addons: shelfAddons,
+  };
+};
+
+export const createInternalHomeShelves = (
+  homeShelves: ExternalHomeShelvesType,
+  lang: string,
+): HomeShelvesType => {
+  const { results, primary, secondary } = homeShelves;
+
+  const customShelves: Array<ResultShelfType> = results.map((result) =>
+    createInternalShelf(result, lang),
+  );
 
   let secondaryShelf: SecondaryHeroShelfType | null = null;
   if (secondary !== null) {
@@ -314,7 +343,11 @@ export const createInternalHeroShelves = (
   }
 
   if (primary === null) {
-    return { primary: null, secondary: secondaryShelf };
+    return {
+      results: customShelves,
+      primary: null,
+      secondary: secondaryShelf,
+    };
   }
 
   invariant(
@@ -334,7 +367,11 @@ export const createInternalHeroShelves = (
       addon: createInternalAddon(primary.addon, lang),
       external: undefined,
     };
-    return { primary: primaryShelf, secondary: secondaryShelf };
+    return {
+      results: customShelves,
+      primary: primaryShelf,
+      secondary: secondaryShelf,
+    };
   }
 
   const primaryShelf: PrimaryHeroShelfWithExternalType = {
@@ -345,7 +382,11 @@ export const createInternalHeroShelves = (
       lang,
     ),
   };
-  return { primary: primaryShelf, secondary: secondaryShelf };
+  return {
+    results: customShelves,
+    primary: primaryShelf,
+    secondary: secondaryShelf,
+  };
 };
 
 const reducer = (
@@ -380,24 +421,12 @@ const reducer = (
       };
 
     case LOAD_HOME_DATA: {
-      const { collections, heroShelves, shelves } = action.payload;
+      const { homeShelves, shelves } = action.payload;
 
       return {
         ...state,
-        collections: collections.map((collection) => {
-          if (collection && collection.results && collection.results.length) {
-            const sliceEnd =
-              ADDON_TYPE_STATIC_THEME === collection.results[0].addon.type
-                ? LANDING_PAGE_THEME_COUNT
-                : LANDING_PAGE_EXTENSION_COUNT;
-            return collection.results.slice(0, sliceEnd).map((item) => {
-              return createInternalAddon(item.addon, state.lang);
-            });
-          }
-          return null;
-        }),
-        heroShelves: heroShelves
-          ? createInternalHeroShelves(heroShelves, state.lang)
+        homeShelves: homeShelves
+          ? createInternalHomeShelves(homeShelves, state.lang)
           : null,
         isLoading: false,
         resultsLoaded: true,
@@ -409,7 +438,7 @@ const reducer = (
             ...shelvesToLoad,
             [shelfName]: response
               ? createInternalAddons(response, state.lang)
-              : null,
+              : [],
           };
         }, {}),
       };

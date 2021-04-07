@@ -26,8 +26,8 @@ import LoadingText from 'amo/components/LoadingText';
 import {
   createFakeEvent,
   createFakeTracking,
-  createHeroShelves,
-  createInternalHeroShelvesWithLang,
+  createHomeShelves,
+  createInternalHomeShelvesWithLang,
   createLocalizedString,
   createStubErrorHandler,
   dispatchClientMetadata,
@@ -39,8 +39,8 @@ import {
 
 describe(__filename, () => {
   const createShelfData = (primaryProps = {}) => {
-    return createInternalHeroShelvesWithLang(
-      createHeroShelves({ primaryProps }),
+    return createInternalHomeShelvesWithLang(
+      createHomeShelves({ primaryProps }),
     ).primary;
   };
 

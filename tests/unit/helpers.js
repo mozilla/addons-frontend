@@ -23,7 +23,7 @@ import {
   OS_ALL,
 } from 'amo/constants';
 import { createInternalCollection } from 'amo/reducers/collections';
-import { createInternalHeroShelves } from 'amo/reducers/home';
+import { createInternalHomeShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
 import { getDjangoBase62, addQueryParamsToHistory } from 'amo/utils';
 import { setError } from 'amo/actions/errors';
@@ -224,6 +224,20 @@ export const fakeReview = Object.freeze({
   body: 'It is Okay',
 });
 
+export const fakeShelf = Object.freeze({
+  title: createLocalizedString('Top Rated Themes'),
+  url:
+    'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
+  endpoint: 'search-themes',
+  criteria: '?sort=rating&type=statictheme',
+  footer: {
+    url: 'http://testserver/extensions/',
+    text: createLocalizedString('See more top rated themes'),
+    outgoing: '',
+  },
+  addons: [fakeAddon],
+});
+
 export function createExternalReview({
   addonId = fakeReview.addon.id,
   addonSlug = fakeReview.addon.slug,
@@ -378,11 +392,13 @@ export const createSecondaryHeroShelf = ({
   };
 };
 
-export const createHeroShelves = ({
+export const createHomeShelves = ({
+  resultsProps = [fakeShelf],
   primaryProps = {},
   secondaryProps = {},
 } = {}) => {
   return {
+    results: resultsProps || [fakeShelf],
     primary: createPrimaryHeroShelf(primaryProps),
     secondary: createSecondaryHeroShelf(secondaryProps),
   };
@@ -1428,11 +1444,11 @@ export const createInternalVersionWithLang = (
   return createInternalVersion(version, lang);
 };
 
-export const createInternalHeroShelvesWithLang = (
-  heroShelves,
+export const createInternalHomeShelvesWithLang = (
+  homeShelves,
   lang = DEFAULT_LANG_IN_TESTS,
 ) => {
-  return createInternalHeroShelves(heroShelves, lang);
+  return createInternalHomeShelves(homeShelves, lang);
 };
 
 export const createInternalCollectionWithLang = ({

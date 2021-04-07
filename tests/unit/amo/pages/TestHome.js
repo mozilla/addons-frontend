@@ -1,35 +1,25 @@
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
+import HomepageShelves from 'amo/components/HomepageShelves';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LoadingText from 'amo/components/LoadingText';
 import Page from 'amo/components/Page';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
-  LANDING_PAGE_EXTENSION_COUNT,
-  MOBILE_HOME_PAGE_EXTENSION_COUNT,
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  RECOMMENDED,
-  SEARCH_SORT_RANDOM,
-  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
-import Home, {
-  FEATURED_COLLECTIONS,
-  MOZILLA_USER_ID,
-  HomeBase,
-  getFeaturedCollectionsMetadata,
-  isFeaturedCollection,
-} from 'amo/pages/Home';
+import Home, { HomeBase } from 'amo/pages/Home';
+import { createInternalAddon } from 'amo/reducers/addons';
 import {
   FETCH_HOME_DATA,
+  createInternalShelf,
   fetchHomeData,
   loadHomeData,
 } from 'amo/reducers/home';
@@ -37,16 +27,12 @@ import { getCategoryResultsPathname } from 'amo/utils/categories';
 import {
   DEFAULT_LANG_IN_TESTS,
   createAddonsApiResult,
-  createFakeCollectionAddons,
-  createFakeCollectionAddonsListResponse,
-  createFakeCollectionDetail,
-  createHeroShelves,
-  createInternalAddonWithLang,
-  createInternalCollectionWithLang,
-  createInternalHeroShelvesWithLang,
+  createHomeShelves,
+  createInternalHomeShelvesWithLang,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
+  fakeShelf,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -72,17 +58,19 @@ describe(__filename, () => {
     return shallowUntilTarget(<Home {...allProps} />, HomeBase);
   }
 
-  const _createHeroShelves = (primaryProps = { addon: fakeAddon }) => {
-    return createHeroShelves({ primaryProps });
+  const _createHomeShelves = ({
+    resultsProps = [fakeShelf],
+    primaryProps = { addon: fakeAddon },
+  } = {}) => {
+    return createHomeShelves({ resultsProps, primaryProps });
   };
 
   const _loadHomeData = ({
     store,
-    collections = [],
-    heroShelves = _createHeroShelves(),
+    homeShelves = _createHomeShelves(),
     shelves = {},
   }) => {
-    store.dispatch(loadHomeData({ collections, heroShelves, shelves }));
+    store.dispatch(loadHomeData({ homeShelves, shelves }));
   };
 
   it('renders a Page component passing `true` for `isHomePage`', () => {
@@ -90,107 +78,8 @@ describe(__filename, () => {
     expect(root.find(Page)).toHaveProp('isHomePage', true);
   });
 
-  // Note: We often have more than one collection to display, which is why the
-  // it.each logic is used below.
-  it.each([0])(
-    `renders a featured collection shelf at position %s`,
-    (index) => {
-      const collectionMetadata = getFeaturedCollectionsMetadata(fakeI18n())[
-        index
-      ];
-      const root = render();
-
-      const shelves = root.find(FeaturedCollectionCard);
-      const shelf = shelves.find('.Home-FeaturedCollection').at(index);
-
-      expect(shelf).toHaveProp('footerText', collectionMetadata.footerText);
-      expect(shelf).toHaveProp('header', collectionMetadata.header);
-      expect(shelf).toHaveProp('slug', collectionMetadata.slug);
-      expect(shelf).toHaveProp('userId', MOZILLA_USER_ID);
-      expect(shelf).toHaveProp('loading', true);
-    },
-  );
-
-  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
-    'renders a recommended extensions shelf on %s',
-    (clientApp) => {
-      const { store } = dispatchClientMetadata({ clientApp });
-      const root = render({ store });
-
-      const shelves = root.find(LandingAddonsCard);
-      const shelf = shelves.find('.Home-RecommendedExtensions');
-      expect(shelf).toHaveProp('header', 'Recommended extensions');
-      expect(shelf).toHaveProp('footerText', 'See more recommended extensions');
-      expect(shelf).toHaveProp('footerLink', {
-        pathname: '/search/',
-        query: {
-          addonType: ADDON_TYPE_EXTENSION,
-          promoted: RECOMMENDED,
-          sort: SEARCH_SORT_RANDOM,
-        },
-      });
-      expect(shelf).toHaveProp('loading', true);
-      expect(shelf).toHaveProp(
-        'placeholderCount',
-        clientApp === CLIENT_APP_ANDROID
-          ? MOBILE_HOME_PAGE_EXTENSION_COUNT
-          : LANDING_PAGE_EXTENSION_COUNT,
-      );
-    },
-  );
-
-  it('renders a recommended themes shelf if includeRecommendedThemes is true', () => {
-    const root = render({ includeRecommendedThemes: true });
-
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-RecommendedThemes');
-    expect(shelf).toHaveProp('header', 'Recommended themes');
-    expect(shelf).toHaveProp('footerText', 'See more recommended themes');
-    expect(shelf).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_STATIC_THEME,
-        promoted: RECOMMENDED,
-        sort: SEARCH_SORT_RANDOM,
-      },
-    });
-    expect(shelf).toHaveProp('loading', true);
-    expect(shelf).toHaveProp('isTheme', true);
-  });
-
-  it('does not render a recommended themes shelf if includeRecommendedThemes is false', () => {
-    const root = render({ includeRecommendedThemes: false });
-
-    const shelves = root.find(LandingAddonsCard);
-    expect(shelves.find('.Home-RecommendedThemes')).toHaveLength(0);
-  });
-
-  it('does not render a trending extensions shelf if includeTrendingExtensions is false', () => {
-    const root = render({ includeTrendingExtensions: false });
-
-    const shelves = root.find(LandingAddonsCard);
-    expect(shelves.find('.Home-TrendingExtensions')).toHaveLength(0);
-  });
-
-  it('renders a trending extensions shelf when includeTrendingExtensions is true', () => {
-    const root = render({ includeTrendingExtensions: true });
-
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-TrendingExtensions');
-    expect(shelf).toHaveProp('header', 'Trending extensions');
-    expect(shelf).toHaveProp('footerText', 'See more trending extensions');
-    expect(shelf).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_EXTENSION,
-        promoted: RECOMMENDED,
-        sort: SEARCH_SORT_TRENDING,
-      },
-    });
-    expect(shelf).toHaveProp('loading', true);
-  });
-
-  it('renders a shelf with curated themes', () => {
+  it('renders a shelf with curated themes on desktop', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
     const expectedThemes = [
       'abstract',
       'nature',
@@ -200,7 +89,7 @@ describe(__filename, () => {
       'seasonal',
     ];
 
-    const root = render();
+    const root = render({ store });
 
     const shelf = root.find('.Home-CuratedThemes');
     expect(shelf.find('.Home-SubjectShelf-text-wrapper')).toHaveLength(1);
@@ -222,18 +111,57 @@ describe(__filename, () => {
     });
   });
 
-  it('does not render most shelves on android', () => {
+  it('does not render a shelf with curated themes on mobile', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
     const root = render({
-      includeRecommendedThemes: true,
-      includeTrendingExtensions: true,
       store,
     });
 
-    expect(root.find('.Home-FeaturedCollection')).toHaveLength(0);
-    expect(root.find('.Home-RecommendedThemes')).toHaveLength(0);
-    expect(root.find('.Home-TrendingExtensions')).toHaveLength(0);
     expect(root.find('.Home-CuratedThemes')).toHaveLength(0);
+  });
+
+  it('renders only the Recommended extensions shelf on android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const root = render({
+      store,
+    });
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(1);
+    expect(root.find('.Home-RecommendedExtensions')).toHaveLength(1);
+  });
+
+  it('renders the Recommended extensions shelf in a loading state on android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const addon = fakeAddon;
+    const recommendedExtensions = createAddonsApiResult([addon]);
+    _loadHomeData({ store, shelves: { recommendedExtensions } });
+    const root = render({
+      store,
+    });
+
+    expect(root.find('.Home-RecommendedExtensions')).toHaveProp(
+      'loading',
+      false,
+    );
+    expect(root.find('.Home-RecommendedExtensions')).toHaveProp('addons', [
+      createInternalAddon(addon, DEFAULT_LANG_IN_TESTS),
+    ]);
+  });
+
+  it('renders the Recommended extensions shelf with data loaded on android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const root = render({
+      store,
+    });
+
+    expect(root.find('.Home-RecommendedExtensions')).toHaveProp(
+      'loading',
+      true,
+    );
+    expect(root.find('.Home-RecommendedExtensions')).toHaveProp(
+      'addons',
+      undefined,
+    );
   });
 
   it('renders a comment for monitoring', () => {
@@ -244,8 +172,6 @@ describe(__filename, () => {
   });
 
   it('dispatches an action to fetch the add-ons to display', () => {
-    const includeRecommendedThemes = false;
-    const includeTrendingExtensions = false;
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
 
@@ -253,8 +179,6 @@ describe(__filename, () => {
 
     render({
       errorHandler,
-      includeRecommendedThemes,
-      includeTrendingExtensions,
       store,
     });
 
@@ -264,17 +188,12 @@ describe(__filename, () => {
       fakeDispatch,
       fetchHomeData({
         errorHandlerId: errorHandler.id,
-        collectionsToFetch: FEATURED_COLLECTIONS,
-        includeRecommendedThemes,
-        includeTrendingExtensions,
         isDesktopSite: true,
       }),
     );
   });
 
   it('passes isDesktopSite: false to fetchHomeData on Android', () => {
-    const includeRecommendedThemes = false;
-    const includeTrendingExtensions = false;
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
 
@@ -282,8 +201,6 @@ describe(__filename, () => {
 
     render({
       errorHandler,
-      includeRecommendedThemes,
-      includeTrendingExtensions,
       store,
     });
 
@@ -291,9 +208,6 @@ describe(__filename, () => {
       fakeDispatch,
       fetchHomeData({
         errorHandlerId: errorHandler.id,
-        collectionsToFetch: FEATURED_COLLECTIONS,
-        includeRecommendedThemes,
-        includeTrendingExtensions,
         isDesktopSite: false,
       }),
     );
@@ -309,73 +223,12 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  // This test case should be updated when we change the `defaultProps`.
-  it('fetches add-ons with some defaults', () => {
-    const errorHandler = createStubErrorHandler();
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
-
-    sinon.assert.callCount(fakeDispatch, 2);
-    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
-    sinon.assert.calledWith(
-      fakeDispatch,
-      fetchHomeData({
-        errorHandlerId: errorHandler.id,
-        collectionsToFetch: FEATURED_COLLECTIONS,
-        includeRecommendedThemes: true,
-        includeTrendingExtensions: false,
-        isDesktopSite: true,
-      }),
-    );
-  });
-
-  it('does not fetch the add-ons when results are already loaded', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-
-    const addons = [{ ...fakeAddon, slug: 'addon' }];
-    const collectionAddons = createFakeCollectionAddons();
-
-    const collections = [
-      createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
-    ];
-    const recommendedExtensions = createAddonsApiResult(addons);
-
-    _loadHomeData({
-      store,
-      collections,
-      shelves: { recommendedExtensions },
-    });
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ includeRecommendedThemes: false, store });
-
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
-
-    const firstCollectionShelf = root.find('.Home-FeaturedCollection');
-    expect(firstCollectionShelf).toHaveProp('loading', false);
-    expect(firstCollectionShelf).toHaveProp(
-      'addons',
-      collectionAddons.map((addon) => createInternalAddonWithLang(addon.addon)),
-    );
-
-    const recommendedExtensionsShelf = root.find('.Home-RecommendedExtensions');
-    expect(recommendedExtensionsShelf).toHaveProp('loading', false);
-    expect(recommendedExtensionsShelf).toHaveProp(
-      'addons',
-      addons.map((addon) => createInternalAddonWithLang(addon)),
-    );
-  });
-
   it('does not fetch data when isLoading is true', () => {
     const { store } = dispatchClientMetadata();
 
     store.dispatch(
       fetchHomeData({
         errorHandlerId: 'some-error-handler-id',
-        collectionsToFetch: FEATURED_COLLECTIONS,
       }),
     );
 
@@ -388,15 +241,11 @@ describe(__filename, () => {
   });
 
   it('dispatches an action to fetch the add-ons to display on update', () => {
-    const includeRecommendedThemes = false;
-    const includeTrendingExtensions = false;
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
     const root = render({
-      includeRecommendedThemes,
-      includeTrendingExtensions,
       store,
     });
     fakeDispatch.resetHistory();
@@ -410,24 +259,33 @@ describe(__filename, () => {
       fakeDispatch,
       fetchHomeData({
         errorHandlerId: root.instance().props.errorHandler.id,
-        collectionsToFetch: FEATURED_COLLECTIONS,
-        includeRecommendedThemes,
-        includeTrendingExtensions,
         isDesktopSite: true,
       }),
     );
   });
 
-  it('does not display a collection shelf if there is no collection in state', () => {
+  it('renders a HomepageShelves component on desktop, in a loading state', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
 
-    _loadHomeData({ store, collections: [null] });
-
     const root = render({ store });
-    const shelves = root.find(LandingAddonsCard);
+    const homepageShelves = root.find(HomepageShelves);
+    expect(homepageShelves).toHaveProp('loading', true);
+    expect(homepageShelves).toHaveProp('shelves', []);
+  });
 
-    const collectionShelves = shelves.find('.Home-FeaturedCollection');
-    expect(collectionShelves).toHaveLength(0);
+  it('renders a HomepageShelves component on desktop, with shelves loaded', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+    const shelf = fakeShelf;
+    _loadHomeData({
+      homeShelves: _createHomeShelves({ resultsProps: [shelf] }),
+      store,
+    });
+    const root = render({ store });
+    const homepageShelves = root.find(HomepageShelves);
+    expect(homepageShelves).toHaveProp('loading', false);
+    expect(homepageShelves).toHaveProp('shelves', [
+      createInternalShelf(shelf, DEFAULT_LANG_IN_TESTS),
+    ]);
   });
 
   it('displays an error if clientApp is Android', () => {
@@ -448,86 +306,6 @@ describe(__filename, () => {
     expect(root.find('.Home-noHeroError')).toHaveLength(0);
   });
 
-  describe('isFeaturedCollection', () => {
-    const createCollection = (details = {}) => {
-      return createInternalCollectionWithLang({
-        detail: createFakeCollectionDetail(details),
-      });
-    };
-
-    it('returns true for a featured collection', () => {
-      const slug = 'privacy-matters';
-      const userId = 4757633;
-
-      const featuredCollections = [{ slug, userId }];
-
-      const collection = createCollection({ slug, authorId: userId });
-
-      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
-        true,
-      );
-    });
-
-    it('returns false for a non-featured collection', () => {
-      const featuredCollections = [
-        { slug: 'privacy-matters', userId: 4757633 },
-      ];
-
-      const collection = createCollection({ slug: 'another-collection' });
-
-      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
-        false,
-      );
-    });
-
-    it('returns true for one of many featured collections', () => {
-      const slug = 'privacy-matters';
-      const userId = 4757633;
-
-      const featuredCollections = [
-        { slug: 'first', userId: 123 },
-        { slug: 'second', userId: 456 },
-        { slug, userId },
-      ];
-
-      const collection = createCollection({ slug, authorId: userId });
-
-      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
-        true,
-      );
-    });
-
-    it('returns false for a matching slug, wrong author', () => {
-      const slug = 'privacy-matters';
-
-      const featuredCollections = [{ slug, userId: 4757633 }];
-
-      const collection = createCollection({
-        slug,
-        authorId: 12,
-      });
-
-      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
-        false,
-      );
-    });
-
-    it('returns false for a matching author, wrong slug', () => {
-      const userId = 4757633;
-
-      const featuredCollections = [{ slug: 'privacy-matters', userId }];
-
-      const collection = createCollection({
-        slug: 'another-collection',
-        authorId: userId,
-      });
-
-      expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
-        false,
-      );
-    });
-  });
-
   it('renders a HeadMetaTags component', () => {
     const root = render();
 
@@ -541,17 +319,17 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({
       clientApp: CLIENT_APP_ANDROID,
     });
-    const heroShelves = _createHeroShelves();
-    _loadHomeData({ store, heroShelves });
+    const homeShelves = _createHomeShelves();
+    _loadHomeData({ store, homeShelves });
     const root = render({ store });
 
     expect(root.find('.Home-heroHeader-title')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-subtitle')).toHaveLength(1);
     expect(root.find('.Home-heroHeader-title').text()).toContain(
-      heroShelves.secondary.headline[DEFAULT_LANG_IN_TESTS],
+      homeShelves.secondary.headline[DEFAULT_LANG_IN_TESTS],
     );
     expect(root.find('.Home-heroHeader-subtitle').text()).toContain(
-      heroShelves.secondary.description[DEFAULT_LANG_IN_TESTS],
+      homeShelves.secondary.description[DEFAULT_LANG_IN_TESTS],
     );
   });
 
@@ -574,8 +352,8 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({
       clientApp: CLIENT_APP_FIREFOX,
     });
-    const heroShelves = _createHeroShelves();
-    _loadHomeData({ store, heroShelves });
+    const homeShelves = _createHomeShelves();
+    _loadHomeData({ store, homeShelves });
     const root = render({ store });
 
     expect(root.find('.Home-heroHeader')).toHaveLength(0);
@@ -594,8 +372,8 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
-      const heroShelves = _createHeroShelves();
-      _loadHomeData({ store, heroShelves });
+      const homeShelves = _createHomeShelves();
+      _loadHomeData({ store, homeShelves });
 
       const root = render({ errorHandler, store });
 
@@ -604,14 +382,14 @@ describe(__filename, () => {
       expect(heroRecommendation).toHaveProp('errorHandler', errorHandler);
       expect(heroRecommendation).toHaveProp(
         'shelfData',
-        createInternalHeroShelvesWithLang(heroShelves).primary,
+        createInternalHomeShelvesWithLang(homeShelves).primary,
       );
 
       const secondaryHero = root.find(SecondaryHero);
       expect(secondaryHero).toHaveLength(1);
       expect(secondaryHero).toHaveProp(
         'shelfData',
-        createInternalHeroShelvesWithLang(heroShelves).secondary,
+        createInternalHomeShelvesWithLang(homeShelves).secondary,
       );
     });
 
@@ -634,7 +412,10 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
-      _loadHomeData({ store, heroShelves: { primary: null, secondary: null } });
+      _loadHomeData({
+        store,
+        homeShelves: { results: [], primary: null, secondary: null },
+      });
 
       const root = render({ store });
 
@@ -650,44 +431,12 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_ANDROID,
       });
-      _loadHomeData({ store, heroShelves: _createHeroShelves() });
+      _loadHomeData({ store, homeShelves: _createHomeShelves() });
 
       const root = render({ store });
 
       expect(root.find(HeroRecommendation)).toHaveLength(0);
       expect(root.find(SecondaryHero)).toHaveLength(0);
-    });
-  });
-
-  describe('getFeaturedCollectionsMetadata', () => {
-    it('exposes a `footerText` prop', () => {
-      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
-
-      expect(metadata[0]).toHaveProperty('footerText');
-    });
-
-    it('exposes a `header` prop', () => {
-      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
-
-      expect(metadata[0]).toHaveProperty('header');
-    });
-
-    it('exposes a `slug` prop', () => {
-      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
-
-      expect(metadata[0]).toHaveProperty('slug');
-    });
-
-    it('exposes a `userId` prop', () => {
-      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
-
-      expect(metadata[0]).toHaveProperty('userId');
-    });
-
-    it('exposes a `isTheme` prop', () => {
-      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
-
-      expect(metadata[0]).toHaveProperty('isTheme');
     });
   });
 });

@@ -13,7 +13,6 @@ import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
-import { isFeaturedCollection } from 'amo/pages/Home';
 import {
   collectionEditUrl,
   collectionName,
@@ -33,7 +32,6 @@ import Paginate from 'amo/components/Paginate';
 import {
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   INSTALL_SOURCE_COLLECTION,
-  INSTALL_SOURCE_FEATURED_COLLECTION,
 } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
@@ -82,7 +80,6 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   ...DefaultProps,
-  _isFeaturedCollection: typeof isFeaturedCollection,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
@@ -139,9 +136,7 @@ export class CollectionBase extends React.Component<InternalProps> {
 
   static defaultProps: {|
     ...DefaultProps,
-    _isFeaturedCollection: typeof isFeaturedCollection,
   |} = {
-    _isFeaturedCollection: isFeaturedCollection,
     creating: false,
     editing: false,
   };
@@ -412,7 +407,6 @@ export class CollectionBase extends React.Component<InternalProps> {
 
   renderCollection(): React.Node {
     const {
-      _isFeaturedCollection,
       collection,
       creating,
       editing,
@@ -466,11 +460,6 @@ export class CollectionBase extends React.Component<InternalProps> {
           );
     }
 
-    const addonInstallSource =
-      collection && _isFeaturedCollection(collection)
-        ? INSTALL_SOURCE_FEATURED_COLLECTION
-        : INSTALL_SOURCE_COLLECTION;
-
     return (
       <div className="Collection-wrapper">
         <div className="Collection-detail-wrapper">
@@ -497,7 +486,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           )}
           {!creating && (
             <AddonsCard
-              addonInstallSource={addonInstallSource}
+              addonInstallSource={INSTALL_SOURCE_COLLECTION}
               addons={addons}
               deleteNote={this.deleteNote}
               editing={editing}
