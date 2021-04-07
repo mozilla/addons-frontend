@@ -1,15 +1,30 @@
 import * as React from 'react';
 
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
-import { dispatchClientMetadata, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  getFakeConfig,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const render = ({
+    store = dispatchClientMetadata().store,
+    ...props
+  } = {}) => {
+    return shallowUntilTarget(
+      <SearchTools store={store} {...props} />,
+      SearchToolsBase,
+    );
+  };
+
   it('sends a server redirect to support old search tool URLs', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    shallowUntilTarget(<SearchTools store={store} />, SearchToolsBase);
+    render({ store });
 
     sinon.assert.calledWith(
       fakeDispatch,
@@ -19,5 +34,13 @@ describe(__filename, () => {
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it('renders a NotFoundPage if server redirect fails', () => {
+    const { store } = dispatchClientMetadata();
+    const _config = getFakeConfig({ disableSSR: true });
+    const root = render({ store, _config });
+
+    expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 });
