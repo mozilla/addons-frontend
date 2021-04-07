@@ -103,7 +103,7 @@ export const GetFirefoxButtonBase = (
 
   return (
     <Button
-      buttonType="confirm"
+      buttonType="action"
       className={makeClassName('GetFirefoxButton', className)}
       href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
         utm_content: utmContent,
