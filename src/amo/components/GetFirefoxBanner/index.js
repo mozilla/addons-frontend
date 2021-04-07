@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
+import {
+  EXPERIMENT_CONFIG,
+  VARIANT_NEW,
+} from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import tracking from 'amo/tracking';
@@ -11,14 +15,20 @@ import { makeQueryStringWithUTM } from 'amo/utils';
 import { isFirefox } from 'amo/utils/compatibility';
 import translate from 'amo/i18n/translate';
 import { replaceStringsWithJSX } from 'amo/i18n/utils';
+import { withExperiment } from 'amo/withExperiment';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
+import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 
 export const GET_FIREFOX_BANNER_CLICK_ACTION = 'download-firefox-banner-click';
 export const GET_FIREFOX_BANNER_CLICK_CATEGORY = 'AMO Download Firefox';
+export const GET_FIREFOX_BANNER_DISMISS_ACTION =
+  'download-firefox-banner-dismiss';
+export const GET_FIREFOX_BANNER_DISMISS_CATEGORY =
+  'AMO Download Firefox Banner';
 export const GET_FIREFOX_BANNER_UTM_CONTENT = 'banner-download-button';
 
 export type Props = {||};
@@ -35,6 +45,7 @@ type InternalProps = {|
   ...Props,
   ...DeafultProps,
   ...PropsFromState,
+  ...WithExperimentInjectedProps,
   i18n: I18nType,
 |};
 
@@ -42,6 +53,7 @@ export const GetFirefoxBannerBase = ({
   _tracking = tracking,
   i18n,
   userAgentInfo,
+  variant,
 }: InternalProps): null | React.Node => {
   const onButtonClick = () => {
     _tracking.sendEvent({
@@ -50,7 +62,15 @@ export const GetFirefoxBannerBase = ({
     });
   };
 
-  if (isFirefox({ userAgentInfo })) {
+  const onDismiss = () => {
+    _tracking.sendEvent({
+      action: GET_FIREFOX_BANNER_DISMISS_ACTION,
+      category: GET_FIREFOX_BANNER_DISMISS_CATEGORY,
+    });
+  };
+
+  // The extra !variant is there so Flow doesn't think variant is null below.
+  if (isFirefox({ userAgentInfo }) || !variant || variant !== VARIANT_NEW) {
     return null;
   }
 
@@ -69,6 +89,7 @@ export const GetFirefoxBannerBase = ({
               buttonType="none"
               className="GetFirefoxBanner-button"
               href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
+                utm_campaign: `amo-fx-cta-${variant}`,
                 utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
               })}`}
               onClick={onButtonClick}
@@ -86,9 +107,10 @@ export const GetFirefoxBannerBase = ({
       className="GetFirefoxBanner"
       dismissible
       id="GetFirefoxBanner-notice"
+      onDismiss={onDismiss}
       type="warning"
     >
-      <div className="GetFirefoxBanner-content">{bannerContent}</div>
+      <span className="GetFirefoxBanner-content">{bannerContent}</span>
     </Notice>
   );
 };
@@ -102,6 +124,7 @@ function mapStateToProps(state: AppState): PropsFromState {
 const GetFirefoxBanner: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
+  withExperiment(EXPERIMENT_CONFIG),
 )(GetFirefoxBannerBase);
 
 export default GetFirefoxBanner;

@@ -4,9 +4,12 @@ import Button from 'amo/components/Button';
 import GetFirefoxBanner, {
   GET_FIREFOX_BANNER_CLICK_ACTION,
   GET_FIREFOX_BANNER_CLICK_CATEGORY,
+  GET_FIREFOX_BANNER_DISMISS_ACTION,
+  GET_FIREFOX_BANNER_DISMISS_CATEGORY,
   GET_FIREFOX_BANNER_UTM_CONTENT,
   GetFirefoxBannerBase,
 } from 'amo/components/GetFirefoxBanner';
+import { VARIANT_CURRENT, VARIANT_NEW } from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
@@ -24,7 +27,13 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
 
     return shallowUntilTarget(
-      <GetFirefoxBanner i18n={fakeI18n()} store={store} {...props} />,
+      <GetFirefoxBanner
+        i18n={fakeI18n()}
+        store={store}
+        // For the experiment, use the new variant by default.
+        variant={VARIANT_NEW}
+        {...props}
+      />,
       GetFirefoxBannerBase,
     );
   }
@@ -63,6 +72,18 @@ describe(__filename, () => {
       userAgent: userAgents.chrome[0],
     });
 
+    it('renders nothing if variant is null (experiment is disabled)', () => {
+      const root = render({ store, variant: null });
+
+      expect(root.find('.GetFirefoxBanner')).toHaveLength(0);
+    });
+
+    it('renders nothing if the variant is the current CTA', () => {
+      const root = render({ store, variant: VARIANT_CURRENT });
+
+      expect(root.find('.GetFirefoxBanner')).toHaveLength(0);
+    });
+
     it('renders a GetFirefoxBanner if the browser is not Firefox', () => {
       const root = render({ store });
 
@@ -87,12 +108,13 @@ describe(__filename, () => {
       expect(root.find(Button).children()).toHaveText('download Firefox');
     });
 
-    it('sets the href on the button with the expected utm_content', () => {
+    it('sets the href on the button with the expected utm params', () => {
       const root = render({ store });
 
       const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
         {
           utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
+          utm_campaign: `amo-fx-cta-${VARIANT_NEW}`,
         },
       )}`;
       expect(root.find(Button)).toHaveProp('href', expectedHref);
@@ -108,6 +130,22 @@ describe(__filename, () => {
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: GET_FIREFOX_BANNER_CLICK_ACTION,
         category: GET_FIREFOX_BANNER_CLICK_CATEGORY,
+      });
+      sinon.assert.calledOnce(_tracking.sendEvent);
+    });
+
+    it('sends a tracking event when the banner is dismissed', () => {
+      const _tracking = createFakeTracking();
+      const root = render({ _tracking, store });
+
+      const notice = root.find(Notice);
+      expect(notice).toHaveProp('onDismiss');
+      const onDismiss = notice.prop('onDismiss');
+      onDismiss();
+
+      sinon.assert.calledWith(_tracking.sendEvent, {
+        action: GET_FIREFOX_BANNER_DISMISS_ACTION,
+        category: GET_FIREFOX_BANNER_DISMISS_CATEGORY,
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
     });

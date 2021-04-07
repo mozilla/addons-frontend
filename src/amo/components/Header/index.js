@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import config from 'config';
 import makeClassName from 'classnames';
 
+import GetFirefoxBanner from 'amo/components/GetFirefoxBanner';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_HEADER,
 } from 'amo/components/GetFirefoxButton';
@@ -34,6 +35,7 @@ export class HeaderBase extends React.Component {
     clientApp: PropTypes.string.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+    isAddonDetailPage: PropTypes.bool.isRequired,
     isHomePage: PropTypes.bool.isRequired,
     isReviewer: PropTypes.bool.isRequired,
     loadedPageIsAnonymous: PropTypes.bool.isRequired,
@@ -162,6 +164,7 @@ export class HeaderBase extends React.Component {
       _config,
       clientApp,
       i18n,
+      isAddonDetailPage,
       isHomePage,
       loadedPageIsAnonymous,
       location,
@@ -216,6 +219,7 @@ export class HeaderBase extends React.Component {
           'Header--loaded-page-is-anonymous': loadedPageIsAnonymous,
         })}
       >
+        {!isAddonDetailPage ? <GetFirefoxBanner /> : null}
         <div className="Header-wrapper">
           <div className="Header-content">
             {isHomePage ? (

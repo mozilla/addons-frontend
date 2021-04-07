@@ -446,11 +446,14 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('passes the errorHandler to the Page component', () => {
+  it('passes the errorHandler and other props to the Page component', () => {
     const errorHandler = createCapturedErrorHandler({ status: 404 });
 
     const root = shallowRender({ errorHandler });
-    expect(root.find(Page)).toHaveProp('errorHandler', errorHandler);
+    const page = root.find(Page);
+    expect(page).toHaveProp('errorHandler', errorHandler);
+    expect(page).toHaveProp('isAddonDetailPage', true);
+    expect(page).toHaveProp('showWrongPlatformWarning', false);
   });
 
   it('dispatches a server redirect when slug is a numeric ID', () => {

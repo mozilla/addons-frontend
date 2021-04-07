@@ -442,7 +442,11 @@ export class AddonBase extends React.Component {
       : 0;
 
     return (
-      <Page errorHandler={errorHandler} showWrongPlatformWarning={false}>
+      <Page
+        errorHandler={errorHandler}
+        isAddonDetailPage
+        showWrongPlatformWarning={false}
+      >
         <div
           className={makeClassName('Addon', `Addon-${addonType}`, {
             'Addon-theme': isThemeType,

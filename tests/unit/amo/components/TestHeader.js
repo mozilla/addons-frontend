@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import GetFirefoxBanner from 'amo/components/GetFirefoxBanner';
 import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
@@ -51,6 +52,17 @@ describe(__filename, () => {
       'Firefox Browser Add-ons',
     );
   });
+
+  it.each([true, false])(
+    'conditionally renders a GetFirefoxBanner component when isAddonDetailPage is %s',
+    (isAddonDetailPage) => {
+      const root = renderHeader({ isAddonDetailPage });
+
+      expect(root.find(GetFirefoxBanner)).toHaveLength(
+        isAddonDetailPage ? 0 : 1,
+      );
+    },
+  );
 
   it('always renders a link in the header when not on homepage', () => {
     const root = renderHeader({ isHomePage: false });

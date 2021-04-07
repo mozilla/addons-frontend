@@ -36,6 +36,17 @@ describe(__filename, () => {
     expect(root.find(Header)).toHaveProp('isHomePage', isHomePage);
   });
 
+  it('passes isAddonDetailPage to Header', () => {
+    const isAddonDetailPage = true;
+
+    const root = render({ isAddonDetailPage });
+
+    expect(root.find(Header)).toHaveProp(
+      'isAddonDetailPage',
+      isAddonDetailPage,
+    );
+  });
+
   it('passes isHomePage to WrongPlatformWarning', () => {
     const isHomePage = true;
 

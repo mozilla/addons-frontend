@@ -5,21 +5,26 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
-import GetFirefoxButton from 'amo/components/GetFirefoxButton';
+import GetFirefoxButton, {
+  EXPERIMENT_CONFIG,
+  VARIANT_NEW,
+} from 'amo/components/GetFirefoxButton';
 import AMInstallButton from 'amo/components/AMInstallButton';
 import { UNKNOWN } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { findInstallURL, withInstallHelpers } from 'amo/installAddon';
 import { getVersionById } from 'amo/reducers/versions';
 import { getClientCompatibility, isFirefox } from 'amo/utils/compatibility';
+import { withExperiment } from 'amo/withExperiment';
 import type { GetFirefoxButtonTypeType } from 'amo/components/GetFirefoxButton';
 import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { InstalledAddon } from 'amo/reducers/installations';
 import type { AddonVersionType } from 'amo/reducers/versions';
+import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { AppState } from 'amo/store';
+import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -49,6 +54,7 @@ type InternalProps = {|
   ...Props,
   ...WithInstallHelpersInjectedProps,
   ...PropsFromState,
+  ...WithExperimentInjectedProps,
   i18n: I18nType,
 |};
 
@@ -73,6 +79,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     setCurrentStatus,
     uninstall,
     userAgentInfo,
+    variant,
   } = props;
 
   let isCompatible = false;
@@ -101,6 +108,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     addon && (
       <div
         className={makeClassName('InstallButtonWrapper', {
+          'InstallButtonWrapper--new': variant === VARIANT_NEW,
           'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
         })}
       >
@@ -172,6 +180,7 @@ const InstallButtonWrapper: React.ComponentType<Props> = compose(
   withInstallHelpers,
   connect(mapStateToProps),
   translate(),
+  withExperiment(EXPERIMENT_CONFIG),
 )(InstallButtonWrapperBase);
 
 export default InstallButtonWrapper;

@@ -1,6 +1,9 @@
 @import '~amo/css/styles';
 
-.GetFirefoxButton {
+$callout-color: #ffea80;
+
+// Current style
+.GetFirefoxButton--current {
   white-space: nowrap;
   width: 100%;
 
@@ -8,5 +11,49 @@
     align-self: flex-end;
     margin-bottom: 12px;
     width: auto;
+  }
+}
+
+// New styles for the CTA experiment
+.GetFirefoxButton--new {
+  .GetFirefoxButton-button {
+    margin: auto;
+    white-space: nowrap;
+    width: 100%;
+
+    @include respond-to(medium) {
+      align-self: flex-end;
+      margin-bottom: 12px;
+      margin-top: 0;
+      width: auto;
+    }
+  }
+}
+
+.GetFirefoxButton-callout {
+  background-color: $callout-color;
+  border: 1px solid $callout-color;
+  justify-content: center;
+  margin: 16px 0 16px 0;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  @include respond-to(medium) {
+    display: flex;
+    margin: 16px auto 16px auto;
+    width: fit-content;
+  }
+
+  &::before {
+    border: 0.8em solid transparent;
+    border-top: 10px solid $callout-color;
+    bottom: -20px;
+    content: '';
+    height: 0;
+    left: 45%;
+    position: absolute;
+    width: 0;
   }
 }

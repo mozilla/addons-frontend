@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
+  VARIANT_NEW,
 } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper, {
   InstallButtonWrapperBase,
@@ -170,6 +171,15 @@ describe(__filename, () => {
     });
 
     expect(root).toHaveClassName('InstallButtonWrapper--notFirefox');
+  });
+
+  it('adds the expected class to the root for the new variant', () => {
+    const root = render({
+      store,
+      variant: VARIANT_NEW,
+    });
+
+    expect(root).toHaveClassName('InstallButtonWrapper--new');
   });
 
   it('passes an add-on to AMInstallButton', () => {
