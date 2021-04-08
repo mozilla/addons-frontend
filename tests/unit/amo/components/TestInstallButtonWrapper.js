@@ -6,6 +6,10 @@ import GetFirefoxButton, {
 import InstallButtonWrapper, {
   InstallButtonWrapperBase,
 } from 'amo/components/InstallButtonWrapper';
+import {
+  VARIANT_CURRENT,
+  VARIANT_NEW,
+} from 'amo/experiments/downloadCtaExperiment20210404';
 import { setInstallState } from 'amo/reducers/installations';
 import AMInstallButton from 'amo/components/AMInstallButton';
 import { CLIENT_APP_FIREFOX, INSTALLED, UNKNOWN } from 'amo/constants';
@@ -173,7 +177,7 @@ describe(__filename, () => {
   });
 
   it('adds the expected class to the root for the new version', () => {
-    const root = render({ store, useNewVersion: true });
+    const root = render({ store, variant: VARIANT_NEW });
 
     expect(root).toHaveClassName('InstallButtonWrapper--new');
   });
@@ -292,16 +296,17 @@ describe(__filename, () => {
     expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
   });
 
-  it('passes a value for useNewVersion to GetFirefoxButton', () => {
-    const useNewVersion = true;
+  it.each([VARIANT_CURRENT, VARIANT_NEW, null])(
+    'passes the expected value for useNewVersion to GetFirefoxButton when variant is %s',
+    (variant) => {
+      const root = render({ variant });
 
-    const root = render({ useNewVersion });
-
-    expect(root.find(GetFirefoxButton)).toHaveProp(
-      'useNewVersion',
-      useNewVersion,
-    );
-  });
+      expect(root.find(GetFirefoxButton)).toHaveProp(
+        'useNewVersion',
+        variant === VARIANT_NEW,
+      );
+    },
+  );
 
   it('passes the buttonType to GetFirefoxButton', () => {
     const buttonType = GET_FIREFOX_BUTTON_TYPE_ADDON;

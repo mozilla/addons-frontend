@@ -41,8 +41,15 @@ describe(__filename, () => {
     props,
     store = dispatchClientMetadata().store,
   } = {}) => {
-    const id = makeId('some-id');
+    const id = (experimentProps && experimentProps.id) || makeId('some-id');
     const allExperimentProps = {
+      _config: getFakeConfig({
+        experiments: {
+          // Enable the experiment by default to ease testing.
+          [id]: true,
+        },
+        ...configOverrides,
+      }),
       id,
       ...experimentProps,
     };
@@ -66,14 +73,14 @@ describe(__filename, () => {
         { id: 'some-variant-a', percentage: 0.5 },
         { id: 'some-variant-b', percentage: 0.5 },
       ],
-      ...experimentProps,
+      ...allExperimentProps,
     })(SomeComponentBase);
 
     // Temporary workaround for supporting the React (stable) Context API.
     // See: https://github.com/mozilla/addons-frontend/issues/6839
     //
     // 1. Render everything
-    const root = shallow(<SomeComponent {...allProps} />);
+    const root = shallow(<SomeComponent {...props} />);
     // 2. Get and render the withExperiment HOC (inside withCookies() HOC)
     return shallow(root.props().children(cookies));
   };
@@ -131,17 +138,17 @@ describe(__filename, () => {
         ...createExperimentData({ id: anotherExperimentId }),
       }),
     });
-    const _config = getFakeConfig({
+    const configOverrides = {
       experiments: {
         [experimentId]: false,
         [anotherExperimentId]: true,
       },
-    });
+    };
 
     render({
+      configOverrides,
       cookies,
       experimentProps: { id: experimentId },
-      props: { _config },
     });
 
     sinon.assert.calledWith(
@@ -182,12 +189,12 @@ describe(__filename, () => {
   it('creates a cookie upon render if the current experiment is not already in the cookie', () => {
     const experimentId = makeId('thisExperiment');
     const anotherExperimentId = makeId('anotherExperiment');
-    const _config = getFakeConfig({
+    const configOverrides = {
       experiments: {
         [experimentId]: true,
         [anotherExperimentId]: true,
       },
-    });
+    };
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
       get: sinon.stub().returns({
@@ -197,9 +204,10 @@ describe(__filename, () => {
     const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
 
     render({
+      configOverrides,
       cookies,
       experimentProps: { id: experimentId },
-      props: { _config, _getVariant },
+      props: { _getVariant },
     });
 
     sinon.assert.calledWith(
@@ -216,12 +224,12 @@ describe(__filename, () => {
   it('adds an experiment to the cookie, and removes a disabled one, as expected', () => {
     const experimentId = makeId('thisExperiment');
     const anotherExperimentId = makeId('anotherExperiment');
-    const _config = getFakeConfig({
+    const configOverrides = {
       experiments: {
         [experimentId]: true,
         [anotherExperimentId]: false,
       },
-    });
+    };
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
       get: sinon.stub().returns({
@@ -231,9 +239,10 @@ describe(__filename, () => {
     const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
 
     render({
+      configOverrides,
       cookies,
       experimentProps: { id: experimentId },
-      props: { _config, _getVariant },
+      props: { _getVariant },
     });
 
     sinon.assert.calledWith(
@@ -322,17 +331,17 @@ describe(__filename, () => {
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
-    const _config = getFakeConfig({
+    const configOverrides = {
       experiments: {
         [id]: false,
       },
-    });
+    };
     const _tracking = createFakeTracking();
 
     render({
+      configOverrides,
       cookies,
       experimentProps: { _tracking, id },
-      props: { _config },
     });
 
     sinon.assert.notCalled(_tracking.sendEvent);
@@ -367,13 +376,13 @@ describe(__filename, () => {
 
   it('sets isExperimentEnabled prop to false when experiment is disabled by config', () => {
     const id = makeId('disabled_experiment');
-    const _config = getFakeConfig({
+    const configOverrides = {
       experiments: {
         [id]: false,
       },
-    });
+    };
 
-    const root = render({ props: { _config }, experimentProps: { id } });
+    const root = render({ configOverrides, experimentProps: { id } });
     expect(root).toHaveProp('isExperimentEnabled', false);
   });
 
@@ -391,23 +400,23 @@ describe(__filename, () => {
 
   it('sets isUserInExperiment prop to false when the experiment is disabled', () => {
     const id = makeId('disabled_experiment');
-    const _config = getFakeConfig({
+    const configOverrides = {
       experiments: {
         [id]: false,
       },
-    });
+    };
 
-    const root = render({ props: { _config }, experimentProps: { id } });
+    const root = render({ configOverrides, experimentProps: { id } });
     expect(root).toHaveProp('isUserInExperiment', false);
   });
 
   it('disables the experiment by default', () => {
-    const _config = getFakeConfig({
+    const configOverrides = {
       // No experiment defined.
       experiments: {},
-    });
+    };
 
-    const root = render({ props: { _config } });
+    const root = render({ configOverrides });
     expect(root).toHaveProp('isExperimentEnabled', false);
   });
 

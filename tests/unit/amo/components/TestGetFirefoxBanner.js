@@ -9,10 +9,7 @@ import GetFirefoxBanner, {
   GET_FIREFOX_BANNER_UTM_CONTENT,
   GetFirefoxBannerBase,
 } from 'amo/components/GetFirefoxBanner';
-import {
-  VARIANT_CURRENT,
-  VARIANT_NEW,
-} from 'amo/experiments/downloadCtaExperiment20210404';
+import { VARIANT_NEW } from 'amo/experiments/downloadCtaExperiment20210404';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
@@ -30,13 +27,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
 
     return shallowUntilTarget(
-      <GetFirefoxBanner
-        i18n={fakeI18n()}
-        store={store}
-        // For the experiment, use the new variant by default.
-        variant={VARIANT_NEW}
-        {...props}
-      />,
+      <GetFirefoxBanner i18n={fakeI18n()} store={store} {...props} />,
       GetFirefoxBannerBase,
     );
   }
@@ -73,18 +64,6 @@ describe(__filename, () => {
   describe('Not firefox', () => {
     const { store } = dispatchClientMetadata({
       userAgent: userAgents.chrome[0],
-    });
-
-    it('renders nothing if variant is null (experiment is disabled)', () => {
-      const root = render({ store, variant: null });
-
-      expect(root.find('.GetFirefoxBanner')).toHaveLength(0);
-    });
-
-    it('renders nothing if the variant is the current CTA', () => {
-      const root = render({ store, variant: VARIANT_CURRENT });
-
-      expect(root.find('.GetFirefoxBanner')).toHaveLength(0);
     });
 
     it('renders a GetFirefoxBanner if the browser is not Firefox', () => {
