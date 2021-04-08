@@ -1,21 +1,28 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonBadges from 'amo/components/AddonBadges';
-import StaticAddonCard from 'blog-utils/StaticAddonCard';
+import StaticAddonCard, {
+  StaticAddonCardBase,
+} from 'blog-utils/StaticAddonCard';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
 } from 'amo/components/GetFirefoxButton';
+import Rating from 'amo/components/Rating';
 import {
   fakeAddon,
+  fakeI18n,
   createLocalizedString,
   createInternalAddonWithLang,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = ({ addon }) => {
-    return shallow(<StaticAddonCard addon={addon} />);
+    return shallowUntilTarget(
+      <StaticAddonCard addon={addon} i18n={fakeI18n()} />,
+      StaticAddonCardBase,
+    );
   };
 
   it('renders nothing when add-on is falsey', () => {
@@ -73,5 +80,55 @@ describe(__filename, () => {
     expect(root.find('.AddonSummary script')).toHaveLength(0);
     // Make sure the script has been removed.
     expect(root.find('.AddonSummary').html()).not.toContain('<script>');
+  });
+
+  it('displays the number of users', () => {
+    const average_daily_users = 1234567;
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      average_daily_users,
+    });
+
+    const root = render({ addon });
+
+    expect(root.find('.AddonMetadata-adu')).toHaveLength(1);
+    expect(root.find('.AddonMetadata-adu').text()).toEqual('Users: 1,234,567');
+  });
+
+  it('hides the number of users when there is no data', () => {
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      average_daily_users: null,
+    });
+
+    const root = render({ addon });
+
+    expect(root.find('.AddonMetadata-adu')).toHaveLength(0);
+  });
+
+  it('displays ratings', () => {
+    const average = 4.3;
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      ratings: { average },
+    });
+
+    const root = render({ addon });
+
+    expect(root.find(Rating)).toHaveLength(1);
+    expect(root.find(Rating)).toHaveProp('rating', average);
+    expect(root.find(Rating)).toHaveProp('readOnly', true);
+    expect(root.find(Rating)).toHaveProp('styleSize', 'small');
+  });
+
+  it('hides ratings when there is no data', () => {
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      ratings: null,
+    });
+
+    const root = render({ addon });
+
+    expect(root.find(Rating)).toHaveLength(0);
   });
 });
