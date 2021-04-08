@@ -3,11 +3,7 @@ import * as React from 'react';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
-import {
-  dispatchClientMetadata,
-  getFakeConfig,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import { dispatchClientMetadata, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = ({
@@ -36,10 +32,8 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
-  it('renders a NotFoundPage if server redirect fails', () => {
-    const { store } = dispatchClientMetadata();
-    const _config = getFakeConfig({ disableSSR: true });
-    const root = render({ store, _config });
+  it('renders a NotFoundPage', () => {
+    const root = render();
 
     expect(root.find(NotFoundPage)).toHaveLength(1);
   });
