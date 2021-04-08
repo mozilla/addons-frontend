@@ -40,7 +40,8 @@
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
     "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
     "version-check": "bin/version-check.js",
-    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server"
+    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server",
+    "prepare": "husky install"
   },
   "betterScripts": {
     "build": {
@@ -274,7 +275,7 @@
     "glob": "^7.1.1",
     "html-webpack-plugin": "@next",
     "http-proxy": "^1.16.2",
-    "husky": "^4.3.6",
+    "husky": "^6.0.0",
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
     "jest": "^26.0.0",
