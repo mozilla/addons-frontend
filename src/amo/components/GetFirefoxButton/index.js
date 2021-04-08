@@ -10,7 +10,7 @@ import Button from 'amo/components/Button';
 import {
   VARIANT_CURRENT,
   VARIANT_NEW,
-} from 'amo/components/ExperimentalGetFirefoxButton';
+} from 'amo/experiments/downloadCtaExperiment20210404';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,

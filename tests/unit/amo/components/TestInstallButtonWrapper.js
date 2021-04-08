@@ -1,9 +1,8 @@
 import * as React from 'react';
 
-import ExperimentalGetFirefoxButton, {
-  VARIANT_NEW,
-} from 'amo/components/ExperimentalGetFirefoxButton';
-import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
+import GetFirefoxButton, {
+  GET_FIREFOX_BUTTON_TYPE_ADDON,
+} from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper, {
   InstallButtonWrapperBase,
 } from 'amo/components/InstallButtonWrapper';
@@ -173,11 +172,8 @@ describe(__filename, () => {
     expect(root).toHaveClassName('InstallButtonWrapper--notFirefox');
   });
 
-  it('adds the expected class to the root for the new variant', () => {
-    const root = render({
-      store,
-      variant: VARIANT_NEW,
-    });
+  it('adds the expected class to the root for the new version', () => {
+    const root = render({ store, useNewVersion: true });
 
     expect(root).toHaveClassName('InstallButtonWrapper--new');
   });
@@ -291,11 +287,20 @@ describe(__filename, () => {
   it('passes an add-on to GetFirefoxButton', () => {
     const addon = createInternalAddonWithLang(fakeAddon);
 
-    const root = render({
-      addon,
-    });
+    const root = render({ addon });
 
-    expect(root.find(ExperimentalGetFirefoxButton)).toHaveProp('addon', addon);
+    expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
+  });
+
+  it('passes a value for useNewVersion to GetFirefoxButton', () => {
+    const useNewVersion = true;
+
+    const root = render({ useNewVersion });
+
+    expect(root.find(GetFirefoxButton)).toHaveProp(
+      'useNewVersion',
+      useNewVersion,
+    );
   });
 
   it('passes the buttonType to GetFirefoxButton', () => {
@@ -304,10 +309,7 @@ describe(__filename, () => {
       getFirefoxButtonType: buttonType,
     });
 
-    expect(root.find(ExperimentalGetFirefoxButton)).toHaveProp(
-      'buttonType',
-      buttonType,
-    );
+    expect(root.find(GetFirefoxButton)).toHaveProp('buttonType', buttonType);
   });
 
   it('passes a custom className to AMInstallButton and GetFirefoxButton', () => {
@@ -319,7 +321,7 @@ describe(__filename, () => {
     expect(root.find(AMInstallButton)).toHaveClassName(
       `AMInstallButton--${className}`,
     );
-    expect(root.find(ExperimentalGetFirefoxButton)).toHaveClassName(
+    expect(root.find(GetFirefoxButton)).toHaveClassName(
       `GetFirefoxButton--${className}`,
     );
   });

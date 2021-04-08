@@ -12,7 +12,7 @@ import GetFirefoxBanner, {
 import {
   VARIANT_CURRENT,
   VARIANT_NEW,
-} from 'amo/components/ExperimentalGetFirefoxButton';
+} from 'amo/experiments/downloadCtaExperiment20210404';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';

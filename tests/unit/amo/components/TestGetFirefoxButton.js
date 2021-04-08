@@ -4,7 +4,7 @@ import * as React from 'react';
 import {
   VARIANT_CURRENT,
   VARIANT_NEW,
-} from 'amo/components/ExperimentalGetFirefoxButton';
+} from 'amo/experiments/downloadCtaExperiment20210404';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
   GET_FIREFOX_BUTTON_TYPE_HEADER,
@@ -82,7 +82,6 @@ describe(__filename, () => {
       clientApp,
       userAgent: userAgents.chrome[0],
     });
-    const variantsToTest = [VARIANT_CURRENT, VARIANT_NEW, null];
 
     it('renders a GetFirefoxButton if the browser is not Firefox', () => {
       const root = render({ store });
@@ -105,25 +104,22 @@ describe(__filename, () => {
           addon: createInternalAddonWithLang(fakeAddon),
           buttonType,
           store,
-          variant: VARIANT_NEW,
+          useNewVersion: true,
         });
 
         expect(root).toHaveClassName('GetFirefoxButton--new');
       });
 
-      it.each([VARIANT_CURRENT, null])(
-        'adds the expected class to the root for the %s variant',
-        (variant) => {
-          const root = render({
-            addon: createInternalAddonWithLang(fakeAddon),
-            buttonType,
-            store,
-            variant,
-          });
+      it('adds the expected class to the root for the current version', () => {
+        const root = render({
+          addon: createInternalAddonWithLang(fakeAddon),
+          buttonType,
+          store,
+          useNewVersion: false,
+        });
 
-          expect(root).toHaveClassName('GetFirefoxButton--current');
-        },
-      );
+        expect(root).toHaveClassName('GetFirefoxButton--current');
+      });
 
       it('calls _getPromotedCategory to determine if an add-on is recommended', () => {
         const _getPromotedCategory = sinon.spy();
@@ -137,21 +133,21 @@ describe(__filename, () => {
         });
       });
 
-      it.each(variantsToTest)(
-        'sets the href on the button with the expected utm params for the add-on for %s',
-        (variant) => {
+      it.each([true, false])(
+        'sets the href on the button with the expected utm params for the add-on when useNewVersion is %s',
+        (useNewVersion) => {
           const guid = 'some-guid';
           const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
           const root = render({
             addon,
             buttonType,
             store,
-            variant,
+            useNewVersion,
           });
 
-          const utmCampaign = variant
-            ? `amo-fx-cta-${addon.id}-${variant}`
-            : `amo-fx-cta-${addon.id}`;
+          const utmCampaign = `amo-fx-cta-${addon.id}-${
+            useNewVersion ? VARIANT_NEW : VARIANT_CURRENT
+          }`;
           const utmContent = `rta:${encode(addon.guid)}`;
 
           const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
@@ -205,19 +201,19 @@ describe(__filename, () => {
         expect(root.find('.GetFirefoxButton')).toHaveProp('micro', false);
       });
 
-      it.each(variantsToTest)(
-        'has the expected button text for %s',
-        (variant) => {
+      it.each([true, false])(
+        'has the expected button text when useNewVersion is %s',
+        (useNewVersion) => {
           const root = render({
             addon: createInternalAddonWithLang(fakeAddon),
             buttonType,
             store,
-            variant,
+            useNewVersion,
           });
 
-          const expectedText = [VARIANT_CURRENT, null].includes(variant)
-            ? 'Only with Firefox—Get Firefox Now'
-            : 'Download Firefox';
+          const expectedText = useNewVersion
+            ? 'Download Firefox'
+            : 'Only with Firefox—Get Firefox Now';
 
           expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
             expectedText,
@@ -233,7 +229,7 @@ describe(__filename, () => {
           }),
           buttonType,
           store,
-          variant: VARIANT_NEW,
+          useNewVersion: true,
         });
 
         expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
@@ -249,7 +245,7 @@ describe(__filename, () => {
           }),
           buttonType,
           store,
-          variant: VARIANT_NEW,
+          useNewVersion: true,
         });
 
         expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
@@ -262,7 +258,7 @@ describe(__filename, () => {
           addon: createInternalAddonWithLang(fakeAddon),
           buttonType,
           store,
-          variant: VARIANT_NEW,
+          useNewVersion: true,
         });
 
         expect(root.find('.GetFirefoxButton-callout').children()).toHaveText(
@@ -275,7 +271,7 @@ describe(__filename, () => {
           addon: createInternalAddonWithLang(fakeTheme),
           buttonType,
           store,
-          variant: VARIANT_NEW,
+          useNewVersion: true,
         });
 
         expect(root.find('.GetFirefoxButton-callout').children()).toHaveText(
@@ -283,19 +279,16 @@ describe(__filename, () => {
         );
       });
 
-      it.each([VARIANT_CURRENT, null])(
-        'does not display a callout for %s',
-        (variant) => {
-          const root = render({
-            addon: createInternalAddonWithLang(fakeAddon),
-            buttonType,
-            store,
-            variant,
-          });
+      it('does not display a callout for the current version', () => {
+        const root = render({
+          addon: createInternalAddonWithLang(fakeAddon),
+          buttonType,
+          store,
+          useNewVersion: false,
+        });
 
-          expect(root.find('.GetFirefoxButton-callout')).toHaveLength(0);
-        },
-      );
+        expect(root.find('.GetFirefoxButton-callout')).toHaveLength(0);
+      });
     });
 
     describe('header type', () => {
@@ -305,31 +298,27 @@ describe(__filename, () => {
         const root = render({
           buttonType,
           store,
-          variant: VARIANT_NEW,
+          useNewVersion: true,
         });
 
         expect(root.find('.GetFirefoxButton')).toHaveLength(0);
       });
 
-      it.each([VARIANT_CURRENT, null])(
-        'sets the href on the button with the expected utm params for the header for %s',
-        (variant) => {
-          const root = render({
-            buttonType,
-            store,
-            variant,
-          });
+      it('sets the href on the button with the expected utm params for the header for the current version', () => {
+        const root = render({
+          buttonType,
+          store,
+          useNewVersion: false,
+        });
 
-          const utmCampaign = variant ? `amo-fx-cta-${variant}` : 'amo-fx-cta';
-          const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
-            {
-              utm_campaign: utmCampaign,
-              utm_content: 'header-download-button',
-            },
-          )}`;
-          expect(root.find(Button)).toHaveProp('href', expectedHref);
-        },
-      );
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
+          {
+            utm_campaign: `amo-fx-cta-${VARIANT_CURRENT}`,
+            utm_content: 'header-download-button',
+          },
+        )}`;
+        expect(root.find(Button)).toHaveProp('href', expectedHref);
+      });
 
       it('sets the button as micro and not puffy', () => {
         const root = render({
@@ -372,12 +361,12 @@ describe(__filename, () => {
       const realAddon = createInternalAddonWithLang({ ...fakeAddon, guid });
 
       it.each([
-        ['with addon', realAddon, null],
-        ['without addon', undefined, null],
-        ['with experiment', realAddon, VARIANT_NEW],
+        ['with addon', realAddon, false],
+        ['without addon', undefined, false],
+        ['with experiment', realAddon, true],
       ])(
         'sends a tracking event when the button is clicked %s',
-        (desc, addon, variant) => {
+        (desc, addon, useNewVersion) => {
           const _tracking = createFakeTracking();
           const root = render({
             _tracking,
@@ -386,16 +375,15 @@ describe(__filename, () => {
               ? GET_FIREFOX_BUTTON_TYPE_ADDON
               : GET_FIREFOX_BUTTON_TYPE_HEADER,
             store,
-            variant,
+            useNewVersion,
           });
 
           const event = createFakeEvent();
           root.find('.GetFirefoxButton-button').simulate('click', event);
 
-          const category = variant
-            ? `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`
-            : GET_FIREFOX_BUTTON_CLICK_CATEGORY;
-
+          const category = `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${
+            useNewVersion ? VARIANT_NEW : VARIANT_CURRENT
+          }`;
           sinon.assert.calledWith(_tracking.sendEvent, {
             action: GET_FIREFOX_BUTTON_CLICK_ACTION,
             category,

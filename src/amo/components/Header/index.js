@@ -16,6 +16,10 @@ import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'amo/components/AuthenticateButton';
 import {
+  EXPERIMENT_CONFIG,
+  VARIANT_NEW,
+} from 'amo/experiments/downloadCtaExperiment20210404';
+import {
   getCurrentUser,
   hasAnyReviewerRelatedPermission,
 } from 'amo/reducers/users';
@@ -25,6 +29,7 @@ import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import DropdownMenu from 'amo/components/DropdownMenu';
 import DropdownMenuItem from 'amo/components/DropdownMenuItem';
+import { withExperiment } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -43,6 +48,7 @@ export class HeaderBase extends React.Component {
     siteIsReadOnly: PropTypes.bool.isRequired,
     siteUser: PropTypes.object,
     userAgentInfo: PropTypes.object,
+    variant: PropTypes.string,
   };
 
   static defaultProps = { _config: config };
@@ -169,6 +175,7 @@ export class HeaderBase extends React.Component {
       loadedPageIsAnonymous,
       location,
       userAgentInfo,
+      variant,
     } = this.props;
 
     const headerLink = (
@@ -219,7 +226,9 @@ export class HeaderBase extends React.Component {
           'Header--loaded-page-is-anonymous': loadedPageIsAnonymous,
         })}
       >
-        {!isAddonDetailPage ? <GetFirefoxBanner /> : null}
+        {!isAddonDetailPage && variant === VARIANT_NEW ? (
+          <GetFirefoxBanner />
+        ) : null}
         <div className="Header-wrapper">
           <div className="Header-content">
             {isHomePage ? (
@@ -235,10 +244,12 @@ export class HeaderBase extends React.Component {
 
           <div className="Header-user-and-external-links">
             {otherSiteLinks}
-            <GetFirefoxButton
-              buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
-              className="Header-download-button Header-button"
-            />
+            {variant !== VARIANT_NEW ? (
+              <GetFirefoxButton
+                buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
+                className="Header-download-button Header-button"
+              />
+            ) : null}
 
             {this.renderMenuOrAuthButton()}
           </div>
@@ -274,4 +285,5 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   translate(),
+  withExperiment(EXPERIMENT_CONFIG),
 )(HeaderBase);

@@ -19,7 +19,7 @@ import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import ContributeCard from 'amo/components/ContributeCard';
 import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallWarning from 'amo/components/InstallWarning';
-import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
+import ExperimentalInstallButtonWrapper from 'amo/components/ExperimentalInstallButtonWrapper';
 import Page from 'amo/components/Page';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
@@ -487,7 +487,7 @@ export class AddonBase extends React.Component {
                   ) : null}
 
                   {addon && (
-                    <InstallButtonWrapper
+                    <ExperimentalInstallButtonWrapper
                       addon={addon}
                       getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
                     />
