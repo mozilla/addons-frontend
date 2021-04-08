@@ -345,7 +345,7 @@ curl https://addons-dev.allizom.org/__version__
 
 This project also contains code to build a library named `addons-frontend-blog-utils` and offers the following commands:
 
-- `yarn build:blog-utils-dev`: build the library and start a watcher to rebuild the library on change
+- `yarn build:blog-utils-dev`: build the library, start a watcher to rebuild the library on change and serve a development page at http://127.0.0.1:11000
 - `yarn build:blog-utils-prod`: build the library in production mode
 
 This library is exclusively designed to work with [addons-blog][].

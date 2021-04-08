@@ -1,17 +1,22 @@
 /* @flow */
+/* global fetch */
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { createMemoryHistory } from 'history';
+import 'isomorphic-fetch';
 
 import I18nProvider from 'amo/i18n/Provider';
 import { makeI18n } from 'amo/i18n/utils';
 import { setClientApp, setLang } from 'amo/reducers/api';
 import createStore from 'amo/store';
 import Footer from 'amo/components/Footer';
+import { createInternalAddon } from 'amo/reducers/addons';
 
-import './styles.scss';
+import StaticAddonCard from './StaticAddonCard';
+
+const AMO_BASE_URL = 'https://addons.mozilla.org';
 
 type RenderParams = {|
   app: string,
@@ -45,4 +50,25 @@ export const buildFooter = (): string => {
   const lang = 'en-US';
 
   return render({ app, lang, component: <Footer noLangPicker /> });
+};
+
+type BuildStaticAddonCardParams = {|
+  addonId: string,
+  baseURL?: string,
+|};
+
+export const buildStaticAddonCard = async ({
+  addonId,
+  baseURL = AMO_BASE_URL,
+}: BuildStaticAddonCardParams): Promise<string> => {
+  const app = 'firefox';
+  const lang = 'en-US';
+
+  const response = await fetch(
+    `${baseURL}/api/v5/addons/addon/${addonId}/?lang=${lang}&app=${app}`,
+  );
+  const apiAddon = await response.json();
+  const addon = createInternalAddon(apiAddon, lang);
+
+  return render({ app, lang, component: <StaticAddonCard addon={addon} /> });
 };
