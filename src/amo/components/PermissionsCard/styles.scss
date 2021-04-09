@@ -1,12 +1,12 @@
 @import '~amo/css/styles';
 
-.PermissionCard-header {
+.PermissionsCard-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.PermissionCard-learn-more {
+.PermissionsCard-learn-more {
   .Icon {
     @include margin-start(12px);
   }

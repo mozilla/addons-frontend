@@ -96,8 +96,8 @@ describe(__filename, () => {
       const header = shallow(root.prop('header'));
 
       expect(root).toHaveClassName('PermissionsCard');
-      expect(header).toHaveClassName('PermissionCard-header');
-      expect(header.find(Link)).toHaveClassName('PermissionCard-learn-more');
+      expect(header).toHaveClassName('PermissionsCard-header');
+      expect(header.find(Link)).toHaveClassName('PermissionsCard-learn-more');
       expect(header.find(Link)).toHaveProp('externalDark', true);
     });
 

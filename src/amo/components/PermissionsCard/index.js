@@ -2,9 +2,9 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import translate from 'amo/i18n/translate';
 import Link from 'amo/components/Link';
 import ShowMoreCard from 'amo/components/ShowMoreCard';
+import translate from 'amo/i18n/translate';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { I18nType } from 'amo/types/i18n';
 
@@ -55,10 +55,10 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
     }
 
     const header = (
-      <div className="PermissionCard-header">
+      <div className="PermissionsCard-header">
         {i18n.gettext('Permissions')}
         <Link
-          className="PermissionCard-learn-more"
+          className="PermissionsCard-learn-more"
           href="https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
           target="_blank"
           externalDark
