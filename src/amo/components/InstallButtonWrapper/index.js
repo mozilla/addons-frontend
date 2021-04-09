@@ -11,7 +11,7 @@ import { UNKNOWN } from 'amo/constants';
 import {
   VARIANT_NEW,
   EXPERIMENT_CONFIG,
-} from 'amo/experiments/downloadCtaExperiment20210404';
+} from 'amo/experiments/20210404_download_cta_experiment';
 import translate from 'amo/i18n/translate';
 import { findInstallURL, withInstallHelpers } from 'amo/installAddon';
 import { getVersionById } from 'amo/reducers/versions';

@@ -10,7 +10,7 @@ import Button from 'amo/components/Button';
 import {
   VARIANT_CURRENT,
   VARIANT_NEW,
-} from 'amo/experiments/downloadCtaExperiment20210404';
+} from 'amo/experiments/20210404_download_cta_experiment';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
@@ -50,7 +50,7 @@ export type Props = {|
   useNewVersion?: boolean,
 |};
 
-export type DeafultProps = {|
+export type DefaultProps = {|
   _encode: typeof encode,
   _getPromotedCategory: typeof getPromotedCategory,
   _tracking: typeof tracking,
@@ -63,7 +63,7 @@ type PropsFromState = {|
 
 type InternalProps = {|
   ...Props,
-  ...DeafultProps,
+  ...DefaultProps,
   ...PropsFromState,
   i18n: I18nType,
 |};

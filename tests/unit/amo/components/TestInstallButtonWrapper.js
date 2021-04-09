@@ -9,7 +9,7 @@ import InstallButtonWrapper, {
 import {
   VARIANT_CURRENT,
   VARIANT_NEW,
-} from 'amo/experiments/downloadCtaExperiment20210404';
+} from 'amo/experiments/20210404_download_cta_experiment';
 import { setInstallState } from 'amo/reducers/installations';
 import AMInstallButton from 'amo/components/AMInstallButton';
 import { CLIENT_APP_FIREFOX, INSTALLED, UNKNOWN } from 'amo/constants';

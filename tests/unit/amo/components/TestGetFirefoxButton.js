@@ -4,7 +4,7 @@ import * as React from 'react';
 import {
   VARIANT_CURRENT,
   VARIANT_NEW,
-} from 'amo/experiments/downloadCtaExperiment20210404';
+} from 'amo/experiments/20210404_download_cta_experiment';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
   GET_FIREFOX_BUTTON_TYPE_HEADER,

@@ -9,7 +9,7 @@ import GetFirefoxBanner, {
   GET_FIREFOX_BANNER_UTM_CONTENT,
   GetFirefoxBannerBase,
 } from 'amo/components/GetFirefoxBanner';
-import { VARIANT_NEW } from 'amo/experiments/downloadCtaExperiment20210404';
+import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';

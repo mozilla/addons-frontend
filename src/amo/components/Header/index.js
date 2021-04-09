@@ -18,7 +18,7 @@ import AuthenticateButton, {
 import {
   EXPERIMENT_CONFIG,
   VARIANT_NEW,
-} from 'amo/experiments/downloadCtaExperiment20210404';
+} from 'amo/experiments/20210404_download_cta_experiment';
 import {
   getCurrentUser,
   hasAnyReviewerRelatedPermission,

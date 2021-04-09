@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import Button from 'amo/components/Button';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
-import { VARIANT_NEW } from 'amo/experiments/downloadCtaExperiment20210404';
+import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
 import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { isFirefox } from 'amo/utils/compatibility';

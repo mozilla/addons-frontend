@@ -17,7 +17,7 @@ import DropdownMenu from 'amo/components/DropdownMenu';
 import {
   VARIANT_CURRENT,
   VARIANT_NEW,
-} from 'amo/experiments/downloadCtaExperiment20210404';
+} from 'amo/experiments/20210404_download_cta_experiment';
 import { loadSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
 import {
   createFakeEvent,
