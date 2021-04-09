@@ -263,9 +263,9 @@ describe(__filename, () => {
           useNewVersion: true,
         });
 
-        expect(root.find('.GetFirefoxButton-callout').children()).toHaveText(
-          `You'll need Firefox to use this extension`,
-        );
+        expect(
+          root.find('.GetFirefoxButton-callout-text').children(),
+        ).toHaveText(`You'll need Firefox to use this extension`);
       });
 
       it('has the expected callout text for a theme', () => {
@@ -276,9 +276,9 @@ describe(__filename, () => {
           useNewVersion: true,
         });
 
-        expect(root.find('.GetFirefoxButton-callout').children()).toHaveText(
-          `You'll need Firefox to use this theme`,
-        );
+        expect(
+          root.find('.GetFirefoxButton-callout-text').children(),
+        ).toHaveText(`You'll need Firefox to use this theme`);
       });
 
       it('does not display a callout for the current version', () => {

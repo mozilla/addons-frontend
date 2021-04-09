@@ -1,6 +1,6 @@
 @import '~amo/css/styles';
 
-$callout-color: #ffea80;
+$callout-color: $yellow-50;
 
 // Current style
 .GetFirefoxButton--current {
@@ -33,6 +33,7 @@ $callout-color: #ffea80;
 .GetFirefoxButton-callout {
   background-color: $callout-color;
   border: 1px solid $callout-color;
+  display: flex;
   justify-content: center;
   margin: 16px 0 16px 0;
   padding: 10px;
@@ -41,7 +42,6 @@ $callout-color: #ffea80;
   width: 100%;
 
   @include respond-to(medium) {
-    display: flex;
     margin: 16px auto 16px auto;
     width: fit-content;
   }
@@ -56,4 +56,13 @@ $callout-color: #ffea80;
     position: absolute;
     width: 0;
   }
+}
+
+.GetFirefoxButton-callout-icon {
+  @include margin-end(4px);
+
+  background-image: url('../Notice/img/generic-info-mark.svg');
+  height: 16px;
+  margin: 0;
+  width: 16px;
 }

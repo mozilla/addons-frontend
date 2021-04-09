@@ -205,7 +205,10 @@ export const GetFirefoxButtonBase = ({
     buttonContent
   ) : (
     <div className="GetFirefoxButton GetFirefoxButton--new">
-      <div className="GetFirefoxButton-callout">{calloutText}</div>
+      <div className="GetFirefoxButton-callout">
+        <div className="GetFirefoxButton-callout-icon" />
+        <div className="GetFirefoxButton-callout-text">{calloutText}</div>
+      </div>
       {buttonContent}
     </div>
   );
