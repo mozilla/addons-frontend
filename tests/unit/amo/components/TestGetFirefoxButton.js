@@ -12,10 +12,12 @@ import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_CLICK_ACTION,
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
   GetFirefoxButtonBase,
+  getDownloadCampaign,
 } from 'amo/components/GetFirefoxButton';
 import {
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   RECOMMENDED,
 } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
@@ -145,7 +147,7 @@ describe(__filename, () => {
             useNewVersion,
           });
 
-          const utmCampaign = `amo-fx-cta-${addon.id}-${
+          const utmCampaign = `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addon.id}-${
             useNewVersion ? VARIANT_NEW : VARIANT_CURRENT
           }`;
           const utmContent = `rta:${encode(addon.guid)}`;
@@ -313,7 +315,7 @@ describe(__filename, () => {
 
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
           {
-            utm_campaign: `amo-fx-cta-${VARIANT_CURRENT}`,
+            utm_campaign: `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${VARIANT_CURRENT}`,
             utm_content: 'header-download-button',
           },
         )}`;
@@ -391,6 +393,34 @@ describe(__filename, () => {
           });
           sinon.assert.calledOnce(_tracking.sendEvent);
         },
+      );
+    });
+  });
+
+  describe('getDownloadCampaign', () => {
+    it('returns just the prefix when there is no addonId or variant', () => {
+      expect(getDownloadCampaign()).toEqual(DOWNLOAD_FIREFOX_UTM_CAMPAIGN);
+    });
+
+    it('adds the addonId if passed', () => {
+      const addonId = 12345;
+      expect(getDownloadCampaign({ addonId })).toEqual(
+        `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
+      );
+    });
+
+    it('adds the variant if passed', () => {
+      const variant = 'some-variant';
+      expect(getDownloadCampaign({ variant })).toEqual(
+        `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${variant}`,
+      );
+    });
+
+    it('adds both the addonId and the variant if passed', () => {
+      const addonId = 12345;
+      const variant = 'some-variant';
+      expect(getDownloadCampaign({ addonId, variant })).toEqual(
+        `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}-${variant}`,
       );
     });
   });

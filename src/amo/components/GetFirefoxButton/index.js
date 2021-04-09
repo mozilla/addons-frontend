@@ -15,6 +15,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   RECOMMENDED,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -67,6 +68,26 @@ type InternalProps = {|
   ...PropsFromState,
   i18n: I18nType,
 |};
+
+export const getDownloadCampaign = ({
+  addonId,
+  variant,
+}: {|
+  addonId?: number,
+  variant?: string,
+|} = {}): string => {
+  let campaign = DOWNLOAD_FIREFOX_UTM_CAMPAIGN;
+
+  if (addonId) {
+    campaign = `${campaign}-${addonId}`;
+  }
+
+  if (variant) {
+    campaign = `${campaign}-${variant}`;
+  }
+
+  return campaign;
+};
 
 export const GetFirefoxButtonBase = ({
   _encode = encode,
@@ -139,7 +160,7 @@ export const GetFirefoxButtonBase = ({
             : i18n.gettext(`You'll need Firefox to use this extension`);
       }
       puffy = true;
-      utmCampaign = `amo-fx-cta-${addon.id}-${variant}`;
+      utmCampaign = getDownloadCampaign({ addonId: addon.id, variant });
 
       utmContent = addon.guid ? `rta:${_encode(addon.guid)}` : '';
       break;
@@ -147,7 +168,7 @@ export const GetFirefoxButtonBase = ({
     case GET_FIREFOX_BUTTON_TYPE_HEADER: {
       buttonText = i18n.gettext('Download Firefox');
       micro = true;
-      utmCampaign = `amo-fx-cta-${variant}`;
+      utmCampaign = getDownloadCampaign({ variant });
       utmContent = 'header-download-button';
       break;
     }

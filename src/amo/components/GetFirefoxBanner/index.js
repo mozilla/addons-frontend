@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
+import { getDownloadCampaign } from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
@@ -82,7 +83,7 @@ export const GetFirefoxBannerBase = ({
               buttonType="none"
               className="GetFirefoxBanner-button"
               href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-                utm_campaign: `amo-fx-cta-${VARIANT_NEW}`,
+                utm_campaign: getDownloadCampaign({ variant: VARIANT_NEW }),
                 utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
               })}`}
               onClick={onButtonClick}
