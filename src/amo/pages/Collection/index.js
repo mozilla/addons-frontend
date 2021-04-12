@@ -495,6 +495,7 @@ export class CollectionBase extends React.Component<InternalProps> {
               placeholderCount={this.addonPlaceholderCount}
               removeAddon={this.removeAddon}
               saveNote={this.saveNote}
+              showFullSizePreview
             />
           )}
           {placeholderText && (

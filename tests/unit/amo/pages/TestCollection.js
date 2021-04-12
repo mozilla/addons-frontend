@@ -634,6 +634,7 @@ describe(__filename, () => {
 
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
     expect(wrapper.find(AddonsCard)).toHaveProp('editing', false);
+    expect(wrapper.find(AddonsCard)).toHaveProp('showFullSizePreview', true);
   });
 
   it('sets a default placeholder count', () => {
