@@ -3,6 +3,7 @@
 # DOCKERHUB_REPO - docker hub repo, format: <username>/<repo>
 # DOCKER_USER - Login user for docker hub
 # DOCKER_PASS - Login password for docker hub user
+# NPM_TOKEN - A valid NPM token for releases
 version: 2.1
 
 references:
@@ -73,6 +74,12 @@ jobs:
       - *run_yarn_install
       - *save_build_cache
       - run: yarn build:blog-utils-prod
+      # Set up a workspace to share data between this job and the
+      # `release-blog-utils` one when we want to publish a new npm version.
+      - persist_to_workspace:
+          root: ~/addons-frontend
+          paths: dist
+
 
   test:
     <<: *defaults
@@ -118,6 +125,20 @@ jobs:
       - run: pyenv global 3.7.0
       - run: pip install tox
       - run: TOXENV=dennis-lint tox
+
+
+  release-blog-utils:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/addons-frontend
+      - run:
+          name: authenticate with registry
+          # We don't want to expand the token in this file, npm will do it.
+          command: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > ~/addons-frontend/.npmrc
+      - run:
+          name: publish package
+          command: npm publish
 
   release-tag: # build for the master branch and tags
     <<: *defaults-release
@@ -257,7 +278,13 @@ workflows:
       - release-tag:
           filters:
             tags:
-              only: /.*/
+              only: /^\d+.*/
+            branches:
+              ignore: /.*/
+      - release-blog-utils:
+          filters:
+            tags:
+              only: /^blog-utils-.*/
             branches:
               ignore: /.*/
       - release-master:
