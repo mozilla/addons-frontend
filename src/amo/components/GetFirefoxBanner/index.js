@@ -87,6 +87,7 @@ export const GetFirefoxBannerBase = ({
                 utm_campaign: getDownloadCampaign({ variant: VARIANT_NEW }),
                 utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
               })}`}
+              key="GetFirefoxBanner-button"
               onClick={onButtonClick}
             >
               {text}
