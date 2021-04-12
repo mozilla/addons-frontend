@@ -1,6 +1,6 @@
 @import '~amo/css/styles';
 
-$icon-size: 38px;
+$icon-size: 48px;
 
 .StaticAddonCard {
   background-color: $white;
@@ -8,7 +8,7 @@ $icon-size: 38px;
   box-shadow: 0 2px 6px rgba(58, 57, 68, 0.2);
   display: grid;
   grid-template-columns: ($icon-size + 8px) 2fr 1fr;
-  padding: 10px;
+  padding: 12px;
 
   @include respond-to(medium) {
     padding: 20px;
@@ -18,8 +18,12 @@ $icon-size: 38px;
 .AddonBadges {
   grid-column: 4;
   grid-row: 1;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   width: auto;
+
+  .PromotedBadge {
+    font-size: $font-size-s;
+  }
 
   @include respond-to(medium) {
     grid-column: 4;
@@ -27,17 +31,17 @@ $icon-size: 38px;
   }
 }
 
-.AddonIcon {
+.StaticAddonCard-icon {
   grid-column: 1;
   grid-row: 2;
 
-  .AddonIconWrapper {
+  .StaticAddonCard-icon-wrapper {
     height: $icon-size;
     overflow: hidden;
     width: $icon-size;
   }
 
-  .AddonIconImage {
+  .StaticAddonCard-icon-image {
     height: auto;
     width: 100%;
   }
@@ -48,11 +52,13 @@ $icon-size: 38px;
 }
 
 .AddonTitle {
+  align-self: center;
+  font-size: 20px;
+  font-weight: 700;
   grid-column: 2 / span 3;
   grid-row: 2;
   margin: 0;
 
-  &,
   & .AddonTitle-author,
   & .AddonTitle-author a,
   & .AddonTitle-author a:link {
@@ -66,26 +72,54 @@ $icon-size: 38px;
   }
 }
 
-.AddonSummary {
+.StaticAddonCard-summary {
   font-size: $font-size-s;
   grid-column: 1 / span 4;
   grid-row: 3;
   line-height: 1.2;
+
+  p {
+    margin-bottom: 0;
+  }
 
   @include respond-to(medium) {
     grid-row: 2;
   }
 }
 
-.GetFirefoxButton {
-  align-self: center;
+.StaticAddonCard-metadata {
+  display: flex;
+  font-size: $font-size-s;
   grid-column: 1 / span 4;
   grid-row: 4;
-  white-space: initial;
-  width: auto;
+  line-height: 1.2;
+
+  .Rating {
+    @include margin-end(12px);
+  }
 
   @include respond-to(medium) {
-    grid-column: 4;
     grid-row: 3;
+  }
+}
+
+.StaticAddonCard-firefox-button {
+  align-self: center;
+  grid-column: 1 / span 4;
+  grid-row: 5;
+  text-align: center;
+
+  .GetFirefoxButton {
+    margin-bottom: 0;
+    width: auto;
+  }
+
+  @include respond-to(medium) {
+    grid-row: 4;
+  }
+
+  @include respond-to(large) {
+    margin-top: -12px;
+    text-align: right;
   }
 }
