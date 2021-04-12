@@ -287,6 +287,8 @@ workflows:
               only: /^blog-utils-.*/
             branches:
               ignore: /.*/
+          requires:
+            - build-blog-utils
       - release-master:
           filters:
             branches:
