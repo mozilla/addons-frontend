@@ -31,17 +31,17 @@ $icon-size: 48px;
   }
 }
 
-.AddonIcon {
+.StaticAddonCard-icon {
   grid-column: 1;
   grid-row: 2;
 
-  .AddonIconWrapper {
+  .StaticAddonCard-icon-wrapper {
     height: $icon-size;
     overflow: hidden;
     width: $icon-size;
   }
 
-  .AddonIconImage {
+  .StaticAddonCard-icon-image {
     height: auto;
     width: 100%;
   }
@@ -72,7 +72,7 @@ $icon-size: 48px;
   }
 }
 
-.AddonSummary {
+.StaticAddonCard-summary {
   font-size: $font-size-s;
   grid-column: 1 / span 4;
   grid-row: 3;
@@ -87,7 +87,7 @@ $icon-size: 48px;
   }
 }
 
-.AddonMetadata {
+.StaticAddonCard-metadata {
   display: flex;
   font-size: $font-size-s;
   grid-column: 1 / span 4;
@@ -103,7 +103,7 @@ $icon-size: 48px;
   }
 }
 
-.AddonFirefoxButton {
+.StaticAddonCard-firefox-button {
   align-self: center;
   grid-column: 1 / span 4;
   grid-row: 5;

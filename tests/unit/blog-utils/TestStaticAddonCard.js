@@ -45,7 +45,9 @@ describe(__filename, () => {
     expect(root.find(AddonBadges)).toHaveLength(1);
     expect(root.find(AddonBadges)).toHaveProp('addon', addon);
 
-    expect(root.find('.AddonSummary').html()).toContain(addon.summary);
+    expect(root.find('.StaticAddonCard-summary').html()).toContain(
+      addon.summary,
+    );
 
     expect(root.find(GetFirefoxButton)).toHaveLength(1);
     expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
@@ -60,8 +62,12 @@ describe(__filename, () => {
 
     const root = render({ addon });
 
-    expect(root.find('.AddonSummary').html()).not.toContain(addon.summary);
-    expect(root.find('.AddonSummary').html()).toContain(addon.description);
+    expect(root.find('.StaticAddonCard-summary').html()).not.toContain(
+      addon.summary,
+    );
+    expect(root.find('.StaticAddonCard-summary').html()).toContain(
+      addon.description,
+    );
   });
 
   it('sanitizes the summary', () => {
@@ -77,9 +83,11 @@ describe(__filename, () => {
     });
 
     // Make sure an actual script tag was not created.
-    expect(root.find('.AddonSummary script')).toHaveLength(0);
+    expect(root.find('.StaticAddonCard-summary script')).toHaveLength(0);
     // Make sure the script has been removed.
-    expect(root.find('.AddonSummary').html()).not.toContain('<script>');
+    expect(root.find('.StaticAddonCard-summary').html()).not.toContain(
+      '<script>',
+    );
   });
 
   it('displays the number of users', () => {
@@ -91,8 +99,10 @@ describe(__filename, () => {
 
     const root = render({ addon });
 
-    expect(root.find('.AddonMetadata-adu')).toHaveLength(1);
-    expect(root.find('.AddonMetadata-adu').text()).toEqual('Users: 1,234,567');
+    expect(root.find('.StaticAddonCard-metadata-adu')).toHaveLength(1);
+    expect(root.find('.StaticAddonCard-metadata-adu').text()).toEqual(
+      'Users: 1,234,567',
+    );
   });
 
   it('hides the number of users when there is no data', () => {
@@ -103,7 +113,7 @@ describe(__filename, () => {
 
     const root = render({ addon });
 
-    expect(root.find('.AddonMetadata-adu')).toHaveLength(0);
+    expect(root.find('.StaticAddonCard-metadata-adu')).toHaveLength(0);
   });
 
   it('displays ratings', () => {

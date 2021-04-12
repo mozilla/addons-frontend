@@ -15,16 +15,19 @@ import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
-type PublicProps = {|
+type Props = {|
   addon: AddonType,
 |};
 
-type Props = {|
-  ...PublicProps,
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
 
-export const StaticAddonCardBase = ({ addon, i18n }: Props): React.Node => {
+export const StaticAddonCardBase = ({
+  addon,
+  i18n,
+}: InternalProps): React.Node => {
   if (!addon) {
     return null;
   }
@@ -35,9 +38,13 @@ export const StaticAddonCardBase = ({ addon, i18n }: Props): React.Node => {
 
   return (
     <div className="StaticAddonCard" data-addon-id={addon.id}>
-      <div className="AddonIcon">
-        <div className="AddonIconWrapper">
-          <img className="AddonIconImage" src={getAddonIconUrl(addon)} alt="" />
+      <div className="StaticAddonCard-icon">
+        <div className="StaticAddonCard-icon-wrapper">
+          <img
+            className="StaticAddonCard-icon-image"
+            src={getAddonIconUrl(addon)}
+            alt=""
+          />
         </div>
       </div>
 
@@ -45,26 +52,26 @@ export const StaticAddonCardBase = ({ addon, i18n }: Props): React.Node => {
 
       <AddonBadges addon={addon} />
 
-      <div className="AddonSummary">
+      <div className="StaticAddonCard-summary">
         <p
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={sanitizeHTML(nl2br(summary), ['a', 'br'])}
         />
       </div>
 
-      <div className="AddonMetadata">
+      <div className="StaticAddonCard-metadata">
         {averageRating && (
           <Rating rating={averageRating} readOnly styleSize="small" />
         )}
 
         {averageDailyUsers && (
-          <p className="AddonMetadata-adu">
+          <p className="StaticAddonCard-metadata-adu">
             Users: {i18n.formatNumber(averageDailyUsers)}
           </p>
         )}
       </div>
 
-      <div className="AddonFirefoxButton">
+      <div className="StaticAddonCard-firefox-button">
         <GetFirefoxButton
           addon={addon}
           buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
@@ -74,7 +81,7 @@ export const StaticAddonCardBase = ({ addon, i18n }: Props): React.Node => {
   );
 };
 
-const StaticAddonCard: React.ComponentType<PublicProps> = translate()(
+const StaticAddonCard: React.ComponentType<Props> = translate()(
   StaticAddonCardBase,
 );
 
