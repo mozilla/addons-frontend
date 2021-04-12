@@ -13,6 +13,7 @@ import {
 } from 'amo/withExperiment';
 import {
   createFakeTracking,
+  dispatchClientMetadata,
   fakeCookies,
   fakeVariant,
   getFakeConfig,
@@ -35,9 +36,10 @@ describe(__filename, () => {
   };
 
   const renderWithExperiment = ({
-    props,
-    experimentProps,
     cookies = fakeCookies(),
+    experimentProps,
+    props,
+    store = dispatchClientMetadata().store,
   } = {}) => {
     const id = makeId('some-id');
     const allExperimentProps = {
@@ -54,6 +56,7 @@ describe(__filename, () => {
 
     const allProps = {
       _config,
+      store,
       ...props,
     };
 
@@ -78,7 +81,9 @@ describe(__filename, () => {
   const render = (props = {}) => {
     const root = renderWithExperiment(props);
     // Return the wrapped instance (`SomeComponentBase`)
-    return root.dive();
+    // We have to dive twice because of the withCookies HOC and the connect
+    // wrapper.
+    return root.dive().dive();
   };
 
   it('injects a variant prop', () => {
@@ -264,16 +269,18 @@ describe(__filename, () => {
     });
     const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
     const _tracking = createFakeTracking();
+    const { store } = dispatchClientMetadata();
 
     render({
       cookies,
       experimentProps: { _tracking, id: experimentId },
-      props: { _getVariant },
+      props: { _getVariant, store },
     });
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: variantId,
       category: [EXPERIMENT_ENROLLMENT_CATEGORY, experimentId].join(' '),
+      dispatch: store.dispatch,
     });
   });
 

@@ -1474,3 +1474,10 @@ export const fakeVariant = Object.freeze({
   id: 'some-variant-id',
   percentage: 0.5,
 });
+
+export const fakeTrackingEvent = Object.freeze({
+  action: 'some-action',
+  category: 'some-category',
+  label: 'some-label',
+  value: 19,
+});

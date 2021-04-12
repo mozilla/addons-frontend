@@ -46,6 +46,7 @@ describe(__filename, () => {
 
   const render = (moreProps = {}) => {
     const props = {
+      _tracking: createFakeTracking(),
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       store: dispatchClientMetadata().store,
