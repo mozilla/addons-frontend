@@ -3,12 +3,12 @@ import * as React from 'react';
 import Button from 'amo/components/Button';
 import GetFirefoxBanner, {
   GET_FIREFOX_BANNER_CLICK_ACTION,
-  GET_FIREFOX_BANNER_CLICK_CATEGORY,
   GET_FIREFOX_BANNER_DISMISS_ACTION,
   GET_FIREFOX_BANNER_DISMISS_CATEGORY,
   GET_FIREFOX_BANNER_UTM_CONTENT,
   GetFirefoxBannerBase,
 } from 'amo/components/GetFirefoxBanner';
+import { GET_FIREFOX_BUTTON_CLICK_CATEGORY } from 'amo/components/GetFirefoxButton';
 import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
 import Notice from 'amo/components/Notice';
 import {
@@ -114,7 +114,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: GET_FIREFOX_BANNER_CLICK_ACTION,
-        category: GET_FIREFOX_BANNER_CLICK_CATEGORY,
+        category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
     });

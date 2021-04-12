@@ -36,6 +36,7 @@ describe(__filename, () => {
   };
 
   const renderWithExperiment = ({
+    configOverrides = {},
     cookies = fakeCookies(),
     experimentProps,
     props,
@@ -54,19 +55,6 @@ describe(__filename, () => {
       ...experimentProps,
     };
 
-    // Enable the experiment by default to ease testing.
-    const _config = getFakeConfig({
-      experiments: {
-        [allExperimentProps.id]: true,
-      },
-    });
-
-    const allProps = {
-      _config,
-      store,
-      ...props,
-    };
-
     const SomeComponent = withExperiment({
       id,
       variants: [
@@ -80,7 +68,7 @@ describe(__filename, () => {
     // See: https://github.com/mozilla/addons-frontend/issues/6839
     //
     // 1. Render everything
-    const root = shallow(<SomeComponent {...props} />);
+    const root = shallow(<SomeComponent store={store} {...props} />);
     // 2. Get and render the withExperiment HOC (inside withCookies() HOC)
     return shallow(root.props().children(cookies));
   };

@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
-import { getDownloadCampaign } from 'amo/components/GetFirefoxButton';
+import {
+  GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+  getDownloadCampaign,
+} from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
@@ -20,8 +23,6 @@ import type { I18nType } from 'amo/types/i18n';
 import './styles.scss';
 
 export const GET_FIREFOX_BANNER_CLICK_ACTION = 'download-firefox-banner-click';
-export const GET_FIREFOX_BANNER_CLICK_CATEGORY =
-  'AMO Download Firefox-banner-cta';
 export const GET_FIREFOX_BANNER_DISMISS_ACTION =
   'download-firefox-banner-dismiss';
 export const GET_FIREFOX_BANNER_DISMISS_CATEGORY =
@@ -53,7 +54,7 @@ export const GetFirefoxBannerBase = ({
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BANNER_CLICK_ACTION,
-      category: GET_FIREFOX_BANNER_CLICK_CATEGORY,
+      category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
     });
   };
 

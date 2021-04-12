@@ -46,6 +46,9 @@ describe(__filename, () => {
       />,
       InstallButtonWrapperBase,
       {
+        // We need one more try than the default because of the withExperiment
+        // HOC.
+        maxTries: 11,
         shallowOptions: createContextWithFakeRouter(),
       },
     );
