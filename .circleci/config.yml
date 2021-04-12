@@ -274,7 +274,10 @@ workflows:
       - test-next
       - check
       - dennis-lint
-      - build-blog-utils
+      - build-blog-utils:
+          filters: # required since `release-blog-utils` has tag filters AND requires this job
+            tags:
+              only: /^blog-utils-.*/
       - release-tag:
           filters:
             tags:
