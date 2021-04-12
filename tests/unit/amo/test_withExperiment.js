@@ -81,6 +81,8 @@ describe(__filename, () => {
   const render = (props = {}) => {
     const root = renderWithExperiment(props);
     // Return the wrapped instance (`SomeComponentBase`)
+    // We have to dive twice because of the withCookies HOC and the connect
+    // wrapper.
     return root.dive().dive();
   };
 
