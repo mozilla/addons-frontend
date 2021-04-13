@@ -28,6 +28,9 @@ build/Release
 # Dependency directory
 node_modules
 
+# Husky config directory
+.husky
+
 # Optional npm cache directory
 .npm
 
