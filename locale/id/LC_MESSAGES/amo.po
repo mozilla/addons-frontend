@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-16 17:47+0000\n"
+"POT-Creation-Date: 2021-04-13 16:38+0000\n"
 "PO-Revision-Date: 2020-08-01 23:43+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
@@ -625,37 +625,38 @@ msgstr "Pasang Tema"
 msgid "Add to Firefox"
 msgstr "Tambah ke Firefox"
 
-#: src/amo/components/App/index.js:193
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Pengaya untuk Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:197
+#: src/amo/components/App/index.js:215
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Pengaya untuk Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:205
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Pengaya untuk Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:209
+#: src/amo/components/App/index.js:227
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Pengaya untuk Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:146
+#: src/amo/components/Header/index.js:156
 msgid "Log out"
 msgstr "Keluar"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-msgid "Register or Log in"
+#, fuzzy
+msgid "Register or log in"
 msgstr "Daftar atau Masuk"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:141
+#: src/amo/components/Header/index.js:151
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -712,7 +713,7 @@ msgid "Back to collection"
 msgstr "Kembali ke koleksi"
 
 #: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:47
+#: src/amo/components/Footer/index.js:58
 msgid "Add-ons"
 msgstr "Pengaya"
 
@@ -1042,91 +1043,103 @@ msgstr "Tanggapan oleh %(userName)s"
 msgid "Review by %(userName)s"
 msgstr "Tinjauan oleh %(userName)s"
 
-#: src/amo/components/FlagReviewMenu/index.js:111
-msgid "This is a bug report or support request"
-msgstr "Ini adalah laporan bug atau permintaan dukungan"
-
-#: src/amo/components/FlagReviewMenu/index.js:114
-msgid "Flagged as a bug report or support request"
-msgstr "Ditandai sebagai laporan bug atau permintaan dukungan"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
-msgstr "Tandai"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Ditandai"
-
-#: src/amo/components/FlagReviewMenu/index.js:132
-msgid "Flag this developer response"
-msgstr "Tandai tanggapan pengembang ini"
-
-#: src/amo/components/FlagReviewMenu/index.js:133
-msgid "Flag this review"
-msgstr "Laporkan ulasan ini"
-
-#: src/amo/components/FlagReviewMenu/index.js:66
-msgid "Log in to flag this response"
-msgstr "Masuk untuk menandai tanggapan ini"
-
-#: src/amo/components/FlagReviewMenu/index.js:67
-msgid "Log in to flag this review"
-msgstr "Masuk untuk menandai ulasan ini"
-
-#: src/amo/components/FlagReviewMenu/index.js:76
-msgid "You cannot flag your own response"
-msgstr "Anda tidak dapat menandai tanggapan Anda sendiri"
-
-#: src/amo/components/FlagReviewMenu/index.js:77
-msgid "You cannot flag your own review"
-msgstr "Anda tidak dapat menandai tinjauan Anda sendiri"
-
-#: src/amo/components/FlagReviewMenu/index.js:86
-msgid "This is spam"
-msgstr "Ini adalah spam"
-
-#: src/amo/components/FlagReviewMenu/index.js:87
-msgid "Flagged as spam"
-msgstr "Ditandai sebagai spam"
-
-#: src/amo/components/FlagReviewMenu/index.js:97
-msgid "This contains inappropriate language"
-msgstr "Bagian ini mengandung bahasa yang tidak pantas"
-
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Flagged for inappropriate language"
 msgstr "Ditandai karena bahasa yang tidak pantas"
 
-#: src/amo/components/Footer/index.js:103
+#: src/amo/components/FlagReviewMenu/index.js:113
+msgid "This is a bug report or support request"
+msgstr "Ini adalah laporan bug atau permintaan dukungan"
+
+#: src/amo/components/FlagReviewMenu/index.js:116
+msgid "Flagged as a bug report or support request"
+msgstr "Ditandai sebagai laporan bug atau permintaan dukungan"
+
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flagged"
+msgstr "Ditandai"
+
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flag"
+msgstr "Tandai"
+
+#: src/amo/components/FlagReviewMenu/index.js:134
+msgid "Flag this developer response"
+msgstr "Tandai tanggapan pengembang ini"
+
+#: src/amo/components/FlagReviewMenu/index.js:135
+msgid "Flag this review"
+msgstr "Laporkan ulasan ini"
+
+#: src/amo/components/FlagReviewMenu/index.js:68
+msgid "Log in to flag this response"
+msgstr "Masuk untuk menandai tanggapan ini"
+
+#: src/amo/components/FlagReviewMenu/index.js:69
+msgid "Log in to flag this review"
+msgstr "Masuk untuk menandai ulasan ini"
+
+#: src/amo/components/FlagReviewMenu/index.js:78
+msgid "You cannot flag your own response"
+msgstr "Anda tidak dapat menandai tanggapan Anda sendiri"
+
+#: src/amo/components/FlagReviewMenu/index.js:79
+msgid "You cannot flag your own review"
+msgstr "Anda tidak dapat menandai tinjauan Anda sendiri"
+
+#: src/amo/components/FlagReviewMenu/index.js:88
+msgid "This is spam"
+msgstr "Ini adalah spam"
+
+#: src/amo/components/FlagReviewMenu/index.js:89
+msgid "Flagged as spam"
+msgstr "Ditandai sebagai spam"
+
+#: src/amo/components/FlagReviewMenu/index.js:99
+msgid "This contains inappropriate language"
+msgstr "Bagian ini mengandung bahasa yang tidak pantas"
+
+#: src/amo/components/Footer/index.js:101
+msgid "Developer Policies"
+msgstr "Kebijakan Pengembang"
+
+#: src/amo/components/Footer/index.js:106
+msgid "Forum"
+msgstr "Forum"
+
+#: src/amo/components/Footer/index.js:114
+msgid "Report a bug"
+msgstr "Laporkan kutu"
+
+#: src/amo/components/Footer/index.js:119
+msgid "Review Guide"
+msgstr "Panduan Ulasan"
+
+#: src/amo/components/Footer/index.js:124
 msgid "Site Status"
 msgstr "Status Situs"
 
-#: src/amo/components/Footer/index.js:110
+#: src/amo/components/Footer/index.js:131
 msgid "Browsers"
 msgstr "Peramban"
 
-#: src/amo/components/Footer/index.js:168
+#: src/amo/components/Footer/index.js:189
 msgid "Products"
 msgstr "Produk"
 
-#: src/amo/components/Footer/index.js:244
+#: src/amo/components/Footer/index.js:265
 msgid "Privacy"
 msgstr "Privasi"
 
-#: src/amo/components/Footer/index.js:252
+#: src/amo/components/Footer/index.js:273
 msgid "Cookies"
 msgstr "Kuki"
 
-#: src/amo/components/Footer/index.js:26
-msgid "Go to Mozilla's homepage"
-msgstr "Ke beranda Mozilla"
-
-#: src/amo/components/Footer/index.js:260
+#: src/amo/components/Footer/index.js:281
 msgid "Legal"
 msgstr "Legal"
 
-#: src/amo/components/Footer/index.js:270
+#: src/amo/components/Footer/index.js:291
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1137,95 +1150,108 @@ msgstr ""
 "Attribution Share-Alike License v3.0%(endLicenseLink)s atau versi lain yang "
 "lebih baru."
 
-#: src/amo/components/Footer/index.js:52
+#: src/amo/components/Footer/index.js:37
+msgid "Go to Mozilla's homepage"
+msgstr "Ke beranda Mozilla"
+
+#: src/amo/components/Footer/index.js:63
 msgid "About"
 msgstr "Tentang"
 
-#: src/amo/components/Footer/index.js:57
+#: src/amo/components/Footer/index.js:68
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:212
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:208
 msgid "Extension Workshop"
 msgstr "Lokakarya Ekstensi"
 
-#: src/amo/components/Footer/index.js:75 src/amo/components/Header/index.js:222
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:218
 msgid "Developer Hub"
 msgstr "Pusat Pengembang"
 
-#: src/amo/components/Footer/index.js:80
-msgid "Developer Policies"
-msgstr "Kebijakan Pengembang"
+#: src/amo/components/GetFirefoxBanner/index.js:73
+msgid ""
+"To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:85
-msgid "Forum"
-msgstr "Forum"
-
-#: src/amo/components/Footer/index.js:93
-msgid "Report a bug"
-msgstr "Laporkan kutu"
-
-#: src/amo/components/Footer/index.js:98
-msgid "Review Guide"
-msgstr "Panduan Ulasan"
-
-#: src/amo/components/GetFirefoxButton/index.js:87
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Hanya dengan Firefox —Dapatkan Firefox Sekarang"
 
-#: src/amo/components/GetFirefoxButton/index.js:93
+#: src/amo/components/GetFirefoxButton/index.js:155
+#, fuzzy
+msgid "Download Firefox and get the theme"
+msgstr "Unduh Firefox"
+
+#: src/amo/components/GetFirefoxButton/index.js:156
+msgid "Download Firefox and get the extension"
+msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:159
+#: src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
 msgstr "Unduh Firefox"
 
+#: src/amo/components/GetFirefoxButton/index.js:162
+#, fuzzy
+msgid "You'll need Firefox to use this theme"
+msgstr "Masuk untuk menilai tema ini"
+
+#: src/amo/components/GetFirefoxButton/index.js:163
+#, fuzzy
+msgid "You'll need Firefox to use this extension"
+msgstr "Masuk untuk menilai ekstensi ini"
+
 #: src/amo/components/Header/index.js:105
-msgid "Submit a New Add-on"
-msgstr "Ajukan Pengaya Baru"
-
-#: src/amo/components/Header/index.js:110
-msgid "Submit a New Theme"
-msgstr "Ajukan Tema Baru"
-
-#: src/amo/components/Header/index.js:119
-msgid "Manage My Submissions"
-msgstr "Kelola Pengajuan Saya"
-
-#: src/amo/components/Header/index.js:129
-msgid "Reviewer Tools"
-msgstr "Perangkat untuk Pengulas"
-
-#: src/amo/components/Header/index.js:172
-msgid "Firefox Browser Add-ons"
-msgstr "Pengaya Peramban Firefox"
-
-#: src/amo/components/Header/index.js:210
-msgid "Learn how to create extensions and themes"
-msgstr "Pelajari bagaimana membuat ekstensi dan tema"
-
-#: src/amo/components/Header/index.js:220
-msgid "Submit and manage extensions and themes"
-msgstr "Kirim dan kelola ekstensi dan tema"
-
-#: src/amo/components/Header/index.js:73
-msgid "My Account"
-msgstr "Akun Saya"
-
-#: src/amo/components/Header/index.js:79
-msgid "View My Collections"
-msgstr "Lihat Koleksi Saya"
-
-#: src/amo/components/Header/index.js:87
-#: src/amo/pages/UserProfileEdit/index.js:567
-msgid "View My Profile"
-msgstr "Lihat Profil Saya"
-
-#: src/amo/components/Header/index.js:95
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "Edit Profil Saya"
 
-#: src/amo/components/Header/index.js:99
+#: src/amo/components/Header/index.js:109
 msgid "Tools"
 msgstr "Alat"
+
+#: src/amo/components/Header/index.js:115
+msgid "Submit a New Add-on"
+msgstr "Ajukan Pengaya Baru"
+
+#: src/amo/components/Header/index.js:120
+msgid "Submit a New Theme"
+msgstr "Ajukan Tema Baru"
+
+#: src/amo/components/Header/index.js:129
+msgid "Manage My Submissions"
+msgstr "Kelola Pengajuan Saya"
+
+#: src/amo/components/Header/index.js:139
+msgid "Reviewer Tools"
+msgstr "Perangkat untuk Pengulas"
+
+#: src/amo/components/Header/index.js:186
+msgid "Firefox Browser Add-ons"
+msgstr "Pengaya Peramban Firefox"
+
+#: src/amo/components/Header/index.js:206
+msgid "Learn how to create extensions and themes"
+msgstr "Pelajari bagaimana membuat ekstensi dan tema"
+
+#: src/amo/components/Header/index.js:216
+msgid "Submit and manage extensions and themes"
+msgstr "Kirim dan kelola ekstensi dan tema"
+
+#: src/amo/components/Header/index.js:83
+msgid "My Account"
+msgstr "Akun Saya"
+
+#: src/amo/components/Header/index.js:89
+msgid "View My Collections"
+msgstr "Lihat Koleksi Saya"
+
+#: src/amo/components/Header/index.js:97
+#: src/amo/pages/UserProfileEdit/index.js:567
+msgid "View My Profile"
+msgstr "Lihat Profil Saya"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
@@ -1252,6 +1278,11 @@ msgid ""
 msgstr ""
 "Firefox hanya menyarankan ekstensi yang memenuhi standar keamanan dan "
 "kinerja kami."
+
+#: src/amo/components/HomepageShelves/index.js:69
+#, fuzzy
+msgid "See more %(categoryName)s"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1295,7 +1326,7 @@ msgstr "Kelola pengaya Anda dengan mengklik Pengaya pada menu."
 msgid "OK"
 msgstr "Oke"
 
-#: src/amo/components/InstallButtonWrapper/index.js:136
+#: src/amo/components/InstallButtonWrapper/index.js:146
 #, fuzzy
 msgid "Download file"
 msgstr "Mengunduh"
@@ -1642,12 +1673,12 @@ msgstr ""
 msgid "Search results"
 msgstr "Hasil pencarian"
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:295
+#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:218
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Ekstensi yang disarankan"
 
-#: src/amo/components/Search/index.js:149 src/amo/pages/Home/index.js:365
+#: src/amo/components/Search/index.js:149
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Tema yang disarankan"
@@ -1701,7 +1732,7 @@ msgstr "Tema pilihan"
 msgid "Verified add-ons"
 msgstr "Pengaya unggulan"
 
-#: src/amo/components/Search/index.js:193 src/amo/pages/Home/index.js:378
+#: src/amo/components/Search/index.js:193
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Ekstensi yang sedang populer"
@@ -1729,11 +1760,11 @@ msgstr "Tema peringkat teratas"
 msgid "Top rated add-ons"
 msgstr "Pengaya peringkat teratas"
 
-#: src/amo/components/Search/index.js:217 src/amo/pages/Home/index.js:338
+#: src/amo/components/Search/index.js:217
 msgid "Popular extensions"
 msgstr "Ekstensi populer"
 
-#: src/amo/components/Search/index.js:220 src/amo/pages/Home/index.js:319
+#: src/amo/components/Search/index.js:220
 msgid "Popular themes"
 msgstr "Tema populer"
 
@@ -2022,8 +2053,9 @@ msgstr ""
 "Android, <a href=\"%(newLocation)s\">klik di sini</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
+#, fuzzy
 msgid ""
-"This add-on is not compatible with this browser. Try installing it on "
+"Add-ons are not compatible with Firefox for iOS. Try installing them on "
 "Firefox for desktop."
 msgstr ""
 "Pengaya ini tidak kompatibel dengan peramban ini. Coba pasang di Firefox "
@@ -2096,18 +2128,18 @@ msgstr "Komentar pengembang"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Catatan rilis untuk %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:467
+#: src/amo/pages/Addon/index.js:471
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Ini bukan daftar publik. Anda hanya melihatnya karena izin yang lebih tinggi."
 
-#: src/amo/pages/Addon/index.js:494
+#: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
 msgstr "Metadata Ekstensi"
 
-#: src/amo/pages/Addon/index.js:518
+#: src/amo/pages/Addon/index.js:522
 msgid "Screenshots"
 msgstr "Tangkapan Layar"
 
@@ -2264,32 +2296,32 @@ msgstr "%(categoryName)s"
 msgid "Extensions in %(categoryName)s"
 msgstr "%(count)s ekstensi ditemukan pada %(categoryName)s"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
 msgstr "Anda benar-benar ingin menghapus koleksi ini?"
 
-#: src/amo/pages/Collection/index.js:408
+#: src/amo/pages/Collection/index.js:403
 msgid "Delete this collection"
 msgstr "Hapus koleksi ini"
 
-#: src/amo/pages/Collection/index.js:427
+#: src/amo/pages/Collection/index.js:421
 msgid "Log in to create a collection"
 msgstr "Masuk untuk membuat koleksi"
 
-#: src/amo/pages/Collection/index.js:428
+#: src/amo/pages/Collection/index.js:422
 msgid "Log in to edit this collection"
 msgstr "Masuk untuk menyunting koleksi ini"
 
-#: src/amo/pages/Collection/index.js:461
+#: src/amo/pages/Collection/index.js:455
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Pertama, buat koleksi Anda. Lalu Anda bisa menambahkan ekstensi dan tema."
 
-#: src/amo/pages/Collection/index.js:464
+#: src/amo/pages/Collection/index.js:458
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Cari ekstensi dan tema untuk ditambahkan ke dalam koleksi Anda."
 
-#: src/amo/pages/Collection/index.js:526
+#: src/amo/pages/Collection/index.js:516
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2297,7 +2329,7 @@ msgstr ""
 "Unduh dan buat koleksi Firefox untuk mengikuti ekstensi dan tema favorit. "
 "Jelajahi %(collectionName)s—%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:529
+#: src/amo/pages/Collection/index.js:519
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2333,80 +2365,56 @@ msgstr "Buat koleksi"
 msgid "You do not have any collections."
 msgstr "Anda tidak memiliki koleksi."
 
-#: src/amo/pages/Home/index.js:145
-msgid "Abstract"
-msgstr "Abstrak"
-
-#: src/amo/pages/Home/index.js:150
-msgid "Nature"
-msgstr "Alam"
-
-#: src/amo/pages/Home/index.js:155
-msgid "Film & TV"
-msgstr "Film & TV"
-
-#: src/amo/pages/Home/index.js:160
+#: src/amo/pages/Home/index.js:103
 msgid "Scenery"
 msgstr "Pemandangan"
 
-#: src/amo/pages/Home/index.js:165
+#: src/amo/pages/Home/index.js:108
 msgid "Music"
 msgstr "Musik"
 
-#: src/amo/pages/Home/index.js:170
+#: src/amo/pages/Home/index.js:113
 msgid "Seasonal"
 msgstr "Musiman"
 
-#: src/amo/pages/Home/index.js:224
+#: src/amo/pages/Home/index.js:163
 msgid "Change the way Firefox looks with themes."
 msgstr "Ubah tampilan Firefox dengan tema."
 
-#: src/amo/pages/Home/index.js:255
+#: src/amo/pages/Home/index.js:172
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:296 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:219 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Lihat lebih banyak ekstensi yang disarankan"
 
-#: src/amo/pages/Home/index.js:320
-msgid "See more popular themes"
-msgstr "Extensi populer lainnya"
+#: src/amo/pages/Home/index.js:88
+msgid "Abstract"
+msgstr "Abstrak"
 
-#: src/amo/pages/Home/index.js:339
-msgid "See more popular extensions"
-msgstr "Lihat lebih banyak ekstensi populer"
+#: src/amo/pages/Home/index.js:93
+msgid "Nature"
+msgstr "Alam"
 
-#: src/amo/pages/Home/index.js:356 src/amo/pages/LandingPage/index.js:165
-msgid "See more recommended themes"
-msgstr "Lihat lebih banyak tema yang disarankan"
+#: src/amo/pages/Home/index.js:98
+msgid "Film & TV"
+msgstr "Film & TV"
 
-#: src/amo/pages/Home/index.js:379 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Temukan ekstensi yang sedang populer lainnya"
-
-#: src/amo/pages/Home/index.js:61
-msgid "See more enhanced privacy extensions"
-msgstr "Lihat lebih banyak ekstensi privasi yang ditingkatkan"
-
-#: src/amo/pages/Home/index.js:62
-msgid "Enhanced privacy extensions"
-msgstr "Ekstensi privasi yang ditingkatkan"
-
-#: src/amo/pages/Home/index.js:67
-msgid "See more recommended password managers"
-msgstr "Lihat lebih banyak pengelola sandi yang direkomendasikan"
-
-#: src/amo/pages/Home/index.js:68
-msgid "Recommended password managers"
-msgstr "Pengelola sandi yang direkomendasikan"
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "Lihat ekstensi peringkat teratas lainnya"
+
+#: src/amo/pages/LandingPage/index.js:165
+msgid "See more recommended themes"
+msgstr "Lihat lebih banyak tema yang disarankan"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
@@ -3255,6 +3263,24 @@ msgstr "keselarasan pengaya saya tidak dapat ditingkatkan"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "keselarasan pengaya saya berhasil ditingkatkan"
+
+#~ msgid "See more popular themes"
+#~ msgstr "Extensi populer lainnya"
+
+#~ msgid "See more popular extensions"
+#~ msgstr "Lihat lebih banyak ekstensi populer"
+
+#~ msgid "See more enhanced privacy extensions"
+#~ msgstr "Lihat lebih banyak ekstensi privasi yang ditingkatkan"
+
+#~ msgid "Enhanced privacy extensions"
+#~ msgstr "Ekstensi privasi yang ditingkatkan"
+
+#~ msgid "See more recommended password managers"
+#~ msgstr "Lihat lebih banyak pengelola sandi yang direkomendasikan"
+
+#~ msgid "Recommended password managers"
+#~ msgstr "Pengelola sandi yang direkomendasikan"
 
 #~ msgid ""
 #~ "Download Firefox extensions to customize the way you search—everything "
