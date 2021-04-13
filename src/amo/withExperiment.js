@@ -5,8 +5,12 @@ import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
 import { connect } from 'react-redux';
 
+import { setCookie } from 'amo/cookies';
+import { getStoredCookies } from 'amo/reducers/cookies';
 import tracking from 'amo/tracking';
 import { getDisplayName } from 'amo/utils';
+import type { CookieConfig, StoredCookie } from 'amo/reducers/cookies';
+import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
 
 /*  Usage
@@ -62,19 +66,12 @@ export type WithExperimentInjectedProps = {|
   variant: string | null,
 |};
 
-// https://github.com/reactivestack/cookies/tree/f9beead40a6bebac475d9bf17c1da55418d26751/packages/react-cookie#setcookiename-value-options
-type CookieConfig = {|
-  maxAge?: number,
-  path?: string,
-  secure?: boolean,
-|};
-
 type ExperimentVariant = {|
   id: string,
   percentage: number,
 |};
 
-type withExperimentProps = {|
+type WithExperimentProps = {|
   _config?: typeof config,
   _tracking?: typeof tracking,
   cookieConfig?: CookieConfig,
@@ -123,10 +120,16 @@ export const isExperimentEnabled = ({
   return _config.get('experiments')[id] === true;
 };
 
-type withExperimentInternalProps = {|
-  ...withExperimentProps,
+type WithExperimentPropsFromState = {|
+  storedCookies: Array<StoredCookie>,
+|};
+
+type WithExperimentInternalProps = {|
+  ...WithExperimentProps,
+  ...WithExperimentPropsFromState,
   _getVariant: typeof getVariant,
   _isExperimentEnabled: typeof isExperimentEnabled,
+  _setCookie: typeof setCookie,
   cookies: typeof Cookies,
   dispatch: DispatchFunc,
   WrappedComponent: React.ComponentType<any>,
@@ -145,7 +148,7 @@ export const withExperiment = ({
   cookieConfig = defaultCookieConfig,
   id: defaultId,
   variants: defaultVariants,
-}: withExperimentProps): ((
+}: WithExperimentProps): ((
   WrappedComponent: React.ComponentType<any>,
 ) => React.ComponentType<any>) => (
   WrappedComponent: React.ComponentType<any>,
@@ -157,25 +160,27 @@ export const withExperiment = ({
   );
   invariant(defaultVariants, 'variants is required');
 
-  class WithExperiment extends React.Component<withExperimentInternalProps> {
+  class WithExperiment extends React.Component<WithExperimentInternalProps> {
     static defaultProps = {
       _getVariant: getVariant,
       _isExperimentEnabled: isExperimentEnabled,
+      _setCookie: setCookie,
       id: defaultId,
       variants: defaultVariants,
     };
 
     static displayName = `WithExperiment(${getDisplayName(WrappedComponent)})`;
 
-    constructor(props: withExperimentInternalProps) {
+    constructor(props: WithExperimentInternalProps) {
       super(props);
 
       const {
         _getVariant,
         _isExperimentEnabled,
-        cookies,
+        _setCookie,
         dispatch,
         id,
+        storedCookies,
         variants,
       } = this.props;
 
@@ -184,6 +189,10 @@ export const withExperiment = ({
       const experimentInCookie = this.cookieIncludesExperiment(
         registeredExperiments,
       );
+      const experimentInStoredCookies = this.storedCookiesIncludeExperiment(
+        storedCookies,
+      );
+
       const experimentsToStore = { ...registeredExperiments };
 
       // Clear any disabled experiments from the cookie.
@@ -196,7 +205,8 @@ export const withExperiment = ({
       }
 
       // Do we need to record this experiment in the cookie?
-      const addExperimentToCookie = isEnabled && !experimentInCookie;
+      const addExperimentToCookie =
+        isEnabled && !experimentInCookie && !experimentInStoredCookies;
 
       if (addExperimentToCookie) {
         const variantToStore = _getVariant({ variants });
@@ -214,7 +224,14 @@ export const withExperiment = ({
       }
 
       if (cleanupNeeded || addExperimentToCookie) {
-        cookies.set(EXPERIMENT_COOKIE_NAME, experimentsToStore, cookieConfig);
+        _setCookie({
+          cookie: {
+            name: EXPERIMENT_COOKIE_NAME,
+            value: JSON.stringify(experimentsToStore),
+            config: cookieConfig,
+          },
+          dispatch,
+        });
       }
     }
 
@@ -228,6 +245,19 @@ export const withExperiment = ({
       const { id } = this.props;
 
       return Object.keys(registeredExperiments).includes(id);
+    }
+
+    storedCookiesIncludeExperiment(storedCookies: Array<StoredCookie>) {
+      for (const cookie of storedCookies) {
+        if (
+          cookie.name === EXPERIMENT_COOKIE_NAME &&
+          this.cookieIncludesExperiment(JSON.parse(cookie.value))
+        ) {
+          return true;
+        }
+      }
+
+      return false;
     }
 
     render() {
@@ -251,5 +281,11 @@ export const withExperiment = ({
     }
   }
 
-  return withCookies(connect()(WithExperiment));
+  const mapStateToProps = (state: AppState): WithExperimentPropsFromState => {
+    return {
+      storedCookies: getStoredCookies(state.cookies),
+    };
+  };
+
+  return withCookies(connect(mapStateToProps)(WithExperiment));
 };

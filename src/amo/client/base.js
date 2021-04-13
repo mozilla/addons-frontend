@@ -7,6 +7,7 @@ import * as React from 'react';
 import { render } from 'react-dom';
 
 import Root from 'amo/components/Root';
+import { setCookie } from 'amo/cookies';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'amo/i18n/utils';
 import log from 'amo/logger';
 import { addQueryParamsToHistory } from 'amo/utils';
@@ -18,6 +19,7 @@ export default async function createClient(
     _FastClick = FastClick,
     _config = config,
     _createBrowserHistory = createBrowserHistory,
+    _setCookie = setCookie,
     _tracking = tracking,
     sagas = null,
   } = {},
@@ -69,6 +71,15 @@ export default async function createClient(
     // page is likely stale, so we are omitting it.
     _tracking.pageView({ title: '' });
   });
+
+  // If we are meant to set cookies, do it and clear them.
+  const cookiesToSet = initialState && initialState.cookies.cookies;
+  if (cookiesToSet && cookiesToSet.length) {
+    initialState.cookies.cookies = [];
+    for (const cookie of cookiesToSet) {
+      _setCookie({ cookie });
+    }
+  }
 
   // If there are queued GA events to send, send them, and clear them from state.
   const trackingEvents = initialState && initialState.tracking.events;

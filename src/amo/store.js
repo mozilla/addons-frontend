@@ -18,6 +18,7 @@ import { createLogger } from 'redux-logger';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
+import cookies from 'amo/reducers/cookies';
 import blocks from 'amo/reducers/blocks';
 import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
@@ -47,6 +48,7 @@ import log from 'amo/logger';
 import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
 import type { BlocksState } from 'amo/reducers/blocks';
 import type { CollectionsState } from 'amo/reducers/collections';
+import type { CookiesState } from 'amo/reducers/cookies';
 import type { HomeState } from 'amo/reducers/home';
 import type { LandingState } from 'amo/reducers/landing';
 import type { RecommendationsState } from 'amo/reducers/recommendations';
@@ -144,6 +146,7 @@ type InternalAppState = {|
   blocks: BlocksState,
   categories: CategoriesState,
   collections: CollectionsState,
+  cookies: CookiesState,
   errorPage: ErrorPageState,
   errors: Object,
   formOverlay: FormOverlayState,
@@ -201,6 +204,7 @@ export const reducers: AppReducersType = {
   blocks,
   categories,
   collections,
+  cookies,
   errors,
   errorPage,
   formOverlay,
