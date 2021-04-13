@@ -11,6 +11,7 @@ $icon-size: 48px;
   font-size: $font-size-s;
   grid-template-columns: ($icon-size + 8px) 2fr 1fr;
   padding: 12px;
+  position: relative;
 
   @include respond-to(medium) {
     padding: 20px;
@@ -126,5 +127,27 @@ $icon-size: 48px;
 
   @include respond-to(medium) {
     margin-top: 10px;
+  }
+}
+
+.StaticAddonCard-error-overlay {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+
+  p {
+    font-size: 24px;
+    font-weight: 400;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .StaticAddonCard--is-unavailable & {
+    display: flex;
   }
 }
