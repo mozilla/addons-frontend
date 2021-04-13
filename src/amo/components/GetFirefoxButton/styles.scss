@@ -33,6 +33,7 @@ $callout-color: $yellow-50;
 .GetFirefoxButton-callout {
   background-color: $callout-color;
   border: 1px solid $callout-color;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   margin: 16px 0 16px 0;
@@ -61,6 +62,7 @@ $callout-color: $yellow-50;
 .GetFirefoxButton-callout-icon {
   @include margin-end(4px);
 
+  align-self: center;
   background-image: url('../Notice/img/generic-info-mark.svg');
   height: 16px;
   margin: 0;
