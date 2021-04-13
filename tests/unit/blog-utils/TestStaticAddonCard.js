@@ -55,6 +55,7 @@ describe(__filename, () => {
       'buttonType',
       GET_FIREFOX_BUTTON_TYPE_ADDON,
     );
+    expect(root.find(GetFirefoxButton)).toHaveProp('useNewVersion', true);
   });
 
   it('displays the description if there is no summary', () => {

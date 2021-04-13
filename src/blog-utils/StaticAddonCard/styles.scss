@@ -6,7 +6,9 @@ $icon-size: 48px;
   background-color: $white;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(58, 57, 68, 0.2);
+  box-sizing: border-box;
   display: grid;
+  font-size: $font-size-s;
   grid-template-columns: ($icon-size + 8px) 2fr 1fr;
   padding: 12px;
 
@@ -73,7 +75,6 @@ $icon-size: 48px;
 }
 
 .StaticAddonCard-summary {
-  font-size: $font-size-s;
   grid-column: 1 / span 4;
   grid-row: 3;
   line-height: 1.2;
@@ -89,7 +90,6 @@ $icon-size: 48px;
 
 .StaticAddonCard-metadata {
   display: flex;
-  font-size: $font-size-s;
   grid-column: 1 / span 4;
   grid-row: 4;
   line-height: 1.2;
@@ -108,18 +108,23 @@ $icon-size: 48px;
   grid-column: 1 / span 4;
   grid-row: 5;
   text-align: center;
+  width: 100%;
 
-  .GetFirefoxButton {
+  &,
+  .GetFirefoxButton-button,
+  .GetFirefoxButton-callout {
+    box-sizing: border-box;
+  }
+
+  .GetFirefoxButton-button {
     margin-bottom: 0;
-    width: auto;
+  }
+
+  .GetFirefoxButton-callout {
+    margin-top: 0;
   }
 
   @include respond-to(medium) {
-    grid-row: 4;
-  }
-
-  @include respond-to(large) {
-    margin-top: -12px;
-    text-align: right;
+    margin-top: 10px;
   }
 }
