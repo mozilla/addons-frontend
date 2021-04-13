@@ -89,15 +89,8 @@ export const getDownloadCampaign = ({
   return campaign;
 };
 
-export const getDownloadCategory = (variant?: string): string => {
-  let category = GET_FIREFOX_BUTTON_CLICK_CATEGORY;
-
-  if (variant) {
-    category = `${category}-${variant}`;
-  }
-
-  return category;
-};
+export const getDownloadCategory = (variant: string): string =>
+  `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`;
 
 export const GetFirefoxButtonBase = ({
   _encode = encode,
