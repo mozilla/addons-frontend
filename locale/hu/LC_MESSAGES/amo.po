@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-13 17:43+0000\n"
+"PO-Revision-Date: 2021-04-13 17:49+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -605,7 +605,6 @@ msgid "Log out"
 msgstr "Kijelentkezés"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "Regisztráció vagy bejelentkezés"
 
@@ -1046,9 +1045,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "Csak a Firefoxszal – szerezze be a Firefoxot most"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Firefox letöltése"
+msgstr "Firefox letöltése és a téma beszerzése"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1059,14 +1057,12 @@ msgid "Download Firefox"
 msgstr "Firefox letöltése"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Jelentkezzen be a téma értékeléséhez"
+msgstr "A téma használatához a Firefoxra lesz szüksége"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Jelentkezzen be a kiegészítő értékeléséhez"
+msgstr "A kiegészítő használatához a Firefoxra lesz szüksége"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1139,9 +1135,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "A Firefox csak olyan kiegészítőket ajánl, amelyek megfelelnek a biztonsági és a teljesítménybeli követelményeinknek."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Témák a(z) %(categoryName)s kategóriában"
+msgstr "Továbbiak itt: %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1834,9 +1829,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Hogy az androidos Firefoxszal kompatibilis kiegészítőket találjon, <a href=\"%(newLocation)s\">kattintson ide</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Ez a kiegészítő nem kompatibilis ezzel a Firefox verzióval. Próbálja telepíteni az asztali Firefoxban."
+msgstr "A kiegészítők nem kompatibilisek a Firefox for iOS-szel. Próbálja az asztali Firefoxban telepíteni őket."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
