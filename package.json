@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "npm run clean && better-npm-run build",
-    "build:blog-utils": "npm run clean && bin/create-package-json-for-blog-utils && better-npm-run build:blog-utils",
+    "build:blog-utils": "npm run clean && bin/create-package-json-for-blog-utils && bin/create-readme-for-blog-utils && better-npm-run build:blog-utils",
     "build:blog-utils-dev": "NODE_ENV=development concurrently 'npm run build:blog-utils -- --watch' 'bin/serve-blog-utils'",
     "build:blog-utils-prod": "NODE_ENV=production npm run build:blog-utils",
     "build-check": "bin/build-checks.js",

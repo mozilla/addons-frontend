@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = path.join(__dirname, '..');
+const distDir = path.join(rootDir, 'dist');
+
+const content = `# addons-frontend-blog-utils
+
+Please see: https://github.com/mozilla/addons-frontend#addons-frontend-blog-utils
+`;
+
+fs.writeFile(
+  path.join(distDir, 'README.md'),
+  content,
+  'utf-8',
+  (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    console.log('done');
+  },
+);
