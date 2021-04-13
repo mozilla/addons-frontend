@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-13 19:07+0000\n"
+"PO-Revision-Date: 2021-04-13 19:16+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -605,7 +605,6 @@ msgid "Log out"
 msgstr "Abmelden"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "Registrieren oder Anmelden"
 
@@ -1048,9 +1047,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "Nur in Firefox – Laden Sie Firefox jetzt herunter"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Firefox herunterladen"
+msgstr "Laden Sie Firefox herunter und holen Sie sich das Theme"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1061,14 +1059,12 @@ msgid "Download Firefox"
 msgstr "Firefox herunterladen"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Melden Sie sich an, um dieses Theme zu bewerten"
+msgstr "Melden Sie sich an, um dieses Theme zu verwenden"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Melden Sie sich an, um diese Erweiterung zu bewerten"
+msgstr "Melden Sie sich an, um diese Erweiterung zu verwenden"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1141,9 +1137,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox empfiehlt nur Erweiterungen, die unseren Sicherheits- und Leistungsstandards entsprechen."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Themes in %(categoryName)s"
+msgstr "Mehr aus %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1836,9 +1831,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Um mit Firefox für Android kompatible Add-ons zu finden, <a href=\"%(newLocation)s\">klicken Sie hier</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Dieses Add-on ist nicht mit diesem Browser kompatibel. Versuchen Sie, es auf Firefox für den Desktop zu installieren."
+msgstr "Add-ons sind nicht mit Firefox für iOS kompatibel. Versuchen Sie, es auf Firefox für den Desktop zu installieren."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
