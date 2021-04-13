@@ -23,6 +23,7 @@ import './styles.scss';
 type Props = {|
   children: React.Node,
   errorHandler?: ErrorHandlerType,
+  isAddonDetailPage?: boolean,
   isHomePage?: boolean,
   showWrongPlatformWarning?: boolean,
 |};
@@ -43,6 +44,7 @@ export const PageBase = ({
   children,
   clientApp,
   errorHandler,
+  isAddonDetailPage = false,
   isHomePage = false,
   location,
   showWrongPlatformWarning = true,
@@ -75,7 +77,11 @@ export const PageBase = ({
     <div className="Page-amo">
       <InfoDialog />
 
-      <Header isHomePage={isHomePage} location={location} />
+      <Header
+        isAddonDetailPage={isAddonDetailPage}
+        isHomePage={isHomePage}
+        location={location}
+      />
 
       <div className="Page-content">
         <div

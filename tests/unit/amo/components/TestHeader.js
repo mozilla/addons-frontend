@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import GetFirefoxBanner from 'amo/components/GetFirefoxBanner';
+import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
@@ -12,6 +14,10 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'amo/constants';
 import DropdownMenu from 'amo/components/DropdownMenu';
+import {
+  VARIANT_CURRENT,
+  VARIANT_NEW,
+} from 'amo/experiments/20210404_download_cta_experiment';
 import { loadSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
 import {
   createFakeEvent,
@@ -51,6 +57,28 @@ describe(__filename, () => {
       'Firefox Browser Add-ons',
     );
   });
+
+  it.each([true, false])(
+    'conditionally renders a GetFirefoxBanner component when isAddonDetailPage is %s',
+    (isAddonDetailPage) => {
+      const root = renderHeader({ isAddonDetailPage, variant: VARIANT_NEW });
+
+      expect(root.find(GetFirefoxBanner)).toHaveLength(
+        isAddonDetailPage ? 0 : 1,
+      );
+    },
+  );
+
+  it.each([VARIANT_NEW, VARIANT_CURRENT, null])(
+    'conditionally renders a GetFirefoxButton component when variant is %s',
+    (variant) => {
+      const root = renderHeader({ variant });
+
+      expect(root.find(GetFirefoxButton)).toHaveLength(
+        variant === VARIANT_NEW ? 0 : 1,
+      );
+    },
+  );
 
   it('always renders a link in the header when not on homepage', () => {
     const root = renderHeader({ isHomePage: false });

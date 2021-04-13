@@ -18,3 +18,23 @@
     font-weight: 300;
   }
 }
+
+// New styles
+.InstallButtonWrapper--new {
+  display: flex;
+  flex-direction: column;
+
+  .GetFirefoxButton {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to(medium) {
+      justify-content: center;
+      width: fit-content;
+
+      .GetFirefoxButton-callout {
+        width: 100%;
+      }
+    }
+  }
+}

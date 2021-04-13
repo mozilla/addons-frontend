@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import config from 'config';
 import makeClassName from 'classnames';
 
+import GetFirefoxBanner from 'amo/components/GetFirefoxBanner';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_HEADER,
 } from 'amo/components/GetFirefoxButton';
@@ -15,6 +16,10 @@ import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'amo/components/AuthenticateButton';
 import {
+  EXPERIMENT_CONFIG,
+  VARIANT_NEW,
+} from 'amo/experiments/20210404_download_cta_experiment';
+import {
   getCurrentUser,
   hasAnyReviewerRelatedPermission,
 } from 'amo/reducers/users';
@@ -24,6 +29,7 @@ import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import DropdownMenu from 'amo/components/DropdownMenu';
 import DropdownMenuItem from 'amo/components/DropdownMenuItem';
+import { withExperiment } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -34,13 +40,15 @@ export class HeaderBase extends React.Component {
     clientApp: PropTypes.string.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    isHomePage: PropTypes.bool.isRequired,
+    isAddonDetailPage: PropTypes.bool,
+    isHomePage: PropTypes.bool,
     isReviewer: PropTypes.bool.isRequired,
     loadedPageIsAnonymous: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
     siteIsReadOnly: PropTypes.bool.isRequired,
     siteUser: PropTypes.object,
     userAgentInfo: PropTypes.object,
+    variant: PropTypes.string,
   };
 
   static defaultProps = { _config: config };
@@ -162,10 +170,12 @@ export class HeaderBase extends React.Component {
       _config,
       clientApp,
       i18n,
+      isAddonDetailPage,
       isHomePage,
       loadedPageIsAnonymous,
       location,
       userAgentInfo,
+      variant,
     } = this.props;
 
     const headerLink = (
@@ -216,6 +226,9 @@ export class HeaderBase extends React.Component {
           'Header--loaded-page-is-anonymous': loadedPageIsAnonymous,
         })}
       >
+        {!isAddonDetailPage && variant === VARIANT_NEW ? (
+          <GetFirefoxBanner />
+        ) : null}
         <div className="Header-wrapper">
           <div className="Header-content">
             {isHomePage ? (
@@ -231,10 +244,12 @@ export class HeaderBase extends React.Component {
 
           <div className="Header-user-and-external-links">
             {otherSiteLinks}
-            <GetFirefoxButton
-              buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
-              className="Header-download-button Header-button"
-            />
+            {variant !== VARIANT_NEW ? (
+              <GetFirefoxButton
+                buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
+                className="Header-download-button Header-button"
+              />
+            ) : null}
 
             {this.renderMenuOrAuthButton()}
           </div>
@@ -270,4 +285,5 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   translate(),
+  withExperiment(EXPERIMENT_CONFIG),
 )(HeaderBase);

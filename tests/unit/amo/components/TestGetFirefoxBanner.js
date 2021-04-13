@@ -3,12 +3,18 @@ import * as React from 'react';
 import Button from 'amo/components/Button';
 import GetFirefoxBanner, {
   GET_FIREFOX_BANNER_CLICK_ACTION,
-  GET_FIREFOX_BANNER_CLICK_CATEGORY,
+  GET_FIREFOX_BANNER_DISMISS_ACTION,
+  GET_FIREFOX_BANNER_DISMISS_CATEGORY,
   GET_FIREFOX_BANNER_UTM_CONTENT,
   GetFirefoxBannerBase,
 } from 'amo/components/GetFirefoxBanner';
+import { GET_FIREFOX_BUTTON_CLICK_CATEGORY } from 'amo/components/GetFirefoxButton';
+import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
 import Notice from 'amo/components/Notice';
-import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
+import {
+  DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+} from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   createFakeEvent,
@@ -87,12 +93,13 @@ describe(__filename, () => {
       expect(root.find(Button).children()).toHaveText('download Firefox');
     });
 
-    it('sets the href on the button with the expected utm_content', () => {
+    it('sets the href on the button with the expected utm params', () => {
       const root = render({ store });
 
       const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
         {
           utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
+          utm_campaign: `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${VARIANT_NEW}`,
         },
       )}`;
       expect(root.find(Button)).toHaveProp('href', expectedHref);
@@ -107,7 +114,23 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: GET_FIREFOX_BANNER_CLICK_ACTION,
-        category: GET_FIREFOX_BANNER_CLICK_CATEGORY,
+        category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+      });
+      sinon.assert.calledOnce(_tracking.sendEvent);
+    });
+
+    it('sends a tracking event when the banner is dismissed', () => {
+      const _tracking = createFakeTracking();
+      const root = render({ _tracking, store });
+
+      const notice = root.find(Notice);
+      expect(notice).toHaveProp('onDismiss');
+      const onDismiss = notice.prop('onDismiss');
+      onDismiss();
+
+      sinon.assert.calledWith(_tracking.sendEvent, {
+        action: GET_FIREFOX_BANNER_DISMISS_ACTION,
+        category: GET_FIREFOX_BANNER_DISMISS_CATEGORY,
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
     });

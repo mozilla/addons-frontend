@@ -75,6 +75,7 @@ type ExperimentVariant = {|
 |};
 
 type withExperimentProps = {|
+  _config?: typeof config,
   _tracking?: typeof tracking,
   cookieConfig?: CookieConfig,
   id: string,
@@ -124,12 +125,11 @@ export const isExperimentEnabled = ({
 
 type withExperimentInternalProps = {|
   ...withExperimentProps,
-  WrappedComponent: React.ComponentType<any>,
-  _config: typeof config,
   _getVariant: typeof getVariant,
   _isExperimentEnabled: typeof isExperimentEnabled,
   cookies: typeof Cookies,
   dispatch: DispatchFunc,
+  WrappedComponent: React.ComponentType<any>,
 |};
 
 export const defaultCookieConfig: CookieConfig = {
@@ -140,6 +140,7 @@ export const defaultCookieConfig: CookieConfig = {
 };
 
 export const withExperiment = ({
+  _config = config,
   _tracking = tracking,
   cookieConfig = defaultCookieConfig,
   id: defaultId,
@@ -158,7 +159,6 @@ export const withExperiment = ({
 
   class WithExperiment extends React.Component<withExperimentInternalProps> {
     static defaultProps = {
-      _config: config,
       _getVariant: getVariant,
       _isExperimentEnabled: isExperimentEnabled,
       id: defaultId,
@@ -171,7 +171,6 @@ export const withExperiment = ({
       super(props);
 
       const {
-        _config,
         _getVariant,
         _isExperimentEnabled,
         cookies,
@@ -232,7 +231,7 @@ export const withExperiment = ({
     }
 
     render() {
-      const { _config, _isExperimentEnabled, id, ...props } = this.props;
+      const { _isExperimentEnabled, id, ...props } = this.props;
 
       const isEnabled = _isExperimentEnabled({ _config, id });
       const registeredExperiments = this.getExperiments();

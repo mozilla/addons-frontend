@@ -44,4 +44,8 @@ module.exports = {
   allowErrorSimulation: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
+
+  experiments: {
+    '20210404_download_cta_experiment': true,
+  },
 };

@@ -4,8 +4,13 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
+import {
+  GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+  getDownloadCampaign,
+} from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
+import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
 import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { isFirefox } from 'amo/utils/compatibility';
@@ -18,7 +23,10 @@ import type { I18nType } from 'amo/types/i18n';
 import './styles.scss';
 
 export const GET_FIREFOX_BANNER_CLICK_ACTION = 'download-firefox-banner-click';
-export const GET_FIREFOX_BANNER_CLICK_CATEGORY = 'AMO Download Firefox';
+export const GET_FIREFOX_BANNER_DISMISS_ACTION =
+  'download-firefox-banner-dismiss';
+export const GET_FIREFOX_BANNER_DISMISS_CATEGORY =
+  'AMO Download Firefox Banner';
 export const GET_FIREFOX_BANNER_UTM_CONTENT = 'banner-download-button';
 
 export type Props = {||};
@@ -46,7 +54,14 @@ export const GetFirefoxBannerBase = ({
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BANNER_CLICK_ACTION,
-      category: GET_FIREFOX_BANNER_CLICK_CATEGORY,
+      category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+    });
+  };
+
+  const onDismiss = () => {
+    _tracking.sendEvent({
+      action: GET_FIREFOX_BANNER_DISMISS_ACTION,
+      category: GET_FIREFOX_BANNER_DISMISS_CATEGORY,
     });
   };
 
@@ -69,8 +84,10 @@ export const GetFirefoxBannerBase = ({
               buttonType="none"
               className="GetFirefoxBanner-button"
               href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
+                utm_campaign: getDownloadCampaign({ variant: VARIANT_NEW }),
                 utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
               })}`}
+              key="GetFirefoxBanner-button"
               onClick={onButtonClick}
             >
               {text}
@@ -86,9 +103,10 @@ export const GetFirefoxBannerBase = ({
       className="GetFirefoxBanner"
       dismissible
       id="GetFirefoxBanner-notice"
+      onDismiss={onDismiss}
       type="warning"
     >
-      <div className="GetFirefoxBanner-content">{bannerContent}</div>
+      <span className="GetFirefoxBanner-content">{bannerContent}</span>
     </Notice>
   );
 };
