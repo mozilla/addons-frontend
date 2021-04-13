@@ -5053,10 +5053,10 @@ filename-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
   integrity sha1-wcS5vuPglyXdsQa3XB4wH+LxiyY=
 
-filesize@6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.1.0.tgz#e81bdaa780e2451d714d71c0d7a4f3238d37ad00"
-  integrity sha512-LpCHtPQ3sFx67z+uh2HnSyWSLLu5Jxo21795uRDuar/EOuYWXib5EmPaGIBuSnRqH2IODiKA2k5re/K9OnN/Yg==
+filesize@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.2.0.tgz#f1493595ebd285fb63face5830336d0e6e5c56b2"
+  integrity sha512-yFLelrKhNIHl/G99PktUjAJZR1jccerYJGrRrhJVNNNL8jLHEnrl5/9p0jcp/QzQ+iwOr9H0UjPJusfTtpbdtQ==
 
 fill-range@^2.1.0:
   version "2.2.4"
