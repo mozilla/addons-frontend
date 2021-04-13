@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-13 19:56+0000\n"
+"PO-Revision-Date: 2021-04-13 19:58+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1044,7 +1044,7 @@ msgstr "Центр розробника"
 
 #: src/amo/components/GetFirefoxBanner/index.js:73
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "Щоб використовувати ці додатки потрібно %(linkStart)sзавантажити Firefox%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Only with Firefox—Get Firefox Now"
@@ -1056,7 +1056,7 @@ msgstr "Завантажити Firefox та отримати тему"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "Завантажити Firefox та отримати розширення"
 
 #: src/amo/components/GetFirefoxButton/index.js:159 src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
