@@ -22,6 +22,12 @@ const packageJsonForBlogUtils = `{
   "dependencies": {
     "jsdom": "${mainPackageJson.dependencies.jsdom}",
     "node-fetch": "${isomorphicFetchPackageJson.dependencies['node-fetch']}"
+  },
+  "license": "${mainPackageJson.license}",
+  "author": "${mainPackageJson.author}",
+  "homepage": "${mainPackageJson.homepage}",
+  "bugs": {
+    "url": "${mainPackageJson.bugs.url}"
   }
 }
 `;
