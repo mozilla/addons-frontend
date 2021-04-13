@@ -58,6 +58,7 @@ export default class LandingAddonsCard extends React.Component<Props> {
           footerLinkProps.href = footerLink.href;
           footerLinkProps.prependClientApp = false;
           footerLinkProps.prependLang = false;
+          footerLinkProps.target = '_blank';
         } else {
           // As a convenience, fix the query parameter.
           footerLinkProps.to = {
