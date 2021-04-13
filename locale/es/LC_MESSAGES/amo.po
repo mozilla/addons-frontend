@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-16 17:47+0000\n"
+"POT-Creation-Date: 2021-04-13 16:38+0000\n"
 "PO-Revision-Date: 2020-03-09 05:37+0000\n"
 "Last-Translator: Handell González-Raymat <gabroche@hotmail.com>\n"
 "Language-Team: none\n"
@@ -627,37 +627,38 @@ msgstr "Instalar tema"
 msgid "Add to Firefox"
 msgstr "Agregar a Firefox"
 
-#: src/amo/components/App/index.js:193
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Complementos para Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:197
+#: src/amo/components/App/index.js:215
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Complementos para Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:205
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Complementos para Firefox para Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:209
+#: src/amo/components/App/index.js:227
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Complementos para Firefox para Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:146
+#: src/amo/components/Header/index.js:156
 msgid "Log out"
 msgstr "Cerrar sesión"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-msgid "Register or Log in"
+#, fuzzy
+msgid "Register or log in"
 msgstr "Registrarse o iniciar sesión"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:141
+#: src/amo/components/Header/index.js:151
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -714,7 +715,7 @@ msgid "Back to collection"
 msgstr "Regresar a la colección"
 
 #: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:47
+#: src/amo/components/Footer/index.js:58
 msgid "Add-ons"
 msgstr "Complementos"
 
@@ -1043,92 +1044,104 @@ msgstr "Respuesta de %(userName)s"
 msgid "Review by %(userName)s"
 msgstr "Revisado por %(userName)s"
 
-#: src/amo/components/FlagReviewMenu/index.js:111
-msgid "This is a bug report or support request"
-msgstr "Este es un informe de error o solicitud de ayuda"
-
-#: src/amo/components/FlagReviewMenu/index.js:114
-msgid "Flagged as a bug report or support request"
-msgstr "Marcado como informe de error o solicitud de ayuda"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
-msgstr "Etiquetar"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Etiquetado"
-
-#: src/amo/components/FlagReviewMenu/index.js:132
-msgid "Flag this developer response"
-msgstr "Marcar esta respuesta del desarrollador"
-
-#: src/amo/components/FlagReviewMenu/index.js:133
-msgid "Flag this review"
-msgstr "Marcar esta revisión"
-
-#: src/amo/components/FlagReviewMenu/index.js:66
-msgid "Log in to flag this response"
-msgstr "Iniciar sesión para marcar esta respuesta"
-
-#: src/amo/components/FlagReviewMenu/index.js:67
-msgid "Log in to flag this review"
-msgstr "Iniciar sesión para marcar esta revisión"
-
-#: src/amo/components/FlagReviewMenu/index.js:76
-msgid "You cannot flag your own response"
-msgstr "No puedes marcar tu propia respuesta"
-
-#: src/amo/components/FlagReviewMenu/index.js:77
-msgid "You cannot flag your own review"
-msgstr "No puedes marcar tu propio comentario"
-
-#: src/amo/components/FlagReviewMenu/index.js:86
-msgid "This is spam"
-msgstr "Esto es spam"
-
-#: src/amo/components/FlagReviewMenu/index.js:87
-msgid "Flagged as spam"
-msgstr "Marcado como spam"
-
-#: src/amo/components/FlagReviewMenu/index.js:97
-msgid "This contains inappropriate language"
-msgstr "Contiene lenaguaje inapropiado"
-
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Flagged for inappropriate language"
 msgstr "Marcado como lenguaje inapropiado"
 
-#: src/amo/components/Footer/index.js:103
+#: src/amo/components/FlagReviewMenu/index.js:113
+msgid "This is a bug report or support request"
+msgstr "Este es un informe de error o solicitud de ayuda"
+
+#: src/amo/components/FlagReviewMenu/index.js:116
+msgid "Flagged as a bug report or support request"
+msgstr "Marcado como informe de error o solicitud de ayuda"
+
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flagged"
+msgstr "Etiquetado"
+
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flag"
+msgstr "Etiquetar"
+
+#: src/amo/components/FlagReviewMenu/index.js:134
+msgid "Flag this developer response"
+msgstr "Marcar esta respuesta del desarrollador"
+
+#: src/amo/components/FlagReviewMenu/index.js:135
+msgid "Flag this review"
+msgstr "Marcar esta revisión"
+
+#: src/amo/components/FlagReviewMenu/index.js:68
+msgid "Log in to flag this response"
+msgstr "Iniciar sesión para marcar esta respuesta"
+
+#: src/amo/components/FlagReviewMenu/index.js:69
+msgid "Log in to flag this review"
+msgstr "Iniciar sesión para marcar esta revisión"
+
+#: src/amo/components/FlagReviewMenu/index.js:78
+msgid "You cannot flag your own response"
+msgstr "No puedes marcar tu propia respuesta"
+
+#: src/amo/components/FlagReviewMenu/index.js:79
+msgid "You cannot flag your own review"
+msgstr "No puedes marcar tu propio comentario"
+
+#: src/amo/components/FlagReviewMenu/index.js:88
+msgid "This is spam"
+msgstr "Esto es spam"
+
+#: src/amo/components/FlagReviewMenu/index.js:89
+msgid "Flagged as spam"
+msgstr "Marcado como spam"
+
+#: src/amo/components/FlagReviewMenu/index.js:99
+msgid "This contains inappropriate language"
+msgstr "Contiene lenaguaje inapropiado"
+
+#: src/amo/components/Footer/index.js:101
+msgid "Developer Policies"
+msgstr "Normativas para desarrolladores"
+
+#: src/amo/components/Footer/index.js:106
+msgid "Forum"
+msgstr "Foro"
+
+#: src/amo/components/Footer/index.js:114
+msgid "Report a bug"
+msgstr "Informar de un error"
+
+#: src/amo/components/Footer/index.js:119
+msgid "Review Guide"
+msgstr "Guía de revisión"
+
+#: src/amo/components/Footer/index.js:124
 msgid "Site Status"
 msgstr "Estado del sitio web"
 
-#: src/amo/components/Footer/index.js:110
+#: src/amo/components/Footer/index.js:131
 #, fuzzy
 msgid "Browsers"
 msgstr "Navegador para iOS"
 
-#: src/amo/components/Footer/index.js:168
+#: src/amo/components/Footer/index.js:189
 msgid "Products"
 msgstr "Productos"
 
-#: src/amo/components/Footer/index.js:244
+#: src/amo/components/Footer/index.js:265
 msgid "Privacy"
 msgstr "Privacidad"
 
-#: src/amo/components/Footer/index.js:252
+#: src/amo/components/Footer/index.js:273
 msgid "Cookies"
 msgstr "Cookies"
 
-#: src/amo/components/Footer/index.js:26
-msgid "Go to Mozilla's homepage"
-msgstr "Ir a la página de inicio de Mozilla"
-
-#: src/amo/components/Footer/index.js:260
+#: src/amo/components/Footer/index.js:281
 msgid "Legal"
 msgstr "Legal"
 
-#: src/amo/components/Footer/index.js:270
+#: src/amo/components/Footer/index.js:291
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1139,95 +1152,108 @@ msgstr ""
 "%(startLicenseLink)sCreative Commons Reconocimiento Compartir-Igual "
 "v3.0%(endLicenseLink)s o una versión posterior."
 
-#: src/amo/components/Footer/index.js:52
+#: src/amo/components/Footer/index.js:37
+msgid "Go to Mozilla's homepage"
+msgstr "Ir a la página de inicio de Mozilla"
+
+#: src/amo/components/Footer/index.js:63
 msgid "About"
 msgstr "Acerca de"
 
-#: src/amo/components/Footer/index.js:57
+#: src/amo/components/Footer/index.js:68
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:212
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:208
 msgid "Extension Workshop"
 msgstr "Taller de extensiones"
 
-#: src/amo/components/Footer/index.js:75 src/amo/components/Header/index.js:222
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:218
 msgid "Developer Hub"
 msgstr "Central del desarrollador"
 
-#: src/amo/components/Footer/index.js:80
-msgid "Developer Policies"
-msgstr "Normativas para desarrolladores"
+#: src/amo/components/GetFirefoxBanner/index.js:73
+msgid ""
+"To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:85
-msgid "Forum"
-msgstr "Foro"
-
-#: src/amo/components/Footer/index.js:93
-msgid "Report a bug"
-msgstr "Informar de un error"
-
-#: src/amo/components/Footer/index.js:98
-msgid "Review Guide"
-msgstr "Guía de revisión"
-
-#: src/amo/components/GetFirefoxButton/index.js:87
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Solo con Firefox: ¡Consíguelo ya!"
 
-#: src/amo/components/GetFirefoxButton/index.js:93
+#: src/amo/components/GetFirefoxButton/index.js:155
+#, fuzzy
+msgid "Download Firefox and get the theme"
+msgstr "Descargar Firefox"
+
+#: src/amo/components/GetFirefoxButton/index.js:156
+msgid "Download Firefox and get the extension"
+msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:159
+#: src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
 msgstr "Descargar Firefox"
 
+#: src/amo/components/GetFirefoxButton/index.js:162
+#, fuzzy
+msgid "You'll need Firefox to use this theme"
+msgstr "Iniciar sesión para evaluar este tema"
+
+#: src/amo/components/GetFirefoxButton/index.js:163
+#, fuzzy
+msgid "You'll need Firefox to use this extension"
+msgstr "Inicia sesión para evaluar esta extensión"
+
 #: src/amo/components/Header/index.js:105
-msgid "Submit a New Add-on"
-msgstr "Enviar un nuevo complemento"
-
-#: src/amo/components/Header/index.js:110
-msgid "Submit a New Theme"
-msgstr "Enviar un nuevo tema"
-
-#: src/amo/components/Header/index.js:119
-msgid "Manage My Submissions"
-msgstr "Administrar mis envíos"
-
-#: src/amo/components/Header/index.js:129
-msgid "Reviewer Tools"
-msgstr "Herramientas del revisor"
-
-#: src/amo/components/Header/index.js:172
-msgid "Firefox Browser Add-ons"
-msgstr "Buscador de complementos para Firefox"
-
-#: src/amo/components/Header/index.js:210
-msgid "Learn how to create extensions and themes"
-msgstr "Descubre cómo crear extensiones y temas"
-
-#: src/amo/components/Header/index.js:220
-msgid "Submit and manage extensions and themes"
-msgstr "Enviar y administrar extensiones y temas"
-
-#: src/amo/components/Header/index.js:73
-msgid "My Account"
-msgstr "Mi cuenta"
-
-#: src/amo/components/Header/index.js:79
-msgid "View My Collections"
-msgstr "Ver Mis colecciones"
-
-#: src/amo/components/Header/index.js:87
-#: src/amo/pages/UserProfileEdit/index.js:567
-msgid "View My Profile"
-msgstr "Ver Mi perfil"
-
-#: src/amo/components/Header/index.js:95
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "Editar Mi perfil"
 
-#: src/amo/components/Header/index.js:99
+#: src/amo/components/Header/index.js:109
 msgid "Tools"
 msgstr "Herramientas"
+
+#: src/amo/components/Header/index.js:115
+msgid "Submit a New Add-on"
+msgstr "Enviar un nuevo complemento"
+
+#: src/amo/components/Header/index.js:120
+msgid "Submit a New Theme"
+msgstr "Enviar un nuevo tema"
+
+#: src/amo/components/Header/index.js:129
+msgid "Manage My Submissions"
+msgstr "Administrar mis envíos"
+
+#: src/amo/components/Header/index.js:139
+msgid "Reviewer Tools"
+msgstr "Herramientas del revisor"
+
+#: src/amo/components/Header/index.js:186
+msgid "Firefox Browser Add-ons"
+msgstr "Buscador de complementos para Firefox"
+
+#: src/amo/components/Header/index.js:206
+msgid "Learn how to create extensions and themes"
+msgstr "Descubre cómo crear extensiones y temas"
+
+#: src/amo/components/Header/index.js:216
+msgid "Submit and manage extensions and themes"
+msgstr "Enviar y administrar extensiones y temas"
+
+#: src/amo/components/Header/index.js:83
+msgid "My Account"
+msgstr "Mi cuenta"
+
+#: src/amo/components/Header/index.js:89
+msgid "View My Collections"
+msgstr "Ver Mis colecciones"
+
+#: src/amo/components/Header/index.js:97
+#: src/amo/pages/UserProfileEdit/index.js:567
+msgid "View My Profile"
+msgstr "Ver Mi perfil"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
@@ -1254,6 +1280,11 @@ msgid ""
 msgstr ""
 "Firefox solo recomienda extensiones que cumplen nuestros estándares de "
 "seguridad y rendimiento."
+
+#: src/amo/components/HomepageShelves/index.js:69
+#, fuzzy
+msgid "See more %(categoryName)s"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1298,7 +1329,7 @@ msgstr "Gestiona tus complementos haciendo clic en Complementos en el menú."
 msgid "OK"
 msgstr "Vale"
 
-#: src/amo/components/InstallButtonWrapper/index.js:136
+#: src/amo/components/InstallButtonWrapper/index.js:146
 #, fuzzy
 msgid "Download file"
 msgstr "Descargando"
@@ -1650,12 +1681,12 @@ msgstr ""
 msgid "Search results"
 msgstr "Resultados de la búsqueda"
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:295
+#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:218
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Extensiones recomendadas"
 
-#: src/amo/components/Search/index.js:149 src/amo/pages/Home/index.js:365
+#: src/amo/components/Search/index.js:149
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Temas recomendados"
@@ -1709,7 +1740,7 @@ msgstr "Temas promocionados"
 msgid "Verified add-ons"
 msgstr "Complementos promocionados"
 
-#: src/amo/components/Search/index.js:193 src/amo/pages/Home/index.js:378
+#: src/amo/components/Search/index.js:193
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Extensiones más populares"
@@ -1737,11 +1768,11 @@ msgstr "Temas más valorados"
 msgid "Top rated add-ons"
 msgstr "Complementos mejor valorados"
 
-#: src/amo/components/Search/index.js:217 src/amo/pages/Home/index.js:338
+#: src/amo/components/Search/index.js:217
 msgid "Popular extensions"
 msgstr "Extensiones populares"
 
-#: src/amo/components/Search/index.js:220 src/amo/pages/Home/index.js:319
+#: src/amo/components/Search/index.js:220
 msgid "Popular themes"
 msgstr "Temas populares"
 
@@ -2047,7 +2078,7 @@ msgstr ""
 #: src/amo/components/WrongPlatformWarning/index.js:91
 #, fuzzy
 msgid ""
-"This add-on is not compatible with this browser. Try installing it on "
+"Add-ons are not compatible with Firefox for iOS. Try installing them on "
 "Firefox for desktop."
 msgstr "Este complemento no es compatible con tu versión de Firefox."
 
@@ -2120,18 +2151,18 @@ msgstr "Normativas para desarrolladores"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Notas de prensa para %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:467
+#: src/amo/pages/Addon/index.js:471
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Esta lista no es pública. La puedes ver porque tienes permisos elevados."
 
-#: src/amo/pages/Addon/index.js:494
+#: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
 msgstr "Metadata de la extensión"
 
-#: src/amo/pages/Addon/index.js:518
+#: src/amo/pages/Addon/index.js:522
 msgid "Screenshots"
 msgstr "Capturas de pantalla"
 
@@ -2291,32 +2322,32 @@ msgstr "%(categoryName)s"
 msgid "Extensions in %(categoryName)s"
 msgstr "%(count)s extensión encontrada en %(categoryName)s"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
 msgstr "¿Estás seguro de que quieres eliminar esta colección?"
 
-#: src/amo/pages/Collection/index.js:408
+#: src/amo/pages/Collection/index.js:403
 msgid "Delete this collection"
 msgstr "Eliminar esta colección"
 
-#: src/amo/pages/Collection/index.js:427
+#: src/amo/pages/Collection/index.js:421
 msgid "Log in to create a collection"
 msgstr "Inicia sesión para crear una colección"
 
-#: src/amo/pages/Collection/index.js:428
+#: src/amo/pages/Collection/index.js:422
 msgid "Log in to edit this collection"
 msgstr "Inicia sesión para editar esta colección"
 
-#: src/amo/pages/Collection/index.js:461
+#: src/amo/pages/Collection/index.js:455
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Primero, crea una colección. Después podrás añadir extensiones y temas."
 
-#: src/amo/pages/Collection/index.js:464
+#: src/amo/pages/Collection/index.js:458
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Busca extensiones y temas para añadirlos a tu colección."
 
-#: src/amo/pages/Collection/index.js:526
+#: src/amo/pages/Collection/index.js:516
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2325,7 +2356,7 @@ msgstr ""
 "extensiones y temas favoritos. Descubre %(collectionName)s—"
 "%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:529
+#: src/amo/pages/Collection/index.js:519
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2361,35 +2392,23 @@ msgstr "Crear una colección"
 msgid "You do not have any collections."
 msgstr "No tienes ninguna colección."
 
-#: src/amo/pages/Home/index.js:145
-msgid "Abstract"
-msgstr "Abstracto"
-
-#: src/amo/pages/Home/index.js:150
-msgid "Nature"
-msgstr "Naturaleza"
-
-#: src/amo/pages/Home/index.js:155
-msgid "Film & TV"
-msgstr "Películas y TV"
-
-#: src/amo/pages/Home/index.js:160
+#: src/amo/pages/Home/index.js:103
 msgid "Scenery"
 msgstr "Vistas"
 
-#: src/amo/pages/Home/index.js:165
+#: src/amo/pages/Home/index.js:108
 msgid "Music"
 msgstr "Música"
 
-#: src/amo/pages/Home/index.js:170
+#: src/amo/pages/Home/index.js:113
 msgid "Seasonal"
 msgstr "Estacional"
 
-#: src/amo/pages/Home/index.js:224
+#: src/amo/pages/Home/index.js:163
 msgid "Change the way Firefox looks with themes."
 msgstr "Cambia la apariencia de Firefox con los temas."
 
-#: src/amo/pages/Home/index.js:255
+#: src/amo/pages/Home/index.js:172
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2399,45 +2418,33 @@ msgstr ""
 "navegador. Pueden bloquear anuncios molestos, proteger contraseñas, cambiar "
 "la apariencia del navegador y mucho más."
 
-#: src/amo/pages/Home/index.js:296 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:219 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "Ver más extensiones recomendadas"
 
-#: src/amo/pages/Home/index.js:320
-msgid "See more popular themes"
-msgstr "Ver más temas populares"
+#: src/amo/pages/Home/index.js:88
+msgid "Abstract"
+msgstr "Abstracto"
 
-#: src/amo/pages/Home/index.js:339
-msgid "See more popular extensions"
-msgstr "Ver más extensiones populares"
+#: src/amo/pages/Home/index.js:93
+msgid "Nature"
+msgstr "Naturaleza"
 
-#: src/amo/pages/Home/index.js:356 src/amo/pages/LandingPage/index.js:165
-msgid "See more recommended themes"
-msgstr "Ver más temas recomendados"
+#: src/amo/pages/Home/index.js:98
+msgid "Film & TV"
+msgstr "Películas y TV"
 
-#: src/amo/pages/Home/index.js:379 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Ver más extensiones de moda"
-
-#: src/amo/pages/Home/index.js:61
-msgid "See more enhanced privacy extensions"
-msgstr "Ver más extensiones sobre privacidad"
-
-#: src/amo/pages/Home/index.js:62
-msgid "Enhanced privacy extensions"
-msgstr "Mejores extensiones de privacidad"
-
-#: src/amo/pages/Home/index.js:67
-msgid "See more recommended password managers"
-msgstr "Ver más administradores de contraseña recomendados"
-
-#: src/amo/pages/Home/index.js:68
-msgid "Recommended password managers"
-msgstr "Administradores de contraseñas recomendados"
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "Ver más extensiones mejor valoradas"
+
+#: src/amo/pages/LandingPage/index.js:165
+msgid "See more recommended themes"
+msgstr "Ver más temas recomendados"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
@@ -3313,6 +3320,24 @@ msgstr "no se puede actualizar la compatibilidad de mi complemento"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "se ha actualizado correctamente la compatibilidad de mi complemento"
+
+#~ msgid "See more popular themes"
+#~ msgstr "Ver más temas populares"
+
+#~ msgid "See more popular extensions"
+#~ msgstr "Ver más extensiones populares"
+
+#~ msgid "See more enhanced privacy extensions"
+#~ msgstr "Ver más extensiones sobre privacidad"
+
+#~ msgid "Enhanced privacy extensions"
+#~ msgstr "Mejores extensiones de privacidad"
+
+#~ msgid "See more recommended password managers"
+#~ msgstr "Ver más administradores de contraseña recomendados"
+
+#~ msgid "Recommended password managers"
+#~ msgstr "Administradores de contraseñas recomendados"
 
 #~ msgid ""
 #~ "Download Firefox extensions to customize the way you search—everything "

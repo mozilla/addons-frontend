@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-16 17:47+0000\n"
+"POT-Creation-Date: 2021-04-13 16:38+0000\n"
 "PO-Revision-Date: 2018-07-02 12:25+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -668,41 +668,42 @@ msgstr "Instaliraj temu"
 msgid "Add to Firefox"
 msgstr "Dodaj na Firefox"
 
-#: src/amo/components/App/index.js:193
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:87
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Dodaci za Firefox"
 
-#: src/amo/components/App/index.js:197
+#: src/amo/components/App/index.js:215
 #: src/amo/components/HeadMetaTags/index.js:81
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%s – dodatci za Firefox"
 
-#: src/amo/components/App/index.js:205
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:86
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Dodaci za Firefox"
 
-#: src/amo/components/App/index.js:209
+#: src/amo/components/App/index.js:227
 #: src/amo/components/HeadMetaTags/index.js:80
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%s – dodatci za Firefox"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:146
+#: src/amo/components/Header/index.js:156
 msgid "Log out"
 msgstr "Odjavi se"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-msgid "Register or Log in"
+#, fuzzy
+msgid "Register or log in"
 msgstr "Registruj se ili prijavi"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:141
+#: src/amo/components/Header/index.js:151
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -761,7 +762,7 @@ msgid "Back to collection"
 msgstr "Dodaj u kolekciju"
 
 #: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:47
+#: src/amo/components/Footer/index.js:58
 msgid "Add-ons"
 msgstr "Dodaci"
 
@@ -1076,93 +1077,106 @@ msgstr "Recenzije za %(addonName)s"
 msgid "Review by %(userName)s"
 msgstr "Recenzije za %(addonName)s"
 
-#: src/amo/components/FlagReviewMenu/index.js:111
-msgid "This is a bug report or support request"
-msgstr "Ovo je bug prijava ili zahtjev za podršku"
-
-#: src/amo/components/FlagReviewMenu/index.js:114
-msgid "Flagged as a bug report or support request"
-msgstr "Označeno kao bug prijava ili zahtjev za podršku"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
-msgstr "Oznaka"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Označeno"
-
-#: src/amo/components/FlagReviewMenu/index.js:132
-msgid "Flag this developer response"
-msgstr "Označi ovaj odgovor developera"
-
-#: src/amo/components/FlagReviewMenu/index.js:133
-msgid "Flag this review"
-msgstr "Označi ovu recenziju"
-
-#: src/amo/components/FlagReviewMenu/index.js:66
-msgid "Log in to flag this response"
-msgstr "Prijavite se da biste označili ovaj odgovor"
-
-#: src/amo/components/FlagReviewMenu/index.js:67
-msgid "Log in to flag this review"
-msgstr "Prijavite se da biste označili ovu recenziju"
-
-#: src/amo/components/FlagReviewMenu/index.js:76
-msgid "You cannot flag your own response"
-msgstr "Ne možete označiti svoj vlastiti odgovor"
-
-#: src/amo/components/FlagReviewMenu/index.js:77
-msgid "You cannot flag your own review"
-msgstr "Ne možete označiti svoju vlastitu recenziju"
-
-#: src/amo/components/FlagReviewMenu/index.js:86
-msgid "This is spam"
-msgstr "Ovo je spam"
-
-#: src/amo/components/FlagReviewMenu/index.js:87
-msgid "Flagged as spam"
-msgstr "Označeno kao spam"
-
-#: src/amo/components/FlagReviewMenu/index.js:97
-msgid "This contains inappropriate language"
-msgstr "Ovo sadrži neprikladan jezik"
-
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Flagged for inappropriate language"
 msgstr "Označeno kao neprimjeren jezik"
 
-#: src/amo/components/Footer/index.js:103
+#: src/amo/components/FlagReviewMenu/index.js:113
+msgid "This is a bug report or support request"
+msgstr "Ovo je bug prijava ili zahtjev za podršku"
+
+#: src/amo/components/FlagReviewMenu/index.js:116
+msgid "Flagged as a bug report or support request"
+msgstr "Označeno kao bug prijava ili zahtjev za podršku"
+
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flagged"
+msgstr "Označeno"
+
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flag"
+msgstr "Oznaka"
+
+#: src/amo/components/FlagReviewMenu/index.js:134
+msgid "Flag this developer response"
+msgstr "Označi ovaj odgovor developera"
+
+#: src/amo/components/FlagReviewMenu/index.js:135
+msgid "Flag this review"
+msgstr "Označi ovu recenziju"
+
+#: src/amo/components/FlagReviewMenu/index.js:68
+msgid "Log in to flag this response"
+msgstr "Prijavite se da biste označili ovaj odgovor"
+
+#: src/amo/components/FlagReviewMenu/index.js:69
+msgid "Log in to flag this review"
+msgstr "Prijavite se da biste označili ovu recenziju"
+
+#: src/amo/components/FlagReviewMenu/index.js:78
+msgid "You cannot flag your own response"
+msgstr "Ne možete označiti svoj vlastiti odgovor"
+
+#: src/amo/components/FlagReviewMenu/index.js:79
+msgid "You cannot flag your own review"
+msgstr "Ne možete označiti svoju vlastitu recenziju"
+
+#: src/amo/components/FlagReviewMenu/index.js:88
+msgid "This is spam"
+msgstr "Ovo je spam"
+
+#: src/amo/components/FlagReviewMenu/index.js:89
+msgid "Flagged as spam"
+msgstr "Označeno kao spam"
+
+#: src/amo/components/FlagReviewMenu/index.js:99
+msgid "This contains inappropriate language"
+msgstr "Ovo sadrži neprikladan jezik"
+
+#: src/amo/components/Footer/index.js:101
+#, fuzzy
+msgid "Developer Policies"
+msgstr "Odgovor developera"
+
+#: src/amo/components/Footer/index.js:106
+msgid "Forum"
+msgstr "Forum"
+
+#: src/amo/components/Footer/index.js:114
+msgid "Report a bug"
+msgstr "Prijavi grešku"
+
+#: src/amo/components/Footer/index.js:119
+msgid "Review Guide"
+msgstr "Pregled vodiča"
+
+#: src/amo/components/Footer/index.js:124
 msgid "Site Status"
 msgstr "Status stranice"
 
-#: src/amo/components/Footer/index.js:110
+#: src/amo/components/Footer/index.js:131
 #, fuzzy
 msgid "Browsers"
 msgstr "iOS pretraživač"
 
-#: src/amo/components/Footer/index.js:168
+#: src/amo/components/Footer/index.js:189
 #, fuzzy
 msgid "Products"
 msgstr "Produktivnost"
 
-#: src/amo/components/Footer/index.js:244
+#: src/amo/components/Footer/index.js:265
 msgid "Privacy"
 msgstr "Privatnost"
 
-#: src/amo/components/Footer/index.js:252
+#: src/amo/components/Footer/index.js:273
 msgid "Cookies"
 msgstr "Kolačići"
 
-#: src/amo/components/Footer/index.js:26
-msgid "Go to Mozilla's homepage"
-msgstr "Idite na Mozilla početnu stranicu"
-
-#: src/amo/components/Footer/index.js:260
+#: src/amo/components/Footer/index.js:281
 msgid "Legal"
 msgstr "Pravno"
 
-#: src/amo/components/Footer/index.js:270
+#: src/amo/components/Footer/index.js:291
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1173,102 +1187,114 @@ msgstr ""
 "Commons Attribution Share-Alike License v3.0%(endLicenseLink)s ili svaka "
 "novija verzija."
 
-#: src/amo/components/Footer/index.js:52
+#: src/amo/components/Footer/index.js:37
+msgid "Go to Mozilla's homepage"
+msgstr "Idite na Mozilla početnu stranicu"
+
+#: src/amo/components/Footer/index.js:63
 msgid "About"
 msgstr "O nama"
 
-#: src/amo/components/Footer/index.js:57
+#: src/amo/components/Footer/index.js:68
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:212
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:208
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "Ekstenzije"
 
-#: src/amo/components/Footer/index.js:75 src/amo/components/Header/index.js:222
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:218
 msgid "Developer Hub"
 msgstr "Centar za razvoj"
 
-#: src/amo/components/Footer/index.js:80
-#, fuzzy
-msgid "Developer Policies"
-msgstr "Odgovor developera"
+#: src/amo/components/GetFirefoxBanner/index.js:73
+msgid ""
+"To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:85
-msgid "Forum"
-msgstr "Forum"
-
-#: src/amo/components/Footer/index.js:93
-msgid "Report a bug"
-msgstr "Prijavi grešku"
-
-#: src/amo/components/Footer/index.js:98
-msgid "Review Guide"
-msgstr "Pregled vodiča"
-
-#: src/amo/components/GetFirefoxButton/index.js:87
+#: src/amo/components/GetFirefoxButton/index.js:151
 #, fuzzy
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Samo uz Firefox — Preuzmite Firefox sada!"
 
-#: src/amo/components/GetFirefoxButton/index.js:93
+#: src/amo/components/GetFirefoxButton/index.js:155
+#, fuzzy
+msgid "Download Firefox and get the theme"
+msgstr "Preuzmi Firefox"
+
+#: src/amo/components/GetFirefoxButton/index.js:156
+msgid "Download Firefox and get the extension"
+msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:159
+#: src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
 msgstr "Preuzmi Firefox"
 
+#: src/amo/components/GetFirefoxButton/index.js:162
+#, fuzzy
+msgid "You'll need Firefox to use this theme"
+msgstr "Prijavite se na ocijeni ovu temu"
+
+#: src/amo/components/GetFirefoxButton/index.js:163
+#, fuzzy
+msgid "You'll need Firefox to use this extension"
+msgstr "Prijavite se na ocijeni ovu ekstenziju"
+
 #: src/amo/components/Header/index.js:105
-msgid "Submit a New Add-on"
-msgstr "Pošalji novi dodatak"
-
-#: src/amo/components/Header/index.js:110
-msgid "Submit a New Theme"
-msgstr "Pošalji novu temu"
-
-#: src/amo/components/Header/index.js:119
-msgid "Manage My Submissions"
-msgstr ""
-
-#: src/amo/components/Header/index.js:129
-msgid "Reviewer Tools"
-msgstr "Alati za pregledanje"
-
-# "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:172
-#, fuzzy
-msgid "Firefox Browser Add-ons"
-msgstr "Firefox dodaci"
-
-#: src/amo/components/Header/index.js:210
-#, fuzzy
-msgid "Learn how to create extensions and themes"
-msgstr "Nadgleda upotrebu ekstenzija i upravlja temama"
-
-#: src/amo/components/Header/index.js:220
-#, fuzzy
-msgid "Submit and manage extensions and themes"
-msgstr "Nadgleda upotrebu ekstenzija i upravlja temama"
-
-#: src/amo/components/Header/index.js:73
-msgid "My Account"
-msgstr "Moj račun"
-
-#: src/amo/components/Header/index.js:79
-msgid "View My Collections"
-msgstr "Prikaži moje kolekcije"
-
-#: src/amo/components/Header/index.js:87
-#: src/amo/pages/UserProfileEdit/index.js:567
-msgid "View My Profile"
-msgstr "Prikaži profil"
-
-#: src/amo/components/Header/index.js:95
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "Uredi profil"
 
-#: src/amo/components/Header/index.js:99
+#: src/amo/components/Header/index.js:109
 msgid "Tools"
 msgstr "Alati"
+
+#: src/amo/components/Header/index.js:115
+msgid "Submit a New Add-on"
+msgstr "Pošalji novi dodatak"
+
+#: src/amo/components/Header/index.js:120
+msgid "Submit a New Theme"
+msgstr "Pošalji novu temu"
+
+#: src/amo/components/Header/index.js:129
+msgid "Manage My Submissions"
+msgstr ""
+
+#: src/amo/components/Header/index.js:139
+msgid "Reviewer Tools"
+msgstr "Alati za pregledanje"
+
+# "Firefox" should not be translated. :-)
+#: src/amo/components/Header/index.js:186
+#, fuzzy
+msgid "Firefox Browser Add-ons"
+msgstr "Firefox dodaci"
+
+#: src/amo/components/Header/index.js:206
+#, fuzzy
+msgid "Learn how to create extensions and themes"
+msgstr "Nadgleda upotrebu ekstenzija i upravlja temama"
+
+#: src/amo/components/Header/index.js:216
+#, fuzzy
+msgid "Submit and manage extensions and themes"
+msgstr "Nadgleda upotrebu ekstenzija i upravlja temama"
+
+#: src/amo/components/Header/index.js:83
+msgid "My Account"
+msgstr "Moj račun"
+
+#: src/amo/components/Header/index.js:89
+msgid "View My Collections"
+msgstr "Prikaži moje kolekcije"
+
+#: src/amo/components/Header/index.js:97
+#: src/amo/pages/UserProfileEdit/index.js:567
+msgid "View My Profile"
+msgstr "Prikaži profil"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 #, fuzzy
@@ -1294,6 +1320,11 @@ msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
 msgstr ""
+
+#: src/amo/components/HomepageShelves/index.js:69
+#, fuzzy
+msgid "See more %(categoryName)s"
+msgstr "Kategorije"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1340,7 +1371,7 @@ msgstr ""
 msgid "OK"
 msgstr "OK!"
 
-#: src/amo/components/InstallButtonWrapper/index.js:136
+#: src/amo/components/InstallButtonWrapper/index.js:146
 #, fuzzy
 msgid "Download file"
 msgstr "Preuzimanje %(name)s."
@@ -1687,13 +1718,13 @@ msgstr ""
 msgid "Search results"
 msgstr "Pretraži rezultate"
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:295
+#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:218
 #: src/amo/pages/LandingPage/index.js:124
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Istaknute ekstenzije"
 
-#: src/amo/components/Search/index.js:149 src/amo/pages/Home/index.js:365
+#: src/amo/components/Search/index.js:149
 #: src/amo/pages/LandingPage/index.js:156
 #, fuzzy
 msgid "Recommended themes"
@@ -1749,7 +1780,7 @@ msgstr "Istaknute teme"
 msgid "Verified add-ons"
 msgstr "Istaknuti dodaci"
 
-#: src/amo/components/Search/index.js:193 src/amo/pages/Home/index.js:378
+#: src/amo/components/Search/index.js:193
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Popularne ekstenzije"
@@ -1777,11 +1808,11 @@ msgstr "Najbolje ocjenjene teme"
 msgid "Top rated add-ons"
 msgstr "Najbolje ocijenjeni dodaci"
 
-#: src/amo/components/Search/index.js:217 src/amo/pages/Home/index.js:338
+#: src/amo/components/Search/index.js:217
 msgid "Popular extensions"
 msgstr "Popularne ekstenzije"
 
-#: src/amo/components/Search/index.js:220 src/amo/pages/Home/index.js:319
+#: src/amo/components/Search/index.js:220
 msgid "Popular themes"
 msgstr "Popularne teme"
 
@@ -2105,7 +2136,7 @@ msgstr "Ovaj dodatak nije kompatibilan sa vašom Feirefox verzijom."
 #: src/amo/components/WrongPlatformWarning/index.js:91
 #, fuzzy
 msgid ""
-"This add-on is not compatible with this browser. Try installing it on "
+"Add-ons are not compatible with Firefox for iOS. Try installing them on "
 "Firefox for desktop."
 msgstr "Ovaj dodatak nije kompatibilan sa vašom Feirefox verzijom."
 
@@ -2177,17 +2208,17 @@ msgstr "Odgovor developera"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Bilješke o izdanju za %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:467
+#: src/amo/pages/Addon/index.js:471
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:494
+#: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
 msgstr "Metapodaci za ekstenzije"
 
-#: src/amo/pages/Addon/index.js:518
+#: src/amo/pages/Addon/index.js:522
 msgid "Screenshots"
 msgstr "Screenshots"
 
@@ -2360,40 +2391,40 @@ msgstr "Kategorije"
 msgid "Extensions in %(categoryName)s"
 msgstr "%(count)s ekstenzija pronađena za \"%(query)s\""
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:400
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "Prijavite se da uredite ovu kolekciju"
 
-#: src/amo/pages/Collection/index.js:408
+#: src/amo/pages/Collection/index.js:403
 #, fuzzy
 msgid "Delete this collection"
 msgstr "Uredi ovu kolekciju"
 
-#: src/amo/pages/Collection/index.js:427
+#: src/amo/pages/Collection/index.js:421
 msgid "Log in to create a collection"
 msgstr "Prijavite se da napravite kolekciju"
 
-#: src/amo/pages/Collection/index.js:428
+#: src/amo/pages/Collection/index.js:422
 msgid "Log in to edit this collection"
 msgstr "Prijavite se da uredite ovu kolekciju"
 
-#: src/amo/pages/Collection/index.js:461
+#: src/amo/pages/Collection/index.js:455
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Prvo, sačuvajte svoju kolekciju. Zatim možete dodati proširenja i teme."
 
-#: src/amo/pages/Collection/index.js:464
+#: src/amo/pages/Collection/index.js:458
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Tražite proširenja i teme koje možete dodati u svoju kolekciju."
 
-#: src/amo/pages/Collection/index.js:526
+#: src/amo/pages/Collection/index.js:516
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:529
+#: src/amo/pages/Collection/index.js:519
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2432,88 +2463,58 @@ msgstr "Napravi novu kolekciju"
 msgid "You do not have any collections."
 msgstr "Prijavite se da napravite kolekciju"
 
-#: src/amo/pages/Home/index.js:145
-msgid "Abstract"
-msgstr "Apstraktno"
-
-#: src/amo/pages/Home/index.js:150
-msgid "Nature"
-msgstr "Priroda"
-
-#: src/amo/pages/Home/index.js:155
-msgid "Film & TV"
-msgstr "Film i TV"
-
-#: src/amo/pages/Home/index.js:160
+#: src/amo/pages/Home/index.js:103
 msgid "Scenery"
 msgstr "Scenografija"
 
-#: src/amo/pages/Home/index.js:165
+#: src/amo/pages/Home/index.js:108
 msgid "Music"
 msgstr "Muzika"
 
-#: src/amo/pages/Home/index.js:170
+#: src/amo/pages/Home/index.js:113
 msgid "Seasonal"
 msgstr "Sezonski"
 
-#: src/amo/pages/Home/index.js:224
+#: src/amo/pages/Home/index.js:163
 msgid "Change the way Firefox looks with themes."
 msgstr "Promijenite izgled Firefoxa sa temama."
 
-#: src/amo/pages/Home/index.js:255
+#: src/amo/pages/Home/index.js:172
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:296 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:219 src/amo/pages/LandingPage/index.js:133
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Vidi više popularnih ekstenzija"
 
-#: src/amo/pages/Home/index.js:320
-#, fuzzy
-msgid "See more popular themes"
-msgstr "Vidi više popularnih proširenja"
+#: src/amo/pages/Home/index.js:88
+msgid "Abstract"
+msgstr "Apstraktno"
 
-#: src/amo/pages/Home/index.js:339
-#, fuzzy
-msgid "See more popular extensions"
-msgstr "Vidi više najbolje ocjenjenih ekstenzija"
+#: src/amo/pages/Home/index.js:93
+msgid "Nature"
+msgstr "Priroda"
 
-#: src/amo/pages/Home/index.js:356 src/amo/pages/LandingPage/index.js:165
-#, fuzzy
-msgid "See more recommended themes"
-msgstr "Vidi više popularnih tema"
+#: src/amo/pages/Home/index.js:98
+msgid "Film & TV"
+msgstr "Film i TV"
 
-#: src/amo/pages/Home/index.js:379 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "Vidi više popularnih ekstenzija"
-
-#: src/amo/pages/Home/index.js:61
-#, fuzzy
-msgid "See more enhanced privacy extensions"
-msgstr "Vidi više istaknutih ekstenzija"
-
-#: src/amo/pages/Home/index.js:62
-#, fuzzy
-msgid "Enhanced privacy extensions"
-msgstr "Najbolje ekstenzije privatnosti"
-
-#: src/amo/pages/Home/index.js:67
-#, fuzzy
-msgid "See more recommended password managers"
-msgstr "Vidi više popularnih tema"
-
-#: src/amo/pages/Home/index.js:68
-#, fuzzy
-msgid "Recommended password managers"
-msgstr "Upravitelj lozinke"
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "Vidi više najbolje ocjenjenih ekstenzija"
+
+#: src/amo/pages/LandingPage/index.js:165
+#, fuzzy
+msgid "See more recommended themes"
+msgstr "Vidi više popularnih tema"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
@@ -3345,6 +3346,30 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#, fuzzy
+#~ msgid "See more popular themes"
+#~ msgstr "Vidi više popularnih proširenja"
+
+#, fuzzy
+#~ msgid "See more popular extensions"
+#~ msgstr "Vidi više najbolje ocjenjenih ekstenzija"
+
+#, fuzzy
+#~ msgid "See more enhanced privacy extensions"
+#~ msgstr "Vidi više istaknutih ekstenzija"
+
+#, fuzzy
+#~ msgid "Enhanced privacy extensions"
+#~ msgstr "Najbolje ekstenzije privatnosti"
+
+#, fuzzy
+#~ msgid "See more recommended password managers"
+#~ msgstr "Vidi više popularnih tema"
+
+#, fuzzy
+#~ msgid "Recommended password managers"
+#~ msgstr "Upravitelj lozinke"
 
 #~ msgid "Search Tools"
 #~ msgstr "Pretraživački alati"

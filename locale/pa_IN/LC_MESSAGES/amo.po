@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-16 17:47+0000\n"
+"POT-Creation-Date: 2021-04-13 16:38+0000\n"
 "PO-Revision-Date: 2021-01-30 18:44+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -623,37 +623,38 @@ msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 msgid "Add to Firefox"
 msgstr "ਫ਼ਾਇਰਫ਼ਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
-#: src/amo/components/App/index.js:193
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/App/index.js:197
+#: src/amo/components/App/index.js:215
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/App/index.js:205
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਈਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/App/index.js:209
+#: src/amo/components/App/index.js:227
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਇਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:146
+#: src/amo/components/Header/index.js:156
 msgid "Log out"
 msgstr "ਲਾਗ ਆਉਟ"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-msgid "Register or Log in"
+#, fuzzy
+msgid "Register or log in"
 msgstr "ਰਜਿਸਟਰ ਜਾਂ ਲਾਗਇਨ ਕਰੋ"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:141
+#: src/amo/components/Header/index.js:151
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr "ਇਹ ਕਾਰਵਾਈ ਇਸ ਸਮੇਂ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਪਲ ਵਿੱਚ ਪੇਜ ਨੂੰ ਮੁੜ ਲੋਡ ਕਰੋ।"
@@ -708,7 +709,7 @@ msgid "Back to collection"
 msgstr "ਸੰਗ੍ਰਹਿ ਉੱਤੇ ਵਾਪਸ ਜਾਓ"
 
 #: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:47
+#: src/amo/components/Footer/index.js:58
 msgid "Add-ons"
 msgstr "ਐਡ-ਆਨ"
 
@@ -1032,91 +1033,103 @@ msgstr "%(userName)s ਵਲੋਂ ਜਵਾਬ"
 msgid "Review by %(userName)s"
 msgstr "%(userName)s ਵਲੋਂ ਪੜਤਾਲ"
 
-#: src/amo/components/FlagReviewMenu/index.js:111
-msgid "This is a bug report or support request"
-msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
-
-#: src/amo/components/FlagReviewMenu/index.js:114
-msgid "Flagged as a bug report or support request"
-msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
-msgstr "ਨਿਸ਼ਾਨਬੱਧ"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "ਨਿਸ਼ਾਨਬੱਧ"
-
-#: src/amo/components/FlagReviewMenu/index.js:132
-msgid "Flag this developer response"
-msgstr "ਇਸ ਡਿਵੈਲਪਰ ਜਵਾਬ ਨੂੰ ਫਲੈਗ ਕਰੋ"
-
-#: src/amo/components/FlagReviewMenu/index.js:133
-msgid "Flag this review"
-msgstr "ਇਸ ਪੜਤਾਲ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰੋ"
-
-#: src/amo/components/FlagReviewMenu/index.js:66
-msgid "Log in to flag this response"
-msgstr "ਇਸ ਜਵਾਬ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰਨ ਲਈ ਲਾਗ ਇਨ ਕਰੋ"
-
-#: src/amo/components/FlagReviewMenu/index.js:67
-msgid "Log in to flag this review"
-msgstr "ਇਸ ਪੜਤਾਲ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰਨ ਲਈ ਲਾਗ ਇਨ ਕਰੋ"
-
-#: src/amo/components/FlagReviewMenu/index.js:76
-msgid "You cannot flag your own response"
-msgstr "ਤੁਸੀਂ ਆਪਣਾ ਜਵਾਬ ਨਹੀਂ ਦਿਖਾ ਸਕਦੇ"
-
-#: src/amo/components/FlagReviewMenu/index.js:77
-msgid "You cannot flag your own review"
-msgstr "ਤੁਸੀਂ ਆਪਣੀ ਖੁਦ ਦੀ ਸਮੀਖਿਆ ਨਿਸ਼ਾਨਬੱਧ ਨਹੀਂ ਕਰ ਸਕਦੇ"
-
-#: src/amo/components/FlagReviewMenu/index.js:86
-msgid "This is spam"
-msgstr "ਇਹ ਸਪੈਮ"
-
-#: src/amo/components/FlagReviewMenu/index.js:87
-msgid "Flagged as spam"
-msgstr "ਸਪੈਮ ਦੇ ਰੂਪ ਵਿੱਚ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤਾ"
-
-#: src/amo/components/FlagReviewMenu/index.js:97
-msgid "This contains inappropriate language"
-msgstr "ਇਸ ਵਿੱਚ ਅਣਉਚਿਤ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਹੈ"
-
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Flagged for inappropriate language"
 msgstr "ਅਣਉਚਿਤ ਭਾਸ਼ਾ ਲਈ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤਾ"
 
-#: src/amo/components/Footer/index.js:103
+#: src/amo/components/FlagReviewMenu/index.js:113
+msgid "This is a bug report or support request"
+msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
+
+#: src/amo/components/FlagReviewMenu/index.js:116
+msgid "Flagged as a bug report or support request"
+msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
+
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flagged"
+msgstr "ਨਿਸ਼ਾਨਬੱਧ"
+
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flag"
+msgstr "ਨਿਸ਼ਾਨਬੱਧ"
+
+#: src/amo/components/FlagReviewMenu/index.js:134
+msgid "Flag this developer response"
+msgstr "ਇਸ ਡਿਵੈਲਪਰ ਜਵਾਬ ਨੂੰ ਫਲੈਗ ਕਰੋ"
+
+#: src/amo/components/FlagReviewMenu/index.js:135
+msgid "Flag this review"
+msgstr "ਇਸ ਪੜਤਾਲ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰੋ"
+
+#: src/amo/components/FlagReviewMenu/index.js:68
+msgid "Log in to flag this response"
+msgstr "ਇਸ ਜਵਾਬ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰਨ ਲਈ ਲਾਗ ਇਨ ਕਰੋ"
+
+#: src/amo/components/FlagReviewMenu/index.js:69
+msgid "Log in to flag this review"
+msgstr "ਇਸ ਪੜਤਾਲ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰਨ ਲਈ ਲਾਗ ਇਨ ਕਰੋ"
+
+#: src/amo/components/FlagReviewMenu/index.js:78
+msgid "You cannot flag your own response"
+msgstr "ਤੁਸੀਂ ਆਪਣਾ ਜਵਾਬ ਨਹੀਂ ਦਿਖਾ ਸਕਦੇ"
+
+#: src/amo/components/FlagReviewMenu/index.js:79
+msgid "You cannot flag your own review"
+msgstr "ਤੁਸੀਂ ਆਪਣੀ ਖੁਦ ਦੀ ਸਮੀਖਿਆ ਨਿਸ਼ਾਨਬੱਧ ਨਹੀਂ ਕਰ ਸਕਦੇ"
+
+#: src/amo/components/FlagReviewMenu/index.js:88
+msgid "This is spam"
+msgstr "ਇਹ ਸਪੈਮ"
+
+#: src/amo/components/FlagReviewMenu/index.js:89
+msgid "Flagged as spam"
+msgstr "ਸਪੈਮ ਦੇ ਰੂਪ ਵਿੱਚ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤਾ"
+
+#: src/amo/components/FlagReviewMenu/index.js:99
+msgid "This contains inappropriate language"
+msgstr "ਇਸ ਵਿੱਚ ਅਣਉਚਿਤ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਹੈ"
+
+#: src/amo/components/Footer/index.js:101
+msgid "Developer Policies"
+msgstr "ਵਿਕਾਸਕਾਰ ਦੀਆਂ ਨੀਤੀਆਂ"
+
+#: src/amo/components/Footer/index.js:106
+msgid "Forum"
+msgstr "ਫ਼ੋਰਮ"
+
+#: src/amo/components/Footer/index.js:114
+msgid "Report a bug"
+msgstr "ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰੋ"
+
+#: src/amo/components/Footer/index.js:119
+msgid "Review Guide"
+msgstr "ਸਮੀਖਿਅਕ ਗਾਈਡ"
+
+#: src/amo/components/Footer/index.js:124
 msgid "Site Status"
 msgstr "ਸਾਈਟ ਸਥਿਤੀ"
 
-#: src/amo/components/Footer/index.js:110
+#: src/amo/components/Footer/index.js:131
 msgid "Browsers"
 msgstr "ਬਰਾਊਜ਼ਰ"
 
-#: src/amo/components/Footer/index.js:168
+#: src/amo/components/Footer/index.js:189
 msgid "Products"
 msgstr "ਪ੍ਰੋਡੱਕਟ"
 
-#: src/amo/components/Footer/index.js:244
+#: src/amo/components/Footer/index.js:265
 msgid "Privacy"
 msgstr "ਪਰਦੇਦਾਰੀ"
 
-#: src/amo/components/Footer/index.js:252
+#: src/amo/components/Footer/index.js:273
 msgid "Cookies"
 msgstr "ਕੂਕੀਜ਼"
 
-#: src/amo/components/Footer/index.js:26
-msgid "Go to Mozilla's homepage"
-msgstr "ਮੋਜ਼ੀਲਾ ਮੁੱਖ ਸਫ਼ੇ ਉਤੇ ਜਾਓ"
-
-#: src/amo/components/Footer/index.js:260
+#: src/amo/components/Footer/index.js:281
 msgid "Legal"
 msgstr "ਕਾਨੂੰਨੀ"
 
-#: src/amo/components/Footer/index.js:270
+#: src/amo/components/Footer/index.js:291
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1126,96 +1139,109 @@ msgstr ""
 "%(startLicenseLink)s ਕਰੀਏਟਿਵ ਕਾਮਨਜ਼ ਐਟ੍ਰੀਬਿ ਸ਼ੇਅਰ-ਅਲੀਕ ਲਾਇਸੈਂਸ "
 "v3.0%(endLicenseLink)s s ਜਾਂ ਕਿਸੇ ਵੀ ਅਗਲੇ ਵਰਜਨ ਦੇ ਅਧੀਨ ਲਾਇਸੰਸਸ਼ੁਦਾ ਕੀਤਾ ਗਿਆ ਹੈ।"
 
-#: src/amo/components/Footer/index.js:52
+#: src/amo/components/Footer/index.js:37
+msgid "Go to Mozilla's homepage"
+msgstr "ਮੋਜ਼ੀਲਾ ਮੁੱਖ ਸਫ਼ੇ ਉਤੇ ਜਾਓ"
+
+#: src/amo/components/Footer/index.js:63
 msgid "About"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: src/amo/components/Footer/index.js:57
+#: src/amo/components/Footer/index.js:68
 msgid "Blog"
 msgstr "ਬਲੌਗ"
 
-#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:212
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:208
 msgid "Extension Workshop"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਵਰਕਸ਼ਾਪ"
 
-#: src/amo/components/Footer/index.js:75 src/amo/components/Header/index.js:222
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:218
 msgid "Developer Hub"
 msgstr "ਡਿਵੈਲਪਰ ਹੱਬ"
 
-#: src/amo/components/Footer/index.js:80
-msgid "Developer Policies"
-msgstr "ਵਿਕਾਸਕਾਰ ਦੀਆਂ ਨੀਤੀਆਂ"
+#: src/amo/components/GetFirefoxBanner/index.js:73
+msgid ""
+"To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:85
-msgid "Forum"
-msgstr "ਫ਼ੋਰਮ"
-
-#: src/amo/components/Footer/index.js:93
-msgid "Report a bug"
-msgstr "ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰੋ"
-
-#: src/amo/components/Footer/index.js:98
-msgid "Review Guide"
-msgstr "ਸਮੀਖਿਅਕ ਗਾਈਡ"
-
-#: src/amo/components/GetFirefoxButton/index.js:87
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "ਫਾਇਰਫਾਕਸ ਨਾਲ ਹੀ — ਫਾਇਰਫਾਕਸ ਹੁਣੇ ਲਵੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:93
+#: src/amo/components/GetFirefoxButton/index.js:155
+#, fuzzy
+msgid "Download Firefox and get the theme"
+msgstr "ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ ਕਰੋ"
+
+#: src/amo/components/GetFirefoxButton/index.js:156
+msgid "Download Firefox and get the extension"
+msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:159
+#: src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ ਕਰੋ"
 
+#: src/amo/components/GetFirefoxButton/index.js:162
+#, fuzzy
+msgid "You'll need Firefox to use this theme"
+msgstr "ਇਸ ਥੀਮ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
+
+#: src/amo/components/GetFirefoxButton/index.js:163
+#, fuzzy
+msgid "You'll need Firefox to use this extension"
+msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
+
 #: src/amo/components/Header/index.js:105
-msgid "Submit a New Add-on"
-msgstr "ਇੱਕ ਨਵਾਂ ਐਡ-ਆਨ ਦਰਜ ਕਰੋ"
-
-#: src/amo/components/Header/index.js:110
-msgid "Submit a New Theme"
-msgstr "ਇੱਕ ਨਵਾਂ ਥੀਮ ਭੇਜੋ"
-
-#: src/amo/components/Header/index.js:119
-msgid "Manage My Submissions"
-msgstr "ਮੇਰੀਆਂ ਪੇਸ਼ਕਸ਼ਾਂ ਦਾ ਬੰਦੋਬਸਤ ਕਰੋ"
-
-#: src/amo/components/Header/index.js:129
-msgid "Reviewer Tools"
-msgstr "ਸਮੀਖਿਅਕ ਸੰਦ"
-
-# "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:172
-msgid "Firefox Browser Add-ons"
-msgstr "ਫਾਇਰਫਾਕਸ ਬਰਾਊਜ਼ਰ ਐਡ-ਆਨ"
-
-#: src/amo/components/Header/index.js:210
-msgid "Learn how to create extensions and themes"
-msgstr "ਸਿੱਖੋ ਕਿ ਇਕਸਟੈਨਸ਼ਨ ਅਤੇ ਵਿਸ਼ੇ ਕਿਵੇਂ ਬਣਾਉਣੇ ਹਨ"
-
-#: src/amo/components/Header/index.js:220
-msgid "Submit and manage extensions and themes"
-msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਤੇ ਥੀਮ ਭੇਜੋ ਅਤੇ ਇੰਤਜ਼ਾਮ ਕਰੋ"
-
-#: src/amo/components/Header/index.js:73
-msgid "My Account"
-msgstr "ਮੇਰਾ ਖਾਤਾ"
-
-#: src/amo/components/Header/index.js:79
-msgid "View My Collections"
-msgstr "ਮੇਰੇ ਸੰਗ੍ਰਹਿ ਵੇਖੋ"
-
-#: src/amo/components/Header/index.js:87
-#: src/amo/pages/UserProfileEdit/index.js:567
-msgid "View My Profile"
-msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਦੇਖੋ"
-
-#: src/amo/components/Header/index.js:95
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਸੰਪਾਦਿਤ ਕਰੋ"
 
-#: src/amo/components/Header/index.js:99
+#: src/amo/components/Header/index.js:109
 msgid "Tools"
 msgstr "ਸੰਦ"
+
+#: src/amo/components/Header/index.js:115
+msgid "Submit a New Add-on"
+msgstr "ਇੱਕ ਨਵਾਂ ਐਡ-ਆਨ ਦਰਜ ਕਰੋ"
+
+#: src/amo/components/Header/index.js:120
+msgid "Submit a New Theme"
+msgstr "ਇੱਕ ਨਵਾਂ ਥੀਮ ਭੇਜੋ"
+
+#: src/amo/components/Header/index.js:129
+msgid "Manage My Submissions"
+msgstr "ਮੇਰੀਆਂ ਪੇਸ਼ਕਸ਼ਾਂ ਦਾ ਬੰਦੋਬਸਤ ਕਰੋ"
+
+#: src/amo/components/Header/index.js:139
+msgid "Reviewer Tools"
+msgstr "ਸਮੀਖਿਅਕ ਸੰਦ"
+
+# "Firefox" should not be translated. :-)
+#: src/amo/components/Header/index.js:186
+msgid "Firefox Browser Add-ons"
+msgstr "ਫਾਇਰਫਾਕਸ ਬਰਾਊਜ਼ਰ ਐਡ-ਆਨ"
+
+#: src/amo/components/Header/index.js:206
+msgid "Learn how to create extensions and themes"
+msgstr "ਸਿੱਖੋ ਕਿ ਇਕਸਟੈਨਸ਼ਨ ਅਤੇ ਵਿਸ਼ੇ ਕਿਵੇਂ ਬਣਾਉਣੇ ਹਨ"
+
+#: src/amo/components/Header/index.js:216
+msgid "Submit and manage extensions and themes"
+msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਤੇ ਥੀਮ ਭੇਜੋ ਅਤੇ ਇੰਤਜ਼ਾਮ ਕਰੋ"
+
+#: src/amo/components/Header/index.js:83
+msgid "My Account"
+msgstr "ਮੇਰਾ ਖਾਤਾ"
+
+#: src/amo/components/Header/index.js:89
+msgid "View My Collections"
+msgstr "ਮੇਰੇ ਸੰਗ੍ਰਹਿ ਵੇਖੋ"
+
+#: src/amo/components/Header/index.js:97
+#: src/amo/pages/UserProfileEdit/index.js:567
+msgid "View My Profile"
+msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਦੇਖੋ"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
@@ -1242,6 +1268,11 @@ msgid ""
 msgstr ""
 "ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ "
 "ਹਨ।"
+
+#: src/amo/components/HomepageShelves/index.js:69
+#, fuzzy
+msgid "See more %(categoryName)s"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1285,7 +1316,7 @@ msgstr "ਮੀਨੂ ਵਿੱਚ ਐਡ-ਆਨ ਕਲਿਕ ਕਰਕੇ ਆਪ
 msgid "OK"
 msgstr "ਠੀਕ ਹੈ"
 
-#: src/amo/components/InstallButtonWrapper/index.js:136
+#: src/amo/components/InstallButtonWrapper/index.js:146
 #, fuzzy
 msgid "Download file"
 msgstr "ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
@@ -1629,12 +1660,12 @@ msgstr ""
 msgid "Search results"
 msgstr "ਖੋਜ ਨਤੀਜੇ"
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:295
+#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:218
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/Search/index.js:149 src/amo/pages/Home/index.js:365
+#: src/amo/components/Search/index.js:149
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਥੀਮ"
@@ -1686,7 +1717,7 @@ msgstr "ਪ੍ਰਮਾਣਿਤ ਥੀਮ"
 msgid "Verified add-ons"
 msgstr "ਫੀਚਰ ਐਡ-ਆਨ"
 
-#: src/amo/components/Search/index.js:193 src/amo/pages/Home/index.js:378
+#: src/amo/components/Search/index.js:193
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਦਾ ਰੁਝਾਨ"
@@ -1714,11 +1745,11 @@ msgstr "ਸਿਖਰ ਤੇ ਦਿੱਤੇ ਗਏ ਵਿਸ਼ੇ"
 msgid "Top rated add-ons"
 msgstr "ਸਿਖਰ ਤੇ ਐਡ-ਆਨ ਸ਼ਾਮਲ"
 
-#: src/amo/components/Search/index.js:217 src/amo/pages/Home/index.js:338
+#: src/amo/components/Search/index.js:217
 msgid "Popular extensions"
 msgstr "ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/Search/index.js:220 src/amo/pages/Home/index.js:319
+#: src/amo/components/Search/index.js:220
 msgid "Popular themes"
 msgstr "ਹਰਮਨਪਿਆਰੇ ਥੀਮ"
 
@@ -2017,8 +2048,9 @@ msgstr ""
 "ਕਲਿੱਕ ਕਰੋ</a>।"
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
+#, fuzzy
 msgid ""
-"This add-on is not compatible with this browser. Try installing it on "
+"Add-ons are not compatible with Firefox for iOS. Try installing them on "
 "Firefox for desktop."
 msgstr ""
 "ਇਹ ਐਡ-ਆਨ ਇਸ ਬਰਾਊਜ਼ਰ ਦੇ ਅਨੁਕੂਲ ਨਹੀਂ ਹੈ। ਇਸਨੂੰ ਡੈਸਕਟਾਪ ਲਈ ਫਾਇਰਫਾਕਸ ਉੱਤੇ ਸਥਾਪਤ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ "
@@ -2090,17 +2122,17 @@ msgstr "ਵਿਕਾਸਕਾਰ ਟਿੱਪਣੀਆਂ"
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s ਲਈ ਰੀਲਿਜ਼ ਨੋਟਿਸ"
 
-#: src/amo/pages/Addon/index.js:467
+#: src/amo/pages/Addon/index.js:471
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "ਇਹ ਜਨਤਕ ਸੂਚੀ ਨਹੀਂ ਹੈ। ਉੱਚੇ ਅਧਿਕਾਰਾਂ ਦੇ ਕਾਰਨ ਤੁਸੀਂ ਇਸ ਨੂੰ ਕੇਵਲ ਦੇਖ ਰਹੇ ਹੋ।"
 
-#: src/amo/pages/Addon/index.js:494
+#: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਮੈਟਾਡੇਟਾ"
 
-#: src/amo/pages/Addon/index.js:518
+#: src/amo/pages/Addon/index.js:522
 msgid "Screenshots"
 msgstr "ਸਕਰੀਨਸ਼ਾਟ"
 
@@ -2263,31 +2295,31 @@ msgstr "%(categoryName)s"
 msgid "Extensions in %(categoryName)s"
 msgstr "%(count)s ਦਾ ਇਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
 
-#: src/amo/pages/Collection/index.js:405
+#: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
 msgstr "ਕੀ ਤੁਸੀਂ ਅਸਲ ਵਿੱਚ ਇਸ ਸੰਗ੍ਰਹਿ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/amo/pages/Collection/index.js:408
+#: src/amo/pages/Collection/index.js:403
 msgid "Delete this collection"
 msgstr "ਇਸ ਸੰਗ੍ਰਹਿ ਨੂੰ ਮਿਟਾਓ"
 
-#: src/amo/pages/Collection/index.js:427
+#: src/amo/pages/Collection/index.js:421
 msgid "Log in to create a collection"
 msgstr "ਇੱਕ ਸੰਗ੍ਰਹਿ ਬਣਾਉਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
-#: src/amo/pages/Collection/index.js:428
+#: src/amo/pages/Collection/index.js:422
 msgid "Log in to edit this collection"
 msgstr "ਇਸ ਭੰਡਾਰ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
-#: src/amo/pages/Collection/index.js:461
+#: src/amo/pages/Collection/index.js:455
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "ਪਹਿਲਾਂ, ਆਪਣਾ ਸੰਗ੍ਰਹਿ ਬਣਾਓ। ਫਿਰ ਤੁਸੀਂ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਨੂੰ ਜੋੜ ਸਕਦੇ ਹੋ।"
 
-#: src/amo/pages/Collection/index.js:464
+#: src/amo/pages/Collection/index.js:458
 msgid "Search for extensions and themes to add to your collection."
 msgstr "ਆਪਣੇ ਸੰਗ੍ਰਹਿ ਵਿੱਚ ਜੋੜਨ ਲਈ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਵਿਸ਼ਿਆਂ ਲਈ ਖੋਜ ਕਰੋ।"
 
-#: src/amo/pages/Collection/index.js:526
+#: src/amo/pages/Collection/index.js:516
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2295,7 +2327,7 @@ msgstr ""
 "ਮਨਪਸੰਦ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਦਾ ਟਰੈਕ ਰੱਖਣ ਲਈ ਫਾਇਰਫਾਕਸ ਸੰਗ੍ਰਿਹ ਡਾਊਨਲੋਡ ਕਰੋ ਅਤੇ ਬਣਾਓ। "
 "%(collectionName)s—%(collectionDescription)s ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/Collection/index.js:529
+#: src/amo/pages/Collection/index.js:519
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2331,35 +2363,23 @@ msgstr "ਸੰਗ੍ਰਹਿ ਬਣਾਓ"
 msgid "You do not have any collections."
 msgstr "ਤੁਹਾਡੇ ਕੋਲ ਕੋਈ ਸੰਗ੍ਰਹਿ ਨਹੀਂ ਹੈ।"
 
-#: src/amo/pages/Home/index.js:145
-msgid "Abstract"
-msgstr "ਸੰਖੇਪ"
-
-#: src/amo/pages/Home/index.js:150
-msgid "Nature"
-msgstr "ਕੁਦਰਤ"
-
-#: src/amo/pages/Home/index.js:155
-msgid "Film & TV"
-msgstr "ਫਿਲਮ ਅਤੇ ਟੀਵੀ"
-
-#: src/amo/pages/Home/index.js:160
+#: src/amo/pages/Home/index.js:103
 msgid "Scenery"
 msgstr "ਦ੍ਰਿਸ਼"
 
-#: src/amo/pages/Home/index.js:165
+#: src/amo/pages/Home/index.js:108
 msgid "Music"
 msgstr "ਸੰਗੀਤ"
 
-#: src/amo/pages/Home/index.js:170
+#: src/amo/pages/Home/index.js:113
 msgid "Seasonal"
 msgstr "ਮੌਸਮੀ"
 
-#: src/amo/pages/Home/index.js:224
+#: src/amo/pages/Home/index.js:163
 msgid "Change the way Firefox looks with themes."
 msgstr "ਫਾਇਰਫਾਕਸ ਨੂੰ ਥੀਮਾਂ ਦੇ ਰੂਪ ਵਿੱਚ ਵੇਖਣਾ ਬਦਲੋ।"
 
-#: src/amo/pages/Home/index.js:255
+#: src/amo/pages/Home/index.js:172
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2369,45 +2389,33 @@ msgstr ""
 "ਵਾਲੇ ਇਸ਼ਤਿਹਾਰ ਨੂੰ ਰੋਕ ਸਕਦੇ ਹਨ, ਪਾਸਵਰਡ ਸੰਭਾਲ ਸਕਦੇ ਹਨ, ਬਰਾਊਜ਼ਰ ਦਿੱਖ ਬਦਲ ਸਕਦੇ ਹਨ ਅਤੇ ਹੋਰ ਵੀ "
 "ਬਹੁਤ ਕੁਝ ਕਰ ਸਕਦੇ ਹਨ।"
 
-#: src/amo/pages/Home/index.js:296 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:219 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
 msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ੀ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:320
-msgid "See more popular themes"
-msgstr "ਵਧੇਰੇ ਪ੍ਰਸਿੱਧ ਥੀਮ ਵੇਖੋ"
+#: src/amo/pages/Home/index.js:88
+msgid "Abstract"
+msgstr "ਸੰਖੇਪ"
 
-#: src/amo/pages/Home/index.js:339
-msgid "See more popular extensions"
-msgstr "ਹੋਰ ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
+#: src/amo/pages/Home/index.js:93
+msgid "Nature"
+msgstr "ਕੁਦਰਤ"
 
-#: src/amo/pages/Home/index.js:356 src/amo/pages/LandingPage/index.js:165
-msgid "See more recommended themes"
-msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਥੀਮ ਵੇਖੋ"
+#: src/amo/pages/Home/index.js:98
+msgid "Film & TV"
+msgstr "ਫਿਲਮ ਅਤੇ ਟੀਵੀ"
 
-#: src/amo/pages/Home/index.js:379 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
 msgstr "ਵੱਧ ਰੁਝਾਨ ਵਾਲੀਆਂ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
-
-#: src/amo/pages/Home/index.js:61
-msgid "See more enhanced privacy extensions"
-msgstr "ਹੋਰ ਵਾਧਾ ਕੀਤੀਆਂ ਪਰਦੇਦਾਰੀ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
-
-#: src/amo/pages/Home/index.js:62
-msgid "Enhanced privacy extensions"
-msgstr "ਵਾਧਾ ਕੀਤੀਆਂ ਪਰਦੇਦਾਰੀ ਇਕਟੈਨਸ਼ਨਾਂ"
-
-#: src/amo/pages/Home/index.js:67
-msgid "See more recommended password managers"
-msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਪਾਸਵਰਡ ਮੈਨੇਜਰ ਵੇਖੋ"
-
-#: src/amo/pages/Home/index.js:68
-msgid "Recommended password managers"
-msgstr "ਸਿਫਾਰਸ਼ੀ ਪਾਸਵਰਡ ਮੈਨੇਜਰ"
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
 msgstr "ਵਧੇਰੇ ਉੱਚ ਰੇਟ ਦਿੱਤੀਆਂ ਇਕਟੈਨਸ਼ਨਾਂ ਦੇਖੋ"
+
+#: src/amo/pages/LandingPage/index.js:165
+msgid "See more recommended themes"
+msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਥੀਮ ਵੇਖੋ"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
@@ -3237,6 +3245,24 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਸਫ਼ਲਤਾਪੂਰਨ ਅੱਪਗਰੇਡ ਹੋਈ"
+
+#~ msgid "See more popular themes"
+#~ msgstr "ਵਧੇਰੇ ਪ੍ਰਸਿੱਧ ਥੀਮ ਵੇਖੋ"
+
+#~ msgid "See more popular extensions"
+#~ msgstr "ਹੋਰ ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
+
+#~ msgid "See more enhanced privacy extensions"
+#~ msgstr "ਹੋਰ ਵਾਧਾ ਕੀਤੀਆਂ ਪਰਦੇਦਾਰੀ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
+
+#~ msgid "Enhanced privacy extensions"
+#~ msgstr "ਵਾਧਾ ਕੀਤੀਆਂ ਪਰਦੇਦਾਰੀ ਇਕਟੈਨਸ਼ਨਾਂ"
+
+#~ msgid "See more recommended password managers"
+#~ msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਪਾਸਵਰਡ ਮੈਨੇਜਰ ਵੇਖੋ"
+
+#~ msgid "Recommended password managers"
+#~ msgstr "ਸਿਫਾਰਸ਼ੀ ਪਾਸਵਰਡ ਮੈਨੇਜਰ"
 
 #~ msgid ""
 #~ "Download Firefox extensions to customize the way you search—everything "
