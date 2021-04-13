@@ -114,7 +114,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: GET_FIREFOX_BANNER_CLICK_ACTION,
-        category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+        category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${VARIANT_NEW}`,
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
     });
