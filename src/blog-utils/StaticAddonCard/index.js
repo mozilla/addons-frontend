@@ -75,6 +75,7 @@ export const StaticAddonCardBase = ({
         <GetFirefoxButton
           addon={addon}
           buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+          useNewVersion
         />
       </div>
     </div>
