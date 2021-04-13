@@ -89,6 +89,16 @@ export const getDownloadCampaign = ({
   return campaign;
 };
 
+export const getDownloadCategory = (variant?: string): string => {
+  let category = GET_FIREFOX_BUTTON_CLICK_CATEGORY;
+
+  if (variant) {
+    category = `${category}-${variant}`;
+  }
+
+  return category;
+};
+
 export const GetFirefoxButtonBase = ({
   _encode = encode,
   _getPromotedCategory = getPromotedCategory,
@@ -116,7 +126,7 @@ export const GetFirefoxButtonBase = ({
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BUTTON_CLICK_ACTION,
-      category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
+      category: getDownloadCategory(variant),
       label: addon ? addon.guid : '',
     });
   };
