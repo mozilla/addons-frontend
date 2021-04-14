@@ -32,21 +32,14 @@ import {
   UNINSTALL_THEME_CATEGORY,
 } from 'amo/constants';
 import log from 'amo/logger';
-import { storeTrackingEvent } from 'amo/reducers/tracking';
 import { convertBoolean } from 'amo/utils';
-import type { DispatchFunc } from 'amo/types/redux';
 
-export type TrackingEvent = {|
+export type SendTrackingEventParams = {|
+  _config?: typeof config,
   action: string,
   category: string,
   label?: string,
   value?: number,
-|};
-
-export type SendTrackingEventParams = {|
-  ...TrackingEvent,
-  _config?: typeof config,
-  dispatch?: DispatchFunc,
 |};
 
 type IsDoNoTrackEnabledParams = {|
@@ -227,7 +220,6 @@ export class Tracking {
     _config = config,
     action,
     category,
-    dispatch,
     label,
     value,
   }: SendTrackingEventParams = {}) {
@@ -239,14 +231,7 @@ export class Tracking {
     }
 
     if (_config.get('server')) {
-      if (dispatch) {
-        const event = { action, category, label, value };
-        dispatch(storeTrackingEvent({ event }));
-      } else {
-        throw new Error(
-          'The dispatch argument must be provided to sendEvent when being called on the server',
-        );
-      }
+      throw new Error('sendEvent: cannot send tracking events on the server');
     } else {
       const data = {
         hitType: 'event',

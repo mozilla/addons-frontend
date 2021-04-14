@@ -35,7 +35,6 @@ import {
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
 } from 'amo/constants';
-import { storeTrackingEvent } from 'amo/reducers/tracking';
 import {
   fakeTrackingEvent,
   getFakeConfig,
@@ -250,36 +249,15 @@ describe(__filename, () => {
         });
       });
 
-      it('should dispatch storeTrackingEvent on the server', () => {
+      it('should throw an error if called on the server', () => {
         const _config = getFakeConfig({ server: true });
-        const fakeDispatch = sinon.spy();
-        const event = fakeTrackingEvent;
-        const tracking = createTracking();
-        tracking.sendEvent({
-          _config,
-          dispatch: fakeDispatch,
-          ...event,
-        });
-        sinon.assert.calledWith(
-          fakeDispatch,
-          storeTrackingEvent({
-            event,
-          }),
-        );
-      });
-
-      it('should throw an error if called on the server without dispatch', () => {
-        const _config = getFakeConfig({ server: true });
-        const event = fakeTrackingEvent;
         const tracking = createTracking();
         expect(() => {
           tracking.sendEvent({
             _config,
-            ...event,
+            ...fakeTrackingEvent,
           });
-        }).toThrow(
-          'The dispatch argument must be provided to sendEvent when being called on the server',
-        );
+        }).toThrow('sendEvent: cannot send tracking events on the server');
       });
     });
   });

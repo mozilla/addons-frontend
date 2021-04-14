@@ -70,21 +70,6 @@ export default async function createClient(
     _tracking.pageView({ title: '' });
   });
 
-  // If there are queued GA events to send, send them, and clear them from state.
-  const trackingEvents = initialState && initialState.tracking.events;
-  if (trackingEvents && trackingEvents.length) {
-    initialState.tracking.events = [];
-    for (const event of trackingEvents) {
-      const { action, category, label, value } = event;
-      _tracking.sendEvent({
-        action,
-        category,
-        label,
-        value,
-      });
-    }
-  }
-
   const { sagaMiddleware, store } = createStore({ history, initialState });
 
   if (sagas && sagaMiddleware) {
