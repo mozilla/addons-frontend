@@ -31,6 +31,8 @@ textarea {
 *::before,
 *::after {
   box-sizing: inherit;
+  // This is needed for Safari, which does not support `anywhere`.
+  overflow-wrap: break-word;
   // We use `anywhere` instead of `break-word` so that it works even when the
   // container does not have a well-defined width.
 
