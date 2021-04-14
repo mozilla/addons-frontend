@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-14 05:48+0000\n"
+"PO-Revision-Date: 2021-04-14 09:01+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -1039,7 +1039,7 @@ msgstr "Ontwikkelaarshub"
 
 #: src/amo/components/GetFirefoxBanner/index.js:73
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "Om deze add-ons te gebruiken, moet u %(linkStart)sFirefox downloaden%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Only with Firefox—Get Firefox Now"
@@ -1051,7 +1051,7 @@ msgstr "Firefox downloaden en het thema ontvangen"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "Firefox downloaden en de extensie ontvangen"
 
 #: src/amo/components/GetFirefoxButton/index.js:159 src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
