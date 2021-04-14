@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-14 08:07+0000\n"
+"PO-Revision-Date: 2021-04-14 08:08+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1132,9 +1132,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Το Firefox προτείνει μόνο τις επεκτάσεις που πληρούν τα πρότυπα ασφαλείας και επιδόσεων μας."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Θέματα στην κατηγορία %(categoryName)s"
+msgstr "Δείτε περισσότερα στην κατηγορία %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1827,9 +1826,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Για να βρείτε πρόσθετα που είναι συμβατά με το Firefox για Android, <a href=\"%(newLocation)s\">κάντε κλικ εδώ</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Αυτό το πρόσθετο δεν είναι συμβατό με αυτό το πρόγραμμα περιήγησης. Δοκιμάστε να το εγκαταστήσετε στο Firefox για υπολογιστές."
+msgstr "Τα πρόσθετα δεν είναι συμβατά με το Firefox για iOS. Δοκιμάστε να τα εγκαταστήσετε στο Firefox για υπολογιστές."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
