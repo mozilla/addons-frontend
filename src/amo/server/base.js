@@ -4,6 +4,7 @@ import https from 'https';
 
 import 'amo/polyfill';
 import { oneLine } from 'common-tags';
+import compression from 'compression';
 import defaultConfig from 'config';
 import Express from 'express';
 import httpContext from 'express-http-context';
@@ -172,6 +173,9 @@ function baseServer(
   }
 
   app.use(middleware.responseTime({ _config: config, _HotShots }));
+
+  // Enable gzip compression
+  app.use(compression());
 
   // Set HTTP Strict Transport Security headers
   app.use(middleware.hsts());
