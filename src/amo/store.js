@@ -40,7 +40,6 @@ import installations from 'amo/reducers/installations';
 import redirectTo from 'amo/reducers/redirectTo';
 import search from 'amo/reducers/search';
 import site from 'amo/reducers/site';
-import tracking from 'amo/reducers/tracking';
 import uiState from 'amo/reducers/uiState';
 import versions from 'amo/reducers/versions';
 import log from 'amo/logger';
@@ -67,7 +66,6 @@ import type { InstallationsState } from 'amo/reducers/installations';
 import type { RedirectToState } from 'amo/reducers/redirectTo';
 import type { SearchState } from 'amo/reducers/search';
 import type { SiteState } from 'amo/reducers/site';
-import type { TrackingState } from 'amo/reducers/tracking';
 import type { UIStateState } from 'amo/reducers/uiState';
 import type { VersionsState } from 'amo/reducers/versions';
 import type { ReactRouterHistoryType, LocationType } from 'amo/types/router';
@@ -157,7 +155,6 @@ type InternalAppState = {|
   reviews: ReviewsState,
   search: SearchState,
   site: SiteState,
-  tracking: TrackingState,
   uiState: UIStateState,
   userAbuseReports: UserAbuseReportsState,
   users: UsersState,
@@ -214,7 +211,6 @@ export const reducers: AppReducersType = {
   reviews,
   search,
   site,
-  tracking,
   uiState,
   userAbuseReports,
   users,

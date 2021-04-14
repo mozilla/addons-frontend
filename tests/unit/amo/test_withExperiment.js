@@ -13,7 +13,6 @@ import {
 } from 'amo/withExperiment';
 import {
   createFakeTracking,
-  dispatchClientMetadata,
   fakeCookies,
   fakeVariant,
   getFakeConfig,
@@ -36,11 +35,11 @@ describe(__filename, () => {
   };
 
   const renderWithExperiment = ({
-    configOverrides = {},
+    // By default all tests are run on the client.
+    configOverrides = { server: false },
     cookies = fakeCookies(),
     experimentProps,
     props,
-    store = dispatchClientMetadata().store,
   } = {}) => {
     const id = (experimentProps && experimentProps.id) || makeId('some-id');
     const allExperimentProps = {
@@ -68,7 +67,7 @@ describe(__filename, () => {
     // See: https://github.com/mozilla/addons-frontend/issues/6839
     //
     // 1. Render everything
-    const root = shallow(<SomeComponent store={store} {...props} />);
+    const root = shallow(<SomeComponent {...props} />);
     // 2. Get and render the withExperiment HOC (inside withCookies() HOC)
     return shallow(root.props().children(cookies));
   };
@@ -76,9 +75,7 @@ describe(__filename, () => {
   const render = (props = {}) => {
     const root = renderWithExperiment(props);
     // Return the wrapped instance (`SomeComponentBase`)
-    // We have to dive twice because of the withCookies HOC and the connect
-    // wrapper.
-    return root.dive().dive();
+    return root.dive();
   };
 
   it('injects a variant prop', () => {
@@ -182,6 +179,7 @@ describe(__filename, () => {
         [experimentId]: true,
         [anotherExperimentId]: true,
       },
+      server: false,
     };
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
@@ -217,6 +215,7 @@ describe(__filename, () => {
         [experimentId]: true,
         [anotherExperimentId]: false,
       },
+      server: false,
     };
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
@@ -266,19 +265,20 @@ describe(__filename, () => {
     });
     const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
     const _tracking = createFakeTracking();
-    const { store } = dispatchClientMetadata();
 
     render({
       cookies,
       experimentProps: { _tracking, id: experimentId },
-      props: { _getVariant, store },
+      props: { _getVariant },
     });
 
-    sinon.assert.calledWith(_tracking.sendEvent, {
-      action: variantId,
-      category: [EXPERIMENT_ENROLLMENT_CATEGORY, experimentId].join(' '),
-      dispatch: store.dispatch,
-    });
+    sinon.assert.calledWith(
+      _tracking.sendEvent,
+      sinon.match({
+        action: variantId,
+        category: [EXPERIMENT_ENROLLMENT_CATEGORY, experimentId].join(' '),
+      }),
+    );
   });
 
   it('does not send an enrollment event if the user is not in the experiment', () => {
