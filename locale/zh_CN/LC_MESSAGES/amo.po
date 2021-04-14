@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-14 01:33+0000\n"
+"PO-Revision-Date: 2021-04-14 01:43+0000\n"
 "Last-Translator: 你我皆凡人 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -601,7 +601,6 @@ msgid "Log out"
 msgstr "退出"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "注册或登录"
 
@@ -1032,9 +1031,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "只能用于 Firefox — 获取 Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "下载 Firefox"
+msgstr "下载 Firefox 并安装主题"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1045,14 +1043,12 @@ msgid "Download Firefox"
 msgstr "下载 Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "登录以评价此主题"
+msgstr "您需要 Firefox 来使用此主题"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "登录以评价此扩展"
+msgstr "您需要 Firefox 来使用此扩展"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1125,9 +1121,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox 只推荐符合我们的安全和性能标准的扩展。"
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s 中的主题"
+msgstr "看看更多 %(categoryName)s 结果"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1806,9 +1801,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "要寻找兼容于 Firefox Android 版的附加组件，请<a href=\"%(newLocation)s\">点击此处</a>。"
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "这个附加组件不兼容于此浏览器。请尝试在 Firefox 桌面版上进行安装。"
+msgstr "附加组件不兼容于 iOS 版 Firefox。请尝试在桌面版 Firefox 上安装。"
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
