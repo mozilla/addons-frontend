@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-14 12:35+0000\n"
+"PO-Revision-Date: 2021-04-14 12:39+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -605,7 +605,6 @@ msgid "Log out"
 msgstr "Ofmelde"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "Registrearje of oanmelde"
 
@@ -1046,9 +1045,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "Allinnich mei Firefox – Download Firefox no"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Download Firefox"
+msgstr "Firefox downloade en it tema ûntfange"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1059,14 +1057,12 @@ msgid "Download Firefox"
 msgstr "Download Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Meld jo oan om dit tema te wurdearjen"
+msgstr "Jo hawwe Firefox nedich om dit tema te brûken"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Meld jo oan om dizze útwreiding te wurdearjen"
+msgstr "Jo hawwe Firefox nedich om dizze útwreiding te brûken"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1139,9 +1135,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox rekommandearret allinnich útwreidingen oan dy't oan ús standert foar feilichheid en prestaasjes foldogge."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Tema’s yn %(categoryName)s"
+msgstr "Mear %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1834,9 +1829,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "<a href=\"%(newLocation)s\">Klik hjir</a> om add-ons dy't kompatibel binne mei Firefox foar Android te sykjen."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Dizze add-on is net kompatibel mei dizze browser. Probearje it te ynstallearjen op Firefox foar desktop."
+msgstr "Add-on binne net kompatibel mei Firefox foar iOS. Probearje se yn Firefox foar desktop te ynstallearjen."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
