@@ -26,6 +26,13 @@ import { getDisplayName } from 'amo/utils';
  *        in the experiment, assign a percentage to the special
  *        `NOT_IN_EXPERIMENT` variant.
  *
+ *  Note: Experiments are only executed on the client. The component will
+ *        initially be rendered with `variant === null`. Therefore the
+ *        version of the component that will be the least disruptive should
+ *        be generated when `variant === null`. Once a variant is determined
+ *        on the client, the layout of the component will change to match that
+ *        of the variant.
+ *
  *  Example:
  *
  *     withExperiment({
@@ -164,9 +171,7 @@ export const withExperiment = ({
 
     static displayName = `WithExperiment(${getDisplayName(WrappedComponent)})`;
 
-    constructor(props: withExperimentInternalProps) {
-      super(props);
-
+    componentDidMount() {
       const {
         _getVariant,
         _isExperimentEnabled,

@@ -35,8 +35,7 @@ describe(__filename, () => {
   };
 
   const renderWithExperiment = ({
-    // By default all tests are run on the client.
-    configOverrides = { server: false },
+    configOverrides = {},
     cookies = fakeCookies(),
     experimentProps,
     props,
@@ -50,6 +49,7 @@ describe(__filename, () => {
         },
         ...configOverrides,
       }),
+      _tracking: createFakeTracking(),
       id,
       ...experimentProps,
     };
@@ -179,7 +179,6 @@ describe(__filename, () => {
         [experimentId]: true,
         [anotherExperimentId]: true,
       },
-      server: false,
     };
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
@@ -215,7 +214,6 @@ describe(__filename, () => {
         [experimentId]: true,
         [anotherExperimentId]: false,
       },
-      server: false,
     };
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
