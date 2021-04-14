@@ -49,9 +49,10 @@ export class HeaderBase extends React.Component {
     siteUser: PropTypes.object,
     userAgentInfo: PropTypes.object,
     variant: PropTypes.string,
+    withBlogUI: PropTypes.bool,
   };
 
-  static defaultProps = { _config: config };
+  static defaultProps = { _config: config, withBlogUI: false };
 
   handleLogOut = (event) => {
     event.preventDefault();
@@ -61,6 +62,7 @@ export class HeaderBase extends React.Component {
 
   renderMenuOrAuthButton() {
     const {
+      withBlogUI,
       i18n,
       isReviewer,
       loadedPageIsAnonymous,
@@ -68,7 +70,7 @@ export class HeaderBase extends React.Component {
       siteUser,
     } = this.props;
 
-    if (loadedPageIsAnonymous) {
+    if (withBlogUI || loadedPageIsAnonymous) {
       // The server has loaded a page that is marked as anonymous so we do not
       // want to render any menu or authentication button here so that
       // logged-in users are not confused.
@@ -169,6 +171,7 @@ export class HeaderBase extends React.Component {
     const {
       _config,
       clientApp,
+      withBlogUI,
       i18n,
       isAddonDetailPage,
       isHomePage,
@@ -239,12 +242,17 @@ export class HeaderBase extends React.Component {
           </div>
 
           {clientApp === CLIENT_APP_FIREFOX ? (
-            <SectionLinks className="Header-SectionLinks" location={location} />
+            <SectionLinks
+              className="Header-SectionLinks"
+              location={location}
+              withBlogUI={withBlogUI}
+            />
           ) : null}
 
           <div className="Header-user-and-external-links">
             {otherSiteLinks}
-            {variant !== VARIANT_NEW ? (
+
+            {!withBlogUI && variant !== VARIANT_NEW ? (
               <GetFirefoxButton
                 buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
                 className="Header-download-button Header-button"
@@ -254,12 +262,14 @@ export class HeaderBase extends React.Component {
             {this.renderMenuOrAuthButton()}
           </div>
 
-          <SearchForm
-            className={makeClassName('Header-search-form', {
-              'Header-search-form--desktop': clientApp === CLIENT_APP_FIREFOX,
-            })}
-            pathname="/search/"
-          />
+          {!withBlogUI && (
+            <SearchForm
+              className={makeClassName('Header-search-form', {
+                'Header-search-form--desktop': clientApp === CLIENT_APP_FIREFOX,
+              })}
+              pathname="/search/"
+            />
+          )}
         </div>
       </header>
     );

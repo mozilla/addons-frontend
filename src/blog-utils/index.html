@@ -27,9 +27,7 @@
 		</style>
 	</head>
 	<body>
-		<header>
-			<h1>addons-frontend-blog-utils</h1>
-		</header>
+		<header id="header"></header>
 
 		<div class="content">
 			<p>User-Agent switcher:</p>
@@ -54,6 +52,7 @@
 			}
 		});
 
+		document.querySelector('#header').outerHTML = AddonsFrontendBlogUtils.buildHeader();
 		document.querySelector('#footer').outerHTML = AddonsFrontendBlogUtils.buildFooter();
 	</script>
 </html>
