@@ -231,6 +231,10 @@ export class Tracking {
     }
 
     if (_config.get('server')) {
+      // It is not possible to send GA events from the server, but a developer
+      // might call this function from code that executes on the server. This
+      // exception will act as a warning that the code should be altered or
+      // moved.
       throw new Error('sendEvent: cannot send tracking events on the server');
     } else {
       const data = {
