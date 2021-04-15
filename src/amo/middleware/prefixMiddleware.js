@@ -18,12 +18,12 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   const URLPathParts = URLParts[0].replace(/^\//, '').split('/');
   log.debug(`path: ${URLParts[0]}, URLPathParts: [${[URLPathParts]}]`);
 
-  // Get the application from the UA if one wasn't specified in the URL (or
+  // Get the application from the UA in case one wasn't specified in the URL (or
   // if it turns out to be invalid).
   const userAgentApp = getClientApp(req.headers['user-agent']);
+  let isApplicationFromHeader = false;
   // Get language from URL or fall-back to detecting it from accept-language
   // header.
-  let isApplicationFromHeader = false;
   const acceptLanguage = req.headers['accept-language'];
   const { lang, isLangFromHeader } = getLanguage({
     lang: URLPathParts[0],
@@ -85,7 +85,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
 
   if (
     (hasValidLocaleException || hasValidClientAppUrlException) &&
-    clientAppRoutes.includes(URLPathParts[2]) === false &&
+    !clientAppRoutes.includes(URLPathParts[2]) &&
     (hasValidLang || hasValidLocaleException)
   ) {
     log.debug('Exception in URL found; we fallback to addons-server.');
