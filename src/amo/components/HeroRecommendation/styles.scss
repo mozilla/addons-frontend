@@ -83,7 +83,7 @@
   opacity: 0.5;
 
   @include respond-to(medium) {
-    font-size: $font-size-hero-m;
+    font-size: $font-size-l;
   }
 
   @include respond-to(extraExtraLarge) {
@@ -125,7 +125,7 @@
   margin: 14px 0 0 0;
 
   @include respond-to(extraExtraLarge) {
-    font-size: $font-size-hero-heading;
+    font-size: $font-size-heading-m;
   }
 }
 
@@ -137,7 +137,7 @@
   margin: 18px 0 24px 0;
 
   @include respond-to(medium) {
-    font-size: $font-size-hero-body;
+    font-size: $font-size-heading-xs;
   }
 
   @include respond-to(extraExtraLarge) {

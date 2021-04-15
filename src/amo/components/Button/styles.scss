@@ -1,7 +1,6 @@
 @import '~amo/css/styles';
 
-$micro-font-size: 11px;
-$default-font-size: 13px;
+$micro-font-size: $font-size-xs;
 
 /* Button */
 @mixin button(
@@ -33,20 +32,20 @@ $default-font-size: 13px;
   .Icon {
     @include margin-end(6px);
 
-    height: $default-font-size;
-    width: $default-font-size;
+    height: $font-size-default;
+    width: $font-size-default;
   }
 
   // We frustratingly target :link directly so we need this override.
   &,
   &:link {
     color: $color;
-    font-size: $font-size-m;
+    font-size: $font-size-default;
     font-weight: 400;
 
     &.Button--puffy {
       border-radius: 4px;
-      font-size: $font-size-puffy-buttons;
+      font-size: $font-size-default;
       height: auto;
       min-height: 48px;
       padding: 0 16px;
@@ -54,8 +53,8 @@ $default-font-size: 13px;
       .Icon {
         @include margin-end(8px);
 
-        height: $font-size-puffy-buttons;
-        width: $font-size-puffy-buttons;
+        height: $font-size-default;
+        width: $font-size-default;
       }
     }
 

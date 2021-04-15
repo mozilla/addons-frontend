@@ -22,7 +22,7 @@ textarea {
   border-radius: $border-radius-xs;
   box-shadow: none;
   color: $black;
-  font-size: $font-size-m;
+  font-size: $font-size-default;
   padding: 4px;
 }
 
@@ -63,13 +63,13 @@ h1 {
 }
 
 h2 {
-  font-size: 12px;
+  font-size: $font-size-l;
 }
 
 h3 {
   @include font-bold();
 
-  font-size: 14px;
+  font-size: $font-size-default;
   line-height: $line-height-compressed;
 }
 
@@ -89,12 +89,12 @@ strong {
 
 .caption {
   color: $primary-font-color;
-  font-size: 10px;
+  font-size: $font-size-xs;
 }
 
 .date-time {
   color: #b1b1b1;
-  font-size: 14px;
+  font-size: $font-size-default;
 }
 
 button {

@@ -30,14 +30,13 @@
   @include font-regular();
   @include text-align-start();
 
-  font-size: $font-size-form-header;
+  font-size: $font-size-heading-xs;
 }
 
 .AddonVersionCard-version {
   @include font-medium();
 
   color: $link-color;
-  font-size: $font-size-l;
 }
 
 .AddonVersionCard-fileInfo,

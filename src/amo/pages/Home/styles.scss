@@ -57,7 +57,7 @@
 }
 
 .Home-SubjectShelf-subheading {
-  font-size: $font-size-m;
+  font-size: $font-size-default;
   margin: 0;
 }
 
@@ -99,7 +99,7 @@
 .Home-SubjectShelf-link {
   align-items: center;
   display: flex;
-  font-size: $font-size-m;
+  font-size: $font-size-default;
   text-decoration: none;
 
   @include respond-to(large) {
@@ -173,7 +173,7 @@
 }
 
 .Home-heroHeader-subtitle {
-  font-size: 20px;
+  font-size: $font-size-heading-xs;
   font-weight: normal;
   margin: $padding-page 0 $padding-page-l;
 
