@@ -16,105 +16,96 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
 
   // Split on slashes after removing the leading slash.
   const URLPathParts = URLParts[0].replace(/^\//, '').split('/');
+  log.debug(`path: ${URLParts[0]}, URLPathParts: [${[URLPathParts]}]`);
 
-  // Get lang and app parts from the URL. At this stage they may be incorrect
-  // or missing.
-  const [langFromURL, appFromURL] = URLPathParts;
-
+  // Get the application from the UA in case one wasn't specified in the URL (or
+  // if it turns out to be invalid).
+  const userAgentApp = getClientApp(req.headers['user-agent']);
+  let isApplicationFromHeader = false;
   // Get language from URL or fall-back to detecting it from accept-language
   // header.
   const acceptLanguage = req.headers['accept-language'];
   const { lang, isLangFromHeader } = getLanguage({
-    lang: langFromURL,
+    lang: URLPathParts[0],
     acceptLanguage,
   });
-  // Get the application from the UA if one wasn't specified in the URL (or
-  // if it turns out to be invalid).
-  const application = getClientApp(req.headers['user-agent']);
+
+  const hasValidLang = isValidLang(URLPathParts[0]);
+  const hasValidClientAppInPartOne = isValidClientApp(URLPathParts[0], {
+    _config,
+  });
+  const hasValidClientAppInPartTwo = isValidClientApp(URLPathParts[1], {
+    _config,
+  });
+  const hasValidClientAppUrlExceptionInPartTwo = isValidClientAppUrlException(
+    URLPathParts[1],
+    {
+      _config,
+    },
+  );
+
+  // "Fix" URLPathParts to always start /locale/clientApp/
+  if (hasValidLang && hasValidClientAppInPartTwo) {
+    log.debug('URL already has a valid lang and clientApp, nothing to fix');
+  } else if (hasValidLang) {
+    log.debug(`Prepending clientApp to URL: ${userAgentApp}`);
+    URLPathParts.splice(1, 0, userAgentApp);
+    isApplicationFromHeader = true;
+  } else if (hasValidClientAppInPartOne) {
+    log.debug(`Prepending lang to URL: ${lang}`);
+    URLPathParts.splice(0, 0, lang);
+  } else if (
+    hasValidClientAppInPartTwo ||
+    hasValidClientAppUrlExceptionInPartTwo
+  ) {
+    log.debug(`Replacing lang in URL: ${URLPathParts[0]} with ${lang}`);
+    URLPathParts.splice(0, 1, lang);
+  } else {
+    log.debug(`Prepending lang and clientApp to URL: ${lang}/${userAgentApp}`);
+    URLPathParts.splice(0, 0, lang, userAgentApp);
+    isApplicationFromHeader = true;
+  }
+
+  const hasValidLocaleException = isValidLocaleUrlException(URLPathParts[2], {
+    _config,
+  });
+  const hasValidClientAppUrlException = isValidClientAppUrlException(
+    URLPathParts[2],
+    {
+      _config,
+    },
+  );
+  if (hasValidClientAppUrlException) {
+    isApplicationFromHeader = false;
+  }
+
   // clientApp values that are allowed through to the router
   // TODO: This can be removed when we upgrade to react-router v4.
   const clientAppRoutes = _config.get('clientAppRoutes');
 
-  const hasValidLang = isValidLang(langFromURL);
-  const hasValidLocaleException = isValidLocaleUrlException(appFromURL, {
-    _config,
-  });
-  const hasValidClientApp = isValidClientApp(appFromURL, { _config });
-  let hasValidClientAppUrlException = isValidClientAppUrlException(appFromURL, {
-    _config,
-  });
-
-  let isApplicationFromHeader = false;
-  let prependedOrMovedApplication = false;
-
-  if (hasValidLocaleException) {
-    log.debug(oneLine`Second part of URL is a locale exception
-      (${URLPathParts[1]}); make sure the clientApp is valid`);
-
-    // Normally we look for a clientApp in the second part of a URL, but URLs
-    // that match a locale exception don't have a locale so we look for the
-    // clientApp in the first part of the URL.
-    if (!isValidClientApp(langFromURL, { _config })) {
-      URLPathParts[0] = application;
-      isApplicationFromHeader = true;
-      prependedOrMovedApplication = true;
-    }
-  } else if (
-    (hasValidLang && langFromURL !== lang) ||
-    hasValidClientApp ||
-    hasValidClientAppUrlException
+  if (
+    (hasValidLocaleException || hasValidClientAppUrlException) &&
+    !clientAppRoutes.includes(URLPathParts[2]) &&
+    (hasValidLang || hasValidLocaleException)
   ) {
-    // Replace the first part of the URL if:
-    // * It's valid and we've mapped it e.g: pt -> pt-PT.
-    // * The lang is invalid but we have a valid application
-    //   e.g. /bogus/firefox/.
-    log.debug(`Replacing lang in URL ${URLPathParts[0]} -> ${lang}`);
-    URLPathParts[0] = lang;
-  } else if (isValidLocaleUrlException(URLPathParts[0], { _config })) {
-    log.debug(`Prepending clientApp to URL: ${application}`);
-    URLPathParts.splice(0, 0, application);
-    isApplicationFromHeader = true;
-    prependedOrMovedApplication = true;
-  } else if (!hasValidLang) {
-    // If lang wasn't valid or was missing prepend one.
-    log.debug(`Prepending lang to URL: ${lang}`);
-    URLPathParts.splice(0, 0, lang);
-    // If we've prepended the lang to the URL we need to re-check our
-    // URL exception and make sure it's valid.
-    hasValidClientAppUrlException = isValidClientAppUrlException(
-      URLPathParts[1],
-      {
-        _config,
-      },
-    );
+    log.debug('Exception in URL found; we fallback to addons-server.');
+    // TODO: Remove this once upgraded to react-router 4.
+    res.status(404).end(oneLine`This page does not exist in addons-frontend.
+      Returning 404; this error should trigger upstream (usually
+      addons-server) to return a valid response.`);
+    return next();
   }
 
-  if (!hasValidClientApp && isValidClientApp(URLPathParts[1], { _config })) {
-    // We skip prepending an app if we'd previously prepended a lang and the
-    // 2nd part of the URL is now a valid app.
-    log.debug('Application in URL is valid following prepending a lang.');
-  } else if (prependedOrMovedApplication) {
-    log.debug(
-      'URL is valid because we added/changed the first part to a clientApp.',
-    );
-  } else if (hasValidLocaleException || hasValidClientAppUrlException) {
-    if (
-      clientAppRoutes.includes(URLPathParts[1]) === false &&
-      (hasValidLang || hasValidLocaleException)
-    ) {
-      log.debug('Exception in URL found; we fallback to addons-server.');
-      // TODO: Remove this once upgraded to react-router 4.
-      res.status(404).end(oneLine`This page does not exist in addons-frontend.
-        Returning 404; this error should trigger upstream (usually
-        addons-server) to return a valid response.`);
-      return next();
-    }
-    log.debug('Exception in URL found; prepending lang to URL.');
-  } else if (!hasValidClientApp) {
-    // If the app supplied is not valid we need to prepend one.
-    log.debug(`Prepending application to URL: ${application}`);
-    URLPathParts.splice(1, 0, application);
-    isApplicationFromHeader = true;
+  // Now drop lang and clientApp if required from URLPaths
+  if (hasValidLocaleException && hasValidClientAppUrlException) {
+    log.debug('URL is a locale and a clientApp exception.');
+    URLPathParts.splice(0, 2);
+  } else if (hasValidLocaleException) {
+    log.debug('URL is a locale exception.');
+    URLPathParts.splice(0, 1);
+  } else if (hasValidClientAppUrlException) {
+    log.debug('URL is a clientApp exception.');
+    URLPathParts.splice(1, 1);
   }
 
   // Redirect to the new URL.
@@ -142,7 +133,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   res.locals.lang = newLang;
   // The newApp part of the URL might not be a client application
   // so it's important to re-check that here before assuming it's good.
-  res.locals.clientApp = isValidClientApp(newApp) ? newApp : application;
+  res.locals.clientApp = isValidClientApp(newApp) ? newApp : userAgentApp;
   // Get detailed info on the current user agent so we can make sure add-ons
   // are compatible with the current clientApp/version combo.
   res.locals.userAgent = req.headers['user-agent'];
