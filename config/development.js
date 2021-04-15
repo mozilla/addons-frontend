@@ -82,6 +82,8 @@ module.exports = {
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 
+  enableFeatureLinkToNewBlog: true,
+
   experiments: {
     '20210404_download_cta_experiment': true,
   },

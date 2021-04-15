@@ -10,6 +10,10 @@ describe(__filename, () => {
 
       expect(html('.Footer')).toHaveLength(1);
       expect(html('.Footer-language-picker')).toHaveLength(0);
+
+      const blogLink = html('.Footer-blog-link');
+      expect(blogLink).toHaveLength(1);
+      expect(blogLink.attr('href')).toEqual('/blog/');
     });
   });
 

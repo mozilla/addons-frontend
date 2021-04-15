@@ -146,6 +146,11 @@ describe(__filename, () => {
         },
       )}`,
     );
+
+    expect(root.find('.Footer-blog-link')).toHaveProp(
+      'href',
+      'https://blog.mozilla.com/addons',
+    );
   });
 
   it('renders with a LanguagePicker by default', () => {
@@ -158,5 +163,11 @@ describe(__filename, () => {
     const root = renderFooter({ noLangPicker: true });
 
     expect(root.find(LanguagePicker)).toHaveLength(0);
+  });
+
+  it('can link to the new blog', () => {
+    const root = renderFooter({ linkToNewBlog: true });
+
+    expect(root.find('.Footer-blog-link')).toHaveProp('href', '/blog/');
   });
 });
