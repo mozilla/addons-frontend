@@ -98,6 +98,7 @@ module.exports = {
     'enableDevTools',
     'enableFeatureBlockPage',
     'enableFeatureAllowAndroidInstall',
+    'enableFeatureLinkToNewBlog',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -310,6 +311,7 @@ module.exports = {
     // This isn't in addons-server, but instead will cause a redirect to
     // another host.
     'blocklist',
+    'blog',
     'contribute.json',
     'downloads',
     'google1f3e37b7351799a5.html',
@@ -334,6 +336,7 @@ module.exports = {
     'admin',
     'apps',
     'blocklist',
+    'blog',
     'contribute.json',
     'developer_agreement',
     'developers',
@@ -413,6 +416,8 @@ module.exports = {
   enableFeatureBlockPage: true,
 
   enableFeatureAllowAndroidInstall: true,
+
+  enableFeatureLinkToNewBlog: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
