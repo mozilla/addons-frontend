@@ -186,7 +186,7 @@ export class AboutBase extends React.Component<Props> {
             />
           </section>
           <section>
-            <h2>{i18n.gettext('Report an issue')}</h2>
+            <h2 id="reportIssue">{i18n.gettext('Report an issue')}</h2>
             <p
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={sanitizeHTML(
