@@ -18,6 +18,7 @@ import {
   createFakeHistory,
   dispatchClientMetadata,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DropdownMenu from 'amo/components/DropdownMenu';
@@ -196,5 +197,18 @@ describe(__filename, () => {
     expect(root.find('.SectionLinks-blog')).toHaveProp('prependLang', false);
     // TODO: there is a UI problem that makes the dropdown ugly.
     expect(root.find('.SectionLinks-dropdown')).toHaveLength(0);
+  });
+
+  it('renders a link to the new blog when feature flag is active', () => {
+    const _config = getFakeConfig({ enableFeatureLinkToNewBlog: true });
+
+    const root = render({ _config });
+
+    expect(root.find('.SectionLinks-blog')).toHaveProp('href', '/blog/');
+    expect(root.find('.SectionLinks-blog')).toHaveProp(
+      'prependClientApp',
+      false,
+    );
+    expect(root.find('.SectionLinks-blog')).toHaveProp('prependLang', false);
   });
 });

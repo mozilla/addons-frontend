@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -39,15 +40,24 @@ type PropsFromState = {|
   viewContext: ViewContextType,
 |};
 
+type DefaultProps = {|
+  _config: typeof config,
+|};
+
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
+  ...DefaultProps,
   dispatch: DispatchFunc,
   i18n: I18nType,
   history: ReactRouterHistoryType,
 |};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
+  static defaultProps: DefaultProps = {
+    _config: config,
+  };
+
   setClientApp: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
@@ -66,7 +76,15 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { className, clientApp, withBlogUI, i18n, viewContext } = this.props;
+    const {
+      _config,
+      className,
+      clientApp,
+      i18n,
+      viewContext,
+      withBlogUI,
+    } = this.props;
+
     const isExploring =
       [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
       !withBlogUI;
@@ -96,15 +114,20 @@ export class SectionLinksBase extends React.Component<InternalProps> {
       );
     }
 
+    const linkToNewBlog =
+      withBlogUI || _config.get('enableFeatureLinkToNewBlog');
+
     return (
       <ul className={makeClassName('SectionLinks', className)}>
-        {withBlogUI && (
+        {linkToNewBlog && (
           <li>
             <Link
               className={makeClassName(
                 'SectionLinks-link',
                 'SectionLinks-blog',
-                'SectionLinks-link--active',
+                {
+                  'SectionLinks-link--active': withBlogUI,
+                },
               )}
               href="/blog/"
               prependClientApp={false}
