@@ -247,8 +247,13 @@ function baseServer(
       //
       res.set('Cache-Control', isAnonymousPage ? ['public'] : ['no-store']);
 
-      // Vary the cache on Do Not Track headers.
+      // Vary the cache on Do Not Track headers, because if enabled we serve
+      // a different HTML without Google Analytics script included.
       res.vary('DNT');
+
+      // Vary on User-Agent, because we serve different install buttons or
+      // banners depending on the user-agent.
+      res.vary('User-Agent');
 
       const amoCDN = config.has('amoCDN') ? config.get('amoCDN') : null;
       const staticHost = config.has('staticHost')
