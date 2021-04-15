@@ -155,6 +155,15 @@ describe(__filename, () => {
   });
 
   describe('app', () => {
+    it('enables gzip compression if client sends accept-encoding', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({ store, sagaMiddleware })
+        .get('/en-US/firefox/')
+        .set('Accept-Encoding', 'gzip');
+      expect(response.headers['content-encoding']).toEqual('gzip');
+    });
+
     it('preconnects to addons-server CDN', async () => {
       const config = getFakeConfig({
         staticHost: undefined,
@@ -285,10 +294,10 @@ describe(__filename, () => {
       expect(response.statusCode).toEqual(200);
     });
 
-    it('varies on DNT', async () => {
+    it('varies on DNT and Accept-Encoding', async () => {
       const response = await testClient().get('/en-US/firefox/');
 
-      expect(response.headers).toMatchObject({ vary: 'DNT' });
+      expect(response.headers).toMatchObject({ vary: 'DNT, Accept-Encoding' });
       expect(response.statusCode).toEqual(200);
     });
 
