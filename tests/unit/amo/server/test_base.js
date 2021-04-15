@@ -294,10 +294,12 @@ describe(__filename, () => {
       expect(response.statusCode).toEqual(200);
     });
 
-    it('varies on DNT and Accept-Encoding', async () => {
+    it('varies on DNT, User-Agent and Accept-Encoding', async () => {
       const response = await testClient().get('/en-US/firefox/');
 
-      expect(response.headers).toMatchObject({ vary: 'DNT, Accept-Encoding' });
+      expect(response.headers).toMatchObject({
+        vary: 'DNT, User-Agent, Accept-Encoding',
+      });
       expect(response.statusCode).toEqual(200);
     });
 
