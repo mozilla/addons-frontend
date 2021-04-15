@@ -186,46 +186,6 @@ export class AboutBase extends React.Component<Props> {
             />
           </section>
           <section>
-            <h2>{i18n.gettext('Get support')}</h2>
-            <p
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(`If you would like to learn more about how to manage add-ons in
-                      Firefox, or need to find general Firefox support, please visit
-                      %(startSUMOLink)sSupport%(endSUMOLink)s
-                      Mozilla. If you don't find an answer there, you can
-                      %(startForumLink)sask on our community forum%(endForumLink)s.`),
-                  {
-                    startSUMOLink:
-                      '<a href="https://support.mozilla.org/products/firefox/manage-preferences-and-add-ons-firefox/install-and-manage-add-ons">',
-                    endSUMOLink: '</a>',
-                    startForumLink:
-                      '<a href="https://discourse.mozilla-community.org/c/add-ons">',
-                    endForumLink: '</a>',
-                  },
-                ),
-                ['a'],
-              )}
-            />
-            <p
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  i18n.gettext(
-                    `%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s.`,
-                  ),
-                  {
-                    startLink:
-                      '<a href="https://wiki.mozilla.org/Add-ons#Getting_in_touch">',
-                    endLink: '</a>',
-                  },
-                ),
-                ['a'],
-              )}
-            />
-          </section>
-          <section>
             <h2>{i18n.gettext('Report an issue')}</h2>
             <p
               // eslint-disable-next-line react/no-danger
@@ -261,6 +221,46 @@ export class AboutBase extends React.Component<Props> {
                     endMailLink: '</a>',
                     startLink:
                       '<a href="https://www.mozilla.org/en-US/about/governance/policies/security-group/bugs/" rel="nofollow">',
+                    endLink: '</a>',
+                  },
+                ),
+                ['a'],
+              )}
+            />
+          </section>
+          <section>
+            <h2>{i18n.gettext('Get support')}</h2>
+            <p
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={sanitizeHTML(
+                i18n.sprintf(
+                  i18n.gettext(`If you would like to learn more about how to manage add-ons in
+                      Firefox, or need to find general Firefox support, please visit
+                      %(startSUMOLink)sSupport%(endSUMOLink)s
+                      Mozilla. If you don't find an answer there, you can
+                      %(startForumLink)sask on our community forum%(endForumLink)s.`),
+                  {
+                    startSUMOLink:
+                      '<a href="https://support.mozilla.org/products/firefox/manage-preferences-and-add-ons-firefox/install-and-manage-add-ons">',
+                    endSUMOLink: '</a>',
+                    startForumLink:
+                      '<a href="https://discourse.mozilla-community.org/c/add-ons">',
+                    endForumLink: '</a>',
+                  },
+                ),
+                ['a'],
+              )}
+            />
+            <p
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={sanitizeHTML(
+                i18n.sprintf(
+                  i18n.gettext(
+                    `%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s.`,
+                  ),
+                  {
+                    startLink:
+                      '<a href="https://wiki.mozilla.org/Add-ons#Getting_in_touch">',
                     endLink: '</a>',
                   },
                 ),
