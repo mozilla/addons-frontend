@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-14 09:27+0000\n"
-"Last-Translator: Jenny <leanintocuriosity@gmx.com>\n"
+"PO-Revision-Date: 2021-04-15 08:16+0000\n"
+"Last-Translator: Francesco Lodolo [:flod] <flod+pontoon@mozilla.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1050,11 +1050,11 @@ msgstr "Solo con Firefox — Scaricalo subito!"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
 msgid "Download Firefox and get the theme"
-msgstr ""
+msgstr "Scarica Firefox e installa il tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "Scarica Firefox e installa l’estensione"
 
 #: src/amo/components/GetFirefoxButton/index.js:159 src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
@@ -1062,11 +1062,11 @@ msgstr "Scarica Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
 msgid "You'll need Firefox to use this theme"
-msgstr ""
+msgstr "Devi utilizzare Firefox per poter installare questo tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
 msgid "You'll need Firefox to use this extension"
-msgstr ""
+msgstr "Devi utilizzare Firefox per poter installare questa estensione"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1140,7 +1140,7 @@ msgstr "Firefox consiglia solo estensioni che soddisfano i nostri standard di si
 
 #: src/amo/components/HomepageShelves/index.js:69
 msgid "See more %(categoryName)s"
-msgstr ""
+msgstr "Vedi altri in %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1834,7 +1834,7 @@ msgstr "Per trovare componenti aggiuntivi compatibili con Firefox per Android, <
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr ""
+msgstr "I componenti aggiuntivi non sono compatibili con Firefox per iOS. Prova a installarli in Firefox per desktop."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
