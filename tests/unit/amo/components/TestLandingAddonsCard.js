@@ -179,6 +179,9 @@ describe(__filename, () => {
     expect(root.find(AddonsCard).prop('footerLink').props.to).toEqual(
       undefined,
     );
+    expect(root.find(AddonsCard).prop('footerLink').props.target).toEqual(
+      '_blank',
+    );
   });
 
   it.each([true, false])(
