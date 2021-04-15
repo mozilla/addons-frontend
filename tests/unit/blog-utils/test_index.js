@@ -1,6 +1,6 @@
 import cheerio from 'cheerio';
 
-import { buildFooter, buildStaticAddonCard } from 'blog-utils';
+import { buildFooter, buildHeader, buildStaticAddonCard } from 'blog-utils';
 import { fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -54,6 +54,15 @@ describe(__filename, () => {
       });
 
       await expect(buildStaticAddonCard({ addonId })).rejects.toEqual(anError);
+    });
+  });
+
+  describe('buildHeader', () => {
+    it('returns the header HTML', () => {
+      const html = cheerio.load(buildHeader());
+
+      expect(html('.Header')).toHaveLength(1);
+      expect(html('.SectionLinks-blog')).toHaveLength(1);
     });
   });
 });

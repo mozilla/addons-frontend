@@ -178,4 +178,23 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, setClientApp(CLIENT_APP_ANDROID));
     sinon.assert.calledWith(fakeHistory.push, `/en-US/${CLIENT_APP_ANDROID}/`);
   });
+
+  it('renders specific links for the blog', () => {
+    const root = render({ withBlogUI: true });
+
+    expect(root.find('.SectionLinks-blog')).toHaveLength(1);
+    expect(root.find('.SectionLinks-blog')).toHaveClassName(
+      'SectionLinks-link--active',
+    );
+    // Make sure that only the "Blog" link is active.
+    expect(root.find('.SectionLinks-link--active')).toHaveLength(1);
+    expect(root.find('.SectionLinks-blog')).toHaveProp('href', '/blog/');
+    expect(root.find('.SectionLinks-blog')).toHaveProp(
+      'prependClientApp',
+      false,
+    );
+    expect(root.find('.SectionLinks-blog')).toHaveProp('prependLang', false);
+    // TODO: there is a UI problem that makes the dropdown ugly.
+    expect(root.find('.SectionLinks-dropdown')).toHaveLength(0);
+  });
 });

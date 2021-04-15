@@ -12,6 +12,7 @@ import { makeI18n } from 'amo/i18n/utils';
 import { setClientApp, setLang } from 'amo/reducers/api';
 import createStore from 'amo/store';
 import Footer from 'amo/components/Footer';
+import Header from 'amo/components/Header';
 import { createInternalAddon } from 'amo/reducers/addons';
 
 import StaticAddonCard from './StaticAddonCard';
@@ -50,6 +51,13 @@ export const buildFooter = (): string => {
   const lang = 'en-US';
 
   return render({ app, lang, component: <Footer noLangPicker /> });
+};
+
+export const buildHeader = (): string => {
+  const app = 'firefox';
+  const lang = 'en-US';
+
+  return render({ app, lang, component: <Header withBlogUI /> });
 };
 
 type BuildStaticAddonCardParams = {|

@@ -313,4 +313,15 @@ describe(__filename, () => {
       'Header-search-form--desktop',
     );
   });
+
+  it('can update its UI for the blog', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+
+    const root = renderHeader({ store, withBlogUI: true });
+
+    expect(root.find('.Header-authenticate-button')).toHaveLength(0);
+    expect(root.find('.Header-download-button')).toHaveLength(0);
+    expect(root.find(SearchForm)).toHaveLength(0);
+    expect(root.find(SectionLinks)).toHaveProp('withBlogUI', true);
+  });
 });

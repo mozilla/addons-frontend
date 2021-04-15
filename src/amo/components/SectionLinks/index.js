@@ -31,6 +31,7 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
+  withBlogUI?: boolean,
 |};
 
 type PropsFromState = {|
@@ -65,10 +66,10 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { className, clientApp, i18n, viewContext } = this.props;
-    const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(
-      viewContext,
-    );
+    const { className, clientApp, withBlogUI, i18n, viewContext } = this.props;
+    const isExploring =
+      [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
+      !withBlogUI;
 
     let forBrowserNameText;
     if (clientApp === CLIENT_APP_FIREFOX) {
@@ -97,6 +98,22 @@ export class SectionLinksBase extends React.Component<InternalProps> {
 
     return (
       <ul className={makeClassName('SectionLinks', className)}>
+        {withBlogUI && (
+          <li>
+            <Link
+              className={makeClassName(
+                'SectionLinks-link',
+                'SectionLinks-blog',
+                'SectionLinks-link--active',
+              )}
+              href="/blog/"
+              prependClientApp={false}
+              prependLang={false}
+            >
+              {i18n.gettext('Blog')}
+            </Link>
+          </li>
+        )}
         <li>
           <Link
             className={makeClassName(
@@ -136,49 +153,51 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             {i18n.gettext('Themes')}
           </Link>
         </li>
-        <li>
-          <DropdownMenu
-            className="SectionLinks-link SectionLinks-dropdown"
-            text={i18n.gettext('More…')}
-          >
-            {sectionsForBrowser.length > 0 && (
-              <DropdownMenuItem className="SectionLinks-subheader">
-                {forBrowserNameText}
-              </DropdownMenuItem>
-            )}
-            {sectionsForBrowser}
+        {!withBlogUI && (
+          <li>
+            <DropdownMenu
+              className="SectionLinks-link SectionLinks-dropdown"
+              text={i18n.gettext('More…')}
+            >
+              {sectionsForBrowser.length > 0 && (
+                <DropdownMenuItem className="SectionLinks-subheader">
+                  {forBrowserNameText}
+                </DropdownMenuItem>
+              )}
+              {sectionsForBrowser}
 
-            <DropdownMenuItem className="SectionLinks-subheader">
-              {i18n.gettext('Other Browser Sites')}
-            </DropdownMenuItem>
-            {clientApp !== CLIENT_APP_ANDROID ? (
-              <DropdownMenuItem>
-                <Link
-                  className={`SectionLinks-clientApp-${CLIENT_APP_ANDROID}`}
-                  data-clientapp={CLIENT_APP_ANDROID}
-                  onClick={this.setClientApp}
-                  prependClientApp={false}
-                  to={`/${CLIENT_APP_ANDROID}/`}
-                >
-                  {i18n.gettext('Add-ons for Android')}
-                </Link>
+              <DropdownMenuItem className="SectionLinks-subheader">
+                {i18n.gettext('Other Browser Sites')}
               </DropdownMenuItem>
-            ) : null}
-            {clientApp !== CLIENT_APP_FIREFOX ? (
-              <DropdownMenuItem>
-                <Link
-                  className={`SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`}
-                  data-clientapp={CLIENT_APP_FIREFOX}
-                  onClick={this.setClientApp}
-                  prependClientApp={false}
-                  to={`/${CLIENT_APP_FIREFOX}/`}
-                >
-                  {i18n.gettext('Add-ons for Firefox')}
-                </Link>
-              </DropdownMenuItem>
-            ) : null}
-          </DropdownMenu>
-        </li>
+              {clientApp !== CLIENT_APP_ANDROID ? (
+                <DropdownMenuItem>
+                  <Link
+                    className={`SectionLinks-clientApp-${CLIENT_APP_ANDROID}`}
+                    data-clientapp={CLIENT_APP_ANDROID}
+                    onClick={this.setClientApp}
+                    prependClientApp={false}
+                    to={`/${CLIENT_APP_ANDROID}/`}
+                  >
+                    {i18n.gettext('Add-ons for Android')}
+                  </Link>
+                </DropdownMenuItem>
+              ) : null}
+              {clientApp !== CLIENT_APP_FIREFOX ? (
+                <DropdownMenuItem>
+                  <Link
+                    className={`SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`}
+                    data-clientapp={CLIENT_APP_FIREFOX}
+                    onClick={this.setClientApp}
+                    prependClientApp={false}
+                    to={`/${CLIENT_APP_FIREFOX}/`}
+                  >
+                    {i18n.gettext('Add-ons for Firefox')}
+                  </Link>
+                </DropdownMenuItem>
+              ) : null}
+            </DropdownMenu>
+          </li>
+        )}
       </ul>
     );
   }
