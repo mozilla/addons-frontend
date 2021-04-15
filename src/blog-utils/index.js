@@ -50,7 +50,11 @@ export const buildFooter = (): string => {
   const app = 'firefox';
   const lang = 'en-US';
 
-  return render({ app, lang, component: <Footer noLangPicker /> });
+  return render({
+    app,
+    lang,
+    component: <Footer noLangPicker linkToNewBlog />,
+  });
 };
 
 export const buildHeader = (): string => {

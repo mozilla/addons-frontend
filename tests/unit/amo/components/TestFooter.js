@@ -146,6 +146,12 @@ describe(__filename, () => {
         },
       )}`,
     );
+
+    expect(root.find('.Footer-blog-link')).toHaveProp(
+      'href',
+      'https://blog.mozilla.com/addons',
+    );
+    expect(root.find('.Footer-developer-blog-link')).toHaveLength(0);
   });
 
   it('renders with a LanguagePicker by default', () => {
@@ -158,5 +164,25 @@ describe(__filename, () => {
     const root = renderFooter({ noLangPicker: true });
 
     expect(root.find(LanguagePicker)).toHaveLength(0);
+  });
+
+  it('can link to the new blog', () => {
+    const root = renderFooter({ linkToNewBlog: true });
+
+    expect(root.find('.Footer-blog-link')).toHaveProp('href', '/blog/');
+  });
+
+  it('renders a "Developer Blog" link when we link to the new blog', () => {
+    const root = renderFooter({ linkToNewBlog: true });
+
+    expect(root.find('.Footer-developer-blog-link')).toHaveLength(1);
+    expect(root.find('.Footer-developer-blog-link')).toHaveProp(
+      'href',
+      `https://blog.mozilla.com/addons${makeQueryStringWithUTM({
+        utm_campaign: null,
+        utm_content: 'footer-link',
+        utm_medium: 'referral',
+      })}`,
+    );
   });
 });

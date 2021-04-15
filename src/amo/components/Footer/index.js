@@ -14,6 +14,7 @@ import './styles.scss';
 
 type Props = {|
   noLangPicker?: boolean,
+  linkToNewBlog?: boolean,
 |};
 
 type DefaultProps = {|
@@ -30,11 +31,16 @@ export class FooterBase extends React.Component<InternalProps> {
   static defaultProps: {| ...Props, ...DefaultProps |} = {
     _config: config,
     noLangPicker: false,
+    linkToNewBlog: false,
   };
 
   render(): React.Node {
-    const { _config, i18n, noLangPicker } = this.props;
+    const { _config, i18n, noLangPicker, linkToNewBlog } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
+
+    const blogUrl = linkToNewBlog
+      ? '/blog/'
+      : 'https://blog.mozilla.com/addons';
 
     return (
       <footer className="Footer">
@@ -64,7 +70,7 @@ export class FooterBase extends React.Component<InternalProps> {
                 </Link>
               </li>
               <li>
-                <a href="https://blog.mozilla.com/addons">
+                <a className="Footer-blog-link" href={blogUrl}>
                   {i18n.gettext('Blog')}
                 </a>
               </li>
@@ -101,6 +107,22 @@ export class FooterBase extends React.Component<InternalProps> {
                   {i18n.gettext('Developer Policies')}
                 </a>
               </li>
+              {linkToNewBlog && (
+                <li>
+                  <a
+                    className="Footer-developer-blog-link"
+                    href={`https://blog.mozilla.com/addons${makeQueryStringWithUTM(
+                      {
+                        utm_campaign: null,
+                        utm_content: 'footer-link',
+                        utm_medium: 'referral',
+                      },
+                    )}`}
+                  >
+                    {i18n.gettext('Developer Blog')}
+                  </a>
+                </li>
+              )}
               <li>
                 <a href="https://discourse.mozilla-community.org/c/add-ons">
                   {i18n.gettext('Forum')}
