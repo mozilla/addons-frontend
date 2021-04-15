@@ -56,6 +56,9 @@ describe(__filename, () => {
       GET_FIREFOX_BUTTON_TYPE_ADDON,
     );
     expect(root.find(GetFirefoxButton)).toHaveProp('useNewVersion', true);
+
+    // This is always rendered but hidden by default using CSS.
+    expect(root.find('.StaticAddonCard-error-overlay')).toHaveLength(1);
   });
 
   it('displays the description if there is no summary', () => {

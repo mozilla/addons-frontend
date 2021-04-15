@@ -78,6 +78,10 @@ export const StaticAddonCardBase = ({
           useNewVersion
         />
       </div>
+
+      <div className="StaticAddonCard-error-overlay">
+        <p>This extension is not currently available.</p>
+      </div>
     </div>
   );
 };
