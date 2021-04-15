@@ -1061,14 +1061,12 @@ msgid "Download Firefox"
 msgstr "Scarica Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Effettua l’accesso per dare un voto a questo tema"
+msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Effettua l’accesso per dare un voto a questa estensione"
+msgstr ""
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1141,9 +1139,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox consiglia solo estensioni che soddisfano i nostri standard di sicurezza e prestazioni."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Temi in %(categoryName)s"
+msgstr ""
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1836,9 +1833,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Per trovare componenti aggiuntivi compatibili con Firefox per Android, <a href=\"%(newLocation)s\">fai clic qui</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Il componente aggiuntivo non è compatibile con questo browser. Prova a installarlo in Firefox per desktop."
+msgstr ""
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
