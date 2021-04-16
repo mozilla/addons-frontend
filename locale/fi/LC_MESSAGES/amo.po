@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-16 18:40+0000\n"
+"PO-Revision-Date: 2021-04-16 18:50+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -2670,13 +2670,10 @@ msgid ""
 msgstr "Tietosi poistetaan pysyvästi, mukaan lukien profiilitietosi (kuva, käyttäjätunnus, näyttönimi, sijainti, kotisivu, biografia, ammatti), ilmoitusasetukset, arvostelut ja kokoelmat."
 
 #: src/amo/pages/UserProfileEdit/index.js:868
-#, fuzzy
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
-msgstr ""
-"Käyttäjän tiedot poistetaan pysyvästi, mukaan lukien profiilitiedot (kuva, käyttäjätunnus, näyttönimi, sijainti, kotisivu, biografia, ammatti) ja ilmoitusasetukset. Arvostelut ja arviot "
-"anonymisoidaan, eivätkä ne ole enää muokattavissa."
+msgstr "Käyttäjän tiedot poistetaan pysyvästi, mukaan lukien profiilitiedot (kuva, käyttäjätunnus, näyttönimi, sijainti, kotisivu, biografia, ammatti), ilmoitusasetukset, arvostelut ja kokoelmat."
 
 #: src/amo/pages/UserProfileEdit/index.js:877
 msgid ""
@@ -2691,10 +2688,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:893
-#, fuzzy
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr ""
-"Kun käytät tätä sähköpostiosoitetta kirjautuaksesi uudelleen addons.mozilla.org-sivustolle, luot uuden Firefox-lisäosat-profiilin, joka ei ole millään tavoin yhteydessä poistamaasi profiiliin."
+msgstr "Kun käytät tätä sähköpostiosoitetta kirjautuaksesi uudelleen addons.mozilla.org-sivustolle, Firefoxin lisäosat -profiililla ei tule olemaan pääsyä mihinkään aiempaan sisältöön."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:103
 msgid "Unsubscribe"
