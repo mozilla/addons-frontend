@@ -189,6 +189,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
                       }
                       key={version.id}
                       version={version}
+                      showLinkInsteadOfButton
                     />
                   );
                 })}

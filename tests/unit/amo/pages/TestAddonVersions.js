@@ -472,6 +472,26 @@ describe(__filename, () => {
       expect(versionCards.at(1)).toHaveProp('headerText', 'Older versions');
       expect(versionCards.at(2)).toHaveProp('headerText', null);
     });
+
+    it('passes a showLinkInsteadOfButton for just older versions', () => {
+      const slug = 'some-addon-slug';
+      const version1 = { ...fakeVersion, id: 1 };
+      const addon = { ...fakeAddon, slug, current_version: version1 };
+      const version2 = { ...fakeVersion, id: 2 };
+      const version3 = { ...fakeVersion, id: 3 };
+
+      _loadAddon(addon);
+      _loadVersions({ slug, versions: [version1, version2, version3] });
+
+      const root = render({
+        params: { slug },
+      });
+
+      const versionCards = root.find(AddonVersionCard);
+      expect(versionCards.at(0)).not.toHaveProp('showLinkInsteadOfButton');
+      expect(versionCards.at(1)).toHaveProp('showLinkInsteadOfButton');
+      expect(versionCards.at(2)).toHaveProp('showLinkInsteadOfButton');
+    });
   });
 
   describe('extractId', () => {

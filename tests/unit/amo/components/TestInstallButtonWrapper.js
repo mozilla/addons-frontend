@@ -351,7 +351,7 @@ describe(__filename, () => {
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(1);
   });
 
-  it('does not display a download link when the browser is compatible', () => {
+  it('does not display a download link when the browser is compatible and showLinkInsteadOfButton is false', () => {
     const _findInstallURL = sinon
       .stub()
       .returns('https://a.m.o/files/addon.xpi');
@@ -363,9 +363,46 @@ describe(__filename, () => {
       _findInstallURL,
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
+      showLinkInsteadOfButton: false,
     });
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
+  });
+
+  it('displays a download link when the browser is compatible and showLinkInsteadOfButton is true', () => {
+    const _findInstallURL = sinon
+      .stub()
+      .returns('https://a.m.o/files/addon.xpi');
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: true,
+    });
+
+    const root = render({
+      _findInstallURL,
+      _getClientCompatibility,
+      version: createInternalVersionWithLang(fakeAddon.current_version),
+      showLinkInsteadOfButton: true,
+    });
+
+    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(1);
+  });
+
+  it('does not display a button when the browser is compatible and showLinkInsteadOfButton is true', () => {
+    const _findInstallURL = sinon
+      .stub()
+      .returns('https://a.m.o/files/addon.xpi');
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: true,
+    });
+
+    const root = render({
+      _findInstallURL,
+      _getClientCompatibility,
+      version: createInternalVersionWithLang(fakeAddon.current_version),
+      showLinkInsteadOfButton: true,
+    });
+
+    expect(root.find(AMInstallButton)).toHaveLength(0);
   });
 
   it('adds a special classname when no download link is displayed', () => {
