@@ -38,14 +38,14 @@ describe(__filename, () => {
     expect(root.find(Header)).toHaveProp('isHomePage', isHomePage);
   });
 
-  it('passes isAddonDetailPage to Header', () => {
-    const isAddonDetailPage = true;
+  it('passes isAddonInstallPage to Header', () => {
+    const isAddonInstallPage = true;
 
-    const root = render({ isAddonDetailPage });
+    const root = render({ isAddonInstallPage });
 
     expect(root.find(Header)).toHaveProp(
-      'isAddonDetailPage',
-      isAddonDetailPage,
+      'isAddonInstallPage',
+      isAddonInstallPage,
     );
   });
 

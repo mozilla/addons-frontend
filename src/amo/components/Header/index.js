@@ -40,7 +40,7 @@ export class HeaderBase extends React.Component {
     clientApp: PropTypes.string.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    isAddonDetailPage: PropTypes.bool,
+    isAddonInstallPage: PropTypes.bool,
     isHomePage: PropTypes.bool,
     isReviewer: PropTypes.bool.isRequired,
     loadedPageIsAnonymous: PropTypes.bool.isRequired,
@@ -173,7 +173,7 @@ export class HeaderBase extends React.Component {
       clientApp,
       withBlogUI,
       i18n,
-      isAddonDetailPage,
+      isAddonInstallPage,
       isHomePage,
       loadedPageIsAnonymous,
       location,
@@ -229,7 +229,7 @@ export class HeaderBase extends React.Component {
           'Header--loaded-page-is-anonymous': loadedPageIsAnonymous,
         })}
       >
-        {!isAddonDetailPage && variant === VARIANT_NEW ? (
+        {!isAddonInstallPage && variant === VARIANT_NEW ? (
           <GetFirefoxBanner />
         ) : null}
         <div className="Header-wrapper">

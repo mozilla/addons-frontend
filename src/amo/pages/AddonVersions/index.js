@@ -141,7 +141,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
     }
 
     return (
-      <Page errorHandler={errorHandler}>
+      <Page errorHandler={errorHandler} isAddonInstallPage>
         <div className="AddonVersions">
           {addon && (
             <Helmet>

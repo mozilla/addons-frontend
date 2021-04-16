@@ -452,7 +452,7 @@ describe(__filename, () => {
     const root = shallowRender({ errorHandler });
     const page = root.find(Page);
     expect(page).toHaveProp('errorHandler', errorHandler);
-    expect(page).toHaveProp('isAddonDetailPage', true);
+    expect(page).toHaveProp('isAddonInstallPage', true);
     expect(page).toHaveProp('showWrongPlatformWarning', false);
   });
 

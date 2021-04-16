@@ -24,7 +24,7 @@ import './styles.scss';
 type Props = {|
   children: React.Node,
   errorHandler?: ErrorHandlerType,
-  isAddonDetailPage?: boolean,
+  isAddonInstallPage?: boolean,
   isHomePage?: boolean,
   showWrongPlatformWarning?: boolean,
 |};
@@ -47,7 +47,7 @@ export const PageBase = ({
   children,
   clientApp,
   errorHandler,
-  isAddonDetailPage = false,
+  isAddonInstallPage = false,
   isHomePage = false,
   location,
   showWrongPlatformWarning = true,
@@ -81,7 +81,7 @@ export const PageBase = ({
       <InfoDialog />
 
       <Header
-        isAddonDetailPage={isAddonDetailPage}
+        isAddonInstallPage={isAddonInstallPage}
         isHomePage={isHomePage}
         location={location}
       />
