@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-14 08:08+0000\n"
+"PO-Revision-Date: 2021-04-16 20:04+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -713,7 +713,7 @@ msgstr "Συνεισφορά τώρα"
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this developer"
-msgstr "Υποστηρίξτε αυτό τον προγραμματιστή"
+msgstr "Υποστήριξη προγραμματιστή"
 
 #: src/amo/components/ContributeCard/index.js:47
 msgid "Support these developers"
@@ -1527,7 +1527,7 @@ msgstr "Δημοφιλή πρόσθετα"
 
 #: src/amo/components/Search/index.js:205 src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
-msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
+msgstr "Κορυφαίες επεκτάσεις"
 
 #: src/amo/components/Search/index.js:208 src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
@@ -1535,7 +1535,7 @@ msgstr "Πιο υψηλά βαθμολογημένα θέματα"
 
 #: src/amo/components/Search/index.js:211
 msgid "Top rated add-ons"
-msgstr "Πιο υψηλά βαθμολογημένα πρόσθετα"
+msgstr "Κορυφαία πρόσθετα"
 
 #: src/amo/components/Search/index.js:217
 msgid "Popular extensions"
@@ -1733,7 +1733,7 @@ msgstr "Περισσότερα…"
 
 #: src/amo/components/SectionLinks/index.js:152
 msgid "Other Browser Sites"
-msgstr "Ιστοσελίδες άλλων προγρ. περιήγησης"
+msgstr "Ιστοσελίδες άλλων φυλλομετρητών"
 
 #: src/amo/components/SectionLinks/index.js:163
 msgid "Add-ons for Android"
@@ -1865,7 +1865,7 @@ msgstr "Καμία κριτική ακόμα"
 
 #: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
-msgstr "Αξιολογήστε την εμπειρία σας"
+msgstr "Βαθμολόγηση εμπειρίας"
 
 #: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
@@ -2128,7 +2128,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:219 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
-msgstr "Δείτε περισσότερες προτεινόμενες επεκτάσεις"
+msgstr "Περισσότερες προτεινόμενες επεκτάσεις"
 
 #: src/amo/pages/Home/index.js:88
 msgid "Abstract"
@@ -2144,11 +2144,11 @@ msgstr "Ταινίες & τηλεόραση"
 
 #: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
-msgstr "Δείτε περισσότερες δημοφιλείς επεκτάσεις"
+msgstr "Περισσότερες δημοφιλείς επεκτάσεις"
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
-msgstr "Δείτε περισσότερες υψηλά βαθμολογημένες επεκτάσεις"
+msgstr "Περισσότερες κορυφαίες επεκτάσεις"
 
 #: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
