@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-16 10:15+0000\n"
+"PO-Revision-Date: 2021-04-16 18:40+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -2665,12 +2665,9 @@ msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "TÄRKEÄÄ: Tämän Firefox-lisäosien profiilin poistamista ei voi perua."
 
 #: src/amo/pages/UserProfileEdit/index.js:862
-#, fuzzy
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr ""
-"Tietosi poistetaan pysyvästi, mukaan lukien profiilitietosi (kuva, käyttäjätunnus, näyttönimi, sijainti, kotisivu, biografia, ammatti) ja ilmoitusasetukset. Antamasi arvostelut ja arviot "
-"anonymisoidaan, eivätkä ne ole enää muokattavissa."
+msgstr "Tietosi poistetaan pysyvästi, mukaan lukien profiilitietosi (kuva, käyttäjätunnus, näyttönimi, sijainti, kotisivu, biografia, ammatti), ilmoitusasetukset, arvostelut ja kokoelmat."
 
 #: src/amo/pages/UserProfileEdit/index.js:868
 #, fuzzy
