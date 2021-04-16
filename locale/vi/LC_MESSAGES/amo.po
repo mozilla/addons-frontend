@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-16 12:42+0000\n"
+"PO-Revision-Date: 2021-04-16 12:51+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -597,7 +597,6 @@ msgid "Log out"
 msgstr "Đăng xuất"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "Đăng ký hoặc đăng nhập"
 
@@ -1040,9 +1039,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "Chỉ hoạt động với Firefox—Tải Firefox ngay"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Tải xuông Firefox"
+msgstr "Tải xuống Firefox và nhận chủ đề"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1053,14 +1051,12 @@ msgid "Download Firefox"
 msgstr "Tải xuông Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Đăng nhập để đánh giá chủ đề này"
+msgstr "Bạn sẽ cần Firefox để sử dụng chủ đề này"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Đăng nhập để đánh giá tiện ích này"
+msgstr "Bạn sẽ cần Firefox để sử dụng tiện ích mở rộng này"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1133,9 +1129,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox chỉ đề xuất các tiện ích mở rộng đáp ứng các tiêu chuẩn của chúng tôi về bảo mật và hiệu suất."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Chủ đề trong %(categoryName)s"
+msgstr "Xem thêm %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1816,9 +1811,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Để tìm các tiện ích mở rộng tương thích với Firefox dành cho Android, hãy <a href=\"%(newLocation)s\">nhấp vào đây</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Tiện ích này không tương thích với trình duyệt này. Hãy thử cài đặt nó trên Firefox dành cho máy tính để bàn."
+msgstr "Tiện ích mở rộng không tương thích với Firefox dành cho iOS. Hãy thử cài đặt chúng trên Firefox dành cho máy tính để bàn."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
