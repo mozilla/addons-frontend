@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-16 19:35+0000\n"
+"PO-Revision-Date: 2021-04-16 19:46+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
@@ -600,9 +600,8 @@ msgid "Log out"
 msgstr "Log out"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
-msgstr "Register or Log in"
+msgstr "Register or log in"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:151
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -1041,9 +1040,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "Only with Firefox—Get Firefox Now"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Download Firefox"
+msgstr "Download Firefox and get the theme"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1054,14 +1052,12 @@ msgid "Download Firefox"
 msgstr "Download Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Log in to rate this theme"
+msgstr "You'll need Firefox to use this theme"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Log in to rate this extension"
+msgstr "You'll need Firefox to use this extension"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1134,9 +1130,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox only recommends extensions that meet our standards for security and performance."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Themes in %(categoryName)s"
+msgstr "See more %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1827,9 +1822,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
+msgstr "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
