@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-16 21:05+0000\n"
+"PO-Revision-Date: 2021-04-16 21:20+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1051,7 +1051,7 @@ msgstr "Discarga Firefox installa le thema"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "Discarga Firefox installa le extension"
 
 #: src/amo/components/GetFirefoxButton/index.js:159 src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
