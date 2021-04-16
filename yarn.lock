@@ -5078,10 +5078,10 @@ filename-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
   integrity sha1-wcS5vuPglyXdsQa3XB4wH+LxiyY=
 
-filesize@6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.2.2.tgz#6f94af6661606d7bc55e9a125e944fb52dbf0be7"
-  integrity sha512-yMYcRU6K9yNRSYZWfrXOuNiQQx0aJiXJsJYAR2R2andmIFo5IJrfqoXw+2h1W8zLRxy612LwwY1sH0zuxUsz0g==
+filesize@6.2.5:
+  version "6.2.5"
+  resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.2.5.tgz#ee4de0e71ba03f1d6814a40085249343ccfc7ac3"
+  integrity sha512-JkM1y2+IpnEwp3pbXOUXR+9ytuZE07ZnWb/OR0H/WOSkjWASpmXgC0ZBIs4/SAYq9wHqExeQxcYNoJKf6s0RCg==
 
 fill-range@^2.1.0:
   version "2.2.4"
