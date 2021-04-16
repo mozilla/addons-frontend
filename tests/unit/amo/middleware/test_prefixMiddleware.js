@@ -23,7 +23,6 @@ describe(__filename, () => {
       'robots.txt',
       'validprefix',
     ]);
-    fakeConfig.set('clientAppRoutes', ['about']);
     fakeConfig.set('validTrailingSlashUrlExceptions', ['about']);
   });
 
@@ -218,10 +217,12 @@ describe(__filename, () => {
       originalUrl: '/en-US/about',
       headers: {},
     };
+    const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    sinon.assert.notCalled(fakeRes.redirect);
+    sinon.assert.neverCalledWith(statusSpy, 404);
     expect(fakeRes.locals.lang).toEqual('en-US');
     expect(fakeRes.locals.clientApp).toEqual('firefox');
-    sinon.assert.notCalled(fakeRes.redirect);
   });
 
   it('should not populate res.locals for a redirection', () => {

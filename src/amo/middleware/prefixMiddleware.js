@@ -79,14 +79,9 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     isApplicationFromHeader = false;
   }
 
-  // clientApp values that are allowed through to the router
-  // TODO: This can be removed when we upgrade to react-router v4.
-  const clientAppRoutes = _config.get('clientAppRoutes');
-
   if (
-    (hasValidLocaleException || hasValidClientAppUrlException) &&
-    !clientAppRoutes.includes(URLPathParts[2]) &&
-    (hasValidLang || hasValidLocaleException)
+    hasValidLocaleException ||
+    (hasValidClientAppUrlException && hasValidLang)
   ) {
     log.debug('Exception in URL found; we fallback to addons-server.');
     // TODO: Remove this once upgraded to react-router 4.

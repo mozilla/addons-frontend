@@ -47,32 +47,40 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
     {/* TODO: Post launch update this URL and redirect see #3374/ */}
     <Route exact path="/:lang/review_guide" component={ReviewGuide} />
 
-    <Route exact path="/:lang/:application/" component={Home} />
+    <Route
+      exact
+      path="/:lang/:application(firefox|android)/"
+      component={Home}
+    />
 
-    <Route exact path="/:lang/:application/addon/:slug/" component={Addon} />
+    <Route
+      exact
+      path="/:lang/:application(firefox|android)/addon/:slug/"
+      component={Addon}
+    />
 
     {_config.get('enableFeatureBlockPage') && (
       <Route
         exact
-        path="/:lang/:application/blocked-addon/:guid/:versionId?/"
+        path="/:lang/:application(firefox|android)/blocked-addon/:guid/:versionId?/"
         component={Block}
       />
     )}
 
     <Route
       exact
-      path="/:lang/:application/addon/:addonSlug/reviews/:reviewId"
+      path="/:lang/:application(firefox|android)/addon/:addonSlug/reviews/:reviewId"
       component={AddonReviewList}
     />
     <Route
       exact
-      path="/:lang/:application/addon/:addonSlug/reviews/"
+      path="/:lang/:application(firefox|android)/addon/:addonSlug/reviews/"
       component={AddonReviewList}
     />
 
     <Route
       exact
-      path="/:lang/:application/addon/:slug/privacy/"
+      path="/:lang/:application(firefox|android)/addon/:slug/privacy/"
       component={(props) => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_PRIVACY_POLICY} />
       )}
@@ -80,7 +88,7 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
 
     <Route
       exact
-      path="/:lang/:application/addon/:slug/eula/"
+      path="/:lang/:application(firefox|android)/addon/:slug/eula/"
       component={(props) => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_EULA} />
       )}
@@ -88,7 +96,7 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
 
     <Route
       exact
-      path="/:lang/:application/addon/:slug/license/"
+      path="/:lang/:application(firefox|android)/addon/:slug/license/"
       component={(props) => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_CUSTOM_LICENSE} />
       )}
@@ -96,56 +104,56 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
 
     <Route
       exact
-      path="/:lang/:application/addon/:slug/versions/"
+      path="/:lang/:application(firefox|android)/addon/:slug/versions/"
       component={AddonVersions}
     />
 
     <Route
       exact
-      path="/:lang/:application/users/edit"
+      path="/:lang/:application(firefox|android)/users/edit"
       component={UserProfileEdit}
     />
     <Route
       exact
-      path="/:lang/:application/user/:userId/edit/"
+      path="/:lang/:application(firefox|android)/user/:userId/edit/"
       component={UserProfileEdit}
     />
     <Route
       exact
-      path="/:lang/:application/user/:userId/"
+      path="/:lang/:application(firefox|android)/user/:userId/"
       component={UserProfile}
     />
 
     <Route
       exact
-      path="/:lang/:application/collections/:userId/:slug/"
+      path="/:lang/:application(firefox|android)/collections/:userId/:slug/"
       component={Collection}
     />
     <Route
       exact
-      path="/:lang/:application/collections/"
+      path="/:lang/:application(firefox|android)/collections/"
       component={CollectionList}
     />
     <Route
       exact
-      path="/:lang/:application/collections/add/"
+      path="/:lang/:application(firefox|android)/collections/add/"
       component={(props) => <Collection {...props} creating />}
     />
     <Route
       exact
-      path="/:lang/:application/collections/:userId/:slug/edit/"
+      path="/:lang/:application(firefox|android)/collections/:userId/:slug/edit/"
       component={CollectionEdit}
     />
 
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType(extensions|themes)/categories/"
+      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions|themes)/categories/"
       component={CategoriesPage}
     />
 
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType(extensions|themes)/category/:categorySlug/"
+      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions|themes)/category/:categorySlug/"
       component={CategoryPage}
     />
 
@@ -157,38 +165,46 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
     />
     <Route
       exact
-      path="/:lang/:application/language-tools/"
+      path="/:lang/:application(firefox)/language-tools/"
       component={LanguageTools}
     />
     <Route
       exact
-      path="/:lang/:application/search-tools/"
+      path="/:lang/:application(firefox|android)/search-tools/"
       component={SearchTools}
     />
-    <Route exact path="/:lang/:application/search/" component={SearchPage} />
+    <Route
+      exact
+      path="/:lang/:application(firefox|android)/search/"
+      component={SearchPage}
+    />
 
     <Route
       exact
-      path="/:lang/:application/401/"
+      path="/:lang/:application(firefox|android)/401/"
       component={
         _config.get('isDevelopment') ? NotAuthorizedPage : NotFoundPage
       }
     />
-    <Route exact path="/:lang/:application/404/" component={NotFoundPage} />
     <Route
       exact
-      path="/:lang/:application/451/"
+      path="/:lang/:application(firefox|android)/404/"
+      component={NotFoundPage}
+    />
+    <Route
+      exact
+      path="/:lang/:application(firefox|android)/451/"
       component={UnavailableForLegalReasonsPage}
     />
     <Route
       exact
-      path="/:lang/:application/500/"
+      path="/:lang/:application(firefox|android)/500/"
       component={_config.get('isDevelopment') ? ServerErrorPage : NotFoundPage}
     />
 
     <Route
       exact
-      path="/:lang/:application/simulate-async-error/"
+      path="/:lang/:application(firefox|android)/simulate-async-error/"
       component={() => (
         <Page showWrongPlatformWarning={false}>
           <SimulateAsyncError />
@@ -197,7 +213,7 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
     />
     <Route
       exact
-      path="/:lang/:application/simulate-sync-error/"
+      path="/:lang/:application(firefox|android)/simulate-sync-error/"
       component={() => (
         <Page showWrongPlatformWarning={false}>
           <SimulateSyncError />
@@ -206,13 +222,13 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
     />
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType(extensions|themes)/"
+      path="/:lang/:application(firefox|android)/:visibleAddonType(extensions|themes)/"
       component={LandingPage}
     />
 
     <Route
       exact
-      path="/:lang/:application/users/unsubscribe/:token/:hash/:notificationName/"
+      path="/:lang/:application(firefox|android)/users/unsubscribe/:token/:hash/:notificationName/"
       component={UsersUnsubscribe}
     />
 

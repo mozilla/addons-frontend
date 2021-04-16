@@ -353,12 +353,6 @@ module.exports = {
     'statistics',
     'user-media',
   ],
-  // These routes are allowed through to the app rather than 404.
-  // Anything in here should also be present in validClientAppUrlExceptions.
-  clientAppRoutes: [
-    'about',
-    'review_guide',
-  ],
 
   // These URLs are exceptions to our trailing slash URL redirects; if we
   // find a URL that matches this pattern we won't redirect to the same url
