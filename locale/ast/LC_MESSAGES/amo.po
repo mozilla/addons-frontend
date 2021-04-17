@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-17 03:18+0000\n"
+"PO-Revision-Date: 2021-04-17 03:24+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -1122,9 +1122,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr ""
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Ver más estilos populares"
+msgstr ""
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1139,9 +1138,8 @@ msgid "Access your data for %(param)s"
 msgstr ""
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:176
-#, fuzzy
 msgid "By Firefox"
-msgstr "pa Firefox"
+msgstr "Por Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47 src/amo/components/PromotedBadge/index.js:48 src/amo/components/SearchFilters/index.js:174
 msgid "Recommended"
@@ -1164,9 +1162,8 @@ msgid "OK"
 msgstr "Aceutar"
 
 #: src/amo/components/InstallButtonWrapper/index.js:146
-#, fuzzy
 msgid "Download file"
-msgstr "Baxando"
+msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:108
 msgid "Learn more"
@@ -1201,14 +1198,12 @@ msgid "Permissions"
 msgstr "Permisos"
 
 #: src/amo/components/PermissionsCard/index.js:68
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "Esti complementu pue:"
+msgstr "Esti complementu precisa:"
 
 #: src/amo/components/PermissionsCard/index.js:78
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Esti complementu pue:"
+msgstr "Esti complementu tamién pue pidite:"
 
 #: src/amo/components/PermissionsCard/index.js:93
 msgid "Learn more about permissions"
@@ -1483,34 +1478,28 @@ msgid "Add-ons by Firefox"
 msgstr "Complementos fechos por Firefox"
 
 #: src/amo/components/Search/index.js:168
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Estensiones aconseyaes"
+msgstr ""
 
 #: src/amo/components/Search/index.js:171
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Estilos aconseyaos"
+msgstr ""
 
 #: src/amo/components/Search/index.js:174
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Complementos aconseyaos"
+msgstr ""
 
 #: src/amo/components/Search/index.js:179
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Estensiones destacaes"
+msgstr ""
 
 #: src/amo/components/Search/index.js:182
-#, fuzzy
 msgid "Verified themes"
-msgstr "Restolar tolos temes"
+msgstr ""
 
 #: src/amo/components/Search/index.js:185
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Complementos destacaos"
+msgstr ""
 
 #: src/amo/components/Search/index.js:193 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1657,9 +1646,8 @@ msgid "Any"
 msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:184
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Reseña"
+msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:204
 msgid "Filter results"
@@ -1678,9 +1666,8 @@ msgid "Badging"
 msgstr ""
 
 #: src/amo/components/SearchForm/index.js:65
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Complementos p'Android"
+msgstr "Complementos pal Firefox d'Android"
 
 #: src/amo/components/SearchForm/index.js:66
 msgid "Firefox Add-ons"
@@ -1710,11 +1697,11 @@ msgstr "Guetando…"
 
 #: src/amo/components/SearchResults/index.js:50
 msgid "No results were found for \"%(query)s\"."
-msgstr "Nun s'alcontraron resultaos pa «%(query)s»."
+msgstr "Nun s'atoparon resultaos pa «%(query)s»."
 
 #: src/amo/components/SearchResults/index.js:56
 msgid "No results were found."
-msgstr "Nun s'alcontrarron resultaos."
+msgstr "Nun s'atoparon resultaos."
 
 #: src/amo/components/SectionLinks/index.js:111
 msgid "Explore"
@@ -1778,11 +1765,11 @@ msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr "Restolar toles estensiones"
+msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr "Restolar tolos estilos"
+msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
@@ -1852,7 +1839,7 @@ msgstr "%(localizedSize)s TB"
 
 #: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr "Nun pue valorase esti complementu porque nun s'espublizó denguna versión."
+msgstr "Esti complementu nun pue valorase porque nun s'espublizó nenguna versión."
 
 #: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
@@ -1866,7 +1853,7 @@ msgstr "Entá nun hai reseñes"
 
 #: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
-msgstr "Valora la to esperiencia"
+msgstr ""
 
 #: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
@@ -1894,7 +1881,7 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
-msgstr "Notes del llanzamientu de la versión %(addonVersion)s"
+msgstr ""
 
 #: src/amo/pages/Addon/index.js:471
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
@@ -1902,7 +1889,7 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
-msgstr "Datos meta de la estensión"
+msgstr ""
 
 #: src/amo/pages/Addon/index.js:522
 msgid "Screenshots"
@@ -2080,7 +2067,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:101
 msgid "My collections"
-msgstr "Les mios coleiciones"
+msgstr "Coleiciones de mio"
 
 #: src/amo/pages/CollectionList/index.js:119
 msgid "Collections"
@@ -2092,7 +2079,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:129
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr "Les coleiciones acenciellen el control de los complementos favoritos y la compartición del to restolar bien personalizáu con otros."
+msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:139
 msgid "Create a collection"
@@ -2124,11 +2111,11 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:219 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
-msgstr "Ver más estensiones aconseyaes"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:88
 msgid "Abstract"
-msgstr "Abstrautu"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:93
 msgid "Nature"
@@ -2148,7 +2135,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
-msgstr "Ver más estilos aconseyaos"
+msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
