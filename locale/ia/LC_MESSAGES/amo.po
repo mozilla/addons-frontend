@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-16 21:20+0000\n"
+"PO-Revision-Date: 2021-04-17 21:25+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1039,7 +1039,7 @@ msgstr "Centro de disveloppatores"
 
 #: src/amo/components/GetFirefoxBanner/index.js:73
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "Pro usar iste additivos, tu debera %(linkStart)sdiscargar Firefox%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Only with Firefox—Get Firefox Now"
