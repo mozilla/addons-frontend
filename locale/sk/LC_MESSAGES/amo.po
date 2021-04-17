@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-17 18:14+0000\n"
+"PO-Revision-Date: 2021-04-17 18:20+0000\n"
 "Last-Translator: Vlado Valaštiak <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -604,7 +604,6 @@ msgid "Log out"
 msgstr "Odhlásiť sa"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "Zaregistrujte sa alebo sa prihláste"
 
@@ -1046,9 +1045,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "Len pre Firefox — získajte Firefox teraz"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Prevziať Firefox"
+msgstr "Prevziať Firefox a získať tému"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1059,14 +1057,12 @@ msgid "Download Firefox"
 msgstr "Prevziať Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Ak chcete ohodnotiť túto tému vzhľadu, musíte sa prihlásiť"
+msgstr "Na použitie tejto témy budete potrebovať Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Ak chcete ohodnotiť toto rozšírenie, musíte sa prihlásiť"
+msgstr "Na použitie tohto rozšírenia budete potrebovať Firefox"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1139,9 +1135,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox odporúča len rozšírenia, ktoré spĺňajú naše štandardy pre bezpečnosť a výkon."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Témy vzhľadu v kategórii %(categoryName)s"
+msgstr "Ďalšie v kategórii %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1846,9 +1841,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Doplnky kompatibilné s Firefoxom pre Android nájdete <a href=\"%(newLocation)s\">tu</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Tento doplnok nie je kompatibilný s týmto prehliadačom. Vyskúšajte ho nainštalovať do Firefoxu pre počítač."
+msgstr "Doplnky nie sú kompatibilné s prehliadačom Firefox pre iOS. Skúste si ich nainštalovať do Firefoxu pre počítač."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
