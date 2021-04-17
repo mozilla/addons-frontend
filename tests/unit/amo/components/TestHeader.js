@@ -319,6 +319,8 @@ describe(__filename, () => {
 
     const root = renderHeader({ store, forBlog: true });
 
+    expect(root.find('.Header-title')).toHaveProp('prependClientApp', false);
+    expect(root.find('.Header-title')).toHaveProp('prependLang', false);
     expect(root.find('.Header-authenticate-button')).toHaveLength(0);
     expect(root.find('.Header-download-button')).toHaveLength(0);
     expect(root.find(SearchForm)).toHaveLength(0);

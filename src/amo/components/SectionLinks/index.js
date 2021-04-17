@@ -96,6 +96,11 @@ export class SectionLinksBase extends React.Component<InternalProps> {
       );
     }
 
+    const linkProps = {
+      prependClientApp: !forBlog,
+      prependLang: !forBlog,
+    };
+
     return (
       <ul className={makeClassName('SectionLinks', className)}>
         {forBlog && (
@@ -103,7 +108,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             <Link
               className={makeClassName(
                 'SectionLinks-link',
-                'SectionLinks-blog',
+                'SectionLinks-link-blog',
                 'SectionLinks-link--active',
               )}
               href="/blog/"
@@ -118,22 +123,29 @@ export class SectionLinksBase extends React.Component<InternalProps> {
           <Link
             className={makeClassName(
               'SectionLinks-link',
-              'SectionLinks-explore',
+              'SectionLinks-link-explore',
               {
                 'SectionLinks-link--active': isExploring,
               },
             )}
             to="/"
+            {...linkProps}
           >
             {i18n.gettext('Explore')}
           </Link>
         </li>
         <li>
           <Link
-            className={makeClassName('SectionLinks-link', {
-              'SectionLinks-link--active': viewContext === ADDON_TYPE_EXTENSION,
-            })}
+            className={makeClassName(
+              'SectionLinks-link',
+              'SectionLinks-link-extension',
+              {
+                'SectionLinks-link--active':
+                  viewContext === ADDON_TYPE_EXTENSION,
+              },
+            )}
             to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
+            {...linkProps}
           >
             {i18n.gettext('Extensions')}
           </Link>
@@ -149,6 +161,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
               },
             )}
             to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}
+            {...linkProps}
           >
             {i18n.gettext('Themes')}
           </Link>
