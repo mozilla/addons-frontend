@@ -180,7 +180,7 @@ describe(__filename, () => {
   });
 
   it('renders specific links for the blog', () => {
-    const root = render({ withBlogUI: true });
+    const root = render({ forBlog: true });
 
     expect(root.find('.SectionLinks-blog')).toHaveLength(1);
     expect(root.find('.SectionLinks-blog')).toHaveClassName(

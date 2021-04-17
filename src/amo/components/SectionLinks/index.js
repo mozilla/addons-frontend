@@ -31,7 +31,7 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
-  withBlogUI?: boolean,
+  forBlog?: boolean,
 |};
 
 type PropsFromState = {|
@@ -66,10 +66,10 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { className, clientApp, withBlogUI, i18n, viewContext } = this.props;
+    const { className, clientApp, forBlog, i18n, viewContext } = this.props;
     const isExploring =
       [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
-      !withBlogUI;
+      !forBlog;
 
     let forBrowserNameText;
     if (clientApp === CLIENT_APP_FIREFOX) {
@@ -98,7 +98,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
 
     return (
       <ul className={makeClassName('SectionLinks', className)}>
-        {withBlogUI && (
+        {forBlog && (
           <li>
             <Link
               className={makeClassName(
@@ -153,7 +153,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             {i18n.gettext('Themes')}
           </Link>
         </li>
-        {!withBlogUI && (
+        {!forBlog && (
           <li>
             <DropdownMenu
               className="SectionLinks-link SectionLinks-dropdown"
