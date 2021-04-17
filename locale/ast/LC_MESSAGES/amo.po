@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-17 03:33+0000\n"
+"PO-Revision-Date: 2021-04-17 03:44+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -471,11 +471,11 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Más estilos de «%(author)s»"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:311
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Más estilos d'estos artistes"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:315
 msgid "Themes by %(author)s"
@@ -603,7 +603,7 @@ msgstr ""
 
 #: src/amo/components/AuthenticateButton/index.js:93
 msgid "Register or log in"
-msgstr ""
+msgstr "Rexistrase o aniciar sesión"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:151
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -1017,11 +1017,11 @@ msgstr "Blogue"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:208
 msgid "Extension Workshop"
-msgstr ""
+msgstr "Extension Workshop"
 
 #: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:218
 msgid "Developer Hub"
-msgstr ""
+msgstr "Developer Hub"
 
 #: src/amo/components/GetFirefoxBanner/index.js:73
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
@@ -1101,7 +1101,7 @@ msgstr ""
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
-msgstr ""
+msgstr "Consiguir la estensión"
 
 # If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:221
@@ -1111,7 +1111,7 @@ msgstr ""
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:232
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "ACONSÉYASE"
 
 #: src/amo/components/HeroRecommendation/index.js:236
 msgid "BY FIREFOX"
@@ -1143,7 +1143,7 @@ msgstr "Por Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47 src/amo/components/PromotedBadge/index.js:48 src/amo/components/SearchFilters/index.js:174
 msgid "Recommended"
-msgstr ""
+msgstr "Aconséyase"
 
 #: src/amo/components/IconPromotedBadge/index.js:48 src/amo/components/PromotedBadge/index.js:56 src/amo/components/SearchFilters/index.js:180
 msgid "Verified"
@@ -1167,7 +1167,7 @@ msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:108
 msgid "Learn more"
-msgstr ""
+msgstr "Lleer más"
 
 #: src/amo/components/InstallWarning/index.js:112
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
@@ -1327,19 +1327,19 @@ msgstr "Entá nun hai valoraciones"
 
 #: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Anciar sesión pa valorar esti diccionariu"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Anciar sesión pa valorar esti paquete de llingua"
 
 #: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Anciar sesión pa valorar esti estilu"
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "Anciar sesión pa valorar esta estensión"
 
 #: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
@@ -2001,7 +2001,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:177
 msgid "What does this mean?"
-msgstr ""
+msgstr "¿Qué significa esto?"
 
 #: src/amo/pages/Block/index.js:179
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
@@ -2087,7 +2087,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:67
 msgid "You do not have any collections."
-msgstr ""
+msgstr "Nun tienes nenguna coleición."
 
 #: src/amo/pages/Home/index.js:103
 msgid "Scenery"
@@ -2095,7 +2095,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:108
 msgid "Music"
-msgstr ""
+msgstr "Música"
 
 #: src/amo/pages/Home/index.js:113
 msgid "Seasonal"
@@ -2119,11 +2119,11 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:93
 msgid "Nature"
-msgstr ""
+msgstr "Natura"
 
 #: src/amo/pages/Home/index.js:98
 msgid "Film & TV"
-msgstr ""
+msgstr "Filmes y TV"
 
 #: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
@@ -2573,7 +2573,7 @@ msgstr "Perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:652
 msgid "This field is required"
-msgstr ""
+msgstr "Ríquese esti campu"
 
 # the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:656
@@ -2586,7 +2586,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:706
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Esta URL namás ye visible pa usuarios que son desendolcadores."
 
 #: src/amo/pages/UserProfileEdit/index.js:763
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
@@ -2685,19 +2685,19 @@ msgstr ""
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:322
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Funciona con %(listOfApplicatonsAndVersions)s"
 
 #: src/amo/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Albortóse la instalación porque'l complementu paez tar toyíu."
 
 #: src/amo/utils/addons.js:40
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "La instalación falló. Volvi tentalo, por favor."
 
 #: src/amo/utils/addons.js:42
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "La descarga falló. Comprueba la conexón, por favor."
 
 #: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
