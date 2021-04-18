@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-18 13:24+0000\n"
+"PO-Revision-Date: 2021-04-18 13:25+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1067,9 +1067,8 @@ msgid "You'll need Firefox to use this theme"
 msgstr "Вам понадобится Firefox, чтобы использовать эту тему"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Войдите, чтобы оценить это расширение"
+msgstr "Вам понадобится Firefox, чтобы использовать это расширение"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1142,9 +1141,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox рекомендует только те расширения, которые соответствуют нашим стандартам по безопасности и производительности."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Темы в %(categoryName)s"
+msgstr "Посмотреть больше в %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1849,9 +1847,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Чтобы найти дополнения, совместимые с Firefox для Android, <a href=\"%(newLocation)s\">щёлкните здесь</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Это дополнение не совместимо с этим браузером. Попробуйте установить его на компьютерный Firefox."
+msgstr "Дополнения несовместимы с Firefox для iOS. Попробуйте установить их на компьютерный Firefox."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
