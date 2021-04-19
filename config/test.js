@@ -11,7 +11,8 @@ module.exports = {
 
   mozillaUserId: 1337,
   
-  // Don't run with any active experiments, otherwise tests try to send an
-  // enrollment event.
+  // Because tests run on the server by default and experiments are client-side
+  // only, we don't want to have any active experiments. Otherwise tests try to
+  // send an enrollment event, which triggers an exception.
   experiments: null,
 };
