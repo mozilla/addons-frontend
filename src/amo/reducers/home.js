@@ -145,6 +145,7 @@ export type ExternalResultShelfType = {|
   title: LocalizedString,
   url: string,
   endpoint: string,
+  addonType: number,
   criteria: string,
   footer: ExternalHeroCallToActionType | null,
   addons: Array<ExternalAddonType>,
@@ -154,6 +155,7 @@ export type ResultShelfType = {|
   title: string,
   url: string,
   endpoint: string,
+  addonType: number,
   criteria: string,
   footer: CallToActionType | null,
   addons: Array<AddonType>,
@@ -310,6 +312,7 @@ export const createInternalShelf = (
     title: selectLocalizedContent(result.title, lang),
     url: result.url,
     endpoint: result.endpoint,
+    addonType: result.addonType || 0,
     criteria: result.criteria,
     footer: result.footer
       ? createInternalHeroCallToAction(result.footer, lang)

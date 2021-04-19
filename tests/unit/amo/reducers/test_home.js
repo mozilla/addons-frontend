@@ -450,6 +450,7 @@ describe(__filename, () => {
         addons: [addon],
         criteria: '?sort=rating&type=statictheme',
         endpoint: 'search-themes',
+        addonType: 10,
         footer: {
           url: createLocalizedString(footerURL),
           text: createLocalizedString(footerText),
@@ -462,6 +463,7 @@ describe(__filename, () => {
 
       expect(createInternalShelf(shelf, lang)).toEqual({
         addons: [createInternalAddon(addon, lang)],
+        addonType: shelf.addonType,
         criteria: shelf.criteria,
         endpoint: shelf.endpoint,
         footer: createInternalHeroCallToAction(shelf.footer, lang),

@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import {
+  HOMESHELVES_ADDON_TYPE_EXTENSIONS,
+  HOMESHELVES_ADDON_TYPE_THEMES,
   HOMESHELVES_ENDPOINT_COLLECTIONS,
   HOMESHELVES_ENDPOINT_SEARCH,
   HOMESHELVES_ENDPOINT_SEARCH_THEMES,
@@ -57,6 +59,7 @@ describe(__filename, () => {
       addons: [{ ...fakeAddon, slug: 'slug1' }],
       criteria: '?sort=rating',
       endpoint: HOMESHELVES_ENDPOINT_SEARCH,
+      addonType: 1,
       footer: {
         url: '/1',
         outgoing: '/1',
@@ -70,6 +73,7 @@ describe(__filename, () => {
       addons: [{ ...fakeAddon, slug: 'slug2' }],
       criteria: '?sort=users',
       endpoint: HOMESHELVES_ENDPOINT_SEARCH_THEMES,
+      addonType: 10,
       footer: {
         url: '/2',
         outgoing: '/2',
@@ -102,26 +106,41 @@ describe(__filename, () => {
   });
 
   it.each([
-    [false, HOMESHELVES_ENDPOINT_COLLECTIONS],
-    [false, HOMESHELVES_ENDPOINT_SEARCH],
-    [true, HOMESHELVES_ENDPOINT_SEARCH_THEMES],
-  ])('passes isTheme as %s when endpoint is %s', (isTheme, endpoint) => {
-    const root = render({
-      shelves: [_createShelf({ endpoint })],
-    });
+    [false, HOMESHELVES_ENDPOINT_COLLECTIONS, 0],
+    [false, HOMESHELVES_ENDPOINT_SEARCH, 0],
+    [true, HOMESHELVES_ENDPOINT_SEARCH_THEMES, 0],
+    [
+      false,
+      HOMESHELVES_ENDPOINT_COLLECTIONS,
+      HOMESHELVES_ADDON_TYPE_EXTENSIONS,
+    ],
+    [true, HOMESHELVES_ENDPOINT_COLLECTIONS, HOMESHELVES_ADDON_TYPE_THEMES],
+    [false, HOMESHELVES_ENDPOINT_SEARCH, HOMESHELVES_ADDON_TYPE_EXTENSIONS],
+    [true, HOMESHELVES_ENDPOINT_SEARCH, HOMESHELVES_ADDON_TYPE_THEMES],
+  ])(
+    'passes isTheme as %s when endpoint is %s with addon type %s',
+    (isTheme, endpoint, addonType) => {
+      const root = render({
+        shelves: [_createShelf({ endpoint, addonType })],
+      });
 
-    expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', isTheme);
-  });
+      expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', isTheme);
+    },
+  );
 
   it.each([
-    [4, HOMESHELVES_ENDPOINT_COLLECTIONS],
-    [4, HOMESHELVES_ENDPOINT_SEARCH],
-    [3, HOMESHELVES_ENDPOINT_SEARCH_THEMES],
+    [4, HOMESHELVES_ENDPOINT_COLLECTIONS, 0],
+    [4, HOMESHELVES_ENDPOINT_SEARCH, 0],
+    [3, HOMESHELVES_ENDPOINT_SEARCH_THEMES, 0],
+    [4, HOMESHELVES_ENDPOINT_COLLECTIONS, HOMESHELVES_ADDON_TYPE_EXTENSIONS],
+    [3, HOMESHELVES_ENDPOINT_COLLECTIONS, HOMESHELVES_ADDON_TYPE_THEMES],
+    [4, HOMESHELVES_ENDPOINT_SEARCH, HOMESHELVES_ADDON_TYPE_EXTENSIONS],
+    [3, HOMESHELVES_ENDPOINT_SEARCH, HOMESHELVES_ADDON_TYPE_THEMES],
   ])(
-    'passes placeholderCount as %s when endpoint is %s',
-    (placeholderCount, endpoint) => {
+    'passes placeholderCount as %s when endpoint is %s with addon type %s',
+    (placeholderCount, endpoint, addonType) => {
       const root = render({
-        shelves: [_createShelf({ endpoint })],
+        shelves: [_createShelf({ endpoint, addonType })],
       });
 
       expect(root.find(LandingAddonsCard)).toHaveProp(

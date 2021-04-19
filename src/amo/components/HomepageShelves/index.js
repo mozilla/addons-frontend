@@ -29,6 +29,8 @@ type InternalProps = {|
 export const HOMESHELVES_ENDPOINT_COLLECTIONS = 'collections';
 export const HOMESHELVES_ENDPOINT_SEARCH = 'search';
 export const HOMESHELVES_ENDPOINT_SEARCH_THEMES = 'search-themes';
+export const HOMESHELVES_ADDON_TYPE_EXTENSIONS = 1;
+export const HOMESHELVES_ADDON_TYPE_THEMES = 10;
 
 export const HomepageShelvesBase = (props: InternalProps): React.Node => {
   const {
@@ -59,7 +61,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
     );
   } else {
     shelvesContent = shelves.map((shelf) => {
-      const { addons, criteria, endpoint, footer, title } = shelf;
+      const { addons, addonType, criteria, endpoint, footer, title } = shelf;
       const MOZILLA_USER_ID = config.get('mozillaUserId');
       const shelfKey = title.replace(/\s/g, '-');
 
@@ -75,10 +77,13 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           ? INSTALL_SOURCE_FEATURED_COLLECTION
           : INSTALL_SOURCE_FEATURED;
 
-      const count =
-        endpoint === HOMESHELVES_ENDPOINT_SEARCH_THEMES
-          ? LANDING_PAGE_THEME_COUNT
-          : LANDING_PAGE_EXTENSION_COUNT;
+      const themeBool =
+        endpoint === HOMESHELVES_ENDPOINT_SEARCH_THEMES ||
+        addonType === HOMESHELVES_ADDON_TYPE_THEMES;
+
+      const count = themeBool
+        ? LANDING_PAGE_THEME_COUNT
+        : LANDING_PAGE_EXTENSION_COUNT;
 
       let footerLink;
       if (footer && footer.url) {
@@ -103,7 +108,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           footerText={footerText}
           footerLink={footerLink}
           header={title}
-          isTheme={endpoint === HOMESHELVES_ENDPOINT_SEARCH_THEMES}
+          isTheme={themeBool}
           key={shelfKey}
           placeholderCount={count}
         />
