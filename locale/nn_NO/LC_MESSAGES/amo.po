@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-18 11:02+0000\n"
+"PO-Revision-Date: 2021-04-19 12:07+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -603,7 +603,6 @@ msgid "Log out"
 msgstr "Logg ut"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "Registrer deg eller logg inn"
 
@@ -1046,9 +1045,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "Berre med Firefox — Få Firefox no"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Last ned Firefox"
+msgstr "Last ned Firefox og få temaet"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1059,14 +1057,12 @@ msgid "Download Firefox"
 msgstr "Last ned Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Logg inn for å vurdere dette temaet"
+msgstr "Du treng Firefox for å bruke dette temaet"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Logg inn for å vurdere denne utvidinga"
+msgstr "Du treng Firefox for å bruke denne utvidinga"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1139,9 +1135,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox tilrår berre utvidingar som oppfyller standardane våre for sikkerheit og yting."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Tema i %(categoryName)s"
+msgstr "Sjå fleire i kategorien %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1834,9 +1829,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "For å finne tillegg som er kompatible med Firefox for Android, <a href=\"%(newLocation)s\">klikk her</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Dette tillegget er ikkje kompatibelt med denne nettlesaren. Prøv å installere det på Firefox for datamaskiner."
+msgstr "Tillegg er ikkje kompatible med Firefox for iOS. Prøv å installere dei på Firefox for datamaskiner."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
