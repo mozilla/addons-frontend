@@ -239,12 +239,12 @@
     "webpack-isomorphic-tools": "4.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.6",
+    "@babel/core": "^7.13.8",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/preset-env": "^7.1.6",
-    "@babel/preset-flow": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
+    "@babel/preset-env": "^7.13.8",
+    "@babel/preset-flow": "^7.12.13",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/register": "^7.13.8",
     "@emotion/core": "^11.0.0",
     "autoprefixer": "^10.0.0",
     "babel-core": "^7.0.0-bridge.0",
