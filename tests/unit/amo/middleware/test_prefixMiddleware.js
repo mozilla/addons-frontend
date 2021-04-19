@@ -84,50 +84,6 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeRes.vary);
   });
 
-  it('should render 404 when a localeURL exception exists', () => {
-    const fakeReq = {
-      originalUrl: '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
-      headers: {},
-    };
-    const statusSpy = sinon.spy(fakeRes, 'status');
-    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.notCalled(fakeRes.set);
-    sinon.assert.calledWith(statusSpy, 404);
-  });
-
-  it('should render 404 when localeURL exception exists, even without the app', () => {
-    const fakeReq = {
-      originalUrl: '/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
-      headers: {},
-    };
-    const statusSpy = sinon.spy(fakeRes, 'status');
-    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.notCalled(fakeRes.set);
-    sinon.assert.calledWith(statusSpy, 404);
-  });
-
-  it('should render a 404 when localeURL exception exists, with a locale prefix', () => {
-    const fakeReq = {
-      originalUrl: '/en-US/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
-      headers: {},
-    };
-    const statusSpy = sinon.spy(fakeRes, 'status');
-    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.notCalled(fakeRes.set);
-    sinon.assert.calledWith(statusSpy, 404);
-  });
-
-  it('should render a 404 when a clientApp URL exception is found', () => {
-    const fakeReq = {
-      originalUrl: '/en-US/developers/theme/submit',
-      headers: {},
-    };
-    const statusSpy = sinon.spy(fakeRes, 'status');
-    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.notCalled(fakeRes.set);
-    sinon.assert.calledWith(statusSpy, 404);
-  });
-
   it('should set lang when invalid, preserving clientApp URL exception', () => {
     const fakeReq = {
       originalUrl: '/en-USA/developers/',
@@ -137,17 +93,6 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/developers/');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
     sinon.assert.notCalled(fakeRes.vary);
-  });
-
-  it('should render a 404 with clientApp exception', () => {
-    const fakeReq = {
-      originalUrl: '/en-US/developers/',
-      headers: {},
-    };
-    const statusSpy = sinon.spy(fakeRes, 'status');
-    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.notCalled(fakeRes.set);
-    sinon.assert.calledWith(statusSpy, 404);
   });
 
   it('should fallback to and vary on accept-language headers', () => {
@@ -217,10 +162,8 @@ describe(__filename, () => {
       originalUrl: '/en-US/about',
       headers: {},
     };
-    const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.notCalled(fakeRes.redirect);
-    sinon.assert.neverCalledWith(statusSpy, 404);
     expect(fakeRes.locals.lang).toEqual('en-US');
     expect(fakeRes.locals.clientApp).toEqual('firefox');
   });
@@ -279,16 +222,5 @@ describe(__filename, () => {
       '/en-US/firefox/foo/bar?test=1&bar=2',
     );
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
-  });
-
-  it('should render a 404 for urls that are both a client app and locale exception', () => {
-    const fakeReq = {
-      originalUrl: '/robots.txt',
-      headers: {},
-    };
-    const statusSpy = sinon.spy(fakeRes, 'status');
-    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    sinon.assert.notCalled(fakeRes.redirect);
-    sinon.assert.calledWith(statusSpy, 404);
   });
 });
