@@ -1,4 +1,3 @@
-import config from 'config';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
@@ -11,6 +10,8 @@ import {
   getVariant,
   withExperiment,
 } from 'amo/withExperiment';
+// eslint-disable-next-line import/namespace
+import * as defaultConfig from 'config/default';
 import {
   createFakeTracking,
   fakeCookies,
@@ -406,6 +407,13 @@ describe(__filename, () => {
     expect(root).toHaveProp('isExperimentEnabled', false);
   });
 
+  it('can handle a null for experiments in the config', () => {
+    const configOverrides = { experiments: null };
+
+    const root = render({ configOverrides });
+    expect(root).toHaveProp('isExperimentEnabled', false);
+  });
+
   it('throws an exception for a badly formatted experimentId', () => {
     expect(() => {
       render({ experimentProps: { id: 'bad-id' } });
@@ -415,7 +423,8 @@ describe(__filename, () => {
   it('does not have any invalid experiment ids defined in the config', () => {
     // If this test fails it is because an experimentId does not match the
     // expected format of YYYYMMDD_ExperimentName.
-    for (const experimentId of Object.keys(config.get('experiments'))) {
+    // eslint-disable-next-line import/namespace
+    for (const experimentId of Object.keys(defaultConfig.experiments)) {
       expect(EXPERIMENT_ID_REGEXP.test(experimentId)).toEqual(true);
     }
   });
