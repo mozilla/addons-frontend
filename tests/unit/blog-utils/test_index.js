@@ -66,7 +66,7 @@ describe(__filename, () => {
       const html = cheerio.load(buildHeader());
 
       expect(html('.Header')).toHaveLength(1);
-      expect(html('.SectionLinks-blog')).toHaveLength(1);
+      expect(html('.SectionLinks-link-blog')).toHaveLength(1);
     });
   });
 });

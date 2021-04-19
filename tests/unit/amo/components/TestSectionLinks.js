@@ -180,20 +180,51 @@ describe(__filename, () => {
   });
 
   it('renders specific links for the blog', () => {
-    const root = render({ withBlogUI: true });
+    const root = render({ forBlog: true });
 
-    expect(root.find('.SectionLinks-blog')).toHaveLength(1);
-    expect(root.find('.SectionLinks-blog')).toHaveClassName(
+    expect(root.find('.SectionLinks-link-blog')).toHaveLength(1);
+    expect(root.find('.SectionLinks-link-blog')).toHaveClassName(
       'SectionLinks-link--active',
     );
     // Make sure that only the "Blog" link is active.
     expect(root.find('.SectionLinks-link--active')).toHaveLength(1);
-    expect(root.find('.SectionLinks-blog')).toHaveProp('href', '/blog/');
-    expect(root.find('.SectionLinks-blog')).toHaveProp(
+    expect(root.find('.SectionLinks-link-blog')).toHaveProp('href', '/blog/');
+    expect(root.find('.SectionLinks-link-blog')).toHaveProp(
       'prependClientApp',
       false,
     );
-    expect(root.find('.SectionLinks-blog')).toHaveProp('prependLang', false);
+    expect(root.find('.SectionLinks-link-blog')).toHaveProp(
+      'prependLang',
+      false,
+    );
+
+    expect(root.find('.SectionLinks-link-explore')).toHaveProp(
+      'prependClientApp',
+      false,
+    );
+    expect(root.find('.SectionLinks-link-explore')).toHaveProp(
+      'prependLang',
+      false,
+    );
+
+    expect(root.find('.SectionLinks-link-extension')).toHaveProp(
+      'prependClientApp',
+      false,
+    );
+    expect(root.find('.SectionLinks-link-extension')).toHaveProp(
+      'prependLang',
+      false,
+    );
+
+    expect(root.find('.SectionLinks-link-theme')).toHaveProp(
+      'prependClientApp',
+      false,
+    );
+    expect(root.find('.SectionLinks-link-theme')).toHaveProp(
+      'prependLang',
+      false,
+    );
+
     // TODO: there is a UI problem that makes the dropdown ugly.
     expect(root.find('.SectionLinks-dropdown')).toHaveLength(0);
   });

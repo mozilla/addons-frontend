@@ -49,10 +49,10 @@ export class HeaderBase extends React.Component {
     siteUser: PropTypes.object,
     userAgentInfo: PropTypes.object,
     variant: PropTypes.string,
-    withBlogUI: PropTypes.bool,
+    forBlog: PropTypes.bool,
   };
 
-  static defaultProps = { _config: config, withBlogUI: false };
+  static defaultProps = { _config: config, forBlog: false };
 
   handleLogOut = (event) => {
     event.preventDefault();
@@ -62,7 +62,7 @@ export class HeaderBase extends React.Component {
 
   renderMenuOrAuthButton() {
     const {
-      withBlogUI,
+      forBlog,
       i18n,
       isReviewer,
       loadedPageIsAnonymous,
@@ -70,7 +70,7 @@ export class HeaderBase extends React.Component {
       siteUser,
     } = this.props;
 
-    if (withBlogUI || loadedPageIsAnonymous) {
+    if (forBlog || loadedPageIsAnonymous) {
       // The server has loaded a page that is marked as anonymous so we do not
       // want to render any menu or authentication button here so that
       // logged-in users are not confused.
@@ -171,7 +171,7 @@ export class HeaderBase extends React.Component {
     const {
       _config,
       clientApp,
-      withBlogUI,
+      forBlog,
       i18n,
       isAddonDetailPage,
       isHomePage,
@@ -182,7 +182,12 @@ export class HeaderBase extends React.Component {
     } = this.props;
 
     const headerLink = (
-      <Link className="Header-title" to="/">
+      <Link
+        className="Header-title"
+        to="/"
+        prependClientApp={!forBlog}
+        prependLang={!forBlog}
+      >
         <span className="visually-hidden">
           {
             // translators: "Firefox" should not be translated. :-)
@@ -245,14 +250,14 @@ export class HeaderBase extends React.Component {
             <SectionLinks
               className="Header-SectionLinks"
               location={location}
-              withBlogUI={withBlogUI}
+              forBlog={forBlog}
             />
           ) : null}
 
           <div className="Header-user-and-external-links">
             {otherSiteLinks}
 
-            {!withBlogUI && variant !== VARIANT_NEW ? (
+            {!forBlog && variant !== VARIANT_NEW ? (
               <GetFirefoxButton
                 buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
                 className="Header-download-button Header-button"
@@ -262,7 +267,7 @@ export class HeaderBase extends React.Component {
             {this.renderMenuOrAuthButton()}
           </div>
 
-          {!withBlogUI && (
+          {!forBlog && (
             <SearchForm
               className={makeClassName('Header-search-form', {
                 'Header-search-form--desktop': clientApp === CLIENT_APP_FIREFOX,

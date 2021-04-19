@@ -317,11 +317,13 @@ describe(__filename, () => {
   it('can update its UI for the blog', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
 
-    const root = renderHeader({ store, withBlogUI: true });
+    const root = renderHeader({ store, forBlog: true });
 
+    expect(root.find('.Header-title')).toHaveProp('prependClientApp', false);
+    expect(root.find('.Header-title')).toHaveProp('prependLang', false);
     expect(root.find('.Header-authenticate-button')).toHaveLength(0);
     expect(root.find('.Header-download-button')).toHaveLength(0);
     expect(root.find(SearchForm)).toHaveLength(0);
-    expect(root.find(SectionLinks)).toHaveProp('withBlogUI', true);
+    expect(root.find(SectionLinks)).toHaveProp('forBlog', true);
   });
 });

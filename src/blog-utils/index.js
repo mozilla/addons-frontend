@@ -61,7 +61,7 @@ export const buildHeader = (): string => {
   const app = 'firefox';
   const lang = 'en-US';
 
-  return render({ app, lang, component: <Header withBlogUI /> });
+  return render({ app, lang, component: <Header forBlog /> });
 };
 
 type BuildStaticAddonCardParams = {|

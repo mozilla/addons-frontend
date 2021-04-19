@@ -31,7 +31,7 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
-  withBlogUI?: boolean,
+  forBlog?: boolean,
 |};
 
 type PropsFromState = {|
@@ -66,10 +66,10 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { className, clientApp, withBlogUI, i18n, viewContext } = this.props;
+    const { className, clientApp, forBlog, i18n, viewContext } = this.props;
     const isExploring =
       [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
-      !withBlogUI;
+      !forBlog;
 
     let forBrowserNameText;
     if (clientApp === CLIENT_APP_FIREFOX) {
@@ -96,14 +96,19 @@ export class SectionLinksBase extends React.Component<InternalProps> {
       );
     }
 
+    const linkProps = {
+      prependClientApp: !forBlog,
+      prependLang: !forBlog,
+    };
+
     return (
       <ul className={makeClassName('SectionLinks', className)}>
-        {withBlogUI && (
+        {forBlog && (
           <li>
             <Link
               className={makeClassName(
                 'SectionLinks-link',
-                'SectionLinks-blog',
+                'SectionLinks-link-blog',
                 'SectionLinks-link--active',
               )}
               href="/blog/"
@@ -118,22 +123,29 @@ export class SectionLinksBase extends React.Component<InternalProps> {
           <Link
             className={makeClassName(
               'SectionLinks-link',
-              'SectionLinks-explore',
+              'SectionLinks-link-explore',
               {
                 'SectionLinks-link--active': isExploring,
               },
             )}
             to="/"
+            {...linkProps}
           >
             {i18n.gettext('Explore')}
           </Link>
         </li>
         <li>
           <Link
-            className={makeClassName('SectionLinks-link', {
-              'SectionLinks-link--active': viewContext === ADDON_TYPE_EXTENSION,
-            })}
+            className={makeClassName(
+              'SectionLinks-link',
+              'SectionLinks-link-extension',
+              {
+                'SectionLinks-link--active':
+                  viewContext === ADDON_TYPE_EXTENSION,
+              },
+            )}
             to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
+            {...linkProps}
           >
             {i18n.gettext('Extensions')}
           </Link>
@@ -149,11 +161,12 @@ export class SectionLinksBase extends React.Component<InternalProps> {
               },
             )}
             to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}
+            {...linkProps}
           >
             {i18n.gettext('Themes')}
           </Link>
         </li>
-        {!withBlogUI && (
+        {!forBlog && (
           <li>
             <DropdownMenu
               className="SectionLinks-link SectionLinks-dropdown"
