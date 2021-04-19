@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-13 16:38+0000\n"
-"PO-Revision-Date: 2021-04-16 18:50+0000\n"
+"PO-Revision-Date: 2021-04-19 16:24+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -876,13 +876,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Valitettavasti palvelimellamme tapahtui virhe, emmekä voineet täyttää pyyntöäsi. Tallensimme tämän virheen ja tutkimme asiaa."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Kokeile käydä sivulla myöhemmin, sillä teema tai laajennus saattaa tulla uudelleen saataville. Voit vaihtoehtoisesti löytää etsimäsi saatavilla olevista "
-"%(extensionStart)sslaajennuksista%(extensionEnd)s tai %(themeStart)steemoista%(themeEnd)s, tai pyytämällä apua %(communityStart)syhteisön keskustelualueilla%(communityEnd)s."
+"Saatat löytää etsimäsi saatavilla olevista %(extensionStart)slaajennuksista%(extensionEnd)s tai %(themeStart)steemoista%(themeEnd)s, tai pyytämällä apua %(communityStart)syhteisön "
+"keskustelualueilla%(communityEnd)s."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
@@ -1131,9 +1130,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox suosittelee vain sellaisia laajennuksia, jotka täyttävät standardimme turvallisuuden ja suorituskyvyn suhteen."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Teemat luokassa %(categoryName)s"
+msgstr "Katso lisää luokan %(categoryName)s sisältöä"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1821,14 +1819,12 @@ msgid "Developer response"
 msgstr "Kehittäjän vastaus"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "Lue lisää Firefoxin Android-version kanssa yhteensopivista lisäosista <a href=\"%(newLocation)s\">napsauttamalla tästä</a>."
+msgstr "Löydä Firefoxin Android-version kanssa yhteensopivat lisäosat <a href=\"%(newLocation)s\">napsauttamalla tästä</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Tämä lisäosa ei ole yhteensopiva käyttämäsi selaimen kanssa. Asenna se Firefoxin työpöytäversioon."
+msgstr "Lisäosat eivät ole yhteensopivia Firefoxin iOS-version kanssa. Asenna lisäosia Firefoxin työpöytäversioon."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
