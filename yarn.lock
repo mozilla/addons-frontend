@@ -4701,10 +4701,10 @@ eslint-module-utils@^2.6.0:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
-eslint-plugin-amo@^1.9.1:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-amo/-/eslint-plugin-amo-1.13.0.tgz#2e1fe7b211d8454924ffb32cc9c8335c14165206"
-  integrity sha512-rU77cwMgasjW/jNSL5uhO7+Gommncqf0C7/WjGzwlEuZJJDqsAVTJcvOP831uL8q3fcvfWhmgSuRQV+EdLFpHw==
+eslint-plugin-amo@^1.13.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-amo/-/eslint-plugin-amo-1.14.0.tgz#e3d1ae66a5fe7b4232f9cf97ee235135a39ccb3a"
+  integrity sha512-hXtbp5BHbso/WNMee5BR7P3wZrpWjuOm2bK4l91iXYRnvjabwoUoNsFwiN2UBtlyktZ4dNm0D21ortuDLjBwWQ==
   dependencies:
     requireindex "1.2.0"
     string-natural-compare "3.0.1"
