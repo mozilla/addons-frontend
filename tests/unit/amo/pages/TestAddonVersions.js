@@ -353,11 +353,12 @@ describe(__filename, () => {
     expect(root.find(CardList)).toHaveProp('header', <LoadingText />);
   });
 
-  it('passes the errorHandler to the Page component', () => {
+  it('passes the errorHandler and isAddonInstallPage to the Page component', () => {
     const errorHandler = createCapturedErrorHandler({ status: 404 });
 
     const root = render({ errorHandler });
     expect(root.find(Page)).toHaveProp('errorHandler', errorHandler);
+    expect(root.find(Page)).toHaveProp('isAddonInstallPage', true);
   });
 
   describe('latest version', () => {

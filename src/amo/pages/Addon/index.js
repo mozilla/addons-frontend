@@ -444,7 +444,7 @@ export class AddonBase extends React.Component {
     return (
       <Page
         errorHandler={errorHandler}
-        isAddonDetailPage
+        isAddonInstallPage
         showWrongPlatformWarning={false}
       >
         <div
