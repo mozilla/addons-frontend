@@ -36,7 +36,7 @@ export const viewFrontendVersionHandler = ({
       };
     }, {});
 
-  const experiments = _config.get('experiments');
+  const experiments = _config.get('experiments') || {};
 
   return (req: typeof $Request, res: typeof $Response) => {
     fs.stat(version, async (error) => {

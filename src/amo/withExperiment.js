@@ -125,7 +125,8 @@ export const isExperimentEnabled = ({
   _config: typeof config,
   id: string,
 |}): boolean => {
-  return _config.get('experiments')[id] === true;
+  const experiments = _config.get('experiments') || {};
+  return experiments[id] === true;
 };
 
 type withExperimentInternalProps = {|

@@ -11,10 +11,7 @@ module.exports = {
 
   mozillaUserId: 1337,
   
-  // Disable any active experiments, otherwise tests try to send an enrollment
-  // event.
-  // We cannot just use an empty object here, as the configs are merged.
-  experiments: {
-    '20210404_download_cta_experiment': false,
-  },
+  // Don't run with any active experiments, otherwise tests try to send an
+  // enrollment event.
+  experiments: null,
 };
