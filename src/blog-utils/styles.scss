@@ -1,0 +1,8 @@
+.DropdownMenu {
+  // This is added as a global style on AMO but we don't use all of the AMO CSS
+  // in this library so this is why we have to declare some style here.
+  button {
+    background: none;
+    border: none;
+  }
+}

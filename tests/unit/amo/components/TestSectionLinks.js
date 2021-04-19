@@ -18,6 +18,7 @@ import {
   createFakeHistory,
   dispatchClientMetadata,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DropdownMenu from 'amo/components/DropdownMenu';
@@ -179,25 +180,9 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeHistory.push, `/en-US/${CLIENT_APP_ANDROID}/`);
   });
 
-  it('renders specific links for the blog', () => {
+  it('renders links without clientApp/locale for the blog', () => {
     const root = render({ forBlog: true });
 
-    expect(root.find('.SectionLinks-link-blog')).toHaveLength(1);
-    expect(root.find('.SectionLinks-link-blog')).toHaveClassName(
-      'SectionLinks-link--active',
-    );
-    // Make sure that only the "Blog" link is active.
-    expect(root.find('.SectionLinks-link--active')).toHaveLength(1);
-    expect(root.find('.SectionLinks-link-blog')).toHaveProp('href', '/blog/');
-    expect(root.find('.SectionLinks-link-blog')).toHaveProp(
-      'prependClientApp',
-      false,
-    );
-    expect(root.find('.SectionLinks-link-blog')).toHaveProp(
-      'prependLang',
-      false,
-    );
-
     expect(root.find('.SectionLinks-link-explore')).toHaveProp(
       'prependClientApp',
       false,
@@ -224,8 +209,32 @@ describe(__filename, () => {
       'prependLang',
       false,
     );
+  });
 
-    // TODO: there is a UI problem that makes the dropdown ugly.
-    expect(root.find('.SectionLinks-dropdown')).toHaveLength(0);
+  it('adds a link to the blog in the "More..." dropdown submenu for the blog', () => {
+    // The "More..." link is not rendered on Android.
+    _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
+
+    const root = render({ forBlog: true });
+
+    expect(
+      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+        return element.prop('href') === '/blog/';
+      }),
+    ).toHaveLength(1);
+  });
+
+  it('renders a link to the new blog when the feature flag is active', () => {
+    // The "More..." link is not rendered on Android.
+    _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
+    const _config = getFakeConfig({ enableFeatureLinkToNewBlog: true });
+
+    const root = render({ _config });
+
+    expect(
+      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+        return element.prop('href') === '/blog/';
+      }),
+    ).toHaveLength(1);
   });
 });

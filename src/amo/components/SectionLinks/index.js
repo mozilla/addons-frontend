@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -39,15 +40,24 @@ type PropsFromState = {|
   viewContext: ViewContextType,
 |};
 
+type DefaultProps = {|
+  _config: typeof config,
+|};
+
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
+  ...DefaultProps,
   dispatch: DispatchFunc,
-  i18n: I18nType,
   history: ReactRouterHistoryType,
+  i18n: I18nType,
 |};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
+  static defaultProps: DefaultProps = {
+    _config: config,
+  };
+
   setClientApp: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
@@ -66,7 +76,14 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { className, clientApp, forBlog, i18n, viewContext } = this.props;
+    const {
+      _config,
+      className,
+      clientApp,
+      forBlog,
+      i18n,
+      viewContext,
+    } = this.props;
     const isExploring =
       [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
       !forBlog;
@@ -94,6 +111,24 @@ export class SectionLinksBase extends React.Component<InternalProps> {
           </Link>
         </DropdownMenuItem>,
       );
+
+      if (_config.get('enableFeatureLinkToNewBlog') || forBlog) {
+        sectionsForBrowser.push(
+          <DropdownMenuItem key="blog">
+            <Link
+              className={makeClassName(
+                'SectionLinks-dropdownlink',
+                'SectionLinks-dropdownlink-blog',
+              )}
+              href="/blog/"
+              prependClientApp={false}
+              prependLang={false}
+            >
+              {i18n.gettext('Blog')}
+            </Link>
+          </DropdownMenuItem>,
+        );
+      }
     }
 
     const linkProps = {
@@ -103,22 +138,6 @@ export class SectionLinksBase extends React.Component<InternalProps> {
 
     return (
       <ul className={makeClassName('SectionLinks', className)}>
-        {forBlog && (
-          <li>
-            <Link
-              className={makeClassName(
-                'SectionLinks-link',
-                'SectionLinks-link-blog',
-                'SectionLinks-link--active',
-              )}
-              href="/blog/"
-              prependClientApp={false}
-              prependLang={false}
-            >
-              {i18n.gettext('Blog')}
-            </Link>
-          </li>
-        )}
         <li>
           <Link
             className={makeClassName(
@@ -166,51 +185,49 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             {i18n.gettext('Themes')}
           </Link>
         </li>
-        {!forBlog && (
-          <li>
-            <DropdownMenu
-              className="SectionLinks-link SectionLinks-dropdown"
-              text={i18n.gettext('More…')}
-            >
-              {sectionsForBrowser.length > 0 && (
-                <DropdownMenuItem className="SectionLinks-subheader">
-                  {forBrowserNameText}
-                </DropdownMenuItem>
-              )}
-              {sectionsForBrowser}
-
+        <li>
+          <DropdownMenu
+            className="SectionLinks-link SectionLinks-dropdown"
+            text={i18n.gettext('More…')}
+          >
+            {sectionsForBrowser.length > 0 && (
               <DropdownMenuItem className="SectionLinks-subheader">
-                {i18n.gettext('Other Browser Sites')}
+                {forBrowserNameText}
               </DropdownMenuItem>
-              {clientApp !== CLIENT_APP_ANDROID ? (
-                <DropdownMenuItem>
-                  <Link
-                    className={`SectionLinks-clientApp-${CLIENT_APP_ANDROID}`}
-                    data-clientapp={CLIENT_APP_ANDROID}
-                    onClick={this.setClientApp}
-                    prependClientApp={false}
-                    to={`/${CLIENT_APP_ANDROID}/`}
-                  >
-                    {i18n.gettext('Add-ons for Android')}
-                  </Link>
-                </DropdownMenuItem>
-              ) : null}
-              {clientApp !== CLIENT_APP_FIREFOX ? (
-                <DropdownMenuItem>
-                  <Link
-                    className={`SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`}
-                    data-clientapp={CLIENT_APP_FIREFOX}
-                    onClick={this.setClientApp}
-                    prependClientApp={false}
-                    to={`/${CLIENT_APP_FIREFOX}/`}
-                  >
-                    {i18n.gettext('Add-ons for Firefox')}
-                  </Link>
-                </DropdownMenuItem>
-              ) : null}
-            </DropdownMenu>
-          </li>
-        )}
+            )}
+            {sectionsForBrowser}
+
+            <DropdownMenuItem className="SectionLinks-subheader">
+              {i18n.gettext('Other Browser Sites')}
+            </DropdownMenuItem>
+            {clientApp !== CLIENT_APP_ANDROID ? (
+              <DropdownMenuItem>
+                <Link
+                  className={`SectionLinks-clientApp-${CLIENT_APP_ANDROID}`}
+                  data-clientapp={CLIENT_APP_ANDROID}
+                  onClick={this.setClientApp}
+                  prependClientApp={false}
+                  to={`/${CLIENT_APP_ANDROID}/`}
+                >
+                  {i18n.gettext('Add-ons for Android')}
+                </Link>
+              </DropdownMenuItem>
+            ) : null}
+            {clientApp !== CLIENT_APP_FIREFOX ? (
+              <DropdownMenuItem>
+                <Link
+                  className={`SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`}
+                  data-clientapp={CLIENT_APP_FIREFOX}
+                  onClick={this.setClientApp}
+                  prependClientApp={false}
+                  to={`/${CLIENT_APP_FIREFOX}/`}
+                >
+                  {i18n.gettext('Add-ons for Firefox')}
+                </Link>
+              </DropdownMenuItem>
+            ) : null}
+          </DropdownMenu>
+        </li>
       </ul>
     );
   }

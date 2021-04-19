@@ -17,6 +17,8 @@ import { createInternalAddon } from 'amo/reducers/addons';
 
 import StaticAddonCard from './StaticAddonCard';
 
+import './styles.scss';
+
 const AMO_BASE_URL = 'https://addons.mozilla.org';
 
 type RenderParams = {|
