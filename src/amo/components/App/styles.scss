@@ -31,12 +31,11 @@ textarea {
 *::before,
 *::after {
   box-sizing: inherit;
-  // This is needed for Safari, which does not support `anywhere`.
-  // stylelint-disable order/properties-alphabetical-order
-  word-break: break-word;
   // We use `anywhere` instead of `break-word` so that it works even when the
   // container does not have a well-defined width.
   overflow-wrap: anywhere;
+  // This is needed for Safari, which does not support `anywhere`.
+  word-break: break-word;
 }
 
 body {
