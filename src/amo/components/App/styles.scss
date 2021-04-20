@@ -35,7 +35,7 @@ textarea {
   // container does not have a well-defined width.
   overflow-wrap: anywhere;
   // This is needed for Safari, which does not support `anywhere`.
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 body {
