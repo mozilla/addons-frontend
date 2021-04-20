@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-13 16:38+0000\n"
+"POT-Creation-Date: 2021-04-20 19:16+0000\n"
 "PO-Revision-Date: 2020-08-01 23:43+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
@@ -564,27 +564,27 @@ msgstr ","
 msgid "by"
 msgstr "oleh"
 
-#: src/amo/components/AddonVersionCard/index.js:106
+#: src/amo/components/AddonVersionCard/index.js:115
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "Kode sumber dirilis di bawah %(linkStart)s%(licenseName)s%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:117
+#: src/amo/components/AddonVersionCard/index.js:126
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Kode sumber dirilis di bawah %(linkStart)sLisensiKhusus%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:144
+#: src/amo/components/AddonVersionCard/index.js:153
 msgid "Source code released under %(licenseName)s"
 msgstr "Kode sumber dirilis di bawah %(licenseName)s"
 
-#: src/amo/components/AddonVersionCard/index.js:54
+#: src/amo/components/AddonVersionCard/index.js:63
 msgid "No version found"
 msgstr "Tidak ada versi yang ditemukan"
 
-#: src/amo/components/AddonVersionCard/index.js:62
+#: src/amo/components/AddonVersionCard/index.js:71
 msgid "Version %(versionNumber)s"
 msgstr "Versi %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:86
+#: src/amo/components/AddonVersionCard/index.js:95
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Dirilis %(dateReleased)s - %(fileSize)s"
 
@@ -646,7 +646,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Pengaya untuk Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:156
+#: src/amo/components/Header/index.js:158
 msgid "Log out"
 msgstr "Keluar"
 
@@ -656,7 +656,7 @@ msgid "Register or log in"
 msgstr "Daftar atau Masuk"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:151
+#: src/amo/components/Header/index.js:153
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -713,7 +713,7 @@ msgid "Back to collection"
 msgstr "Kembali ke koleksi"
 
 #: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:64
 msgid "Add-ons"
 msgstr "Pengaya"
 
@@ -1099,47 +1099,52 @@ msgstr "Ditandai sebagai spam"
 msgid "This contains inappropriate language"
 msgstr "Bagian ini mengandung bahasa yang tidak pantas"
 
-#: src/amo/components/Footer/index.js:101
+#: src/amo/components/Footer/index.js:107
 msgid "Developer Policies"
 msgstr "Kebijakan Pengembang"
 
-#: src/amo/components/Footer/index.js:106
+#: src/amo/components/Footer/index.js:122
+#, fuzzy
+msgid "Developer Blog"
+msgstr "Pusat Pengembang"
+
+#: src/amo/components/Footer/index.js:128
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:114
+#: src/amo/components/Footer/index.js:136
 msgid "Report a bug"
 msgstr "Laporkan kutu"
 
-#: src/amo/components/Footer/index.js:119
+#: src/amo/components/Footer/index.js:141
 msgid "Review Guide"
 msgstr "Panduan Ulasan"
 
-#: src/amo/components/Footer/index.js:124
+#: src/amo/components/Footer/index.js:146
 msgid "Site Status"
 msgstr "Status Situs"
 
-#: src/amo/components/Footer/index.js:131
+#: src/amo/components/Footer/index.js:153
 msgid "Browsers"
 msgstr "Peramban"
 
-#: src/amo/components/Footer/index.js:189
+#: src/amo/components/Footer/index.js:211
 msgid "Products"
 msgstr "Produk"
 
-#: src/amo/components/Footer/index.js:265
+#: src/amo/components/Footer/index.js:287
 msgid "Privacy"
 msgstr "Privasi"
 
-#: src/amo/components/Footer/index.js:273
+#: src/amo/components/Footer/index.js:295
 msgid "Cookies"
 msgstr "Kuki"
 
-#: src/amo/components/Footer/index.js:281
+#: src/amo/components/Footer/index.js:303
 msgid "Legal"
 msgstr "Legal"
 
-#: src/amo/components/Footer/index.js:291
+#: src/amo/components/Footer/index.js:313
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1150,23 +1155,24 @@ msgstr ""
 "Attribution Share-Alike License v3.0%(endLicenseLink)s atau versi lain yang "
 "lebih baru."
 
-#: src/amo/components/Footer/index.js:37
+#: src/amo/components/Footer/index.js:39
 msgid "Go to Mozilla's homepage"
 msgstr "Ke beranda Mozilla"
 
-#: src/amo/components/Footer/index.js:63
+#: src/amo/components/Footer/index.js:69
 msgid "About"
 msgstr "Tentang"
 
-#: src/amo/components/Footer/index.js:68
+#: src/amo/components/Footer/index.js:74
+#: src/amo/components/SectionLinks/index.js:127
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:208
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
 msgstr "Lokakarya Ekstensi"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr "Pusat Pengembang"
 
@@ -1203,52 +1209,52 @@ msgstr "Masuk untuk menilai tema ini"
 msgid "You'll need Firefox to use this extension"
 msgstr "Masuk untuk menilai ekstensi ini"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:107
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "Edit Profil Saya"
 
-#: src/amo/components/Header/index.js:109
+#: src/amo/components/Header/index.js:111
 msgid "Tools"
 msgstr "Alat"
 
-#: src/amo/components/Header/index.js:115
+#: src/amo/components/Header/index.js:117
 msgid "Submit a New Add-on"
 msgstr "Ajukan Pengaya Baru"
 
-#: src/amo/components/Header/index.js:120
+#: src/amo/components/Header/index.js:122
 msgid "Submit a New Theme"
 msgstr "Ajukan Tema Baru"
 
-#: src/amo/components/Header/index.js:129
+#: src/amo/components/Header/index.js:131
 msgid "Manage My Submissions"
 msgstr "Kelola Pengajuan Saya"
 
-#: src/amo/components/Header/index.js:139
+#: src/amo/components/Header/index.js:141
 msgid "Reviewer Tools"
 msgstr "Perangkat untuk Pengulas"
 
-#: src/amo/components/Header/index.js:186
+#: src/amo/components/Header/index.js:194
 msgid "Firefox Browser Add-ons"
 msgstr "Pengaya Peramban Firefox"
 
-#: src/amo/components/Header/index.js:206
+#: src/amo/components/Header/index.js:214
 msgid "Learn how to create extensions and themes"
 msgstr "Pelajari bagaimana membuat ekstensi dan tema"
 
-#: src/amo/components/Header/index.js:216
+#: src/amo/components/Header/index.js:224
 msgid "Submit and manage extensions and themes"
 msgstr "Kirim dan kelola ekstensi dan tema"
 
-#: src/amo/components/Header/index.js:83
+#: src/amo/components/Header/index.js:85
 msgid "My Account"
 msgstr "Akun Saya"
 
-#: src/amo/components/Header/index.js:89
+#: src/amo/components/Header/index.js:91
 msgid "View My Collections"
 msgstr "Lihat Koleksi Saya"
 
-#: src/amo/components/Header/index.js:97
+#: src/amo/components/Header/index.js:99
 #: src/amo/pages/UserProfileEdit/index.js:567
 msgid "View My Profile"
 msgstr "Lihat Profil Saya"
@@ -1326,7 +1332,7 @@ msgstr "Kelola pengaya Anda dengan mengklik Pengaya pada menu."
 msgid "OK"
 msgstr "Oke"
 
-#: src/amo/components/InstallButtonWrapper/index.js:146
+#: src/amo/components/InstallButtonWrapper/index.js:114
 #, fuzzy
 msgid "Download file"
 msgstr "Mengunduh"
@@ -1929,49 +1935,49 @@ msgstr "Tidak ada hasil ditemukan untuk \"%(query)s\"."
 msgid "No results were found."
 msgstr "Tidak ada hasil ditemukan."
 
-#: src/amo/components/SectionLinks/index.js:111
+#: src/amo/components/SectionLinks/index.js:110
+msgid "Dictionaries & Language Packs"
+msgstr "Kamus & Paket Bahasa"
+
+#: src/amo/components/SectionLinks/index.js:153
 msgid "Explore"
 msgstr "Jelajahi"
 
-#: src/amo/components/SectionLinks/index.js:121
+#: src/amo/components/SectionLinks/index.js:169
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Ekstensi"
 
-#: src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/SectionLinks/index.js:185
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Tema"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:191
 msgid "More…"
 msgstr "Lainnya…"
 
-#: src/amo/components/SectionLinks/index.js:152
+#: src/amo/components/SectionLinks/index.js:201
 msgid "Other Browser Sites"
 msgstr "Situs Peramban Lainnya"
 
-#: src/amo/components/SectionLinks/index.js:163
+#: src/amo/components/SectionLinks/index.js:212
 msgid "Add-ons for Android"
 msgstr "Pengaya untuk Android"
 
-#: src/amo/components/SectionLinks/index.js:176
+#: src/amo/components/SectionLinks/index.js:225
 msgid "Add-ons for Firefox"
 msgstr "Pengaya untuk Firefox"
 
-#: src/amo/components/SectionLinks/index.js:75
+#: src/amo/components/SectionLinks/index.js:93
 msgid "for Firefox"
 msgstr "untuk Firefox"
 
-#: src/amo/components/SectionLinks/index.js:77
+#: src/amo/components/SectionLinks/index.js:95
 msgid "for Android"
 msgstr "untuk Android"
-
-#: src/amo/components/SectionLinks/index.js:92
-msgid "Dictionaries & Language Packs"
-msgstr "Kamus & Paket Bahasa"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -2555,14 +2561,44 @@ msgstr ""
 "pengaya, sila kunjungi %(startLink)swiki%(endLink)s kami."
 
 #: src/amo/pages/StaticPages/About/index.js:189
-msgid "Get support"
-msgstr "Dapatkan Dukungan"
+#, fuzzy
+msgid "Report an issue"
+msgstr "Laporkan kutu"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
 msgstr "Tentang Pengaya Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
+msgid ""
+"If you find a problem with the site, we'd love to fix it. Please file an "
+"%(startIssueLink)sissue%(endIssueLink)s and include as much detail as "
+"possible."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:20
+msgid ""
+"The official Mozilla site for downloading Firefox extensions and themes. Add "
+"new features and change the browser’s appearance to customize your web "
+"experience."
+msgstr ""
+"Situs resmi Mozilla untuk mengunduh ekstensi dan tema Firefox. Tambahkan "
+"fitur baru dan ubah tampilan peramban untuk menyesuaikan pengalaman web Anda."
+
+#: src/amo/pages/StaticPages/About/index.js:210
+msgid ""
+"To report a security vulnerability for an extension, even if it is not "
+"hosted on this site, please file an %(startSecIssueLink)sissue"
+"%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-admins@mozilla."
+"com%(endMailLink)s. All security vulnerability reports are "
+"%(startLink)sconfidential%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:232
+msgid "Get support"
+msgstr "Dapatkan Dukungan"
+
+#: src/amo/pages/StaticPages/About/index.js:237
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or "
 "need to find general Firefox support, please visit %(startSUMOLink)sSupport"
@@ -2575,16 +2611,7 @@ msgstr ""
 "jawaba di sana, Anda dapat %(startForumLink)sbertanya di forum komunitas kami"
 "%(endForumLink)s."
 
-#: src/amo/pages/StaticPages/About/index.js:20
-msgid ""
-"The official Mozilla site for downloading Firefox extensions and themes. Add "
-"new features and change the browser’s appearance to customize your web "
-"experience."
-msgstr ""
-"Situs resmi Mozilla untuk mengunduh ekstensi dan tema Firefox. Tambahkan "
-"fitur baru dan ubah tampilan peramban untuk menyesuaikan pengalaman web Anda."
-
-#: src/amo/pages/StaticPages/About/index.js:215
+#: src/amo/pages/StaticPages/About/index.js:258
 msgid ""
 "%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
 "found here%(endLink)s."

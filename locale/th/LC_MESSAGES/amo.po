@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-13 16:38+0000\n"
+"POT-Creation-Date: 2021-04-20 19:16+0000\n"
 "PO-Revision-Date: 2021-03-31 07:47+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -549,27 +549,27 @@ msgstr ","
 msgid "by"
 msgstr "โดย"
 
-#: src/amo/components/AddonVersionCard/index.js:106
+#: src/amo/components/AddonVersionCard/index.js:115
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "เผยแพร่โค้ดต้นฉบับภายใต้ %(linkStart)s%(licenseName)s%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:117
+#: src/amo/components/AddonVersionCard/index.js:126
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "เผยแพร่โค้ดต้นฉบับภายใต้ %(linkStart)sสัญญาอนุญาตที่กำหนดเอง%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:144
+#: src/amo/components/AddonVersionCard/index.js:153
 msgid "Source code released under %(licenseName)s"
 msgstr "เผยแพร่โค้ดต้นฉบับภายใต้ %(licenseName)s"
 
-#: src/amo/components/AddonVersionCard/index.js:54
+#: src/amo/components/AddonVersionCard/index.js:63
 msgid "No version found"
 msgstr "ไม่พบรุ่น"
 
-#: src/amo/components/AddonVersionCard/index.js:62
+#: src/amo/components/AddonVersionCard/index.js:71
 msgid "Version %(versionNumber)s"
 msgstr "รุ่น %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:86
+#: src/amo/components/AddonVersionCard/index.js:95
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "เผยแพร่เมื่อ %(dateReleased)s - %(fileSize)s"
 
@@ -631,7 +631,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – ส่วนเสริมสำหรับ Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:156
+#: src/amo/components/Header/index.js:158
 msgid "Log out"
 msgstr "ออกจากระบบ"
 
@@ -641,7 +641,7 @@ msgid "Register or log in"
 msgstr "ลงทะเบียนหรือเข้าสู่ระบบ"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:151
+#: src/amo/components/Header/index.js:153
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr "การกระทำนี้ไม่สามารถใช้ได้ในขณะนี้ โปรดโหลดหน้าใหม่ในอีกสักครู่"
@@ -696,7 +696,7 @@ msgid "Back to collection"
 msgstr "กลับไปที่ชุดสะสม"
 
 #: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:64
 msgid "Add-ons"
 msgstr "ส่วนเสริม"
 
@@ -1049,47 +1049,52 @@ msgstr "ตั้งค่าสถานะเป็นสแปมแล้ว
 msgid "This contains inappropriate language"
 msgstr "นี่ประกอบด้วยภาษาที่ไม่เหมาะสม"
 
-#: src/amo/components/Footer/index.js:101
+#: src/amo/components/Footer/index.js:107
 msgid "Developer Policies"
 msgstr "นโยบายนักพัฒนา"
 
-#: src/amo/components/Footer/index.js:106
+#: src/amo/components/Footer/index.js:122
+#, fuzzy
+msgid "Developer Blog"
+msgstr "ศูนย์กลางนักพัฒนา"
+
+#: src/amo/components/Footer/index.js:128
 msgid "Forum"
 msgstr "กระดานสนทนา"
 
-#: src/amo/components/Footer/index.js:114
+#: src/amo/components/Footer/index.js:136
 msgid "Report a bug"
 msgstr "รายงานข้อบกพร่อง"
 
-#: src/amo/components/Footer/index.js:119
+#: src/amo/components/Footer/index.js:141
 msgid "Review Guide"
 msgstr "คู่มือบทวิจารณ์"
 
-#: src/amo/components/Footer/index.js:124
+#: src/amo/components/Footer/index.js:146
 msgid "Site Status"
 msgstr "สถานะไซต์"
 
-#: src/amo/components/Footer/index.js:131
+#: src/amo/components/Footer/index.js:153
 msgid "Browsers"
 msgstr "เบราว์เซอร์"
 
-#: src/amo/components/Footer/index.js:189
+#: src/amo/components/Footer/index.js:211
 msgid "Products"
 msgstr "ผลิตภัณฑ์"
 
-#: src/amo/components/Footer/index.js:265
+#: src/amo/components/Footer/index.js:287
 msgid "Privacy"
 msgstr "ความเป็นส่วนตัว"
 
-#: src/amo/components/Footer/index.js:273
+#: src/amo/components/Footer/index.js:295
 msgid "Cookies"
 msgstr "คุกกี้"
 
-#: src/amo/components/Footer/index.js:281
+#: src/amo/components/Footer/index.js:303
 msgid "Legal"
 msgstr "ข้อกฎหมาย"
 
-#: src/amo/components/Footer/index.js:291
+#: src/amo/components/Footer/index.js:313
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1099,23 +1104,24 @@ msgstr ""
 "%(startLicenseLink)sสัญญาอนุญาต Creative Commons แบบแสดงที่มา อนุญาตแบบเดียวกัน "
 "v3.0%(endLicenseLink)s หรือรุ่นใดก็ตามหลังจากนั้น"
 
-#: src/amo/components/Footer/index.js:37
+#: src/amo/components/Footer/index.js:39
 msgid "Go to Mozilla's homepage"
 msgstr "ไปยังหน้าแรกของ Mozilla"
 
-#: src/amo/components/Footer/index.js:63
+#: src/amo/components/Footer/index.js:69
 msgid "About"
 msgstr "เกี่ยวกับ"
 
-#: src/amo/components/Footer/index.js:68
+#: src/amo/components/Footer/index.js:74
+#: src/amo/components/SectionLinks/index.js:127
 msgid "Blog"
 msgstr "บล็อก"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:208
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
 msgstr "Extension Workshop"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr "ศูนย์กลางนักพัฒนา"
 
@@ -1152,52 +1158,52 @@ msgstr "เข้าสู่ระบบเพื่อให้คะแนน
 msgid "You'll need Firefox to use this extension"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนขยายนี้"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:107
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "แก้ไขโปรไฟล์ของฉัน"
 
-#: src/amo/components/Header/index.js:109
+#: src/amo/components/Header/index.js:111
 msgid "Tools"
 msgstr "เครื่องมือ"
 
-#: src/amo/components/Header/index.js:115
+#: src/amo/components/Header/index.js:117
 msgid "Submit a New Add-on"
 msgstr "ส่งส่วนเสริมใหม่"
 
-#: src/amo/components/Header/index.js:120
+#: src/amo/components/Header/index.js:122
 msgid "Submit a New Theme"
 msgstr "ส่งชุดตกแต่งใหม่"
 
-#: src/amo/components/Header/index.js:129
+#: src/amo/components/Header/index.js:131
 msgid "Manage My Submissions"
 msgstr "จัดการการส่งของฉัน"
 
-#: src/amo/components/Header/index.js:139
+#: src/amo/components/Header/index.js:141
 msgid "Reviewer Tools"
 msgstr "เครื่องมือผู้วิจารณ์"
 
-#: src/amo/components/Header/index.js:186
+#: src/amo/components/Header/index.js:194
 msgid "Firefox Browser Add-ons"
 msgstr "ส่วนเสริมเบราว์เซอร์ Firefox"
 
-#: src/amo/components/Header/index.js:206
+#: src/amo/components/Header/index.js:214
 msgid "Learn how to create extensions and themes"
 msgstr "เรียนรู้วิธีสร้างส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/components/Header/index.js:216
+#: src/amo/components/Header/index.js:224
 msgid "Submit and manage extensions and themes"
 msgstr "ส่งและจัดการส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/components/Header/index.js:83
+#: src/amo/components/Header/index.js:85
 msgid "My Account"
 msgstr "บัญชีของฉัน"
 
-#: src/amo/components/Header/index.js:89
+#: src/amo/components/Header/index.js:91
 msgid "View My Collections"
 msgstr "ดูชุดสะสมของฉัน"
 
-#: src/amo/components/Header/index.js:97
+#: src/amo/components/Header/index.js:99
 #: src/amo/pages/UserProfileEdit/index.js:567
 msgid "View My Profile"
 msgstr "ดูโปรไฟล์ของฉัน"
@@ -1274,7 +1280,7 @@ msgstr "จัดการส่วนเสริมของคุณโดย
 msgid "OK"
 msgstr "ตกลง"
 
-#: src/amo/components/InstallButtonWrapper/index.js:146
+#: src/amo/components/InstallButtonWrapper/index.js:114
 #, fuzzy
 msgid "Download file"
 msgstr "กำลังดาวน์โหลด"
@@ -1862,49 +1868,49 @@ msgstr "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
 msgid "No results were found."
 msgstr "ไม่พบผลลัพธ์"
 
-#: src/amo/components/SectionLinks/index.js:111
+#: src/amo/components/SectionLinks/index.js:110
+msgid "Dictionaries & Language Packs"
+msgstr "พจนานุกรมและชุดภาษา"
+
+#: src/amo/components/SectionLinks/index.js:153
 msgid "Explore"
 msgstr "สำรวจ"
 
-#: src/amo/components/SectionLinks/index.js:121
+#: src/amo/components/SectionLinks/index.js:169
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "ส่วนขยาย"
 
-#: src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/SectionLinks/index.js:185
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "ชุดตกแต่ง"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:191
 msgid "More…"
 msgstr "เพิ่มเติม…"
 
-#: src/amo/components/SectionLinks/index.js:152
+#: src/amo/components/SectionLinks/index.js:201
 msgid "Other Browser Sites"
 msgstr "ไซต์ของเบราว์เซอร์อื่น ๆ"
 
-#: src/amo/components/SectionLinks/index.js:163
+#: src/amo/components/SectionLinks/index.js:212
 msgid "Add-ons for Android"
 msgstr "ส่วนเสริมสำหรับ Android"
 
-#: src/amo/components/SectionLinks/index.js:176
+#: src/amo/components/SectionLinks/index.js:225
 msgid "Add-ons for Firefox"
 msgstr "ส่วนเสริมสำหรับ Firefox"
 
-#: src/amo/components/SectionLinks/index.js:75
+#: src/amo/components/SectionLinks/index.js:93
 msgid "for Firefox"
 msgstr "สำหรับ Firefox"
 
-#: src/amo/components/SectionLinks/index.js:77
+#: src/amo/components/SectionLinks/index.js:95
 msgid "for Android"
 msgstr "สำหรับ Android"
-
-#: src/amo/components/SectionLinks/index.js:92
-msgid "Dictionaries & Language Packs"
-msgstr "พจนานุกรมและชุดภาษา"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -2460,14 +2466,42 @@ msgstr ""
 "%(endLink)sของเรา"
 
 #: src/amo/pages/StaticPages/About/index.js:189
-msgid "Get support"
-msgstr "รับการสนับสนุน"
+#, fuzzy
+msgid "Report an issue"
+msgstr "รายงานข้อบกพร่อง"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
 msgstr "เกี่ยวกับส่วนเสริม Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
+msgid ""
+"If you find a problem with the site, we'd love to fix it. Please file an "
+"%(startIssueLink)sissue%(endIssueLink)s and include as much detail as "
+"possible."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:20
+msgid ""
+"The official Mozilla site for downloading Firefox extensions and themes. Add "
+"new features and change the browser’s appearance to customize your web "
+"experience."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:210
+msgid ""
+"To report a security vulnerability for an extension, even if it is not "
+"hosted on this site, please file an %(startSecIssueLink)sissue"
+"%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-admins@mozilla."
+"com%(endMailLink)s. All security vulnerability reports are "
+"%(startLink)sconfidential%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:232
+msgid "Get support"
+msgstr "รับการสนับสนุน"
+
+#: src/amo/pages/StaticPages/About/index.js:237
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or "
 "need to find general Firefox support, please visit %(startSUMOLink)sSupport"
@@ -2479,14 +2513,7 @@ msgstr ""
 "หากคุณไม่พบคำตอบที่นั่น คุณสามารถ%(startForumLink)sถามบนฟอรั่มชุมชนของเรา"
 "%(endForumLink)sได้"
 
-#: src/amo/pages/StaticPages/About/index.js:20
-msgid ""
-"The official Mozilla site for downloading Firefox extensions and themes. Add "
-"new features and change the browser’s appearance to customize your web "
-"experience."
-msgstr ""
-
-#: src/amo/pages/StaticPages/About/index.js:215
+#: src/amo/pages/StaticPages/About/index.js:258
 msgid ""
 "%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
 "found here%(endLink)s."

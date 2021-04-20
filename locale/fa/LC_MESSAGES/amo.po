@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-13 16:38+0000\n"
+"POT-Creation-Date: 2021-04-20 19:16+0000\n"
 "PO-Revision-Date: 2018-06-01 14:56+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -608,31 +608,31 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:106
+#: src/amo/components/AddonVersionCard/index.js:115
 #, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "ارسال شده در %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:117
+#: src/amo/components/AddonVersionCard/index.js:126
 #, fuzzy
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "ارسال شده در %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:144
+#: src/amo/components/AddonVersionCard/index.js:153
 #, fuzzy
 msgid "Source code released under %(licenseName)s"
 msgstr "ارسال شده در %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:54
+#: src/amo/components/AddonVersionCard/index.js:63
 #, fuzzy
 msgid "No version found"
 msgstr "هیچ افزونه‌ای یافت نشد"
 
-#: src/amo/components/AddonVersionCard/index.js:62
+#: src/amo/components/AddonVersionCard/index.js:71
 msgid "Version %(versionNumber)s"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:86
+#: src/amo/components/AddonVersionCard/index.js:95
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
@@ -702,7 +702,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%s – افزونه‌های فایرفاکس"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:156
+#: src/amo/components/Header/index.js:158
 msgid "Log out"
 msgstr "خروج"
 
@@ -712,7 +712,7 @@ msgid "Register or log in"
 msgstr "ثبت‌نام یا ورود"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:151
+#: src/amo/components/Header/index.js:153
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -771,7 +771,7 @@ msgid "Back to collection"
 msgstr "ویرایش این مجموعه"
 
 #: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:58
+#: src/amo/components/Footer/index.js:64
 msgid "Add-ons"
 msgstr "افزونه‌ها"
 
@@ -1143,50 +1143,55 @@ msgstr "علامت‌گذاری شده به عنوان هرزنامه"
 msgid "This contains inappropriate language"
 msgstr "شامل کلمات نامناسب است"
 
-#: src/amo/components/Footer/index.js:101
+#: src/amo/components/Footer/index.js:107
 #, fuzzy
 msgid "Developer Policies"
 msgstr "پاسخ توسعه‌دهنده"
 
-#: src/amo/components/Footer/index.js:106
+#: src/amo/components/Footer/index.js:122
+#, fuzzy
+msgid "Developer Blog"
+msgstr "مرکز توسعه‌دهندگان"
+
+#: src/amo/components/Footer/index.js:128
 msgid "Forum"
 msgstr "انجمن"
 
-#: src/amo/components/Footer/index.js:114
+#: src/amo/components/Footer/index.js:136
 msgid "Report a bug"
 msgstr "گزارش خطا"
 
-#: src/amo/components/Footer/index.js:119
+#: src/amo/components/Footer/index.js:141
 msgid "Review Guide"
 msgstr "راهنمایِ بازخورد"
 
-#: src/amo/components/Footer/index.js:124
+#: src/amo/components/Footer/index.js:146
 msgid "Site Status"
 msgstr "وضعیت سایت"
 
-#: src/amo/components/Footer/index.js:131
+#: src/amo/components/Footer/index.js:153
 #, fuzzy
 msgid "Browsers"
 msgstr "مرورگر iOS"
 
-#: src/amo/components/Footer/index.js:189
+#: src/amo/components/Footer/index.js:211
 #, fuzzy
 msgid "Products"
 msgstr "بهره‌وری"
 
-#: src/amo/components/Footer/index.js:265
+#: src/amo/components/Footer/index.js:287
 msgid "Privacy"
 msgstr "حریم‌خصوصی"
 
-#: src/amo/components/Footer/index.js:273
+#: src/amo/components/Footer/index.js:295
 msgid "Cookies"
 msgstr "کوکی‌ها"
 
-#: src/amo/components/Footer/index.js:281
+#: src/amo/components/Footer/index.js:303
 msgid "Legal"
 msgstr "حقوقی"
 
-#: src/amo/components/Footer/index.js:291
+#: src/amo/components/Footer/index.js:313
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1196,24 +1201,25 @@ msgstr ""
 "تحت گواهینامه %(startLicenseLink)sCreative Commons Attribution Share-Alike "
 "License v3.0%(endLicenseLink)s یا هر نسخه بعدی خواهد بود."
 
-#: src/amo/components/Footer/index.js:37
+#: src/amo/components/Footer/index.js:39
 msgid "Go to Mozilla's homepage"
 msgstr "رفتن به صفحه اصلی موزیلا"
 
-#: src/amo/components/Footer/index.js:63
+#: src/amo/components/Footer/index.js:69
 msgid "About"
 msgstr "درباره"
 
-#: src/amo/components/Footer/index.js:68
+#: src/amo/components/Footer/index.js:74
+#: src/amo/components/SectionLinks/index.js:127
 msgid "Blog"
 msgstr "بلاگ"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:208
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:216
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "افزونه‌ها"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
 msgstr "مرکز توسعه‌دهندگان"
 
@@ -1250,56 +1256,56 @@ msgstr "وارد شوید تا به این قالب رای دهید"
 msgid "You'll need Firefox to use this extension"
 msgstr "وارد شوید تا به این افزونه امتیاز دهید"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:107
 #: src/amo/pages/UserProfileEdit/index.js:573
 #, fuzzy
 msgid "Edit My Profile"
 msgstr "ویرایش نمایه"
 
-#: src/amo/components/Header/index.js:109
+#: src/amo/components/Header/index.js:111
 msgid "Tools"
 msgstr "ابزارها"
 
-#: src/amo/components/Header/index.js:115
+#: src/amo/components/Header/index.js:117
 msgid "Submit a New Add-on"
 msgstr "ارسال یک افزونه جدید"
 
-#: src/amo/components/Header/index.js:120
+#: src/amo/components/Header/index.js:122
 msgid "Submit a New Theme"
 msgstr "ارسال یک تم جدید"
 
-#: src/amo/components/Header/index.js:129
+#: src/amo/components/Header/index.js:131
 msgid "Manage My Submissions"
 msgstr ""
 
-#: src/amo/components/Header/index.js:139
+#: src/amo/components/Header/index.js:141
 #, fuzzy
 msgid "Reviewer Tools"
 msgstr "بازخوردها"
 
-#: src/amo/components/Header/index.js:186
+#: src/amo/components/Header/index.js:194
 #, fuzzy
 msgid "Firefox Browser Add-ons"
 msgstr "افزونه‌های فایرفاکس"
 
-#: src/amo/components/Header/index.js:206
+#: src/amo/components/Header/index.js:214
 #, fuzzy
 msgid "Learn how to create extensions and themes"
 msgstr "دیدن افزونه‌های با امتیاز بالای بیشتر"
 
-#: src/amo/components/Header/index.js:216
+#: src/amo/components/Header/index.js:224
 msgid "Submit and manage extensions and themes"
 msgstr ""
 
-#: src/amo/components/Header/index.js:83
+#: src/amo/components/Header/index.js:85
 msgid "My Account"
 msgstr "حساب من"
 
-#: src/amo/components/Header/index.js:89
+#: src/amo/components/Header/index.js:91
 msgid "View My Collections"
 msgstr "نمایش مجموعهٔ من"
 
-#: src/amo/components/Header/index.js:97
+#: src/amo/components/Header/index.js:99
 #: src/amo/pages/UserProfileEdit/index.js:567
 #, fuzzy
 msgid "View My Profile"
@@ -1380,7 +1386,7 @@ msgstr ""
 msgid "OK"
 msgstr "خب!"
 
-#: src/amo/components/InstallButtonWrapper/index.js:146
+#: src/amo/components/InstallButtonWrapper/index.js:114
 #, fuzzy
 msgid "Download file"
 msgstr "در حال دریافت %(name)s."
@@ -2016,49 +2022,49 @@ msgstr "هیچ نتیجه‌ای برای «%(query)s» پیدا نشد."
 msgid "No results were found."
 msgstr "هیچ نتیجه‌ای پیدا نشد."
 
-#: src/amo/components/SectionLinks/index.js:111
+#: src/amo/components/SectionLinks/index.js:110
+msgid "Dictionaries & Language Packs"
+msgstr "لغت‌نامه‌ها و بسته‌های زبان"
+
+#: src/amo/components/SectionLinks/index.js:153
 msgid "Explore"
 msgstr "کشف کنید"
 
-#: src/amo/components/SectionLinks/index.js:121
+#: src/amo/components/SectionLinks/index.js:169
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "افزونه‌ها"
 
-#: src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/SectionLinks/index.js:185
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "قالب‌ها"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:191
 msgid "More…"
 msgstr "بیشتر…"
 
-#: src/amo/components/SectionLinks/index.js:152
+#: src/amo/components/SectionLinks/index.js:201
 msgid "Other Browser Sites"
 msgstr "سایر سایت‌های مرورگر"
 
-#: src/amo/components/SectionLinks/index.js:163
+#: src/amo/components/SectionLinks/index.js:212
 msgid "Add-ons for Android"
 msgstr "افزونه‌های اندروید"
 
-#: src/amo/components/SectionLinks/index.js:176
+#: src/amo/components/SectionLinks/index.js:225
 msgid "Add-ons for Firefox"
 msgstr "افزونه‌های فایرفاکس"
 
-#: src/amo/components/SectionLinks/index.js:75
+#: src/amo/components/SectionLinks/index.js:93
 msgid "for Firefox"
 msgstr "برای فایرفاکس"
 
-#: src/amo/components/SectionLinks/index.js:77
+#: src/amo/components/SectionLinks/index.js:95
 msgid "for Android"
 msgstr "برای اندروید"
-
-#: src/amo/components/SectionLinks/index.js:92
-msgid "Dictionaries & Language Packs"
-msgstr "لغت‌نامه‌ها و بسته‌های زبان"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -2641,8 +2647,9 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:189
-msgid "Get support"
-msgstr ""
+#, fuzzy
+msgid "Report an issue"
+msgstr "گزارش خطا"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2650,10 +2657,9 @@ msgstr "دربارهٔ افزونه‌های فایرفاکس"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
+"If you find a problem with the site, we'd love to fix it. Please file an "
+"%(startIssueLink)sissue%(endIssueLink)s and include as much detail as "
+"possible."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
@@ -2663,7 +2669,28 @@ msgid ""
 "experience."
 msgstr ""
 
-#: src/amo/pages/StaticPages/About/index.js:215
+#: src/amo/pages/StaticPages/About/index.js:210
+msgid ""
+"To report a security vulnerability for an extension, even if it is not "
+"hosted on this site, please file an %(startSecIssueLink)sissue"
+"%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-admins@mozilla."
+"com%(endMailLink)s. All security vulnerability reports are "
+"%(startLink)sconfidential%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:232
+msgid "Get support"
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:237
+msgid ""
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:258
 msgid ""
 "%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
 "found here%(endLink)s."
