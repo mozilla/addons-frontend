@@ -20,8 +20,8 @@ describe(__filename, () => {
     expect(root.find(Route)).toExist();
   });
 
-  describe('path = /:lang/:application/401/', () => {
-    const path = '/:lang/:application/401/';
+  describe('path = /:lang/:application(firefox|android)/401/', () => {
+    const path = '/:lang/:application(firefox|android)/401/';
 
     it('renders a NotAuthorized page in development', () => {
       const _config = getFakeConfig({ isDevelopment: true });
@@ -40,9 +40,9 @@ describe(__filename, () => {
     });
   });
 
-  describe('path = /:lang/:application/451/', () => {
+  describe('path = /:lang/:application(firefox|android)/451/', () => {
     it('renders a UnavailableForLegalReasons page', () => {
-      const path = '/:lang/:application/451/';
+      const path = '/:lang/:application(firefox|android)/451/';
       const root = render();
 
       expect(root.find({ path })).toHaveLength(1);
@@ -53,8 +53,8 @@ describe(__filename, () => {
     });
   });
 
-  describe('path = /:lang/:application/500/', () => {
-    const path = '/:lang/:application/500/';
+  describe('path = /:lang/:application(firefox|android)/500/', () => {
+    const path = '/:lang/:application(firefox|android)/500/';
 
     it('renders a ServerError page in development', () => {
       const _config = getFakeConfig({ isDevelopment: true });
@@ -74,7 +74,8 @@ describe(__filename, () => {
   });
 
   describe('Block page', () => {
-    const path = '/:lang/:application/blocked-addon/:guid/:versionId?/';
+    const path =
+      '/:lang/:application(firefox|android)/blocked-addon/:guid/:versionId?/';
 
     it('declares a route for the new Block page if feature is enabled', () => {
       const _config = getFakeConfig({ enableFeatureBlockPage: true });

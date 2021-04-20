@@ -1,4 +1,3 @@
-import { oneLine } from 'common-tags';
 import config from 'config';
 
 import {
@@ -77,23 +76,6 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   );
   if (hasValidClientAppUrlException) {
     isApplicationFromHeader = false;
-  }
-
-  // clientApp values that are allowed through to the router
-  // TODO: This can be removed when we upgrade to react-router v4.
-  const clientAppRoutes = _config.get('clientAppRoutes');
-
-  if (
-    (hasValidLocaleException || hasValidClientAppUrlException) &&
-    !clientAppRoutes.includes(URLPathParts[2]) &&
-    (hasValidLang || hasValidLocaleException)
-  ) {
-    log.debug('Exception in URL found; we fallback to addons-server.');
-    // TODO: Remove this once upgraded to react-router 4.
-    res.status(404).end(oneLine`This page does not exist in addons-frontend.
-      Returning 404; this error should trigger upstream (usually
-      addons-server) to return a valid response.`);
-    return next();
   }
 
   // Now drop lang and clientApp if required from URLPaths
