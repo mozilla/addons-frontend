@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-20 21:08+0000\n"
+"PO-Revision-Date: 2021-04-21 16:51+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2301,7 +2301,7 @@ msgstr "Wo přidatkach za Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr ""
+msgstr "Jeli problem ze sydłom namakaće, bychmy jón rady rozrisali. Prošu pisajće %(startIssueLink)szmylkowu rozprawu%(endIssueLink)s a podajće tak wjele podrobnosćow ako móžno."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
