@@ -4,7 +4,7 @@ $input-height: 16px;
 
 .UserProfileEditNotifications {
   .UserProfileEditNotification {
-    line-height: $input-height;
+    line-height: $line-height-compressed;
 
     label {
       @include padding-start(12px);

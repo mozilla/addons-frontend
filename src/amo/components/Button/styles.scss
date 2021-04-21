@@ -22,7 +22,7 @@ $default-font-size: 13px;
   display: inline-flex;
   height: 32px;
   justify-content: center;
-  line-height: 1.3;
+  line-height: $line-height-compressed;
   margin: 0;
   padding: 0 8px;
   text-decoration: none;

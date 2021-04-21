@@ -2,7 +2,7 @@
 
 .AddonReviewCard {
   .Rating {
-    height: $default-line-height;
+    height: $font-size-l;
   }
 
   &:not(.AddonReviewCard-slim) .UserReview-body {
@@ -59,7 +59,7 @@
   color: $blue-50;
   font-size: $font-size-s;
   height: auto;
-  line-height: $default-line-height;
+  line-height: $line-height-body;
   padding: 0;
 
   &.Button.Button--neutral:hover {

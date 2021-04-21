@@ -30,8 +30,8 @@ $font-size-aside: 10px;
       @include font-bold();
 
       font-size: $font-size-default;
-      line-height: 2;
       list-style-type: none;
+      margin-top: $padding-page;
     }
   }
 }

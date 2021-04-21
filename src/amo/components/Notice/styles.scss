@@ -13,7 +13,7 @@
     background-color: transparent;
     display: flex;
     justify-content: center;
-    line-height: $default-line-height;
+    line-height: $line-height-body;
     padding: 0;
   }
 
@@ -47,7 +47,7 @@
 
 .Notice-light .Notice-icon {
   // Reduce the icon size for light notices so that the total
-  // height of the notice adds up to $default-line-height.
+  // height of the notice adds up to $line-height-body.
 
   background-size: 11px 11px;
   height: 11px;
@@ -82,7 +82,7 @@
   &.Button--micro:link {
     border: none;
     font-size: $font-size-s;
-    line-height: 1.1;
+    line-height: $line-height-compressed;
     margin-bottom: 4px;
     margin-top: 4px;
     padding: 6px;

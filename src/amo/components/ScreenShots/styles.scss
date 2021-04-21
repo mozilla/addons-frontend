@@ -19,7 +19,6 @@ $screenshot-width: 320px;
 .ScreenShots-list {
   display: flex;
   height: $screenshot-height;
-  line-height: 0;
   list-style-type: none;
   margin: 0;
   overflow-x: scroll;

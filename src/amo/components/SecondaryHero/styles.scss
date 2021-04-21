@@ -28,7 +28,6 @@
   @include font-regular();
 
   font-size: $font-size-hero-m;
-  line-height: 1.5;
   margin-top: 0;
   padding: 0 10px 10px 10px;
 
@@ -41,7 +40,7 @@
   @include font-medium();
 
   font-size: $font-size-hero-message-headline;
-  line-height: 1.333;
+  line-height: $line-height-compressed;
   margin: 0;
 
   .LoadingText {
@@ -68,7 +67,6 @@
   display: flex;
   flex-direction: column;
   font-size: $font-size-hero-m;
-  line-height: 1.5;
   padding: $padding-page 0;
   padding-top: 0;
 

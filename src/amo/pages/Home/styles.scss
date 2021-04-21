@@ -165,7 +165,6 @@
 
 .Home-heroHeader-title {
   font-size: $font-size-heading-s;
-  line-height: 1;
   margin: $padding-page-l 0 20px;
 
   @include respond-to(medium) {
@@ -176,12 +175,10 @@
 .Home-heroHeader-subtitle {
   font-size: 20px;
   font-weight: normal;
-  line-height: 1.15;
   margin: $padding-page 0 $padding-page-l;
 
   @include respond-to(medium) {
     font-size: $font-size-heading-s;
-    line-height: 1;
   }
 }
 
