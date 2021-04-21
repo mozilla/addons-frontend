@@ -2085,6 +2085,11 @@ acorn@^8.1.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.1.0.tgz#52311fd7037ae119cbb134309e901aa46295b3fe"
   integrity sha512-LWCF/Wn0nfHOmJ9rzQApGnxnvgfROzGilS8936rqN/lfcYkY9MYZzdMqN+2NJ4SlTc+m5HiSa+kNfDtI64dwUA==
 
+addons-moz-compare@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/addons-moz-compare/-/addons-moz-compare-1.0.0.tgz#b10b54d5fb2d792a3e624ef6ed2c248630547448"
+  integrity sha512-HMptPQAgo2qMIcqs7uTzHzePIWPKuCT7InlC8DWVKJeNF5siygvgv1QAEOkkMxc3Nf8Fgqen+kz0Fu/wkqSsCA==
+
 agent-base@5:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-5.1.1.tgz#e8fb3f242959db44d63be665db7a8e739537a32c"
@@ -8549,11 +8554,6 @@ moo@^0.5.0:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/moo/-/moo-0.5.1.tgz#7aae7f384b9b09f620b6abf6f74ebbcd1b65dbc4"
   integrity sha512-I1mnb5xn4fO80BH9BLcF0yLypy2UKl+Cb01Fu0hJRkJjlCRtxZMWkTdAtDd5ZqCOxtCkhmRwyI57vWT+1iZ67w==
-
-mozilla-version-comparator@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/mozilla-version-comparator/-/mozilla-version-comparator-1.0.2.tgz#f86731e70c15d1ff5eb288d13b4db8d1e605f7fc"
-  integrity sha1-+Gcx5wwV0f9esojRO0240eYF9/w=
 
 mri@1.1.4:
   version "1.1.4"

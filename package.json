@@ -161,6 +161,7 @@
   "dependencies": {
     "@mozilla-protocol/tokens": "5.0.5",
     "@willdurand/isomorphic-formdata": "1.2.0",
+    "addons-moz-compare": "1.0.0",
     "base62": "2.0.1",
     "better-npm-run": "0.1.1",
     "chokidar": "3.5.1",
@@ -193,7 +194,6 @@
     "localforage": "1.9.0",
     "lodash.debounce": "4.0.8",
     "moment": "2.29.1",
-    "mozilla-version-comparator": "1.0.2",
     "nano-time": "1.0.0",
     "normalize.css": "8.0.1",
     "photon-colors": "3.3.2",
