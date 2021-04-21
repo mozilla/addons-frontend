@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-21 09:00+0000\n"
+"PO-Revision-Date: 2021-04-21 09:34+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2262,7 +2262,7 @@ msgstr "Over Firefox Add-ons"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr ""
+msgstr "Als u een probleem met de website tegenkomt, lossen we dat graag op. Meld een %(startIssueLink)sissue%(endIssueLink)s en vermeld zo veel mogelijk details."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -2273,6 +2273,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Meld een %(startSecIssueLink)sissue%(endSecIssueLink)s op Bugzilla of stuur een e-mailbericht naar %(startMailLink)samo-admins@mozilla.com%(endMailLink)s om een beveiligingskwetsbaarheid voor een "
+"extensie te melden, zelfs als deze niet op deze website wordt gehost. Alle meldingen van beveiligingskwetsbaarheden zijn %(startLink)svertrouwelijk%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
