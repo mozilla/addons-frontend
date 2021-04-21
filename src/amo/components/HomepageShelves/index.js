@@ -5,7 +5,6 @@ import config from 'config';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LoadingText from 'amo/components/LoadingText';
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_FEATURED_COLLECTION,
@@ -31,8 +30,6 @@ type InternalProps = {|
 export const HOMESHELVES_ENDPOINT_COLLECTIONS = 'collections';
 export const HOMESHELVES_ENDPOINT_SEARCH = 'search';
 export const HOMESHELVES_ENDPOINT_SEARCH_THEMES = 'search-themes';
-export const HOMESHELVES_ADDON_TYPE_EXTENSIONS = ADDON_TYPE_EXTENSION;
-export const HOMESHELVES_ADDON_TYPE_THEMES = ADDON_TYPE_STATIC_THEME;
 
 export const HomepageShelvesBase = (props: InternalProps): React.Node => {
   const {
@@ -81,7 +78,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
 
       const hasThemes =
         endpoint === HOMESHELVES_ENDPOINT_SEARCH_THEMES ||
-        addonType === HOMESHELVES_ADDON_TYPE_THEMES;
+        addonType === ADDON_TYPE_STATIC_THEME;
 
       const count = hasThemes
         ? LANDING_PAGE_THEME_COUNT
