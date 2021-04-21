@@ -5,6 +5,8 @@ import config from 'config';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LoadingText from 'amo/components/LoadingText';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_FEATURED_COLLECTION,
   LANDING_PAGE_EXTENSION_COUNT,
@@ -29,8 +31,8 @@ type InternalProps = {|
 export const HOMESHELVES_ENDPOINT_COLLECTIONS = 'collections';
 export const HOMESHELVES_ENDPOINT_SEARCH = 'search';
 export const HOMESHELVES_ENDPOINT_SEARCH_THEMES = 'search-themes';
-export const HOMESHELVES_ADDON_TYPE_EXTENSIONS = 1;
-export const HOMESHELVES_ADDON_TYPE_THEMES = 10;
+export const HOMESHELVES_ADDON_TYPE_EXTENSIONS = ADDON_TYPE_EXTENSION;
+export const HOMESHELVES_ADDON_TYPE_THEMES = ADDON_TYPE_STATIC_THEME;
 
 export const HomepageShelvesBase = (props: InternalProps): React.Node => {
   const {
@@ -77,11 +79,11 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           ? INSTALL_SOURCE_FEATURED_COLLECTION
           : INSTALL_SOURCE_FEATURED;
 
-      const themeBool =
+      const hasThemes =
         endpoint === HOMESHELVES_ENDPOINT_SEARCH_THEMES ||
         addonType === HOMESHELVES_ADDON_TYPE_THEMES;
 
-      const count = themeBool
+      const count = hasThemes
         ? LANDING_PAGE_THEME_COUNT
         : LANDING_PAGE_EXTENSION_COUNT;
 
@@ -108,7 +110,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           footerText={footerText}
           footerLink={footerLink}
           header={title}
-          isTheme={themeBool}
+          isTheme={hasThemes}
           key={shelfKey}
           placeholderCount={count}
         />

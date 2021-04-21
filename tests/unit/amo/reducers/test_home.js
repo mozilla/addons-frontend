@@ -1,6 +1,6 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
 
-import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
   createInternalAddon,
   selectLocalizedUrlWithOutgoing,
@@ -450,7 +450,7 @@ describe(__filename, () => {
         addons: [addon],
         criteria: '?sort=rating&type=statictheme',
         endpoint: 'search-themes',
-        addonType: 10,
+        addonType: ADDON_TYPE_STATIC_THEME,
         footer: {
           url: createLocalizedString(footerURL),
           text: createLocalizedString(footerText),

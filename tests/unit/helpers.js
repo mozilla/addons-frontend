@@ -229,7 +229,7 @@ export const fakeShelf = Object.freeze({
   url:
     'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
   endpoint: 'search-themes',
-  addonType: 10,
+  addonType: ADDON_TYPE_STATIC_THEME,
   criteria: '?sort=rating&type=statictheme',
   footer: {
     url: 'http://testserver/extensions/',
