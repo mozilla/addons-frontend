@@ -9,6 +9,7 @@ import {
 } from 'amo/reducers/addons';
 import { SET_CLIENT_APP, SET_LANG } from 'amo/reducers/api';
 import { selectLocalizedContent } from 'amo/reducers/utils';
+import type { AddonTypeType } from 'amo/constants';
 import type { SetClientAppAction } from 'amo/reducers/api';
 import type {
   AddonType,
@@ -145,6 +146,7 @@ export type ExternalResultShelfType = {|
   title: LocalizedString,
   url: string,
   endpoint: string,
+  addonType: AddonTypeType,
   criteria: string,
   footer: ExternalHeroCallToActionType | null,
   addons: Array<ExternalAddonType>,
@@ -154,6 +156,7 @@ export type ResultShelfType = {|
   title: string,
   url: string,
   endpoint: string,
+  addonType: AddonTypeType,
   criteria: string,
   footer: CallToActionType | null,
   addons: Array<AddonType>,
@@ -310,6 +313,7 @@ export const createInternalShelf = (
     title: selectLocalizedContent(result.title, lang),
     url: result.url,
     endpoint: result.endpoint,
+    addonType: result.addonType,
     criteria: result.criteria,
     footer: result.footer
       ? createInternalHeroCallToAction(result.footer, lang)

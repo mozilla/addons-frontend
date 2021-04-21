@@ -5,6 +5,7 @@ import config from 'config';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LoadingText from 'amo/components/LoadingText';
 import {
+  ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_FEATURED_COLLECTION,
   LANDING_PAGE_EXTENSION_COUNT,
@@ -59,7 +60,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
     );
   } else {
     shelvesContent = shelves.map((shelf) => {
-      const { addons, criteria, endpoint, footer, title } = shelf;
+      const { addons, addonType, criteria, endpoint, footer, title } = shelf;
       const MOZILLA_USER_ID = config.get('mozillaUserId');
       const shelfKey = title.replace(/\s/g, '-');
 
@@ -75,10 +76,13 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           ? INSTALL_SOURCE_FEATURED_COLLECTION
           : INSTALL_SOURCE_FEATURED;
 
-      const count =
-        endpoint === HOMESHELVES_ENDPOINT_SEARCH_THEMES
-          ? LANDING_PAGE_THEME_COUNT
-          : LANDING_PAGE_EXTENSION_COUNT;
+      const hasThemes =
+        endpoint === HOMESHELVES_ENDPOINT_SEARCH_THEMES ||
+        addonType === ADDON_TYPE_STATIC_THEME;
+
+      const count = hasThemes
+        ? LANDING_PAGE_THEME_COUNT
+        : LANDING_PAGE_EXTENSION_COUNT;
 
       let footerLink;
       if (footer && footer.url) {
@@ -103,7 +107,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           footerText={footerText}
           footerLink={footerLink}
           header={title}
-          isTheme={endpoint === HOMESHELVES_ENDPOINT_SEARCH_THEMES}
+          isTheme={hasThemes}
           key={shelfKey}
           placeholderCount={count}
         />
