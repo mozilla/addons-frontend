@@ -12,7 +12,10 @@
   .CardList ul {
     li {
       margin-bottom: 0;
-      padding-bottom: 0;
+
+      @include respond-to(large) {
+        padding-bottom: 0;
+      }
 
       &:last-of-type {
         padding-bottom: $padding-page;
