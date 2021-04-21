@@ -177,11 +177,18 @@
   }
 
   .DropdownMenu-button {
+    display: flex;
     padding: 0;
   }
 
   @include respond-to(medium) {
     @include margin-start(12px);
+
+    display: initial;
+
+    &.DropdownMenu {
+      display: inline-flex;
+    }
   }
 }
 
