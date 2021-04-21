@@ -24,6 +24,7 @@
   overflow-wrap: break-word;
   padding: 0 0 2px;
   text-decoration: none;
+  word-break: initial;
 
   @include respond-to(large) {
     margin: 0 12px;
