@@ -17,7 +17,14 @@
 @mixin font-family-inter() {
   font-family: 'Inter', sans-serif;
   @supports (font-variation-settings: normal) {
-    font-family: 'Inter Var', sans-serif;
+
+    /* default to font-display: swap version, but on larger screens, where the
+    flash of content would be more visible, use the blocking version. */
+    font-family: 'Inter Var Swap', sans-serif;
+
+    @include respond-to(extraExtraLarge) {
+      font-family: 'Inter Var', sans-serif;
+    }
   }
 }
 
