@@ -12,11 +12,12 @@ import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_CLICK_ACTION,
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
   GetFirefoxButtonBase,
-  getDownloadCampaign,
+  getDownloadTerm,
 } from 'amo/components/GetFirefoxButton';
 import {
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_UTM_TERM,
   RECOMMENDED,
 } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
@@ -135,7 +136,7 @@ describe(__filename, () => {
       });
 
       // See: https://docs.google.com/document/d/1vXpEg_ypqr-eiXu6pWBDiyQWwf_rxYhHAGnsp3qwpCo/edit?usp=sharing
-      it('sets utm_campaign to non-fx-button for RTAMO (useNewVersion = false)', () => {
+      it('sets utm_campaign to non-fx-button and utm_term to the expected value for RTAMO (useNewVersion = false)', () => {
         const guid = 'some-guid';
         const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
         const root = render({
@@ -146,8 +147,16 @@ describe(__filename, () => {
         });
 
         const utmContent = `rta:${encode(addon.guid)}`;
+        const utmTerm = getDownloadTerm({
+          addonId: addon.id,
+          variant: VARIANT_CURRENT,
+        });
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
-          { utm_campaign: 'non-fx-button', utm_content: utmContent },
+          {
+            utm_campaign: 'non-fx-button',
+            utm_content: utmContent,
+            utm_term: utmTerm,
+          },
         )}`;
 
         expect(root.find('.GetFirefoxButton-button')).toHaveProp(
@@ -156,7 +165,7 @@ describe(__filename, () => {
         );
       });
 
-      it('sets utm_campaign to non-fx-button for RTAMO (useNewVersion = true)', () => {
+      it('sets utm_campaign to non-fx-button and utm_term to the expected value for RTAMO (useNewVersion = true)', () => {
         const guid = 'some-guid';
         const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
         const root = render({
@@ -167,8 +176,16 @@ describe(__filename, () => {
         });
 
         const utmContent = `rta:${encode(addon.guid)}`;
+        const utmTerm = getDownloadTerm({
+          addonId: addon.id,
+          variant: VARIANT_NEW,
+        });
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
-          { utm_campaign: 'non-fx-button', utm_content: utmContent },
+          {
+            utm_campaign: 'non-fx-button',
+            utm_content: utmContent,
+            utm_term: utmTerm,
+          },
         )}`;
 
         expect(root.find('.GetFirefoxButton-button')).toHaveProp(
@@ -333,6 +350,9 @@ describe(__filename, () => {
             // value would break RTAMO.
             utm_campaign: 'non-fx-button',
             utm_content: 'header-download-button',
+            utm_term: getDownloadTerm({
+              variant: VARIANT_CURRENT,
+            }),
           },
         )}`;
         expect(root.find(Button)).toHaveProp('href', expectedHref);
@@ -413,9 +433,31 @@ describe(__filename, () => {
     });
   });
 
-  describe('getDownloadCampaign', () => {
-    it('returns non-fx-button because anything else would break RTAMO', () => {
-      expect(getDownloadCampaign()).toEqual('non-fx-button');
+  describe('getDownloadTerm', () => {
+    it('returns a term without an addonId or variant', () => {
+      expect(getDownloadTerm()).toEqual(DOWNLOAD_FIREFOX_UTM_TERM);
+    });
+
+    it('returns a term with an addonId', () => {
+      const addonId = 12345;
+      expect(getDownloadTerm({ addonId })).toEqual(
+        `${DOWNLOAD_FIREFOX_UTM_TERM}-${addonId}`,
+      );
+    });
+
+    it('returns a term with a variant', () => {
+      const variant = 'some-variant';
+      expect(getDownloadTerm({ variant })).toEqual(
+        `${DOWNLOAD_FIREFOX_UTM_TERM}-${variant}`,
+      );
+    });
+
+    it('returns a term with both an addonId and a variant', () => {
+      const addonId = 12345;
+      const variant = 'some-variant';
+      expect(getDownloadTerm({ addonId, variant })).toEqual(
+        `${DOWNLOAD_FIREFOX_UTM_TERM}-${addonId}-${variant}`,
+      );
     });
   });
 });

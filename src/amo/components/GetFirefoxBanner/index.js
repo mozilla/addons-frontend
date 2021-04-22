@@ -5,11 +5,14 @@ import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
 import {
-  getDownloadCampaign,
+  getDownloadTerm,
   getDownloadCategory,
 } from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
-import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
+import {
+  DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+} from 'amo/constants';
 import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
 import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
@@ -84,8 +87,9 @@ export const GetFirefoxBannerBase = ({
               buttonType="none"
               className="GetFirefoxBanner-button"
               href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-                utm_campaign: getDownloadCampaign({ variant: VARIANT_NEW }),
+                utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
                 utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
+                utm_term: getDownloadTerm({ variant: VARIANT_NEW }),
               })}`}
               key="GetFirefoxBanner-button"
               onClick={onButtonClick}

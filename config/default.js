@@ -424,6 +424,6 @@ module.exports = {
     // See: https://github.com/mozilla/addons-frontend/pull/9125#issuecomment-580683288
     //
     // e.g., 20200204_installWarning: true,
-    '20210404_download_cta_experiment': false,
+    '20210404_download_cta_experiment': true,
   },
 };
