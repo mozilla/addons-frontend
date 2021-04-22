@@ -212,8 +212,8 @@ export function isCompatibleWithUserAgent({
       https://github.com/mozilla/addons-frontend/issues/2074`);
   }
 
-  // A result of `-1` means the second argument is a lower version than the
-  // first.
+  // A result of `-1` means the first argument is a lower version than the
+  // second.
   if (minVersion && mozCompare(browser.version, minVersion) === -1) {
     if (minVersion === '*') {
       _log.error(oneLine`minVersion of "*" was passed to
