@@ -70,23 +70,19 @@ type InternalProps = {|
 |};
 
 export const getDownloadCampaign = ({
+  // eslint-disable-next-line no-unused-vars
   addonId,
+  // eslint-disable-next-line no-unused-vars
   variant,
 }: {|
   addonId?: number,
   variant?: string,
 |} = {}): string => {
-  let campaign = DOWNLOAD_FIREFOX_UTM_CAMPAIGN;
+  // TODO: add `addonId` and `variant` when they are provided BUT note that
+  // changing the `utm_campaign` is currently NOT possible because it breaks
+  // RTAMO.
 
-  if (addonId) {
-    campaign = `${campaign}-${addonId}`;
-  }
-
-  if (variant) {
-    campaign = `${campaign}-${variant}`;
-  }
-
-  return campaign;
+  return DOWNLOAD_FIREFOX_UTM_CAMPAIGN;
 };
 
 export const getDownloadCategory = (variant: string): string =>

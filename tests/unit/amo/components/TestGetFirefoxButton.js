@@ -17,7 +17,6 @@ import GetFirefoxButton, {
 import {
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
-  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   RECOMMENDED,
 } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
@@ -135,33 +134,48 @@ describe(__filename, () => {
         });
       });
 
-      it.each([true, false])(
-        'sets the href on the button with the expected utm params for the add-on when useNewVersion is %s',
-        (useNewVersion) => {
-          const guid = 'some-guid';
-          const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
-          const root = render({
-            addon,
-            buttonType,
-            store,
-            useNewVersion,
-          });
+      // See: https://docs.google.com/document/d/1vXpEg_ypqr-eiXu6pWBDiyQWwf_rxYhHAGnsp3qwpCo/edit?usp=sharing
+      it('sets utm_campaign to non-fx-button for RTAMO (useNewVersion = false)', () => {
+        const guid = 'some-guid';
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
+        const root = render({
+          addon,
+          buttonType,
+          store,
+          useNewVersion: false,
+        });
 
-          const utmCampaign = `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addon.id}-${
-            useNewVersion ? VARIANT_NEW : VARIANT_CURRENT
-          }`;
-          const utmContent = `rta:${encode(addon.guid)}`;
+        const utmContent = `rta:${encode(addon.guid)}`;
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
+          { utm_campaign: 'non-fx-button', utm_content: utmContent },
+        )}`;
 
-          const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
-            { utm_campaign: utmCampaign, utm_content: utmContent },
-          )}`;
+        expect(root.find('.GetFirefoxButton-button')).toHaveProp(
+          'href',
+          expectedHref,
+        );
+      });
 
-          expect(root.find('.GetFirefoxButton-button')).toHaveProp(
-            'href',
-            expectedHref,
-          );
-        },
-      );
+      it('sets utm_campaign to non-fx-button for RTAMO (useNewVersion = true)', () => {
+        const guid = 'some-guid';
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
+        const root = render({
+          addon,
+          buttonType,
+          store,
+          useNewVersion: true,
+        });
+
+        const utmContent = `rta:${encode(addon.guid)}`;
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
+          { utm_campaign: 'non-fx-button', utm_content: utmContent },
+        )}`;
+
+        expect(root.find('.GetFirefoxButton-button')).toHaveProp(
+          'href',
+          expectedHref,
+        );
+      });
 
       it('calls universal-base64url.encode to encode the guid of the add-on', () => {
         const _encode = sinon.spy();
@@ -315,7 +329,9 @@ describe(__filename, () => {
 
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
           {
-            utm_campaign: `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${VARIANT_CURRENT}`,
+            // The value below is hardcoded on purpose because a different
+            // value would break RTAMO.
+            utm_campaign: 'non-fx-button',
             utm_content: 'header-download-button',
           },
         )}`;
@@ -398,30 +414,8 @@ describe(__filename, () => {
   });
 
   describe('getDownloadCampaign', () => {
-    it('returns just the prefix when there is no addonId or variant', () => {
-      expect(getDownloadCampaign()).toEqual(DOWNLOAD_FIREFOX_UTM_CAMPAIGN);
-    });
-
-    it('adds the addonId if passed', () => {
-      const addonId = 12345;
-      expect(getDownloadCampaign({ addonId })).toEqual(
-        `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
-      );
-    });
-
-    it('adds the variant if passed', () => {
-      const variant = 'some-variant';
-      expect(getDownloadCampaign({ variant })).toEqual(
-        `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${variant}`,
-      );
-    });
-
-    it('adds both the addonId and the variant if passed', () => {
-      const addonId = 12345;
-      const variant = 'some-variant';
-      expect(getDownloadCampaign({ addonId, variant })).toEqual(
-        `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}-${variant}`,
-      );
+    it('returns non-fx-button because anything else would break RTAMO', () => {
+      expect(getDownloadCampaign()).toEqual('non-fx-button');
     });
   });
 });

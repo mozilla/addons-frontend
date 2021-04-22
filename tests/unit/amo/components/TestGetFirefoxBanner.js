@@ -99,7 +99,7 @@ describe(__filename, () => {
       const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
         {
           utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
-          utm_campaign: `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${VARIANT_NEW}`,
+          utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
         },
       )}`;
       expect(root.find(Button)).toHaveProp('href', expectedHref);
