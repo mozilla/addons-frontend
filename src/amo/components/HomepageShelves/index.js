@@ -29,7 +29,6 @@ type InternalProps = {|
 
 export const HOMESHELVES_ENDPOINT_COLLECTIONS = 'collections';
 export const HOMESHELVES_ENDPOINT_SEARCH = 'search';
-export const HOMESHELVES_ENDPOINT_SEARCH_THEMES = 'search-themes';
 
 export const HomepageShelvesBase = (props: InternalProps): React.Node => {
   const {
@@ -76,13 +75,10 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           ? INSTALL_SOURCE_FEATURED_COLLECTION
           : INSTALL_SOURCE_FEATURED;
 
-      const hasThemes =
-        endpoint === HOMESHELVES_ENDPOINT_SEARCH_THEMES ||
-        addonType === ADDON_TYPE_STATIC_THEME;
-
-      const count = hasThemes
-        ? LANDING_PAGE_THEME_COUNT
-        : LANDING_PAGE_EXTENSION_COUNT;
+      const count =
+        addonType === ADDON_TYPE_STATIC_THEME
+          ? LANDING_PAGE_THEME_COUNT
+          : LANDING_PAGE_EXTENSION_COUNT;
 
       let footerLink;
       if (footer && footer.url) {
@@ -107,7 +103,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           footerText={footerText}
           footerLink={footerLink}
           header={title}
-          isTheme={hasThemes}
+          isTheme={addonType === ADDON_TYPE_STATIC_THEME}
           key={shelfKey}
           placeholderCount={count}
         />

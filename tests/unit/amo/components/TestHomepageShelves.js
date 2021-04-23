@@ -5,7 +5,6 @@ import * as React from 'react';
 import {
   HOMESHELVES_ENDPOINT_COLLECTIONS,
   HOMESHELVES_ENDPOINT_SEARCH,
-  HOMESHELVES_ENDPOINT_SEARCH_THEMES,
   HomepageShelvesBase,
 } from 'amo/components/HomepageShelves';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
@@ -72,7 +71,7 @@ describe(__filename, () => {
     const shelf2 = _createShelf({
       addons: [{ ...fakeAddon, slug: 'slug2' }],
       criteria: '?sort=users',
-      endpoint: HOMESHELVES_ENDPOINT_SEARCH_THEMES,
+      endpoint: HOMESHELVES_ENDPOINT_SEARCH,
       addonType: ADDON_TYPE_STATIC_THEME,
       footer: {
         url: '/2',
@@ -106,37 +105,24 @@ describe(__filename, () => {
   });
 
   it.each([
-    [false, HOMESHELVES_ENDPOINT_COLLECTIONS, null],
-    [false, HOMESHELVES_ENDPOINT_SEARCH, null],
-    [true, HOMESHELVES_ENDPOINT_SEARCH_THEMES, null],
-    [false, HOMESHELVES_ENDPOINT_COLLECTIONS, ADDON_TYPE_EXTENSION],
-    [true, HOMESHELVES_ENDPOINT_COLLECTIONS, ADDON_TYPE_STATIC_THEME],
-    [false, HOMESHELVES_ENDPOINT_SEARCH, ADDON_TYPE_EXTENSION],
-    [true, HOMESHELVES_ENDPOINT_SEARCH, ADDON_TYPE_STATIC_THEME],
-  ])(
-    'passes isTheme as %s when endpoint is %s with addon type %s',
-    (isTheme, endpoint, addon_type) => {
-      const root = render({
-        shelves: [_createShelf({ endpoint, addon_type })],
-      });
+    [false, ADDON_TYPE_EXTENSION],
+    [true, ADDON_TYPE_STATIC_THEME],
+  ])('passes isTheme as %s when addon type is %s', (isTheme, addon_type) => {
+    const root = render({
+      shelves: [_createShelf({ addon_type })],
+    });
 
-      expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', isTheme);
-    },
-  );
+    expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', isTheme);
+  });
 
   it.each([
-    [4, HOMESHELVES_ENDPOINT_COLLECTIONS, null],
-    [4, HOMESHELVES_ENDPOINT_SEARCH, null],
-    [3, HOMESHELVES_ENDPOINT_SEARCH_THEMES, null],
-    [4, HOMESHELVES_ENDPOINT_COLLECTIONS, ADDON_TYPE_EXTENSION],
-    [3, HOMESHELVES_ENDPOINT_COLLECTIONS, ADDON_TYPE_STATIC_THEME],
-    [4, HOMESHELVES_ENDPOINT_SEARCH, ADDON_TYPE_EXTENSION],
-    [3, HOMESHELVES_ENDPOINT_SEARCH, ADDON_TYPE_STATIC_THEME],
+    [4, ADDON_TYPE_EXTENSION],
+    [3, ADDON_TYPE_STATIC_THEME],
   ])(
-    'passes placeholderCount as %s when endpoint is %s with addon type %s',
-    (placeholderCount, endpoint, addon_type) => {
+    'passes placeholderCount as %s when addon type is %s',
+    (placeholderCount, addon_type) => {
       const root = render({
-        shelves: [_createShelf({ endpoint, addon_type })],
+        shelves: [_createShelf({ addon_type })],
       });
 
       expect(root.find(LandingAddonsCard)).toHaveProp(
@@ -149,7 +135,6 @@ describe(__filename, () => {
   it.each([
     [INSTALL_SOURCE_FEATURED_COLLECTION, HOMESHELVES_ENDPOINT_COLLECTIONS],
     [INSTALL_SOURCE_FEATURED, HOMESHELVES_ENDPOINT_SEARCH],
-    [INSTALL_SOURCE_FEATURED, HOMESHELVES_ENDPOINT_SEARCH_THEMES],
   ])(
     'passes addonInstallSource as %s when endpoint is %s',
     (addonInstallSource, endpoint) => {
@@ -236,24 +221,21 @@ describe(__filename, () => {
     );
   });
 
-  it.each([HOMESHELVES_ENDPOINT_SEARCH, HOMESHELVES_ENDPOINT_SEARCH_THEMES])(
-    'generates a default footerLink for %s',
-    (endpoint) => {
-      const criteria = '?sort=users';
-      const root = render({
-        shelves: [
-          _createShelf({
-            criteria,
-            endpoint,
-            footer: { ...fakeExternalShelf.footer, url: '' },
-          }),
-        ],
-      });
+  it('generates a default footerLink for shelves with a search endpoint', () => {
+    const criteria = '?sort=users';
+    const root = render({
+      shelves: [
+        _createShelf({
+          criteria,
+          endpoint: HOMESHELVES_ENDPOINT_SEARCH,
+          footer: { ...fakeExternalShelf.footer, url: '' },
+        }),
+      ],
+    });
 
-      expect(root.find(LandingAddonsCard)).toHaveProp(
-        'footerLink',
-        `/search/${criteria}`,
-      );
-    },
-  );
+    expect(root.find(LandingAddonsCard)).toHaveProp(
+      'footerLink',
+      `/search/${criteria}`,
+    );
+  });
 });

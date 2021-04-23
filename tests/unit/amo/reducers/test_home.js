@@ -450,7 +450,7 @@ describe(__filename, () => {
         ...fakeExternalShelf,
         addons: [addon],
         criteria: '?sort=rating&type=statictheme',
-        endpoint: 'search-themes',
+        endpoint: 'search',
         addon_type: ADDON_TYPE_STATIC_THEME,
         footer: {
           url: createLocalizedString(footerURL),

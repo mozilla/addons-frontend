@@ -228,7 +228,7 @@ export const fakeExternalShelf = Object.freeze({
   title: createLocalizedString('Top Rated Themes'),
   url:
     'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
-  endpoint: 'search-themes',
+  endpoint: 'search',
   addon_type: ADDON_TYPE_STATIC_THEME,
   criteria: '?sort=rating&type=statictheme',
   footer: {
