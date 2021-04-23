@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-22 00:11+0000\n"
+"PO-Revision-Date: 2021-04-20 20:55+0000\n"
 "Last-Translator: Grk <gu0townkg@relay.firefox.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -968,9 +968,8 @@ msgid "Developer Policies"
 msgstr "Geliştirici Politikaları"
 
 #: src/amo/components/Footer/index.js:122
-#, fuzzy
 msgid "Developer Blog"
-msgstr "Geliştirici Merkezi"
+msgstr "Geliştirici Blog’u"
 
 #: src/amo/components/Footer/index.js:128
 msgid "Forum"
@@ -2252,9 +2251,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "Eklenti topluluğuna katkıda bulunabileceğiniz diğer yolları öğrenmek için %(startLink)swiki%(endLink)s'mizi ziyaret edin."
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "Hata bildir"
+msgstr "Sorun bildir"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
