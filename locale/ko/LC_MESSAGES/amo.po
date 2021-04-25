@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-25 23:41+0000\n"
+"PO-Revision-Date: 2021-04-25 23:53+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2649,7 +2649,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:893
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr ""
+msgstr "이 이메일 주소를 사용하여 addons.mozilla.org에 다시 로그인하면 Firefox 부가 기능 프로필은 이전 콘텐츠에 접근할 수 없습니다."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:103
 msgid "Unsubscribe"
@@ -2670,7 +2670,7 @@ msgstr "%(linkStart)s프로필을 수정하여%(linkEnd)s 알림 설정을 변�
 
 #: src/amo/reducers/collections.js:1017
 msgid "(no name)"
-msgstr ""
+msgstr "(이름 없음)"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:298
