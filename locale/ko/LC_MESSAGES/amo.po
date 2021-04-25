@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-25 23:34+0000\n"
+"PO-Revision-Date: 2021-04-25 23:41+0000\n"
 "Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -874,14 +874,12 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
-#, fuzzy
 msgid "That page is not available in your region"
-msgstr "이 부가 기능은 현재 플랫폼에서 제공되지 않습니다."
+msgstr "해당 페이지는 현재 지역에서 사용할 수 없음"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "이 부가 기능은 현재 플랫폼에서 제공되지 않습니다."
+msgstr "현재 페이지는 해당 지역에서 사용할 수 없습니다."
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
@@ -960,9 +958,8 @@ msgid "Developer Policies"
 msgstr "개발자 정책"
 
 #: src/amo/components/Footer/index.js:122
-#, fuzzy
 msgid "Developer Blog"
-msgstr "개발자 허브"
+msgstr "개발자 블로그"
 
 #: src/amo/components/Footer/index.js:128
 msgid "Forum"
@@ -1035,9 +1032,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "Firefox 전용 — Firefox를 설치하세요"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Firefox 다운로드"
+msgstr "Firefox 다운로드 및 테마 설치"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1048,14 +1044,12 @@ msgid "Download Firefox"
 msgstr "Firefox 다운로드"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "로그인하여 이 테마의 평점을 남겨주세요"
+msgstr "이 테마를 사용하려면 Firefox가 필요함"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "로그인하여 이 확장 기능의 평점을 남겨주세요"
+msgstr "이 확장 기능을 사용하려면 Firefox가 필요함"
 
 #: src/amo/components/Header/index.js:107 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -1128,9 +1122,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox는 보안 및 성능 표준을 충족하는 확장 기능만 추천합니다."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "%(categoryName)s 자세히 보기"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1169,9 +1162,8 @@ msgid "OK"
 msgstr "확인"
 
 #: src/amo/components/InstallButtonWrapper/index.js:114
-#, fuzzy
 msgid "Download file"
-msgstr "다운로드 중"
+msgstr "파일 다운로드"
 
 #: src/amo/components/InstallWarning/index.js:108
 msgid "Learn more"
@@ -1310,9 +1302,8 @@ msgid "Official add-on built by Mozilla Firefox. Meets security and performance 
 msgstr ""
 
 #: src/amo/components/PromotedBadge/index.js:49
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox는 보안 및 성능 표준을 충족하는 확장 기능만 추천합니다."
+msgstr "Firefox는 보안 및 성능 기준을 충족하는 부가 기능만 권장합니다."
 
 #: src/amo/components/PromotedBadge/index.js:57
 msgid "This add-on has been reviewed to meet our standards for security and performance."
@@ -1483,7 +1474,6 @@ msgid "Themes by Firefox"
 msgstr "Firefox 제작의 테마"
 
 #: src/amo/components/Search/index.js:163
-#, fuzzy
 msgid "Add-ons by Firefox"
 msgstr "Firefox 부가 기능"
 
@@ -1808,14 +1798,12 @@ msgid "Developer response"
 msgstr "개발자 답글"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "Android용 Firefox와 호환되는 부가 기능에 대해 알아보려면, <a href=\"%(newLocation)s\">여기를 클릭</a>하세요."
+msgstr "Android 용 Firefox와 호환되는 부가 기능을 찾으려면 <a href=\"%(newLocation)s\">여기를 클릭</a>하세요."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "이 부가 기능은 이 브라우저와 호환되지 않습니다. 데스크톱용 Firefox에 설치하십시오."
+msgstr "부가 기능은 iOS 용 Firefox와 호환되지 않습니다. 데스크톱용 Firefox에 설치해보세요."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
@@ -2025,14 +2013,12 @@ msgid "All theme categories"
 msgstr "모든 테마 카테고리"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "%(categoryName)s 테마"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "%(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니다"
+msgstr "%(categoryName)s 확장 기능"
 
 #: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
@@ -2218,7 +2204,7 @@ msgstr "%(startLink)s포럼%(endLink)s에 참여하세요."
 
 #: src/amo/pages/StaticPages/About/index.js:162
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "좋아하는 부가 기능에 대한 의견을 남겨주세요. 부가 기능 개발자는 사람들이 자신의 작업에 감사한다는 것을 알 때 부가 기능을 개선하고 새 기능을 만들 가능성이 높습니다. "
 
 #: src/amo/pages/StaticPages/About/index.js:167
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
@@ -2229,7 +2215,6 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "추가 기능 커뮤니티에 기여할 수 있는 더 많은 방법을 보시려면, %(startLink)s 위키 내 %(endLink)s 를 방문해주십시오."
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
 msgstr "오류 보고"
 
@@ -2677,11 +2662,11 @@ msgstr "구독을 해제했습니다!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "%(strongStart)s%(email)s%(strongEnd)s 는 다음과 같은 경우 더 이상 메시지를 받지 못합니다:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "%(linkStart)s프로필을 수정하여%(linkEnd)s 알림 설정을 변경할 수 있습니다."
 
 #: src/amo/reducers/collections.js:1017
 msgid "(no name)"
@@ -2704,7 +2689,7 @@ msgstr "%(listOfApplicatonsAndVersions)s에서 작동"
 
 #: src/amo/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "부가 기능이 손상된 것으로 판단되어 설치가 중단되었습니다."
 
 #: src/amo/utils/addons.js:40
 msgid "Installation failed. Please try again."
@@ -2728,7 +2713,7 @@ msgstr "예기치 못한 오류 발생됨."
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "부가 기능 개발자(부가 기능에 대한 뉴스레터 포함)에 대한 최신 정보와 이벤트를 확인하세요"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
