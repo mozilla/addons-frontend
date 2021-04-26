@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-25 14:10+0000\n"
+"PO-Revision-Date: 2021-04-26 20:36+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -110,7 +110,7 @@ msgstr "Tarayıcınız eklentileri desteklemiyor. Bu eklentiyi yüklemek için <
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s - Bu 🦊 Firefox (%(locale)s) eklentisini yükleyin"
+msgstr "%(addonName)s - Bu 🦊 Firefox (%(locale)s) uzantısını yükle"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:107
@@ -137,7 +137,7 @@ msgstr "%(addonName)s - Bu 🦊 Firefox Android (%(locale)s) sözlüğünü yük
 
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s - Bu 🦊 Firefox Android (%(locale)s) eklentisini yükleyin"
+msgstr "%(addonName)s - Bu 🦊 Firefox Android (%(locale)s) uzantısını yükle"
 
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
@@ -276,11 +276,11 @@ msgstr "Destek sitesi"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
-msgstr "Bu eklentiyi yükleyen diğer kullanıcılar"
+msgstr "Bu uzantıyı yükleyenler şunları da yükledi"
 
 #: src/amo/components/AddonRecommendations/index.js:149
 msgid "Other popular extensions"
-msgstr "Diğer popüler eklentiler"
+msgstr "Diğer popüler uzantılar"
 
 #: src/amo/components/AddonReviewCard/index.js:212
 msgid "Edit reply"
@@ -437,19 +437,19 @@ msgstr "Bu çevirmenlerin sözlükleri"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "More extensions by %(author)s"
-msgstr "%(author)s tarafından geliştirilen diğer eklentiler"
+msgstr "%(author)s tarafından geliştirilen diğer uzantılar"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:274
 msgid "More extensions by these developers"
-msgstr "Bu geliştiricilerin diğer eklentileri"
+msgstr "Bu geliştiricilerin diğer uzantıları"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:278
 msgid "Extensions by %(author)s"
-msgstr "%(author)s tarafından geliştirilen eklentiler"
+msgstr "%(author)s tarafından geliştirilen uzantılar"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:281
 msgid "Extensions by these developers"
-msgstr "Bu geliştiricilerin eklentileri"
+msgstr "Bu geliştiricilerin uzantıları"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More language packs by %(author)s"
@@ -721,11 +721,11 @@ msgstr "Bu geliştiricileri destekleyin"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "Bu eklentinin geliştiricisi, küçük bir bağışta bulunarak gelişimin devamı için katkıda bulunmanızı rica ediyor."
+msgstr "Bu uzantının geliştiricisi, küçük bir bağışta bulunarak gelişimin devamı için katkıda bulunmanızı rica ediyor."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "Bu eklentinin geliştiricileri, küçük bir bağışta bulunarak gelişimin devamı için katkıda bulunmanızı rica ediyor."
+msgstr "Bu uzantının geliştiricileri, küçük bir bağışta bulunarak gelişimin devamı için katkıda bulunmanızı rica ediyor."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
@@ -840,7 +840,7 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Tema veya eklenti ileride yeniden kullanılabilir hale gelebileceğinden, sayfayı daha sonra ziyaret etmeyi deneyebilirsiniz. Alternatif olarak, mevcut %(extensionStart)seklentilerden%(extensionEnd)s "
+"Tema veya uzantı ileride yeniden kullanılabilir hale gelebileceğinden, sayfayı daha sonra ziyaret etmeyi deneyebilirsiniz. Alternatif olarak, mevcut %(extensionStart)suzantılardan%(extensionEnd)s "
 "veya %(themeStart)stemalardan%(themeEnd)s birisi de ihtiyacınız karşılayabilir veya %(communityStart)stopluluk forumlarımızdan%(communityEnd)s yardım isteyebilirsiniz."
 
 #: src/amo/components/Errors/NotFound/index.js:78
@@ -849,19 +849,19 @@ msgstr "Hata! Bu sayfayı bulamadık"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr "Başka bir sitedeki eklenti veya tema bağlantısına tıkladıysanız o öğe artık mevcut olmayabilir. Olası nedenler:"
+msgstr "Başka bir sitedeki uzantı veya tema bağlantısına tıkladıysanız o öğe artık mevcut olmayabilir. Olası nedenler:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr "Geliştirici bunu kaldırdı. Geliştiriciler artık bu eklentiyi veya temayı desteklemiyorlarsa veya yerine başka bir eklenti yayımladılarsa bunu yapabilirler."
+msgstr "Geliştirici bunu kaldırdı. Geliştiriciler artık bu uzantıyı veya temayı desteklemiyorlarsa veya yerine başka bir uzantı yayımladılarsa bunu yapabilirler."
 
 #: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
-"Mozilla bunu kaldırdı. Eklenti veya temanın gözden geçirilmesi sırasında sorunlar bulunursa ya da eklenti veya tema addons.mozilla.org'un şart ve koşullarını karşılaşmıyorsa bu gerçekleşebilir. "
-"Geliştirici, sorunları çözme ve eklentiyi tekrar kullanıma sunma fırsatına sahiptir."
+"Mozilla bunu kaldırdı. Uzantı veya temanın gözden geçirilmesi sırasında sorunlar bulunursa ya da uzantı veya tema addons.mozilla.org'un şart ve koşullarını karşılaşmıyorsa bu gerçekleşebilir. "
+"Geliştirici, sorunları çözme ve uzantıyı tekrar kullanıma sunma fırsatına sahiptir."
 
 #: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
@@ -880,7 +880,7 @@ msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Aradığınızı mevcut %(extensionStart)seklentilerden%(extensionEnd)s ya da %(themeStart)stemalardan%(themeEnd)s biri ile karşılayabilir veya %(communityStart)stopluluk forumlarımızdan%(communityEnd)s "
+"Aradığınızı mevcut %(extensionStart)suzantılardan%(extensionEnd)s ya da %(themeStart)stemalardan%(themeEnd)s biri ile karşılayabilir veya %(communityStart)stopluluk forumlarımızdan%(communityEnd)s "
 "yardım isteyebilirsiniz."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
@@ -1029,7 +1029,7 @@ msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:216
 msgid "Extension Workshop"
-msgstr "Eklenti Atölyesi"
+msgstr "Uzantı Atölyesi"
 
 #: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:226
 msgid "Developer Hub"
@@ -1049,7 +1049,7 @@ msgstr "Firefox’u indir ve temayı edin"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
-msgstr "Firefox'u indir ve eklentiyi edin"
+msgstr "Firefox’u indir ve uzantıyı yükle"
 
 #: src/amo/components/GetFirefoxButton/index.js:159 src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
@@ -1093,11 +1093,11 @@ msgstr "Firefox Browser Eklentileri"
 
 #: src/amo/components/Header/index.js:214
 msgid "Learn how to create extensions and themes"
-msgstr "Eklenti ve tema oluşturmayı öğrenin"
+msgstr "Uzantı ve tema oluşturmayı öğrenin"
 
 #: src/amo/components/Header/index.js:224
 msgid "Submit and manage extensions and themes"
-msgstr "Eklentileri ve temaları gönderme ve yönetme"
+msgstr "Uzantıları ve temaları gönderme ve yönetme"
 
 #: src/amo/components/Header/index.js:85
 msgid "My Account"
@@ -1113,7 +1113,7 @@ msgstr "Profilimi göster"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
-msgstr "Eklentiyi yükle"
+msgstr "Uzantıyı yükle"
 
 # If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:221
