@@ -92,7 +92,12 @@
   width: 100%;
 
   .Button {
-    white-space: nowrap;
+    text-align: center;
+    white-space: normal;
+
+    @include respond-to(medium) {
+      white-space: nowrap;
+    }
   }
 
   @include respond-to(extraLarge) {
