@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-26 20:36+0000\n"
+"PO-Revision-Date: 2021-04-26 20:40+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1131,7 +1131,7 @@ msgstr "FIREFOX EKİBİNDEN"
 
 #: src/amo/components/HeroRecommendation/index.js:252
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr "Firefox yalnızca güvenlik ve performans standartlarımızı karşılayan eklentileri önerir."
+msgstr "Firefox yalnızca güvenlik ve performans standartlarımızı karşılayan uzantıları önerir."
 
 #: src/amo/components/HomepageShelves/index.js:69
 msgid "See more %(categoryName)s"
@@ -1267,7 +1267,7 @@ msgstr "Gezinti geçmişine erişme"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
-msgstr "Eklenti kullanımını izleme ve temaları yönetme"
+msgstr "Uzantı kullanımını izleme ve temaları yönetme"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
@@ -1351,7 +1351,7 @@ msgstr "Bu temayı derecelendirmek için giriş yapın"
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this extension"
-msgstr "Bu eklentiye puan vermek için giriş yapın"
+msgstr "Bu uzantıya puan vermek için giriş yapın"
 
 #: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
@@ -1469,7 +1469,7 @@ msgstr "Arama sonuçları"
 
 #: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:218 src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
-msgstr "Önerilen eklentiler"
+msgstr "Önerilen uzantılar"
 
 #: src/amo/components/Search/index.js:149 src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
@@ -1481,7 +1481,7 @@ msgstr "Önerilen eklentiler"
 
 #: src/amo/components/Search/index.js:157
 msgid "Extensions by Firefox"
-msgstr "Resmi Firefox eklentileri"
+msgstr "Resmi Firefox uzantıları"
 
 #: src/amo/components/Search/index.js:160
 msgid "Themes by Firefox"
@@ -1493,7 +1493,7 @@ msgstr "Resmi Firefox eklentileri"
 
 #: src/amo/components/Search/index.js:168
 msgid "Reviewed extensions"
-msgstr "İncelenmiş eklentiler"
+msgstr "İncelenmiş uzantılar"
 
 #: src/amo/components/Search/index.js:171
 msgid "Reviewed themes"
@@ -1505,7 +1505,7 @@ msgstr "İncelenmiş eklentiler"
 
 #: src/amo/components/Search/index.js:179
 msgid "Verified extensions"
-msgstr "Doğrulanmış eklentiler"
+msgstr "Doğrulanmış uzantılar"
 
 #: src/amo/components/Search/index.js:182
 msgid "Verified themes"
@@ -1517,7 +1517,7 @@ msgstr "Doğrulanmış eklentiler"
 
 #: src/amo/components/Search/index.js:193 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
-msgstr "Gündemdeki eklentiler"
+msgstr "Gündemdeki uzantılar"
 
 #: src/amo/components/Search/index.js:196 src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
@@ -1529,7 +1529,7 @@ msgstr "Gündemdeki eklentiler"
 
 #: src/amo/components/Search/index.js:205 src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
-msgstr "En yüksek puanlı eklentiler"
+msgstr "En yüksek puanlı uzantılar"
 
 #: src/amo/components/Search/index.js:208 src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
@@ -1541,7 +1541,7 @@ msgstr "En yüksek puanlı eklentiler"
 
 #: src/amo/components/Search/index.js:217
 msgid "Popular extensions"
-msgstr "Popüler eklentiler"
+msgstr "Popüler uzantılar"
 
 #: src/amo/components/Search/index.js:220
 msgid "Popular themes"
@@ -1602,26 +1602,26 @@ msgstr "Eklentiler aranıyor"
 #: src/amo/components/SearchContextCard/index.js:60
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(categoryName)s kategorisinde \"%(query)s\" için %(count)s eklenti bulundu"
-msgstr[1] "%(categoryName)s kategorisinde \"%(query)s\" için %(count)s eklenti bulundu"
+msgstr[0] "%(categoryName)s kategorisinde \"%(query)s\" için %(count)s uzantı bulundu"
+msgstr[1] "%(categoryName)s kategorisinde \"%(query)s\" için %(count)s uzantı bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:69
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(categoryName)s kategorisinde %(count)s eklenti bulundu"
-msgstr[1] "%(categoryName)s kategorisinde %(count)s eklenti bulundu"
+msgstr[0] "%(categoryName)s kategorisinde %(count)s uzantı bulundu"
+msgstr[1] "%(categoryName)s kategorisinde %(count)s uzantı bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "\"%(query)s\" için %(count)s eklenti bulundu"
-msgstr[1] "\"%(query)s\" için %(count)s eklenti bulundu"
+msgstr[0] "\"%(query)s\" için %(count)s uzantı bulundu"
+msgstr[1] "\"%(query)s\" için %(count)s uzantı bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:88
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s eklenti bulundu"
-msgstr[1] "%(count)s eklenti bulundu"
+msgstr[0] "%(count)s uzantı bulundu"
+msgstr[1] "%(count)s uzantı bulundu"
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "All"
@@ -1629,7 +1629,7 @@ msgstr "Tümü"
 
 #: src/amo/components/SearchFilters/index.js:143
 msgid "Extension"
-msgstr "Eklenti"
+msgstr "Uzantı"
 
 #: src/amo/components/SearchFilters/index.js:147
 msgid "Theme"
@@ -1727,7 +1727,7 @@ msgstr "Keşfet"
 
 #: src/amo/components/SectionLinks/index.js:169 src/amo/pages/CategoryPage/index.js:66 src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
-msgstr "Eklentiler"
+msgstr "Uzantılar"
 
 #: src/amo/components/SectionLinks/index.js:185 src/amo/pages/CategoryPage/index.js:60 src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
@@ -1779,7 +1779,7 @@ msgstr "Önerilen sayfalar"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr "Tüm eklentilere göz atın"
+msgstr "Tüm uzantılara göz atın"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
@@ -1875,7 +1875,7 @@ msgstr "Bu sözlük hakkında"
 
 #: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
-msgstr "Bu eklenti hakkında"
+msgstr "Bu uzantı hakkında"
 
 #: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
@@ -1903,7 +1903,7 @@ msgstr "Bu listeleme herkese açık değildir. Ek izinleriniz nedeniyle bunu gö
 
 #: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
-msgstr "Eklenti meta verileri"
+msgstr "Uzantı meta verileri"
 
 #: src/amo/pages/Addon/index.js:522
 msgid "Screenshots"
@@ -2035,7 +2035,7 @@ msgstr "%(date)s tarihinde engellendi."
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
-msgstr "Tüm eklenti kategorileri"
+msgstr "Tüm uzantı kategorileri"
 
 #: src/amo/pages/CategoriesPage/index.js:37
 msgid "All theme categories"
@@ -2047,7 +2047,7 @@ msgstr "%(categoryName)s kategorisindeki temalar"
 
 #: src/amo/pages/CategoryPage/index.js:63
 msgid "Extensions in %(categoryName)s"
-msgstr "%(categoryName)s kategorisindeki eklentiler"
+msgstr "%(categoryName)s kategorisindeki uzantılar"
 
 #: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
@@ -2067,19 +2067,19 @@ msgstr "Koleksiyonu düzenlemek için giriş yapın"
 
 #: src/amo/pages/Collection/index.js:455
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "Öncelikle koleksiyonunuzu oluşturun. Sonra ona eklenti ve tema ekleyebilirsiniz."
+msgstr "Öncelikle koleksiyonunuzu oluşturun. Sonra ona uzantı ve tema ekleyebilirsiniz."
 
 #: src/amo/pages/Collection/index.js:458
 msgid "Search for extensions and themes to add to your collection."
-msgstr "Koleksiyonunuza ekleyebileceğiniz eklentileri ve temaları arayın."
+msgstr "Koleksiyonunuza ekleyebileceğiniz uzantıları ve temaları arayın."
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr "Sevdiğiniz eklentileri ve temaları takip etmek için Firefox koleksiyonlarını indirebilir ve oluşturabilirsiniz. %(collectionName)s—%(collectionDescription)s koleksiyonunu keşfedin."
+msgstr "Sevdiğiniz uzantıları ve temaları takip etmek için Firefox koleksiyonlarını indirebilir ve oluşturabilirsiniz. %(collectionName)s—%(collectionDescription)s koleksiyonunu keşfedin."
 
 #: src/amo/pages/Collection/index.js:519
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "Sevdiğiniz eklentileri ve temaları takip etmek için Firefox koleksiyonlarını indirebilir ve oluşturabilirsiniz. %(collectionName)s koleksiyonunu keşfedin."
+msgstr "Sevdiğiniz uzantıları ve temaları takip etmek için Firefox koleksiyonlarını indirebilir ve oluşturabilirsiniz. %(collectionName)s koleksiyonunu keşfedin."
 
 #: src/amo/pages/CollectionList/index.js:101
 msgid "My collections"
@@ -2124,12 +2124,12 @@ msgstr "Temalarla Firefox'un görünüşünü değiştirin."
 #: src/amo/pages/Home/index.js:172
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
-"Firefox eklentilerini ve temalarını indirin. Eklentiler tarayıcınızın içinde çalışan uygulamalara benzer. Can sıkıcı reklamları engelleyebilir, parolalarınızı koruyabilir, tarayıcı görünümünü "
+"Firefox uzantılarını ve temalarını indirin. Uzantılar tarayıcınızın içinde çalışan uygulamalara benzer. Can sıkıcı reklamları engelleyebilir, parolalarınızı koruyabilir, tarayıcı görünümünü "
 "değiştirebilir ve daha fazlasını yapabilirler."
 
 #: src/amo/pages/Home/index.js:219 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
-msgstr "Önerdiğimiz diğer eklentilere bakın"
+msgstr "Önerdiğimiz diğer uzantılara bakın"
 
 #: src/amo/pages/Home/index.js:88
 msgid "Abstract"
@@ -2145,11 +2145,11 @@ msgstr "Film ve TV"
 
 #: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
-msgstr "Diğer yükselen eklentilere bakın"
+msgstr "Gündemdeki diğer uzantılara bakın"
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
-msgstr "En yüksek puanlı diğer eklentilere bakın"
+msgstr "En yüksek puanlı diğer uzantılara bakın"
 
 #: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
@@ -2170,8 +2170,8 @@ msgstr "Firefox’un görünüşünü değiştirmek için temalar indirin. Deney
 #: src/amo/pages/LandingPage/index.js:212
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
-"Gezintinizi kişiselleştiren özelliklere sahip olmak için Firefox eklentilerini indirebilirsiniz. Tarayıcı eklentileriyle parolalarınızı koruyun, indirimleri yakalayın, videoları iyileştirin ve sinir"
-" bozucu reklamları engelleyin."
+"Gezintinizi kişiselleştiren özelliklere sahip olmak için Firefox uzantılarını indirebilirsiniz. Tarayıcı uzantılarıyla parolalarınızı koruyun, indirimleri yakalayın, videoları iyileştirin ve sinir "
+"bozucu reklamları engelleyin."
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2195,7 +2195,7 @@ msgstr "Sözlükler ve dil paketleri"
 
 #: src/amo/pages/LanguageTools/index.js:167
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr "Firefox sözlüklerini ve dil paketi eklentilerini indirin. Tarayıcınızın yazım denetleyicisine yeni bir dil ekleyebilir veya tarayıcınızın arayüz dilini değiştirebilirsiniz."
+msgstr "Firefox sözlüklerini ve dil paketi uzantıkarını indirin. Tarayıcınızın yazım denetleyicisine yeni bir dil ekleyebilir veya tarayıcınızın arayüz dilini değiştirebilirsiniz."
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2265,7 +2265,7 @@ msgstr "Siteyle ilgili bir sorun bulursanız düzeltmeyi çok isteriz. Lütfen b
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
 msgstr ""
-"Firefox eklentilerini ve temalarını indirebileceğiniz resmi Mozilla sitesi. Web deneyiminizi özelleştirmek için trayıcınıza yeni özellikler ekleyebilir, tarayıcınızın görünümünü değiştirebilirsiniz."
+"Firefox uzantılarını ve temalarını indirebileceğiniz resmi Mozilla sitesi. Web deneyiminizi özelleştirmek için trayıcınıza yeni özellikler ekleyebilir, tarayıcınızın görünümünü değiştirebilirsiniz."
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
@@ -2399,7 +2399,7 @@ msgstr "İnceleme Yönergeleri"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr "Firefox'ta indirdiğiniz ve kullandığınız eklenti ve temalara inceleme yazmaya dair yönergeler, ipuçları ve sık sorulan sorular."
+msgstr "Firefox'ta indirdiğiniz ve kullandığınız uzantı ve temalara inceleme yazmaya dair yönergeler, ipuçları ve sık sorulan sorular."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
@@ -2491,11 +2491,11 @@ msgstr "İncelemelerim"
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "Firefox eklentisi ve tema geliştiricisi %(user)s kullanıcısının profili. %(user)s tarafından sunulan diğer uygulamalar, puan ortalaması, görev süresi ve sorunları bildirme seçeneği."
+msgstr "Firefox uzantı ve tema geliştiricisi %(user)s kullanıcısının profili. %(user)s tarafından sunulan diğer uygulamalar, puan ortalaması, görev süresi ve sorunları bildirme seçeneği."
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "Firefox eklenti geliştiricisi %(user)s kullanıcısının profili. %(user)s tarafından sunulan diğer eklentiler, puan ortalaması, görev süresi ve sorunları bildirme seçeneği."
+msgstr "Firefox uzantı geliştiricisi %(user)s kullanıcısının profili. %(user)s tarafından sunulan diğer uzantılar, puan ortalaması, görev süresi ve sorunları bildirme seçeneği."
 
 #: src/amo/pages/UserProfile/index.js:280
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
