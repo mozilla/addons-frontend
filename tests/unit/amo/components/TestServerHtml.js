@@ -80,8 +80,8 @@ describe(__filename, () => {
     const root = render();
     const styleSheets = root.find({ rel: 'stylesheet' });
 
-    expect(styleSheets).toHaveLength(1);
     expect(styleSheets.at(0)).toHaveProp('href', '/bar/amo-blah.css');
+    expect(styleSheets.at(1)).toHaveProp('href', '/search-blah.css');
   });
 
   it('renders js provided', () => {
