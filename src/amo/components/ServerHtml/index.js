@@ -122,19 +122,20 @@ export default class ServerHtml extends Component {
 
   getFontPreload() {
     const { assets, htmlLang } = this.props;
-    // Preload relevant minimal font if available. At the moment only for en-US.
-    if (htmlLang === 'en-US') {
-      const fontToPreload =
-        './src/fonts/woff2/Inter-roman-minimal-subset.var.woff2';
-      if (assets && assets.assets && assets.assets[fontToPreload]) {
-        return this.getStatic({
-          filePath: assets.assets[fontToPreload],
+    // Preload relevant minimal subset font if available for this language.
+    const extractSubset = /subset-([\w\-+]+)\.var\.woff2/;
+    return Object.keys(assets.assets)
+      .filter((asset) => {
+        const found = extractSubset.exec(asset);
+        return found && found.length === 2 && found[1].includes(htmlLang);
+      })
+      .map((asset, index) =>
+        this.getStatic({
+          filePath: assets.assets[asset],
           type: 'font',
-          index: 0,
-        });
-      }
-    }
-    return null;
+          index,
+        }),
+      );
   }
 
   render() {
