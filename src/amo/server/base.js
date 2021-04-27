@@ -319,25 +319,8 @@ function baseServer(
       }
 
       let i18nData = {};
-      const { htmlLang, assets } = pageProps;
+      const { htmlLang } = pageProps;
       const locale = langToLocale(htmlLang);
-      const fontToPreload =
-        './src/fonts/woff2/Inter-roman-minimal-subset.var.woff2';
-
-      // Preload relevant minimal font if available. At the moment only for en-US.
-      // FIXME: ideally, we'd preload the css too, because preloading the font causes
-      // it to be pushed to the very top of the priority list.
-      if (
-        htmlLang === 'en-US' &&
-        assets &&
-        assets.assets &&
-        assets.assets[fontToPreload]
-      ) {
-        res.append(
-          'Link',
-          `<${assets.assets[fontToPreload]}>; rel=preload; as=font; type=font/woff2; crossorigin`,
-        );
-      }
 
       try {
         if (locale !== langToLocale(config.get('defaultLang'))) {

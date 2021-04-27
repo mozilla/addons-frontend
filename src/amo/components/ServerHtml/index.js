@@ -6,7 +6,7 @@ import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
 import config from 'config';
 
-import { APP_NAME, LTR } from 'amo/constants';
+import { LTR } from 'amo/constants';
 
 const JS_CHUNK_EXCLUDES = new RegExp(
   `(?:${config.get('jsChunkExclusions').join('|')})`,
@@ -55,8 +55,7 @@ export default class ServerHtml extends Component {
   getStatic({ filePath, type, index }) {
     const leafName = filePath.split('/').pop();
 
-    // Only output files for the current app.
-    if (leafName.startsWith(APP_NAME) && !JS_CHUNK_EXCLUDES.test(leafName)) {
+    if (!JS_CHUNK_EXCLUDES.test(leafName)) {
       const sriProps = this.getSriProps(leafName);
 
       switch (type) {
@@ -72,6 +71,17 @@ export default class ServerHtml extends Component {
           );
         case 'js':
           return <script key={type + index} src={filePath} {...sriProps} />;
+        case 'font':
+          return (
+            <link
+              href={filePath}
+              {...sriProps}
+              key={type + index}
+              rel="preload"
+              as="font"
+              type="font/woff2"
+            />
+          );
         default:
           throw new Error('Unknown static type');
       }
@@ -110,6 +120,21 @@ export default class ServerHtml extends Component {
     )}`;
   }
 
+  getFontPreload() {
+    const { assets, htmlLang } = this.props;
+    // Preload relevant minimal font if available. At the moment only for en-US.
+    if (htmlLang === 'en-US') {
+      const fontToPreload =
+        './src/fonts/woff2/Inter-roman-minimal-subset.var.woff2';
+      return this.getStatic({
+        filePath: assets.assets[fontToPreload],
+        type: 'font',
+        index: 0,
+      });
+    }
+    return null;
+  }
+
   render() {
     const { appState, component, htmlDir, htmlLang } = this.props;
 
@@ -128,6 +153,7 @@ export default class ServerHtml extends Component {
 
           {/* Keep stylesheets high to make sure there are in the first TCP packet sent */}
           {this.getStyle()}
+          {this.getFontPreload()}
 
           {head.meta.toComponent()}
 
