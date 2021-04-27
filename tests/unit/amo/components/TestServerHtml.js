@@ -80,8 +80,8 @@ describe(__filename, () => {
     const root = render();
     const styleSheets = root.find({ rel: 'stylesheet' });
 
-    expect(styleSheets).toHaveLength(1);
     expect(styleSheets.at(0)).toHaveProp('href', '/bar/amo-blah.css');
+    expect(styleSheets.at(1)).toHaveProp('href', '/search-blah.css');
   });
 
   it('renders js provided', () => {
@@ -142,6 +142,17 @@ describe(__filename, () => {
       'href',
       `${amoCDN}/favicon.ico?v=${_config.get('faviconVersion')}`,
     );
+  });
+
+  it('renders font link preload with SRI', () => {
+    const root = render();
+    const preloaded = root.find({ rel: 'preload' });
+
+    expect(preloaded.at(0)).toHaveProp('href', 'minimal-en-US-font.woff2');
+    expect(preloaded.at(0)).toHaveProp('as', 'font');
+    expect(preloaded.at(0)).toHaveProp('type', 'font/woff2');
+    expect(preloaded.at(0)).toHaveProp('integrity', 'sha512-amo-woff2');
+    expect(preloaded.at(0)).toHaveProp('crossOrigin', 'anonymous');
   });
 
   it('renders title', () => {

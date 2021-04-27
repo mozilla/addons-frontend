@@ -6,7 +6,7 @@ import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
 import config from 'config';
 
-import { APP_NAME, LTR } from 'amo/constants';
+import { LTR } from 'amo/constants';
 
 const JS_CHUNK_EXCLUDES = new RegExp(
   `(?:${config.get('jsChunkExclusions').join('|')})`,
@@ -55,8 +55,7 @@ export default class ServerHtml extends Component {
   getStatic({ filePath, type, index }) {
     const leafName = filePath.split('/').pop();
 
-    // Only output files for the current app.
-    if (leafName.startsWith(APP_NAME) && !JS_CHUNK_EXCLUDES.test(leafName)) {
+    if (!JS_CHUNK_EXCLUDES.test(leafName)) {
       const sriProps = this.getSriProps(leafName);
 
       switch (type) {
@@ -72,6 +71,20 @@ export default class ServerHtml extends Component {
           );
         case 'js':
           return <script key={type + index} src={filePath} {...sriProps} />;
+        case 'font':
+          // Always apply crossorigin for the font, even when we don't have
+          // SRI data.
+          sriProps.crossOrigin = 'anonymous';
+          return (
+            <link
+              href={filePath}
+              {...sriProps}
+              key={type + index}
+              rel="preload"
+              as="font"
+              type="font/woff2"
+            />
+          );
         default:
           throw new Error('Unknown static type');
       }
@@ -110,6 +123,25 @@ export default class ServerHtml extends Component {
     )}`;
   }
 
+  getFontPreload() {
+    const { assets, htmlLang } = this.props;
+    // Preload relevant minimal subset font if available for this language.
+    const subsetFontPattern = new RegExp(
+      `subset-([a-zA-Z-]+\\+)*${htmlLang}(\\+[a-zA-Z-]+)*.var.woff2$`,
+      'i',
+    );
+
+    return Object.keys(assets.assets)
+      .filter((asset) => subsetFontPattern.test(asset))
+      .map((asset, index) =>
+        this.getStatic({
+          filePath: assets.assets[asset],
+          type: 'font',
+          index,
+        }),
+      );
+  }
+
   render() {
     const { appState, component, htmlDir, htmlLang } = this.props;
 
@@ -128,6 +160,7 @@ export default class ServerHtml extends Component {
 
           {/* Keep stylesheets high to make sure there are in the first TCP packet sent */}
           {this.getStyle()}
+          {this.getFontPreload()}
 
           {head.meta.toComponent()}
 
