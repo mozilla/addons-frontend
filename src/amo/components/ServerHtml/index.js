@@ -127,6 +127,7 @@ export default class ServerHtml extends Component {
     const { assets, htmlLang } = this.props;
     // Preload relevant minimal subset font if available for this language.
     const extractSubset = /subset-([\w\-+]+)\.var\.woff2/;
+
     return Object.keys(assets.assets)
       .filter((asset) => {
         const found = extractSubset.exec(asset);
