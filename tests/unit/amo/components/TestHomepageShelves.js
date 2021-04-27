@@ -115,9 +115,9 @@ describe(__filename, () => {
     [true, HOMESHELVES_ENDPOINT_SEARCH, ADDON_TYPE_STATIC_THEME],
   ])(
     'passes isTheme as %s when endpoint is %s with addon type %s',
-    (isTheme, endpoint, addonType) => {
+    (isTheme, endpoint, addon_type) => {
       const root = render({
-        shelves: [_createShelf({ endpoint, addonType })],
+        shelves: [_createShelf({ endpoint, addon_type })],
       });
 
       expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', isTheme);
@@ -134,9 +134,9 @@ describe(__filename, () => {
     [3, HOMESHELVES_ENDPOINT_SEARCH, ADDON_TYPE_STATIC_THEME],
   ])(
     'passes placeholderCount as %s when endpoint is %s with addon type %s',
-    (placeholderCount, endpoint, addonType) => {
+    (placeholderCount, endpoint, addon_type) => {
       const root = render({
-        shelves: [_createShelf({ endpoint, addonType })],
+        shelves: [_createShelf({ endpoint, addon_type })],
       });
 
       expect(root.find(LandingAddonsCard)).toHaveProp(
