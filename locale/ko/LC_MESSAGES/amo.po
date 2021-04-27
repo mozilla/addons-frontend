@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-25 23:53+0000\n"
-"Last-Translator: Channy Yun <channy@mozilla.or.kr>\n"
+"PO-Revision-Date: 2021-04-27 07:23+0000\n"
+"Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -277,7 +277,7 @@ msgstr "이 확장 기능 사용자가 설치한 다른 확장 기능"
 
 #: src/amo/components/AddonRecommendations/index.js:149
 msgid "Other popular extensions"
-msgstr "인기 있는 다른 확장 기능"
+msgstr "인기 확장 기능"
 
 #: src/amo/components/AddonReviewCard/index.js:212
 msgid "Edit reply"
