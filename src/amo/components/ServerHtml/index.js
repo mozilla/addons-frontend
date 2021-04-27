@@ -125,12 +125,14 @@ export default class ServerHtml extends Component {
 
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+          {/* Keep stylesheets high to make sure there are in the first TCP packet sent */}
+          {this.getStyle()}
+
           {head.meta.toComponent()}
 
           <link rel="shortcut icon" href={this.getFaviconLink()} />
           {head.link.toComponent()}
-
-          {this.getStyle()}
 
           {head.script.toComponent()}
         </head>
