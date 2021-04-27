@@ -39,7 +39,7 @@
     grid-template-areas:
       'logo amo-links browsers-links product-links'
       'legal-links legal-links legal-links legal-links'
-      'copyright copyright language language';
+      'copyright copyright copyright language';
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 0 auto;
     max-width: $max-content-width;
