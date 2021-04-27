@@ -72,6 +72,9 @@ export default class ServerHtml extends Component {
         case 'js':
           return <script key={type + index} src={filePath} {...sriProps} />;
         case 'font':
+          // Always apply crossorigin for the font, even when we don't have
+          // SRI data.
+          sriProps.crossOrigin = 'anonymous';
           return (
             <link
               href={filePath}
