@@ -126,11 +126,13 @@ export default class ServerHtml extends Component {
     if (htmlLang === 'en-US') {
       const fontToPreload =
         './src/fonts/woff2/Inter-roman-minimal-subset.var.woff2';
-      return this.getStatic({
-        filePath: assets.assets[fontToPreload],
-        type: 'font',
-        index: 0,
-      });
+      if (assets && assets.assets && assets.assets[fontToPreload]) {
+        return this.getStatic({
+          filePath: assets.assets[fontToPreload],
+          type: 'font',
+          index: 0,
+        });
+      }
     }
     return null;
   }
