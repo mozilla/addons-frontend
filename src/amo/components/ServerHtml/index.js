@@ -126,13 +126,13 @@ export default class ServerHtml extends Component {
   getFontPreload() {
     const { assets, htmlLang } = this.props;
     // Preload relevant minimal subset font if available for this language.
-    const extractSubset = /subset-([\w\-+]+)\.var\.woff2/;
+    const subsetFontPattern = new RegExp(
+      `subset-([a-zA-Z-]+\\+)*${htmlLang}(\\+[a-zA-Z-]+)*.var.woff2$`,
+      'i',
+    );
 
     return Object.keys(assets.assets)
-      .filter((asset) => {
-        const found = extractSubset.exec(asset);
-        return found && found.length === 2 && found[1].includes(htmlLang);
-      })
+      .filter((asset) => subsetFontPattern.test(asset))
       .map((asset, index) =>
         this.getStatic({
           filePath: assets.assets[asset],
