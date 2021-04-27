@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-27 06:13+0000\n"
+"PO-Revision-Date: 2021-04-27 06:24+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -607,7 +607,6 @@ msgid "Log out"
 msgstr "გასვლა"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "შექმნა ან შესვლა"
 
@@ -980,9 +979,8 @@ msgid "Developer Policies"
 msgstr "შემმუშავებლის დებულებები"
 
 #: src/amo/components/Footer/index.js:122
-#, fuzzy
 msgid "Developer Blog"
-msgstr "შემმუშავებლები"
+msgstr "შემმუშავებლის სვეტი"
 
 #: src/amo/components/Footer/index.js:128
 msgid "Forum"
@@ -1057,9 +1055,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "მხოლოდ Firefox-თან ერთად – გადმოწერეთ Firefox ახლავე"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "ჩამოტვირთეთ Firefox"
+msgstr "ჩამოტვირთეთ Firefox და გამოიყენეთ თემა"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
@@ -1151,9 +1148,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox მხოლოდ იმ გაფართოებებს გირჩევთ, რომლებიც აკმაყოფილებს უსაფრთხოებისა და წარმადობის მაღალ მოთხოვნებს."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "თემები კატეგორიაში %(categoryName)s"
+msgstr "ვრცლად, კატეგორიაში %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -2299,6 +2295,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"თუ გსურთ მოგვახსენოთ გაფართოების უსაფრთხოების სისუსტის შესახებ, თუნდაც ამ საიტის მიღმა არსებულის, გთხოვთ წამოიწყოთ %(startSecIssueLink)sგანხილვა%(endSecIssueLink)s Bugzilla-ში ან მოგვწეროთ ელფოსტაზე"
+" %(startMailLink)samo-admins@mozilla.com%(endMailLink)s. უსაფრთხოების ყველა მოხსენება არის %(startLink)sფარული%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
