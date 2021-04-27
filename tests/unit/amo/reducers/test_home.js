@@ -463,7 +463,7 @@ describe(__filename, () => {
 
       expect(createInternalShelf(shelf, lang)).toEqual({
         addons: [createInternalAddon(addon, lang)],
-        addonType: shelf.addonType,
+        addon_type: shelf.addon_type,
         criteria: shelf.criteria,
         endpoint: shelf.endpoint,
         footer: createInternalHeroCallToAction(shelf.footer, lang),
