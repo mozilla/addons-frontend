@@ -82,6 +82,18 @@ Usage:
   src: url('woff2/Inter-roman.var.woff2') format('woff2');
 }
 
+/* Minimal font file with limited glyphs and layout features (only kern).
+   Should be enough for most en-US pages. */
+@font-face {
+  font-family: 'Inter var';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('woff2/Inter-roman-minimal-subset.var.woff2') format('woff2');
+  unicode-range: U+A, U+20-7E, U+2010, U+2013, U+2018, U+2019, U+201C, U+201D,
+    U+2026, U+20AC, U+00A3, U+00A7, U+00A9, U+00AE, U+00B0-00B2, U+00B5, U+00D7,
+    U+00F7, U+00A0, U+2122;
+}
+
 @font-face {
   font-family: 'Inter var';
   font-style: italic;

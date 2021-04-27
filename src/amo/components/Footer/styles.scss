@@ -152,9 +152,14 @@
     font-size: $font-size-s;
   }
 
+  /* The language picker shows text in a bunch of different locales, use a
+     generic sans-serif font to avoid downloading the full Inter variant
+     just for this. */
+
   .LanguagePicker-selector {
     background-color: $white;
     color: $black;
     display: inline-block;
+    font-family: sans-serif;
   }
 }
