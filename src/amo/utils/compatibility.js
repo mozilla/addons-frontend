@@ -3,7 +3,7 @@
 import { oneLine } from 'common-tags';
 import config from 'config';
 import invariant from 'invariant';
-import mozCompare from 'mozilla-version-comparator';
+import { mozCompare } from 'addons-moz-compare';
 
 import {
   USER_AGENT_BROWSER_FIREFOX,
@@ -192,7 +192,7 @@ export function isCompatibleWithUserAgent({
 
   // Do version checks, if this add-on has minimum or maximum version
   // requirements.
-  // The mozilla-version-comparator API is quite strange; a result of
+  // The addons-moz-compare API is quite strange; a result of
   // `1` means the first argument is higher in version than the second.
   //
   // Being over the maxVersion, oddly, is not actually a reason to
@@ -212,8 +212,8 @@ export function isCompatibleWithUserAgent({
       https://github.com/mozilla/addons-frontend/issues/2074`);
   }
 
-  // A result of `-1` means the second argument is a lower version than the
-  // first.
+  // A result of `-1` means the first argument is a lower version than the
+  // second.
   if (minVersion && mozCompare(browser.version, minVersion) === -1) {
     if (minVersion === '*') {
       _log.error(oneLine`minVersion of "*" was passed to
