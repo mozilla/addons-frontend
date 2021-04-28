@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const pluginName = 'FontsInWebpackAssetsJsonPlugin';
+const pluginName = 'WebpackAssetsFontsPlugin';
 const webpackAssetsFileName = 'webpack-assets.json';
 // This is a webpack plugin to add .woff2 fonts in webpack-assets.json that
 // webpack-isomorphic-tools generates. We can then use `assets` to reference
