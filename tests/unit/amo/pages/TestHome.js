@@ -32,7 +32,7 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
-  fakeShelf,
+  fakeExternalShelf,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -59,7 +59,7 @@ describe(__filename, () => {
   }
 
   const _createHomeShelves = ({
-    resultsProps = [fakeShelf],
+    resultsProps = [fakeExternalShelf],
     primaryProps = { addon: fakeAddon },
   } = {}) => {
     return createHomeShelves({ resultsProps, primaryProps });
@@ -275,7 +275,7 @@ describe(__filename, () => {
 
   it('renders a HomepageShelves component on desktop, with shelves loaded', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const shelf = fakeShelf;
+    const shelf = fakeExternalShelf;
     _loadHomeData({
       homeShelves: _createHomeShelves({ resultsProps: [shelf] }),
       store,

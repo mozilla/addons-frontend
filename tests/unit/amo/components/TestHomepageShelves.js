@@ -20,7 +20,7 @@ import {
   DEFAULT_LANG_IN_TESTS,
   createLocalizedString,
   fakeI18n,
-  fakeShelf,
+  fakeExternalShelf,
   fakeAddon,
 } from 'tests/unit/helpers';
 
@@ -34,7 +34,7 @@ describe(__filename, () => {
   const _createShelf = (overrides = {}) =>
     createInternalShelf(
       {
-        ...fakeShelf,
+        ...fakeExternalShelf,
         ...overrides,
       },
       DEFAULT_LANG_IN_TESTS,
@@ -115,9 +115,9 @@ describe(__filename, () => {
     [true, HOMESHELVES_ENDPOINT_SEARCH, ADDON_TYPE_STATIC_THEME],
   ])(
     'passes isTheme as %s when endpoint is %s with addon type %s',
-    (isTheme, endpoint, addonType) => {
+    (isTheme, endpoint, addon_type) => {
       const root = render({
-        shelves: [_createShelf({ endpoint, addonType })],
+        shelves: [_createShelf({ endpoint, addon_type })],
       });
 
       expect(root.find(LandingAddonsCard)).toHaveProp('isTheme', isTheme);
@@ -134,9 +134,9 @@ describe(__filename, () => {
     [3, HOMESHELVES_ENDPOINT_SEARCH, ADDON_TYPE_STATIC_THEME],
   ])(
     'passes placeholderCount as %s when endpoint is %s with addon type %s',
-    (placeholderCount, endpoint, addonType) => {
+    (placeholderCount, endpoint, addon_type) => {
       const root = render({
-        shelves: [_createShelf({ endpoint, addonType })],
+        shelves: [_createShelf({ endpoint, addon_type })],
       });
 
       expect(root.find(LandingAddonsCard)).toHaveProp(
@@ -169,7 +169,7 @@ describe(__filename, () => {
     const root = render({
       shelves: [
         _createShelf({
-          footer: { ...fakeShelf.footer, text: '' },
+          footer: { ...fakeExternalShelf.footer, text: '' },
           title: createLocalizedString(title),
         }),
       ],
@@ -188,7 +188,7 @@ describe(__filename, () => {
       _checkInternalURL,
       shelves: [
         _createShelf({
-          footer: { ...fakeShelf.footer, url },
+          footer: { ...fakeExternalShelf.footer, url },
         }),
       ],
     });
@@ -209,7 +209,7 @@ describe(__filename, () => {
       _checkInternalURL,
       shelves: [
         _createShelf({
-          footer: { ...fakeShelf.footer, url },
+          footer: { ...fakeExternalShelf.footer, url },
         }),
       ],
     });
@@ -225,7 +225,7 @@ describe(__filename, () => {
         _createShelf({
           criteria: slug,
           endpoint: HOMESHELVES_ENDPOINT_COLLECTIONS,
-          footer: { ...fakeShelf.footer, url: '' },
+          footer: { ...fakeExternalShelf.footer, url: '' },
         }),
       ],
     });
@@ -245,7 +245,7 @@ describe(__filename, () => {
           _createShelf({
             criteria,
             endpoint,
-            footer: { ...fakeShelf.footer, url: '' },
+            footer: { ...fakeExternalShelf.footer, url: '' },
           }),
         ],
       });

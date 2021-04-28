@@ -35,7 +35,7 @@ import {
   createFakeCollectionDetail,
   createInternalVersionWithLang,
   createLocalizedString,
-  fakeShelf,
+  fakeExternalShelf,
   fakeAddon,
   fakeI18n,
   fakeFile,
@@ -522,7 +522,7 @@ describe(__filename, () => {
           state,
           loadHomeData({
             homeShelves: {
-              results: [{ ...fakeShelf, addons: [searchResult] }],
+              results: [{ ...fakeExternalShelf, addons: [searchResult] }],
             },
             shelves: {},
           }),
