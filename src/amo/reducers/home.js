@@ -94,7 +94,7 @@ export type PrimaryHeroShelfType =
   | PrimaryHeroShelfWithExternalType
   | null;
 
-export type ExternalHeroCallToActionType = {|
+export type ExternalLinkWithTextType = {|
   url: string,
   outgoing: string,
   text: LocalizedString | null,
@@ -103,17 +103,17 @@ export type ExternalHeroCallToActionType = {|
 export type ExternalSecondaryHeroModuleType = {|
   icon: string,
   description: LocalizedString | null,
-  cta: ExternalHeroCallToActionType | null,
+  cta: ExternalLinkWithTextType | null,
 |};
 
 export type ExternalSecondaryHeroShelfType = {|
   headline: LocalizedString | null,
   description: LocalizedString | null,
-  cta: ExternalHeroCallToActionType | null,
+  cta: ExternalLinkWithTextType | null,
   modules: Array<ExternalSecondaryHeroModuleType>,
 |} | null;
 
-export type CallToActionType = {|
+export type LinkWithTextType = {|
   url: string,
   outgoing: string,
   text: string,
@@ -122,13 +122,13 @@ export type CallToActionType = {|
 export type SecondaryHeroModuleType = {|
   icon: string,
   description: string,
-  cta: CallToActionType | null,
+  cta: LinkWithTextType | null,
 |};
 
 export type SecondaryHeroShelfType = {|
   headline: string,
   description: string,
-  cta: CallToActionType | null,
+  cta: LinkWithTextType | null,
   modules: Array<SecondaryHeroModuleType>,
 |} | null;
 
@@ -146,9 +146,9 @@ export type ExternalResultShelfType = {|
   title: LocalizedString,
   url: string,
   endpoint: string,
-  addonType: AddonTypeType,
+  addon_type: AddonTypeType,
   criteria: string,
-  footer: ExternalHeroCallToActionType | null,
+  footer: ExternalLinkWithTextType | null,
   addons: Array<ExternalAddonType>,
 |};
 
@@ -158,7 +158,7 @@ export type ResultShelfType = {|
   endpoint: string,
   addonType: AddonTypeType,
   criteria: string,
-  footer: CallToActionType | null,
+  footer: LinkWithTextType | null,
   addons: Array<AddonType>,
 |};
 
@@ -279,14 +279,14 @@ export const createInternalPrimaryHeroShelfExternalAddon = (
   };
 };
 
-export const createInternalHeroCallToAction = (
-  cta: ExternalHeroCallToActionType,
+export const createInternalLinkWithText = (
+  obj: ExternalLinkWithTextType,
   lang: string,
-): CallToActionType => {
+): LinkWithTextType => {
   return {
-    url: cta.url,
-    outgoing: cta.outgoing,
-    text: selectLocalizedContent(cta.text, lang),
+    url: obj.url,
+    outgoing: obj.outgoing,
+    text: selectLocalizedContent(obj.text, lang),
   };
 };
 
@@ -297,7 +297,7 @@ export const createInternalSecondaryHeroModule = (
   return {
     icon: module.icon,
     description: selectLocalizedContent(module.description, lang),
-    cta: module.cta ? createInternalHeroCallToAction(module.cta, lang) : null,
+    cta: module.cta ? createInternalLinkWithText(module.cta, lang) : null,
   };
 };
 
@@ -313,10 +313,10 @@ export const createInternalShelf = (
     title: selectLocalizedContent(result.title, lang),
     url: result.url,
     endpoint: result.endpoint,
-    addonType: result.addonType,
+    addonType: result.addon_type,
     criteria: result.criteria,
     footer: result.footer
-      ? createInternalHeroCallToAction(result.footer, lang)
+      ? createInternalLinkWithText(result.footer, lang)
       : null,
     addons: shelfAddons,
   };
@@ -338,7 +338,7 @@ export const createInternalHomeShelves = (
       headline: selectLocalizedContent(secondary.headline, lang),
       description: selectLocalizedContent(secondary.description, lang),
       cta: secondary.cta
-        ? createInternalHeroCallToAction(secondary.cta, lang)
+        ? createInternalLinkWithText(secondary.cta, lang)
         : null,
       modules: secondary.modules.map((module) =>
         createInternalSecondaryHeroModule(module, lang),
