@@ -10,6 +10,7 @@ import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 
 import SriDataPlugin from './src/amo/server/sriDataPlugin';
 import { getPlugins, getRules } from './webpack-common';
+import WebpackAssetsFontsPlugin from './src/amo/server/webpack-assets-fonts';
 import webpackIsomorphicToolsConfig from './src/amo/server/webpack-isomorphic-tools-config';
 import { WEBPACK_ENTRYPOINT } from './src/amo/constants';
 
@@ -73,6 +74,7 @@ export default {
       chunkFilename: '[name]-[contenthash].css',
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
+    new WebpackAssetsFontsPlugin(),
     new SubresourceIntegrityPlugin({ hashFuncNames: ['sha512'] }),
     new SriDataPlugin({ saveAs: path.join(DIST_DIR, 'sri.json') }),
   ],

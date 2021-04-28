@@ -73,6 +73,16 @@ function getAssetRules({ fileLimit }) {
     // If a media file is less than this size in bytes, it will be linked as a
     // data: URL. Otherwise it will be linked as a separate file URL.
     limit: fileLimit,
+    // This is the default value.
+    fallback: 'file-loader',
+    // We want to use predictable filenames for "subset" fonts.
+    name(resourcePath) {
+      if (/-subset-/.test(resourcePath)) {
+        return '[name].[contenthash].[ext]';
+      }
+
+      return '[contenthash].[ext]';
+    },
   };
 
   return [
