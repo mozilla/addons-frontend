@@ -224,12 +224,12 @@ export const fakeReview = Object.freeze({
   body: 'It is Okay',
 });
 
-export const fakeShelf = Object.freeze({
+export const fakeExternalShelf = Object.freeze({
   title: createLocalizedString('Top Rated Themes'),
   url:
     'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
   endpoint: 'search-themes',
-  addonType: ADDON_TYPE_STATIC_THEME,
+  addon_type: ADDON_TYPE_STATIC_THEME,
   criteria: '?sort=rating&type=statictheme',
   footer: {
     url: 'http://testserver/extensions/',
@@ -394,12 +394,12 @@ export const createSecondaryHeroShelf = ({
 };
 
 export const createHomeShelves = ({
-  resultsProps = [fakeShelf],
+  resultsProps = [fakeExternalShelf],
   primaryProps = {},
   secondaryProps = {},
 } = {}) => {
   return {
-    results: resultsProps || [fakeShelf],
+    results: resultsProps || [fakeExternalShelf],
     primary: createPrimaryHeroShelf(primaryProps),
     secondary: createSecondaryHeroShelf(secondaryProps),
   };

@@ -7,7 +7,7 @@ import {
 } from 'amo/reducers/addons';
 import homeReducer, {
   abortFetchHomeData,
-  createInternalHeroCallToAction,
+  createInternalLinkWithText,
   createInternalHomeShelves,
   createInternalPrimaryHeroShelfExternalAddon,
   createInternalSecondaryHeroModule,
@@ -27,7 +27,7 @@ import {
   createSecondaryHeroShelf,
   dispatchClientMetadata,
   fakeAddon,
-  fakeShelf,
+  fakeExternalShelf,
   fakePrimaryHeroShelfExternalAddon,
   getFakeConfig,
 } from 'tests/unit/helpers';
@@ -39,7 +39,7 @@ describe(__filename, () => {
     const _loadHomeData = ({
       store,
       homeShelves = createHomeShelves({
-        resultsProps: [fakeShelf],
+        resultsProps: [fakeExternalShelf],
         primaryProps: { addon: fakeAddon },
       }),
       shelves = {},
@@ -55,7 +55,7 @@ describe(__filename, () => {
     };
 
     const _createHomeShelves = (
-      resultsProps = [fakeShelf],
+      resultsProps = [fakeExternalShelf],
       primaryProps = { addon: fakeAddon },
     ) => {
       return createHomeShelves({ resultsProps, primaryProps });
@@ -189,7 +189,7 @@ describe(__filename, () => {
       _loadHomeData({
         store,
         homeShelves: {
-          results: [fakeShelf],
+          results: [fakeExternalShelf],
           primary: null,
           secondary: null,
         },
@@ -226,7 +226,7 @@ describe(__filename, () => {
       _loadHomeData({
         store,
         homeShelves: {
-          results: [fakeShelf],
+          results: [fakeExternalShelf],
           primary: null,
           secondary: null,
         },
@@ -249,7 +249,7 @@ describe(__filename, () => {
       _loadHomeData({
         store,
         homeShelves: {
-          results: [fakeShelf],
+          results: [fakeExternalShelf],
           primary: null,
           secondary: null,
         },
@@ -274,7 +274,7 @@ describe(__filename, () => {
   describe('createInternalHomeShelves', () => {
     it('creates an internal representation of home shelves', () => {
       const addon = fakeAddon;
-      const shelf = fakeShelf;
+      const shelf = fakeExternalShelf;
       const homeShelves = createHomeShelves({
         resultsProps: [shelf],
         primaryProps: { addon, external: undefined },
@@ -295,7 +295,7 @@ describe(__filename, () => {
           },
         },
         secondary: {
-          cta: createInternalHeroCallToAction(homeShelves.secondary.cta, lang),
+          cta: createInternalLinkWithText(homeShelves.secondary.cta, lang),
           description: homeShelves.secondary.description[lang],
           headline: homeShelves.secondary.headline[lang],
           modules: homeShelves.secondary.modules.map((module) =>
@@ -447,10 +447,11 @@ describe(__filename, () => {
       const footerURL = 'http://testserver/extensions/';
       const title = 'Some title';
       const shelf = {
+        ...fakeExternalShelf,
         addons: [addon],
         criteria: '?sort=rating&type=statictheme',
         endpoint: 'search-themes',
-        addonType: ADDON_TYPE_STATIC_THEME,
+        addon_type: ADDON_TYPE_STATIC_THEME,
         footer: {
           url: createLocalizedString(footerURL),
           text: createLocalizedString(footerText),
@@ -463,21 +464,21 @@ describe(__filename, () => {
 
       expect(createInternalShelf(shelf, lang)).toEqual({
         addons: [createInternalAddon(addon, lang)],
-        addonType: shelf.addonType,
+        addonType: shelf.addon_type,
         criteria: shelf.criteria,
         endpoint: shelf.endpoint,
-        footer: createInternalHeroCallToAction(shelf.footer, lang),
+        footer: createInternalLinkWithText(shelf.footer, lang),
         title,
         url: shelf.url,
       });
     });
   });
 
-  describe('createInternalHeroCallToAction', () => {
+  describe('createInternalLinkWithText', () => {
     it('creates an internal representation of the call to action property', () => {
       const secondaryShelf = createSecondaryHeroShelf();
 
-      expect(createInternalHeroCallToAction(secondaryShelf.cta, lang)).toEqual({
+      expect(createInternalLinkWithText(secondaryShelf.cta, lang)).toEqual({
         url: secondaryShelf.cta.url,
         outgoing: secondaryShelf.cta.outgoing,
         text: secondaryShelf.cta.text[lang],
@@ -493,7 +494,7 @@ describe(__filename, () => {
       expect(createInternalSecondaryHeroModule(module, lang)).toEqual({
         icon: module.icon,
         description: module.description[lang],
-        cta: createInternalHeroCallToAction(module.cta, lang),
+        cta: createInternalLinkWithText(module.cta, lang),
       });
     });
 

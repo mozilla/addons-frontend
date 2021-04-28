@@ -8,7 +8,7 @@ import { DEFAULT_UTM_SOURCE, DEFAULT_UTM_MEDIUM } from 'amo/constants';
 import { addQueryParams } from 'amo/utils/url';
 import LoadingText from 'amo/components/LoadingText';
 import type {
-  CallToActionType,
+  LinkWithTextType,
   SecondaryHeroShelfType,
 } from 'amo/reducers/home';
 import type { AnchorEvent } from 'amo/types/dom';
@@ -58,7 +58,7 @@ export const SecondaryHeroBase = ({
     });
   };
 
-  const getLinkProps = (link: CallToActionType | null) => {
+  const getLinkProps = (link: LinkWithTextType | null) => {
     const props = { onClick: onHeroClick };
     if (link) {
       const urlInfo = _checkInternalURL({ urlString: link.url });
