@@ -1,6 +1,5 @@
-import fs from 'fs';
+import fs from 'fs-extra';
 
-const pluginName = 'WebpackAssetsFontsPlugin';
 const webpackAssetsFileName = 'webpack-assets.json';
 // This is a webpack plugin to add .woff2 fonts in webpack-assets.json that
 // webpack-isomorphic-tools generates. We can then use `assets` to reference
@@ -9,7 +8,7 @@ const webpackAssetsFileName = 'webpack-assets.json';
 
 export default class WebpackAssetsFontsPlugin {
   apply(compiler) {
-    compiler.hooks.done.tap(pluginName, (stats) => {
+    compiler.hooks.done.tap('WebpackAssetsFontsPlugin', (stats) => {
       const subsetFonts = {};
       const { assets, publicPath } = stats.toJson();
 
@@ -25,9 +24,9 @@ export default class WebpackAssetsFontsPlugin {
           }
         });
 
-        const data = JSON.parse(fs.readFileSync(webpackAssetsFileName));
+        const data = fs.readJsonSync(webpackAssetsFileName);
         data.assets = { ...data.assets, ...subsetFonts };
-        fs.writeFileSync('webpack-assets.json', JSON.stringify(data));
+        fs.writeJsonSync(webpackAssetsFileName, data);
       } catch (error) {
         stats.compilation.errors.push(error);
       }

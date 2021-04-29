@@ -10,7 +10,7 @@ import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 
 import SriDataPlugin from './src/amo/server/sriDataPlugin';
 import { getPlugins, getRules } from './webpack-common';
-import WebpackAssetsFontsPlugin from './src/amo/server/webpack-assets-fonts';
+import WebpackAssetsFontsPlugin from './src/amo/server/WebpackAssetsFontsPlugin';
 import webpackIsomorphicToolsConfig from './src/amo/server/webpack-isomorphic-tools-config';
 import { WEBPACK_ENTRYPOINT } from './src/amo/constants';
 
