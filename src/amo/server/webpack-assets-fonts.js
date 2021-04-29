@@ -26,7 +26,7 @@ export default class WebpackAssetsFontsPlugin {
         });
 
         const data = JSON.parse(fs.readFileSync(webpackAssetsFileName));
-        data.assets = Object.assign(data.assets, subsetFonts);
+        data.assets = { ...data.assets, ...subsetFonts };
         fs.writeFileSync('webpack-assets.json', JSON.stringify(data));
       } catch (error) {
         stats.compilation.errors.push(error);
