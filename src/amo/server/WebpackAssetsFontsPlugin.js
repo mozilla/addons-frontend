@@ -1,20 +1,36 @@
 import fs from 'fs-extra';
+import { validate } from 'schema-utils';
 
 // This is a webpack plugin to add .woff2 fonts in webpack-assets.json that
 // webpack-isomorphic-tools generates. We can then use `assets` to reference
 // these fonts in server side rendered code to preload some font subsets, like
 // we can in development mode.
 
+// schema for options object
+const schema = {
+  type: 'object',
+  properties: {
+    webpackAssetsFileName: {
+      type: 'string',
+    },
+  },
+  'required': ['webpackAssetsFileName'],
+  additionalProperties: false,
+};
+
+const pluginName = 'WebpackAssetsFontsPlugin';
+
 export default class WebpackAssetsFontsPlugin {
-  constructor({ webpackAssetsFileName } = {}) {
-    if (!webpackAssetsFileName) {
-      throw new Error('The webpackAssetsFileName parameter cannot be empty');
-    }
-    this.webpackAssetsFileName = webpackAssetsFileName;
+  constructor(options = {}) {
+    validate(schema, options, {
+      name: pluginName,
+      baseDataPath: 'options',
+    });
+    this.webpackAssetsFileName = options.webpackAssetsFileName;
   }
 
   apply(compiler) {
-    compiler.hooks.done.tap('WebpackAssetsFontsPlugin', (stats) => {
+    compiler.hooks.done.tap(pluginName, (stats) => {
       const subsetFonts = {};
       const { assets, publicPath } = stats.toJson();
 
