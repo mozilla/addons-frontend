@@ -249,7 +249,7 @@ export function fetchAddon({
   const { clientApp, userAgentInfo } = api;
   const appVersion = userAgentInfo.browser.version;
   if (!appVersion) {
-    log.warn(
+    log.debug(
       `Failed to parse appversion for client app ${clientApp || '[empty]'}`,
     );
   }
