@@ -74,7 +74,9 @@ export default {
       chunkFilename: '[name]-[contenthash].css',
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
-    new WebpackAssetsFontsPlugin(),
+    new WebpackAssetsFontsPlugin({
+      webpackAssetsFileName: 'webpack-assets.json',
+    }),
     new SubresourceIntegrityPlugin({ hashFuncNames: ['sha512'] }),
     new SriDataPlugin({ saveAs: path.join(DIST_DIR, 'sri.json') }),
   ],
