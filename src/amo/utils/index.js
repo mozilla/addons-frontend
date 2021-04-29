@@ -274,13 +274,15 @@ export function apiAddonType(addonType: string): string {
   return API_ADDON_TYPES_MAPPING[addonType];
 }
 
+export function visibleAddonTypeIsValid(addonType: string): boolean {
+  return Object.prototype.hasOwnProperty.call(
+    VISIBLE_ADDON_TYPES_MAPPING,
+    addonType,
+  );
+}
+
 export function visibleAddonType(addonType: string): string {
-  if (
-    !Object.prototype.hasOwnProperty.call(
-      VISIBLE_ADDON_TYPES_MAPPING,
-      addonType,
-    )
-  ) {
+  if (!visibleAddonTypeIsValid(addonType)) {
     throw new Error(`"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`);
   }
   return VISIBLE_ADDON_TYPES_MAPPING[addonType];
