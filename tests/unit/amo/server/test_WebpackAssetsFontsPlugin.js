@@ -105,6 +105,17 @@ describe(__filename, () => {
     );
   });
 
+  it('errors out if the assets file did not exist', () => {
+    const plugin = new WebpackAssetsFontsPlugin({
+      webpackAssetsFileName: 'foo.json',
+    });
+
+    plugin.apply(fakeCompiler);
+
+    expect(fakeStats.compilation.errors.length).toEqual(1);
+    expect(fakeStats.compilation.errors[0].code).toEqual('ENOENT');
+  });
+
   it('requires a webpackAssetsFileName parameter', () => {
     expect(() => new WebpackAssetsFontsPlugin()).toThrowError(
       /webpackAssetsFileName parameter cannot be empty/,
