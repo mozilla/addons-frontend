@@ -13,7 +13,10 @@ import {
   DOWNLOAD_FIREFOX_BASE_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
 } from 'amo/constants';
-import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
+import {
+  EXPERIMENT_CONFIG,
+  VARIANT_NEW,
+} from 'amo/experiments/20210404_download_cta_experiment';
 import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { isFirefox } from 'amo/utils/compatibility';
@@ -87,9 +90,11 @@ export const GetFirefoxBannerBase = ({
               buttonType="none"
               className="GetFirefoxBanner-button"
               href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
+                experimentId: EXPERIMENT_CONFIG.id,
                 utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
                 utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
                 utm_term: getDownloadTerm({ variant: VARIANT_NEW }),
+                variant: VARIANT_NEW,
               })}`}
               key="GetFirefoxBanner-button"
               onClick={onButtonClick}

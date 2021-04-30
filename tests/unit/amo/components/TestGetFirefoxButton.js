@@ -2,6 +2,7 @@ import { encode } from 'universal-base64url';
 import * as React from 'react';
 
 import {
+  EXPERIMENT_CONFIG,
   VARIANT_CURRENT,
   VARIANT_NEW,
 } from 'amo/experiments/20210404_download_cta_experiment';
@@ -136,7 +137,7 @@ describe(__filename, () => {
       });
 
       // See: https://docs.google.com/document/d/1vXpEg_ypqr-eiXu6pWBDiyQWwf_rxYhHAGnsp3qwpCo/edit?usp=sharing
-      it('sets utm_campaign to non-fx-button and utm_term to the expected value for RTAMO (useNewVersion = false)', () => {
+      it('passes the expected URL params on the download link (useNewVersion = false)', () => {
         const guid = 'some-guid';
         const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
         const root = render({
@@ -153,9 +154,11 @@ describe(__filename, () => {
         });
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
           {
+            experimentId: EXPERIMENT_CONFIG.id,
             utm_campaign: 'non-fx-button',
             utm_content: utmContent,
             utm_term: utmTerm,
+            variant: VARIANT_CURRENT,
           },
         )}`;
 
@@ -165,7 +168,7 @@ describe(__filename, () => {
         );
       });
 
-      it('sets utm_campaign to non-fx-button and utm_term to the expected value for RTAMO (useNewVersion = true)', () => {
+      it('passes the expected URL params on the download link (useNewVersion = true)', () => {
         const guid = 'some-guid';
         const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
         const root = render({
@@ -182,9 +185,11 @@ describe(__filename, () => {
         });
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
           {
+            experimentId: EXPERIMENT_CONFIG.id,
             utm_campaign: 'non-fx-button',
             utm_content: utmContent,
             utm_term: utmTerm,
+            variant: VARIANT_NEW,
           },
         )}`;
 
@@ -346,6 +351,7 @@ describe(__filename, () => {
 
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
           {
+            experimentId: EXPERIMENT_CONFIG.id,
             // The value below is hardcoded on purpose because a different
             // value would break RTAMO.
             utm_campaign: 'non-fx-button',
@@ -353,6 +359,7 @@ describe(__filename, () => {
             utm_term: getDownloadTerm({
               variant: VARIANT_CURRENT,
             }),
+            variant: VARIANT_CURRENT,
           },
         )}`;
         expect(root.find(Button)).toHaveProp('href', expectedHref);

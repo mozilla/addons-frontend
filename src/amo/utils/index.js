@@ -42,25 +42,32 @@ export function getAddonURL(slug: string): string {
   return `/addon/${slug}/`;
 }
 
+// Note that this also adds `experiment` and `variation` if provided.
 export const makeQueryStringWithUTM = ({
+  experimentId = null,
   utm_campaign = DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   utm_content = null,
   utm_medium = DEFAULT_UTM_MEDIUM,
   utm_source = DEFAULT_UTM_SOURCE,
   utm_term = null,
+  variant = null,
 }: {|
+  experimentId?: string | null,
   utm_campaign?: string | null,
   utm_content?: string | null,
   utm_medium?: string,
   utm_source?: string,
   utm_term?: string | null,
+  variant?: string | null,
 |}): string => {
   return makeQueryString({
+    experiment: experimentId,
     utm_campaign,
     utm_content,
     utm_medium,
     utm_source,
     utm_term,
+    variation: variant,
   });
 };
 

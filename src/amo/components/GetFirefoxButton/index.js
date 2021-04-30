@@ -8,6 +8,7 @@ import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
 import {
+  EXPERIMENT_CONFIG,
   VARIANT_CURRENT,
   VARIANT_NEW,
 } from 'amo/experiments/20210404_download_cta_experiment';
@@ -115,6 +116,7 @@ export const GetFirefoxButtonBase = ({
     return null;
   }
 
+  const experimentId = EXPERIMENT_CONFIG.id;
   const variant = useNewVersion ? VARIANT_NEW : VARIANT_CURRENT;
 
   const onButtonClick = () => {
@@ -193,9 +195,11 @@ export const GetFirefoxButtonBase = ({
         className,
       )}
       href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
+        experimentId,
         utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
         utm_content: utmContent,
         utm_term: utmTerm,
+        variant,
       })}`}
       micro={micro}
       onClick={onButtonClick}
