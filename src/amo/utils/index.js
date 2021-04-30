@@ -15,6 +15,7 @@ import {
   API_ADDON_TYPES_MAPPING,
   DEFAULT_UTM_MEDIUM,
   DEFAULT_UTM_SOURCE,
+  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   PROMOTED_ADDONS_SUMO_URL,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'amo/constants';
@@ -42,21 +43,24 @@ export function getAddonURL(slug: string): string {
 }
 
 export const makeQueryStringWithUTM = ({
-  utm_source = DEFAULT_UTM_SOURCE,
-  utm_medium = DEFAULT_UTM_MEDIUM,
-  utm_campaign = 'non-fx-button',
+  utm_campaign = DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   utm_content = null,
+  utm_medium = DEFAULT_UTM_MEDIUM,
+  utm_source = DEFAULT_UTM_SOURCE,
+  utm_term = null,
 }: {|
-  utm_source?: string,
-  utm_medium?: string,
   utm_campaign?: string | null,
   utm_content?: string | null,
+  utm_medium?: string,
+  utm_source?: string,
+  utm_term?: string | null,
 |}): string => {
   return makeQueryString({
-    utm_source,
-    utm_medium,
     utm_campaign,
     utm_content,
+    utm_medium,
+    utm_source,
+    utm_term,
   });
 };
 

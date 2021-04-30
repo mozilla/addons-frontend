@@ -14,6 +14,7 @@ import Notice from 'amo/components/Notice';
 import {
   DOWNLOAD_FIREFOX_BASE_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+  DOWNLOAD_FIREFOX_UTM_TERM,
 } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
@@ -98,8 +99,9 @@ describe(__filename, () => {
 
       const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
         {
-          utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
           utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+          utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
+          utm_term: `${DOWNLOAD_FIREFOX_UTM_TERM}-${VARIANT_NEW}`,
         },
       )}`;
       expect(root.find(Button)).toHaveProp('href', expectedHref);

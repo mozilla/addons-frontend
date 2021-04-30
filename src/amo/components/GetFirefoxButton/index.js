@@ -16,6 +16,7 @@ import {
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+  DOWNLOAD_FIREFOX_UTM_TERM,
   RECOMMENDED,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -69,20 +70,24 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export const getDownloadCampaign = ({
-  // eslint-disable-next-line no-unused-vars
+export const getDownloadTerm = ({
   addonId,
-  // eslint-disable-next-line no-unused-vars
   variant,
 }: {|
   addonId?: number,
   variant?: string,
 |} = {}): string => {
-  // TODO: add `addonId` and `variant` when they are provided BUT note that
-  // changing the `utm_campaign` is currently NOT possible because it breaks
-  // RTAMO.
+  let term = DOWNLOAD_FIREFOX_UTM_TERM;
 
-  return DOWNLOAD_FIREFOX_UTM_CAMPAIGN;
+  if (addonId) {
+    term = `${term}-${addonId}`;
+  }
+
+  if (variant) {
+    term = `${term}-${variant}`;
+  }
+
+  return term;
 };
 
 export const getDownloadCategory = (variant: string): string =>
@@ -124,8 +129,8 @@ export const GetFirefoxButtonBase = ({
   let calloutText;
   let micro = false;
   let puffy = false;
-  let utmCampaign;
   let utmContent;
+  let utmTerm;
 
   switch (buttonType) {
     case GET_FIREFOX_BUTTON_TYPE_ADDON: {
@@ -159,16 +164,15 @@ export const GetFirefoxButtonBase = ({
             : i18n.gettext(`You'll need Firefox to use this extension`);
       }
       puffy = true;
-      utmCampaign = getDownloadCampaign({ addonId: addon.id, variant });
-
       utmContent = addon.guid ? `rta:${_encode(addon.guid)}` : '';
+      utmTerm = getDownloadTerm({ addonId: addon.id, variant });
       break;
     }
     case GET_FIREFOX_BUTTON_TYPE_HEADER: {
       buttonText = i18n.gettext('Download Firefox');
       micro = true;
-      utmCampaign = getDownloadCampaign({ variant });
       utmContent = 'header-download-button';
+      utmTerm = getDownloadTerm({ variant });
       break;
     }
     default:
@@ -189,8 +193,9 @@ export const GetFirefoxButtonBase = ({
         className,
       )}
       href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-        utm_campaign: utmCampaign,
+        utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
         utm_content: utmContent,
+        utm_term: utmTerm,
       })}`}
       micro={micro}
       onClick={onButtonClick}
