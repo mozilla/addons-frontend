@@ -126,8 +126,10 @@ export default class ServerHtml extends Component {
   getFontPreload() {
     const { assets, htmlLang } = this.props;
     // Preload relevant minimal subset font if available for this language.
+    // Note the .* after '.var': this is for the contenthash that is added in
+    // production builds.
     const subsetFontPattern = new RegExp(
-      `subset-([a-zA-Z-]+\\+)*${htmlLang}(\\+[a-zA-Z-]+)*.var.woff2$`,
+      `subset-([a-z-]+\\+)*${htmlLang}(\\+[a-z-]+)*\\.var.*\\.woff2$`,
       'i',
     );
 
