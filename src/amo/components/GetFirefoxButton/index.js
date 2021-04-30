@@ -8,7 +8,6 @@ import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
 import {
-  EXPERIMENT_CONFIG,
   VARIANT_CURRENT,
   VARIANT_NEW,
 } from 'amo/experiments/20210404_download_cta_experiment';
@@ -50,6 +49,7 @@ export type Props = {|
   addon?: AddonType,
   buttonType: GetFirefoxButtonTypeType,
   className?: string,
+  overrideQueryParams?: {| [name: string]: string | null |},
   useNewVersion?: boolean,
 |};
 
@@ -103,6 +103,7 @@ export const GetFirefoxButtonBase = ({
   className,
   clientApp,
   i18n,
+  overrideQueryParams = {},
   useNewVersion = false,
   userAgentInfo,
 }: InternalProps): null | React.Node => {
@@ -116,7 +117,6 @@ export const GetFirefoxButtonBase = ({
     return null;
   }
 
-  const experimentId = EXPERIMENT_CONFIG.id;
   const variant = useNewVersion ? VARIANT_NEW : VARIANT_CURRENT;
 
   const onButtonClick = () => {
@@ -195,11 +195,10 @@ export const GetFirefoxButtonBase = ({
         className,
       )}
       href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-        experimentId,
         utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
         utm_content: utmContent,
         utm_term: utmTerm,
-        variant,
+        ...overrideQueryParams,
       })}`}
       micro={micro}
       onClick={onButtonClick}

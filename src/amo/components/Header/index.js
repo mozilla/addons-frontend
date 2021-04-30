@@ -38,6 +38,7 @@ export class HeaderBase extends React.Component {
     _config: PropTypes.object,
     api: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    experimentId: PropTypes.string,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAddonInstallPage: PropTypes.bool,
@@ -171,6 +172,7 @@ export class HeaderBase extends React.Component {
     const {
       _config,
       clientApp,
+      experimentId,
       forBlog,
       i18n,
       isAddonInstallPage,
@@ -228,6 +230,8 @@ export class HeaderBase extends React.Component {
       </>
     ) : null;
 
+    const overrideQueryParams = variant ? { experimentId, variant } : {};
+
     return (
       <header
         className={makeClassName('Header', {
@@ -261,6 +265,7 @@ export class HeaderBase extends React.Component {
               <GetFirefoxButton
                 buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
                 className="Header-download-button Header-button"
+                overrideQueryParams={overrideQueryParams}
               />
             ) : null}
 

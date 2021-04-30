@@ -144,6 +144,10 @@ describe(__filename, () => {
           addon,
           buttonType,
           store,
+          overrideQueryParams: {
+            experimentId: EXPERIMENT_CONFIG.id,
+            variant: VARIANT_CURRENT,
+          },
           useNewVersion: false,
         });
 
@@ -175,6 +179,10 @@ describe(__filename, () => {
           addon,
           buttonType,
           store,
+          overrideQueryParams: {
+            experimentId: EXPERIMENT_CONFIG.id,
+            variant: VARIANT_NEW,
+          },
           useNewVersion: true,
         });
 
@@ -346,6 +354,10 @@ describe(__filename, () => {
         const root = render({
           buttonType,
           store,
+          overrideQueryParams: {
+            experimentId: EXPERIMENT_CONFIG.id,
+            variant: VARIANT_CURRENT,
+          },
           useNewVersion: false,
         });
 
