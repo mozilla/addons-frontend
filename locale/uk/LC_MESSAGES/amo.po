@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-20 21:50+0000\n"
-"Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
+"PO-Revision-Date: 2021-05-02 13:45+0000\n"
+"Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1182,7 +1182,7 @@ msgstr "Керуйте додатками в розділі меню Додат�
 
 #: src/amo/components/InfoDialog/index.js:92
 msgid "OK"
-msgstr "OK"
+msgstr "Гаразд"
 
 #: src/amo/components/InstallButtonWrapper/index.js:114
 msgid "Download file"
