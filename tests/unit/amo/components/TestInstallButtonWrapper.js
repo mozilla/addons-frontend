@@ -316,8 +316,8 @@ describe(__filename, () => {
     const root = render({ variant: VARIANT_CURRENT });
 
     expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {
-      experimentId: EXPERIMENT_CONFIG.id,
-      variant: VARIANT_CURRENT,
+      experiment: EXPERIMENT_CONFIG.id,
+      variation: VARIANT_CURRENT,
     });
   });
 

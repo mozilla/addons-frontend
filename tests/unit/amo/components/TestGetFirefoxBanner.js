@@ -103,8 +103,8 @@ describe(__filename, () => {
       const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
         {
           overrideQueryParams: {
-            experimentId: EXPERIMENT_CONFIG.id,
-            variant: VARIANT_NEW,
+            experiment: EXPERIMENT_CONFIG.id,
+            variation: VARIANT_NEW,
           },
           utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
           utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,

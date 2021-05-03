@@ -118,8 +118,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     );
   };
 
-  const overrideQueryParams = variant ? { experimentId, variant } : {};
-
   return (
     addon && (
       <div
@@ -156,7 +154,10 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
               buttonType={getFirefoxButtonType}
               className={className ? `GetFirefoxButton--${className}` : ''}
               useNewVersion={variant === VARIANT_NEW}
-              overrideQueryParams={overrideQueryParams}
+              overrideQueryParams={{
+                experiment: experimentId,
+                variation: variant,
+              }}
             />
           </>
         )}
