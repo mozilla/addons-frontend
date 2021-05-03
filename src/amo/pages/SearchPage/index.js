@@ -19,6 +19,7 @@ import {
   fixFiltersFromLocation,
 } from 'amo/searchUtils';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
+import { visibleAddonTypeIsValid } from 'amo/utils';
 import type { AppState } from 'amo/store';
 import type { SearchFilters } from 'amo/api/search';
 import type { DispatchFunc } from 'amo/types/redux';
@@ -50,8 +51,13 @@ export class SearchPageBase extends React.Component<InternalProps> {
     let shouldRedirect = false;
     const newFilters = { ...filters };
 
-    // If this is an old category search, redirect to the new category page.
-    if (newFilters.category && newFilters.addonType) {
+    // If this is an old category search, redirect to the new category page,
+    // unless the `type` is invalid.
+    if (
+      newFilters.category &&
+      newFilters.addonType &&
+      visibleAddonTypeIsValid(newFilters.addonType)
+    ) {
       pathname = getCategoryResultsPathname({
         addonType: newFilters.addonType,
         slug: newFilters.category,

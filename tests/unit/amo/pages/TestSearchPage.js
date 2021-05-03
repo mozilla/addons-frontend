@@ -187,6 +187,27 @@ describe(__filename, () => {
     );
   });
 
+  it('does not dispatch a server redirect when category is set along with an invalid `addonType`', () => {
+    const category = 'some-category';
+    const page = '123';
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      location: createFakeLocation({
+        query: {
+          category,
+          page,
+          sort: SEARCH_SORT_RECOMMENDED,
+          type: 'invalid',
+        },
+      }),
+      store,
+    });
+
+    sinon.assert.callCount(fakeDispatch, 0);
+  });
+
   it('removes the default category sort, when present, when redirecting', () => {
     const category = 'some-category';
     const page = '123';
