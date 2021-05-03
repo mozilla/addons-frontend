@@ -1,6 +1,8 @@
 /* @flow */
 import * as React from 'react';
+import makeClassName from 'classnames';
 
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { getAddonIconUrl } from 'amo/imageUtils';
 import { nl2br, sanitizeHTML } from 'amo/utils';
 import AddonBadges from 'amo/components/AddonBadges';
@@ -9,6 +11,7 @@ import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
 } from 'amo/components/GetFirefoxButton';
 import Rating from 'amo/components/Rating';
+import ThemeImage from 'amo/components/ThemeImage';
 import translate from 'amo/i18n/translate';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
@@ -35,18 +38,30 @@ export const StaticAddonCardBase = ({
   const summary = addon.summary ? addon.summary : addon.description;
   const averageRating = addon.ratings ? addon.ratings.average : null;
   const averageDailyUsers = addon.average_daily_users || null;
+  const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
 
   return (
-    <div className="StaticAddonCard" data-addon-id={addon.id}>
-      <div className="StaticAddonCard-icon">
-        <div className="StaticAddonCard-icon-wrapper">
-          <img
-            className="StaticAddonCard-icon-image"
-            src={getAddonIconUrl(addon)}
-            alt=""
-          />
+    <div
+      className={makeClassName('StaticAddonCard', {
+        'StaticAddonCard--is-theme': isTheme,
+      })}
+      data-addon-id={addon.id}
+    >
+      {isTheme ? (
+        <div className="StaticAddonCard-theme-preview">
+          <ThemeImage addon={addon} roundedCorners />
         </div>
-      </div>
+      ) : (
+        <div className="StaticAddonCard-icon">
+          <div className="StaticAddonCard-icon-wrapper">
+            <img
+              className="StaticAddonCard-icon-image"
+              src={getAddonIconUrl(addon)}
+              alt=""
+            />
+          </div>
+        </div>
+      )}
 
       <AddonTitle addon={addon} />
 

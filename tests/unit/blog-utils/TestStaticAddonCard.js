@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonBadges from 'amo/components/AddonBadges';
 import StaticAddonCard, {
@@ -9,6 +10,7 @@ import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
 } from 'amo/components/GetFirefoxButton';
 import Rating from 'amo/components/Rating';
+import ThemeImage from 'amo/components/ThemeImage';
 import {
   fakeAddon,
   fakeI18n,
@@ -144,5 +146,19 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find(Rating)).toHaveLength(0);
+  });
+
+  it('renders a theme image preview when add-on is a theme', () => {
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+
+    const root = render({ addon });
+
+    expect(root).toHaveClassName('StaticAddonCard--is-theme');
+    expect(root.find(ThemeImage)).toHaveLength(1);
+    expect(root.find(ThemeImage)).toHaveProp('addon', addon);
+    expect(root.find('.StaticAddonCard-icon')).toHaveLength(0);
   });
 });
