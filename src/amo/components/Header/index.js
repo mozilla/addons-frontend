@@ -230,6 +230,13 @@ export class HeaderBase extends React.Component {
       </>
     ) : null;
 
+    const overrideQueryParams = variant
+      ? {
+          experiment: experimentId,
+          variation: variant,
+        }
+      : {};
+
     return (
       <header
         className={makeClassName('Header', {
@@ -263,10 +270,7 @@ export class HeaderBase extends React.Component {
               <GetFirefoxButton
                 buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
                 className="Header-download-button Header-button"
-                overrideQueryParams={{
-                  experiment: experimentId,
-                  variation: variant,
-                }}
+                overrideQueryParams={overrideQueryParams}
               />
             ) : null}
 

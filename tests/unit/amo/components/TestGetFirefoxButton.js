@@ -21,7 +21,6 @@ import {
   DOWNLOAD_FIREFOX_UTM_TERM,
   RECOMMENDED,
 } from 'amo/constants';
-import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   createFakeEvent,
   createFakeTracking,
@@ -145,28 +144,19 @@ describe(__filename, () => {
           buttonType,
           store,
           overrideQueryParams: {
-            experimentId: EXPERIMENT_CONFIG.id,
-            variant: VARIANT_CURRENT,
+            experiment: EXPERIMENT_CONFIG.id,
+            variation: VARIANT_CURRENT,
           },
           useNewVersion: false,
         });
 
-        const utmContent = `rta:${encode(addon.guid)}`;
-        const utmTerm = getDownloadTerm({
-          addonId: addon.id,
-          variant: VARIANT_CURRENT,
-        });
-        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
-          {
-            overrideQueryParams: {
-              experimentId: EXPERIMENT_CONFIG.id,
-              variant: VARIANT_CURRENT,
-            },
-            utm_campaign: 'non-fx-button',
-            utm_content: utmContent,
-            utm_term: utmTerm,
-          },
-        )}`;
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?experiment=${
+          EXPERIMENT_CONFIG.id
+        }&variation=${VARIANT_CURRENT}&utm_campaign=non-fx-button&utm_content=rta%3A${encode(
+          addon.guid,
+        )}&utm_medium=referral&utm_source=addons.mozilla.org&utm_term=amo-fx-cta-${
+          addon.id
+        }-${VARIANT_CURRENT}`;
 
         expect(root.find('.GetFirefoxButton-button')).toHaveProp(
           'href',
@@ -182,28 +172,19 @@ describe(__filename, () => {
           buttonType,
           store,
           overrideQueryParams: {
-            experimentId: EXPERIMENT_CONFIG.id,
-            variant: VARIANT_NEW,
+            experiment: EXPERIMENT_CONFIG.id,
+            variation: VARIANT_NEW,
           },
           useNewVersion: true,
         });
 
-        const utmContent = `rta:${encode(addon.guid)}`;
-        const utmTerm = getDownloadTerm({
-          addonId: addon.id,
-          variant: VARIANT_NEW,
-        });
-        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
-          {
-            overrideQueryParams: {
-              experimentId: EXPERIMENT_CONFIG.id,
-              variant: VARIANT_NEW,
-            },
-            utm_campaign: 'non-fx-button',
-            utm_content: utmContent,
-            utm_term: utmTerm,
-          },
-        )}`;
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?experiment=${
+          EXPERIMENT_CONFIG.id
+        }&variation=${VARIANT_NEW}&utm_campaign=non-fx-button&utm_content=rta%3A${encode(
+          addon.guid,
+        )}&utm_medium=referral&utm_source=addons.mozilla.org&utm_term=amo-fx-cta-${
+          addon.id
+        }-${VARIANT_NEW}`;
 
         expect(root.find('.GetFirefoxButton-button')).toHaveProp(
           'href',
@@ -359,27 +340,13 @@ describe(__filename, () => {
           buttonType,
           store,
           overrideQueryParams: {
-            experimentId: EXPERIMENT_CONFIG.id,
-            variant: VARIANT_CURRENT,
+            experiment: EXPERIMENT_CONFIG.id,
+            variation: VARIANT_CURRENT,
           },
           useNewVersion: false,
         });
 
-        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
-          {
-            overrideQueryParams: {
-              experimentId: EXPERIMENT_CONFIG.id,
-              variant: VARIANT_CURRENT,
-            },
-            // The value below is hardcoded on purpose because a different
-            // value would break RTAMO.
-            utm_campaign: 'non-fx-button',
-            utm_content: 'header-download-button',
-            utm_term: getDownloadTerm({
-              variant: VARIANT_CURRENT,
-            }),
-          },
-        )}`;
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?experiment=${EXPERIMENT_CONFIG.id}&variation=${VARIANT_CURRENT}&utm_campaign=non-fx-button&utm_content=header-download-button&utm_medium=referral&utm_source=addons.mozilla.org&utm_term=amo-fx-cta-${VARIANT_CURRENT}`;
         expect(root.find(Button)).toHaveProp('href', expectedHref);
       });
 

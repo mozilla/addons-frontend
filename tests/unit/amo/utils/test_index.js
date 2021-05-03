@@ -798,27 +798,11 @@ describe(__filename, () => {
   });
 
   describe('makeQueryStringWithUTM', () => {
-    it('adds query params from an overrideQueryParams object', () => {
+    it('adds additional query params if provided', () => {
       const anotherParam = 'some-other-param';
 
-      expect(
-        makeQueryStringWithUTM({ overrideQueryParams: { anotherParam } }),
-      ).toEqual(
-        `?utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}&utm_medium=${DEFAULT_UTM_MEDIUM}&utm_source=${DEFAULT_UTM_SOURCE}&anotherParam=some-other-param`,
-      );
-    });
-
-    it('overrides a specific utm param with params from overrideQueryParams object', () => {
-      const utm_campaign = 'a-campaign';
-      const differentUtmCampaign = 'a-different-campaign';
-
-      expect(
-        makeQueryStringWithUTM({
-          overrideQueryParams: { utm_campaign: differentUtmCampaign },
-          utm_campaign,
-        }),
-      ).toEqual(
-        `?utm_campaign=${differentUtmCampaign}&utm_medium=${DEFAULT_UTM_MEDIUM}&utm_source=${DEFAULT_UTM_SOURCE}`,
+      expect(makeQueryStringWithUTM({ anotherParam })).toEqual(
+        `?anotherParam=some-other-param&utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}&utm_medium=${DEFAULT_UTM_MEDIUM}&utm_source=${DEFAULT_UTM_SOURCE}`,
       );
     });
   });
