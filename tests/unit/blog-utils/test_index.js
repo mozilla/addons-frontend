@@ -45,7 +45,13 @@ describe(__filename, () => {
 
       const html = cheerio.load(await buildStaticAddonCard({ addonId }));
 
+      // addons-blog relies on these class names to update the card and make it
+      // "dynamic" so they shouldn't be changed without considerations.
       expect(html('.StaticAddonCard')).toHaveLength(1);
+      expect(html('.GetFirefoxButton')).toHaveLength(1);
+      expect(html('.GetFirefoxButton--new')).toHaveLength(1);
+      expect(html('.GetFirefoxButton-button')).toHaveLength(1);
+      expect(html('.GetFirefoxButton-callout')).toHaveLength(1);
     });
 
     it('lets the caller catch and handle errors', async () => {
@@ -67,6 +73,11 @@ describe(__filename, () => {
 
       expect(html('.Header')).toHaveLength(1);
       expect(html('.SectionLinks-dropdownlink-blog')).toHaveLength(1);
+      // addons-blog relies on these class names to open/close the "More..."
+      // menu so they shouldn't be changed without considerations.
+      expect(html('.DropdownMenu')).toHaveLength(1);
+      expect(html('.DropdownMenu-button')).toHaveLength(1);
+      expect(html('.DropdownMenu-items')).toHaveLength(1);
     });
   });
 });
