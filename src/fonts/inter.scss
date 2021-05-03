@@ -88,7 +88,7 @@ Usage:
    pages with glyphhanger and manual tweaks to add several characters that are
    likely to appear in those languages.
 
-   We preload any font that has `preload` in its name in serverHtml component.
+   Note that serverHtml component has a regexp to preload that font.
 
    The corresponding command to generate the font is:
    pyftsubset Inter-roman.var.woff2
