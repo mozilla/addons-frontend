@@ -150,13 +150,16 @@ describe(__filename, () => {
           useNewVersion: false,
         });
 
-        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?experiment=${
-          EXPERIMENT_CONFIG.id
-        }&variation=${VARIANT_CURRENT}&utm_campaign=non-fx-button&utm_content=rta%3A${encode(
-          addon.guid,
-        )}&utm_medium=referral&utm_source=addons.mozilla.org&utm_term=amo-fx-cta-${
-          addon.id
-        }-${VARIANT_CURRENT}`;
+        const queryString = [
+          `experiment=${EXPERIMENT_CONFIG.id}`,
+          `variation=${VARIANT_CURRENT}`,
+          'utm_campaign=non-fx-button',
+          `utm_content=rta%3A${encode(addon.guid)}`,
+          'utm_medium=referral',
+          'utm_source=addons.mozilla.org',
+          `utm_term=amo-fx-cta-${addon.id}-${VARIANT_CURRENT}`,
+        ].join('&');
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?${queryString}`;
 
         expect(root.find('.GetFirefoxButton-button')).toHaveProp(
           'href',
@@ -178,13 +181,16 @@ describe(__filename, () => {
           useNewVersion: true,
         });
 
-        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?experiment=${
-          EXPERIMENT_CONFIG.id
-        }&variation=${VARIANT_NEW}&utm_campaign=non-fx-button&utm_content=rta%3A${encode(
-          addon.guid,
-        )}&utm_medium=referral&utm_source=addons.mozilla.org&utm_term=amo-fx-cta-${
-          addon.id
-        }-${VARIANT_NEW}`;
+        const queryString = [
+          `experiment=${EXPERIMENT_CONFIG.id}`,
+          `variation=${VARIANT_NEW}`,
+          'utm_campaign=non-fx-button',
+          `utm_content=rta%3A${encode(addon.guid)}`,
+          'utm_medium=referral',
+          'utm_source=addons.mozilla.org',
+          `utm_term=amo-fx-cta-${addon.id}-${VARIANT_NEW}`,
+        ].join('&');
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?${queryString}`;
 
         expect(root.find('.GetFirefoxButton-button')).toHaveProp(
           'href',
@@ -346,7 +352,17 @@ describe(__filename, () => {
           useNewVersion: false,
         });
 
-        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?experiment=${EXPERIMENT_CONFIG.id}&variation=${VARIANT_CURRENT}&utm_campaign=non-fx-button&utm_content=header-download-button&utm_medium=referral&utm_source=addons.mozilla.org&utm_term=amo-fx-cta-${VARIANT_CURRENT}`;
+        const queryString = [
+          `experiment=${EXPERIMENT_CONFIG.id}`,
+          `variation=${VARIANT_CURRENT}`,
+          'utm_campaign=non-fx-button',
+          'utm_content=header-download-button',
+          'utm_medium=referral',
+          'utm_source=addons.mozilla.org',
+          `utm_term=amo-fx-cta-${VARIANT_CURRENT}`,
+        ].join('&');
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?${queryString}`;
+
         expect(root.find(Button)).toHaveProp('href', expectedHref);
       });
 
