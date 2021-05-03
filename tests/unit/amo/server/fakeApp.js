@@ -13,8 +13,8 @@ export const fakeAssets = {
     i18n: '/blah/amo-i18n.js',
   },
   assets: {
-    './src/fonts/woff2/Inter-roman-minimal-subset-en-US.var.woff2':
-      'minimal-en-US-font.woff2',
+    './src/fonts/woff2/Inter-roman-subset-mainlocales.var.woff2':
+      'Inter-roman-subset-mainlocales.var.woff2',
   },
 };
 
@@ -24,7 +24,7 @@ export const fakeSRIData = {
   'amo-blah.js': 'sha512-amo-js',
   'search-blah.js': 'sha512-search-js',
   'amo-i18n.js': 'sha512-amo-i18n-js',
-  'minimal-en-US-font.woff2': 'sha512-amo-woff2',
+  'Inter-roman-subset-mainlocales.var.woff2': 'sha512-amo-woff2',
 };
 
 export default class FakeApp extends React.Component {

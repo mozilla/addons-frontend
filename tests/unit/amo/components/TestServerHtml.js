@@ -148,7 +148,10 @@ describe(__filename, () => {
     const root = render();
     const preloaded = root.find({ rel: 'preload' });
 
-    expect(preloaded.at(0)).toHaveProp('href', 'minimal-en-US-font.woff2');
+    expect(preloaded.at(0)).toHaveProp(
+      'href',
+      'Inter-roman-subset-mainlocales.var.woff2',
+    );
     expect(preloaded.at(0)).toHaveProp('as', 'font');
     expect(preloaded.at(0)).toHaveProp('type', 'font/woff2');
     expect(preloaded.at(0)).toHaveProp('integrity', 'sha512-amo-woff2');
