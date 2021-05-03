@@ -90,6 +90,11 @@ export const StaticAddonCardBase = ({
         <GetFirefoxButton
           addon={addon}
           buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+          overrideQueryParams={{
+            utm_term: `amo-blog-fx-cta-${addon.id}`,
+            experiment: null,
+            variation: null,
+          }}
           useNewVersion
         />
       </div>
