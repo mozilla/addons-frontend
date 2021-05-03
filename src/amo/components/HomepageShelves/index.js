@@ -75,10 +75,11 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           ? INSTALL_SOURCE_FEATURED_COLLECTION
           : INSTALL_SOURCE_FEATURED;
 
-      const count =
-        addonType === ADDON_TYPE_STATIC_THEME
-          ? LANDING_PAGE_THEME_COUNT
-          : LANDING_PAGE_EXTENSION_COUNT;
+      const hasThemes = addonType === ADDON_TYPE_STATIC_THEME;
+
+      const count = hasThemes
+        ? LANDING_PAGE_THEME_COUNT
+        : LANDING_PAGE_EXTENSION_COUNT;
 
       let footerLink;
       if (footer && footer.url) {
@@ -103,7 +104,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           footerText={footerText}
           footerLink={footerLink}
           header={title}
-          isTheme={addonType === ADDON_TYPE_STATIC_THEME}
+          isTheme={hasThemes}
           key={shelfKey}
           placeholderCount={count}
         />
