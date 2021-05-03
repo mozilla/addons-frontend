@@ -161,4 +161,16 @@ describe(__filename, () => {
     expect(root.find(ThemeImage)).toHaveProp('addon', addon);
     expect(root.find('.StaticAddonCard-icon')).toHaveLength(0);
   });
+
+  it('overrides some query parameters in the download FF link', () => {
+    const addon = createInternalAddonWithLang(fakeAddon);
+
+    const root = render({ addon });
+
+    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {
+      utm_term: `amo-blog-fx-cta-${addon.id}`,
+      experiment: null,
+      variation: null,
+    });
+  });
 });
