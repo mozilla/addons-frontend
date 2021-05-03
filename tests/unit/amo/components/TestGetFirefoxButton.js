@@ -19,7 +19,12 @@ import {
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
   DOWNLOAD_FIREFOX_UTM_TERM,
+  LINE,
   RECOMMENDED,
+  SPONSORED,
+  SPOTLIGHT,
+  STRATEGIC,
+  VERIFIED,
 } from 'amo/constants';
 import {
   createFakeEvent,
@@ -258,37 +263,81 @@ describe(__filename, () => {
         },
       );
 
-      it('has the expected button text for an RTAMO supported extension', () => {
-        const root = render({
-          addon: createInternalAddonWithLang({
-            ...fakeAddon,
-            promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
-          }),
-          buttonType,
-          store,
-          useNewVersion: true,
-        });
+      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
+        'has the expected button text for an RTAMO supported extension',
+        (category) => {
+          const root = render({
+            addon: createInternalAddonWithLang({
+              ...fakeAddon,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+            buttonType,
+            store,
+            useNewVersion: true,
+          });
 
-        expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
-          'Download Firefox and get the extension',
-        );
-      });
+          expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
+            'Download Firefox and get the extension',
+          );
+        },
+      );
 
-      it('has the expected button text for an RTAMO supported theme', () => {
-        const root = render({
-          addon: createInternalAddonWithLang({
-            ...fakeTheme,
-            promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
-          }),
-          buttonType,
-          store,
-          useNewVersion: true,
-        });
+      it.each([SPOTLIGHT, STRATEGIC])(
+        'has the expected button text for an RTAMO unsupported extension',
+        (category) => {
+          const root = render({
+            addon: createInternalAddonWithLang({
+              ...fakeAddon,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+            buttonType,
+            store,
+            useNewVersion: true,
+          });
 
-        expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
-          'Download Firefox and get the theme',
-        );
-      });
+          expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
+            'Download Firefox',
+          );
+        },
+      );
+
+      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
+        'has the expected button text for an RTAMO supported theme',
+        (category) => {
+          const root = render({
+            addon: createInternalAddonWithLang({
+              ...fakeTheme,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+            buttonType,
+            store,
+            useNewVersion: true,
+          });
+
+          expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
+            'Download Firefox and get the theme',
+          );
+        },
+      );
+
+      it.each([SPOTLIGHT, STRATEGIC])(
+        'has the expected button text for an RTAMO supported theme',
+        (category) => {
+          const root = render({
+            addon: createInternalAddonWithLang({
+              ...fakeTheme,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+            buttonType,
+            store,
+            useNewVersion: true,
+          });
+
+          expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
+            'Download Firefox',
+          );
+        },
+      );
 
       it('has the expected callout text for an extension', () => {
         const root = render({
