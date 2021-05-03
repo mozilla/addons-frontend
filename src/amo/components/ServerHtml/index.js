@@ -125,7 +125,7 @@ export default class ServerHtml extends Component {
 
   getFontPreload() {
     const { assets } = this.props;
-    // Preload variable font(s) with `preload` in their name.
+    // Preload variable font(s) with `subset` in their name.
     // Note the .* after '.var': this is for the contenthash that is added in
     // production builds.
     const subsetFontPattern = new RegExp(`-subset-.*\\.var.*\\.woff2$`, 'i');
