@@ -42,20 +42,26 @@ export function getAddonURL(slug: string): string {
   return `/addon/${slug}/`;
 }
 
+// Note that this also accepts an arbitrary number of additional query params
+// which are also added to the final querystring.
 export const makeQueryStringWithUTM = ({
   utm_campaign = DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   utm_content = null,
   utm_medium = DEFAULT_UTM_MEDIUM,
   utm_source = DEFAULT_UTM_SOURCE,
   utm_term = null,
+  ...otherQueryParams
 }: {|
   utm_campaign?: string | null,
   utm_content?: string | null,
   utm_medium?: string,
   utm_source?: string,
   utm_term?: string | null,
+  // otherQueryParams
+  [string]: string | null,
 |}): string => {
   return makeQueryString({
+    ...otherQueryParams,
     utm_campaign,
     utm_content,
     utm_medium,

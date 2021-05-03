@@ -80,15 +80,22 @@ describe(__filename, () => {
   };
 
   it('injects a variant prop', () => {
-    const id = makeId('some-id');
+    const id = makeId('test-id');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
       get: sinon.stub().returns(createExperimentData({ id, variantId })),
     });
 
-    const root = render({ cookies, id });
+    const root = render({ cookies, experimentProps: { id } });
 
     expect(root).toHaveProp('variant', variantId);
+  });
+
+  it('injects an experimentId', () => {
+    const id = makeId('injected-id');
+
+    const root = render({ experimentProps: { id } });
+    expect(root).toHaveProp('experimentId', id);
   });
 
   it('injects an isExperimentEnabled prop', () => {
@@ -97,12 +104,12 @@ describe(__filename, () => {
   });
 
   it('injects an isUserInExperiment prop', () => {
-    const id = makeId('some-id');
+    const id = makeId('test-id');
     const cookies = fakeCookies({
       get: sinon.stub().returns(createExperimentData({ id })),
     });
 
-    const root = render({ cookies, id });
+    const root = render({ cookies, experimentProps: { id } });
 
     expect(root).toHaveProp('isUserInExperiment', true);
   });
@@ -240,7 +247,7 @@ describe(__filename, () => {
   });
 
   it('does not update the cookie if the current experiment is already in the cookie', () => {
-    const id = makeId('some-id');
+    const id = makeId('test-id');
     const cookies = fakeCookies({
       get: sinon.stub().returns(createExperimentData({ id })),
     });
@@ -374,14 +381,14 @@ describe(__filename, () => {
   });
 
   it('sets isUserInExperiment prop to false when the user is not in the experiment', () => {
-    const id = makeId('some-id');
+    const id = makeId('test-id');
     const cookies = fakeCookies({
       get: sinon
         .stub()
         .returns(createExperimentData({ id, variantId: NOT_IN_EXPERIMENT })),
     });
 
-    const root = render({ cookies, id });
+    const root = render({ cookies, experimentProps: { id } });
     expect(root).toHaveProp('isUserInExperiment', false);
   });
 

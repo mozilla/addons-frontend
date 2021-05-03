@@ -15,6 +15,7 @@ import {
 } from 'amo/constants';
 import DropdownMenu from 'amo/components/DropdownMenu';
 import {
+  EXPERIMENT_CONFIG,
   VARIANT_CURRENT,
   VARIANT_NEW,
 } from 'amo/experiments/20210404_download_cta_experiment';
@@ -79,6 +80,21 @@ describe(__filename, () => {
       );
     },
   );
+
+  it('passes the expected overrideQueryParams to GetFirefoxButton if an experiment is active', () => {
+    const root = renderHeader({ variant: VARIANT_CURRENT });
+
+    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {
+      experiment: EXPERIMENT_CONFIG.id,
+      variation: VARIANT_CURRENT,
+    });
+  });
+
+  it('passes an empty object as overrideQueryParams to GetFirefoxButton if no experiment is active', () => {
+    const root = renderHeader({ variant: null });
+
+    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {});
+  });
 
   it('always renders a link in the header when not on homepage', () => {
     const root = renderHeader({ isHomePage: false });

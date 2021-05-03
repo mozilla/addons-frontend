@@ -7,6 +7,9 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  DEFAULT_UTM_MEDIUM,
+  DEFAULT_UTM_SOURCE,
+  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   PROMOTED_ADDONS_SUMO_URL,
 } from 'amo/constants';
 import {
@@ -791,6 +794,16 @@ describe(__filename, () => {
         clientApp,
         lang,
       });
+    });
+  });
+
+  describe('makeQueryStringWithUTM', () => {
+    it('adds additional query params if provided', () => {
+      const anotherParam = 'some-other-param';
+
+      expect(makeQueryStringWithUTM({ anotherParam })).toEqual(
+        `?anotherParam=some-other-param&utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}&utm_medium=${DEFAULT_UTM_MEDIUM}&utm_source=${DEFAULT_UTM_SOURCE}`,
+      );
     });
   });
 });

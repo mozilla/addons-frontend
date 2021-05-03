@@ -49,6 +49,7 @@ export type Props = {|
   addon?: AddonType,
   buttonType: GetFirefoxButtonTypeType,
   className?: string,
+  overrideQueryParams?: {| [name: string]: string | null |},
   useNewVersion?: boolean,
 |};
 
@@ -102,6 +103,7 @@ export const GetFirefoxButtonBase = ({
   className,
   clientApp,
   i18n,
+  overrideQueryParams = {},
   useNewVersion = false,
   userAgentInfo,
 }: InternalProps): null | React.Node => {
@@ -196,6 +198,7 @@ export const GetFirefoxButtonBase = ({
         utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
         utm_content: utmContent,
         utm_term: utmTerm,
+        ...overrideQueryParams,
       })}`}
       micro={micro}
       onClick={onButtonClick}

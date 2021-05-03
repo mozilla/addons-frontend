@@ -71,6 +71,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     currentVersion,
     defaultButtonText,
     enable,
+    experimentId,
     getFirefoxButtonType,
     hasAddonManager,
     i18n,
@@ -116,6 +117,14 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
       </div>
     );
   };
+
+  const overrideQueryParams = variant
+    ? {
+        experiment: experimentId,
+        variation: variant,
+      }
+    : {};
+
   return (
     addon && (
       <div
@@ -152,6 +161,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
               buttonType={getFirefoxButtonType}
               className={className ? `GetFirefoxButton--${className}` : ''}
               useNewVersion={variant === VARIANT_NEW}
+              overrideQueryParams={overrideQueryParams}
             />
           </>
         )}

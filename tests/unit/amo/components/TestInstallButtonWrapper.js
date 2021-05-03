@@ -7,6 +7,7 @@ import InstallButtonWrapper, {
   InstallButtonWrapperBase,
 } from 'amo/components/InstallButtonWrapper';
 import {
+  EXPERIMENT_CONFIG,
   VARIANT_CURRENT,
   VARIANT_NEW,
 } from 'amo/experiments/20210404_download_cta_experiment';
@@ -310,6 +311,21 @@ describe(__filename, () => {
       );
     },
   );
+
+  it('passes the expected overrideQueryParams to GetFirefoxButton if an experiment is active', () => {
+    const root = render({ variant: VARIANT_CURRENT });
+
+    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {
+      experiment: EXPERIMENT_CONFIG.id,
+      variation: VARIANT_CURRENT,
+    });
+  });
+
+  it('passes an empty object as overrideQueryParams to GetFirefoxButton if no experiment is active', () => {
+    const root = render({ variant: null });
+
+    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {});
+  });
 
   it('passes the buttonType to GetFirefoxButton', () => {
     const buttonType = GET_FIREFOX_BUTTON_TYPE_ADDON;

@@ -62,6 +62,7 @@ export const NOT_IN_EXPERIMENT = 'notInExperiment';
 export const EXPERIMENT_ID_REGEXP: RegExp = /\d{8}_.+/;
 
 export type WithExperimentInjectedProps = {|
+  experimentId: string,
   isExperimentEnabled: boolean,
   isUserInExperiment: boolean,
   variant: string | null,
@@ -243,6 +244,7 @@ export const withExperiment = ({
           : null;
 
       const exposedProps: WithExperimentInjectedProps = {
+        experimentId: id,
         isExperimentEnabled: isEnabled,
         isUserInExperiment: variant !== null && variant !== NOT_IN_EXPERIMENT,
         variant,

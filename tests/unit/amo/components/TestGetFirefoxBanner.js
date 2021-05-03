@@ -9,7 +9,10 @@ import GetFirefoxBanner, {
   GetFirefoxBannerBase,
 } from 'amo/components/GetFirefoxBanner';
 import { GET_FIREFOX_BUTTON_CLICK_CATEGORY } from 'amo/components/GetFirefoxButton';
-import { VARIANT_NEW } from 'amo/experiments/20210404_download_cta_experiment';
+import {
+  EXPERIMENT_CONFIG,
+  VARIANT_NEW,
+} from 'amo/experiments/20210404_download_cta_experiment';
 import Notice from 'amo/components/Notice';
 import {
   DOWNLOAD_FIREFOX_BASE_URL,
@@ -99,9 +102,11 @@ describe(__filename, () => {
 
       const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
         {
+          experiment: EXPERIMENT_CONFIG.id,
           utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
           utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
           utm_term: `${DOWNLOAD_FIREFOX_UTM_TERM}-${VARIANT_NEW}`,
+          variation: VARIANT_NEW,
         },
       )}`;
       expect(root.find(Button)).toHaveProp('href', expectedHref);
