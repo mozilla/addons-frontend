@@ -7,6 +7,9 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  DEFAULT_UTM_MEDIUM,
+  DEFAULT_UTM_SOURCE,
+  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   PROMOTED_ADDONS_SUMO_URL,
 } from 'amo/constants';
 import {
@@ -791,6 +794,32 @@ describe(__filename, () => {
         clientApp,
         lang,
       });
+    });
+  });
+
+  describe('makeQueryStringWithUTM', () => {
+    it('adds query params from an otherQueryParams object', () => {
+      const anotherParam = 'some-other-param';
+
+      expect(
+        makeQueryStringWithUTM({ otherQueryParams: { anotherParam } }),
+      ).toEqual(
+        `?utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}&utm_medium=${DEFAULT_UTM_MEDIUM}&utm_source=${DEFAULT_UTM_SOURCE}&anotherParam=some-other-param`,
+      );
+    });
+
+    it('overrides a specific utm param with params from otherQueryParams object', () => {
+      const utm_campaign = 'a-campaign';
+      const differentUtmCampaign = 'a-different-campaign';
+
+      expect(
+        makeQueryStringWithUTM({
+          otherQueryParams: { utm_campaign: differentUtmCampaign },
+          utm_campaign,
+        }),
+      ).toEqual(
+        `?utm_campaign=${differentUtmCampaign}&utm_medium=${DEFAULT_UTM_MEDIUM}&utm_source=${DEFAULT_UTM_SOURCE}`,
+      );
     });
   });
 });

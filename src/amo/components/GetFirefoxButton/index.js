@@ -195,10 +195,10 @@ export const GetFirefoxButtonBase = ({
         className,
       )}
       href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
+        otherQueryParams: overrideQueryParams,
         utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
         utm_content: utmContent,
         utm_term: utmTerm,
-        ...overrideQueryParams,
       })}`}
       micro={micro}
       onClick={onButtonClick}

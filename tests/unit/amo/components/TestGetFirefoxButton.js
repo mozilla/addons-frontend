@@ -158,11 +158,13 @@ describe(__filename, () => {
         });
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
           {
-            experimentId: EXPERIMENT_CONFIG.id,
+            otherQueryParams: {
+              experimentId: EXPERIMENT_CONFIG.id,
+              variant: VARIANT_CURRENT,
+            },
             utm_campaign: 'non-fx-button',
             utm_content: utmContent,
             utm_term: utmTerm,
-            variant: VARIANT_CURRENT,
           },
         )}`;
 
@@ -193,11 +195,13 @@ describe(__filename, () => {
         });
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
           {
-            experimentId: EXPERIMENT_CONFIG.id,
+            otherQueryParams: {
+              experimentId: EXPERIMENT_CONFIG.id,
+              variant: VARIANT_NEW,
+            },
             utm_campaign: 'non-fx-button',
             utm_content: utmContent,
             utm_term: utmTerm,
-            variant: VARIANT_NEW,
           },
         )}`;
 
@@ -363,7 +367,10 @@ describe(__filename, () => {
 
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
           {
-            experimentId: EXPERIMENT_CONFIG.id,
+            otherQueryParams: {
+              experimentId: EXPERIMENT_CONFIG.id,
+              variant: VARIANT_CURRENT,
+            },
             // The value below is hardcoded on purpose because a different
             // value would break RTAMO.
             utm_campaign: 'non-fx-button',
@@ -371,7 +378,6 @@ describe(__filename, () => {
             utm_term: getDownloadTerm({
               variant: VARIANT_CURRENT,
             }),
-            variant: VARIANT_CURRENT,
           },
         )}`;
         expect(root.find(Button)).toHaveProp('href', expectedHref);

@@ -102,11 +102,13 @@ describe(__filename, () => {
 
       const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
         {
-          experimentId: EXPERIMENT_CONFIG.id,
+          otherQueryParams: {
+            experimentId: EXPERIMENT_CONFIG.id,
+            variant: VARIANT_NEW,
+          },
           utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
           utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
           utm_term: `${DOWNLOAD_FIREFOX_UTM_TERM}-${VARIANT_NEW}`,
-          variant: VARIANT_NEW,
         },
       )}`;
       expect(root.find(Button)).toHaveProp('href', expectedHref);

@@ -90,11 +90,13 @@ export const GetFirefoxBannerBase = ({
               buttonType="none"
               className="GetFirefoxBanner-button"
               href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-                experimentId: EXPERIMENT_CONFIG.id,
+                otherQueryParams: {
+                  experimentId: EXPERIMENT_CONFIG.id,
+                  variant: VARIANT_NEW,
+                },
                 utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
                 utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
                 utm_term: getDownloadTerm({ variant: VARIANT_NEW }),
-                variant: VARIANT_NEW,
               })}`}
               key="GetFirefoxBanner-button"
               onClick={onButtonClick}
