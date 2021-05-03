@@ -17,7 +17,10 @@ import {
   DOWNLOAD_FIREFOX_BASE_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   DOWNLOAD_FIREFOX_UTM_TERM,
+  LINE,
   RECOMMENDED,
+  SPONSORED,
+  VERIFIED,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import tracking from 'amo/tracking';
@@ -148,7 +151,8 @@ export const GetFirefoxButtonBase = ({
       });
 
       const supportsRTAMO =
-        promotedCategory === RECOMMENDED && clientApp === CLIENT_APP_FIREFOX;
+        [LINE, RECOMMENDED, SPONSORED, VERIFIED].includes(promotedCategory) &&
+        clientApp === CLIENT_APP_FIREFOX;
 
       if (!useNewVersion) {
         buttonText = i18n.gettext('Only with Firefox—Get Firefox Now');
