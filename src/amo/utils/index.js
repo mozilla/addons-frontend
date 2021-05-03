@@ -44,7 +44,7 @@ export function getAddonURL(slug: string): string {
 
 // Note that this also excepts an object with any number of query params which
 // are also added to the final querystring.
-// Note also that anything in otherQueryParams will overried any specific utm
+// Note also that anything in overrideQueryParams will override any specific utm
 // params.
 export const makeQueryStringWithUTM = ({
   utm_campaign = DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
@@ -52,14 +52,14 @@ export const makeQueryStringWithUTM = ({
   utm_medium = DEFAULT_UTM_MEDIUM,
   utm_source = DEFAULT_UTM_SOURCE,
   utm_term = null,
-  otherQueryParams = {},
+  overrideQueryParams = {},
 }: {|
   utm_campaign?: string | null,
   utm_content?: string | null,
   utm_medium?: string,
   utm_source?: string,
   utm_term?: string | null,
-  otherQueryParams?: {| [name: string]: string | null |},
+  overrideQueryParams?: {| [name: string]: string | null |},
 |}): string => {
   return makeQueryString({
     utm_campaign,
@@ -67,7 +67,7 @@ export const makeQueryStringWithUTM = ({
     utm_medium,
     utm_source,
     utm_term,
-    ...otherQueryParams,
+    ...overrideQueryParams,
   });
 };
 

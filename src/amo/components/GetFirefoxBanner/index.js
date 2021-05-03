@@ -90,7 +90,7 @@ export const GetFirefoxBannerBase = ({
               buttonType="none"
               className="GetFirefoxBanner-button"
               href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-                otherQueryParams: {
+                overrideQueryParams: {
                   experimentId: EXPERIMENT_CONFIG.id,
                   variant: VARIANT_NEW,
                 },
