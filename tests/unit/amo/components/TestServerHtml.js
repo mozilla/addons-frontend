@@ -150,7 +150,7 @@ describe(__filename, () => {
 
     expect(preloaded.at(0)).toHaveProp(
       'href',
-      'Inter-roman-subset-mainlocales.var.woff2',
+      'Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.woff2',
     );
     expect(preloaded.at(0)).toHaveProp('as', 'font');
     expect(preloaded.at(0)).toHaveProp('type', 'font/woff2');
