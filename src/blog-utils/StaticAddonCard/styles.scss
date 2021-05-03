@@ -24,6 +24,10 @@ $icon-size: 48px;
   margin-bottom: 10px;
   width: auto;
 
+  .StaticAddonCard--is-theme & {
+    grid-row: 2;
+  }
+
   .PromotedBadge {
     font-size: $font-size-s;
   }
@@ -32,6 +36,12 @@ $icon-size: 48px;
     grid-column: 4;
     margin: 0 0 0 auto;
   }
+}
+
+.StaticAddonCard-theme-preview {
+  grid-column: 1 / span 4;
+  grid-row: 1;
+  margin-bottom: 20px;
 }
 
 .StaticAddonCard-icon {
@@ -62,6 +72,10 @@ $icon-size: 48px;
   grid-row: 2;
   margin: 0;
 
+  .StaticAddonCard--is-theme & {
+    grid-column: 1 / span 3;
+  }
+
   & .AddonTitle-author,
   & .AddonTitle-author a,
   & .AddonTitle-author a:link {
@@ -72,6 +86,11 @@ $icon-size: 48px;
   @include respond-to(medium) {
     grid-column: 2 / span 2;
     grid-row: 1;
+
+    .StaticAddonCard--is-theme & {
+      grid-column: 1 / span 3;
+      grid-row: 2;
+    }
   }
 }
 
@@ -87,6 +106,10 @@ $icon-size: 48px;
   @include respond-to(medium) {
     grid-row: 2;
   }
+
+  .StaticAddonCard--is-theme & {
+    grid-row: 3;
+  }
 }
 
 .StaticAddonCard-metadata {
@@ -101,6 +124,10 @@ $icon-size: 48px;
 
   @include respond-to(medium) {
     grid-row: 3;
+
+    .StaticAddonCard--is-theme & {
+      grid-row: 4;
+    }
   }
 }
 
@@ -110,6 +137,10 @@ $icon-size: 48px;
   grid-row: 5;
   text-align: center;
   width: 100%;
+
+  .StaticAddonCard--is-theme & {
+    grid-row: 5;
+  }
 
   &,
   .GetFirefoxButton-button,
