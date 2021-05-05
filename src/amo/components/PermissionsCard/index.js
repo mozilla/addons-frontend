@@ -2,9 +2,9 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import translate from 'amo/i18n/translate';
-import Button from 'amo/components/Button';
+import Link from 'amo/components/Link';
 import ShowMoreCard from 'amo/components/ShowMoreCard';
+import translate from 'amo/i18n/translate';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { I18nType } from 'amo/types/i18n';
 
@@ -54,9 +54,25 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
       return null;
     }
 
+    const header = (
+      <div className="PermissionsCard-header">
+        {i18n.gettext('Permissions')}
+        <Link
+          className="PermissionsCard-learn-more"
+          href="https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
+          target="_blank"
+          externalDark
+          prependClientApp={false}
+          prependLang={false}
+        >
+          {i18n.gettext('Learn more')}
+        </Link>
+      </div>
+    );
+
     return (
       <ShowMoreCard
-        header={i18n.gettext('Permissions')}
+        header={header}
         contentId={version.id}
         className="PermissionsCard"
         id="AddonDescription-permissions-card"
@@ -82,16 +98,6 @@ export class PermissionsCardBase extends React.Component<InternalProps> {
             </ul>
           </>
         ) : null}
-        <Button
-          buttonType="neutral"
-          className="PermissionCard-learn-more"
-          href="https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
-          target="_blank"
-          externalDark
-          puffy
-        >
-          {i18n.gettext('Learn more about permissions')}
-        </Button>
       </ShowMoreCard>
     );
   }

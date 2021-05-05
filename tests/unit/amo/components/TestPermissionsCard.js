@@ -1,5 +1,8 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
+import Link from 'amo/components/Link';
+import Permission from 'amo/components/Permission';
 import PermissionsCard, {
   PermissionsCardBase,
 } from 'amo/components/PermissionsCard';
@@ -11,8 +14,6 @@ import {
   fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Button from 'amo/components/Button';
-import Permission from 'amo/components/Permission';
 
 describe(__filename, () => {
   let store;
@@ -87,14 +88,17 @@ describe(__filename, () => {
       expect(root).toHaveProp('contentId', id);
     });
 
-    it('renders learn more button', () => {
+    it('renders learn more link in header', () => {
       const permission = 'bookmarks';
       const root = render({
         version: createVersionWithPermissions({ required: [permission] }),
       });
+      const header = shallow(root.prop('header'));
+
       expect(root).toHaveClassName('PermissionsCard');
-      expect(root.find(Button)).toHaveClassName('PermissionCard-learn-more');
-      expect(root.find(Button)).toHaveProp('externalDark', true);
+      expect(header).toHaveClassName('PermissionsCard-header');
+      expect(header.find(Link)).toHaveClassName('PermissionsCard-learn-more');
+      expect(header.find(Link)).toHaveProp('externalDark', true);
     });
 
     it('renders required permissions only', () => {
