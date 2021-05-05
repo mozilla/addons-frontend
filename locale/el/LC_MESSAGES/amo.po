@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-04-20 20:20+0000\n"
+"PO-Revision-Date: 2021-05-05 08:41+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -2341,7 +2341,7 @@ msgstr ""
 #: src/amo/pages/StaticPages/About/index.js:77
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
 msgstr ""
-"%(startLink)sΔημιουργήστε το δικό σας πρόσθετο%(endLink)s. Παρέχουμε δωρεάν \"φιλοξενία\" (hosting) και υπηρεσίες ενημέρωσης, ενώ μπορούμε να σάς βοηθήσουμε να βρείτε ένα μεγαλύτερο κοινό χρηστών."
+"%(startLink)sΔημιουργήστε το δικό σας πρόσθετο%(endLink)s. Παρέχουμε δωρεάν \"φιλοξενία\" (hosting) και υπηρεσίες ενημέρωσης, ενώ μπορούμε να σας βοηθήσουμε να βρείτε ένα μεγαλύτερο κοινό χρηστών."
 
 #: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
@@ -2448,7 +2448,7 @@ msgstr "Λειτούργησε το πρόσθετο όπως αναμένατε
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
-msgstr "Ποια χαρακτηριστικά (δεν) σάς άρεσαν;"
+msgstr "Ποια χαρακτηριστικά (δεν) σας άρεσαν;"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
