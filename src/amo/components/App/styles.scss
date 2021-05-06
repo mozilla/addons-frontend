@@ -23,7 +23,6 @@ textarea {
   box-shadow: none;
   color: $black;
   font-size: $font-size-m;
-  line-height: 1.4;
   padding: 4px;
 }
 
@@ -43,7 +42,7 @@ body {
 
   color: $body-font-color;
   font-size: $font-size-default;
-  line-height: $default-line-height;
+  line-height: $line-height-body;
 }
 
 #react-view {
@@ -56,11 +55,11 @@ h2 {
 
   color: $primary-font-color;
   font-weight: 600;
+  line-height: $line-height-compressed;
 }
 
 h1 {
   font-size: $font-size-heading-m;
-  line-height: 1;
 }
 
 h2 {
@@ -71,7 +70,7 @@ h3 {
   @include font-bold();
 
   font-size: 14px;
-  line-height: 19px;
+  line-height: $line-height-compressed;
 }
 
 a:link {
@@ -91,7 +90,6 @@ strong {
 .caption {
   color: $primary-font-color;
   font-size: 10px;
-  line-height: 11px;
 }
 
 .date-time {

@@ -50,11 +50,15 @@
   flex-grow: 1;
   // This creates vertical space when items are wrapped on very
   // small-width screens.
-
-  line-height: 36px;
-  margin: auto;
+  margin: 6px auto 6px auto;
 
   @include margin-start(0);
+
+  @include respond-to(medium) {
+    margin: auto;
+
+    @include margin-start(0);
+  }
 }
 
 .AddonReviewList-filterByScore {

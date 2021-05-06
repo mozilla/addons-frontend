@@ -15,7 +15,7 @@
 .TooltipMenu-opener {
   color: $blue-50;
   cursor: pointer;
-  line-height: 1.6;
+  line-height: $line-height-body;
   margin: 0;
   padding: 0;
 }
@@ -81,7 +81,7 @@
 
         color: $grey-90;
         font-size: $font-size-m;
-        line-height: 1.6;
+        line-height: $line-height-body;
       }
     }
 
