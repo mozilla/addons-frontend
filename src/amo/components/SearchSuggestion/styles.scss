@@ -1,6 +1,7 @@
 @import '~amo/css/styles';
 
 .SearchSuggestion {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -38,6 +39,5 @@
 .SearchSuggestion-icon-arrow {
   display: none;
   height: 16px;
-  margin-top: 1px;
   width: 16px;
 }
