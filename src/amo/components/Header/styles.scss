@@ -249,7 +249,7 @@
 
   &.Header-search-form--desktop {
     @include respond-to(medium) {
-      max-width: 160px;
+      max-width: 140px;
     }
 
     @include respond-to(large) {
