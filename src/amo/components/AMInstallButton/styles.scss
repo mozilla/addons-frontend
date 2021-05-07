@@ -16,18 +16,6 @@
 .AMInstallButton {
   .AMInstallButton-button {
     white-space: nowrap;
-
-    .Icon {
-      @include padding-end(4px);
-
-      margin-top: -2px;
-    }
-  }
-
-  .AMInstallButton-button--enable {
-    .Icon {
-      margin-top: inherit;
-    }
   }
 
   .AMInstallButton-loading-button {

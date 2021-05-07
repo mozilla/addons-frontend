@@ -20,7 +20,6 @@ import {
   UNINSTALLING,
   UNKNOWN,
 } from 'amo/constants';
-import Icon from 'amo/components/Icon';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
@@ -121,7 +120,7 @@ describe(__filename, () => {
     const button = root.find(Button);
 
     expect(button).toHaveLength(1);
-    expect(button.childAt(1)).toHaveText('Add to Firefox');
+    expect(button.childAt(0)).toHaveText('Add to Firefox');
     expect(button).toHaveClassName('AMInstallButton-button');
     expect(button).not.toHaveClassName('AMInstallButton-button--uninstall');
     expect(button).toHaveProp('buttonType', 'action');
@@ -130,10 +129,6 @@ describe(__filename, () => {
     expect(button).not.toHaveProp('data-browsertheme');
     expect(button).toHaveProp('href', installURL);
     expect(button).toHaveProp('onClick', root.instance().installExtension);
-
-    const icon = button.find(Icon);
-    expect(icon).toHaveLength(1);
-    expect(icon).toHaveProp('name', 'plus');
   });
 
   it('renders Install Theme text on button when it is a static theme', () => {
@@ -143,7 +138,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find(Button).childAt(1)).toHaveText('Install Theme');
+    expect(root.find(Button).childAt(0)).toHaveText('Install Theme');
   });
 
   it('disables the button when disabled prop is true', () => {
@@ -274,10 +269,6 @@ describe(__filename, () => {
       expect(button).toHaveClassName('AMInstallButton-button');
       expect(button).toHaveClassName('AMInstallButton-button--uninstall');
 
-      const icon = button.find(Icon);
-      expect(icon).toHaveLength(1);
-      expect(icon).toHaveProp('name', 'delete');
-
       expect(root.find('.AMInstallButton-loading-button')).toHaveLength(0);
     },
   );
@@ -328,10 +319,6 @@ describe(__filename, () => {
     expect(button).toHaveClassName('AMInstallButton-button');
     expect(button).toHaveClassName('AMInstallButton-button--enable');
 
-    const icon = button.find(Icon);
-    expect(icon).toHaveLength(1);
-    expect(icon).toHaveProp('name', 'plus-dark');
-
     expect(root.find('.AMInstallButton-loading-button')).toHaveLength(0);
   });
 
@@ -340,7 +327,7 @@ describe(__filename, () => {
 
     const button = root.find(Button);
     expect(button).toHaveLength(1);
-    expect(button.childAt(1)).toHaveText('Add to Firefox');
+    expect(button.childAt(0)).toHaveText('Add to Firefox');
   });
 
   it("renders custom button text when it's passed in", () => {
@@ -350,7 +337,7 @@ describe(__filename, () => {
 
     const button = root.find(Button);
     expect(button).toHaveLength(1);
-    expect(button.childAt(1)).toHaveText(defaultButtonText);
+    expect(button.childAt(0)).toHaveText(defaultButtonText);
   });
 
   it.each([DOWNLOADING, DISABLING, ENABLING, INSTALLING, UNINSTALLING])(
