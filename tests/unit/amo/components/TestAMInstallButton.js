@@ -120,7 +120,7 @@ describe(__filename, () => {
     const button = root.find(Button);
 
     expect(button).toHaveLength(1);
-    expect(button.childAt(0)).toHaveText('Add to Firefox');
+    expect(button.children()).toHaveText('Add to Firefox');
     expect(button).toHaveClassName('AMInstallButton-button');
     expect(button).not.toHaveClassName('AMInstallButton-button--uninstall');
     expect(button).toHaveProp('buttonType', 'action');
@@ -138,7 +138,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find(Button).childAt(0)).toHaveText('Install Theme');
+    expect(root.find(Button).children()).toHaveText('Install Theme');
   });
 
   it('disables the button when disabled prop is true', () => {
@@ -327,7 +327,7 @@ describe(__filename, () => {
 
     const button = root.find(Button);
     expect(button).toHaveLength(1);
-    expect(button.childAt(0)).toHaveText('Add to Firefox');
+    expect(button.children()).toHaveText('Add to Firefox');
   });
 
   it("renders custom button text when it's passed in", () => {
@@ -337,7 +337,7 @@ describe(__filename, () => {
 
     const button = root.find(Button);
     expect(button).toHaveLength(1);
-    expect(button.childAt(0)).toHaveText(defaultButtonText);
+    expect(button.children()).toHaveText(defaultButtonText);
   });
 
   it.each([DOWNLOADING, DISABLING, ENABLING, INSTALLING, UNINSTALLING])(
