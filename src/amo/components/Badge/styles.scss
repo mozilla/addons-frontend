@@ -9,7 +9,7 @@
   @include respond-to(large) {
     display: flex;
     flex-direction: row-reverse;
-    margin: 0 0 12px;
+    margin: 0 0 6px;
 
     .Addon-theme & {
       flex-direction: row;
