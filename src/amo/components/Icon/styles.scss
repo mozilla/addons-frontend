@@ -173,10 +173,6 @@
   @include icon($name: 'experimental-badge');
 }
 
-.Icon-plus {
-  @include icon($name: 'plus');
-}
-
 .Icon-reply-arrow {
   @include icon($name: 'reply-arrow');
 
@@ -300,14 +296,6 @@
 
 .Icon-artist {
   @include icon($name: 'artist');
-}
-
-.Icon-delete {
-  @include icon($name: 'delete');
-}
-
-.Icon-plus-dark {
-  @include icon($name: 'plus-dark');
 }
 
 .Icon-stop-hand {

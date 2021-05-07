@@ -32,7 +32,6 @@ import tracking, {
 } from 'amo/tracking';
 import { isFirefox } from 'amo/utils/compatibility';
 import Button from 'amo/components/Button';
-import Icon from 'amo/components/Icon';
 import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
 import type { ButtonType } from 'amo/components/Button';
 import type { UserAgentInfoType } from 'amo/reducers/api';
@@ -234,20 +233,6 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     }
   }
 
-  getIconName(): string {
-    const { status } = this.props;
-
-    switch (status) {
-      case DISABLED:
-        return 'plus-dark';
-      case ENABLED:
-      case INSTALLED:
-        return 'delete';
-      default:
-        return 'plus';
-    }
-  }
-
   render(): null | React.Node {
     const {
       canUninstall,
@@ -344,10 +329,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
           </CSSTransition>
         ) : (
           <CSSTransition key="button" {...transitionProps}>
-            <Button {...buttonProps}>
-              <Icon name={this.getIconName()} />
-              {buttonText}
-            </Button>
+            <Button {...buttonProps}>{buttonText}</Button>
           </CSSTransition>
         )}
       </TransitionGroup>
