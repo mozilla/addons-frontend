@@ -1,84 +1,7 @@
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 300;
-  src: local('Inter Light'), url('woff2/Inter-Light.woff2') format('woff2'),
-    url('otf/Inter-Light.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 300;
-  src: local('Inter Light Italic'),
-    url('woff2/Inter-LightItalic.woff2') format('woff2'),
-    url('otf/Inter-LightItalic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Inter Regular'), url('woff2/Inter-Regular.woff2') format('woff2'),
-    url('otf/Inter-Regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Inter Regular Italic'),
-    url('woff2/Inter-Italic.woff2') format('woff2'),
-    url('otf/Inter-Italic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Inter Medium'), url('woff2/Inter-Medium.woff2') format('woff2'),
-    url('otf/Inter-Medium.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 500;
-  src: local('Inter Medium Italic'),
-    url('woff2/Inter-MediumItalic.woff2') format('woff2'),
-    url('otf/Inter-MediumItalic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Inter Bold'), url('woff2/Inter-Bold.woff2') format('woff2'),
-    url('otf/Inter-Bold.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 600;
-  src: local('Inter Bold Italic'),
-    url('woff2/Inter-BoldItalic.woff2') format('woff2'),
-    url('otf/Inter-BoldItalic.otf') format('opentype');
-}
-
-/* -------------------------------------------------------
-Variable font.
-Usage:
-
-  font-family: 'Inter', sans-serif;
-  @supports (font-variation-settings: normal) {
-    font-family: 'Inter Var', sans-serif;
-  }
-*/
-@font-face {
-  font-family: 'Inter var';
-  font-style: normal;
-  font-weight: 100 900;
+  font-weight: 300 600;
   src: url('woff2/Inter-roman.var.woff2') format('woff2');
   unicode-range: U+20-7E, U+A0-148, U+14A-1C3, U+1C5-31E, U+321-362, U+370-377,
     U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3E1, U+3F0-49D, U+4A0-4FF,
@@ -116,9 +39,9 @@ Usage:
     --unicodes=<unicode range>
 */
 @font-face {
-  font-family: 'Inter var';
+  font-family: 'Inter';
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 300 600;
   src: url('woff2/Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.woff2')
     format('woff2');
   unicode-range: U+20-7E, U+A0-A1, U+A3, U+A7, U+A9, U+AB, U+AE, U+B0-B5, U+BB,
@@ -130,8 +53,8 @@ Usage:
 }
 
 @font-face {
-  font-family: 'Inter var';
+  font-family: 'Inter';
   font-style: italic;
-  font-weight: 100 900;
+  font-weight: 300 600;
   src: url('woff2/Inter-italic.var.woff2') format('woff2');
 }
