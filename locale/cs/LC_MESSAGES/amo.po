@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-04-20 19:16+0000\n"
-"PO-Revision-Date: 2021-05-06 14:39+0000\n"
+"PO-Revision-Date: 2021-05-07 15:21+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1042,7 +1042,7 @@ msgstr "Pro vývojáře"
 
 #: src/amo/components/GetFirefoxBanner/index.js:73
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "Pro používání těchto doplňků si %(linkStart)sstáhněte Firefox%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
 msgid "Only with Firefox—Get Firefox Now"
@@ -1050,11 +1050,11 @@ msgstr "Pouze ve Firefoxu – stáhněte si Firefox nyní"
 
 #: src/amo/components/GetFirefoxButton/index.js:155
 msgid "Download Firefox and get the theme"
-msgstr ""
+msgstr "Stáhnout Firefox a nainstalovat tento vzhled"
 
 #: src/amo/components/GetFirefoxButton/index.js:156
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "Stáhnout Firefox a nainstalovat toto rozšíření"
 
 #: src/amo/components/GetFirefoxButton/index.js:159 src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox"
@@ -1062,11 +1062,11 @@ msgstr "Stáhnout Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
 msgid "You'll need Firefox to use this theme"
-msgstr ""
+msgstr "Pro použití tohoto vzhledu potřebujete Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
 msgid "You'll need Firefox to use this extension"
-msgstr ""
+msgstr "Pro používání tohoto rozšíření potřebujete Firefox"
 
 #: src/amo/components/Header/index.js:107 src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
@@ -2278,6 +2278,8 @@ msgstr "O serveru Doplňky pro Firefox"
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
 msgstr ""
+"Pokud jste na této stránce narazili na problém, velmi rádi ho opravíme. %(startIssueLink)sNahlaste nám prosím objevenou chybu%(endIssueLink)s a v hlášení uvďte co nejpodrobněji, jak se chyba "
+"projevuje."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -2288,6 +2290,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Pokud jste objevili v nějakém rozšíření bezpečnostní problém, i pokud není ke stažení z této stránky, nahlaste nám ho prosím do %(startSecIssueLink)sBugzilly%(endSecIssueLink)s nebo e-mailem na "
+"adresu %(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Všechna hlášení bezpečnostních problémů jsou %(startLink)sdůvěrná%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
