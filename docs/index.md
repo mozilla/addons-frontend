@@ -5,6 +5,7 @@
 - [How to develop features for mozAddonManager](./moz-addon-manager.md)
 - [Internationalization (i18n)](./i18n.md)
 - [Our Approach to Writing CSS](./css.md)
+- [How to deal with fonts](./fonts.md)
 - [Testing](./testing.md)
 - [Fenix](./fenix.md)
 - [Windows](./windows.md)
