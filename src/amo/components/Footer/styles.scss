@@ -14,7 +14,7 @@
     @include font-regular();
 
     color: $white;
-    font-size: 16px;
+    font-size: $font-size-l;
     font-weight: 400;
     margin: 0 0 12px;
     text-decoration: none;
@@ -60,7 +60,9 @@
 }
 
 .Footer-links-header {
-  font-size: 16px;
+  @include font-bold();
+
+  font-size: $font-size-l;
   margin: 40px 0 0;
 
   @include respond-to(large) {
@@ -71,7 +73,6 @@
   a:visited {
     @include font-bold();
 
-    font-size: $font-size-l;
     margin: 0;
   }
 }

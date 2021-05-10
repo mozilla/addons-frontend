@@ -1,6 +1,6 @@
 @import '~amo/css/styles';
 
-$font-size-aside: 10px;
+$font-size-aside: $font-size-xs;
 
 .UserProfileEdit {
   @include page-padding();
@@ -140,10 +140,6 @@ $font-size-aside: 10px;
   .Card-contents {
     background: $base-color;
     font-size: $font-size-default;
-
-    h2 {
-      font-size: $font-size-l;
-    }
 
     p {
       @include text-align-start();

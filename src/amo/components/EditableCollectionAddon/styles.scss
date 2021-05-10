@@ -47,7 +47,7 @@ $icon-size: 32px;
 .EditableCollectionAddon-name {
   @include font-medium();
 
-  font-size: $font-size-m;
+  font-size: $font-size-default;
   hyphens: auto;
   margin: 0;
 

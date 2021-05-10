@@ -15,7 +15,7 @@
 .SectionLinks-link:link {
   color: $grey-40;
   display: inline-block;
-  font-size: $font-size-m;
+  font-size: $font-size-default;
   font-weight: 400;
   margin: 0 8px;
   outline: none;
@@ -100,7 +100,7 @@
 
   .DropdownMenu-button-text {
     color: $grey-40;
-    font-size: $font-size-m;
+    font-size: $font-size-default;
   }
 
   .DropdownMenu-items {

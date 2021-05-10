@@ -53,7 +53,7 @@ $cell-padding: 6px;
   }
 
   td {
-    min-height: $font-size-m + (2 * $cell-padding);
+    min-height: $font-size-default + (2 * $cell-padding);
   }
 }
 
