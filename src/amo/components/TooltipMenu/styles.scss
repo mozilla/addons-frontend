@@ -73,7 +73,7 @@
     button {
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      white-space: normal;
       width: 100%;
 
       &:not(.Button) {
