@@ -399,13 +399,8 @@ export class AddonBase extends React.Component {
   }
 
   render() {
-    const {
-      addon,
-      addonsByAuthors,
-      currentVersion,
-      errorHandler,
-      i18n,
-    } = this.props;
+    const { addon, addonsByAuthors, currentVersion, errorHandler, i18n } =
+      this.props;
 
     const isThemeType = addon && addon.type === ADDON_TYPE_STATIC_THEME;
     let errorBanner = null;

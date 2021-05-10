@@ -54,14 +54,8 @@ export class CollectionSortBase extends React.Component<InternalProps> {
   onSortSelect: (event: SyntheticEvent<HTMLSelectElement>) => void = (
     event: SyntheticEvent<HTMLSelectElement>,
   ) => {
-    const {
-      collection,
-      clientApp,
-      editing,
-      filters,
-      lang,
-      history,
-    } = this.props;
+    const { collection, clientApp, editing, filters, lang, history } =
+      this.props;
 
     invariant(collection, 'A collection is required.');
 

@@ -115,8 +115,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
   return <div className="HomepageShelves">{shelvesContent}</div>;
 };
 
-const HomepageShelves: React.ComponentType<Props> = translate()(
-  HomepageShelvesBase,
-);
+const HomepageShelves: React.ComponentType<Props> =
+  translate()(HomepageShelvesBase);
 
 export default HomepageShelves;

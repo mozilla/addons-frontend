@@ -212,14 +212,8 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 
   renderReviews(): null | React.Node {
-    const {
-      location,
-      i18n,
-      isOwner,
-      pageSize,
-      reviews,
-      reviewCount,
-    } = this.props;
+    const { location, i18n, isOwner, pageSize, reviews, reviewCount } =
+      this.props;
 
     if (!isOwner || !reviews || reviews.length < 1) {
       return null;
@@ -288,14 +282,8 @@ export class UserProfileBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const {
-      canAdminUser,
-      canEditProfile,
-      errorHandler,
-      i18n,
-      isOwner,
-      user,
-    } = this.props;
+    const { canAdminUser, canEditProfile, errorHandler, i18n, isOwner, user } =
+      this.props;
 
     let errorMessage;
     if (errorHandler.hasError()) {

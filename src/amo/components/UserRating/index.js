@@ -28,14 +28,8 @@ type InternalProps = {|
 |};
 
 export const UserRatingBase = (props: InternalProps): React.Node => {
-  const {
-    className,
-    isOwner,
-    readOnly,
-    onSelectRating,
-    review,
-    styleSize,
-  } = props;
+  const { className, isOwner, readOnly, onSelectRating, review, styleSize } =
+    props;
 
   return (
     <Rating

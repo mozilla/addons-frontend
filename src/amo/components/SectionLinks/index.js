@@ -76,14 +76,8 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const {
-      _config,
-      className,
-      clientApp,
-      forBlog,
-      i18n,
-      viewContext,
-    } = this.props;
+    const { _config, className, clientApp, forBlog, i18n, viewContext } =
+      this.props;
     const isExploring =
       [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
       !forBlog;

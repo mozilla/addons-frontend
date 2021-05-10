@@ -145,114 +145,111 @@ export const defaultCookieConfig: CookieConfig = {
   secure: true,
 };
 
-export const withExperiment = ({
-  _config = config,
-  _tracking = tracking,
-  cookieConfig = defaultCookieConfig,
-  id: defaultId,
-  variants: defaultVariants,
-}: withExperimentProps): ((
-  WrappedComponent: React.ComponentType<any>,
-) => React.ComponentType<any>) => (
-  WrappedComponent: React.ComponentType<any>,
-) => {
-  invariant(defaultId, 'id is required');
-  invariant(
-    EXPERIMENT_ID_REGEXP.test(defaultId),
-    'id must match the pattern YYYYMMDD_experiment_id',
-  );
-  invariant(defaultVariants, 'variants is required');
+export const withExperiment =
+  ({
+    _config = config,
+    _tracking = tracking,
+    cookieConfig = defaultCookieConfig,
+    id: defaultId,
+    variants: defaultVariants,
+  }: withExperimentProps): ((
+    WrappedComponent: React.ComponentType<any>,
+  ) => React.ComponentType<any>) =>
+  (WrappedComponent: React.ComponentType<any>) => {
+    invariant(defaultId, 'id is required');
+    invariant(
+      EXPERIMENT_ID_REGEXP.test(defaultId),
+      'id must match the pattern YYYYMMDD_experiment_id',
+    );
+    invariant(defaultVariants, 'variants is required');
 
-  class WithExperiment extends React.Component<withExperimentInternalProps> {
-    static defaultProps = {
-      _getVariant: getVariant,
-      _isExperimentEnabled: isExperimentEnabled,
-      id: defaultId,
-      variants: defaultVariants,
-    };
-
-    static displayName = `WithExperiment(${getDisplayName(WrappedComponent)})`;
-
-    componentDidMount() {
-      const {
-        _getVariant,
-        _isExperimentEnabled,
-        cookies,
-        id,
-        variants,
-      } = this.props;
-
-      const isEnabled = _isExperimentEnabled({ _config, id });
-      const registeredExperiments = this.getExperiments();
-      const experimentInCookie = this.cookieIncludesExperiment(
-        registeredExperiments,
-      );
-      const experimentsToStore = { ...registeredExperiments };
-
-      // Clear any disabled experiments from the cookie.
-      let cleanupNeeded = false;
-      for (const experimentId of Object.keys(registeredExperiments)) {
-        if (!_isExperimentEnabled({ _config, id: experimentId })) {
-          delete experimentsToStore[experimentId];
-          cleanupNeeded = true;
-        }
-      }
-
-      // Do we need to record this experiment in the cookie?
-      const addExperimentToCookie = isEnabled && !experimentInCookie;
-
-      if (addExperimentToCookie) {
-        const variantToStore = _getVariant({ variants });
-        experimentsToStore[id] = variantToStore.id;
-
-        if (variantToStore.id !== NOT_IN_EXPERIMENT) {
-          // Send an enrollment event.
-          _tracking.sendEvent({
-            _config,
-            action: variantToStore.id,
-            category: [EXPERIMENT_ENROLLMENT_CATEGORY, id].join(' '),
-          });
-        }
-      }
-
-      if (cleanupNeeded || addExperimentToCookie) {
-        cookies.set(EXPERIMENT_COOKIE_NAME, experimentsToStore, cookieConfig);
-      }
-    }
-
-    getExperiments() {
-      const { cookies } = this.props;
-
-      return cookies.get(EXPERIMENT_COOKIE_NAME) || {};
-    }
-
-    cookieIncludesExperiment(registeredExperiments: RegisteredExpermients) {
-      const { id } = this.props;
-
-      return Object.keys(registeredExperiments).includes(id);
-    }
-
-    render() {
-      const { _isExperimentEnabled, id, ...props } = this.props;
-
-      const isEnabled = _isExperimentEnabled({ _config, id });
-      const registeredExperiments = this.getExperiments();
-
-      const variant =
-        isEnabled && this.cookieIncludesExperiment(registeredExperiments)
-          ? registeredExperiments[id]
-          : null;
-
-      const exposedProps: WithExperimentInjectedProps = {
-        experimentId: id,
-        isExperimentEnabled: isEnabled,
-        isUserInExperiment: variant !== null && variant !== NOT_IN_EXPERIMENT,
-        variant,
+    class WithExperiment extends React.Component<withExperimentInternalProps> {
+      static defaultProps = {
+        _getVariant: getVariant,
+        _isExperimentEnabled: isExperimentEnabled,
+        id: defaultId,
+        variants: defaultVariants,
       };
 
-      return <WrappedComponent {...exposedProps} {...props} />;
-    }
-  }
+      static displayName = `WithExperiment(${getDisplayName(
+        WrappedComponent,
+      )})`;
 
-  return withCookies(WithExperiment);
-};
+      componentDidMount() {
+        const { _getVariant, _isExperimentEnabled, cookies, id, variants } =
+          this.props;
+
+        const isEnabled = _isExperimentEnabled({ _config, id });
+        const registeredExperiments = this.getExperiments();
+        const experimentInCookie = this.cookieIncludesExperiment(
+          registeredExperiments,
+        );
+        const experimentsToStore = { ...registeredExperiments };
+
+        // Clear any disabled experiments from the cookie.
+        let cleanupNeeded = false;
+        for (const experimentId of Object.keys(registeredExperiments)) {
+          if (!_isExperimentEnabled({ _config, id: experimentId })) {
+            delete experimentsToStore[experimentId];
+            cleanupNeeded = true;
+          }
+        }
+
+        // Do we need to record this experiment in the cookie?
+        const addExperimentToCookie = isEnabled && !experimentInCookie;
+
+        if (addExperimentToCookie) {
+          const variantToStore = _getVariant({ variants });
+          experimentsToStore[id] = variantToStore.id;
+
+          if (variantToStore.id !== NOT_IN_EXPERIMENT) {
+            // Send an enrollment event.
+            _tracking.sendEvent({
+              _config,
+              action: variantToStore.id,
+              category: [EXPERIMENT_ENROLLMENT_CATEGORY, id].join(' '),
+            });
+          }
+        }
+
+        if (cleanupNeeded || addExperimentToCookie) {
+          cookies.set(EXPERIMENT_COOKIE_NAME, experimentsToStore, cookieConfig);
+        }
+      }
+
+      getExperiments() {
+        const { cookies } = this.props;
+
+        return cookies.get(EXPERIMENT_COOKIE_NAME) || {};
+      }
+
+      cookieIncludesExperiment(registeredExperiments: RegisteredExpermients) {
+        const { id } = this.props;
+
+        return Object.keys(registeredExperiments).includes(id);
+      }
+
+      render() {
+        const { _isExperimentEnabled, id, ...props } = this.props;
+
+        const isEnabled = _isExperimentEnabled({ _config, id });
+        const registeredExperiments = this.getExperiments();
+
+        const variant =
+          isEnabled && this.cookieIncludesExperiment(registeredExperiments)
+            ? registeredExperiments[id]
+            : null;
+
+        const exposedProps: WithExperimentInjectedProps = {
+          experimentId: id,
+          isExperimentEnabled: isEnabled,
+          isUserInExperiment: variant !== null && variant !== NOT_IN_EXPERIMENT,
+          variant,
+        };
+
+        return <WrappedComponent {...exposedProps} {...props} />;
+      }
+    }
+
+    return withCookies(WithExperiment);
+  };

@@ -210,14 +210,8 @@ export function* modifyCollection(
   const { type, payload } = action;
   const creating = type === CREATE_COLLECTION;
 
-  const {
-    defaultLocale,
-    description,
-    errorHandlerId,
-    name,
-    slug,
-    userId,
-  } = payload;
+  const { defaultLocale, description, errorHandlerId, name, slug, userId } =
+    payload;
 
   yield put(beginCollectionModification());
 

@@ -36,12 +36,8 @@ const sanitizeNoticeHTML = (text: string) => {
 
 export class SiteNoticesBase extends React.Component<InternalProps> {
   render(): Array<React.Node> {
-    const {
-      i18n,
-      siteIsReadOnly,
-      siteNotice,
-      currentUserWasLoggedOut,
-    } = this.props;
+    const { i18n, siteIsReadOnly, siteNotice, currentUserWasLoggedOut } =
+      this.props;
 
     const notices = [];
 

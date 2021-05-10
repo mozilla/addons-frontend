@@ -71,14 +71,13 @@ import type { VersionsState } from 'amo/reducers/versions';
 import type { ReactRouterHistoryType, LocationType } from 'amo/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'amo/types/store';
 
-export const minimalReduxLogger = (): ((
-  next: (action: Object) => Object,
-) => (action: Object) => Object) => (next: (action: Object) => Object) => (
-  action: Object,
-) => {
-  log.info(`Dispatching ${action.type}`);
-  return next(action);
-};
+export const minimalReduxLogger =
+  (): ((next: (action: Object) => Object) => (action: Object) => Object) =>
+  (next: (action: Object) => Object) =>
+  (action: Object) => {
+    log.info(`Dispatching ${action.type}`);
+    return next(action);
+  };
 
 /*
  * Enhance a redux store with common middleware.

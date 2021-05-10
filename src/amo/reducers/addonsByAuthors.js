@@ -273,14 +273,8 @@ const reducer = (
     case LOAD_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
 
-      const {
-        addonType,
-        addons,
-        authorIds,
-        count,
-        forAddonSlug,
-        pageSize,
-      } = action.payload;
+      const { addonType, addons, authorIds, count, forAddonSlug, pageSize } =
+        action.payload;
 
       if (forAddonSlug) {
         newState.byAddonSlug = {

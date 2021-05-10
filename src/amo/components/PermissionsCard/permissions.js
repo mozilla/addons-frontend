@@ -62,9 +62,7 @@ export class PermissionUtils {
   }
 
   // Get lists of optional and required permissions from the correct platform file.
-  getCurrentPermissions({
-    file,
-  }: GetCurrentPermissionsParams): {
+  getCurrentPermissions({ file }: GetCurrentPermissionsParams): {
     optional: Array<string>,
     required: Array<string>,
   } {
@@ -85,9 +83,10 @@ export class PermissionUtils {
   }
 
   // Classify a permission as a host permission or a regular permission.
-  classifyPermission(
-    permission: string,
-  ): {| type: 'permissions' | 'hosts', value: string |} {
+  classifyPermission(permission: string): {|
+    type: 'permissions' | 'hosts',
+    value: string,
+  |} {
     const match = /^(\w+)(?:\.(\w+)(?:\.\w+)*)?$/.exec(permission);
     let result = { type: 'permissions', value: permission };
     if (!match) {

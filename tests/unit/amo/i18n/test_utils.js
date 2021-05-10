@@ -573,8 +573,7 @@ describe(__filename, () => {
     it('lets you replace format strings with JSX', () => {
       expect(
         utils.replaceStringsWithJSX({
-          text:
-            'Click on %(redLinkStart)sred%(redLinkEnd)s or %(blueLinkStart)sblue%(blueLinkEnd)s, your choice',
+          text: 'Click on %(redLinkStart)sred%(redLinkEnd)s or %(blueLinkStart)sblue%(blueLinkEnd)s, your choice',
           replacements: [
             [
               'redLinkStart',
@@ -612,8 +611,7 @@ describe(__filename, () => {
     it('lets you replace format strings with JSX in any order', () => {
       expect(
         utils.replaceStringsWithJSX({
-          text:
-            'Click on %(blueLinkStart)sblue%(blueLinkEnd)s or %(redLinkStart)sred%(redLinkEnd)s, your choice',
+          text: 'Click on %(blueLinkStart)sblue%(blueLinkEnd)s or %(redLinkStart)sred%(redLinkEnd)s, your choice',
           replacements: [
             [
               'redLinkStart',
@@ -679,8 +677,7 @@ describe(__filename, () => {
     it('throws an error when not all replacements have been used', () => {
       expect(() => {
         utils.replaceStringsWithJSX({
-          text:
-            'a string with %(startFirst)sa link%(endFirst)s and %(startSecond)sanother one%(endSecond)s.',
+          text: 'a string with %(startFirst)sa link%(endFirst)s and %(startSecond)sanother one%(endSecond)s.',
           replacements: [
             ['startA', 'endA', (text) => text],
             ['startB', 'endB', (text) => text],
@@ -694,8 +691,7 @@ describe(__filename, () => {
     it('throws an error when `replacements` has duplicated keys', () => {
       expect(() => {
         utils.replaceStringsWithJSX({
-          text:
-            'a string with %(startA)sa link%(endA)s and %(startB)s second one%(endB)s',
+          text: 'a string with %(startA)sa link%(endA)s and %(startB)s second one%(endB)s',
           replacements: [
             ['startA', 'endA', (text) => text],
             ['startA', 'endA', (text) => text],
@@ -708,8 +704,7 @@ describe(__filename, () => {
   it('throws an error for unmatched format strings', () => {
     expect(() => {
       utils.replaceStringsWithJSX({
-        text:
-          'Click on %(redLinkStart)sred%(redLinkEnd)s or %(blueLinkStart)sblue%(blueLinkEnd)s, your choice',
+        text: 'Click on %(redLinkStart)sred%(redLinkEnd)s or %(blueLinkStart)sblue%(blueLinkEnd)s, your choice',
         replacements: [
           [
             'redLinkStart',

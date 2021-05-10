@@ -336,14 +336,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 
   install(): Promise<void> {
-    const {
-      _addonManager,
-      _log,
-      _tracking,
-      addon,
-      currentVersion,
-      dispatch,
-    } = this.props;
+    const { _addonManager, _log, _tracking, addon, currentVersion, dispatch } =
+      this.props;
 
     if (!addon) {
       _log.debug('no addon found, aborting install().');

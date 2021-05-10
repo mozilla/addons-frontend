@@ -164,37 +164,36 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     this.props.dispatch(autocompleteCancel());
   };
 
-  handleSuggestionsFetchRequested: (OnSuggestionsFetchRequestedParams) => void = ({
-    value,
-  }: OnSuggestionsFetchRequestedParams) => {
-    if (!value) {
-      log.debug(oneLine`Ignoring suggestions fetch requested because
+  handleSuggestionsFetchRequested: (OnSuggestionsFetchRequestedParams) => void =
+    ({ value }: OnSuggestionsFetchRequestedParams) => {
+      if (!value) {
+        log.debug(oneLine`Ignoring suggestions fetch requested because
         value is not supplied: ${value}`);
-      return;
-    }
+        return;
+      }
 
-    if (value.length < SEARCH_TERM_MIN_LENGTH) {
-      log.debug(oneLine`Ignoring suggestions fetch because query
+      if (value.length < SEARCH_TERM_MIN_LENGTH) {
+        log.debug(oneLine`Ignoring suggestions fetch because query
       does not meet the required length (${SEARCH_TERM_MIN_LENGTH})`);
 
-      this.props.dispatch(autocompleteCancel());
-      return;
-    }
+        this.props.dispatch(autocompleteCancel());
+        return;
+      }
 
-    if (value.length > SEARCH_TERM_MAX_LENGTH) {
-      log.debug(oneLine`Ignoring suggestions fetch because query
+      if (value.length > SEARCH_TERM_MAX_LENGTH) {
+        log.debug(oneLine`Ignoring suggestions fetch because query
         exceeds max length (${SEARCH_TERM_MAX_LENGTH})`);
 
-      this.props.dispatch(autocompleteCancel());
-      return;
-    }
+        this.props.dispatch(autocompleteCancel());
+        return;
+      }
 
-    const filters = this.createFiltersFromQuery(value);
+      const filters = this.createFiltersFromQuery(value);
 
-    this.setState({ autocompleteIsOpen: true });
+      this.setState({ autocompleteIsOpen: true });
 
-    this.dispatchAutocompleteStart({ filters });
-  };
+      this.dispatchAutocompleteStart({ filters });
+    };
 
   getSuggestions(): Array<SuggestionType> {
     if (this.props.loadingSuggestions) {

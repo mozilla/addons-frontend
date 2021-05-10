@@ -5,9 +5,7 @@ export type I18nType = {|
   formatNumber: (number | string) => string,
   gettext: (string) => string,
   ngettext: (string, string, number) => string,
-  moment: (
-    Date | string,
-  ) => {|
+  moment: (Date | string) => {|
     format: (string) => string,
     fromNow: () => string,
   |},

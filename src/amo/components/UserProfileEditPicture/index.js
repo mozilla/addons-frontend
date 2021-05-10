@@ -44,15 +44,8 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const {
-      i18n,
-      name,
-      onDelete,
-      onSelect,
-      preview,
-      uiState,
-      user,
-    } = this.props;
+    const { i18n, name, onDelete, onSelect, preview, uiState, user } =
+      this.props;
 
     const altText = user
       ? i18n.sprintf(i18n.gettext('Profile picture for %(name)s'), {

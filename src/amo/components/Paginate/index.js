@@ -99,14 +99,8 @@ export class PaginateBase extends React.Component<InternalProps> {
   }
 
   render(): null | React.Node {
-    const {
-      LinkComponent,
-      count,
-      i18n,
-      pageParam,
-      pathname,
-      queryParams,
-    } = this.props;
+    const { LinkComponent, count, i18n, pageParam, pathname, queryParams } =
+      this.props;
 
     const pageCount = this.pageCount();
     const currentPage = this.getCurrentPage();

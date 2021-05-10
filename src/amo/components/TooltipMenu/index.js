@@ -18,14 +18,8 @@ export default class TooltipMenu extends React.Component<Props> {
   container: React.ElementRef<'div'> | null;
 
   render(): React.Node {
-    const {
-      className,
-      idPrefix,
-      items,
-      openerClass,
-      openerText,
-      openerTitle,
-    } = this.props;
+    const { className, idPrefix, items, openerClass, openerText, openerTitle } =
+      this.props;
 
     // This will tell a screen reader to read the menu when focusing
     // on the opener.
