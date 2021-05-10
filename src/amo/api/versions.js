@@ -36,7 +36,8 @@ export type GetVersionsParams = {|
   slug: string,
 |};
 
-export type GetVersionsResponse = PaginatedApiResponse<ExternalAddonVersionType>;
+export type GetVersionsResponse =
+  PaginatedApiResponse<ExternalAddonVersionType>;
 
 export const getVersions = ({
   api,

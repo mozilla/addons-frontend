@@ -55,13 +55,8 @@ export class CategoriesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    const {
-      addonType,
-      categoriesState,
-      dispatch,
-      errorHandler,
-      loading,
-    } = props;
+    const { addonType, categoriesState, dispatch, errorHandler, loading } =
+      props;
 
     invariant(addonType, 'addonType is undefined');
 

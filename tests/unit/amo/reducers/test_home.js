@@ -458,8 +458,7 @@ describe(__filename, () => {
           outgoing: '',
         },
         title: createLocalizedString(title),
-        url:
-          'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
+        url: 'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
       };
 
       expect(createInternalShelf(shelf, lang)).toEqual({

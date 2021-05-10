@@ -161,8 +161,10 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const newLang = 'de';
     const userId = 1001;
-    const localStore = dispatchClientMetadata({ clientApp, lang: newLang })
-      .store;
+    const localStore = dispatchClientMetadata({
+      clientApp,
+      lang: newLang,
+    }).store;
     dispatchSignInActions({
       lang: newLang,
       store: localStore,
@@ -675,8 +677,10 @@ describe(__filename, () => {
   it('calls history.push() when creating', () => {
     const siteLang = 'de';
     const clientApp = 'firefox';
-    const localStore = dispatchClientMetadata({ clientApp, lang: siteLang })
-      .store;
+    const localStore = dispatchClientMetadata({
+      clientApp,
+      lang: siteLang,
+    }).store;
 
     const root = render({ creating: true, store: localStore });
 

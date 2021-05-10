@@ -226,8 +226,7 @@ export const fakeReview = Object.freeze({
 
 export const fakeExternalShelf = Object.freeze({
   title: createLocalizedString('Top Rated Themes'),
-  url:
-    'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
+  url: 'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&type=statictheme',
   endpoint: 'search',
   addon_type: ADDON_TYPE_STATIC_THEME,
   criteria: '?sort=rating&type=statictheme',
@@ -1382,7 +1381,11 @@ export const getFakeLogger = (params = {}) => {
 
 // This simulates debounce() without any debouncing.
 export function createFakeDebounce() {
-  return sinon.spy((callback) => (...args) => callback(...args));
+  return sinon.spy(
+    (callback) =>
+      (...args) =>
+        callback(...args),
+  );
 }
 
 // This creates a fake instance with the same interface as

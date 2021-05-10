@@ -143,9 +143,9 @@ export const stripLangFromAmoUrl = ({
   return urlString;
 };
 
-export function getClientConfig(
-  _config: typeof config,
-): { [key: string]: mixed } {
+export function getClientConfig(_config: typeof config): {
+  [key: string]: mixed,
+} {
   const clientConfig = {};
   for (const key of _config.get('clientConfigKeys')) {
     clientConfig[key] = _config.get(key);
@@ -333,15 +333,15 @@ export function isValidTrailingSlashUrlException(
  * instead. If the callback runs without an error, its return value is not
  * altered. In other words, it may or may not return a promise and that's ok.
  */
-export const safePromise = (
-  callback: Function,
-): ((...args: any) => any | Promise<any>) => (...args: any) => {
-  try {
-    return callback(...args);
-  } catch (error) {
-    return Promise.reject(error);
-  }
-};
+export const safePromise =
+  (callback: Function): ((...args: any) => any | Promise<any>) =>
+  (...args: any) => {
+    try {
+      return callback(...args);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  };
 
 /*
  * Decodes HTML entities into their respective symbols.

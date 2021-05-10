@@ -556,24 +556,26 @@ type BeginCollectionModificationAction = {|
   payload: null,
 |};
 
-export const beginCollectionModification = (): BeginCollectionModificationAction => {
-  return {
-    type: BEGIN_COLLECTION_MODIFICATION,
-    payload: null,
+export const beginCollectionModification =
+  (): BeginCollectionModificationAction => {
+    return {
+      type: BEGIN_COLLECTION_MODIFICATION,
+      payload: null,
+    };
   };
-};
 
 type FinishCollectionModificationAction = {|
   type: typeof FINISH_COLLECTION_MODIFICATION,
   payload: null,
 |};
 
-export const finishCollectionModification = (): FinishCollectionModificationAction => {
-  return {
-    type: FINISH_COLLECTION_MODIFICATION,
-    payload: null,
+export const finishCollectionModification =
+  (): FinishCollectionModificationAction => {
+    return {
+      type: FINISH_COLLECTION_MODIFICATION,
+      payload: null,
+    };
   };
-};
 
 type UnloadCollectionBySlugAction = {|
   type: typeof UNLOAD_COLLECTION_BY_SLUG,
@@ -635,11 +637,12 @@ type AddonRemovedFromCollectionAction = {|
   type: typeof ADDON_REMOVED_FROM_COLLECTION,
 |};
 
-export const addonRemovedFromCollection = (): AddonRemovedFromCollectionAction => {
-  return {
-    type: ADDON_REMOVED_FROM_COLLECTION,
+export const addonRemovedFromCollection =
+  (): AddonRemovedFromCollectionAction => {
+    return {
+      type: ADDON_REMOVED_FROM_COLLECTION,
+    };
   };
-};
 
 type DeleteCollectionParams = {|
   errorHandlerId: string,
@@ -764,21 +767,23 @@ type BeginEditingCollectionDetailsAction = {|
   type: typeof BEGIN_EDITING_COLLECTION_DETAILS,
 |};
 
-export const beginEditingCollectionDetails = (): BeginEditingCollectionDetailsAction => {
-  return {
-    type: BEGIN_EDITING_COLLECTION_DETAILS,
+export const beginEditingCollectionDetails =
+  (): BeginEditingCollectionDetailsAction => {
+    return {
+      type: BEGIN_EDITING_COLLECTION_DETAILS,
+    };
   };
-};
 
 type FinishEditingCollectionDetailsAction = {|
   type: typeof FINISH_EDITING_COLLECTION_DETAILS,
 |};
 
-export const finishEditingCollectionDetails = (): FinishEditingCollectionDetailsAction => {
-  return {
-    type: FINISH_EDITING_COLLECTION_DETAILS,
+export const finishEditingCollectionDetails =
+  (): FinishEditingCollectionDetailsAction => {
+    return {
+      type: FINISH_EDITING_COLLECTION_DETAILS,
+    };
   };
-};
 
 export const createInternalAddons = (
   items: ExternalCollectionAddons,

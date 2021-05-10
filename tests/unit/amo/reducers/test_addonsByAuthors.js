@@ -578,10 +578,8 @@ describe(__filename, () => {
       );
 
       expect(state.countFor).toMatchObject({
-        [joinAuthorIdsAndAddonType(
-          [randomAuthorId1],
-          ADDON_TYPE_STATIC_THEME,
-        )]: count,
+        [joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_STATIC_THEME)]:
+          count,
       });
     });
   });

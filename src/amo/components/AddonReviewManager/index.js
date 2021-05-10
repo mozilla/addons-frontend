@@ -82,14 +82,8 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const {
-      errorHandler,
-      i18n,
-      onCancel,
-      review,
-      flashMessage,
-      puffyButtons,
-    } = this.props;
+    const { errorHandler, i18n, onCancel, review, flashMessage, puffyButtons } =
+      this.props;
 
     const isReply = review.isDeveloperReply;
 

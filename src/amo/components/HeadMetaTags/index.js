@@ -91,13 +91,8 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   }
 
   renderOpenGraph(): Array<React.Node> {
-    const {
-      _config,
-      description,
-      lang,
-      locationPathname,
-      queryString,
-    } = this.props;
+    const { _config, description, lang, locationPathname, queryString } =
+      this.props;
 
     const url = `${getCanonicalURL({
       _config,

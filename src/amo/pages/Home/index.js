@@ -55,13 +55,8 @@ export class HomeBase extends React.Component {
   }
 
   loadDataIfNeeded() {
-    const {
-      dispatch,
-      errorHandler,
-      isDesktopSite,
-      isLoading,
-      resultsLoaded,
-    } = this.props;
+    const { dispatch, errorHandler, isDesktopSite, isLoading, resultsLoaded } =
+      this.props;
 
     if (errorHandler.hasError()) {
       return;

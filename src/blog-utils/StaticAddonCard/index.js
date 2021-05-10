@@ -106,8 +106,7 @@ export const StaticAddonCardBase = ({
   );
 };
 
-const StaticAddonCard: React.ComponentType<Props> = translate()(
-  StaticAddonCardBase,
-);
+const StaticAddonCard: React.ComponentType<Props> =
+  translate()(StaticAddonCardBase);
 
 export default StaticAddonCard;

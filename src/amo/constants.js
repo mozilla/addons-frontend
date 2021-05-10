@@ -255,9 +255,8 @@ export const ON_UNINSTALLED_EVENT = 'onUninstalled';
 
 // The events here are set directly on mozAddonManager
 // they will be fired by addons and themes.
-export const GLOBAL_EVENTS: Array<
-  $Keys<typeof GLOBAL_EVENT_STATUS_MAP>,
-> = Object.keys(GLOBAL_EVENT_STATUS_MAP);
+export const GLOBAL_EVENTS: Array<$Keys<typeof GLOBAL_EVENT_STATUS_MAP>> =
+  Object.keys(GLOBAL_EVENT_STATUS_MAP);
 
 // Generic error codes.
 export const ERROR_UNKNOWN = 'ERROR_UNKNOWN';

@@ -62,8 +62,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
   }
 }
 
-const CategoriesPage: React.ComponentType<Props> = translate()(
-  CategoriesPageBase,
-);
+const CategoriesPage: React.ComponentType<Props> =
+  translate()(CategoriesPageBase);
 
 export default CategoriesPage;

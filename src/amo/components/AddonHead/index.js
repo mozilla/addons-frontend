@@ -137,12 +137,8 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   }
 
   render(): null | React.Node {
-    const {
-      _getAddonJsonLinkedData,
-      addon,
-      currentVersion,
-      versionInfo,
-    } = this.props;
+    const { _getAddonJsonLinkedData, addon, currentVersion, versionInfo } =
+      this.props;
     invariant(_getAddonJsonLinkedData, '_getAddonJsonLinkedData is required.');
 
     if (!addon) {

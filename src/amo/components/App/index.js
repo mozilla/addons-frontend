@@ -251,9 +251,7 @@ export const mapStateToProps = (state: AppState): PropsFromState => ({
   userAgent: state.api.userAgent,
 });
 
-export function mapDispatchToProps(
-  dispatch: DispatchFunc,
-): {|
+export function mapDispatchToProps(dispatch: DispatchFunc): {|
   handleGlobalEvent: (payload: InstalledAddon) => void,
   logOutUser: () => void,
   setClientApp: (clientApp: string) => void,

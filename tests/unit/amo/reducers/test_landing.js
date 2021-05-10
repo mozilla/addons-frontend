@@ -91,19 +91,14 @@ describe(__filename, () => {
 
     describe('GET_LANDING', () => {
       it('sets the initialState', () => {
-        const {
-          addonType,
-          recommended,
-          highlyRated,
-          loading,
-          trending,
-        } = landing(
-          initialState,
-          getLanding({
-            addonType: ADDON_TYPE_STATIC_THEME,
-            errorHandlerId: 'some-error-handler',
-          }),
-        );
+        const { addonType, recommended, highlyRated, loading, trending } =
+          landing(
+            initialState,
+            getLanding({
+              addonType: ADDON_TYPE_STATIC_THEME,
+              errorHandlerId: 'some-error-handler',
+            }),
+          );
 
         expect(addonType).toEqual(ADDON_TYPE_STATIC_THEME);
         expect(loading).toEqual(true);

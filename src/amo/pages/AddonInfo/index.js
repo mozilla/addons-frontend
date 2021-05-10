@@ -139,14 +139,8 @@ export class AddonInfoBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const {
-      addon,
-      addonInfo,
-      addonVersion,
-      errorHandler,
-      i18n,
-      infoType,
-    } = this.props;
+    const { addon, addonInfo, addonVersion, errorHandler, i18n, infoType } =
+      this.props;
 
     let header = '';
     let infoContent;

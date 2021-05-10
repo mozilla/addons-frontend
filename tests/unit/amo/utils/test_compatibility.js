@@ -421,14 +421,11 @@ describe(__filename, () => {
     });
 
     it('returns nulls if currentVersion is null', () => {
-      const {
-        maxVersion,
-        minVersion,
-        supportsClientApp,
-      } = _getCompatibleVersions({
-        clientApp: CLIENT_APP_FIREFOX,
-        currentVersion: null,
-      });
+      const { maxVersion, minVersion, supportsClientApp } =
+        _getCompatibleVersions({
+          clientApp: CLIENT_APP_FIREFOX,
+          currentVersion: null,
+        });
 
       expect(supportsClientApp).toEqual(false);
       expect(maxVersion).toEqual(null);

@@ -263,14 +263,8 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 
   onClickResult: () => void = () => {
-    const {
-      addon,
-      addonInstallSource,
-      clientApp,
-      history,
-      lang,
-      onClick,
-    } = this.props;
+    const { addon, addonInstallSource, clientApp, history, lang, onClick } =
+      this.props;
 
     if (addon) {
       history.push(

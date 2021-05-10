@@ -51,13 +51,8 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
   }
 
   loadDataIfNeeded(prevProps?: InternalProps) {
-    const {
-      dispatch,
-      errorHandler,
-      featuredReview,
-      loadingReview,
-      reviewId,
-    } = this.props;
+    const { dispatch, errorHandler, featuredReview, loadingReview, reviewId } =
+      this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error');
@@ -73,13 +68,8 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const {
-      addon,
-      errorHandler,
-      featuredReview,
-      i18n,
-      siteUserCanReply,
-    } = this.props;
+    const { addon, errorHandler, featuredReview, i18n, siteUserCanReply } =
+      this.props;
 
     const featuredReviewHeader = featuredReview
       ? i18n.sprintf(

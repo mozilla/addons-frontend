@@ -90,8 +90,7 @@ const mapStateToProps = (state: AppState): PropsFromState => {
   };
 };
 
-const UserProfileHead: React.ComponentType<Props> = connect(mapStateToProps)(
-  UserProfileHeadBase,
-);
+const UserProfileHead: React.ComponentType<Props> =
+  connect(mapStateToProps)(UserProfileHeadBase);
 
 export default UserProfileHead;

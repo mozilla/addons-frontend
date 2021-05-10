@@ -1,10 +1,10 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 const chalk = require('chalk');
 const { getConsoleOutput } = require('@jest/console');
-const DefaultReporter = require('@jest/reporters/build/DefaultReporter')
-  .default;
-const getResultHeader = require('@jest/reporters/build/getResultHeader')
-  .default;
+const DefaultReporter =
+  require('@jest/reporters/build/DefaultReporter').default;
+const getResultHeader =
+  require('@jest/reporters/build/getResultHeader').default;
 
 const TITLE_BULLET = chalk.bold('\u25cf ');
 
