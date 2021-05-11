@@ -164,7 +164,7 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
   return (
     <li className="AddonVersionCard">
       <div className="AddonVersionCard-content">
-        <div>
+        <>
           {headerText && (
             <h1 className="AddonVersionCard-header">{headerText}</h1>
           )}
@@ -194,17 +194,19 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
           )}
 
           {licenseSection}
-        </div>
-        {addon && version && (
-          <InstallButtonWrapper
-            addon={addon}
-            getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-            version={version}
-            showLinkInsteadOfButton={showLinkInsteadOfButton}
-          />
-        )}
+        </>
       </div>
-      <div>{addon && <InstallWarning addon={addon} />}</div>
+
+      {addon && version && (
+        <InstallButtonWrapper
+          addon={addon}
+          getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+          version={version}
+          showLinkInsteadOfButton={showLinkInsteadOfButton}
+        />
+      )}
+
+      {addon && <InstallWarning addon={addon} />}
     </li>
   );
 };
