@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-11 18:55+0000\n"
+"PO-Revision-Date: 2021-05-11 18:57+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1312,7 +1312,7 @@ msgstr "Přistupovat k aktivitám prohlížeče během prohlížení"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr "Toto je oficiální doplněk od autorů Firefoxu, které splňuje standardy pro rychlost i zabezpečení."
+msgstr "Toto je oficiální doplněk od autorů Firefoxu, který splňuje standardy pro bezpečnost a výkon."
 
 #: src/amo/components/PromotedBadge/index.js:49
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
@@ -1320,7 +1320,7 @@ msgstr "Firefox doporučuje jen rozšíření, která splňují naše standardy 
 
 #: src/amo/components/PromotedBadge/index.js:57
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "U tohoto doplňku bylo zkontrolováno, že splňuje naše standardy pro bezpečnost a výkon."
+msgstr "U tohoto doplňku jsme zkontrolovali, že splňuje naše standardy pro bezpečnost a výkon."
 
 #: src/amo/components/Rating/index.js:104 src/amo/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
