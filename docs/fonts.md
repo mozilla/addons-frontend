@@ -14,12 +14,16 @@ The subset should be preloaded on all pages, and the full font should only be us
 
 # How to generate the full font
 
-To add a new character or layout feature to the full font, download the web Inter roman web variable font from https://github.com/philipbelesky/inter-ui as original-Inter-roman.var.woff2 and run the following command: pyftsubset original-Inter-roman.var.woff2 \
- --output-file=Inter-roman.var.woff2 \
- --flavor=woff2 \
- --layout-features=kern \
- --no-hinting \
- --unicodes="<unicode range>"
+To add a new character or layout feature to the full font, download the web Inter roman web variable font from https://github.com/philipbelesky/inter-ui as original-Inter-roman.var.woff2 and run the following command:
+
+```shell
+pyftsubset original-Inter-roman.var.woff2 \
+  --output-file=Inter-roman.var.woff2 \
+  --flavor=woff2 \
+  --layout-features=kern \
+  --no-hinting \
+  --unicodes="<unicode range>"
+```
 
 Where `<unicode-range>` is the full unicode range you want to support. To get the unicode code point value of a character, look it up on a character table tool or use `'<char>'.charCodeAt().toString(16)`. Don't forget the U+ prefix.
 
@@ -29,12 +33,16 @@ Finally, don't forget to update the CSS file with the new range you've chosen.
 
 # How to generate the subset font
 
-To generate the subset font with a different set of characters, use the same command as the full font, but start with our regular Roman font: run the following command: pyftsubset Inter-roman.var.woff2 \
- --output-file=Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.woff2 \
- --flavor=woff2 \
- --layout-features=kern \
- --no-hinting \
- --unicodes="<unicode range>"
+To generate the subset font with a different set of characters, use the same command as the full font, but start with our regular Roman font: run the following command:
+
+```shell
+pyftsubset Inter-roman.var.woff2 \
+  --output-file=Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.woff2 \
+  --flavor=woff2 \
+  --layout-features=kern \
+  --no-hinting \
+  --unicodes="<unicode range>"
+```
 
 See the full font instructions for how to generate `<unicode-range>`. Once again, don't forget to update the CSS with the new range you've chosen.
 
