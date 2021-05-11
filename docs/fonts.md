@@ -1,4 +1,4 @@
-# AMO Fonts
+# How to deal with fonts
 
 # Overview
 
