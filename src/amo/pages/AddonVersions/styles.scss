@@ -36,7 +36,11 @@
     }
 
     .InstallButtonWrapper-download {
-      text-align: end;
+      @include text-align-start();
+
+      @include respond-to(extraLarge) {
+        @include text-align-end();
+      }
     }
   }
 }

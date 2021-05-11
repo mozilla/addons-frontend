@@ -1,32 +1,43 @@
 @import '~amo/css/styles';
 
 .AddonVersionCard {
-  display: block;
+  display: grid;
+  grid-gap: $padding-page;
 
-  .InstallWarning {
-    margin: 8px auto 0 auto;
+  .InstallButtonWrapper {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+
+    .Button {
+      width: 100%;
+    }
 
     @include respond-to(large) {
-      margin: 0 auto;
+      align-self: end;
+    }
+
+    @include respond-to(extraLarge) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  .InstallWarning {
+    grid-row: 3;
+
+    @include respond-to(extraLarge) {
+      grid-column: 1 / span 2;
+      grid-row: 2;
     }
   }
 }
 
 .AddonVersionCard-content {
-  @include respond-to(large) {
-    display: flex;
-  }
-
-  .InstallButtonWrapper {
-    align-self: center;
-
-    .Button {
-      width: 100%;
-    }
-  }
+  grid-column: 1;
 }
 
-.AddonVersionCard-header {
+.AddonVersionCard .AddonVersionCard-header {
   @include font-regular();
   @include text-align-start();
 
