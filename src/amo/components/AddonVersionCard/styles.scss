@@ -2,11 +2,11 @@
 
 .AddonVersionCard {
   display: grid;
+  grid-gap: $padding-page;
 
   .InstallButtonWrapper {
     grid-column: 1;
     grid-row: 2;
-    margin: 0;
     width: 100%;
 
     .Button {
@@ -14,7 +14,7 @@
     }
 
     @include respond-to(large) {
-      margin: auto;
+      align-self: end;
     }
 
     @include respond-to(extraLarge) {
@@ -25,7 +25,6 @@
 
   .InstallWarning {
     grid-row: 3;
-    margin-top: $padding-page;
 
     @include respond-to(extraLarge) {
       grid-column: 1 / span 2;
