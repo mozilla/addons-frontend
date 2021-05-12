@@ -3241,6 +3241,11 @@ character-reference-invalid@^1.0.0:
   resolved "https://registry.yarnpkg.com/character-reference-invalid/-/character-reference-invalid-1.1.4.tgz#083329cda0eae272ab3dbbf37e9a382c13af1560"
   integrity sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==
 
+characterset@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/characterset/-/characterset-1.3.0.tgz#9640d47d285f3ec742a5a6144eb445e073494e1a"
+  integrity sha1-lkDUfShfPsdCpaYUTrRF4HNJTho=
+
 cheerio-select-tmp@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/cheerio-select-tmp/-/cheerio-select-tmp-0.1.1.tgz#55bbef02a4771710195ad736d5e346763ca4e646"
