@@ -40,17 +40,6 @@
   @include icon($name: 'magnifying-glass');
 }
 
-.Icon-eye {
-  @include icon($name: 'eye');
-
-  background-size: cover;
-
-  &,
-  .Button & {
-    width: 23px;
-  }
-}
-
 .Icon-mozilla {
   @include icon($name: 'mozilla');
 
@@ -95,10 +84,6 @@
   @include icon($name: 'twitter');
 }
 
-.Icon-facebook {
-  @include icon($name: 'facebook');
-}
-
 .Icon-instagram {
   @include icon($name: 'instagram');
 }
@@ -133,32 +118,6 @@
 
 .Icon-user-fill {
   @include icon($name: 'user-fill');
-}
-
-.Icon-browse {
-  @include icon($name: 'bullet-list');
-
-  background-size: cover;
-  height: 20px;
-  width: 20px;
-}
-
-.Icon-themes {
-  @include icon($name: 'themes');
-
-  background-size: cover;
-  height: 45px;
-  min-width: 37.3px;
-  width: 37.3px;
-}
-
-.Icon-extensions {
-  @include icon($name: 'extensions');
-
-  background-size: cover;
-  height: 44.7px;
-  min-width: 46.3px;
-  width: 46.3px;
 }
 
 .Icon-restart {
@@ -298,23 +257,8 @@
   @include icon($name: 'artist');
 }
 
-.Icon-stop-hand {
-  @include icon($name: 'stop-hand');
-}
-
-.Icon-browser {
-  @include icon($name: 'browser');
-}
-
 .Icon-video {
   @include icon($name: 'video');
-}
-
-.Icon-trophy {
-  @include icon($name: 'trophy');
-
-  height: 12px;
-  width: 12px;
 }
 
 .Icon-line {
