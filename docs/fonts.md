@@ -2,15 +2,15 @@
 
 # Overview
 
-Our fonts are optimized for size. At the moment there are 3 different fonts:
+Our fonts are optimized for size. At the moment there are 2 different fonts:
 
 - The "full" roman variable font, which contains a bunch of characters, but is already optimized from the "regular" Inter variable font: some characters and layout features that were unlikely to be used in our pages have been dropped.
 
 - The "subset" roman variable font, which contains limited characters and layout features. It should be enough for most pages in our "main" locales (en, de, fr, ru, es, pt, pl & it). All pages preload this subset through a regexp on `ServerHtml` which finds the font by name using a regular expression.
 
-- The italic variable font, which isn't particularly optimized at the moment and we're considering removing. Very few of our pages need italics. https://github.com/mozilla/addons-frontend/issues/10478
-
 The subset should be preloaded on all pages, and the full font should only be used if there are characters on the page supported by the full font and not the subset. That should be pretty rare: because we've specified the unicode-range explicitly in the CSS, in Chinese or Japanese for instance, most pages should only load the subset (useful for english language content) and then fall back to a system font for the rest, since our font doesn't cover Chinese or Japanese characters.
+
+We no longer have an italic font: browsers synthetize one or display italic text (which should be pretty rare on AMO) as normal text.
 
 # How to generate the full font
 

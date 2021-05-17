@@ -1,5 +1,6 @@
 /* See docs/fonts.md for how to generate the fonts and the unicode-range */
 @font-face {
+  font-display: swap;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 300 600;
@@ -35,11 +36,4 @@
     U+178-17C, U+17E, U+401, U+410-44F, U+451, U+2010-2015, U+2018-201A,
     U+201C-201E, U+2024, U+2026, U+202F, U+2032-2033, U+2080, U+20AC, U+2122,
     U+2192, U+2605, U+2665;
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 300 600;
-  src: url('woff2/Inter-italic.var.woff2') format('woff2');
 }
