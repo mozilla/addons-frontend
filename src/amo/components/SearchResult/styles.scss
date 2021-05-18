@@ -122,10 +122,10 @@ $icon-default-size: 32px;
   flex-grow: 1;
   flex-wrap: wrap;
   font-size: $font-size-default;
-  gap: 6px;
   line-height: $line-height-compressed;
   margin: 0;
   padding: 0;
+  row-gap: 6px;
   text-decoration: none;
   width: 100%;
 
