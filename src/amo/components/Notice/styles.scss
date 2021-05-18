@@ -46,6 +46,14 @@
   width: 16px;
 }
 
+.Notice-genericWarning,
+.Notice-warning,
+.Notice-warningInfo {
+  .Notice-icon {
+    margin-top: 7px;
+  }
+}
+
 .Notice-light .Notice-icon {
   // Reduce the icon size for light notices so that the total
   // height of the notice adds up to $line-height-body.
