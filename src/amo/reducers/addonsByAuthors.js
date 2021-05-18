@@ -33,6 +33,8 @@ export const initialState: AddonsByAuthorsState = {
   loadingFor: {},
 };
 
+// If we change these constants, update the sitemap constants in addons-server
+// https://github.com/mozilla/addons-server/blob/master/src/olympia/amo/sitemap.py
 export const EXTENSIONS_BY_AUTHORS_PAGE_SIZE = 10;
 export const THEMES_BY_AUTHORS_PAGE_SIZE = 12;
 
