@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-20 11:41+0000\n"
+"PO-Revision-Date: 2021-05-20 12:14+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1038,7 +1038,7 @@ msgstr "Utvikler-knutepunkt"
 
 #: src/amo/components/GetFirefoxBanner/index.js:79
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "For å bruke disse tilleggene må du %(linkStart)slaste ned Firefox%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:158
 msgid "Only with Firefox—Get Firefox Now"
@@ -1050,7 +1050,7 @@ msgstr "Last ned Firefox og få temaet"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "Last ned Firefox og få utvidelsen"
 
 #: src/amo/components/GetFirefoxButton/index.js:166 src/amo/components/GetFirefoxButton/index.js:178
 msgid "Download Firefox"
@@ -2253,7 +2253,7 @@ msgstr "Om Firefox-tillegg"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr ""
+msgstr "Hvis du finner et problem med nettstedet, vil vi gjerne fikse det. Send inn en %(startIssueLink)sfeilrapport%(endIssueLink)s og ta med så mye informasjon som mulig."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
