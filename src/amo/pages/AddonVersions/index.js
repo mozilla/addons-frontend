@@ -161,16 +161,16 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
               <ul>
                 <li>
                   <Notice type="warning">
-                    <p className="AddonVersions-warning-text">
+                    <span className="AddonVersions-warning-text">
                       {i18n.gettext(
                         'Be careful with old versions! These versions are displayed for testing and reference purposes.',
                       )}
-                    </p>
-                    <p className="AddonVersions-warning-text">
+                    </span>
+                    <span className="AddonVersions-warning-text">
                       {i18n.gettext(
                         'You should always use the latest version of an add-on.',
                       )}
-                    </p>
+                    </span>
                   </Notice>
                 </li>
 
