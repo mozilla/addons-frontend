@@ -13,7 +13,7 @@ module.exports = {
     // Alias config for tests to be able to import config files.
     '^config/(.*)$': '<rootDir>/config/$1',
     // Replaces the following formats with an empty module.
-    '^.+\\.(scss|css|svg|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
+    '^.+\\.(scss|css|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
     // Alias bin for bin scripts.
     '^bin/(.*)$': '<rootDir>/bin/$1',
   },
@@ -36,8 +36,8 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
     // This transforms images to be a module that exports the filename.
-    // Tests can assert on the filenname.
-    '^.+\\.(jpg|jpeg|gif|png)$': '<rootDir>/tests/fileTransformer',
+    // Tests can assert on the filename.
+    '^.+\\.(jpg|jpeg|gif|png|svg)$': '<rootDir>/tests/fileTransformer',
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
   watchPlugins: [

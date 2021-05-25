@@ -6,7 +6,7 @@ import {
   fakeAddon,
   fakePreview,
 } from 'tests/unit/helpers';
-import fallbackIcon from 'amo/img/icons/default-64.png';
+import fallbackIcon from 'amo/img/icons/default.svg';
 
 describe(__filename, () => {
   const allowedIcon = 'https://addons.cdn.mozilla.net/webdev-64.png';
