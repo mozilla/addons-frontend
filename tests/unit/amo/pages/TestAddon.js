@@ -957,7 +957,7 @@ describe(__filename, () => {
       }),
     });
     const src = root.find('.Addon-icon img').prop('src');
-    expect(src).toEqual('default-64.png');
+    expect(src).toEqual('default.svg');
   });
 
   it('renders screenshots for type extension', () => {

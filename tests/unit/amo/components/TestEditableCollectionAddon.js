@@ -4,7 +4,7 @@ import EditableCollectionAddon, {
   EditableCollectionAddonBase,
   extractId,
 } from 'amo/components/EditableCollectionAddon';
-import fallbackIcon from 'amo/img/icons/default-64.png';
+import fallbackIcon from 'amo/img/icons/default.svg';
 import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import {
   applyUIStateChanges,

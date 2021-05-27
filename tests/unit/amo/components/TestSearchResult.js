@@ -268,7 +268,7 @@ describe(__filename, () => {
     const root = render({ addon });
 
     // image `require` calls in jest return the filename
-    expect(root.find('.SearchResult-icon')).toHaveProp('src', 'default-64.png');
+    expect(root.find('.SearchResult-icon')).toHaveProp('src', 'default.svg');
   });
 
   it('adds a theme-specific class', () => {
@@ -419,7 +419,7 @@ describe(__filename, () => {
     // Since there's no add-on, there shouldn't be a link.
     expect(root.find('.SearchResult-link')).toHaveLength(0);
 
-    expect(root.find('.SearchResult-icon')).toHaveProp('src', 'default-64.png');
+    expect(root.find('.SearchResult-icon')).toHaveProp('src', 'default.svg');
     expect(root.find('.SearchResult-name').find(LoadingText)).toHaveLength(1);
     expect(root.find('.SearchResult-summary').find(LoadingText)).toHaveLength(
       1,

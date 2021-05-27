@@ -7,7 +7,7 @@ import AddonSummaryCard, {
 } from 'amo/components/AddonSummaryCard';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import Link from 'amo/components/Link';
-import fallbackIcon from 'amo/img/icons/default-64.png';
+import fallbackIcon from 'amo/img/icons/default.svg';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
