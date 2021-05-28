@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 10:01+0000\n"
+"PO-Revision-Date: 2021-05-28 10:17+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1099,7 +1099,7 @@ msgstr "Upravljanje mojim prijavama"
 
 #: src/amo/components/Header/index.js:142
 msgid "Reviewer Tools"
-msgstr "Alati recenzenta"
+msgstr "Alati za recenzente"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:196
@@ -1326,7 +1326,7 @@ msgstr "Firefox preporučuje samo dodatke koji udovoljavaju našim standardima z
 
 #: src/amo/components/PromotedBadge/index.js:57
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Na ovom dodatku izvršen je pregled udovoljava li našim standardima za sigurnost i performancu."
+msgstr "Ovaj je dodatak pregledan kako bi udovoljio našim standardima za sigurnost i performancu."
 
 #: src/amo/components/Rating/index.js:104 src/amo/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
@@ -1498,17 +1498,17 @@ msgstr "Firefoxovi dodaci"
 
 #: src/amo/components/Search/index.js:168
 msgid "Reviewed extensions"
-msgstr "Recenzirana proširenja"
+msgstr "Pregledana proširenja"
 
 # This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/Search/index.js:171
 msgid "Reviewed themes"
-msgstr "Recenzirane teme"
+msgstr "Pregledane teme"
 
 # This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/Search/index.js:174
 msgid "Reviewed add-ons"
-msgstr "Recenzirani dodaci"
+msgstr "Pregledani dodaci"
 
 #: src/amo/components/Search/index.js:179
 msgid "Verified extensions"
@@ -1678,7 +1678,7 @@ msgstr "Bilo koje"
 
 #: src/amo/components/SearchFilters/index.js:184
 msgid "All Reviewed"
-msgstr "Svi recenzirani"
+msgstr "Sve recenzirano"
 
 #: src/amo/components/SearchFilters/index.js:204
 msgid "Filter results"
