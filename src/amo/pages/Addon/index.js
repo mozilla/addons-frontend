@@ -17,7 +17,6 @@ import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import ContributeCard from 'amo/components/ContributeCard';
-import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import Page from 'amo/components/Page';
@@ -481,12 +480,7 @@ export class AddonBase extends React.Component {
                     <p className="Addon-summary" {...summaryProps} />
                   ) : null}
 
-                  {addon && (
-                    <InstallButtonWrapper
-                      addon={addon}
-                      getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-                    />
-                  )}
+                  {addon && <InstallButtonWrapper addon={addon} />}
                 </div>
 
                 <h2 className="visually-hidden">

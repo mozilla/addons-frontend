@@ -49,7 +49,6 @@ describe(__filename, () => {
       // "dynamic" so they shouldn't be changed without considerations.
       expect(html('.StaticAddonCard')).toHaveLength(1);
       expect(html('.GetFirefoxButton')).toHaveLength(1);
-      expect(html('.GetFirefoxButton--new')).toHaveLength(1);
       expect(html('.GetFirefoxButton-button')).toHaveLength(1);
       expect(html('.GetFirefoxButton-callout')).toHaveLength(1);
     });

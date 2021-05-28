@@ -6,9 +6,7 @@ import AddonBadges from 'amo/components/AddonBadges';
 import StaticAddonCard, {
   StaticAddonCardBase,
 } from 'blog-utils/StaticAddonCard';
-import GetFirefoxButton, {
-  GET_FIREFOX_BUTTON_TYPE_ADDON,
-} from 'amo/components/GetFirefoxButton';
+import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import Rating from 'amo/components/Rating';
 import ThemeImage from 'amo/components/ThemeImage';
 import {
@@ -53,11 +51,6 @@ describe(__filename, () => {
 
     expect(root.find(GetFirefoxButton)).toHaveLength(1);
     expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
-    expect(root.find(GetFirefoxButton)).toHaveProp(
-      'buttonType',
-      GET_FIREFOX_BUTTON_TYPE_ADDON,
-    );
-    expect(root.find(GetFirefoxButton)).toHaveProp('useNewVersion', true);
 
     // This is always rendered but hidden by default using CSS.
     expect(root.find('.StaticAddonCard-error-overlay')).toHaveLength(1);

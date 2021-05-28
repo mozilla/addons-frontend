@@ -1,16 +1,11 @@
 /* @flow */
 import { encode } from 'universal-base64url';
 import makeClassName from 'classnames';
-import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
-import {
-  VARIANT_CURRENT,
-  VARIANT_NEW,
-} from 'amo/experiments/20210404_download_cta_experiment';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
@@ -34,26 +29,13 @@ import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
-export const GET_FIREFOX_BUTTON_TYPE_ADDON: 'GET_FIREFOX_BUTTON_TYPE_ADDON' =
-  'GET_FIREFOX_BUTTON_TYPE_ADDON';
-export const GET_FIREFOX_BUTTON_TYPE_HEADER: 'GET_FIREFOX_BUTTON_TYPE_HEADER' =
-  'GET_FIREFOX_BUTTON_TYPE_HEADER';
-export const GET_FIREFOX_BUTTON_TYPE_NONE: 'GET_FIREFOX_BUTTON_TYPE_NONE' =
-  'GET_FIREFOX_BUTTON_TYPE_NONE';
 export const GET_FIREFOX_BUTTON_CLICK_ACTION = 'download-firefox-click';
 export const GET_FIREFOX_BUTTON_CLICK_CATEGORY = 'AMO Download Firefox';
 
-export type GetFirefoxButtonTypeType =
-  | typeof GET_FIREFOX_BUTTON_TYPE_ADDON
-  | typeof GET_FIREFOX_BUTTON_TYPE_HEADER
-  | typeof GET_FIREFOX_BUTTON_TYPE_NONE;
-
 export type Props = {|
-  addon?: AddonType,
-  buttonType: GetFirefoxButtonTypeType,
+  addon: AddonType,
   className?: string,
   overrideQueryParams?: {| [name: string]: string | null |},
-  useNewVersion?: boolean,
 |};
 
 export type DefaultProps = {|
@@ -74,6 +56,8 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
+// As we expect to continue to experiment with this button, maintain the
+// ability to create a term that contains a variant.
 export const getDownloadTerm = ({
   addonId,
   variant,
@@ -94,128 +78,77 @@ export const getDownloadTerm = ({
   return term;
 };
 
-export const getDownloadCategory = (variant: string): string =>
-  `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`;
+// As we expect to continue to experiment with this button, maintain the
+// ability to create a category that contains a variant.
+export const getDownloadCategory = (variant?: string): string =>
+  variant
+    ? `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`
+    : GET_FIREFOX_BUTTON_CLICK_CATEGORY;
 
 export const GetFirefoxButtonBase = ({
   _encode = encode,
   _getPromotedCategory = getPromotedCategory,
   _tracking = tracking,
   addon,
-  buttonType,
   className,
   clientApp,
   i18n,
   overrideQueryParams = {},
-  useNewVersion = false,
   userAgentInfo,
 }: InternalProps): null | React.Node => {
-  if (
-    buttonType === GET_FIREFOX_BUTTON_TYPE_NONE ||
-    isFirefox({ userAgentInfo }) ||
-    // Also hide the button if it's in the header but we're showing the new
-    // version.
-    (buttonType === GET_FIREFOX_BUTTON_TYPE_HEADER && useNewVersion)
-  ) {
+  if (isFirefox({ userAgentInfo })) {
     return null;
   }
-
-  const variant = useNewVersion ? VARIANT_NEW : VARIANT_CURRENT;
 
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BUTTON_CLICK_ACTION,
-      category: getDownloadCategory(variant),
-      label: addon ? addon.guid : '',
+      category: getDownloadCategory(),
+      label: addon.guid,
     });
   };
 
-  let buttonText;
-  let calloutText;
-  let micro = false;
-  let puffy = false;
-  let utmContent;
-  let utmTerm;
+  const promotedCategory = _getPromotedCategory({
+    addon,
+    clientApp,
+    forBadging: true,
+  });
 
-  switch (buttonType) {
-    case GET_FIREFOX_BUTTON_TYPE_ADDON: {
-      invariant(
-        addon,
-        `addon is required for buttonType ${GET_FIREFOX_BUTTON_TYPE_ADDON}`,
-      );
+  const supportsRTAMO =
+    [LINE, RECOMMENDED, SPONSORED, VERIFIED].includes(promotedCategory) &&
+    clientApp === CLIENT_APP_FIREFOX;
 
-      const promotedCategory = _getPromotedCategory({
-        addon,
-        clientApp,
-        forBadging: true,
-      });
-
-      const supportsRTAMO =
-        [LINE, RECOMMENDED, SPONSORED, VERIFIED].includes(promotedCategory) &&
-        clientApp === CLIENT_APP_FIREFOX;
-
-      if (!useNewVersion) {
-        buttonText = i18n.gettext('Only with Firefox—Get Firefox Now');
-      } else {
-        const downloadTextForRTAMO =
-          addon.type === ADDON_TYPE_STATIC_THEME
-            ? i18n.gettext('Download Firefox and get the theme')
-            : i18n.gettext('Download Firefox and get the extension');
-        buttonText = supportsRTAMO
-          ? downloadTextForRTAMO
-          : i18n.gettext('Download Firefox');
-        calloutText =
-          addon.type === ADDON_TYPE_STATIC_THEME
-            ? i18n.gettext(`You'll need Firefox to use this theme`)
-            : i18n.gettext(`You'll need Firefox to use this extension`);
-      }
-      puffy = true;
-      utmContent = addon.guid ? `rta:${_encode(addon.guid)}` : '';
-      utmTerm = getDownloadTerm({ addonId: addon.id, variant });
-      break;
-    }
-    case GET_FIREFOX_BUTTON_TYPE_HEADER: {
-      buttonText = i18n.gettext('Download Firefox');
-      micro = true;
-      utmContent = 'header-download-button';
-      utmTerm = getDownloadTerm({ variant });
-      break;
-    }
-    default:
-      throw new Error(
-        `Cannot pass ${buttonType} as the buttonType prop to GetFirefoxButton`,
-      );
-  }
+  const downloadTextForRTAMO =
+    addon.type === ADDON_TYPE_STATIC_THEME
+      ? i18n.gettext('Download Firefox and get the theme')
+      : i18n.gettext('Download Firefox and get the extension');
+  const buttonText = supportsRTAMO
+    ? downloadTextForRTAMO
+    : i18n.gettext('Download Firefox');
+  const calloutText =
+    addon.type === ADDON_TYPE_STATIC_THEME
+      ? i18n.gettext(`You'll need Firefox to use this theme`)
+      : i18n.gettext(`You'll need Firefox to use this extension`);
 
   const buttonContent = (
     <Button
       buttonType="action"
-      className={makeClassName(
-        'GetFirefoxButton-button',
-        {
-          'GetFirefoxButton': !useNewVersion,
-          'GetFirefoxButton--current': !useNewVersion,
-        },
-        className,
-      )}
+      className="GetFirefoxButton-button"
       href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
         utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
-        utm_content: utmContent,
-        utm_term: utmTerm,
+        utm_content: addon.guid ? `rta:${_encode(addon.guid)}` : '',
+        utm_term: getDownloadTerm({ addonId: addon.id }),
         ...overrideQueryParams,
       })}`}
-      micro={micro}
       onClick={onButtonClick}
-      puffy={puffy}
+      puffy
     >
       {buttonText}
     </Button>
   );
 
-  return !useNewVersion || buttonType === GET_FIREFOX_BUTTON_TYPE_HEADER ? (
-    buttonContent
-  ) : (
-    <div className="GetFirefoxButton GetFirefoxButton--new">
+  return (
+    <div className={makeClassName('GetFirefoxButton', className)}>
       <div className="GetFirefoxButton-callout">
         <div className="GetFirefoxButton-callout-icon" />
         <div className="GetFirefoxButton-callout-text">{calloutText}</div>

@@ -7,9 +7,7 @@ import { getAddonIconUrl } from 'amo/imageUtils';
 import { nl2br, sanitizeHTML } from 'amo/utils';
 import AddonBadges from 'amo/components/AddonBadges';
 import AddonTitle from 'amo/components/AddonTitle';
-import GetFirefoxButton, {
-  GET_FIREFOX_BUTTON_TYPE_ADDON,
-} from 'amo/components/GetFirefoxButton';
+import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import Rating from 'amo/components/Rating';
 import ThemeImage from 'amo/components/ThemeImage';
 import translate from 'amo/i18n/translate';
@@ -89,13 +87,11 @@ export const StaticAddonCardBase = ({
       <div className="StaticAddonCard-firefox-button">
         <GetFirefoxButton
           addon={addon}
-          buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
           overrideQueryParams={{
             utm_term: `amo-blog-fx-cta-${addon.id}`,
             experiment: null,
             variation: null,
           }}
-          useNewVersion
         />
       </div>
 

@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import GetFirefoxBanner from 'amo/components/GetFirefoxBanner';
-import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
@@ -14,11 +13,6 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'amo/constants';
 import DropdownMenu from 'amo/components/DropdownMenu';
-import {
-  EXPERIMENT_CONFIG,
-  VARIANT_CURRENT,
-  VARIANT_NEW,
-} from 'amo/experiments/20210404_download_cta_experiment';
 import { loadSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
 import {
   createFakeEvent,
@@ -62,39 +56,13 @@ describe(__filename, () => {
   it.each([true, false])(
     'conditionally renders a GetFirefoxBanner component when isAddonInstallPage is %s',
     (isAddonInstallPage) => {
-      const root = renderHeader({ isAddonInstallPage, variant: VARIANT_NEW });
+      const root = renderHeader({ isAddonInstallPage });
 
       expect(root.find(GetFirefoxBanner)).toHaveLength(
         isAddonInstallPage ? 0 : 1,
       );
     },
   );
-
-  it.each([VARIANT_NEW, VARIANT_CURRENT, null])(
-    'conditionally renders a GetFirefoxButton component when variant is %s',
-    (variant) => {
-      const root = renderHeader({ variant });
-
-      expect(root.find(GetFirefoxButton)).toHaveLength(
-        variant === VARIANT_NEW ? 0 : 1,
-      );
-    },
-  );
-
-  it('passes the expected overrideQueryParams to GetFirefoxButton if an experiment is active', () => {
-    const root = renderHeader({ variant: VARIANT_CURRENT });
-
-    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {
-      experiment: EXPERIMENT_CONFIG.id,
-      variation: VARIANT_CURRENT,
-    });
-  });
-
-  it('passes an empty object as overrideQueryParams to GetFirefoxButton if no experiment is active', () => {
-    const root = renderHeader({ variant: null });
-
-    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {});
-  });
 
   it('always renders a link in the header when not on homepage', () => {
     const root = renderHeader({ isHomePage: false });

@@ -13,10 +13,6 @@ import {
   DOWNLOAD_FIREFOX_BASE_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
 } from 'amo/constants';
-import {
-  EXPERIMENT_CONFIG,
-  VARIANT_NEW,
-} from 'amo/experiments/20210404_download_cta_experiment';
 import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { isFirefox } from 'amo/utils/compatibility';
@@ -60,7 +56,7 @@ export const GetFirefoxBannerBase = ({
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BANNER_CLICK_ACTION,
-      category: getDownloadCategory(VARIANT_NEW),
+      category: getDownloadCategory(),
     });
   };
 
@@ -90,11 +86,9 @@ export const GetFirefoxBannerBase = ({
               buttonType="none"
               className="GetFirefoxBanner-button"
               href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-                experiment: EXPERIMENT_CONFIG.id,
                 utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
                 utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
-                utm_term: getDownloadTerm({ variant: VARIANT_NEW }),
-                variation: VARIANT_NEW,
+                utm_term: getDownloadTerm(),
               })}`}
               key="GetFirefoxBanner-button"
               onClick={onButtonClick}
