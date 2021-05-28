@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 09:24+0000\n"
+"PO-Revision-Date: 2021-05-28 09:30+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1848,9 +1848,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Pronađi dodatke koji su kompatibilni s Firefoxom za Android <a href=\"%(newLocation)s\">ovdje</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Ovaj dodatak nije kompatibilan s ovim preglednikom. Pokušaj ga instalirati u Firefoxu za računalo."
+msgstr "Dodaci nisu kompatibilni s Firefoxom za iOS. Pokušaj ih instalirati u Firefoxu za računalo."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
@@ -2169,7 +2168,7 @@ msgstr "Pogledaj daljnja proširenja u trendu"
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
-msgstr "Pogledaj daljnja proširenja s najboljom ocjenom"
+msgstr "Pogledaj daljnja najbolje ocijenjena proširenja"
 
 #: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
@@ -2181,7 +2180,7 @@ msgstr "Pogledaj daljnje teme u trendu"
 
 #: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
-msgstr "Pogledaj daljnje teme s najboljom ocjenom"
+msgstr "Pogledaj daljnje najbolje ocijenjene teme"
 
 #: src/amo/pages/LandingPage/index.js:207
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2266,9 +2265,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "Prijavi grešku"
+msgstr "Prijavi problem"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
