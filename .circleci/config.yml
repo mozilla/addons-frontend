@@ -101,7 +101,6 @@ jobs:
       - *save_build_cache
       - run: yarn lint
       - run: yarn prettier-ci
-      - run: pyenv global 3.7.0
       - run: pip install fonttools brotli && yarn check-fonts
 
   build-next:
