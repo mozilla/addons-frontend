@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 09:30+0000\n"
+"PO-Revision-Date: 2021-05-28 09:37+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -181,7 +181,7 @@ msgstr[2] "Korisnici"
 
 #: src/amo/components/AddonMeta/index.js:54
 msgid "No Users"
-msgstr "Nijedan korisnik"
+msgstr "Nema korisnika"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
@@ -433,7 +433,7 @@ msgstr "Daljnji rječnici od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "More dictionaries by these translators"
-msgstr "Daljnji rječnici ovih prevodioca"
+msgstr "Daljnji rječnici ovih prevodilaca"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:261
 msgid "Dictionaries by %(author)s"
@@ -441,7 +441,7 @@ msgstr "Rječnici od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "Dictionaries by these translators"
-msgstr "Rječnici ovih prevodioca"
+msgstr "Rječnici ovih prevodilaca"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "More extensions by %(author)s"
@@ -465,7 +465,7 @@ msgstr "Daljnji jezični paketi od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "More language packs by these translators"
-msgstr "Daljnji jezični paketi ovih prevodioca"
+msgstr "Daljnji jezični paketi ovih prevodilaca"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:298
 msgid "Language packs by %(author)s"
@@ -473,7 +473,7 @@ msgstr "Jezični paketi od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "Language packs by these translators"
-msgstr "Jezični paketi ovih prevodioca"
+msgstr "Jezični paketi ovih prevodilaca"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "More themes by %(author)s"
@@ -1066,9 +1066,8 @@ msgid "Download Firefox"
 msgstr "Preuzmi Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:169
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Prijavi se i ocijeni ovu temu"
+msgstr "Za korištenje ove teme trebat ćeš Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:170
 msgid "You'll need Firefox to use this extension"
