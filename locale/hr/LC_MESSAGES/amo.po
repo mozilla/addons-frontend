@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-26 16:46+0000\n"
+"PO-Revision-Date: 2021-05-28 08:28+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -607,10 +607,9 @@ msgstr "%(title)s – dodaci za Firefox za Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:159
 msgid "Log out"
-msgstr "Odjava"
+msgstr "Odjavi se"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "Registriraj se ili se prijavi"
 
@@ -760,7 +759,7 @@ msgstr "Podrži ovog autora"
 
 #: src/amo/components/ContributeCard/index.js:75
 msgid "Support these authors"
-msgstr "Podrži ove umjetnike"
+msgstr "Podrži ove autore"
 
 #: src/amo/components/ContributeCard/index.js:79
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
