@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 09:13+0000\n"
+"PO-Revision-Date: 2021-05-28 09:24+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1537,15 +1537,15 @@ msgstr "Dodaci u trendu"
 
 #: src/amo/components/Search/index.js:205 src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
-msgstr "Proširenja s najboljom ocjenom"
+msgstr "Najbolje ocijenjena proširenja"
 
 #: src/amo/components/Search/index.js:208 src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
-msgstr "Teme s najboljom ocjenom"
+msgstr "Najbolje ocijenjene teme"
 
 #: src/amo/components/Search/index.js:211
 msgid "Top rated add-ons"
-msgstr "Dodaci s najboljom ocjenom"
+msgstr "Najbolje ocijenjeni dodaci"
 
 #: src/amo/components/Search/index.js:217
 msgid "Popular extensions"
@@ -1675,7 +1675,7 @@ msgstr "U trendu"
 
 #: src/amo/components/SearchFilters/index.js:173
 msgid "Any"
-msgstr "Bilo koji"
+msgstr "Bilo koje"
 
 #: src/amo/components/SearchFilters/index.js:184
 msgid "All Reviewed"
@@ -1687,7 +1687,7 @@ msgstr "Filtriraj rezultate"
 
 #: src/amo/components/SearchFilters/index.js:209
 msgid "Sort by"
-msgstr "Razvrstaj po:"
+msgstr "Razvrstaj po"
 
 #: src/amo/components/SearchFilters/index.js:231
 msgid "Add-on Type"
