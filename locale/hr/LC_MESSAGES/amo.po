@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 10:24+0000\n"
+"PO-Revision-Date: 2021-05-28 10:25+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -539,7 +539,7 @@ msgstr "Izvorni kod je objavljen pod %(linkStart)sprilagođenom licencom%(linkEn
 
 #: src/amo/components/AddonVersionCard/index.js:153
 msgid "Source code released under %(licenseName)s"
-msgstr "Izvorni kod je objavljen pod %(licenseName)s"
+msgstr "Izvorni kod je objavljen pod licencom %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:63
 msgid "No version found"
