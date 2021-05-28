@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 08:28+0000\n"
+"PO-Revision-Date: 2021-05-28 08:54+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -978,9 +978,8 @@ msgid "Developer Policies"
 msgstr "Pravila za programere"
 
 #: src/amo/components/Footer/index.js:122
-#, fuzzy
 msgid "Developer Blog"
-msgstr "Centar za programere"
+msgstr "Blog za programere"
 
 #: src/amo/components/Footer/index.js:128
 msgid "Forum"
@@ -1048,20 +1047,19 @@ msgstr "Centar za programere"
 
 #: src/amo/components/GetFirefoxBanner/index.js:79
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "Za korištenje ovog dodatka morat ćeš %(linkStart)spreuzeti Firefox%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:158
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Samo s Firefoxom – nabavi Firefox sada"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Preuzmi Firefox"
+msgstr "Preuzmi Firefox i nabavi temu"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "Preuzmi Firefox i nabavi proširenje"
 
 #: src/amo/components/GetFirefoxButton/index.js:166 src/amo/components/GetFirefoxButton/index.js:178
 msgid "Download Firefox"
@@ -1073,9 +1071,8 @@ msgid "You'll need Firefox to use this theme"
 msgstr "Prijavi se i ocijeni ovu temu"
 
 #: src/amo/components/GetFirefoxButton/index.js:170
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Prijavi se i ocijeni ovo proširenje"
+msgstr "Za korištenje ovog proširenja trebat ćeš Firefox"
 
 #: src/amo/components/Header/index.js:100 src/amo/pages/UserProfileEdit/index.js:567
 msgid "View My Profile"
