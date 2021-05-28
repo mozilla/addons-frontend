@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 02:24+0000\n"
+"PO-Revision-Date: 2021-05-28 02:30+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -879,23 +879,20 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Maaf, tapi ada kesalahan dengan server kami dan kami tidak dapat menyelesaikan permintaan Anda. Kami telah mencatat kesalahan ini dan akan menyelidikinya."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:25
-#, fuzzy
 msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Coba kunjungi laman nanti, karena tema atau ekstensi mungkin tersedia kembali. Atau, Anda mungkin dapat menemukan apa yang Anda cari di salah satu %(extensionStart)sekstensi%(extensionEnd)s atau "
-"%(themeStart)stema%(themeEnd)s yang tersedia, atau dengan meminta bantuan pada %(communityStart)sforum komunitas%(communityEnd)s kami."
+"Anda dapat menemukan apa yang Anda cari di dalam salah satu %(extensionStart)sekstensi%(extensionEnd)s atau %(themeStart)stema%(themeEnd)s, atau dengan meminta bantuan melalui "
+"%(communityStart)sforum komunitas%(communityEnd)s kami."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
-#, fuzzy
 msgid "That page is not available in your region"
-msgstr "Pengaya ini belum tersedia untuk platform Anda."
+msgstr "Pengaya ini belum tersedia di wilayah Anda."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "Pengaya ini belum tersedia untuk platform Anda."
+msgstr "Laman yang Anda coba akses tidak tersedia di wilayah Anda."
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
@@ -974,9 +971,8 @@ msgid "Developer Policies"
 msgstr "Kebijakan Pengembang"
 
 #: src/amo/components/Footer/index.js:122
-#, fuzzy
 msgid "Developer Blog"
-msgstr "Pusat Pengembang"
+msgstr "Blog Pengembang"
 
 #: src/amo/components/Footer/index.js:128
 msgid "Forum"
@@ -1051,9 +1047,8 @@ msgid "Only with Firefox—Get Firefox Now"
 msgstr "Hanya dengan Firefox —Dapatkan Firefox Sekarang"
 
 #: src/amo/components/GetFirefoxButton/index.js:162
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Unduh Firefox"
+msgstr "Unduh Firefox dan dapatkan temanya"
 
 #: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox and get the extension"
@@ -1064,14 +1059,12 @@ msgid "Download Firefox"
 msgstr "Unduh Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:169
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Masuk untuk menilai tema ini"
+msgstr "Anda memerlukan Firefox untuk menggunakan tema ini"
 
 #: src/amo/components/GetFirefoxButton/index.js:170
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Masuk untuk menilai ekstensi ini"
+msgstr "Anda memerlukan Firefox untuk menggunakan ekstensi ini"
 
 #: src/amo/components/Header/index.js:100 src/amo/pages/UserProfileEdit/index.js:567
 msgid "View My Profile"
@@ -1144,9 +1137,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox hanya menyarankan ekstensi yang memenuhi standar keamanan dan kinerja kami."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Lihat %(categoryName)s lainnya"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1185,18 +1177,16 @@ msgid "OK"
 msgstr "Oke"
 
 #: src/amo/components/InstallButtonWrapper/index.js:115
-#, fuzzy
 msgid "Download file"
-msgstr "Mengunduh"
+msgstr "Unduh berkas"
 
 #: src/amo/components/InstallWarning/index.js:108 src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "Pelajari lebih lanjut"
 
 #: src/amo/components/InstallWarning/index.js:112
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Ini tidak dimonitor untuk keamanan melalui program Ekstensi yang Disarankan Mozilla. Pastikan Anda memercayainya sebelum menginstal."
+msgstr "Pengaya ini tidak dipantau keamanannya secara aktif oleh Mozilla. Pastikan Anda memercayainya sebelum memasangnya."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1223,14 +1213,12 @@ msgid "Permissions"
 msgstr "Perizinan"
 
 #: src/amo/components/PermissionsCard/index.js:84
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "Pengaya ini dapat:"
+msgstr "Pengaya ini perlu:"
 
 #: src/amo/components/PermissionsCard/index.js:94
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Pengaya ini dapat:"
+msgstr "Pengaya ini juga dapat meminta:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
@@ -1325,14 +1313,12 @@ msgid "Official add-on built by Mozilla Firefox. Meets security and performance 
 msgstr "Pengaya resmi dibuat oleh Mozilla Firefox. Memenuhi standar keamanan dan kinerja."
 
 #: src/amo/components/PromotedBadge/index.js:49
-#, fuzzy
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr "Firefox hanya menyarankan ekstensi yang memenuhi standar keamanan dan kinerja kami."
+msgstr "Firefox hanya merekomendasikan pengaya yang memenuhi standar keamanan dan kinerja kami."
 
 #: src/amo/components/PromotedBadge/index.js:57
-#, fuzzy
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr "Firefox hanya menyarankan ekstensi yang memenuhi standar keamanan dan kinerja kami."
+msgstr "Pengaya ini telah ditinjau untuk memenuhi standar keamanan dan kinerja kami."
 
 #: src/amo/components/Rating/index.js:104 src/amo/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
@@ -1493,49 +1479,40 @@ msgid "Recommended add-ons"
 msgstr "Pengaya yang disarankan"
 
 #: src/amo/components/Search/index.js:157
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "Ekstensi oleh %(author)s"
+msgstr "Ekstensi oleh Firefox"
 
 #: src/amo/components/Search/index.js:160
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "Oleh Firefox"
+msgstr "Tema oleh Firefox"
 
 #: src/amo/components/Search/index.js:163
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "Pengaya untuk Firefox"
+msgstr "Pengaya oleh Firefox"
 
 #: src/amo/components/Search/index.js:168
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "Ekstensi yang disarankan"
+msgstr "Ekstensi yang sudah ditinjau"
 
 #: src/amo/components/Search/index.js:171
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "Tema tinjauan"
+msgstr "Tema yang telah ditinjau"
 
 #: src/amo/components/Search/index.js:174
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "Tinjau kode pengaya"
+msgstr "Pengaya yang telah ditinjau"
 
 #: src/amo/components/Search/index.js:179
-#, fuzzy
 msgid "Verified extensions"
-msgstr "Ekstensi pilihan"
+msgstr "Ekstensi terverifikasi"
 
 #: src/amo/components/Search/index.js:182
-#, fuzzy
 msgid "Verified themes"
-msgstr "Tema pilihan"
+msgstr "Tema terverifikasi"
 
 #: src/amo/components/Search/index.js:185
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "Pengaya unggulan"
+msgstr "Pengaya terverifikasi"
 
 #: src/amo/components/Search/index.js:193 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1672,9 +1649,8 @@ msgid "Any"
 msgstr "Apa pun"
 
 #: src/amo/components/SearchFilters/index.js:184
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Teks ulasan"
+msgstr "Semua yang Sudah Ditinjau"
 
 #: src/amo/components/SearchFilters/index.js:204
 msgid "Filter results"
@@ -1835,14 +1811,12 @@ msgid "Developer response"
 msgstr "Balasan pengembang"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "Untuk mempelajari tentang pengaya yang kompatibel dengan Firefox untuk Android, <a href=\"%(newLocation)s\">klik di sini</a>."
+msgstr "Untuk menemukan pengaya yang kompatibel dengan Firefox untuk Android, <a href=\"%(newLocation)s\">klik di sini</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Pengaya ini tidak kompatibel dengan peramban ini. Coba pasang di Firefox untuk desktop."
+msgstr "Pengaya ini tidak kompatibel dengan Firefox untuk iOS. Coba pasang di Firefox untuk desktop."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
@@ -2053,14 +2027,12 @@ msgid "All theme categories"
 msgstr "Semua kategori tema"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Tema di %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "%(count)s ekstensi ditemukan pada %(categoryName)s"
+msgstr "Ekstensi di %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
@@ -2263,9 +2235,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "Untuk melihat lebih banyak cara Anda dapat berkontribusi untuk komunitas pengaya, sila kunjungi %(startLink)swiki%(endLink)s kami."
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "Laporkan kutu"
+msgstr "Laporkan masalah"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
