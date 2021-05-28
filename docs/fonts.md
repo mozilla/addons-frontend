@@ -42,8 +42,7 @@ Under the hood, `regenerate_font.js` will call `pyftsubset` and save the new fon
 
 # How to update the base font used by `regenerate_font.js`
 
-Download the latest `Inter-roman.var.woff2` from https://github.com/philipbelesky/inter-ui/tree/main/Inter%20(web), use something like https://github.com/source-foundry/Slice to only keep weights from 300 to 600 and save it
-as src/fonts/woff2/Inter-roman-reduced-weights.var.woff2
+Download the latest `Inter-roman.var.woff2` from https://github.com/philipbelesky/inter-ui/tree/main/Inter%20(web), use something like https://github.com/source-foundry/Slice to only keep weights from 300 to 600 and save it as src/fonts/woff2/Inter-roman-reduced-weights.var.woff2
 
 # How to select the right unicode-range of a font
 
