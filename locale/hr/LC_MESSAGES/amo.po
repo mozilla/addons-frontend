@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 09:09+0000\n"
+"PO-Revision-Date: 2021-05-28 09:13+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1487,7 +1487,7 @@ msgstr "Preporučeni dodaci"
 
 #: src/amo/components/Search/index.js:157
 msgid "Extensions by Firefox"
-msgstr "Proširenja od Firefoxa"
+msgstr "Firefoxova proširenja"
 
 #: src/amo/components/Search/index.js:160
 msgid "Themes by Firefox"
@@ -1495,7 +1495,7 @@ msgstr "Firefoxove teme"
 
 #: src/amo/components/Search/index.js:163
 msgid "Add-ons by Firefox"
-msgstr "Dodaci od Firefoxa"
+msgstr "Firefoxovi dodaci"
 
 #: src/amo/components/Search/index.js:168
 msgid "Reviewed extensions"
