@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 08:54+0000\n"
+"PO-Revision-Date: 2021-05-28 09:09+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1130,7 +1130,7 @@ msgstr "Preuzmi proširenje"
 # If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:221
 msgid "SPONSORED"
-msgstr "SPONZOR"
+msgstr "SPONZORIRANO"
 
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:232
@@ -1139,16 +1139,15 @@ msgstr "PREPORUČENO"
 
 #: src/amo/components/HeroRecommendation/index.js:236
 msgid "BY FIREFOX"
-msgstr "FIREFOX"
+msgstr "FIREFOXOVO"
 
 #: src/amo/components/HeroRecommendation/index.js:252
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr "Firefox preporučuje samo proširenja, koja udovoljavaju našim standardima za sigurnost i performanse."
+msgstr "Firefox preporučuje samo proširenja koja udovoljavaju našim standardima za sigurnost i performanse."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "Teme u %(categoryName)s"
+msgstr "Više iz kategorije %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1164,7 +1163,7 @@ msgstr "Pristupi tvojim podacima za %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:176
 msgid "By Firefox"
-msgstr "Od Firefoxa"
+msgstr "Firefoxovo"
 
 #: src/amo/components/IconPromotedBadge/index.js:47 src/amo/components/PromotedBadge/index.js:48 src/amo/components/SearchFilters/index.js:174
 msgid "Recommended"
@@ -1408,15 +1407,15 @@ msgstr "Pročitaj sve recenzije s jednom zvjezdicom"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
-msgstr "Prijavili ste ovaj dodatak zbog zloupotrebe"
+msgstr "Prijavio/la si ovaj dodatak zbog zloupotrebe"
 
 #: src/amo/components/ReportAbuseButton/index.js:131
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr "Primili smo vašu prijavu. Zahvaljujemo što ste nas obavijestili o problemima s ovim dodatkom."
+msgstr "Primili smo tvoju prijavu. Hvala što dijeliš tvoju zabrinutost o ovom dodatku."
 
 #: src/amo/components/ReportAbuseButton/index.js:138 src/amo/components/ReportUserAbuse/index.js:170
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr "Ne možemo odgovoriti na svaku prijavu, ali ćemo istražiti vaš problem."
+msgstr "Ne možemo odgovoriti na svaku prijavu, ali ćemo istražiti ovaj problem."
 
 #: src/amo/components/ReportAbuseButton/index.js:148
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
@@ -1428,7 +1427,7 @@ msgstr "Prijavi ovaj dodatak zbog zloupotrebe"
 
 #: src/amo/components/ReportAbuseButton/index.js:195
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Nemojte koristiti ovaj obrazac za prijavu greški ili za traženje novih mogućnosti; ova prijava će biti poslana Mozilli, ne programeru dodatka."
+msgstr "Nemoj koristiti ovaj obrazac za prijavu grešaka ili za traženje novih funkcija; ova će se prijava poslati Mozilli, a ne programeru dodatka."
 
 #: src/amo/components/ReportAbuseButton/index.js:208 src/amo/components/ReportUserAbuse/index.js:150
 msgid "Send abuse report"
@@ -1444,7 +1443,7 @@ msgstr "Odbaci"
 
 #: src/amo/components/ReportAbuseButton/index.js:212
 msgid "Explain how this add-on is violating our policies."
-msgstr "Objasnite kako ovaj dodatak krši našu politiku."
+msgstr "Objasni kako ovaj dodatak krši našu politiku."
 
 #: src/amo/components/ReportUserAbuse/index.js:105 src/amo/components/ReportUserAbuse/index.js:112
 msgid "Report this user for abuse"
@@ -1452,23 +1451,23 @@ msgstr "Prijavi ovog korisnika za zloupotrebu"
 
 #: src/amo/components/ReportUserAbuse/index.js:119
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr "Ukoliko mislite da ovaj korisnik krši %(linkTagStart)sMozilla pravila za dodatke%(linkTagEnd)s, prijavite korisnika Mozilli."
+msgstr "Ako smatraš da ovaj korisnik krši %(linkTagStart)sMozillina pravila za dodatke%(linkTagEnd)s, prijavi korisnika Mozilli."
 
 #: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Molimo vas da ne koristite ovaj obrazac za prijavu grešaka ili kontaktiranje korisnika; vaša prijava će biti poslana Mozilli, ne ovom korisniku."
+msgstr "Molimo te da ne koristiš ovaj obrazac za prijavu grešaka ili kontaktiran korisnika; tvoja će se prijava poslati Mozilli, a ne ovom korisniku."
 
 #: src/amo/components/ReportUserAbuse/index.js:147
 msgid "Explain how this user is violating our policies."
-msgstr "Objasnite kako ovaj korisnik krši naša pravila."
+msgstr "Objasni kako ovaj korisnik krši naša pravila."
 
 #: src/amo/components/ReportUserAbuse/index.js:159
 msgid "You reported this user for abuse"
-msgstr "Prijavili ste ovog korisnika zbog zloupotrebe"
+msgstr "Prijavio/la si ovog korisnika zbog zloupotrebe"
 
 #: src/amo/components/ReportUserAbuse/index.js:163
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Primili smo vašu prijavu. Zahvaljujemo što ste nas obavijestili o problemima s ovim korisnikom."
+msgstr "Primili smo tvoju prijavu. Hvala što dijeliš tvoju zabrinutost o ovom korisniku."
 
 #: src/amo/components/Search/index.js:140 src/amo/components/SearchResults/index.js:71
 msgid "Search results"
