@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 09:54+0000\n"
+"PO-Revision-Date: 2021-05-28 10:01+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1254,71 +1254,71 @@ msgstr "Rasklopiti programerske alate za pristupanje podacima u otvorenim kartic
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
-msgstr "Preuzmi datoteke i pročitaj i promijeni povijest preuzimanja preglednika"
+msgstr "Preuzeti datoteke te čitati i promijeniti povijest preuzimanja preglednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
-msgstr "Otvori preuzete datoteke"
+msgstr "Otvoriti preuzete datoteke"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
-msgstr "Pročitaj tekst svih otvorenih kartica"
+msgstr "Čitati tekst svih otvorenih kartica"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Access your location"
-msgstr "Pristupi svojoj lokaciji"
+msgstr "Pristupiti tvojoj lokaciji"
 
 #: src/amo/components/PermissionsCard/permissions.js:42 src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
-msgstr "Pristupi povijesti pregledavanja"
+msgstr "Pristupiti povijesti pregledavanja"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
-msgstr "Prati korištenja dodataka i upravljaj temama"
+msgstr "Pratiti korištenje dodataka i upravljati temama"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
-msgstr "Razmijeni poruke s drugim programima"
+msgstr "Razmijeniti poruke s drugim programima"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
-msgstr "Prikaži obavijesti"
+msgstr "Prikazati obavijesti"
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
-msgstr "Pruži usluge za šifrirane autentifikacije"
+msgstr "Pružati usluge za šifrirane autentifikacije"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
-msgstr "Upravljaj proxy postavkama preglednika"
+msgstr "Upravljati proxy postavkama preglednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
-msgstr "Pročitaj i promijeni postavke privatnosti"
+msgstr "Čitati i mijenjati postavke privatnosti"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
-msgstr "Pristupi nedavno zatvorenim karticama"
+msgstr "Pristupiti nedavno zatvorenim karticama"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Access browser tabs"
-msgstr "Pristupi karticama preglednika"
+msgstr "Pristupiti karticama preglednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
-msgstr "Sakrij i prikaži kartice preglednika"
+msgstr "Sakriti i prikazati kartice preglednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
-msgstr "Spremaj neograničenu količinu podataka klijenta"
+msgstr "Spremiti neograničenu količinu podataka klijenta"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
-msgstr "Pristupi aktivnostima preglednika tijekom navigacije"
+msgstr "Pristupiti aktivnostima preglednika tijekom navigacije"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr "Službeni dodatak koji je izradio Mozilla Firefox. Udovoljava standardima sigurnosti i izvedbe."
+msgstr "Službeni dodatak koji je izradio Mozilla Firefox. Udovoljava standardima sigurnosti i performance."
 
 #: src/amo/components/PromotedBadge/index.js:49
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
@@ -1498,17 +1498,17 @@ msgstr "Firefoxovi dodaci"
 
 #: src/amo/components/Search/index.js:168
 msgid "Reviewed extensions"
-msgstr "Pregledana proširenja"
+msgstr "Recenzirana proširenja"
 
 # This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/Search/index.js:171
 msgid "Reviewed themes"
-msgstr "Pregledane teme"
+msgstr "Recenzirane teme"
 
 # This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/Search/index.js:174
 msgid "Reviewed add-ons"
-msgstr "Pregledani dodaci"
+msgstr "Recenzirani dodaci"
 
 #: src/amo/components/Search/index.js:179
 msgid "Verified extensions"
@@ -1678,7 +1678,7 @@ msgstr "Bilo koje"
 
 #: src/amo/components/SearchFilters/index.js:184
 msgid "All Reviewed"
-msgstr "Sve pregledano"
+msgstr "Svi recenzirani"
 
 #: src/amo/components/SearchFilters/index.js:204
 msgid "Filter results"
