@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 02:15+0000\n"
+"PO-Revision-Date: 2021-05-28 02:24+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -601,9 +601,8 @@ msgid "Log out"
 msgstr "Keluar"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
-msgstr "Daftar atau Masuk"
+msgstr "Daftar atau masuk"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:154
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -2508,11 +2507,11 @@ msgstr "Profil %(user)s, pembuat ekstensi dan tema Firefox. Temukan aplikasi lai
 
 #: src/amo/pages/UserProfile/index.js:270
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, pembuat ekstensi Firefox. Temukan ekstensi lainnya oleh %(user)s, termasuk peringkat rata-rata, kepemilikan, dan opsi untuk melaporkan masalah."
 
 #: src/amo/pages/UserProfile/index.js:274
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, pembuat tema Firefox. Temukan tema lainnya oleh %(user)s, termasuk peringkat rata-rata, kepemilikan, dan opsi untuk melaporkan masalah."
 
 #: src/amo/pages/UserProfile/index.js:307
 msgid "Add-ons developer"
@@ -2716,12 +2715,16 @@ msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Jika Anda membuat pengaya apapun, pengaya tersebut juga akan dihapus, kecuali jika Anda membagikan kepemilikan dengan pembuat lainnya. Dalam kasus tersebut, Anda akan dihapus sebagai seorang pembuat"
+" dan pembuat lainnya akan tetap memiliki kepemilikan pengaya tersebut."
 
 #: src/amo/pages/UserProfileEdit/index.js:883
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Jika seorang pengguna membuat pengaya apapun, pengaya tersebut juga akan dihapus, kecuali jika Anda membagikan kepemilikan dengan pembuat lainnya. Dalam kasus tersebut, pengguna tersebut akan "
+"dihapus sebagai seorang pembuat dan pembuat lainnya akan tetap memiliki kepemilikan pengaya tersebut."
 
 #: src/amo/pages/UserProfileEdit/index.js:893
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
@@ -2746,7 +2749,7 @@ msgstr "Anda dapat mengedit pengaturan notifikasi Anda dengan %(linkStart)ssunti
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
-msgstr ""
+msgstr "(tanpa nama)"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:298
