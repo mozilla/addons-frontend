@@ -41,7 +41,8 @@
     "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
     "version-check": "bin/version-check.js",
     "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "check-fonts": "./bin/regenerate_font.js src/fonts/woff2/Inter-roman.var.woff2 && ./bin/regenerate_font.js src/fonts/woff2/Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.woff2 && git diff --quiet HEAD src/fonts/ || (echo '\n\n Did you manually alter font files that should be generated automatically ? See docs/fonts.md for details. This check found the following differences:\n\n' && git --no-pager diff src/fonts && exit 1)"
   },
   "betterScripts": {
     "build": {

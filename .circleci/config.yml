@@ -99,6 +99,7 @@ jobs:
       - *save_build_cache
       - run: yarn lint
       - run: yarn prettier-ci
+      - run: pip install fonttools brotli && yarn check-fonts
 
   build-next:
     <<: *defaults-next
