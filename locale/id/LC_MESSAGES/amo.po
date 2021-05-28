@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 02:00+0000\n"
+"PO-Revision-Date: 2021-05-28 02:15+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -2134,6 +2134,7 @@ msgstr "Ubah tampilan Firefox dengan tema."
 #: src/amo/pages/Home/index.js:167
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
+"Unduh ekstensi dan tema Firefox. Mereka seperti aplikasi untuk peramban Anda. Mereka dapat memblokir iklan yang mengganggu, melindungi kata sandi, mengubah penampilan peramban, dan banyak lagi."
 
 #: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
@@ -2177,11 +2178,12 @@ msgstr "Lihat tema peringkat teratas lainnya"
 
 #: src/amo/pages/LandingPage/index.js:207
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Unduh tema untuk mengubah tampilan Firefox. Sesuaikan pengalaman Anda dengan selera Anda. Karaktek imut, robot jahat, pemandangan indah—ribuan opsi tersedia."
 
 #: src/amo/pages/LandingPage/index.js:212
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Unduh Ekstensi Firefox untuk menambahkan fitur-fitur yang mengubahsuai penjelajahan. Lindungi kata sandi, temukan promo, tingkatkan video, dan blokir iklan yang mengganggu dengan aplikasi peramban."
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2236,6 +2238,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Ingin berinteraksi dengan addons.mozilla.org (AMO) secara teknis? Lihat %(startAddonsServerDocumentation)sdokumentasi Add-ons Servers%(endAddonsServerDocumentation)s untuk rincian tentang APIs yang "
+"digunakan oleh AMO dan %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2270,7 +2274,7 @@ msgstr "Tentang Pengaya Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
-msgstr ""
+msgstr "Jika Anda menemukan masalah dengan situs ini, dengan senang hati kami akan memperbaikinya. Mohon laporkan %(startIssueLink)smasalah%(endIssueLink)s dan sertakan rinciannya sebanyak mungkin."
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -2281,6 +2285,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Untuk melaporkan kerentanan keamanan pada sebuah ekstensi, meskipun ekstensi tersebut tidak disediakan pada situs ini, laporkan %(startSecIssueLink)smasalah%(endSecIssueLink)s melalui Bugzilla atau "
+"surel %(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Semua laporan kerentanan keamanan adalah %(startLink)srahasia%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
@@ -2498,7 +2504,7 @@ msgstr "Ulasan saya"
 
 #: src/amo/pages/UserProfile/index.js:266
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, pembuat ekstensi dan tema Firefox. Temukan aplikasi lainnya oleh %(user)s, termasuk peringkat rata-rata, kepemilikan, dan opsi untuk melaporkan masalah."
 
 #: src/amo/pages/UserProfile/index.js:270
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
