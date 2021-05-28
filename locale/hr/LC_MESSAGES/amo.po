@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-11 16:36+0000\n"
-"PO-Revision-Date: 2021-05-28 09:37+0000\n"
+"PO-Revision-Date: 2021-05-28 09:54+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1226,31 +1226,31 @@ msgstr "Ovaj dodatak mora:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "This add-on may also ask to:"
-msgstr "Ovaj dodatak može zatražiti i:"
+msgstr "Ovaj dodatak također može zatražiti:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
-msgstr "Pročitaj i promijeni zabilješke"
+msgstr "Čitati i mijenjati zabilješke"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify browser settings"
-msgstr "Pročitaj i promijeni postavke preglednika"
+msgstr "Čitati i mijenjati postavke preglednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr "Isprazni nedavnu povijest pregledavanja, kolačiće i povezane podatke"
+msgstr "Brisati nedavnu povijest pregledavanja, kolačiće i povezane podatke"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
-msgstr "Dohvati podatke iz međuspremnika"
+msgstr "Preuzeti podatke iz međuspremnika"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
-msgstr "Unesi podatke u međuspremnik"
+msgstr "Unijeti podatke u međuspremnik"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Rasklopi programerske alate za pristupanje podacima u otvorenim karticama"
+msgstr "Rasklopiti programerske alate za pristupanje podacima u otvorenim karticama"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
