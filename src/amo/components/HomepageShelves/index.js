@@ -1,8 +1,11 @@
 /* @flow */
+import makeClassName from 'classnames';
 import * as React from 'react';
 import config from 'config';
 
+import AddonsCard from 'amo/components/AddonsCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
 import {
   ADDON_TYPE_STATIC_THEME,
@@ -12,9 +15,12 @@ import {
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import { checkInternalURL } from 'amo/utils';
 import type { ResultShelfType } from 'amo/reducers/home';
 import type { I18nType } from 'amo/types/i18n';
+
+import './styles.scss';
 
 type Props = {|
   loading: boolean,
@@ -96,17 +102,47 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
             : `/search/${criteria}`;
       }
 
+      let footerLinkHtml = null;
+      const footerLinkProps = {};
+
+      if (addons && addons.length >= count) {
+        if (footerLink && typeof footerLink === 'object') {
+          // If an href has been passed, use that for the Link.
+          if (footerLink.href) {
+            footerLinkProps.href = footerLink.href;
+            footerLinkProps.prependClientApp = false;
+            footerLinkProps.prependLang = false;
+            footerLinkProps.target = '_blank';
+          } else {
+            // As a convenience, fix the query parameter.
+            footerLinkProps.to = {
+              ...footerLink,
+              query: convertFiltersToQueryParams(footerLink),
+            };
+          }
+        } else {
+          // It's just a string, so pass it into the `to` prop.
+          footerLinkProps.to = footerLink;
+        }
+
+        footerLinkHtml = <Link {...footerLinkProps}>{footerText}</Link>;
+      }
+
       return (
-        <LandingAddonsCard
+        <AddonsCard
           addonInstallSource={addonInstallSource}
           addons={addons}
-          className={`Home-${shelfKey}`}
-          footerText={footerText}
-          footerLink={footerLink}
+          className={makeClassName(`Home-${shelfKey}`, {
+            'HomepageShelvesCard-Themes': hasThemes,
+          })}
+          footerLink={footerLinkHtml}
           header={title}
-          isTheme={hasThemes}
           key={shelfKey}
+          loading={loading}
           placeholderCount={count}
+          showPromotedBadge={false}
+          type="horizontal"
+          useThemePlaceholder={hasThemes}
         />
       );
     });
