@@ -6019,10 +6019,10 @@ hosted-git-info@^3.0.6:
   dependencies:
     lru-cache "^6.0.0"
 
-hot-shots@8.3.1:
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-8.3.1.tgz#de262964cd506978f03218e2d1f0bcd90b931093"
-  integrity sha512-eB20m2neM+uV7IM3JDCZg8/NU1+WGM7Qh7kpvC/sGIWNg4Ng+9O8JT/zrLuA+2JStiQLEy9z/9VEDFH0BzYf0A==
+hot-shots@8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-8.3.2.tgz#72e054c7317a1c9682a9de6d3820b7b192accdb5"
+  integrity sha512-Yw+sXaIlooX3CHfMWCTqu6KH9FfLkMuK0MnUM8NrLcBGW73iy+D/6iigZxh5A4khRG6+ElFRU2dJZYJMUwVGLA==
   optionalDependencies:
     unix-dgram "2.0.x"
 
