@@ -3,7 +3,7 @@ import makeClassName from 'classnames';
 import config from 'config';
 import * as React from 'react';
 
-import CardList from 'amo/components/CardList';
+import Card from 'amo/components/Card';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
@@ -168,9 +168,10 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
       }
 
       return (
-        <CardList
+        <Card
           className={makeClassName(
             `Home-${shelfKey}`,
+            'CardList',
             'horizontal' && 'AddonsCard--horizontal',
             {
               'HomepageShelvesCard-Themes': hasThemes,
@@ -183,7 +184,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           {addonElements.length ? (
             <ul className="AddonsCard-list">{addonElements}</ul>
           ) : null}
-        </CardList>
+        </Card>
       );
     });
   }
