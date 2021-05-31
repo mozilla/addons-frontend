@@ -19,7 +19,6 @@ import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -49,7 +48,6 @@ type InternalProps = {|
   ...Props,
   ...WithInstallHelpersInjectedProps,
   ...PropsFromState,
-  ...WithExperimentInjectedProps,
   i18n: I18nType,
 |};
 
@@ -64,7 +62,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     currentVersion,
     defaultButtonText,
     enable,
-    experimentId,
     hasAddonManager,
     i18n,
     install,
@@ -75,7 +72,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     showLinkInsteadOfButton,
     uninstall,
     userAgentInfo,
-    variant,
   } = props;
 
   let isCompatible = false;
@@ -110,18 +106,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     );
   };
 
-  // This can be used to pass experiment-related query params to the
-  // GetFirefoxButton. Even though we do not have an active experiment,
-  // it is expected we will continue to experiment with this experience,
-  // so this logic remains in place.
-
-  const overrideQueryParams = variant
-    ? {
-        experiment: experimentId,
-        variation: variant,
-      }
-    : {};
-
   return (
     addon && (
       <div
@@ -155,7 +139,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
             <GetFirefoxButton
               addon={addon}
               className={className ? `GetFirefoxButton--${className}` : ''}
-              overrideQueryParams={overrideQueryParams}
             />
           </>
         )}

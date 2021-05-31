@@ -290,12 +290,6 @@ describe(__filename, () => {
     expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
   });
 
-  it('passes an empty object as overrideQueryParams to GetFirefoxButton if no experiment is active', () => {
-    const root = render({ variant: null });
-
-    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {});
-  });
-
   it('passes a custom className to AMInstallButton and GetFirefoxButton', () => {
     const className = 'some-class';
     const root = render({
