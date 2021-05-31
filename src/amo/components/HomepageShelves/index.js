@@ -1,12 +1,13 @@
 /* @flow */
 import makeClassName from 'classnames';
-import * as React from 'react';
 import config from 'config';
+import * as React from 'react';
 
-import AddonsCard from 'amo/components/AddonsCard';
+import CardList from 'amo/components/CardList';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
+import SearchResult from 'amo/components/SearchResult';
 import {
   ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_FEATURED,
@@ -18,6 +19,7 @@ import translate from 'amo/i18n/translate';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import { checkInternalURL } from 'amo/utils';
 import type { ResultShelfType } from 'amo/reducers/home';
+import type { AddonType, CollectionAddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -30,6 +32,13 @@ type Props = {|
 type InternalProps = {|
   _checkInternalURL: typeof checkInternalURL,
   i18n: I18nType,
+
+  // These are passed through to SearchResult.
+  onAddonClick?: (addon: AddonType | CollectionAddonType) => void,
+  onAddonImpression?: (addon: AddonType | CollectionAddonType) => void,
+  showFullSizePreview?: boolean,
+  showMetadata?: boolean,
+  showSummary?: boolean,
   ...Props,
 |};
 
@@ -41,7 +50,12 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
     _checkInternalURL = checkInternalURL,
     i18n,
     loading,
+    onAddonClick,
+    onAddonImpression,
     shelves,
+    showFullSizePreview,
+    showMetadata,
+    showSummary,
   } = props;
 
   let shelvesContent;
@@ -128,22 +142,48 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
         footerLinkHtml = <Link {...footerLinkProps}>{footerText}</Link>;
       }
 
+      const addonElements = [];
+
+      if (addons && addons.length) {
+        addons.forEach((addon) => {
+          // Because a static theme is technically an extension, it has a summary
+          // field, but we want it to look like a theme, which does not display
+          // any summary or description.
+          addonElements.push(
+            <SearchResult
+              addonInstallSource={addonInstallSource}
+              addon={addon}
+              key={`${addon.slug}-${addon.type}`}
+              onClick={onAddonClick}
+              onImpression={onAddonImpression}
+              showFullSizePreview={showFullSizePreview}
+              showMetadata={showMetadata}
+              showPromotedBadge={false}
+              showSummary={
+                ADDON_TYPE_STATIC_THEME !== addon.type ? showSummary : false
+              }
+            />,
+          );
+        });
+      }
+
       return (
-        <AddonsCard
-          addonInstallSource={addonInstallSource}
-          addons={addons}
-          className={makeClassName(`Home-${shelfKey}`, {
-            'HomepageShelvesCard-Themes': hasThemes,
-          })}
+        <CardList
+          className={makeClassName(
+            `Home-${shelfKey}`,
+            'horizontal' && 'AddonsCard--horizontal',
+            {
+              'HomepageShelvesCard-Themes': hasThemes,
+            },
+          )}
           footerLink={footerLinkHtml}
           header={title}
           key={shelfKey}
-          loading={loading}
-          placeholderCount={count}
-          showPromotedBadge={false}
-          type="horizontal"
-          useThemePlaceholder={hasThemes}
-        />
+        >
+          {addonElements.length ? (
+            <ul className="AddonsCard-list">{addonElements}</ul>
+          ) : null}
+        </CardList>
       );
     });
   }
