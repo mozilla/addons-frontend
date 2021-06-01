@@ -2,31 +2,17 @@
 
 $callout-color: $yellow-50;
 
-// Current style
-.GetFirefoxButton--current {
+.GetFirefoxButton-button {
+  display: flex;
+  margin: auto;
   white-space: nowrap;
   width: 100%;
 
   @include respond-to(medium) {
     align-self: flex-end;
     margin-bottom: 12px;
-    width: auto;
-  }
-}
-
-// New styles for the CTA experiment
-.GetFirefoxButton--new {
-  .GetFirefoxButton-button {
-    margin: auto;
-    white-space: nowrap;
-    width: 100%;
-
-    @include respond-to(medium) {
-      align-self: flex-end;
-      margin-bottom: 12px;
-      margin-top: 0;
-      width: auto;
-    }
+    margin-top: 0;
+    width: fit-content;
   }
 }
 

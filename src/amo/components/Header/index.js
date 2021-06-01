@@ -6,19 +6,12 @@ import config from 'config';
 import makeClassName from 'classnames';
 
 import GetFirefoxBanner from 'amo/components/GetFirefoxBanner';
-import GetFirefoxButton, {
-  GET_FIREFOX_BUTTON_TYPE_HEADER,
-} from 'amo/components/GetFirefoxButton';
 import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
 import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'amo/components/AuthenticateButton';
-import {
-  EXPERIMENT_CONFIG,
-  VARIANT_NEW,
-} from 'amo/experiments/20210404_download_cta_experiment';
 import {
   getCurrentUser,
   hasAnyReviewerRelatedPermission,
@@ -29,7 +22,6 @@ import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import DropdownMenu from 'amo/components/DropdownMenu';
 import DropdownMenuItem from 'amo/components/DropdownMenuItem';
-import { withExperiment } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -38,7 +30,6 @@ export class HeaderBase extends React.Component {
     _config: PropTypes.object,
     api: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
-    experimentId: PropTypes.string,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAddonInstallPage: PropTypes.bool,
@@ -49,7 +40,6 @@ export class HeaderBase extends React.Component {
     siteIsReadOnly: PropTypes.bool.isRequired,
     siteUser: PropTypes.object,
     userAgentInfo: PropTypes.object,
-    variant: PropTypes.string,
     forBlog: PropTypes.bool,
   };
 
@@ -172,7 +162,6 @@ export class HeaderBase extends React.Component {
     const {
       _config,
       clientApp,
-      experimentId,
       forBlog,
       i18n,
       isAddonInstallPage,
@@ -180,7 +169,6 @@ export class HeaderBase extends React.Component {
       loadedPageIsAnonymous,
       location,
       userAgentInfo,
-      variant,
     } = this.props;
 
     const headerLink = (
@@ -230,22 +218,13 @@ export class HeaderBase extends React.Component {
       </>
     ) : null;
 
-    const overrideQueryParams = variant
-      ? {
-          experiment: experimentId,
-          variation: variant,
-        }
-      : {};
-
     return (
       <header
         className={makeClassName('Header', {
           'Header--loaded-page-is-anonymous': loadedPageIsAnonymous,
         })}
       >
-        {!isAddonInstallPage && variant === VARIANT_NEW ? (
-          <GetFirefoxBanner />
-        ) : null}
+        {!isAddonInstallPage ? <GetFirefoxBanner /> : null}
         <div className="Header-wrapper">
           <div className="Header-content">
             {isHomePage ? (
@@ -265,14 +244,6 @@ export class HeaderBase extends React.Component {
 
           <div className="Header-user-and-external-links">
             {otherSiteLinks}
-
-            {!forBlog && variant !== VARIANT_NEW ? (
-              <GetFirefoxButton
-                buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
-                className="Header-download-button Header-button"
-                overrideQueryParams={overrideQueryParams}
-              />
-            ) : null}
 
             {this.renderMenuOrAuthButton()}
           </div>
@@ -310,5 +281,4 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   translate(),
-  withExperiment(EXPERIMENT_CONFIG),
 )(HeaderBase);

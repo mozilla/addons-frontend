@@ -8,16 +8,10 @@ import { compose } from 'redux';
 import AMInstallButton from 'amo/components/AMInstallButton';
 import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import { UNKNOWN } from 'amo/constants';
-import {
-  VARIANT_NEW,
-  EXPERIMENT_CONFIG,
-} from 'amo/experiments/20210404_download_cta_experiment';
 import translate from 'amo/i18n/translate';
 import { findInstallURL, withInstallHelpers } from 'amo/installAddon';
 import { getVersionById } from 'amo/reducers/versions';
 import { getClientCompatibility, isFirefox } from 'amo/utils/compatibility';
-import { withExperiment } from 'amo/withExperiment';
-import type { GetFirefoxButtonTypeType } from 'amo/components/GetFirefoxButton';
 import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { InstalledAddon } from 'amo/reducers/installations';
@@ -25,7 +19,6 @@ import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -35,7 +28,6 @@ export type Props = {|
   addon: AddonType,
   className?: string,
   defaultButtonText?: string,
-  getFirefoxButtonType: GetFirefoxButtonTypeType,
   puffy?: boolean,
   // TODO: this is a false positive since eslint-react-plugin >= 7.18.0 (it was
   // working fine with 7.17.0)
@@ -56,7 +48,6 @@ type InternalProps = {|
   ...Props,
   ...WithInstallHelpersInjectedProps,
   ...PropsFromState,
-  ...WithExperimentInjectedProps,
   i18n: I18nType,
 |};
 
@@ -71,8 +62,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     currentVersion,
     defaultButtonText,
     enable,
-    experimentId,
-    getFirefoxButtonType,
     hasAddonManager,
     i18n,
     install,
@@ -83,7 +72,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     showLinkInsteadOfButton,
     uninstall,
     userAgentInfo,
-    variant,
   } = props;
 
   let isCompatible = false;
@@ -118,18 +106,10 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     );
   };
 
-  const overrideQueryParams = variant
-    ? {
-        experiment: experimentId,
-        variation: variant,
-      }
-    : {};
-
   return (
     addon && (
       <div
         className={makeClassName('InstallButtonWrapper', {
-          'InstallButtonWrapper--new': variant === VARIANT_NEW,
           'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
         })}
       >
@@ -158,10 +138,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
             />
             <GetFirefoxButton
               addon={addon}
-              buttonType={getFirefoxButtonType}
               className={className ? `GetFirefoxButton--${className}` : ''}
-              useNewVersion={variant === VARIANT_NEW}
-              overrideQueryParams={overrideQueryParams}
             />
           </>
         )}
@@ -201,7 +178,6 @@ const InstallButtonWrapper: React.ComponentType<Props> = compose(
   withInstallHelpers,
   connect(mapStateToProps),
   translate(),
-  withExperiment(EXPERIMENT_CONFIG),
 )(InstallButtonWrapperBase);
 
 export default InstallButtonWrapper;

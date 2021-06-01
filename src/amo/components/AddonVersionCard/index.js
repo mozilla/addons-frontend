@@ -5,7 +5,6 @@ import { compose } from 'redux';
 
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonInstallError from 'amo/components/AddonInstallError';
-import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import Link from 'amo/components/Link';
@@ -200,7 +199,6 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
       {addon && version && (
         <InstallButtonWrapper
           addon={addon}
-          getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
           version={version}
           showLinkInsteadOfButton={showLinkInsteadOfButton}
         />
