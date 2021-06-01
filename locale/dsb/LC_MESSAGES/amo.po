@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-11 16:36+0000\n"
+"POT-Creation-Date: 2021-06-01 17:47+0000\n"
 "PO-Revision-Date: 2021-04-25 21:02+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -583,27 +583,27 @@ msgstr ","
 msgid "by"
 msgstr "wót"
 
-#: src/amo/components/AddonVersionCard/index.js:115
+#: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "Žrědłowy kod jo pód licencu %(linkStart)s%(licenseName)s%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:126
+#: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Žrědłowy kod jo pód %(linkStart)sswójskeju licencu%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:153
+#: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
 msgstr "Žrědłowy kod jo pód licencu %(licenseName)s"
 
-#: src/amo/components/AddonVersionCard/index.js:63
+#: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
 msgstr "Žedna wersija namakana"
 
-#: src/amo/components/AddonVersionCard/index.js:71
+#: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
 msgstr "Wersija %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:95
+#: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s wózjawjone - %(fileSize)s"
 
@@ -644,28 +644,28 @@ msgstr "Drastwu instalěrowaś"
 msgid "Add to Firefox"
 msgstr "Programoju Firefox pśidaś"
 
-#: src/amo/components/App/index.js:211
+#: src/amo/components/App/index.js:214
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Dodanki za Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:215
+#: src/amo/components/App/index.js:218
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Dodanki za Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:223
+#: src/amo/components/App/index.js:226
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Dodanki za Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:227
+#: src/amo/components/App/index.js:230
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Dodanki za Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:159
+#: src/amo/components/Header/index.js:149
 msgid "Log out"
 msgstr "Wótzjawiś"
 
@@ -674,7 +674,7 @@ msgid "Register or log in"
 msgstr "Registrěrowaś abo pśizjawiś"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:154
+#: src/amo/components/Header/index.js:144
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -1178,94 +1178,89 @@ msgstr "Wó nas"
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "Źěłowa kupka rozšyrjenjow"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:228
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "Wuwijarski rožk"
 
-#: src/amo/components/GetFirefoxBanner/index.js:79
+#: src/amo/components/GetFirefoxBanner/index.js:75
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 "Aby toś te dodanki wužywał, musyśo %(linkStart)sFirefox ześěgnuś%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:158
-msgid "Only with Firefox—Get Firefox Now"
-msgstr "Jano z Firefox – Wobstarajśo se něnto Firefox"
-
-#: src/amo/components/GetFirefoxButton/index.js:162
+#: src/amo/components/GetFirefoxButton/index.js:123
 msgid "Download Firefox and get the theme"
 msgstr "Firefox ześěgnuś a drastwu wobstaraś"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:124
 msgid "Download Firefox and get the extension"
 msgstr "Firefox ześěgnuś a rozšyrjenje wobstaraś"
 
-#: src/amo/components/GetFirefoxButton/index.js:166
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download Firefox"
 msgstr "Firefox ześěgnuś"
 
-#: src/amo/components/GetFirefoxButton/index.js:169
+#: src/amo/components/GetFirefoxButton/index.js:130
 msgid "You'll need Firefox to use this theme"
 msgstr "Trjebaśo Firefox, aby toś tu drastwu wužywał"
 
-#: src/amo/components/GetFirefoxButton/index.js:170
+#: src/amo/components/GetFirefoxButton/index.js:131
 msgid "You'll need Firefox to use this extension"
 msgstr "Trjebaśo Firefox, aby toś to rozšyrjenje wužywał"
 
-#: src/amo/components/Header/index.js:100
+#: src/amo/components/Header/index.js:102
+msgid "Tools"
+msgstr "Rědy"
+
+#: src/amo/components/Header/index.js:108
+msgid "Submit a New Add-on"
+msgstr "Nowy dodank zapódaś"
+
+#: src/amo/components/Header/index.js:113
+msgid "Submit a New Theme"
+msgstr "Nowu drastwu zapódaś"
+
+#: src/amo/components/Header/index.js:122
+msgid "Manage My Submissions"
+msgstr "Móje zapódaśa zastojaś"
+
+#: src/amo/components/Header/index.js:132
+msgid "Reviewer Tools"
+msgstr "Rědy za pśeglědowarje"
+
+#: src/amo/components/Header/index.js:184
+msgid "Firefox Browser Add-ons"
+msgstr "Dodanki za Firefox Browser"
+
+#: src/amo/components/Header/index.js:204
+msgid "Learn how to create extensions and themes"
+msgstr "Zgóńśo, kak móžośo rozšyrjenja a drastwy napóraś"
+
+#: src/amo/components/Header/index.js:214
+msgid "Submit and manage extensions and themes"
+msgstr "Rozšyrjenja a drastwy wótpósłaś a zastojaś"
+
+#: src/amo/components/Header/index.js:76
+msgid "My Account"
+msgstr "Mójo konto"
+
+#: src/amo/components/Header/index.js:82
+msgid "View My Collections"
+msgstr "Móje zběrki pokazaś"
+
+#: src/amo/components/Header/index.js:90
 #: src/amo/pages/UserProfileEdit/index.js:567
 msgid "View My Profile"
 msgstr "Mój profil pokazaś"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:98
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "Mój profil wobźěłaś"
-
-#: src/amo/components/Header/index.js:112
-msgid "Tools"
-msgstr "Rědy"
-
-#: src/amo/components/Header/index.js:118
-msgid "Submit a New Add-on"
-msgstr "Nowy dodank zapódaś"
-
-#: src/amo/components/Header/index.js:123
-msgid "Submit a New Theme"
-msgstr "Nowu drastwu zapódaś"
-
-#: src/amo/components/Header/index.js:132
-msgid "Manage My Submissions"
-msgstr "Móje zapódaśa zastojaś"
-
-#: src/amo/components/Header/index.js:142
-msgid "Reviewer Tools"
-msgstr "Rědy za pśeglědowarje"
-
-#: src/amo/components/Header/index.js:196
-msgid "Firefox Browser Add-ons"
-msgstr "Dodanki za Firefox Browser"
-
-#: src/amo/components/Header/index.js:216
-msgid "Learn how to create extensions and themes"
-msgstr "Zgóńśo, kak móžośo rozšyrjenja a drastwy napóraś"
-
-#: src/amo/components/Header/index.js:226
-msgid "Submit and manage extensions and themes"
-msgstr "Rozšyrjenja a drastwy wótpósłaś a zastojaś"
-
-#: src/amo/components/Header/index.js:86
-msgid "My Account"
-msgstr "Mójo konto"
-
-#: src/amo/components/Header/index.js:92
-msgid "View My Collections"
-msgstr "Móje zběrki pokazaś"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
@@ -1339,7 +1334,7 @@ msgstr "Klikniśo na Dodanki w meniju, aby swóje dodanki zastojał."
 msgid "OK"
 msgstr "W pórěźe"
 
-#: src/amo/components/InstallButtonWrapper/index.js:115
+#: src/amo/components/InstallButtonWrapper/index.js:103
 msgid "Download file"
 msgstr "Dataju ześěgnuś"
 
@@ -2054,7 +2049,7 @@ msgstr "Wšykne drastwy pśeglědowaś"
 msgid "Add-ons Home Page"
 msgstr "Startowy bok dodankow"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
 msgid "Preview of %(title)s"
 msgstr "Pśeglěd za %(title)s"
 
@@ -2126,13 +2121,13 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Toś ten dodank njedajo se pógódnośiś, dokulaž žedne wersije njejsu se "
 "wózjawili."
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s pógódnośenje cytaś"
@@ -2140,43 +2135,43 @@ msgstr[1] "%(count)s pógódnośeni cytaś"
 msgstr[2] "%(count)s pógódnośenja cytaś"
 msgstr[3] "%(count)s pógódnośenjow cytaś"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:238
 msgid "No reviews yet"
 msgstr "Hyšći žedne pógódnośenja"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:248
 msgid "Rate your experience"
 msgstr "Pógódnośćo swóje dožywjenje"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:267
 msgid "About this dictionary"
 msgstr "Wó toś tom słowniku"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:270
 msgid "About this extension"
 msgstr "Wó toś tom rozšyrjenju"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:273
 msgid "About this language pack"
 msgstr "Wó toś tom rěcnem pakśiku"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:276
 msgid "About this theme"
 msgstr "Wó toś tej drastwje"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:279
 msgid "About this add-on"
 msgstr "Wó toś tom dodanku"
 
-#: src/amo/pages/Addon/index.js:324
+#: src/amo/pages/Addon/index.js:323
 msgid "Developer comments"
 msgstr "Wuwijaŕske komentary"
 
-#: src/amo/pages/Addon/index.js:347
+#: src/amo/pages/Addon/index.js:346
 msgid "Release notes for %(addonVersion)s"
 msgstr "Wersijowe informacije za %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:465
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2184,11 +2179,11 @@ msgstr ""
 "To njejo zjawny lisćinowy zapisk. Wiźiśo jen jano, dokulaž maśo rozšyrjone "
 "pšawa."
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:487
 msgid "Extension Metadata"
 msgstr "Metadaty rozšyrjenja"
 
-#: src/amo/pages/Addon/index.js:517
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "Fota wobrazowki"
 
@@ -3378,6 +3373,9 @@ msgstr "kompatibelnosć mójogo dodanka njedajo se pówušyś"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "Kompatibelnosć mójogo dodanka jo se wuspěšnje pówušiła"
+
+#~ msgid "Only with Firefox—Get Firefox Now"
+#~ msgstr "Jano z Firefox – Wobstarajśo se něnto Firefox"
 
 #~ msgid "Learn more about permissions"
 #~ msgstr "Dalšne informacije wó pšawach"

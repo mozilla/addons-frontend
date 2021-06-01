@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-11 16:36+0000\n"
+"POT-Creation-Date: 2021-06-01 17:47+0000\n"
 "PO-Revision-Date: 2021-04-21 03:47+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -554,27 +554,27 @@ msgstr "、"
 msgid "by"
 msgstr "作者:"
 
-#: src/amo/components/AddonVersionCard/index.js:115
+#: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "原始碼依照 %(linkStart)s%(licenseName)s%(linkEnd)s 條款釋出"
 
-#: src/amo/components/AddonVersionCard/index.js:126
+#: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "原始碼依照%(linkStart)s自訂授權%(linkEnd)s條款釋出"
 
-#: src/amo/components/AddonVersionCard/index.js:153
+#: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
 msgstr "原始碼依照 %(licenseName)s 條款釋出"
 
-#: src/amo/components/AddonVersionCard/index.js:63
+#: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
 msgstr "沒有找到版本"
 
-#: src/amo/components/AddonVersionCard/index.js:71
+#: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
 msgstr "版本 %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:95
+#: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "發行於 %(dateReleased)s - %(fileSize)s"
 
@@ -615,28 +615,28 @@ msgstr "安裝佈景主題"
 msgid "Add to Firefox"
 msgstr "新增至 Firefox"
 
-#: src/amo/components/App/index.js:211
+#: src/amo/components/App/index.js:214
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox 附加元件站（%(locale)s）"
 
-#: src/amo/components/App/index.js:215
+#: src/amo/components/App/index.js:218
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Firefox 附加元件站（%(locale)s）"
 
-#: src/amo/components/App/index.js:223
+#: src/amo/components/App/index.js:226
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Firefox Android 附加元件站（%(locale)s）"
 
-#: src/amo/components/App/index.js:227
+#: src/amo/components/App/index.js:230
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Firefox Android 附加元件站（%(locale)s）"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:159
+#: src/amo/components/Header/index.js:149
 msgid "Log out"
 msgstr "登出"
 
@@ -645,7 +645,7 @@ msgid "Register or log in"
 msgstr "註冊或登入"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:154
+#: src/amo/components/Header/index.js:144
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr "目前暫時無法進行此操作，請稍後重新載入頁面。"
@@ -1125,93 +1125,88 @@ msgstr "關於"
 msgid "Blog"
 msgstr "部落格"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "擴充套件工作坊"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:228
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "開發者交流中心"
 
-#: src/amo/components/GetFirefoxBanner/index.js:79
+#: src/amo/components/GetFirefoxBanner/index.js:75
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr "必須%(linkStart)s下載 Firefox%(linkEnd)s 才能使用這些附加元件"
 
-#: src/amo/components/GetFirefoxButton/index.js:158
-msgid "Only with Firefox—Get Firefox Now"
-msgstr "只在 Firefox 上才有，快來安裝！"
-
-#: src/amo/components/GetFirefoxButton/index.js:162
+#: src/amo/components/GetFirefoxButton/index.js:123
 msgid "Download Firefox and get the theme"
 msgstr "下載 Firefox 並安裝佈景主題"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:124
 msgid "Download Firefox and get the extension"
 msgstr "下載 Firefox 並安裝擴充套件"
 
-#: src/amo/components/GetFirefoxButton/index.js:166
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download Firefox"
 msgstr "下載 Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:169
+#: src/amo/components/GetFirefoxButton/index.js:130
 msgid "You'll need Firefox to use this theme"
 msgstr "必須使用 Firefox 才能使用此佈景主題"
 
-#: src/amo/components/GetFirefoxButton/index.js:170
+#: src/amo/components/GetFirefoxButton/index.js:131
 msgid "You'll need Firefox to use this extension"
 msgstr "必須使用 Firefox 才能使用此擴充套件"
 
-#: src/amo/components/Header/index.js:100
+#: src/amo/components/Header/index.js:102
+msgid "Tools"
+msgstr "工具"
+
+#: src/amo/components/Header/index.js:108
+msgid "Submit a New Add-on"
+msgstr "上架新附加元件"
+
+#: src/amo/components/Header/index.js:113
+msgid "Submit a New Theme"
+msgstr "上架新佈景主題"
+
+#: src/amo/components/Header/index.js:122
+msgid "Manage My Submissions"
+msgstr "管理我上架的項目"
+
+#: src/amo/components/Header/index.js:132
+msgid "Reviewer Tools"
+msgstr "審核者工具"
+
+#: src/amo/components/Header/index.js:184
+msgid "Firefox Browser Add-ons"
+msgstr "Firefox 瀏覽器附加元件"
+
+#: src/amo/components/Header/index.js:204
+msgid "Learn how to create extensions and themes"
+msgstr "了解如何建立擴充套件與佈景主題"
+
+#: src/amo/components/Header/index.js:214
+msgid "Submit and manage extensions and themes"
+msgstr "送出並管理擴充套件與佈景主題"
+
+#: src/amo/components/Header/index.js:76
+msgid "My Account"
+msgstr "我的帳號"
+
+#: src/amo/components/Header/index.js:82
+msgid "View My Collections"
+msgstr "檢視我的收藏集"
+
+#: src/amo/components/Header/index.js:90
 #: src/amo/pages/UserProfileEdit/index.js:567
 msgid "View My Profile"
 msgstr "檢視我的個人資料"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:98
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "編輯我的個人資料"
-
-#: src/amo/components/Header/index.js:112
-msgid "Tools"
-msgstr "工具"
-
-#: src/amo/components/Header/index.js:118
-msgid "Submit a New Add-on"
-msgstr "上架新附加元件"
-
-#: src/amo/components/Header/index.js:123
-msgid "Submit a New Theme"
-msgstr "上架新佈景主題"
-
-#: src/amo/components/Header/index.js:132
-msgid "Manage My Submissions"
-msgstr "管理我上架的項目"
-
-#: src/amo/components/Header/index.js:142
-msgid "Reviewer Tools"
-msgstr "審核者工具"
-
-#: src/amo/components/Header/index.js:196
-msgid "Firefox Browser Add-ons"
-msgstr "Firefox 瀏覽器附加元件"
-
-#: src/amo/components/Header/index.js:216
-msgid "Learn how to create extensions and themes"
-msgstr "了解如何建立擴充套件與佈景主題"
-
-#: src/amo/components/Header/index.js:226
-msgid "Submit and manage extensions and themes"
-msgstr "送出並管理擴充套件與佈景主題"
-
-#: src/amo/components/Header/index.js:86
-msgid "My Account"
-msgstr "我的帳號"
-
-#: src/amo/components/Header/index.js:92
-msgid "View My Collections"
-msgstr "檢視我的收藏集"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
@@ -1283,7 +1278,7 @@ msgstr "點擊選單中的「附加元件」來管理您的附加元件。"
 msgid "OK"
 msgstr "好喔！"
 
-#: src/amo/components/InstallButtonWrapper/index.js:115
+#: src/amo/components/InstallButtonWrapper/index.js:103
 msgid "Download file"
 msgstr "下載檔案"
 
@@ -1930,7 +1925,7 @@ msgstr "瀏覽所有佈景主題"
 msgid "Add-ons Home Page"
 msgstr "附加元件站首頁"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
 msgid "Preview of %(title)s"
 msgstr "%(title)s 預覽"
 
@@ -1997,62 +1992,62 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "因為還沒有公開發布任何版本，無法對此附加元件評分。"
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "閱讀全部 %(count)s 條評論"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:238
 msgid "No reviews yet"
 msgstr "還沒有評論"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:248
 msgid "Rate your experience"
 msgstr "為您的體驗打分數"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:267
 msgid "About this dictionary"
 msgstr "關於此字典"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:270
 msgid "About this extension"
 msgstr "關於此擴充套件"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:273
 msgid "About this language pack"
 msgstr "關於此語言套件"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:276
 msgid "About this theme"
 msgstr "關於此佈景主題"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:279
 msgid "About this add-on"
 msgstr "關於此附加元件"
 
-#: src/amo/pages/Addon/index.js:324
+#: src/amo/pages/Addon/index.js:323
 msgid "Developer comments"
 msgstr "開發者留言"
 
-#: src/amo/pages/Addon/index.js:347
+#: src/amo/pages/Addon/index.js:346
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s 版的發行公告"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:465
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "這不是公開上架的項目，因為權限提升才會看到本項目。"
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:487
 msgid "Extension Metadata"
 msgstr "擴充套件後設資料"
 
-#: src/amo/pages/Addon/index.js:517
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "畫面擷圖"
 
@@ -3157,6 +3152,9 @@ msgstr "無法升級我的附加元件相容性"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "成功升級我的附加元件相容性"
+
+#~ msgid "Only with Firefox—Get Firefox Now"
+#~ msgstr "只在 Firefox 上才有，快來安裝！"
 
 #~ msgid "Learn more about permissions"
 #~ msgstr "了解權限的更多資訊"

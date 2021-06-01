@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-11 16:36+0000\n"
+"POT-Creation-Date: 2021-06-01 17:47+0000\n"
 "PO-Revision-Date: 2020-03-09 05:37+0000\n"
 "Last-Translator: Handell González-Raymat <gabroche@hotmail.com>\n"
 "Language-Team: none\n"
@@ -561,31 +561,31 @@ msgstr ","
 msgid "by"
 msgstr "por"
 
-#: src/amo/components/AddonVersionCard/index.js:115
+#: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr ""
 "Se publicó el código fuente bajo la licencia %(linkStart)s%(licenseName)s"
 "%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:126
+#: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr ""
 "Se publicó el código fuente bajo la licencia %(linkStart)sCustom License"
 "%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:153
+#: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
 msgstr "Se publicó el código fuente bajo la licencia %(licenseName)s"
 
-#: src/amo/components/AddonVersionCard/index.js:63
+#: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
 msgstr "No se encontró ninguna versión"
 
-#: src/amo/components/AddonVersionCard/index.js:71
+#: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
 msgstr "Versión %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:95
+#: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Lanzada el %(dateReleased)s - %(fileSize)s"
 
@@ -627,28 +627,28 @@ msgstr "Instalar tema"
 msgid "Add to Firefox"
 msgstr "Agregar a Firefox"
 
-#: src/amo/components/App/index.js:211
+#: src/amo/components/App/index.js:214
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Complementos para Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:215
+#: src/amo/components/App/index.js:218
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Complementos para Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:223
+#: src/amo/components/App/index.js:226
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Complementos para Firefox para Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:227
+#: src/amo/components/App/index.js:230
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Complementos para Firefox para Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:159
+#: src/amo/components/Header/index.js:149
 msgid "Log out"
 msgstr "Cerrar sesión"
 
@@ -658,7 +658,7 @@ msgid "Register or log in"
 msgstr "Registrarse o iniciar sesión"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:154
+#: src/amo/components/Header/index.js:144
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -1170,96 +1170,91 @@ msgstr "Acerca de"
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "Taller de extensiones"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:228
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "Central del desarrollador"
 
-#: src/amo/components/GetFirefoxBanner/index.js:79
+#: src/amo/components/GetFirefoxBanner/index.js:75
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:158
-msgid "Only with Firefox—Get Firefox Now"
-msgstr "Solo con Firefox: ¡Consíguelo ya!"
-
-#: src/amo/components/GetFirefoxButton/index.js:162
+#: src/amo/components/GetFirefoxButton/index.js:123
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "Descargar Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:124
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:166
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download Firefox"
 msgstr "Descargar Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:169
+#: src/amo/components/GetFirefoxButton/index.js:130
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "Iniciar sesión para evaluar este tema"
 
-#: src/amo/components/GetFirefoxButton/index.js:170
+#: src/amo/components/GetFirefoxButton/index.js:131
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
 msgstr "Inicia sesión para evaluar esta extensión"
 
-#: src/amo/components/Header/index.js:100
+#: src/amo/components/Header/index.js:102
+msgid "Tools"
+msgstr "Herramientas"
+
+#: src/amo/components/Header/index.js:108
+msgid "Submit a New Add-on"
+msgstr "Enviar un nuevo complemento"
+
+#: src/amo/components/Header/index.js:113
+msgid "Submit a New Theme"
+msgstr "Enviar un nuevo tema"
+
+#: src/amo/components/Header/index.js:122
+msgid "Manage My Submissions"
+msgstr "Administrar mis envíos"
+
+#: src/amo/components/Header/index.js:132
+msgid "Reviewer Tools"
+msgstr "Herramientas del revisor"
+
+#: src/amo/components/Header/index.js:184
+msgid "Firefox Browser Add-ons"
+msgstr "Buscador de complementos para Firefox"
+
+#: src/amo/components/Header/index.js:204
+msgid "Learn how to create extensions and themes"
+msgstr "Descubre cómo crear extensiones y temas"
+
+#: src/amo/components/Header/index.js:214
+msgid "Submit and manage extensions and themes"
+msgstr "Enviar y administrar extensiones y temas"
+
+#: src/amo/components/Header/index.js:76
+msgid "My Account"
+msgstr "Mi cuenta"
+
+#: src/amo/components/Header/index.js:82
+msgid "View My Collections"
+msgstr "Ver Mis colecciones"
+
+#: src/amo/components/Header/index.js:90
 #: src/amo/pages/UserProfileEdit/index.js:567
 msgid "View My Profile"
 msgstr "Ver Mi perfil"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:98
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "Editar Mi perfil"
-
-#: src/amo/components/Header/index.js:112
-msgid "Tools"
-msgstr "Herramientas"
-
-#: src/amo/components/Header/index.js:118
-msgid "Submit a New Add-on"
-msgstr "Enviar un nuevo complemento"
-
-#: src/amo/components/Header/index.js:123
-msgid "Submit a New Theme"
-msgstr "Enviar un nuevo tema"
-
-#: src/amo/components/Header/index.js:132
-msgid "Manage My Submissions"
-msgstr "Administrar mis envíos"
-
-#: src/amo/components/Header/index.js:142
-msgid "Reviewer Tools"
-msgstr "Herramientas del revisor"
-
-#: src/amo/components/Header/index.js:196
-msgid "Firefox Browser Add-ons"
-msgstr "Buscador de complementos para Firefox"
-
-#: src/amo/components/Header/index.js:216
-msgid "Learn how to create extensions and themes"
-msgstr "Descubre cómo crear extensiones y temas"
-
-#: src/amo/components/Header/index.js:226
-msgid "Submit and manage extensions and themes"
-msgstr "Enviar y administrar extensiones y temas"
-
-#: src/amo/components/Header/index.js:86
-msgid "My Account"
-msgstr "Mi cuenta"
-
-#: src/amo/components/Header/index.js:92
-msgid "View My Collections"
-msgstr "Ver Mis colecciones"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
@@ -1335,7 +1330,7 @@ msgstr "Gestiona tus complementos haciendo clic en Complementos en el menú."
 msgid "OK"
 msgstr "Vale"
 
-#: src/amo/components/InstallButtonWrapper/index.js:115
+#: src/amo/components/InstallButtonWrapper/index.js:103
 #, fuzzy
 msgid "Download file"
 msgstr "Descargando"
@@ -2035,7 +2030,7 @@ msgstr "Ver todos los temas"
 msgid "Add-ons Home Page"
 msgstr "Página de inicio de complementos"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
 msgid "Preview of %(title)s"
 msgstr "Vista previa de %(title)s"
 
@@ -2105,67 +2100,67 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "No se puede calificar este complemento porque aún no se ha publicado ninguna "
 "versión."
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Leer %(count)s revisiones"
 msgstr[1] "Leer las %(count)s revisiones"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:238
 msgid "No reviews yet"
 msgstr "Aún no hay revisiones"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:248
 msgid "Rate your experience"
 msgstr "Califica tu experiencia"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:267
 msgid "About this dictionary"
 msgstr "Sobre este diccionario"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:270
 msgid "About this extension"
 msgstr "Sobre esta extensión"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:273
 msgid "About this language pack"
 msgstr "Sobre este paquete de idioma"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:276
 msgid "About this theme"
 msgstr "Sobre este tema"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:279
 msgid "About this add-on"
 msgstr "Sobre este complemento"
 
-#: src/amo/pages/Addon/index.js:324
+#: src/amo/pages/Addon/index.js:323
 #, fuzzy
 msgid "Developer comments"
 msgstr "Normativas para desarrolladores"
 
-#: src/amo/pages/Addon/index.js:347
+#: src/amo/pages/Addon/index.js:346
 msgid "Release notes for %(addonVersion)s"
 msgstr "Notas de prensa para %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:465
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Esta lista no es pública. La puedes ver porque tienes permisos elevados."
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:487
 msgid "Extension Metadata"
 msgstr "Metadata de la extensión"
 
-#: src/amo/pages/Addon/index.js:517
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "Capturas de pantalla"
 
@@ -3344,6 +3339,9 @@ msgstr "no se puede actualizar la compatibilidad de mi complemento"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "se ha actualizado correctamente la compatibilidad de mi complemento"
+
+#~ msgid "Only with Firefox—Get Firefox Now"
+#~ msgstr "Solo con Firefox: ¡Consíguelo ya!"
 
 #~ msgid "Learn more about permissions"
 #~ msgstr "Saber más sobre permisos"

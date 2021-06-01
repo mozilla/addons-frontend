@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-11 16:36+0000\n"
+"POT-Creation-Date: 2021-06-01 17:47+0000\n"
 "PO-Revision-Date: 2021-04-28 21:21+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -554,27 +554,27 @@ msgstr ","
 msgid "by"
 msgstr "제작자:"
 
-#: src/amo/components/AddonVersionCard/index.js:115
+#: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "%(linkStart)s%(licenseName)s%(linkEnd)s에 따라 릴리스된 소스 코드"
 
-#: src/amo/components/AddonVersionCard/index.js:126
+#: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "%(linkStart)sCustom License%(linkEnd)s에 따라 릴리스된 소스 코드"
 
-#: src/amo/components/AddonVersionCard/index.js:153
+#: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
 msgstr "%(licenseName)s에 따라 릴리스된 소스 코드"
 
-#: src/amo/components/AddonVersionCard/index.js:63
+#: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
 msgstr "버전을 찾을 수 없음"
 
-#: src/amo/components/AddonVersionCard/index.js:71
+#: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
 msgstr "버전 %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:95
+#: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s에 출시 - %(fileSize)s"
 
@@ -615,28 +615,28 @@ msgstr "테마 설치하기"
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
-#: src/amo/components/App/index.js:211
+#: src/amo/components/App/index.js:214
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox용 부가 기능 (%(locale)s)"
 
-#: src/amo/components/App/index.js:215
+#: src/amo/components/App/index.js:218
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Firefox용 부가 기능 (%(locale)s)"
 
-#: src/amo/components/App/index.js:223
+#: src/amo/components/App/index.js:226
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Firefox Android용 부가 기능 (%(locale)s)"
 
-#: src/amo/components/App/index.js:227
+#: src/amo/components/App/index.js:230
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Firefox Android용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:159
+#: src/amo/components/Header/index.js:149
 msgid "Log out"
 msgstr "로그아웃"
 
@@ -645,7 +645,7 @@ msgid "Register or log in"
 msgstr "가입하기 또는 로그인"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:154
+#: src/amo/components/Header/index.js:144
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr "이 작업은 현재 사용할 수 없습니다. 잠시 후 페이지를 다시 로드해주세요."
@@ -1140,93 +1140,88 @@ msgstr "소개"
 msgid "Blog"
 msgstr "블로그"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "확장 기능 워크샵"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:228
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "개발자 허브"
 
-#: src/amo/components/GetFirefoxBanner/index.js:79
+#: src/amo/components/GetFirefoxBanner/index.js:75
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:158
-msgid "Only with Firefox—Get Firefox Now"
-msgstr "Firefox 전용 — Firefox를 설치하세요"
-
-#: src/amo/components/GetFirefoxButton/index.js:162
+#: src/amo/components/GetFirefoxButton/index.js:123
 msgid "Download Firefox and get the theme"
 msgstr "Firefox 다운로드 및 테마 설치"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:124
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:166
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download Firefox"
 msgstr "Firefox 다운로드"
 
-#: src/amo/components/GetFirefoxButton/index.js:169
+#: src/amo/components/GetFirefoxButton/index.js:130
 msgid "You'll need Firefox to use this theme"
 msgstr "이 테마를 사용하려면 Firefox가 필요함"
 
-#: src/amo/components/GetFirefoxButton/index.js:170
+#: src/amo/components/GetFirefoxButton/index.js:131
 msgid "You'll need Firefox to use this extension"
 msgstr "이 확장 기능을 사용하려면 Firefox가 필요함"
 
-#: src/amo/components/Header/index.js:100
+#: src/amo/components/Header/index.js:102
+msgid "Tools"
+msgstr "도구"
+
+#: src/amo/components/Header/index.js:108
+msgid "Submit a New Add-on"
+msgstr "새 부가 기능 등록"
+
+#: src/amo/components/Header/index.js:113
+msgid "Submit a New Theme"
+msgstr "새 테마 등록"
+
+#: src/amo/components/Header/index.js:122
+msgid "Manage My Submissions"
+msgstr "내 제출물 관리"
+
+#: src/amo/components/Header/index.js:132
+msgid "Reviewer Tools"
+msgstr "리뷰어 도구"
+
+#: src/amo/components/Header/index.js:184
+msgid "Firefox Browser Add-ons"
+msgstr "Firefox 브라우저 부가 기능"
+
+#: src/amo/components/Header/index.js:204
+msgid "Learn how to create extensions and themes"
+msgstr "확장 기능 및 테마를 만드는 방법 알아보기"
+
+#: src/amo/components/Header/index.js:214
+msgid "Submit and manage extensions and themes"
+msgstr "확장 기능과 테마 제출 및 관리"
+
+#: src/amo/components/Header/index.js:76
+msgid "My Account"
+msgstr "내 계정"
+
+#: src/amo/components/Header/index.js:82
+msgid "View My Collections"
+msgstr "내 모음집 보기"
+
+#: src/amo/components/Header/index.js:90
 #: src/amo/pages/UserProfileEdit/index.js:567
 msgid "View My Profile"
 msgstr "내 프로필 보기"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:98
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Edit My Profile"
 msgstr "내 프로필 수정"
-
-#: src/amo/components/Header/index.js:112
-msgid "Tools"
-msgstr "도구"
-
-#: src/amo/components/Header/index.js:118
-msgid "Submit a New Add-on"
-msgstr "새 부가 기능 등록"
-
-#: src/amo/components/Header/index.js:123
-msgid "Submit a New Theme"
-msgstr "새 테마 등록"
-
-#: src/amo/components/Header/index.js:132
-msgid "Manage My Submissions"
-msgstr "내 제출물 관리"
-
-#: src/amo/components/Header/index.js:142
-msgid "Reviewer Tools"
-msgstr "리뷰어 도구"
-
-#: src/amo/components/Header/index.js:196
-msgid "Firefox Browser Add-ons"
-msgstr "Firefox 브라우저 부가 기능"
-
-#: src/amo/components/Header/index.js:216
-msgid "Learn how to create extensions and themes"
-msgstr "확장 기능 및 테마를 만드는 방법 알아보기"
-
-#: src/amo/components/Header/index.js:226
-msgid "Submit and manage extensions and themes"
-msgstr "확장 기능과 테마 제출 및 관리"
-
-#: src/amo/components/Header/index.js:86
-msgid "My Account"
-msgstr "내 계정"
-
-#: src/amo/components/Header/index.js:92
-msgid "View My Collections"
-msgstr "내 모음집 보기"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
@@ -1298,7 +1293,7 @@ msgstr "메뉴에서 [부가 기능]을 클릭하여 부가 기능을 관리하�
 msgid "OK"
 msgstr "확인"
 
-#: src/amo/components/InstallButtonWrapper/index.js:115
+#: src/amo/components/InstallButtonWrapper/index.js:103
 msgid "Download file"
 msgstr "파일 다운로드"
 
@@ -1957,7 +1952,7 @@ msgstr "모든 테마 탐색하기"
 msgid "Add-ons Home Page"
 msgstr "부가 기능 홈 페이지"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
 msgid "Preview of %(title)s"
 msgstr "%(title)s 미리보기"
 
@@ -2026,62 +2021,62 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "배포된 버전이 없으므로 이 부가 기능에 점수를 줄 수 없습니다."
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "리뷰 %(count)s개 모두 읽기"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:238
 msgid "No reviews yet"
 msgstr "아직 리뷰 없음"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:248
 msgid "Rate your experience"
 msgstr "평가"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:267
 msgid "About this dictionary"
 msgstr "이 사전 정보"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:270
 msgid "About this extension"
 msgstr "정보"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:273
 msgid "About this language pack"
 msgstr "이 언어 팩 정보"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:276
 msgid "About this theme"
 msgstr "이 테마 정보"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:279
 msgid "About this add-on"
 msgstr "이 부가 기능 정보"
 
-#: src/amo/pages/Addon/index.js:324
+#: src/amo/pages/Addon/index.js:323
 msgid "Developer comments"
 msgstr "개발자 의견"
 
-#: src/amo/pages/Addon/index.js:347
+#: src/amo/pages/Addon/index.js:346
 msgid "Release notes for %(addonVersion)s"
 msgstr "버전 %(addonVersion)s의 출시 정보"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:465
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "공개 목록이 아닙니다. 상승된 권한으로 보고 있습다."
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:487
 msgid "Extension Metadata"
 msgstr "확장 메타 데이터"
 
-#: src/amo/pages/Addon/index.js:517
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "스크린샷"
 
@@ -3170,6 +3165,9 @@ msgstr "부가 기능 호환성을 업그레이드 할 수 없습니다"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "부가 기능 호환성이 업그레이드 되었습니다"
+
+#~ msgid "Only with Firefox—Get Firefox Now"
+#~ msgstr "Firefox 전용 — Firefox를 설치하세요"
 
 #~ msgid "Learn more about permissions"
 #~ msgstr "권한에 대해 더 알아보기"
