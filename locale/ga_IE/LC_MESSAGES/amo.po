@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-11 16:36+0000\n"
+"POT-Creation-Date: 2021-06-01 17:47+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -631,31 +631,31 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:115
+#: src/amo/components/AddonVersionCard/index.js:114
 #, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "ó %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:126
+#: src/amo/components/AddonVersionCard/index.js:125
 #, fuzzy
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "ó %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:153
+#: src/amo/components/AddonVersionCard/index.js:152
 #, fuzzy
 msgid "Source code released under %(licenseName)s"
 msgstr "ó %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:63
+#: src/amo/components/AddonVersionCard/index.js:62
 #, fuzzy
 msgid "No version found"
 msgstr "Níor aimsíodh aon chatagóirí."
 
-#: src/amo/components/AddonVersionCard/index.js:71
+#: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:95
+#: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
@@ -700,32 +700,32 @@ msgstr "Suiteáil an Téama"
 msgid "Add to Firefox"
 msgstr "Cuir le Firefox é"
 
-#: src/amo/components/App/index.js:211
+#: src/amo/components/App/index.js:214
 #: src/amo/components/HeadMetaTags/index.js:87
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/App/index.js:215
+#: src/amo/components/App/index.js:218
 #: src/amo/components/HeadMetaTags/index.js:81
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/App/index.js:223
+#: src/amo/components/App/index.js:226
 #: src/amo/components/HeadMetaTags/index.js:86
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/App/index.js:227
+#: src/amo/components/App/index.js:230
 #: src/amo/components/HeadMetaTags/index.js:80
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:159
+#: src/amo/components/Header/index.js:149
 msgid "Log out"
 msgstr "Logáil amach"
 
@@ -734,7 +734,7 @@ msgid "Register or log in"
 msgstr ""
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:154
+#: src/amo/components/Header/index.js:144
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -1241,102 +1241,97 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "Eisínteachtaí"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:228
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "Lárionad na bhForbróirí"
 
-#: src/amo/components/GetFirefoxBanner/index.js:79
+#: src/amo/components/GetFirefoxBanner/index.js:75
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:158
-msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
-
-#: src/amo/components/GetFirefoxButton/index.js:162
+#: src/amo/components/GetFirefoxButton/index.js:123
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:124
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:166
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:127
 #, fuzzy
 msgid "Download Firefox"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:169
+#: src/amo/components/GetFirefoxButton/index.js:130
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "Logáil isteach chun an téama seo a rátáil"
 
-#: src/amo/components/GetFirefoxButton/index.js:170
+#: src/amo/components/GetFirefoxButton/index.js:131
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
 msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
 
-#: src/amo/components/Header/index.js:100
-#: src/amo/pages/UserProfileEdit/index.js:567
-msgid "View My Profile"
-msgstr ""
-
-#: src/amo/components/Header/index.js:108
-#: src/amo/pages/UserProfileEdit/index.js:573
-#, fuzzy
-msgid "Edit My Profile"
-msgstr "Scríobh léirmheas"
-
-#: src/amo/components/Header/index.js:112
+#: src/amo/components/Header/index.js:102
 msgid "Tools"
 msgstr ""
 
-#: src/amo/components/Header/index.js:118
+#: src/amo/components/Header/index.js:108
 msgid "Submit a New Add-on"
 msgstr ""
 
-#: src/amo/components/Header/index.js:123
+#: src/amo/components/Header/index.js:113
 msgid "Submit a New Theme"
 msgstr ""
 
-#: src/amo/components/Header/index.js:132
+#: src/amo/components/Header/index.js:122
 msgid "Manage My Submissions"
 msgstr ""
 
-#: src/amo/components/Header/index.js:142
+#: src/amo/components/Header/index.js:132
 #, fuzzy
 msgid "Reviewer Tools"
 msgstr "Níl aon léirmheas ann"
 
-#: src/amo/components/Header/index.js:196
+#: src/amo/components/Header/index.js:184
 #, fuzzy
 msgid "Firefox Browser Add-ons"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/Header/index.js:216
+#: src/amo/components/Header/index.js:204
 #, fuzzy
 msgid "Learn how to create extensions and themes"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
-#: src/amo/components/Header/index.js:226
+#: src/amo/components/Header/index.js:214
 msgid "Submit and manage extensions and themes"
 msgstr ""
 
-#: src/amo/components/Header/index.js:86
+#: src/amo/components/Header/index.js:76
 msgid "My Account"
 msgstr ""
 
-#: src/amo/components/Header/index.js:92
+#: src/amo/components/Header/index.js:82
 msgid "View My Collections"
 msgstr ""
+
+#: src/amo/components/Header/index.js:90
+#: src/amo/pages/UserProfileEdit/index.js:567
+msgid "View My Profile"
+msgstr ""
+
+#: src/amo/components/Header/index.js:98
+#: src/amo/pages/UserProfileEdit/index.js:573
+#, fuzzy
+msgid "Edit My Profile"
+msgstr "Scríobh léirmheas"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 #, fuzzy
@@ -1413,7 +1408,7 @@ msgstr ""
 msgid "OK"
 msgstr "OK!"
 
-#: src/amo/components/InstallButtonWrapper/index.js:115
+#: src/amo/components/InstallButtonWrapper/index.js:103
 #, fuzzy
 msgid "Download file"
 msgstr "%(name)s á íoslódáil."
@@ -2160,7 +2155,7 @@ msgstr "Brabhsáil na téamaí go léir"
 msgid "Add-ons Home Page"
 msgstr "Baile na mBreiseán"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
 msgid "Preview of %(title)s"
 msgstr ""
 
@@ -2233,11 +2228,11 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Léigh %(count)s léirmheas"
@@ -2246,60 +2241,60 @@ msgstr[2] "Léigh na %(count)s léirmheas"
 msgstr[3] "Léigh na %(count)s léirmheas"
 msgstr[4] "Léigh na %(count)s léirmheas"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:238
 msgid "No reviews yet"
 msgstr "Níl aon léirmheas ann"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:248
 msgid "Rate your experience"
 msgstr "Rátáil d'eispéireas"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:267
 #, fuzzy
 msgid "About this dictionary"
 msgstr "Logáil isteach chun an foclóir seo a rátáil"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:270
 #, fuzzy
 msgid "About this extension"
 msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:273
 #, fuzzy
 msgid "About this language pack"
 msgstr "Logáil isteach chun an pacáiste teanga seo a rátáil"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:276
 #, fuzzy
 msgid "About this theme"
 msgstr "Logáil isteach chun an téama seo a rátáil"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:279
 #, fuzzy
 msgid "About this add-on"
 msgstr "Maidir leis an %(addonType)s seo"
 
-#: src/amo/pages/Addon/index.js:324
+#: src/amo/pages/Addon/index.js:323
 #, fuzzy
 msgid "Developer comments"
 msgstr "Lárionad na bhForbróirí"
 
-#: src/amo/pages/Addon/index.js:347
+#: src/amo/pages/Addon/index.js:346
 #, fuzzy
 msgid "Release notes for %(addonVersion)s"
 msgstr "Léirmheasanna ar %(addonName)s"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:465
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:487
 msgid "Extension Metadata"
 msgstr "Meiteashonraí na hEisínteachta"
 
-#: src/amo/pages/Addon/index.js:517
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "Seatanna den scáileán"
 

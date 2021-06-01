@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-11 16:36+0000\n"
+"POT-Creation-Date: 2021-06-01 17:47+0000\n"
 "PO-Revision-Date: 2020-12-22 11:03+0000\n"
 "Last-Translator: Shazia Mansoor <shaz_dvm@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -558,30 +558,30 @@ msgstr ","
 msgid "by"
 msgstr "کی جانب سے"
 
-#: src/amo/components/AddonVersionCard/index.js:115
+#: src/amo/components/AddonVersionCard/index.js:114
 #, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "پوسٹ کیا گیا %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:126
+#: src/amo/components/AddonVersionCard/index.js:125
 #, fuzzy
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "پوسٹ کیا گیا %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:153
+#: src/amo/components/AddonVersionCard/index.js:152
 #, fuzzy
 msgid "Source code released under %(licenseName)s"
 msgstr "پوسٹ کیا گیا %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:63
+#: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
 msgstr "کوئی ورژن نہیں ملا"
 
-#: src/amo/components/AddonVersionCard/index.js:71
+#: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
 msgstr "ورژن  %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:95
+#: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
@@ -623,32 +623,32 @@ msgstr "خیالیہ کی تنصیب کریں"
 msgid "Add to Firefox"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/App/index.js:211
+#: src/amo/components/App/index.js:214
 #: src/amo/components/HeadMetaTags/index.js:87
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/App/index.js:215
+#: src/amo/components/App/index.js:218
 #: src/amo/components/HeadMetaTags/index.js:81
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/App/index.js:223
+#: src/amo/components/App/index.js:226
 #: src/amo/components/HeadMetaTags/index.js:86
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/App/index.js:227
+#: src/amo/components/App/index.js:230
 #: src/amo/components/HeadMetaTags/index.js:80
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:159
+#: src/amo/components/Header/index.js:149
 msgid "Log out"
 msgstr "لاگ آؤٹ"
 
@@ -658,7 +658,7 @@ msgid "Register or log in"
 msgstr "رجسٹر یا لاگ ان کریں"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:154
+#: src/amo/components/Header/index.js:144
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -1144,98 +1144,93 @@ msgstr "متعلق"
 msgid "Blog"
 msgstr "بلاگ"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "توسیعات"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:228
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "ڈویلپر ہب"
 
-#: src/amo/components/GetFirefoxBanner/index.js:79
+#: src/amo/components/GetFirefoxBanner/index.js:75
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:158
-msgid "Only with Firefox—Get Firefox Now"
-msgstr "صرف Firefox کے ساتھ—ابھی Firefox حاصل کریں"
-
-#: src/amo/components/GetFirefoxButton/index.js:162
+#: src/amo/components/GetFirefoxButton/index.js:123
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "Firefox ڈائونلوڈ کریں"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:124
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:166
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download Firefox"
 msgstr "Firefox ڈائونلوڈ کریں"
 
-#: src/amo/components/GetFirefoxButton/index.js:169
+#: src/amo/components/GetFirefoxButton/index.js:130
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "اس تھیم کو شرح کرنے کے لئے لاگ ان کریں"
 
-#: src/amo/components/GetFirefoxButton/index.js:170
+#: src/amo/components/GetFirefoxButton/index.js:131
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
 msgstr "اس توسیع کو شرح کرنے کے لئے لاگ ان کریں"
 
-#: src/amo/components/Header/index.js:100
-#: src/amo/pages/UserProfileEdit/index.js:567
-msgid "View My Profile"
-msgstr "میری پروفائل دیکھیں"
-
-#: src/amo/components/Header/index.js:108
-#: src/amo/pages/UserProfileEdit/index.js:573
-msgid "Edit My Profile"
-msgstr "میری پروفائل کی تدوین کریں"
-
-#: src/amo/components/Header/index.js:112
+#: src/amo/components/Header/index.js:102
 msgid "Tools"
 msgstr "آلات"
 
-#: src/amo/components/Header/index.js:118
+#: src/amo/components/Header/index.js:108
 msgid "Submit a New Add-on"
 msgstr "ایک نیا ایڈاون جمع کریں"
 
-#: src/amo/components/Header/index.js:123
+#: src/amo/components/Header/index.js:113
 msgid "Submit a New Theme"
 msgstr "ایک نئی تھیم جمع کرو"
 
-#: src/amo/components/Header/index.js:132
+#: src/amo/components/Header/index.js:122
 msgid "Manage My Submissions"
 msgstr "میرے نشستوں کا نظم کریں"
 
-#: src/amo/components/Header/index.js:142
+#: src/amo/components/Header/index.js:132
 #, fuzzy
 msgid "Reviewer Tools"
 msgstr "متن کا جائزہ لیں"
 
-#: src/amo/components/Header/index.js:196
+#: src/amo/components/Header/index.js:184
 msgid "Firefox Browser Add-ons"
 msgstr "Firefox براؤزر ایڈ اون"
 
-#: src/amo/components/Header/index.js:216
+#: src/amo/components/Header/index.js:204
 msgid "Learn how to create extensions and themes"
 msgstr "ایکسٹینشن اور تھیمز بنانے کا طریقہ سیکھیں"
 
-#: src/amo/components/Header/index.js:226
+#: src/amo/components/Header/index.js:214
 msgid "Submit and manage extensions and themes"
 msgstr ""
 
-#: src/amo/components/Header/index.js:86
+#: src/amo/components/Header/index.js:76
 msgid "My Account"
 msgstr "میرا اکائونٹ"
 
-#: src/amo/components/Header/index.js:92
+#: src/amo/components/Header/index.js:82
 msgid "View My Collections"
 msgstr "میرا مجموعہ دیکھیں"
+
+#: src/amo/components/Header/index.js:90
+#: src/amo/pages/UserProfileEdit/index.js:567
+msgid "View My Profile"
+msgstr "میری پروفائل دیکھیں"
+
+#: src/amo/components/Header/index.js:98
+#: src/amo/pages/UserProfileEdit/index.js:573
+msgid "Edit My Profile"
+msgstr "میری پروفائل کی تدوین کریں"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
@@ -1309,7 +1304,7 @@ msgstr ""
 msgid "OK"
 msgstr "ٹھیک ہے"
 
-#: src/amo/components/InstallButtonWrapper/index.js:115
+#: src/amo/components/InstallButtonWrapper/index.js:103
 msgid "Download file"
 msgstr "فائل ڈائونلوڈ کریں"
 
@@ -1999,7 +1994,7 @@ msgstr "تمام خیالیے براؤز کریں"
 msgid "Add-ons Home Page"
 msgstr "ایڈ-اونز ابتدائی صفحہ"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
 msgid "Preview of %(title)s"
 msgstr "%(title)s کا پیش نظارہ"
 
@@ -2069,57 +2064,57 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "اس اظافہ جات کی درجہ بندی نہیں کی جاسکتی ہے کیونکہ کوئی ورژن شائع نہیں ہوا "
 "ہے۔"
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s جائزے پڑھیں"
 msgstr[1] "تمام %(count)s جائزے بڑہیں"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:238
 msgid "No reviews yet"
 msgstr "اب تک کوئی جائزہ نہیں ہے"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:248
 msgid "Rate your experience"
 msgstr "اپنے تجربے کی شرح کاری کریں"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:267
 msgid "About this dictionary"
 msgstr "اس لغت کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:270
 msgid "About this extension"
 msgstr "اس توسیع کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:273
 msgid "About this language pack"
 msgstr "اس زبان پیک کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:276
 msgid "About this theme"
 msgstr "اس خیالیہ کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:279
 #, fuzzy
 msgid "About this add-on"
 msgstr "%(addonType)s کے بارے میں"
 
-#: src/amo/pages/Addon/index.js:324
+#: src/amo/pages/Addon/index.js:323
 #, fuzzy
 msgid "Developer comments"
 msgstr "ڈویلپر کا جواب"
 
-#: src/amo/pages/Addon/index.js:347
+#: src/amo/pages/Addon/index.js:346
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s کے لئے ریلیز نوٹ"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:465
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2127,11 +2122,11 @@ msgstr ""
 "یہ عوامی فہرست نہیں ہے۔ آپ اسے صرف اعلی درجے کی اجازت ہونے کی وجہ سے دیکھ "
 "رہے ہیں۔"
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:487
 msgid "Extension Metadata"
 msgstr "توسیعات میٹا ڈیٹا"
 
-#: src/amo/pages/Addon/index.js:517
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "اسکرین شاٹ"
 
@@ -3180,6 +3175,9 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid "Only with Firefox—Get Firefox Now"
+#~ msgstr "صرف Firefox کے ساتھ—ابھی Firefox حاصل کریں"
 
 #~ msgid "Learn more about permissions"
 #~ msgstr "اجازتوں کے بارے میں مزید سیکھیں"

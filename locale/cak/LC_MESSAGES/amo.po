@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-11 16:36+0000\n"
+"POT-Creation-Date: 2021-06-01 17:47+0000\n"
 "PO-Revision-Date: 2021-03-26 23:11+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -576,31 +576,31 @@ msgstr ","
 msgid "by"
 msgstr "ruma"
 
-#: src/amo/components/AddonVersionCard/index.js:115
+#: src/amo/components/AddonVersionCard/index.js:114
 #, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "talun rutzijol %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:126
+#: src/amo/components/AddonVersionCard/index.js:125
 #, fuzzy
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "talun rutzijol %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:153
+#: src/amo/components/AddonVersionCard/index.js:152
 #, fuzzy
 msgid "Source code released under %(licenseName)s"
 msgstr "talun rutzijol %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:63
+#: src/amo/components/AddonVersionCard/index.js:62
 #, fuzzy
 msgid "No version found"
 msgstr "Majun tz'aqat xilitäj"
 
-#: src/amo/components/AddonVersionCard/index.js:71
+#: src/amo/components/AddonVersionCard/index.js:70
 msgid "Version %(versionNumber)s"
 msgstr "Ruwäch %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:95
+#: src/amo/components/AddonVersionCard/index.js:94
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Elesan pa %(dateReleased)s - %(fileSize)s"
 
@@ -645,32 +645,32 @@ msgstr "Tiyak Wachinïk"
 msgid "Add to Firefox"
 msgstr "Taya' chupam Firefox"
 
-#: src/amo/components/App/index.js:211
+#: src/amo/components/App/index.js:214
 #: src/amo/components/HeadMetaTags/index.js:87
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Kitz'aqat Firefox"
 
-#: src/amo/components/App/index.js:215
+#: src/amo/components/App/index.js:218
 #: src/amo/components/HeadMetaTags/index.js:81
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%s – Kitz'aqat Firefox"
 
-#: src/amo/components/App/index.js:223
+#: src/amo/components/App/index.js:226
 #: src/amo/components/HeadMetaTags/index.js:86
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Kitz'aqat Firefox"
 
-#: src/amo/components/App/index.js:227
+#: src/amo/components/App/index.js:230
 #: src/amo/components/HeadMetaTags/index.js:80
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%s – Kitz'aqat Firefox"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:159
+#: src/amo/components/Header/index.js:149
 msgid "Log out"
 msgstr "Titz'apïx molojri'ïl"
 
@@ -680,7 +680,7 @@ msgid "Register or log in"
 msgstr "Titz'ib'äx B'i'aj o Titikirisäx Molojri'ïl"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:154
+#: src/amo/components/Header/index.js:144
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -1185,103 +1185,98 @@ msgstr "Tawetamaj qawäch"
 msgid "Blog"
 msgstr "Ichinya'l"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:218
+#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "Taq k'amal"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:228
+#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "B'anonela' Jay"
 
-#: src/amo/components/GetFirefoxBanner/index.js:79
+#: src/amo/components/GetFirefoxBanner/index.js:75
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:158
-msgid "Only with Firefox—Get Firefox Now"
-msgstr "Xa xe rik'in Firefox—Tik'ul Firefox Wakami"
-
-#: src/amo/components/GetFirefoxButton/index.js:162
+#: src/amo/components/GetFirefoxButton/index.js:123
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "Taqasaj Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:124
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:166
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download Firefox"
 msgstr "Taqasaj Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:169
+#: src/amo/components/GetFirefoxButton/index.js:130
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "Titikirisäx molojri'ïl richin nitojtob'ëx re wachinïk re'"
 
-#: src/amo/components/GetFirefoxButton/index.js:170
+#: src/amo/components/GetFirefoxButton/index.js:131
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
 msgstr "Titikirisäx molojri'ïl richin nitojtob'ëx re k'amal re'"
 
-#: src/amo/components/Header/index.js:100
+#: src/amo/components/Header/index.js:102
+msgid "Tools"
+msgstr "Taq samajib'äl"
+
+#: src/amo/components/Header/index.js:108
+msgid "Submit a New Add-on"
+msgstr "Titaq jun K'ak'a' Tz'aqat"
+
+#: src/amo/components/Header/index.js:113
+msgid "Submit a New Theme"
+msgstr "Titaq jun K'ak'a' Wachinïk"
+
+#: src/amo/components/Header/index.js:122
+msgid "Manage My Submissions"
+msgstr "Kenuk'samajïx Taq Nutaqoj"
+
+#: src/amo/components/Header/index.js:132
+msgid "Reviewer Tools"
+msgstr "Taq Rusamajib'al Nik'onel"
+
+# "Firefox" should not be translated. :-)
+#: src/amo/components/Header/index.js:184
+#, fuzzy
+msgid "Firefox Browser Add-ons"
+msgstr "Taq Rutz'aqat Firefox"
+
+#: src/amo/components/Header/index.js:204
+#, fuzzy
+msgid "Learn how to create extensions and themes"
+msgstr "Kenik'öx ri rokisaxik k'amal chuqa' ri kinuk'samajixik taq wachinel"
+
+#: src/amo/components/Header/index.js:214
+#, fuzzy
+msgid "Submit and manage extensions and themes"
+msgstr "Kenik'öx ri rokisaxik k'amal chuqa' ri kinuk'samajixik taq wachinel"
+
+#: src/amo/components/Header/index.js:76
+msgid "My Account"
+msgstr "Rub'i' Nutaqoya'l"
+
+#: src/amo/components/Header/index.js:82
+msgid "View My Collections"
+msgstr "Ketz'et taq Numol"
+
+#: src/amo/components/Header/index.js:90
 #: src/amo/pages/UserProfileEdit/index.js:567
 #, fuzzy
 msgid "View My Profile"
 msgstr "Titz'et Ruwäch B'i'aj"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:98
 #: src/amo/pages/UserProfileEdit/index.js:573
 #, fuzzy
 msgid "Edit My Profile"
 msgstr "Tinuk' Ruwäch B'i'aj"
-
-#: src/amo/components/Header/index.js:112
-msgid "Tools"
-msgstr "Taq samajib'äl"
-
-#: src/amo/components/Header/index.js:118
-msgid "Submit a New Add-on"
-msgstr "Titaq jun K'ak'a' Tz'aqat"
-
-#: src/amo/components/Header/index.js:123
-msgid "Submit a New Theme"
-msgstr "Titaq jun K'ak'a' Wachinïk"
-
-#: src/amo/components/Header/index.js:132
-msgid "Manage My Submissions"
-msgstr "Kenuk'samajïx Taq Nutaqoj"
-
-#: src/amo/components/Header/index.js:142
-msgid "Reviewer Tools"
-msgstr "Taq Rusamajib'al Nik'onel"
-
-# "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:196
-#, fuzzy
-msgid "Firefox Browser Add-ons"
-msgstr "Taq Rutz'aqat Firefox"
-
-#: src/amo/components/Header/index.js:216
-#, fuzzy
-msgid "Learn how to create extensions and themes"
-msgstr "Kenik'öx ri rokisaxik k'amal chuqa' ri kinuk'samajixik taq wachinel"
-
-#: src/amo/components/Header/index.js:226
-#, fuzzy
-msgid "Submit and manage extensions and themes"
-msgstr "Kenik'öx ri rokisaxik k'amal chuqa' ri kinuk'samajixik taq wachinel"
-
-#: src/amo/components/Header/index.js:86
-msgid "My Account"
-msgstr "Rub'i' Nutaqoya'l"
-
-#: src/amo/components/Header/index.js:92
-msgid "View My Collections"
-msgstr "Ketz'et taq Numol"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 #, fuzzy
@@ -1361,7 +1356,7 @@ msgstr ""
 msgid "OK"
 msgstr "ÜTZ!"
 
-#: src/amo/components/InstallButtonWrapper/index.js:115
+#: src/amo/components/InstallButtonWrapper/index.js:103
 #, fuzzy
 msgid "Download file"
 msgstr "Niqasäx %(name)s."
@@ -2080,7 +2075,7 @@ msgstr "Ketz'et ronojel ri taq wachinïk"
 msgid "Add-ons Home Page"
 msgstr "Kitikirib'al Ruxaq Tz'aqat"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
 msgid "Preview of %(title)s"
 msgstr ""
 
@@ -2152,64 +2147,64 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:206
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Man tikirel ta nipaj re tz'aqat re' ruma chi man talun ta jun ruwäch."
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Tisik'ïx %(count)s nik'oxïk"
 msgstr[1] "Kesik'ïx ronojel %(count)s taq nik'oxïk"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:238
 msgid "No reviews yet"
 msgstr "K'a majun nik'oxïk"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:248
 msgid "Rate your experience"
 msgstr "Tapaja' ri awetamab'al"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:267
 msgid "About this dictionary"
 msgstr "Chi rij re soltzij re'"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:270
 msgid "About this extension"
 msgstr "Chi rij re k'amal re'"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:273
 msgid "About this language pack"
 msgstr "Chi rij re pisoj ch'ab'äl re'"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:276
 msgid "About this theme"
 msgstr "Chi rij re na'oj re'"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:279
 msgid "About this add-on"
 msgstr "Chi rij re tz'aqat re'"
 
-#: src/amo/pages/Addon/index.js:324
+#: src/amo/pages/Addon/index.js:323
 #, fuzzy
 msgid "Developer comments"
 msgstr "Tzolin rutzij b'anonel"
 
-#: src/amo/pages/Addon/index.js:347
+#: src/amo/pages/Addon/index.js:346
 msgid "Release notes for %(addonVersion)s"
 msgstr "Kich'utitzijol elesanem richin %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:465
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:487
 msgid "Extension Metadata"
 msgstr "Richintzij K'amal"
 
-#: src/amo/pages/Addon/index.js:517
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "Chapoj taq ruwäch"
 
@@ -3368,6 +3363,9 @@ msgstr "man tikirel ta nik'ex ri ruk'amonel nutz'aqat"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ri k'amonel nutz'aqat ütz nuk'ëx ri'"
+
+#~ msgid "Only with Firefox—Get Firefox Now"
+#~ msgstr "Xa xe rik'in Firefox—Tik'ul Firefox Wakami"
 
 #~ msgid "Learn more about permissions"
 #~ msgstr "Tetamäx ch'aqa' chik chi kij ri taq ya'öl q'ij"
