@@ -92,6 +92,8 @@ jobs:
 
   check:
     <<: *defaults
+    docker:
+      - image: cimg/python:3.7-node
     steps:
       - checkout
       - *restore_build_cache
@@ -99,6 +101,7 @@ jobs:
       - *save_build_cache
       - run: yarn lint
       - run: yarn prettier-ci
+      - run: pip install fonttools brotli && yarn check-fonts
 
   build-next:
     <<: *defaults-next

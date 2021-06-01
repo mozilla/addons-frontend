@@ -11,7 +11,10 @@ import { compose } from 'redux';
 
 // We have to import these styles first to have them listed first in the final
 // CSS file. See: https://github.com/mozilla/addons-frontend/issues/3565
+// The order is important: font files need to be first, with the subset after
+// the full font file.
 import 'fonts/inter.scss';
+import 'fonts/inter-subset.scss';
 import 'normalize.css/normalize.css';
 import './styles.scss';
 
