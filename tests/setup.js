@@ -90,7 +90,7 @@ global.fetch = (input) => {
 
 // web-vitals library needs window.performance with getEntriesByName()
 if (global.performance) {
-  global.performance.getEntriesByName = jest.fn;
+  global.performance.getEntriesByName = jest.fn();
 }
 
 afterEach(() => {
