@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-01 17:47+0000\n"
-"PO-Revision-Date: 2021-06-02 11:17+0000\n"
+"PO-Revision-Date: 2021-06-02 11:24+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -596,7 +596,6 @@ msgid "Log out"
 msgstr "ログアウト"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "アカウント登録またはログイン"
 
@@ -957,9 +956,8 @@ msgid "Developer Policies"
 msgstr "開発者ポリシー"
 
 #: src/amo/components/Footer/index.js:122
-#, fuzzy
 msgid "Developer Blog"
-msgstr "開発者センター"
+msgstr "開発者ブログ"
 
 #: src/amo/components/Footer/index.js:128
 msgid "Forum"
@@ -1028,9 +1026,8 @@ msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkE
 msgstr "これらのアドオンを使用するには %(linkStart)sFirefox をダウンロード%(linkEnd)sする必要があります。"
 
 #: src/amo/components/GetFirefoxButton/index.js:123
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Firefox をダウンロード"
+msgstr "Firefox をダウンロードしてテーマを入手する"
 
 #: src/amo/components/GetFirefoxButton/index.js:124
 msgid "Download Firefox and get the extension"
@@ -1041,14 +1038,12 @@ msgid "Download Firefox"
 msgstr "Firefox をダウンロード"
 
 #: src/amo/components/GetFirefoxButton/index.js:130
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "ログインしてこのテーマを評価"
+msgstr "このテーマを使用するには Firefox が必要です"
 
 #: src/amo/components/GetFirefoxButton/index.js:131
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "ログインしてこの拡張機能を評価"
+msgstr "この拡張機能を使用するには Firefox が必要です"
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
@@ -1121,9 +1116,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr ""
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s のテーマ"
+msgstr "%(categoryName)s をもっと見る"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1632,9 +1626,8 @@ msgid "Any"
 msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:184
-#, fuzzy
 msgid "All Reviewed"
-msgstr "レビュー"
+msgstr "すべてレビュー済み"
 
 #: src/amo/components/SearchFilters/index.js:204
 msgid "Filter results"
@@ -1799,9 +1792,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Android 版 Firefox と互換性のあるアドオンを見つけるには、<a href=\"%(newLocation)s\">ここをクリックしてください</a>。"
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "このアドオンはこのブラウザーと互換性がありません。デスクトップ版 Firefox でインストールしてみてください。"
+msgstr "アドオンは iOS 版 Firefox と互換性がありません。デスクトップ版 Firefox でインストールしてみてください。"
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
@@ -2158,7 +2150,7 @@ msgstr "スペルチェック辞書と言語パック"
 
 #: src/amo/pages/LanguageTools/index.js:167
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Firefox のスペルチェック辞書と言語パックをダウンロードしましょう。ブラウザーのスペルチェック機能に新しい言語オプションを追加します。または、ブラウザーのインターフェース言語を変更します。"
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2211,9 +2203,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "アドオンコミュニティに貢献する他の方法は、こちらの %(startLink)swiki%(endLink)s をご覧ください。"
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "バグを報告"
+msgstr "問題を報告"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2225,7 +2216,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Firefox の拡張機能とテーマがダウンロードできる Mozilla の公式サイトです。新しい機能を追加し、ブラウザーの外観を変更して、あなたのウェブ体験をカスタマイズします。"
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
@@ -2341,7 +2332,7 @@ msgstr "レビューガイドライン"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Firefox でダウンロードして使用した拡張機能やテーマのレビューコメントを残すための、ガイドライン、ヒント、よくある質問です。"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
