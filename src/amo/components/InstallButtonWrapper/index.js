@@ -7,7 +7,15 @@ import { compose } from 'redux';
 
 import AMInstallButton from 'amo/components/AMInstallButton';
 import GetFirefoxButton from 'amo/components/GetFirefoxButton';
-import { UNKNOWN } from 'amo/constants';
+import {
+  INCOMPATIBLE_ANDROID_UNSUPPORTED,
+  INCOMPATIBLE_FIREFOX_FOR_IOS,
+  INCOMPATIBLE_NON_RESTARTLESS_ADDON,
+  INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OVER_MAX_VERSION,
+  INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+  UNKNOWN,
+} from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { findInstallURL, withInstallHelpers } from 'amo/installAddon';
 import { getVersionById } from 'amo/reducers/versions';
@@ -74,9 +82,13 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     userAgentInfo,
   } = props;
 
+  const browserIsFirefox = isFirefox({ userAgentInfo });
   let isCompatible = false;
+  let showInstallButton = browserIsFirefox;
+  let showDownloadButton = !browserIsFirefox;
+  let forIncompatibleAddon = false;
 
-  if (addon && isFirefox({ userAgentInfo })) {
+  if (addon && browserIsFirefox) {
     const compatibility = _getClientCompatibility({
       addon,
       currentVersion,
@@ -84,6 +96,27 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
       userAgentInfo,
     });
     isCompatible = compatibility.compatible;
+    if (
+      !isCompatible &&
+      // We want to show the download button and hide the install button for
+      // incompatible add-ons on Firefox that are not incompatible for the
+      // following reasons, as these are dealt with differently.
+      //
+      // This includes those that are INCOMPATIBLE_UNDER_MIN_VERSION, and also
+      // serves as a catch-all for any other reason not specified below.
+      ![
+        INCOMPATIBLE_ANDROID_UNSUPPORTED,
+        INCOMPATIBLE_FIREFOX_FOR_IOS,
+        INCOMPATIBLE_NON_RESTARTLESS_ADDON,
+        INCOMPATIBLE_NOT_FIREFOX,
+        INCOMPATIBLE_OVER_MAX_VERSION,
+        INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+      ].includes(compatibility.reason)
+    ) {
+      forIncompatibleAddon = true;
+      showInstallButton = false;
+      showDownloadButton = true;
+    }
   }
 
   const file = currentVersion ? currentVersion.file : null;
@@ -108,38 +141,39 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
 
   return (
     addon && (
-      <div
-        className={makeClassName('InstallButtonWrapper', {
-          'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
-        })}
-      >
+      <div className="InstallButtonWrapper">
         {!showLinkInsteadOfButton && (
           <>
-            <AMInstallButton
-              addon={addon}
-              canUninstall={canUninstall}
-              className={makeClassName(
-                className ? `AMInstallButton--${className}` : '',
-                {
-                  'AMInstallButton--noDownloadLink': !showDownloadLink,
-                },
-              )}
-              currentVersion={currentVersion}
-              defaultButtonText={defaultButtonText}
-              disabled={!isCompatible}
-              enable={enable}
-              hasAddonManager={hasAddonManager}
-              install={install}
-              isAddonEnabled={isAddonEnabled}
-              puffy={puffy}
-              setCurrentStatus={setCurrentStatus}
-              status={installStatus}
-              uninstall={uninstall}
-            />
-            <GetFirefoxButton
-              addon={addon}
-              className={className ? `GetFirefoxButton--${className}` : ''}
-            />
+            {showInstallButton ? (
+              <AMInstallButton
+                addon={addon}
+                canUninstall={canUninstall}
+                className={makeClassName(
+                  className ? `AMInstallButton--${className}` : '',
+                  {
+                    'AMInstallButton--noDownloadLink': !showDownloadLink,
+                  },
+                )}
+                currentVersion={currentVersion}
+                defaultButtonText={defaultButtonText}
+                disabled={!isCompatible}
+                enable={enable}
+                hasAddonManager={hasAddonManager}
+                install={install}
+                isAddonEnabled={isAddonEnabled}
+                puffy={puffy}
+                setCurrentStatus={setCurrentStatus}
+                status={installStatus}
+                uninstall={uninstall}
+              />
+            ) : null}
+            {showDownloadButton ? (
+              <GetFirefoxButton
+                addon={addon}
+                className={className ? `GetFirefoxButton--${className}` : ''}
+                forIncompatibleAddon={forIncompatibleAddon}
+              />
+            ) : null}
           </>
         )}
         {showDownloadLink || showLinkInsteadOfButton ? showFileLink() : null}

@@ -73,6 +73,15 @@ describe(__filename, () => {
 
       expect(root.find('.GetFirefoxButton')).toHaveLength(0);
     });
+
+    it('renders a GetFirefoxButton if forIncompatibleAddon is true', () => {
+      const { store } = dispatchClientMetadata({
+        userAgent: userAgents.firefox[0],
+      });
+      const root = render({ forIncompatibleAddon: true, store });
+
+      expect(root.find('.GetFirefoxButton')).toHaveLength(1);
+    });
   });
 
   describe('Not firefox', () => {
@@ -175,6 +184,24 @@ describe(__filename, () => {
       },
     );
 
+    it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
+      'has the expected button text for an RTAMO supported extension, which is incompatible',
+      (category) => {
+        const root = render({
+          addon: createInternalAddonWithLang({
+            ...fakeAddon,
+            promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+          }),
+          forIncompatibleAddon: true,
+          store,
+        });
+
+        expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
+          'Download the new Firefox and get the extension',
+        );
+      },
+    );
+
     it.each([SPOTLIGHT, STRATEGIC])(
       'has the expected button text for an RTAMO unsupported extension',
       (category) => {
@@ -209,6 +236,24 @@ describe(__filename, () => {
       },
     );
 
+    it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
+      'has the expected button text for an RTAMO supported theme, which is incompatible',
+      (category) => {
+        const root = render({
+          addon: createInternalAddonWithLang({
+            ...fakeTheme,
+            promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+          }),
+          forIncompatibleAddon: true,
+          store,
+        });
+
+        expect(root.find('.GetFirefoxButton-button').children()).toHaveText(
+          'Download the new Firefox and get the theme',
+        );
+      },
+    );
+
     it.each([SPOTLIGHT, STRATEGIC])(
       'has the expected button text for an RTAMO supported theme',
       (category) => {
@@ -237,6 +282,18 @@ describe(__filename, () => {
       );
     });
 
+    it('has the expected callout text for an extension, which is incompatible', () => {
+      const root = render({
+        addon: createInternalAddonWithLang(fakeAddon),
+        forIncompatibleAddon: true,
+        store,
+      });
+
+      expect(root.find('.GetFirefoxButton-callout-text').children()).toHaveText(
+        'You need an updated version of Firefox for this extension',
+      );
+    });
+
     it('has the expected callout text for a theme', () => {
       const root = render({
         addon: createInternalAddonWithLang(fakeTheme),
@@ -245,6 +302,18 @@ describe(__filename, () => {
 
       expect(root.find('.GetFirefoxButton-callout-text').children()).toHaveText(
         `You'll need Firefox to use this theme`,
+      );
+    });
+
+    it('has the expected callout text for a theme, which is incompatible', () => {
+      const root = render({
+        addon: createInternalAddonWithLang(fakeTheme),
+        forIncompatibleAddon: true,
+        store,
+      });
+
+      expect(root.find('.GetFirefoxButton-callout-text').children()).toHaveText(
+        'You need an updated version of Firefox for this theme',
       );
     });
 

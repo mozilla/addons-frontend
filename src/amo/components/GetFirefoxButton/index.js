@@ -35,6 +35,7 @@ export const GET_FIREFOX_BUTTON_CLICK_CATEGORY = 'AMO Download Firefox';
 export type Props = {|
   addon: AddonType,
   className?: string,
+  forIncompatibleAddon?: boolean,
   overrideQueryParams?: {| [name: string]: string | null |},
 |};
 
@@ -90,13 +91,14 @@ export const GetFirefoxButtonBase = ({
   _getPromotedCategory = getPromotedCategory,
   _tracking = tracking,
   addon,
+  forIncompatibleAddon,
   className,
   clientApp,
   i18n,
   overrideQueryParams = {},
   userAgentInfo,
 }: InternalProps): null | React.Node => {
-  if (isFirefox({ userAgentInfo })) {
+  if (isFirefox({ userAgentInfo }) && !forIncompatibleAddon) {
     return null;
   }
 
@@ -118,17 +120,31 @@ export const GetFirefoxButtonBase = ({
     [LINE, RECOMMENDED, SPONSORED, VERIFIED].includes(promotedCategory) &&
     clientApp === CLIENT_APP_FIREFOX;
 
-  const downloadTextForRTAMO =
+  let downloadTextForRTAMO =
     addon.type === ADDON_TYPE_STATIC_THEME
       ? i18n.gettext('Download Firefox and get the theme')
       : i18n.gettext('Download Firefox and get the extension');
+  if (forIncompatibleAddon) {
+    downloadTextForRTAMO =
+      addon.type === ADDON_TYPE_STATIC_THEME
+        ? i18n.gettext('Download the new Firefox and get the theme')
+        : i18n.gettext('Download the new Firefox and get the extension');
+  }
   const buttonText = supportsRTAMO
     ? downloadTextForRTAMO
     : i18n.gettext('Download Firefox');
-  const calloutText =
+  let calloutText =
     addon.type === ADDON_TYPE_STATIC_THEME
       ? i18n.gettext(`You'll need Firefox to use this theme`)
       : i18n.gettext(`You'll need Firefox to use this extension`);
+  if (forIncompatibleAddon) {
+    calloutText =
+      addon.type === ADDON_TYPE_STATIC_THEME
+        ? i18n.gettext('You need an updated version of Firefox for this theme')
+        : i18n.gettext(
+            'You need an updated version of Firefox for this extension',
+          );
+  }
 
   const buttonContent = (
     <Button

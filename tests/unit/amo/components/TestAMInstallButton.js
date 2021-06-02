@@ -6,7 +6,6 @@ import AMInstallButton, {
 } from 'amo/components/AMInstallButton';
 import {
   ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_FIREFOX,
   DISABLED,
   DISABLING,
   DOWNLOADING,
@@ -25,7 +24,6 @@ import {
   createFakeEvent,
   createInternalAddonWithLang,
   createInternalVersionWithLang,
-  dispatchClientMetadata,
   fakeAddon,
   fakeCookies,
   fakeI18n,
@@ -33,7 +31,6 @@ import {
   fakeVersion,
   createFakeLocation,
   shallowUntilTarget,
-  userAgentsByPlatform,
 } from 'tests/unit/helpers';
 import Button from 'amo/components/Button';
 
@@ -79,7 +76,6 @@ describe(__filename, () => {
     isAddonEnabled: sinon.stub(),
     location: createFakeLocation(),
     status: UNINSTALLED,
-    store: dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store,
     uninstall: sinon.stub(),
     ...customProps,
   });
@@ -95,16 +91,6 @@ describe(__filename, () => {
       },
     );
   };
-
-  it('does not render anything when the browser is not Firefox', () => {
-    const root = render({
-      store: dispatchClientMetadata({
-        userAgent: userAgentsByPlatform.mac.chrome41,
-      }).store,
-    });
-
-    expect(root.find('.AMInstallButton-button')).toHaveLength(0);
-  });
 
   it('renders a Button for extensions', () => {
     const installURL = 'https://a.m.o/files/addon.xpi';

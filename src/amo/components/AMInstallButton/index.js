@@ -5,7 +5,6 @@ import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
-import { connect } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import {
@@ -30,13 +29,10 @@ import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,
 } from 'amo/tracking';
-import { isFirefox } from 'amo/utils/compatibility';
 import Button from 'amo/components/Button';
 import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
 import type { ButtonType } from 'amo/components/Button';
-import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonVersionType } from 'amo/reducers/versions';
-import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { AnchorEvent, ElementEvent } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
@@ -63,14 +59,9 @@ type DefaultProps = {|
   puffy?: boolean,
 |};
 
-type PropsFromState = {|
-  userAgentInfo: UserAgentInfoType,
-|};
-
 type InternalProps = {|
   ...Props,
   ...DefaultProps,
-  ...PropsFromState,
   i18n: I18nType,
 |};
 
@@ -241,12 +232,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       disabled,
       hasAddonManager,
       status,
-      userAgentInfo,
     } = this.props;
-
-    if (!isFirefox({ userAgentInfo })) {
-      return null;
-    }
 
     const installURL =
       currentVersion && currentVersion.file
@@ -337,15 +323,8 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   }
 }
 
-function mapStateToProps(state: AppState): PropsFromState {
-  return {
-    userAgentInfo: state.api.userAgentInfo,
-  };
-}
-
-const AMInstallButton: React.ComponentType<Props> = compose(
-  connect(mapStateToProps),
-  translate(),
-)(AMInstallButtonBase);
+const AMInstallButton: React.ComponentType<Props> = compose(translate())(
+  AMInstallButtonBase,
+);
 
 export default AMInstallButton;
