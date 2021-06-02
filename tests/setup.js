@@ -88,6 +88,20 @@ global.fetch = (input) => {
   );
 };
 
+// web-vitals library needs window.performance with getEntriesByName()
+if (global.performance) {
+  if (global.performance.getEntriesByName) {
+    // If global.performance.getEntriesByName exists, that means we probably
+    // no longer need to mock it because it has been implemented in jsdom.
+    // throw an error so we can update the code.
+    throw new Error(
+      `Mocking of performance.getEntriesByName() seems to no longer be
+       necessary and should probably be removed`,
+    );
+  }
+  global.performance.getEntriesByName = jest.fn().mockReturnValue([]);
+}
+
 afterEach(() => {
   global.sinon.restore();
 });
