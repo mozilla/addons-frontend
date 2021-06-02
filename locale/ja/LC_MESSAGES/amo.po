@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-01 17:47+0000\n"
-"PO-Revision-Date: 2021-06-02 11:05+0000\n"
+"PO-Revision-Date: 2021-06-02 11:17+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -2042,11 +2042,11 @@ msgstr "コレクションへ追加する拡張機能やテーマを検索"
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Firefox コレクションをダウンロードして作成し、お気に入りの拡張機能とテーマを追いかけましょう。%(collectionName)s—%(collectionDescription)s を調べる。"
 
 #: src/amo/pages/Collection/index.js:519
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Firefox コレクションをダウンロードして作成し、お気に入りの拡張機能とテーマを追いかけましょう。%(collectionName)s を調べる。"
 
 #: src/amo/pages/CollectionList/index.js:101
 msgid "My collections"
@@ -2086,7 +2086,7 @@ msgstr "テーマで Firefox の見た目を変えてみましょう。"
 
 #: src/amo/pages/Home/index.js:167
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Firefox の拡張機能とテーマをダウンロードしましょう。これらはブラウザー用のアプリのようなものです。迷惑な広告をブロックしたり、パスワードを保護したり、ブラウザーの外観を変更することもできます。"
 
 #: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
@@ -2130,11 +2130,11 @@ msgstr "評価の高いテーマをもっと見る"
 
 #: src/amo/pages/LandingPage/index.js:207
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "テーマをダウンロードして Firefox をドレスアップしましょう。あなたの好みに合わせて、かわいい生き物、悪いロボット、美しい風景など数千ものテーマから選べます。"
 
 #: src/amo/pages/LandingPage/index.js:212
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr ""
+msgstr "Firefox の拡張機能をダウンロードしてブラウジングをカスタマイズする機能を追加しましょう。ブラウザーのアプリでパスワードを保護したり、お得な情報を見つけたり、動画の閲覧機能を追加したり、迷惑な広告をブロックしたりできます。"
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
