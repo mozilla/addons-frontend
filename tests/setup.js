@@ -88,6 +88,9 @@ global.fetch = (input) => {
   );
 };
 
+// web-vitals library needs window.performance with getEntriesByName()
+global.performance.getEntriesByName = jest.fn;
+
 afterEach(() => {
   global.sinon.restore();
 });
