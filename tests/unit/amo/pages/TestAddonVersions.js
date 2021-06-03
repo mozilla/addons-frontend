@@ -474,7 +474,7 @@ describe(__filename, () => {
       expect(versionCards.at(2)).toHaveProp('headerText', null);
     });
 
-    it('passes a showLinkInsteadOfButton for just older versions', () => {
+    it('passes isCurrentVersion for just the current version', () => {
       const slug = 'some-addon-slug';
       const version1 = { ...fakeVersion, id: 1 };
       const addon = { ...fakeAddon, slug, current_version: version1 };
@@ -489,9 +489,9 @@ describe(__filename, () => {
       });
 
       const versionCards = root.find(AddonVersionCard);
-      expect(versionCards.at(0)).not.toHaveProp('showLinkInsteadOfButton');
-      expect(versionCards.at(1)).toHaveProp('showLinkInsteadOfButton');
-      expect(versionCards.at(2)).toHaveProp('showLinkInsteadOfButton');
+      expect(versionCards.at(0)).toHaveProp('isCurrentVersion');
+      expect(versionCards.at(1)).not.toHaveProp('isCurrentVersion');
+      expect(versionCards.at(2)).not.toHaveProp('isCurrentVersion');
     });
   });
 

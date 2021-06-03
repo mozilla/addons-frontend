@@ -318,29 +318,52 @@ describe(__filename, () => {
     const error = FATAL_ERROR;
     store.dispatch(setInstallError({ error, guid }));
 
-    const root = render({ addon });
+    const root = render({ addon, isCurrentVersion: true });
 
     expect(root.find(AddonInstallError)).toHaveProp('error', error);
   });
 
   it('does not render an AddonInstallError if there is no version', () => {
-    const root = render({ version: null });
+    const root = render({ isCurrentVersion: true, version: null });
 
     expect(root.find(AddonInstallError)).toHaveLength(0);
   });
 
-  it('passes an add-on and a version to AddonCompatibilityError', () => {
-    const addon = createInternalAddonWithLang(fakeAddon);
-    const version = createInternalVersionWithLang(fakeVersion);
+  it('does not render an AddonInstallError if it is not the current version', () => {
+    const guid = 'some-guid';
+    const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
+    store.dispatch(
+      setInstallState({
+        guid,
+        status: INSTALLING,
+      }),
+    );
+    const error = FATAL_ERROR;
+    store.dispatch(setInstallError({ error, guid }));
 
-    const root = render({ addon, version });
+    const root = render({ addon, isCurrentVersion: false });
+
+    expect(root.find(AddonInstallError)).toHaveLength(0);
+  });
+
+  it('passes an add-on to AddonCompatibilityError', () => {
+    const addon = createInternalAddonWithLang(fakeAddon);
+
+    const root = render({ addon, isCurrentVersion: true });
 
     expect(root.find(AddonCompatibilityError)).toHaveProp('addon', addon);
-    expect(root.find(AddonCompatibilityError)).toHaveProp('version', version);
   });
 
   it('does not render an AddonCompatibilityError if there is no version', () => {
     const root = render({ version: null });
+
+    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
+  });
+
+  it('does not render an AddonCompatibilityError if it is not the current version', () => {
+    const addon = createInternalAddonWithLang(fakeAddon);
+
+    const root = render({ addon, isCurrentVersion: false });
 
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
   });
@@ -353,14 +376,12 @@ describe(__filename, () => {
     expect(root.find(InstallButtonWrapper)).toHaveProp('addon', addon);
   });
 
-  it('passes a showLinkInsteadOfButton to InstallButtonWrapper', () => {
-    const showLinkInsteadOfButton = false;
-
-    const root = render({ showLinkInsteadOfButton });
+  it('passes showLinkInsteadOfButton to InstallButtonWrapper for a non-current version', () => {
+    const root = render({ isCurrentVersion: false });
 
     expect(root.find(InstallButtonWrapper)).toHaveProp(
       'showLinkInsteadOfButton',
-      showLinkInsteadOfButton,
+      true,
     );
   });
 
