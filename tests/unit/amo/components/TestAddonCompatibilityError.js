@@ -48,7 +48,6 @@ describe(__filename, () => {
   const getClientCompatibilityNonFirefox = () => {
     return createFakeClientCompatibility({
       compatible: false,
-      downloadUrl: DOWNLOAD_FIREFOX_BASE_URL,
       reason: INCOMPATIBLE_NOT_FIREFOX,
     });
   };
