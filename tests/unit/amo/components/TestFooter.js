@@ -151,7 +151,6 @@ describe(__filename, () => {
       'href',
       'https://blog.mozilla.com/addons',
     );
-    expect(root.find('.Footer-blog-link')).toHaveText('Firefox Add-on Reviews');
     expect(root.find('.Footer-developer-blog-link')).toHaveLength(0);
   });
 
