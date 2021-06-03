@@ -71,7 +71,7 @@ export class FooterBase extends React.Component<InternalProps> {
               </li>
               <li>
                 <a className="Footer-blog-link" href={blogUrl}>
-                  {i18n.gettext('Blog')}
+                  {i18n.gettext('Firefox Add-on Reviews')}
                 </a>
               </li>
               <li>
