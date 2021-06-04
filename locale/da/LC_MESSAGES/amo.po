@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-01 17:47+0000\n"
-"PO-Revision-Date: 2021-06-04 19:42+0000\n"
+"PO-Revision-Date: 2021-06-04 19:56+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -612,7 +612,6 @@ msgid "Log out"
 msgstr "Log ud"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
 msgstr "Registrer dig eller log ind"
 
@@ -975,9 +974,8 @@ msgid "Developer Policies"
 msgstr "Politikker for udviklere"
 
 #: src/amo/components/Footer/index.js:122
-#, fuzzy
 msgid "Developer Blog"
-msgstr "Udviklercentral"
+msgstr "Udvikler-blog"
 
 #: src/amo/components/Footer/index.js:128
 msgid "Forum"
