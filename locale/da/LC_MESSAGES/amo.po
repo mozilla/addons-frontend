@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-01 17:47+0000\n"
-"PO-Revision-Date: 2021-06-04 19:56+0000\n"
+"PO-Revision-Date: 2021-06-04 19:59+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1141,9 +1141,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox anbefaler kun udvidelser, der opfylder vores standarder for sikkerhed og ydelse."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Se flere %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1896,9 +1895,8 @@ msgid "About this add-on"
 msgstr "Om denne tilføjelse"
 
 #: src/amo/pages/Addon/index.js:323
-#, fuzzy
 msgid "Developer comments"
-msgstr "Politikker for udviklere"
+msgstr "Udviklers kommentarer"
 
 #: src/amo/pages/Addon/index.js:346
 msgid "Release notes for %(addonVersion)s"
@@ -2049,14 +2047,12 @@ msgid "All theme categories"
 msgstr "Alle tema-kategorier"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Temaer i kategorien %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "%(count)s udvidelse i kategorien %(categoryName)s blev fundet"
+msgstr "Udvidelser i kategorien %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
@@ -2253,9 +2249,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "For at se flere måder, hvorpå du kan bidrage til fællesskabet omkring tilføjelser, besøg vores %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "Rapportér en fejl"
+msgstr "Rapportér et problem"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
