@@ -12,4 +12,7 @@ module.exports = {
   mozillaUserId: 10968,
   CSP: false,
   enableNodeStatics: true,
+
+  // See: https://github.com/mozilla/addons-frontend/issues/10545
+  enableTrailingSlashesMiddleware: false,
 };
