@@ -224,7 +224,7 @@ export class HeaderBase extends React.Component {
           'Header--loaded-page-is-anonymous': loadedPageIsAnonymous,
         })}
       >
-        {!isAddonInstallPage ? <GetFirefoxBanner /> : null}
+        {!isAddonInstallPage && !forBlog ? <GetFirefoxBanner /> : null}
         <div className="Header-wrapper">
           <div className="Header-content">
             {isHomePage ? (
