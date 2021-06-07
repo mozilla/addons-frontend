@@ -309,5 +309,6 @@ describe(__filename, () => {
     expect(root.find('.Header-download-button')).toHaveLength(0);
     expect(root.find(SearchForm)).toHaveLength(0);
     expect(root.find(SectionLinks)).toHaveProp('forBlog', true);
+    expect(root.find(GetFirefoxBanner)).toHaveLength(0);
   });
 });
