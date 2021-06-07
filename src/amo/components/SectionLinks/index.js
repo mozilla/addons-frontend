@@ -118,7 +118,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
               prependClientApp={false}
               prependLang={false}
             >
-              {i18n.gettext('Blog')}
+              {i18n.gettext('Firefox Add-on Reviews')}
             </Link>
           </DropdownMenuItem>,
         );
