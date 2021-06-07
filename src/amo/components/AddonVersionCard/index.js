@@ -26,7 +26,7 @@ type Props = {|
   // An undefined version means the versions are still loading, whereas a null
   // version means that no version exists.
   version: AddonVersionType | null | void,
-  showLinkInsteadOfButton?: boolean,
+  isCurrentVersion?: boolean,
 |};
 
 type PropsFromState = {|
@@ -48,7 +48,7 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
     installError,
     version,
     versionInfo,
-    showLinkInsteadOfButton,
+    isCurrentVersion,
   } = props;
 
   if (version === null) {
@@ -168,9 +168,11 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
             <h1 className="AddonVersionCard-header">{headerText}</h1>
           )}
 
-          {version && <AddonInstallError error={installError} />}
-          {version && (
-            <AddonCompatibilityError addon={addon} version={version} />
+          {isCurrentVersion && (
+            <>
+              <AddonInstallError error={installError} />
+              <AddonCompatibilityError addon={addon} />
+            </>
           )}
 
           <h2 className="AddonVersionCard-version">{versionNumber}</h2>
@@ -200,7 +202,7 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
         <InstallButtonWrapper
           addon={addon}
           version={version}
-          showLinkInsteadOfButton={showLinkInsteadOfButton}
+          showLinkInsteadOfButton={!isCurrentVersion}
         />
       )}
 

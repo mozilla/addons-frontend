@@ -177,6 +177,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
                 <AddonVersionCard
                   addon={addon}
                   headerText={i18n.gettext('Latest version')}
+                  isCurrentVersion
                   key="latestVersion"
                   version={latestVersion}
                 />
@@ -189,7 +190,6 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
                       }
                       key={version.id}
                       version={version}
-                      showLinkInsteadOfButton
                     />
                   );
                 })}

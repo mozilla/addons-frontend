@@ -24,7 +24,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakeVersion,
   getFakeLogger,
   shallowUntilTarget,
   userAgentsByPlatform,
@@ -96,7 +95,7 @@ describe(__filename, () => {
     expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
 
-  it(`calls getClientCompatibility with the add-on's current version if no version is supplied`, () => {
+  it(`calls getClientCompatibility with the add-on's current version`, () => {
     const addon = fakeAddon;
 
     _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
@@ -124,53 +123,12 @@ describe(__filename, () => {
     });
   });
 
-  it(`calls getClientCompatibility with a specific version if supplied`, () => {
-    const slug = 'some-slug';
-    const addon = { ...fakeAddon, slug };
-    const version = { ...fakeVersion, id: fakeVersion.id + 1 };
-
-    _loadVersions({ slug, versions: [version] });
-
-    const clientApp = CLIENT_APP_FIREFOX;
-    const _getClientCompatibility = sinon.mock().returns({
-      compatible: true,
-    });
-
-    _dispatchClientMetadata({
-      clientApp,
-    });
-
-    render({
-      _getClientCompatibility,
-      addon: createInternalAddonWithLang(addon),
-      store,
-      version: createInternalVersionWithLang(version),
-    });
-
-    sinon.assert.calledWith(_getClientCompatibility, {
-      addon: createInternalAddonWithLang(addon),
-      clientApp,
-      currentVersion: createInternalVersionWithLang(version),
-      userAgentInfo: store.getState().api.userAgentInfo,
-    });
-  });
-
   it('renders nothing if the browser is not Firefox', () => {
     const root = render({
       _getClientCompatibility: getClientCompatibilityNonFirefox,
     });
 
     expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
-  });
-
-  it('can render without a version', () => {
-    const root = render({
-      _getClientCompatibility: makeGetClientCompatibilityIncompatible({
-        reason: INCOMPATIBLE_OVER_MAX_VERSION,
-      }),
-    });
-
-    expect(root.find('.AddonCompatibilityError')).toHaveLength(1);
   });
 
   it.each([CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID])(
