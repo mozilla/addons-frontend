@@ -105,9 +105,7 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
       return null;
     }
 
-    let downloadUrl = compatibility.downloadUrl || DOWNLOAD_FIREFOX_BASE_URL;
-
-    downloadUrl = `${downloadUrl}${makeQueryStringWithUTM({
+    const downloadUrl = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
       utm_content: 'install-addon-button',
     })}`;
 

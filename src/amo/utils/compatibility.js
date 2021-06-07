@@ -30,13 +30,6 @@ import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AddonType } from 'amo/types/addons';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
-// HACK: This is the GUID for the Facebook Container
-// add-on, which has a special-cased download URL supplied.
-// See: https://github.com/mozilla/addons-server/issues/7982
-export const FACEBOOK_CONTAINER_ADDON_GUID = '@contain-facebook';
-export const FACEBOOK_CONTAINER_DOWNLOAD_URL =
-  'https://www.mozilla.org/firefox/facebookcontainer/';
-
 export type GetCompatibleVersionsParams = {|
   _log?: typeof log,
   addon: AddonType,
@@ -241,7 +234,6 @@ export type GetClientCompatibilityParams = {|
 
 export type ClientCompatibilityType = {|
   compatible: boolean,
-  downloadUrl: string | void,
   maxVersion: string | null,
   minVersion: string | null,
   reason: string | null,
@@ -277,11 +269,6 @@ export function getClientCompatibility({
     reason = INCOMPATIBLE_UNSUPPORTED_PLATFORM;
   }
 
-  let downloadUrl;
-  if (addon && addon.guid === FACEBOOK_CONTAINER_ADDON_GUID) {
-    downloadUrl = FACEBOOK_CONTAINER_DOWNLOAD_URL;
-  }
-
   let compatible = agent.compatible && supportsClientApp;
 
   if (compatible && addon && addon.isRestartRequired === true) {
@@ -302,7 +289,6 @@ export function getClientCompatibility({
 
   return {
     compatible,
-    downloadUrl,
     maxVersion,
     minVersion,
     reason,

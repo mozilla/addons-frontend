@@ -22,8 +22,6 @@ import {
   validAddonTypes,
 } from 'amo/constants';
 import {
-  FACEBOOK_CONTAINER_ADDON_GUID,
-  FACEBOOK_CONTAINER_DOWNLOAD_URL,
   getCompatibleVersions,
   getClientCompatibility,
   getMobileHomepageLink,
@@ -599,32 +597,6 @@ describe(__filename, () => {
         maxVersion: null,
         minVersion: null,
         reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-      });
-    });
-
-    it('returns a special-case downloadUrl for Facebook Container', () => {
-      const { browser, os } = UAParser(userAgentsByPlatform.mac.chrome41);
-      const userAgentInfo = { browser, os };
-      const clientApp = CLIENT_APP_FIREFOX;
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        guid: FACEBOOK_CONTAINER_ADDON_GUID,
-      });
-      const currentVersion = createInternalVersionWithLang(fakeVersion);
-
-      expect(
-        _getClientCompatibility({
-          addon,
-          clientApp,
-          currentVersion,
-          userAgentInfo,
-        }),
-      ).toEqual({
-        compatible: false,
-        downloadUrl: FACEBOOK_CONTAINER_DOWNLOAD_URL,
-        maxVersion: currentVersion.compatibility[clientApp].max,
-        minVersion: currentVersion.compatibility[clientApp].min,
-        reason: INCOMPATIBLE_NOT_FIREFOX,
       });
     });
 
