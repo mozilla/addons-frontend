@@ -936,7 +936,7 @@ export function apiResponsePage({
 export function shallowUntilTarget(
   componentInstance,
   TargetComponent,
-  { maxTries = 10, shallowOptions, _shallow = shallow } = {},
+  { maxTries = 12, shallowOptions, _shallow = shallow } = {},
 ) {
   if (!componentInstance) {
     throw new Error('componentInstance parameter is required');
@@ -1484,4 +1484,9 @@ export const fakeTrackingEvent = Object.freeze({
   category: 'some-category',
   label: 'some-label',
   value: 19,
+});
+
+export const fakeExperimentVariant = Object.freeze({
+  id: '20210608_experiment_name',
+  variant: 'some-variant',
 });

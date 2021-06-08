@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
+import { storeExperimentVariant } from 'amo/reducers/experiments';
 import {
   EXPERIMENT_COOKIE_NAME,
   EXPERIMENT_ENROLLMENT_CATEGORY,
@@ -14,6 +15,7 @@ import {
 import * as defaultConfig from 'config/default';
 import {
   createFakeTracking,
+  dispatchClientMetadata,
   fakeCookies,
   fakeVariant,
   getFakeConfig,
@@ -40,6 +42,7 @@ describe(__filename, () => {
     cookies = fakeCookies(),
     experimentProps,
     props,
+    store = dispatchClientMetadata().store,
   } = {}) => {
     const id = (experimentProps && experimentProps.id) || makeId('some-id');
     const allExperimentProps = {
@@ -68,7 +71,7 @@ describe(__filename, () => {
     // See: https://github.com/mozilla/addons-frontend/issues/6839
     //
     // 1. Render everything
-    const root = shallow(<SomeComponent {...props} />);
+    const root = shallow(<SomeComponent store={store} {...props} />);
     // 2. Get and render the withExperiment HOC (inside withCookies() HOC)
     return shallow(root.props().children(cookies));
   };
@@ -76,10 +79,12 @@ describe(__filename, () => {
   const render = (props = {}) => {
     const root = renderWithExperiment(props);
     // Return the wrapped instance (`SomeComponentBase`)
-    return root.dive();
+    // We have to dive twice because of the withCookies HOC and the connect
+    // wrapper.
+    return root.dive().dive();
   };
 
-  it('injects a variant prop', () => {
+  it('injects a variant prop from a cookie', () => {
     const id = makeId('test-id');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
@@ -89,6 +94,43 @@ describe(__filename, () => {
     const root = render({ cookies, experimentProps: { id } });
 
     expect(root).toHaveProp('variant', variantId);
+  });
+
+  it('injects a variant prop from the redux store', () => {
+    const { store } = dispatchClientMetadata();
+    const id = makeId('test-id');
+    const variantId = 'some-variant-id';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+
+    store.dispatch(
+      storeExperimentVariant({ storedVariant: { id, variant: variantId } }),
+    );
+
+    const root = render({ cookies, experimentProps: { id }, store });
+
+    expect(root).toHaveProp('variant', variantId);
+  });
+
+  it('prefers a variant from a cookie to one from the the redux store', () => {
+    const { store } = dispatchClientMetadata();
+    const id = makeId('test-id');
+    const cookieVariant = 'cookie-variant';
+    const storeVariant = 'store-variant';
+    const cookies = fakeCookies({
+      get: sinon
+        .stub()
+        .returns(createExperimentData({ id, variantId: cookieVariant })),
+    });
+
+    store.dispatch(
+      storeExperimentVariant({ storedVariant: { id, variant: storeVariant } }),
+    );
+
+    const root = render({ cookies, experimentProps: { id }, store });
+
+    expect(root).toHaveProp('variant', cookieVariant);
   });
 
   it('injects an experimentId', () => {
@@ -211,6 +253,83 @@ describe(__filename, () => {
         ...createExperimentData({ id: anotherExperimentId, variantId }),
       },
       defaultCookieConfig,
+    );
+  });
+
+  it('dispatches storeExperimentVariant on the server to store and then clear the variant', () => {
+    const id = makeId('hero');
+    const variantId = 'some-variant-id';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    const configOverrides = {
+      experiments: {
+        [id]: true,
+      },
+      server: true,
+    };
+
+    render({
+      configOverrides,
+      cookies,
+      experimentProps: { id },
+      props: { _getVariant },
+      store,
+    });
+
+    // Called once to store the variant.
+    sinon.assert.calledWith(
+      fakeDispatch,
+      storeExperimentVariant({
+        storedVariant: { id, variant: variantId },
+      }),
+    );
+
+    // Called again in componentDidMount to clear the variant.
+    sinon.assert.calledWith(
+      fakeDispatch,
+      storeExperimentVariant({
+        storedVariant: null,
+      }),
+    );
+  });
+
+  it('does not store the variant on the client on the client', () => {
+    const id = makeId('hero');
+    const variantId = 'some-variant-id';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    const configOverrides = {
+      experiments: {
+        [id]: true,
+      },
+      server: false,
+    };
+
+    render({
+      configOverrides,
+      cookies,
+      experimentProps: { id },
+      props: { _getVariant },
+      store,
+    });
+
+    // Only called to clear the variant.
+    sinon.assert.calledOnce(fakeDispatch);
+    sinon.assert.calledWith(
+      fakeDispatch,
+      storeExperimentVariant({
+        storedVariant: null,
+      }),
     );
   });
 
