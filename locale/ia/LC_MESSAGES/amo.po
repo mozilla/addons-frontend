@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-09 14:34+0000\n"
-"PO-Revision-Date: 2021-06-09 20:35+0000\n"
+"PO-Revision-Date: 2021-06-09 20:37+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1051,7 +1051,7 @@ msgstr "Discarga Firefox installa le extension"
 
 #: src/amo/components/GetFirefoxButton/index.js:130
 msgid "Download the new Firefox and get the theme"
-msgstr ""
+msgstr "Discarga le nove Firefox e installa le thema"
 
 #: src/amo/components/GetFirefoxButton/index.js:131
 msgid "Download the new Firefox and get the extension"
@@ -1074,9 +1074,8 @@ msgid "You need an updated version of Firefox for this theme"
 msgstr "Tu besonia de un version de Firefox actualisate pro iste thema"
 
 #: src/amo/components/GetFirefoxButton/index.js:144
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "Tu pote usar iste extension solo sur Firefox"
+msgstr "Tu besonia de un version de Firefox actualisate pro iste extension"
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
