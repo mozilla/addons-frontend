@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-01 17:47+0000\n"
+"POT-Creation-Date: 2021-06-09 14:34+0000\n"
 "PO-Revision-Date: 2018-06-01 14:56+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -100,37 +100,20 @@ msgstr "با Firefox Quantum سازگار نیست"
 msgid "Some features may require payment"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:117
+#: src/amo/components/AddonCompatibilityError/index.js:108
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "این افزونه با نسخهٔ فعلی فایرفاکس شما سازگار نیست."
 
-#: src/amo/components/AddonCompatibilityError/index.js:120
+#: src/amo/components/AddonCompatibilityError/index.js:111
 #, fuzzy
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr "نسخه فایرفاکس شما از افزونه‌های جستجو پشتیبانی نمی‌کند."
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:114
 msgid "This add-on is not available on your platform."
 msgstr "این افزونه با پلتفرم شما سازگار نیست."
-
-#: src/amo/components/AddonCompatibilityError/index.js:127
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"این افزونه نیازمند یک <a href=\"%(downloadUrl)s\">نسخه جدیدتر فایرفاکس</a> "
-"است (حداقل نسخه %(minVersion)s). هم‌اکنون شما از نسخه %(yourVersion)s "
-"فایرفاکس استفاده می‌کنید."
-
-#: src/amo/components/AddonCompatibilityError/index.js:144
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"مرورگر شما از افزونه‌ها پشتیبانی نمی‌کند. شما می‌توانید <a href="
-"\"%(downloadUrl)s\"> را دریافت کرده </a> تا بتوانید این افزونه را نصب کنید."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -636,44 +619,44 @@ msgstr ""
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:210
+#: src/amo/components/AMInstallButton/index.js:201
 msgid "Enable"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:204
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Remove"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:215
+#: src/amo/components/AMInstallButton/index.js:206
 msgid "Enabling"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:217
+#: src/amo/components/AMInstallButton/index.js:208
 #, fuzzy
 msgid "Disabling"
 msgstr "در حال حذف %(name)s."
 
-#: src/amo/components/AMInstallButton/index.js:219
+#: src/amo/components/AMInstallButton/index.js:210
 #, fuzzy
 msgid "Downloading"
 msgstr "در حال دریافت %(name)s."
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:212
 #, fuzzy
 msgid "Installing"
 msgstr "در حال نصب %(name)s."
 
-#: src/amo/components/AMInstallButton/index.js:223
+#: src/amo/components/AMInstallButton/index.js:214
 #, fuzzy
 msgid "Uninstalling"
 msgstr "در حال حذف %(name)s."
 
-#: src/amo/components/AMInstallButton/index.js:231
+#: src/amo/components/AMInstallButton/index.js:222
 msgid "Install Theme"
 msgstr "نصب پوسته"
 
-#: src/amo/components/AMInstallButton/index.js:232
+#: src/amo/components/AMInstallButton/index.js:223
 msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
 
@@ -1143,55 +1126,55 @@ msgstr "علامت‌گذاری شده به عنوان هرزنامه"
 msgid "This contains inappropriate language"
 msgstr "شامل کلمات نامناسب است"
 
-#: src/amo/components/Footer/index.js:107
+#: src/amo/components/Footer/index.js:109
 #, fuzzy
 msgid "Developer Policies"
 msgstr "پاسخ توسعه‌دهنده"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:124
 #, fuzzy
 msgid "Developer Blog"
 msgstr "مرکز توسعه‌دهندگان"
 
-#: src/amo/components/Footer/index.js:128
+#: src/amo/components/Footer/index.js:130
 msgid "Forum"
 msgstr "انجمن"
 
-#: src/amo/components/Footer/index.js:136
+#: src/amo/components/Footer/index.js:138
 msgid "Report a bug"
 msgstr "گزارش خطا"
 
-#: src/amo/components/Footer/index.js:141
+#: src/amo/components/Footer/index.js:143
 msgid "Review Guide"
 msgstr "راهنمایِ بازخورد"
 
-#: src/amo/components/Footer/index.js:146
+#: src/amo/components/Footer/index.js:148
 msgid "Site Status"
 msgstr "وضعیت سایت"
 
-#: src/amo/components/Footer/index.js:153
+#: src/amo/components/Footer/index.js:155
 #, fuzzy
 msgid "Browsers"
 msgstr "مرورگر iOS"
 
-#: src/amo/components/Footer/index.js:211
+#: src/amo/components/Footer/index.js:213
 #, fuzzy
 msgid "Products"
 msgstr "بهره‌وری"
 
-#: src/amo/components/Footer/index.js:287
+#: src/amo/components/Footer/index.js:289
 msgid "Privacy"
 msgstr "حریم‌خصوصی"
 
-#: src/amo/components/Footer/index.js:295
+#: src/amo/components/Footer/index.js:297
 msgid "Cookies"
 msgstr "کوکی‌ها"
 
-#: src/amo/components/Footer/index.js:303
+#: src/amo/components/Footer/index.js:305
 msgid "Legal"
 msgstr "حقوقی"
 
-#: src/amo/components/Footer/index.js:313
+#: src/amo/components/Footer/index.js:315
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1209,17 +1192,22 @@ msgstr "رفتن به صفحه اصلی موزیلا"
 msgid "About"
 msgstr "درباره"
 
-#: src/amo/components/Footer/index.js:74
+#: src/amo/components/Footer/index.js:75
 #: src/amo/components/SectionLinks/index.js:121
+#, fuzzy
+msgid "Firefox Add-on Reviews"
+msgstr "دربارهٔ افزونه‌های فایرفاکس"
+
+#: src/amo/components/Footer/index.js:76
 msgid "Blog"
 msgstr "بلاگ"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:89 src/amo/components/Header/index.js:206
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "افزونه‌ها"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:94 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "مرکز توسعه‌دهندگان"
 
@@ -1228,27 +1216,47 @@ msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:123
+#: src/amo/components/GetFirefoxButton/index.js:125
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "دریافت فایرفاکس"
 
-#: src/amo/components/GetFirefoxButton/index.js:124
+#: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:127
+#: src/amo/components/GetFirefoxButton/index.js:130
+#, fuzzy
+msgid "Download the new Firefox and get the theme"
+msgstr "دریافت فایرفاکس"
+
+#: src/amo/components/GetFirefoxButton/index.js:131
+#, fuzzy
+msgid "Download the new Firefox and get the extension"
+msgstr "دریافت فایرفاکس"
+
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download Firefox"
 msgstr "دریافت فایرفاکس"
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:138
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "وارد شوید تا به این قالب رای دهید"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:139
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
+msgstr "وارد شوید تا به این افزونه امتیاز دهید"
+
+#: src/amo/components/GetFirefoxButton/index.js:143
+#, fuzzy
+msgid "You need an updated version of Firefox for this theme"
+msgstr "وارد شوید تا به این قالب رای دهید"
+
+#: src/amo/components/GetFirefoxButton/index.js:144
+#, fuzzy
+msgid "You need an updated version of Firefox for this extension"
 msgstr "وارد شوید تا به این افزونه امتیاز دهید"
 
 #: src/amo/components/Header/index.js:102
@@ -1381,7 +1389,7 @@ msgstr ""
 msgid "OK"
 msgstr "خب!"
 
-#: src/amo/components/InstallButtonWrapper/index.js:103
+#: src/amo/components/InstallButtonWrapper/index.js:136
 #, fuzzy
 msgid "Download file"
 msgstr "در حال دریافت %(name)s."
@@ -2313,7 +2321,7 @@ msgstr ""
 msgid "Latest version"
 msgstr "نسخه‌های بتا"
 
-#: src/amo/pages/AddonVersions/index.js:188
+#: src/amo/pages/AddonVersions/index.js:189
 #, fuzzy
 msgid "Older versions"
 msgstr "نمایش تمام نسخه‌ها"
@@ -3287,6 +3295,23 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid ""
+#~ "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of "
+#~ "Firefox</a> (at least version %(minVersion)s). You are using Firefox "
+#~ "%(yourVersion)s."
+#~ msgstr ""
+#~ "این افزونه نیازمند یک <a href=\"%(downloadUrl)s\">نسخه جدیدتر فایرفاکس</"
+#~ "a> است (حداقل نسخه %(minVersion)s). هم‌اکنون شما از نسخه %(yourVersion)s "
+#~ "فایرفاکس استفاده می‌کنید."
+
+#~ msgid ""
+#~ "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+#~ "\">download Firefox</a> to install this add-on."
+#~ msgstr ""
+#~ "مرورگر شما از افزونه‌ها پشتیبانی نمی‌کند. شما می‌توانید <a href="
+#~ "\"%(downloadUrl)s\"> را دریافت کرده </a> تا بتوانید این افزونه را نصب "
+#~ "کنید."
 
 #, fuzzy
 #~ msgid "See more popular themes"

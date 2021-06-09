@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-01 17:47+0000\n"
+"POT-Creation-Date: 2021-06-09 14:34+0000\n"
 "PO-Revision-Date: 2021-04-22 15:06+0000\n"
 "Last-Translator: Francesco Lodolo [:flod] <flod+pontoon@mozilla.com>\n"
 "Language-Team: none\n"
@@ -89,13 +89,13 @@ msgstr "Non compatibile con Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Alcune funzioni potrebbero essere a pagamento"
 
-#: src/amo/components/AddonCompatibilityError/index.js:117
+#: src/amo/components/AddonCompatibilityError/index.js:108
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr ""
 "Questo componente aggiuntivo non è compatibile con la versione di Firefox in "
 "uso."
 
-#: src/amo/components/AddonCompatibilityError/index.js:120
+#: src/amo/components/AddonCompatibilityError/index.js:111
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -103,28 +103,10 @@ msgstr ""
 "La versione di Firefox in uso non supporta questo componente aggiuntivo "
 "perché richiede il riavvio."
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:114
 msgid "This add-on is not available on your platform."
 msgstr ""
 "Questo componente aggiuntivo non è disponibile sulla piattaforma in uso."
-
-#: src/amo/components/AddonCompatibilityError/index.js:127
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Il componente aggiuntivo richiede una <a href=\"%(downloadUrl)s\">versione "
-"più recente di Firefox</a> (versione %(minVersion)s o successiva). La "
-"versione attualmente in uso è Firefox %(yourVersion)s."
-
-#: src/amo/components/AddonCompatibilityError/index.js:144
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Il browser in uso non supporta i componenti aggiuntivi. Per installare il "
-"componente aggiuntivo desiderato <a href=\"%(downloadUrl)s\">scarica "
-"Firefox</a>."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -602,40 +584,40 @@ msgstr "Versione %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Rilasciato %(dateReleased)s - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:210
+#: src/amo/components/AMInstallButton/index.js:201
 msgid "Enable"
 msgstr "Attiva"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:204
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/amo/components/AMInstallButton/index.js:215
+#: src/amo/components/AMInstallButton/index.js:206
 msgid "Enabling"
 msgstr "Attivazione in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:217
+#: src/amo/components/AMInstallButton/index.js:208
 msgid "Disabling"
 msgstr "Disattivazione in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:219
+#: src/amo/components/AMInstallButton/index.js:210
 msgid "Downloading"
 msgstr "Download in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:212
 msgid "Installing"
 msgstr "Installazione in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:223
+#: src/amo/components/AMInstallButton/index.js:214
 msgid "Uninstalling"
 msgstr "Disinstallazione in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:231
+#: src/amo/components/AMInstallButton/index.js:222
 msgid "Install Theme"
 msgstr "Installa tema"
 
-#: src/amo/components/AMInstallButton/index.js:232
+#: src/amo/components/AMInstallButton/index.js:223
 msgid "Add to Firefox"
 msgstr "Aggiungi a Firefox"
 
@@ -1111,51 +1093,51 @@ msgstr "Segnalato per spam"
 msgid "This contains inappropriate language"
 msgstr "Linguaggio inappropriato"
 
-#: src/amo/components/Footer/index.js:107
+#: src/amo/components/Footer/index.js:109
 msgid "Developer Policies"
 msgstr "Criteri per sviluppatori"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:124
 msgid "Developer Blog"
 msgstr "Blog degli sviluppatori"
 
-#: src/amo/components/Footer/index.js:128
+#: src/amo/components/Footer/index.js:130
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:136
+#: src/amo/components/Footer/index.js:138
 msgid "Report a bug"
 msgstr "Segnala malfunzionamento"
 
-#: src/amo/components/Footer/index.js:141
+#: src/amo/components/Footer/index.js:143
 msgid "Review Guide"
 msgstr "Guida per le recensioni"
 
-#: src/amo/components/Footer/index.js:146
+#: src/amo/components/Footer/index.js:148
 msgid "Site Status"
 msgstr "Stato del sito"
 
-#: src/amo/components/Footer/index.js:153
+#: src/amo/components/Footer/index.js:155
 msgid "Browsers"
 msgstr "Browser"
 
-#: src/amo/components/Footer/index.js:211
+#: src/amo/components/Footer/index.js:213
 msgid "Products"
 msgstr "Prodotti"
 
-#: src/amo/components/Footer/index.js:287
+#: src/amo/components/Footer/index.js:289
 msgid "Privacy"
 msgstr "Informativa sulla privacy"
 
-#: src/amo/components/Footer/index.js:295
+#: src/amo/components/Footer/index.js:297
 msgid "Cookies"
 msgstr "Cookie"
 
-#: src/amo/components/Footer/index.js:303
+#: src/amo/components/Footer/index.js:305
 msgid "Legal"
 msgstr "Note legali"
 
-#: src/amo/components/Footer/index.js:313
+#: src/amo/components/Footer/index.js:315
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1174,16 +1156,21 @@ msgstr "Vai alla pagina principale del sito Mozilla"
 msgid "About"
 msgstr "Informazioni"
 
-#: src/amo/components/Footer/index.js:74
+#: src/amo/components/Footer/index.js:75
 #: src/amo/components/SectionLinks/index.js:121
+#, fuzzy
+msgid "Firefox Add-on Reviews"
+msgstr "Componenti aggiuntivi per Firefox"
+
+#: src/amo/components/Footer/index.js:76
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:89 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "Laboratorio estensioni"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:94 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "Centro di sviluppo"
 
@@ -1194,24 +1181,44 @@ msgstr ""
 "Per utilizzare questi componenti aggiuntivi è necessario "
 "%(linkStart)sscaricare Firefox%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:123
+#: src/amo/components/GetFirefoxButton/index.js:125
 msgid "Download Firefox and get the theme"
 msgstr "Scarica Firefox e installa il tema"
 
-#: src/amo/components/GetFirefoxButton/index.js:124
+#: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download Firefox and get the extension"
 msgstr "Scarica Firefox e installa l’estensione"
 
-#: src/amo/components/GetFirefoxButton/index.js:127
+#: src/amo/components/GetFirefoxButton/index.js:130
+#, fuzzy
+msgid "Download the new Firefox and get the theme"
+msgstr "Scarica Firefox e installa il tema"
+
+#: src/amo/components/GetFirefoxButton/index.js:131
+#, fuzzy
+msgid "Download the new Firefox and get the extension"
+msgstr "Scarica Firefox e installa l’estensione"
+
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download Firefox"
 msgstr "Scarica Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:138
 msgid "You'll need Firefox to use this theme"
 msgstr "Devi utilizzare Firefox per poter installare questo tema"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "You'll need Firefox to use this extension"
+msgstr "Devi utilizzare Firefox per poter installare questa estensione"
+
+#: src/amo/components/GetFirefoxButton/index.js:143
+#, fuzzy
+msgid "You need an updated version of Firefox for this theme"
+msgstr "Devi utilizzare Firefox per poter installare questo tema"
+
+#: src/amo/components/GetFirefoxButton/index.js:144
+#, fuzzy
+msgid "You need an updated version of Firefox for this extension"
 msgstr "Devi utilizzare Firefox per poter installare questa estensione"
 
 #: src/amo/components/Header/index.js:102
@@ -1338,7 +1345,7 @@ msgstr ""
 msgid "OK"
 msgstr "OK"
 
-#: src/amo/components/InstallButtonWrapper/index.js:103
+#: src/amo/components/InstallButtonWrapper/index.js:136
 msgid "Download file"
 msgstr "Scarica file"
 
@@ -2239,7 +2246,7 @@ msgstr ""
 msgid "Latest version"
 msgstr "Ultima versione"
 
-#: src/amo/pages/AddonVersions/index.js:188
+#: src/amo/pages/AddonVersions/index.js:189
 msgid "Older versions"
 msgstr "Versioni precedenti"
 
@@ -3371,6 +3378,23 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 "quando i miei componenti aggiuntivi vengono aggiornati a una versione "
 "compatibile"
+
+#~ msgid ""
+#~ "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of "
+#~ "Firefox</a> (at least version %(minVersion)s). You are using Firefox "
+#~ "%(yourVersion)s."
+#~ msgstr ""
+#~ "Il componente aggiuntivo richiede una <a href=\"%(downloadUrl)s"
+#~ "\">versione più recente di Firefox</a> (versione %(minVersion)s o "
+#~ "successiva). La versione attualmente in uso è Firefox %(yourVersion)s."
+
+#~ msgid ""
+#~ "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+#~ "\">download Firefox</a> to install this add-on."
+#~ msgstr ""
+#~ "Il browser in uso non supporta i componenti aggiuntivi. Per installare il "
+#~ "componente aggiuntivo desiderato <a href=\"%(downloadUrl)s\">scarica "
+#~ "Firefox</a>."
 
 #~ msgid "Only with Firefox—Get Firefox Now"
 #~ msgstr "Solo con Firefox — Scaricalo subito!"

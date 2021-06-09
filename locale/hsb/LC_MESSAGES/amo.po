@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-01 17:47+0000\n"
+"POT-Creation-Date: 2021-06-09 14:34+0000\n"
 "PO-Revision-Date: 2021-04-25 20:59+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -90,11 +90,11 @@ msgstr "Njekompatibelny z Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Někotre funkcije móhli sej płaćenje wužadać"
 
-#: src/amo/components/AddonCompatibilityError/index.js:117
+#: src/amo/components/AddonCompatibilityError/index.js:108
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Tutón přidatk z wašej wersiju Firefox kompatibelny njeje."
 
-#: src/amo/components/AddonCompatibilityError/index.js:120
+#: src/amo/components/AddonCompatibilityError/index.js:111
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -102,26 +102,9 @@ msgstr ""
 "Waša wersija Firefox tutón přidatk njepodpěruje, dokelž sej znowastartowanje "
 "wužaduje."
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:114
 msgid "This add-on is not available on your platform."
 msgstr "Tutón přidatk na wašej platformje k dispoziciji njeje."
-
-#: src/amo/components/AddonCompatibilityError/index.js:127
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Tutón přidatk sej <a href=\"%(downloadUrl)s\">nowšu wersiju Firefox</a> "
-"wužaduje (znajmjeńša wersiju %(minVersion)s). Wužiwaće Firefox "
-"%(yourVersion)s."
-
-#: src/amo/components/AddonCompatibilityError/index.js:144
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Waš wobhladowak přidatki njepodpěruje. Móžeće <a href=\"%(downloadUrl)s"
-"\">Firefox sćahnyć</a>, zo byšće tutón přidatk instalował."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -606,40 +589,40 @@ msgstr "Wersija %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s wozjewjene - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:210
+#: src/amo/components/AMInstallButton/index.js:201
 msgid "Enable"
 msgstr "Zmóžnić"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:204
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Remove"
 msgstr "Wotstronić"
 
-#: src/amo/components/AMInstallButton/index.js:215
+#: src/amo/components/AMInstallButton/index.js:206
 msgid "Enabling"
 msgstr "Zmóžnja so"
 
-#: src/amo/components/AMInstallButton/index.js:217
+#: src/amo/components/AMInstallButton/index.js:208
 msgid "Disabling"
 msgstr "Zmóžnja so"
 
-#: src/amo/components/AMInstallButton/index.js:219
+#: src/amo/components/AMInstallButton/index.js:210
 msgid "Downloading"
 msgstr "So sćahuje"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:212
 msgid "Installing"
 msgstr "So instaluje"
 
-#: src/amo/components/AMInstallButton/index.js:223
+#: src/amo/components/AMInstallButton/index.js:214
 msgid "Uninstalling"
 msgstr "So wotinstaluje"
 
-#: src/amo/components/AMInstallButton/index.js:231
+#: src/amo/components/AMInstallButton/index.js:222
 msgid "Install Theme"
 msgstr "Drastu instalować"
 
-#: src/amo/components/AMInstallButton/index.js:232
+#: src/amo/components/AMInstallButton/index.js:223
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
 
@@ -1111,51 +1094,51 @@ msgstr "Jako spam woznamjenjeny"
 msgid "This contains inappropriate language"
 msgstr "To njepřihódnu rěč wobsahuje"
 
-#: src/amo/components/Footer/index.js:107
+#: src/amo/components/Footer/index.js:109
 msgid "Developer Policies"
 msgstr "Wuwiwarske prawidła"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:124
 msgid "Developer Blog"
 msgstr "Wuwiwarski blog"
 
-#: src/amo/components/Footer/index.js:128
+#: src/amo/components/Footer/index.js:130
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:136
+#: src/amo/components/Footer/index.js:138
 msgid "Report a bug"
 msgstr "Programowy zmylk zdźělić"
 
-#: src/amo/components/Footer/index.js:141
+#: src/amo/components/Footer/index.js:143
 msgid "Review Guide"
 msgstr "Směrnica za pohódnoćenja"
 
-#: src/amo/components/Footer/index.js:146
+#: src/amo/components/Footer/index.js:148
 msgid "Site Status"
 msgstr "Sydłowy status"
 
-#: src/amo/components/Footer/index.js:153
+#: src/amo/components/Footer/index.js:155
 msgid "Browsers"
 msgstr "Wobhladowaki"
 
-#: src/amo/components/Footer/index.js:211
+#: src/amo/components/Footer/index.js:213
 msgid "Products"
 msgstr "Produkty"
 
-#: src/amo/components/Footer/index.js:287
+#: src/amo/components/Footer/index.js:289
 msgid "Privacy"
 msgstr "Priwatnosć"
 
-#: src/amo/components/Footer/index.js:295
+#: src/amo/components/Footer/index.js:297
 msgid "Cookies"
 msgstr "Placki"
 
-#: src/amo/components/Footer/index.js:303
+#: src/amo/components/Footer/index.js:305
 msgid "Legal"
 msgstr "Prawniske"
 
-#: src/amo/components/Footer/index.js:313
+#: src/amo/components/Footer/index.js:315
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1173,16 +1156,21 @@ msgstr "K startowej stronje Mozilla"
 msgid "About"
 msgstr "Wo"
 
-#: src/amo/components/Footer/index.js:74
+#: src/amo/components/Footer/index.js:75
 #: src/amo/components/SectionLinks/index.js:121
+#, fuzzy
+msgid "Firefox Add-on Reviews"
+msgstr "Přidatki Firefox"
+
+#: src/amo/components/Footer/index.js:76
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:89 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "Dźěłarnička rozšěrjenjow"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:94 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "Wuwiwarski róžk"
 
@@ -1193,24 +1181,44 @@ msgstr ""
 "Zo byšće tute přidatki wužiwał, dyrbiće %(linkStart)sFirefox sćahnyć"
 "%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:123
+#: src/amo/components/GetFirefoxButton/index.js:125
 msgid "Download Firefox and get the theme"
 msgstr "Firefox sćahnyć a drastu wobstarać"
 
-#: src/amo/components/GetFirefoxButton/index.js:124
+#: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download Firefox and get the extension"
 msgstr "Firefox sćahnyć a rozšěrjenje wobstarać"
 
-#: src/amo/components/GetFirefoxButton/index.js:127
+#: src/amo/components/GetFirefoxButton/index.js:130
+#, fuzzy
+msgid "Download the new Firefox and get the theme"
+msgstr "Firefox sćahnyć a drastu wobstarać"
+
+#: src/amo/components/GetFirefoxButton/index.js:131
+#, fuzzy
+msgid "Download the new Firefox and get the extension"
+msgstr "Firefox sćahnyć a rozšěrjenje wobstarać"
+
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download Firefox"
 msgstr "Firefox sćahnyć"
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:138
 msgid "You'll need Firefox to use this theme"
 msgstr "Trjebaće Firefox, zo byšće tutu drastu wužiwał"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "You'll need Firefox to use this extension"
+msgstr "Trjebaće Firefox, zo byšće tute rozšěrjenje wužiwał"
+
+#: src/amo/components/GetFirefoxButton/index.js:143
+#, fuzzy
+msgid "You need an updated version of Firefox for this theme"
+msgstr "Trjebaće Firefox, zo byšće tutu drastu wužiwał"
+
+#: src/amo/components/GetFirefoxButton/index.js:144
+#, fuzzy
+msgid "You need an updated version of Firefox for this extension"
 msgstr "Trjebaće Firefox, zo byšće tute rozšěrjenje wužiwał"
 
 #: src/amo/components/Header/index.js:102
@@ -1335,7 +1343,7 @@ msgstr "Klikńće na Přidatki w meniju, zo byšće swoje přidatki rjadował."
 msgid "OK"
 msgstr "W porjadku"
 
-#: src/amo/components/InstallButtonWrapper/index.js:103
+#: src/amo/components/InstallButtonWrapper/index.js:136
 msgid "Download file"
 msgstr "Dataju sćahnyć"
 
@@ -2268,7 +2276,7 @@ msgstr "Wy měł přeco najnowšu wersiju přidatka wužiwać."
 msgid "Latest version"
 msgstr "Najnowša wersija"
 
-#: src/amo/pages/AddonVersions/index.js:188
+#: src/amo/pages/AddonVersions/index.js:189
 msgid "Older versions"
 msgstr "Starše wersije"
 
@@ -3368,6 +3376,22 @@ msgstr "kompatibelnosć mojeho přidatka njeda so powyšić"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "kompatibelnosć mojeho přidatka je so wuspěšnje powyšiła"
+
+#~ msgid ""
+#~ "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of "
+#~ "Firefox</a> (at least version %(minVersion)s). You are using Firefox "
+#~ "%(yourVersion)s."
+#~ msgstr ""
+#~ "Tutón přidatk sej <a href=\"%(downloadUrl)s\">nowšu wersiju Firefox</a> "
+#~ "wužaduje (znajmjeńša wersiju %(minVersion)s). Wužiwaće Firefox "
+#~ "%(yourVersion)s."
+
+#~ msgid ""
+#~ "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+#~ "\">download Firefox</a> to install this add-on."
+#~ msgstr ""
+#~ "Waš wobhladowak přidatki njepodpěruje. Móžeće <a href=\"%(downloadUrl)s"
+#~ "\">Firefox sćahnyć</a>, zo byšće tutón přidatk instalował."
 
 #~ msgid "Only with Firefox—Get Firefox Now"
 #~ msgstr "Jenož z Firefox – Wobstarajće sej nětko Firefox"
