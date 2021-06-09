@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-09 14:34+0000\n"
-"PO-Revision-Date: 2021-06-09 15:19+0000\n"
+"PO-Revision-Date: 2021-06-09 15:20+0000\n"
 "Last-Translator: 你我皆凡人 <yuanbingyan@mail.ee>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1007,9 +1007,8 @@ msgid "About"
 msgstr "关于"
 
 #: src/amo/components/Footer/index.js:75 src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Firefox Add-on Reviews"
-msgstr "Firefox 附加组件"
+msgstr "Firefox 附加组件评价"
 
 #: src/amo/components/Footer/index.js:76
 msgid "Blog"
@@ -1060,9 +1059,8 @@ msgid "You need an updated version of Firefox for this theme"
 msgstr "您需要更新 Firefox 来使用此主题"
 
 #: src/amo/components/GetFirefoxButton/index.js:144
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "您需要 Firefox 来使用此扩展"
+msgstr "您需要更新 Firefox 来使用此扩展"
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
