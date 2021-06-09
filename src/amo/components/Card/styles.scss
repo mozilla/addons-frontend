@@ -107,6 +107,14 @@ $footer-padding: 10px;
     display: none;
   }
 
-  padding: 0;
+  padding: 0px;
   text-align: right;
+
+  a,
+  a:active,
+  a:hover,
+  a:link,
+  a:visited {
+    padding: 0px;
+  }
 }
