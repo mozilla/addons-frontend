@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-01 17:47+0000\n"
+"POT-Creation-Date: 2021-06-09 14:34+0000\n"
 "PO-Revision-Date: 2020-12-22 11:03+0000\n"
 "Last-Translator: Shazia Mansoor <shaz_dvm@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,11 +89,11 @@ msgstr "Firefox Quantum کے ساتھ مطابقت نہیں ہے"
 msgid "Some features may require payment"
 msgstr "کچھ خصوصیات کےلیے ادائیگی کی ضرورت ہوسکتی ہے"
 
-#: src/amo/components/AddonCompatibilityError/index.js:117
+#: src/amo/components/AddonCompatibilityError/index.js:108
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "یہ ایڈاون Firefox کے اپنے ورژن کے ساتھ مطابقت نہیں رکھتا ہے۔"
 
-#: src/amo/components/AddonCompatibilityError/index.js:120
+#: src/amo/components/AddonCompatibilityError/index.js:111
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -101,21 +101,9 @@ msgstr ""
 "Firefox کا یہ ورژن اس ایڈ-اون کی حمایت نہیں کرتا کیونکہ اس کو دوبارہ شروع "
 "کرنے کی ضرورت ہے۔"
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:114
 msgid "This add-on is not available on your platform."
 msgstr "یہ ایڈاون آپ کے پلیٹ فارم پر دستیاب نہیں ہے۔"
-
-#: src/amo/components/AddonCompatibilityError/index.js:127
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-
-#: src/amo/components/AddonCompatibilityError/index.js:144
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:102
@@ -585,41 +573,41 @@ msgstr "ورژن  %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:210
+#: src/amo/components/AMInstallButton/index.js:201
 msgid "Enable"
 msgstr "اہل بنائیں"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:204
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Remove"
 msgstr "ہٹائیں"
 
-#: src/amo/components/AMInstallButton/index.js:215
+#: src/amo/components/AMInstallButton/index.js:206
 msgid "Enabling"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:217
+#: src/amo/components/AMInstallButton/index.js:208
 #, fuzzy
 msgid "Disabling"
 msgstr "ناتنصیب کر رہا ہے"
 
-#: src/amo/components/AMInstallButton/index.js:219
+#: src/amo/components/AMInstallButton/index.js:210
 msgid "Downloading"
 msgstr "ڈاؤن لوڈ ہو رہا ہے"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:212
 msgid "Installing"
 msgstr "تنصیب کر رہا ہے"
 
-#: src/amo/components/AMInstallButton/index.js:223
+#: src/amo/components/AMInstallButton/index.js:214
 msgid "Uninstalling"
 msgstr "ناتنصیب کر رہا ہے"
 
-#: src/amo/components/AMInstallButton/index.js:231
+#: src/amo/components/AMInstallButton/index.js:222
 msgid "Install Theme"
 msgstr "خیالیہ کی تنصیب کریں"
 
-#: src/amo/components/AMInstallButton/index.js:232
+#: src/amo/components/AMInstallButton/index.js:223
 msgid "Add to Firefox"
 msgstr "Firefox میں شامل کریں"
 
@@ -1079,52 +1067,52 @@ msgstr "اسپام کے طور پر نشان لگا دیا گیا"
 msgid "This contains inappropriate language"
 msgstr "اس میں نازیبا زبان کا استعمال کیا گیا ہے"
 
-#: src/amo/components/Footer/index.js:107
+#: src/amo/components/Footer/index.js:109
 msgid "Developer Policies"
 msgstr "ڈویلپر پالیسیاں"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:124
 #, fuzzy
 msgid "Developer Blog"
 msgstr "ڈویلپر ہب"
 
-#: src/amo/components/Footer/index.js:128
+#: src/amo/components/Footer/index.js:130
 msgid "Forum"
 msgstr "فورم"
 
-#: src/amo/components/Footer/index.js:136
+#: src/amo/components/Footer/index.js:138
 msgid "Report a bug"
 msgstr "ایک گڑبڑ رپورٹ کریں"
 
-#: src/amo/components/Footer/index.js:141
+#: src/amo/components/Footer/index.js:143
 msgid "Review Guide"
 msgstr "جائزہ  کا ہدایت نامہ"
 
-#: src/amo/components/Footer/index.js:146
+#: src/amo/components/Footer/index.js:148
 msgid "Site Status"
 msgstr "سائٹ کی حیثیت"
 
-#: src/amo/components/Footer/index.js:153
+#: src/amo/components/Footer/index.js:155
 msgid "Browsers"
 msgstr "براؤزر"
 
-#: src/amo/components/Footer/index.js:211
+#: src/amo/components/Footer/index.js:213
 msgid "Products"
 msgstr "مصنوعات"
 
-#: src/amo/components/Footer/index.js:287
+#: src/amo/components/Footer/index.js:289
 msgid "Privacy"
 msgstr "رازداری"
 
-#: src/amo/components/Footer/index.js:295
+#: src/amo/components/Footer/index.js:297
 msgid "Cookies"
 msgstr "کوکیز"
 
-#: src/amo/components/Footer/index.js:303
+#: src/amo/components/Footer/index.js:305
 msgid "Legal"
 msgstr "قانونی"
 
-#: src/amo/components/Footer/index.js:313
+#: src/amo/components/Footer/index.js:315
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1139,17 +1127,22 @@ msgstr "Mozilla کے ابتدائِ صفحہ پر جائیں"
 msgid "About"
 msgstr "متعلق"
 
-#: src/amo/components/Footer/index.js:74
+#: src/amo/components/Footer/index.js:75
 #: src/amo/components/SectionLinks/index.js:121
+#, fuzzy
+msgid "Firefox Add-on Reviews"
+msgstr "Firefox ایڈاونز کے بارے میں"
+
+#: src/amo/components/Footer/index.js:76
 msgid "Blog"
 msgstr "بلاگ"
 
-#: src/amo/components/Footer/index.js:87 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:89 src/amo/components/Header/index.js:206
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "توسیعات"
 
-#: src/amo/components/Footer/index.js:92 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:94 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "ڈویلپر ہب"
 
@@ -1158,27 +1151,47 @@ msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:123
+#: src/amo/components/GetFirefoxButton/index.js:125
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "Firefox ڈائونلوڈ کریں"
 
-#: src/amo/components/GetFirefoxButton/index.js:124
+#: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:127
+#: src/amo/components/GetFirefoxButton/index.js:130
+#, fuzzy
+msgid "Download the new Firefox and get the theme"
+msgstr "Firefox ڈائونلوڈ کریں"
+
+#: src/amo/components/GetFirefoxButton/index.js:131
+#, fuzzy
+msgid "Download the new Firefox and get the extension"
+msgstr "Firefox ڈائونلوڈ کریں"
+
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download Firefox"
 msgstr "Firefox ڈائونلوڈ کریں"
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:138
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "اس تھیم کو شرح کرنے کے لئے لاگ ان کریں"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:139
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
+msgstr "اس توسیع کو شرح کرنے کے لئے لاگ ان کریں"
+
+#: src/amo/components/GetFirefoxButton/index.js:143
+#, fuzzy
+msgid "You need an updated version of Firefox for this theme"
+msgstr "اس تھیم کو شرح کرنے کے لئے لاگ ان کریں"
+
+#: src/amo/components/GetFirefoxButton/index.js:144
+#, fuzzy
+msgid "You need an updated version of Firefox for this extension"
 msgstr "اس توسیع کو شرح کرنے کے لئے لاگ ان کریں"
 
 #: src/amo/components/Header/index.js:102
@@ -1304,7 +1317,7 @@ msgstr ""
 msgid "OK"
 msgstr "ٹھیک ہے"
 
-#: src/amo/components/InstallButtonWrapper/index.js:103
+#: src/amo/components/InstallButtonWrapper/index.js:136
 msgid "Download file"
 msgstr "فائل ڈائونلوڈ کریں"
 
@@ -2216,7 +2229,7 @@ msgstr "آپ کو ہمیشہ ایڈ اون کا تازہ ترین ورژن اس�
 msgid "Latest version"
 msgstr "تازہ ترین ورژن"
 
-#: src/amo/pages/AddonVersions/index.js:188
+#: src/amo/pages/AddonVersions/index.js:189
 msgid "Older versions"
 msgstr "پرانے ورژن"
 
