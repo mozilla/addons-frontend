@@ -1,16 +1,24 @@
 import { encode } from 'universal-base64url';
 import * as React from 'react';
 
+import {
+  EXPERIMENT_CONFIG,
+  VARIANT_CURRENT,
+  VARIANT_NEW,
+} from 'amo/experiments/20210531_download_funnel_experiment';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_CLICK_ACTION,
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
   GetFirefoxButtonBase,
   getDownloadCategory,
+  getDownloadLink,
   getDownloadTerm,
 } from 'amo/components/GetFirefoxButton';
 import {
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_EXPERIMENTAL_URL,
+  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   DOWNLOAD_FIREFOX_UTM_TERM,
   LINE,
   RECOMMENDED,
@@ -114,57 +122,6 @@ describe(__filename, () => {
         clientApp,
         forBadging: true,
       });
-    });
-
-    // See: https://docs.google.com/document/d/1vXpEg_ypqr-eiXu6pWBDiyQWwf_rxYhHAGnsp3qwpCo/edit?usp=sharing
-    it('passes the expected URL params on the download link', () => {
-      const guid = 'some-guid';
-      const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
-      const root = render({
-        addon,
-        store,
-      });
-
-      const queryString = [
-        'utm_campaign=non-fx-button',
-        `utm_content=rta%3A${encode(addon.guid)}`,
-        'utm_medium=referral',
-        'utm_source=addons.mozilla.org',
-        `utm_term=amo-fx-cta-${addon.id}`,
-      ].join('&');
-      const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}?${queryString}`;
-
-      expect(root.find('.GetFirefoxButton-button')).toHaveProp(
-        'href',
-        expectedHref,
-      );
-    });
-
-    it('calls universal-base64url.encode to encode the guid of the add-on', () => {
-      const _encode = sinon.spy();
-      const guid = 'some-guid';
-      const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
-      render({
-        _encode,
-        addon,
-        store,
-      });
-
-      sinon.assert.calledWith(_encode, addon.guid);
-    });
-
-    // See: https://github.com/mozilla/addons-frontend/issues/7255
-    it('does not call universal-base64url.encode when add-on has a `null` GUID', () => {
-      const _encode = sinon.spy();
-      const addon = createInternalAddonWithLang({ ...fakeAddon, guid: null });
-
-      render({
-        _encode,
-        addon,
-        store,
-      });
-
-      sinon.assert.notCalled(_encode);
     });
 
     it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
@@ -318,26 +275,34 @@ describe(__filename, () => {
     });
 
     describe('tracking', () => {
-      it('sends a tracking event when the button is clicked', () => {
-        const _tracking = createFakeTracking();
-        const guid = 'some-guid';
-        const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
-        const root = render({
-          _tracking,
-          addon,
-          store,
-        });
+      const guid = 'some-guid';
+      const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
 
-        const event = createFakeEvent();
-        root.find('.GetFirefoxButton-button').simulate('click', event);
+      it.each([true, false])(
+        'sends a tracking event when the button is clicked and useNewVersion is %s',
+        (useNewVersion) => {
+          const _tracking = createFakeTracking();
+          const root = render({
+            _tracking,
+            addon,
+            store,
+            useNewVersion,
+          });
 
-        sinon.assert.calledWith(_tracking.sendEvent, {
-          action: GET_FIREFOX_BUTTON_CLICK_ACTION,
-          category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-          label: addon.guid,
-        });
-        sinon.assert.calledOnce(_tracking.sendEvent);
-      });
+          const event = createFakeEvent();
+          root.find('.GetFirefoxButton-button').simulate('click', event);
+
+          const category = `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${
+            useNewVersion ? VARIANT_NEW : VARIANT_CURRENT
+          }`;
+          sinon.assert.calledWith(_tracking.sendEvent, {
+            action: GET_FIREFOX_BUTTON_CLICK_ACTION,
+            category,
+            label: addon.guid,
+          });
+          sinon.assert.calledOnce(_tracking.sendEvent);
+        },
+      );
     });
   });
 
@@ -379,6 +344,125 @@ describe(__filename, () => {
       expect(getDownloadCategory(variant)).toEqual(
         `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
       );
+    });
+  });
+
+  describe('getDownloadLink', () => {
+    const guid = 'some-guid';
+
+    it.each([VARIANT_CURRENT, VARIANT_NEW, null])(
+      'returns the expected base URL for the %s variant',
+      (variant) => {
+        const link = getDownloadLink({ variant });
+        const linkRegex = new RegExp(
+          `^${
+            variant === VARIANT_NEW
+              ? DOWNLOAD_FIREFOX_EXPERIMENTAL_URL
+              : DOWNLOAD_FIREFOX_BASE_URL
+          }`,
+        );
+        expect(linkRegex.test(link)).toEqual(true);
+      },
+    );
+
+    it.each([VARIANT_CURRENT, VARIANT_NEW, null])(
+      'adds or excludes the special source param for the %s variant',
+      (variant) => {
+        const link = getDownloadLink({ variant });
+        expect(/source=amo&/.test(link)).toEqual(variant === VARIANT_NEW);
+      },
+    );
+
+    it('includes and overrides params via overrideQueryParams', () => {
+      const param1 = 'test';
+      const utm_campaign = 'overridden_utm_campaign';
+      const link = getDownloadLink({
+        overrideQueryParams: { param1, utm_campaign },
+      });
+      expect(link.includes(`param1=${param1}`)).toEqual(true);
+      expect(link.includes(`utm_campaign=${utm_campaign}`)).toEqual(true);
+    });
+
+    it('calls universal-base64url.encode to encode the guid of the add-on for utm_content', () => {
+      const encodedGuid = encode(guid);
+      const _encode = sinon.stub().returns(encodedGuid);
+      const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
+
+      const link = getDownloadLink({ _encode, addon });
+
+      sinon.assert.calledWith(_encode, addon.guid);
+      expect(link.includes(`utm_content=rta%3A${encodedGuid}`)).toEqual(true);
+    });
+
+    // See: https://github.com/mozilla/addons-frontend/issues/7255
+    it('does not call universal-base64url.encode when add-on has a `null` GUID', () => {
+      const _encode = sinon.spy();
+      const addon = createInternalAddonWithLang({ ...fakeAddon, guid: null });
+
+      const link = getDownloadLink({ _encode, addon });
+
+      sinon.assert.notCalled(_encode);
+      expect(link.includes('utm_content')).toEqual(false);
+    });
+
+    it('calls getDownloadTerm with a variant and add-on to populate utm_term', () => {
+      const addonId = 123;
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id: addonId });
+      const term = 'some_utm_term';
+      const variant = VARIANT_NEW;
+      const _getDownloadTerm = sinon.stub().returns(term);
+
+      const link = getDownloadLink({ _getDownloadTerm, addon, variant });
+
+      sinon.assert.calledWith(_getDownloadTerm, { addonId, variant });
+      expect(link.includes(`utm_term=${term}`)).toEqual(true);
+    });
+
+    it('calls getDownloadTerm without an add-on or variant to populate utm_term', () => {
+      const addon = undefined;
+      const term = 'some_utm_term';
+      const variant = undefined;
+      const _getDownloadTerm = sinon.stub().returns(term);
+
+      const link = getDownloadLink({
+        _getDownloadTerm,
+        addon,
+        variant,
+      });
+
+      sinon.assert.calledWith(_getDownloadTerm, {
+        addonId: undefined,
+        variant: undefined,
+      });
+      expect(link.includes(`utm_term=${term}`)).toEqual(true);
+    });
+
+    // Note: This is a sanity test for the entire URL string. Each of the
+    // individual tests above test separate pieces of logic.
+    it('returns the expected URL for the new variant and an add-on', () => {
+      const addonId = 123;
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id: addonId });
+
+      const expectedLink = [
+        `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
+        `variation=${VARIANT_NEW}`,
+        `source=amo`,
+        `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
+        `utm_content=rta%3A${encode(addon.guid)}`,
+        `utm_medium=referral&utm_source=addons.mozilla.org`,
+        `utm_term=${DOWNLOAD_FIREFOX_UTM_TERM}-${addonId}-${VARIANT_NEW}`,
+      ].join('&');
+
+      expect(
+        getDownloadLink({
+          addon,
+          overrideQueryParams: {
+            experiment: EXPERIMENT_CONFIG.id,
+            variation: VARIANT_NEW,
+          },
+          variant: VARIANT_NEW,
+        }),
+      ).toEqual(expectedLink);
     });
   });
 });

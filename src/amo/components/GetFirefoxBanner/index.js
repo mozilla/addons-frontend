@@ -5,22 +5,20 @@ import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
 import {
-  getDownloadTerm,
   getDownloadCategory,
+  getDownloadLink,
 } from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
-import {
-  DOWNLOAD_FIREFOX_BASE_URL,
-  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
-} from 'amo/constants';
+import { EXPERIMENT_CONFIG } from 'amo/experiments/20210531_download_funnel_experiment';
 import tracking from 'amo/tracking';
-import { makeQueryStringWithUTM } from 'amo/utils';
 import { isFirefox } from 'amo/utils/compatibility';
 import translate from 'amo/i18n/translate';
 import { replaceStringsWithJSX } from 'amo/i18n/utils';
+import { withExperiment } from 'amo/withExperiment';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
+import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -45,18 +43,21 @@ type InternalProps = {|
   ...Props,
   ...DeafultProps,
   ...PropsFromState,
+  ...WithExperimentInjectedProps,
   i18n: I18nType,
 |};
 
 export const GetFirefoxBannerBase = ({
   _tracking = tracking,
+  experimentId,
   i18n,
   userAgentInfo,
+  variant,
 }: InternalProps): null | React.Node => {
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BANNER_CLICK_ACTION,
-      category: getDownloadCategory(),
+      category: getDownloadCategory(variant),
     });
   };
 
@@ -69,6 +70,17 @@ export const GetFirefoxBannerBase = ({
 
   if (isFirefox({ userAgentInfo })) {
     return null;
+  }
+
+  let overrideQueryParams = { utm_content: GET_FIREFOX_BANNER_UTM_CONTENT };
+
+  // Add query params specific to the experiment.
+  if (variant) {
+    overrideQueryParams = {
+      ...overrideQueryParams,
+      experiment: experimentId,
+      variation: variant,
+    };
   }
 
   const bannerContent = replaceStringsWithJSX({
@@ -85,11 +97,7 @@ export const GetFirefoxBannerBase = ({
             <Button
               buttonType="none"
               className="GetFirefoxBanner-button"
-              href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-                utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
-                utm_content: GET_FIREFOX_BANNER_UTM_CONTENT,
-                utm_term: getDownloadTerm(),
-              })}`}
+              href={getDownloadLink({ overrideQueryParams, variant })}
               key="GetFirefoxBanner-button"
               onClick={onButtonClick}
             >
@@ -123,6 +131,7 @@ function mapStateToProps(state: AppState): PropsFromState {
 const GetFirefoxBanner: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
+  withExperiment(EXPERIMENT_CONFIG),
 )(GetFirefoxBannerBase);
 
 export default GetFirefoxBanner;

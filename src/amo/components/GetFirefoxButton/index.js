@@ -7,9 +7,14 @@ import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
 import {
+  VARIANT_CURRENT,
+  VARIANT_NEW,
+} from 'amo/experiments/20210531_download_funnel_experiment';
+import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_EXPERIMENTAL_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   DOWNLOAD_FIREFOX_UTM_TERM,
   LINE,
@@ -37,6 +42,7 @@ export type Props = {|
   className?: string,
   forIncompatibleAddon?: boolean,
   overrideQueryParams?: {| [name: string]: string | null |},
+  useNewVersion?: boolean,
 |};
 
 export type DefaultProps = {|
@@ -64,7 +70,7 @@ export const getDownloadTerm = ({
   variant,
 }: {|
   addonId?: number,
-  variant?: string,
+  variant?: string | null,
 |} = {}): string => {
   let term = DOWNLOAD_FIREFOX_UTM_TERM;
 
@@ -81,10 +87,48 @@ export const getDownloadTerm = ({
 
 // As we expect to continue to experiment with this button, maintain the
 // ability to create a category that contains a variant.
-export const getDownloadCategory = (variant?: string): string =>
+export const getDownloadCategory = (variant?: string | null): string =>
   variant
     ? `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`
     : GET_FIREFOX_BUTTON_CLICK_CATEGORY;
+
+export type GetDownloadLinkParams = {|
+  _encode?: typeof encode,
+  _getDownloadTerm?: typeof getDownloadTerm,
+  addon?: AddonType,
+  overrideQueryParams?: {| [name: string]: string | null |},
+  variant?: string | null,
+|};
+
+export const getDownloadLink = ({
+  _encode = encode,
+  _getDownloadTerm = getDownloadTerm,
+  addon,
+  overrideQueryParams = {},
+  variant,
+}: GetDownloadLinkParams): string => {
+  const baseURL =
+    variant === VARIANT_NEW
+      ? DOWNLOAD_FIREFOX_EXPERIMENTAL_URL
+      : DOWNLOAD_FIREFOX_BASE_URL;
+
+  let queryParams = overrideQueryParams;
+
+  // If this is the new experiment variant, add a query param which will direct
+  // to the experimental download funnel.
+  if (variant === VARIANT_NEW) {
+    queryParams = {
+      ...queryParams,
+      source: 'amo',
+    };
+  }
+  return `${baseURL}${makeQueryStringWithUTM({
+    utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+    utm_content: addon && addon.guid ? `rta:${_encode(addon.guid)}` : '',
+    utm_term: _getDownloadTerm({ addonId: addon && addon.id, variant }),
+    ...queryParams,
+  })}`;
+};
 
 export const GetFirefoxButtonBase = ({
   _encode = encode,
@@ -96,16 +140,19 @@ export const GetFirefoxButtonBase = ({
   clientApp,
   i18n,
   overrideQueryParams = {},
+  useNewVersion = false,
   userAgentInfo,
 }: InternalProps): null | React.Node => {
   if (isFirefox({ userAgentInfo }) && !forIncompatibleAddon) {
     return null;
   }
 
+  const variant = useNewVersion ? VARIANT_NEW : VARIANT_CURRENT;
+
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BUTTON_CLICK_ACTION,
-      category: getDownloadCategory(),
+      category: getDownloadCategory(variant),
       label: addon.guid,
     });
   };
@@ -150,12 +197,7 @@ export const GetFirefoxButtonBase = ({
     <Button
       buttonType="action"
       className="GetFirefoxButton-button"
-      href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-        utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
-        utm_content: addon.guid ? `rta:${_encode(addon.guid)}` : '',
-        utm_term: getDownloadTerm({ addonId: addon.id }),
-        ...overrideQueryParams,
-      })}`}
+      href={getDownloadLink({ _encode, addon, overrideQueryParams, variant })}
       onClick={onButtonClick}
       puffy
     >
