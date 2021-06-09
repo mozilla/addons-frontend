@@ -104,6 +104,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           footerText={footerText}
           footerLink={footerLink}
           header={title}
+          isHomepageCard
           isTheme={hasThemes}
           key={shelfKey}
           placeholderCount={count}
@@ -115,7 +116,8 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
   return <div className="HomepageShelves">{shelvesContent}</div>;
 };
 
-const HomepageShelves: React.ComponentType<Props> =
-  translate()(HomepageShelvesBase);
+const HomepageShelves: React.ComponentType<Props> = translate()(
+  HomepageShelvesBase,
+);
 
 export default HomepageShelves;

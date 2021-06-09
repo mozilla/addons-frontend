@@ -19,6 +19,7 @@ import './styles.scss';
 
 type DefaultProps = {|
   editing?: boolean,
+  isHomepageCard?: boolean,
   loading?: boolean,
   // When loading, this is the number of placeholders
   // that will be rendered.
@@ -44,6 +45,7 @@ type Props = {|
   footerLink?: Object | string | null,
   footerText?: string,
   header?: React.Node,
+  isHomepageCard?: boolean,
 
   // These are passed through to EditableCollectionAddon.
   deleteNote?: DeleteAddonNoteFunc,
@@ -58,6 +60,7 @@ type Props = {|
 export default class AddonsCard extends React.Component<Props> {
   static defaultProps: DefaultProps = {
     editing: false,
+    isHomepageCard: false,
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,
     showPromotedBadge: true,

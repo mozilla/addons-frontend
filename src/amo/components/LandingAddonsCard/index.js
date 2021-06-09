@@ -14,6 +14,7 @@ import type { AddonType } from 'amo/types/addons';
 import './styles.scss';
 
 type DefaultProps = {|
+  isHomepageCard?: boolean,
   placeholderCount: number,
 |};
 
@@ -31,6 +32,7 @@ type Props = {|
 
 export default class LandingAddonsCard extends React.Component<Props> {
   static defaultProps: DefaultProps = {
+    isHomepageCard: false,
     placeholderCount: LANDING_PAGE_EXTENSION_COUNT,
   };
 
@@ -42,6 +44,7 @@ export default class LandingAddonsCard extends React.Component<Props> {
       footerLink,
       footerText,
       header,
+      isHomepageCard,
       isTheme,
       loading,
       placeholderCount,
@@ -83,6 +86,7 @@ export default class LandingAddonsCard extends React.Component<Props> {
         })}
         footerLink={footerLinkHtml}
         header={header}
+        isHomepageCard={isHomepageCard}
         showPromotedBadge={false}
         type="horizontal"
         loading={loading}
