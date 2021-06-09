@@ -6,16 +6,14 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import {
-  DOWNLOAD_FIREFOX_BASE_URL,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
-  INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'amo/constants';
-import { makeQueryStringWithUTM, sanitizeHTML } from 'amo/utils';
+import { sanitizeHTML } from 'amo/utils';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
 import { getVersionById } from 'amo/reducers/versions';
@@ -83,7 +81,7 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
       return null;
     }
 
-    const { reason, minVersion } = compatibility;
+    const { reason } = compatibility;
     invariant(reason, 'reason is required');
 
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
@@ -105,10 +103,6 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
       return null;
     }
 
-    const downloadUrl = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-      utm_content: 'install-addon-button',
-    })}`;
-
     let message;
     if (reason === INCOMPATIBLE_OVER_MAX_VERSION) {
       message = i18n.gettext(`This add-on is not compatible with your
@@ -118,41 +112,16 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
           add-on because it requires a restart.`);
     } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
       message = i18n.gettext('This add-on is not available on your platform.');
-    } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
-      invariant(minVersion, 'minVersion is required');
-      message = i18n.sprintf(
-        i18n.gettext(`This add-on requires a
-        <a href="%(downloadUrl)s">newer version of Firefox</a> (at least
-        version %(minVersion)s). You are using Firefox %(yourVersion)s.`),
-        {
-          downloadUrl,
-          minVersion,
-          yourVersion: userAgentInfo.browser.version,
-        },
-      );
-    } else {
-      // This is an unknown reason code and a custom error message should be
-      // added.
-      _log.warn(
-        `Unknown reason code supplied to AddonCompatibilityError: ${reason}`,
-      );
-
-      message = i18n.sprintf(
-        i18n.gettext(`Your browser does not
-        support add-ons. You can <a href="%(downloadUrl)s">download Firefox</a>
-        to install this add-on.`),
-        { downloadUrl },
-      );
     }
 
-    return (
+    return message ? (
       <Notice type="error" className="AddonCompatibilityError">
         <span
           className="AddonCompatibilityError-message"
           dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])}
         />
       </Notice>
-    );
+    ) : null;
   }
 }
 

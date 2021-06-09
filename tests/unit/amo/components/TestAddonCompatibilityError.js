@@ -5,7 +5,6 @@ import AddonCompatibilityError, {
   AddonCompatibilityErrorBase,
 } from 'amo/components/AddonCompatibilityError';
 import {
-  DOWNLOAD_FIREFOX_BASE_URL,
   CLIENT_APP_FIREFOX,
   CLIENT_APP_ANDROID,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
@@ -24,7 +23,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  getFakeLogger,
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -167,7 +165,8 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a notice for old versions of Firefox', () => {
+  // See https://github.com/mozilla/addons-frontend/issues/10637
+  it('does not render a notice for old versions of Firefox', () => {
     _dispatchClientMetadata({
       userAgent: userAgentsByPlatform.mac.firefox33,
     });
@@ -178,19 +177,7 @@ describe(__filename, () => {
 
     const root = render({ _getClientCompatibility });
 
-    const text = root.find('.AddonCompatibilityError').childAt(0).html();
-
-    expect(
-      root
-        .find('.AddonCompatibilityError')
-        .childAt(0)
-        .render()
-        .find('a')
-        .attr('href'),
-    ).toMatch(new RegExp(DOWNLOAD_FIREFOX_BASE_URL));
-    expect(text).toMatch(/This add-on requires a .*newer version of Firefox/);
-    expect(text).toContain('(at least version 34.0)');
-    expect(text).toContain('You are using Firefox 33.0');
+    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
 
   it('renders nothing for iOS users', () => {
@@ -227,21 +214,15 @@ describe(__filename, () => {
       because it requires a restart.`);
   });
 
-  it('renders a notice and logs warning when reason code not known', () => {
-    const fakeLog = getFakeLogger();
+  // See https://github.com/mozilla/addons-frontend/issues/10637
+  it('does not render a notice when reason code not known', () => {
     const reason = 'fake reason';
     const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason,
     });
 
-    const root = render({ _getClientCompatibility, _log: fakeLog });
+    const root = render({ _getClientCompatibility });
 
-    sinon.assert.calledWith(
-      fakeLog.warn,
-      `Unknown reason code supplied to AddonCompatibilityError: ${reason}`,
-    );
-    expect(root.find('.AddonCompatibilityError').childAt(0).html()).toContain(
-      'Your browser does not support add-ons.',
-    );
+    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
 });
