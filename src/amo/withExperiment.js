@@ -24,6 +24,10 @@ import type { DispatchFunc } from 'amo/types/redux';
  *     `withExperiment`, each of which will be assigned an `id` and a
  *     `percentage` which represents the portion of users who will be assigned
  *     this variant (see example below).
+ *  4. Optionally, specify a `shouldExcludeUser` function, which accepts a
+ *     single `state` argument and returns a boolean which is `true` if the
+ *     user should be excluded from the experiment.
+ *     If omitted there will be no exclusions.
  *
  *  Note: The sum of all `percentage` values must be exactly 1. An exception
  *        will be thrown if that is not the case.
@@ -42,12 +46,17 @@ import type { DispatchFunc } from 'amo/types/redux';
  *          { id: 'variant-b', percentage: 0.2 },
  *          { id: NOT_IN_EXPERIMENT, percentage: 0.6 },
  *        ],
+ *        shouldExcludeUser(state) {
+ *          const { userAgentInfo } = state.api;
+ *          return isFirefox({ userAgentInfo });
+ *        },
  *      },
  *    })
  *
  *  The above will create an experiment where 20% of the users will receive
  *  `variant-a`, 20% of users will receive `variant-b`, and 60% of users will
- *  not be enrolled in the experiment at all.
+ *  not be enrolled in the experiment at all, and all Firefox users will be
+ *  excluded.
  *
  */
 
@@ -62,13 +71,6 @@ export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
 export const NOT_IN_EXPERIMENT = 'notInExperiment';
 export const EXPERIMENT_ID_REGEXP: RegExp = /\d{8}_.+/;
 
-export type WithExperimentInjectedProps = {|
-  experimentId: string,
-  isExperimentEnabled: boolean,
-  isUserInExperiment: boolean,
-  variant: string | null,
-|};
-
 // https://github.com/reactivestack/cookies/tree/f9beead40a6bebac475d9bf17c1da55418d26751/packages/react-cookie#setcookiename-value-options
 type CookieConfig = {|
   maxAge?: number,
@@ -82,10 +84,18 @@ type RegisteredExpermients = {| [experimentId: string]: string |};
 export type ExperimentConfig = {|
   cookieConfig?: CookieConfig,
   id: string,
+  shouldExcludeUser?: (state: AppState) => boolean,
   variants: ExperimentVariant[],
 |};
 
-type withExperimentProps = {|
+export type WithExperimentInjectedProps = {|
+  experimentId: string,
+  isExperimentEnabled: boolean,
+  isUserInExperiment: boolean,
+  variant: string | null,
+|};
+
+type WithExperimentProps = {|
   _config?: typeof config,
   _tracking?: typeof tracking,
   experimentConfig: ExperimentConfig,
@@ -131,10 +141,11 @@ export const isExperimentEnabled = ({
 
 type WithExperimentsPropsFromState = {|
   storedVariants: ExperimentsState,
+  isUserExcluded: boolean,
 |};
 
-type withExperimentInternalProps = {|
-  ...withExperimentProps,
+type WithExperimentInternalProps = {|
+  ...WithExperimentProps,
   ...WithExperimentsPropsFromState,
   _getVariant: typeof getVariant,
   _isExperimentEnabled: typeof isExperimentEnabled,
@@ -155,11 +166,11 @@ export const withExperiment =
     _config = config,
     _tracking = tracking,
     experimentConfig,
-  }: withExperimentProps): ((
+  }: WithExperimentProps): ((
     WrappedComponent: React.ComponentType<any>,
   ) => React.ComponentType<any>) =>
   (WrappedComponent: React.ComponentType<any>) => {
-    const { cookieConfig, id, variants } = experimentConfig;
+    const { cookieConfig, id, shouldExcludeUser, variants } = experimentConfig;
     invariant(id, 'id is required');
     invariant(
       EXPERIMENT_ID_REGEXP.test(id),
@@ -167,7 +178,7 @@ export const withExperiment =
     );
     invariant(variants, 'variants is required');
 
-    class WithExperiment extends React.Component<withExperimentInternalProps> {
+    class WithExperiment extends React.Component<WithExperimentInternalProps> {
       variant: string | null;
 
       static defaultProps = {
@@ -179,15 +190,20 @@ export const withExperiment =
         WrappedComponent,
       )})`;
 
-      constructor(props: withExperimentInternalProps) {
+      constructor(props: WithExperimentInternalProps) {
         super(props);
 
         this.variant = this.experimentSetup(props).variant;
       }
 
       experimentSetup(props) {
-        const { _getVariant, _isExperimentEnabled, dispatch, storedVariants } =
-          props;
+        const {
+          _getVariant,
+          _isExperimentEnabled,
+          dispatch,
+          isUserExcluded,
+          storedVariants,
+        } = props;
 
         let { variant } = this;
         const isEnabled = _isExperimentEnabled({ _config, id });
@@ -205,6 +221,10 @@ export const withExperiment =
             variant = registeredExperiments[id];
           } else if (variantFromStore) {
             variant = variantFromStore;
+          }
+          // Otherwise if the user is to be excluded, use the NOT_IN_EXPERIMENT variant.
+          else if (isUserExcluded) {
+            variant = NOT_IN_EXPERIMENT;
           }
 
           // Do we need to store the variant in the cookie?
@@ -298,6 +318,7 @@ export const withExperiment =
       state: AppState,
     ): WithExperimentsPropsFromState => {
       return {
+        isUserExcluded: Boolean(shouldExcludeUser && shouldExcludeUser(state)),
         storedVariants: state.experiments,
       };
     };
