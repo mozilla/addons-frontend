@@ -6,9 +6,13 @@ import { withCookies, Cookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { FIREFOX_USERS, NON_FIREFOX_USERS } from 'amo/constants';
 import { storeExperimentVariant } from 'amo/reducers/experiments';
 import tracking from 'amo/tracking';
 import { getDisplayName } from 'amo/utils';
+import { isFirefox } from 'amo/utils/compatibility';
+import type { ExperimentExclusionGroupType } from 'amo/constants';
+import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { ExperimentsState } from 'amo/reducers/experiments';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'amo/types/redux';
@@ -24,6 +28,10 @@ import type { DispatchFunc } from 'amo/types/redux';
  *     `withExperiment`, each of which will be assigned an `id` and a
  *     `percentage` which represents the portion of users who will be assigned
  *     this variant (see example below).
+ *  4. Optionally, specify a set of groups of users who will be excluded from
+ *     the experiment. This is an array of ExperimentExclusionGroupType, which
+ *     currently supports the values of FIREFOX_USERS and NON_FIREFOX_USERS.
+ *     If omitted there will be no exclusions.
  *
  *  Note: The sum of all `percentage` values must be exactly 1. An exception
  *        will be thrown if that is not the case.
@@ -41,11 +49,13 @@ import type { DispatchFunc } from 'amo/types/redux';
  *        { id: 'variant-b', percentage: 0.2 },
  *        { id: NOT_IN_EXPERIMENT, percentage: 0.6 },
  *      ],
+ *      excludedGroups: [ FIREFOX_USERS ],
  *     })
  *
  *  The above will create an experiment where 20% of the users will receive
  *  `variant-a`, 20% of users will receive `variant-b`, and 60% of users will
- *  not be enrolled in the experiment at all.
+ *  not be enrolled in the experiment at all, and all Firefox users will be
+ *  excluded.
  *
  */
 
@@ -81,6 +91,7 @@ type withExperimentProps = {|
   _config?: typeof config,
   _tracking?: typeof tracking,
   cookieConfig?: CookieConfig,
+  excludedGroups?: ExperimentExclusionGroupType[],
   id: string,
   variants: ExperimentVariant[],
 |};
@@ -123,8 +134,45 @@ export const isExperimentEnabled = ({
   return experiments[id] === true;
 };
 
+export const isUserExcluded = ({
+  _isFirefox = isFirefox,
+  excludedGroups,
+  userAgentInfo,
+}: {|
+  _isFirefox?: typeof isFirefox,
+  excludedGroups?: ExperimentExclusionGroupType[],
+  userAgentInfo: UserAgentInfoType,
+|}): boolean => {
+  if (!excludedGroups || excludedGroups.length === 0) {
+    return false;
+  }
+
+  if (
+    excludedGroups.includes(FIREFOX_USERS) &&
+    excludedGroups.includes(NON_FIREFOX_USERS)
+  ) {
+    throw new Error(
+      'Cannot specify both FIREFOX_USERS and NON_FIREFOX_USERS in excludedGroups',
+    );
+  }
+
+  const usingFirefox = _isFirefox({ userAgentInfo });
+
+  for (const group of excludedGroups) {
+    if (group === FIREFOX_USERS && usingFirefox) {
+      return true;
+    }
+    if (group === NON_FIREFOX_USERS && !usingFirefox) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 type WithExperimentsPropsFromState = {|
   storedVariants: ExperimentsState,
+  userAgentInfo: UserAgentInfoType,
 |};
 
 type withExperimentInternalProps = {|
@@ -132,6 +180,7 @@ type withExperimentInternalProps = {|
   ...WithExperimentsPropsFromState,
   _getVariant: typeof getVariant,
   _isExperimentEnabled: typeof isExperimentEnabled,
+  _isUserExcluded: typeof isUserExcluded,
   cookies: typeof Cookies,
   dispatch: DispatchFunc,
   WrappedComponent: React.ComponentType<any>,
@@ -149,6 +198,7 @@ export const withExperiment =
     _config = config,
     _tracking = tracking,
     cookieConfig = defaultCookieConfig,
+    excludedGroups: defaultExcludedGroups,
     id: defaultId,
     variants: defaultVariants,
   }: withExperimentProps): ((
@@ -168,6 +218,8 @@ export const withExperiment =
       static defaultProps = {
         _getVariant: getVariant,
         _isExperimentEnabled: isExperimentEnabled,
+        _isUserExcluded: isUserExcluded,
+        excludedGroups: defaultExcludedGroups,
         id: defaultId,
         variants: defaultVariants,
       };
@@ -186,9 +238,12 @@ export const withExperiment =
         const {
           _getVariant,
           _isExperimentEnabled,
+          _isUserExcluded,
           dispatch,
+          excludedGroups,
           id,
           storedVariants,
+          userAgentInfo,
           variants,
         } = props;
 
@@ -208,6 +263,10 @@ export const withExperiment =
             variant = registeredExperiments[id];
           } else if (variantFromStore) {
             variant = variantFromStore;
+          }
+          // Otherwise if the user is to be excluded, use the NOT_IN_EXPERIMENT variant.
+          else if (_isUserExcluded({ excludedGroups, userAgentInfo })) {
+            variant = NOT_IN_EXPERIMENT;
           }
 
           // Do we need to store the variant in the cookie?
@@ -300,6 +359,7 @@ export const withExperiment =
     ): WithExperimentsPropsFromState => {
       return {
         storedVariants: state.experiments,
+        userAgentInfo: state.api.userAgentInfo,
       };
     };
 

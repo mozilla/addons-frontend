@@ -355,3 +355,11 @@ export const APP_NAME = 'amo';
 export const WEBPACK_ENTRYPOINT = APP_NAME;
 
 export const ONE_YEAR_IN_SECONDS = 31536000;
+
+// Experiment exclusion groups
+export const FIREFOX_USERS = 'FIREFOX_USERS';
+export const NON_FIREFOX_USERS = 'NON_FIREFOX_USERS';
+
+export type ExperimentExclusionGroupType =
+  | typeof FIREFOX_USERS
+  | typeof NON_FIREFOX_USERS;

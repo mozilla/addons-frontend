@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
+import { FIREFOX_USERS, NON_FIREFOX_USERS } from 'amo/constants';
 import { storeExperimentVariant } from 'amo/reducers/experiments';
 import {
   EXPERIMENT_COOKIE_NAME,
@@ -9,6 +10,7 @@ import {
   NOT_IN_EXPERIMENT,
   defaultCookieConfig,
   getVariant,
+  isUserExcluded,
   withExperiment,
 } from 'amo/withExperiment';
 // eslint-disable-next-line import/namespace
@@ -18,6 +20,9 @@ import {
   dispatchClientMetadata,
   fakeCookies,
   getFakeConfig,
+  sampleUserAgent,
+  sampleUserAgentParsed,
+  userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -83,32 +88,68 @@ describe(__filename, () => {
     return root.dive().dive();
   };
 
-  it('injects a variant prop from a cookie', () => {
-    const id = makeId('test-id');
-    const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(createExperimentData({ id, variantId })),
+  it('calls isUserExcluded to determine whether the current user should be in the experiment', () => {
+    const _isUserExcluded = sinon.spy();
+    const excludedGroups = [FIREFOX_USERS];
+    const { store, state } = dispatchClientMetadata({
+      userAgent: sampleUserAgent,
     });
 
-    const root = render({ cookies, experimentProps: { id } });
-
-    expect(root).toHaveProp('variant', variantId);
-  });
-
-  it('injects a variant prop from the redux store', () => {
-    const { store } = dispatchClientMetadata();
-    const id = makeId('test-id');
-    const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
+    render({
+      experimentProps: { excludedGroups },
+      props: { _isUserExcluded },
+      store,
     });
 
-    store.dispatch(storeExperimentVariant({ id, variant: variantId }));
-
-    const root = render({ cookies, experimentProps: { id }, store });
-
-    expect(root).toHaveProp('variant', variantId);
+    sinon.assert.calledWith(_isUserExcluded, {
+      excludedGroups,
+      userAgentInfo: state.api.userAgentInfo,
+    });
   });
+
+  it.each([true, false])(
+    'injects a variant prop from a cookie whether a user is excluded or not',
+    (isExcluded) => {
+      const _isUserExcluded = sinon.stub().returns(isExcluded);
+      const id = makeId('test-id');
+      const variantId = 'some-variant-id';
+      const cookies = fakeCookies({
+        get: sinon.stub().returns(createExperimentData({ id, variantId })),
+      });
+
+      const root = render({
+        cookies,
+        experimentProps: { id },
+        props: { _isUserExcluded },
+      });
+
+      expect(root).toHaveProp('variant', variantId);
+    },
+  );
+
+  it.each([true, false])(
+    'injects a variant prop from the redux store whether a user is excluded or not',
+    (isExcluded) => {
+      const _isUserExcluded = sinon.stub().returns(isExcluded);
+      const { store } = dispatchClientMetadata();
+      const id = makeId('test-id');
+      const variantId = 'some-variant-id';
+      const cookies = fakeCookies({
+        get: sinon.stub().returns(undefined),
+      });
+
+      store.dispatch(storeExperimentVariant({ id, variant: variantId }));
+
+      const root = render({
+        cookies,
+        experimentProps: { id },
+        props: { _isUserExcluded },
+        store,
+      });
+
+      expect(root).toHaveProp('variant', variantId);
+    },
+  );
 
   // If a cookie exists, we always want to use it, to maintain consistency
   // for the user.
@@ -146,6 +187,17 @@ describe(__filename, () => {
     });
 
     expect(root).toHaveProp('variant', variantId);
+  });
+
+  it('makes the variant NOT_IN_EXPERIMENT if a user should be excluded, and no variant exists (cookie or store)', () => {
+    const excludedGroups = [FIREFOX_USERS];
+    const { store } = dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.firefox57,
+    });
+
+    const root = render({ experimentProps: { excludedGroups }, store });
+
+    expect(root).toHaveProp('variant', NOT_IN_EXPERIMENT);
   });
 
   it('injects an experimentId', () => {
@@ -298,6 +350,22 @@ describe(__filename, () => {
 
     // This expected variant comes from the store.
     expect(root).toHaveProp('variant', thisExperimentVariant);
+  });
+
+  it('does not call getVariant if the user is to be excluded', () => {
+    const _getVariant = sinon.spy();
+    const _isUserExcluded = sinon.stub().returns(true);
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+
+    const root = render({
+      cookies,
+      props: { _getVariant, _isUserExcluded },
+    });
+
+    sinon.assert.notCalled(_getVariant);
+    expect(root).toHaveProp('variant', NOT_IN_EXPERIMENT);
   });
 
   it('creates a cookie upon render if the current experiment is not already in the cookie', () => {
@@ -610,6 +678,87 @@ describe(__filename, () => {
       expect(() => {
         getVariant({ randomizer, variants: badVariants });
       }).toThrow(/The sum of all percentages/);
+    });
+  });
+
+  describe('isUserExcluded', () => {
+    const _isUserExcluded = ({
+      _isFirefox,
+      excludedGroups,
+      userAgentInfo = sampleUserAgentParsed,
+    }) => {
+      return isUserExcluded({
+        _isFirefox,
+        excludedGroups,
+        userAgentInfo,
+      });
+    };
+
+    it('calls isFirefox to determine whether the user is on Firefox', () => {
+      const _isFirefox = sinon.spy();
+      const userAgentInfo = sampleUserAgentParsed;
+
+      _isUserExcluded({
+        _isFirefox,
+        excludedGroups: [FIREFOX_USERS],
+        userAgentInfo,
+      });
+
+      sinon.assert.calledWith(_isFirefox, { userAgentInfo });
+    });
+
+    it('does not exclude a user if excludedGroups is undefined', () => {
+      expect(_isUserExcluded({ excludedGroups: undefined })).toEqual(false);
+    });
+
+    it('does not exclude a user if excludedGroups is an empty array', () => {
+      expect(_isUserExcluded({ excludedGroups: [] })).toEqual(false);
+    });
+
+    it('does not exclude a user if an unknown group is included in excludedGroups', () => {
+      expect(
+        _isUserExcluded({ excludedGroups: ['invalid_group_name'] }),
+      ).toEqual(false);
+    });
+
+    it('throws an exception if both FIREFOX exclusion groups are specified', () => {
+      expect(() => {
+        _isUserExcluded({ excludedGroups: [FIREFOX_USERS, NON_FIREFOX_USERS] });
+      }).toThrow(
+        /Cannot specify both FIREFOX_USERS and NON_FIREFOX_USERS in excludedGroups/,
+      );
+    });
+
+    describe('FIREFOX_USERS group', () => {
+      const excludedGroups = [FIREFOX_USERS];
+
+      it('excludes a user who is on Firefox', () => {
+        const _isFirefox = sinon.stub().returns(true);
+
+        expect(_isUserExcluded({ _isFirefox, excludedGroups })).toEqual(true);
+      });
+
+      it('does not excludes a user who is not on Firefox', () => {
+        const _isFirefox = sinon.stub().returns(false);
+
+        expect(_isUserExcluded({ _isFirefox, excludedGroups })).toEqual(false);
+      });
+    });
+
+    describe('NON_FIREFOX_USERS group', () => {
+      const excludedGroups = [NON_FIREFOX_USERS];
+
+      it('excludes a user who is not on Firefox', () => {
+        const _isFirefox = sinon.stub().returns(false);
+
+        expect(_isUserExcluded({ _isFirefox, excludedGroups })).toEqual(true);
+      });
+
+      it('does not excludes a user who is on Firefox', () => {
+        const _isFirefox = sinon.stub().returns(true);
+
+        expect(_isUserExcluded({ _isFirefox, excludedGroups })).toEqual(false);
+      });
     });
   });
 });
