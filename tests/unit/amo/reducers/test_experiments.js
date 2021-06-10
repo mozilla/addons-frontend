@@ -2,7 +2,7 @@ import reducer, {
   initialState,
   storeExperimentVariant,
 } from 'amo/reducers/experiments';
-import { fakeExperimentVariant } from 'tests/unit/helpers';
+import { fakeStoredVariant } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {
@@ -13,7 +13,7 @@ describe(__filename, () => {
     });
 
     it('stores an experiment variant', () => {
-      const storedVariant = fakeExperimentVariant;
+      const storedVariant = fakeStoredVariant;
 
       const state = reducer(
         undefined,
@@ -24,7 +24,7 @@ describe(__filename, () => {
     });
 
     it('can clear an experiment variant', () => {
-      const storedVariant = fakeExperimentVariant;
+      const storedVariant = fakeStoredVariant;
 
       let state = reducer(undefined, storeExperimentVariant({ storedVariant }));
 

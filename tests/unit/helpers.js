@@ -1486,7 +1486,7 @@ export const fakeTrackingEvent = Object.freeze({
   value: 19,
 });
 
-export const fakeExperimentVariant = Object.freeze({
+export const fakeStoredVariant = Object.freeze({
   id: '20210608_experiment_name',
   variant: 'some-variant',
 });
