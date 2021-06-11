@@ -411,7 +411,7 @@ module.exports = {
 
   enableFeatureAllowAndroidInstall: true,
 
-  enableFeatureLinkToNewBlog: false,
+  enableFeatureLinkToNewBlog: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
