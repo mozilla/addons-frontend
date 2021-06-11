@@ -191,7 +191,7 @@ export const withExperiment =
           variants,
         } = props;
 
-        let variant = null;
+        let { variant } = this;
         const isEnabled = _isExperimentEnabled({ _config, id });
         const registeredExperiments = this.getExperiments();
         const experimentInCookie = this.cookieIncludesExperiment(
@@ -200,7 +200,7 @@ export const withExperiment =
         const addExperimentToCookie = !experimentInCookie;
         const variantFromStore = storedVariant;
 
-        if (isEnabled) {
+        if (isEnabled && !variant) {
           // Use the variant in the cookie if one exists, otherwise use the
           // variant from the Redux store.
           if (experimentInCookie) {

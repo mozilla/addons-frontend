@@ -39,7 +39,7 @@ import './styles.scss';
 export type Props = {|
   _getClientCompatibility?: typeof getClientCompatibility,
   _findInstallURL?: typeof findInstallURL,
-  addon: AddonType,
+  addon: AddonType | null,
   className?: string,
   defaultButtonText?: string,
   puffy?: boolean,

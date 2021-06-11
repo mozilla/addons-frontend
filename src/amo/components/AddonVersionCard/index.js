@@ -198,13 +198,11 @@ export const AddonVersionCardBase = (props: InternalProps): React.Node => {
         </>
       </div>
 
-      {addon && version && (
-        <InstallButtonWrapper
-          addon={addon}
-          version={version}
-          showLinkInsteadOfButton={!isCurrentVersion}
-        />
-      )}
+      <InstallButtonWrapper
+        addon={addon}
+        version={version}
+        showLinkInsteadOfButton={!isCurrentVersion}
+      />
 
       {addon && <InstallWarning addon={addon} />}
     </li>
