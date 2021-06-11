@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-09 14:34+0000\n"
-"PO-Revision-Date: 2021-04-22 15:06+0000\n"
-"Last-Translator: Francesco Lodolo [:flod] <flod+pontoon@mozilla.com>\n"
+"PO-Revision-Date: 2021-06-10 09:27+0000\n"
+"Last-Translator: Jenny <leanintocuriosity@gmx.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1051,14 +1051,12 @@ msgid "Download Firefox and get the extension"
 msgstr "Scarica Firefox e installa l’estensione"
 
 #: src/amo/components/GetFirefoxButton/index.js:130
-#, fuzzy
 msgid "Download the new Firefox and get the theme"
-msgstr "Scarica Firefox e installa il tema"
+msgstr "Scarica il nuovo Firefox e installa il tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:131
-#, fuzzy
 msgid "Download the new Firefox and get the extension"
-msgstr "Scarica Firefox e installa l’estensione"
+msgstr "Scarica il nuovo Firefox e installa l’estensione"
 
 #: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download Firefox"
@@ -1073,14 +1071,12 @@ msgid "You'll need Firefox to use this extension"
 msgstr "Devi utilizzare Firefox per poter installare questa estensione"
 
 #: src/amo/components/GetFirefoxButton/index.js:143
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "Devi utilizzare Firefox per poter installare questo tema"
+msgstr "Devi utilizzare una versione aggiornata di Firefox per poter installare questo tema"
 
 #: src/amo/components/GetFirefoxButton/index.js:144
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "Devi utilizzare Firefox per poter installare questa estensione"
+msgstr "Devi utilizzare una versione aggiornata di Firefox per poter installare questa estensione"
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
