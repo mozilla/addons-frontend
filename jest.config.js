@@ -49,4 +49,5 @@ module.exports = {
     '<rootDir>/webpack-assets.json',
   ],
   verbose: false,
+  testEnvironment: 'jsdom',
 };
