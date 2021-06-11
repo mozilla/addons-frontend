@@ -45,8 +45,6 @@ module.exports = {
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 
-  enableFeatureLinkToNewBlog: true,
-
   experiments: {
     '20210531_download_funnel_experiment': true,
   },
