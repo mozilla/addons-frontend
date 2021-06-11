@@ -279,7 +279,7 @@ describe(__filename, () => {
     });
 
     // These should be empty:
-    expect(root.find(InstallButtonWrapper)).toHaveLength(0);
+    expect(root.find(InstallButtonWrapper)).toHaveProp('addon', null);
     expect(root.find(AddonCompatibilityError)).toHaveProp('addon', null);
     expect(root.find(RatingManager)).toHaveLength(0);
 

@@ -308,8 +308,9 @@ export const withExperiment =
         const exposedProps: WithExperimentInjectedProps = {
           experimentId: id,
           isExperimentEnabled: isEnabled,
-          isUserInExperiment:
-            this.variant !== null && this.variant !== NOT_IN_EXPERIMENT,
+          isUserInExperiment: Boolean(
+            this.variant && this.variant !== NOT_IN_EXPERIMENT,
+          ),
           variant: this.variant,
         };
 
