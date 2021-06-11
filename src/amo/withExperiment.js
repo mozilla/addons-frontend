@@ -31,13 +31,6 @@ import type { DispatchFunc } from 'amo/types/redux';
  *        in the experiment, assign a percentage to the special
  *        `NOT_IN_EXPERIMENT` variant.
  *
- *  Note: Experiments are only executed on the client. The component will
- *        initially be rendered with `variant === null`. Therefore the
- *        version of the component that will be the least disruptive should
- *        be generated when `variant === null`. Once a variant is determined
- *        on the client, the layout of the component will change to match that
- *        of the variant.
- *
  *  Example:
  *
  *     withExperiment({
@@ -205,14 +198,15 @@ export const withExperiment =
           registeredExperiments,
         );
         const addExperimentToCookie = !experimentInCookie;
+        const variantFromStore = storedVariant;
 
         if (isEnabled) {
           // Use the variant in the cookie if one exists, otherwise use the
           // variant from the Redux store.
           if (experimentInCookie) {
             variant = registeredExperiments[id];
-          } else if (storedVariant) {
-            variant = storedVariant.variant;
+          } else if (variantFromStore) {
+            variant = variantFromStore.variant;
           }
 
           // Do we need to store the variant in the cookie?
@@ -240,6 +234,7 @@ export const withExperiment =
           addExperimentToCookie: addExperimentToCookie && variant,
           registeredExperiments,
           variant,
+          variantFromStore,
         };
       }
 
@@ -252,8 +247,12 @@ export const withExperiment =
       componentDidMount() {
         const { _isExperimentEnabled, cookies, dispatch, id } = this.props;
 
-        const { addExperimentToCookie, registeredExperiments, variant } =
-          this.initialExperimentSetup(this.props);
+        const {
+          addExperimentToCookie,
+          registeredExperiments,
+          variant,
+          variantFromStore,
+        } = this.initialExperimentSetup(this.props);
 
         const experimentsToStore = { ...registeredExperiments };
 
@@ -269,7 +268,7 @@ export const withExperiment =
         if (addExperimentToCookie) {
           experimentsToStore[id] = variant;
 
-          if (variant && variant !== NOT_IN_EXPERIMENT) {
+          if (variant) {
             // Send an enrollment event.
             _tracking.sendEvent({
               _config,
@@ -284,7 +283,9 @@ export const withExperiment =
         }
 
         // Remove the stored variant from the Redux store.
-        dispatch(storeExperimentVariant({ storedVariant: null }));
+        if (variantFromStore) {
+          dispatch(storeExperimentVariant({ storedVariant: null }));
+        }
       }
 
       getExperiments() {

@@ -256,7 +256,7 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches storeExperimentVariant on the server to store and then clear the variant', () => {
+  it('dispatches storeExperimentVariant on the server to store the variant', () => {
     const id = makeId('hero');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
@@ -281,24 +281,15 @@ describe(__filename, () => {
       store,
     });
 
-    // Called once to store the variant.
     sinon.assert.calledWith(
       fakeDispatch,
       storeExperimentVariant({
         storedVariant: { id, variant: variantId },
       }),
     );
-
-    // Called again in componentDidMount to clear the variant.
-    sinon.assert.calledWith(
-      fakeDispatch,
-      storeExperimentVariant({
-        storedVariant: null,
-      }),
-    );
   });
 
-  it('does not store the variant on the client on the client', () => {
+  it('does not store the variant on the client', () => {
     const id = makeId('hero');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
@@ -323,8 +314,25 @@ describe(__filename, () => {
       store,
     });
 
-    // Only called to clear the variant.
-    sinon.assert.calledOnce(fakeDispatch);
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('clears a stored variant', () => {
+    const id = makeId('hero');
+    const variantId = 'some-variant-id';
+    const { store } = dispatchClientMetadata();
+
+    store.dispatch(
+      storeExperimentVariant({ storedVariant: { id, variant: variantId } }),
+    );
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    render({
+      experimentProps: { id },
+      store,
+    });
+
     sinon.assert.calledWith(
       fakeDispatch,
       storeExperimentVariant({
@@ -404,24 +412,6 @@ describe(__filename, () => {
         category: [EXPERIMENT_ENROLLMENT_CATEGORY, experimentId].join(' '),
       }),
     );
-  });
-
-  it('does not send an enrollment event if the user is not in the experiment', () => {
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
-    });
-    const _tracking = createFakeTracking();
-    const _getVariant = sinon
-      .stub()
-      .returns({ ...fakeVariant, id: NOT_IN_EXPERIMENT });
-
-    render({
-      cookies,
-      experimentProps: { _tracking },
-      props: { _getVariant },
-    });
-
-    sinon.assert.notCalled(_tracking.sendEvent);
   });
 
   it('does not send an enrollment event if the user is in the experiment', () => {
