@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-09 14:34+0000\n"
-"PO-Revision-Date: 2021-06-12 02:24+0000\n"
+"PO-Revision-Date: 2021-06-12 02:32+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1047,14 +1047,12 @@ msgid "Download Firefox and get the extension"
 msgstr "Unduh Firefox dan dapatkan ekstensinya"
 
 #: src/amo/components/GetFirefoxButton/index.js:130
-#, fuzzy
 msgid "Download the new Firefox and get the theme"
-msgstr "Unduh Firefox dan dapatkan temanya"
+msgstr "Unduh Firefox terbaru dan dapatkan temanya"
 
 #: src/amo/components/GetFirefoxButton/index.js:131
-#, fuzzy
 msgid "Download the new Firefox and get the extension"
-msgstr "Unduh Firefox dan dapatkan ekstensinya"
+msgstr "Unduh Firefox terbaru dan dapatkan ekstensinya"
 
 #: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download Firefox"
@@ -1069,14 +1067,12 @@ msgid "You'll need Firefox to use this extension"
 msgstr "Anda memerlukan Firefox untuk menggunakan ekstensi ini"
 
 #: src/amo/components/GetFirefoxButton/index.js:143
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "Anda memerlukan Firefox untuk menggunakan tema ini"
+msgstr "Anda memerlukan Firefox terbaru untuk menggunakan tema ini"
 
 #: src/amo/components/GetFirefoxButton/index.js:144
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "Anda memerlukan Firefox untuk menggunakan ekstensi ini"
+msgstr "Anda memerlukan Firefox terbaru untuk menggunakan ekstensi ini"
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
