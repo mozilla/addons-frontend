@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-09 14:34+0000\n"
-"PO-Revision-Date: 2021-06-14 09:17+0000\n"
+"PO-Revision-Date: 2021-06-14 09:22+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -597,9 +597,8 @@ msgid "Log out"
 msgstr "Dilni"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
-msgstr "Regjistrohuni ose Hyni"
+msgstr "Regjistrohuni ose hyni"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:144
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -968,9 +967,8 @@ msgid "Developer Policies"
 msgstr "Rregulla Për Zhvilluesit"
 
 #: src/amo/components/Footer/index.js:124
-#, fuzzy
 msgid "Developer Blog"
-msgstr "Qendër Zhvilluesish"
+msgstr "Blog Zhvilluesish"
 
 #: src/amo/components/Footer/index.js:130
 msgid "Forum"
@@ -1025,9 +1023,8 @@ msgid "About"
 msgstr "Mbi"
 
 #: src/amo/components/Footer/index.js:75 src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Firefox Add-on Reviews"
-msgstr "Shtesa Firefox-i"
+msgstr "Shqyrtime Shtesash Firefox-i"
 
 #: src/amo/components/Footer/index.js:76
 msgid "Blog"
@@ -1046,47 +1043,40 @@ msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkE
 msgstr "Që të përdorni këto shtesa, do t’ju duhet të %(linkStart)sshkarkoni Firefox-in%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:125
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Shkarkoni Firefox-in"
+msgstr "Shkarkoni Firefox-in dhe merrni temën"
 
 #: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download Firefox and get the extension"
 msgstr "Shkarkoni Firefox-in dhe merrni zgjerimin"
 
 #: src/amo/components/GetFirefoxButton/index.js:130
-#, fuzzy
 msgid "Download the new Firefox and get the theme"
-msgstr "Shkarkoni Firefox-in"
+msgstr "Shkarkoni Firefox-in e ri dhe merrni temën"
 
 #: src/amo/components/GetFirefoxButton/index.js:131
-#, fuzzy
 msgid "Download the new Firefox and get the extension"
-msgstr "Shkarkoni Firefox-in"
+msgstr "Shkarkoni Firefox-in e ri dhe merrni zgjerimin"
 
 #: src/amo/components/GetFirefoxButton/index.js:135
 msgid "Download Firefox"
 msgstr "Shkarkoni Firefox-in"
 
 #: src/amo/components/GetFirefoxButton/index.js:138
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Që të vlerësoni këtë temë, bëni hyrjen"
+msgstr "Që të përdorni këtë temë, ju duhet Firefox-i"
 
 #: src/amo/components/GetFirefoxButton/index.js:139
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Që të vlerësoni këtë zgjerim, bëni hyrjen"
+msgstr "Që të përdorni këtë zgjerim, ju duhet Firefox-i"
 
 #: src/amo/components/GetFirefoxButton/index.js:143
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "Që të vlerësoni këtë temë, bëni hyrjen"
+msgstr "Për këtë temë ju duhet një version i përditësuar i Firefox-it"
 
 #: src/amo/components/GetFirefoxButton/index.js:144
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "Që të vlerësoni këtë zgjerim, bëni hyrjen"
+msgstr "Për këtë zgjerim ju duhet një version i përditësuar i Firefox-it"
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
@@ -1159,9 +1149,8 @@ msgid "Firefox only recommends extensions that meet our standards for security a
 msgstr "Firefox-i rekomandon vetëm zgjerime që pajtohen me standarde tona për sigurinë dhe punimin."
 
 #: src/amo/components/HomepageShelves/index.js:69
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Shihni më tepër %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1850,9 +1839,8 @@ msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocat
 msgstr "Për të gjetur shtesa të përputhshme me Firefox-in për Android, <a href=\"%(newLocation)s\">klikoni këtu</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "Kjo shtesë s’është e përputhshme me këtë shfletues. Provoni ta instaloni te Firefox-i për desktop."
+msgstr "Shtesat s’janë të përputhshme me Firefox-in për iOS. Provoni t’i instaloni te Firefox-i për desktop."
 
 #: src/amo/i18n/utils.js:266
 msgid "%(localizedSize)s B"
@@ -2066,14 +2054,12 @@ msgid "All theme categories"
 msgstr "Krejt kategoritë e temave"
 
 #: src/amo/pages/CategoryPage/index.js:57
-#, fuzzy
 msgid "Themes in %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "Tema në %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
-#, fuzzy
 msgid "Extensions in %(categoryName)s"
-msgstr "U gjet %(count)s zgjerim te %(categoryName)s"
+msgstr "Zgjerime në %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
@@ -2276,7 +2262,6 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "Që të shihni më tepër rrugë me të cilat mund të jepni ndihmesë te bashkësia e shtesave, ju lutemi, vizitoni %(startLink)swiki%(endLink)s tonë."
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
 msgstr "Njoftoni një të metë"
 
@@ -2297,6 +2282,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Që të njoftoni një cenueshmëri sigurie për një zgjerim, edhe kur nuk strehohet në këtë sajt, ju lutemi, hapni një %(startSecIssueLink)sçështje%(endSecIssueLink)s në Bugzilla, ose dërgoni një email "
+"te %(startMailLink)samo-admins@mozilla.com%(endMailLink)s. Krejt raportet mbi cenueshmëri sigurie janë %(startLink)srezervat%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
