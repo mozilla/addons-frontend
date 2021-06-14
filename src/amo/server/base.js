@@ -237,15 +237,14 @@ function baseServer(
           .filter((pattern) => new RegExp(pattern).test(req.originalUrl))
           .length !== 0;
 
-      // Make sure the initial page does not get stored. Specifically, we
-      // don't want the auth token in Redux state to hang around.
-      // See https://github.com/mozilla/addons-frontend/issues/6217
+      // Make sure the initial page does not get stored in browser caches.
+      // Specifically, we don't want the auth token in Redux state to hang
+      // around. See https://github.com/mozilla/addons-frontend/issues/6217
       //
       // The site operates as a single page app so this should really
       // only affect how the browser loads the page when clicking
       // the back button.
-      //
-      res.set('Cache-Control', isAnonymousPage ? ['public'] : ['no-store']);
+      res.set('Cache-Control', isAnonymousPage ? ['public'] : ['max-age=0']);
 
       // Vary the cache on Do Not Track headers, because if enabled we serve
       // a different HTML without Google Analytics script included.
@@ -380,20 +379,29 @@ function baseServer(
           responseStatusCode < 400 &&
           !token
         ) {
-          // We tell nginx to cache all succesful anonymous responses coming
-          // from "safe" requests: GET/HEAD verb, 20x/30x status, no special
-          // cookies. nginx config has similar config to only serve cached
-          // responses to such requests.
+          // We tell public caches (nginx, proxies, CDN) to cache all succesful
+          // anonymous responses coming from "safe" requests: GET/HEAD verb,
+          // 20x/30x status, no special cookies. nginx/CDN config has similar
+          // config to only serve cached responses to such requests.
+          // Note that we have both max-age and s-maxage set. The latter
+          // overrides the former, but just for shared caches, so browsers
+          // continue to not cache our pages while nginx/CDN can if it's safe
+          // to do so.
           _log.debug(oneLine`${req.method} -> ${responseStatusCode},
             redirecting=${isRedirecting} anonymous=${!token}:
             response should be cached.`);
-          // Note that we don't use Cache-Control, which is typically set to
-          // no-store above.
+          res.append('Cache-Control', 's-maxage=180');
+          // The following is for backwards-compatibility until we have
+          // switched nginx to obey Cache-Control instead.
           res.set('X-Accel-Expires', '180');
         } else {
           _log.debug(oneLine`${req.method} -> ${responseStatusCode},
             redirecting=${isRedirecting} anonymous=${!token}:
             response should *not* be cached.`);
+          // Redundant since we set max-age=0 by default but doesn't hurt, and
+          // leaves us free to change our policy around browser caching in the
+          // long run without affecting shared caches.
+          res.append('Cache-Control', 's-maxage=0');
         }
 
         // A redirection has been requested, let's do it.
