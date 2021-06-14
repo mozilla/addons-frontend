@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-09 14:34+0000\n"
-"PO-Revision-Date: 2021-06-10 15:46+0000\n"
+"PO-Revision-Date: 2021-06-14 15:49+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1072,7 +1072,7 @@ msgstr "Vous avez besoin de Firefox pour utiliser cette extension"
 
 #: src/amo/components/GetFirefoxButton/index.js:143
 msgid "You need an updated version of Firefox for this theme"
-msgstr ""
+msgstr "Vous avez besoin d’une version mise à jour de Firefox pour ce thème"
 
 #: src/amo/components/GetFirefoxButton/index.js:144
 msgid "You need an updated version of Firefox for this extension"
