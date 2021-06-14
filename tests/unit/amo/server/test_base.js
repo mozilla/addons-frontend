@@ -743,7 +743,7 @@ describe(__filename, () => {
       );
     });
 
-    it('dsets correct Cache-Control header if response is 404', async () => {
+    it('sets correct Cache-Control header if response is 404', async () => {
       const response = await testClient({ App: NotFoundApp }).get(
         '/en-US/firefox/simulation-of-a-non-existent-page/',
       );
