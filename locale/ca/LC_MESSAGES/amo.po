@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-09 14:34+0000\n"
+"POT-Creation-Date: 2021-06-15 16:03+0000\n"
 "PO-Revision-Date: 2021-04-09 13:01+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -1177,50 +1177,50 @@ msgstr "Taller d'extensions"
 msgid "Developer Hub"
 msgstr "Centre de desenvolupadors"
 
-#: src/amo/components/GetFirefoxBanner/index.js:75
+#: src/amo/components/GetFirefoxBanner/index.js:87
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:125
+#: src/amo/components/GetFirefoxButton/index.js:172
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "Baixa el Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:126
+#: src/amo/components/GetFirefoxButton/index.js:173
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:177
 #, fuzzy
 msgid "Download the new Firefox and get the theme"
 msgstr "Baixa el Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:178
 #, fuzzy
 msgid "Download the new Firefox and get the extension"
 msgstr "Baixa el Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:182
 msgid "Download Firefox"
 msgstr "Baixa el Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:138
+#: src/amo/components/GetFirefoxButton/index.js:185
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "Inicieu la sessió per puntuar aquest tema"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:186
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
 msgstr "Inicieu la sessió per puntuar aquesta extensió"
 
-#: src/amo/components/GetFirefoxButton/index.js:143
+#: src/amo/components/GetFirefoxButton/index.js:190
 #, fuzzy
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Inicieu la sessió per puntuar aquest tema"
 
-#: src/amo/components/GetFirefoxButton/index.js:144
+#: src/amo/components/GetFirefoxButton/index.js:191
 #, fuzzy
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Inicieu la sessió per puntuar aquesta extensió"
@@ -1349,7 +1349,7 @@ msgstr "Gestioneu els complements fent clic a «Complements» al menú."
 msgid "OK"
 msgstr "D'acord"
 
-#: src/amo/components/InstallButtonWrapper/index.js:136
+#: src/amo/components/InstallButtonWrapper/index.js:145
 msgid "Download file"
 msgstr "Baixa el fitxer"
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-09 14:34+0000\n"
+"POT-Creation-Date: 2021-06-15 16:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1097,45 +1097,45 @@ msgstr ""
 msgid "Developer Hub"
 msgstr ""
 
-#: src/amo/components/GetFirefoxBanner/index.js:75
+#: src/amo/components/GetFirefoxBanner/index.js:87
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload "
 "Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:125
+#: src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox and get the theme"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:126
+#: src/amo/components/GetFirefoxButton/index.js:173
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:177
 msgid "Download the new Firefox and get the theme"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:178
 msgid "Download the new Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:182
 msgid "Download Firefox"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:138
+#: src/amo/components/GetFirefoxButton/index.js:185
 msgid "You'll need Firefox to use this theme"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:186
 msgid "You'll need Firefox to use this extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:143
+#: src/amo/components/GetFirefoxButton/index.js:190
 msgid "You need an updated version of Firefox for this theme"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:144
+#: src/amo/components/GetFirefoxButton/index.js:191
 msgid "You need an updated version of Firefox for this extension"
 msgstr ""
 
@@ -1259,7 +1259,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: src/amo/components/InstallButtonWrapper/index.js:136
+#: src/amo/components/InstallButtonWrapper/index.js:145
 msgid "Download file"
 msgstr ""
 

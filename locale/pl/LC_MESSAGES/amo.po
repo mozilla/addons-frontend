@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-09 14:34+0000\n"
+"POT-Creation-Date: 2021-06-15 16:03+0000\n"
 "PO-Revision-Date: 2021-04-24 11:25+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -1164,49 +1164,49 @@ msgstr "Warsztat rozszerzeń"
 msgid "Developer Hub"
 msgstr "Strefa autora"
 
-#: src/amo/components/GetFirefoxBanner/index.js:75
+#: src/amo/components/GetFirefoxBanner/index.js:87
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 "Aby używać tych dodatków, potrzebujesz %(linkStart)spobrać Firefoksa"
 "%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:125
+#: src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox and get the theme"
 msgstr "Pobierz Firefoksa i ten motyw"
 
-#: src/amo/components/GetFirefoxButton/index.js:126
+#: src/amo/components/GetFirefoxButton/index.js:173
 msgid "Download Firefox and get the extension"
 msgstr "Pobierz Firefoksa i to rozszerzenie"
 
-#: src/amo/components/GetFirefoxButton/index.js:130
+#: src/amo/components/GetFirefoxButton/index.js:177
 #, fuzzy
 msgid "Download the new Firefox and get the theme"
 msgstr "Pobierz Firefoksa i ten motyw"
 
-#: src/amo/components/GetFirefoxButton/index.js:131
+#: src/amo/components/GetFirefoxButton/index.js:178
 #, fuzzy
 msgid "Download the new Firefox and get the extension"
 msgstr "Pobierz Firefoksa i to rozszerzenie"
 
-#: src/amo/components/GetFirefoxButton/index.js:135
+#: src/amo/components/GetFirefoxButton/index.js:182
 msgid "Download Firefox"
 msgstr "Pobierz Firefoksa"
 
-#: src/amo/components/GetFirefoxButton/index.js:138
+#: src/amo/components/GetFirefoxButton/index.js:185
 msgid "You'll need Firefox to use this theme"
 msgstr "Potrzebujesz Firefoksa, aby używać tego motywu"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:186
 msgid "You'll need Firefox to use this extension"
 msgstr "Potrzebujesz Firefoksa, aby używać tego rozszerzenia"
 
-#: src/amo/components/GetFirefoxButton/index.js:143
+#: src/amo/components/GetFirefoxButton/index.js:190
 #, fuzzy
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Potrzebujesz Firefoksa, aby używać tego motywu"
 
-#: src/amo/components/GetFirefoxButton/index.js:144
+#: src/amo/components/GetFirefoxButton/index.js:191
 #, fuzzy
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Potrzebujesz Firefoksa, aby używać tego rozszerzenia"
@@ -1333,7 +1333,7 @@ msgstr "Zarządzaj dodatkami klikając Dodatki w menu programu."
 msgid "OK"
 msgstr "OK"
 
-#: src/amo/components/InstallButtonWrapper/index.js:136
+#: src/amo/components/InstallButtonWrapper/index.js:145
 msgid "Download file"
 msgstr "Pobierz plik"
 
