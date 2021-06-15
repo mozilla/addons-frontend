@@ -1,19 +1,34 @@
 /* @flow */
-export type StoredVariant = {| id: string, variant: string |};
-
+export const CLEAR_EXPERIMENT_VARIANT: 'CLEAR_EXPERIMENT_VARIANT' =
+  'CLEAR_EXPERIMENT_VARIANT';
 export const STORE_EXPERIMENT_VARIANT: 'STORE_EXPERIMENT_VARIANT' =
   'STORE_EXPERIMENT_VARIANT';
 
-export type ExperimentsState = {
-  storedVariant: StoredVariant | null,
-};
+export type ExperimentsState = {| [experimentId: string]: string |};
 
-export const initialState: ExperimentsState = {
-  storedVariant: null,
+export const initialState: ExperimentsState = {};
+
+type ClearExperimentVariantParams = {|
+  id: string,
+|};
+
+export type ClearExperimentVariantAction = {|
+  type: typeof CLEAR_EXPERIMENT_VARIANT,
+  payload: ClearExperimentVariantParams,
+|};
+
+export const clearExperimentVariant = ({
+  id,
+}: ClearExperimentVariantParams): ClearExperimentVariantAction => {
+  return {
+    type: CLEAR_EXPERIMENT_VARIANT,
+    payload: { id },
+  };
 };
 
 type StoreExperimentVariantParams = {|
-  storedVariant: StoredVariant | null,
+  id: string,
+  variant: string,
 |};
 
 export type StoreExperimentVariantAction = {|
@@ -22,29 +37,36 @@ export type StoreExperimentVariantAction = {|
 |};
 
 export const storeExperimentVariant = ({
-  storedVariant,
+  id,
+  variant,
 }: StoreExperimentVariantParams): StoreExperimentVariantAction => {
   return {
     type: STORE_EXPERIMENT_VARIANT,
-    payload: { storedVariant },
+    payload: { id, variant },
   };
 };
 
-type Action = StoreExperimentVariantAction;
+type Action = ClearExperimentVariantAction | StoreExperimentVariantAction;
 
 export default function experimentsReducer(
   state: ExperimentsState = initialState,
   action: Action,
 ): ExperimentsState {
   switch (action.type) {
-    case STORE_EXPERIMENT_VARIANT: {
-      const { storedVariant } = action.payload;
+    case CLEAR_EXPERIMENT_VARIANT: {
+      const { id } = action.payload;
 
-      return {
-        ...state,
-        storedVariant,
-      };
+      const newState = { ...state };
+      delete newState[id];
+      return newState;
     }
+
+    case STORE_EXPERIMENT_VARIANT: {
+      const { id, variant } = action.payload;
+
+      return { ...state, [id]: variant };
+    }
+
     default:
       return state;
   }
