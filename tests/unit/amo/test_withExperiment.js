@@ -133,6 +133,24 @@ describe(__filename, () => {
     expect(root).toHaveProp('variant', cookieVariant);
   });
 
+  // Test for https://github.com/mozilla/addons-frontend/issues/10681
+  it('injects a newly created variant prop', () => {
+    const id = makeId('hero');
+    const variantId = 'some-variant-id';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const _getVariant = sinon.stub().returns(variantId);
+
+    const root = render({
+      cookies,
+      experimentProps: { id },
+      props: { _getVariant },
+    });
+
+    expect(root).toHaveProp('variant', variantId);
+  });
+
   it('injects an experimentId', () => {
     const id = makeId('injected-id');
 
