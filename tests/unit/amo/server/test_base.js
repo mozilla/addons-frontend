@@ -316,7 +316,9 @@ describe(__filename, () => {
       const response = await testClient({ store, sagaMiddleware }).get(
         '/en-US/firefox/',
       );
-      expect(response.headers['cache-control']).toEqual('no-store');
+      expect(response.headers['cache-control']).toEqual(
+        'max-age=0, s-maxage=180',
+      );
     });
 
     it('does not dispatch setAuthToken() if cookie is not found', async () => {
@@ -705,42 +707,54 @@ describe(__filename, () => {
       mockUsersApi.verify();
     });
 
-    it('sets a X-Accel-Expires header if request is safe & anonymous and response is sucessful', async () => {
+    it('sets correct Cache-Control header if request is safe & anonymous and response is sucessful', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({ store, sagaMiddleware }).get(
         '/en-US/firefox/',
       );
       expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
+      expect(response.headers['cache-control']).toEqual(
+        'max-age=0, s-maxage=180',
+      );
     });
 
-    it('does not set a X-Accel-Expires header if request contained authentication cookie', async () => {
+    it('sets correct Cache-Control header if request contained authentication cookie', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="foo"`);
       expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
+      expect(response.headers['cache-control']).toEqual(
+        'max-age=0, s-maxage=0',
+      );
     });
 
-    it('does not set a X-Accel-Expires header if request method is not safe', async () => {
+    it('sets correct Cache-Control header if request method is not safe', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({ store, sagaMiddleware }).post(
         '/en-US/firefox/',
       );
       expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
+      expect(response.headers['cache-control']).toEqual(
+        'max-age=0, s-maxage=0',
+      );
     });
 
-    it('does not set a X-Accel-Expires header if response is 404', async () => {
+    it('sets correct Cache-Control header if response is 404', async () => {
       const response = await testClient({ App: NotFoundApp }).get(
         '/en-US/firefox/simulation-of-a-non-existent-page/',
       );
       expect(response.statusCode).toEqual(404);
       expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
+      expect(response.headers['cache-control']).toEqual(
+        'max-age=0, s-maxage=0',
+      );
     });
 
-    it('does not set a X-Accel-Expires header if response is 500', async () => {
+    it('sets correct Cache-Control header if response is 500', async () => {
       const _createHistory = () => {
         throw new Error('oops');
       };
@@ -750,9 +764,10 @@ describe(__filename, () => {
       );
       expect(response.statusCode).toEqual(500);
       expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
+      expect(response.headers['cache-control']).toEqual('max-age=0');
     });
 
-    it('sets a X-Accel-Expires header if request is safe & anonymous and response is redirect', async () => {
+    it('sets correct Cache-Control header if request is safe & anonymous and response is redirect', async () => {
       const { store, sagaMiddleware } = createStoreAndSagas({
         reducers: {
           redirectTo: redirectToReducer,
@@ -794,6 +809,9 @@ describe(__filename, () => {
       expect(response.status).toEqual(301);
       expect(response.headers.location).toEqual(newURL);
       expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
+      expect(response.headers['cache-control']).toEqual(
+        'max-age=0, s-maxage=180',
+      );
     });
   });
 
