@@ -6,10 +6,7 @@ import { withCookies, Cookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import {
-  clearExperimentVariant,
-  storeExperimentVariant,
-} from 'amo/reducers/experiments';
+import { storeExperimentVariant } from 'amo/reducers/experiments';
 import tracking from 'amo/tracking';
 import { getDisplayName } from 'amo/utils';
 import type { ExperimentsState } from 'amo/reducers/experiments';
@@ -218,11 +215,9 @@ export const withExperiment =
             // Determine the variant if we don't already have one.
             variant = variant || _getVariant({ variants });
 
-            // If we are on the server, we need to store the variant in the Redux
-            // store.
-            if (_config.get('server')) {
-              dispatch(storeExperimentVariant({ id, variant }));
-            }
+            // Store the variant in the Redux store for use during
+            // componentDidMount.
+            dispatch(storeExperimentVariant({ id, variant }));
           }
         }
 
@@ -232,19 +227,14 @@ export const withExperiment =
           addExperimentToCookie: addExperimentToCookie && variant,
           registeredExperiments,
           variant,
-          variantFromStore,
         };
       }
 
       componentDidMount() {
-        const { _isExperimentEnabled, cookies, dispatch, id } = this.props;
+        const { _isExperimentEnabled, cookies, id } = this.props;
 
-        const {
-          addExperimentToCookie,
-          registeredExperiments,
-          variant,
-          variantFromStore,
-        } = this.experimentSetup(this.props);
+        const { addExperimentToCookie, registeredExperiments, variant } =
+          this.experimentSetup(this.props);
 
         const experimentsToStore = { ...registeredExperiments };
 
@@ -272,11 +262,6 @@ export const withExperiment =
 
         if (cleanupNeeded || addExperimentToCookie) {
           cookies.set(EXPERIMENT_COOKIE_NAME, experimentsToStore, cookieConfig);
-        }
-
-        // Remove the stored variant from the Redux store.
-        if (variantFromStore) {
-          dispatch(clearExperimentVariant({ id }));
         }
       }
 

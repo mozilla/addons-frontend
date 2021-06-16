@@ -1,10 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import {
-  clearExperimentVariant,
-  storeExperimentVariant,
-} from 'amo/reducers/experiments';
+import { storeExperimentVariant } from 'amo/reducers/experiments';
 import {
   EXPERIMENT_COOKIE_NAME,
   EXPERIMENT_ENROLLMENT_CATEGORY,
@@ -338,7 +335,7 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches storeExperimentVariant on the server to store the variant', () => {
+  it('dispatches storeExperimentVariant to store the variant', () => {
     const id = makeId('hero');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
@@ -348,15 +345,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
-    const configOverrides = {
-      experiments: {
-        [id]: true,
-      },
-      server: true,
-    };
-
     render({
-      configOverrides,
       cookies,
       experimentProps: { id },
       props: { _getVariant },
@@ -367,53 +356,6 @@ describe(__filename, () => {
       fakeDispatch,
       storeExperimentVariant({ id, variant: variantId }),
     );
-  });
-
-  it('does not store the variant on the client', () => {
-    const id = makeId('hero');
-    const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
-    });
-    const _getVariant = sinon.stub().returns(variantId);
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    const configOverrides = {
-      experiments: {
-        [id]: true,
-      },
-      server: false,
-    };
-
-    render({
-      configOverrides,
-      cookies,
-      experimentProps: { id },
-      props: { _getVariant },
-      store,
-    });
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
-  it('clears a stored variant', () => {
-    const id = makeId('hero');
-    const variantId = 'some-variant-id';
-    const { store } = dispatchClientMetadata();
-
-    store.dispatch(
-      store.dispatch(storeExperimentVariant({ id, variant: variantId })),
-    );
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      experimentProps: { id },
-      store,
-    });
-
-    sinon.assert.calledWith(fakeDispatch, clearExperimentVariant({ id }));
   });
 
   it('adds an experiment to the cookie, and removes a disabled one, as expected', () => {

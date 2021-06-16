@@ -1,5 +1,4 @@
 import reducer, {
-  clearExperimentVariant,
   initialState,
   storeExperimentVariant,
 } from 'amo/reducers/experiments';
@@ -32,32 +31,6 @@ describe(__filename, () => {
       );
 
       expect(state[id]).toEqual(variant);
-      expect(state[anotherId]).toEqual(anotherVariant);
-    });
-
-    it('can clear an experiment variant', () => {
-      let state = reducer(undefined, storeExperimentVariant({ id, variant }));
-
-      expect(state[id]).toEqual(variant);
-
-      state = reducer(state, clearExperimentVariant({ id }));
-
-      expect(state[id]).toEqual(undefined);
-    });
-
-    it('only clears the specificed experiment variant', () => {
-      const anotherId = 'some_other_experiment_id';
-      const anotherVariant = 'another-variant';
-
-      let state = reducer(undefined, storeExperimentVariant({ id, variant }));
-      state = reducer(
-        state,
-        storeExperimentVariant({ id: anotherId, variant: anotherVariant }),
-      );
-
-      state = reducer(state, clearExperimentVariant({ id }));
-
-      expect(state[id]).toEqual(undefined);
       expect(state[anotherId]).toEqual(anotherVariant);
     });
   });
