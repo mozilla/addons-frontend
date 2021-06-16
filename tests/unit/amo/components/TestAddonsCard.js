@@ -166,6 +166,15 @@ describe(__filename, () => {
     expect(root.find(CardList)).toHaveProp('header', header);
   });
 
+  it.each([true, false])(
+    'passes the isHomepageCard prop through to Card',
+    (isHomepageCard) => {
+      const root = render({ isHomepageCard });
+
+      expect(root.find(CardList)).toHaveProp('isHomepageCard', isHomepageCard);
+    },
+  );
+
   it('passes the showPromotedBadge prop through to SearchResult', () => {
     const showPromotedBadge = false;
     const root = render({ addons: [fakeAddon], showPromotedBadge });

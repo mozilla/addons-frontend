@@ -43,6 +43,32 @@ describe(__filename, () => {
     expect(root).toHaveClassName('Card--no-header');
   });
 
+  it('does not use HomepageCard classes by default', () => {
+    const root = render({
+      children: 'hello',
+    });
+    expect(root.find('.Card-header')).not.toHaveClassName(
+      'HomepageCard-header',
+    );
+    expect(root.find('.Card-footer')).not.toHaveClassName(
+      'HomepageCard-footer',
+    );
+    expect(root).not.toHaveClassName('HomepageCard-footer-in-header');
+  });
+
+  it('uses HomepageCard classes if isHomepageCard is true', () => {
+    const root = render({
+      children: 'hello',
+      footer: 'bar',
+      header: 'foo',
+      isHomepageCard: true,
+    });
+    expect(root.find('.Card-header')).toHaveClassName('HomepageCard-header');
+    expect(root.find('.Card-footer')).toHaveClassName('HomepageCard-footer');
+    expect(root.find('.HomepageCard-footer-in-header')).toHaveLength(1);
+    expect(root.find('.HomepageCard-footer-in-header')).toHaveText('bar');
+  });
+
   it('shows footer text if supplied', () => {
     const root = render({ footerText: 'foo' });
     expect(root.find('.Card-footer')).toHaveLength(1);

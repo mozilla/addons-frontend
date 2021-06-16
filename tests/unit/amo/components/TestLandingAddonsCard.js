@@ -63,6 +63,18 @@ describe(__filename, () => {
     );
   });
 
+  it.each([true, false])(
+    'passes isHomepageCard to AddonsCard',
+    (isHomepageCard) => {
+      const root = render({ isHomepageCard });
+
+      expect(root.find(AddonsCard)).toHaveProp(
+        'isHomepageCard',
+        isHomepageCard,
+      );
+    },
+  );
+
   it('sets the number of placeholders to render while loading', () => {
     const root = render({ loading: true });
     expect(root).toHaveProp('placeholderCount', LANDING_PAGE_EXTENSION_COUNT);
