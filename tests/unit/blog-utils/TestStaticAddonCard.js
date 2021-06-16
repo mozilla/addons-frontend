@@ -41,6 +41,7 @@ describe(__filename, () => {
 
     expect(root.find(AddonTitle)).toHaveLength(1);
     expect(root.find(AddonTitle)).toHaveProp('addon', addon);
+    expect(root.find(AddonTitle)).toHaveProp('linkToAddon', true);
 
     expect(root.find(AddonBadges)).toHaveLength(1);
     expect(root.find(AddonBadges)).toHaveProp('addon', addon);
