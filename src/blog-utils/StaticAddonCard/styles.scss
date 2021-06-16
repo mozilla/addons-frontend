@@ -72,6 +72,10 @@ $icon-size: 48px;
   grid-row: 2;
   margin: 0;
 
+  a {
+    text-decoration: none;
+  }
+
   .StaticAddonCard--is-theme & {
     grid-column: 1 / span 3;
   }

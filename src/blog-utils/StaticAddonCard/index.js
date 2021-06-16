@@ -61,7 +61,7 @@ export const StaticAddonCardBase = ({
         </div>
       )}
 
-      <AddonTitle addon={addon} />
+      <AddonTitle addon={addon} linkToAddon />
 
       <AddonBadges addon={addon} />
 
