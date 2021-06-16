@@ -366,10 +366,10 @@ describe(__filename, () => {
     );
 
     it.each([VARIANT_CURRENT, VARIANT_NEW, null])(
-      'adds or excludes the special source param for the %s variant',
+      'adds or excludes the special xv param for the %s variant',
       (variant) => {
         const link = getDownloadLink({ variant });
-        expect(/source=amo&/.test(link)).toEqual(variant === VARIANT_NEW);
+        expect(/xv=amo&/.test(link)).toEqual(variant === VARIANT_NEW);
       },
     );
 
@@ -446,7 +446,7 @@ describe(__filename, () => {
       const expectedLink = [
         `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
         `variation=${VARIANT_NEW}`,
-        `source=amo`,
+        `xv=amo`,
         `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
         `utm_content=rta%3A${encode(addon.guid)}`,
         `utm_medium=referral&utm_source=addons.mozilla.org`,

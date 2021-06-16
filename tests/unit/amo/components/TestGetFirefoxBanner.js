@@ -118,7 +118,7 @@ describe(__filename, () => {
       const expectedHref = [
         `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
         `variation=${VARIANT_NEW}`,
-        `source=amo`,
+        `xv=amo`,
         `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
         `utm_content=${GET_FIREFOX_BANNER_UTM_CONTENT}`,
         `utm_medium=referral&utm_source=addons.mozilla.org`,
