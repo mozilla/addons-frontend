@@ -88,8 +88,6 @@ $footer-padding: 10px;
 }
 
 .HomepageCard-header {
-  @extend .Card-header;
-
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -102,7 +100,6 @@ $footer-padding: 10px;
 }
 
 .HomepageCard-footer-in-header {
-  @extend .Card-footer-link;
   @include respond-to(mediumOnly) {
     display: none;
   }
@@ -115,6 +112,15 @@ $footer-padding: 10px;
   a:hover,
   a:link,
   a:visited {
+    color: $link-color;
+    display: block;
+    font-weight: normal;
     padding: 0px;
+    text-decoration: none;
+  }
+
+  a:focus {
+    outline: 1px dotted $link-color;
+    outline: auto 5px -webkit-focus-ring-color;
   }
 }
