@@ -54,7 +54,8 @@ $footer-padding: 10px;
 }
 
 .Card-footer-link,
-.Card-footer-text {
+.Card-footer-text,
+.HomepageCard-footer-in-header {
   a,
   a:active,
   a:hover,
@@ -112,15 +113,7 @@ $footer-padding: 10px;
   a:hover,
   a:link,
   a:visited {
-    color: $link-color;
-    display: block;
-    font-weight: normal;
     padding: 0;
-    text-decoration: none;
   }
 
-  a:focus {
-    outline: 1px dotted $link-color;
-    outline: auto 5px -webkit-focus-ring-color;
-  }
 }
