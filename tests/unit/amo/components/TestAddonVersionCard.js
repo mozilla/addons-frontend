@@ -385,21 +385,6 @@ describe(__filename, () => {
     );
   });
 
-  it('does not render an InstallButtonWrapper if there is no add-on', () => {
-    const root = render({ addon: null });
-
-    expect(root.find(InstallButtonWrapper)).toHaveLength(0);
-  });
-
-  it('does not render an InstallButtonWrapper if there is no version', () => {
-    const root = render({
-      addon: createInternalAddonWithLang(fakeAddon),
-      version: null,
-    });
-
-    expect(root.find(InstallButtonWrapper)).toHaveLength(0);
-  });
-
   describe('InstallWarning', () => {
     it('renders the InstallWarning if an add-on exists', () => {
       const root = render({ addon: createInternalAddonWithLang(fakeAddon) });

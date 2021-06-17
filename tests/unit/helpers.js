@@ -936,7 +936,7 @@ export function apiResponsePage({
 export function shallowUntilTarget(
   componentInstance,
   TargetComponent,
-  { maxTries = 10, shallowOptions, _shallow = shallow } = {},
+  { maxTries = 12, shallowOptions, _shallow = shallow } = {},
 ) {
   if (!componentInstance) {
     throw new Error('componentInstance parameter is required');
@@ -1473,11 +1473,6 @@ export const createInternalSuggestionWithLang = (
 ) => {
   return createInternalSuggestion(suggestion, lang);
 };
-
-export const fakeVariant = Object.freeze({
-  id: 'some-variant-id',
-  percentage: 0.5,
-});
 
 export const fakeTrackingEvent = Object.freeze({
   action: 'some-action',

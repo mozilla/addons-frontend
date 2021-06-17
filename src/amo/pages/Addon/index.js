@@ -480,7 +480,7 @@ export class AddonBase extends React.Component {
                     <p className="Addon-summary" {...summaryProps} />
                   ) : null}
 
-                  {addon && <InstallButtonWrapper addon={addon} />}
+                  <InstallButtonWrapper addon={addon} />
                 </div>
 
                 <h2 className="visually-hidden">

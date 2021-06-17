@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
+import { storeExperimentVariant } from 'amo/reducers/experiments';
 import {
   EXPERIMENT_COOKIE_NAME,
   EXPERIMENT_ENROLLMENT_CATEGORY,
@@ -14,8 +15,8 @@ import {
 import * as defaultConfig from 'config/default';
 import {
   createFakeTracking,
+  dispatchClientMetadata,
   fakeCookies,
-  fakeVariant,
   getFakeConfig,
 } from 'tests/unit/helpers';
 
@@ -40,6 +41,7 @@ describe(__filename, () => {
     cookies = fakeCookies(),
     experimentProps,
     props,
+    store = dispatchClientMetadata().store,
   } = {}) => {
     const id = (experimentProps && experimentProps.id) || makeId('some-id');
     const allExperimentProps = {
@@ -68,7 +70,7 @@ describe(__filename, () => {
     // See: https://github.com/mozilla/addons-frontend/issues/6839
     //
     // 1. Render everything
-    const root = shallow(<SomeComponent {...props} />);
+    const root = shallow(<SomeComponent store={store} {...props} />);
     // 2. Get and render the withExperiment HOC (inside withCookies() HOC)
     return shallow(root.props().children(cookies));
   };
@@ -76,10 +78,12 @@ describe(__filename, () => {
   const render = (props = {}) => {
     const root = renderWithExperiment(props);
     // Return the wrapped instance (`SomeComponentBase`)
-    return root.dive();
+    // We have to dive twice because of the withCookies HOC and the connect
+    // wrapper.
+    return root.dive().dive();
   };
 
-  it('injects a variant prop', () => {
+  it('injects a variant prop from a cookie', () => {
     const id = makeId('test-id');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
@@ -87,6 +91,59 @@ describe(__filename, () => {
     });
 
     const root = render({ cookies, experimentProps: { id } });
+
+    expect(root).toHaveProp('variant', variantId);
+  });
+
+  it('injects a variant prop from the redux store', () => {
+    const { store } = dispatchClientMetadata();
+    const id = makeId('test-id');
+    const variantId = 'some-variant-id';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+
+    store.dispatch(storeExperimentVariant({ id, variant: variantId }));
+
+    const root = render({ cookies, experimentProps: { id }, store });
+
+    expect(root).toHaveProp('variant', variantId);
+  });
+
+  // If a cookie exists, we always want to use it, to maintain consistency
+  // for the user.
+  it('prefers a variant from a cookie to one from the the redux store', () => {
+    const { store } = dispatchClientMetadata();
+    const id = makeId('test-id');
+    const cookieVariant = 'cookie-variant';
+    const storeVariant = 'store-variant';
+    const cookies = fakeCookies({
+      get: sinon
+        .stub()
+        .returns(createExperimentData({ id, variantId: cookieVariant })),
+    });
+
+    store.dispatch(storeExperimentVariant({ id, variant: storeVariant }));
+
+    const root = render({ cookies, experimentProps: { id }, store });
+
+    expect(root).toHaveProp('variant', cookieVariant);
+  });
+
+  // Test for https://github.com/mozilla/addons-frontend/issues/10681
+  it('injects a newly created variant prop', () => {
+    const id = makeId('hero');
+    const variantId = 'some-variant-id';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const _getVariant = sinon.stub().returns(variantId);
+
+    const root = render({
+      cookies,
+      experimentProps: { id },
+      props: { _getVariant },
+    });
 
     expect(root).toHaveProp('variant', variantId);
   });
@@ -161,7 +218,7 @@ describe(__filename, () => {
       { id: 'some-variant-a', percentage: 0.5 },
       { id: 'some-variant-b', percentage: 0.5 },
     ];
-    const _getVariant = sinon.stub().returns(variants[0]);
+    const _getVariant = sinon.stub().returns(variants[0].id);
 
     render({
       cookies,
@@ -179,6 +236,70 @@ describe(__filename, () => {
     );
   });
 
+  it('does not use a stored variant if it is not for this experiment', () => {
+    const otherExperimentVariant = 'variant-for-another-experiment';
+    const thisExperimentVariant = 'variant-for-this-experiment';
+    const id = makeId('hero');
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const _getVariant = sinon.stub().returns(thisExperimentVariant);
+    const { store } = dispatchClientMetadata();
+
+    // Store a variant for a different experiment.
+    store.dispatch(
+      storeExperimentVariant({
+        id: `different_${id}`,
+        variant: otherExperimentVariant,
+      }),
+    );
+
+    const root = render({
+      cookies,
+      experimentProps: { id },
+      props: { _getVariant },
+      store,
+    });
+
+    // This expected variant comes from the mocked _getVariant.
+    expect(root).toHaveProp('variant', thisExperimentVariant);
+  });
+
+  it('uses the stored variant for this experiment, even when others are present', () => {
+    const otherExperimentVariant = 'variant-for-another-experiment';
+    const thisExperimentVariant = 'variant-for-this-experiment';
+    const id = makeId('hero');
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const { store } = dispatchClientMetadata();
+
+    // Store a variant for this experiment.
+    store.dispatch(
+      storeExperimentVariant({
+        id,
+        variant: thisExperimentVariant,
+      }),
+    );
+
+    // Store a variant for a different experiment.
+    store.dispatch(
+      storeExperimentVariant({
+        id: `different_${id}`,
+        variant: otherExperimentVariant,
+      }),
+    );
+
+    const root = render({
+      cookies,
+      experimentProps: { id },
+      store,
+    });
+
+    // This expected variant comes from the store.
+    expect(root).toHaveProp('variant', thisExperimentVariant);
+  });
+
   it('creates a cookie upon render if the current experiment is not already in the cookie', () => {
     const experimentId = makeId('thisExperiment');
     const anotherExperimentId = makeId('anotherExperiment');
@@ -194,7 +315,7 @@ describe(__filename, () => {
         ...createExperimentData({ id: anotherExperimentId, variantId }),
       }),
     });
-    const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
+    const _getVariant = sinon.stub().returns(variantId);
 
     render({
       configOverrides,
@@ -214,6 +335,29 @@ describe(__filename, () => {
     );
   });
 
+  it('dispatches storeExperimentVariant to store the variant', () => {
+    const id = makeId('hero');
+    const variantId = 'some-variant-id';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const _getVariant = sinon.stub().returns(variantId);
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    render({
+      cookies,
+      experimentProps: { id },
+      props: { _getVariant },
+      store,
+    });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      storeExperimentVariant({ id, variant: variantId }),
+    );
+  });
+
   it('adds an experiment to the cookie, and removes a disabled one, as expected', () => {
     const experimentId = makeId('thisExperiment');
     const anotherExperimentId = makeId('anotherExperiment');
@@ -229,7 +373,7 @@ describe(__filename, () => {
         ...createExperimentData({ id: anotherExperimentId, variantId }),
       }),
     });
-    const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
+    const _getVariant = sinon.stub().returns(variantId);
 
     render({
       configOverrides,
@@ -269,7 +413,7 @@ describe(__filename, () => {
         .stub()
         .returns(createExperimentData({ id: anotherExperimentId })),
     });
-    const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
+    const _getVariant = sinon.stub().returns(variantId);
     const _tracking = createFakeTracking();
 
     render({
@@ -285,24 +429,6 @@ describe(__filename, () => {
         category: [EXPERIMENT_ENROLLMENT_CATEGORY, experimentId].join(' '),
       }),
     );
-  });
-
-  it('does not send an enrollment event if the user is not in the experiment', () => {
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
-    });
-    const _tracking = createFakeTracking();
-    const _getVariant = sinon
-      .stub()
-      .returns({ ...fakeVariant, id: NOT_IN_EXPERIMENT });
-
-    render({
-      cookies,
-      experimentProps: { _tracking },
-      props: { _getVariant },
-    });
-
-    sinon.assert.notCalled(_tracking.sendEvent);
   });
 
   it('does not send an enrollment event if the user is in the experiment', () => {
@@ -346,7 +472,7 @@ describe(__filename, () => {
     const variantId = 'some-variant-id';
     const cookies = fakeCookies();
     const cookieConfig = { path: '/test' };
-    const _getVariant = sinon.stub().returns({ ...fakeVariant, id: variantId });
+    const _getVariant = sinon.stub().returns(variantId);
 
     render({
       cookies,
@@ -455,7 +581,9 @@ describe(__filename, () => {
       (expectedVariant, randomNumber) => {
         const randomizer = sinon.stub().returns(randomNumber);
 
-        expect(getVariant({ randomizer, variants })).toEqual(expectedVariant);
+        expect(getVariant({ randomizer, variants })).toEqual(
+          expectedVariant.id,
+        );
         sinon.assert.called(randomizer);
       },
     );

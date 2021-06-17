@@ -3,9 +3,15 @@ import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
+import { storeExperimentVariant } from 'amo/reducers/experiments';
 import tracking from 'amo/tracking';
 import { getDisplayName } from 'amo/utils';
+import type { ExperimentsState } from 'amo/reducers/experiments';
+import type { AppState } from 'amo/store';
+import type { DispatchFunc } from 'amo/types/redux';
 
 /*  Usage
  *
@@ -25,13 +31,6 @@ import { getDisplayName } from 'amo/utils';
  *  Note: To create a portion of the user population who will not be enrolled
  *        in the experiment, assign a percentage to the special
  *        `NOT_IN_EXPERIMENT` variant.
- *
- *  Note: Experiments are only executed on the client. The component will
- *        initially be rendered with `variant === null`. Therefore the
- *        version of the component that will be the least disruptive should
- *        be generated when `variant === null`. Once a variant is determined
- *        on the client, the layout of the component will change to match that
- *        of the variant.
  *
  *  Example:
  *
@@ -75,10 +74,8 @@ type CookieConfig = {|
   secure?: boolean,
 |};
 
-type ExperimentVariant = {|
-  id: string,
-  percentage: number,
-|};
+type ExperimentVariant = {| id: string, percentage: number |};
+type RegisteredExpermients = {| [experimentId: string]: string |};
 
 type withExperimentProps = {|
   _config?: typeof config,
@@ -88,17 +85,13 @@ type withExperimentProps = {|
   variants: ExperimentVariant[],
 |};
 
-type ExpermientVariant = {| id: string, percentage: number |};
-
-type RegisteredExpermients = {| [experimentId: string]: string |};
-
 export const getVariant = ({
   randomizer = Math.random,
   variants,
 }: {|
   randomizer?: () => number,
   variants: ExperimentVariant[],
-|}): ExpermientVariant => {
+|}): string => {
   invariant(
     variants.reduce((total, variant) => total + variant.percentage, 0) === 1,
     'The sum of all percentages in `variants` must be 1',
@@ -110,7 +103,7 @@ export const getVariant = ({
   for (const variant of variants) {
     variantMax = variantMin + variant.percentage;
     if (randomNumber > variantMin && randomNumber <= variantMax) {
-      return variant;
+      return variant.id;
     }
     variantMin = variantMax;
   }
@@ -130,11 +123,17 @@ export const isExperimentEnabled = ({
   return experiments[id] === true;
 };
 
+type WithExperimentsPropsFromState = {|
+  storedVariants: ExperimentsState,
+|};
+
 type withExperimentInternalProps = {|
   ...withExperimentProps,
+  ...WithExperimentsPropsFromState,
   _getVariant: typeof getVariant,
   _isExperimentEnabled: typeof isExperimentEnabled,
   cookies: typeof Cookies,
+  dispatch: DispatchFunc,
   WrappedComponent: React.ComponentType<any>,
 |};
 
@@ -164,6 +163,8 @@ export const withExperiment =
     invariant(defaultVariants, 'variants is required');
 
     class WithExperiment extends React.Component<withExperimentInternalProps> {
+      variant: string | null;
+
       static defaultProps = {
         _getVariant: getVariant,
         _isExperimentEnabled: isExperimentEnabled,
@@ -175,15 +176,66 @@ export const withExperiment =
         WrappedComponent,
       )})`;
 
-      componentDidMount() {
-        const { _getVariant, _isExperimentEnabled, cookies, id, variants } =
-          this.props;
+      constructor(props: withExperimentInternalProps) {
+        super(props);
 
+        this.variant = this.experimentSetup(props).variant;
+      }
+
+      experimentSetup(props) {
+        const {
+          _getVariant,
+          _isExperimentEnabled,
+          dispatch,
+          id,
+          storedVariants,
+          variants,
+        } = props;
+
+        let { variant } = this;
         const isEnabled = _isExperimentEnabled({ _config, id });
         const registeredExperiments = this.getExperiments();
         const experimentInCookie = this.cookieIncludesExperiment(
           registeredExperiments,
         );
+        const addExperimentToCookie = !experimentInCookie;
+        const variantFromStore = storedVariants[id];
+
+        if (isEnabled && !variant) {
+          // Use the variant in the cookie if one exists, otherwise use the
+          // variant from the Redux store.
+          if (experimentInCookie) {
+            variant = registeredExperiments[id];
+          } else if (variantFromStore) {
+            variant = variantFromStore;
+          }
+
+          // Do we need to store the variant in the cookie?
+          if (addExperimentToCookie) {
+            // Determine the variant if we don't already have one.
+            variant = variant || _getVariant({ variants });
+
+            // Store the variant in the Redux store for use during
+            // componentDidMount.
+            dispatch(storeExperimentVariant({ id, variant }));
+          }
+        }
+
+        return {
+          // We only need to add the experiment to the cookie if we have a
+          // variant.
+          addExperimentToCookie: addExperimentToCookie && variant,
+          registeredExperiments,
+          variant,
+        };
+      }
+
+      componentDidMount() {
+        const { _isExperimentEnabled, cookies, id } = this.props;
+
+        const { addExperimentToCookie, registeredExperiments, variant } =
+          this.experimentSetup(this.props);
+
         const experimentsToStore = { ...registeredExperiments };
 
         // Clear any disabled experiments from the cookie.
@@ -195,18 +247,14 @@ export const withExperiment =
           }
         }
 
-        // Do we need to record this experiment in the cookie?
-        const addExperimentToCookie = isEnabled && !experimentInCookie;
-
         if (addExperimentToCookie) {
-          const variantToStore = _getVariant({ variants });
-          experimentsToStore[id] = variantToStore.id;
+          experimentsToStore[id] = variant;
 
-          if (variantToStore.id !== NOT_IN_EXPERIMENT) {
+          if (variant) {
             // Send an enrollment event.
             _tracking.sendEvent({
               _config,
-              action: variantToStore.id,
+              action: variant,
               category: [EXPERIMENT_ENROLLMENT_CATEGORY, id].join(' '),
             });
           }
@@ -233,23 +281,27 @@ export const withExperiment =
         const { _isExperimentEnabled, id, ...props } = this.props;
 
         const isEnabled = _isExperimentEnabled({ _config, id });
-        const registeredExperiments = this.getExperiments();
-
-        const variant =
-          isEnabled && this.cookieIncludesExperiment(registeredExperiments)
-            ? registeredExperiments[id]
-            : null;
 
         const exposedProps: WithExperimentInjectedProps = {
           experimentId: id,
           isExperimentEnabled: isEnabled,
-          isUserInExperiment: variant !== null && variant !== NOT_IN_EXPERIMENT,
-          variant,
+          isUserInExperiment: Boolean(
+            this.variant && this.variant !== NOT_IN_EXPERIMENT,
+          ),
+          variant: this.variant,
         };
 
         return <WrappedComponent {...exposedProps} {...props} />;
       }
     }
 
-    return withCookies(WithExperiment);
+    const mapStateToProps = (
+      state: AppState,
+    ): WithExperimentsPropsFromState => {
+      return {
+        storedVariants: state.experiments,
+      };
+    };
+
+    return compose(withCookies, connect(mapStateToProps))(WithExperiment);
   };
