@@ -32,6 +32,11 @@ import type { DispatchFunc } from 'amo/types/redux';
  *     the experiment. This is an array of ExperimentExclusionGroupType, which
  *     currently supports the values of FIREFOX_USERS and NON_FIREFOX_USERS.
  *     If omitted there will be no exclusions.
+ *  5. Optionally, specify a set of languages which will be the only languages
+ *     which can be included in the experiment. This is an array of lang
+ *     strings, and any user using a lang other than one in this list will be
+ *     considered excluded. If omitted there will be no language based
+ *     exclusions.
  *
  *  Note: The sum of all `percentage` values must be exactly 1. An exception
  *        will be thrown if that is not the case.
@@ -43,19 +48,20 @@ import type { DispatchFunc } from 'amo/types/redux';
  *  Example:
  *
  *     withExperiment({
+ *      excludedGroups: [ FIREFOX_USERS ],
  *      id: '20210219_some-experiment-id',
+ *      includedLangs: [ 'en-US' ],
  *      variants: [
  *        { id: 'variant-a', percentage: 0.2 },
  *        { id: 'variant-b', percentage: 0.2 },
  *        { id: NOT_IN_EXPERIMENT, percentage: 0.6 },
  *      ],
- *      excludedGroups: [ FIREFOX_USERS ],
  *     })
  *
  *  The above will create an experiment where 20% of the users will receive
  *  `variant-a`, 20% of users will receive `variant-b`, and 60% of users will
- *  not be enrolled in the experiment at all, and all Firefox users will be
- *  excluded.
+ *  not be enrolled in the experiment at all. All Firefox users will be
+ *  excluded, as well as any user with a lang other than `en-US`.
  *
  */
 
@@ -93,6 +99,7 @@ type withExperimentProps = {|
   cookieConfig?: CookieConfig,
   excludedGroups?: ExperimentExclusionGroupType[],
   id: string,
+  includedLangs?: string[],
   variants: ExperimentVariant[],
 |};
 
@@ -137,12 +144,24 @@ export const isExperimentEnabled = ({
 export const isUserExcluded = ({
   _isFirefox = isFirefox,
   excludedGroups,
+  includedLangs,
+  lang,
   userAgentInfo,
 }: {|
   _isFirefox?: typeof isFirefox,
   excludedGroups?: ExperimentExclusionGroupType[],
+  includedLangs?: string[],
+  lang: string,
   userAgentInfo: UserAgentInfoType,
 |}): boolean => {
+  // Languages check. lang must be in includedLangs if it was specified.
+  if (Array.isArray(includedLangs) && includedLangs.length !== 0) {
+    if (!includedLangs.includes(lang)) {
+      return true;
+    }
+  }
+
+  // No excluded groups specified.
   if (!excludedGroups || excludedGroups.length === 0) {
     return false;
   }
@@ -171,6 +190,7 @@ export const isUserExcluded = ({
 };
 
 type WithExperimentsPropsFromState = {|
+  lang: string,
   storedVariants: ExperimentsState,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -199,6 +219,7 @@ export const withExperiment =
     _tracking = tracking,
     cookieConfig = defaultCookieConfig,
     excludedGroups: defaultExcludedGroups,
+    includedLangs: defaultIncludedLangs,
     id: defaultId,
     variants: defaultVariants,
   }: withExperimentProps): ((
@@ -221,6 +242,7 @@ export const withExperiment =
         _isUserExcluded: isUserExcluded,
         excludedGroups: defaultExcludedGroups,
         id: defaultId,
+        includedLangs: defaultIncludedLangs,
         variants: defaultVariants,
       };
 
@@ -242,6 +264,8 @@ export const withExperiment =
           dispatch,
           excludedGroups,
           id,
+          includedLangs,
+          lang,
           storedVariants,
           userAgentInfo,
           variants,
@@ -265,7 +289,14 @@ export const withExperiment =
             variant = variantFromStore;
           }
           // Otherwise if the user is to be excluded, use the NOT_IN_EXPERIMENT variant.
-          else if (_isUserExcluded({ excludedGroups, userAgentInfo })) {
+          else if (
+            _isUserExcluded({
+              excludedGroups,
+              includedLangs,
+              lang,
+              userAgentInfo,
+            })
+          ) {
             variant = NOT_IN_EXPERIMENT;
           }
 
@@ -358,6 +389,7 @@ export const withExperiment =
       state: AppState,
     ): WithExperimentsPropsFromState => {
       return {
+        lang: state.api.lang,
         storedVariants: state.experiments,
         userAgentInfo: state.api.userAgentInfo,
       };

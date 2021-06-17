@@ -91,18 +91,23 @@ describe(__filename, () => {
   it('calls isUserExcluded to determine whether the current user should be in the experiment', () => {
     const _isUserExcluded = sinon.spy();
     const excludedGroups = [FIREFOX_USERS];
+    const lang = 'en-CA';
+    const includedLangs = [lang];
     const { store, state } = dispatchClientMetadata({
+      lang,
       userAgent: sampleUserAgent,
     });
 
     render({
-      experimentProps: { excludedGroups },
+      experimentProps: { excludedGroups, includedLangs },
       props: { _isUserExcluded },
       store,
     });
 
     sinon.assert.calledWith(_isUserExcluded, {
       excludedGroups,
+      includedLangs,
+      lang,
       userAgentInfo: state.api.userAgentInfo,
     });
   });
@@ -189,13 +194,23 @@ describe(__filename, () => {
     expect(root).toHaveProp('variant', variantId);
   });
 
-  it('makes the variant NOT_IN_EXPERIMENT if a user should be excluded, and no variant exists (cookie or store)', () => {
+  it('makes the variant NOT_IN_EXPERIMENT if a user should be excluded based on group, and no variant exists (cookie or store)', () => {
     const excludedGroups = [FIREFOX_USERS];
     const { store } = dispatchClientMetadata({
       userAgent: userAgentsByPlatform.mac.firefox57,
     });
 
     const root = render({ experimentProps: { excludedGroups }, store });
+
+    expect(root).toHaveProp('variant', NOT_IN_EXPERIMENT);
+  });
+
+  it('makes the variant NOT_IN_EXPERIMENT if a user should be excluded based on lang, and no variant exists (cookie or store)', () => {
+    const includedLangs = ['en-US'];
+    const lang = 'en-CA';
+    const { store } = dispatchClientMetadata({ lang });
+
+    const root = render({ experimentProps: { includedLangs }, store });
 
     expect(root).toHaveProp('variant', NOT_IN_EXPERIMENT);
   });
@@ -499,7 +514,7 @@ describe(__filename, () => {
     );
   });
 
-  it('does not send an enrollment event if the user is in the experiment', () => {
+  it('does not send an enrollment event if the user is already in the experiment', () => {
     const id = makeId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(createExperimentData({ id })),
@@ -683,16 +698,42 @@ describe(__filename, () => {
 
   describe('isUserExcluded', () => {
     const _isUserExcluded = ({
-      _isFirefox,
+      _isFirefox = sinon.spy(),
       excludedGroups,
+      includedLangs,
+      lang,
       userAgentInfo = sampleUserAgentParsed,
     }) => {
       return isUserExcluded({
         _isFirefox,
         excludedGroups,
+        includedLangs,
+        lang,
         userAgentInfo,
       });
     };
+
+    describe('includedLangs', () => {
+      it('does not exclude a user if includedLangs is undefined', () => {
+        expect(_isUserExcluded({ includedLangs: undefined })).toEqual(false);
+      });
+
+      it('does not exclude a user if includedLangs is an empty array', () => {
+        expect(_isUserExcluded({ includedLangs: [] })).toEqual(false);
+      });
+
+      it('does not exclude a user if the lang is included in includedLangs', () => {
+        const lang = 'en-CA';
+        expect(_isUserExcluded({ includedLangs: ['fr', lang], lang })).toEqual(
+          false,
+        );
+      });
+
+      it('excludes a user if the lang is not included in includedLangs', () => {
+        const lang = 'en-CA';
+        expect(_isUserExcluded({ includedLangs: ['fr'], lang })).toEqual(true);
+      });
+    });
 
     it('calls isFirefox to determine whether the user is on Firefox', () => {
       const _isFirefox = sinon.spy();
