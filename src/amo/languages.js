@@ -497,6 +497,10 @@ export const unfilteredLanguages = {
     English: 'Sakha',
     native: '\u0421\u0430\u0445\u0430\u043b\u044b\u044b',
   },
+  sco: {
+    English: 'Scots',
+    native: 'Scots',
+  },
   si: {
     English: 'Sinhala',
     native: '\u0dc3\u0dd2\u0d82\u0dc4\u0dbd',
