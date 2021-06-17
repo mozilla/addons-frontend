@@ -119,7 +119,7 @@ export const getDownloadLink = ({
   if (variant === VARIANT_NEW) {
     queryParams = {
       ...queryParams,
-      source: 'amo',
+      xv: 'amo',
     };
   }
   return `${baseURL}${makeQueryStringWithUTM({
