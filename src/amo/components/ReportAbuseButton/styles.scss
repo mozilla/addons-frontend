@@ -32,3 +32,15 @@
 .ReportAbuseButton-show-more {
   width: 100%;
 }
+
+.DismissibleTextForm-dismiss,
+.DismissibleTextForm-submit {
+  flex-wrap: wrap;
+  font-size: $font-size-s;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.DismissibleTextForm-delete-submit-buttons {
+  padding-left: 5px;
+}
