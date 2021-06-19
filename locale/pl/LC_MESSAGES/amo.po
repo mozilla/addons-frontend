@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-15 16:03+0000\n"
-"PO-Revision-Date: 2021-06-19 10:16+0000\n"
+"PO-Revision-Date: 2021-06-19 10:17+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1050,14 +1050,12 @@ msgid "Download Firefox and get the extension"
 msgstr "Pobierz Firefoksa i to rozszerzenie"
 
 #: src/amo/components/GetFirefoxButton/index.js:177
-#, fuzzy
 msgid "Download the new Firefox and get the theme"
-msgstr "Pobierz Firefoksa i ten motyw"
+msgstr "Pobierz nowego Firefoksa i ten motyw"
 
 #: src/amo/components/GetFirefoxButton/index.js:178
-#, fuzzy
 msgid "Download the new Firefox and get the extension"
-msgstr "Pobierz Firefoksa i to rozszerzenie"
+msgstr "Pobierz nowego Firefoksa i to rozszerzenie"
 
 #: src/amo/components/GetFirefoxButton/index.js:182
 msgid "Download Firefox"
@@ -1072,14 +1070,12 @@ msgid "You'll need Firefox to use this extension"
 msgstr "Potrzebujesz Firefoksa, aby używać tego rozszerzenia"
 
 #: src/amo/components/GetFirefoxButton/index.js:190
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "Potrzebujesz Firefoksa, aby używać tego motywu"
+msgstr "Potrzebujesz aktualnej wersji Firefoksa, aby używać tego motywu"
 
 #: src/amo/components/GetFirefoxButton/index.js:191
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "Potrzebujesz Firefoksa, aby używać tego rozszerzenia"
+msgstr "Potrzebujesz aktualnej wersji Firefoksa, aby używać tego rozszerzenia"
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
