@@ -92,7 +92,7 @@ describe(__filename, () => {
       store,
     });
 
-    sinon.assert.calledWith(shouldExcludeUser, state);
+    sinon.assert.calledWith(shouldExcludeUser, { state });
   });
 
   it.each([true, false])(

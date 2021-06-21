@@ -24,9 +24,9 @@ import type { DispatchFunc } from 'amo/types/redux';
  *     `withExperiment`, each of which will be assigned an `id` and a
  *     `percentage` which represents the portion of users who will be assigned
  *     this variant (see example below).
- *  4. Optionally, specify a `shouldExcludeUser` function, which accepts a
- *     single `state` argument and returns a boolean which is `true` if the
- *     user should be excluded from the experiment.
+ *  4. Optionally, specify a `shouldExcludeUser` function, which accepts an
+ *     object argument with a `state` property and returns a boolean which is
+ *     `true` if the user should be excluded from the experiment.
  *     If omitted there will be no exclusions.
  *
  *  Note: The sum of all `percentage` values must be exactly 1. An exception
@@ -46,7 +46,7 @@ import type { DispatchFunc } from 'amo/types/redux';
  *          { id: 'variant-b', percentage: 0.2 },
  *          { id: NOT_IN_EXPERIMENT, percentage: 0.6 },
  *        ],
- *        shouldExcludeUser(state) {
+ *        shouldExcludeUser({ state }) {
  *          const { userAgentInfo } = state.api;
  *          return isFirefox({ userAgentInfo });
  *        },
@@ -84,7 +84,7 @@ type RegisteredExpermients = {| [experimentId: string]: string |};
 export type ExperimentConfig = {|
   cookieConfig?: CookieConfig,
   id: string,
-  shouldExcludeUser?: (state: AppState) => boolean,
+  shouldExcludeUser?: ({| state: AppState |}) => boolean,
   variants: ExperimentVariant[],
 |};
 
@@ -318,7 +318,9 @@ export const withExperiment =
       state: AppState,
     ): WithExperimentsPropsFromState => {
       return {
-        isUserExcluded: Boolean(shouldExcludeUser && shouldExcludeUser(state)),
+        isUserExcluded: Boolean(
+          shouldExcludeUser && shouldExcludeUser({ state }),
+        ),
         storedVariants: state.experiments,
       };
     };

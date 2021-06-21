@@ -12,7 +12,7 @@ export const EXPERIMENT_CONFIG: ExperimentConfig = {
     { id: VARIANT_NEW, percentage: 0.5 },
   ],
   // Exclude Firefox users.
-  shouldExcludeUser(state) {
+  shouldExcludeUser({ state }) {
     const { userAgentInfo } = state.api;
     return isFirefox({ userAgentInfo });
   },

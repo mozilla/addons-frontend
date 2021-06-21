@@ -10,7 +10,7 @@ describe(__filename, () => {
     ...userAgents.firefoxIOS,
   ])('excludes Firefox users: %s', (userAgent) => {
     const { state } = dispatchClientMetadata({ userAgent });
-    expect(shouldExcludeUser(state)).toEqual(true);
+    expect(shouldExcludeUser({ state })).toEqual(true);
   });
 
   it.each([
@@ -19,6 +19,6 @@ describe(__filename, () => {
     ...userAgents.chrome,
   ])('includes non-Firefox users: %s', (userAgent) => {
     const { state } = dispatchClientMetadata({ userAgent });
-    expect(shouldExcludeUser(state)).toEqual(false);
+    expect(shouldExcludeUser({ state })).toEqual(false);
   });
 });
