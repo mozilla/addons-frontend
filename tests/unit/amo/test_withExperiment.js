@@ -37,6 +37,7 @@ describe(__filename, () => {
   };
 
   const renderWithExperiment = ({
+    _tracking = createFakeTracking(),
     configOverrides = {},
     cookies = fakeCookies(),
     experimentProps,
@@ -52,19 +53,18 @@ describe(__filename, () => {
         },
         ...configOverrides,
       }),
-      _tracking: createFakeTracking(),
-      id,
-      ...experimentProps,
+      _tracking,
+      experimentConfig: {
+        id,
+        variants: [
+          { id: 'some-variant-a', percentage: 0.5 },
+          { id: 'some-variant-b', percentage: 0.5 },
+        ],
+        ...experimentProps,
+      },
     };
 
-    const SomeComponent = withExperiment({
-      id,
-      variants: [
-        { id: 'some-variant-a', percentage: 0.5 },
-        { id: 'some-variant-b', percentage: 0.5 },
-      ],
-      ...allExperimentProps,
-    })(SomeComponentBase);
+    const SomeComponent = withExperiment(allExperimentProps)(SomeComponentBase);
 
     // Temporary workaround for supporting the React (stable) Context API.
     // See: https://github.com/mozilla/addons-frontend/issues/6839
@@ -417,8 +417,9 @@ describe(__filename, () => {
     const _tracking = createFakeTracking();
 
     render({
+      _tracking,
       cookies,
-      experimentProps: { _tracking, id: experimentId },
+      experimentProps: { id: experimentId },
       props: { _getVariant },
     });
 
@@ -439,8 +440,9 @@ describe(__filename, () => {
     const _tracking = createFakeTracking();
 
     render({
+      _tracking,
       cookies,
-      experimentProps: { _tracking, id },
+      experimentProps: { id },
     });
 
     sinon.assert.notCalled(_tracking.sendEvent);
@@ -459,9 +461,10 @@ describe(__filename, () => {
     const _tracking = createFakeTracking();
 
     render({
+      _tracking,
       configOverrides,
       cookies,
-      experimentProps: { _tracking, id },
+      experimentProps: { id },
     });
 
     sinon.assert.notCalled(_tracking.sendEvent);
