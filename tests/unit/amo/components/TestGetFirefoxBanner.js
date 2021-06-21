@@ -102,7 +102,7 @@ describe(__filename, () => {
       const root = render({ store, variant: VARIANT_CURRENT });
 
       const expectedHref = [
-        `${DOWNLOAD_FIREFOX_BASE_URL}?experiment=${EXPERIMENT_CONFIG.experimentConfig.id}`,
+        `${DOWNLOAD_FIREFOX_BASE_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
         `variation=${VARIANT_CURRENT}`,
         `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
         `utm_content=${GET_FIREFOX_BANNER_UTM_CONTENT}`,
@@ -116,7 +116,7 @@ describe(__filename, () => {
       const root = render({ store, variant: VARIANT_NEW });
 
       const expectedHref = [
-        `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.experimentConfig.id}`,
+        `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
         `variation=${VARIANT_NEW}`,
         `xv=amo`,
         `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,

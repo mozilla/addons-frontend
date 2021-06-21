@@ -444,7 +444,7 @@ describe(__filename, () => {
       const addon = createInternalAddonWithLang({ ...fakeAddon, id: addonId });
 
       const expectedLink = [
-        `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.experimentConfig.id}`,
+        `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
         `variation=${VARIANT_NEW}`,
         `xv=amo`,
         `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
@@ -457,7 +457,7 @@ describe(__filename, () => {
         getDownloadLink({
           addon,
           overrideQueryParams: {
-            experiment: EXPERIMENT_CONFIG.experimentConfig.id,
+            experiment: EXPERIMENT_CONFIG.id,
             variation: VARIANT_NEW,
           },
           variant: VARIANT_NEW,
