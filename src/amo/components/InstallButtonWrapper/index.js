@@ -230,7 +230,7 @@ const InstallButtonWrapper: React.ComponentType<Props> = compose(
   withInstallHelpers,
   connect(mapStateToProps),
   translate(),
-  withExperiment(EXPERIMENT_CONFIG),
+  withExperiment({ experimentConfig: EXPERIMENT_CONFIG }),
 )(InstallButtonWrapperBase);
 
 export default InstallButtonWrapper;

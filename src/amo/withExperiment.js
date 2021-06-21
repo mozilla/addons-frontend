@@ -34,14 +34,16 @@ import type { DispatchFunc } from 'amo/types/redux';
  *
  *  Example:
  *
- *     withExperiment({
- *      id: '20210219_some-experiment-id',
- *      variants: [
- *        { id: 'variant-a', percentage: 0.2 },
- *        { id: 'variant-b', percentage: 0.2 },
- *        { id: NOT_IN_EXPERIMENT, percentage: 0.6 },
- *      ],
- *     })
+ *    withExperiment({
+ *      experimentConfig: {
+ *        id: '20210219_some-experiment-id',
+ *        variants: [
+ *          { id: 'variant-a', percentage: 0.2 },
+ *          { id: 'variant-b', percentage: 0.2 },
+ *          { id: NOT_IN_EXPERIMENT, percentage: 0.6 },
+ *        ],
+ *      },
+ *    })
  *
  *  The above will create an experiment where 20% of the users will receive
  *  `variant-a`, 20% of users will receive `variant-b`, and 60% of users will
@@ -77,12 +79,16 @@ type CookieConfig = {|
 type ExperimentVariant = {| id: string, percentage: number |};
 type RegisteredExpermients = {| [experimentId: string]: string |};
 
-type withExperimentProps = {|
-  _config?: typeof config,
-  _tracking?: typeof tracking,
+export type ExperimentConfig = {|
   cookieConfig?: CookieConfig,
   id: string,
   variants: ExperimentVariant[],
+|};
+
+type withExperimentProps = {|
+  _config?: typeof config,
+  _tracking?: typeof tracking,
+  experimentConfig: ExperimentConfig,
 |};
 
 export const getVariant = ({
@@ -148,19 +154,18 @@ export const withExperiment =
   ({
     _config = config,
     _tracking = tracking,
-    cookieConfig = defaultCookieConfig,
-    id: defaultId,
-    variants: defaultVariants,
+    experimentConfig,
   }: withExperimentProps): ((
     WrappedComponent: React.ComponentType<any>,
   ) => React.ComponentType<any>) =>
   (WrappedComponent: React.ComponentType<any>) => {
-    invariant(defaultId, 'id is required');
+    const { cookieConfig, id, variants } = experimentConfig;
+    invariant(id, 'id is required');
     invariant(
-      EXPERIMENT_ID_REGEXP.test(defaultId),
+      EXPERIMENT_ID_REGEXP.test(id),
       'id must match the pattern YYYYMMDD_experiment_id',
     );
-    invariant(defaultVariants, 'variants is required');
+    invariant(variants, 'variants is required');
 
     class WithExperiment extends React.Component<withExperimentInternalProps> {
       variant: string | null;
@@ -168,8 +173,6 @@ export const withExperiment =
       static defaultProps = {
         _getVariant: getVariant,
         _isExperimentEnabled: isExperimentEnabled,
-        id: defaultId,
-        variants: defaultVariants,
       };
 
       static displayName = `WithExperiment(${getDisplayName(
@@ -183,14 +186,8 @@ export const withExperiment =
       }
 
       experimentSetup(props) {
-        const {
-          _getVariant,
-          _isExperimentEnabled,
-          dispatch,
-          id,
-          storedVariants,
-          variants,
-        } = props;
+        const { _getVariant, _isExperimentEnabled, dispatch, storedVariants } =
+          props;
 
         let { variant } = this;
         const isEnabled = _isExperimentEnabled({ _config, id });
@@ -231,7 +228,7 @@ export const withExperiment =
       }
 
       componentDidMount() {
-        const { _isExperimentEnabled, cookies, id } = this.props;
+        const { _isExperimentEnabled, cookies } = this.props;
 
         const { addExperimentToCookie, registeredExperiments, variant } =
           this.experimentSetup(this.props);
@@ -261,7 +258,11 @@ export const withExperiment =
         }
 
         if (cleanupNeeded || addExperimentToCookie) {
-          cookies.set(EXPERIMENT_COOKIE_NAME, experimentsToStore, cookieConfig);
+          cookies.set(
+            EXPERIMENT_COOKIE_NAME,
+            experimentsToStore,
+            cookieConfig || defaultCookieConfig,
+          );
         }
       }
 
@@ -272,13 +273,11 @@ export const withExperiment =
       }
 
       cookieIncludesExperiment(registeredExperiments: RegisteredExpermients) {
-        const { id } = this.props;
-
         return Object.keys(registeredExperiments).includes(id);
       }
 
       render() {
-        const { _isExperimentEnabled, id, ...props } = this.props;
+        const { _isExperimentEnabled, ...props } = this.props;
 
         const isEnabled = _isExperimentEnabled({ _config, id });
 

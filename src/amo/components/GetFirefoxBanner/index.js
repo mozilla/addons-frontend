@@ -131,7 +131,7 @@ function mapStateToProps(state: AppState): PropsFromState {
 const GetFirefoxBanner: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
-  withExperiment(EXPERIMENT_CONFIG),
+  withExperiment({ experimentConfig: EXPERIMENT_CONFIG }),
 )(GetFirefoxBannerBase);
 
 export default GetFirefoxBanner;
