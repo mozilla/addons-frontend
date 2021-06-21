@@ -83,32 +83,59 @@ describe(__filename, () => {
     return root.dive().dive();
   };
 
-  it('injects a variant prop from a cookie', () => {
-    const id = makeId('test-id');
-    const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(createExperimentData({ id, variantId })),
+  it('calls shouldExcludeUser to determine whether the current user should be in the experiment', () => {
+    const shouldExcludeUser = sinon.spy();
+    const { state, store } = dispatchClientMetadata();
+
+    render({
+      experimentProps: { shouldExcludeUser },
+      store,
     });
 
-    const root = render({ cookies, experimentProps: { id } });
-
-    expect(root).toHaveProp('variant', variantId);
+    sinon.assert.calledWith(shouldExcludeUser, { state });
   });
 
-  it('injects a variant prop from the redux store', () => {
-    const { store } = dispatchClientMetadata();
-    const id = makeId('test-id');
-    const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
-    });
+  it.each([true, false])(
+    'injects a variant prop from a cookie whether a user is excluded or not',
+    (isExcluded) => {
+      const shouldExcludeUser = sinon.stub().returns(isExcluded);
+      const id = makeId('test-id');
+      const variantId = 'some-variant-id';
+      const cookies = fakeCookies({
+        get: sinon.stub().returns(createExperimentData({ id, variantId })),
+      });
 
-    store.dispatch(storeExperimentVariant({ id, variant: variantId }));
+      const root = render({
+        cookies,
+        experimentProps: { id, shouldExcludeUser },
+      });
 
-    const root = render({ cookies, experimentProps: { id }, store });
+      expect(root).toHaveProp('variant', variantId);
+    },
+  );
 
-    expect(root).toHaveProp('variant', variantId);
-  });
+  it.each([true, false])(
+    'injects a variant prop from the redux store whether a user is excluded or not',
+    (isExcluded) => {
+      const shouldExcludeUser = sinon.stub().returns(isExcluded);
+      const { store } = dispatchClientMetadata();
+      const id = makeId('test-id');
+      const variantId = 'some-variant-id';
+      const cookies = fakeCookies({
+        get: sinon.stub().returns(undefined),
+      });
+
+      store.dispatch(storeExperimentVariant({ id, variant: variantId }));
+
+      const root = render({
+        cookies,
+        experimentProps: { id, shouldExcludeUser },
+        store,
+      });
+
+      expect(root).toHaveProp('variant', variantId);
+    },
+  );
 
   // If a cookie exists, we always want to use it, to maintain consistency
   // for the user.
@@ -146,6 +173,30 @@ describe(__filename, () => {
     });
 
     expect(root).toHaveProp('variant', variantId);
+  });
+
+  it('injects a variant prop when shouldExcludeUser is undefined', () => {
+    const id = makeId('hero');
+    const variantId = 'some-variant-id';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const _getVariant = sinon.stub().returns(variantId);
+
+    const root = render({
+      cookies,
+      experimentProps: { id, shouldExcludeUser: undefined },
+      props: { _getVariant },
+    });
+
+    expect(root).toHaveProp('variant', variantId);
+  });
+
+  it('makes the variant NOT_IN_EXPERIMENT if a user should be excluded, and no variant exists (cookie or store)', () => {
+    const shouldExcludeUser = sinon.stub().returns(true);
+    const root = render({ experimentProps: { shouldExcludeUser } });
+
+    expect(root).toHaveProp('variant', NOT_IN_EXPERIMENT);
   });
 
   it('injects an experimentId', () => {
@@ -298,6 +349,23 @@ describe(__filename, () => {
 
     // This expected variant comes from the store.
     expect(root).toHaveProp('variant', thisExperimentVariant);
+  });
+
+  it('does not call getVariant if the user is to be excluded', () => {
+    const _getVariant = sinon.spy();
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const shouldExcludeUser = sinon.stub().returns(true);
+
+    const root = render({
+      cookies,
+      experimentProps: { shouldExcludeUser },
+      props: { _getVariant },
+    });
+
+    sinon.assert.notCalled(_getVariant);
+    expect(root).toHaveProp('variant', NOT_IN_EXPERIMENT);
   });
 
   it('creates a cookie upon render if the current experiment is not already in the cookie', () => {
