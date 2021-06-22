@@ -447,6 +447,25 @@ describe(__filename, () => {
       expect(state.bySlug).toEqual({ [slug2]: id2 });
       expect(state.loadingByIdInURL).toEqual({ [slug2]: false });
     });
+
+    it('does nothing if the add-on was not loaded', () => {
+      const id1 = 1;
+      const slug1 = 'slug-1';
+      const id2 = 2;
+      const addon1 = { ...fakeAddon, id: id1, slug: slug1 };
+
+      const state = addons(
+        stateWithLang,
+        loadAddon({ addon: addon1, slug: slug1 }),
+      );
+
+      const newState = addons(
+        state,
+        unloadAddonReviews({ addonId: id2, reviewId: 1 }),
+      );
+
+      expect(state).toEqual(newState);
+    });
   });
 
   describe('updateRatingCounts', () => {
