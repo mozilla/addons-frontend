@@ -3,22 +3,40 @@ import { dispatchClientMetadata, userAgents } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const { shouldExcludeUser } = EXPERIMENT_CONFIG;
-
-  it.each([
+  const firefoxBrowsers = [
     ...userAgents.firefox,
     ...userAgents.firefoxAndroid,
     ...userAgents.firefoxIOS,
-  ])('excludes Firefox users: %s', (userAgent) => {
+  ];
+  const nonFirefoxBrowsers = [
+    ...userAgents.androidWebkit,
+    ...userAgents.chromeAndroid,
+    ...userAgents.chrome,
+  ];
+
+  it.each(firefoxBrowsers)('excludes Firefox users: %s', (userAgent) => {
     const { state } = dispatchClientMetadata({ userAgent });
     expect(shouldExcludeUser({ state })).toEqual(true);
   });
 
-  it.each([
-    ...userAgents.androidWebkit,
-    ...userAgents.chromeAndroid,
-    ...userAgents.chrome,
-  ])('includes non-Firefox users: %s', (userAgent) => {
+  it.each(nonFirefoxBrowsers)('includes non-Firefox users: %s', (userAgent) => {
     const { state } = dispatchClientMetadata({ userAgent });
     expect(shouldExcludeUser({ state })).toEqual(false);
   });
+
+  it.each(nonFirefoxBrowsers)(
+    'excludes non-en-US users on non-Firefox browsers: %s',
+    (userAgent) => {
+      const { state } = dispatchClientMetadata({ lang: 'fr', userAgent });
+      expect(shouldExcludeUser({ state })).toEqual(true);
+    },
+  );
+
+  it.each(nonFirefoxBrowsers)(
+    'includes en-US users on non-Firefox browsers: %s',
+    (userAgent) => {
+      const { state } = dispatchClientMetadata({ lang: 'en-US', userAgent });
+      expect(shouldExcludeUser({ state })).toEqual(false);
+    },
+  );
 });

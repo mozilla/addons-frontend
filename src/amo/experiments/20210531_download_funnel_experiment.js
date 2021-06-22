@@ -11,9 +11,9 @@ export const EXPERIMENT_CONFIG: ExperimentConfig = {
     { id: VARIANT_CURRENT, percentage: 0.5 },
     { id: VARIANT_NEW, percentage: 0.5 },
   ],
-  // Exclude Firefox users.
+  // Exclude Firefox users and non en-US users.
   shouldExcludeUser({ state }) {
-    const { userAgentInfo } = state.api;
-    return isFirefox({ userAgentInfo });
+    const { lang, userAgentInfo } = state.api;
+    return isFirefox({ userAgentInfo }) || lang !== 'en-US';
   },
 };
