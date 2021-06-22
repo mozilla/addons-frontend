@@ -38,13 +38,13 @@ describe(__filename, () => {
     expect(root.find(Header)).toHaveProp('isHomePage', isHomePage);
   });
 
-  it('passes isAddonInstallPage to Header', () => {
+  it('configures Header to render a GetFirefoxBanner using isAddonInstallPage', () => {
     const isAddonInstallPage = true;
 
     const root = render({ isAddonInstallPage });
 
     expect(root.find(Header)).toHaveProp(
-      'isAddonInstallPage',
+      'withGetFirefoxBanner',
       isAddonInstallPage,
     );
   });

@@ -77,6 +77,15 @@ describe(__filename, () => {
       expect(html('.DropdownMenu')).toHaveLength(1);
       expect(html('.DropdownMenu-button')).toHaveLength(1);
       expect(html('.DropdownMenu-items')).toHaveLength(1);
+      // No `GetFirefoxBanner` by default.
+      expect(html('.GetFirefoxBanner')).toHaveLength(0);
+    });
+
+    it('returns the header HTML with the GetFirefoxBanner', () => {
+      const html = cheerio.load(buildHeader({ withGetFirefoxBanner: true }));
+
+      expect(html('.Header')).toHaveLength(1);
+      expect(html('.GetFirefoxBanner')).toHaveLength(1);
     });
   });
 });

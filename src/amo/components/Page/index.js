@@ -81,7 +81,7 @@ export const PageBase = ({
       <InfoDialog />
 
       <Header
-        isAddonInstallPage={isAddonInstallPage}
+        withGetFirefoxBanner={isAddonInstallPage}
         isHomePage={isHomePage}
         location={location}
       />

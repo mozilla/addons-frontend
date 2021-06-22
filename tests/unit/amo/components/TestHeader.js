@@ -54,12 +54,12 @@ describe(__filename, () => {
   });
 
   it.each([true, false])(
-    'conditionally renders a GetFirefoxBanner component when isAddonInstallPage is %s',
-    (isAddonInstallPage) => {
-      const root = renderHeader({ isAddonInstallPage });
+    'conditionally renders a GetFirefoxBanner component when withGetFirefoxBanner is %s',
+    (withGetFirefoxBanner) => {
+      const root = renderHeader({ withGetFirefoxBanner });
 
       expect(root.find(GetFirefoxBanner)).toHaveLength(
-        isAddonInstallPage ? 0 : 1,
+        withGetFirefoxBanner ? 1 : 0,
       );
     },
   );

@@ -32,7 +32,6 @@ export class HeaderBase extends React.Component {
     clientApp: PropTypes.string.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    isAddonInstallPage: PropTypes.bool,
     isHomePage: PropTypes.bool,
     isReviewer: PropTypes.bool.isRequired,
     loadedPageIsAnonymous: PropTypes.bool.isRequired,
@@ -41,9 +40,14 @@ export class HeaderBase extends React.Component {
     siteUser: PropTypes.object,
     userAgentInfo: PropTypes.object,
     forBlog: PropTypes.bool,
+    withGetFirefoxBanner: PropTypes.bool,
   };
 
-  static defaultProps = { _config: config, forBlog: false };
+  static defaultProps = {
+    _config: config,
+    forBlog: false,
+    withGetFirefoxBanner: false,
+  };
 
   handleLogOut = (event) => {
     event.preventDefault();
@@ -164,11 +168,11 @@ export class HeaderBase extends React.Component {
       clientApp,
       forBlog,
       i18n,
-      isAddonInstallPage,
       isHomePage,
       loadedPageIsAnonymous,
       location,
       userAgentInfo,
+      withGetFirefoxBanner,
     } = this.props;
 
     const headerLink = (
@@ -224,7 +228,8 @@ export class HeaderBase extends React.Component {
           'Header--loaded-page-is-anonymous': loadedPageIsAnonymous,
         })}
       >
-        {!isAddonInstallPage && !forBlog ? <GetFirefoxBanner /> : null}
+        {withGetFirefoxBanner ? <GetFirefoxBanner /> : null}
+
         <div className="Header-wrapper">
           <div className="Header-content">
             {isHomePage ? (

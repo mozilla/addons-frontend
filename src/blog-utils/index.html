@@ -58,7 +58,9 @@
 			}
 		});
 
-		document.querySelector('#header').outerHTML = AddonsFrontendBlogUtils.buildHeader();
+		document.querySelector('#header').outerHTML = AddonsFrontendBlogUtils.buildHeader({
+			withGetFirefoxBanner: true,
+		});
 		document.querySelector('#footer').outerHTML = AddonsFrontendBlogUtils.buildFooter();
 	</script>
 </html>

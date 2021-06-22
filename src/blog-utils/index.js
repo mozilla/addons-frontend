@@ -59,11 +59,21 @@ export const buildFooter = (): string => {
   });
 };
 
-export const buildHeader = (): string => {
+type BuildHeaderParams = {|
+  withGetFirefoxBanner?: boolean,
+|};
+
+export const buildHeader = ({
+  withGetFirefoxBanner = false,
+}: BuildHeaderParams = {}): string => {
   const app = 'firefox';
   const lang = 'en-US';
 
-  return render({ app, lang, component: <Header forBlog /> });
+  return render({
+    app,
+    lang,
+    component: <Header withGetFirefoxBanner={withGetFirefoxBanner} forBlog />,
+  });
 };
 
 type BuildStaticAddonCardParams = {|
