@@ -121,7 +121,7 @@ export class FooterBase extends React.Component<InternalProps> {
                       },
                     )}`}
                   >
-                    {i18n.gettext('Developer Blog')}
+                    {i18n.gettext('Community Blog')}
                   </a>
                 </li>
               )}
