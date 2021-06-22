@@ -98,7 +98,6 @@ module.exports = {
     'enableDevTools',
     'enableFeatureBlockPage',
     'enableFeatureAllowAndroidInstall',
-    'enableFeatureLinkToNewBlog',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -410,8 +409,6 @@ module.exports = {
   enableFeatureBlockPage: true,
 
   enableFeatureAllowAndroidInstall: true,
-
-  enableFeatureLinkToNewBlog: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

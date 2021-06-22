@@ -5,14 +5,12 @@ import AppBanner from 'amo/components/AppBanner';
 import NotFound from 'amo/components/Errors/NotFound';
 import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLegalReasons';
 import Header from 'amo/components/Header';
-import Footer from 'amo/components/Footer';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
   createCapturedErrorHandler,
   createContextWithFakeRouter,
   dispatchClientMetadata,
-  getFakeConfig,
   getFakeLogger,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -175,29 +173,5 @@ describe(__filename, () => {
     render({ _log, errorHandler });
 
     sinon.assert.calledWith(_log.warn, `Captured API Error: ${message}`);
-  });
-
-  it('configures the Footer to link to the new blog', () => {
-    const enableFeatureLinkToNewBlog = true;
-    const _config = getFakeConfig({ enableFeatureLinkToNewBlog });
-
-    const root = render({ _config });
-
-    expect(root.find(Footer)).toHaveProp(
-      'linkToNewBlog',
-      enableFeatureLinkToNewBlog,
-    );
-  });
-
-  it('configures the Footer to link to the old/existing blog', () => {
-    const enableFeatureLinkToNewBlog = false;
-    const _config = getFakeConfig({ enableFeatureLinkToNewBlog });
-
-    const root = render({ _config });
-
-    expect(root.find(Footer)).toHaveProp(
-      'linkToNewBlog',
-      enableFeatureLinkToNewBlog,
-    );
   });
 });
