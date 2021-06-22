@@ -18,7 +18,6 @@ import {
   createFakeHistory,
   dispatchClientMetadata,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DropdownMenu from 'amo/components/DropdownMenu';
@@ -180,6 +179,19 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeHistory.push, `/en-US/${CLIENT_APP_ANDROID}/`);
   });
 
+  it('renders a link to the new blog', () => {
+    // The "More..." link is not rendered on Android.
+    _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
+
+    const root = render();
+
+    expect(
+      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+        return element.prop('href') === '/blog/';
+      }),
+    ).toHaveLength(1);
+  });
+
   it('renders links without clientApp/locale for the blog', () => {
     const root = render({ forBlog: true });
 
@@ -216,20 +228,6 @@ describe(__filename, () => {
     _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
 
     const root = render({ forBlog: true });
-
-    expect(
-      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
-        return element.prop('href') === '/blog/';
-      }),
-    ).toHaveLength(1);
-  });
-
-  it('renders a link to the new blog when the feature flag is active', () => {
-    // The "More..." link is not rendered on Android.
-    _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
-    const _config = getFakeConfig({ enableFeatureLinkToNewBlog: true });
-
-    const root = render({ _config });
 
     expect(
       root.find('.SectionLinks-dropdownlink').findWhere((element) => {

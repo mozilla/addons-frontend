@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -37,13 +36,11 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   _log: typeof log,
-  _config: typeof config,
   location: ReactRouterLocationType,
 |};
 
 export const PageBase = ({
   _log = log,
-  _config = config,
   children,
   clientApp,
   errorHandler,
@@ -105,7 +102,7 @@ export const PageBase = ({
         </div>
       </div>
 
-      <Footer linkToNewBlog={_config.get('enableFeatureLinkToNewBlog')} />
+      <Footer />
     </div>
   );
 };

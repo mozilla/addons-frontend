@@ -55,7 +55,7 @@ export const buildFooter = (): string => {
   return render({
     app,
     lang,
-    component: <Footer noLangPicker linkToNewBlog />,
+    component: <Footer noLangPicker />,
   });
 };
 

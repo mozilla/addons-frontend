@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -40,24 +39,15 @@ type PropsFromState = {|
   viewContext: ViewContextType,
 |};
 
-type DefaultProps = {|
-  _config: typeof config,
-|};
-
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  ...DefaultProps,
   dispatch: DispatchFunc,
   history: ReactRouterHistoryType,
   i18n: I18nType,
 |};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
-  static defaultProps: DefaultProps = {
-    _config: config,
-  };
-
   setClientApp: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
 
@@ -76,8 +66,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   };
 
   render(): React.Node {
-    const { _config, className, clientApp, forBlog, i18n, viewContext } =
-      this.props;
+    const { className, clientApp, forBlog, i18n, viewContext } = this.props;
     const isExploring =
       [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
       !forBlog;
@@ -105,24 +94,21 @@ export class SectionLinksBase extends React.Component<InternalProps> {
           </Link>
         </DropdownMenuItem>,
       );
-
-      if (_config.get('enableFeatureLinkToNewBlog') || forBlog) {
-        sectionsForBrowser.push(
-          <DropdownMenuItem key="blog">
-            <Link
-              className={makeClassName(
-                'SectionLinks-dropdownlink',
-                'SectionLinks-dropdownlink-blog',
-              )}
-              href="/blog/"
-              prependClientApp={false}
-              prependLang={false}
-            >
-              {i18n.gettext('Firefox Add-on Reviews')}
-            </Link>
-          </DropdownMenuItem>,
-        );
-      }
+      sectionsForBrowser.push(
+        <DropdownMenuItem key="blog">
+          <Link
+            className={makeClassName(
+              'SectionLinks-dropdownlink',
+              'SectionLinks-dropdownlink-blog',
+            )}
+            href="/blog/"
+            prependClientApp={false}
+            prependLang={false}
+          >
+            {i18n.gettext('Firefox Add-on Reviews')}
+          </Link>
+        </DropdownMenuItem>,
+      );
     }
 
     const linkProps = {
