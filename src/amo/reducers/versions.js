@@ -30,8 +30,6 @@ export type AddonFileType = {|
   hash: string,
   id: number,
   is_mozilla_signed_extension: boolean,
-  is_restart_required: boolean,
-  is_webextension: boolean,
   optional_permissions: Array<string>,
   permissions: Array<string>,
   platform: 'all' | 'android' | 'mac' | 'linux' | 'windows',

@@ -7,19 +7,13 @@ import './styles.scss';
 
 export type Props = {|
   label: string,
-  type?:
-    | 'experimental'
-    | 'restart-required'
-    | 'not-compatible'
-    | 'requires-payment',
+  type?: 'experimental' | 'requires-payment',
 |};
 
 const getIconNameForType = (type) => {
   switch (type) {
     case 'experimental':
       return 'experimental-badge';
-    case 'restart-required':
-      return 'restart';
     default:
   }
 
@@ -27,15 +21,7 @@ const getIconNameForType = (type) => {
 };
 
 const Badge = ({ label, type }: Props): React.Node => {
-  if (
-    type &&
-    ![
-      'not-compatible',
-      'experimental',
-      'restart-required',
-      'requires-payment',
-    ].includes(type)
-  ) {
+  if (type && !['experimental', 'requires-payment'].includes(type)) {
     throw new Error(`Invalid badge type given: "${type}"`);
   }
 

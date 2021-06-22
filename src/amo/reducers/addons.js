@@ -245,8 +245,6 @@ export function createInternalAddon(
     currentVersionId: apiAddon.current_version
       ? apiAddon.current_version.id
       : null,
-    isRestartRequired: false,
-    isWebExtension: false,
     isMozillaSignedExtension: false,
   };
 
@@ -257,15 +255,6 @@ export function createInternalAddon(
     currentVersion.files &&
     currentVersion.files.length > 0
   ) {
-    addon.isRestartRequired = currentVersion.files.some(
-      (file) => !!file.is_restart_required,
-    );
-    // The following checks are a bit fragile since only one file needs
-    // to contain the flag. However, it is highly unlikely to create an
-    // add-on with mismatched file flags in the current DevHub.
-    addon.isWebExtension = currentVersion.files.some(
-      (file) => !!file.is_webextension,
-    );
     addon.isMozillaSignedExtension = currentVersion.files.some(
       (file) => !!file.is_mozilla_signed_extension,
     );

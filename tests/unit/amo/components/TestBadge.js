@@ -19,19 +19,6 @@ describe(__filename, () => {
     expect(badge.find(Icon)).toHaveProp('alt', 'foo');
   });
 
-  it('displays the restart icon for type `restart-required`', () => {
-    const badge = shallow(
-      <Badge type="restart-required" label="restart required" />,
-    );
-
-    expect(badge).toHaveClassName('Badge');
-    expect(badge).toHaveClassName('Badge-restart-required');
-    expect(badge.find(Icon)).toHaveLength(1);
-    expect(badge.find(Icon)).toHaveProp('alt', 'restart required');
-    expect(badge.find(Icon)).toHaveProp('name', 'restart');
-    expect(badge.text()).toContain('restart required');
-  });
-
   it('displays the experimental badge icon for type `experimental`', () => {
     const badge = shallow(<Badge type="experimental" label="experimental" />);
 

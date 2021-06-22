@@ -74,8 +74,6 @@ export const fakeFile = Object.freeze({
   hash: 'a1b2c3d4',
   id: 57721,
   is_mozilla_signed_extension: false,
-  is_restart_required: false,
-  is_webextension: true,
   optional_permissions: ['*://developer.mozilla.org/*', 'bookmarks'],
   permissions: ['activeTab', 'webRequest'],
   platform: OS_ALL,
