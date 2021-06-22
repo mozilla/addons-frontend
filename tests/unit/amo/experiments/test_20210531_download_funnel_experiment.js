@@ -28,7 +28,7 @@ describe(__filename, () => {
     'excludes non-en-US users on non-Firefox browsers: %s',
     (userAgent) => {
       const { state } = dispatchClientMetadata({ lang: 'fr', userAgent });
-      expect(shouldExcludeUser(state)).toEqual(true);
+      expect(shouldExcludeUser({ state })).toEqual(true);
     },
   );
 
@@ -36,7 +36,7 @@ describe(__filename, () => {
     'includes en-US users on non-Firefox browsers: %s',
     (userAgent) => {
       const { state } = dispatchClientMetadata({ lang: 'en-US', userAgent });
-      expect(shouldExcludeUser(state)).toEqual(false);
+      expect(shouldExcludeUser({ state })).toEqual(false);
     },
   );
 });
