@@ -56,44 +56,44 @@ describe(__filename, () => {
   it('stores the userAgent', () => {
     const existingState = { bar: 'baz' };
     const userAgent = userAgents.firefox[1];
-    const { browser, os } = UAParser(userAgent);
+    const { browser, device, os } = UAParser(userAgent);
     expect(api(existingState, actions.setUserAgent(userAgent))).toEqual({
       ...existingState,
       userAgent,
-      userAgentInfo: { browser, os },
+      userAgentInfo: { browser, device, os },
     });
   });
 
   it('allows garbage userAgent', () => {
     const existingState = { bar: 'baz' };
     const userAgent = '&***$myName Is Garbage b0wser!___**2é';
-    const { browser, os } = UAParser(userAgent);
+    const { browser, device, os } = UAParser(userAgent);
     expect(api(existingState, actions.setUserAgent(userAgent))).toEqual({
       ...existingState,
       userAgent,
-      userAgentInfo: { browser, os },
+      userAgentInfo: { browser, device, os },
     });
   });
 
   it('allows empty userAgent', () => {
     const existingState = { bar: 'baz' };
     const userAgent = '';
-    const { browser, os } = UAParser(userAgent);
+    const { browser, device, os } = UAParser(userAgent);
     expect(api(existingState, actions.setUserAgent(userAgent))).toEqual({
       ...existingState,
       userAgent,
-      userAgentInfo: { browser, os },
+      userAgentInfo: { browser, device, os },
     });
   });
 
   it('allows undefined userAgent', () => {
     const existingState = { bar: 'baz' };
     const userAgent = undefined;
-    const { browser, os } = UAParser(userAgent);
+    const { browser, device, os } = UAParser(userAgent);
     expect(api(existingState, actions.setUserAgent(userAgent))).toEqual({
       ...existingState,
       userAgent,
-      userAgentInfo: { browser, os },
+      userAgentInfo: { browser, device, os },
     });
   });
 

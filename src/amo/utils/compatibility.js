@@ -80,6 +80,16 @@ export const isFirefox = ({
   return userAgentInfo.browser.name === 'Firefox';
 };
 
+export const isDesktop = ({
+  userAgentInfo,
+}: {|
+  userAgentInfo: UserAgentInfoType,
+|}): boolean => {
+  invariant(userAgentInfo, 'userAgentInfo is required');
+
+  return userAgentInfo.device.type === undefined;
+};
+
 export const isFirefoxForAndroid = (
   userAgentInfo: UserAgentInfoType,
 ): boolean => {

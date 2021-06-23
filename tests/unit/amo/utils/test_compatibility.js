@@ -17,15 +17,16 @@ import {
   validAddonTypes,
 } from 'amo/constants';
 import {
+  correctedLocationForPlatform,
   getCompatibleVersions,
   getClientCompatibility,
   getMobileHomepageLink,
+  isAndroidInstallable,
   isCompatibleWithUserAgent,
+  isDesktop,
+  isFirefox,
   isFirefoxForAndroid,
   isFirefoxForIOS,
-  isAndroidInstallable,
-  isFirefox,
-  correctedLocationForPlatform,
 } from 'amo/utils/compatibility';
 import {
   createFakeLocation,
@@ -87,6 +88,24 @@ describe(__filename, () => {
       userAgents.firefoxIOS.forEach((userAgent) => {
         expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
       });
+    });
+  });
+
+  describe('isDesktop', () => {
+    it.each([...userAgents.chrome, ...userAgents.firefox])(
+      'returns true for %s',
+      (userAgent) => {
+        expect(isDesktop({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
+      },
+    );
+
+    it.each([
+      ...userAgents.androidWebkit,
+      ...userAgents.chromeAndroid,
+      ...userAgents.firefoxAndroid,
+      ...userAgents.firefoxIOS,
+    ])('returns false for %s', (userAgent) => {
+      expect(isDesktop({ userAgentInfo: UAParser(userAgent) })).toEqual(false);
     });
   });
 
