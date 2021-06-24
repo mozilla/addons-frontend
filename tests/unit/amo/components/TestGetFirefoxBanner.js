@@ -139,6 +139,20 @@ describe(__filename, () => {
       expect(root.find(Button)).toHaveProp('href', expectedHref);
     });
 
+    it('sends a tracking event when the button is clicked without a variant', () => {
+      const _tracking = createFakeTracking();
+      const root = render({ _tracking, store });
+
+      const event = createFakeEvent();
+      root.find(Button).simulate('click', event);
+
+      sinon.assert.calledWith(_tracking.sendEvent, {
+        action: GET_FIREFOX_BANNER_CLICK_ACTION,
+        category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+      });
+      sinon.assert.calledOnce(_tracking.sendEvent);
+    });
+
     it('sends a tracking event when the button is clicked', () => {
       const _tracking = createFakeTracking();
       const variant = VARIANT_NEW;
