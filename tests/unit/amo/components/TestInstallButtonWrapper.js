@@ -7,7 +7,6 @@ import InstallButtonWrapper, {
 import {
   EXPERIMENT_CONFIG,
   VARIANT_CURRENT,
-  VARIANT_NEW,
 } from 'amo/experiments/20210531_download_funnel_experiment';
 import { setInstallState } from 'amo/reducers/installations';
 import AMInstallButton from 'amo/components/AMInstallButton';
@@ -551,21 +550,6 @@ describe(__filename, () => {
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
   });
-
-  it.each([VARIANT_CURRENT, VARIANT_NEW, null])(
-    'passes the expected value for useNewVersion to GetFirefoxButton when variant is %s',
-    (variant) => {
-      _dispatchClientMetadata({
-        userAgent: userAgentsByPlatform.mac.chrome41,
-      });
-      const root = render({ variant });
-
-      expect(root.find(GetFirefoxButton)).toHaveProp(
-        'useNewVersion',
-        variant === VARIANT_NEW,
-      );
-    },
-  );
 
   it('passes the expected overrideQueryParams to GetFirefoxButton if an experiment is active', () => {
     _dispatchClientMetadata({

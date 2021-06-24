@@ -278,23 +278,21 @@ describe(__filename, () => {
       const guid = 'some-guid';
       const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
 
-      it.each([true, false])(
-        'sends a tracking event when the button is clicked and useNewVersion is %s',
-        (useNewVersion) => {
+      it.each([VARIANT_NEW, VARIANT_CURRENT])(
+        'sends a tracking event when the button is clicked and variant is %s',
+        (variant) => {
           const _tracking = createFakeTracking();
           const root = render({
             _tracking,
             addon,
             store,
-            useNewVersion,
+            variant,
           });
 
           const event = createFakeEvent();
           root.find('.GetFirefoxButton-button').simulate('click', event);
 
-          const category = `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${
-            useNewVersion ? VARIANT_NEW : VARIANT_CURRENT
-          }`;
+          const category = `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`;
           sinon.assert.calledWith(_tracking.sendEvent, {
             action: GET_FIREFOX_BUTTON_CLICK_ACTION,
             category,
