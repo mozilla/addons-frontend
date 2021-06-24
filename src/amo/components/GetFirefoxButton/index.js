@@ -6,10 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
-import {
-  VARIANT_CURRENT,
-  VARIANT_NEW,
-} from 'amo/experiments/20210531_download_funnel_experiment';
+import { VARIANT_NEW } from 'amo/experiments/20210531_download_funnel_experiment';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
@@ -42,7 +39,7 @@ export type Props = {|
   className?: string,
   forIncompatibleAddon?: boolean,
   overrideQueryParams?: {| [name: string]: string | null |},
-  useNewVersion?: boolean,
+  variant?: string | null,
 |};
 
 export type DefaultProps = {|
@@ -135,19 +132,17 @@ export const GetFirefoxButtonBase = ({
   _getPromotedCategory = getPromotedCategory,
   _tracking = tracking,
   addon,
-  forIncompatibleAddon,
   className,
   clientApp,
+  forIncompatibleAddon,
   i18n,
   overrideQueryParams = {},
-  useNewVersion = false,
   userAgentInfo,
+  variant,
 }: InternalProps): null | React.Node => {
   if (isFirefox({ userAgentInfo }) && !forIncompatibleAddon) {
     return null;
   }
-
-  const variant = useNewVersion ? VARIANT_NEW : VARIANT_CURRENT;
 
   const onButtonClick = () => {
     _tracking.sendEvent({

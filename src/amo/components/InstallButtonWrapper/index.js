@@ -16,10 +16,7 @@ import {
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   UNKNOWN,
 } from 'amo/constants';
-import {
-  VARIANT_NEW,
-  EXPERIMENT_CONFIG,
-} from 'amo/experiments/20210531_download_funnel_experiment';
+import { EXPERIMENT_CONFIG } from 'amo/experiments/20210531_download_funnel_experiment';
 import translate from 'amo/i18n/translate';
 import { findInstallURL, withInstallHelpers } from 'amo/installAddon';
 import { getVersionById } from 'amo/reducers/versions';
@@ -189,7 +186,7 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
                 className={className ? `GetFirefoxButton--${className}` : ''}
                 forIncompatibleAddon={forIncompatibleAddon}
                 overrideQueryParams={overrideQueryParams}
-                useNewVersion={variant === VARIANT_NEW}
+                variant={variant}
               />
             ) : null}
           </>
