@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-15 16:03+0000\n"
-"PO-Revision-Date: 2021-06-16 07:18+0000\n"
+"PO-Revision-Date: 2021-06-25 07:24+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1017,9 +1017,8 @@ msgid "About"
 msgstr "Om"
 
 #: src/amo/components/Footer/index.js:75 src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Firefox Add-on Reviews"
-msgstr "Firefox-tillegg"
+msgstr "Firefox-tilleggsvurderinger"
 
 #: src/amo/components/Footer/index.js:76
 msgid "Blog"
