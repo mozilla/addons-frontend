@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-15 16:03+0000\n"
-"PO-Revision-Date: 2021-06-23 10:44+0000\n"
+"PO-Revision-Date: 2021-06-25 07:07+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -823,7 +823,9 @@ msgstr "Pardono, ma nos non pote trovar tote le cosas al URL que tu specificava.
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr "Si tu es connexe e pensa que iste message es un error, per favor <a href=\"%(url)s\">indica un problema</a>. Conta nos de ubi tu veniva e lo que tu tentava de acceder, e nos reparara le problema."
+msgstr ""
+"Si tu ha jam aperite session e pensa que iste message es un error, per favor <a href=\"%(url)s\">signala le problema</a>. Dice nos de ubi tu veniva e a qual pagina tu tentava de acceder, e nos "
+"reparara le problema."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
@@ -1782,7 +1784,7 @@ msgstr "Alcun functiones es temporarimente disactivate pro mantenentia del sito 
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
-msgstr "Tu ha essite disconnexe"
+msgstr "Tu session ha essite claudite."
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
