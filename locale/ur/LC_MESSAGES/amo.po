@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-15 16:03+0000\n"
-"PO-Revision-Date: 2021-06-24 05:58+0000\n"
+"PO-Revision-Date: 2021-06-26 07:42+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -1188,9 +1188,8 @@ msgid "Access your data for %(param)s"
 msgstr ""
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:176
-#, fuzzy
 msgid "By Firefox"
-msgstr "Firefox کے لیئے"
+msgstr "Firefox کی  جانب سے"
 
 #: src/amo/components/IconPromotedBadge/index.js:47 src/amo/components/PromotedBadge/index.js:48 src/amo/components/SearchFilters/index.js:174
 msgid "Recommended"
