@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-15 16:03+0000\n"
-"PO-Revision-Date: 2021-06-26 07:42+0000\n"
+"PO-Revision-Date: 2021-06-26 07:45+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -2340,9 +2340,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "ایک گڑبڑ رپورٹ کریں"
+msgstr "ایک مسلہ رپورٹ کریں"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2618,9 +2617,8 @@ msgid "Edit profile"
 msgstr "پروفائل کی تدوین کریں"
 
 #: src/amo/pages/UserProfile/index.js:439
-#, fuzzy
 msgid "Admin user"
-msgstr "ایڈ-اون ربظ"
+msgstr "ایڈمن صارف"
 
 #: src/amo/pages/UserProfileEdit/index.js:209
 msgid "Picture successfully deleted"
