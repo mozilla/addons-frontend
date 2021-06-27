@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-15 16:03+0000\n"
-"PO-Revision-Date: 2021-06-26 07:45+0000\n"
+"PO-Revision-Date: 2021-06-27 08:16+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -1057,9 +1057,8 @@ msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkE
 msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:172
-#, fuzzy
 msgid "Download Firefox and get the theme"
-msgstr "Firefox ڈائونلوڈ کریں"
+msgstr "Firefox ڈاؤن لوڈ کریں اور تھیم حاصل کریں"
 
 #: src/amo/components/GetFirefoxButton/index.js:173
 msgid "Download Firefox and get the extension"
