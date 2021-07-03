@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-15 16:03+0000\n"
-"PO-Revision-Date: 2021-07-03 06:09+0000\n"
+"PO-Revision-Date: 2021-07-03 06:58+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -2829,7 +2829,7 @@ msgstr ""
 
 #: src/amo/utils/addons.js:40
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "تنصیب کاری ناکام ہوگئی۔ براہ مہربانی پھر کوشش کریں۔"
 
 #: src/amo/utils/addons.js:42
 msgid "Download failed. Please check your connection."
