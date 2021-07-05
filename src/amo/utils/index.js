@@ -95,7 +95,12 @@ export const checkInternalURL = ({
   const currentHost = url.parse(baseURL).host || '';
   const isForCurrentHost =
     currentHost === urlParts.host || urlString.startsWith(`//${currentHost}`);
-  const isInternal = isRelative || isForCurrentHost;
+
+  // Treat blog URLs as external.
+  const excludePathRegex = /^\/blog\//;
+  const excludeFromInternal = excludePathRegex.test(urlParts.pathname || '');
+
+  const isInternal = (isRelative || isForCurrentHost) && !excludeFromInternal;
 
   let relativeURL = urlString.startsWith(`//${currentHost}`)
     ? urlString.replace(`//${currentHost}`, '')
