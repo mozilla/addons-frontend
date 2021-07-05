@@ -375,13 +375,7 @@ export const normalizeFileNameId = (filename: string): string => {
 };
 
 export const getDisplayName = (component: React.ComponentType<any>): string => {
-  const defaultName = 'Component';
-
-  if (component) {
-    return component.displayName || component.name || defaultName;
-  }
-
-  return defaultName;
+  return component.displayName || component.name || 'Component';
 };
 
 export const addQueryParamsToHistory = ({
