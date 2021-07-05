@@ -208,10 +208,7 @@ describe(__filename, () => {
 
       it('returns false for a blog URL containing the current host', () => {
         const baseURL = 'https://example.org';
-        const urlString = url.format({
-          ...url.parse(baseURL),
-          pathname: '/blog/some-blog-post/',
-        });
+        const urlString = `${baseURL}/blog/some-blog-post/`;
 
         expect(
           checkInternalURL({ _config: getFakeConfig({ baseURL }), urlString })
