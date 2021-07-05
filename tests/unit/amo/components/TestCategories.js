@@ -1,8 +1,7 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
+import Categories, { CategoriesBase } from 'amo/components/Categories';
 import { fetchCategories, loadCategories } from 'amo/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
@@ -17,6 +16,7 @@ import {
   dispatchClientMetadata,
   fakeCategory,
   fakeI18n,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'amo/components/ErrorList';
 
@@ -30,29 +30,28 @@ describe(__filename, () => {
   function render({ ...props } = {}) {
     const errorHandler = createStubErrorHandler();
 
-    return shallow(
-      <CategoriesBase
+    return shallowUntilTarget(
+      <Categories
         addonType={ADDON_TYPE_EXTENSION}
-        dispatch={store.dispatch}
         errorHandler={errorHandler}
         i18n={fakeI18n()}
-        {...mapStateToProps(store.getState())}
+        store={store}
         {...props}
       />,
+      CategoriesBase,
     );
   }
 
   it('fetches categories if needed', () => {
-    const dispatch = sinon.stub();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
     render({
       addonType: ADDON_TYPE_EXTENSION,
-      dispatch,
       errorHandler,
     });
 
     sinon.assert.calledWith(
-      dispatch,
+      fakeDispatch,
       fetchCategories({
         errorHandlerId: errorHandler.id,
       }),
@@ -65,61 +64,65 @@ describe(__filename, () => {
         errorHandlerId: createStubErrorHandler().id,
       }),
     );
-    const dispatch = sinon.stub();
-    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    render({ addonType: ADDON_TYPE_EXTENSION });
 
     // Make sure only the viewContext was dispatched, not a fetch action.
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.calledOnce(dispatch);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(fakeDispatch);
   });
 
   it('does not fetch categories if already loaded', () => {
     store.dispatch(loadCategories({ results: [fakeCategory] }));
-    const dispatch = sinon.stub();
-    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    render({ addonType: ADDON_TYPE_EXTENSION });
 
     // Make sure only the viewContext was dispatched, not a fetch action.
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.calledOnce(dispatch);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(fakeDispatch);
   });
 
   it('does not fetch categories if an empty set was loaded', () => {
     store.dispatch(loadCategories({ results: [] }));
-    const dispatch = sinon.stub();
-    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    render({ addonType: ADDON_TYPE_EXTENSION });
 
     // Make sure only the viewContext was dispatched, not a fetch action.
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.calledOnce(dispatch);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(fakeDispatch);
   });
 
   it('changes viewContext if addonType changes', () => {
-    const dispatch = sinon.stub();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      dispatch,
     });
 
     root.setProps({ addonType: ADDON_TYPE_STATIC_THEME });
 
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_STATIC_THEME));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      setViewContext(ADDON_TYPE_STATIC_THEME),
+    );
   });
 
   it('does not dispatch setViewContext if addonType does not change', () => {
-    const dispatch = sinon.stub();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      dispatch,
     });
 
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.calledTwice(dispatch);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledTwice(fakeDispatch);
 
-    dispatch.resetHistory();
+    fakeDispatch.resetHistory();
     root.setProps();
 
     // Dispatch should not be called again because no new props were set.
-    sinon.assert.notCalled(dispatch);
+    sinon.assert.notCalled(fakeDispatch);
   });
 
   it('renders Categories', () => {
@@ -129,10 +132,13 @@ describe(__filename, () => {
   });
 
   it('renders loading text when loading', () => {
-    const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
-      loading: true,
-    });
+    store.dispatch(
+      fetchCategories({
+        errorHandlerId: createStubErrorHandler().id,
+      }),
+    );
+
+    const root = render({ addonType: ADDON_TYPE_EXTENSION });
 
     expect(root.find('.Categories-loading-info')).toIncludeText(
       'Loading categories.',
@@ -140,10 +146,13 @@ describe(__filename, () => {
   });
 
   it('renders LoadingText components when loading', () => {
-    const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
-      loading: true,
-    });
+    store.dispatch(
+      fetchCategories({
+        errorHandlerId: createStubErrorHandler().id,
+      }),
+    );
+
+    const root = render({ addonType: ADDON_TYPE_EXTENSION });
 
     expect(
       root.find('.Categories-loading-text').find(LoadingText),

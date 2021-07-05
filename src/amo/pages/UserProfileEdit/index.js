@@ -926,7 +926,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
   }
 }
 
-export function mapStateToProps(
+function mapStateToProps(
   state: AppState,
   ownProps: InternalProps,
 ): PropsFromState {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
-import Link, { LinkBase, mapStateToProps } from 'amo/components/Link';
+import Link, { LinkBase } from 'amo/components/Link';
 import createStore from 'amo/store';
 import { setClientApp, setLang } from 'amo/reducers/api';
 import Icon from 'amo/components/Icon';
@@ -18,13 +18,6 @@ describe(__filename, () => {
     store = createStore().store;
     store.dispatch(setClientApp('android'));
     store.dispatch(setLang('fr'));
-  });
-
-  it('uses clientApp and lang from API state', () => {
-    const props = mapStateToProps(store.getState());
-
-    expect(props.clientApp).toBeTruthy();
-    expect(props.lang).toBeTruthy();
   });
 
   it('passes an object through as a to param', () => {

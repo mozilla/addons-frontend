@@ -6,7 +6,6 @@ import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
 import UserProfileEdit, {
   extractId,
-  mapStateToProps,
   UserProfileEditBase,
 } from 'amo/pages/UserProfileEdit';
 import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
@@ -903,7 +902,7 @@ describe(__filename, () => {
       );
 
       store.dispatch(finishUpdateUserAccount());
-      root.setProps(mapStateToProps(store.getState(), root.instance().props));
+      root.setProps({ isUpdating: false });
 
       expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
         'disabled',
@@ -981,7 +980,7 @@ describe(__filename, () => {
       _window.location.assign.onCall(1).returns();
 
       store.dispatch(finishUpdateUserAccount());
-      root.setProps(mapStateToProps(store.getState(), root.instance().props));
+      root.setProps({ isUpdating: false });
 
       sinon.assert.callOrder(
         _window.location.assign.withArgs(`${to}`),
