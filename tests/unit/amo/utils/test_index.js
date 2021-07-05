@@ -205,6 +205,16 @@ describe(__filename, () => {
           }).isInternal,
         ).toEqual(false);
       });
+
+      it('returns false for a blog URL containing the current host', () => {
+        const baseURL = 'https://example.org';
+        const urlString = `${baseURL}/blog/some-blog-post/`;
+
+        expect(
+          checkInternalURL({ _config: getFakeConfig({ baseURL }), urlString })
+            .isInternal,
+        ).toEqual(false);
+      });
     });
   });
 
