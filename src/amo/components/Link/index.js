@@ -129,7 +129,7 @@ export class LinkBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+function mapStateToProps(state) {
   return {
     clientApp: state.api.clientApp,
     lang: state.api.lang,

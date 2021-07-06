@@ -159,7 +159,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState): PropsFromState {
+function mapStateToProps(state: AppState): PropsFromState {
   return {
     categoriesState: state.categories.categories,
     clientApp: state.api.clientApp,

@@ -50,7 +50,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState): PropsFromState {
+function mapStateToProps(state: AppState): PropsFromState {
   return {
     clientApp: state.api.clientApp,
     lang: state.api.lang,

@@ -1,10 +1,7 @@
 import * as React from 'react';
 
 import Search from 'amo/components/Search';
-import SearchPage, {
-  SearchPageBase,
-  mapStateToProps,
-} from 'amo/pages/SearchPage';
+import SearchPage, { SearchPageBase } from 'amo/pages/SearchPage';
 import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
@@ -77,6 +74,19 @@ describe(__filename, () => {
     });
   });
 
+  it('sets the filters from the location', () => {
+    const page = 2;
+    const q = 'burger';
+    const tag = 'firefox57';
+    const root = render({
+      location: createFakeLocation({
+        query: { page, q, tag },
+      }),
+    });
+
+    expect(root.find(Search)).toHaveProp('filters', { page, query: q, tag });
+  });
+
   it('preserves category in paginationQueryParams', () => {
     const query = {
       // The API is responsible for defining category strings.
@@ -109,6 +119,50 @@ describe(__filename, () => {
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it('uses the clientApp from the API and not the location', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    dispatchClientMetadata({ clientApp, store });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      location: createFakeLocation({
+        clientApp: CLIENT_APP_ANDROID,
+        query: { atype: 1 },
+      }),
+      store,
+    });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${clientApp}/search/?type=extension`,
+      }),
+    );
+  });
+
+  it('uses the lang from the API and not the location', () => {
+    const lang = 'en-CA';
+    dispatchClientMetadata({ lang, store });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      location: createFakeLocation({
+        lang: 'fr',
+        query: { atype: 1 },
+      }),
+      store,
+    });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/${lang}/android/search/?type=extension`,
+      }),
+    );
   });
 
   it('dispatches a server redirect when `atype` parameter is "3"', () => {
@@ -268,59 +322,5 @@ describe(__filename, () => {
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
-  });
-
-  describe('mapStateToProps()', () => {
-    const clientApp = CLIENT_APP_FIREFOX;
-    const { state } = dispatchClientMetadata({ clientApp });
-    const location = createFakeLocation({
-      query: {
-        page: '2',
-        q: 'burger',
-      },
-    });
-
-    it('returns filters based on location (URL) data', () => {
-      expect(mapStateToProps(state, { location })).toEqual({
-        clientApp: CLIENT_APP_FIREFOX,
-        lang: 'en-US',
-        filters: {
-          page: '2',
-          query: 'burger',
-        },
-      });
-    });
-
-    it("ignores clientApp in location's queryParams", () => {
-      const badLocation = {
-        ...location,
-        query: { ...location.query, app: CLIENT_APP_ANDROID },
-      };
-
-      expect(mapStateToProps(state, { location: badLocation })).toEqual({
-        clientApp: CLIENT_APP_FIREFOX,
-        lang: 'en-US',
-        filters: {
-          page: '2',
-          query: 'burger',
-        },
-      });
-    });
-
-    it("ignores lang in location's queryParams", () => {
-      const badLocation = {
-        ...location,
-        query: { ...location.query, lang: 'fr' },
-      };
-
-      expect(mapStateToProps(state, { location: badLocation })).toEqual({
-        clientApp: CLIENT_APP_FIREFOX,
-        lang: 'en-US',
-        filters: {
-          page: '2',
-          query: 'burger',
-        },
-      });
-    });
   });
 });

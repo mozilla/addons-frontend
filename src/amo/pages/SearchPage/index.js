@@ -128,7 +128,7 @@ export class SearchPageBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(
+function mapStateToProps(
   state: AppState,
   ownProps: InternalProps,
 ): PropsFromState {
