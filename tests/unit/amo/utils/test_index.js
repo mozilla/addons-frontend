@@ -18,7 +18,6 @@ import {
   apiAddonTypeIsValid,
   checkInternalURL,
   convertBoolean,
-  decodeHtmlEntities,
   getAddonURL,
   getCanonicalURL,
   getClientApp,
@@ -714,18 +713,6 @@ describe(__filename, () => {
       expect(sanitizeHTML(html, ['a'])).toEqual({
         __html: '<a href="http://example.org">link</a>',
       });
-    });
-  });
-
-  describe('decodeHtmlEntities', () => {
-    it('decodes entities', () => {
-      expect(decodeHtmlEntities('&lt;&gt;&quot;&amp;&copy;&reg;')).toEqual(
-        '<>"&©®',
-      );
-    });
-
-    it('passes through anything else', () => {
-      expect(decodeHtmlEntities('just whatever')).toEqual('just whatever');
     });
   });
 

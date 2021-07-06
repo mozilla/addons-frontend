@@ -3,7 +3,6 @@ import url from 'url';
 
 import * as React from 'react';
 import config from 'config';
-import { decode } from 'html-entities';
 import invariant from 'invariant';
 import qhistory from 'qhistory';
 import { stringify, parse } from 'qs';
@@ -347,13 +346,6 @@ export const safePromise =
       return Promise.reject(error);
     }
   };
-
-/*
- * Decodes HTML entities into their respective symbols.
- */
-export const decodeHtmlEntities = (string: string | null): string => {
-  return decode(string);
-};
 
 /*
  * Return an ID for a filename.
