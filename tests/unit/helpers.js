@@ -581,10 +581,7 @@ export function dispatchSignInActions({
 }
 
 export function dispatchSearchResults({
-  addons = {
-    [fakeAddon.slug]: fakeAddon,
-    'some-other-slug': { ...fakeAddon, slug: 'some-other-slug' },
-  },
+  addons = [fakeAddon, { ...fakeAddon, slug: 'some-other-slug' }],
   filters = { query: 'test' },
   store = dispatchClientMetadata().store,
 } = {}) {
@@ -597,7 +594,7 @@ export function dispatchSearchResults({
   store.dispatch(
     searchLoad({
       count: Object.keys(addons).length,
-      results: Object.keys(addons),
+      results: addons,
       pageSize: coreApi.DEFAULT_API_PAGE_SIZE,
     }),
   );

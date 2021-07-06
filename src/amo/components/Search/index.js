@@ -313,7 +313,7 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): PropsFromState => {
+const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     context: state.viewContext.context,
     count: state.search.count,

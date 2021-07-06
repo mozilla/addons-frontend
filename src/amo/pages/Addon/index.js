@@ -544,7 +544,7 @@ export class AddonBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
+function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.match.params;
   const addon = getAddonByIdInURL(state.addons, slug);
 

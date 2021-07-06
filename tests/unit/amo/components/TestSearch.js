@@ -2,11 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import NotFound from 'amo/components/Errors/NotFound';
-import Search, {
-  SearchBase,
-  extractId,
-  mapStateToProps,
-} from 'amo/components/Search';
+import Search, { SearchBase, extractId } from 'amo/components/Search';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
 import { setViewContext } from 'amo/actions/viewContext';
@@ -26,12 +22,15 @@ import {
 } from 'amo/constants';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
 import { ErrorHandler } from 'amo/errorHandler';
+import { createInternalAddon } from 'amo/reducers/addons';
 import { searchStart } from 'amo/reducers/search';
 import ErrorList from 'amo/components/ErrorList';
 import {
+  DEFAULT_LANG_IN_TESTS,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSearchResults,
+  fakeAddon,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -41,6 +40,13 @@ describe(__filename, () => {
 
   function render(extra = {}) {
     return shallow(<SearchBase {...{ ...props, ...extra }} />);
+  }
+
+  function renderWithStore(renderProps) {
+    return shallowUntilTarget(
+      <Search i18n={fakeI18n()} {...renderProps} />,
+      SearchBase,
+    );
   }
 
   beforeEach(() => {
@@ -63,34 +69,47 @@ describe(__filename, () => {
   });
 
   it('renders the results', () => {
-    const root = render();
-    const results = root.find(SearchResults);
-    expect(results.prop('count')).toEqual(props.count);
-    expect(results.prop('filters')).toEqual(props.filters);
-    expect(results.prop('loading')).toEqual(props.loading);
-    expect(results.prop('results')).toEqual(props.results);
-    expect(Object.keys(results.props()).sort()).toEqual(
+    const count = 50;
+    const addons = Array(count).fill(fakeAddon);
+    const results = addons.map((addon) =>
+      createInternalAddon(addon, DEFAULT_LANG_IN_TESTS),
+    );
+    const filters = { page: 3, query: 'foo' };
+    const { store } = dispatchSearchResults({ addons });
+    const root = renderWithStore({ filters, store });
+
+    const searchResults = root.find(SearchResults);
+    expect(searchResults.prop('count')).toEqual(Object.keys(addons).length);
+    expect(searchResults.prop('filters')).toEqual(filters);
+    expect(searchResults.prop('loading')).toEqual(false);
+    expect(searchResults.prop('results')).toEqual(results);
+    expect(Object.keys(searchResults.props()).sort()).toEqual(
       ['count', 'filters', 'loading', 'paginator', 'results'].sort(),
     );
   });
 
   it('passes a Paginate component to the SearchResults component', () => {
-    const root = render();
+    const count = 50;
+    const addons = Array(count).fill(fakeAddon);
+    const filters = { page: 3, query: 'foo' };
+    const { store } = dispatchSearchResults({ addons });
+    const root = renderWithStore({ filters, store });
     const paginator = shallow(root.find(SearchResults).prop('paginator'));
 
     expect(paginator.instance()).toBeInstanceOf(Paginate);
-    expect(paginator.prop('count')).toEqual(80);
+    expect(paginator.prop('count')).toEqual(count);
     expect(paginator.prop('currentPage')).toEqual(3);
     expect(paginator.prop('pathname')).toEqual('/search/');
+    expect(paginator.prop('perPage')).toEqual(DEFAULT_API_PAGE_SIZE);
     expect(paginator.prop('queryParams')).toEqual({ page: 3, q: 'foo' });
   });
 
   it('does not pass a Paginate component to SearchResults when there is no search term', () => {
     const { store } = dispatchSearchResults({
-      addons: {},
+      addons: [],
       filters: { query: null },
     });
-    const root = render(mapStateToProps(store.getState()));
+    const root = renderWithStore({ store });
     expect(root.find(SearchResults).prop('paginator')).toEqual(null);
   });
 
@@ -103,8 +122,8 @@ describe(__filename, () => {
   });
 
   it('renders SearchFilters even when there are no results', () => {
-    const { store } = dispatchSearchResults({ addons: {} });
-    const root = render(mapStateToProps(store.getState()));
+    const { store } = dispatchSearchResults({ addons: [] });
+    const root = renderWithStore({ store });
 
     expect(root.find(SearchFilters)).toHaveLength(1);
   });
@@ -377,10 +396,11 @@ describe(__filename, () => {
   });
 
   it('sets the viewContext to exploring if viewContext has changed', () => {
-    const fakeDispatch = sinon.stub();
-    const filters = {};
+    const { store } = dispatchClientMetadata();
+    store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
+    const fakeDispatch = sinon.stub(store, 'dispatch');
 
-    render({ context: ADDON_TYPE_EXTENSION, dispatch: fakeDispatch, filters });
+    renderWithStore({ store });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
@@ -409,26 +429,8 @@ describe(__filename, () => {
       }),
     );
 
-    const wrapper = shallowUntilTarget(
-      <Search {...{ ...props, errorHandler, store }} />,
-      SearchBase,
-    );
+    const wrapper = renderWithStore({ ...props, errorHandler, store });
     expect(wrapper.find(NotFound)).toHaveLength(1);
-  });
-
-  describe('mapStateToProps()', () => {
-    const { state } = dispatchClientMetadata();
-
-    it('returns count, loading, and results', () => {
-      expect(mapStateToProps(state)).toEqual({
-        context: state.viewContext.context,
-        count: state.search.count,
-        filtersUsedForResults: state.search.filters,
-        loading: state.search.loading,
-        pageSize: state.search.pageSize,
-        results: state.search.results,
-      });
-    });
   });
 
   describe('errorHandler - extractId', () => {
