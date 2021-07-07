@@ -38,6 +38,7 @@ export type SendTrackingEventParams = {|
   _config?: typeof config,
   action: string,
   category: string,
+  extra?: string | null,
   label?: string,
   value?: number,
 |};
@@ -208,9 +209,12 @@ export class Tracking {
 
   /*
    * Param          Type    Required  Description
+   * obj.action     String  Yes       The type of interaction (e.g. click)
    * obj.category   String  Yes       Typically the object that
    *                                  was interacted with (e.g. button)
-   * obj.action     String  Yes       The type of interaction (e.g. click)
+   * obj.extra      String  No        If passed, its value will be appended to
+   *                                  the category and an extra event will be
+   *                                  sent with this data.
    * obj.label      String  No        Useful for categorizing events
    *                                  (e.g. nav buttons)
    * obj.value      Number  No        Values must be non-negative.
@@ -220,6 +224,7 @@ export class Tracking {
     _config = config,
     action,
     category,
+    extra,
     label,
     value,
   }: SendTrackingEventParams = {}) {
@@ -246,6 +251,11 @@ export class Tracking {
       };
       this._ga('send', data);
       this.log('sendEvent', data);
+      if (extra) {
+        const extraData = { ...data, eventCategory: `${category}-${extra}` };
+        this._ga('send', extraData);
+        this.log('sendEvent', extraData);
+      }
     }
   }
 

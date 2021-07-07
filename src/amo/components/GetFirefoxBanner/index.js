@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
 import {
-  getDownloadCategory,
+  GET_FIREFOX_BUTTON_CLICK_CATEGORY,
   getDownloadLink,
 } from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
@@ -57,7 +57,8 @@ export const GetFirefoxBannerBase = ({
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BANNER_CLICK_ACTION,
-      category: getDownloadCategory(variant),
+      category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+      extra: variant,
     });
   };
 

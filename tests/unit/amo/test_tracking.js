@@ -233,6 +233,22 @@ describe(__filename, () => {
         }).toThrowError(/action is required/);
       });
 
+      // This is a way to check how many times window.ga was called with the
+      // arguments that signify that it was sending an event.
+      const countSendEventCalls = (spy) => {
+        return spy
+          .getCalls()
+          .filter(
+            (callObj) =>
+              callObj.firstArg === 'send' &&
+              Object.prototype.hasOwnProperty.call(
+                callObj.lastArg,
+                'hitType',
+              ) &&
+              callObj.lastArg.hitType === 'event',
+          ).length;
+      };
+
       it('should call _ga with sendEvent on the client', () => {
         const _config = getFakeConfig({ server: false });
         const event = fakeTrackingEvent;
@@ -247,6 +263,32 @@ describe(__filename, () => {
           eventLabel: event.label,
           eventValue: event.value,
         });
+        expect(countSendEventCalls(window.ga)).toEqual(1);
+      });
+
+      it('should call _ga twice when extra is passed', () => {
+        const _config = getFakeConfig({ server: false });
+        const event = fakeTrackingEvent;
+        const extra = 'extra-data';
+        const tracking = createTracking();
+        tracking.sendEvent({
+          _config,
+          extra,
+          ...event,
+        });
+        sinon.assert.calledWithMatch(window.ga, 'send', {
+          eventAction: event.action,
+          eventCategory: event.category,
+          eventLabel: event.label,
+          eventValue: event.value,
+        });
+        sinon.assert.calledWithMatch(window.ga, 'send', {
+          eventAction: event.action,
+          eventCategory: `${event.category}-${extra}`,
+          eventLabel: event.label,
+          eventValue: event.value,
+        });
+        expect(countSendEventCalls(window.ga)).toEqual(2);
       });
 
       it('should throw an error if called on the server', () => {
