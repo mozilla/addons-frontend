@@ -24,6 +24,7 @@ export type UserAgentInfoType = {|
     name?: string,
     version?: string,
   },
+  device: { model?: string, type?: string, vendor?: string },
   os: {
     // This is not a complete enumeration. They're just the ones
     // we have special cases for.
@@ -50,7 +51,7 @@ export const initialApiState: ApiState = {
   requestId: null,
   token: null,
   userAgent: null,
-  userAgentInfo: { browser: {}, os: {} },
+  userAgentInfo: { browser: {}, device: {}, os: {} },
 };
 
 export type SetAuthTokenAction = {|
@@ -157,12 +158,12 @@ export default function api(
     case SET_REQUEST_ID:
       return { ...state, requestId: action.payload.requestId };
     case SET_USER_AGENT: {
-      const { browser, os } = UAParser(action.payload.userAgent);
+      const { browser, device, os } = UAParser(action.payload.userAgent);
 
       return {
         ...state,
         userAgent: action.payload.userAgent,
-        userAgentInfo: { browser, os },
+        userAgentInfo: { browser, device, os },
       };
     }
     case LOG_OUT_USER:
