@@ -112,7 +112,7 @@ describe(__filename, () => {
   it('should use singular form when only one result is found', () => {
     dispatchSearchResults({
       store: _store,
-      addons: { [fakeAddon.slug]: fakeAddon },
+      addons: [fakeAddon],
     });
     const root = render();
 
@@ -124,7 +124,7 @@ describe(__filename, () => {
   it('should use singular form without query when only one result', () => {
     dispatchSearchResults({
       store: _store,
-      addons: { [fakeAddon.slug]: fakeAddon },
+      addons: [fakeAddon],
       filters: {},
     });
     const root = render();
@@ -147,7 +147,7 @@ describe(__filename, () => {
     const query = 'test';
     dispatchSearchResults({
       store: _store,
-      addons: { [fakeAddon.slug]: fakeAddon },
+      addons: [fakeAddon],
       filters: {
         addonType: ADDON_TYPE_STATIC_THEME,
         query,
@@ -274,7 +274,7 @@ describe(__filename, () => {
   it('should render singular form when only one result is found with addonType ADDON_TYPE_EXTENSION', () => {
     const query = 'test';
     dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
+      addons: [fakeAddon],
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
         query,
@@ -444,7 +444,7 @@ describe(__filename, () => {
   it('should render singular form when only one result is found for an addonType that is not an extension nor theme', () => {
     const query = 'test';
     dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
+      addons: [fakeAddon],
       filters: {
         addonType: ADDON_TYPE_LANG,
         query,
@@ -494,7 +494,7 @@ describe(__filename, () => {
   it('does not render a categoryName when the category is invalid', () => {
     dispatchSearchResults({
       // The API does not return addon results if the category is invalid.
-      addons: {},
+      addons: [],
       filters: {
         category: 'bad-category',
       },

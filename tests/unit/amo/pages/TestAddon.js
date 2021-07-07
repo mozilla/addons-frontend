@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import Addon, { AddonBase, extractId, mapStateToProps } from 'amo/pages/Addon';
+import Addon, { AddonBase, extractId } from 'amo/pages/Addon';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonMeta from 'amo/components/AddonMeta';
@@ -25,7 +25,6 @@ import RatingManager, {
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getAddonURL, addQueryParamsToHistory } from 'amo/utils';
-import createStore from 'amo/store';
 import { fetchAddon as fetchAddonAction, loadAddon } from 'amo/reducers/addons';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -1399,65 +1398,6 @@ describe(__filename, () => {
     it('generates a unique ID based on the add-on slug', () => {
       const props = renderProps({ params: { slug: 'some-slug' } });
       expect(extractId(props)).toEqual('some-slug');
-    });
-  });
-
-  describe('mapStateToProps', () => {
-    let store;
-
-    beforeEach(() => {
-      store = createStore().store;
-    });
-
-    function signIn(params) {
-      dispatchSignInActions({ store, ...params });
-    }
-
-    function fetchAddon({ addon = fakeAddon } = {}) {
-      store.dispatch(_loadAddon({ addon }));
-    }
-
-    function _mapStateToProps(
-      state = store.getState(),
-      ownProps = {
-        match: {
-          params: { slug: fakeAddon.slug },
-        },
-      },
-    ) {
-      return mapStateToProps(state, ownProps);
-    }
-
-    it('sets the clientApp', () => {
-      const clientAppFromAgent = 'firefox';
-      signIn({ clientApp: clientAppFromAgent });
-      fetchAddon();
-      const { clientApp } = _mapStateToProps();
-
-      expect(clientApp).toEqual(clientAppFromAgent);
-    });
-
-    it('sets the version for a loaded add-on', () => {
-      const versionId = 111;
-      const apiVersion = { ...fakeVersion, id: versionId };
-      signIn();
-      fetchAddon({
-        addon: {
-          ...fakeAddon,
-          current_version: apiVersion,
-        },
-      });
-
-      const { currentVersion } = _mapStateToProps();
-      expect(currentVersion).toEqual(createInternalVersionWithLang(apiVersion));
-    });
-
-    it('handles a non-existent add-on', () => {
-      signIn();
-      const { addon, currentVersion } = _mapStateToProps();
-
-      expect(addon).toEqual(null);
-      expect(currentVersion).toEqual(null);
     });
   });
 
