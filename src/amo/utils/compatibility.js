@@ -16,7 +16,6 @@ import {
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
-  INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
@@ -224,7 +223,6 @@ export function isCompatibleWithUserAgent({
 }
 
 export type GetClientCompatibilityParams = {|
-  _log?: typeof log,
   _window?: typeof window | {},
   addon: AddonType,
   clientApp: string,
@@ -245,7 +243,6 @@ export function getClientCompatibility({
   currentVersion,
   userAgentInfo,
   _window = typeof window !== 'undefined' ? window : {},
-  _log = log,
 }: GetClientCompatibilityParams = {}): ClientCompatibilityType {
   // Check compatibility with client app.
   const { supportsClientApp, maxVersion, minVersion } = getCompatibleVersions({
@@ -269,45 +266,13 @@ export function getClientCompatibility({
     reason = INCOMPATIBLE_UNSUPPORTED_PLATFORM;
   }
 
-  let compatible = agent.compatible && supportsClientApp;
-
-  if (compatible && addon && addon.isRestartRequired === true) {
-    const { browser } = userAgentInfo;
-
-    if (
-      browser.name === 'Firefox' &&
-      mozCompare(browser.version, '61.0') >= 0
-    ) {
-      compatible = false;
-      reason = INCOMPATIBLE_NON_RESTARTLESS_ADDON;
-
-      _log.debug(
-        'add-on is incompatible because it is a non-restartless add-on',
-      );
-    }
-  }
-
   return {
-    compatible,
+    compatible: agent.compatible && supportsClientApp,
     maxVersion,
     minVersion,
     reason,
   };
 }
-
-export const isQuantumCompatible = ({
-  addon,
-}: {|
-  addon: AddonType,
-|}): boolean => {
-  // TODO: refactor code that inspects the real compatibility
-  // object and re-use that logic to accomplish this instead.
-  // https://github.com/mozilla/addons-frontend/issues/3814
-
-  // These checks are fragile because future mozilla-signed extensions
-  // may not be Quantum compatible.
-  return addon.isWebExtension || addon.isMozillaSignedExtension;
-};
 
 export const getMobileHomepageLink = (lang: string): string =>
   `/${lang}/${CLIENT_APP_ANDROID}/`;

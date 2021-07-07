@@ -1,4 +1,3 @@
-import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import AddonCompatibilityError, {
@@ -6,10 +5,8 @@ import AddonCompatibilityError, {
 } from 'amo/components/AddonCompatibilityError';
 import {
   CLIENT_APP_FIREFOX,
-  CLIENT_APP_ANDROID,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
-  INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
@@ -39,13 +36,6 @@ describe(__filename, () => {
       store,
       userAgent: userAgentsByPlatform.mac.firefox57,
       ...params,
-    });
-  };
-
-  const getClientCompatibilityNonFirefox = () => {
-    return createFakeClientCompatibility({
-      compatible: false,
-      reason: INCOMPATIBLE_NOT_FIREFOX,
     });
   };
 
@@ -120,31 +110,6 @@ describe(__filename, () => {
     });
   });
 
-  it('renders nothing if the browser is not Firefox', () => {
-    const root = render({
-      _getClientCompatibility: getClientCompatibilityNonFirefox,
-    });
-
-    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
-  });
-
-  it.each([CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID])(
-    'renders nothing if the add-on is not compatible with Android and clientApp is %s',
-    (clientApp) => {
-      _dispatchClientMetadata({
-        clientApp,
-      });
-
-      const root = render({
-        _getClientCompatibility: makeGetClientCompatibilityIncompatible({
-          reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
-        }),
-      });
-
-      expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
-    },
-  );
-
   it('renders nothing if the add-on is compatible', () => {
     const root = render({
       _getClientCompatibility: getClientCompatibilityCompatible,
@@ -165,31 +130,6 @@ describe(__filename, () => {
     );
   });
 
-  // See https://github.com/mozilla/addons-frontend/issues/10637
-  it('does not render a notice for old versions of Firefox', () => {
-    _dispatchClientMetadata({
-      userAgent: userAgentsByPlatform.mac.firefox33,
-    });
-    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
-      minVersion: '34.0',
-      reason: INCOMPATIBLE_UNDER_MIN_VERSION,
-    });
-
-    const root = render({ _getClientCompatibility });
-
-    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
-  });
-
-  it('renders nothing for iOS users', () => {
-    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
-      reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
-    });
-
-    const root = render({ _getClientCompatibility });
-
-    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
-  });
-
   it('renders a notice if add-on is incompatible with the platform', () => {
     const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -202,21 +142,13 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a notice if add-on is non-restartless', () => {
-    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
-      reason: INCOMPATIBLE_NON_RESTARTLESS_ADDON,
-    });
-
-    const root = render({ _getClientCompatibility });
-
-    expect(root.find('.AddonCompatibilityError').childAt(0).html())
-      .toContain(oneLine`Your version of Firefox does not support this add-on
-      because it requires a restart.`);
-  });
-
-  // See https://github.com/mozilla/addons-frontend/issues/10637
-  it('does not render a notice when reason code not known', () => {
-    const reason = 'fake reason';
+  it.each([
+    INCOMPATIBLE_ANDROID_UNSUPPORTED,
+    INCOMPATIBLE_FIREFOX_FOR_IOS,
+    INCOMPATIBLE_NOT_FIREFOX,
+    INCOMPATIBLE_UNDER_MIN_VERSION,
+    'unknown reason',
+  ])('renders nothing if the incompatibility reason is %s', (reason) => {
     const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason,
     });

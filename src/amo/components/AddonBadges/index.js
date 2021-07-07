@@ -3,10 +3,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { getPromotedCategory } from 'amo/utils/addons';
-import { isQuantumCompatible } from 'amo/utils/compatibility';
 import Badge from 'amo/components/Badge';
 import PromotedBadge from 'amo/components/PromotedBadge';
 import type { AppState } from 'amo/store';
@@ -46,10 +44,6 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
       return null;
     }
 
-    const isIncompatible =
-      addon.type === ADDON_TYPE_EXTENSION &&
-      isQuantumCompatible({ addon }) === false;
-
     const promotedCategory = _getPromotedCategory({
       addon,
       clientApp,
@@ -61,20 +55,8 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
         {promotedCategory ? (
           <PromotedBadge category={promotedCategory} size="large" />
         ) : null}
-        {addon.isRestartRequired ? (
-          <Badge
-            type="restart-required"
-            label={i18n.gettext('Restart Required')}
-          />
-        ) : null}
         {addon.is_experimental ? (
           <Badge type="experimental" label={i18n.gettext('Experimental')} />
-        ) : null}
-        {isIncompatible ? (
-          <Badge
-            type="not-compatible"
-            label={i18n.gettext('Not compatible with Firefox Quantum')}
-          />
         ) : null}
         {addon.requires_payment ? (
           <Badge

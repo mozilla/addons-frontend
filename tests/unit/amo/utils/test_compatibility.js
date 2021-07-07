@@ -8,16 +8,11 @@ import {
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
-  INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-  OS_ALL,
-  OS_ANDROID,
-  OS_LINUX,
   OS_MAC,
-  OS_WINDOWS,
   RECOMMENDED,
   validAddonTypes,
 } from 'amo/constants';
@@ -30,11 +25,9 @@ import {
   isFirefoxForIOS,
   isAndroidInstallable,
   isFirefox,
-  isQuantumCompatible,
   correctedLocationForPlatform,
 } from 'amo/utils/compatibility';
 import {
-  createFakeAddon,
   createFakeLocation,
   createInternalAddonWithLang,
   createInternalVersionWithLang,
@@ -616,12 +609,7 @@ describe(__filename, () => {
                 min: '24.0',
               },
             },
-            files: [
-              {
-                ...fakeAddon.current_version.files[0],
-                is_webextension: true,
-              },
-            ],
+            files: [fakeAddon.current_version.files[0]],
             is_strict_compatibility_enabled: false,
           }),
           userAgentInfo,
@@ -645,12 +633,7 @@ describe(__filename, () => {
                 min: '24.0',
               },
             },
-            files: [
-              {
-                ...fakeAddon.current_version.files[0],
-                is_webextension: false,
-              },
-            ],
+            files: [fakeAddon.current_version.files[0]],
             is_strict_compatibility_enabled: true,
           }),
           userAgentInfo,
@@ -682,63 +665,6 @@ describe(__filename, () => {
       });
     });
 
-    // See: https://github.com/mozilla/addons-frontend/issues/6240
-    it('returns incompatible when add-on is non-restartless and FF version >= 61.0', () => {
-      const userAgentInfo = UAParser(userAgentsByPlatform.mac.firefox61);
-      const clientApp = CLIENT_APP_FIREFOX;
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        current_version: {
-          ...fakeAddon.current_version,
-          files: [
-            {
-              ...fakeAddon.current_version.files[0],
-              is_restart_required: true,
-            },
-          ],
-        },
-      });
-
-      expect(
-        _getClientCompatibility({
-          addon,
-          clientApp,
-          userAgentInfo,
-        }),
-      ).toMatchObject({
-        compatible: false,
-        reason: INCOMPATIBLE_NON_RESTARTLESS_ADDON,
-      });
-    });
-
-    it('returns compatible when add-on is non-restartless and FF version < 61.0', () => {
-      const userAgentInfo = UAParser(userAgentsByPlatform.mac.firefox57);
-      const clientApp = CLIENT_APP_FIREFOX;
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        current_version: {
-          ...fakeAddon.current_version,
-          files: [
-            {
-              ...fakeAddon.current_version.files[0],
-              is_restart_required: true,
-            },
-          ],
-        },
-      });
-
-      expect(
-        _getClientCompatibility({
-          addon,
-          clientApp,
-          userAgentInfo,
-        }),
-      ).toMatchObject({
-        compatible: true,
-        reason: null,
-      });
-    });
-
     it('returns correct reason when add-on is incompatible with android', () => {
       const { browser, os } = UAParser(
         userAgentsByPlatform.android.firefox40Mobile,
@@ -757,166 +683,6 @@ describe(__filename, () => {
       ).toMatchObject({
         reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
       });
-    });
-  });
-
-  describe('isQuantumCompatible', () => {
-    it('returns `true` when webextension is compatible', () => {
-      const addon = createInternalAddonWithLang(
-        createFakeAddon({
-          files: [
-            {
-              is_mozilla_signed_extension: false,
-              is_webextension: true,
-              platform: OS_ALL,
-            },
-          ],
-          name: 'Some Quantum WebExtension',
-          compatibility: {
-            [CLIENT_APP_FIREFOX]: {
-              max: '*',
-              min: '53.0',
-            },
-          },
-          is_strict_compatibility_enabled: false,
-        }),
-      );
-
-      expect(isQuantumCompatible({ addon })).toEqual(true);
-    });
-
-    it('returns `true` when mozilla extension is compatible', () => {
-      const addon = createInternalAddonWithLang(
-        createFakeAddon({
-          files: [
-            {
-              is_mozilla_signed_extension: true,
-              is_webextension: false,
-              platform: OS_ALL,
-            },
-          ],
-          name: 'Firefox Multi-Account Containers',
-          compatibility: {
-            [CLIENT_APP_FIREFOX]: {
-              max: '*',
-              min: '53.0',
-            },
-          },
-          is_strict_compatibility_enabled: false,
-        }),
-      );
-
-      expect(isQuantumCompatible({ addon })).toEqual(true);
-    });
-
-    it('returns `true` for windows-only mozilla extensions', () => {
-      const addon = createInternalAddonWithLang(
-        createFakeAddon({
-          files: [
-            {
-              is_mozilla_signed_extension: true,
-              is_webextension: false,
-              platform: OS_WINDOWS,
-            },
-          ],
-          name: 'Windows only mozilla extension',
-          compatibility: {
-            [CLIENT_APP_FIREFOX]: {
-              max: '*',
-              min: '53.0',
-            },
-          },
-          is_strict_compatibility_enabled: false,
-        }),
-      );
-
-      expect(isQuantumCompatible({ addon })).toEqual(true);
-    });
-
-    it('returns `true` for linux-only mozilla extensions', () => {
-      const addon = createInternalAddonWithLang(
-        createFakeAddon({
-          files: [
-            {
-              is_mozilla_signed_extension: true,
-              is_webextension: false,
-              platform: OS_LINUX,
-            },
-          ],
-          name: 'Linux only mozilla extension',
-          compatibility: {
-            [CLIENT_APP_FIREFOX]: {
-              max: '*',
-              min: '53.0',
-            },
-          },
-          is_strict_compatibility_enabled: false,
-        }),
-      );
-
-      expect(isQuantumCompatible({ addon })).toEqual(true);
-    });
-
-    it('returns `false` when non-webextesion is not compatible', () => {
-      const addon = createInternalAddonWithLang(
-        createFakeAddon({
-          files: [
-            {
-              is_mozilla_signed_extension: false,
-              is_webextension: false,
-              platform: OS_ALL,
-            },
-          ],
-          name: 'Firebug',
-          compatibility: {
-            [CLIENT_APP_FIREFOX]: {
-              max: '56.*',
-              min: '30.0a1',
-            },
-          },
-          is_strict_compatibility_enabled: true,
-        }),
-      );
-
-      expect(isQuantumCompatible({ addon })).toEqual(false);
-    });
-
-    it('returns `false` for add-ons without a current version', () => {
-      const addon = createInternalAddonWithLang(
-        createFakeAddon({
-          current_version: null,
-        }),
-      );
-
-      expect(isQuantumCompatible({ addon })).toEqual(false);
-    });
-
-    it('returns `true` when Android webextension is compatible', () => {
-      const addon = createInternalAddonWithLang(
-        createFakeAddon({
-          files: [
-            {
-              is_webextension: true,
-              platform: OS_ANDROID,
-            },
-          ],
-          compatibility: {
-            // This platform is not compatible...
-            [CLIENT_APP_FIREFOX]: {
-              max: '56.*',
-              min: '30.0a1',
-            },
-            // ...but this platform is compatible.
-            [CLIENT_APP_ANDROID]: {
-              max: '57.0',
-              min: '53.0',
-            },
-          },
-          is_strict_compatibility_enabled: true,
-        }),
-      );
-
-      expect(isQuantumCompatible({ addon })).toEqual(true);
     });
   });
 

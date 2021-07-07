@@ -120,10 +120,6 @@
   @include icon($name: 'user-fill');
 }
 
-.Icon-restart {
-  @include icon($name: 'restart');
-}
-
 .Icon-inverted-caret {
   @include icon($name: 'inverted-caret');
 }
@@ -146,10 +142,6 @@
 
 .Icon-heart {
   @include icon($name: 'heart');
-}
-
-.Icon-not-compatible {
-  @include icon($name: 'not-compatible');
 }
 
 .Icon-inline-content {
