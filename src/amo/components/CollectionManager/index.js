@@ -15,7 +15,6 @@ import {
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
-import { decodeHtmlEntities } from 'amo/utils';
 import Button from 'amo/components/Button';
 import LoadingText from 'amo/components/LoadingText';
 import type {
@@ -77,10 +76,11 @@ const propsToState = (props: InternalProps): State => {
   return {
     collectionId: props.collection ? props.collection.id : null,
     customSlug: false,
-    description: props.collection
-      ? decodeHtmlEntities(props.collection.description)
-      : '',
-    name: props.collection ? decodeHtmlEntities(props.collection.name) : '',
+    description:
+      props.collection && props.collection.description
+        ? props.collection.description
+        : '',
+    name: props.collection ? props.collection.name : '',
     slug: props.collection ? props.collection.slug : '',
   };
 };

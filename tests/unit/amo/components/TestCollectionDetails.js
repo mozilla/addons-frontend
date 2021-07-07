@@ -93,21 +93,6 @@ describe(__filename, () => {
     );
   });
 
-  it('allows HTML entities in the Collection description', () => {
-    const description = 'Apples &amp; carrots';
-    const collection = createInternalCollectionWithLang({
-      detail: createFakeCollectionDetail({
-        description,
-      }),
-    });
-
-    const root = render({ collection });
-
-    expect(root.find('.CollectionDetails-description').html()).toContain(
-      description,
-    );
-  });
-
   it('renders loading indicators when there is no collection', () => {
     const root = render({ collection: null });
 

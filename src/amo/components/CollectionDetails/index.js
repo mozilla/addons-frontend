@@ -11,7 +11,6 @@ import {
   convertFiltersToQueryParams,
 } from 'amo/reducers/collections';
 import translate from 'amo/i18n/translate';
-import { sanitizeHTML } from 'amo/utils';
 import Button from 'amo/components/Button';
 import LoadingText from 'amo/components/LoadingText';
 import MetadataCard from 'amo/components/MetadataCard';
@@ -69,14 +68,7 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
           )}
         </h1>
         <p className="CollectionDetails-description">
-          {collection ? (
-            <span
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={sanitizeHTML(collection.description)}
-            />
-          ) : (
-            <LoadingText />
-          )}
+          {collection ? collection.description : <LoadingText />}
         </p>
         <MetadataCard
           metadata={[

@@ -14,7 +14,6 @@ import {
   updateCollection,
 } from 'amo/reducers/collections';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
-import { decodeHtmlEntities } from 'amo/utils';
 import {
   createContextWithFakeRouter,
   createFakeCollectionDetail,
@@ -197,28 +196,6 @@ describe(__filename, () => {
       SLUG_MAX_LENGTH,
     );
     expect(root.find('#collectionUrlPrefix')).toIncludeText(expectedUrlPrefix);
-  });
-
-  it('strips HTML entities from name and description', () => {
-    const collection = createInternalCollectionWithLang({
-      detail: createFakeCollectionDetail({
-        // This is how the API returns data.
-        name: 'Things &amp; Stuff',
-        description: 'Extensions about things &amp; stuff',
-      }),
-    });
-    const root = render({ collection });
-
-    const { description, name } = collection;
-
-    expect(root.find('#collectionName')).toHaveProp(
-      'value',
-      decodeHtmlEntities(name),
-    );
-    expect(root.find('#collectionDescription')).toHaveProp(
-      'value',
-      decodeHtmlEntities(description),
-    );
   });
 
   it('does not populate form when updating to the same collection', () => {
