@@ -96,6 +96,7 @@ describe(__filename, () => {
           apiState,
           page: '1',
           score: undefined,
+          // note: no page_size parameter - we want/expect the default
         })
         .resolves(
           apiResponsePage({
