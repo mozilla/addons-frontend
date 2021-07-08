@@ -58,7 +58,9 @@ export const GetFirefoxBannerBase = ({
     _tracking.sendEvent({
       action: GET_FIREFOX_BANNER_CLICK_ACTION,
       category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-      extra: variant,
+      sendSecondEventWithOverrides: variant && {
+        category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
+      },
     });
   };
 

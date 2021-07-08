@@ -266,14 +266,15 @@ describe(__filename, () => {
         expect(countSendEventCalls(window.ga)).toEqual(1);
       });
 
-      it('should call _ga twice when extra is passed', () => {
+      it('should call _ga twice when sendSecondEventWithOverrides is passed', () => {
         const _config = getFakeConfig({ server: false });
         const event = fakeTrackingEvent;
-        const extra = 'extra-data';
+        const secondCategory = 'second-category';
+        const sendSecondEventWithOverrides = { category: secondCategory };
         const tracking = createTracking();
         tracking.sendEvent({
           _config,
-          extra,
+          sendSecondEventWithOverrides,
           ...event,
         });
         sinon.assert.calledWithMatch(window.ga, 'send', {
@@ -284,7 +285,7 @@ describe(__filename, () => {
         });
         sinon.assert.calledWithMatch(window.ga, 'send', {
           eventAction: event.action,
-          eventCategory: `${event.category}-${extra}`,
+          eventCategory: secondCategory,
           eventLabel: event.label,
           eventValue: event.value,
         });

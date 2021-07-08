@@ -294,8 +294,10 @@ describe(__filename, () => {
           sinon.assert.calledWith(_tracking.sendEvent, {
             action: GET_FIREFOX_BUTTON_CLICK_ACTION,
             category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-            extra: variant,
             label: addon.guid,
+            sendSecondEventWithOverrides: variant && {
+              category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
+            },
           });
           sinon.assert.calledOnce(_tracking.sendEvent);
         },

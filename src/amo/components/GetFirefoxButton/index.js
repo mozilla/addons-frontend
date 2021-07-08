@@ -141,8 +141,10 @@ export const GetFirefoxButtonBase = ({
     _tracking.sendEvent({
       action: GET_FIREFOX_BUTTON_CLICK_ACTION,
       category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-      extra: variant,
       label: addon.guid,
+      sendSecondEventWithOverrides: variant && {
+        category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
+      },
     });
   };
 
