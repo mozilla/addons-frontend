@@ -9,7 +9,7 @@ import {
   getDownloadLink,
 } from 'amo/components/GetFirefoxButton';
 import Notice from 'amo/components/Notice';
-import { EXPERIMENT_CONFIG } from 'amo/experiments/20210531_download_funnel_experiment';
+import { EXPERIMENT_CONFIG } from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import tracking from 'amo/tracking';
 import { isFirefox } from 'amo/utils/compatibility';
 import translate from 'amo/i18n/translate';

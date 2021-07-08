@@ -27,7 +27,7 @@ describe(__filename, () => {
     }
   }
 
-  const makeId = (id) => `20210219_${id}`;
+  const makeId = (id) => `20210219_amo_${id}`;
 
   const createExperimentData = ({
     id = 'some-id',
@@ -621,15 +621,23 @@ describe(__filename, () => {
   it('throws an exception for a badly formatted experimentId', () => {
     expect(() => {
       render({ experimentProps: { id: 'bad-id' } });
-    }).toThrow(/id must match the pattern YYYYMMDD_experiment_id/);
+    }).toThrow(/id must match the pattern YYYYMMDD_amo_experiment_id/);
+  });
+
+  it('throws an exception for an experimentId that is too long', () => {
+    expect(() => {
+      render({ experimentProps: { id: `20210708_amo_${'a'.repeat(50)}` } });
+    }).toThrow(/id must be no more than 50 characters long/);
   });
 
   it('does not have any invalid experiment ids defined in the config', () => {
     // If this test fails it is because an experimentId does not match the
-    // expected format of YYYYMMDD_ExperimentName.
+    // expected format of YYYYMMDD_amo_ExperimentName or is greater than 50
+    // characters long.
     // eslint-disable-next-line import/namespace
     for (const experimentId of Object.keys(defaultConfig.experiments)) {
       expect(EXPERIMENT_ID_REGEXP.test(experimentId)).toEqual(true);
+      expect(experimentId.length <= 50).toEqual(true);
     }
   });
 
@@ -681,6 +689,17 @@ describe(__filename, () => {
       expect(() => {
         getVariant({ randomizer, variants: badVariants });
       }).toThrow(/The sum of all percentages/);
+    });
+
+    it('throws an exception if a variant id is greater than 50 characters long', () => {
+      const badVariants = [
+        { id: 'a'.repeat(51), percentage: 0.5 },
+        { id: 'some-variant-b', percentage: 0.5 },
+      ];
+
+      expect(() => {
+        getVariant({ variants: badVariants });
+      }).toThrow(/Variant ids must be no more than 50 characters long/);
     });
   });
 });

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
-import { VARIANT_NEW } from 'amo/experiments/20210531_download_funnel_experiment';
+import { VARIANT_NEW } from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
