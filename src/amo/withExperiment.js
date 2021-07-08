@@ -129,6 +129,7 @@ export const getVariant = ({
   }
   // This should be impossible based on the `invariant` above, but it seems
   // like it's safer to keep it here.
+  /* istanbul ignore next */
   throw new Error('Unable to allocate a user to a variant');
 };
 
