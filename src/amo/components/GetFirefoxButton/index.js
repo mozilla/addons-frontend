@@ -82,13 +82,6 @@ export const getDownloadTerm = ({
   return term;
 };
 
-// As we expect to continue to experiment with this button, maintain the
-// ability to create a category that contains a variant.
-export const getDownloadCategory = (variant?: string | null): string =>
-  variant
-    ? `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`
-    : GET_FIREFOX_BUTTON_CLICK_CATEGORY;
-
 export type GetDownloadLinkParams = {|
   _encode?: typeof encode,
   _getDownloadTerm?: typeof getDownloadTerm,
@@ -147,8 +140,11 @@ export const GetFirefoxButtonBase = ({
   const onButtonClick = () => {
     _tracking.sendEvent({
       action: GET_FIREFOX_BUTTON_CLICK_ACTION,
-      category: getDownloadCategory(variant),
+      category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
       label: addon.guid,
+      sendSecondEventWithOverrides: variant && {
+        category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
+      },
     });
   };
 

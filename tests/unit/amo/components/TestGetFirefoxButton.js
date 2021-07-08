@@ -10,7 +10,6 @@ import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_CLICK_ACTION,
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
   GetFirefoxButtonBase,
-  getDownloadCategory,
   getDownloadLink,
   getDownloadTerm,
 } from 'amo/components/GetFirefoxButton';
@@ -278,7 +277,7 @@ describe(__filename, () => {
       const guid = 'some-guid';
       const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
 
-      it.each([VARIANT_NEW, VARIANT_CURRENT])(
+      it.each([undefined, VARIANT_NEW, VARIANT_CURRENT])(
         'sends a tracking event when the button is clicked and variant is %s',
         (variant) => {
           const _tracking = createFakeTracking();
@@ -292,11 +291,13 @@ describe(__filename, () => {
           const event = createFakeEvent();
           root.find('.GetFirefoxButton-button').simulate('click', event);
 
-          const category = `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`;
           sinon.assert.calledWith(_tracking.sendEvent, {
             action: GET_FIREFOX_BUTTON_CLICK_ACTION,
-            category,
+            category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
             label: addon.guid,
+            sendSecondEventWithOverrides: variant && {
+              category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
+            },
           });
           sinon.assert.calledOnce(_tracking.sendEvent);
         },
@@ -328,19 +329,6 @@ describe(__filename, () => {
       const variant = 'some-variant';
       expect(getDownloadTerm({ addonId, variant })).toEqual(
         `${DOWNLOAD_FIREFOX_UTM_TERM}-${addonId}-${variant}`,
-      );
-    });
-  });
-
-  describe('getDownloadCategory', () => {
-    it('returns a category without a variant', () => {
-      expect(getDownloadCategory()).toEqual(GET_FIREFOX_BUTTON_CLICK_CATEGORY);
-    });
-
-    it('returns a category with a variant', () => {
-      const variant = 'some-variant';
-      expect(getDownloadCategory(variant)).toEqual(
-        `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
       );
     });
   });

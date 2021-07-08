@@ -149,6 +149,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: GET_FIREFOX_BANNER_CLICK_ACTION,
         category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+        sendSecondEventWithOverrides: undefined,
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
     });
@@ -163,7 +164,10 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: GET_FIREFOX_BANNER_CLICK_ACTION,
-        category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
+        category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+        sendSecondEventWithOverrides: {
+          category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
+        },
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
     });

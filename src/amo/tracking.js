@@ -34,12 +34,17 @@ import {
 import log from 'amo/logger';
 import { convertBoolean } from 'amo/utils';
 
-export type SendTrackingEventParams = {|
-  _config?: typeof config,
+type MakeTrackingEventDataParams = {|
   action: string,
   category: string,
   label?: string,
   value?: number,
+|};
+
+export type SendTrackingEventParams = {|
+  _config?: typeof config,
+  sendSecondEventWithOverrides?: Object,
+  ...MakeTrackingEventDataParams,
 |};
 
 type IsDoNoTrackEnabledParams = {|
@@ -80,6 +85,21 @@ type TrackingParams = {|
   _getFID: typeof getFID,
   _getLCP: typeof getLCP,
 |};
+
+const makeTrackingEventData = ({
+  action,
+  category,
+  label,
+  value,
+}: MakeTrackingEventDataParams) => {
+  return {
+    eventAction: action,
+    eventCategory: category,
+    eventLabel: label,
+    eventValue: value,
+    hitType: 'event',
+  };
+};
 
 export class Tracking {
   _log: typeof log;
@@ -207,20 +227,30 @@ export class Tracking {
   }
 
   /*
-   * Param          Type    Required  Description
-   * obj.category   String  Yes       Typically the object that
-   *                                  was interacted with (e.g. button)
-   * obj.action     String  Yes       The type of interaction (e.g. click)
-   * obj.label      String  No        Useful for categorizing events
-   *                                  (e.g. nav buttons)
-   * obj.value      Number  No        Values must be non-negative.
-   *                                  Useful to pass counts (e.g. 4 times)
+   * Param                            Type    Required  Description
+   * obj.action                       String  Yes       The type of interaction
+   *                                                    (e.g. click)
+   * obj.category                     String  Yes       Typically the object
+   *                                                    that was interacted
+   *                                                    with (e.g. button)
+   * obj.label                        String  No        Useful for categorizing
+   *                                                    events (e.g. nav
+   *                                                    buttons)
+   * obj.sendSecondEventWithOverrides Object  No        If passed, an extra
+   *                                                    event will be sent
+   *                                                    using the object's
+   *                                                    properties as overrides
+   * obj.value      Number  No                          Values must be
+   *                                                    non-negative.
+   *                                                    Useful to pass counts
+   *                                                    (e.g. 4 times)
    */
   sendEvent({
     _config = config,
     action,
     category,
     label,
+    sendSecondEventWithOverrides,
     value,
   }: SendTrackingEventParams = {}) {
     if (!category) {
@@ -237,15 +267,18 @@ export class Tracking {
       // moved.
       throw new Error('sendEvent: cannot send tracking events on the server');
     } else {
-      const data = {
-        hitType: 'event',
-        eventCategory: category,
-        eventAction: action,
-        eventLabel: label,
-        eventValue: value,
-      };
+      const trackingData = { action, category, label, value };
+      const data = makeTrackingEventData(trackingData);
       this._ga('send', data);
       this.log('sendEvent', data);
+      if (typeof sendSecondEventWithOverrides === 'object') {
+        const secondEventData = makeTrackingEventData({
+          ...trackingData,
+          ...sendSecondEventWithOverrides,
+        });
+        this._ga('send', secondEventData);
+        this.log('sendEvent', secondEventData);
+      }
     }
   }
 
