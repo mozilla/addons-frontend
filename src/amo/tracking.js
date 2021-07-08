@@ -239,7 +239,7 @@ export class Tracking {
    * obj.sendSecondEventWithOverrides Object  No        If passed, an extra
    *                                                    event will be sent
    *                                                    using the object's
-   *                                                    properties os overrides
+   *                                                    properties as overrides
    * obj.value      Number  No                          Values must be
    *                                                    non-negative.
    *                                                    Useful to pass counts
