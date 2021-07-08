@@ -40,7 +40,7 @@ import type { DispatchFunc } from 'amo/types/redux';
  *
  *    withExperiment({
  *      experimentConfig: {
- *        id: '20210219_some-experiment-id',
+ *        id: '20210219_amo_some-experiment-id',
  *        variants: [
  *          { id: 'variant-a', percentage: 0.2 },
  *          { id: 'variant-b', percentage: 0.2 },
@@ -69,7 +69,7 @@ export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
 // This is a special variant value that indicates the the user is not enrolled
 // in the experiment.
 export const NOT_IN_EXPERIMENT = 'notInExperiment';
-export const EXPERIMENT_ID_REGEXP: RegExp = /\d{8}_.+/;
+export const EXPERIMENT_ID_REGEXP: RegExp = /\d{8}_amo_.+/;
 
 // https://github.com/reactivestack/cookies/tree/f9beead40a6bebac475d9bf17c1da55418d26751/packages/react-cookie#setcookiename-value-options
 type CookieConfig = {|
@@ -112,6 +112,10 @@ export const getVariant = ({
     variants.reduce((total, variant) => total + variant.percentage, 0) === 1,
     'The sum of all percentages in `variants` must be 1',
   );
+  invariant(
+    variants.every((variant) => variant.id.length <= 50),
+    'Variant ids must be no more than 50 characters long',
+  );
 
   const randomNumber = randomizer();
   let variantMin = 0;
@@ -125,6 +129,7 @@ export const getVariant = ({
   }
   // This should be impossible based on the `invariant` above, but it seems
   // like it's safer to keep it here.
+  /* istanbul ignore next */
   throw new Error('Unable to allocate a user to a variant');
 };
 
@@ -174,8 +179,9 @@ export const withExperiment =
     invariant(id, 'id is required');
     invariant(
       EXPERIMENT_ID_REGEXP.test(id),
-      'id must match the pattern YYYYMMDD_experiment_id',
+      'id must match the pattern YYYYMMDD_amo_experiment_id',
     );
+    invariant(id.length <= 50, 'id must be no more than 50 characters long');
     invariant(variants, 'variants is required');
 
     class WithExperiment extends React.Component<WithExperimentInternalProps> {

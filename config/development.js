@@ -83,6 +83,6 @@ module.exports = {
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 
   experiments: {
-    '20210531_download_funnel_experiment': true,
+    '20210531_amo_download_funnel_experiment': true,
   },
 };

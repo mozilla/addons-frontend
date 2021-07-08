@@ -13,7 +13,7 @@ import {
   EXPERIMENT_CONFIG,
   VARIANT_CURRENT,
   VARIANT_NEW,
-} from 'amo/experiments/20210531_download_funnel_experiment';
+} from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import Notice from 'amo/components/Notice';
 import {
   DOWNLOAD_FIREFOX_BASE_URL,

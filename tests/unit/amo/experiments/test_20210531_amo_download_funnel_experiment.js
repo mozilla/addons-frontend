@@ -1,4 +1,4 @@
-import { EXPERIMENT_CONFIG } from 'amo/experiments/20210531_download_funnel_experiment';
+import { EXPERIMENT_CONFIG } from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import { dispatchClientMetadata, userAgents } from 'tests/unit/helpers';
 
 describe(__filename, () => {

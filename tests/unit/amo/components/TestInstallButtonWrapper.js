@@ -7,7 +7,7 @@ import InstallButtonWrapper, {
 import {
   EXPERIMENT_CONFIG,
   VARIANT_CURRENT,
-} from 'amo/experiments/20210531_download_funnel_experiment';
+} from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import { setInstallState } from 'amo/reducers/installations';
 import AMInstallButton from 'amo/components/AMInstallButton';
 import {
