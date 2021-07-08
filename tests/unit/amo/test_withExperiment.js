@@ -637,7 +637,7 @@ describe(__filename, () => {
     // eslint-disable-next-line import/namespace
     for (const experimentId of Object.keys(defaultConfig.experiments)) {
       expect(EXPERIMENT_ID_REGEXP.test(experimentId)).toEqual(true);
-      expect(experimentId.length <= 50).toEqual(true);
+      expect(experimentId.length).toBeLessThan(50);
     }
   });
 
