@@ -29,6 +29,11 @@ import {
   shallowUntilTarget,
   userAgents,
 } from 'tests/unit/helpers';
+// eslint-disable-next-line no-unused-vars
+import tracking from 'amo/tracking';
+
+// We need this to avoid firing sendEvent during tests, which will throw.
+jest.mock('amo/tracking');
 
 describe(__filename, () => {
   function render(props = {}) {
@@ -128,7 +133,7 @@ describe(__filename, () => {
     });
 
     it('sets the href on the button with the expected utm params when there is no variant', () => {
-      const root = render({ store });
+      const root = render({ store, variant: undefined });
 
       const expectedHref = [
         `${DOWNLOAD_FIREFOX_BASE_URL}?utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
@@ -141,7 +146,7 @@ describe(__filename, () => {
 
     it('sends a tracking event when the button is clicked without a variant', () => {
       const _tracking = createFakeTracking();
-      const root = render({ _tracking, store });
+      const root = render({ _tracking, store, variant: undefined });
 
       const event = createFakeEvent();
       root.find(Button).simulate('click', event);

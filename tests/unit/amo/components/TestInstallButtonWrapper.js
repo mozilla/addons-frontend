@@ -35,6 +35,11 @@ import {
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
+// eslint-disable-next-line no-unused-vars
+import tracking from 'amo/tracking';
+
+// We need this to avoid firing sendEvent during tests, which will throw.
+jest.mock('amo/tracking');
 
 describe(__filename, () => {
   let store;

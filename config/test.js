@@ -10,9 +10,4 @@ module.exports = {
   enableRequestID: false,
 
   mozillaUserId: 1337,
-
-  // Disable all experiments by default.
-  experiments: {
-    '20210531_amo_download_funnel_experiment': false,
-  },
 };
