@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-15 16:03+0000\n"
-"PO-Revision-Date: 2021-07-08 22:57+0000\n"
+"PO-Revision-Date: 2021-07-10 12:12+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1045,7 +1045,7 @@ msgstr "Hubul dezvoltatorilor"
 
 #: src/amo/components/GetFirefoxBanner/index.js:87
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "Pentru a folosi aceste suplimente, va trebui să %(linkStart)sdescarci Firefox%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:172
 #, fuzzy
@@ -1071,14 +1071,12 @@ msgid "Download Firefox"
 msgstr "Descarcă Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:185
-#, fuzzy
 msgid "You'll need Firefox to use this theme"
-msgstr "Intră în cont pentru a evalua această temă"
+msgstr "Vei avea nevoie de Firefox pentru a folosi această temă"
 
 #: src/amo/components/GetFirefoxButton/index.js:186
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "Intră în cont pentru a evalua această extensie"
+msgstr "Vei avea nevoie de Firefox pentru a folosi această extensie"
 
 #: src/amo/components/GetFirefoxButton/index.js:190
 #, fuzzy
