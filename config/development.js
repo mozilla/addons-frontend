@@ -81,4 +81,6 @@ module.exports = {
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
+
+  enableFeatureVPNPromo: true,
 };
