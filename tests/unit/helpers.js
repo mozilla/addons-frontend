@@ -730,7 +730,6 @@ const enabledExtension = Promise.resolve({
 export function getFakeAddonManagerWrapper({
   getAddon = enabledExtension,
   hasAddonManager = true,
-  permissionPromptsEnabled = true,
   ...overrides
 } = {}) {
   return {
@@ -739,7 +738,6 @@ export function getFakeAddonManagerWrapper({
     getAddon: sinon.stub().returns(getAddon),
     getAddonStatus,
     hasAddonManager: sinon.stub().returns(hasAddonManager),
-    hasPermissionPromptsEnabled: sinon.stub().returns(permissionPromptsEnabled),
     install: sinon.stub().returns(Promise.resolve()),
     uninstall: sinon.stub().returns(Promise.resolve()),
     ...overrides,

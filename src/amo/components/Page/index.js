@@ -11,7 +11,6 @@ import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLega
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
-import InfoDialog from 'amo/components/InfoDialog';
 import { CLIENT_APP_ANDROID } from 'amo/constants';
 import log from 'amo/logger';
 import type { AppState } from 'amo/store';
@@ -75,8 +74,6 @@ export const PageBase = ({
 
   return (
     <div className="Page-amo">
-      <InfoDialog />
-
       <Header
         isAddonInstallPage={isAddonInstallPage}
         isHomePage={isHomePage}

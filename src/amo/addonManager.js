@@ -35,7 +35,6 @@ export type MozAddonManagerType = {|
   addEventListener: (eventName: string, handler: Function) => void,
   createInstall: ({| url: string, hash?: string | null |}) => Promise<any>,
   getAddonByID: (guid: string) => Promise<FirefoxAddon>,
-  permissionPromptsEnabled: boolean,
   reportAbuse?: (addonId: string) => Promise<boolean>,
 |};
 
@@ -78,16 +77,6 @@ export function hasAddonManager({
   }
 
   return 'mozAddonManager' in (navigator || window.navigator);
-}
-
-export function hasPermissionPromptsEnabled({
-  navigator,
-}: { navigator: PrivilegedNavigatorType } = {}): boolean {
-  if (hasAddonManager({ navigator })) {
-    const _navigator = navigator || window.navigator;
-    return Boolean(_navigator.mozAddonManager.permissionPromptsEnabled);
-  }
-  return false;
 }
 
 export function getAddon(

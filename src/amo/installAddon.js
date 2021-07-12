@@ -4,7 +4,6 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { getAddonIconUrl } from 'amo/imageUtils';
 import { setInstallError, setInstallState } from 'amo/reducers/installations';
 import log from 'amo/logger';
 import tracking, {
@@ -34,7 +33,6 @@ import {
   UNINSTALL_ACTION,
 } from 'amo/constants';
 import * as addonManager from 'amo/addonManager';
-import { showInfoDialog } from 'amo/reducers/infoDialog';
 import { getVersionById } from 'amo/reducers/versions';
 import { getDisplayName } from 'amo/utils';
 import { getFileHash } from 'amo/utils/addons';
@@ -312,10 +310,6 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
             label: guid,
           });
         }
-
-        if (!_addonManager.hasPermissionPromptsEnabled()) {
-          this.showInfo();
-        }
       })
       .catch((err) => {
         if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
@@ -398,29 +392,12 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
           category: getAddonEventCategory(type, INSTALL_ACTION),
           label: guid,
         });
-
-        if (!_addonManager.hasPermissionPromptsEnabled()) {
-          this.showInfo();
-        }
       })
       .catch((error) => {
         _log.error(`Install error: ${error}`);
 
         dispatch(setInstallError({ guid, error: FATAL_INSTALL_ERROR }));
       });
-  }
-
-  showInfo() {
-    const { addon, dispatch } = this.props;
-
-    invariant(addon, 'addon is required');
-
-    dispatch(
-      showInfoDialog({
-        addonName: addon.name,
-        imageURL: getAddonIconUrl(addon),
-      }),
-    );
   }
 
   uninstall({ guid, type }: UninstallParams): Promise<void> {
