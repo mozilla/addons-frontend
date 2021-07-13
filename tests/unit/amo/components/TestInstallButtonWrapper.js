@@ -36,6 +36,9 @@ import {
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
+// We need this to avoid firing sendEvent during tests, which will throw.
+jest.mock('amo/tracking');
+
 describe(__filename, () => {
   let store;
 
