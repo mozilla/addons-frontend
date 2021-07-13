@@ -17,7 +17,7 @@ import {
 } from 'amo/constants';
 import { EXPERIMENT_CONFIG } from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import translate from 'amo/i18n/translate';
-import { findInstallURL, withInstallHelpers } from 'amo/installAddon';
+import { withInstallHelpers } from 'amo/installAddon';
 import { getVersionById } from 'amo/reducers/versions';
 import { getClientCompatibility, isFirefox } from 'amo/utils/compatibility';
 import { withExperiment } from 'amo/withExperiment';
@@ -34,7 +34,6 @@ import './styles.scss';
 
 export type Props = {|
   _getClientCompatibility?: typeof getClientCompatibility,
-  _findInstallURL?: typeof findInstallURL,
   addon: AddonType | null,
   className?: string,
   defaultButtonText?: string,
@@ -64,7 +63,6 @@ type InternalProps = {|
 
 export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
   const {
-    _findInstallURL = findInstallURL,
     _getClientCompatibility = getClientCompatibility,
     addon,
     canUninstall,
@@ -123,13 +121,8 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     }
   }
 
-  const file = currentVersion ? currentVersion.file : null;
-
-  const installURL = file
-    ? _findInstallURL({
-        file,
-      })
-    : undefined;
+  const installURL =
+    currentVersion && currentVersion.file ? currentVersion.file.url : undefined;
 
   const showDownloadLink = !isCompatible && installURL;
 
