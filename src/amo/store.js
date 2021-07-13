@@ -36,7 +36,6 @@ import errors from 'amo/reducers/errors';
 import errorPage from 'amo/reducers/errorPage';
 import formOverlay from 'amo/reducers/formOverlay';
 import languageTools from 'amo/reducers/languageTools';
-import infoDialog from 'amo/reducers/infoDialog';
 import installations from 'amo/reducers/installations';
 import redirectTo from 'amo/reducers/redirectTo';
 import search from 'amo/reducers/search';
@@ -63,7 +62,6 @@ import type { CategoriesState } from 'amo/reducers/categories';
 import type { ErrorPageState } from 'amo/reducers/errorPage';
 import type { FormOverlayState } from 'amo/reducers/formOverlay';
 import type { LanguageToolsState } from 'amo/reducers/languageTools';
-import type { InfoDialogState } from 'amo/reducers/infoDialog';
 import type { InstallationsState } from 'amo/reducers/installations';
 import type { RedirectToState } from 'amo/reducers/redirectTo';
 import type { SearchState } from 'amo/reducers/search';
@@ -148,7 +146,6 @@ type InternalAppState = {|
   experiments: ExperimentsState,
   formOverlay: FormOverlayState,
   home: HomeState,
-  infoDialog: InfoDialogState,
   installations: InstallationsState,
   landing: LandingState,
   languageTools: LanguageToolsState,
@@ -205,7 +202,6 @@ export const reducers: AppReducersType = {
   experiments,
   formOverlay,
   home,
-  infoDialog,
   installations,
   landing,
   languageTools,

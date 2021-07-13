@@ -35,7 +35,6 @@ import {
   UNINSTALLING,
   UNINSTALL_ACTION,
 } from 'amo/constants';
-import { showInfoDialog } from 'amo/reducers/infoDialog';
 import {
   createFakeTracking,
   createInternalAddonWithLang,
@@ -828,11 +827,9 @@ describe(__filename, () => {
     });
 
     describe('enable', () => {
-      it('calls addonManager.enable() and content notification', () => {
+      it('calls addonManager.enable()', () => {
         const fakeTracking = createFakeTracking();
-        const fakeAddonManager = getFakeAddonManagerWrapper({
-          permissionPromptsEnabled: false,
-        });
+        const fakeAddonManager = getFakeAddonManagerWrapper();
         const name = 'the-name';
         const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
         const addon = createInternalAddonWithLang({
@@ -840,7 +837,7 @@ describe(__filename, () => {
           name,
           icon_url: iconUrl,
         });
-        const { root, dispatch } = renderWithInstallHelpers({
+        const { root } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
           _tracking: fakeTracking,
           addon,
@@ -849,13 +846,6 @@ describe(__filename, () => {
 
         return enable().then(() => {
           sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.calledWith(
-            dispatch,
-            showInfoDialog({
-              addonName: addon.name,
-              imageURL: iconUrl,
-            }),
-          );
 
           sinon.assert.calledWith(fakeTracking.sendEvent, {
             action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
@@ -870,9 +860,7 @@ describe(__filename, () => {
 
       it('does not send a tracking event when "sendTrackingEvent" is false', () => {
         const fakeTracking = createFakeTracking();
-        const fakeAddonManager = getFakeAddonManagerWrapper({
-          permissionPromptsEnabled: false,
-        });
+        const fakeAddonManager = getFakeAddonManagerWrapper();
         const name = 'the-name';
         const iconUrl = 'https://a.m.o/some-icon.png';
         const addon = createInternalAddonWithLang({
@@ -890,30 +878,6 @@ describe(__filename, () => {
         return enable({ sendTrackingEvent: false }).then(() => {
           sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
           sinon.assert.notCalled(fakeTracking.sendEvent);
-        });
-      });
-
-      it('calls addonManager.enable() without content notification', () => {
-        const fakeAddonManager = getFakeAddonManagerWrapper({
-          permissionPromptsEnabled: true,
-        });
-        const addon = createInternalAddonWithLang(fakeAddon);
-
-        const { root, dispatch } = renderWithInstallHelpers({
-          _addonManager: fakeAddonManager,
-          addon,
-        });
-        const { enable } = root.instance().props;
-
-        return enable().then(() => {
-          sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.neverCalledWith(
-            dispatch,
-            showInfoDialog({
-              addonName: addon.name,
-              imageURL: addon.icon_url,
-            }),
-          );
         });
       });
 
@@ -1192,64 +1156,6 @@ describe(__filename, () => {
             type: START_DOWNLOAD,
             payload: { guid: addon.guid },
           });
-        });
-      });
-
-      it('should dispatch SHOW_INFO if permissionPromptsEnabled is false', () => {
-        _loadVersions({ store });
-
-        const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
-        const addon = createInternalAddonWithLang({
-          ...fakeAddon,
-          icon_url: iconUrl,
-        });
-        const props = {
-          _addonManager: getFakeAddonManagerWrapper({
-            permissionPromptsEnabled: false,
-          }),
-          addon,
-          store,
-        };
-        const { root, dispatch } = renderWithInstallHelpers(props);
-        const { install } = root.instance().props;
-
-        return install(addon).then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            showInfoDialog({
-              addonName: addon.name,
-              imageURL: iconUrl,
-            }),
-          );
-        });
-      });
-
-      it('should not dispatch SHOW_INFO if permissionPromptsEnabled is true', () => {
-        _loadVersions({ store });
-
-        const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
-        const addon = createInternalAddonWithLang({
-          ...fakeAddon,
-          icon_url: iconUrl,
-        });
-        const props = {
-          _addonManager: getFakeAddonManagerWrapper({
-            permissionPromptsEnabled: true,
-          }),
-          addon,
-          store,
-        };
-        const { root, dispatch } = renderWithInstallHelpers(props);
-        const { install } = root.instance().props;
-
-        return install(addon).then(() => {
-          sinon.assert.neverCalledWith(
-            dispatch,
-            showInfoDialog({
-              addonName: addon.name,
-              imageURL: iconUrl,
-            }),
-          );
         });
       });
 

@@ -61,46 +61,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('hasPermissionPromptsEnabled', () => {
-    it('is false if mozAddonManager is not available', () => {
-      expect(addonManager.hasPermissionPromptsEnabled()).toEqual(false);
-    });
-
-    it('is false if permissionPromptsEnabled is undefined', () => {
-      expect(
-        addonManager.hasPermissionPromptsEnabled({
-          navigator: {
-            mozAddonManager: {},
-          },
-        }),
-      ).toEqual(false);
-    });
-
-    it('is false if hasPermissionPromptsEnabled is false', () => {
-      expect(
-        addonManager.hasPermissionPromptsEnabled({
-          navigator: {
-            mozAddonManager: {
-              permissionPromptsEnabled: false,
-            },
-          },
-        }),
-      ).toEqual(false);
-    });
-
-    it('is true if hasPermissionPromptsEnabled is true', () => {
-      expect(
-        addonManager.hasPermissionPromptsEnabled({
-          navigator: {
-            mozAddonManager: {
-              permissionPromptsEnabled: true,
-            },
-          },
-        }),
-      ).toEqual(true);
-    });
-  });
-
   describe('hasAbuseReportPanelEnabled', () => {
     it('returns false if mozAddonManager is not available', () => {
       expect(addonManager.hasAbuseReportPanelEnabled()).toEqual(false);
