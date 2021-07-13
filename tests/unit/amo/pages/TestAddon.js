@@ -64,8 +64,6 @@ import ErrorList from 'amo/components/ErrorList';
 import LoadingText from 'amo/components/LoadingText';
 import ThemeImage from 'amo/components/ThemeImage';
 import Notice from 'amo/components/Notice';
-// eslint-disable-next-line no-unused-vars
-import tracking from 'amo/tracking';
 
 // We need this to avoid firing sendEvent during tests, which will throw.
 jest.mock('amo/tracking');
