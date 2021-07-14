@@ -1,16 +1,25 @@
 /* @flow */
-import config from 'config';
 import deepEqual from 'deep-eql';
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import Button from 'amo/components/Button';
+import {
+  EXPERIMENT_CONFIG,
+  VARIANT_SHOW,
+  shouldExcludeUser,
+} from 'amo/experiments/20210714_amo_vpn_promo';
 import tracking from 'amo/tracking';
 import translate from 'amo/i18n/translate';
 import { makeQueryStringWithUTM } from 'amo/utils';
+import { withExperiment } from 'amo/withExperiment';
+import type { RegionCodeType } from 'amo/reducers/api';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
+import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 import vpnLogo from './img/mozilla-vpn.svg';
@@ -26,22 +35,39 @@ export const VPN_URL = 'https://www.mozilla.org/products/vpn';
 export type Props = {||};
 
 export type DeafultProps = {|
-  _config: typeof config,
   _tracking: typeof tracking,
+|};
+
+type PropsFromState = {|
+  clientApp: string,
+  regionCode: RegionCodeType,
 |};
 
 type InternalProps = {|
   ...Props,
   ...DeafultProps,
+  ...PropsFromState,
+  ...WithExperimentInjectedProps,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
 
 export class VPNPromoBannerBase extends React.Component<InternalProps> {
   static defaultProps: DeafultProps = {
-    _config: config,
     _tracking: tracking,
   };
+
+  shouldShowBanner(): boolean {
+    const { clientApp, regionCode, variant } = this.props;
+
+    return (
+      variant === VARIANT_SHOW &&
+      !shouldExcludeUser({
+        clientApp,
+        regionCode,
+      })
+    );
+  }
 
   onButtonClick: () => void = () => {
     this.props._tracking.sendEvent({
@@ -58,9 +84,9 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
   };
 
   onImpression: () => void = () => {
-    const { _config, _tracking } = this.props;
+    const { _tracking } = this.props;
 
-    if (_config.get('enableFeatureVPNPromo')) {
+    if (this.shouldShowBanner()) {
       _tracking.sendEvent({
         action: VPN_PROMO_IMPRESSION_ACTION,
         category: VPN_PROMO_CATEGORY,
@@ -79,9 +105,9 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
   }
 
   render(): null | React.Node {
-    const { _config, i18n } = this.props;
+    const { i18n } = this.props;
 
-    if (!_config.get('enableFeatureVPNPromo')) {
+    if (!this.shouldShowBanner()) {
       return null;
     }
 
@@ -126,9 +152,18 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
   }
 }
 
+const mapStateToProps = (state: AppState): PropsFromState => {
+  return {
+    clientApp: state.api.clientApp,
+    regionCode: state.api.regionCode,
+  };
+};
+
 const VPNPromoBanner: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
+  connect(mapStateToProps),
+  withExperiment({ experimentConfig: EXPERIMENT_CONFIG }),
 )(VPNPromoBannerBase);
 
 export default VPNPromoBanner;

@@ -1,5 +1,6 @@
 /* @flow */
 import makeClassName from 'classnames';
+import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -36,11 +37,13 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
+  _config: typeof config,
   _log: typeof log,
   location: ReactRouterLocationType,
 |};
 
 export const PageBase = ({
+  _config = config,
   _log = log,
   children,
   clientApp,
@@ -77,7 +80,9 @@ export const PageBase = ({
 
   return (
     <div className="Page-amo">
-      {showVPNPromo ? <VPNPromoBanner /> : null}
+      {showVPNPromo && _config.get('enableFeatureVPNPromo') && (
+        <VPNPromoBanner />
+      )}
 
       <Header
         isAddonInstallPage={isAddonInstallPage}
