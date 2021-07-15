@@ -149,6 +149,15 @@ describe(__filename, () => {
     },
   );
 
+  it('passes isHomepageCard to LandingAddonsCard', () => {
+    const root = render({
+      isHomepageCard: true,
+      shelves: [_createShelf()],
+    });
+
+    expect(root.find(LandingAddonsCard)).toHaveProp('isHomepageCard', true);
+  });
+
   it('generates a default footerText', () => {
     const title = 'Shelf Title';
     const root = render({

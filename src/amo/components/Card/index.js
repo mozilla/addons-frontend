@@ -13,10 +13,12 @@ export default class Card extends React.Component {
     footerLink: PropTypes.node,
     footerText: PropTypes.node,
     header: PropTypes.node,
+    isHomepageCard: PropTypes.bool,
     photonStyle: PropTypes.bool,
   };
 
   static defaultProps = {
+    isHomepageCard: false,
     // Photon is the name of the new Firefox design language. This flag
     // modifies the card style to left-align the header, add padding, and tweak
     // the styles to be in line with the new photon mocks while we migrate the
@@ -31,6 +33,7 @@ export default class Card extends React.Component {
       footer: footerNode,
       footerLink,
       footerText,
+      isHomepageCard,
       header,
       photonStyle,
     } = this.props;
@@ -63,12 +66,34 @@ export default class Card extends React.Component {
           'Card--no-footer': !footer,
         })}
       >
-        {header ? <header className="Card-header">{header}</header> : null}
+        {header ? (
+          <header
+            className={makeClassName('Card-header', {
+              'HomepageCard-header': isHomepageCard,
+            })}
+          >
+            <div className="Card-header-text">{header}</div>
+
+            {isHomepageCard && footer ? (
+              <footer className="HomepageCard-footer-in-header">
+                {footer}
+              </footer>
+            ) : null}
+          </header>
+        ) : null}
 
         {children ? <div className="Card-contents">{children}</div> : null}
 
         {footer ? (
-          <footer className={makeClassName('Card-footer', footerClass)}>
+          <footer
+            className={makeClassName(
+              'Card-footer',
+              {
+                'HomepageCard-footer': isHomepageCard,
+              },
+              footerClass,
+            )}
+          >
             {footer}
           </footer>
         ) : null}
