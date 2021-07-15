@@ -73,6 +73,7 @@ export function hasAddonManager({
   navigator,
 }: { navigator: PrivilegedNavigatorType } = {}): boolean {
   if (typeof window === 'undefined') {
+    /* istanbul ignore next */
     return false;
   }
 

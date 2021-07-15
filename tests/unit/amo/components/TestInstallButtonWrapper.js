@@ -29,6 +29,7 @@ import {
   createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeAddon,
+  fakeFile,
   fakeI18n,
   fakeInstalledAddon,
   fakeVersion,
@@ -395,15 +396,11 @@ describe(__filename, () => {
   });
 
   it('displays a download link when the browser is not compatible', () => {
-    const _findInstallURL = sinon
-      .stub()
-      .returns('https://a.m.o/files/addon.xpi');
     const _getClientCompatibility = sinon.stub().returns({
       compatible: false,
     });
 
     const root = render({
-      _findInstallURL,
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
     });
@@ -412,15 +409,11 @@ describe(__filename, () => {
   });
 
   it('does not display a download link when the browser is compatible and showLinkInsteadOfButton is false', () => {
-    const _findInstallURL = sinon
-      .stub()
-      .returns('https://a.m.o/files/addon.xpi');
     const _getClientCompatibility = sinon.stub().returns({
       compatible: true,
     });
 
     const root = render({
-      _findInstallURL,
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
       showLinkInsteadOfButton: false,
@@ -430,15 +423,11 @@ describe(__filename, () => {
   });
 
   it('displays a download link when the browser is compatible and showLinkInsteadOfButton is true', () => {
-    const _findInstallURL = sinon
-      .stub()
-      .returns('https://a.m.o/files/addon.xpi');
     const _getClientCompatibility = sinon.stub().returns({
       compatible: true,
     });
 
     const root = render({
-      _findInstallURL,
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
       showLinkInsteadOfButton: true,
@@ -448,15 +437,11 @@ describe(__filename, () => {
   });
 
   it('does not display a button when the browser is compatible and showLinkInsteadOfButton is true', () => {
-    const _findInstallURL = sinon
-      .stub()
-      .returns('https://a.m.o/files/addon.xpi');
     const _getClientCompatibility = sinon.stub().returns({
       compatible: true,
     });
 
     const root = render({
-      _findInstallURL,
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
       showLinkInsteadOfButton: true,
@@ -481,15 +466,11 @@ describe(__filename, () => {
   });
 
   it('does not add a special classname when a download link is displayed', () => {
-    const _findInstallURL = sinon
-      .stub()
-      .returns('https://a.m.o/files/addon.xpi');
     const _getClientCompatibility = sinon.stub().returns({
       compatible: false,
     });
 
     const root = render({
-      _findInstallURL,
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
     });
@@ -499,54 +480,45 @@ describe(__filename, () => {
     );
   });
 
-  it('calls findInstallURL to determine the installURL for the add-on', () => {
-    const _findInstallURL = sinon.spy();
-    const version = createInternalVersionWithLang(fakeAddon.current_version);
-
-    render({ _findInstallURL, version });
-
-    sinon.assert.calledWith(_findInstallURL, {
-      file: version.file,
-    });
-  });
-
-  it('does not call findInstallURL if there is no currentVersion', () => {
-    const _findInstallURL = sinon.spy();
-
-    render({ _findInstallURL, version: null });
-
-    sinon.assert.notCalled(_findInstallURL);
-  });
-
-  it('uses the installURL in the download link', () => {
-    const installURL = 'https://a.m.o/files/addon.xpi';
-    const _findInstallURL = sinon.stub().returns(installURL);
+  it('uses the file url in the download link', () => {
     const _getClientCompatibility = sinon.stub().returns({
       compatible: false,
     });
+    const fileURL = 'https://a.m.o/files/addon.xpi';
 
     const root = render({
-      _findInstallURL,
       _getClientCompatibility,
-      version: createInternalVersionWithLang(fakeAddon.current_version),
+      version: createInternalVersionWithLang({
+        ...fakeAddon.current_version,
+        files: [{ ...fakeFile, url: fileURL }],
+      }),
     });
 
     expect(root.find('.InstallButtonWrapper-download-link')).toHaveProp(
       'href',
-      installURL,
+      fileURL,
     );
   });
 
-  it('does not display a download link when there is no installURL', () => {
-    const _findInstallURL = sinon.stub().returns(null);
+  it('does not display a download link when there is no currentVersion', () => {
     const _getClientCompatibility = sinon.stub().returns({
       compatible: false,
     });
+    const root = render({ _getClientCompatibility, version: null });
 
+    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
+  });
+
+  it('does not display a download link when currentVersion has no file', () => {
+    const _getClientCompatibility = sinon.stub().returns({
+      compatible: false,
+    });
     const root = render({
-      _findInstallURL,
       _getClientCompatibility,
-      version: createInternalVersionWithLang(fakeAddon.current_version),
+      version: createInternalVersionWithLang({
+        ...fakeAddon.current_version,
+        files: [],
+      }),
     });
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);

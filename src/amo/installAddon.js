@@ -37,7 +37,7 @@ import { getVersionById } from 'amo/reducers/versions';
 import { getDisplayName } from 'amo/utils';
 import { getFileHash } from 'amo/utils/addons';
 import type { AppState } from 'amo/store';
-import type { AddonVersionType, AddonFileType } from 'amo/reducers/versions';
+import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AddonType } from 'amo/types/addons';
 import type { DispatchFunc } from 'amo/types/redux';
 
@@ -112,27 +112,6 @@ export function makeProgressHandler({
     }
   };
 }
-
-type FindInstallUrlParams = {|
-  file: AddonFileType,
-|};
-
-/**
- * This is a helper to find the correct install URL for the user agent's
- * platform.
- */
-export const findInstallURL = ({
-  file,
-}: FindInstallUrlParams): string | void => {
-  const installURL = file && file.url;
-
-  if (!installURL) {
-    log.debug('findInstallURL() could not find a url');
-    return undefined;
-  }
-
-  return installURL;
-};
 
 type WithInstallHelpersProps = {|
   addon: AddonType | null,
@@ -247,9 +226,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       return Promise.resolve();
     }
 
-    const installURL = findInstallURL({ file });
-
-    const payload = { guid, url: installURL };
+    const payload = { guid, url: file.url };
 
     _log.info('Setting add-on status');
     return _addonManager
@@ -359,15 +336,11 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
         label: guid,
       });
 
-      const installURL = findInstallURL({ file });
+      const installURL = file.url;
 
       resolve(installURL);
     })
       .then((installURL) => {
-        if (!installURL) {
-          throw new Error('installURL is invalid (empty or undefined)');
-        }
-
         const hash = getFileHash({
           addon,
           installURL,
