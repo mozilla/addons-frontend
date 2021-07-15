@@ -11,6 +11,7 @@ import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLega
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
+import VPNPromoBanner from 'amo/components/VPNPromoBanner';
 import { CLIENT_APP_ANDROID } from 'amo/constants';
 import log from 'amo/logger';
 import type { AppState } from 'amo/store';
@@ -74,6 +75,8 @@ export const PageBase = ({
 
   return (
     <div className="Page-amo">
+      <VPNPromoBanner />
+
       <Header
         isAddonInstallPage={isAddonInstallPage}
         isHomePage={isHomePage}

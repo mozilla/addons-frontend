@@ -98,6 +98,7 @@ module.exports = {
     'enableDevTools',
     'enableFeatureBlockPage',
     'enableFeatureAllowAndroidInstall',
+    'enableFeatureVPNPromo',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -409,6 +410,8 @@ module.exports = {
   enableFeatureBlockPage: true,
 
   enableFeatureAllowAndroidInstall: true,
+  
+  enableFeatureVPNPromo: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

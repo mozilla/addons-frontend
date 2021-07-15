@@ -1,0 +1,141 @@
+@import '~amo/css/styles';
+
+$cta-text-color: #1d1133;
+$cta-alternate-color: #f9f7fd;
+
+.VPNPromoBanner {
+  background-color: #c5c8fb;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: $line-height-compressed;
+  max-height: 500px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion) {
+  .VPNPromoBanner {
+    transition-property: none;
+  }
+}
+
+.VPNPromoBanner-wrapper {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1rem 2rem;
+  text-align: center;
+
+  a {
+    background-color: $cta-alternate-color;
+    border: solid 2px $cta-text-color;
+    box-shadow: 8px 8px 0 #6a57dc;
+    color: $cta-text-color;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    background-color: $cta-text-color;
+    color: $cta-alternate-color;
+  }
+}
+
+.VPNPromoBanner-logo {
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: 122px;
+}
+
+.VPNPromoBanner-copy {
+  font-size: 0.95rem;
+  margin: 0 auto 1rem;
+  max-width: 320px;
+  text-align: center;
+
+  strong,
+  span {
+    display: block;
+    margin: 0 0 2px;
+  }
+
+  small {
+    display: block;
+    font-size: 0.65rem;
+    font-style: italic;
+    line-height: normal;
+    margin: 0 auto;
+    padding-top: 2px;
+  }
+}
+
+.VPNPromoBanner-dismisser-button {
+  border: none;
+  display: block;
+  outline: none;
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+
+  &:active img {
+    transform: scale(0.9);
+  }
+
+  img {
+    display: block;
+    height: 30px;
+    transition: transform 0.2s ease-out;
+    width: 30px;
+  }
+}
+
+@include respond-to(large) {
+  .VPNPromoBanner-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+
+    a {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  .VPNPromoBanner-copy {
+    flex-shrink: 2;
+    max-width: none;
+    padding: 0 1rem;
+  }
+
+  .VPNPromoBanner-dismisser-button {
+    right: 0;
+    top: 0;
+  }
+
+  .VPNPromoBanner-copy,
+  .VPNPromoBanner-logo {
+    margin: 0;
+  }
+}
+
+@include respond-to(extraLarge) {
+  .VPNPromoBanner-dismisser-button {
+    right: 0.25rem;
+    top: 0.25rem;
+  }
+
+  .VPNPromoBanner-wrapper a {
+    flex-shrink: 0;
+  }
+}

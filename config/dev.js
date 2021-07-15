@@ -44,4 +44,6 @@ module.exports = {
   allowErrorSimulation: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
+
+  enableFeatureVPNPromo: true,
 };
