@@ -143,3 +143,25 @@ export const getPromotedCategory = ({
 
   return category;
 };
+
+type GetRelatedCategoriesParams = {|
+  addon: AddonType,
+  clientApp: string,
+|};
+
+export const getRelatedCategories = ({
+  addon,
+  clientApp,
+}: GetRelatedCategoriesParams): Object | null => {
+  invariant(addon, 'addon is required');
+  invariant(clientApp, 'clientApp is required');
+  let relatedCategories = null;
+
+  if (addon && addon.categories && addon.categories[clientApp]) {
+    relatedCategories = addon.categories[clientApp]
+      .map((category) => category.charAt(0).toUpperCase() + category.slice(1))
+      .join(', ');
+  }
+
+  return relatedCategories;
+};

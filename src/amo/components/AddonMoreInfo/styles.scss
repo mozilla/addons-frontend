@@ -1,0 +1,23 @@
+@import '~amo/css/styles';
+
+.AddonMoreInfo-highlights {
+  align-items: center;
+  background-color: $grey-10;
+  border-radius: 9px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 12px 9px 1px 9px;
+
+  @include respond-to(large) {
+    display: block;
+  }
+
+  @include respond-to(extraLarge) {
+    display: flex;
+  }
+}
+
+.AddonMoreInfo-related-categories {
+  font-weight: bold;
+}

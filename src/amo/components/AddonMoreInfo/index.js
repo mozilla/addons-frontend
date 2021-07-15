@@ -6,16 +6,16 @@ import { withRouter } from 'react-router-dom';
 
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
+import Card from 'amo/components/Card';
+import DefinitionList, { Definition } from 'amo/components/DefinitionList';
 import Link from 'amo/components/Link';
-import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
+import LoadingText from 'amo/components/LoadingText';
 import { STATS_VIEW } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
-import type { AddonType } from 'amo/types/addons';
+import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
 import { isAddonAuthor } from 'amo/utils';
-import Card from 'amo/components/Card';
-import DefinitionList, { Definition } from 'amo/components/DefinitionList';
-import LoadingText from 'amo/components/LoadingText';
+import { getRelatedCategories } from 'amo/utils/addons';
 import {
   addQueryParams,
   getQueryParametersForAttribution,
@@ -23,8 +23,11 @@ import {
 import type { UserId } from 'amo/reducers/users';
 import type { AddonVersionType, VersionInfoType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
+import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
+
+import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
@@ -32,9 +35,10 @@ type Props = {|
 |};
 
 type PropsFromState = {|
-  hasStatsPermission: boolean,
-  userId: UserId | null,
   currentVersion: AddonVersionType | null,
+  hasStatsPermission: boolean,
+  relatedCategories: Object | null,
+  userId: UserId | null,
   versionInfo: VersionInfoType | null,
 |};
 
@@ -52,6 +56,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       hasStatsPermission,
       i18n,
       location,
+      relatedCategories,
       userId,
       versionInfo,
     } = this.props;
@@ -151,6 +156,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 
     return this.renderDefinitions({
       homepage,
+      relatedCategories,
       supportUrl,
       supportEmail,
       statsLink,
@@ -159,8 +165,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       versionLastUpdated: lastUpdated
         ? i18n.sprintf(
             // translators: This will output, in English:
-            // "2 months ago (Dec 12 2016)"
-            i18n.gettext('%(timeFromNow)s (%(date)s)'),
+            // "Dec 12, 2016"
+            i18n.gettext('%(date)s'),
             {
               timeFromNow: i18n.moment(lastUpdated).fromNow(),
               date: i18n.moment(lastUpdated).format('ll'),
@@ -208,12 +214,13 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 
   renderDefinitions({
     homepage = null,
-    supportUrl = null,
-    supportEmail = null,
-    statsLink = null,
-    privacyPolicyLink = null,
     eulaLink = null,
     filesize = null,
+    privacyPolicyLink = null,
+    relatedCategories = null,
+    statsLink = null,
+    supportEmail = null,
+    supportUrl = null,
     version = null,
     versionLastUpdated,
     versionLicenseLink = null,
@@ -222,7 +229,48 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     const { addon, i18n } = this.props;
     return (
       <>
+        <div className="AddonMoreInfo-highlights">
+          <div className="AddonMoreInfo-highlight">
+            {version && (
+              <Definition
+                className="AddonMoreInfo-version"
+                term={i18n.gettext('Version')}
+              >
+                {version}
+              </Definition>
+            )}
+          </div>
+          <div className="AddonMoreInfo-highlight">
+            {filesize && (
+              <Definition
+                className="AddonMoreInfo-filesize"
+                term={i18n.gettext('Size')}
+              >
+                {filesize}
+              </Definition>
+            )}
+          </div>
+          <div className="AddonMoreInfo-highlight">
+            {versionLastUpdated && (
+              <Definition
+                className="AddonMoreInfo-last-updated"
+                term={i18n.gettext('Last updated')}
+              >
+                {versionLastUpdated}
+              </Definition>
+            )}
+          </div>
+        </div>
+
         <DefinitionList className="AddonMoreInfo-dl">
+          {relatedCategories && (
+            <Definition
+              className="AddonMoreInfo-related-categories"
+              term={i18n.gettext('Related Categories')}
+            >
+              {relatedCategories}
+            </Definition>
+          )}
           {(homepage || supportUrl || supportEmail) && (
             <Definition
               className="AddonMoreInfo-links"
@@ -233,30 +281,6 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
                 {supportUrl}
                 {supportEmail}
               </ul>
-            </Definition>
-          )}
-          {version && (
-            <Definition
-              className="AddonMoreInfo-version"
-              term={i18n.gettext('Version')}
-            >
-              {version}
-            </Definition>
-          )}
-          {filesize && (
-            <Definition
-              className="AddonMoreInfo-filesize"
-              term={i18n.gettext('Size')}
-            >
-              {filesize}
-            </Definition>
-          )}
-          {versionLastUpdated && (
-            <Definition
-              className="AddonMoreInfo-last-updated"
-              term={i18n.gettext('Last updated')}
-            >
-              {versionLastUpdated}
             </Definition>
           )}
           {versionLicenseLink && (
@@ -322,6 +346,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addon, i18n } = ownProps;
   let currentVersion = null;
+  let relatedCategories = null;
   let versionInfo = null;
 
   if (addon && addon.currentVersionId) {
@@ -339,8 +364,16 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
     });
   }
 
+  if (addon && addon.categories) {
+    relatedCategories = getRelatedCategories({
+      addon,
+      clientApp: state.api.clientApp,
+    });
+  }
+
   return {
     currentVersion,
+    relatedCategories,
     versionInfo,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,

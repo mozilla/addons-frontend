@@ -28,6 +28,7 @@ import {
   getErrorMessage,
   getFileHash,
   getPromotedCategory,
+  getRelatedCategories,
 } from 'amo/utils/addons';
 
 describe(__filename, () => {
@@ -320,6 +321,37 @@ describe(__filename, () => {
           }),
         ).toEqual(VERIFIED);
       });
+    });
+  });
+
+  describe('getRelatedCategories', () => {
+    it('returns null if no categories', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: null,
+      });
+
+      expect(
+        getRelatedCategories({ addon, clientApp: CLIENT_APP_ANDROID }),
+      ).toEqual(null);
+    });
+
+    it('returns related categories based on clientApp', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: {
+          'android': ['performance', 'security-privacy'],
+          'firefox': ['bookmarks', 'download-management'],
+        },
+      });
+
+      expect(
+        getRelatedCategories({ addon, clientApp: CLIENT_APP_ANDROID }),
+      ).toEqual('Performance, Security-privacy');
+
+      expect(
+        getRelatedCategories({ addon, clientApp: CLIENT_APP_FIREFOX }),
+      ).toEqual('Bookmarks, Download-management');
     });
   });
 });
