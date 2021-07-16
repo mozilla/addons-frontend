@@ -11,13 +11,6 @@ $cta-alternate-color: #f9f7fd;
   max-height: 500px;
   overflow: hidden;
   position: relative;
-  transition: max-height 0.3s ease-out;
-}
-
-@media (prefers-reduced-motion) {
-  .VPNPromoBanner {
-    transition-property: none;
-  }
 }
 
 .VPNPromoBanner-wrapper {
@@ -66,15 +59,6 @@ $cta-alternate-color: #f9f7fd;
     display: block;
     margin: 0 0 2px;
   }
-
-  small {
-    display: block;
-    font-size: 0.65rem;
-    font-style: italic;
-    line-height: normal;
-    margin: 0 auto;
-    padding-top: 2px;
-  }
 }
 
 .VPNPromoBanner-dismisser-button {
@@ -85,6 +69,7 @@ $cta-alternate-color: #f9f7fd;
   right: 0;
   top: 0.5rem;
 
+  &:focus img,
   &:hover img {
     transform: scale(1.1);
   }

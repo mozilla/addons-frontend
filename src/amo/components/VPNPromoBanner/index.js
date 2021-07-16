@@ -80,19 +80,16 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
 
   render(): null | React.Node {
     const { _config, i18n } = this.props;
-    const headline = i18n.gettext(
-      'Introductory offer ends soon: $4.99/month for Mozilla VPN',
-    );
-    const copy = i18n.gettext(
-      `Now's the time to protect your device against hackers and prying eyes.`,
-    );
-    const smallText = i18n.gettext(
-      'Offer only available in the United States, United Kingdom, Canada, New Zealand, Malaysia, and Singapore',
-    );
 
     if (!_config.get('enableFeatureVPNPromo')) {
       return null;
     }
+
+    const headline = i18n.gettext('Save 50% with a full year subscription');
+    const copy = i18n.gettext(
+      `Protect your online data—and choose a VPN subscription plan that works
+       for you.`,
+    );
 
     const ctaURL = `${VPN_URL}${makeQueryStringWithUTM({
       utm_campaign: VPN_PROMO_CAMPAIGN,
@@ -109,7 +106,6 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
           <div className="VPNPromoBanner-copy">
             <strong>{headline}</strong>
             <span>{copy}</span>
-            <small>{smallText}</small>
           </div>
           <a
             className="VPNPromoBanner-cta"
