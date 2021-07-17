@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-06-15 16:03+0000\n"
-"PO-Revision-Date: 2021-07-17 15:34+0000\n"
+"PO-Revision-Date: 2021-07-17 20:36+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1033,7 +1033,7 @@ msgstr "Tarbaɛt n ineflayen"
 
 #: src/amo/components/GetFirefoxBanner/index.js:87
 msgid "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
-msgstr ""
+msgstr "I useqdec n yizegrar-a, tesriḍ ad %(linkStart)sd-tsadreḍ Firefox%(linkEnd)s"
 
 #: src/amo/components/GetFirefoxButton/index.js:172
 msgid "Download Firefox and get the theme"
