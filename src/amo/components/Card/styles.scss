@@ -55,7 +55,7 @@ $footer-padding: 10px;
 
 .Card-footer-link,
 .Card-footer-text,
-.HomepageCard-footer-in-header {
+.Card-shelf-footer-in-header {
   a,
   a:active,
   a:hover,
@@ -88,19 +88,19 @@ $footer-padding: 10px;
   }
 }
 
-.HomepageCard-header {
+.Card-shelf-header {
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
 
-.HomepageCard-footer {
+.Card-shelf-footer {
   @include respond-to(large) {
     display: none;
   }
 }
 
-.HomepageCard-footer-in-header {
+.Card-shelf-footer-in-header {
   @include respond-to(mediumOnly) {
     display: none;
   }

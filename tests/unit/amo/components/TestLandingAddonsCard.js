@@ -64,13 +64,13 @@ describe(__filename, () => {
   });
 
   it.each([true, false])(
-    'passes isHomepageCard to AddonsCard',
-    (isHomepageCard) => {
-      const root = render({ isHomepageCard });
+    'passes isHomepageShelf to AddonsCard',
+    (isHomepageShelf) => {
+      const root = render({ isHomepageShelf });
 
       expect(root.find(AddonsCard)).toHaveProp(
-        'isHomepageCard',
-        isHomepageCard,
+        'isHomepageShelf',
+        isHomepageShelf,
       );
     },
   );
@@ -196,12 +196,10 @@ describe(__filename, () => {
     );
   });
 
-  it.each([true, false])(
-    'sets useThemePlaceholder to the value of isTheme on the AddonsCard',
-    (isTheme) => {
-      const root = render({ isTheme });
+  it('sets useThemePlaceholder to the value of isTheme on the AddonsCard', () => {
+    const isTheme = true;
+    const root = render({ isTheme });
 
-      expect(root.find(AddonsCard)).toHaveProp('useThemePlaceholder', isTheme);
-    },
-  );
+    expect(root.find(AddonsCard)).toHaveProp('useThemePlaceholder', isTheme);
+  });
 });

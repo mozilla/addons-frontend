@@ -167,11 +167,14 @@ describe(__filename, () => {
   });
 
   it.each([true, false])(
-    'passes the isHomepageCard prop through to Card',
-    (isHomepageCard) => {
-      const root = render({ isHomepageCard });
+    'passes the isHomepageShelf prop through to Card',
+    (isHomepageShelf) => {
+      const root = render({ isHomepageShelf });
 
-      expect(root.find(CardList)).toHaveProp('isHomepageCard', isHomepageCard);
+      expect(root.find(CardList)).toHaveProp(
+        'isHomepageShelf',
+        isHomepageShelf,
+      );
     },
   );
 
