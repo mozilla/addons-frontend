@@ -77,9 +77,7 @@ export const PageBase = ({
 
   return (
     <div className="Page-amo">
-      {showVPNPromo && clientApp !== CLIENT_APP_ANDROID ? (
-        <VPNPromoBanner />
-      ) : null}
+      {showVPNPromo ? <VPNPromoBanner /> : null}
 
       <Header
         isAddonInstallPage={isAddonInstallPage}

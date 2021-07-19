@@ -98,23 +98,14 @@ describe(__filename, () => {
     expect(root.find(AppBanner)).toHaveLength(1);
   });
 
-  it('renders a VPNPromoBanner if showVPNPromo is true and clientApp is not `android`', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const root = render({ showVPNPromo: true, store });
+  it('renders a VPNPromoBanner if showVPNPromo is true', () => {
+    const root = render({ showVPNPromo: true });
 
     expect(root.find(VPNPromoBanner)).toHaveLength(1);
   });
 
   it('does not render a VPNPromoBanner if showVPNPromo is false', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const root = render({ showVPNPromo: false, store });
-
-    expect(root.find(VPNPromoBanner)).toHaveLength(0);
-  });
-
-  it('does not render a VPNPromoBanner if clientApp is `android`', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const root = render({ showVPNPromo: true, store });
+    const root = render({ showVPNPromo: false });
 
     expect(root.find(VPNPromoBanner)).toHaveLength(0);
   });
