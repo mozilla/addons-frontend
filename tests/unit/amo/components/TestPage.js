@@ -5,6 +5,7 @@ import AppBanner from 'amo/components/AppBanner';
 import NotFound from 'amo/components/Errors/NotFound';
 import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLegalReasons';
 import Header from 'amo/components/Header';
+import VPNPromoBanner from 'amo/components/VPNPromoBanner';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
@@ -95,6 +96,12 @@ describe(__filename, () => {
     const root = render({ isHomePage: true, store });
 
     expect(root.find(AppBanner)).toHaveLength(1);
+  });
+
+  it('renders a VPNPromoBanner', () => {
+    const root = render();
+
+    expect(root.find(VPNPromoBanner)).toHaveLength(1);
   });
 
   it('renders children', () => {
