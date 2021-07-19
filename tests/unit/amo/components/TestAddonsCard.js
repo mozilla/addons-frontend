@@ -166,17 +166,12 @@ describe(__filename, () => {
     expect(root.find(CardList)).toHaveProp('header', header);
   });
 
-  it.each([true, false])(
-    'passes the isHomepageShelf prop through to Card',
-    (isHomepageShelf) => {
-      const root = render({ isHomepageShelf });
+  it('passes the isHomepageShelf prop through to Card', () => {
+    const isHomepageShelf = true;
+    const root = render({ isHomepageShelf });
 
-      expect(root.find(CardList)).toHaveProp(
-        'isHomepageShelf',
-        isHomepageShelf,
-      );
-    },
-  );
+    expect(root.find(CardList)).toHaveProp('isHomepageShelf', isHomepageShelf);
+  });
 
   it('passes the showPromotedBadge prop through to SearchResult', () => {
     const showPromotedBadge = false;

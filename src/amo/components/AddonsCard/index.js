@@ -37,7 +37,6 @@ type Props = {|
   type?: 'horizontal' | 'vertical',
   showFullSizePreview?: boolean,
   showMetadata?: boolean,
-  showPromotedBadge?: boolean,
   showSummary?: boolean,
 
   // These are all passed through to Card.
