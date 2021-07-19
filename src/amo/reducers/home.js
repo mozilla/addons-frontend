@@ -147,8 +147,7 @@ export type ExternalResultShelfType = {|
   url: string,
   endpoint: string,
   addon_type: AddonTypeType,
-  criteria: string,
-  footer: ExternalLinkWithTextType | null,
+  footer: ExternalLinkWithTextType,
   addons: Array<ExternalAddonType>,
 |};
 
@@ -157,8 +156,7 @@ export type ResultShelfType = {|
   url: string,
   endpoint: string,
   addonType: AddonTypeType,
-  criteria: string,
-  footer: LinkWithTextType | null,
+  footer: LinkWithTextType,
   addons: Array<AddonType>,
 |};
 
@@ -314,10 +312,7 @@ export const createInternalShelf = (
     url: result.url,
     endpoint: result.endpoint,
     addonType: result.addon_type,
-    criteria: result.criteria,
-    footer: result.footer
-      ? createInternalLinkWithText(result.footer, lang)
-      : null,
+    footer: createInternalLinkWithText(result.footer, lang),
     addons: shelfAddons,
   };
 };

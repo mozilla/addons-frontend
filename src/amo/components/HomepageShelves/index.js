@@ -1,6 +1,5 @@
 /* @flow */
 import * as React from 'react';
-import config from 'config';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LoadingText from 'amo/components/LoadingText';
@@ -59,16 +58,14 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
     );
   } else {
     shelvesContent = shelves.map((shelf) => {
-      const { addons, addonType, criteria, endpoint, footer, title } = shelf;
-      const MOZILLA_USER_ID = config.get('mozillaUserId');
+      const { addons, addonType, endpoint, footer, title } = shelf;
       const shelfKey = title.replace(/\s/g, '-');
 
-      const footerText =
-        footer && footer.text
-          ? footer.text
-          : i18n.sprintf(i18n.gettext('See more %(categoryName)s'), {
-              categoryName: title.toLowerCase(),
-            });
+      const footerText = footer.text
+        ? footer.text
+        : i18n.sprintf(i18n.gettext('See more %(categoryName)s'), {
+            categoryName: title.toLowerCase(),
+          });
 
       const addonInstallSource =
         endpoint === HOMESHELVES_ENDPOINT_COLLECTIONS
@@ -82,18 +79,11 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
         : LANDING_PAGE_EXTENSION_COUNT;
 
       let footerLink;
-      if (footer && footer.url) {
-        const internalUrlCheck = _checkInternalURL({ urlString: footer.url });
-        if (internalUrlCheck.isInternal) {
-          footerLink = internalUrlCheck.relativeURL;
-        } else {
-          footerLink = { href: footer.url };
-        }
+      const internalUrlCheck = _checkInternalURL({ urlString: footer.url });
+      if (internalUrlCheck.isInternal) {
+        footerLink = internalUrlCheck.relativeURL;
       } else {
-        footerLink =
-          endpoint === HOMESHELVES_ENDPOINT_COLLECTIONS
-            ? `/collections/${MOZILLA_USER_ID}/${criteria}/`
-            : `/search/${criteria}`;
+        footerLink = { href: footer.url };
       }
 
       return (
