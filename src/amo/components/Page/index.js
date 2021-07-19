@@ -25,6 +25,7 @@ type Props = {|
   errorHandler?: ErrorHandlerType,
   isAddonInstallPage?: boolean,
   isHomePage?: boolean,
+  showVPNPromo?: boolean,
   showWrongPlatformWarning?: boolean,
 |};
 
@@ -47,6 +48,7 @@ export const PageBase = ({
   isAddonInstallPage = false,
   isHomePage = false,
   location,
+  showVPNPromo = false,
   showWrongPlatformWarning = true,
 }: InternalProps): React.Node => {
   let errorContent;
@@ -75,7 +77,7 @@ export const PageBase = ({
 
   return (
     <div className="Page-amo">
-      <VPNPromoBanner />
+      {showVPNPromo ? <VPNPromoBanner /> : null}
 
       <Header
         isAddonInstallPage={isAddonInstallPage}

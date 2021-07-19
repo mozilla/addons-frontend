@@ -437,6 +437,7 @@ export class AddonBase extends React.Component {
 
     return (
       <Page
+        showVPNPromo={Boolean(addon && addon.type === ADDON_TYPE_EXTENSION)}
         errorHandler={errorHandler}
         isAddonInstallPage
         showWrongPlatformWarning={false}

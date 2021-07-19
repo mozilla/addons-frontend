@@ -98,10 +98,16 @@ describe(__filename, () => {
     expect(root.find(AppBanner)).toHaveLength(1);
   });
 
-  it('renders a VPNPromoBanner', () => {
-    const root = render();
+  it('renders a VPNPromoBanner if showVPNPromo is true', () => {
+    const root = render({ showVPNPromo: true });
 
     expect(root.find(VPNPromoBanner)).toHaveLength(1);
+  });
+
+  it('does not render a VPNPromoBanner if showVPNPromo is false', () => {
+    const root = render({ showVPNPromo: false });
+
+    expect(root.find(VPNPromoBanner)).toHaveLength(0);
   });
 
   it('renders children', () => {

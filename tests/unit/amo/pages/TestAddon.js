@@ -458,6 +458,37 @@ describe(__filename, () => {
     expect(page).toHaveProp('showWrongPlatformWarning', false);
   });
 
+  it('passes showVPNPromo as `true` to Page if the add-on is an extension', () => {
+    const root = shallowRender({
+      addon: createInternalAddonWithLang({
+        ...fakeAddon,
+        type: ADDON_TYPE_EXTENSION,
+      }),
+    });
+
+    expect(root.find(Page)).toHaveProp('showVPNPromo', true);
+  });
+
+  it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG, ADDON_TYPE_STATIC_THEME])(
+    'passes showVPNPromo as `false` to Page if the add-on is a %s',
+    (type) => {
+      const root = shallowRender({
+        addon: createInternalAddonWithLang({
+          ...fakeAddon,
+          type,
+        }),
+      });
+
+      expect(root.find(Page)).toHaveProp('showVPNPromo', false);
+    },
+  );
+
+  it('passes showVPNPromo as `false` to Page if the add-on is null', () => {
+    const root = shallowRender({ addon: null });
+
+    expect(root.find(Page)).toHaveProp('showVPNPromo', false);
+  });
+
   it('dispatches a server redirect when slug is a numeric ID', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
