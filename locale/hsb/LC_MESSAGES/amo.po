@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-20 15:48+0000\n"
-"PO-Revision-Date: 2021-07-20 16:51+0000\n"
+"PO-Revision-Date: 2021-07-20 16:53+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1848,7 +1848,7 @@ msgstr "Zalutujće 50 % z lětnym abonementom"
 
 #: src/amo/components/VPNPromoBanner/index.js:89
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "Škitajće swoje daty online – a wubjerće abonementowy plan VPN, kotryž za was funguje."
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
