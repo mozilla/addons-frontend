@@ -132,6 +132,19 @@ describe(__filename, () => {
     );
   });
 
+  it('throws an exception if something other than a number is stored', () => {
+    setupForComponent();
+    const _window = {
+      localStorage: createFakeLocalStorage({
+        getItem: sinon.stub().returns('not a number!'),
+      }),
+    };
+
+    expect(() => {
+      render({ _window });
+    }).toThrowError(/A non-number was stored in VPNPromoImpressionCount/);
+  });
+
   describe('tracking', () => {
     it('sends a tracking event when the cta is clicked', () => {
       const impressionCount = '5';
