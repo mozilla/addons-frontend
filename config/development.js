@@ -84,5 +84,7 @@ module.exports = {
 
   enableFeatureVPNPromo: true,
 
-  experiments: {'20210714_amo_vpn_promo': true},
+  experiments: {
+    '20210714_amo_vpn_promo': true,
+  },
 };

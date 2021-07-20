@@ -38,12 +38,16 @@ describe(__filename, () => {
   });
 
   const render = ({
+    // The defaults for clientApp, regionCode and variant set up the component
+    // to show by default for all tests.
     _tracking = createFakeTracking(),
+    clientApp = CLIENT_APP_FIREFOX,
     location,
-    // Set up the component to show by default for all tests.
+    regionCode = 'US',
     variant = VARIANT_SHOW,
     ...props
   } = {}) => {
+    dispatchClientMetadata({ store, clientApp, regionCode });
     return shallowUntilTarget(
       <VPNPromoBanner
         _tracking={_tracking}
@@ -59,17 +63,8 @@ describe(__filename, () => {
     );
   };
 
-  const setupForComponent = ({
-    clientApp = CLIENT_APP_FIREFOX,
-    regionCode = 'US',
-  } = {}) => {
-    dispatchClientMetadata({ store, clientApp, regionCode });
-  };
-
-  // This validates that setupForComponent configures the component to display
-  // by default.
+  // This validates that render configures the component to display by default.
   it('displays the promo on desktop, for an accepted region, with the show variant', () => {
-    setupForComponent();
     const root = render();
 
     expect(root.find('.VPNPromoBanner')).toHaveLength(1);
@@ -78,7 +73,6 @@ describe(__filename, () => {
   it.each([VARIANT_HIDE, NOT_IN_EXPERIMENT, null])(
     'renders nothing when the variant is %s',
     (variant) => {
-      setupForComponent();
       const root = render({ variant });
 
       expect(root.find('.VPNPromoBanner')).toHaveLength(0);
@@ -86,21 +80,18 @@ describe(__filename, () => {
   );
 
   it('renders nothing when the region should not be included', () => {
-    setupForComponent({ regionCode: 'CN' });
-    const root = render();
+    const root = render({ regionCode: 'CN' });
 
     expect(root.find('.VPNPromoBanner')).toHaveLength(0);
   });
 
   it('renders nothing on android', () => {
-    setupForComponent({ clientApp: CLIENT_APP_ANDROID });
-    const root = render();
+    const root = render({ clientApp: CLIENT_APP_ANDROID });
 
     expect(root.find('.VPNPromoBanner')).toHaveLength(0);
   });
 
   it('renders a link with the expected href', () => {
-    setupForComponent();
     const queryString = [
       `utm_campaign=${VPN_PROMO_CAMPAIGN}`,
       `utm_medium=${DEFAULT_UTM_MEDIUM}`,
@@ -115,7 +106,6 @@ describe(__filename, () => {
 
   describe('tracking', () => {
     it('sends a tracking event when the cta is clicked', () => {
-      setupForComponent();
       const _tracking = createFakeTracking();
       const root = render({ _tracking });
       const event = createFakeEvent();
@@ -130,7 +120,6 @@ describe(__filename, () => {
     });
 
     it('sends a tracking event when the dismiss button is clicked', () => {
-      setupForComponent();
       const _tracking = createFakeTracking();
       const root = render({ _tracking });
       const event = createFakeEvent();
@@ -145,7 +134,6 @@ describe(__filename, () => {
     });
 
     it('sends a tracking event for the impression on mount', () => {
-      setupForComponent();
       const _tracking = createFakeTracking();
       render({ _tracking });
 
@@ -159,7 +147,6 @@ describe(__filename, () => {
     it.each([VARIANT_HIDE, NOT_IN_EXPERIMENT, null])(
       'does not send a tracking event for the impression on mount when the variant is %s',
       (variant) => {
-        setupForComponent();
         const _tracking = createFakeTracking();
         render({ _tracking, variant });
 
@@ -168,23 +155,20 @@ describe(__filename, () => {
     );
 
     it('does not send a tracking event for the impression on mount when the region should not be included', () => {
-      setupForComponent({ regionCode: 'CN' });
       const _tracking = createFakeTracking();
-      render({ _tracking });
+      render({ _tracking, regionCode: 'CN' });
 
       sinon.assert.notCalled(_tracking.sendEvent);
     });
 
     it('does not send a tracking event for the impression on mount on android', () => {
-      setupForComponent({ clientApp: CLIENT_APP_ANDROID });
       const _tracking = createFakeTracking();
-      render({ _tracking });
+      render({ _tracking, clientApp: CLIENT_APP_ANDROID });
 
       sinon.assert.notCalled(_tracking.sendEvent);
     });
 
     it('sends a tracking event for the impression on update', () => {
-      setupForComponent();
       const _tracking = createFakeTracking();
       const location = createFakeLocation({ pathname: '/a/' });
       const root = render({ _tracking, location });
@@ -204,7 +188,6 @@ describe(__filename, () => {
     it.each([VARIANT_HIDE, NOT_IN_EXPERIMENT, null])(
       'does not send a tracking event for the impression on update when the variant is %s',
       (variant) => {
-        setupForComponent();
         const _tracking = createFakeTracking();
         const location = createFakeLocation({ pathname: '/a/' });
         const root = render({ _tracking, location, variant });
@@ -216,10 +199,9 @@ describe(__filename, () => {
     );
 
     it('does not send a tracking event for the impression on update when the region should not be included', () => {
-      setupForComponent({ regionCode: 'CN' });
       const _tracking = createFakeTracking();
       const location = createFakeLocation({ pathname: '/a/' });
-      const root = render({ _tracking, location });
+      const root = render({ _tracking, location, regionCode: 'CN' });
 
       root.setProps({ location: createFakeLocation({ pathname: '/b/' }) });
 
@@ -227,10 +209,13 @@ describe(__filename, () => {
     });
 
     it('does not send a tracking event for the impression on update on android', () => {
-      setupForComponent({ clientApp: CLIENT_APP_ANDROID });
       const _tracking = createFakeTracking();
       const location = createFakeLocation({ pathname: '/a/' });
-      const root = render({ _tracking, location });
+      const root = render({
+        _tracking,
+        clientApp: CLIENT_APP_ANDROID,
+        location,
+      });
 
       root.setProps({ location: createFakeLocation({ pathname: '/b/' }) });
 
@@ -238,7 +223,6 @@ describe(__filename, () => {
     });
 
     it('does not send a tracking event for the impression on update if location has not changed', () => {
-      setupForComponent();
       const _tracking = createFakeTracking();
       const location = createFakeLocation({ pathname: '/a/' });
       const root = render({ _tracking, location });
