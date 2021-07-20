@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-15 16:03+0000\n"
+"POT-Creation-Date: 2021-07-20 15:48+0000\n"
 "PO-Revision-Date: 2020-07-14 06:20+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
@@ -74,33 +74,19 @@ msgstr "أدِر الإضافة"
 msgid "Author Links"
 msgstr "روابط المؤلف"
 
-#: src/amo/components/AddonBadges/index.js:67
-msgid "Restart Required"
-msgstr "إعادة التشغيل مطلوبة"
-
-#: src/amo/components/AddonBadges/index.js:71
+#: src/amo/components/AddonBadges/index.js:59
 msgid "Experimental"
 msgstr "تجريبي"
 
-#: src/amo/components/AddonBadges/index.js:76
-msgid "Not compatible with Firefox Quantum"
-msgstr "ليس متوافقا مع فَيَرفُكس كوانتُم"
-
-#: src/amo/components/AddonBadges/index.js:82
+#: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
 msgstr "قد تطلب بعض المزايا دفع المال"
 
-#: src/amo/components/AddonCompatibilityError/index.js:108
+#: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "هذه الإضافة غير متوافقة مع إصدارتك من فَيَرفُكس."
 
-#: src/amo/components/AddonCompatibilityError/index.js:111
-msgid ""
-"Your version of Firefox does not support this add-on because it requires a "
-"restart."
-msgstr "إصدارة فيرفكس هذه لا تدعم هذه الإضافة لأنها تحتاج لإعادة تشغيل."
-
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
 msgstr "هذه الإضافة غير متوفرة على منصّتك."
 
@@ -250,7 +236,7 @@ msgid "Size"
 msgstr "الحجم"
 
 #: src/amo/components/AddonMoreInfo/index.js:257
-#: src/amo/components/CollectionDetails/index.js:95
+#: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "آخر تحديث"
 
@@ -690,24 +676,24 @@ msgstr "أُزيلت من المجموعة"
 msgid "Find an add-on to include in this collection"
 msgstr "ابحث عن إضافة لتُضيفها إلى هذه المجموعة"
 
-#: src/amo/components/CollectionDetails/index.js:109
+#: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
 msgstr "حرِّر هذه المجموعة"
 
-#: src/amo/components/CollectionDetails/index.js:120
+#: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
 msgstr "حرّر تفاصيل التجميعة"
 
-#: src/amo/components/CollectionDetails/index.js:132
+#: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
 msgstr "عُد إلى التجميعة"
 
-#: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:64
+#: src/amo/components/CollectionDetails/index.js:77
+#: src/amo/components/Footer/index.js:58
 msgid "Add-ons"
 msgstr "الإضافات"
 
-#: src/amo/components/CollectionDetails/index.js:89
+#: src/amo/components/CollectionDetails/index.js:81
 msgid "Creator"
 msgstr "الصانع"
 
@@ -1066,52 +1052,51 @@ msgstr "وُضع عليها إشارة بأنها سخام"
 msgid "This contains inappropriate language"
 msgstr "تحتوي المراجعة ألفاظا غير لائقة"
 
-#: src/amo/components/Footer/index.js:109
+#: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
 msgstr "سياسات المطور"
 
-#: src/amo/components/Footer/index.js:124
-#, fuzzy
-msgid "Developer Blog"
-msgstr "مركز المطورين"
+#: src/amo/components/Footer/index.js:115
+msgid "Community Blog"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:130
+#: src/amo/components/Footer/index.js:120
 msgid "Forum"
 msgstr "المنتدى"
 
-#: src/amo/components/Footer/index.js:138
+#: src/amo/components/Footer/index.js:128
 msgid "Report a bug"
 msgstr "أبلِغ عن علة"
 
-#: src/amo/components/Footer/index.js:143
+#: src/amo/components/Footer/index.js:133
 msgid "Review Guide"
 msgstr "دليل المراجعات"
 
-#: src/amo/components/Footer/index.js:148
+#: src/amo/components/Footer/index.js:138
 msgid "Site Status"
 msgstr "حالة الموقع"
 
-#: src/amo/components/Footer/index.js:155
+#: src/amo/components/Footer/index.js:145
 msgid "Browsers"
 msgstr "المُتصفحات"
 
-#: src/amo/components/Footer/index.js:213
+#: src/amo/components/Footer/index.js:203
 msgid "Products"
 msgstr "المنتجات"
 
-#: src/amo/components/Footer/index.js:289
+#: src/amo/components/Footer/index.js:279
 msgid "Privacy"
 msgstr "الخصوصية"
 
-#: src/amo/components/Footer/index.js:297
+#: src/amo/components/Footer/index.js:287
 msgid "Cookies"
 msgstr "الكعكات"
 
-#: src/amo/components/Footer/index.js:305
+#: src/amo/components/Footer/index.js:295
 msgid "Legal"
 msgstr "قانوني"
 
-#: src/amo/components/Footer/index.js:315
+#: src/amo/components/Footer/index.js:305
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1121,76 +1106,72 @@ msgstr ""
 "مرخّص %(startLicenseLink)sبرخصة المشاع الإبداعي نَسب المُصنَّف والترخيص بالمثل، "
 "الإصدارة الثالثة%(endLicenseLink)sأو أية إصدارة بعدها."
 
-#: src/amo/components/Footer/index.js:39
+#: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
 msgstr "انتقل إلى صفحة بداية موزيلا"
 
-#: src/amo/components/Footer/index.js:69
+#: src/amo/components/Footer/index.js:63
 msgid "About"
 msgstr "عن"
 
-#: src/amo/components/Footer/index.js:75
-#: src/amo/components/SectionLinks/index.js:121
+#: src/amo/components/Footer/index.js:68
+#: src/amo/components/SectionLinks/index.js:108
 #, fuzzy
 msgid "Firefox Add-on Reviews"
 msgstr "إضافات فيرفكس"
 
-#: src/amo/components/Footer/index.js:76
-msgid "Blog"
-msgstr "المدونة"
-
-#: src/amo/components/Footer/index.js:89 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "ورشة عمل الامتدادات"
 
-#: src/amo/components/Footer/index.js:94 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "مركز المطورين"
 
-#: src/amo/components/GetFirefoxBanner/index.js:87
+#: src/amo/components/GetFirefoxBanner/index.js:90
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:172
+#: src/amo/components/GetFirefoxButton/index.js:163
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:173
+#: src/amo/components/GetFirefoxButton/index.js:164
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:177
+#: src/amo/components/GetFirefoxButton/index.js:168
 #, fuzzy
 msgid "Download the new Firefox and get the theme"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:169
 #, fuzzy
 msgid "Download the new Firefox and get the extension"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:182
+#: src/amo/components/GetFirefoxButton/index.js:173
 msgid "Download Firefox"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:185
+#: src/amo/components/GetFirefoxButton/index.js:176
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "لِج لتقييم السمة هذه"
 
-#: src/amo/components/GetFirefoxButton/index.js:186
+#: src/amo/components/GetFirefoxButton/index.js:177
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
 msgstr "لِج لتقييم الامتداد هذا"
 
-#: src/amo/components/GetFirefoxButton/index.js:190
+#: src/amo/components/GetFirefoxButton/index.js:181
 #, fuzzy
 msgid "You need an updated version of Firefox for this theme"
 msgstr "لِج لتقييم السمة هذه"
 
-#: src/amo/components/GetFirefoxButton/index.js:191
+#: src/amo/components/GetFirefoxButton/index.js:182
 #, fuzzy
 msgid "You need an updated version of Firefox for this extension"
 msgstr "لِج لتقييم الامتداد هذا"
@@ -1305,19 +1286,7 @@ msgstr "مُقترحة"
 msgid "Verified"
 msgstr ""
 
-#: src/amo/components/InfoDialog/index.js:68
-msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr "أُضيفت %(strongStart)s%(name)s%(strongEnd)s"
-
-#: src/amo/components/InfoDialog/index.js:81
-msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
-
-#: src/amo/components/InfoDialog/index.js:92
-msgid "OK"
-msgstr "حسنًا"
-
-#: src/amo/components/InstallButtonWrapper/index.js:145
+#: src/amo/components/InstallButtonWrapper/index.js:140
 #, fuzzy
 msgid "Download file"
 msgstr "لا تنزيلات"
@@ -1971,49 +1940,49 @@ msgstr "لم يُعثر على نتائج لِ‍ ”⁨%(query)s⁩“."
 msgid "No results were found."
 msgstr "لم يُعثر على نتائج."
 
-#: src/amo/components/SectionLinks/index.js:104
-msgid "Dictionaries & Language Packs"
-msgstr "القواميس وحزم اللغات"
-
-#: src/amo/components/SectionLinks/index.js:147
+#: src/amo/components/SectionLinks/index.js:133
 msgid "Explore"
 msgstr "استكشف"
 
-#: src/amo/components/SectionLinks/index.js:163
+#: src/amo/components/SectionLinks/index.js:149
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "الامتدادات"
 
-#: src/amo/components/SectionLinks/index.js:179
+#: src/amo/components/SectionLinks/index.js:165
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "السمات"
 
-#: src/amo/components/SectionLinks/index.js:185
+#: src/amo/components/SectionLinks/index.js:171
 msgid "More…"
 msgstr "أكثر…"
 
-#: src/amo/components/SectionLinks/index.js:195
+#: src/amo/components/SectionLinks/index.js:181
 msgid "Other Browser Sites"
 msgstr "مواقع المتصفح الأخرى"
 
-#: src/amo/components/SectionLinks/index.js:206
+#: src/amo/components/SectionLinks/index.js:192
 msgid "Add-ons for Android"
 msgstr "إضافات إصدارة أندرويد"
 
-#: src/amo/components/SectionLinks/index.js:219
+#: src/amo/components/SectionLinks/index.js:205
 msgid "Add-ons for Firefox"
 msgstr "إضافات فيرفكس"
 
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/SectionLinks/index.js:76
 msgid "for Firefox"
 msgstr "لفيرفكس"
 
-#: src/amo/components/SectionLinks/index.js:89
+#: src/amo/components/SectionLinks/index.js:78
 msgid "for Android"
 msgstr "لنظام أندرويد"
+
+#: src/amo/components/SectionLinks/index.js:93
+msgid "Dictionaries & Language Packs"
+msgstr "القواميس وحزم اللغات"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -2086,6 +2055,20 @@ msgstr "اختر صورة…"
 #: src/amo/components/UserReview/index.js:108
 msgid "Developer response"
 msgstr "رد المطور"
+
+#: src/amo/components/VPNPromoBanner/index.js:115
+msgid "Get Mozilla VPN"
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:88
+msgid "Save 50% with a full year subscription"
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:89
+msgid ""
+"Protect your online data—and choose a VPN subscription plan that works for "
+"you."
+msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 #, fuzzy
@@ -2174,17 +2157,17 @@ msgstr "تعليقات المطوّر"
 msgid "Release notes for %(addonVersion)s"
 msgstr "ملاحظات إصدار %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:465
+#: src/amo/pages/Addon/index.js:466
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:487
+#: src/amo/pages/Addon/index.js:488
 msgid "Extension Metadata"
 msgstr "بيانات الامتداد الوصفية"
 
-#: src/amo/pages/Addon/index.js:511
+#: src/amo/pages/Addon/index.js:512
 msgid "Screenshots"
 msgstr "لقطات الشاشة"
 
@@ -3207,17 +3190,17 @@ msgid "(no name)"
 msgstr ""
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/amo/reducers/versions.js:298
+#: src/amo/reducers/versions.js:296
 msgid "%(application)s %(minVersion)s and later"
 msgstr ""
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/amo/reducers/versions.js:302
+#: src/amo/reducers/versions.js:300
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr ""
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/amo/reducers/versions.js:322
+#: src/amo/reducers/versions.js:320
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
 
@@ -3283,6 +3266,30 @@ msgstr "عندما يتعذر ترقية التوافقية لإضافتي"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "عندما تنجح ترقية توافقية إضافتي"
+
+#~ msgid "Restart Required"
+#~ msgstr "إعادة التشغيل مطلوبة"
+
+#~ msgid "Not compatible with Firefox Quantum"
+#~ msgstr "ليس متوافقا مع فَيَرفُكس كوانتُم"
+
+#~ msgid ""
+#~ "Your version of Firefox does not support this add-on because it requires "
+#~ "a restart."
+#~ msgstr "إصدارة فيرفكس هذه لا تدعم هذه الإضافة لأنها تحتاج لإعادة تشغيل."
+
+#, fuzzy
+#~ msgid "Developer Blog"
+#~ msgstr "مركز المطورين"
+
+#~ msgid "Blog"
+#~ msgstr "المدونة"
+
+#~ msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+#~ msgstr "أُضيفت %(strongStart)s%(name)s%(strongEnd)s"
+
+#~ msgid "OK"
+#~ msgstr "حسنًا"
 
 #~ msgid ""
 #~ "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of "
