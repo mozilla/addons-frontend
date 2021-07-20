@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-20 15:48+0000\n"
-"PO-Revision-Date: 2018-04-05 11:30+0000\n"
+"PO-Revision-Date: 2021-07-20 23:28+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -658,7 +658,7 @@ msgstr "Salvează modificările"
 
 #: src/amo/components/CollectionManager/index.js:258
 msgid "Collection name"
-msgstr "Denumirea colecției"
+msgstr "Numele colecției"
 
 #: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
@@ -682,7 +682,7 @@ msgstr "Cele mai vechi primele"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Name"
-msgstr "Denumire"
+msgstr "Nume"
 
 #: src/amo/components/CollectionSort/index.js:96
 msgid "Popularity"
