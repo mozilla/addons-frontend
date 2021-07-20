@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-15 16:03+0000\n"
+"POT-Creation-Date: 2021-07-20 15:48+0000\n"
 "PO-Revision-Date: 2021-06-09 18:34+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
@@ -73,35 +73,19 @@ msgstr "Kiegészítő adminisztrációja"
 msgid "Author Links"
 msgstr "Szerző hivatkozásai"
 
-#: src/amo/components/AddonBadges/index.js:67
-msgid "Restart Required"
-msgstr "Újraindítás szükséges"
-
-#: src/amo/components/AddonBadges/index.js:71
+#: src/amo/components/AddonBadges/index.js:59
 msgid "Experimental"
 msgstr "Kísérleti"
 
-#: src/amo/components/AddonBadges/index.js:76
-msgid "Not compatible with Firefox Quantum"
-msgstr "Nem kompatibilis a Firefox Quantummal"
-
-#: src/amo/components/AddonBadges/index.js:82
+#: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
 msgstr "Néhány funkció fizetéshez kötött lehet"
 
-#: src/amo/components/AddonCompatibilityError/index.js:108
+#: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Ez a kiegészítő nem kompatibilis ezzel a Firefox verzióval."
 
-#: src/amo/components/AddonCompatibilityError/index.js:111
-msgid ""
-"Your version of Firefox does not support this add-on because it requires a "
-"restart."
-msgstr ""
-"A Firefox ezen verziója nem támogatja ezt a kiegészítőt, mert újraindítást "
-"igényel."
-
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
 msgstr "Ez a kiegészítő nem érhető el ezen platformon."
 
@@ -256,7 +240,7 @@ msgid "Size"
 msgstr "Méret"
 
 #: src/amo/components/AddonMoreInfo/index.js:257
-#: src/amo/components/CollectionDetails/index.js:95
+#: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Legutóbb frissítve"
 
@@ -695,24 +679,24 @@ msgstr "Eltávolítja a gyűjteményből"
 msgid "Find an add-on to include in this collection"
 msgstr "Keressen egy kiegészítőt, amely bekerüljön ebbe a gyűjteménybe"
 
-#: src/amo/components/CollectionDetails/index.js:109
+#: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
 msgstr "Ezen gyűjtemény szerkesztése"
 
-#: src/amo/components/CollectionDetails/index.js:120
+#: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
 msgstr "Gyűjtemény részleteinek szerkesztése"
 
-#: src/amo/components/CollectionDetails/index.js:132
+#: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
 msgstr "Vissza a gyűjteményhez"
 
-#: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:64
+#: src/amo/components/CollectionDetails/index.js:77
+#: src/amo/components/Footer/index.js:58
 msgid "Add-ons"
 msgstr "Kiegészítők"
 
-#: src/amo/components/CollectionDetails/index.js:89
+#: src/amo/components/CollectionDetails/index.js:81
 msgid "Creator"
 msgstr "Készítő"
 
@@ -1087,51 +1071,51 @@ msgstr "Megjelölve kéretlenként"
 msgid "This contains inappropriate language"
 msgstr "Nem megfelelő nyelvezetet tartalmaz"
 
-#: src/amo/components/Footer/index.js:109
+#: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
 msgstr "Fejlesztői irányelvek"
 
-#: src/amo/components/Footer/index.js:124
-msgid "Developer Blog"
-msgstr "Fejlesztői blog"
+#: src/amo/components/Footer/index.js:115
+msgid "Community Blog"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:130
+#: src/amo/components/Footer/index.js:120
 msgid "Forum"
 msgstr "Fórum"
 
-#: src/amo/components/Footer/index.js:138
+#: src/amo/components/Footer/index.js:128
 msgid "Report a bug"
 msgstr "Hiba jelentése"
 
-#: src/amo/components/Footer/index.js:143
+#: src/amo/components/Footer/index.js:133
 msgid "Review Guide"
 msgstr "Értékelési útmutató"
 
-#: src/amo/components/Footer/index.js:148
+#: src/amo/components/Footer/index.js:138
 msgid "Site Status"
 msgstr "Oldal állapota"
 
-#: src/amo/components/Footer/index.js:155
+#: src/amo/components/Footer/index.js:145
 msgid "Browsers"
 msgstr "Böngészők"
 
-#: src/amo/components/Footer/index.js:213
+#: src/amo/components/Footer/index.js:203
 msgid "Products"
 msgstr "Termékek"
 
-#: src/amo/components/Footer/index.js:289
+#: src/amo/components/Footer/index.js:279
 msgid "Privacy"
 msgstr "Adatvédelem"
 
-#: src/amo/components/Footer/index.js:297
+#: src/amo/components/Footer/index.js:287
 msgid "Cookies"
 msgstr "Sütik"
 
-#: src/amo/components/Footer/index.js:305
+#: src/amo/components/Footer/index.js:295
 msgid "Legal"
 msgstr "Jogi információk"
 
-#: src/amo/components/Footer/index.js:315
+#: src/amo/components/Footer/index.js:305
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1141,71 +1125,67 @@ msgstr ""
 "tartalma %(startLicenseLink)sCreative Commons Nevezd meg! – Így add tovább! "
 "licenc v3.0%(endLicenseLink)s vagy bármelyik újabb verziója alatt érhető el."
 
-#: src/amo/components/Footer/index.js:39
+#: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
 msgstr "Ugrás a Mozilla honlapjára"
 
-#: src/amo/components/Footer/index.js:69
+#: src/amo/components/Footer/index.js:63
 msgid "About"
 msgstr "Névjegy"
 
-#: src/amo/components/Footer/index.js:75
-#: src/amo/components/SectionLinks/index.js:121
+#: src/amo/components/Footer/index.js:68
+#: src/amo/components/SectionLinks/index.js:108
 msgid "Firefox Add-on Reviews"
 msgstr "Firefox kiegészítőértékelés"
 
-#: src/amo/components/Footer/index.js:76
-msgid "Blog"
-msgstr "Blog"
-
-#: src/amo/components/Footer/index.js:89 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "Kiegészítő-műhely"
 
-#: src/amo/components/Footer/index.js:94 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "Fejlesztőközpont"
 
-#: src/amo/components/GetFirefoxBanner/index.js:87
+#: src/amo/components/GetFirefoxBanner/index.js:90
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 "A kiegészítők használatához le kell %(linkStart)stöltenie a Firefoxot"
 "%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:172
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox and get the theme"
 msgstr "Firefox letöltése és a téma beszerzése"
 
-#: src/amo/components/GetFirefoxButton/index.js:173
+#: src/amo/components/GetFirefoxButton/index.js:164
 msgid "Download Firefox and get the extension"
 msgstr "A Firefox letöltése és a kiegészítő beszerzése"
 
-#: src/amo/components/GetFirefoxButton/index.js:177
+#: src/amo/components/GetFirefoxButton/index.js:168
 msgid "Download the new Firefox and get the theme"
 msgstr "Az új Firefox letöltése és a téma beszerzése"
 
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:169
 msgid "Download the new Firefox and get the extension"
 msgstr "Az új Firefox letöltése és a kiegészítő beszerzése"
 
-#: src/amo/components/GetFirefoxButton/index.js:182
+#: src/amo/components/GetFirefoxButton/index.js:173
 msgid "Download Firefox"
 msgstr "Firefox letöltése"
 
-#: src/amo/components/GetFirefoxButton/index.js:185
+#: src/amo/components/GetFirefoxButton/index.js:176
 msgid "You'll need Firefox to use this theme"
 msgstr "A téma használatához a Firefoxra lesz szüksége"
 
-#: src/amo/components/GetFirefoxButton/index.js:186
+#: src/amo/components/GetFirefoxButton/index.js:177
 msgid "You'll need Firefox to use this extension"
 msgstr "A kiegészítő használatához a Firefoxra lesz szüksége"
 
-#: src/amo/components/GetFirefoxButton/index.js:190
+#: src/amo/components/GetFirefoxButton/index.js:181
 msgid "You need an updated version of Firefox for this theme"
 msgstr "A téma használatához a Firefox frissített verziójára lesz szüksége"
 
-#: src/amo/components/GetFirefoxButton/index.js:191
+#: src/amo/components/GetFirefoxButton/index.js:182
 msgid "You need an updated version of Firefox for this extension"
 msgstr ""
 "A kiegészítő használatához a Firefox frissített verziójára lesz szüksége"
@@ -1320,19 +1300,7 @@ msgstr "Ajánlott"
 msgid "Verified"
 msgstr "Ellenőrzött"
 
-#: src/amo/components/InfoDialog/index.js:68
-msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr "%(strongStart)s%(name)s%(strongEnd)s engedélyezve"
-
-#: src/amo/components/InfoDialog/index.js:81
-msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr "Kezelje kiegészítőit a Kiegészítőkre kattintva a menüben."
-
-#: src/amo/components/InfoDialog/index.js:92
-msgid "OK"
-msgstr "OK"
-
-#: src/amo/components/InstallButtonWrapper/index.js:145
+#: src/amo/components/InstallButtonWrapper/index.js:140
 msgid "Download file"
 msgstr "Fájl letöltése"
 
@@ -1939,49 +1907,49 @@ msgstr "Nincs találat a „%(query)s” keresésre."
 msgid "No results were found."
 msgstr "Nincs találat."
 
-#: src/amo/components/SectionLinks/index.js:104
-msgid "Dictionaries & Language Packs"
-msgstr "Szótárak és nyelvi csomagok"
-
-#: src/amo/components/SectionLinks/index.js:147
+#: src/amo/components/SectionLinks/index.js:133
 msgid "Explore"
 msgstr "Felfedezés"
 
-#: src/amo/components/SectionLinks/index.js:163
+#: src/amo/components/SectionLinks/index.js:149
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Kiegészítők"
 
-#: src/amo/components/SectionLinks/index.js:179
+#: src/amo/components/SectionLinks/index.js:165
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Témák"
 
-#: src/amo/components/SectionLinks/index.js:185
+#: src/amo/components/SectionLinks/index.js:171
 msgid "More…"
 msgstr "Több…"
 
-#: src/amo/components/SectionLinks/index.js:195
+#: src/amo/components/SectionLinks/index.js:181
 msgid "Other Browser Sites"
 msgstr "Más böngészők oldalai"
 
-#: src/amo/components/SectionLinks/index.js:206
+#: src/amo/components/SectionLinks/index.js:192
 msgid "Add-ons for Android"
 msgstr "Kiegészítők Androidra"
 
-#: src/amo/components/SectionLinks/index.js:219
+#: src/amo/components/SectionLinks/index.js:205
 msgid "Add-ons for Firefox"
 msgstr "Kiegészítők a Firefoxhoz"
 
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/SectionLinks/index.js:76
 msgid "for Firefox"
 msgstr "Firefoxhoz"
 
-#: src/amo/components/SectionLinks/index.js:89
+#: src/amo/components/SectionLinks/index.js:78
 msgid "for Android"
 msgstr "Androidra"
+
+#: src/amo/components/SectionLinks/index.js:93
+msgid "Dictionaries & Language Packs"
+msgstr "Szótárak és nyelvi csomagok"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -2052,6 +2020,20 @@ msgstr "Válasszon fényképet…"
 #: src/amo/components/UserReview/index.js:108
 msgid "Developer response"
 msgstr "Fejlesztői válasz"
+
+#: src/amo/components/VPNPromoBanner/index.js:115
+msgid "Get Mozilla VPN"
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:88
+msgid "Save 50% with a full year subscription"
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:89
+msgid ""
+"Protect your online data—and choose a VPN subscription plan that works for "
+"you."
+msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid ""
@@ -2137,7 +2119,7 @@ msgstr "Fejlesztői megjegyzések"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Kiadási megjegyzések ehhez: %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:465
+#: src/amo/pages/Addon/index.js:466
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2145,11 +2127,11 @@ msgstr ""
 "Ez nem egy nyilvános listázás. Csak azért látja, mert emelt szintű "
 "jogosultságokkal rendelkezik."
 
-#: src/amo/pages/Addon/index.js:487
+#: src/amo/pages/Addon/index.js:488
 msgid "Extension Metadata"
 msgstr "Kiegészítő metaadatai"
 
-#: src/amo/pages/Addon/index.js:511
+#: src/amo/pages/Addon/index.js:512
 msgid "Screenshots"
 msgstr "Képernyőképek"
 
@@ -3268,17 +3250,17 @@ msgid "(no name)"
 msgstr "(névtelen)"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/amo/reducers/versions.js:298
+#: src/amo/reducers/versions.js:296
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s vagy újabb"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/amo/reducers/versions.js:302
+#: src/amo/reducers/versions.js:300
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s – %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/amo/reducers/versions.js:322
+#: src/amo/reducers/versions.js:320
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Ezekkel működik: %(listOfApplicatonsAndVersions)s"
 
@@ -3341,6 +3323,34 @@ msgstr "a kiegészítőm kompatibilitása nem frissíthető"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a kiegészítőm kompatibilitása sikeresen frissítve"
+
+#~ msgid "Restart Required"
+#~ msgstr "Újraindítás szükséges"
+
+#~ msgid "Not compatible with Firefox Quantum"
+#~ msgstr "Nem kompatibilis a Firefox Quantummal"
+
+#~ msgid ""
+#~ "Your version of Firefox does not support this add-on because it requires "
+#~ "a restart."
+#~ msgstr ""
+#~ "A Firefox ezen verziója nem támogatja ezt a kiegészítőt, mert "
+#~ "újraindítást igényel."
+
+#~ msgid "Developer Blog"
+#~ msgstr "Fejlesztői blog"
+
+#~ msgid "Blog"
+#~ msgstr "Blog"
+
+#~ msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+#~ msgstr "%(strongStart)s%(name)s%(strongEnd)s engedélyezve"
+
+#~ msgid "Manage your add-ons by clicking Add-ons in the menu."
+#~ msgstr "Kezelje kiegészítőit a Kiegészítőkre kattintva a menüben."
+
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #~ msgid ""
 #~ "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of "

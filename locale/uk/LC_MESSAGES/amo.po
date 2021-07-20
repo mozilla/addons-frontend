@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-15 16:03+0000\n"
+"POT-Creation-Date: 2021-07-20 15:48+0000\n"
 "PO-Revision-Date: 2021-06-09 15:39+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
@@ -74,35 +74,19 @@ msgstr "Перевірка додатка адміністратором"
 msgid "Author Links"
 msgstr "Посилання автора"
 
-#: src/amo/components/AddonBadges/index.js:67
-msgid "Restart Required"
-msgstr "Потрібен перезапуск"
-
-#: src/amo/components/AddonBadges/index.js:71
+#: src/amo/components/AddonBadges/index.js:59
 msgid "Experimental"
 msgstr "Експериментальний"
 
-#: src/amo/components/AddonBadges/index.js:76
-msgid "Not compatible with Firefox Quantum"
-msgstr "Не сумісно з Firefox Quantum"
-
-#: src/amo/components/AddonBadges/index.js:82
+#: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
 msgstr "Деякі функції можуть потребувати оплати"
 
-#: src/amo/components/AddonCompatibilityError/index.js:108
+#: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Цей додаток несумісний з вашою версією Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:111
-msgid ""
-"Your version of Firefox does not support this add-on because it requires a "
-"restart."
-msgstr ""
-"Ваша версія Firefox не підтримує цей додаток, тому що він потребує "
-"перезапуску."
-
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
 msgstr "Цей додаток недоступний на вашій платформі."
 
@@ -253,7 +237,7 @@ msgid "Size"
 msgstr "Розмір"
 
 #: src/amo/components/AddonMoreInfo/index.js:257
-#: src/amo/components/CollectionDetails/index.js:95
+#: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Востаннє оновлено"
 
@@ -693,24 +677,24 @@ msgstr "Вилучено зі збірки"
 msgid "Find an add-on to include in this collection"
 msgstr "Знайдіть додаток для включення до цієї збірки"
 
-#: src/amo/components/CollectionDetails/index.js:109
+#: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
 msgstr "Змінити цю збірку"
 
-#: src/amo/components/CollectionDetails/index.js:120
+#: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
 msgstr "Редагувати подробиці збірки"
 
-#: src/amo/components/CollectionDetails/index.js:132
+#: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
 msgstr "Назад до збірки"
 
-#: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:64
+#: src/amo/components/CollectionDetails/index.js:77
+#: src/amo/components/Footer/index.js:58
 msgid "Add-ons"
 msgstr "Додатки"
 
-#: src/amo/components/CollectionDetails/index.js:89
+#: src/amo/components/CollectionDetails/index.js:81
 msgid "Creator"
 msgstr "Створив"
 
@@ -1086,51 +1070,51 @@ msgstr "Позначено як спам"
 msgid "This contains inappropriate language"
 msgstr "Містить ненормативну лексику"
 
-#: src/amo/components/Footer/index.js:109
+#: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
 msgstr "Політики розробників"
 
-#: src/amo/components/Footer/index.js:124
-msgid "Developer Blog"
-msgstr "Блог розробників"
+#: src/amo/components/Footer/index.js:115
+msgid "Community Blog"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:130
+#: src/amo/components/Footer/index.js:120
 msgid "Forum"
 msgstr "Форум"
 
-#: src/amo/components/Footer/index.js:138
+#: src/amo/components/Footer/index.js:128
 msgid "Report a bug"
 msgstr "Повідомити про помилку"
 
-#: src/amo/components/Footer/index.js:143
+#: src/amo/components/Footer/index.js:133
 msgid "Review Guide"
 msgstr "Настанови з написання відгуків"
 
-#: src/amo/components/Footer/index.js:148
+#: src/amo/components/Footer/index.js:138
 msgid "Site Status"
 msgstr "Статус сайту"
 
-#: src/amo/components/Footer/index.js:155
+#: src/amo/components/Footer/index.js:145
 msgid "Browsers"
 msgstr "Браузери"
 
-#: src/amo/components/Footer/index.js:213
+#: src/amo/components/Footer/index.js:203
 msgid "Products"
 msgstr "Продукти"
 
-#: src/amo/components/Footer/index.js:289
+#: src/amo/components/Footer/index.js:279
 msgid "Privacy"
 msgstr "Приватність"
 
-#: src/amo/components/Footer/index.js:297
+#: src/amo/components/Footer/index.js:287
 msgid "Cookies"
 msgstr "Куки"
 
-#: src/amo/components/Footer/index.js:305
+#: src/amo/components/Footer/index.js:295
 msgid "Legal"
 msgstr "Правові положення"
 
-#: src/amo/components/Footer/index.js:315
+#: src/amo/components/Footer/index.js:305
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1141,71 +1125,67 @@ msgstr ""
 "Commons Attribution Share-Alike License v3.0%(endLicenseLink)s, або будь-"
 "якою новішою версією."
 
-#: src/amo/components/Footer/index.js:39
+#: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
 msgstr "Перейти на домівку Mozilla"
 
-#: src/amo/components/Footer/index.js:69
+#: src/amo/components/Footer/index.js:63
 msgid "About"
 msgstr "Про"
 
-#: src/amo/components/Footer/index.js:75
-#: src/amo/components/SectionLinks/index.js:121
+#: src/amo/components/Footer/index.js:68
+#: src/amo/components/SectionLinks/index.js:108
 msgid "Firefox Add-on Reviews"
 msgstr "Додатки Firefox"
 
-#: src/amo/components/Footer/index.js:76
-msgid "Blog"
-msgstr "Блог"
-
-#: src/amo/components/Footer/index.js:89 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "Семінар з розширень"
 
-#: src/amo/components/Footer/index.js:94 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "Центр розробника"
 
-#: src/amo/components/GetFirefoxBanner/index.js:87
+#: src/amo/components/GetFirefoxBanner/index.js:90
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 "Щоб використовувати ці додатки потрібно %(linkStart)sзавантажити Firefox"
 "%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:172
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox and get the theme"
 msgstr "Завантажити Firefox та отримати тему"
 
-#: src/amo/components/GetFirefoxButton/index.js:173
+#: src/amo/components/GetFirefoxButton/index.js:164
 msgid "Download Firefox and get the extension"
 msgstr "Завантажити Firefox та отримати розширення"
 
-#: src/amo/components/GetFirefoxButton/index.js:177
+#: src/amo/components/GetFirefoxButton/index.js:168
 msgid "Download the new Firefox and get the theme"
 msgstr "Завантажити новий Firefox та отримати тему"
 
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:169
 msgid "Download the new Firefox and get the extension"
 msgstr "Завантажити новий Firefox та отримати розширення"
 
-#: src/amo/components/GetFirefoxButton/index.js:182
+#: src/amo/components/GetFirefoxButton/index.js:173
 msgid "Download Firefox"
 msgstr "Завантажити Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:185
+#: src/amo/components/GetFirefoxButton/index.js:176
 msgid "You'll need Firefox to use this theme"
 msgstr "Для використання цієї теми вам потрібен Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:186
+#: src/amo/components/GetFirefoxButton/index.js:177
 msgid "You'll need Firefox to use this extension"
 msgstr "Для використання цього розширення вам потрібен Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:190
+#: src/amo/components/GetFirefoxButton/index.js:181
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Для застосування цієї теми вам потрібна оновлена версія Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:191
+#: src/amo/components/GetFirefoxButton/index.js:182
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Для застосування цього розширення вам потрібна оновлена версія Firefox"
 
@@ -1319,19 +1299,7 @@ msgstr "Рекомендовані"
 msgid "Verified"
 msgstr "Перевірено"
 
-#: src/amo/components/InfoDialog/index.js:68
-msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr "%(strongStart)s%(name)s%(strongEnd)s було додано"
-
-#: src/amo/components/InfoDialog/index.js:81
-msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr "Керуйте додатками в розділі меню Додатки."
-
-#: src/amo/components/InfoDialog/index.js:92
-msgid "OK"
-msgstr "Гаразд"
-
-#: src/amo/components/InstallButtonWrapper/index.js:145
+#: src/amo/components/InstallButtonWrapper/index.js:140
 msgid "Download file"
 msgstr "Завантажити файл"
 
@@ -1949,49 +1917,49 @@ msgstr "Не знайдено результатів для запиту \"%(que
 msgid "No results were found."
 msgstr "Результатів не знайдено."
 
-#: src/amo/components/SectionLinks/index.js:104
-msgid "Dictionaries & Language Packs"
-msgstr "Словники та локалізації"
-
-#: src/amo/components/SectionLinks/index.js:147
+#: src/amo/components/SectionLinks/index.js:133
 msgid "Explore"
 msgstr "Огляд"
 
-#: src/amo/components/SectionLinks/index.js:163
+#: src/amo/components/SectionLinks/index.js:149
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Розширення"
 
-#: src/amo/components/SectionLinks/index.js:179
+#: src/amo/components/SectionLinks/index.js:165
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Теми"
 
-#: src/amo/components/SectionLinks/index.js:185
+#: src/amo/components/SectionLinks/index.js:171
 msgid "More…"
 msgstr "Більше…"
 
-#: src/amo/components/SectionLinks/index.js:195
+#: src/amo/components/SectionLinks/index.js:181
 msgid "Other Browser Sites"
 msgstr "Інші сайти браузера"
 
-#: src/amo/components/SectionLinks/index.js:206
+#: src/amo/components/SectionLinks/index.js:192
 msgid "Add-ons for Android"
 msgstr "Додатки для Android"
 
-#: src/amo/components/SectionLinks/index.js:219
+#: src/amo/components/SectionLinks/index.js:205
 msgid "Add-ons for Firefox"
 msgstr "Додатки для Firefox"
 
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/SectionLinks/index.js:76
 msgid "for Firefox"
 msgstr "для Firefox"
 
-#: src/amo/components/SectionLinks/index.js:89
+#: src/amo/components/SectionLinks/index.js:78
 msgid "for Android"
 msgstr "для Android"
+
+#: src/amo/components/SectionLinks/index.js:93
+msgid "Dictionaries & Language Packs"
+msgstr "Словники та локалізації"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -2063,6 +2031,20 @@ msgstr "Оберіть фото…"
 #: src/amo/components/UserReview/index.js:108
 msgid "Developer response"
 msgstr "Відповідь розробника"
+
+#: src/amo/components/VPNPromoBanner/index.js:115
+msgid "Get Mozilla VPN"
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:88
+msgid "Save 50% with a full year subscription"
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:89
+msgid ""
+"Protect your online data—and choose a VPN subscription plan that works for "
+"you."
+msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid ""
@@ -2147,18 +2129,18 @@ msgstr "Коментарі розробника"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Примітки до випуску для %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:465
+#: src/amo/pages/Addon/index.js:466
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Це не публічний опис. Ви бачите його лише тому, що маєте підвищені привілеї."
 
-#: src/amo/pages/Addon/index.js:487
+#: src/amo/pages/Addon/index.js:488
 msgid "Extension Metadata"
 msgstr "Метадані розширення"
 
-#: src/amo/pages/Addon/index.js:511
+#: src/amo/pages/Addon/index.js:512
 msgid "Screenshots"
 msgstr "Знімки екрана"
 
@@ -3274,17 +3256,17 @@ msgid "(no name)"
 msgstr "(без назви)"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/amo/reducers/versions.js:298
+#: src/amo/reducers/versions.js:296
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s і новіше"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/amo/reducers/versions.js:302
+#: src/amo/reducers/versions.js:300
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s від %(minVersion)s до %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/amo/reducers/versions.js:322
+#: src/amo/reducers/versions.js:320
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Працює з %(listOfApplicatonsAndVersions)s"
 
@@ -3348,6 +3330,34 @@ msgstr "сумісність мого додатка не може бути он
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "сумісність мого додатка успішно оновлена"
+
+#~ msgid "Restart Required"
+#~ msgstr "Потрібен перезапуск"
+
+#~ msgid "Not compatible with Firefox Quantum"
+#~ msgstr "Не сумісно з Firefox Quantum"
+
+#~ msgid ""
+#~ "Your version of Firefox does not support this add-on because it requires "
+#~ "a restart."
+#~ msgstr ""
+#~ "Ваша версія Firefox не підтримує цей додаток, тому що він потребує "
+#~ "перезапуску."
+
+#~ msgid "Developer Blog"
+#~ msgstr "Блог розробників"
+
+#~ msgid "Blog"
+#~ msgstr "Блог"
+
+#~ msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+#~ msgstr "%(strongStart)s%(name)s%(strongEnd)s було додано"
+
+#~ msgid "Manage your add-ons by clicking Add-ons in the menu."
+#~ msgstr "Керуйте додатками в розділі меню Додатки."
+
+#~ msgid "OK"
+#~ msgstr "Гаразд"
 
 #~ msgid ""
 #~ "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of "

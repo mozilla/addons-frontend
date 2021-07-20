@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-15 16:03+0000\n"
+"POT-Creation-Date: 2021-07-20 15:48+0000\n"
 "PO-Revision-Date: 2021-06-09 18:58+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -73,35 +73,19 @@ msgstr "Tiện ích quản trị"
 msgid "Author Links"
 msgstr "Liên kết tác giả"
 
-#: src/amo/components/AddonBadges/index.js:67
-msgid "Restart Required"
-msgstr "Yêu cầu khởi động lại"
-
-#: src/amo/components/AddonBadges/index.js:71
+#: src/amo/components/AddonBadges/index.js:59
 msgid "Experimental"
 msgstr "Thử nghiệm"
 
-#: src/amo/components/AddonBadges/index.js:76
-msgid "Not compatible with Firefox Quantum"
-msgstr "Không tương thích với Firefox Quantum"
-
-#: src/amo/components/AddonBadges/index.js:82
+#: src/amo/components/AddonBadges/index.js:64
 msgid "Some features may require payment"
 msgstr "Một số tính năng có thể yêu cầu thanh toán"
 
-#: src/amo/components/AddonCompatibilityError/index.js:108
+#: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Tiện ích này không tương thích với phiên bản Firefox của bạn."
 
-#: src/amo/components/AddonCompatibilityError/index.js:111
-msgid ""
-"Your version of Firefox does not support this add-on because it requires a "
-"restart."
-msgstr ""
-"Phiên bản Firefox của bạn không hỗ trợ tiện ích này vì nó yêu cầu khởi động "
-"lại."
-
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:93
 msgid "This add-on is not available on your platform."
 msgstr "Tiện ích này không có sẵn cho nền tảng của bạn."
 
@@ -237,7 +221,7 @@ msgid "Size"
 msgstr "Kích cỡ"
 
 #: src/amo/components/AddonMoreInfo/index.js:257
-#: src/amo/components/CollectionDetails/index.js:95
+#: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Cập nhật gần nhất"
 
@@ -676,24 +660,24 @@ msgstr "Đã xóa khỏi bộ sưu tập"
 msgid "Find an add-on to include in this collection"
 msgstr "Tìm một tiện ích bổ sung để đưa vào bộ sưu tập này"
 
-#: src/amo/components/CollectionDetails/index.js:109
+#: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
 msgstr "Sửa bộ sưu tập"
 
-#: src/amo/components/CollectionDetails/index.js:120
+#: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
 msgstr "Chỉnh sửa chi tiết bộ sưu tập"
 
-#: src/amo/components/CollectionDetails/index.js:132
+#: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
 msgstr "Quay lại bộ sưu tập"
 
-#: src/amo/components/CollectionDetails/index.js:85
-#: src/amo/components/Footer/index.js:64
+#: src/amo/components/CollectionDetails/index.js:77
+#: src/amo/components/Footer/index.js:58
 msgid "Add-ons"
 msgstr "Tiện ích"
 
-#: src/amo/components/CollectionDetails/index.js:89
+#: src/amo/components/CollectionDetails/index.js:81
 msgid "Creator"
 msgstr "Người sáng tạo"
 
@@ -1072,51 +1056,51 @@ msgstr "Gắn cờ là spam"
 msgid "This contains inappropriate language"
 msgstr "Điều này có chứa ngôn ngữ không phù hợp"
 
-#: src/amo/components/Footer/index.js:109
+#: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
 msgstr "Chính sách nhà phát triển"
 
-#: src/amo/components/Footer/index.js:124
-msgid "Developer Blog"
-msgstr "Blog nhà phát triển"
+#: src/amo/components/Footer/index.js:115
+msgid "Community Blog"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:130
+#: src/amo/components/Footer/index.js:120
 msgid "Forum"
 msgstr "Diễn đàn"
 
-#: src/amo/components/Footer/index.js:138
+#: src/amo/components/Footer/index.js:128
 msgid "Report a bug"
 msgstr "Báo cáo một lỗi"
 
-#: src/amo/components/Footer/index.js:143
+#: src/amo/components/Footer/index.js:133
 msgid "Review Guide"
 msgstr "Hướng dẫn đánh giá"
 
-#: src/amo/components/Footer/index.js:148
+#: src/amo/components/Footer/index.js:138
 msgid "Site Status"
 msgstr "Trạng thái trang"
 
-#: src/amo/components/Footer/index.js:155
+#: src/amo/components/Footer/index.js:145
 msgid "Browsers"
 msgstr "Trình duyệt"
 
-#: src/amo/components/Footer/index.js:213
+#: src/amo/components/Footer/index.js:203
 msgid "Products"
 msgstr "Sản phẩm"
 
-#: src/amo/components/Footer/index.js:289
+#: src/amo/components/Footer/index.js:279
 msgid "Privacy"
 msgstr "Riêng tư"
 
-#: src/amo/components/Footer/index.js:297
+#: src/amo/components/Footer/index.js:287
 msgid "Cookies"
 msgstr "Cookie"
 
-#: src/amo/components/Footer/index.js:305
+#: src/amo/components/Footer/index.js:295
 msgid "Legal"
 msgstr "Pháp lý"
 
-#: src/amo/components/Footer/index.js:315
+#: src/amo/components/Footer/index.js:305
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1127,71 +1111,67 @@ msgstr ""
 "Commons Attribution Share-Alike v3.0%(endLicenseLink)s hoặc bất kỳ phiên bản "
 "nào sau này."
 
-#: src/amo/components/Footer/index.js:39
+#: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
 msgstr "Đi đến trang chủ Mozilla"
 
-#: src/amo/components/Footer/index.js:69
+#: src/amo/components/Footer/index.js:63
 msgid "About"
 msgstr "Giới thiệu"
 
-#: src/amo/components/Footer/index.js:75
-#: src/amo/components/SectionLinks/index.js:121
+#: src/amo/components/Footer/index.js:68
+#: src/amo/components/SectionLinks/index.js:108
 msgid "Firefox Add-on Reviews"
 msgstr "Đánh giá về Tiện ích mở rộng của Firefox"
 
-#: src/amo/components/Footer/index.js:76
-msgid "Blog"
-msgstr "Blog"
-
-#: src/amo/components/Footer/index.js:89 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
 msgid "Extension Workshop"
 msgstr "Extension Workshop"
 
-#: src/amo/components/Footer/index.js:94 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
 msgid "Developer Hub"
 msgstr "Trung tâm nhà phát triển"
 
-#: src/amo/components/GetFirefoxBanner/index.js:87
+#: src/amo/components/GetFirefoxBanner/index.js:90
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 "Để sử dụng các tiện ích mở rộng này, bạn cần %(linkStart)stải xuống Firefox"
 "%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:172
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox and get the theme"
 msgstr "Tải xuống Firefox và nhận chủ đề"
 
-#: src/amo/components/GetFirefoxButton/index.js:173
+#: src/amo/components/GetFirefoxButton/index.js:164
 msgid "Download Firefox and get the extension"
 msgstr "Tải xuống Firefox và tải tiện ích mở rộng"
 
-#: src/amo/components/GetFirefoxButton/index.js:177
+#: src/amo/components/GetFirefoxButton/index.js:168
 msgid "Download the new Firefox and get the theme"
 msgstr "Tải xuống Firefox mới và nhận chủ đề"
 
-#: src/amo/components/GetFirefoxButton/index.js:178
+#: src/amo/components/GetFirefoxButton/index.js:169
 msgid "Download the new Firefox and get the extension"
 msgstr "Tải xuống Firefox mới và tải tiện ích mở rộng"
 
-#: src/amo/components/GetFirefoxButton/index.js:182
+#: src/amo/components/GetFirefoxButton/index.js:173
 msgid "Download Firefox"
 msgstr "Tải xuông Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:185
+#: src/amo/components/GetFirefoxButton/index.js:176
 msgid "You'll need Firefox to use this theme"
 msgstr "Bạn sẽ cần Firefox để sử dụng chủ đề này"
 
-#: src/amo/components/GetFirefoxButton/index.js:186
+#: src/amo/components/GetFirefoxButton/index.js:177
 msgid "You'll need Firefox to use this extension"
 msgstr "Bạn sẽ cần Firefox để sử dụng tiện ích mở rộng này"
 
-#: src/amo/components/GetFirefoxButton/index.js:190
+#: src/amo/components/GetFirefoxButton/index.js:181
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Bạn sẽ cần phiên bản Firefox cập nhật cho chủ đề này"
 
-#: src/amo/components/GetFirefoxButton/index.js:191
+#: src/amo/components/GetFirefoxButton/index.js:182
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Bạn sẽ cần phiên bản Firefox cập nhật cho tiện ích mở rộng này"
 
@@ -1305,19 +1285,7 @@ msgstr "Được đề xuất"
 msgid "Verified"
 msgstr "Đã xác minh"
 
-#: src/amo/components/InfoDialog/index.js:68
-msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr "%(strongStart)s%(name)s%(strongEnd)s đã được thêm vào"
-
-#: src/amo/components/InfoDialog/index.js:81
-msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr "Quản lý tiện ích của bạn bằng cách nhấp vào Tiện ích trên bảng chọn."
-
-#: src/amo/components/InfoDialog/index.js:92
-msgid "OK"
-msgstr "OK"
-
-#: src/amo/components/InstallButtonWrapper/index.js:145
+#: src/amo/components/InstallButtonWrapper/index.js:140
 msgid "Download file"
 msgstr "Tải xuống tập tin"
 
@@ -1907,49 +1875,49 @@ msgstr "Không tìm thấy kết quả nào cho \"%(query)s\"."
 msgid "No results were found."
 msgstr "Không tìm thấy kêt quả nào."
 
-#: src/amo/components/SectionLinks/index.js:104
-msgid "Dictionaries & Language Packs"
-msgstr "Từ điển & gói ngôn ngữ"
-
-#: src/amo/components/SectionLinks/index.js:147
+#: src/amo/components/SectionLinks/index.js:133
 msgid "Explore"
 msgstr "Khám phá"
 
-#: src/amo/components/SectionLinks/index.js:163
+#: src/amo/components/SectionLinks/index.js:149
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Tiện ích mở rộng"
 
-#: src/amo/components/SectionLinks/index.js:179
+#: src/amo/components/SectionLinks/index.js:165
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Chủ đề"
 
-#: src/amo/components/SectionLinks/index.js:185
+#: src/amo/components/SectionLinks/index.js:171
 msgid "More…"
 msgstr "Xem thêm…"
 
-#: src/amo/components/SectionLinks/index.js:195
+#: src/amo/components/SectionLinks/index.js:181
 msgid "Other Browser Sites"
 msgstr "Các trang web trình duyệt khác"
 
-#: src/amo/components/SectionLinks/index.js:206
+#: src/amo/components/SectionLinks/index.js:192
 msgid "Add-ons for Android"
 msgstr "Tiện ích cho Android"
 
-#: src/amo/components/SectionLinks/index.js:219
+#: src/amo/components/SectionLinks/index.js:205
 msgid "Add-ons for Firefox"
 msgstr "Tiện ích cho Firefox"
 
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/SectionLinks/index.js:76
 msgid "for Firefox"
 msgstr "cho Firefox"
 
-#: src/amo/components/SectionLinks/index.js:89
+#: src/amo/components/SectionLinks/index.js:78
 msgid "for Android"
 msgstr "cho Android"
+
+#: src/amo/components/SectionLinks/index.js:93
+msgid "Dictionaries & Language Packs"
+msgstr "Từ điển & gói ngôn ngữ"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -2019,6 +1987,20 @@ msgstr "Chọn ảnh…"
 #: src/amo/components/UserReview/index.js:108
 msgid "Developer response"
 msgstr "Phản hồi của nhà phát triển"
+
+#: src/amo/components/VPNPromoBanner/index.js:115
+msgid "Get Mozilla VPN"
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:88
+msgid "Save 50% with a full year subscription"
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:89
+msgid ""
+"Protect your online data—and choose a VPN subscription plan that works for "
+"you."
+msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid ""
@@ -2102,7 +2084,7 @@ msgstr "Trả lời của nhà phát triển"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Ghi chú phát hành cho phiên bản %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:465
+#: src/amo/pages/Addon/index.js:466
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2110,11 +2092,11 @@ msgstr ""
 "Đây không phải là danh sách công khai. Bạn chỉ nhìn thấy nó bởi các quyền "
 "cao hơn."
 
-#: src/amo/pages/Addon/index.js:487
+#: src/amo/pages/Addon/index.js:488
 msgid "Extension Metadata"
 msgstr "Siêu dữ liệu mở rộng"
 
-#: src/amo/pages/Addon/index.js:511
+#: src/amo/pages/Addon/index.js:512
 msgid "Screenshots"
 msgstr "Ảnh chụp màn hình"
 
@@ -3227,17 +3209,17 @@ msgid "(no name)"
 msgstr "(không có tên)"
 
 # This is application compatibility information, such as "firefox 41 and later"
-#: src/amo/reducers/versions.js:298
+#: src/amo/reducers/versions.js:296
 msgid "%(application)s %(minVersion)s and later"
 msgstr "%(application)s %(minVersion)s và lớn hơn"
 
 # This is application compatibility information, such as "firefox 41 to 45"
-#: src/amo/reducers/versions.js:302
+#: src/amo/reducers/versions.js:300
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
 msgstr "%(application)s %(minVersion)s đến %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
-#: src/amo/reducers/versions.js:322
+#: src/amo/reducers/versions.js:320
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Hoạt động với %(listOfApplicatonsAndVersions)s"
 
@@ -3300,6 +3282,35 @@ msgstr "khả năng tương thích của tiện ích của tôi không thể đ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "khả năng tương thích của tiện ích của tôi được nâng cấp thành công"
+
+#~ msgid "Restart Required"
+#~ msgstr "Yêu cầu khởi động lại"
+
+#~ msgid "Not compatible with Firefox Quantum"
+#~ msgstr "Không tương thích với Firefox Quantum"
+
+#~ msgid ""
+#~ "Your version of Firefox does not support this add-on because it requires "
+#~ "a restart."
+#~ msgstr ""
+#~ "Phiên bản Firefox của bạn không hỗ trợ tiện ích này vì nó yêu cầu khởi "
+#~ "động lại."
+
+#~ msgid "Developer Blog"
+#~ msgstr "Blog nhà phát triển"
+
+#~ msgid "Blog"
+#~ msgstr "Blog"
+
+#~ msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
+#~ msgstr "%(strongStart)s%(name)s%(strongEnd)s đã được thêm vào"
+
+#~ msgid "Manage your add-ons by clicking Add-ons in the menu."
+#~ msgstr ""
+#~ "Quản lý tiện ích của bạn bằng cách nhấp vào Tiện ích trên bảng chọn."
+
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #~ msgid ""
 #~ "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of "
