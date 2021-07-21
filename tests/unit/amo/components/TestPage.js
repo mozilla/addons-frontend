@@ -12,6 +12,7 @@ import {
   createCapturedErrorHandler,
   createContextWithFakeRouter,
   dispatchClientMetadata,
+  getFakeConfig,
   getFakeLogger,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -98,14 +99,29 @@ describe(__filename, () => {
     expect(root.find(AppBanner)).toHaveLength(1);
   });
 
-  it('renders a VPNPromoBanner if showVPNPromo is true', () => {
-    const root = render({ showVPNPromo: true });
+  it('renders a VPNPromoBanner if showVPNPromo is true and the feature is enabled', () => {
+    const root = render({
+      _config: getFakeConfig({ enableFeatureVPNPromo: true }),
+      showVPNPromo: true,
+    });
 
     expect(root.find(VPNPromoBanner)).toHaveLength(1);
   });
 
   it('does not render a VPNPromoBanner if showVPNPromo is false', () => {
-    const root = render({ showVPNPromo: false });
+    const root = render({
+      _config: getFakeConfig({ enableFeatureVPNPromo: true }),
+      showVPNPromo: false,
+    });
+
+    expect(root.find(VPNPromoBanner)).toHaveLength(0);
+  });
+
+  it('does not render a VPNPromoBanner if the feature is disabled', () => {
+    const root = render({
+      _config: getFakeConfig({ enableFeatureVPNPromo: false }),
+      showVPNPromo: true,
+    });
 
     expect(root.find(VPNPromoBanner)).toHaveLength(0);
   });

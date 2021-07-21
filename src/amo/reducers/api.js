@@ -33,11 +33,13 @@ export type UserAgentInfoType = {|
   },
 |};
 
+export type RegionCodeType = string | null;
+
 export type ApiState = {
   clientApp: string,
   // See config.get('langs') for all possible values.
   lang: string,
-  regionCode: string | null,
+  regionCode: RegionCodeType,
   requestId: string | null,
   token: string | null,
   userAgent: string | null,
