@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-20 15:48+0000\n"
-"PO-Revision-Date: 2021-07-21 19:19+0000\n"
+"PO-Revision-Date: 2021-07-21 19:20+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1804,11 +1804,11 @@ msgstr "Hanki Mozilla VPN"
 
 #: src/amo/components/VPNPromoBanner/index.js:88
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "Säästä 50 prosenttia koko vuoden tilauksella"
 
 #: src/amo/components/VPNPromoBanner/index.js:89
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "Suojaa tietojasi verkossa — ja valitse sinulle sopiva VPN-tilaus."
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
