@@ -104,6 +104,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           footerText={footerText}
           footerLink={footerLink}
           header={title}
+          isHomepageShelf
           isTheme={hasThemes}
           key={shelfKey}
           placeholderCount={count}

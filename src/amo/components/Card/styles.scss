@@ -54,7 +54,8 @@ $footer-padding: 10px;
 }
 
 .Card-footer-link,
-.Card-footer-text {
+.Card-footer-text,
+.Card-shelf-footer-in-header {
   a,
   a:active,
   a:hover,
@@ -84,5 +85,35 @@ $footer-padding: 10px;
 .Card-footer-link {
   @include respond-to(large) {
     padding: 5px 26px;
+  }
+}
+
+.Card-shelf-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Card-shelf-footer {
+  @include respond-to(large) {
+    display: none;
+  }
+}
+
+.Card-shelf-footer-in-header {
+  @include respond-to(mediumOnly) {
+    display: none;
+  }
+
+  margin-left: 16px;
+  padding: 0;
+  text-align: right;
+
+  a,
+  a:active,
+  a:hover,
+  a:link,
+  a:visited {
+    padding: 0;
   }
 }

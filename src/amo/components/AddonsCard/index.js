@@ -19,6 +19,7 @@ import './styles.scss';
 
 type DefaultProps = {|
   editing?: boolean,
+  isHomepageShelf?: boolean,
   loading?: boolean,
   // When loading, this is the number of placeholders
   // that will be rendered.
@@ -36,7 +37,6 @@ type Props = {|
   type?: 'horizontal' | 'vertical',
   showFullSizePreview?: boolean,
   showMetadata?: boolean,
-  showPromotedBadge?: boolean,
   showSummary?: boolean,
 
   // These are all passed through to Card.
@@ -58,6 +58,7 @@ type Props = {|
 export default class AddonsCard extends React.Component<Props> {
   static defaultProps: DefaultProps = {
     editing: false,
+    isHomepageShelf: false,
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,
     showPromotedBadge: true,
