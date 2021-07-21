@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import deepEqual from 'deep-eql';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -25,6 +26,7 @@ import './styles.scss';
 import vpnLogo from './img/mozilla-vpn.svg';
 import dismissX from './img/x-close-black.svg';
 
+export const IMPRESSION_COUNT_KEY = 'VPNPromoImpressionCount';
 export const VPN_PROMO_CAMPAIGN = 'amo-vpn-promo';
 export const VPN_PROMO_CATEGORY = 'VPN Promo Banner';
 export const VPN_PROMO_CLICK_ACTION = 'vpn-promo-banner-click';
@@ -36,6 +38,7 @@ export type Props = {||};
 
 export type DeafultProps = {|
   _tracking: typeof tracking,
+  _window: typeof window | Object,
 |};
 
 type PropsFromState = {|
@@ -52,9 +55,27 @@ type InternalProps = {|
   location: ReactRouterLocationType,
 |};
 
+export const getImpressionCount = (_window: typeof window): number => {
+  const impressionCount = _window.localStorage.getItem(IMPRESSION_COUNT_KEY);
+  const parsedCount = parseInt(impressionCount || 0, 10);
+
+  if (Number.isNaN(parsedCount)) {
+    throw new Error(
+      `A non-number was stored in ${IMPRESSION_COUNT_KEY}: ${impressionCount}`,
+    );
+  }
+
+  return parsedCount;
+};
+
+export const clearImpressionCount = (_window: typeof window) => {
+  _window.localStorage.removeItem(IMPRESSION_COUNT_KEY);
+};
+
 export class VPNPromoBannerBase extends React.Component<InternalProps> {
   static defaultProps: DeafultProps = {
     _tracking: tracking,
+    _window: typeof window !== 'undefined' ? window : {},
   };
 
   shouldShowBanner(): boolean {
@@ -70,27 +91,40 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
   }
 
   onButtonClick: () => void = () => {
-    this.props._tracking.sendEvent({
+    const { _tracking, _window } = this.props;
+
+    const impressionCount = getImpressionCount(_window);
+    _tracking.sendEvent({
       action: VPN_PROMO_CLICK_ACTION,
       category: VPN_PROMO_CATEGORY,
+      label: String(impressionCount),
     });
+    clearImpressionCount(_window);
   };
 
   onDismiss: () => void = () => {
-    this.props._tracking.sendEvent({
+    const { _tracking, _window } = this.props;
+
+    const impressionCount = getImpressionCount(_window);
+    _tracking.sendEvent({
       action: VPN_PROMO_DISMISS_ACTION,
       category: VPN_PROMO_CATEGORY,
+      label: String(impressionCount),
     });
+    clearImpressionCount(_window);
   };
 
   onImpression: () => void = () => {
-    const { _tracking } = this.props;
+    const { _tracking, _window } = this.props;
 
     if (this.shouldShowBanner()) {
+      const impressionCount = getImpressionCount(_window) + 1;
       _tracking.sendEvent({
         action: VPN_PROMO_IMPRESSION_ACTION,
         category: VPN_PROMO_CATEGORY,
+        label: String(impressionCount),
       });
+      _window.localStorage.setItem(IMPRESSION_COUNT_KEY, impressionCount);
     }
   };
 

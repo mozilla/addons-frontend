@@ -1314,6 +1314,15 @@ export const createFakeTracking = (overrides = {}) => {
   };
 };
 
+export const createFakeLocalStorage = (overrides = {}) => {
+  return {
+    getItem: sinon.stub(),
+    removeItem: sinon.stub(),
+    setItem: sinon.stub(),
+    ...overrides,
+  };
+};
+
 // Save a reference to the real setTimeout in case a test uses a mock
 // sinon clock.
 const globalSetTimeout = setTimeout;
