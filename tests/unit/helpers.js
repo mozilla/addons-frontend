@@ -1481,3 +1481,12 @@ export const fakeTrackingEvent = Object.freeze({
   label: 'some-label',
   value: 19,
 });
+
+export const makeExperimentId = (id) => `20210219_amo_${id}`;
+
+export const createExperimentData = ({
+  id = makeExperimentId('some-id'),
+  variantId = 'some-variant-id',
+}) => {
+  return { [id]: variantId };
+};

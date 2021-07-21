@@ -88,6 +88,8 @@ export type ExperimentConfig = {|
   variants: ExperimentVariant[],
 |};
 
+export type UpdateVariantFunction = (variant: string) => void;
+
 export type WithExperimentInjectedProps = {|
   experimentId: string,
   isExperimentEnabled: boolean,
@@ -253,8 +255,18 @@ export const withExperiment =
         };
       }
 
+      writeCookie(experimentsToStore: RegisteredExpermients) {
+        const { cookies } = this.props;
+
+        cookies.set(
+          EXPERIMENT_COOKIE_NAME,
+          experimentsToStore,
+          cookieConfig || defaultCookieConfig,
+        );
+      }
+
       componentDidMount() {
-        const { _isExperimentEnabled, cookies } = this.props;
+        const { _isExperimentEnabled } = this.props;
 
         const { addExperimentToCookie, registeredExperiments, variant } =
           this.experimentSetup(this.props);
@@ -284,11 +296,7 @@ export const withExperiment =
         }
 
         if (cleanupNeeded || addExperimentToCookie) {
-          cookies.set(
-            EXPERIMENT_COOKIE_NAME,
-            experimentsToStore,
-            cookieConfig || defaultCookieConfig,
-          );
+          this.writeCookie(experimentsToStore);
         }
       }
 
