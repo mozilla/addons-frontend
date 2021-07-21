@@ -133,7 +133,6 @@ describe(__filename, () => {
   });
 
   it('throws an exception if something other than a number is stored', () => {
-    setupForComponent();
     const _window = {
       localStorage: createFakeLocalStorage({
         getItem: sinon.stub().returns('not a number!'),
