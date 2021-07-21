@@ -1,6 +1,7 @@
 /* @flow */
 /* global window */
 import deepEqual from 'deep-eql';
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -59,11 +60,10 @@ export const getImpressionCount = (_window: typeof window): number => {
   const impressionCount = _window.localStorage.getItem(IMPRESSION_COUNT_KEY);
   const parsedCount = parseInt(impressionCount || 0, 10);
 
-  if (Number.isNaN(parsedCount)) {
-    throw new Error(
-      `A non-number was stored in ${IMPRESSION_COUNT_KEY}: ${impressionCount}`,
-    );
-  }
+  invariant(
+    !Number.isNaN(parsedCount),
+    `A non-number was stored in ${IMPRESSION_COUNT_KEY}: ${impressionCount}`,
+  );
 
   return parsedCount;
 };
@@ -90,28 +90,24 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
     );
   }
 
-  onButtonClick: () => void = () => {
+  onInteract: (action: string) => void = (action) => {
     const { _tracking, _window } = this.props;
 
     const impressionCount = getImpressionCount(_window);
     _tracking.sendEvent({
-      action: VPN_PROMO_CLICK_ACTION,
+      action,
       category: VPN_PROMO_CATEGORY,
       label: String(impressionCount),
     });
     clearImpressionCount(_window);
   };
 
-  onDismiss: () => void = () => {
-    const { _tracking, _window } = this.props;
+  onButtonClick: () => void = () => {
+    this.onInteract(VPN_PROMO_CLICK_ACTION);
+  };
 
-    const impressionCount = getImpressionCount(_window);
-    _tracking.sendEvent({
-      action: VPN_PROMO_DISMISS_ACTION,
-      category: VPN_PROMO_CATEGORY,
-      label: String(impressionCount),
-    });
-    clearImpressionCount(_window);
+  onDismiss: () => void = () => {
+    this.onInteract(VPN_PROMO_DISMISS_ACTION);
   };
 
   onImpression: () => void = () => {
