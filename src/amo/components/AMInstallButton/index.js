@@ -23,7 +23,6 @@ import {
   UNKNOWN,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
-import { findInstallURL } from 'amo/installAddon';
 import log from 'amo/logger';
 import tracking, {
   getAddonTypeForTracking,
@@ -236,9 +235,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
     const installURL =
       currentVersion && currentVersion.file
-        ? findInstallURL({
-            file: currentVersion.file,
-          })
+        ? currentVersion.file.url
         : undefined;
 
     const buttonIsDisabled =
