@@ -28,6 +28,10 @@ The origin will never send `Cache-Control` headers for 40x or 50x responses, as 
 
 ## Additional considerations
 
+### Cookies in requests
+
+Caching is bypassed for some cookies as described above, but this is achieved without `Vary`, because we can't `Vary` on a specific cookie, only the whole header, which would include all cookies ever set on the AMO domain, including analytics - so we would likely see an extremely poor cache hit ratio if we did that.
+
 ### Cookies in responses
 
 In addition to what's described above, Nginx is currently configured to never cache a response containing the `Set-Cookie` header. This is a safety measure that we could deactivate if needed. The value of the `Set-Cookie` header wouldn't affect the cache key.
