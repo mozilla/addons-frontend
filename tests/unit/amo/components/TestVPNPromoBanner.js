@@ -52,7 +52,7 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <VPNPromoBanner
         _tracking={createFakeTracking()}
-        _window={{ localStorage: createFakeLocalStorage() }}
+        _localStorage={createFakeLocalStorage()}
         i18n={fakeI18n()}
         store={store}
         variant={variant}
@@ -107,53 +107,43 @@ describe(__filename, () => {
   });
 
   it('clears the impression count when the cta is clicked', () => {
-    const _window = { localStorage: createFakeLocalStorage() };
+    const _localStorage = createFakeLocalStorage();
 
-    const root = render({ _window });
+    const root = render({ _localStorage });
     const event = createFakeEvent();
     root.find('.VPNPromoBanner-cta').simulate('click', event);
 
-    sinon.assert.calledWith(
-      _window.localStorage.removeItem,
-      IMPRESSION_COUNT_KEY,
-    );
+    sinon.assert.calledWith(_localStorage.removeItem, IMPRESSION_COUNT_KEY);
   });
 
   it('clears the impression count when the dismiss button is clicked', () => {
-    const _window = { localStorage: createFakeLocalStorage() };
+    const _localStorage = createFakeLocalStorage();
 
-    const root = render({ _window });
+    const root = render({ _localStorage });
     const event = createFakeEvent();
     root.find('.VPNPromoBanner-dismisser-button').simulate('click', event);
 
-    sinon.assert.calledWith(
-      _window.localStorage.removeItem,
-      IMPRESSION_COUNT_KEY,
-    );
+    sinon.assert.calledWith(_localStorage.removeItem, IMPRESSION_COUNT_KEY);
   });
 
   it('throws an exception if something other than a number is stored', () => {
-    const _window = {
-      localStorage: createFakeLocalStorage({
-        getItem: sinon.stub().returns('not a number!'),
-      }),
-    };
+    const _localStorage = createFakeLocalStorage({
+      getItem: sinon.stub().returns('not a number!'),
+    });
 
     expect(() => {
-      render({ _window });
+      render({ _localStorage });
     }).toThrowError(/A non-number was stored in VPNPromoImpressionCount/);
   });
 
   describe('tracking', () => {
     it('sends a tracking event when the cta is clicked', () => {
       const impressionCount = '5';
-      const _window = {
-        localStorage: createFakeLocalStorage({
-          getItem: sinon.stub().returns(impressionCount),
-        }),
-      };
+      const _localStorage = createFakeLocalStorage({
+        getItem: sinon.stub().returns(impressionCount),
+      });
       const _tracking = createFakeTracking();
-      const root = render({ _tracking, _window });
+      const root = render({ _tracking, _localStorage });
       root.find('.VPNPromoBanner-cta').simulate('click', createFakeEvent());
 
       sinon.assert.calledWith(_tracking.sendEvent, {
@@ -167,13 +157,11 @@ describe(__filename, () => {
 
     it('sends a tracking event when the dismiss button is clicked', () => {
       const impressionCount = '5';
-      const _window = {
-        localStorage: createFakeLocalStorage({
-          getItem: sinon.stub().returns(impressionCount),
-        }),
-      };
+      const _localStorage = createFakeLocalStorage({
+        getItem: sinon.stub().returns(impressionCount),
+      });
       const _tracking = createFakeTracking();
-      const root = render({ _tracking, _window });
+      const root = render({ _tracking, _localStorage });
       root
         .find('.VPNPromoBanner-dismisser-button')
         .simulate('click', createFakeEvent());
@@ -190,13 +178,11 @@ describe(__filename, () => {
     it('sends a tracking event and increases the count for the impression on mount', () => {
       const impressionCount = '5';
       const nextImpressionCount = 6;
-      const _window = {
-        localStorage: createFakeLocalStorage({
-          getItem: sinon.stub().returns(impressionCount),
-        }),
-      };
+      const _localStorage = createFakeLocalStorage({
+        getItem: sinon.stub().returns(impressionCount),
+      });
       const _tracking = createFakeTracking();
-      render({ _tracking, _window });
+      render({ _tracking, _localStorage });
 
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: VPN_PROMO_IMPRESSION_ACTION,
@@ -205,7 +191,7 @@ describe(__filename, () => {
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
       sinon.assert.calledWith(
-        _window.localStorage.setItem,
+        _localStorage.setItem,
         IMPRESSION_COUNT_KEY,
         nextImpressionCount,
       );
@@ -238,14 +224,12 @@ describe(__filename, () => {
     it('sends a tracking event and increases the count for the impression on update', () => {
       const impressionCount = '5';
       const nextImpressionCount = 6;
-      const _window = {
-        localStorage: createFakeLocalStorage({
-          getItem: sinon.stub().returns(impressionCount),
-        }),
-      };
+      const _localStorage = createFakeLocalStorage({
+        getItem: sinon.stub().returns(impressionCount),
+      });
       const _tracking = createFakeTracking();
       const location = createFakeLocation({ pathname: '/a/' });
-      const root = render({ _tracking, _window, location });
+      const root = render({ _tracking, _localStorage, location });
 
       // Reset as the on mount impression would have been called.
       _tracking.sendEvent.resetHistory();
@@ -259,7 +243,7 @@ describe(__filename, () => {
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
       sinon.assert.calledWith(
-        _window.localStorage.setItem,
+        _localStorage.setItem,
         IMPRESSION_COUNT_KEY,
         nextImpressionCount,
       );

@@ -39,7 +39,7 @@ export type Props = {||};
 
 export type DeafultProps = {|
   _tracking: typeof tracking,
-  _window: typeof window | Object,
+  _localStorage: typeof window.localStorage | Object,
 |};
 
 type PropsFromState = {|
@@ -56,8 +56,10 @@ type InternalProps = {|
   location: ReactRouterLocationType,
 |};
 
-export const getImpressionCount = (_window: typeof window): number => {
-  const impressionCount = _window.localStorage.getItem(IMPRESSION_COUNT_KEY);
+export const getImpressionCount = (
+  _localStorage: typeof window.localStorage,
+): number => {
+  const impressionCount = _localStorage.getItem(IMPRESSION_COUNT_KEY);
   const parsedCount = parseInt(impressionCount || 0, 10);
 
   invariant(
@@ -68,14 +70,10 @@ export const getImpressionCount = (_window: typeof window): number => {
   return parsedCount;
 };
 
-export const clearImpressionCount = (_window: typeof window) => {
-  _window.localStorage.removeItem(IMPRESSION_COUNT_KEY);
-};
-
 export class VPNPromoBannerBase extends React.Component<InternalProps> {
   static defaultProps: DeafultProps = {
     _tracking: tracking,
-    _window: typeof window !== 'undefined' ? window : {},
+    _localStorage: typeof window !== 'undefined' ? window.localStorage : {},
   };
 
   shouldShowBanner(): boolean {
@@ -91,15 +89,15 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
   }
 
   onInteract: (action: string) => void = (action) => {
-    const { _tracking, _window } = this.props;
+    const { _tracking, _localStorage } = this.props;
 
-    const impressionCount = getImpressionCount(_window);
+    const impressionCount = getImpressionCount(_localStorage);
     _tracking.sendEvent({
       action,
       category: VPN_PROMO_CATEGORY,
       label: String(impressionCount),
     });
-    clearImpressionCount(_window);
+    _localStorage.removeItem(IMPRESSION_COUNT_KEY);
   };
 
   onButtonClick: () => void = () => {
@@ -111,16 +109,16 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
   };
 
   onImpression: () => void = () => {
-    const { _tracking, _window } = this.props;
+    const { _tracking, _localStorage } = this.props;
 
     if (this.shouldShowBanner()) {
-      const impressionCount = getImpressionCount(_window) + 1;
+      const impressionCount = getImpressionCount(_localStorage) + 1;
       _tracking.sendEvent({
         action: VPN_PROMO_IMPRESSION_ACTION,
         category: VPN_PROMO_CATEGORY,
         label: String(impressionCount),
       });
-      _window.localStorage.setItem(IMPRESSION_COUNT_KEY, impressionCount);
+      _localStorage.setItem(IMPRESSION_COUNT_KEY, impressionCount);
     }
   };
 
