@@ -24,7 +24,7 @@ If a response is not found in the cache, the request is forwarded to the origin 
 
 Behind the scenes the cache key is generated with a mix of hardcoded nginx configuration and HTTP headers returned in the `Vary` header(s) in the response. It might include more headers depending on the page, for instance pages doing `Accept-Language` detection add that header to the key automatically by adding it to the Vary header in the response).
 
-The origin will never send `Cache-Control` headers for 40x or 50x responses, as well as requests with a `frontend_auth_token` cookie, so these responses will never be cached no matter what.
+The origin will send a `X-Accel-Expires` header (causing nginx to cache response) on all responses unless the request came in with a `frontend_auth_token` or the response being generated is a 40x or 50x. On top of that header, a `Cache-Control: max-age=0` is sent by default (so browsers never cache the responses, to deal with authentication and back/forward cache interaction), and if the response is cacheable, a `s-maxage=180` is added, telling shared caches it's ok to cache the response.
 
 ## Additional considerations
 
