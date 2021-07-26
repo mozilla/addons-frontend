@@ -66,7 +66,7 @@ describe(__filename, () => {
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox/whatever');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
-    sinon.assert.notCalled(fakeRes.vary);
+    sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
 
   it('should prepend lang when missing but keep clientAppUrlException', () => {
@@ -81,7 +81,7 @@ describe(__filename, () => {
       '/en-US/validprefix/whatever',
     );
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
-    sinon.assert.notCalled(fakeRes.vary);
+    sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
 
   it('should set lang when invalid, preserving clientApp URL exception', () => {
@@ -92,7 +92,7 @@ describe(__filename, () => {
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/developers/');
     sinon.assert.calledWith(fakeRes.set, 'Cache-Control', ['max-age=31536000']);
-    sinon.assert.notCalled(fakeRes.vary);
+    sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
 
   it('should fallback to and vary on accept-language headers', () => {
