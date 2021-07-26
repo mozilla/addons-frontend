@@ -206,27 +206,24 @@ type GetLanguageParams = {|
 /*
  * Check validity of language:
  * - If invalid, fall-back to accept-language.
- * - Return object with lang and isLangFromHeader hint.
+ * - Return object with lang
  *
  */
 export function getLanguage({
   lang,
   acceptLanguage,
 }: GetLanguageParams = {}): {|
-  isLangFromHeader: boolean,
   lang: void | string,
 |} {
   let userLang = lang;
-  let isLangFromHeader = false;
   // If we don't have a supported userLang yet try accept-language.
   if (!isSupportedLang(normalizeLang(userLang)) && acceptLanguage) {
     userLang = getLangFromHeader(acceptLanguage);
-    isLangFromHeader = true;
   }
   // sanitizeLanguage will perform the following:
   // - mapping e.g. pt -> pt-PT.
   // - normalization e.g: en-us -> en-US.
-  return { lang: sanitizeLanguage(userLang), isLangFromHeader };
+  return { lang: sanitizeLanguage(userLang) };
 }
 
 // moment uses locales like "en-gb" whereas we use "en_GB".
