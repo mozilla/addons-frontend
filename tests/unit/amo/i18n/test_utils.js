@@ -209,52 +209,44 @@ describe(__filename, () => {
     it('should return default lang if called without args', () => {
       const result = utils.getLanguage();
       expect(result.lang).toEqual(defaultLang);
-      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should return default lang if no lang is provided', () => {
       const result = utils.getLanguage({ lang: '' });
       expect(result.lang).toEqual(defaultLang);
-      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should return default lang if bad lang is provided', () => {
       const result = utils.getLanguage({ lang: 'bogus' });
       expect(result.lang).toEqual(defaultLang);
-      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should return default lang if bad lang type provided', () => {
       const result = utils.getLanguage({ lang: 1 });
       expect(result.lang).toEqual(defaultLang);
-      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should return lang if provided via the URL', () => {
       const result = utils.getLanguage({ lang: 'fr' });
       expect(result.lang).toEqual('fr');
-      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should fall-back to accept-language', () => {
       const acceptLanguage = 'pt-br;q=0.5,en-us;q=0.3,en;q=0.2';
       const result = utils.getLanguage({ lang: 'bogus', acceptLanguage });
       expect(result.lang).toEqual('pt-BR');
-      expect(result.isLangFromHeader).toEqual(true);
     });
 
     it('should map lang from accept-language too', () => {
       const acceptLanguage = 'pt;q=0.5,en-us;q=0.3,en;q=0.2';
       const result = utils.getLanguage({ lang: 'wat', acceptLanguage });
       expect(result.lang).toEqual('pt-PT');
-      expect(result.isLangFromHeader).toEqual(true);
     });
 
     it('should fallback when nothing matches', () => {
       const acceptLanguage = 'awooga;q=0.5';
       const result = utils.getLanguage({ lang: 'wat', acceptLanguage });
       expect(result.lang).toEqual(defaultLang);
-      expect(result.isLangFromHeader).toEqual(true);
     });
   });
 
