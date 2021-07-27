@@ -488,6 +488,37 @@ describe(__filename, () => {
     );
   });
 
+  it('shows tag links if addon tags defined', () => {
+    const addon = createInternalAddonWithLang(fakeAddon);
+
+    const root = render({ addon });
+    const tagsLinks = root.find('.AddonMoreInfo-tag-links');
+    const tag_text = 'chilling';
+
+    expect(tagsLinks).toHaveProp('term', 'Tags');
+    expect(tagsLinks.find(Link)).toHaveProp('to', `/search/?tag=${tag_text}`);
+
+    expect(tagsLinks.find(Link).children()).toHaveText(tag_text);
+  });
+
+  it('doesn`t show tag section if addon.tags is null', () => {
+    const addon = createInternalAddonWithLang({ ...fakeAddon, tags: null });
+
+    const root = render({ addon });
+    const tagsLinks = root.find('.AddonMoreInfo-tag-links');
+
+    expect(tagsLinks).toHaveLength(0);
+  });
+
+  it('doesn`t show tag section if addon.tags is empty list', () => {
+    const addon = createInternalAddonWithLang({ ...fakeAddon, tags: [] });
+
+    const root = render({ addon });
+    const tagsLinks = root.find('.AddonMoreInfo-tag-links');
+
+    expect(tagsLinks).toHaveLength(0);
+  });
+
   it('renders the last updated date', () => {
     const created = new Date();
     _loadVersions({
