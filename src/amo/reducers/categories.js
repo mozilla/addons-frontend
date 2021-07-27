@@ -5,6 +5,7 @@ import invariant from 'invariant';
 
 import { validAddonTypes } from 'amo/constants';
 import log from 'amo/logger';
+import type { AddonType } from 'amo/types/addons';
 
 export const FETCH_CATEGORIES: 'FETCH_CATEGORIES' = 'FETCH_CATEGORIES';
 export const LOAD_CATEGORIES: 'LOAD_CATEGORIES' = 'LOAD_CATEGORIES';
@@ -157,4 +158,52 @@ export default function reducer(
     default:
       return state;
   }
+}
+
+export const getCategories = (
+  categoriesState: CategoryMapType,
+  appName: string,
+  addonType: string,
+): Array<ExternalCategory> | null => {
+  invariant(categoriesState, 'categories state does not contains the app name');
+  invariant(appName, 'app name cannot be empty');
+  invariant(addonType, 'addon type cannot be empty');
+
+  if (categoriesState[appName] && categoriesState[appName][addonType]) {
+    return Object.keys(categoriesState[appName][addonType]).map(
+      (key) => categoriesState[appName][addonType][key],
+    );
+  }
+  return null;
+};
+
+export function getCategoryNames(
+  categoriesState: CategoryMapType,
+  appName: string,
+  addonType: string,
+  addonCategories: $PropertyType<AddonType, 'categories'>,
+): string | null {
+  invariant(categoriesState, 'categories state can not be empty');
+  invariant(appName, 'app name can not be empty');
+  invariant(addonType, 'addon type can not be empty');
+  invariant(addonCategories, 'addon categories can not be empty');
+
+  const categories = getCategories(categoriesState, appName, addonType);
+
+  const relatedCategories = [];
+
+  if (categories && addonCategories[appName]) {
+    categories.forEach((category) => {
+      if (
+        category &&
+        category.name &&
+        category.slug &&
+        addonCategories[appName].includes(category.slug)
+      ) {
+        relatedCategories.push(category.name);
+      }
+    });
+    return relatedCategories.join(', ');
+  }
+  return null;
 }

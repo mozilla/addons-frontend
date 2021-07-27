@@ -11,7 +11,7 @@ import Card from 'amo/components/Card';
 import LoadingText from 'amo/components/LoadingText';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
-import { fetchCategories } from 'amo/reducers/categories';
+import { fetchCategories, getCategories } from 'amo/reducers/categories';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import type { CategoriesState } from 'amo/reducers/categories';
 import type { AppState } from 'amo/store';
@@ -38,8 +38,8 @@ type Props = {|
 |};
 
 type PropsFromState = {|
+  categories: Array<Object> | null,
   categoriesState: $PropertyType<CategoriesState, 'categories'>,
-  clientApp: string,
   loading: boolean,
 |};
 
@@ -77,28 +77,18 @@ export class CategoriesBase extends React.Component<InternalProps> {
 
   render(): React.Node {
     /* eslint-disable react/no-array-index-key */
-    const {
-      addonType,
-      categoriesState,
-      className,
-      clientApp,
-      errorHandler,
-      i18n,
-      loading,
-    } = this.props;
+    const { addonType, categories, className, errorHandler, i18n, loading } =
+      this.props;
     invariant(addonType, 'addonType is undefined');
 
-    let categories = [];
-    if (
-      categoriesState &&
-      categoriesState[clientApp] &&
-      categoriesState[clientApp][addonType]
-    ) {
-      categories = Object.values(categoriesState[clientApp][addonType]);
-    }
     const classNameProp = classnames('Categories', className);
 
-    if (!errorHandler.hasError() && !loading && !categories.length) {
+    if (
+      !errorHandler.hasError() &&
+      !loading &&
+      categories &&
+      !categories.length
+    ) {
       return (
         <Card className={classNameProp}>
           <p className="Categories-none-loaded-message">
@@ -129,29 +119,33 @@ export class CategoriesBase extends React.Component<InternalProps> {
           </div>
         ) : (
           <ul className="Categories-list">
-            {categories.map((category, index) => {
-              // Flow cannot figure out CategoryType in this case.
-              // See https://github.com/facebook/flow/issues/2174
-              // and https://github.com/facebook/flow/issues/2221
-              // $FlowIgnore
-              const { name, slug } = category;
+            {categories &&
+              categories.map((category, index) => {
+                // Flow cannot figure out CategoryType in this case.
+                // See https://github.com/facebook/flow/issues/2174
+                // and https://github.com/facebook/flow/issues/2221
+                // $FlowIgnore
+                const { name, slug } = category;
 
-              return (
-                <li className="Categories-item" key={name}>
-                  <Button
-                    // `12` is the number of colors declared in
-                    // "$category-colors".
-                    className={`Categories-link
+                return (
+                  <li className="Categories-item" key={name}>
+                    <Button
+                      // `12` is the number of colors declared in
+                      // "$category-colors".
+                      className={`Categories-link
                       Categories--category-color-${(index % 12) + 1}`}
-                    to={{
-                      pathname: getCategoryResultsPathname({ addonType, slug }),
-                    }}
-                  >
-                    {name}
-                  </Button>
-                </li>
-              );
-            })}
+                      to={{
+                        pathname: getCategoryResultsPathname({
+                          addonType,
+                          slug,
+                        }),
+                      }}
+                    >
+                      {name}
+                    </Button>
+                  </li>
+                );
+              })}
           </ul>
         )}
       </Card>
@@ -159,11 +153,17 @@ export class CategoriesBase extends React.Component<InternalProps> {
   }
 }
 
-function mapStateToProps(state: AppState): PropsFromState {
+function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
+  const { addonType } = ownProps;
+  const { api, categories } = state;
+
   return {
-    categoriesState: state.categories.categories,
-    clientApp: state.api.clientApp,
-    loading: state.categories.loading,
+    categories:
+      api.clientApp && categories.categories
+        ? getCategories(categories.categories, api.clientApp, addonType)
+        : [],
+    categoriesState: categories.categories,
+    loading: categories.loading,
   };
 }
 

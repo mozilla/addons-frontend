@@ -4,11 +4,15 @@ import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
 import AddonMoreInfo, { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
 import Link from 'amo/components/Link';
+import { loadCategories } from 'amo/reducers/categories';
 import { loadVersions } from 'amo/reducers/versions';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
+  ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   STATS_VIEW,
 } from 'amo/constants';
 import { formatFilesize } from 'amo/i18n/utils';
@@ -17,9 +21,11 @@ import {
   createFakeLocation,
   createInternalAddonWithLang,
   createLocalizedString,
+  createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
+  fakeCategory,
   fakeI18n,
   fakeFile,
   fakeTheme,
@@ -35,9 +41,12 @@ describe(__filename, () => {
   });
 
   function render({ location, ...props } = {}) {
+    const errorHandler = createStubErrorHandler();
+
     return shallowUntilTarget(
       <AddonMoreInfo
         addon={props.addon || createInternalAddonWithLang(fakeAddon)}
+        errorHandler={errorHandler}
         i18n={fakeI18n()}
         store={store}
         {...props}
@@ -524,6 +533,73 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find(AddonAuthorLinks)).toHaveProp('addon', addon);
+  });
+
+  it('renders related categories', () => {
+    const results = [
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Blogging',
+        slug: 'blogging',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Games',
+        slug: 'Games',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Security',
+        slug: 'security',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Anime',
+        slug: 'anime',
+        type: ADDON_TYPE_STATIC_THEME,
+      },
+    ];
+
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      categories: {
+        [CLIENT_APP_FIREFOX]: ['alert-update', 'security'],
+      },
+      type: ADDON_TYPE_EXTENSION,
+    });
+
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
+    store.dispatch(loadCategories({ results }));
+
+    const root = render({
+      addon,
+      store,
+    });
+
+    expect(
+      root.find('.AddonMoreInfo-related-categories').children(),
+    ).toHaveText('Alerts & Update, Security');
   });
 
   describe('UTM parameters', () => {

@@ -9,7 +9,9 @@ import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
 import Link from 'amo/components/Link';
 import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
 import { STATS_VIEW } from 'amo/constants';
+import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
+import { fetchCategories, getCategoryNames } from 'amo/reducers/categories';
 import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'amo/types/addons';
 import { isAddonAuthor } from 'amo/utils';
@@ -24,6 +26,8 @@ import type { UserId } from 'amo/reducers/users';
 import type { AddonVersionType, VersionInfoType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
 type Props = {|
@@ -32,7 +36,9 @@ type Props = {|
 |};
 
 type PropsFromState = {|
+  categoriesLoading: boolean,
   hasStatsPermission: boolean,
+  relatedCategories: string | null,
   userId: UserId | null,
   currentVersion: AddonVersionType | null,
   versionInfo: VersionInfoType | null,
@@ -41,10 +47,22 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
   location: ReactRouterLocationType,
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
+  constructor(props: InternalProps) {
+    super(props);
+    const { dispatch, errorHandler, categoriesLoading, relatedCategories } =
+      props;
+
+    if (!categoriesLoading && !relatedCategories) {
+      dispatch(fetchCategories({ errorHandlerId: errorHandler.id }));
+    }
+  }
+
   listContent(): React.Node {
     const {
       addon,
@@ -52,6 +70,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       hasStatsPermission,
       i18n,
       location,
+      relatedCategories,
       userId,
       versionInfo,
     } = this.props;
@@ -151,6 +170,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 
     return this.renderDefinitions({
       homepage,
+      relatedCategories,
       supportUrl,
       supportEmail,
       statsLink,
@@ -214,6 +234,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     privacyPolicyLink = null,
     eulaLink = null,
     filesize = null,
+    relatedCategories = null,
     version = null,
     versionLastUpdated,
     versionLicenseLink = null,
@@ -223,18 +244,6 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     return (
       <>
         <DefinitionList className="AddonMoreInfo-dl">
-          {(homepage || supportUrl || supportEmail) && (
-            <Definition
-              className="AddonMoreInfo-links"
-              term={i18n.gettext('Add-on Links')}
-            >
-              <ul className="AddonMoreInfo-links-contents-list">
-                {homepage}
-                {supportUrl}
-                {supportEmail}
-              </ul>
-            </Definition>
-          )}
           {version && (
             <Definition
               className="AddonMoreInfo-version"
@@ -257,6 +266,26 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               term={i18n.gettext('Last updated')}
             >
               {versionLastUpdated}
+            </Definition>
+          )}
+          {relatedCategories && (
+            <Definition
+              className="AddonMoreInfo-related-categories"
+              term={i18n.gettext('Related Categories')}
+            >
+              {relatedCategories}
+            </Definition>
+          )}
+          {(homepage || supportUrl || supportEmail) && (
+            <Definition
+              className="AddonMoreInfo-links"
+              term={i18n.gettext('Add-on Links')}
+            >
+              <ul className="AddonMoreInfo-links-contents-list">
+                {homepage}
+                {supportUrl}
+                {supportEmail}
+              </ul>
             </Definition>
           )}
           {versionLicenseLink && (
@@ -321,7 +350,11 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 
 const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addon, i18n } = ownProps;
+  const categoriesState = state.categories.categories;
+  const appName = state.api.clientApp;
+
   let currentVersion = null;
+  let relatedCategories = null;
   let versionInfo = null;
 
   if (addon && addon.currentVersionId) {
@@ -339,9 +372,20 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
     });
   }
 
+  if (addon && addon.categories && addon.type && appName && categoriesState) {
+    relatedCategories = getCategoryNames(
+      categoriesState,
+      appName,
+      addon.type,
+      addon.categories,
+    );
+  }
+
   return {
     currentVersion,
+    relatedCategories,
     versionInfo,
+    categoriesLoading: state.categories.loading,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,
   };
@@ -351,6 +395,7 @@ const AddonMoreInfo: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
   connect(mapStateToProps),
+  withErrorHandler({ name: 'AddonMoreInfo' }),
 )(AddonMoreInfoBase);
 
 export default AddonMoreInfo;

@@ -1047,6 +1047,15 @@ describe(__filename, () => {
     expect(root.find(AddonMoreInfo)).toHaveLength(1);
   });
 
+  it('passes the errorHandler to the AddonMoreInfo component', () => {
+    const errorHandler = createCapturedErrorHandler({ status: 404 });
+
+    const root = shallowRender({
+      errorHandler,
+    });
+    expect(root.find(AddonMoreInfo)).toHaveProp('errorHandler', errorHandler);
+  });
+
   it('renders meta data for the add-on', () => {
     const addon = createInternalAddonWithLang(fakeAddon);
     const root = shallowRender({ addon });
