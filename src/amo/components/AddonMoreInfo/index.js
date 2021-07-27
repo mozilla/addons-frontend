@@ -6,18 +6,17 @@ import { withRouter } from 'react-router-dom';
 
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
+import Card from 'amo/components/Card';
+import DefinitionList, { Definition } from 'amo/components/DefinitionList';
 import Link from 'amo/components/Link';
-import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
+import LoadingText from 'amo/components/LoadingText';
 import { STATS_VIEW } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { fetchCategories, getCategoryNames } from 'amo/reducers/categories';
 import { hasPermission } from 'amo/reducers/users';
-import type { AddonType } from 'amo/types/addons';
+import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
 import { isAddonAuthor } from 'amo/utils';
-import Card from 'amo/components/Card';
-import DefinitionList, { Definition } from 'amo/components/DefinitionList';
-import LoadingText from 'amo/components/LoadingText';
 import {
   addQueryParams,
   getQueryParametersForAttribution,
@@ -25,8 +24,9 @@ import {
 import type { UserId } from 'amo/reducers/users';
 import type { AddonVersionType, VersionInfoType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
-import type { I18nType } from 'amo/types/i18n';
+import type { AddonType } from 'amo/types/addons';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
+import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
@@ -37,10 +37,10 @@ type Props = {|
 
 type PropsFromState = {|
   categoriesLoading: boolean,
+  currentVersion: AddonVersionType | null,
   hasStatsPermission: boolean,
   relatedCategories: string | null,
   userId: UserId | null,
-  currentVersion: AddonVersionType | null,
   versionInfo: VersionInfoType | null,
 |};
 
@@ -55,7 +55,7 @@ type InternalProps = {|
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
-    const { dispatch, errorHandler, categoriesLoading, relatedCategories } =
+    const { categoriesLoading, dispatch, errorHandler, relatedCategories } =
       props;
 
     if (!categoriesLoading && !relatedCategories) {
@@ -227,18 +227,18 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 
   renderDefinitions({
-    homepage = null,
-    supportUrl = null,
-    supportEmail = null,
-    statsLink = null,
-    privacyPolicyLink = null,
     eulaLink = null,
     filesize = null,
+    homepage = null,
+    privacyPolicyLink = null,
     relatedCategories = null,
+    statsLink = null,
+    supportEmail = null,
+    supportUrl = null,
     version = null,
+    versionHistoryLink = null,
     versionLastUpdated,
     versionLicenseLink = null,
-    versionHistoryLink = null,
   }: Object): React.Node {
     const { addon, i18n } = this.props;
     return (
