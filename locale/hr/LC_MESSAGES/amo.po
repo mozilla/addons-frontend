@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-20 15:48+0000\n"
-"PO-Revision-Date: 2021-07-27 16:23+0000\n"
+"PO-Revision-Date: 2021-07-27 16:24+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1058,14 +1058,12 @@ msgid "You'll need Firefox to use this extension"
 msgstr "Za korištenje ovog proširenja trebat ćeš Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:181
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "Za korištenje ove teme trebat ćeš Firefox"
+msgstr "Za korištenje ove teme aktualiziraj Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:182
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "Za korištenje ovog proširenja trebat ćeš Firefox"
+msgstr "Za korištenje ove teme aktualiziraj Firefox"
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
