@@ -31,7 +31,7 @@ if (!fs.existsSync(destDir)) {
         `utm_content=${id}`,
         `utm_medium=referral&utm_source=addons.mozilla.org`,
       ].join('&')
-      return QRCode.toFile(filePath, content);
+      return QRCode.toFile(filePath, content, {margin: 1});
     })
   );
   console.log(addons.length, ' QR codes created');
