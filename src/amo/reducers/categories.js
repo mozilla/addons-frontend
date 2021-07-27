@@ -182,7 +182,7 @@ export function getCategoryNames(
   appName: string,
   addonType: string,
   addonCategories: $PropertyType<AddonType, 'categories'>,
-): string | null {
+): Array<Object> | null {
   invariant(categoriesState, 'categories state can not be empty');
   invariant(appName, 'app name can not be empty');
   invariant(addonType, 'addon type can not be empty');
@@ -200,10 +200,14 @@ export function getCategoryNames(
         category.slug &&
         addonCategories[appName].includes(category.slug)
       ) {
-        relatedCategories.push(category.name);
+        relatedCategories.push({
+          addonType,
+          slug: category.slug,
+          name: category.name,
+        });
       }
     });
-    return relatedCategories.join(', ');
+    return relatedCategories;
   }
   return null;
 }

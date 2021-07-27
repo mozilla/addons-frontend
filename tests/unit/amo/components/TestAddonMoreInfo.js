@@ -598,8 +598,22 @@ describe(__filename, () => {
     });
 
     expect(
-      root.find('.AddonMoreInfo-related-categories').children(),
-    ).toHaveText('Alerts & Update, Security');
+      root.find('.AddonMoreInfo-related-categories').find(Link),
+    ).toHaveLength(2);
+    expect(
+      root
+        .find('.AddonMoreInfo-related-categories')
+        .find(Link)
+        .at(0)
+        .prop('to'),
+    ).toEqual({ pathname: '/extensions/category/alert-update/' });
+    expect(
+      root
+        .find('.AddonMoreInfo-related-categories')
+        .find(Link)
+        .at(1)
+        .prop('to'),
+    ).toEqual({ pathname: '/extensions/category/security/' });
   });
 
   describe('UTM parameters', () => {

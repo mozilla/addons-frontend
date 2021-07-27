@@ -421,7 +421,18 @@ describe(__filename, () => {
           addon.type,
           addon.categories,
         ),
-      ).toEqual('Alerts & Update, Security');
+      ).toEqual([
+        {
+          'addonType': 'extension',
+          'name': 'Alerts & Update',
+          'slug': 'alert-update',
+        },
+        {
+          'addonType': 'extension',
+          'name': 'Security',
+          'slug': 'security',
+        },
+      ]);
     });
   });
 });

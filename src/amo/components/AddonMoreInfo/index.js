@@ -13,10 +13,12 @@ import LoadingText from 'amo/components/LoadingText';
 import { STATS_VIEW } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
+import { isRtlLang } from 'amo/i18n/utils';
 import { fetchCategories, getCategoryNames } from 'amo/reducers/categories';
 import { hasPermission } from 'amo/reducers/users';
 import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
 import { isAddonAuthor } from 'amo/utils';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import {
   addQueryParams,
   getQueryParametersForAttribution,
@@ -39,7 +41,8 @@ type PropsFromState = {|
   categoriesLoading: boolean,
   currentVersion: AddonVersionType | null,
   hasStatsPermission: boolean,
-  relatedCategories: string | null,
+  isRTL: boolean,
+  relatedCategories: Array<Object> | null,
   userId: UserId | null,
   versionInfo: VersionInfoType | null,
 |};
@@ -69,6 +72,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       currentVersion,
       hasStatsPermission,
       i18n,
+      isRTL,
       location,
       relatedCategories,
       userId,
@@ -168,9 +172,34 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
+    const comma = i18n.gettext(',');
+    const renderRelatedCategories = [];
+    const separator = isRTL ? ` ${comma}` : `${comma} `;
+    if (relatedCategories && relatedCategories.length > 0) {
+      relatedCategories.forEach((category, index) => {
+        renderRelatedCategories.push(
+          <Link
+            key={category.name}
+            to={{
+              pathname: getCategoryResultsPathname({
+                addonType: category.addonType,
+                slug: category.slug,
+              }),
+            }}
+          >
+            {category.name}
+          </Link>,
+        );
+
+        if (index + 1 < relatedCategories.length) {
+          renderRelatedCategories.push(separator);
+        }
+      });
+    }
+
     return this.renderDefinitions({
       homepage,
-      relatedCategories,
+      renderRelatedCategories,
       supportUrl,
       supportEmail,
       statsLink,
@@ -231,7 +260,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     filesize = null,
     homepage = null,
     privacyPolicyLink = null,
-    relatedCategories = null,
+    renderRelatedCategories = null,
     statsLink = null,
     supportEmail = null,
     supportUrl = null,
@@ -268,12 +297,12 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               {versionLastUpdated}
             </Definition>
           )}
-          {relatedCategories && (
+          {renderRelatedCategories && (
             <Definition
               className="AddonMoreInfo-related-categories"
               term={i18n.gettext('Related Categories')}
             >
-              {relatedCategories}
+              {renderRelatedCategories}
             </Definition>
           )}
           {(homepage || supportUrl || supportEmail) && (
@@ -387,6 +416,7 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
     versionInfo,
     categoriesLoading: state.categories.loading,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
+    isRTL: isRtlLang(state.api.lang),
     userId: state.users.currentUserID,
   };
 };
