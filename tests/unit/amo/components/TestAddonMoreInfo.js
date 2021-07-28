@@ -489,16 +489,19 @@ describe(__filename, () => {
   });
 
   it('shows tag links if addon tags defined', () => {
-    const addon = createInternalAddonWithLang(fakeAddon);
+    const tagText = 'foo';
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      tags: [tagText],
+    });
 
     const root = render({ addon });
     const tagsLinks = root.find('.AddonMoreInfo-tag-links');
-    const tag_text = 'chilling';
 
     expect(tagsLinks).toHaveProp('term', 'Tags');
-    expect(tagsLinks.find(Link)).toHaveProp('to', `/search/?tag=${tag_text}`);
+    expect(tagsLinks.find(Link)).toHaveProp('to', `/search/?tag=${tagText}`);
 
-    expect(tagsLinks.find(Link).children()).toHaveText(tag_text);
+    expect(tagsLinks.find(Link).children()).toHaveText(tagText);
   });
 
   it('doesn`t show tag section if addon.tags is null', () => {
