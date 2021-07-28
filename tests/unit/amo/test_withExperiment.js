@@ -151,6 +151,35 @@ describe(__filename, () => {
     expect(root).toHaveProp('variant', cookieVariant);
   });
 
+  it('uses an updated cookie value on re-render', () => {
+    const id = makeExperimentId('test-id');
+    const originalCookieVariant = 'cookie-variant';
+    const updatedCookieVariant = 'cookie-variant-updated';
+    const cookies = fakeCookies({
+      get: sinon
+        .stub()
+        .returns(
+          createExperimentData({ id, variantId: originalCookieVariant }),
+        ),
+    });
+
+    const root = render({ cookies, experimentProps: { id } });
+
+    expect(root).toHaveProp('variant', originalCookieVariant);
+
+    root.setProps({
+      cookies: fakeCookies({
+        get: sinon
+          .stub()
+          .returns(
+            createExperimentData({ id, variantId: updatedCookieVariant }),
+          ),
+      }),
+    });
+
+    expect(root).toHaveProp('variant', updatedCookieVariant);
+  });
+
   // Test for https://github.com/mozilla/addons-frontend/issues/10681
   it('injects a newly created variant prop', () => {
     const id = makeExperimentId('hero');
