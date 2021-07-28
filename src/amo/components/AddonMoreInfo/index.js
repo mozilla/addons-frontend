@@ -204,7 +204,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         </li>
       ),
       tagsLinks:
-        addon.tags != null && addon.tags.length > 0
+        addon.tags.length > 0
           ? addon.tags.map((tagText) => {
               return (
                 <li key={tagText}>

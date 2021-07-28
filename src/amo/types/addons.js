@@ -139,7 +139,7 @@ export type ExternalAddonType = {|
   summary?: LocalizedString,
   support_email?: LocalizedString,
   support_url: LocalizedUrlWithOutgoing | null,
-  tags?: Array<string>,
+  tags: Array<string>,
   target_locale?: string,
   type: AddonTypeType,
   url: string,
