@@ -118,6 +118,8 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
     // See https://github.com/mozilla/addons-frontend/issues/10770
     const experiments = cookies.get(EXPERIMENT_COOKIE_NAME);
     experiments[EXPERIMENT_CONFIG.id] = NOT_IN_EXPERIMENT;
+    // We can use defaultCookieConfig because our experiment does not define a
+    // cookie config.
     cookies.set(EXPERIMENT_COOKIE_NAME, experiments, defaultCookieConfig);
   };
 

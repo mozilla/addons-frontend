@@ -46,11 +46,16 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  // This is what would be stored in the experiment cookie for this experiment.
-  const experimentData = createExperimentData({
-    id: EXPERIMENT_CONFIG.id,
-    variantId: VARIANT_SHOW,
-  });
+  const createCookies = () => {
+    return fakeCookies({
+      get: sinon.stub().returns(
+        createExperimentData({
+          id: EXPERIMENT_CONFIG.id,
+          variantId: VARIANT_SHOW,
+        }),
+      ),
+    });
+  };
 
   const render = ({
     // The defaults for clientApp, regionCode and variant set up the component
@@ -66,10 +71,7 @@ describe(__filename, () => {
       <VPNPromoBanner
         _tracking={createFakeTracking()}
         _localStorage={createFakeLocalStorage()}
-        _updateVariant={sinon.stub()}
-        cookies={fakeCookies({
-          get: sinon.stub().returns(experimentData),
-        })}
+        cookies={createCookies()}
         i18n={fakeI18n()}
         store={store}
         variant={variant}
@@ -123,11 +125,11 @@ describe(__filename, () => {
     expect(root.find('.VPNPromoBanner-cta')).toHaveProp('href', href);
   });
 
-  const _clickCta = (root) => {
+  const clickCta = (root) => {
     root.find('.VPNPromoBanner-cta').simulate('click', createFakeEvent());
   };
 
-  const _clickDismiss = (root) => {
+  const clickDismiss = (root) => {
     root
       .find('.VPNPromoBanner-dismisser-button')
       .simulate('click', createFakeEvent());
@@ -137,17 +139,15 @@ describe(__filename, () => {
     const _localStorage = createFakeLocalStorage();
 
     const root = render({ _localStorage });
-    _clickCta(root);
+    clickCta(root);
 
     sinon.assert.calledWith(_localStorage.removeItem, IMPRESSION_COUNT_KEY);
   });
 
   it('reads and updates the experiment cookie when the cta is clicked', () => {
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(experimentData),
-    });
+    const cookies = createCookies();
     const root = render({ cookies });
-    _clickCta(root);
+    clickCta(root);
 
     sinon.assert.calledWith(cookies.get, EXPERIMENT_COOKIE_NAME);
     sinon.assert.calledWith(
@@ -163,7 +163,7 @@ describe(__filename, () => {
 
   it('hides itself when the cta is clicked', () => {
     const root = render();
-    _clickCta(root);
+    clickCta(root);
 
     expect(root.find('.VPNPromoBanner')).toHaveLength(0);
   });
@@ -172,17 +172,15 @@ describe(__filename, () => {
     const _localStorage = createFakeLocalStorage();
 
     const root = render({ _localStorage });
-    _clickDismiss(root);
+    clickDismiss(root);
 
     sinon.assert.calledWith(_localStorage.removeItem, IMPRESSION_COUNT_KEY);
   });
 
   it('reads and updates the experiment cookie when the dismiss button is clicked', () => {
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(experimentData),
-    });
+    const cookies = createCookies();
     const root = render({ cookies });
-    _clickDismiss(root);
+    clickDismiss(root);
 
     sinon.assert.calledWith(cookies.get, EXPERIMENT_COOKIE_NAME);
     sinon.assert.calledWith(
@@ -198,7 +196,7 @@ describe(__filename, () => {
 
   it('hides itself when the dismiss button is clicked', () => {
     const root = render();
-    _clickDismiss(root);
+    clickDismiss(root);
 
     expect(root.find('.VPNPromoBanner')).toHaveLength(0);
   });
