@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-20 15:48+0000\n"
+"POT-Creation-Date: 2021-07-29 17:07+0000\n"
 "PO-Revision-Date: 2021-06-04 19:59+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
@@ -224,44 +224,48 @@ msgstr "Læs denne tilføjelses licensaftale"
 msgid "See all versions"
 msgstr "Se alle versioner"
 
-#: src/amo/components/AddonMoreInfo/index.js:229
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Add-on Links"
 msgstr "Tilføjelses-links"
 
-#: src/amo/components/AddonMoreInfo/index.js:241
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:249
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Size"
 msgstr "Størrelse"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:276
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Senest opdateret"
 
-#: src/amo/components/AddonMoreInfo/index.js:265
+#: src/amo/components/AddonMoreInfo/index.js:284
 msgid "License"
 msgstr "Licens"
 
-#: src/amo/components/AddonMoreInfo/index.js:273
+#: src/amo/components/AddonMoreInfo/index.js:292
 msgid "Privacy Policy"
 msgstr "Privatlivspolitik"
 
-#: src/amo/components/AddonMoreInfo/index.js:281
+#: src/amo/components/AddonMoreInfo/index.js:300
 msgid "End-User License Agreement"
 msgstr "Licensaftale for slutbrugere"
 
-#: src/amo/components/AddonMoreInfo/index.js:289
+#: src/amo/components/AddonMoreInfo/index.js:308
 msgid "Version History"
 msgstr "Versions-historik"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:318
 msgid "Usage Statistics"
 msgstr "Brugsstatistik"
 
-#: src/amo/components/AddonMoreInfo/index.js:315
+#: src/amo/components/AddonMoreInfo/index.js:326
+msgid "Tags"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:342
 msgid "More information"
 msgstr "Mere information"
 
@@ -563,40 +567,40 @@ msgstr "Version %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Udgivet %(dateReleased)s - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:201
+#: src/amo/components/AMInstallButton/index.js:200
 msgid "Enable"
 msgstr "Aktivér"
 
-#: src/amo/components/AMInstallButton/index.js:204
+#: src/amo/components/AMInstallButton/index.js:203
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Remove"
 msgstr "Fjern"
 
-#: src/amo/components/AMInstallButton/index.js:206
+#: src/amo/components/AMInstallButton/index.js:205
 msgid "Enabling"
 msgstr "Aktiverer"
 
-#: src/amo/components/AMInstallButton/index.js:208
+#: src/amo/components/AMInstallButton/index.js:207
 msgid "Disabling"
 msgstr "Deaktiverer"
 
-#: src/amo/components/AMInstallButton/index.js:210
+#: src/amo/components/AMInstallButton/index.js:209
 msgid "Downloading"
 msgstr "Henter"
 
-#: src/amo/components/AMInstallButton/index.js:212
+#: src/amo/components/AMInstallButton/index.js:211
 msgid "Installing"
 msgstr "Installerer"
 
-#: src/amo/components/AMInstallButton/index.js:214
+#: src/amo/components/AMInstallButton/index.js:213
 msgid "Uninstalling"
 msgstr "Afinstallerer"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:221
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/amo/components/AMInstallButton/index.js:223
+#: src/amo/components/AMInstallButton/index.js:222
 msgid "Add to Firefox"
 msgstr "Føj til Firefox"
 
@@ -1256,7 +1260,7 @@ msgstr ""
 "Firefox anbefaler kun udvidelser, der opfylder vores standarder for "
 "sikkerhed og ydelse."
 
-#: src/amo/components/HomepageShelves/index.js:69
+#: src/amo/components/HomepageShelves/index.js:66
 msgid "See more %(categoryName)s"
 msgstr "Se flere %(categoryName)s"
 
@@ -1290,7 +1294,7 @@ msgstr "Anbefalet"
 msgid "Verified"
 msgstr "Verificeret"
 
-#: src/amo/components/InstallButtonWrapper/index.js:140
+#: src/amo/components/InstallButtonWrapper/index.js:133
 msgid "Download file"
 msgstr "Hent fil"
 
@@ -2005,18 +2009,18 @@ msgstr "Vælg billede..."
 msgid "Developer response"
 msgstr "Svar fra udvikleren"
 
-#: src/amo/components/VPNPromoBanner/index.js:115
-msgid "Get Mozilla VPN"
-msgstr ""
-
-#: src/amo/components/VPNPromoBanner/index.js:88
+#: src/amo/components/VPNPromoBanner/index.js:138
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:89
+#: src/amo/components/VPNPromoBanner/index.js:139
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:165
+msgid "Get Mozilla VPN"
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
@@ -2037,23 +2041,23 @@ msgstr ""
 "Denne tilføjelse er ikke kompatibel med denne browser. Prøv at installere "
 "den i Firefox til computer."
 
-#: src/amo/i18n/utils.js:266
+#: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/amo/i18n/utils.js:268
+#: src/amo/i18n/utils.js:265
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/amo/i18n/utils.js:270
+#: src/amo/i18n/utils.js:267
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/amo/i18n/utils.js:272
+#: src/amo/i18n/utils.js:269
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/amo/i18n/utils.js:274
+#: src/amo/i18n/utils.js:271
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-20 15:48+0000\n"
+"POT-Creation-Date: 2021-07-29 17:07+0000\n"
 "PO-Revision-Date: 2021-06-24 19:15+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -213,44 +213,48 @@ msgstr "Прочетете лицензното споразумение на д
 msgid "See all versions"
 msgstr "Всички издания"
 
-#: src/amo/components/AddonMoreInfo/index.js:229
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Add-on Links"
 msgstr "Препратки"
 
-#: src/amo/components/AddonMoreInfo/index.js:241
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "Version"
 msgstr "Издание"
 
-#: src/amo/components/AddonMoreInfo/index.js:249
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Size"
 msgstr "Размер"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:276
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Последно обновяване"
 
-#: src/amo/components/AddonMoreInfo/index.js:265
+#: src/amo/components/AddonMoreInfo/index.js:284
 msgid "License"
 msgstr "Лиценз"
 
-#: src/amo/components/AddonMoreInfo/index.js:273
+#: src/amo/components/AddonMoreInfo/index.js:292
 msgid "Privacy Policy"
 msgstr "Политика на поверителност"
 
-#: src/amo/components/AddonMoreInfo/index.js:281
+#: src/amo/components/AddonMoreInfo/index.js:300
 msgid "End-User License Agreement"
 msgstr "Лицензно споразумение на крайния потребител"
 
-#: src/amo/components/AddonMoreInfo/index.js:289
+#: src/amo/components/AddonMoreInfo/index.js:308
 msgid "Version History"
 msgstr "Хронология на изданията"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:318
 msgid "Usage Statistics"
 msgstr "Статистика на използване"
 
-#: src/amo/components/AddonMoreInfo/index.js:315
+#: src/amo/components/AddonMoreInfo/index.js:326
+msgid "Tags"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:342
 msgid "More information"
 msgstr "Повече сведения"
 
@@ -551,41 +555,41 @@ msgstr "Издание %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "От %(dateReleased)s - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:201
+#: src/amo/components/AMInstallButton/index.js:200
 msgid "Enable"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:204
+#: src/amo/components/AMInstallButton/index.js:203
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Remove"
 msgstr "Премахване"
 
-#: src/amo/components/AMInstallButton/index.js:206
+#: src/amo/components/AMInstallButton/index.js:205
 msgid "Enabling"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:208
+#: src/amo/components/AMInstallButton/index.js:207
 #, fuzzy
 msgid "Disabling"
 msgstr "Премахване"
 
-#: src/amo/components/AMInstallButton/index.js:210
+#: src/amo/components/AMInstallButton/index.js:209
 msgid "Downloading"
 msgstr "Изтегляне"
 
-#: src/amo/components/AMInstallButton/index.js:212
+#: src/amo/components/AMInstallButton/index.js:211
 msgid "Installing"
 msgstr "Инсталиране"
 
-#: src/amo/components/AMInstallButton/index.js:214
+#: src/amo/components/AMInstallButton/index.js:213
 msgid "Uninstalling"
 msgstr "Премахване"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:221
 msgid "Install Theme"
 msgstr "Инсталиране на темата"
 
-#: src/amo/components/AMInstallButton/index.js:223
+#: src/amo/components/AMInstallButton/index.js:222
 msgid "Add to Firefox"
 msgstr "Добавяне към Firefox"
 
@@ -1242,7 +1246,7 @@ msgid ""
 "performance."
 msgstr ""
 
-#: src/amo/components/HomepageShelves/index.js:69
+#: src/amo/components/HomepageShelves/index.js:66
 #, fuzzy
 msgid "See more %(categoryName)s"
 msgstr "Категории"
@@ -1277,7 +1281,7 @@ msgstr "Препоръчани"
 msgid "Verified"
 msgstr ""
 
-#: src/amo/components/InstallButtonWrapper/index.js:140
+#: src/amo/components/InstallButtonWrapper/index.js:133
 #, fuzzy
 msgid "Download file"
 msgstr "Изтегляне"
@@ -1996,18 +2000,18 @@ msgstr ""
 msgid "Developer response"
 msgstr "Отговор от разработчика"
 
-#: src/amo/components/VPNPromoBanner/index.js:115
-msgid "Get Mozilla VPN"
-msgstr ""
-
-#: src/amo/components/VPNPromoBanner/index.js:88
+#: src/amo/components/VPNPromoBanner/index.js:138
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:89
+#: src/amo/components/VPNPromoBanner/index.js:139
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:165
+msgid "Get Mozilla VPN"
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
@@ -2026,23 +2030,23 @@ msgstr ""
 "Добавката е несъвместима с този четец. Пробвайте да я инсталирате на Firefox "
 "за настолен компютър."
 
-#: src/amo/i18n/utils.js:266
+#: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
 msgstr ""
 
-#: src/amo/i18n/utils.js:268
+#: src/amo/i18n/utils.js:265
 msgid "%(localizedSize)s KB"
 msgstr ""
 
-#: src/amo/i18n/utils.js:270
+#: src/amo/i18n/utils.js:267
 msgid "%(localizedSize)s MB"
 msgstr ""
 
-#: src/amo/i18n/utils.js:272
+#: src/amo/i18n/utils.js:269
 msgid "%(localizedSize)s GB"
 msgstr ""
 
-#: src/amo/i18n/utils.js:274
+#: src/amo/i18n/utils.js:271
 msgid "%(localizedSize)s TB"
 msgstr ""
 

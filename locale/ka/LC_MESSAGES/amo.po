@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-20 15:48+0000\n"
+"POT-Creation-Date: 2021-07-29 17:07+0000\n"
 "PO-Revision-Date: 2021-06-23 09:51+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -220,44 +220,48 @@ msgstr "გაეცანით სალიცენზიო შეთან�
 msgid "See all versions"
 msgstr "ყველა ვერსიის ნახვა"
 
-#: src/amo/components/AddonMoreInfo/index.js:229
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Add-on Links"
 msgstr "დამატების ბმულები"
 
-#: src/amo/components/AddonMoreInfo/index.js:241
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "Version"
 msgstr "ვერსია"
 
-#: src/amo/components/AddonMoreInfo/index.js:249
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Size"
 msgstr "ზომა"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:276
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "ბოლო განახლება"
 
-#: src/amo/components/AddonMoreInfo/index.js:265
+#: src/amo/components/AddonMoreInfo/index.js:284
 msgid "License"
 msgstr "ლიცენზია"
 
-#: src/amo/components/AddonMoreInfo/index.js:273
+#: src/amo/components/AddonMoreInfo/index.js:292
 msgid "Privacy Policy"
 msgstr "პირადი მონაცემების დაცვის დებულება"
 
-#: src/amo/components/AddonMoreInfo/index.js:281
+#: src/amo/components/AddonMoreInfo/index.js:300
 msgid "End-User License Agreement"
 msgstr "სამომხმარებლო სალიცენზიო შეთანხმება"
 
-#: src/amo/components/AddonMoreInfo/index.js:289
+#: src/amo/components/AddonMoreInfo/index.js:308
 msgid "Version History"
 msgstr "ვერსიის ისტორია"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:318
 msgid "Usage Statistics"
 msgstr "გამოყენების სტატისტიკა"
 
-#: src/amo/components/AddonMoreInfo/index.js:315
+#: src/amo/components/AddonMoreInfo/index.js:326
+msgid "Tags"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:342
 msgid "More information"
 msgstr "დამატებითი მონაცემები"
 
@@ -563,40 +567,40 @@ msgstr "ვერსია %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "გამოშვების თარიღი %(dateReleased)s – %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:201
+#: src/amo/components/AMInstallButton/index.js:200
 msgid "Enable"
 msgstr "ჩართვა"
 
-#: src/amo/components/AMInstallButton/index.js:204
+#: src/amo/components/AMInstallButton/index.js:203
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Remove"
 msgstr "ამოშლა"
 
-#: src/amo/components/AMInstallButton/index.js:206
+#: src/amo/components/AMInstallButton/index.js:205
 msgid "Enabling"
 msgstr "ირთვება"
 
-#: src/amo/components/AMInstallButton/index.js:208
+#: src/amo/components/AMInstallButton/index.js:207
 msgid "Disabling"
 msgstr "ითიშება"
 
-#: src/amo/components/AMInstallButton/index.js:210
+#: src/amo/components/AMInstallButton/index.js:209
 msgid "Downloading"
 msgstr "მიმდინარეობს ჩამოტვირთვა"
 
-#: src/amo/components/AMInstallButton/index.js:212
+#: src/amo/components/AMInstallButton/index.js:211
 msgid "Installing"
 msgstr "მიმდინარეობს დაყენება"
 
-#: src/amo/components/AMInstallButton/index.js:214
+#: src/amo/components/AMInstallButton/index.js:213
 msgid "Uninstalling"
 msgstr "იშლება"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:221
 msgid "Install Theme"
 msgstr "თემის ჩადგმა"
 
-#: src/amo/components/AMInstallButton/index.js:223
+#: src/amo/components/AMInstallButton/index.js:222
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 
@@ -1263,7 +1267,7 @@ msgstr ""
 "Firefox მხოლოდ იმ გაფართოებებს გირჩევთ, რომლებიც აკმაყოფილებს უსაფრთხოებისა "
 "და წარმადობის მაღალ მოთხოვნებს."
 
-#: src/amo/components/HomepageShelves/index.js:69
+#: src/amo/components/HomepageShelves/index.js:66
 msgid "See more %(categoryName)s"
 msgstr "ვრცლად, კატეგორიაში %(categoryName)s"
 
@@ -1297,7 +1301,7 @@ msgstr "სასურველი"
 msgid "Verified"
 msgstr "დამოწმებული"
 
-#: src/amo/components/InstallButtonWrapper/index.js:140
+#: src/amo/components/InstallButtonWrapper/index.js:133
 msgid "Download file"
 msgstr "ფაილის ჩამოტვირთვა"
 
@@ -2020,18 +2024,18 @@ msgstr "სურათის არჩევა..."
 msgid "Developer response"
 msgstr "შემმუშავებლის პასუხი"
 
-#: src/amo/components/VPNPromoBanner/index.js:115
-msgid "Get Mozilla VPN"
-msgstr ""
-
-#: src/amo/components/VPNPromoBanner/index.js:88
+#: src/amo/components/VPNPromoBanner/index.js:138
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:89
+#: src/amo/components/VPNPromoBanner/index.js:139
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:165
+msgid "Get Mozilla VPN"
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
@@ -2050,23 +2054,23 @@ msgstr ""
 "დამატებები შეუთავსებელია Firefox-თან iOS-ზე. მათი დაყენება შეგიძლიათ "
 "კომპიუტერის Firefox-ზე."
 
-#: src/amo/i18n/utils.js:266
+#: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s ბაიტი"
 
-#: src/amo/i18n/utils.js:268
+#: src/amo/i18n/utils.js:265
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s კბ"
 
-#: src/amo/i18n/utils.js:270
+#: src/amo/i18n/utils.js:267
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s მბ"
 
-#: src/amo/i18n/utils.js:272
+#: src/amo/i18n/utils.js:269
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s გბ"
 
-#: src/amo/i18n/utils.js:274
+#: src/amo/i18n/utils.js:271
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s ტბ"
 

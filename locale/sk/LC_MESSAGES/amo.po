@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-20 15:48+0000\n"
+"POT-Creation-Date: 2021-07-29 17:07+0000\n"
 "PO-Revision-Date: 2021-06-24 15:27+0000\n"
 "Last-Translator: Vlado Valaštiak <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
@@ -212,44 +212,48 @@ msgstr "Prečítajte si licenčnú zmluvu pre tento doplnok"
 msgid "See all versions"
 msgstr "Zobraziť všetky verzie"
 
-#: src/amo/components/AddonMoreInfo/index.js:229
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Add-on Links"
 msgstr "Odkazy doplnku"
 
-#: src/amo/components/AddonMoreInfo/index.js:241
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "Version"
 msgstr "Verzia"
 
-#: src/amo/components/AddonMoreInfo/index.js:249
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Size"
 msgstr "Veľkosť"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:276
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Posledná aktualizácia"
 
-#: src/amo/components/AddonMoreInfo/index.js:265
+#: src/amo/components/AddonMoreInfo/index.js:284
 msgid "License"
 msgstr "Licencia"
 
-#: src/amo/components/AddonMoreInfo/index.js:273
+#: src/amo/components/AddonMoreInfo/index.js:292
 msgid "Privacy Policy"
 msgstr "Zásady ochrany súkromia"
 
-#: src/amo/components/AddonMoreInfo/index.js:281
+#: src/amo/components/AddonMoreInfo/index.js:300
 msgid "End-User License Agreement"
 msgstr "Licenčná zmluva s koncovým používateľom"
 
-#: src/amo/components/AddonMoreInfo/index.js:289
+#: src/amo/components/AddonMoreInfo/index.js:308
 msgid "Version History"
 msgstr "História verzií"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:318
 msgid "Usage Statistics"
 msgstr "Štatistiky používania"
 
-#: src/amo/components/AddonMoreInfo/index.js:315
+#: src/amo/components/AddonMoreInfo/index.js:326
+msgid "Tags"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:342
 msgid "More information"
 msgstr "Ďalšie informácie"
 
@@ -558,40 +562,40 @@ msgstr "Verzia %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Vydaná %(dateReleased)s - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:201
+#: src/amo/components/AMInstallButton/index.js:200
 msgid "Enable"
 msgstr "Povoliť"
 
-#: src/amo/components/AMInstallButton/index.js:204
+#: src/amo/components/AMInstallButton/index.js:203
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Remove"
 msgstr "Odstrániť"
 
-#: src/amo/components/AMInstallButton/index.js:206
+#: src/amo/components/AMInstallButton/index.js:205
 msgid "Enabling"
 msgstr "Povoľujem"
 
-#: src/amo/components/AMInstallButton/index.js:208
+#: src/amo/components/AMInstallButton/index.js:207
 msgid "Disabling"
 msgstr "Zakazujem"
 
-#: src/amo/components/AMInstallButton/index.js:210
+#: src/amo/components/AMInstallButton/index.js:209
 msgid "Downloading"
 msgstr "Sťahuje sa"
 
-#: src/amo/components/AMInstallButton/index.js:212
+#: src/amo/components/AMInstallButton/index.js:211
 msgid "Installing"
 msgstr "Inštaluje sa"
 
-#: src/amo/components/AMInstallButton/index.js:214
+#: src/amo/components/AMInstallButton/index.js:213
 msgid "Uninstalling"
 msgstr "Odinštalácia"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:221
 msgid "Install Theme"
 msgstr "Nainštalovať tému vzhľadu"
 
-#: src/amo/components/AMInstallButton/index.js:223
+#: src/amo/components/AMInstallButton/index.js:222
 msgid "Add to Firefox"
 msgstr "Pridať do Firefoxu"
 
@@ -1256,7 +1260,7 @@ msgstr ""
 "Firefox odporúča len rozšírenia, ktoré spĺňajú naše štandardy pre bezpečnosť "
 "a výkon."
 
-#: src/amo/components/HomepageShelves/index.js:69
+#: src/amo/components/HomepageShelves/index.js:66
 msgid "See more %(categoryName)s"
 msgstr "Ďalšie v kategórii %(categoryName)s"
 
@@ -1290,7 +1294,7 @@ msgstr "Odporúčané"
 msgid "Verified"
 msgstr "Overené"
 
-#: src/amo/components/InstallButtonWrapper/index.js:140
+#: src/amo/components/InstallButtonWrapper/index.js:133
 msgid "Download file"
 msgstr "Stiahnuť súbor"
 
@@ -2029,18 +2033,18 @@ msgstr "Vyberte fotografiu…"
 msgid "Developer response"
 msgstr "Odpoveď od vývojára"
 
-#: src/amo/components/VPNPromoBanner/index.js:115
-msgid "Get Mozilla VPN"
-msgstr ""
-
-#: src/amo/components/VPNPromoBanner/index.js:88
+#: src/amo/components/VPNPromoBanner/index.js:138
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:89
+#: src/amo/components/VPNPromoBanner/index.js:139
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:165
+msgid "Get Mozilla VPN"
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
@@ -2059,23 +2063,23 @@ msgstr ""
 "Doplnky nie sú kompatibilné s prehliadačom Firefox pre iOS. Skúste si ich "
 "nainštalovať do Firefoxu pre počítač."
 
-#: src/amo/i18n/utils.js:266
+#: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/amo/i18n/utils.js:268
+#: src/amo/i18n/utils.js:265
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s kB"
 
-#: src/amo/i18n/utils.js:270
+#: src/amo/i18n/utils.js:267
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/amo/i18n/utils.js:272
+#: src/amo/i18n/utils.js:269
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/amo/i18n/utils.js:274
+#: src/amo/i18n/utils.js:271
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 

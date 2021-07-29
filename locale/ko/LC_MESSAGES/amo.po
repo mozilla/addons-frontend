@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-20 15:48+0000\n"
+"POT-Creation-Date: 2021-07-29 17:07+0000\n"
 "PO-Revision-Date: 2021-04-28 21:21+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -206,44 +206,48 @@ msgstr "이 부가 기능에 대한 사용권 계약 읽기"
 msgid "See all versions"
 msgstr "모든 버전 보기"
 
-#: src/amo/components/AddonMoreInfo/index.js:229
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Add-on Links"
 msgstr "부가 기능 링크"
 
-#: src/amo/components/AddonMoreInfo/index.js:241
+#: src/amo/components/AddonMoreInfo/index.js:260
 msgid "Version"
 msgstr "버전"
 
-#: src/amo/components/AddonMoreInfo/index.js:249
+#: src/amo/components/AddonMoreInfo/index.js:268
 msgid "Size"
 msgstr "크기"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:276
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "마지막 업데이트"
 
-#: src/amo/components/AddonMoreInfo/index.js:265
+#: src/amo/components/AddonMoreInfo/index.js:284
 msgid "License"
 msgstr "라이선스"
 
-#: src/amo/components/AddonMoreInfo/index.js:273
+#: src/amo/components/AddonMoreInfo/index.js:292
 msgid "Privacy Policy"
 msgstr "개인정보처리방침"
 
-#: src/amo/components/AddonMoreInfo/index.js:281
+#: src/amo/components/AddonMoreInfo/index.js:300
 msgid "End-User License Agreement"
 msgstr "사용자 라이선스 동의서"
 
-#: src/amo/components/AddonMoreInfo/index.js:289
+#: src/amo/components/AddonMoreInfo/index.js:308
 msgid "Version History"
 msgstr "버전 목록"
 
-#: src/amo/components/AddonMoreInfo/index.js:299
+#: src/amo/components/AddonMoreInfo/index.js:318
 msgid "Usage Statistics"
 msgstr "사용 통계"
 
-#: src/amo/components/AddonMoreInfo/index.js:315
+#: src/amo/components/AddonMoreInfo/index.js:326
+msgid "Tags"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:342
 msgid "More information"
 msgstr "추가 정보"
 
@@ -545,40 +549,40 @@ msgstr "버전 %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s에 출시 - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:201
+#: src/amo/components/AMInstallButton/index.js:200
 msgid "Enable"
 msgstr "활성화"
 
-#: src/amo/components/AMInstallButton/index.js:204
+#: src/amo/components/AMInstallButton/index.js:203
 #: src/amo/components/EditableCollectionAddon/index.js:144
 msgid "Remove"
 msgstr "삭제"
 
-#: src/amo/components/AMInstallButton/index.js:206
+#: src/amo/components/AMInstallButton/index.js:205
 msgid "Enabling"
 msgstr "활성화하는 중"
 
-#: src/amo/components/AMInstallButton/index.js:208
+#: src/amo/components/AMInstallButton/index.js:207
 msgid "Disabling"
 msgstr "사용 안함"
 
-#: src/amo/components/AMInstallButton/index.js:210
+#: src/amo/components/AMInstallButton/index.js:209
 msgid "Downloading"
 msgstr "다운로드 중"
 
-#: src/amo/components/AMInstallButton/index.js:212
+#: src/amo/components/AMInstallButton/index.js:211
 msgid "Installing"
 msgstr "설치 중"
 
-#: src/amo/components/AMInstallButton/index.js:214
+#: src/amo/components/AMInstallButton/index.js:213
 msgid "Uninstalling"
 msgstr "제거 중"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:221
 msgid "Install Theme"
 msgstr "테마 설치하기"
 
-#: src/amo/components/AMInstallButton/index.js:223
+#: src/amo/components/AMInstallButton/index.js:222
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
@@ -1235,7 +1239,7 @@ msgid ""
 "performance."
 msgstr "Firefox는 보안 및 성능 표준을 충족하는 확장 기능만 추천합니다."
 
-#: src/amo/components/HomepageShelves/index.js:69
+#: src/amo/components/HomepageShelves/index.js:66
 msgid "See more %(categoryName)s"
 msgstr "%(categoryName)s 자세히 보기"
 
@@ -1269,7 +1273,7 @@ msgstr "추천"
 msgid "Verified"
 msgstr "확인됨"
 
-#: src/amo/components/InstallButtonWrapper/index.js:140
+#: src/amo/components/InstallButtonWrapper/index.js:133
 msgid "Download file"
 msgstr "파일 다운로드"
 
@@ -1961,18 +1965,18 @@ msgstr "사진 선택…"
 msgid "Developer response"
 msgstr "개발자 답글"
 
-#: src/amo/components/VPNPromoBanner/index.js:115
-msgid "Get Mozilla VPN"
-msgstr ""
-
-#: src/amo/components/VPNPromoBanner/index.js:88
+#: src/amo/components/VPNPromoBanner/index.js:138
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:89
+#: src/amo/components/VPNPromoBanner/index.js:139
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
+msgstr ""
+
+#: src/amo/components/VPNPromoBanner/index.js:165
+msgid "Get Mozilla VPN"
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
@@ -1991,23 +1995,23 @@ msgstr ""
 "부가 기능은 iOS 용 Firefox와 호환되지 않습니다. 데스크톱용 Firefox에 설치해보"
 "세요."
 
-#: src/amo/i18n/utils.js:266
+#: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/amo/i18n/utils.js:268
+#: src/amo/i18n/utils.js:265
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/amo/i18n/utils.js:270
+#: src/amo/i18n/utils.js:267
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/amo/i18n/utils.js:272
+#: src/amo/i18n/utils.js:269
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/amo/i18n/utils.js:274
+#: src/amo/i18n/utils.js:271
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
