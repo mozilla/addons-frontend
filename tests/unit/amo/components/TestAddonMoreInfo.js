@@ -499,12 +499,12 @@ describe(__filename, () => {
     const tagsLinks = root.find('.AddonMoreInfo-tag-links');
 
     expect(tagsLinks).toHaveProp('term', 'Tags');
+    expect(tagsLinks.find(Link)).toHaveLength(addon.tags.length);
     expect(tagsLinks.find(Link)).toHaveProp('to', `/search/?tag=${tagText}`);
-
     expect(tagsLinks.find(Link).children()).toHaveText(tagText);
   });
 
-  it('doesn`t show tag section if addon.tags is empty list', () => {
+  it("doesn't show tag section if addon.tags is empty list", () => {
     const addon = createInternalAddonWithLang({ ...fakeAddon, tags: [] });
 
     const root = render({ addon });
