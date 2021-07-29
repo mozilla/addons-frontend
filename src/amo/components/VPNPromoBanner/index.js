@@ -9,19 +9,16 @@ import { withRouter } from 'react-router-dom';
 
 import Button from 'amo/components/Button';
 import {
-  EXPERIMENT_CONFIG,
   VARIANT_SHOW,
   shouldExcludeUser,
 } from 'amo/experiments/20210714_amo_vpn_promo';
 import tracking from 'amo/tracking';
 import translate from 'amo/i18n/translate';
 import { makeQueryStringWithUTM } from 'amo/utils';
-import { withExperiment } from 'amo/withExperiment';
 import type { RegionCodeType } from 'amo/reducers/api';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
-import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 import vpnLogo from './img/mozilla-vpn.svg';
@@ -35,7 +32,7 @@ export const VPN_PROMO_DISMISS_ACTION = 'vpn-promo-banner-dismiss';
 export const VPN_PROMO_IMPRESSION_ACTION = 'vpn-promo-banner-impression';
 export const VPN_URL = 'https://www.mozilla.org/products/vpn';
 
-export type Props = {||};
+export type Props = {| variant: string | null |};
 
 export type DeafultProps = {|
   _tracking: typeof tracking,
@@ -51,7 +48,6 @@ type InternalProps = {|
   ...Props,
   ...DeafultProps,
   ...PropsFromState,
-  ...WithExperimentInjectedProps,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
@@ -191,7 +187,6 @@ const VPNPromoBanner: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
   connect(mapStateToProps),
-  withExperiment({ experimentConfig: EXPERIMENT_CONFIG }),
 )(VPNPromoBannerBase);
 
 export default VPNPromoBanner;

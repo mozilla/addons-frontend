@@ -24,7 +24,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   // Get language from URL or fall-back to detecting it from accept-language
   // header.
   const acceptLanguage = req.headers['accept-language'];
-  const { lang, isLangFromHeader } = getLanguage({
+  const { lang } = getLanguage({
     lang: URLPathParts[0],
     acceptLanguage,
   });
@@ -99,9 +99,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   if (newURL !== req.originalUrl && !newURL.startsWith('//')) {
     // Collect vary headers to apply to the redirect
     // so we can make it cacheable.
-    if (isLangFromHeader) {
-      res.vary('accept-language');
-    }
+    res.vary('accept-language');
     if (isApplicationFromHeader) {
       res.vary('user-agent');
     }

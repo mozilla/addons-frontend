@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-20 15:48+0000\n"
-"PO-Revision-Date: 2021-07-20 23:28+0000\n"
+"PO-Revision-Date: 2021-07-24 20:22+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -584,9 +584,8 @@ msgid "Log out"
 msgstr "Deconectare"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Register or log in"
-msgstr "Înregistrare sau conectare"
+msgstr "Înregistrează-te sau autentifică-te"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:144
 msgid "This action is currently unavailable. Please reload the page in a moment."

@@ -449,7 +449,6 @@ describe(__filename, () => {
       const shelf = {
         ...fakeExternalShelf,
         addons: [addon],
-        criteria: '?sort=rating&type=statictheme',
         endpoint: 'search',
         addon_type: ADDON_TYPE_STATIC_THEME,
         footer: {
@@ -464,7 +463,6 @@ describe(__filename, () => {
       expect(createInternalShelf(shelf, lang)).toEqual({
         addons: [createInternalAddon(addon, lang)],
         addonType: shelf.addon_type,
-        criteria: shelf.criteria,
         endpoint: shelf.endpoint,
         footer: createInternalLinkWithText(shelf.footer, lang),
         title,

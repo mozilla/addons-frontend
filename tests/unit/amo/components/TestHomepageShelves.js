@@ -1,4 +1,3 @@
-import config from 'config';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
@@ -56,7 +55,6 @@ describe(__filename, () => {
     const shelf2Title = 'Second Shelf';
     const shelf1 = _createShelf({
       addons: [{ ...fakeAddon, slug: 'slug1' }],
-      criteria: '?sort=rating',
       endpoint: HOMESHELVES_ENDPOINT_SEARCH,
       addonType: ADDON_TYPE_EXTENSION,
       footer: {
@@ -70,7 +68,6 @@ describe(__filename, () => {
 
     const shelf2 = _createShelf({
       addons: [{ ...fakeAddon, slug: 'slug2' }],
-      criteria: '?sort=users',
       endpoint: HOMESHELVES_ENDPOINT_SEARCH,
       addonType: ADDON_TYPE_STATIC_THEME,
       footer: {
@@ -210,41 +207,5 @@ describe(__filename, () => {
 
     expect(root.find(LandingAddonsCard)).toHaveProp('footerLink', fixedURL);
     sinon.assert.calledWith(_checkInternalURL, { urlString: url });
-  });
-
-  it('generates a default footerLink for a collection', () => {
-    const slug = 'some-collection-slug';
-    const root = render({
-      shelves: [
-        _createShelf({
-          criteria: slug,
-          endpoint: HOMESHELVES_ENDPOINT_COLLECTIONS,
-          footer: { ...fakeExternalShelf.footer, url: '' },
-        }),
-      ],
-    });
-
-    expect(root.find(LandingAddonsCard)).toHaveProp(
-      'footerLink',
-      `/collections/${config.get('mozillaUserId')}/${slug}/`,
-    );
-  });
-
-  it('generates a default footerLink for shelves with a search endpoint', () => {
-    const criteria = '?sort=users';
-    const root = render({
-      shelves: [
-        _createShelf({
-          criteria,
-          endpoint: HOMESHELVES_ENDPOINT_SEARCH,
-          footer: { ...fakeExternalShelf.footer, url: '' },
-        }),
-      ],
-    });
-
-    expect(root.find(LandingAddonsCard)).toHaveProp(
-      'footerLink',
-      `/search/${criteria}`,
-    );
   });
 });

@@ -497,6 +497,31 @@ describe(__filename, () => {
     );
   });
 
+  it('shows tag links if addon tags defined', () => {
+    const tagText = 'foo';
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      tags: [tagText],
+    });
+
+    const root = render({ addon });
+    const tagsLinks = root.find('.AddonMoreInfo-tag-links');
+
+    expect(tagsLinks).toHaveProp('term', 'Tags');
+    expect(tagsLinks.find(Link)).toHaveLength(addon.tags.length);
+    expect(tagsLinks.find(Link)).toHaveProp('to', `/search/?tag=${tagText}`);
+    expect(tagsLinks.find(Link).children()).toHaveText(tagText);
+  });
+
+  it("doesn't show tag section if addon.tags is empty list", () => {
+    const addon = createInternalAddonWithLang({ ...fakeAddon, tags: [] });
+
+    const root = render({ addon });
+    const tagsLinks = root.find('.AddonMoreInfo-tag-links');
+
+    expect(tagsLinks).toHaveLength(0);
+  });
+
   it('renders the last updated date', () => {
     const created = new Date();
     _loadVersions({
