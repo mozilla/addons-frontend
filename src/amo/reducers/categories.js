@@ -160,23 +160,6 @@ export default function reducer(
   }
 }
 
-export const getCategories = (
-  categoriesState: CategoryMapType,
-  appName: string,
-  addonType: string,
-): Array<ExternalCategory> | null => {
-  invariant(categoriesState, 'categories state does not contains the app name');
-  invariant(appName, 'app name cannot be empty');
-  invariant(addonType, 'addon type cannot be empty');
-
-  if (categoriesState[appName] && categoriesState[appName][addonType]) {
-    return Object.keys(categoriesState[appName][addonType]).map(
-      (key) => categoriesState[appName][addonType][key],
-    );
-  }
-  return null;
-};
-
 export function getCategoryNames(
   categoriesState: CategoryMapType,
   appName: string,
@@ -188,8 +171,7 @@ export function getCategoryNames(
   invariant(addonType, 'addon type can not be empty');
   invariant(addonCategories, 'addon categories can not be empty');
 
-  const categories = getCategories(categoriesState, appName, addonType);
-
+  const categories = Object.values(categoriesState[appName][addonType]);
   const relatedCategories = [];
 
   if (categories && addonCategories[appName]) {

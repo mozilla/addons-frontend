@@ -9,7 +9,6 @@ import {
 import categories, {
   FETCH_CATEGORIES,
   fetchCategories,
-  getCategories,
   getCategoryNames,
   loadCategories,
   initialState,
@@ -293,146 +292,80 @@ describe(__filename, () => {
     });
   });
 
-  describe('getCategories', () => {
-    let state;
+  it('gets category names', () => {
+    const results = [
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Blogging',
+        slug: 'blogging',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Games',
+        slug: 'Games',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Security',
+        slug: 'security',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Anime',
+        slug: 'anime',
+        type: ADDON_TYPE_STATIC_THEME,
+      },
+    ];
+    const state = categories(initialState, loadCategories({ results }));
 
-    it('gets categories', () => {
-      const results = [
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
-          name: 'Alerts & Update',
-          slug: 'alert-update',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
-          name: 'Blogging',
-          slug: 'blogging',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
-          name: 'Games',
-          slug: 'Games',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
-          name: 'Alerts & Update',
-          slug: 'alert-update',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
-          name: 'Security',
-          slug: 'security',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
-          name: 'Anime',
-          slug: 'anime',
-          type: ADDON_TYPE_STATIC_THEME,
-        },
-      ];
-      state = categories(initialState, loadCategories({ results }));
-
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        categories: {
-          'firefox': ['alert-update', 'security'],
-        },
-      });
-
-      const clientApp = CLIENT_APP_FIREFOX;
-
-      expect(getCategories(state.categories, clientApp, addon.type)).toEqual([
-        results[3],
-        results[4],
-      ]);
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      categories: {
+        'firefox': ['alert-update', 'security'],
+      },
     });
 
-    it('gets category names', () => {
-      const results = [
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
-          name: 'Alerts & Update',
-          slug: 'alert-update',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
-          name: 'Blogging',
-          slug: 'blogging',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_ANDROID,
-          name: 'Games',
-          slug: 'Games',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
-          name: 'Alerts & Update',
-          slug: 'alert-update',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
-          name: 'Security',
-          slug: 'security',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          ...fakeCategory,
-          application: CLIENT_APP_FIREFOX,
-          name: 'Anime',
-          slug: 'anime',
-          type: ADDON_TYPE_STATIC_THEME,
-        },
-      ];
-      state = categories(initialState, loadCategories({ results }));
+    const clientApp = CLIENT_APP_FIREFOX;
 
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        categories: {
-          'firefox': ['alert-update', 'security'],
-        },
-      });
-
-      const clientApp = CLIENT_APP_FIREFOX;
-
-      expect(
-        getCategoryNames(
-          state.categories,
-          clientApp,
-          addon.type,
-          addon.categories,
-        ),
-      ).toEqual([
-        {
-          'addonType': 'extension',
-          'name': 'Alerts & Update',
-          'slug': 'alert-update',
-        },
-        {
-          'addonType': 'extension',
-          'name': 'Security',
-          'slug': 'security',
-        },
-      ]);
-    });
+    expect(
+      getCategoryNames(
+        state.categories,
+        clientApp,
+        addon.type,
+        addon.categories,
+      ),
+    ).toEqual([
+      {
+        'addonType': 'extension',
+        'name': 'Alerts & Update',
+        'slug': 'alert-update',
+      },
+      {
+        'addonType': 'extension',
+        'name': 'Security',
+        'slug': 'security',
+      },
+    ]);
   });
 });
