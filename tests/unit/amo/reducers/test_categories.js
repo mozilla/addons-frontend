@@ -9,15 +9,10 @@ import {
 import categories, {
   FETCH_CATEGORIES,
   fetchCategories,
-  getCategoryNames,
   loadCategories,
   initialState,
 } from 'amo/reducers/categories';
-import {
-  createInternalAddonWithLang,
-  fakeAddon,
-  fakeCategory,
-} from 'tests/unit/helpers';
+import { fakeCategory } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('defaults to an empty set of categories', () => {
@@ -290,82 +285,5 @@ describe(__filename, () => {
       );
       expect(state.loading).toEqual(true);
     });
-  });
-
-  it('gets category names', () => {
-    const results = [
-      {
-        ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
-        name: 'Alerts & Update',
-        slug: 'alert-update',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
-        name: 'Blogging',
-        slug: 'blogging',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
-        name: 'Games',
-        slug: 'Games',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        ...fakeCategory,
-        application: CLIENT_APP_FIREFOX,
-        name: 'Alerts & Update',
-        slug: 'alert-update',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        ...fakeCategory,
-        application: CLIENT_APP_FIREFOX,
-        name: 'Security',
-        slug: 'security',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        ...fakeCategory,
-        application: CLIENT_APP_FIREFOX,
-        name: 'Anime',
-        slug: 'anime',
-        type: ADDON_TYPE_STATIC_THEME,
-      },
-    ];
-    const state = categories(initialState, loadCategories({ results }));
-
-    const addon = createInternalAddonWithLang({
-      ...fakeAddon,
-      categories: {
-        'firefox': ['alert-update', 'security'],
-      },
-    });
-
-    const clientApp = CLIENT_APP_FIREFOX;
-
-    expect(
-      getCategoryNames(
-        state.categories,
-        clientApp,
-        addon.type,
-        addon.categories,
-      ),
-    ).toEqual([
-      {
-        'addonType': 'extension',
-        'name': 'Alerts & Update',
-        'slug': 'alert-update',
-      },
-      {
-        'addonType': 'extension',
-        'name': 'Security',
-        'slug': 'security',
-      },
-    ]);
   });
 });

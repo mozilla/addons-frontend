@@ -5,7 +5,6 @@ import invariant from 'invariant';
 
 import { validAddonTypes } from 'amo/constants';
 import log from 'amo/logger';
-import type { AddonType } from 'amo/types/addons';
 
 export const FETCH_CATEGORIES: 'FETCH_CATEGORIES' = 'FETCH_CATEGORIES';
 export const LOAD_CATEGORIES: 'LOAD_CATEGORIES' = 'LOAD_CATEGORIES';
@@ -158,38 +157,4 @@ export default function reducer(
     default:
       return state;
   }
-}
-
-export function getCategoryNames(
-  categoriesState: CategoryMapType,
-  appName: string,
-  addonType: string,
-  addonCategories: $PropertyType<AddonType, 'categories'>,
-): Array<Object> | null {
-  invariant(categoriesState, 'categories state can not be empty');
-  invariant(appName, 'app name can not be empty');
-  invariant(addonType, 'addon type can not be empty');
-  invariant(addonCategories, 'addon categories can not be empty');
-
-  const categories = Object.values(categoriesState[appName][addonType]);
-  const relatedCategories = [];
-
-  if (categories && addonCategories[appName]) {
-    categories.forEach((category) => {
-      if (
-        category &&
-        category.name &&
-        category.slug &&
-        addonCategories[appName].includes(category.slug)
-      ) {
-        relatedCategories.push({
-          addonType,
-          slug: category.slug,
-          name: category.name,
-        });
-      }
-    });
-    return relatedCategories;
-  }
-  return null;
 }

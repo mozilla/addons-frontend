@@ -13,7 +13,7 @@ import LoadingText from 'amo/components/LoadingText';
 import { STATS_VIEW } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
-import { fetchCategories, getCategoryNames } from 'amo/reducers/categories';
+import { fetchCategories } from 'amo/reducers/categories';
 import { hasPermission } from 'amo/reducers/users';
 import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
 import { isAddonAuthor } from 'amo/utils';
@@ -216,13 +216,13 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               return (
                 <li key={category.slug}>
                   <Link
-                    className="AddonMoreInfo-related-category"
+                    className="AddonMoreInfo-related-category-link"
                     to={getCategoryResultsPathname({
-                      addonType: category.addonType,
+                      addonType: category.type,
                       slug: category.slug,
                     })}
                   >
-                    {category.name}
+                    {i18n.gettext(category.name)}
                   </Link>
                 </li>
               );
@@ -420,12 +420,14 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   }
 
   if (addon && addon.categories && addon.type && appName && categoriesState) {
-    relatedCategories = getCategoryNames(
-      categoriesState,
-      appName,
-      addon.type,
-      addon.categories,
-    );
+    const categories = categoriesState[appName][addon.type];
+
+    relatedCategories = addon.categories[appName].map((slug) => {
+      if (categories[slug] !== undefined) {
+        return categories[slug];
+      }
+      return null;
+    });
   }
 
   return {
