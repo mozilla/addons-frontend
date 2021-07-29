@@ -14,10 +14,13 @@ import Header from 'amo/components/Header';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import VPNPromoBanner from 'amo/components/VPNPromoBanner';
 import { CLIENT_APP_ANDROID } from 'amo/constants';
+import { EXPERIMENT_CONFIG } from 'amo/experiments/20210714_amo_vpn_promo';
 import log from 'amo/logger';
+import { withExperiment } from 'amo/withExperiment';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { ReactRouterLocationType } from 'amo/types/router';
+import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -37,6 +40,7 @@ type PropsFromState = {|
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
+  ...WithExperimentInjectedProps,
   _config: typeof config,
   _log: typeof log,
   location: ReactRouterLocationType,
@@ -53,6 +57,7 @@ export const PageBase = ({
   location,
   showVPNPromo = false,
   showWrongPlatformWarning = true,
+  variant,
 }: InternalProps): React.Node => {
   let errorContent;
   if (errorHandler && errorHandler.hasError()) {
@@ -81,7 +86,7 @@ export const PageBase = ({
   return (
     <div className="Page-amo">
       {showVPNPromo && _config.get('enableFeatureVPNPromo') && (
-        <VPNPromoBanner />
+        <VPNPromoBanner variant={variant} />
       )}
 
       <Header
@@ -123,6 +128,7 @@ const mapStateToProps = (state: AppState): PropsFromState => {
 const Page: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
+  withExperiment({ experimentConfig: EXPERIMENT_CONFIG }),
 )(PageBase);
 
 export default Page;

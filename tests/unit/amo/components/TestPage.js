@@ -108,6 +108,17 @@ describe(__filename, () => {
     expect(root.find(VPNPromoBanner)).toHaveLength(1);
   });
 
+  it('passes a variant to VPNPromoBanner', () => {
+    const variant = 'show-promo';
+    const root = render({
+      _config: getFakeConfig({ enableFeatureVPNPromo: true }),
+      showVPNPromo: true,
+      variant,
+    });
+
+    expect(root.find(VPNPromoBanner)).toHaveProp('variant', variant);
+  });
+
   it('does not render a VPNPromoBanner if showVPNPromo is false', () => {
     const root = render({
       _config: getFakeConfig({ enableFeatureVPNPromo: true }),
