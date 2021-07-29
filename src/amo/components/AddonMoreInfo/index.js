@@ -203,6 +203,24 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           </Link>
         </li>
       ),
+      tagsLinks:
+        addon.tags.length > 0
+          ? addon.tags.map((tagText) => {
+              return (
+                <li key={tagText}>
+                  <Link
+                    className="AddonMoreInfo-tag-link"
+                    to={addQueryParams(
+                      `/search/?tag=${tagText}`,
+                      getQueryParametersForAttribution(location),
+                    )}
+                  >
+                    {tagText}
+                  </Link>
+                </li>
+              );
+            })
+          : null,
     });
   }
 
@@ -218,6 +236,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     versionLastUpdated,
     versionLicenseLink = null,
     versionHistoryLink = null,
+    tagsLinks = null,
   }: Object): React.Node {
     const { addon, i18n } = this.props;
     return (
@@ -299,6 +318,14 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               term={i18n.gettext('Usage Statistics')}
             >
               {statsLink}
+            </Definition>
+          )}
+          {tagsLinks && (
+            <Definition
+              className="AddonMoreInfo-tag-links"
+              term={i18n.gettext('Tags')}
+            >
+              <ul className="AddonMoreInfo-tag-links-list">{tagsLinks}</ul>
             </Definition>
           )}
         </DefinitionList>
