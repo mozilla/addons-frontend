@@ -606,14 +606,14 @@ describe(__filename, () => {
         .find(Link)
         .at(0)
         .prop('to'),
-    ).toEqual({ pathname: '/extensions/category/alert-update/' });
+    ).toEqual('/extensions/category/alert-update/');
     expect(
       root
         .find('.AddonMoreInfo-related-categories')
         .find(Link)
         .at(1)
         .prop('to'),
-    ).toEqual({ pathname: '/extensions/category/security/' });
+    ).toEqual('/extensions/category/security/');
   });
 
   describe('UTM parameters', () => {

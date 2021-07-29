@@ -18,3 +18,17 @@
     width: 65%;
   }
 }
+
+.AddonMoreInfo-related-categories-list {
+  li {
+    display: inline-block;
+  }
+
+  li::after {
+    content: ',\00a0';
+  }
+
+  li:last-child::after {
+    content: '';
+  }
+}
