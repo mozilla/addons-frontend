@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-20 15:48+0000\n"
-"PO-Revision-Date: 2021-07-29 10:08+0000\n"
+"PO-Revision-Date: 2021-07-29 10:10+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1846,7 +1846,7 @@ msgstr "Prihranite 50 % s celoletno naročnino"
 
 #: src/amo/components/VPNPromoBanner/index.js:89
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "Zaščitite svoje podatke na spletu – in izberite naročnino za VPN, ki vam ustreza."
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
@@ -2298,6 +2298,8 @@ msgid ""
 "To report a security vulnerability for an extension, even if it is not hosted on this site, please file an %(startSecIssueLink)sissue%(endSecIssueLink)s on Bugzilla or email %(startMailLink)samo-"
 "admins@mozilla.com%(endMailLink)s. All security vulnerability reports are %(startLink)sconfidential%(endLink)s."
 msgstr ""
+"Varnostne ranljivosti razširitev, tudi če niso objavljene na našem spletnem mestu, lahko prijavite v %(startSecIssueLink)sBugzilli%(endSecIssueLink)s ali po e-pošti na %(startMailLink)samo-"
+"admins@mozilla.com%(endMailLink)s. Vse prijave varnostnih ranljivosti so %(startLink)szaupne%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:232
 msgid "Get support"
