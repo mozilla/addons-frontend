@@ -185,8 +185,6 @@ export const withExperiment =
     invariant(variants, 'variants is required');
 
     class WithExperiment extends React.Component<WithExperimentInternalProps> {
-      variant: string | null;
-
       static defaultProps = {
         _getVariant: getVariant,
         _isExperimentEnabled: isExperimentEnabled,
@@ -195,12 +193,6 @@ export const withExperiment =
       static displayName = `WithExperiment(${getDisplayName(
         WrappedComponent,
       )})`;
-
-      constructor(props: WithExperimentInternalProps) {
-        super(props);
-
-        this.variant = this.experimentSetup(props).variant;
-      }
 
       experimentSetup(props) {
         const {
@@ -211,7 +203,8 @@ export const withExperiment =
           storedVariants,
         } = props;
 
-        let { variant } = this;
+        let variant = null;
+
         const isEnabled = _isExperimentEnabled({ _config, id });
         const registeredExperiments = this.getExperiments();
         const experimentInCookie = this.cookieIncludesExperiment(
@@ -220,12 +213,14 @@ export const withExperiment =
         const addExperimentToCookie = !experimentInCookie;
         const variantFromStore = storedVariants[id];
 
+        // Always use the variant from the cookie, if it exists.
+        if (experimentInCookie) {
+          variant = registeredExperiments[id];
+        }
+
         if (isEnabled && !variant) {
-          // Use the variant in the cookie if one exists, otherwise use the
-          // variant from the Redux store.
-          if (experimentInCookie) {
-            variant = registeredExperiments[id];
-          } else if (variantFromStore) {
+          // Look for a variant in the Redux store.
+          if (variantFromStore) {
             variant = variantFromStore;
           }
           // Otherwise if the user is to be excluded, use the NOT_IN_EXPERIMENT variant.
@@ -305,15 +300,14 @@ export const withExperiment =
       render() {
         const { _isExperimentEnabled, ...props } = this.props;
 
+        const { variant } = this.experimentSetup(this.props);
         const isEnabled = _isExperimentEnabled({ _config, id });
 
         const exposedProps: WithExperimentInjectedProps = {
           experimentId: id,
           isExperimentEnabled: isEnabled,
-          isUserInExperiment: Boolean(
-            this.variant && this.variant !== NOT_IN_EXPERIMENT,
-          ),
-          variant: this.variant,
+          isUserInExperiment: Boolean(variant && variant !== NOT_IN_EXPERIMENT),
+          variant,
         };
 
         return <WrappedComponent {...exposedProps} {...props} />;

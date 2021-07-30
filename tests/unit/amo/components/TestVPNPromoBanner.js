@@ -17,17 +17,24 @@ import {
   DEFAULT_UTM_MEDIUM,
 } from 'amo/constants';
 import {
+  EXPERIMENT_CONFIG,
   VARIANT_HIDE,
   VARIANT_SHOW,
 } from 'amo/experiments/20210714_amo_vpn_promo';
-import { NOT_IN_EXPERIMENT } from 'amo/withExperiment';
+import {
+  EXPERIMENT_COOKIE_NAME,
+  NOT_IN_EXPERIMENT,
+  defaultCookieConfig,
+} from 'amo/withExperiment';
 import {
   createContextWithFakeRouter,
+  createExperimentData,
   createFakeEvent,
   createFakeLocalStorage,
   createFakeLocation,
   createFakeTracking,
   dispatchClientMetadata,
+  fakeCookies,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -38,6 +45,17 @@ describe(__filename, () => {
   beforeEach(() => {
     store = dispatchClientMetadata().store;
   });
+
+  const createCookies = () => {
+    return fakeCookies({
+      get: sinon.stub().returns(
+        createExperimentData({
+          id: EXPERIMENT_CONFIG.id,
+          variantId: VARIANT_SHOW,
+        }),
+      ),
+    });
+  };
 
   const render = ({
     // The defaults for clientApp, regionCode and variant set up the component
@@ -53,6 +71,7 @@ describe(__filename, () => {
       <VPNPromoBanner
         _tracking={createFakeTracking()}
         _localStorage={createFakeLocalStorage()}
+        cookies={createCookies()}
         i18n={fakeI18n()}
         store={store}
         variant={variant}
@@ -106,24 +125,80 @@ describe(__filename, () => {
     expect(root.find('.VPNPromoBanner-cta')).toHaveProp('href', href);
   });
 
+  const clickCta = (root) => {
+    root.find('.VPNPromoBanner-cta').simulate('click', createFakeEvent());
+  };
+
+  const clickDismiss = (root) => {
+    root
+      .find('.VPNPromoBanner-dismisser-button')
+      .simulate('click', createFakeEvent());
+  };
+
   it('clears the impression count when the cta is clicked', () => {
     const _localStorage = createFakeLocalStorage();
 
     const root = render({ _localStorage });
-    const event = createFakeEvent();
-    root.find('.VPNPromoBanner-cta').simulate('click', event);
+    clickCta(root);
 
     sinon.assert.calledWith(_localStorage.removeItem, IMPRESSION_COUNT_KEY);
+  });
+
+  it('reads and updates the experiment cookie when the cta is clicked', () => {
+    const cookies = createCookies();
+    const root = render({ cookies });
+    clickCta(root);
+
+    sinon.assert.calledWith(cookies.get, EXPERIMENT_COOKIE_NAME);
+    sinon.assert.calledWith(
+      cookies.set,
+      EXPERIMENT_COOKIE_NAME,
+      createExperimentData({
+        id: EXPERIMENT_CONFIG.id,
+        variantId: NOT_IN_EXPERIMENT,
+      }),
+      defaultCookieConfig,
+    );
+  });
+
+  it('hides itself when the cta is clicked', () => {
+    const root = render();
+    clickCta(root);
+
+    expect(root.find('.VPNPromoBanner')).toHaveLength(0);
   });
 
   it('clears the impression count when the dismiss button is clicked', () => {
     const _localStorage = createFakeLocalStorage();
 
     const root = render({ _localStorage });
-    const event = createFakeEvent();
-    root.find('.VPNPromoBanner-dismisser-button').simulate('click', event);
+    clickDismiss(root);
 
     sinon.assert.calledWith(_localStorage.removeItem, IMPRESSION_COUNT_KEY);
+  });
+
+  it('reads and updates the experiment cookie when the dismiss button is clicked', () => {
+    const cookies = createCookies();
+    const root = render({ cookies });
+    clickDismiss(root);
+
+    sinon.assert.calledWith(cookies.get, EXPERIMENT_COOKIE_NAME);
+    sinon.assert.calledWith(
+      cookies.set,
+      EXPERIMENT_COOKIE_NAME,
+      createExperimentData({
+        id: EXPERIMENT_CONFIG.id,
+        variantId: NOT_IN_EXPERIMENT,
+      }),
+      defaultCookieConfig,
+    );
+  });
+
+  it('hides itself when the dismiss button is clicked', () => {
+    const root = render();
+    clickDismiss(root);
+
+    expect(root.find('.VPNPromoBanner')).toHaveLength(0);
   });
 
   it('throws an exception if something other than a number is stored', () => {

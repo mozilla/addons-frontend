@@ -14,10 +14,12 @@ import {
 // eslint-disable-next-line import/namespace
 import * as defaultConfig from 'config/default';
 import {
+  createExperimentData,
   createFakeTracking,
   dispatchClientMetadata,
   fakeCookies,
   getFakeConfig,
+  makeExperimentId,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -27,15 +29,6 @@ describe(__filename, () => {
     }
   }
 
-  const makeId = (id) => `20210219_amo_${id}`;
-
-  const createExperimentData = ({
-    id = 'some-id',
-    variantId = 'some-variant-id',
-  }) => {
-    return { [id]: variantId };
-  };
-
   const renderWithExperiment = ({
     _tracking = createFakeTracking(),
     configOverrides = {},
@@ -44,7 +37,8 @@ describe(__filename, () => {
     props,
     store = dispatchClientMetadata().store,
   } = {}) => {
-    const id = (experimentProps && experimentProps.id) || makeId('some-id');
+    const id =
+      (experimentProps && experimentProps.id) || makeExperimentId('some-id');
     const allExperimentProps = {
       _config: getFakeConfig({
         experiments: {
@@ -99,7 +93,7 @@ describe(__filename, () => {
     'injects a variant prop from a cookie whether a user is excluded or not',
     (isExcluded) => {
       const shouldExcludeUser = sinon.stub().returns(isExcluded);
-      const id = makeId('test-id');
+      const id = makeExperimentId('test-id');
       const variantId = 'some-variant-id';
       const cookies = fakeCookies({
         get: sinon.stub().returns(createExperimentData({ id, variantId })),
@@ -119,7 +113,7 @@ describe(__filename, () => {
     (isExcluded) => {
       const shouldExcludeUser = sinon.stub().returns(isExcluded);
       const { store } = dispatchClientMetadata();
-      const id = makeId('test-id');
+      const id = makeExperimentId('test-id');
       const variantId = 'some-variant-id';
       const cookies = fakeCookies({
         get: sinon.stub().returns(undefined),
@@ -141,7 +135,7 @@ describe(__filename, () => {
   // for the user.
   it('prefers a variant from a cookie to one from the the redux store', () => {
     const { store } = dispatchClientMetadata();
-    const id = makeId('test-id');
+    const id = makeExperimentId('test-id');
     const cookieVariant = 'cookie-variant';
     const storeVariant = 'store-variant';
     const cookies = fakeCookies({
@@ -157,9 +151,38 @@ describe(__filename, () => {
     expect(root).toHaveProp('variant', cookieVariant);
   });
 
+  it('uses an updated cookie value on re-render', () => {
+    const id = makeExperimentId('test-id');
+    const originalCookieVariant = 'cookie-variant';
+    const updatedCookieVariant = 'cookie-variant-updated';
+    const cookies = fakeCookies({
+      get: sinon
+        .stub()
+        .returns(
+          createExperimentData({ id, variantId: originalCookieVariant }),
+        ),
+    });
+
+    const root = render({ cookies, experimentProps: { id } });
+
+    expect(root).toHaveProp('variant', originalCookieVariant);
+
+    root.setProps({
+      cookies: fakeCookies({
+        get: sinon
+          .stub()
+          .returns(
+            createExperimentData({ id, variantId: updatedCookieVariant }),
+          ),
+      }),
+    });
+
+    expect(root).toHaveProp('variant', updatedCookieVariant);
+  });
+
   // Test for https://github.com/mozilla/addons-frontend/issues/10681
   it('injects a newly created variant prop', () => {
-    const id = makeId('hero');
+    const id = makeExperimentId('hero');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
@@ -176,7 +199,7 @@ describe(__filename, () => {
   });
 
   it('injects a variant prop when shouldExcludeUser is undefined', () => {
-    const id = makeId('hero');
+    const id = makeExperimentId('hero');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
@@ -200,7 +223,7 @@ describe(__filename, () => {
   });
 
   it('injects an experimentId', () => {
-    const id = makeId('injected-id');
+    const id = makeExperimentId('injected-id');
 
     const root = render({ experimentProps: { id } });
     expect(root).toHaveProp('experimentId', id);
@@ -212,7 +235,7 @@ describe(__filename, () => {
   });
 
   it('injects an isUserInExperiment prop', () => {
-    const id = makeId('test-id');
+    const id = makeExperimentId('test-id');
     const cookies = fakeCookies({
       get: sinon.stub().returns(createExperimentData({ id })),
     });
@@ -231,8 +254,8 @@ describe(__filename, () => {
   });
 
   it('deletes the data for an experiment from the cookie if the experiment is disabled', () => {
-    const experimentId = makeId('thisExperiment');
-    const anotherExperimentId = makeId('anotherExperiment');
+    const experimentId = makeExperimentId('thisExperiment');
+    const anotherExperimentId = makeExperimentId('anotherExperiment');
     const cookies = fakeCookies({
       get: sinon.stub().returns({
         ...createExperimentData({ id: experimentId }),
@@ -261,7 +284,7 @@ describe(__filename, () => {
   });
 
   it('calls getVariant to set a value for a cookie upon construction if needed', () => {
-    const id = makeId('hero');
+    const id = makeExperimentId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
@@ -290,7 +313,7 @@ describe(__filename, () => {
   it('does not use a stored variant if it is not for this experiment', () => {
     const otherExperimentVariant = 'variant-for-another-experiment';
     const thisExperimentVariant = 'variant-for-this-experiment';
-    const id = makeId('hero');
+    const id = makeExperimentId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
@@ -319,7 +342,7 @@ describe(__filename, () => {
   it('uses the stored variant for this experiment, even when others are present', () => {
     const otherExperimentVariant = 'variant-for-another-experiment';
     const thisExperimentVariant = 'variant-for-this-experiment';
-    const id = makeId('hero');
+    const id = makeExperimentId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
@@ -369,8 +392,8 @@ describe(__filename, () => {
   });
 
   it('creates a cookie upon render if the current experiment is not already in the cookie', () => {
-    const experimentId = makeId('thisExperiment');
-    const anotherExperimentId = makeId('anotherExperiment');
+    const experimentId = makeExperimentId('thisExperiment');
+    const anotherExperimentId = makeExperimentId('anotherExperiment');
     const configOverrides = {
       experiments: {
         [experimentId]: true,
@@ -404,7 +427,7 @@ describe(__filename, () => {
   });
 
   it('dispatches storeExperimentVariant to store the variant', () => {
-    const id = makeId('hero');
+    const id = makeExperimentId('hero');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
@@ -427,8 +450,8 @@ describe(__filename, () => {
   });
 
   it('adds an experiment to the cookie, and removes a disabled one, as expected', () => {
-    const experimentId = makeId('thisExperiment');
-    const anotherExperimentId = makeId('anotherExperiment');
+    const experimentId = makeExperimentId('thisExperiment');
+    const anotherExperimentId = makeExperimentId('anotherExperiment');
     const configOverrides = {
       experiments: {
         [experimentId]: true,
@@ -459,7 +482,7 @@ describe(__filename, () => {
   });
 
   it('does not update the cookie if the current experiment is already in the cookie', () => {
-    const id = makeId('test-id');
+    const id = makeExperimentId('test-id');
     const cookies = fakeCookies({
       get: sinon.stub().returns(createExperimentData({ id })),
     });
@@ -473,8 +496,8 @@ describe(__filename, () => {
   });
 
   it('sends an enrollment event if the experiment is not already present in the cookie', () => {
-    const experimentId = makeId('thisExperiment');
-    const anotherExperimentId = makeId('anotherExperiment');
+    const experimentId = makeExperimentId('thisExperiment');
+    const anotherExperimentId = makeExperimentId('anotherExperiment');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
       get: sinon
@@ -501,7 +524,7 @@ describe(__filename, () => {
   });
 
   it('does not send an enrollment event if the user is in the experiment', () => {
-    const id = makeId('hero');
+    const id = makeExperimentId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(createExperimentData({ id })),
     });
@@ -517,7 +540,7 @@ describe(__filename, () => {
   });
 
   it('does not send an enrollment event if the experiment is disabled', () => {
-    const id = makeId('hero');
+    const id = makeExperimentId('hero');
     const cookies = fakeCookies({
       get: sinon.stub().returns(undefined),
     });
@@ -539,7 +562,7 @@ describe(__filename, () => {
   });
 
   it('allows a custom cookie configuration', () => {
-    const id = makeId('custom_cookie_config');
+    const id = makeExperimentId('custom_cookie_config');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies();
     const cookieConfig = { path: '/test' };
@@ -566,7 +589,7 @@ describe(__filename, () => {
   });
 
   it('sets isExperimentEnabled prop to false when experiment is disabled by config', () => {
-    const id = makeId('disabled_experiment');
+    const id = makeExperimentId('disabled_experiment');
     const configOverrides = {
       experiments: {
         [id]: false,
@@ -578,7 +601,7 @@ describe(__filename, () => {
   });
 
   it('sets isUserInExperiment prop to false when the user is not in the experiment', () => {
-    const id = makeId('test-id');
+    const id = makeExperimentId('test-id');
     const cookies = fakeCookies({
       get: sinon
         .stub()
@@ -590,7 +613,7 @@ describe(__filename, () => {
   });
 
   it('sets isUserInExperiment prop to false when the experiment is disabled', () => {
-    const id = makeId('disabled_experiment');
+    const id = makeExperimentId('disabled_experiment');
     const configOverrides = {
       experiments: {
         [id]: false,

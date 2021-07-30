@@ -3,18 +3,25 @@
 import deepEqual from 'deep-eql';
 import invariant from 'invariant';
 import * as React from 'react';
+import { withCookies, Cookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import Button from 'amo/components/Button';
 import {
+  EXPERIMENT_CONFIG,
   VARIANT_SHOW,
   shouldExcludeUser,
 } from 'amo/experiments/20210714_amo_vpn_promo';
 import tracking from 'amo/tracking';
 import translate from 'amo/i18n/translate';
 import { makeQueryStringWithUTM } from 'amo/utils';
+import {
+  EXPERIMENT_COOKIE_NAME,
+  NOT_IN_EXPERIMENT,
+  defaultCookieConfig,
+} from 'amo/withExperiment';
 import type { RegionCodeType } from 'amo/reducers/api';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
@@ -48,6 +55,7 @@ type InternalProps = {|
   ...Props,
   ...DeafultProps,
   ...PropsFromState,
+  cookies: typeof Cookies,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
@@ -66,17 +74,28 @@ export const getImpressionCount = (
   return parsedCount;
 };
 
-export class VPNPromoBannerBase extends React.Component<InternalProps> {
+type State = {|
+  dismissed: boolean,
+|};
+
+export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
   static defaultProps: DeafultProps = {
     _tracking: tracking,
     _localStorage: typeof window !== 'undefined' ? window.localStorage : {},
   };
+
+  constructor(props: InternalProps) {
+    super(props);
+
+    this.state = { dismissed: props.variant !== VARIANT_SHOW };
+  }
 
   shouldShowBanner(): boolean {
     const { clientApp, regionCode, variant } = this.props;
 
     return (
       variant === VARIANT_SHOW &&
+      !this.state.dismissed &&
       !shouldExcludeUser({
         clientApp,
         regionCode,
@@ -85,7 +104,7 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
   }
 
   onInteract: (action: string) => void = (action) => {
-    const { _tracking, _localStorage } = this.props;
+    const { _tracking, _localStorage, cookies } = this.props;
 
     const impressionCount = getImpressionCount(_localStorage);
     _tracking.sendEvent({
@@ -94,6 +113,14 @@ export class VPNPromoBannerBase extends React.Component<InternalProps> {
       label: String(impressionCount),
     });
     _localStorage.removeItem(IMPRESSION_COUNT_KEY);
+    this.setState({ dismissed: true });
+
+    // See https://github.com/mozilla/addons-frontend/issues/10770
+    const experiments = cookies.get(EXPERIMENT_COOKIE_NAME);
+    experiments[EXPERIMENT_CONFIG.id] = NOT_IN_EXPERIMENT;
+    // We can use defaultCookieConfig because our experiment does not define a
+    // cookie config.
+    cookies.set(EXPERIMENT_COOKIE_NAME, experiments, defaultCookieConfig);
   };
 
   onButtonClick: () => void = () => {
@@ -186,6 +213,7 @@ const mapStateToProps = (state: AppState): PropsFromState => {
 const VPNPromoBanner: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
+  withCookies,
   connect(mapStateToProps),
 )(VPNPromoBannerBase);
 
