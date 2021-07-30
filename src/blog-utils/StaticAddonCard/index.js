@@ -88,7 +88,7 @@ export const StaticAddonCardBase = ({
         <GetFirefoxButton
           addon={addon}
           overrideQueryParams={{
-            utm_term: `amo-blog-fx-cta-${addon.id}`,
+            utm_campaign: `amo-blog-fx-cta-${addon.id}`,
             experiment: null,
             variation: null,
           }}

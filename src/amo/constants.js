@@ -313,8 +313,7 @@ export const AMO_REQUEST_ID_HEADER = 'amo-request-id';
 
 export const DEFAULT_UTM_SOURCE = 'addons.mozilla.org';
 export const DEFAULT_UTM_MEDIUM = 'referral';
-export const DOWNLOAD_FIREFOX_UTM_CAMPAIGN = 'non-fx-button';
-export const DOWNLOAD_FIREFOX_UTM_TERM = 'amo-fx-cta';
+export const DOWNLOAD_FIREFOX_UTM_CAMPAIGN = 'amo-fx-cta';
 
 // Promoted categories
 export const LINE = 'line';
