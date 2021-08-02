@@ -25,19 +25,11 @@
     display: inline-block;
   }
 
-  li:last-child::after {
-    content: '';
-  }
-}
-
-.AddonMoreInfo-related-categories-list {
-  li::after {
-    content: ',\00a0';
-  }
-}
-
-.AddonMoreInfo-tag-links-list {
   li::after {
     content: '\00a0\2219\00a0';
+  }
+
+  li:last-child::after {
+    content: '';
   }
 }
