@@ -12089,10 +12089,10 @@ stylelint-config-standard@^22.0.0:
   dependencies:
     stylelint-config-recommended "^5.0.0"
 
-stylelint-config-suitcss@^15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-suitcss/-/stylelint-config-suitcss-15.0.0.tgz#9c25f2487e210e95138535fa40a61452cd6e8e36"
-  integrity sha512-MVkhy8oPuFt1I2+TKqdKxukstNQ5oQDHtztBVNVL6uS2ZwRGE2hqq+Hc1Q5bXZswH6ApoQfdbjCmS8N3avwsBg==
+stylelint-config-suitcss@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-suitcss/-/stylelint-config-suitcss-16.0.0.tgz#ab7046f1d360bbc13a6883deb741731939c96ad3"
+  integrity sha512-3tfBIUeIY6VW9jIafPte8w+1S3zaVK1UFtpToFRb04fOP6TCRlrtrQQEs6gZ9MlRrbEvsaNPJdjYpan2xO9sNw==
   dependencies:
     stylelint-order "^4.1.0"
     stylelint-suitcss "^3.0.0"
