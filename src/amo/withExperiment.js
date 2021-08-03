@@ -217,7 +217,7 @@ export const withExperiment =
       setupExperiment(props) {
         const { _getVariant, dispatch, isUserExcluded, storedVariants } = props;
 
-        // If the experiment is not enable, we return a null variant.
+        // If the experiment is not enabled, we return a null variant.
         if (!this.isEnabled()) {
           return null;
         }
