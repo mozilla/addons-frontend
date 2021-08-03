@@ -275,6 +275,7 @@ describe(__filename, () => {
       experimentProps: { id: experimentId },
     });
 
+    sinon.assert.calledOnce(cookies.set);
     sinon.assert.calledWith(
       cookies.set,
       EXPERIMENT_COOKIE_NAME,
@@ -300,8 +301,10 @@ describe(__filename, () => {
       props: { _getVariant },
     });
 
+    sinon.assert.calledOnce(_getVariant);
     sinon.assert.calledWith(_getVariant, { variants });
 
+    sinon.assert.calledOnce(cookies.set);
     sinon.assert.calledWith(
       cookies.set,
       EXPERIMENT_COOKIE_NAME,
@@ -443,6 +446,7 @@ describe(__filename, () => {
       store,
     });
 
+    sinon.assert.calledOnce(fakeDispatch);
     sinon.assert.calledWith(
       fakeDispatch,
       storeExperimentVariant({ id, variant: variantId }),
@@ -473,6 +477,7 @@ describe(__filename, () => {
       props: { _getVariant },
     });
 
+    sinon.assert.calledOnce(cookies.set);
     sinon.assert.calledWith(
       cookies.set,
       EXPERIMENT_COOKIE_NAME,
@@ -514,6 +519,7 @@ describe(__filename, () => {
       props: { _getVariant },
     });
 
+    sinon.assert.calledOnce(_tracking.sendEvent);
     sinon.assert.calledWith(
       _tracking.sendEvent,
       sinon.match({
@@ -574,6 +580,7 @@ describe(__filename, () => {
       props: { _getVariant },
     });
 
+    sinon.assert.calledOnce(cookies.set);
     sinon.assert.calledWith(
       cookies.set,
       EXPERIMENT_COOKIE_NAME,
@@ -609,6 +616,7 @@ describe(__filename, () => {
     });
 
     const root = render({ cookies, experimentProps: { id } });
+
     expect(root).toHaveProp('isUserInExperiment', false);
   });
 
@@ -621,6 +629,7 @@ describe(__filename, () => {
     };
 
     const root = render({ configOverrides, experimentProps: { id } });
+
     expect(root).toHaveProp('isUserInExperiment', false);
   });
 
@@ -631,6 +640,7 @@ describe(__filename, () => {
     };
 
     const root = render({ configOverrides });
+
     expect(root).toHaveProp('isExperimentEnabled', false);
   });
 
@@ -638,6 +648,7 @@ describe(__filename, () => {
     const configOverrides = { experiments: null };
 
     const root = render({ configOverrides });
+
     expect(root).toHaveProp('isExperimentEnabled', false);
   });
 

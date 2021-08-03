@@ -79,7 +79,6 @@ type CookieConfig = {|
 |};
 
 type ExperimentVariant = {| id: string, percentage: number |};
-type RegisteredExpermients = {| [experimentId: string]: string |};
 
 export type ExperimentConfig = {|
   cookieConfig?: CookieConfig,
@@ -185,6 +184,8 @@ export const withExperiment =
     invariant(variants, 'variants is required');
 
     class WithExperiment extends React.Component<WithExperimentInternalProps> {
+      variant: string | null;
+
       static defaultProps = {
         _getVariant: getVariant,
         _isExperimentEnabled: isExperimentEnabled,
@@ -194,66 +195,71 @@ export const withExperiment =
         WrappedComponent,
       )})`;
 
-      experimentSetup(props) {
-        const {
-          _getVariant,
-          _isExperimentEnabled,
-          dispatch,
-          isUserExcluded,
-          storedVariants,
-        } = props;
+      constructor(props: WithExperimentInternalProps) {
+        super(props);
 
-        let variant = null;
+        this.variant = this.setupExperiment(props);
+      }
 
-        const isEnabled = _isExperimentEnabled({ _config, id });
-        const registeredExperiments = this.getExperiments();
-        const experimentInCookie = this.cookieIncludesExperiment(
-          registeredExperiments,
-        );
-        const addExperimentToCookie = !experimentInCookie;
-        const variantFromStore = storedVariants[id];
+      isEnabled() {
+        return this.props._isExperimentEnabled({ _config, id });
+      }
 
-        // Always use the variant from the cookie, if it exists.
-        if (experimentInCookie) {
-          variant = registeredExperiments[id];
+      readVariantFromCookie() {
+        if (this.cookieIncludesExperiment()) {
+          return this.getExperimentsFromCookie()[id];
         }
 
-        if (isEnabled && !variant) {
+        return null;
+      }
+
+      // Returns a variant.
+      setupExperiment(props) {
+        const { _getVariant, dispatch, isUserExcluded, storedVariants } = props;
+
+        // If the experiment is not enabled, we return a null variant.
+        if (!this.isEnabled()) {
+          return null;
+        }
+
+        // Always use the variant from the cookie, if it exists.
+        let variant = this.readVariantFromCookie();
+
+        if (!variant) {
+          const variantFromStore = storedVariants[id];
           // Look for a variant in the Redux store.
           if (variantFromStore) {
             variant = variantFromStore;
           }
-          // Otherwise if the user is to be excluded, use the NOT_IN_EXPERIMENT variant.
+          // Otherwise if the user is to be excluded, use the NOT_IN_EXPERIMENT
+          // variant.
           else if (isUserExcluded) {
             variant = NOT_IN_EXPERIMENT;
+          } else {
+            variant = _getVariant({ variants });
           }
 
           // Do we need to store the variant in the cookie?
-          if (addExperimentToCookie) {
-            // Determine the variant if we don't already have one.
-            variant = variant || _getVariant({ variants });
-
+          if (!this.cookieIncludesExperiment() && !variantFromStore) {
             // Store the variant in the Redux store for use during
-            // componentDidMount.
+            // `componentDidMount()` and only when the user does not yet have a
+            // variant in a cookie. In this case, the `experiments` state would
+            // be empty, which is a bit unusual as we normally have consistent
+            // states.
             dispatch(storeExperimentVariant({ id, variant }));
           }
         }
 
-        return {
-          // We only need to add the experiment to the cookie if we have a
-          // variant.
-          addExperimentToCookie: addExperimentToCookie && variant,
-          registeredExperiments,
-          variant,
-        };
+        return variant;
       }
 
       componentDidMount() {
+        const { variant } = this;
         const { _isExperimentEnabled, cookies } = this.props;
 
-        const { addExperimentToCookie, registeredExperiments, variant } =
-          this.experimentSetup(this.props);
-
+        const addExperimentToCookie =
+          variant && !this.cookieIncludesExperiment();
+        const registeredExperiments = this.getExperimentsFromCookie();
         const experimentsToStore = { ...registeredExperiments };
 
         // Clear any disabled experiments from the cookie.
@@ -287,30 +293,30 @@ export const withExperiment =
         }
       }
 
-      getExperiments() {
-        const { cookies } = this.props;
-
-        return cookies.get(EXPERIMENT_COOKIE_NAME) || {};
+      getExperimentsFromCookie() {
+        return this.props.cookies.get(EXPERIMENT_COOKIE_NAME) || {};
       }
 
-      cookieIncludesExperiment(registeredExperiments: RegisteredExpermients) {
-        return Object.keys(registeredExperiments).includes(id);
+      cookieIncludesExperiment() {
+        return Object.keys(this.getExperimentsFromCookie()).includes(id);
       }
 
       render() {
-        const { _isExperimentEnabled, ...props } = this.props;
+        // We extract only the props we want to pass to the wrapper component.
+        const { _getVariant, _isExperimentEnabled, ...otherProps } = this.props;
 
-        const { variant } = this.experimentSetup(this.props);
-        const isEnabled = _isExperimentEnabled({ _config, id });
+        // We should always read the variant from the cookie, unless it has not
+        // been set yet, in which case the attribute should have it.
+        const variant = this.readVariantFromCookie() || this.variant;
 
         const exposedProps: WithExperimentInjectedProps = {
           experimentId: id,
-          isExperimentEnabled: isEnabled,
+          isExperimentEnabled: this.isEnabled(),
           isUserInExperiment: Boolean(variant && variant !== NOT_IN_EXPERIMENT),
           variant,
         };
 
-        return <WrappedComponent {...exposedProps} {...props} />;
+        return <WrappedComponent {...exposedProps} {...otherProps} />;
       }
     }
 
