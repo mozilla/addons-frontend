@@ -128,6 +128,9 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
       delete filters.category;
       delete filters.addonType;
     }
+    if (filters.tag) {
+      delete filters.tag;
+    }
 
     history.push({
       pathname: `/${lang}/${clientApp}${pathname}`,

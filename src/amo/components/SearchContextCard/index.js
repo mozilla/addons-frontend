@@ -48,7 +48,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
 
   render(): React.Node {
     const { categoryName, count, filters, i18n, loadingSearch } = this.props;
-    const { addonType, query } = filters || {};
+    const { addonType, query, tag } = filters || {};
     let searchText;
 
     if (!loadingSearch) {
@@ -163,6 +163,12 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
       });
     } else if (loadingSearch) {
       searchText = i18n.gettext('Searching for add-ons');
+    }
+    if (searchText && tag) {
+      const tagText = i18n.sprintf(i18n.gettext('with tag %(tag)s'), {
+        tag,
+      });
+      searchText = `${searchText} ${tagText}`;
     }
 
     return (

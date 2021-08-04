@@ -513,7 +513,7 @@ describe(__filename, () => {
 
     expect(tagsLinks).toHaveProp('term', 'Tags');
     expect(tagsLinks.find(Link)).toHaveLength(addon.tags.length);
-    expect(tagsLinks.find(Link)).toHaveProp('to', `/search/?tag=${tagText}`);
+    expect(tagsLinks.find(Link)).toHaveProp('to', `/tag/${tagText}/`);
     expect(tagsLinks.find(Link).children()).toHaveText(tagText);
   });
 

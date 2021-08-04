@@ -250,7 +250,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
                   <Link
                     className="AddonMoreInfo-tag-link"
                     to={addQueryParams(
-                      `/search/?tag=${tagText}`,
+                      `/tag/${tagText}/`,
                       getQueryParametersForAttribution(location),
                     )}
                   >
