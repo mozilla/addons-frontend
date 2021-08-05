@@ -1,9 +1,12 @@
 import * as React from 'react';
 
+import { createApiError } from 'amo/api';
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
 import AddonMoreInfo, { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
+import ErrorList from 'amo/components/ErrorList';
 import Link from 'amo/components/Link';
+import { ErrorHandler } from 'amo/errorHandler';
 import { loadCategories } from 'amo/reducers/categories';
 import { loadVersions } from 'amo/reducers/versions';
 import {
@@ -639,6 +642,151 @@ describe(__filename, () => {
         .at(1)
         .prop('to'),
     ).toEqual('/extensions/category/security/');
+  });
+
+  it('does not render related categories when add-on has no category', () => {
+    const results = [
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Blogging',
+        slug: 'blogging',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Games',
+        slug: 'Games',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Security',
+        slug: 'security',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Anime',
+        slug: 'anime',
+        type: ADDON_TYPE_STATIC_THEME,
+      },
+    ];
+
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      categories: {
+        [CLIENT_APP_FIREFOX]: [],
+      },
+      type: ADDON_TYPE_EXTENSION,
+    });
+
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
+    store.dispatch(loadCategories({ results }));
+
+    const root = render({
+      addon,
+      store,
+    });
+
+    expect(
+      root.find('.AddonMoreInfo-related-categories').find(Link),
+    ).toHaveLength(0);
+  });
+
+  it('does not render related categories when categories for add-on do not exist', () => {
+    const results = [
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Blogging',
+        slug: 'blogging',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Games',
+        slug: 'Games',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Security',
+        slug: 'security',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Anime',
+        slug: 'anime',
+        type: ADDON_TYPE_STATIC_THEME,
+      },
+    ];
+
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      categories: {
+        [CLIENT_APP_FIREFOX]: ['alert-update', 'security'],
+      },
+      type: ADDON_TYPE_EXTENSION,
+    });
+
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
+    store.dispatch(loadCategories({ results }));
+
+    const root = render({
+      addon,
+      store,
+    });
+
+    expect(
+      root.find('.AddonMoreInfo-related-categories').find(Link),
+    ).toHaveLength(0);
+  });
+
+  it('renders errors when API error occurs', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+
+    errorHandler.handle(
+      createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'not found' },
+      }),
+    );
+
+    const root = render({ errorHandler, store });
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   describe('UTM parameters', () => {

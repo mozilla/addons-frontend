@@ -385,10 +385,12 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { i18n } = this.props;
+    const { errorHandler, i18n } = this.props;
 
     return (
       <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
+        {errorHandler.renderErrorIfPresent()}
+
         {this.listContent()}
       </Card>
     );
@@ -397,8 +399,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 
 const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addon, i18n } = ownProps;
-  const categoriesState = state.categories.categories;
-  const appName = state.api.clientApp;
+  const { categories } = state.categories;
+  const { clientApp } = state.api;
 
   let currentVersion = null;
   let relatedCategories = null;
@@ -419,15 +421,15 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
     });
   }
 
-  if (addon && addon.categories && addon.type && appName && categoriesState) {
-    const categories = categoriesState[appName][addon.type];
+  if (addon && addon.categories && addon.type && categories && clientApp) {
+    const appCategories = categories[clientApp][addon.type];
 
-    relatedCategories = addon.categories[appName].map((slug) => {
-      if (categories[slug] !== undefined) {
-        return categories[slug];
+    relatedCategories = addon.categories[clientApp].reduce((result, slug) => {
+      if (typeof appCategories[slug] !== 'undefined') {
+        result.push(appCategories[slug]);
       }
-      return null;
-    });
+      return result;
+    }, []);
   }
 
   return {
