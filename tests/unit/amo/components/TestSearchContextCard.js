@@ -441,17 +441,6 @@ describe(__filename, () => {
     );
   });
 
-  it('should render "Searching" and the tag when no query is present but tag is and search loading is true', () => {
-    const tag = 'foo';
-    _searchStart({ filters: { tag } });
-
-    const root = render();
-
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
-      `Searching for add-ons with tag ${tag}`,
-    );
-  });
-
   it('should render singular form when only one result is found for an addonType that is not an extension nor theme', () => {
     const query = 'test';
     dispatchSearchResults({
