@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-29 17:07+0000\n"
-"PO-Revision-Date: 2021-08-08 06:12+0000\n"
+"PO-Revision-Date: 2021-08-08 06:25+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -1487,11 +1487,11 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:193 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
-msgstr ""
+msgstr "Estensiones en tendencia"
 
 #: src/amo/components/Search/index.js:196 src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
-msgstr ""
+msgstr "Estilos en tendencia"
 
 #: src/amo/components/Search/index.js:199
 msgid "Trending add-ons"
@@ -1840,8 +1840,8 @@ msgstr "Esti complementu nun pue valorase porque nun s'espublizó nenguna versi�
 #: src/amo/pages/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lleer %(count)s reseña"
+msgstr[1] "Lleer %(count)s reseñes"
 
 #: src/amo/pages/Addon/index.js:238
 msgid "No reviews yet"
@@ -2123,7 +2123,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
-msgstr ""
+msgstr "Ver más estensiones en tendencia"
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
@@ -2135,7 +2135,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
-msgstr ""
+msgstr "Ver más estilos en tendencia"
 
 #: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
