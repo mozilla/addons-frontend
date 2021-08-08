@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-29 17:07+0000\n"
-"PO-Revision-Date: 2021-08-08 06:25+0000\n"
+"PO-Revision-Date: 2021-08-08 06:34+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -204,11 +204,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:202
 msgid "See all versions"
-msgstr ""
+msgstr "Ver toles versiones"
 
 #: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Add-on Links"
-msgstr ""
+msgstr "Enllaces del complementu"
 
 #: src/amo/components/AddonMoreInfo/index.js:260
 msgid "Version"
@@ -498,7 +498,7 @@ msgstr[1] "%(rating)s estrelles de 5"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:93 src/amo/components/AddonTitle/index.js:98
@@ -559,7 +559,7 @@ msgstr "Desinstalando"
 
 #: src/amo/components/AMInstallButton/index.js:221
 msgid "Install Theme"
-msgstr ""
+msgstr "Instalar l'estilu"
 
 #: src/amo/components/AMInstallButton/index.js:222
 msgid "Add to Firefox"
@@ -1147,7 +1147,7 @@ msgstr "Aconséyase"
 
 #: src/amo/components/IconPromotedBadge/index.js:48 src/amo/components/PromotedBadge/index.js:56 src/amo/components/SearchFilters/index.js:180
 msgid "Verified"
-msgstr ""
+msgstr "Verificóse"
 
 #: src/amo/components/InstallButtonWrapper/index.js:133
 msgid "Download file"
@@ -1475,15 +1475,15 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:179
 msgid "Verified extensions"
-msgstr ""
+msgstr "Estensiones verificaes"
 
 #: src/amo/components/Search/index.js:182
 msgid "Verified themes"
-msgstr ""
+msgstr "Estilos verificaos"
 
 #: src/amo/components/Search/index.js:185
 msgid "Verified add-ons"
-msgstr ""
+msgstr "Complementos verificaos"
 
 #: src/amo/components/Search/index.js:193 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -2039,7 +2039,7 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:421
 msgid "Log in to create a collection"
-msgstr ""
+msgstr "Aniciar sesión pa crear una coleición"
 
 #: src/amo/pages/Collection/index.js:422
 msgid "Log in to edit this collection"
