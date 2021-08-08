@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-29 17:07+0000\n"
-"PO-Revision-Date: 2021-08-08 05:54+0000\n"
+"PO-Revision-Date: 2021-08-08 06:12+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -1187,7 +1187,7 @@ msgstr "Permisos"
 
 #: src/amo/components/PermissionsCard/index.js:84
 msgid "This add-on needs to:"
-msgstr "Esti complementu precisa:"
+msgstr "Esti complementu tien de:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "This add-on may also ask to:"
@@ -1311,23 +1311,23 @@ msgstr "Entá nun hai valoraciones"
 
 #: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this dictionary"
-msgstr "Anciar sesión pa valorar esti diccionariu"
+msgstr "Aniciar sesión pa valorar esti diccionariu"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
-msgstr "Anciar sesión pa valorar esti paquete de llingua"
+msgstr "Aniciar sesión pa valorar esti paquete de llingua"
 
 #: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this theme"
-msgstr "Anciar sesión pa valorar esti estilu"
+msgstr "Aniciar sesión pa valorar esti estilu"
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this extension"
-msgstr "Anciar sesión pa valorar esta estensión"
+msgstr "Aniciar sesión pa valorar esta estensión"
 
 #: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
-msgstr "Anciar sesión pa valorar esti complementu"
+msgstr "Aniciar sesión pa valorar esti complementu"
 
 #: src/amo/components/RatingManager/index.js:178
 msgid "Are you sure you want to delete your review of %(addonName)s?"
@@ -1623,7 +1623,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:165
 msgid "Trending"
-msgstr "Tendencia"
+msgstr "En tendencia"
 
 #: src/amo/components/SearchFilters/index.js:173
 msgid "Any"
@@ -1807,7 +1807,7 @@ msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "P'atopar complementos compatibles con Firefox pa'Android, <a href=\"%(newLocation)s\">calca equí</a>."
+msgstr "P'atopar complementos compatibles con Firefox p'Android, <a href=\"%(newLocation)s\">calca equí</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
@@ -1943,7 +1943,7 @@ msgstr[1] "%(total)s reseñes"
 
 #: src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
-msgstr "Entá nun hai reseñes"
+msgstr "Nun hai reseñes"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:101
 msgid "My collections"
-msgstr "Coleiciones de mio"
+msgstr "Les mios coleiciones"
 
 #: src/amo/pages/CollectionList/index.js:119
 msgid "Collections"
@@ -2175,7 +2175,7 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "Instalar un complementu de diccionariu va amestar una opción de llingua nueva al correutor ortográficu que va correxite lo que teclexes en Firefox."
+msgstr "La instalación d'un complementu de diccionariu amiesta una opción al correutor ortográficu que corrixe lo que teclexes en Firefox."
 
 #: src/amo/pages/LanguageTools/index.js:183
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -2195,7 +2195,7 @@ msgstr "Paquetes de llingua"
 
 #: src/amo/pages/LanguageTools/index.js:203
 msgid "Dictionaries"
-msgstr "Diccionariu"
+msgstr "Diccionarios"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2435,7 +2435,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:238
 msgid "My reviews"
-msgstr "Reseñes de mio"
+msgstr "Les mios reseñes"
 
 #: src/amo/pages/UserProfile/index.js:266
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
