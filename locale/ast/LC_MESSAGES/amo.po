@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-07-29 17:07+0000\n"
-"PO-Revision-Date: 2021-08-08 06:34+0000\n"
+"PO-Revision-Date: 2021-08-08 06:41+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -1123,7 +1123,7 @@ msgstr ""
 
 #: src/amo/components/HomepageShelves/index.js:66
 msgid "See more %(categoryName)s"
-msgstr ""
+msgstr "Ver más %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -2103,7 +2103,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
-msgstr ""
+msgstr "Ver más estensiones aconseyaes"
 
 #: src/amo/pages/Home/index.js:83
 msgid "Abstract"
@@ -2131,7 +2131,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
-msgstr ""
+msgstr "Ver más estilos aconseyaos"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
