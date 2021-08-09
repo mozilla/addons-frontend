@@ -97,7 +97,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       <li>
         <a
           className="AddonAdminLinks-contentReview-link"
-          href={`/reviewers/review-content/${addon.slug}`}
+          href={`/reviewers/review-content/${addon.id}`}
         >
           {
             // translators: This action allows a reviewer to perform a content review of an add-on.
@@ -119,7 +119,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
             className={`AddonAdminLinks-${
               isTheme ? 'themeReview' : 'codeReview'
             }-link`}
-            href={`/reviewers/review/${addon.slug}`}
+            href={`/reviewers/review/${addon.id}`}
           >
             {codeReviewLinkText}
           </a>

@@ -22,6 +22,7 @@ import {
 
 describe(__filename, () => {
   let store;
+  const id = 123;
   const slug = 'some-slug';
 
   beforeEach(() => {
@@ -44,6 +45,7 @@ describe(__filename, () => {
     addon = createInternalAddonWithLang({
       ...fakeAddon,
       slug,
+      id,
     }),
     permissions,
   }) => {
@@ -97,7 +99,6 @@ describe(__filename, () => {
   });
 
   it('shows an admin add-on link if the user has permission', () => {
-    const id = 123;
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
       id,
@@ -119,7 +120,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonAdminLinks-contentReview-link')).toHaveProp(
       'href',
-      `/reviewers/review-content/${slug}`,
+      `/reviewers/review-content/${id}`,
     );
   });
 
@@ -147,7 +148,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonAdminLinks-codeReview-link')).toHaveProp(
       'href',
-      `/reviewers/review/${slug}`,
+      `/reviewers/review/${id}`,
     );
     expect(root.find('.AddonAdminLinks-codeReview-link').children()).toHaveText(
       'Review add-on code',
@@ -165,7 +166,7 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
-        slug,
+        id,
         type: ADDON_TYPE_STATIC_THEME,
       }),
       permissions: STATIC_THEMES_REVIEW,
@@ -173,7 +174,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveProp(
       'href',
-      `/reviewers/review/${slug}`,
+      `/reviewers/review/${id}`,
     );
     expect(
       root.find('.AddonAdminLinks-themeReview-link').children(),
@@ -184,7 +185,7 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeTheme,
-        slug,
+        id,
       }),
       permissions: ADDONS_EDIT,
     });
@@ -197,7 +198,7 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
-        slug,
+        id,
       }),
       permissions: [ADDONS_EDIT, STATIC_THEMES_REVIEW],
     });
