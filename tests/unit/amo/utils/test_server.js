@@ -24,6 +24,7 @@ describe(__filename, () => {
         expect(res.get('content-type')).toEqual(
           'application/json; charset=utf-8',
         );
+        expect(res.get('access-control-allow-origin')).toEqual('*');
         expect(res._getJSON()).toMatchObject(versionJson);
 
         done();
