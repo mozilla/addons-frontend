@@ -48,6 +48,8 @@ export const viewFrontendVersionHandler = ({
       } else {
         const versionJson = await fs.readJson(version);
 
+        // Allow anyone to fetch this file.
+        res.header('Access-Control-Allow-Origin', '*');
         res.json({
           ...versionJson,
           experiments,
