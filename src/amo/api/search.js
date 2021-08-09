@@ -27,6 +27,7 @@ export type SearchFilters = {|
   promoted?: string,
   query?: string,
   sort?: string,
+  tag?: string,
 |};
 
 export type SearchParams = {|

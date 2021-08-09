@@ -157,6 +157,8 @@ export const SEARCH_SORT_RECOMMENDED = 'recommended';
 
 // Default sort sequence for the category page
 export const DEFAULT_CATEGORY_SORT = `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`;
+// Default sort sequence for the tag pages
+export const DEFAULT_TAG_SORT = DEFAULT_CATEGORY_SORT;
 
 // Collection add-ons sort values
 export const COLLECTION_SORT_DATE_ADDED_ASCENDING = 'added';
