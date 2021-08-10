@@ -722,7 +722,7 @@ describe(__filename, () => {
 
       expect(
         root.find('.AddonMoreInfo-related-categories').find(Link),
-      ).toHaveLength(2);
+      ).toHaveLength(0);
     });
 
     it('renders errors when API error occurs', () => {
