@@ -711,7 +711,7 @@ describe(__filename, () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
         categories: {
-          [CLIENT_APP_ANDROID]: ['alert-update', 'blogging'],
+          [CLIENT_APP_ANDROID]: ['does-not-exist'],
         },
         type: ADDON_TYPE_EXTENSION,
       });
