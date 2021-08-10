@@ -611,8 +611,8 @@ describe(__filename, () => {
     ];
 
     it('renders related categories', () => {
-      const { slug: slug1 } = categories[0];
-      const { slug: slug2 } = categories[1];
+      const { slug: slug1 } = categories[3];
+      const { slug: slug2 } = categories[4];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
         categories: {
@@ -665,8 +665,8 @@ describe(__filename, () => {
     });
 
     it('does not render related categories when there are no loaded categories', () => {
-      const { slug: slug1 } = categories[0];
-      const { slug: slug2 } = categories[1];
+      const { slug: slug1 } = categories[3];
+      const { slug: slug2 } = categories[4];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
         categories: {
