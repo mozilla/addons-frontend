@@ -670,10 +670,12 @@ describe(__filename, () => {
     });
 
     it('does not render related categories when there are no loaded categories', () => {
+      const { slug: slug1 } = categories[0];
+      const { slug: slug2 } = categories[1];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
         categories: {
-          [CLIENT_APP_FIREFOX]: ['alert-update', 'security'],
+          [CLIENT_APP_FIREFOX]: [slug1, slug2],
         },
         type: ADDON_TYPE_EXTENSION,
       });
