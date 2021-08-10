@@ -692,6 +692,7 @@ describe(__filename, () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
         categories: {
+          // 'blogging' and 'games' only exist for CLIENT_APP_ANDROID
           [CLIENT_APP_FIREFOX]: ['blogging', 'games'],
         },
         type: ADDON_TYPE_EXTENSION,
