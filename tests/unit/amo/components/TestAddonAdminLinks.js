@@ -22,7 +22,7 @@ import {
 
 describe(__filename, () => {
   let store;
-  const id = 123;
+  const addonId = 123;
   const slug = 'some-slug';
 
   beforeEach(() => {
@@ -45,7 +45,7 @@ describe(__filename, () => {
     addon = createInternalAddonWithLang({
       ...fakeAddon,
       slug,
-      id,
+      addonId,
     }),
     permissions,
   }) => {
@@ -101,7 +101,7 @@ describe(__filename, () => {
   it('shows an admin add-on link if the user has permission', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      id,
+      addonId,
     });
 
     const root = renderWithPermissions({
@@ -111,7 +111,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonAdminLinks-admin-link')).toHaveProp(
       'href',
-      `/admin/models/addons/addon/${id}`,
+      `/admin/models/addons/addon/${addonId}`,
     );
   });
 
@@ -120,7 +120,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonAdminLinks-contentReview-link')).toHaveProp(
       'href',
-      `/reviewers/review-content/${id}`,
+      `/reviewers/review-content/${addonId}`,
     );
   });
 
@@ -148,7 +148,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonAdminLinks-codeReview-link')).toHaveProp(
       'href',
-      `/reviewers/review/${id}`,
+      `/reviewers/review/${addonId}`,
     );
     expect(root.find('.AddonAdminLinks-codeReview-link').children()).toHaveText(
       'Review add-on code',
@@ -166,7 +166,7 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
-        id,
+        addonId,
         type: ADDON_TYPE_STATIC_THEME,
       }),
       permissions: STATIC_THEMES_REVIEW,
@@ -174,7 +174,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveProp(
       'href',
-      `/reviewers/review/${id}`,
+      `/reviewers/review/${addonId}`,
     );
     expect(
       root.find('.AddonAdminLinks-themeReview-link').children(),
@@ -185,7 +185,7 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeTheme,
-        id,
+        addonId,
       }),
       permissions: ADDONS_EDIT,
     });
@@ -198,7 +198,7 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
-        id,
+        addonId,
       }),
       permissions: [ADDONS_EDIT, STATIC_THEMES_REVIEW],
     });
