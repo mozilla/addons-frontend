@@ -6,16 +6,18 @@ import { withRouter } from 'react-router-dom';
 
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
-import Link from 'amo/components/Link';
-import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
-import { STATS_VIEW } from 'amo/constants';
-import translate from 'amo/i18n/translate';
-import { hasPermission } from 'amo/reducers/users';
-import type { AddonType } from 'amo/types/addons';
-import { isAddonAuthor } from 'amo/utils';
 import Card from 'amo/components/Card';
 import DefinitionList, { Definition } from 'amo/components/DefinitionList';
+import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
+import { STATS_VIEW } from 'amo/constants';
+import { withErrorHandler } from 'amo/errorHandler';
+import translate from 'amo/i18n/translate';
+import { fetchCategories } from 'amo/reducers/categories';
+import { hasPermission } from 'amo/reducers/users';
+import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
+import { isAddonAuthor } from 'amo/utils';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import {
   addQueryParams,
   getQueryParametersForAttribution,
@@ -23,7 +25,10 @@ import {
 import type { UserId } from 'amo/reducers/users';
 import type { AddonVersionType, VersionInfoType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
+import type { AddonType } from 'amo/types/addons';
+import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
+import type { DispatchFunc } from 'amo/types/redux';
 import type { ReactRouterLocationType } from 'amo/types/router';
 
 type Props = {|
@@ -32,19 +37,34 @@ type Props = {|
 |};
 
 type PropsFromState = {|
-  hasStatsPermission: boolean,
-  userId: UserId | null,
+  categoriesLoading: boolean,
   currentVersion: AddonVersionType | null,
+  hasStatsPermission: boolean,
+  relatedCategories: Array<Object> | null,
+  userId: UserId | null,
   versionInfo: VersionInfoType | null,
 |};
 
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
   location: ReactRouterLocationType,
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
+  constructor(props: InternalProps) {
+    super(props);
+
+    const { categoriesLoading, dispatch, errorHandler, relatedCategories } =
+      props;
+
+    if (!categoriesLoading && !relatedCategories) {
+      dispatch(fetchCategories({ errorHandlerId: errorHandler.id }));
+    }
+  }
+
   listContent(): React.Node {
     const {
       addon,
@@ -52,6 +72,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       hasStatsPermission,
       i18n,
       location,
+      relatedCategories,
       userId,
       versionInfo,
     } = this.props;
@@ -190,6 +211,24 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {i18n.gettext('Read the license agreement for this add-on')}
         </Link>
       ) : null,
+      relatedCategories:
+        relatedCategories && relatedCategories.length > 0
+          ? relatedCategories.map((category) => {
+              return (
+                <li key={category.slug}>
+                  <Link
+                    className="AddonMoreInfo-related-category-link"
+                    to={getCategoryResultsPathname({
+                      addonType: category.type,
+                      slug: category.slug,
+                    })}
+                  >
+                    {i18n.gettext(category.name)}
+                  </Link>
+                </li>
+              );
+            })
+          : null,
       versionHistoryLink: (
         <li>
           <Link
@@ -225,18 +264,19 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 
   renderDefinitions({
-    homepage = null,
-    supportUrl = null,
-    supportEmail = null,
-    statsLink = null,
-    privacyPolicyLink = null,
     eulaLink = null,
     filesize = null,
+    homepage = null,
+    privacyPolicyLink = null,
+    relatedCategories = null,
+    statsLink = null,
+    supportEmail = null,
+    supportUrl = null,
+    tagsLinks = null,
     version = null,
+    versionHistoryLink = null,
     versionLastUpdated,
     versionLicenseLink = null,
-    versionHistoryLink = null,
-    tagsLinks = null,
   }: Object): React.Node {
     const { addon, i18n } = this.props;
     return (
@@ -276,6 +316,16 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               term={i18n.gettext('Last updated')}
             >
               {versionLastUpdated}
+            </Definition>
+          )}
+          {relatedCategories && (
+            <Definition
+              className="AddonMoreInfo-related-categories"
+              term={i18n.gettext('Related Categories')}
+            >
+              <ul className="AddonMoreInfo-related-categories-list">
+                {relatedCategories}
+              </ul>
             </Definition>
           )}
           {versionLicenseLink && (
@@ -336,10 +386,12 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { i18n } = this.props;
+    const { errorHandler, i18n } = this.props;
 
     return (
       <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
+        {errorHandler.renderErrorIfPresent()}
+
         {this.listContent()}
       </Card>
     );
@@ -348,7 +400,11 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 
 const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { addon, i18n } = ownProps;
+  const { categories } = state.categories;
+  const { clientApp } = state.api;
+
   let currentVersion = null;
+  let relatedCategories = null;
   let versionInfo = null;
 
   if (addon && addon.currentVersionId) {
@@ -366,9 +422,22 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
     });
   }
 
+  if (addon && addon.categories && addon.type && categories && clientApp) {
+    const appCategories = categories[clientApp][addon.type];
+
+    relatedCategories = addon.categories[clientApp].reduce((result, slug) => {
+      if (typeof appCategories[slug] !== 'undefined') {
+        result.push(appCategories[slug]);
+      }
+      return result;
+    }, []);
+  }
+
   return {
     currentVersion,
+    relatedCategories,
     versionInfo,
+    categoriesLoading: state.categories.loading,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,
   };
@@ -378,6 +447,7 @@ const AddonMoreInfo: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
   connect(mapStateToProps),
+  withErrorHandler({ name: 'AddonMoreInfo' }),
 )(AddonMoreInfoBase);
 
 export default AddonMoreInfo;

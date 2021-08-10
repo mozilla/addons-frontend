@@ -1,14 +1,22 @@
 import * as React from 'react';
 
+import { createApiError } from 'amo/api';
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
 import AddonMoreInfo, { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
+import ErrorList from 'amo/components/ErrorList';
 import Link from 'amo/components/Link';
+import { ErrorHandler } from 'amo/errorHandler';
+import { setClientApp } from 'amo/reducers/api';
+import { loadCategories } from 'amo/reducers/categories';
 import { loadVersions } from 'amo/reducers/versions';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
+  ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   STATS_VIEW,
 } from 'amo/constants';
 import { formatFilesize } from 'amo/i18n/utils';
@@ -17,9 +25,11 @@ import {
   createFakeLocation,
   createInternalAddonWithLang,
   createLocalizedString,
+  createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
+  fakeCategory,
   fakeI18n,
   fakeFile,
   fakeTheme,
@@ -35,9 +45,12 @@ describe(__filename, () => {
   });
 
   function render({ location, ...props } = {}) {
+    const errorHandler = createStubErrorHandler();
+
     return shallowUntilTarget(
       <AddonMoreInfo
         addon={props.addon || createInternalAddonWithLang(fakeAddon)}
+        errorHandler={errorHandler}
         i18n={fakeI18n()}
         store={store}
         {...props}
@@ -549,6 +562,189 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find(AddonAuthorLinks)).toHaveProp('addon', addon);
+  });
+
+  describe('related categories', () => {
+    const categories = [
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Blogging',
+        slug: 'blogging',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Games',
+        slug: 'Games',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Security',
+        slug: 'security',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_FIREFOX,
+        name: 'Anime',
+        slug: 'anime',
+        type: ADDON_TYPE_STATIC_THEME,
+      },
+    ];
+
+    it('renders related categories', () => {
+      const { slug: slug1 } = categories[3];
+      const { slug: slug2 } = categories[4];
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: { [CLIENT_APP_FIREFOX]: [slug1, slug2] },
+      });
+
+      store.dispatch(loadCategories({ results: categories }));
+      store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
+
+      const root = render({ addon, store });
+
+      expect(
+        root.find('.AddonMoreInfo-related-categories').find(Link),
+      ).toHaveLength(2);
+      expect(
+        root
+          .find('.AddonMoreInfo-related-categories')
+          .find(Link)
+          .at(0)
+          .prop('to'),
+      ).toEqual(`/extensions/category/${slug1}/`);
+      expect(
+        root
+          .find('.AddonMoreInfo-related-categories')
+          .find(Link)
+          .at(1)
+          .prop('to'),
+      ).toEqual(`/extensions/category/${slug2}/`);
+    });
+
+    it('does not render related categories when add-on has no category', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: { [CLIENT_APP_FIREFOX]: [] },
+      });
+
+      store.dispatch(loadCategories({ results: categories }));
+      store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
+
+      const root = render({ addon, store });
+
+      expect(
+        root.find('.AddonMoreInfo-related-categories').find(Link),
+      ).toHaveLength(0);
+    });
+
+    it('does not render related categories when there are no loaded categories', () => {
+      const { slug: slug1 } = categories[3];
+      const { slug: slug2 } = categories[4];
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: { [CLIENT_APP_FIREFOX]: [slug1, slug2] },
+      });
+
+      store.dispatch(loadCategories({ results: [] }));
+      store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
+
+      const root = render({ addon, store });
+
+      expect(
+        root.find('.AddonMoreInfo-related-categories').find(Link),
+      ).toHaveLength(0);
+    });
+
+    it('does not render related categories when categories for add-on do not exist in clientApp', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: {
+          // 'blogging' and 'games' only exist for CLIENT_APP_ANDROID
+          [CLIENT_APP_FIREFOX]: ['blogging', 'games'],
+        },
+      });
+
+      store.dispatch(loadCategories({ results: categories }));
+      store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
+
+      const root = render({ addon, store });
+
+      expect(
+        root.find('.AddonMoreInfo-related-categories').find(Link),
+      ).toHaveLength(0);
+    });
+
+    it('does not render a related category if add-on does not have that category', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: { [CLIENT_APP_ANDROID]: ['does-not-exist'] },
+      });
+
+      store.dispatch(loadCategories({ results: categories }));
+
+      const root = render({ addon, store });
+
+      expect(
+        root.find('.AddonMoreInfo-related-categories').find(Link),
+      ).toHaveLength(0);
+    });
+
+    it('does not render a related category when add-on type does not have this category', () => {
+      const { slug } = categories[0];
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: { [CLIENT_APP_ANDROID]: [slug] },
+        type: ADDON_TYPE_STATIC_THEME,
+      });
+
+      store.dispatch(loadCategories({ results: categories }));
+
+      const root = render({ addon, store });
+
+      expect(
+        root.find('.AddonMoreInfo-related-categories').find(Link),
+      ).toHaveLength(0);
+    });
+
+    it('renders errors when API error occurs', () => {
+      const errorHandler = new ErrorHandler({
+        id: 'some-error-handler-id',
+        dispatch: store.dispatch,
+      });
+
+      errorHandler.handle(
+        createApiError({
+          response: { status: 404 },
+          apiURL: 'https://some/api/endpoint',
+          jsonResponse: { message: 'not found' },
+        }),
+      );
+
+      const root = render({ errorHandler });
+
+      expect(root.find(ErrorList)).toHaveLength(1);
+    });
   });
 
   describe('UTM parameters', () => {
