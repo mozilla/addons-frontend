@@ -433,6 +433,16 @@ describe(__filename, () => {
     expect(wrapper.find(NotFound)).toHaveLength(1);
   });
 
+  it('renders a robots meta when there is no results', () => {
+    const root = render({ count: 0 });
+
+    expect(root.find('meta[name="robots"]')).toHaveLength(1);
+    expect(root.find('meta[name="robots"]')).toHaveProp(
+      'content',
+      'noindex, follow',
+    );
+  });
+
   describe('errorHandler - extractId', () => {
     it('generates a unique ID based on the page filter', () => {
       const ownProps = {

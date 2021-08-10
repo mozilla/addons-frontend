@@ -131,8 +131,8 @@ export class SearchBase extends React.Component<InternalProps> {
     }
   }
 
-  renderHelmetTitle(): React.Node {
-    const { i18n, filters, pageTitle } = this.props;
+  renderHelmet(): React.Node {
+    const { i18n, filters, pageTitle, count } = this.props;
 
     let title = pageTitle;
 
@@ -235,6 +235,7 @@ export class SearchBase extends React.Component<InternalProps> {
     return (
       <Helmet>
         <title>{title}</title>
+        {count === 0 && <meta name="robots" content="noindex, follow" />}
       </Helmet>
     );
   }
@@ -291,7 +292,7 @@ export class SearchBase extends React.Component<InternalProps> {
 
     return (
       <div className="Search">
-        {this.renderHelmetTitle()}
+        {this.renderHelmet()}
 
         {errorHandler.renderErrorIfPresent()}
 
