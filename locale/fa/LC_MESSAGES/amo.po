@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-29 17:07+0000\n"
+"POT-Creation-Date: 2021-08-10 16:22+0000\n"
 "PO-Revision-Date: 2018-06-01 14:56+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -199,91 +199,96 @@ msgstr "بدون بازخورد"
 msgid "Used by"
 msgstr "استفاده شده توسط"
 
-#: src/amo/components/AddonMoreInfo/index.js:104
-msgid "Support Email"
-msgstr "رایانامهٔ پشتیبانی"
-
-#: src/amo/components/AddonMoreInfo/index.js:122
-msgid "Visit stats dashboard"
-msgstr "مشاهدهٔ داشبورد آمارها"
-
-#: src/amo/components/AddonMoreInfo/index.js:141
-#, fuzzy
-msgid "Custom License"
-msgstr "گواهینامه"
-
-#: src/amo/components/AddonMoreInfo/index.js:163
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr "%(timeFromNow)s (%(date)s)"
-
-#: src/amo/components/AddonMoreInfo/index.js:179
-msgid "Read the privacy policy for this add-on"
-msgstr "سیاست‌های حریم خصوصی برای این افزونه را بخوانید"
-
-#: src/amo/components/AddonMoreInfo/index.js:190
-msgid "Read the license agreement for this add-on"
-msgstr "موافقت‌نامه مجوز برای این افزونه را بخوانید"
-
-#: src/amo/components/AddonMoreInfo/index.js:202
-msgid "See all versions"
-msgstr "نمایش تمام نسخه‌ها"
-
-#: src/amo/components/AddonMoreInfo/index.js:248
-msgid "Add-on Links"
-msgstr "پیوند‌های افزونه"
-
-#: src/amo/components/AddonMoreInfo/index.js:260
-msgid "Version"
-msgstr "نسخه"
-
-#: src/amo/components/AddonMoreInfo/index.js:268
-msgid "Size"
-msgstr ""
-
-#: src/amo/components/AddonMoreInfo/index.js:276
-#: src/amo/components/CollectionDetails/index.js:87
-msgid "Last updated"
-msgstr "آخرین بروزرسانی"
-
-#: src/amo/components/AddonMoreInfo/index.js:284
-msgid "License"
-msgstr "گواهینامه"
-
-#: src/amo/components/AddonMoreInfo/index.js:292
-msgid "Privacy Policy"
-msgstr "سیاست‌های حریم‌خصوصی"
-
-#: src/amo/components/AddonMoreInfo/index.js:300
-msgid "End-User License Agreement"
-msgstr "توافق‌نامه مجوز کاربر نهایی"
-
-#: src/amo/components/AddonMoreInfo/index.js:308
-msgid "Version History"
-msgstr "تاریخچهٔ نسخه‌ها"
-
-#: src/amo/components/AddonMoreInfo/index.js:318
-msgid "Usage Statistics"
-msgstr "آمار استفاده"
-
-#: src/amo/components/AddonMoreInfo/index.js:326
-msgid "Tags"
-msgstr ""
-
-#: src/amo/components/AddonMoreInfo/index.js:342
-msgid "More information"
-msgstr "اطلاعات بیشتر"
-
-#: src/amo/components/AddonMoreInfo/index.js:75
+#: src/amo/components/AddonMoreInfo/index.js:100
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
 #: src/amo/pages/UserProfileEdit/index.js:694
 msgid "Homepage"
 msgstr "صفحه نخست"
 
-#: src/amo/components/AddonMoreInfo/index.js:90
+#: src/amo/components/AddonMoreInfo/index.js:115
 #, fuzzy
 msgid "Support site"
 msgstr "سایت پشتیبانی"
+
+#: src/amo/components/AddonMoreInfo/index.js:129
+msgid "Support Email"
+msgstr "رایانامهٔ پشتیبانی"
+
+#: src/amo/components/AddonMoreInfo/index.js:147
+msgid "Visit stats dashboard"
+msgstr "مشاهدهٔ داشبورد آمارها"
+
+#: src/amo/components/AddonMoreInfo/index.js:166
+#, fuzzy
+msgid "Custom License"
+msgstr "گواهینامه"
+
+#: src/amo/components/AddonMoreInfo/index.js:211
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo/index.js:227
+msgid "Read the privacy policy for this add-on"
+msgstr "سیاست‌های حریم خصوصی برای این افزونه را بخوانید"
+
+#: src/amo/components/AddonMoreInfo/index.js:238
+msgid "Read the license agreement for this add-on"
+msgstr "موافقت‌نامه مجوز برای این افزونه را بخوانید"
+
+#: src/amo/components/AddonMoreInfo/index.js:251
+msgid "See all versions"
+msgstr "نمایش تمام نسخه‌ها"
+
+#: src/amo/components/AddonMoreInfo/index.js:298
+msgid "Add-on Links"
+msgstr "پیوند‌های افزونه"
+
+#: src/amo/components/AddonMoreInfo/index.js:310
+msgid "Version"
+msgstr "نسخه"
+
+#: src/amo/components/AddonMoreInfo/index.js:318
+msgid "Size"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:326
+#: src/amo/components/CollectionDetails/index.js:87
+msgid "Last updated"
+msgstr "آخرین بروزرسانی"
+
+#: src/amo/components/AddonMoreInfo/index.js:334
+#, fuzzy
+msgid "Related Categories"
+msgstr "دسته‌بندی‌ها"
+
+#: src/amo/components/AddonMoreInfo/index.js:344
+msgid "License"
+msgstr "گواهینامه"
+
+#: src/amo/components/AddonMoreInfo/index.js:352
+msgid "Privacy Policy"
+msgstr "سیاست‌های حریم‌خصوصی"
+
+#: src/amo/components/AddonMoreInfo/index.js:360
+msgid "End-User License Agreement"
+msgstr "توافق‌نامه مجوز کاربر نهایی"
+
+#: src/amo/components/AddonMoreInfo/index.js:368
+msgid "Version History"
+msgstr "تاریخچهٔ نسخه‌ها"
+
+#: src/amo/components/AddonMoreInfo/index.js:378
+msgid "Usage Statistics"
+msgstr "آمار استفاده"
+
+#: src/amo/components/AddonMoreInfo/index.js:386
+msgid "Tags"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:402
+msgid "More information"
+msgstr "اطلاعات بیشتر"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -2109,17 +2114,17 @@ msgstr ""
 msgid "Developer response"
 msgstr "پاسخ توسعه‌دهنده"
 
-#: src/amo/components/VPNPromoBanner/index.js:138
+#: src/amo/components/VPNPromoBanner/index.js:165
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:139
+#: src/amo/components/VPNPromoBanner/index.js:166
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:192
 msgid "Get Mozilla VPN"
 msgstr ""
 

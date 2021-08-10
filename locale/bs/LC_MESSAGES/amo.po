@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-29 17:07+0000\n"
+"POT-Creation-Date: 2021-08-10 16:22+0000\n"
 "PO-Revision-Date: 2018-07-02 12:25+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -200,92 +200,97 @@ msgstr "Nema pregleda"
 msgid "Used by"
 msgstr "Koristi se od"
 
-#: src/amo/components/AddonMoreInfo/index.js:104
-msgid "Support Email"
-msgstr "Email podrške"
-
-#: src/amo/components/AddonMoreInfo/index.js:122
-msgid "Visit stats dashboard"
-msgstr "Posjeti kontrolnu tablu statusa"
-
-#: src/amo/components/AddonMoreInfo/index.js:141
-#, fuzzy
-msgid "Custom License"
-msgstr "Licenca"
-
-# This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:163
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr "%(timeFromNow)s (%(date)s)"
-
-#: src/amo/components/AddonMoreInfo/index.js:179
-msgid "Read the privacy policy for this add-on"
-msgstr "Pročitajte pravila privatnosti za ovaj dodatak"
-
-#: src/amo/components/AddonMoreInfo/index.js:190
-msgid "Read the license agreement for this add-on"
-msgstr "Pročitajte ugovor o licenci za ovaj dodatak"
-
-#: src/amo/components/AddonMoreInfo/index.js:202
-msgid "See all versions"
-msgstr "Pogledaj sve verzije"
-
-#: src/amo/components/AddonMoreInfo/index.js:248
-msgid "Add-on Links"
-msgstr "Linkovi dodataka"
-
-#: src/amo/components/AddonMoreInfo/index.js:260
-msgid "Version"
-msgstr "Verzija"
-
-#: src/amo/components/AddonMoreInfo/index.js:268
-msgid "Size"
-msgstr ""
-
-#: src/amo/components/AddonMoreInfo/index.js:276
-#: src/amo/components/CollectionDetails/index.js:87
-msgid "Last updated"
-msgstr "Zadnje ažuriranje"
-
-#: src/amo/components/AddonMoreInfo/index.js:284
-msgid "License"
-msgstr "Licenca"
-
-#: src/amo/components/AddonMoreInfo/index.js:292
-msgid "Privacy Policy"
-msgstr "Polica privatnosti"
-
-#: src/amo/components/AddonMoreInfo/index.js:300
-msgid "End-User License Agreement"
-msgstr "Ugovor o korištenju za krajnjeg korisnika"
-
-#: src/amo/components/AddonMoreInfo/index.js:308
-msgid "Version History"
-msgstr "Istorija verzija"
-
-#: src/amo/components/AddonMoreInfo/index.js:318
-msgid "Usage Statistics"
-msgstr "Statistika upotrebe"
-
-#: src/amo/components/AddonMoreInfo/index.js:326
-msgid "Tags"
-msgstr ""
-
-#: src/amo/components/AddonMoreInfo/index.js:342
-msgid "More information"
-msgstr "Više informacija"
-
-#: src/amo/components/AddonMoreInfo/index.js:75
+#: src/amo/components/AddonMoreInfo/index.js:100
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
 #: src/amo/pages/UserProfileEdit/index.js:694
 msgid "Homepage"
 msgstr "Početna stranica"
 
-#: src/amo/components/AddonMoreInfo/index.js:90
+#: src/amo/components/AddonMoreInfo/index.js:115
 #, fuzzy
 msgid "Support site"
 msgstr "Stranica podrške"
+
+#: src/amo/components/AddonMoreInfo/index.js:129
+msgid "Support Email"
+msgstr "Email podrške"
+
+#: src/amo/components/AddonMoreInfo/index.js:147
+msgid "Visit stats dashboard"
+msgstr "Posjeti kontrolnu tablu statusa"
+
+#: src/amo/components/AddonMoreInfo/index.js:166
+#, fuzzy
+msgid "Custom License"
+msgstr "Licenca"
+
+# This will output, in English:
+#: src/amo/components/AddonMoreInfo/index.js:211
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo/index.js:227
+msgid "Read the privacy policy for this add-on"
+msgstr "Pročitajte pravila privatnosti za ovaj dodatak"
+
+#: src/amo/components/AddonMoreInfo/index.js:238
+msgid "Read the license agreement for this add-on"
+msgstr "Pročitajte ugovor o licenci za ovaj dodatak"
+
+#: src/amo/components/AddonMoreInfo/index.js:251
+msgid "See all versions"
+msgstr "Pogledaj sve verzije"
+
+#: src/amo/components/AddonMoreInfo/index.js:298
+msgid "Add-on Links"
+msgstr "Linkovi dodataka"
+
+#: src/amo/components/AddonMoreInfo/index.js:310
+msgid "Version"
+msgstr "Verzija"
+
+#: src/amo/components/AddonMoreInfo/index.js:318
+msgid "Size"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:326
+#: src/amo/components/CollectionDetails/index.js:87
+msgid "Last updated"
+msgstr "Zadnje ažuriranje"
+
+#: src/amo/components/AddonMoreInfo/index.js:334
+#, fuzzy
+msgid "Related Categories"
+msgstr "Kategorije"
+
+#: src/amo/components/AddonMoreInfo/index.js:344
+msgid "License"
+msgstr "Licenca"
+
+#: src/amo/components/AddonMoreInfo/index.js:352
+msgid "Privacy Policy"
+msgstr "Polica privatnosti"
+
+#: src/amo/components/AddonMoreInfo/index.js:360
+msgid "End-User License Agreement"
+msgstr "Ugovor o korištenju za krajnjeg korisnika"
+
+#: src/amo/components/AddonMoreInfo/index.js:368
+msgid "Version History"
+msgstr "Istorija verzija"
+
+#: src/amo/components/AddonMoreInfo/index.js:378
+msgid "Usage Statistics"
+msgstr "Statistika upotrebe"
+
+#: src/amo/components/AddonMoreInfo/index.js:386
+msgid "Tags"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:402
+msgid "More information"
+msgstr "Više informacija"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -2103,17 +2108,17 @@ msgstr ""
 msgid "Developer response"
 msgstr "Odgovor developera"
 
-#: src/amo/components/VPNPromoBanner/index.js:138
+#: src/amo/components/VPNPromoBanner/index.js:165
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:139
+#: src/amo/components/VPNPromoBanner/index.js:166
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:192
 msgid "Get Mozilla VPN"
 msgstr ""
 

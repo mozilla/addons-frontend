@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-29 17:07+0000\n"
+"POT-Creation-Date: 2021-08-10 16:22+0000\n"
 "PO-Revision-Date: 2020-07-14 06:20+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
@@ -195,89 +195,94 @@ msgstr "لا مراجعات"
 msgid "Used by"
 msgstr "يستخدمُها"
 
-#: src/amo/components/AddonMoreInfo/index.js:104
-msgid "Support Email"
-msgstr "بريد الدعم"
-
-#: src/amo/components/AddonMoreInfo/index.js:122
-msgid "Visit stats dashboard"
-msgstr "زُر لوحة الإحصاءات"
-
-#: src/amo/components/AddonMoreInfo/index.js:141
-msgid "Custom License"
-msgstr "رخصة مخصصة"
-
-#: src/amo/components/AddonMoreInfo/index.js:163
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr "%(timeFromNow)s (%(date)s)"
-
-#: src/amo/components/AddonMoreInfo/index.js:179
-msgid "Read the privacy policy for this add-on"
-msgstr "اقرأ سياسة الخصوصية لهذه الإضافة"
-
-#: src/amo/components/AddonMoreInfo/index.js:190
-msgid "Read the license agreement for this add-on"
-msgstr "اقرأ اتفاقية الترخيص لهذه الإضافة"
-
-#: src/amo/components/AddonMoreInfo/index.js:202
-msgid "See all versions"
-msgstr "اطّلع على كل الإصدارات"
-
-#: src/amo/components/AddonMoreInfo/index.js:248
-msgid "Add-on Links"
-msgstr "روابط الإضافات"
-
-#: src/amo/components/AddonMoreInfo/index.js:260
-msgid "Version"
-msgstr "الإصدارة"
-
-#: src/amo/components/AddonMoreInfo/index.js:268
-msgid "Size"
-msgstr "الحجم"
-
-#: src/amo/components/AddonMoreInfo/index.js:276
-#: src/amo/components/CollectionDetails/index.js:87
-msgid "Last updated"
-msgstr "آخر تحديث"
-
-#: src/amo/components/AddonMoreInfo/index.js:284
-msgid "License"
-msgstr "الرخصة"
-
-#: src/amo/components/AddonMoreInfo/index.js:292
-msgid "Privacy Policy"
-msgstr "سياسة الخصوصية"
-
-#: src/amo/components/AddonMoreInfo/index.js:300
-msgid "End-User License Agreement"
-msgstr "اتفاقية ترخيص المستخدم"
-
-#: src/amo/components/AddonMoreInfo/index.js:308
-msgid "Version History"
-msgstr "تأريخ الإصدار"
-
-#: src/amo/components/AddonMoreInfo/index.js:318
-msgid "Usage Statistics"
-msgstr "إحصائيات الاستخدام"
-
-#: src/amo/components/AddonMoreInfo/index.js:326
-msgid "Tags"
-msgstr ""
-
-#: src/amo/components/AddonMoreInfo/index.js:342
-msgid "More information"
-msgstr "معلومات أكثر"
-
-#: src/amo/components/AddonMoreInfo/index.js:75
+#: src/amo/components/AddonMoreInfo/index.js:100
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
 #: src/amo/pages/UserProfileEdit/index.js:694
 msgid "Homepage"
 msgstr "صفحة البداية"
 
-#: src/amo/components/AddonMoreInfo/index.js:90
+#: src/amo/components/AddonMoreInfo/index.js:115
 msgid "Support site"
 msgstr "موقع الدعم"
+
+#: src/amo/components/AddonMoreInfo/index.js:129
+msgid "Support Email"
+msgstr "بريد الدعم"
+
+#: src/amo/components/AddonMoreInfo/index.js:147
+msgid "Visit stats dashboard"
+msgstr "زُر لوحة الإحصاءات"
+
+#: src/amo/components/AddonMoreInfo/index.js:166
+msgid "Custom License"
+msgstr "رخصة مخصصة"
+
+#: src/amo/components/AddonMoreInfo/index.js:211
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo/index.js:227
+msgid "Read the privacy policy for this add-on"
+msgstr "اقرأ سياسة الخصوصية لهذه الإضافة"
+
+#: src/amo/components/AddonMoreInfo/index.js:238
+msgid "Read the license agreement for this add-on"
+msgstr "اقرأ اتفاقية الترخيص لهذه الإضافة"
+
+#: src/amo/components/AddonMoreInfo/index.js:251
+msgid "See all versions"
+msgstr "اطّلع على كل الإصدارات"
+
+#: src/amo/components/AddonMoreInfo/index.js:298
+msgid "Add-on Links"
+msgstr "روابط الإضافات"
+
+#: src/amo/components/AddonMoreInfo/index.js:310
+msgid "Version"
+msgstr "الإصدارة"
+
+#: src/amo/components/AddonMoreInfo/index.js:318
+msgid "Size"
+msgstr "الحجم"
+
+#: src/amo/components/AddonMoreInfo/index.js:326
+#: src/amo/components/CollectionDetails/index.js:87
+msgid "Last updated"
+msgstr "آخر تحديث"
+
+#: src/amo/components/AddonMoreInfo/index.js:334
+#, fuzzy
+msgid "Related Categories"
+msgstr "الفئات"
+
+#: src/amo/components/AddonMoreInfo/index.js:344
+msgid "License"
+msgstr "الرخصة"
+
+#: src/amo/components/AddonMoreInfo/index.js:352
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: src/amo/components/AddonMoreInfo/index.js:360
+msgid "End-User License Agreement"
+msgstr "اتفاقية ترخيص المستخدم"
+
+#: src/amo/components/AddonMoreInfo/index.js:368
+msgid "Version History"
+msgstr "تأريخ الإصدار"
+
+#: src/amo/components/AddonMoreInfo/index.js:378
+msgid "Usage Statistics"
+msgstr "إحصائيات الاستخدام"
+
+#: src/amo/components/AddonMoreInfo/index.js:386
+msgid "Tags"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:402
+msgid "More information"
+msgstr "معلومات أكثر"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -2060,17 +2065,17 @@ msgstr "اختر صورة…"
 msgid "Developer response"
 msgstr "رد المطور"
 
-#: src/amo/components/VPNPromoBanner/index.js:138
+#: src/amo/components/VPNPromoBanner/index.js:165
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:139
+#: src/amo/components/VPNPromoBanner/index.js:166
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:192
 msgid "Get Mozilla VPN"
 msgstr ""
 
