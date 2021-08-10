@@ -10,7 +10,11 @@ import Card from 'amo/components/Card';
 import DefinitionList, { Definition } from 'amo/components/DefinitionList';
 import Link from 'amo/components/Link';
 import LoadingText from 'amo/components/LoadingText';
-import { STATS_VIEW } from 'amo/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
+  STATS_VIEW,
+} from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
 import { fetchCategories } from 'amo/reducers/categories';
@@ -170,6 +174,29 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
+    let categories = null;
+    if (
+      [ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME].includes(addon.type) &&
+      relatedCategories &&
+      relatedCategories.length > 0
+    ) {
+      categories = relatedCategories.map((category) => {
+        return (
+          <li key={category.slug}>
+            <Link
+              className="AddonMoreInfo-related-category-link"
+              to={getCategoryResultsPathname({
+                addonType: category.type,
+                slug: category.slug,
+              })}
+            >
+              {i18n.gettext(category.name)}
+            </Link>
+          </li>
+        );
+      });
+    }
+
     return this.renderDefinitions({
       homepage,
       supportUrl,
@@ -211,24 +238,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {i18n.gettext('Read the license agreement for this add-on')}
         </Link>
       ) : null,
-      relatedCategories:
-        relatedCategories && relatedCategories.length > 0
-          ? relatedCategories.map((category) => {
-              return (
-                <li key={category.slug}>
-                  <Link
-                    className="AddonMoreInfo-related-category-link"
-                    to={getCategoryResultsPathname({
-                      addonType: category.type,
-                      slug: category.slug,
-                    })}
-                  >
-                    {i18n.gettext(category.name)}
-                  </Link>
-                </li>
-              );
-            })
-          : null,
+      relatedCategories: categories,
       versionHistoryLink: (
         <li>
           <Link
@@ -424,8 +434,9 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
 
   if (addon && addon.categories && addon.type && categories && clientApp) {
     const appCategories = categories[clientApp][addon.type];
+    const addonCategories = addon.categories[clientApp] || [];
 
-    relatedCategories = addon.categories[clientApp].reduce((result, slug) => {
+    relatedCategories = addonCategories.reduce((result, slug) => {
       if (typeof appCategories[slug] !== 'undefined') {
         result.push(appCategories[slug]);
       }

@@ -608,6 +608,20 @@ describe(__filename, () => {
         slug: 'anime',
         type: ADDON_TYPE_STATIC_THEME,
       },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_DICT,
+      },
+      {
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: ADDON_TYPE_LANG,
+      },
     ];
 
     it('renders related categories', () => {
@@ -710,6 +724,20 @@ describe(__filename, () => {
       ).toHaveLength(0);
     });
 
+    it('does not render a related category if add-on does not have any category at all', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: {},
+      });
+      store.dispatch(loadCategories({ results: categories }));
+
+      const root = render({ addon, store });
+
+      expect(
+        root.find('.AddonMoreInfo-related-categories').find(Link),
+      ).toHaveLength(0);
+    });
+
     it('does not render a related category when add-on type does not have this category', () => {
       const { slug } = categories[0];
       const addon = createInternalAddonWithLang({
@@ -726,6 +754,24 @@ describe(__filename, () => {
         root.find('.AddonMoreInfo-related-categories').find(Link),
       ).toHaveLength(0);
     });
+
+    it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+      'does not render related categories for addonType=%s',
+      (type) => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          categories: { [CLIENT_APP_ANDROID]: [categories[0].slug] },
+          type,
+        });
+        store.dispatch(loadCategories({ results: categories }));
+
+        const root = render({ addon, store });
+
+        expect(
+          root.find('.AddonMoreInfo-related-categories').find(Link),
+        ).toHaveLength(0);
+      },
+    );
 
     it('renders errors when API error occurs', () => {
       const errorHandler = new ErrorHandler({
