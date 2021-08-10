@@ -45,7 +45,7 @@ describe(__filename, () => {
     addon = createInternalAddonWithLang({
       ...fakeAddon,
       slug,
-      addonId,
+      id: addonId,
     }),
     permissions,
   }) => {
@@ -101,7 +101,7 @@ describe(__filename, () => {
   it('shows an admin add-on link if the user has permission', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      addonId,
+      id: addonId,
     });
 
     const root = renderWithPermissions({
@@ -166,7 +166,7 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
-        addonId,
+        id: addonId,
         type: ADDON_TYPE_STATIC_THEME,
       }),
       permissions: STATIC_THEMES_REVIEW,
@@ -185,7 +185,7 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeTheme,
-        addonId,
+        id: addonId,
       }),
       permissions: ADDONS_EDIT,
     });
@@ -198,7 +198,7 @@ describe(__filename, () => {
     const root = renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
-        addonId,
+        id: addonId,
       }),
       permissions: [ADDONS_EDIT, STATIC_THEMES_REVIEW],
     });
