@@ -21,7 +21,7 @@ import type { ReactRouterMatchType } from 'amo/types/router';
 type Props = {|
   match: {|
     ...ReactRouterMatchType,
-    params: {| tag: string, visibleAddonType: string |},
+    params: {| tag: string |},
   |},
 |};
 

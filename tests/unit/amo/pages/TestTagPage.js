@@ -16,11 +16,7 @@ import {
 describe(__filename, () => {
   let store;
 
-  const defaultParams = {
-    tag: 'some-tag',
-  };
-
-  function render({ params = defaultParams, ...props } = {}) {
+  function render({ params = { tag: 'some-tag' }, ...props } = {}) {
     return shallowUntilTarget(
       <TagPage i18n={fakeI18n()} match={{ params }} store={store} {...props} />,
       TagPageBase,
