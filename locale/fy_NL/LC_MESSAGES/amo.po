@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-29 17:07+0000\n"
+"POT-Creation-Date: 2021-08-10 16:22+0000\n"
 "PO-Revision-Date: 2021-07-21 09:07+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
@@ -191,89 +191,94 @@ msgstr "Gjin beoardielingen"
 msgid "Used by"
 msgstr "Brûkt troch"
 
-#: src/amo/components/AddonMoreInfo/index.js:104
-msgid "Support Email"
-msgstr "E-mailadres foar stipe"
-
-#: src/amo/components/AddonMoreInfo/index.js:122
-msgid "Visit stats dashboard"
-msgstr "Statistikendashboerd besjen"
-
-#: src/amo/components/AddonMoreInfo/index.js:141
-msgid "Custom License"
-msgstr "Oanpaste lisinsje"
-
-#: src/amo/components/AddonMoreInfo/index.js:163
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr "%(timeFromNow)s (%(date)s)"
-
-#: src/amo/components/AddonMoreInfo/index.js:179
-msgid "Read the privacy policy for this add-on"
-msgstr "It privacybelied foar dizze add-on lêze"
-
-#: src/amo/components/AddonMoreInfo/index.js:190
-msgid "Read the license agreement for this add-on"
-msgstr "De lisinsjeoerienkomst foar dizze add-on lêze"
-
-#: src/amo/components/AddonMoreInfo/index.js:202
-msgid "See all versions"
-msgstr "Alle ferzjes besjen"
-
-#: src/amo/components/AddonMoreInfo/index.js:248
-msgid "Add-on Links"
-msgstr "Add-on-keppelingen"
-
-#: src/amo/components/AddonMoreInfo/index.js:260
-msgid "Version"
-msgstr "Ferzje"
-
-#: src/amo/components/AddonMoreInfo/index.js:268
-msgid "Size"
-msgstr "Grutte"
-
-#: src/amo/components/AddonMoreInfo/index.js:276
-#: src/amo/components/CollectionDetails/index.js:87
-msgid "Last updated"
-msgstr "Lêst bywurke"
-
-#: src/amo/components/AddonMoreInfo/index.js:284
-msgid "License"
-msgstr "Lisinsje"
-
-#: src/amo/components/AddonMoreInfo/index.js:292
-msgid "Privacy Policy"
-msgstr "Privacybelied"
-
-#: src/amo/components/AddonMoreInfo/index.js:300
-msgid "End-User License Agreement"
-msgstr "Einbrûkerslisinsjeoerienkomst"
-
-#: src/amo/components/AddonMoreInfo/index.js:308
-msgid "Version History"
-msgstr "Ferzjeskiednis"
-
-#: src/amo/components/AddonMoreInfo/index.js:318
-msgid "Usage Statistics"
-msgstr "Brûksstatistiken"
-
-#: src/amo/components/AddonMoreInfo/index.js:326
-msgid "Tags"
-msgstr ""
-
-#: src/amo/components/AddonMoreInfo/index.js:342
-msgid "More information"
-msgstr "Mear ynformaasje"
-
-#: src/amo/components/AddonMoreInfo/index.js:75
+#: src/amo/components/AddonMoreInfo/index.js:100
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
 #: src/amo/pages/UserProfileEdit/index.js:694
 msgid "Homepage"
 msgstr "Startside"
 
-#: src/amo/components/AddonMoreInfo/index.js:90
+#: src/amo/components/AddonMoreInfo/index.js:115
 msgid "Support site"
 msgstr "Stipewebsite"
+
+#: src/amo/components/AddonMoreInfo/index.js:129
+msgid "Support Email"
+msgstr "E-mailadres foar stipe"
+
+#: src/amo/components/AddonMoreInfo/index.js:147
+msgid "Visit stats dashboard"
+msgstr "Statistikendashboerd besjen"
+
+#: src/amo/components/AddonMoreInfo/index.js:166
+msgid "Custom License"
+msgstr "Oanpaste lisinsje"
+
+#: src/amo/components/AddonMoreInfo/index.js:211
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo/index.js:227
+msgid "Read the privacy policy for this add-on"
+msgstr "It privacybelied foar dizze add-on lêze"
+
+#: src/amo/components/AddonMoreInfo/index.js:238
+msgid "Read the license agreement for this add-on"
+msgstr "De lisinsjeoerienkomst foar dizze add-on lêze"
+
+#: src/amo/components/AddonMoreInfo/index.js:251
+msgid "See all versions"
+msgstr "Alle ferzjes besjen"
+
+#: src/amo/components/AddonMoreInfo/index.js:298
+msgid "Add-on Links"
+msgstr "Add-on-keppelingen"
+
+#: src/amo/components/AddonMoreInfo/index.js:310
+msgid "Version"
+msgstr "Ferzje"
+
+#: src/amo/components/AddonMoreInfo/index.js:318
+msgid "Size"
+msgstr "Grutte"
+
+#: src/amo/components/AddonMoreInfo/index.js:326
+#: src/amo/components/CollectionDetails/index.js:87
+msgid "Last updated"
+msgstr "Lêst bywurke"
+
+#: src/amo/components/AddonMoreInfo/index.js:334
+#, fuzzy
+msgid "Related Categories"
+msgstr "Kategoryen"
+
+#: src/amo/components/AddonMoreInfo/index.js:344
+msgid "License"
+msgstr "Lisinsje"
+
+#: src/amo/components/AddonMoreInfo/index.js:352
+msgid "Privacy Policy"
+msgstr "Privacybelied"
+
+#: src/amo/components/AddonMoreInfo/index.js:360
+msgid "End-User License Agreement"
+msgstr "Einbrûkerslisinsjeoerienkomst"
+
+#: src/amo/components/AddonMoreInfo/index.js:368
+msgid "Version History"
+msgstr "Ferzjeskiednis"
+
+#: src/amo/components/AddonMoreInfo/index.js:378
+msgid "Usage Statistics"
+msgstr "Brûksstatistiken"
+
+#: src/amo/components/AddonMoreInfo/index.js:386
+msgid "Tags"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:402
+msgid "More information"
+msgstr "Mear ynformaasje"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -2011,18 +2016,18 @@ msgstr "Foto kieze…"
 msgid "Developer response"
 msgstr "Antwurd ûntwikkeler"
 
-#: src/amo/components/VPNPromoBanner/index.js:138
+#: src/amo/components/VPNPromoBanner/index.js:165
 msgid "Save 50% with a full year subscription"
 msgstr "Besparje 50% mei in folslein jierabonnemint"
 
-#: src/amo/components/VPNPromoBanner/index.js:139
+#: src/amo/components/VPNPromoBanner/index.js:166
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
 msgstr ""
 "Beskermje jo onlinegegevens – en kies in VPN-abonnemint dat by jo past."
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:192
 msgid "Get Mozilla VPN"
 msgstr "Mozilla VPN downloade"
 
