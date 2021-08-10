@@ -56,6 +56,7 @@ type InternalProps = {|
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
+
     const { categoriesLoading, dispatch, errorHandler, relatedCategories } =
       props;
 
@@ -281,6 +282,18 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     return (
       <>
         <DefinitionList className="AddonMoreInfo-dl">
+          {(homepage || supportUrl || supportEmail) && (
+            <Definition
+              className="AddonMoreInfo-links"
+              term={i18n.gettext('Add-on Links')}
+            >
+              <ul className="AddonMoreInfo-links-contents-list">
+                {homepage}
+                {supportUrl}
+                {supportEmail}
+              </ul>
+            </Definition>
+          )}
           {version && (
             <Definition
               className="AddonMoreInfo-version"
@@ -312,18 +325,6 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             >
               <ul className="AddonMoreInfo-related-categories-list">
                 {relatedCategories}
-              </ul>
-            </Definition>
-          )}
-          {(homepage || supportUrl || supportEmail) && (
-            <Definition
-              className="AddonMoreInfo-links"
-              term={i18n.gettext('Add-on Links')}
-            >
-              <ul className="AddonMoreInfo-links-contents-list">
-                {homepage}
-                {supportUrl}
-                {supportEmail}
               </ul>
             </Definition>
           )}
