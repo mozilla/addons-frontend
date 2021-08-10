@@ -618,10 +618,12 @@ describe(__filename, () => {
     ];
 
     it('renders related categories', () => {
+      const { slug: slug1 } = categories[0];
+      const { slug: slug2 } = categories[1];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
         categories: {
-          [CLIENT_APP_FIREFOX]: ['alert-update', 'security'],
+          [CLIENT_APP_FIREFOX]: [slug1, slug2],
         },
         type: ADDON_TYPE_EXTENSION,
       });
@@ -640,14 +642,14 @@ describe(__filename, () => {
           .find(Link)
           .at(0)
           .prop('to'),
-      ).toEqual('/extensions/category/alert-update/');
+      ).toEqual(`/extensions/category/${slug1}/`);
       expect(
         root
           .find('.AddonMoreInfo-related-categories')
           .find(Link)
           .at(1)
           .prop('to'),
-      ).toEqual('/extensions/category/security/');
+      ).toEqual(`/extensions/category/${slug2}/`);
     });
 
     it('does not render related categories when add-on has no category', () => {
