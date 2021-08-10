@@ -724,6 +724,20 @@ describe(__filename, () => {
       ).toHaveLength(0);
     });
 
+    it('does not render a related category if add-on does not have any category at all', () => {
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: {},
+      });
+      store.dispatch(loadCategories({ results: categories }));
+
+      const root = render({ addon, store });
+
+      expect(
+        root.find('.AddonMoreInfo-related-categories').find(Link),
+      ).toHaveLength(0);
+    });
+
     it('does not render a related category when add-on type does not have this category', () => {
       const { slug } = categories[0];
       const addon = createInternalAddonWithLang({

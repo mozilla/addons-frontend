@@ -434,8 +434,9 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
 
   if (addon && addon.categories && addon.type && categories && clientApp) {
     const appCategories = categories[clientApp][addon.type];
+    const addonCategories = addon.categories[clientApp] || [];
 
-    relatedCategories = addon.categories[clientApp].reduce((result, slug) => {
+    relatedCategories = addonCategories.reduce((result, slug) => {
       if (typeof appCategories[slug] !== 'undefined') {
         result.push(appCategories[slug]);
       }
