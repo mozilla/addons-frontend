@@ -615,10 +615,7 @@ describe(__filename, () => {
       const { slug: slug2 } = categories[4];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: {
-          [CLIENT_APP_FIREFOX]: [slug1, slug2],
-        },
-        type: ADDON_TYPE_EXTENSION,
+        categories: { [CLIENT_APP_FIREFOX]: [slug1, slug2] },
       });
 
       store.dispatch(loadCategories({ results: categories }));
@@ -648,10 +645,7 @@ describe(__filename, () => {
     it('does not render related categories when add-on has no category', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: {
-          [CLIENT_APP_FIREFOX]: [],
-        },
-        type: ADDON_TYPE_EXTENSION,
+        categories: { [CLIENT_APP_FIREFOX]: [] },
       });
 
       store.dispatch(loadCategories({ results: categories }));
@@ -669,10 +663,7 @@ describe(__filename, () => {
       const { slug: slug2 } = categories[4];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: {
-          [CLIENT_APP_FIREFOX]: [slug1, slug2],
-        },
-        type: ADDON_TYPE_EXTENSION,
+        categories: { [CLIENT_APP_FIREFOX]: [slug1, slug2] },
       });
 
       store.dispatch(loadCategories({ results: [] }));
@@ -692,7 +683,6 @@ describe(__filename, () => {
           // 'blogging' and 'games' only exist for CLIENT_APP_ANDROID
           [CLIENT_APP_FIREFOX]: ['blogging', 'games'],
         },
-        type: ADDON_TYPE_EXTENSION,
       });
 
       store.dispatch(loadCategories({ results: categories }));
@@ -708,10 +698,24 @@ describe(__filename, () => {
     it('does not render a related category if add-on does not have that category', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        categories: {
-          [CLIENT_APP_ANDROID]: ['does-not-exist'],
-        },
-        type: ADDON_TYPE_EXTENSION,
+        categories: { [CLIENT_APP_ANDROID]: ['does-not-exist'] },
+      });
+
+      store.dispatch(loadCategories({ results: categories }));
+
+      const root = render({ addon, store });
+
+      expect(
+        root.find('.AddonMoreInfo-related-categories').find(Link),
+      ).toHaveLength(0);
+    });
+
+    it('does not render a related category when add-on type does not have this category', () => {
+      const { slug } = categories[0];
+      const addon = createInternalAddonWithLang({
+        ...fakeAddon,
+        categories: { [CLIENT_APP_ANDROID]: [slug] },
+        type: ADDON_TYPE_STATIC_THEME,
       });
 
       store.dispatch(loadCategories({ results: categories }));
