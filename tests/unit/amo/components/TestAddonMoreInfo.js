@@ -589,13 +589,6 @@ describe(__filename, () => {
       },
       {
         ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
-        name: 'Does Not Exist',
-        slug: 'does-not-exist',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        ...fakeCategory,
         application: CLIENT_APP_FIREFOX,
         name: 'Alerts & Update',
         slug: 'alert-update',
