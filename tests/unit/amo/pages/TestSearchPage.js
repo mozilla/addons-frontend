@@ -313,7 +313,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${CLIENT_APP_FIREFOX}/tag/${tag}/?page=${page}&sort=${SEARCH_SORT_RECOMMENDED}&type=extension`,
+        url: `/en-US/${CLIENT_APP_FIREFOX}/tag/${tag}/?page=${page}&sort=${SEARCH_SORT_RECOMMENDED}&type=${ADDON_TYPE_EXTENSION}`,
       }),
     );
   });

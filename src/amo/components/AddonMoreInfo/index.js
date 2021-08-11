@@ -245,17 +245,17 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       ),
       tagsLinks:
         addon.tags.length > 0
-          ? addon.tags.map((tagText) => {
+          ? addon.tags.map((tag) => {
               return (
-                <li key={tagText}>
+                <li key={tag}>
                   <Link
                     className="AddonMoreInfo-tag-link"
                     to={addQueryParams(
-                      getTagResultsPathname({ tag: tagText }),
+                      getTagResultsPathname({ tag }),
                       getQueryParametersForAttribution(location),
                     )}
                   >
-                    {tagText}
+                    {tag}
                   </Link>
                 </li>
               );

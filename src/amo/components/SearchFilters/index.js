@@ -74,7 +74,8 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
       // If we are currently filtering by category, and the filter to change is 'sort',
       // force recommendations to the top.
       // See https://github.com/mozilla/addons-frontend/issues/8084
-      // We also do this for tag filtering.
+      // We also do this for tag filtering because category and tag pages are very
+      // similar.
       if (
         (newFilters.category || newFilters.tag) &&
         filterName === sortSelectName &&
@@ -128,9 +129,9 @@ export class SearchFiltersBase extends React.Component<InternalProps> {
     if (filters.category) {
       delete filters.category;
       delete filters.addonType;
-    }
-    // If tag is a filter, remove it because it's already included in the pathname
-    if (filters.tag) {
+    } else if (filters.tag) {
+      // If tag is a filter, remove it because it's already included in the
+      // pathname.
       delete filters.tag;
     }
 

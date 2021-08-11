@@ -507,6 +507,23 @@ describe(__filename, () => {
     );
   });
 
+  it('should render a singular result with the tag for tag query', () => {
+    const tag = 'foo';
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 result found with tag ${tag}`,
+    );
+  });
+
   it('should render results for addonType ADDON_TYPE_EXTENSION and tag for tag query', () => {
     const tag = 'foo';
     dispatchSearchResults({
@@ -524,6 +541,24 @@ describe(__filename, () => {
     );
   });
 
+  it('should render a singular result for addonType ADDON_TYPE_EXTENSION and tag for tag query', () => {
+    const tag = 'foo';
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 extension found with tag ${tag}`,
+    );
+  });
+
   it('should render results for addonType ADDON_TYPE_STATIC_THEME and tag for tag query', () => {
     const tag = 'foo';
     dispatchSearchResults({
@@ -538,6 +573,24 @@ describe(__filename, () => {
 
     expect(root.find('.SearchContextCard-header').text()).toEqual(
       `2 themes found with tag ${tag}`,
+    );
+  });
+
+  it('should render a singular result for addonType ADDON_TYPE_STATIC_THEME and tag for tag query', () => {
+    const tag = 'foo';
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 theme found with tag ${tag}`,
     );
   });
 
