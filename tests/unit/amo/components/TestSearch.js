@@ -453,6 +453,16 @@ describe(__filename, () => {
     expect(root.find('meta[name="robots"]')).toHaveLength(0);
   });
 
+  it.each([undefined, false, true, '0'])(
+    'does not render a robots meta when count is %s',
+    (count) => {
+      // We shouldn't manually inject `count`.
+      const root = render({ count });
+
+      expect(root.find('meta[name="robots"]')).toHaveLength(0);
+    },
+  );
+
   describe('errorHandler - extractId', () => {
     it('generates a unique ID based on the page filter', () => {
       const ownProps = {
