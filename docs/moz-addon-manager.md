@@ -26,7 +26,7 @@ Right click in `about:config`, select `new` and then add `xpinstall.signatures.d
 
 Restart Firefox to put it into effect. This pref allows you to fully install add-on and theme files.
 
-Add-ons signatures are checked once daily. When that happens, and with a`xpinstall.signatures.dev-root` set to `true`, any installed add-ons signed with production certs will be disabled. To get them back you can set `xpinstall.signatures.dev-root` to `false` and run `await ChromeUtils.import("resource://gre/modules/addons/XPIDatabase.jsm").XPIDatabase.verifySignatures();` from a browser console.
+Add-ons signatures are checked once daily. When that happens, and with `xpinstall.signatures.dev-root` set to `true`, any installed add-ons signed with production certs will be disabled. To get them back you can set `xpinstall.signatures.dev-root` to `false` and run `await ChromeUtils.import("resource://gre/modules/addons/XPIDatabase.jsm").XPIDatabase.verifySignatures();` from a browser console.
 
 ## Developing on Android
 
