@@ -13,6 +13,7 @@ import {
   convertQueryParamsToFilters,
   fixFiltersFromLocation,
 } from 'amo/searchUtils';
+import { getTagResultsPathname } from 'amo/utils/tags';
 import type { SearchFilters } from 'amo/api/search';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
@@ -63,7 +64,7 @@ export class TagPageBase extends React.Component<InternalProps> {
           filters={filtersForSearch}
           pageTitle={this.getPageTitle(tag)}
           paginationQueryParams={convertFiltersToQueryParams(filters)}
-          pathname={`/tag/${tag}/`}
+          pathname={getTagResultsPathname({ tag })}
         />
       </Page>
     );

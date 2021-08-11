@@ -34,6 +34,7 @@ import SimulateAsyncError from 'amo/pages/error-simulation/SimulateAsyncError';
 import SimulateSyncError from 'amo/pages/error-simulation/SimulateSyncError';
 import About from 'amo/pages/StaticPages/About';
 import ReviewGuide from 'amo/pages/StaticPages/ReviewGuide';
+import TagPage from 'amo/pages/TagPage';
 import type { ConfigType } from 'amo/types/config';
 
 type Props = {|
@@ -155,6 +156,12 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       exact
       path="/:lang/:application(firefox|android)/:visibleAddonType(extensions|themes)/category/:categorySlug/"
       component={CategoryPage}
+    />
+
+    <Route
+      exact
+      path="/:lang/:application(firefox|android)/tag/:tag/"
+      component={TagPage}
     />
 
     {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}

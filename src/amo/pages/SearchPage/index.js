@@ -10,6 +10,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   DEFAULT_CATEGORY_SORT,
+  DEFAULT_TAG_SORT,
 } from 'amo/constants';
 import { makeQueryString } from 'amo/api';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
@@ -19,6 +20,7 @@ import {
   fixFiltersFromLocation,
 } from 'amo/searchUtils';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
+import { getTagResultsPathname } from 'amo/utils/tags';
 import { visibleAddonTypeIsValid } from 'amo/utils';
 import type { AppState } from 'amo/store';
 import type { SearchFilters } from 'amo/api/search';
@@ -67,6 +69,19 @@ export class SearchPageBase extends React.Component<InternalProps> {
       delete newFilters.category;
 
       if (newFilters.sort === DEFAULT_CATEGORY_SORT) {
+        delete newFilters.sort;
+      }
+
+      shouldRedirect = true;
+    } else if (
+      // If this is a tag search we want to redirect to new tag pages.
+      newFilters.tag
+    ) {
+      pathname = getTagResultsPathname({ tag: newFilters.tag });
+
+      delete newFilters.tag;
+
+      if (newFilters.sort === DEFAULT_TAG_SORT) {
         delete newFilters.sort;
       }
 

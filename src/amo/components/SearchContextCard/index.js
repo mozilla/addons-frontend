@@ -48,7 +48,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
 
   render(): React.Node {
     const { categoryName, count, filters, i18n, loadingSearch } = this.props;
-    const { addonType, query } = filters || {};
+    const { addonType, query, tag } = filters || {};
     let searchText;
 
     if (!loadingSearch) {
@@ -82,6 +82,15 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
                 count,
               ),
               { count: i18n.formatNumber(count), query },
+            );
+          } else if (tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s extension found with tag %(tag)s',
+                '%(count)s extensions found with tag %(tag)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), tag },
             );
           } else {
             searchText = i18n.sprintf(
@@ -124,6 +133,15 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
               ),
               { count: i18n.formatNumber(count), query },
             );
+          } else if (tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s theme found with tag %(tag)s',
+                '%(count)s themes found with tag %(tag)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), tag },
+            );
           } else {
             searchText = i18n.sprintf(
               i18n.ngettext(
@@ -144,6 +162,15 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
                 count,
               ),
               { count: i18n.formatNumber(count), query },
+            );
+          } else if (tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s result found with tag %(tag)s',
+                '%(count)s results found with tag %(tag)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), tag },
             );
           } else {
             searchText = i18n.sprintf(

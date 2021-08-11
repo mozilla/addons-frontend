@@ -491,6 +491,109 @@ describe(__filename, () => {
     );
   });
 
+  it('should render results with the tag for tag query', () => {
+    const tag = 'foo';
+    dispatchSearchResults({
+      filters: {
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 results found with tag ${tag}`,
+    );
+  });
+
+  it('should render a singular result with the tag for tag query', () => {
+    const tag = 'foo';
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 result found with tag ${tag}`,
+    );
+  });
+
+  it('should render results for addonType ADDON_TYPE_EXTENSION and tag for tag query', () => {
+    const tag = 'foo';
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 extensions found with tag ${tag}`,
+    );
+  });
+
+  it('should render a singular result for addonType ADDON_TYPE_EXTENSION and tag for tag query', () => {
+    const tag = 'foo';
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 extension found with tag ${tag}`,
+    );
+  });
+
+  it('should render results for addonType ADDON_TYPE_STATIC_THEME and tag for tag query', () => {
+    const tag = 'foo';
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 themes found with tag ${tag}`,
+    );
+  });
+
+  it('should render a singular result for addonType ADDON_TYPE_STATIC_THEME and tag for tag query', () => {
+    const tag = 'foo';
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 theme found with tag ${tag}`,
+    );
+  });
+
   it('does not render a categoryName when the category is invalid', () => {
     dispatchSearchResults({
       // The API does not return addon results if the category is invalid.

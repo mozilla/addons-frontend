@@ -22,6 +22,7 @@ import { hasPermission } from 'amo/reducers/users';
 import { getVersionById, getVersionInfo } from 'amo/reducers/versions';
 import { isAddonAuthor } from 'amo/utils';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
+import { getTagResultsPathname } from 'amo/utils/tags';
 import {
   addQueryParams,
   getQueryParametersForAttribution,
@@ -254,17 +255,17 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       ),
       tagsLinks:
         addon.tags.length > 0
-          ? addon.tags.map((tagText) => {
+          ? addon.tags.map((tag) => {
               return (
-                <li key={tagText}>
+                <li key={tag}>
                   <Link
                     className="AddonMoreInfo-tag-link"
                     to={addQueryParams(
-                      `/search/?tag=${tagText}`,
+                      getTagResultsPathname({ tag }),
                       getQueryParametersForAttribution(location),
                     )}
                   >
-                    {tagText}
+                    {tag}
                   </Link>
                 </li>
               );

@@ -290,6 +290,61 @@ describe(__filename, () => {
     );
   });
 
+  it('dispatches a server redirect when `tag` is set', () => {
+    const tag = 'some-tag';
+    const page = '123';
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      location: createFakeLocation({
+        query: {
+          tag,
+          page,
+          sort: SEARCH_SORT_RECOMMENDED,
+          type: ADDON_TYPE_EXTENSION,
+        },
+      }),
+      store,
+    });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${CLIENT_APP_FIREFOX}/tag/${tag}/?page=${page}&sort=${SEARCH_SORT_RECOMMENDED}&type=${ADDON_TYPE_EXTENSION}`,
+      }),
+    );
+  });
+
+  it('removes the default tag sort, when present, when redirecting', () => {
+    const tag = 'some-tag';
+    const page = '123';
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      location: createFakeLocation({
+        query: {
+          tag,
+          page,
+          sort: DEFAULT_CATEGORY_SORT,
+        },
+      }),
+      store,
+    });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${CLIENT_APP_FIREFOX}/tag/${tag}/?page=${page}`,
+      }),
+    );
+  });
+
   it('dispatches a server redirect when `platform` is set', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
