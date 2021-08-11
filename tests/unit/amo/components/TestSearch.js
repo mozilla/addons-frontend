@@ -86,6 +86,7 @@ describe(__filename, () => {
     expect(Object.keys(searchResults.props()).sort()).toEqual(
       ['count', 'filters', 'loading', 'paginator', 'results'].sort(),
     );
+    expect(root.find('meta[name="robots"]')).toHaveLength(0);
   });
 
   it('passes a Paginate component to the SearchResults component', () => {
@@ -203,6 +204,7 @@ describe(__filename, () => {
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+    expect(root.find('meta[name="robots"]')).toHaveLength(0);
   });
 
   it('renders an HTML title', () => {
@@ -432,6 +434,34 @@ describe(__filename, () => {
     const wrapper = renderWithStore({ ...props, errorHandler, store });
     expect(wrapper.find(NotFound)).toHaveLength(1);
   });
+
+  it('renders a robots meta when there is no results', () => {
+    const { store } = dispatchSearchResults({ addons: [] });
+    const root = renderWithStore({ store });
+
+    expect(root.find('meta[name="robots"]')).toHaveLength(1);
+    expect(root.find('meta[name="robots"]')).toHaveProp(
+      'content',
+      'noindex, follow',
+    );
+  });
+
+  it('does not render a robots meta when there are results', () => {
+    const { store } = dispatchSearchResults({ addons: [fakeAddon] });
+    const root = renderWithStore({ store });
+
+    expect(root.find('meta[name="robots"]')).toHaveLength(0);
+  });
+
+  it.each([undefined, false, true, '0'])(
+    'does not render a robots meta when count is %s',
+    (count) => {
+      // We shouldn't manually inject `count`.
+      const root = render({ count });
+
+      expect(root.find('meta[name="robots"]')).toHaveLength(0);
+    },
+  );
 
   describe('errorHandler - extractId', () => {
     it('generates a unique ID based on the page filter', () => {
