@@ -7,6 +7,9 @@ import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 const deployedEnvsWithSeparateStaticsDomain = ['production', 'stage'];
 
+// Eventually we want to move all envs to load statics from the same domain
+// but at the moment we only do that on dev for testing.
+// https://github.com/mozilla/addons-frontend/issues/10785
 const deployedEnvsWithStaticsOnSameDomain = ['dev'];
 
 const cdnHosts = {
