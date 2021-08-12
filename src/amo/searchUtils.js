@@ -9,6 +9,12 @@ import {
 import log from 'amo/logger';
 import { USER_AGENT_OS_IOS } from 'amo/reducers/api';
 
+export function generate_threshold_params({ param }) {
+  return ['__gt', '__lt', '__lte', '__gte', ''].reduce((object, key) => {
+    return { ...object, [`${param}${key}`]: `${param}${key}` };
+  }, {});
+}
+
 export const paramsToFilter = {
   app: 'clientApp',
   appversion: 'compatibleWithVersion',
@@ -21,9 +27,11 @@ export const paramsToFilter = {
   page_size: 'page_size',
   promoted: 'promoted',
   q: 'query',
+  ...generate_threshold_params({ param: 'ratings' }),
   sort: 'sort',
   tag: 'tag',
   type: 'addonType',
+  ...generate_threshold_params({ param: 'users' }),
 };
 
 export function addVersionCompatibilityToFilters({

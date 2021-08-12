@@ -13,6 +13,8 @@ import {
   convertQueryParamsToFilters,
   fixFiltersForClientApp,
   fixFiltersFromLocation,
+  generate_threshold_params,
+  paramsToFilter,
 } from 'amo/searchUtils';
 import {
   dispatchClientMetadata,
@@ -263,6 +265,30 @@ describe(__filename, () => {
       const filters = { clientApp: CLIENT_APP_ANDROID, lang: 'fr', page };
 
       expect(fixFiltersFromLocation(filters)).toEqual({ page });
+    });
+  });
+
+  describe('generate_threshold_params', () => {
+    it('generates all the required threshold parameters for a given param', () => {
+      const generated = generate_threshold_params({ param: 'foo' });
+
+      expect(generated).toEqual({
+        foo__gt: 'foo__gt',
+        foo__lt: 'foo__lt',
+        foo__gte: 'foo__gte',
+        foo__lte: 'foo__lte',
+        foo: 'foo',
+      });
+    });
+  });
+
+  describe('paramsToFilter', () => {
+    it('generates all the required threshold parameters for ratings and users', () => {
+      expect(paramsToFilter).toEqual({
+        ...paramsToFilter,
+        ...generate_threshold_params({ param: 'ratings' }),
+        ...generate_threshold_params({ param: 'users' }),
+      });
     });
   });
 });
