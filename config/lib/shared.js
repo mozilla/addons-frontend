@@ -15,3 +15,5 @@ export const baseUrlProd = apiProdHost;
 export const baseUrlStage = apiStageHost;
 
 export const analyticsHost = 'https://www.google-analytics.com';
+
+export const staticPath = '/static-frontend/';

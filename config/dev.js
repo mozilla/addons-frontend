@@ -1,7 +1,5 @@
 // Config for the -dev server.
-import { addonsServerDevCDN, analyticsHost, apiDevHost, baseUrlDev, devDomain } from './lib/shared';
-
-const staticPath = '/static-frontend/';
+import { addonsServerDevCDN, analyticsHost, apiDevHost, baseUrlDev, devDomain, staticPath } from './lib/shared';
 
 module.exports = {
   baseURL: baseUrlDev,
