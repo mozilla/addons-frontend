@@ -35,9 +35,9 @@ describe(__filename, () => {
   });
 
   describe('CSP Config', () => {
-    for (const env of deployedEnvsWithStaticsOnSameDomain) {
-      // eslint-disable-next-lint no-loop-func
-      it(`should have a source-list config for ${env}`, () => {
+    it.each(deployedEnvsWithStaticsOnSameDomain)(
+      'should have a source-list config for %s',
+      (env) => {
         process.env.NODE_ENV = env;
         // Reset the require cache so that the config require
         // takes into account changes to NODE_ENV.
@@ -67,12 +67,12 @@ describe(__filename, () => {
         expect(cspConfig.styleSrc).not.toContain("'self'");
         expect(cspConfig.connectSrc).toContain(apiHost);
         expect(cspConfig.connectSrc).not.toContain("'self'");
-      });
-    }
+      },
+    );
 
-    for (const env of deployedEnvsWithSeparateStaticsDomain) {
-      // eslint-disable-next-lint no-loop-func
-      it(`should have a source-list config for ${env}`, () => {
+    it.each(deployedEnvsWithSeparateStaticsDomain)(
+      'should have a source-list config for %s',
+      (env) => {
         process.env.NODE_ENV = env;
         // Reset the require cache so that the config require
         // takes into account changes to NODE_ENV.
@@ -100,8 +100,8 @@ describe(__filename, () => {
         expect(cspConfig.styleSrc).not.toContain("'self'");
         expect(cspConfig.connectSrc).toContain(apiHost);
         expect(cspConfig.connectSrc).not.toContain("'self'");
-      });
-    }
+      },
+    );
   });
 
   describe('CSP defaults', () => {
