@@ -13,7 +13,7 @@ import {
   convertQueryParamsToFilters,
   fixFiltersForClientApp,
   fixFiltersFromLocation,
-  generate_threshold_params,
+  generateThresholdParams,
   paramsToFilter,
 } from 'amo/searchUtils';
 import {
@@ -268,9 +268,9 @@ describe(__filename, () => {
     });
   });
 
-  describe('generate_threshold_params', () => {
+  describe('generateThresholdParams', () => {
     it('generates all the required threshold parameters for a given param', () => {
-      const generated = generate_threshold_params({ param: 'foo' });
+      const generated = generateThresholdParams('foo');
 
       expect(generated).toEqual({
         foo__gt: 'foo__gt',
@@ -286,8 +286,8 @@ describe(__filename, () => {
     it('generates all the required threshold parameters for ratings and users', () => {
       expect(paramsToFilter).toEqual({
         ...paramsToFilter,
-        ...generate_threshold_params({ param: 'ratings' }),
-        ...generate_threshold_params({ param: 'users' }),
+        ...generateThresholdParams('ratings'),
+        ...generateThresholdParams('users'),
       });
     });
   });
