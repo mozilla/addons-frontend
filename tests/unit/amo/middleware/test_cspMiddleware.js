@@ -5,12 +5,20 @@ import parse from 'content-security-policy-parser';
 import { csp } from 'amo/middleware';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
-const deployedEnvs = ['dev', 'production', 'stage'];
+const deployedEnvsWithSeparateStaticsDomain = ['production', 'stage'];
+
+const deployedEnvsWithStaticsOnSameDomain = ['dev'];
 
 const cdnHosts = {
   dev: 'https://addons-amo-dev-cdn.allizom.org',
   stage: 'https://addons-amo-cdn.allizom.org',
   production: 'https://addons-amo.cdn.mozilla.net',
+};
+
+const serverCdnHosts = {
+  dev: 'https://addons-dev-cdn.allizom.org',
+  stage: 'https://addons-cdn.allizom.org',
+  production: 'https://addons-cdn.mozilla.net',
 };
 
 const apiHosts = {
@@ -27,7 +35,42 @@ describe(__filename, () => {
   });
 
   describe('CSP Config', () => {
-    for (const env of deployedEnvs) {
+    for (const env of deployedEnvsWithStaticsOnSameDomain) {
+      // eslint-disable-next-lint no-loop-func
+      it(`should have a source-list config for ${env}`, () => {
+        process.env.NODE_ENV = env;
+        // Reset the require cache so that the config require
+        // takes into account changes to NODE_ENV.
+        jest.resetModules();
+        const cdnHost = cdnHosts[env];
+        const apiHost = apiHosts[env];
+        const serverCdnHost = serverCdnHosts[env];
+        const mainHost = apiHost;
+        // eslint-disable-next-line global-require
+        const config = require('config');
+        const cspConfig = config.get('CSP').directives;
+        // We use a sub-folder on purpose, see:
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
+        expect(cspConfig.scriptSrc).not.toContain(`${cdnHost}/static/`);
+        expect(cspConfig.scriptSrc).toContain(`${mainHost}/static-frontend/`);
+        expect(cspConfig.scriptSrc).not.toContain("'self'");
+        // We use a sub-folder on purpose, see:
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
+        expect(cspConfig.imgSrc).not.toContain(`${cdnHost}/static/`);
+        expect(cspConfig.imgSrc).toContain(`${mainHost}/static-frontend/`);
+        expect(cspConfig.imgSrc).toContain(`${serverCdnHost}/favicon.ico`);
+        expect(cspConfig.imgSrc).toContain("'self'");
+        // We use a sub-folder on purpose, see:
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
+        expect(cspConfig.styleSrc).not.toContain(`${cdnHost}/static/`);
+        expect(cspConfig.styleSrc).toContain(`${mainHost}/static-frontend/`);
+        expect(cspConfig.styleSrc).not.toContain("'self'");
+        expect(cspConfig.connectSrc).toContain(apiHost);
+        expect(cspConfig.connectSrc).not.toContain("'self'");
+      });
+    }
+
+    for (const env of deployedEnvsWithSeparateStaticsDomain) {
       // eslint-disable-next-lint no-loop-func
       it(`should have a source-list config for ${env}`, () => {
         process.env.NODE_ENV = env;
