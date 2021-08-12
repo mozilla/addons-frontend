@@ -77,18 +77,10 @@ describe(__filename, () => {
     const path =
       '/:lang/:application(firefox|android)/blocked-addon/:guid/:versionId?/';
 
-    it('declares a route for the new Block page if feature is enabled', () => {
-      const _config = getFakeConfig({ enableFeatureBlockPage: true });
-      const root = render({ _config });
+    it('declares a route for the new Block page', () => {
+      const root = render();
 
       expect(root.find({ path })).toHaveLength(1);
-    });
-
-    it('does not declare a route for the new Block page if feature is disabled', () => {
-      const _config = getFakeConfig({ enableFeatureBlockPage: false });
-      const root = render({ _config });
-
-      expect(root.find({ path })).toHaveLength(0);
     });
   });
 });

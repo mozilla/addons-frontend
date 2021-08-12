@@ -96,7 +96,6 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'enableDevTools',
-    'enableFeatureBlockPage',
     'enableFeatureAllowAndroidInstall',
     'enableFeatureVPNPromo',
     'enableRequestID',
@@ -407,10 +406,8 @@ module.exports = {
   // Please use the `enableFeature` prefix, see:
   // https://github.com/mozilla/addons-frontend/issues/6362.
 
-  enableFeatureBlockPage: true,
-
   enableFeatureAllowAndroidInstall: true,
-  
+
   enableFeatureVPNPromo: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',

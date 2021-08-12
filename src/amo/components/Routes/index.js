@@ -60,13 +60,11 @@ const Routes = ({ _config = config }: Props = {}): React.Node => (
       component={Addon}
     />
 
-    {_config.get('enableFeatureBlockPage') && (
-      <Route
-        exact
-        path="/:lang/:application(firefox|android)/blocked-addon/:guid/:versionId?/"
-        component={Block}
-      />
-    )}
+    <Route
+      exact
+      path="/:lang/:application(firefox|android)/blocked-addon/:guid/:versionId?/"
+      component={Block}
+    />
 
     <Route
       exact
