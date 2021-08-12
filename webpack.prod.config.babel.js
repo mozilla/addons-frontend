@@ -30,9 +30,9 @@ export default {
     filename: '[name]-[contenthash].js',
     chunkFilename: '[name]-[contenthash].js',
     // This is the path used to require files in the generated bundles.
-    publicPath: `${
-      config.has('staticHost') ? config.get('staticHost') : ''
-    }/static/`,
+    publicPath: `${config.has('staticHost') ? config.get('staticHost') : ''}${
+      config.has('staticPath') ? config.get('staticPath') : '/static/'
+    }`,
   },
   module: {
     rules: getRules(),

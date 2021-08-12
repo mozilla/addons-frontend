@@ -1,13 +1,15 @@
 // Config for the -dev server.
 import { addonsServerDevCDN, analyticsHost, apiDevHost, baseUrlDev, devDomain } from './lib/shared';
 
-const addonsFrontendCDN = 'https://addons-amo-dev-cdn.allizom.org';
+const staticPath = '/static-frontend/';
 
 module.exports = {
   baseURL: baseUrlDev,
   apiHost: apiDevHost,
   amoCDN: addonsServerDevCDN,
-  staticHost: addonsFrontendCDN,
+  // addons-frontend statics are served by the CDN from the main domain
+  staticHost: undefined,
+  staticPath,
 
   cookieDomain: `.${devDomain}`,
 
@@ -21,22 +23,23 @@ module.exports = {
         apiDevHost,
       ],
       fontSrc: [
-        `${addonsFrontendCDN}/static/`,
+        `${baseUrlDev}${staticPath}`,
       ],
       imgSrc: [
         "'self'",
         'data:',
-        addonsServerDevCDN,
-        `${addonsFrontendCDN}/static/`,
+        `${addonsServerDevCDN}/user-media/`,
+        `${addonsServerDevCDN}/static/`,
+        `${baseUrlDev}${staticPath}`,
         // This file isn't bundled with addons-frontend.
-        `${addonsFrontendCDN}/favicon.ico`,
+        `${addonsServerDevCDN}/favicon.ico`,
       ],
       scriptSrc: [
-        `${addonsFrontendCDN}/static/`,
+        `${baseUrlDev}${staticPath}`,
         `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
-        `${addonsFrontendCDN}/static/`,
+        `${baseUrlDev}${staticPath}`,
       ],
     },
   },
