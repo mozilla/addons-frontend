@@ -9,12 +9,12 @@ describe(__filename, () => {
     const _config = getFakeConfig({ basePath: 'foo' });
 
     serveAssetsLocally({ _config });
-    sinon.assert.calledWith(expressStub, 'foo/dist');
+    sinon.assert.calledWith(expressStub, 'foo/dist/static');
   });
 
   it('does not blow up if optional args not defined', () => {
     const expressStub = sinon.stub(Express, 'static');
     serveAssetsLocally();
-    sinon.assert.calledWithMatch(expressStub, 'addons-frontend/dist');
+    sinon.assert.calledWithMatch(expressStub, 'addons-frontend/dist/static');
   });
 });

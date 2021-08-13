@@ -194,7 +194,7 @@ function baseServer(
 
   // Serve assets locally from node ap (no-op by default).
   if (config.get('enableNodeStatics')) {
-    app.use(middleware.serveAssetsLocally());
+    app.use(config.get('staticPath'), middleware.serveAssetsLocally());
   }
 
   // This middleware adds `universalCookies` to the Express request.
