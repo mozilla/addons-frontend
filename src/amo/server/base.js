@@ -193,7 +193,7 @@ function baseServer(
   app.use(middleware.csp());
 
   // Serve assets locally from node ap (no-op by default).
-  if (config.get('enableNodeStatics') && config.get('staticPath')) {
+  if (config.get('enableNodeStatics')) {
     app.use(config.get('staticPath'), middleware.serveAssetsLocally());
   }
 
