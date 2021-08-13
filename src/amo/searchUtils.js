@@ -9,6 +9,16 @@ import {
 import log from 'amo/logger';
 import { USER_AGENT_OS_IOS } from 'amo/reducers/api';
 
+// TODO: we need to specify these API params in `paramsToFilter` so that the
+// app uses them when making API calls but ideally we'd revisit the filter
+// names when we need to use the filters in our code (because `foo__lte` isn't
+// a great name).
+export function generateThresholdParams(param) {
+  return ['__gt', '__lt', '__lte', '__gte', ''].reduce((object, key) => {
+    return { ...object, [`${param}${key}`]: `${param}${key}` };
+  }, {});
+}
+
 export const paramsToFilter = {
   app: 'clientApp',
   appversion: 'compatibleWithVersion',
@@ -21,9 +31,11 @@ export const paramsToFilter = {
   page_size: 'page_size',
   promoted: 'promoted',
   q: 'query',
+  ...generateThresholdParams('ratings'),
   sort: 'sort',
   tag: 'tag',
   type: 'addonType',
+  ...generateThresholdParams('users'),
 };
 
 export function addVersionCompatibilityToFilters({
