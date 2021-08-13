@@ -25,7 +25,10 @@ export default {
   entry: { [WEBPACK_ENTRYPOINT]: 'amo/client' },
   output: {
     crossOriginLoading: 'anonymous',
-    // This is the path used to write the files on disk.
+    // This is the path used to write the files on disk (which can be different from
+    // config.get('staticPath'), which is the path part of the URL the statics are
+    // served from).
+    // It needs to match the directory used by src/amo/middleware/staticAssets.js
     path: STATIC_DIR,
     filename: '[name]-[contenthash].js',
     chunkFilename: '[name]-[contenthash].js',
