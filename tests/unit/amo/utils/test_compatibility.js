@@ -34,7 +34,6 @@ import {
   createInternalVersionWithLang,
   fakeAddon,
   fakeVersion,
-  getFakeConfig,
   getFakeLogger,
   userAgents,
   userAgentsByPlatform,
@@ -142,33 +141,10 @@ describe(__filename, () => {
       });
     });
 
-    it('is incompatible with Firefox for Android, even though promoted, with flag off', () => {
+    it('is compatible with Firefox for Android, when promoted', () => {
       userAgents.firefoxAndroid.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
-            _config: getFakeConfig({
-              enableFeatureAllowAndroidInstall: false,
-            }),
-            addon: createInternalAddonWithLang({
-              ...fakeAddon,
-              promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
-            }),
-            userAgentInfo: UAParser(userAgent),
-          }),
-        ).toEqual({
-          compatible: false,
-          reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
-        });
-      });
-    });
-
-    it('is compatible with Firefox for Android, when promoted, with flag on', () => {
-      userAgents.firefoxAndroid.forEach((userAgent) => {
-        expect(
-          _isCompatibleWithUserAgent({
-            _config: getFakeConfig({
-              enableFeatureAllowAndroidInstall: true,
-            }),
             addon: createInternalAddonWithLang({
               ...fakeAddon,
               promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
@@ -345,9 +321,6 @@ describe(__filename, () => {
 
       expect(
         _isCompatibleWithUserAgent({
-          _config: getFakeConfig({
-            enableFeatureAllowAndroidInstall: true,
-          }),
           addon: createInternalAddonWithLang({
             ...fakeAddon,
             promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
