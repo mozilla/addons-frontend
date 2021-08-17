@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-17 18:35+0000\n"
+"PO-Revision-Date: 2021-08-17 18:40+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1567,10 +1567,9 @@ msgstr[0] "%(count)s thema trovate pro \"%(query)s\""
 msgstr[1] "%(count)s themas trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:138
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "%(count)s thema trovate in %(categoryName)s"
+msgstr[0] "%(count)s thema trovate con tag %(tag)s"
 msgstr[1] "%(count)s themas trovate in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:147
@@ -1586,11 +1585,10 @@ msgstr[0] "%(count)s resultato trovate pro \"%(query)s\""
 msgstr[1] "%(count)s resultatos trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:168
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "%(count)s resultato trovate pro \"%(query)s\""
-msgstr[1] "%(count)s resultatos trovate pro \"%(query)s\""
+msgstr[0] "%(count)s resultato trovate con tag %(tag)s"
+msgstr[1] "%(count)s resultatos trovate con tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:177
 msgid "%(count)s result found"
@@ -1625,10 +1623,9 @@ msgstr[0] "%(count)s extension trovate pro \"%(query)s\""
 msgstr[1] "%(count)s extensiones trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s extension trovate in %(categoryName)s"
+msgstr[0] "%(count)s extension trovate con tag %(tag)s"
 msgstr[1] "%(count)s extensiones trovate in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:97
