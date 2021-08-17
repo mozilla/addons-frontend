@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-17 17:34+0000\n"
+"PO-Revision-Date: 2021-08-17 17:41+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1651,13 +1651,12 @@ msgstr[2] "%(count)s rozšěrjenja za \"%(query)s\" namakane"
 msgstr[3] "%(count)s rozšěrjenjow za \"%(query)s\" namakane"
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s rozšěrjenje je so w %(categoryName)s namakało"
-msgstr[1] "%(count)s rozšěrjeni stej so w %(categoryName)s namakałoj"
-msgstr[2] "%(count)s rozšěrjenja su so w %(categoryName)s namakali"
-msgstr[3] "%(count)s rozšěrjenjow je so w %(categoryName)s namakało"
+msgstr[0] "%(count)s rozšěrjenje je so ze značku %(tag)s namakało"
+msgstr[1] "%(count)s rozšěrjeni stej so ze značku %(tag)s namakałoj"
+msgstr[2] "%(count)s rozšěrjenja su so ze značku %(tag)s namakali"
+msgstr[3] "%(count)s rozšěrjenjow je so ze značku %(tag)s namakało"
 
 #: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
