@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-10 16:22+0000\n"
+"POT-Creation-Date: 2021-08-17 16:26+0000\n"
 "PO-Revision-Date: 2018-10-31 16:33+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,95 +191,95 @@ msgstr "Rəy yoxdur"
 msgid "Used by"
 msgstr "İşlədən"
 
-#: src/amo/components/AddonMoreInfo/index.js:100
+#: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
 #: src/amo/pages/UserProfileEdit/index.js:694
 msgid "Homepage"
 msgstr "Ana Səhifə"
 
-#: src/amo/components/AddonMoreInfo/index.js:115
+#: src/amo/components/AddonMoreInfo/index.js:116
 #, fuzzy
 msgid "Support site"
 msgstr "Dəstək Saytı"
 
-#: src/amo/components/AddonMoreInfo/index.js:129
+#: src/amo/components/AddonMoreInfo/index.js:130
 msgid "Support Email"
 msgstr "Dəstək e-poçtu"
 
-#: src/amo/components/AddonMoreInfo/index.js:147
+#: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Visit stats dashboard"
 msgstr "Statistika panelinə get"
 
-#: src/amo/components/AddonMoreInfo/index.js:166
+#: src/amo/components/AddonMoreInfo/index.js:167
 #, fuzzy
 msgid "Custom License"
 msgstr "Lisenziya"
 
 # This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:211
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:227
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Read the privacy policy for this add-on"
 msgstr "Bu əlavənin məxfilik siyasətini oxuyun"
 
-#: src/amo/components/AddonMoreInfo/index.js:238
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Read the license agreement for this add-on"
 msgstr "Bu əlavənin lisenziya razılığını oxuyun"
 
-#: src/amo/components/AddonMoreInfo/index.js:251
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "See all versions"
 msgstr "Bütün versiyaları göstər"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:299
 msgid "Add-on Links"
 msgstr "Əlavə Keçidləri"
 
-#: src/amo/components/AddonMoreInfo/index.js:310
+#: src/amo/components/AddonMoreInfo/index.js:311
 msgid "Version"
 msgstr "Versiya"
 
-#: src/amo/components/AddonMoreInfo/index.js:318
+#: src/amo/components/AddonMoreInfo/index.js:319
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:326
+#: src/amo/components/AddonMoreInfo/index.js:327
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Son yenilənmə"
 
-#: src/amo/components/AddonMoreInfo/index.js:334
+#: src/amo/components/AddonMoreInfo/index.js:335
 #, fuzzy
 msgid "Related Categories"
 msgstr "Kateqoriyalar"
 
-#: src/amo/components/AddonMoreInfo/index.js:344
+#: src/amo/components/AddonMoreInfo/index.js:345
 msgid "License"
 msgstr "Lisenziya"
 
-#: src/amo/components/AddonMoreInfo/index.js:352
+#: src/amo/components/AddonMoreInfo/index.js:353
 msgid "Privacy Policy"
 msgstr "Məxfilik Siyasəti"
 
-#: src/amo/components/AddonMoreInfo/index.js:360
+#: src/amo/components/AddonMoreInfo/index.js:361
 msgid "End-User License Agreement"
 msgstr "Son İstifadəçi Lisenziya Razılaşması"
 
-#: src/amo/components/AddonMoreInfo/index.js:368
+#: src/amo/components/AddonMoreInfo/index.js:369
 msgid "Version History"
 msgstr "Buraxılış Tarixçəsi"
 
-#: src/amo/components/AddonMoreInfo/index.js:378
+#: src/amo/components/AddonMoreInfo/index.js:379
 msgid "Usage Statistics"
 msgstr "İstifadə Statistikası"
 
-#: src/amo/components/AddonMoreInfo/index.js:386
+#: src/amo/components/AddonMoreInfo/index.js:387
 msgid "Tags"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:402
+#: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
 msgstr "Daha çox məlumat"
 
@@ -1269,21 +1269,21 @@ msgstr ""
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:182
 #, fuzzy
 msgid "By Firefox"
 msgstr "Firefox üçün"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:174
+#: src/amo/components/SearchFilters/index.js:180
 #, fuzzy
 msgid "Recommended"
 msgstr "İstifadəçi şərhi"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr ""
 
@@ -1717,51 +1717,65 @@ msgstr "Məşhur əlavələr"
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\" üçün axtarış nəticələri"
 
-#: src/amo/components/SearchContextCard/index.js:101
+#: src/amo/components/SearchContextCard/index.js:110
 #, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:110
+#: src/amo/components/SearchContextCard/index.js:119
 #, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:120
+#: src/amo/components/SearchContextCard/index.js:129
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:129
+#: src/amo/components/SearchContextCard/index.js:138
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s"
+msgid_plural "%(count)s themes found with tag %(tag)s"
+msgstr[0] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
+msgstr[1] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
+
+#: src/amo/components/SearchContextCard/index.js:147
 #, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "%(count)s əlavə tapıldı"
 msgstr[1] "%(count)s əlavə tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:141
+#: src/amo/components/SearchContextCard/index.js:159
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" üçün %(count)s axtarış nəticəsi tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s axtarış nəticəsi tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:150
+#: src/amo/components/SearchContextCard/index.js:168
+#, fuzzy
+msgid "%(count)s result found with tag %(tag)s"
+msgid_plural "%(count)s results found with tag %(tag)s"
+msgstr[0] "\"%(query)s\" üçün %(count)s axtarış nəticəsi tapıldı"
+msgstr[1] "\"%(query)s\" üçün %(count)s axtarış nəticəsi tapıldı"
+
+#: src/amo/components/SearchContextCard/index.js:177
 #, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "\"%(query)s\" üçün %(count)s axtarış nəticəsi"
 msgstr[1] "\"%(query)s\" üçün %(count)s axtarış nəticəsi"
 
-#: src/amo/components/SearchContextCard/index.js:161
+#: src/amo/components/SearchContextCard/index.js:188
 msgid "Searching for \"%(query)s\""
 msgstr "\"%(query)s\" axtarılır"
 
-#: src/amo/components/SearchContextCard/index.js:165
+#: src/amo/components/SearchContextCard/index.js:192
 #, fuzzy
 msgid "Searching for add-ons"
 msgstr "Əlavələr yüklənir"
@@ -1788,65 +1802,72 @@ msgstr[1] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
 
 #: src/amo/components/SearchContextCard/index.js:88
 #, fuzzy
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
+msgstr[1] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
+
+#: src/amo/components/SearchContextCard/index.js:97
+#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s əlavə tapıldı"
 msgstr[1] "%(count)s əlavə tapıldı"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:148
 msgid "All"
 msgstr "Hamısı"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
 msgstr "Uzantı"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
 msgstr "Mövzu"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
 msgstr "Uyğunluq"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
 msgstr "Təzəlikcə yenilənənlər"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
 msgstr "Ən çox işlədilən"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Top Rated"
 msgstr "Ən çox qiymətləndirilən"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Trending"
 msgstr "Trenddəki"
 
-#: src/amo/components/SearchFilters/index.js:173
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:190
 #, fuzzy
 msgid "All Reviewed"
 msgstr "Rəy"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
 msgstr "Nəticəni filtrlə"
 
-#: src/amo/components/SearchFilters/index.js:209
+#: src/amo/components/SearchFilters/index.js:215
 msgid "Sort by"
 msgstr "Sırala"
 
-#: src/amo/components/SearchFilters/index.js:231
+#: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
 msgstr "Əlavə Növü"
 
-#: src/amo/components/SearchFilters/index.js:254
+#: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
 msgstr ""
 
@@ -2783,6 +2804,10 @@ msgstr ""
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid ""
 "Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+
+#: src/amo/pages/TagPage/index.js:43
+msgid "Add-ons tagged with %(tag)s"
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:238

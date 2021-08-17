@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-10 16:22+0000\n"
+"POT-Creation-Date: 2021-08-17 16:26+0000\n"
 "PO-Revision-Date: 2018-07-02 12:25+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -200,95 +200,95 @@ msgstr "Nema pregleda"
 msgid "Used by"
 msgstr "Koristi se od"
 
-#: src/amo/components/AddonMoreInfo/index.js:100
+#: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
 #: src/amo/pages/UserProfileEdit/index.js:694
 msgid "Homepage"
 msgstr "Početna stranica"
 
-#: src/amo/components/AddonMoreInfo/index.js:115
+#: src/amo/components/AddonMoreInfo/index.js:116
 #, fuzzy
 msgid "Support site"
 msgstr "Stranica podrške"
 
-#: src/amo/components/AddonMoreInfo/index.js:129
+#: src/amo/components/AddonMoreInfo/index.js:130
 msgid "Support Email"
 msgstr "Email podrške"
 
-#: src/amo/components/AddonMoreInfo/index.js:147
+#: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Visit stats dashboard"
 msgstr "Posjeti kontrolnu tablu statusa"
 
-#: src/amo/components/AddonMoreInfo/index.js:166
+#: src/amo/components/AddonMoreInfo/index.js:167
 #, fuzzy
 msgid "Custom License"
 msgstr "Licenca"
 
 # This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:211
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:227
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Read the privacy policy for this add-on"
 msgstr "Pročitajte pravila privatnosti za ovaj dodatak"
 
-#: src/amo/components/AddonMoreInfo/index.js:238
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Read the license agreement for this add-on"
 msgstr "Pročitajte ugovor o licenci za ovaj dodatak"
 
-#: src/amo/components/AddonMoreInfo/index.js:251
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "See all versions"
 msgstr "Pogledaj sve verzije"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:299
 msgid "Add-on Links"
 msgstr "Linkovi dodataka"
 
-#: src/amo/components/AddonMoreInfo/index.js:310
+#: src/amo/components/AddonMoreInfo/index.js:311
 msgid "Version"
 msgstr "Verzija"
 
-#: src/amo/components/AddonMoreInfo/index.js:318
+#: src/amo/components/AddonMoreInfo/index.js:319
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:326
+#: src/amo/components/AddonMoreInfo/index.js:327
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Zadnje ažuriranje"
 
-#: src/amo/components/AddonMoreInfo/index.js:334
+#: src/amo/components/AddonMoreInfo/index.js:335
 #, fuzzy
 msgid "Related Categories"
 msgstr "Kategorije"
 
-#: src/amo/components/AddonMoreInfo/index.js:344
+#: src/amo/components/AddonMoreInfo/index.js:345
 msgid "License"
 msgstr "Licenca"
 
-#: src/amo/components/AddonMoreInfo/index.js:352
+#: src/amo/components/AddonMoreInfo/index.js:353
 msgid "Privacy Policy"
 msgstr "Polica privatnosti"
 
-#: src/amo/components/AddonMoreInfo/index.js:360
+#: src/amo/components/AddonMoreInfo/index.js:361
 msgid "End-User License Agreement"
 msgstr "Ugovor o korištenju za krajnjeg korisnika"
 
-#: src/amo/components/AddonMoreInfo/index.js:368
+#: src/amo/components/AddonMoreInfo/index.js:369
 msgid "Version History"
 msgstr "Istorija verzija"
 
-#: src/amo/components/AddonMoreInfo/index.js:378
+#: src/amo/components/AddonMoreInfo/index.js:379
 msgid "Usage Statistics"
 msgstr "Statistika upotrebe"
 
-#: src/amo/components/AddonMoreInfo/index.js:386
+#: src/amo/components/AddonMoreInfo/index.js:387
 msgid "Tags"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:402
+#: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
 msgstr "Više informacija"
 
@@ -1338,21 +1338,21 @@ msgstr "Pristupite vašim podacima za %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:182
 #, fuzzy
 msgid "By Firefox"
 msgstr "za Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:174
+#: src/amo/components/SearchFilters/index.js:180
 #, fuzzy
 msgid "Recommended"
 msgstr "Korisnik od"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr ""
 
@@ -1806,7 +1806,7 @@ msgstr "Popularni dodaci"
 msgid "Search results for \"%(query)s\""
 msgstr "Rezultati pretrage za \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:101
+#: src/amo/components/SearchContextCard/index.js:110
 #, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
@@ -1814,7 +1814,7 @@ msgstr[0] "%(count)s tema pronađena za\"%(query)s\""
 msgstr[1] "%(count)s teme pronađene za\"%(query)s\""
 msgstr[2] "%(count)s tema pronađeno za\"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:110
+#: src/amo/components/SearchContextCard/index.js:119
 #, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
@@ -1822,14 +1822,22 @@ msgstr[0] "%(count)s tema pronađena za\"%(query)s\""
 msgstr[1] "%(count)s teme pronađene za\"%(query)s\""
 msgstr[2] "%(count)s tema pronađeno za\"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:120
+#: src/amo/components/SearchContextCard/index.js:129
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s tema pronađena za\"%(query)s\""
 msgstr[1] "%(count)s teme pronađene za\"%(query)s\""
 msgstr[2] "%(count)s tema pronađeno za\"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:129
+#: src/amo/components/SearchContextCard/index.js:138
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s"
+msgid_plural "%(count)s themes found with tag %(tag)s"
+msgstr[0] "%(count)s tema pronađena za\"%(query)s\""
+msgstr[1] "%(count)s teme pronađene za\"%(query)s\""
+msgstr[2] "%(count)s tema pronađeno za\"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:147
 #, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
@@ -1837,14 +1845,22 @@ msgstr[0] "%(count)s dodatak pronađen"
 msgstr[1] "%(count)s dodataka pronađena"
 msgstr[2] "%(count)s dodataka pronađeno"
 
-#: src/amo/components/SearchContextCard/index.js:141
+#: src/amo/components/SearchContextCard/index.js:159
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "%(count)s rezultat pronađen za \"%(query)s\""
 msgstr[1] "%(count)s rezultata pronađena za \"%(query)s\""
 msgstr[2] "%(count)s rezultata pronađeno za \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:150
+#: src/amo/components/SearchContextCard/index.js:168
+#, fuzzy
+msgid "%(count)s result found with tag %(tag)s"
+msgid_plural "%(count)s results found with tag %(tag)s"
+msgstr[0] "%(count)s rezultat pronađen za \"%(query)s\""
+msgstr[1] "%(count)s rezultata pronađena za \"%(query)s\""
+msgstr[2] "%(count)s rezultata pronađeno za \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:177
 #, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
@@ -1852,11 +1868,11 @@ msgstr[0] "%(count)s rezultat za \"%(query)s\""
 msgstr[1] "%(count)s rezultata za \"%(query)s\""
 msgstr[2] "%(count)s rezultata za \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:161
+#: src/amo/components/SearchContextCard/index.js:188
 msgid "Searching for \"%(query)s\""
 msgstr "Potraga za \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:165
+#: src/amo/components/SearchContextCard/index.js:192
 #, fuzzy
 msgid "Searching for add-ons"
 msgstr "Učitavanje dodataka"
@@ -1886,66 +1902,74 @@ msgstr[2] "%(count)s ekstenzija pronađeno za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:88
 #, fuzzy
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "%(count)s ekstenzija pronađena za \"%(query)s\""
+msgstr[1] "%(count)s ekstenzije pronađene za \"%(query)s\""
+msgstr[2] "%(count)s ekstenzija pronađeno za \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:97
+#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s dodatak pronađen"
 msgstr[1] "%(count)s dodataka pronađena"
 msgstr[2] "%(count)s dodataka pronađeno"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:148
 msgid "All"
 msgstr "Sve"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
 msgstr "Ekstenzija"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
 msgstr "Značaj"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
 msgstr "Nedavno ažurirano"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
 msgstr "Većina korisnika"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Top Rated"
 msgstr "Najbolje ocjenjeno"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Trending"
 msgstr "Popularno"
 
-#: src/amo/components/SearchFilters/index.js:173
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:190
 #, fuzzy
 msgid "All Reviewed"
 msgstr "Pregled"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
 msgstr "Rezultati filtera"
 
-#: src/amo/components/SearchFilters/index.js:209
+#: src/amo/components/SearchFilters/index.js:215
 msgid "Sort by"
 msgstr "Sortiraj po"
 
-#: src/amo/components/SearchFilters/index.js:231
+#: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
 msgstr "Vrsta dodatka"
 
-#: src/amo/components/SearchFilters/index.js:254
+#: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
 msgstr ""
 
@@ -2973,6 +2997,10 @@ msgid ""
 msgstr ""
 "Dajte lažne izjave, omaložavajte autore dodatka ili ih vrijeđajte na ličnoj "
 "osnovi."
+
+#: src/amo/pages/TagPage/index.js:43
+msgid "Add-ons tagged with %(tag)s"
+msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:238
 #, fuzzy

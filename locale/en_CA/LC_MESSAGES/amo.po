@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-10 16:22+0000\n"
+"POT-Creation-Date: 2021-08-17 16:26+0000\n"
 "PO-Revision-Date: 2021-07-30 16:34+0000\n"
 "Last-Translator: pdehaan <pdehaan@mozilla.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,93 +187,93 @@ msgstr "No Reviews"
 msgid "Used by"
 msgstr "Used by"
 
-#: src/amo/components/AddonMoreInfo/index.js:100
+#: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
 #: src/amo/pages/UserProfileEdit/index.js:694
 msgid "Homepage"
 msgstr "Homepage"
 
-#: src/amo/components/AddonMoreInfo/index.js:115
+#: src/amo/components/AddonMoreInfo/index.js:116
 msgid "Support site"
 msgstr "Support site"
 
-#: src/amo/components/AddonMoreInfo/index.js:129
+#: src/amo/components/AddonMoreInfo/index.js:130
 msgid "Support Email"
 msgstr "Support Email"
 
-#: src/amo/components/AddonMoreInfo/index.js:147
+#: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Visit stats dashboard"
 msgstr "Visit stats dashboard"
 
-#: src/amo/components/AddonMoreInfo/index.js:166
+#: src/amo/components/AddonMoreInfo/index.js:167
 msgid "Custom License"
 msgstr "Custom License"
 
 # This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:211
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:227
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Read the privacy policy for this add-on"
 msgstr "Read the privacy policy for this add-on"
 
-#: src/amo/components/AddonMoreInfo/index.js:238
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Read the license agreement for this add-on"
 msgstr "Read the license agreement for this add-on"
 
-#: src/amo/components/AddonMoreInfo/index.js:251
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "See all versions"
 msgstr "See all versions"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:299
 msgid "Add-on Links"
 msgstr "Add-on Links"
 
-#: src/amo/components/AddonMoreInfo/index.js:310
+#: src/amo/components/AddonMoreInfo/index.js:311
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:318
+#: src/amo/components/AddonMoreInfo/index.js:319
 msgid "Size"
 msgstr "Size"
 
-#: src/amo/components/AddonMoreInfo/index.js:326
+#: src/amo/components/AddonMoreInfo/index.js:327
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Last updated"
 
-#: src/amo/components/AddonMoreInfo/index.js:334
+#: src/amo/components/AddonMoreInfo/index.js:335
 #, fuzzy
 msgid "Related Categories"
 msgstr "Categories"
 
-#: src/amo/components/AddonMoreInfo/index.js:344
+#: src/amo/components/AddonMoreInfo/index.js:345
 msgid "License"
 msgstr "License"
 
-#: src/amo/components/AddonMoreInfo/index.js:352
+#: src/amo/components/AddonMoreInfo/index.js:353
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: src/amo/components/AddonMoreInfo/index.js:360
+#: src/amo/components/AddonMoreInfo/index.js:361
 msgid "End-User License Agreement"
 msgstr "End-User License Agreement"
 
-#: src/amo/components/AddonMoreInfo/index.js:368
+#: src/amo/components/AddonMoreInfo/index.js:369
 msgid "Version History"
 msgstr "Version History"
 
-#: src/amo/components/AddonMoreInfo/index.js:378
+#: src/amo/components/AddonMoreInfo/index.js:379
 msgid "Usage Statistics"
 msgstr "Usage Statistics"
 
-#: src/amo/components/AddonMoreInfo/index.js:386
+#: src/amo/components/AddonMoreInfo/index.js:387
 msgid "Tags"
 msgstr "Tags"
 
-#: src/amo/components/AddonMoreInfo/index.js:402
+#: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
 msgstr "More information"
 
@@ -1279,19 +1279,19 @@ msgstr "Access your data for %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
 msgstr "By Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:174
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Recommended"
 msgstr "Recommended"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr "Verified"
 
@@ -1726,47 +1726,61 @@ msgstr "Popular add-ons"
 msgid "Search results for \"%(query)s\""
 msgstr "Search results for “%(query)s”"
 
-#: src/amo/components/SearchContextCard/index.js:101
+#: src/amo/components/SearchContextCard/index.js:110
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgstr[1] "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:110
+#: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "%(count)s theme found in %(categoryName)s"
 msgstr[1] "%(count)s themes found in %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:120
+#: src/amo/components/SearchContextCard/index.js:129
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s theme found for “%(query)s”"
 msgstr[1] "%(count)s themes found for “%(query)s”"
 
-#: src/amo/components/SearchContextCard/index.js:129
+#: src/amo/components/SearchContextCard/index.js:138
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s"
+msgid_plural "%(count)s themes found with tag %(tag)s"
+msgstr[0] "%(count)s theme found in %(categoryName)s"
+msgstr[1] "%(count)s themes found in %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:147
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "%(count)s theme found"
 msgstr[1] "%(count)s themes found"
 
-#: src/amo/components/SearchContextCard/index.js:141
+#: src/amo/components/SearchContextCard/index.js:159
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "%(count)s result found for “%(query)s”"
 msgstr[1] "%(count)s results found for “%(query)s”"
 
-#: src/amo/components/SearchContextCard/index.js:150
+#: src/amo/components/SearchContextCard/index.js:168
+#, fuzzy
+msgid "%(count)s result found with tag %(tag)s"
+msgid_plural "%(count)s results found with tag %(tag)s"
+msgstr[0] "%(count)s result found for “%(query)s”"
+msgstr[1] "%(count)s results found for “%(query)s”"
+
+#: src/amo/components/SearchContextCard/index.js:177
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "%(count)s result found"
 msgstr[1] "%(count)s results found"
 
-#: src/amo/components/SearchContextCard/index.js:161
+#: src/amo/components/SearchContextCard/index.js:188
 msgid "Searching for \"%(query)s\""
 msgstr "Searching for “%(query)s”"
 
-#: src/amo/components/SearchContextCard/index.js:165
+#: src/amo/components/SearchContextCard/index.js:192
 msgid "Searching for add-ons"
 msgstr "Searching for add-ons"
 
@@ -1789,64 +1803,71 @@ msgstr[0] "%(count)s extension found for “%(query)s”"
 msgstr[1] "%(count)s extensions found for “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:88
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "%(count)s extension found in %(categoryName)s"
+msgstr[1] "%(count)s extensions found in %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s extension found"
 msgstr[1] "%(count)s extensions found"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:148
 msgid "All"
 msgstr "All"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
 msgstr "Extension"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
 msgstr "Theme"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
 msgstr "Relevance"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
 msgstr "Recently Updated"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
 msgstr "Most Users"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Top Rated"
 msgstr "Top Rated"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Trending"
 msgstr "Trending"
 
-#: src/amo/components/SearchFilters/index.js:173
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
 msgstr "Any"
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:190
 msgid "All Reviewed"
 msgstr "All Reviewed"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
 msgstr "Filter results"
 
-#: src/amo/components/SearchFilters/index.js:209
+#: src/amo/components/SearchFilters/index.js:215
 msgid "Sort by"
 msgstr "Sort by"
 
-#: src/amo/components/SearchFilters/index.js:231
+#: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
 msgstr "Add-on Type"
 
-#: src/amo/components/SearchFilters/index.js:254
+#: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
 msgstr "Badging"
 
@@ -2881,6 +2902,10 @@ msgid ""
 "Make false statements, disparage add-on authors or personally insult them."
 msgstr ""
 "Make false statements, disparage add-on authors or personally insult them."
+
+#: src/amo/pages/TagPage/index.js:43
+msgid "Add-ons tagged with %(tag)s"
+msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:238
 msgid "My reviews"

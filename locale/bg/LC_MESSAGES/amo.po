@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-10 16:22+0000\n"
+"POT-Creation-Date: 2021-08-17 16:26+0000\n"
 "PO-Revision-Date: 2021-06-24 19:15+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -185,92 +185,92 @@ msgstr "Няма отзиви"
 msgid "Used by"
 msgstr "Ползвател"
 
-#: src/amo/components/AddonMoreInfo/index.js:100
+#: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
 #: src/amo/pages/UserProfileEdit/index.js:694
 msgid "Homepage"
 msgstr "Страница"
 
-#: src/amo/components/AddonMoreInfo/index.js:115
+#: src/amo/components/AddonMoreInfo/index.js:116
 msgid "Support site"
 msgstr "Страница за поддръжка"
 
-#: src/amo/components/AddonMoreInfo/index.js:129
+#: src/amo/components/AddonMoreInfo/index.js:130
 msgid "Support Email"
 msgstr "Ел. поща за поддръжка"
 
-#: src/amo/components/AddonMoreInfo/index.js:147
+#: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Visit stats dashboard"
 msgstr "Табло със статистика"
 
-#: src/amo/components/AddonMoreInfo/index.js:166
+#: src/amo/components/AddonMoreInfo/index.js:167
 msgid "Custom License"
 msgstr "Потребителски лиценз"
 
-#: src/amo/components/AddonMoreInfo/index.js:211
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:227
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Read the privacy policy for this add-on"
 msgstr "Прочетете декларацията за поверителност на добавката"
 
-#: src/amo/components/AddonMoreInfo/index.js:238
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Read the license agreement for this add-on"
 msgstr "Прочетете лицензното споразумение на добавката"
 
-#: src/amo/components/AddonMoreInfo/index.js:251
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "See all versions"
 msgstr "Всички издания"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:299
 msgid "Add-on Links"
 msgstr "Препратки"
 
-#: src/amo/components/AddonMoreInfo/index.js:310
+#: src/amo/components/AddonMoreInfo/index.js:311
 msgid "Version"
 msgstr "Издание"
 
-#: src/amo/components/AddonMoreInfo/index.js:318
+#: src/amo/components/AddonMoreInfo/index.js:319
 msgid "Size"
 msgstr "Размер"
 
-#: src/amo/components/AddonMoreInfo/index.js:326
+#: src/amo/components/AddonMoreInfo/index.js:327
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Последно обновяване"
 
-#: src/amo/components/AddonMoreInfo/index.js:334
+#: src/amo/components/AddonMoreInfo/index.js:335
 #, fuzzy
 msgid "Related Categories"
 msgstr "Категории"
 
-#: src/amo/components/AddonMoreInfo/index.js:344
+#: src/amo/components/AddonMoreInfo/index.js:345
 msgid "License"
 msgstr "Лиценз"
 
-#: src/amo/components/AddonMoreInfo/index.js:352
+#: src/amo/components/AddonMoreInfo/index.js:353
 msgid "Privacy Policy"
 msgstr "Политика на поверителност"
 
-#: src/amo/components/AddonMoreInfo/index.js:360
+#: src/amo/components/AddonMoreInfo/index.js:361
 msgid "End-User License Agreement"
 msgstr "Лицензно споразумение на крайния потребител"
 
-#: src/amo/components/AddonMoreInfo/index.js:368
+#: src/amo/components/AddonMoreInfo/index.js:369
 msgid "Version History"
 msgstr "Хронология на изданията"
 
-#: src/amo/components/AddonMoreInfo/index.js:378
+#: src/amo/components/AddonMoreInfo/index.js:379
 msgid "Usage Statistics"
 msgstr "Статистика на използване"
 
-#: src/amo/components/AddonMoreInfo/index.js:386
+#: src/amo/components/AddonMoreInfo/index.js:387
 msgid "Tags"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:402
+#: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
 msgstr "Повече сведения"
 
@@ -1270,19 +1270,19 @@ msgstr "Достъпва данните ви от %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
 msgstr "От Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:174
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Recommended"
 msgstr "Препоръчани"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr ""
 
@@ -1726,7 +1726,7 @@ msgstr "Известни разширения"
 msgid "Search results for \"%(query)s\""
 msgstr "Резултати от търсене на „%(query)s“"
 
-#: src/amo/components/SearchContextCard/index.js:101
+#: src/amo/components/SearchContextCard/index.js:110
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] ""
@@ -1734,41 +1734,55 @@ msgstr[0] ""
 msgstr[1] ""
 "Намерени са %(count)s теми при търсене на „%(query)s“ в %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:110
+#: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "Намерена е %(count)s тема в %(categoryName)s"
 msgstr[1] "Намерени са %(count)s теми в %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:120
+#: src/amo/components/SearchContextCard/index.js:129
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "Намерена е %(count)s тема при търсене на „%(query)s“"
 msgstr[1] "Намерени са %(count)s теми при търсене на „%(query)s“"
 
-#: src/amo/components/SearchContextCard/index.js:129
+#: src/amo/components/SearchContextCard/index.js:138
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s"
+msgid_plural "%(count)s themes found with tag %(tag)s"
+msgstr[0] "Намерена е %(count)s тема в %(categoryName)s"
+msgstr[1] "Намерени са %(count)s теми в %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:147
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "Намерена е %(count)s добавка"
 msgstr[1] "Намерени са %(count)s добавки"
 
-#: src/amo/components/SearchContextCard/index.js:141
+#: src/amo/components/SearchContextCard/index.js:159
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "%(count)s резултат за „%(query)s“"
 msgstr[1] "%(count)s резултата за „%(query)s“"
 
-#: src/amo/components/SearchContextCard/index.js:150
+#: src/amo/components/SearchContextCard/index.js:168
+#, fuzzy
+msgid "%(count)s result found with tag %(tag)s"
+msgid_plural "%(count)s results found with tag %(tag)s"
+msgstr[0] "%(count)s резултат за „%(query)s“"
+msgstr[1] "%(count)s резултата за „%(query)s“"
+
+#: src/amo/components/SearchContextCard/index.js:177
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "Намерен е %(count)s резултат"
 msgstr[1] "Намерени са %(count)s резултата"
 
-#: src/amo/components/SearchContextCard/index.js:161
+#: src/amo/components/SearchContextCard/index.js:188
 msgid "Searching for \"%(query)s\""
 msgstr "Търсене на „%(query)s“"
 
-#: src/amo/components/SearchContextCard/index.js:165
+#: src/amo/components/SearchContextCard/index.js:192
 msgid "Searching for add-ons"
 msgstr "Търсене на добавки"
 
@@ -1793,65 +1807,72 @@ msgstr[0] "намерена е %(count)s добавка при търсене н
 msgstr[1] "намерени са %(count)s добавки при търсене на „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:88
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "Намерена е %(count)s добавка при в %(categoryName)s"
+msgstr[1] "Намерени са %(count)s добавки при търсене в %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
 msgstr[0] "Намерена е %(count)s добавка"
 msgstr[1] "Намерени са %(count)s добавки"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:148
 msgid "All"
 msgstr "Всички"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
 msgstr "Разширение"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:153
 msgid "Theme"
 msgstr "Тема"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
 msgstr "Съответствие"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
 msgstr "Скоро обновени"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
 msgstr "Най-много потребители"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Top Rated"
 msgstr "Най-високо оценени"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Trending"
 msgstr "Популярност"
 
-#: src/amo/components/SearchFilters/index.js:173
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:190
 #, fuzzy
 msgid "All Reviewed"
 msgstr "Отзив"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
 msgstr "Филтриране на резултатите"
 
-#: src/amo/components/SearchFilters/index.js:209
+#: src/amo/components/SearchFilters/index.js:215
 msgid "Sort by"
 msgstr "Подреждане по"
 
-#: src/amo/components/SearchFilters/index.js:231
+#: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
 msgstr "Вид на добавката"
 
-#: src/amo/components/SearchFilters/index.js:254
+#: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
 msgstr ""
 
@@ -2795,6 +2816,10 @@ msgid ""
 msgstr ""
 "Правите лъжливи твърдения, да унижавате или лично да оскърбявате автора на "
 "добавката."
+
+#: src/amo/pages/TagPage/index.js:43
+msgid "Add-ons tagged with %(tag)s"
+msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:238
 msgid "My reviews"

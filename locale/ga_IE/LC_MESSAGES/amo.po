@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-10 16:22+0000\n"
+"POT-Creation-Date: 2021-08-17 16:26+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -214,97 +214,97 @@ msgstr "Níl aon léirmheas ann"
 msgid "Used by"
 msgstr "Úsáidte ag"
 
-#: src/amo/components/AddonMoreInfo/index.js:100
+#: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
 #: src/amo/pages/UserProfileEdit/index.js:694
 msgid "Homepage"
 msgstr "Leathanach Baile"
 
-#: src/amo/components/AddonMoreInfo/index.js:115
+#: src/amo/components/AddonMoreInfo/index.js:116
 #, fuzzy
 msgid "Support site"
 msgstr "Suíomh Tacaíochta"
 
-#: src/amo/components/AddonMoreInfo/index.js:129
+#: src/amo/components/AddonMoreInfo/index.js:130
 #, fuzzy
 msgid "Support Email"
 msgstr "Suíomh Tacaíochta"
 
-#: src/amo/components/AddonMoreInfo/index.js:147
+#: src/amo/components/AddonMoreInfo/index.js:148
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:166
+#: src/amo/components/AddonMoreInfo/index.js:167
 #, fuzzy
 msgid "Custom License"
 msgstr "Ceadúnas"
 
-#: src/amo/components/AddonMoreInfo/index.js:211
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:227
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Read the privacy policy for this add-on"
 msgstr "Léigh an polasaí príobháideachais don bhreiseán seo"
 
-#: src/amo/components/AddonMoreInfo/index.js:238
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Read the license agreement for this add-on"
 msgstr "Léigh ceadúnas an bhreiseáin seo"
 
-#: src/amo/components/AddonMoreInfo/index.js:251
+#: src/amo/components/AddonMoreInfo/index.js:252
 #, fuzzy
 msgid "See all versions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/AddonMoreInfo/index.js:298
+#: src/amo/components/AddonMoreInfo/index.js:299
 msgid "Add-on Links"
 msgstr "Nascanna an Bhreiseáin"
 
-#: src/amo/components/AddonMoreInfo/index.js:310
+#: src/amo/components/AddonMoreInfo/index.js:311
 msgid "Version"
 msgstr "Leagan"
 
-#: src/amo/components/AddonMoreInfo/index.js:318
+#: src/amo/components/AddonMoreInfo/index.js:319
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:326
+#: src/amo/components/AddonMoreInfo/index.js:327
 #: src/amo/components/CollectionDetails/index.js:87
 msgid "Last updated"
 msgstr "Nuashonrú is déanaí"
 
-#: src/amo/components/AddonMoreInfo/index.js:334
+#: src/amo/components/AddonMoreInfo/index.js:335
 #, fuzzy
 msgid "Related Categories"
 msgstr "Catagóir"
 
-#: src/amo/components/AddonMoreInfo/index.js:344
+#: src/amo/components/AddonMoreInfo/index.js:345
 msgid "License"
 msgstr "Ceadúnas"
 
-#: src/amo/components/AddonMoreInfo/index.js:352
+#: src/amo/components/AddonMoreInfo/index.js:353
 msgid "Privacy Policy"
 msgstr "Polasaí Príobháideachais"
 
-#: src/amo/components/AddonMoreInfo/index.js:360
+#: src/amo/components/AddonMoreInfo/index.js:361
 msgid "End-User License Agreement"
 msgstr "Comhaontú Ceadúnais an Úsáideora Deiridh"
 
-#: src/amo/components/AddonMoreInfo/index.js:368
+#: src/amo/components/AddonMoreInfo/index.js:369
 #, fuzzy
 msgid "Version History"
 msgstr "Leagan"
 
-#: src/amo/components/AddonMoreInfo/index.js:378
+#: src/amo/components/AddonMoreInfo/index.js:379
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:386
+#: src/amo/components/AddonMoreInfo/index.js:387
 msgid "Tags"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:402
+#: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
 msgstr "Tuilleadh eolais"
 
@@ -1374,21 +1374,21 @@ msgstr ""
 
 #: src/amo/components/IconPromotedBadge/index.js:46
 #: src/amo/components/PromotedBadge/index.js:41
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:182
 #, fuzzy
 msgid "By Firefox"
 msgstr "Breiseáin Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47
 #: src/amo/components/PromotedBadge/index.js:48
-#: src/amo/components/SearchFilters/index.js:174
+#: src/amo/components/SearchFilters/index.js:180
 #, fuzzy
 msgid "Recommended"
 msgstr "Líon is mó úsáideoirí"
 
 #: src/amo/components/IconPromotedBadge/index.js:48
 #: src/amo/components/PromotedBadge/index.js:56
-#: src/amo/components/SearchFilters/index.js:180
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
 msgstr ""
 
@@ -1842,7 +1842,7 @@ msgstr "Catagóirí á lódáil."
 msgid "Search results for \"%(query)s\""
 msgstr "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:101
+#: src/amo/components/SearchContextCard/index.js:110
 #, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
@@ -1852,7 +1852,7 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:110
+#: src/amo/components/SearchContextCard/index.js:119
 #, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
@@ -1862,7 +1862,7 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:120
+#: src/amo/components/SearchContextCard/index.js:129
 #, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
@@ -1872,7 +1872,17 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:129
+#: src/amo/components/SearchContextCard/index.js:138
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s"
+msgid_plural "%(count)s themes found with tag %(tag)s"
+msgstr[0] "Gan torthaí ar \"%(query)s\"."
+msgstr[1] "Gan torthaí ar \"%(query)s\"."
+msgstr[2] "Gan torthaí ar \"%(query)s\"."
+msgstr[3] "Gan torthaí ar \"%(query)s\"."
+msgstr[4] "Gan torthaí ar \"%(query)s\"."
+
+#: src/amo/components/SearchContextCard/index.js:147
 #, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
@@ -1882,7 +1892,7 @@ msgstr[2] "Níor aimsíodh aon chatagóirí."
 msgstr[3] "Níor aimsíodh aon chatagóirí."
 msgstr[4] "Níor aimsíodh aon chatagóirí."
 
-#: src/amo/components/SearchContextCard/index.js:141
+#: src/amo/components/SearchContextCard/index.js:159
 #, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
@@ -1892,7 +1902,17 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:150
+#: src/amo/components/SearchContextCard/index.js:168
+#, fuzzy
+msgid "%(count)s result found with tag %(tag)s"
+msgid_plural "%(count)s results found with tag %(tag)s"
+msgstr[0] "Gan torthaí ar \"%(query)s\"."
+msgstr[1] "Gan torthaí ar \"%(query)s\"."
+msgstr[2] "Gan torthaí ar \"%(query)s\"."
+msgstr[3] "Gan torthaí ar \"%(query)s\"."
+msgstr[4] "Gan torthaí ar \"%(query)s\"."
+
+#: src/amo/components/SearchContextCard/index.js:177
 #, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
@@ -1902,12 +1922,12 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:161
+#: src/amo/components/SearchContextCard/index.js:188
 #, fuzzy
 msgid "Searching for \"%(query)s\""
 msgstr "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:165
+#: src/amo/components/SearchContextCard/index.js:192
 #, fuzzy
 msgid "Searching for add-ons"
 msgstr "Catagóirí á lódáil."
@@ -1944,6 +1964,16 @@ msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
 #: src/amo/components/SearchContextCard/index.js:88
 #, fuzzy
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "Gan torthaí ar \"%(query)s\"."
+msgstr[1] "Gan torthaí ar \"%(query)s\"."
+msgstr[2] "Gan torthaí ar \"%(query)s\"."
+msgstr[3] "Gan torthaí ar \"%(query)s\"."
+msgstr[4] "Gan torthaí ar \"%(query)s\"."
+
+#: src/amo/components/SearchContextCard/index.js:97
+#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
 msgstr[0] "Níor aimsíodh aon chatagóirí."
@@ -1952,65 +1982,65 @@ msgstr[2] "Níor aimsíodh aon chatagóirí."
 msgstr[3] "Níor aimsíodh aon chatagóirí."
 msgstr[4] "Níor aimsíodh aon chatagóirí."
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:148
 msgid "All"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:149
 #, fuzzy
 msgid "Extension"
 msgstr "Eisínteachtaí"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:153
 #, fuzzy
 msgid "Theme"
 msgstr "Téamaí"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
 msgstr "Bainteacht"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
 msgstr "Nuashonraithe Le Déanaí"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Most Users"
 msgstr "Líon is mó úsáideoirí"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Top Rated"
 msgstr "Rátálacha is fearr"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Trending"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:173
+#: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:190
 #, fuzzy
 msgid "All Reviewed"
 msgstr "Téacs an léirmheasa"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:210
 #, fuzzy
 msgid "Filter results"
 msgstr "Cuardaigh na téamaí"
 
-#: src/amo/components/SearchFilters/index.js:209
+#: src/amo/components/SearchFilters/index.js:215
 #, fuzzy
 msgid "Sort by"
 msgstr "Sórtáil"
 
-#: src/amo/components/SearchFilters/index.js:231
+#: src/amo/components/SearchFilters/index.js:237
 #, fuzzy
 msgid "Add-on Type"
 msgstr "Deilbhín an bhreiseáin"
 
-#: src/amo/components/SearchFilters/index.js:254
+#: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
 msgstr ""
 
@@ -2983,6 +3013,10 @@ msgstr ""
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid ""
 "Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+
+#: src/amo/pages/TagPage/index.js:43
+msgid "Add-ons tagged with %(tag)s"
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:238
