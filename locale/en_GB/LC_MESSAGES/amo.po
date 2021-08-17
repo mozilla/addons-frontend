@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-17 19:24+0000\n"
+"PO-Revision-Date: 2021-08-17 19:26+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
@@ -1556,11 +1556,10 @@ msgstr[0] "%(count)s theme found for \"%(query)s\""
 msgstr[1] "%(count)s themes found for \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:138
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "%(count)s theme found in %(categoryName)s"
-msgstr[1] "%(count)s themes found in %(categoryName)s"
+msgstr[0] "%(count)s theme found with tag %(tag)s"
+msgstr[1] "%(count)s themes found with tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:147
 msgid "%(count)s theme found"
@@ -1575,11 +1574,10 @@ msgstr[0] "%(count)s result found for \"%(query)s\""
 msgstr[1] "%(count)s results found for \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:168
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "%(count)s result found for \"%(query)s\""
-msgstr[1] "%(count)s results found for \"%(query)s\""
+msgstr[0] "%(count)s result found with tag %(tag)s"
+msgstr[1] "%(count)s results found with tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:177
 msgid "%(count)s result found"
@@ -1614,11 +1612,10 @@ msgstr[0] "%(count)s extension found for \"%(query)s\""
 msgstr[1] "%(count)s extensions found for \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s extension found in %(categoryName)s"
-msgstr[1] "%(count)s extensions found in %(categoryName)s"
+msgstr[0] "%(count)s extension found with tag %(tag)s"
+msgstr[1] "%(count)s extensions found with tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
