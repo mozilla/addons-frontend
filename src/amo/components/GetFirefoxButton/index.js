@@ -13,7 +13,6 @@ import {
   DOWNLOAD_FIREFOX_BASE_URL,
   DOWNLOAD_FIREFOX_EXPERIMENTAL_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
-  DOWNLOAD_FIREFOX_UTM_TERM,
   LINE,
   RECOMMENDED,
   SPONSORED,
@@ -60,31 +59,23 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-// As we expect to continue to experiment with this button, maintain the
-// ability to create a term that contains a variant.
-export const getDownloadTerm = ({
+export const getDownloadCampaign = ({
   addonId,
-  variant,
 }: {|
   addonId?: number,
-  variant?: string | null,
 |} = {}): string => {
-  let term = DOWNLOAD_FIREFOX_UTM_TERM;
+  let campaign = DOWNLOAD_FIREFOX_UTM_CAMPAIGN;
 
   if (addonId) {
-    term = `${term}-${addonId}`;
+    campaign = `${campaign}-${addonId}`;
   }
 
-  if (variant) {
-    term = `${term}-${variant}`;
-  }
-
-  return term;
+  return campaign;
 };
 
 export type GetDownloadLinkParams = {|
   _encode?: typeof encode,
-  _getDownloadTerm?: typeof getDownloadTerm,
+  _getDownloadCampaign?: typeof getDownloadCampaign,
   addon?: AddonType,
   overrideQueryParams?: {| [name: string]: string | null |},
   variant?: string | null,
@@ -92,7 +83,7 @@ export type GetDownloadLinkParams = {|
 
 export const getDownloadLink = ({
   _encode = encode,
-  _getDownloadTerm = getDownloadTerm,
+  _getDownloadCampaign = getDownloadCampaign,
   addon,
   overrideQueryParams = {},
   variant,
@@ -113,9 +104,8 @@ export const getDownloadLink = ({
     };
   }
   return `${baseURL}${makeQueryStringWithUTM({
-    utm_campaign: DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+    utm_campaign: _getDownloadCampaign({ addonId: addon && addon.id }),
     utm_content: addon && addon.guid ? `rta:${_encode(addon.guid)}` : '',
-    utm_term: _getDownloadTerm({ addonId: addon && addon.id, variant }),
     ...queryParams,
   })}`;
 };

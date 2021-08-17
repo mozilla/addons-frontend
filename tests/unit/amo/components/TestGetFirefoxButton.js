@@ -11,14 +11,13 @@ import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
   GetFirefoxButtonBase,
   getDownloadLink,
-  getDownloadTerm,
+  getDownloadCampaign,
 } from 'amo/components/GetFirefoxButton';
 import {
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
   DOWNLOAD_FIREFOX_EXPERIMENTAL_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
-  DOWNLOAD_FIREFOX_UTM_TERM,
   LINE,
   RECOMMENDED,
   SPONSORED,
@@ -305,30 +304,15 @@ describe(__filename, () => {
     });
   });
 
-  describe('getDownloadTerm', () => {
-    it('returns a term without an addonId or variant', () => {
-      expect(getDownloadTerm()).toEqual(DOWNLOAD_FIREFOX_UTM_TERM);
+  describe('getDownloadCampaign', () => {
+    it('returns a campaign without an addonId', () => {
+      expect(getDownloadCampaign()).toEqual(DOWNLOAD_FIREFOX_UTM_CAMPAIGN);
     });
 
-    it('returns a term with an addonId', () => {
+    it('returns a campaign with an addonId', () => {
       const addonId = 12345;
-      expect(getDownloadTerm({ addonId })).toEqual(
-        `${DOWNLOAD_FIREFOX_UTM_TERM}-${addonId}`,
-      );
-    });
-
-    it('returns a term with a variant', () => {
-      const variant = 'some-variant';
-      expect(getDownloadTerm({ variant })).toEqual(
-        `${DOWNLOAD_FIREFOX_UTM_TERM}-${variant}`,
-      );
-    });
-
-    it('returns a term with both an addonId and a variant', () => {
-      const addonId = 12345;
-      const variant = 'some-variant';
-      expect(getDownloadTerm({ addonId, variant })).toEqual(
-        `${DOWNLOAD_FIREFOX_UTM_TERM}-${addonId}-${variant}`,
+      expect(getDownloadCampaign({ addonId })).toEqual(
+        `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
       );
     });
   });
@@ -391,41 +375,32 @@ describe(__filename, () => {
       expect(link.includes('utm_content')).toEqual(false);
     });
 
-    it('calls getDownloadTerm with a variant and add-on to populate utm_term', () => {
+    it('calls getDownloadCampaign with an add-on to populate utm_campaign', () => {
       const addonId = 123;
       const addon = createInternalAddonWithLang({ ...fakeAddon, id: addonId });
-      const term = 'some_utm_term';
-      const variant = VARIANT_NEW;
-      const _getDownloadTerm = sinon.stub().returns(term);
+      const campaign = 'some_campaign';
+      const _getDownloadCampaign = sinon.stub().returns(campaign);
 
-      const link = getDownloadLink({ _getDownloadTerm, addon, variant });
+      const link = getDownloadLink({ _getDownloadCampaign, addon });
 
-      sinon.assert.calledWith(_getDownloadTerm, { addonId, variant });
-      expect(link.includes(`utm_term=${term}`)).toEqual(true);
+      sinon.assert.calledWith(_getDownloadCampaign, { addonId });
+      expect(link.includes(`utm_campaign=${campaign}`)).toEqual(true);
     });
 
-    it('calls getDownloadTerm without an add-on or variant to populate utm_term', () => {
+    it('calls getDownloadCampaign without an add-on to populate utm_campaign', () => {
       const addon = undefined;
-      const term = 'some_utm_term';
-      const variant = undefined;
-      const _getDownloadTerm = sinon.stub().returns(term);
+      const campaign = 'some_campaign';
+      const _getDownloadCampaign = sinon.stub().returns(campaign);
 
-      const link = getDownloadLink({
-        _getDownloadTerm,
-        addon,
-        variant,
-      });
+      const link = getDownloadLink({ _getDownloadCampaign, addon });
 
-      sinon.assert.calledWith(_getDownloadTerm, {
-        addonId: undefined,
-        variant: undefined,
-      });
-      expect(link.includes(`utm_term=${term}`)).toEqual(true);
+      sinon.assert.calledWith(_getDownloadCampaign, { addonId: undefined });
+      expect(link.includes(`utm_campaign=${campaign}`)).toEqual(true);
     });
 
     // Note: This is a sanity test for the entire URL string. Each of the
     // individual tests above test separate pieces of logic.
-    it('returns the expected URL for the new variant and an add-on', () => {
+    it('returns the expected URL for an add-on', () => {
       const addonId = 123;
       const addon = createInternalAddonWithLang({ ...fakeAddon, id: addonId });
 
@@ -433,10 +408,9 @@ describe(__filename, () => {
         `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
         `variation=${VARIANT_NEW}`,
         `xv=amo`,
-        `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
+        `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
         `utm_content=rta%3A${encode(addon.guid)}`,
         `utm_medium=referral&utm_source=addons.mozilla.org`,
-        `utm_term=${DOWNLOAD_FIREFOX_UTM_TERM}-${addonId}-${VARIANT_NEW}`,
       ].join('&');
 
       expect(

@@ -162,7 +162,7 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {
-      utm_term: `amo-blog-fx-cta-${addon.id}`,
+      utm_campaign: `amo-blog-fx-cta-${addon.id}`,
       experiment: null,
       variation: null,
     });
