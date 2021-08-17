@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-17 22:52+0000\n"
+"PO-Revision-Date: 2021-08-17 22:55+0000\n"
 "Last-Translator: 你我皆凡人 <yuanbingyan@mail.ee>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1592,10 +1592,9 @@ msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "找到 %(count)s 个有关“%(query)s”的扩展"
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个扩展"
+msgstr[0] "标签 %(tag)s 中找到 %(count)s 个扩展"
 
 #: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
@@ -2441,7 +2440,7 @@ msgstr "作出虚假的陈述、贬低或者侮辱附加组件的作者或任何
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr "有 %(tag)s 标签的附加组件"
+msgstr "带有 %(tag)s 标签的附加组件"
 
 #: src/amo/pages/UserProfile/index.js:238
 msgid "My reviews"
