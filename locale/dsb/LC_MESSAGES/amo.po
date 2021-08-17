@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-17 17:44+0000\n"
+"PO-Revision-Date: 2021-08-17 17:48+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1583,8 +1583,8 @@ msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
 msgstr[0] "%(count)s drastwa jo se namakała z wobznamjenim %(tag)s"
 msgstr[1] "%(count)s drastwje stej se namakałej z wobznamjenim %(tag)s"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[2] "%(count)s drastwy su se namakali z wobznamjenim %(tag)s"
+msgstr[3] "%(count)s drastwow jo se namakało z wobznamjenim %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:147
 msgid "%(count)s theme found"
@@ -1603,13 +1603,12 @@ msgstr[2] "%(count)s wuslědki za \"%(query)s\" namakane"
 msgstr[3] "%(count)s wuslědkow za \"%(query)s\" namakane"
 
 #: src/amo/components/SearchContextCard/index.js:168
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "%(count)s wuslědk za \"%(query)s\" namakany"
-msgstr[1] "%(count)s wuslědka za \"%(query)s\" namakanej"
-msgstr[2] "%(count)s wuslědki za \"%(query)s\" namakane"
-msgstr[3] "%(count)s wuslědkow za \"%(query)s\" namakane"
+msgstr[0] "%(count)s wuslědk jo se namakał z wobznamjenim %(tag)s"
+msgstr[1] "%(count)s wuslědka stej se namakałej z wobznamjenim %(tag)s"
+msgstr[2] "%(count)s wuslědki su se namakali z wobznamjenim %(tag)s"
+msgstr[3] "%(count)s wuslědkow jo se namakało z wobznamjenim %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:177
 msgid "%(count)s result found"
@@ -1652,13 +1651,12 @@ msgstr[2] "%(count)s rozšyrjenja za \"%(query)s\" namakane"
 msgstr[3] "%(count)s rozšyrjenjow za \"%(query)s\" namakane"
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s rozšyrjenje jo se namakało w %(categoryName)s"
-msgstr[1] "%(count)s rozšyrjeni stej se namakałej w %(categoryName)s"
-msgstr[2] "%(count)s rozšyrjenja su se namakali w %(categoryName)s"
-msgstr[3] "%(count)s rozšyrjenjow jo se namakało w %(categoryName)s"
+msgstr[0] "%(count)s rozšyrjenje jo se namakało z wobznamjenim %(tag)s"
+msgstr[1] "%(count)s rozšyrjeni stej se namakałej z wobznamjenim %(tag)s"
+msgstr[2] "%(count)s rozšyrjenja su se namakali z wobznamjenim %(tag)s"
+msgstr[3] "%(count)s rozšyrjenjow jo se namakało z wobznamjenim %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
