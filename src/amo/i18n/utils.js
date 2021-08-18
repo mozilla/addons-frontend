@@ -272,7 +272,10 @@ export const formatFilesize = ({
     /* eslint-enable max-len */
   };
 
-  const [sizeNumber, sizeName] = _filesize(size).split(' ');
+  const [sizeNumber, sizeName] = _filesize(size, {
+    base: 2,
+    standard: 'jedec',
+  }).split(' ');
   if (!sizeNumber || !sizeName) {
     _log.error(
       `Filesize returned sizeNumber: "${sizeNumber}", sizeName: "${sizeName}" size "${size}"`,
