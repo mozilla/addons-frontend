@@ -1570,7 +1570,7 @@ msgstr[1] "%(count)s themas trovate pro \"%(query)s\""
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
 msgstr[0] "%(count)s thema trovate con tag %(tag)s"
-msgstr[1] "%(count)s themas trovate in %(categoryName)s"
+msgstr[1] "%(count)s themas trovate con tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:147
 msgid "%(count)s theme found"
@@ -1626,7 +1626,7 @@ msgstr[1] "%(count)s extensiones trovate pro \"%(query)s\""
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
 msgstr[0] "%(count)s extension trovate con tag %(tag)s"
-msgstr[1] "%(count)s extensiones trovate in %(categoryName)s"
+msgstr[1] "%(count)s extensiones trovate con tag %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
