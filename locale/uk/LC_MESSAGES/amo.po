@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-17 21:07+0000\n"
+"PO-Revision-Date: 2021-08-18 02:19+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1572,12 +1572,11 @@ msgstr[1] "на запит \"%(query)s\" знайдено %(count)s теми"
 msgstr[2] "на запит \"%(query)s\" знайдено %(count)s тем"
 
 #: src/amo/components/SearchContextCard/index.js:138
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "Знайдено %(count)s тему в категорії %(categoryName)s"
-msgstr[1] "Знайдено %(count)s теми в категорії %(categoryName)s"
-msgstr[2] "Знайдено %(count)s тем в категорії %(categoryName)s"
+msgstr[0] "Знайдено %(count)s тему з міткою %(tag)s"
+msgstr[1] "Знайдено %(count)s теми з міткою %(tag)s"
+msgstr[2] "Знайдено %(count)s тем з міткою %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:147
 msgid "%(count)s theme found"
@@ -1594,12 +1593,11 @@ msgstr[1] "на запит \"%(query)s\" знайдено %(count)s резуль
 msgstr[2] "на запит \"%(query)s\" знайдено %(count)s результатів"
 
 #: src/amo/components/SearchContextCard/index.js:168
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "на запит \"%(query)s\" знайдено %(count)s результат"
-msgstr[1] "на запит \"%(query)s\" знайдено %(count)s результати"
-msgstr[2] "на запит \"%(query)s\" знайдено %(count)s результатів"
+msgstr[0] "Знайдено %(count)s результат з міткою %(tag)s"
+msgstr[1] "Знайдено %(count)s результати з міткою %(tag)s"
+msgstr[2] "Знайдено %(count)s результатів з міткою %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:177
 msgid "%(count)s result found"
@@ -1638,12 +1636,11 @@ msgstr[1] "на запит \"%(query)s\" знайдено %(count)s розшир
 msgstr[2] "на запит \"%(query)s\" знайдено %(count)s розширень"
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "Знайдено %(count)s розширення в категорії %(categoryName)s"
-msgstr[1] "Знайдено %(count)s розширення в категорії %(categoryName)s"
-msgstr[2] "Знайдено %(count)s розширень в категорії %(categoryName)s"
+msgstr[0] "Знайдено %(count)s розширення з міткою %(tag)s"
+msgstr[1] "Знайдено %(count)s розширення з міткою %(tag)s"
+msgstr[2] "Знайдено %(count)s розширень з міткою %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
