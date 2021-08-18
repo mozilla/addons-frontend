@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-18 10:09+0000\n"
+"PO-Revision-Date: 2021-08-18 10:35+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -2514,7 +2514,7 @@ msgstr "Κάνετε ψευδείς δηλώσεις, να μην υπονομε
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Πρόσθετα με ετικέτα %(tag)s"
 
 #: src/amo/pages/UserProfile/index.js:238
 msgid "My reviews"
