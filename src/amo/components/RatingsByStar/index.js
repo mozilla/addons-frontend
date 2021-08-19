@@ -33,7 +33,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 
     let width = 0;
     if (addon.ratings && addon.ratings.count > 0) {
-      width = Math.round((starCount / addon.ratings.count) * 10) * 10;
+      width = Math.round((starCount / addon.ratings.count) * 100);
     }
 
     return (

@@ -177,11 +177,11 @@ describe(__filename, () => {
     const root = render({ addon });
 
     const barValues = root.find('.RatingsByStar-barValue');
-    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--10pct');
-    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--10pct');
+    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--7pct');
+    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--13pct');
     expect(barValues.at(2)).toHaveClassName('RatingsByStar-barValue--20pct');
-    expect(barValues.at(3)).toHaveClassName('RatingsByStar-barValue--30pct');
-    expect(barValues.at(4)).toHaveClassName('RatingsByStar-barValue--30pct');
+    expect(barValues.at(3)).toHaveClassName('RatingsByStar-barValue--27pct');
+    expect(barValues.at(4)).toHaveClassName('RatingsByStar-barValue--33pct');
   });
 
   it('renders different styles for partial / full bars', () => {
