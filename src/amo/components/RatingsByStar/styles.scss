@@ -32,10 +32,9 @@
 .RatingsByStar-barValue {
   background-color: rgba($yellow-50, 0.75);
 
-  @for $num from 0 through 10 {
-    $pct: percentage($num / 10);
-    &.RatingsByStar-barValue--#{$num * 10}pct {
-      width: $pct;
+  @for $num from 0 through 100 {
+    &.RatingsByStar-barValue--#{$num}px {
+      width: #{$num}px;
     }
   }
 

@@ -177,11 +177,11 @@ describe(__filename, () => {
     const root = render({ addon });
 
     const barValues = root.find('.RatingsByStar-barValue');
-    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--10pct');
-    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--10pct');
-    expect(barValues.at(2)).toHaveClassName('RatingsByStar-barValue--20pct');
-    expect(barValues.at(3)).toHaveClassName('RatingsByStar-barValue--30pct');
-    expect(barValues.at(4)).toHaveClassName('RatingsByStar-barValue--30pct');
+    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--7px');
+    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--13px');
+    expect(barValues.at(2)).toHaveClassName('RatingsByStar-barValue--20px');
+    expect(barValues.at(3)).toHaveClassName('RatingsByStar-barValue--27px');
+    expect(barValues.at(4)).toHaveClassName('RatingsByStar-barValue--33px');
   });
 
   it('renders different styles for partial / full bars', () => {
@@ -198,10 +198,10 @@ describe(__filename, () => {
 
     const barValues = root.find('.RatingsByStar-barValue');
 
-    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--100pct');
+    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--100px');
     expect(barValues.at(0)).not.toHaveClassName('RatingsByStar-partialBar');
 
-    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--0pct');
+    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--0px');
     expect(barValues.at(1)).toHaveClassName('RatingsByStar-partialBar');
   });
 
@@ -213,7 +213,7 @@ describe(__filename, () => {
     const barValues = root.find('.RatingsByStar-barValue');
     for (const index of [0, 1, 2, 3, 4]) {
       expect(barValues.at(index)).toHaveClassName(
-        'RatingsByStar-barValue--0pct',
+        'RatingsByStar-barValue--0px',
       );
     }
   });
