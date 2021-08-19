@@ -41,7 +41,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
         className={makeClassName(
           'RatingsByStar-bar',
           'RatingsByStar-barValue',
-          `RatingsByStar-barValue--${width}px`,
+          `RatingsByStar-barValue--${width}pct`,
           {
             'RatingsByStar-partialBar': width < 100,
           },

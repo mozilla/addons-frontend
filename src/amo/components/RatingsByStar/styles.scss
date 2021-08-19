@@ -33,8 +33,9 @@
   background-color: rgba($yellow-50, 0.75);
 
   @for $num from 0 through 100 {
-    &.RatingsByStar-barValue--#{$num}px {
-      width: #{$num}px;
+    $pct: percentage($num / 100);
+    &.RatingsByStar-barValue--#{$num}pct {
+      width: $pct;
     }
   }
 
