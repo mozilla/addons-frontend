@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-18 10:35+0000\n"
+"PO-Revision-Date: 2021-08-20 07:53+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -991,7 +991,7 @@ msgstr "Απόρρητο"
 
 #: src/amo/components/Footer/index.js:287
 msgid "Cookies"
-msgstr "Cookies"
+msgstr "Cookie"
 
 #: src/amo/components/Footer/index.js:295
 msgid "Legal"
@@ -1217,7 +1217,7 @@ msgstr "Κάνει ανάγνωση και τροποποίηση των ρυθ�
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr "Κάνει εκκαθάριση πρόσφατου ιστορικού περιήγησης, cookies και σχετικών δεδομένων"
+msgstr "Διαγράψτε το πρόσφατο ιστορικό περιήγησης, τα cookie και τα σχετικά δεδομένα"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
