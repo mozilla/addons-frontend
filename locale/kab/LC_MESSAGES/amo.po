@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-20 10:13+0000\n"
+"PO-Revision-Date: 2021-08-20 11:58+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1612,11 +1612,10 @@ msgstr[0] "%(count)s n usiɣef yettwaf i \"%(query)s\""
 msgstr[1] "%(count)s n isiɣzaf ttwafen i \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s n siɣzef yettwaf deg %(categoryName)s"
-msgstr[1] "%(count)s n yisiɣzaf ttwafen deg %(categoryName)s"
+msgstr[0] "%(count)s n siɣzef yettwafen s tebzimt %(tag)s"
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
