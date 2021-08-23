@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-17 16:26+0000\n"
-"PO-Revision-Date: 2021-08-23 16:59+0000\n"
+"PO-Revision-Date: 2021-08-23 17:39+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1032,14 +1032,12 @@ msgid "Download Firefox and get the extension"
 msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:168
-#, fuzzy
 msgid "Download the new Firefox and get the theme"
-msgstr "Firefoxను దింపుకొని, అలంకారాన్ని పొందండి"
+msgstr "కొత్త Firefoxను దింపుకొని, ఈ అలంకారాన్ని పొందండి"
 
 #: src/amo/components/GetFirefoxButton/index.js:169
-#, fuzzy
 msgid "Download the new Firefox and get the extension"
-msgstr "Firefoxను దింపుకొని, అలంకారాన్ని పొందండి"
+msgstr "కొత్త Firefoxను దింపుకొని, ఈ పొడగింతను పొందండి"
 
 #: src/amo/components/GetFirefoxButton/index.js:173
 msgid "Download Firefox"
@@ -1576,11 +1574,10 @@ msgstr[0] "\"%(query)s\"కి %(count)s ఫలితం దొరికిం�
 msgstr[1] "\"%(query)s\"కి %(count)s ఫలితాలు దొరికాయి"
 
 #: src/amo/components/SearchContextCard/index.js:168
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "\"%(query)s\"కి %(count)s ఫలితం దొరికింది"
-msgstr[1] "\"%(query)s\"కి %(count)s ఫలితాలు దొరికాయి"
+msgstr[0] "%(tag)s ట్యాగుతో %(count)s ఫలితం దొరికింది"
+msgstr[1] "%(tag)s ట్యాగుతో %(count)s ఫలితాలు దొరికాయి"
 
 #: src/amo/components/SearchContextCard/index.js:177
 msgid "%(count)s result found"
@@ -1615,11 +1612,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(categoryName)sలో %(count)s పొడగింత కనబడింది"
-msgstr[1] "%(categoryName)sలో %(count)s పొడగింతలు కనబడ్డాయి"
+msgstr[0] "%(tag)s ట్యాగుతో %(count)s పొడగింత కనబడింది"
+msgstr[1] "%(tag)s ట్యాగుతో %(count)s పొడగింతలు కనబడ్డాయి"
 
 #: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
