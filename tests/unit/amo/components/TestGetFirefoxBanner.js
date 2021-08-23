@@ -9,15 +9,9 @@ import GetFirefoxBanner, {
   GetFirefoxBannerBase,
 } from 'amo/components/GetFirefoxBanner';
 import { GET_FIREFOX_BUTTON_CLICK_CATEGORY } from 'amo/components/GetFirefoxButton';
-import {
-  EXPERIMENT_CONFIG,
-  VARIANT_CURRENT,
-  VARIANT_NEW,
-} from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import Notice from 'amo/components/Notice';
 import {
   DOWNLOAD_FIREFOX_BASE_URL,
-  DOWNLOAD_FIREFOX_EXPERIMENTAL_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
 } from 'amo/constants';
 import {
@@ -100,35 +94,8 @@ describe(__filename, () => {
       expect(root.find(Button).children()).toHaveText('download Firefox');
     });
 
-    it('sets the href on the button with the expected utm params for the current variant', () => {
-      const root = render({ store, variant: VARIANT_CURRENT });
-
-      const expectedHref = [
-        `${DOWNLOAD_FIREFOX_BASE_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
-        `variation=${VARIANT_CURRENT}`,
-        `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
-        `utm_content=${GET_FIREFOX_BANNER_UTM_CONTENT}`,
-        `utm_medium=referral&utm_source=addons.mozilla.org`,
-      ].join('&');
-      expect(root.find(Button)).toHaveProp('href', expectedHref);
-    });
-
-    it('sets the href on the button with the expected utm params for the new variant', () => {
-      const root = render({ store, variant: VARIANT_NEW });
-
-      const expectedHref = [
-        `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
-        `variation=${VARIANT_NEW}`,
-        `xv=amo`,
-        `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
-        `utm_content=${GET_FIREFOX_BANNER_UTM_CONTENT}`,
-        `utm_medium=referral&utm_source=addons.mozilla.org`,
-      ].join('&');
-      expect(root.find(Button)).toHaveProp('href', expectedHref);
-    });
-
-    it('sets the href on the button with the expected utm params when there is no variant', () => {
-      const root = render({ store, variant: undefined });
+    it('sets the href on the button with the expected utm params', () => {
+      const root = render({ store });
 
       const expectedHref = [
         `${DOWNLOAD_FIREFOX_BASE_URL}?utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
@@ -138,25 +105,9 @@ describe(__filename, () => {
       expect(root.find(Button)).toHaveProp('href', expectedHref);
     });
 
-    it('sends a tracking event when the button is clicked without a variant', () => {
-      const _tracking = createFakeTracking();
-      const root = render({ _tracking, store, variant: undefined });
-
-      const event = createFakeEvent();
-      root.find(Button).simulate('click', event);
-
-      sinon.assert.calledWith(_tracking.sendEvent, {
-        action: GET_FIREFOX_BANNER_CLICK_ACTION,
-        category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-        sendSecondEventWithOverrides: undefined,
-      });
-      sinon.assert.calledOnce(_tracking.sendEvent);
-    });
-
     it('sends a tracking event when the button is clicked', () => {
       const _tracking = createFakeTracking();
-      const variant = VARIANT_NEW;
-      const root = render({ _tracking, store, variant });
+      const root = render({ _tracking, store });
 
       const event = createFakeEvent();
       root.find(Button).simulate('click', event);
@@ -164,9 +115,6 @@ describe(__filename, () => {
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: GET_FIREFOX_BANNER_CLICK_ACTION,
         category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-        sendSecondEventWithOverrides: {
-          category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
-        },
       });
       sinon.assert.calledOnce(_tracking.sendEvent);
     });
