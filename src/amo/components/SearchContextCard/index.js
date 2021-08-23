@@ -54,26 +54,51 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
     if (!loadingSearch) {
       switch (addonType) {
         case ADDON_TYPE_EXTENSION:
-          if (categoryName) {
-            if (query) {
-              searchText = i18n.sprintf(
-                i18n.ngettext(
-                  '%(count)s extension found for "%(query)s" in %(categoryName)s',
-                  '%(count)s extensions found for "%(query)s" in %(categoryName)s',
-                  count,
-                ),
-                { count: i18n.formatNumber(count), query, categoryName },
-              );
-            } else {
-              searchText = i18n.sprintf(
-                i18n.ngettext(
-                  '%(count)s extension found in %(categoryName)s',
-                  '%(count)s extensions found in %(categoryName)s',
-                  count,
-                ),
-                { count: i18n.formatNumber(count), categoryName },
-              );
-            }
+          if (categoryName && query && tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s extension found for "%(query)s" with tag %(tag)s in %(categoryName)s',
+                '%(count)s extensions found for "%(query)s" with tag %(tag)s in %(categoryName)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query, categoryName, tag },
+            );
+          } else if (categoryName && query) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s extension found for "%(query)s" in %(categoryName)s',
+                '%(count)s extensions found for "%(query)s" in %(categoryName)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query, categoryName },
+            );
+          } else if (categoryName && tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s extension found with tag %(tag)s in %(categoryName)s',
+                '%(count)s extensions found with tag %(tag)s in %(categoryName)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), categoryName, tag },
+            );
+          } else if (categoryName) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s extension found in %(categoryName)s',
+                '%(count)s extensions found in %(categoryName)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), categoryName },
+            );
+          } else if (query && tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s extension found for "%(query)s" with tag %(tag)s',
+                '%(count)s extensions found for "%(query)s" with tag %(tag)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query, tag },
+            );
           } else if (query) {
             searchText = i18n.sprintf(
               i18n.ngettext(
@@ -104,26 +129,51 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
           }
           break;
         case ADDON_TYPE_STATIC_THEME:
-          if (categoryName) {
-            if (query) {
-              searchText = i18n.sprintf(
-                i18n.ngettext(
-                  '%(count)s theme found for "%(query)s" in %(categoryName)s',
-                  '%(count)s themes found for "%(query)s" in %(categoryName)s',
-                  count,
-                ),
-                { count: i18n.formatNumber(count), query, categoryName },
-              );
-            } else {
-              searchText = i18n.sprintf(
-                i18n.ngettext(
-                  '%(count)s theme found in %(categoryName)s',
-                  '%(count)s themes found in %(categoryName)s',
-                  count,
-                ),
-                { count: i18n.formatNumber(count), categoryName },
-              );
-            }
+          if (categoryName && query && tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s theme found for "%(query)s" with tag %(tag)s in %(categoryName)s',
+                '%(count)s themes found for "%(query)s" with tag %(tag)s in %(categoryName)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query, categoryName, tag },
+            );
+          } else if (categoryName && query) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s theme found for "%(query)s" in %(categoryName)s',
+                '%(count)s themes found for "%(query)s" in %(categoryName)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query, categoryName },
+            );
+          } else if (categoryName && tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s theme found with tag %(tag)s in %(categoryName)s',
+                '%(count)s themes found with tag %(tag)s in %(categoryName)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), categoryName, tag },
+            );
+          } else if (categoryName) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s theme found in %(categoryName)s',
+                '%(count)s themes found in %(categoryName)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), categoryName },
+            );
+          } else if (query && tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s theme found for "%(query)s" with tag %(tag)s',
+                '%(count)s themes found for "%(query)s" with tag %(tag)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query, tag },
+            );
           } else if (query) {
             searchText = i18n.sprintf(
               i18n.ngettext(
@@ -154,7 +204,16 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
           }
           break;
         default:
-          if (query) {
+          if (query && tag) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s result found for "%(query)s" with tag %(tag)s',
+                '%(count)s results found for "%(query)s" with tag %(tag)s',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query, tag },
+            );
+          } else if (query) {
             searchText = i18n.sprintf(
               i18n.ngettext(
                 '%(count)s result found for "%(query)s"',

@@ -491,6 +491,43 @@ describe(__filename, () => {
     );
   });
 
+  it('should render results with the tag, and the query string for tag query with a text query', () => {
+    const tag = 'foo';
+    const query = 'test';
+    dispatchSearchResults({
+      filters: {
+        tag,
+        query,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 results found for "${query}" with tag ${tag}`,
+    );
+  });
+
+  it('should render a singular result with the tag, and the query string for tag query with a text query', () => {
+    const tag = 'foo';
+    const query = 'test';
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        tag,
+        query,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 result found for "${query}" with tag ${tag}`,
+    );
+  });
+
   it('should render results with the tag for tag query', () => {
     const tag = 'foo';
     dispatchSearchResults({
@@ -521,6 +558,175 @@ describe(__filename, () => {
 
     expect(root.find('.SearchContextCard-header').text()).toEqual(
       `1 result found with tag ${tag}`,
+    );
+  });
+
+  it('should render results for addonType ADDON_TYPE_EXTENSION in a category with a query string and tag for tag query', () => {
+    const category = 'bookmarks';
+    const categoryName = 'Bookmarks';
+    const query = 'test';
+    const tag = 'foo';
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_EXTENSION,
+          name: categoryName,
+          slug: category,
+        },
+      ],
+    });
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category,
+        query,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 extensions found for "${query}" with tag ${tag} in ${categoryName}`,
+    );
+  });
+
+  it('should render a singular result for addonType ADDON_TYPE_EXTENSION in a category with a query string and tag for tag query', () => {
+    const category = 'bookmarks';
+    const categoryName = 'Bookmarks';
+    const query = 'test';
+    const tag = 'foo';
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_EXTENSION,
+          name: categoryName,
+          slug: category,
+        },
+      ],
+    });
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category,
+        query,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 extension found for "${query}" with tag ${tag} in ${categoryName}`,
+    );
+  });
+
+  it('should render results for addonType ADDON_TYPE_EXTENSION in a category and tag for tag query', () => {
+    const category = 'bookmarks';
+    const categoryName = 'Bookmarks';
+    const tag = 'foo';
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_EXTENSION,
+          name: categoryName,
+          slug: category,
+        },
+      ],
+    });
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 extensions found with tag ${tag} in ${categoryName}`,
+    );
+  });
+
+  it('should render a singular result for addonType ADDON_TYPE_EXTENSION in a category and tag for tag query', () => {
+    const category = 'bookmarks';
+    const categoryName = 'Bookmarks';
+    const tag = 'foo';
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_EXTENSION,
+          name: categoryName,
+          slug: category,
+        },
+      ],
+    });
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 extension found with tag ${tag} in ${categoryName}`,
+    );
+  });
+
+  it('should render results for addonType ADDON_TYPE_EXTENSION and tag and query string for tag query', () => {
+    const query = 'test';
+    const tag = 'foo';
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        query,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 extensions found for "${query}" with tag ${tag}`,
+    );
+  });
+
+  it('should render a singular result for addonType ADDON_TYPE_EXTENSION and query string tag for tag query', () => {
+    const query = 'test';
+    const tag = 'foo';
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        query,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 extension found for "${query}" with tag ${tag}`,
     );
   });
 
@@ -556,6 +762,175 @@ describe(__filename, () => {
 
     expect(root.find('.SearchContextCard-header').text()).toEqual(
       `1 extension found with tag ${tag}`,
+    );
+  });
+
+  it('should render results for addonType ADDON_TYPE_STATIC_THEME in a category with a query string and tag for tag query', () => {
+    const category = 'causes';
+    const categoryName = 'Causes';
+    const query = 'test';
+    const tag = 'foo';
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_STATIC_THEME,
+          name: categoryName,
+          slug: category,
+        },
+      ],
+    });
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        category,
+        query,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 themes found for "${query}" with tag ${tag} in ${categoryName}`,
+    );
+  });
+
+  it('should render a singular result for addonType ADDON_TYPE_STATIC_THEME in a category with a query string and tag for tag query', () => {
+    const category = 'causes';
+    const categoryName = 'Causes';
+    const query = 'test';
+    const tag = 'foo';
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_STATIC_THEME,
+          name: categoryName,
+          slug: category,
+        },
+      ],
+    });
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        category,
+        query,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 theme found for "${query}" with tag ${tag} in ${categoryName}`,
+    );
+  });
+
+  it('should render results for addonType ADDON_TYPE_STATIC_THEME in a category and tag for tag query', () => {
+    const category = 'causes';
+    const categoryName = 'Causes';
+    const tag = 'foo';
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_STATIC_THEME,
+          name: categoryName,
+          slug: category,
+        },
+      ],
+    });
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        category,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 themes found with tag ${tag} in ${categoryName}`,
+    );
+  });
+
+  it('should render a singular result for addonType ADDON_TYPE_STATIC_THEME in a category and tag for tag query', () => {
+    const category = 'causes';
+    const categoryName = 'Causes';
+    const tag = 'foo';
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_STATIC_THEME,
+          name: categoryName,
+          slug: category,
+        },
+      ],
+    });
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        category,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 theme found with tag ${tag} in ${categoryName}`,
+    );
+  });
+
+  it('should render results for addonType ADDON_TYPE_STATIC_THEME and tag and query string for tag query', () => {
+    const query = 'test';
+    const tag = 'foo';
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        query,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `2 themes found for "${query}" with tag ${tag}`,
+    );
+  });
+
+  it('should render a singular result for addonType ADDON_TYPE_STATIC_THEME and query string tag for tag query', () => {
+    const query = 'test';
+    const tag = 'foo';
+    dispatchSearchResults({
+      addons: [fakeAddon],
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        query,
+        tag,
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      `1 theme found for "${query}" with tag ${tag}`,
     );
   });
 
