@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-24 16:36+0000\n"
-"PO-Revision-Date: 2021-08-24 13:43+0000\n"
+"PO-Revision-Date: 2021-08-24 13:44+0000\n"
 "Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1583,11 +1583,10 @@ msgstr[0] "%(count)s résultat pour « %(query)s »"
 msgstr[1] "%(count)s résultats pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:168
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "%(count)s résultat pour « %(query)s »"
-msgstr[1] "%(count)s résultats pour « %(query)s »"
+msgstr[0] "%(count)s résultat pour « %(tag)s »"
+msgstr[1] "%(count)s résultats pour « %(tag)s »"
 
 #: src/amo/components/SearchContextCard/index.js:177
 msgid "%(count)s result found"
@@ -1622,11 +1621,10 @@ msgstr[0] "%(count)s extension trouvée pour « %(query)s »"
 msgstr[1] "%(count)s extension trouvées pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s extension trouvée dans %(categoryName)s"
-msgstr[1] "%(count)s extension trouvées dans %(categoryName)s"
+msgstr[0] "%(count)s extension trouvée dans %(tag)s"
+msgstr[1] "%(count)s extension trouvées dans %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:97
 msgid "%(count)s extension found"
