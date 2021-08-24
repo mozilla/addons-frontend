@@ -1782,7 +1782,7 @@ msgstr[1] "%(count)s temi trovati per “%(query)s”"
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
 msgstr[0] "%(count)s tema trovato con etichetta %(tag)s"
-msgstr[1] "%(count)s temi trovati con etichetta %(categoryName)s"
+msgstr[1] "%(count)s temi trovati con etichetta %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:147
 msgid "%(count)s theme found"
