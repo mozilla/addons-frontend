@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-17 16:26+0000\n"
+"POT-Creation-Date: 2021-08-24 16:36+0000\n"
 "PO-Revision-Date: 2020-07-14 06:20+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
@@ -1142,45 +1142,45 @@ msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:153
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:164
+#: src/amo/components/GetFirefoxButton/index.js:154
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:168
+#: src/amo/components/GetFirefoxButton/index.js:158
 #, fuzzy
 msgid "Download the new Firefox and get the theme"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:169
+#: src/amo/components/GetFirefoxButton/index.js:159
 #, fuzzy
 msgid "Download the new Firefox and get the extension"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:173
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:176
+#: src/amo/components/GetFirefoxButton/index.js:166
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "لِج لتقييم السمة هذه"
 
-#: src/amo/components/GetFirefoxButton/index.js:177
+#: src/amo/components/GetFirefoxButton/index.js:167
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
 msgstr "لِج لتقييم الامتداد هذا"
 
-#: src/amo/components/GetFirefoxButton/index.js:181
+#: src/amo/components/GetFirefoxButton/index.js:171
 #, fuzzy
 msgid "You need an updated version of Firefox for this theme"
 msgstr "لِج لتقييم السمة هذه"
 
-#: src/amo/components/GetFirefoxButton/index.js:182
+#: src/amo/components/GetFirefoxButton/index.js:172
 #, fuzzy
 msgid "You need an updated version of Firefox for this extension"
 msgstr "لِج لتقييم الامتداد هذا"

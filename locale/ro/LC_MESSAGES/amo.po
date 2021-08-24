@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-17 16:26+0000\n"
+"POT-Creation-Date: 2021-08-24 16:36+0000\n"
 "PO-Revision-Date: 2021-07-24 20:22+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -1168,43 +1168,43 @@ msgstr ""
 "Pentru a folosi aceste suplimente, va trebui să %(linkStart)sdescarci Firefox"
 "%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:153
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "Descarcă Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:164
+#: src/amo/components/GetFirefoxButton/index.js:154
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:168
+#: src/amo/components/GetFirefoxButton/index.js:158
 #, fuzzy
 msgid "Download the new Firefox and get the theme"
 msgstr "Descarcă Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:169
+#: src/amo/components/GetFirefoxButton/index.js:159
 #, fuzzy
 msgid "Download the new Firefox and get the extension"
 msgstr "Descarcă Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:173
+#: src/amo/components/GetFirefoxButton/index.js:163
 msgid "Download Firefox"
 msgstr "Descarcă Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:176
+#: src/amo/components/GetFirefoxButton/index.js:166
 msgid "You'll need Firefox to use this theme"
 msgstr "Vei avea nevoie de Firefox pentru a folosi această temă"
 
-#: src/amo/components/GetFirefoxButton/index.js:177
+#: src/amo/components/GetFirefoxButton/index.js:167
 msgid "You'll need Firefox to use this extension"
 msgstr "Vei avea nevoie de Firefox pentru a folosi această extensie"
 
-#: src/amo/components/GetFirefoxButton/index.js:181
+#: src/amo/components/GetFirefoxButton/index.js:171
 #, fuzzy
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Intră în cont pentru a evalua această temă"
 
-#: src/amo/components/GetFirefoxButton/index.js:182
+#: src/amo/components/GetFirefoxButton/index.js:172
 #, fuzzy
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Intră în cont pentru a evalua această extensie"
