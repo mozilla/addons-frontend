@@ -1,11 +1,6 @@
 import { encode } from 'universal-base64url';
 import * as React from 'react';
 
-import {
-  EXPERIMENT_CONFIG,
-  VARIANT_CURRENT,
-  VARIANT_NEW,
-} from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_CLICK_ACTION,
   GET_FIREFOX_BUTTON_CLICK_CATEGORY,
@@ -16,7 +11,6 @@ import GetFirefoxButton, {
 import {
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
-  DOWNLOAD_FIREFOX_EXPERIMENTAL_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   LINE,
   RECOMMENDED,
@@ -276,31 +270,24 @@ describe(__filename, () => {
       const guid = 'some-guid';
       const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
 
-      it.each([undefined, VARIANT_NEW, VARIANT_CURRENT])(
-        'sends a tracking event when the button is clicked and variant is %s',
-        (variant) => {
-          const _tracking = createFakeTracking();
-          const root = render({
-            _tracking,
-            addon,
-            store,
-            variant,
-          });
+      it('sends a tracking event when the button is clicked', () => {
+        const _tracking = createFakeTracking();
+        const root = render({
+          _tracking,
+          addon,
+          store,
+        });
 
-          const event = createFakeEvent();
-          root.find('.GetFirefoxButton-button').simulate('click', event);
+        const event = createFakeEvent();
+        root.find('.GetFirefoxButton-button').simulate('click', event);
 
-          sinon.assert.calledWith(_tracking.sendEvent, {
-            action: GET_FIREFOX_BUTTON_CLICK_ACTION,
-            category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-            label: addon.guid,
-            sendSecondEventWithOverrides: variant && {
-              category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
-            },
-          });
-          sinon.assert.calledOnce(_tracking.sendEvent);
-        },
-      );
+        sinon.assert.calledWith(_tracking.sendEvent, {
+          action: GET_FIREFOX_BUTTON_CLICK_ACTION,
+          category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+          label: addon.guid,
+        });
+        sinon.assert.calledOnce(_tracking.sendEvent);
+      });
     });
   });
 
@@ -319,29 +306,6 @@ describe(__filename, () => {
 
   describe('getDownloadLink', () => {
     const guid = 'some-guid';
-
-    it.each([VARIANT_CURRENT, VARIANT_NEW, null])(
-      'returns the expected base URL for the %s variant',
-      (variant) => {
-        const link = getDownloadLink({ variant });
-        const linkRegex = new RegExp(
-          `^${
-            variant === VARIANT_NEW
-              ? DOWNLOAD_FIREFOX_EXPERIMENTAL_URL
-              : DOWNLOAD_FIREFOX_BASE_URL
-          }`,
-        );
-        expect(linkRegex.test(link)).toEqual(true);
-      },
-    );
-
-    it.each([VARIANT_CURRENT, VARIANT_NEW, null])(
-      'adds or excludes the special xv param for the %s variant',
-      (variant) => {
-        const link = getDownloadLink({ variant });
-        expect(/xv=amo&/.test(link)).toEqual(variant === VARIANT_NEW);
-      },
-    );
 
     it('includes and overrides params via overrideQueryParams', () => {
       const param1 = 'test';
@@ -405,24 +369,12 @@ describe(__filename, () => {
       const addon = createInternalAddonWithLang({ ...fakeAddon, id: addonId });
 
       const expectedLink = [
-        `${DOWNLOAD_FIREFOX_EXPERIMENTAL_URL}?experiment=${EXPERIMENT_CONFIG.id}`,
-        `variation=${VARIANT_NEW}`,
-        `xv=amo`,
-        `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
+        `${DOWNLOAD_FIREFOX_BASE_URL}?utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
         `utm_content=rta%3A${encode(addon.guid)}`,
         `utm_medium=referral&utm_source=addons.mozilla.org`,
       ].join('&');
 
-      expect(
-        getDownloadLink({
-          addon,
-          overrideQueryParams: {
-            experiment: EXPERIMENT_CONFIG.id,
-            variation: VARIANT_NEW,
-          },
-          variant: VARIANT_NEW,
-        }),
-      ).toEqual(expectedLink);
+      expect(getDownloadLink({ addon })).toEqual(expectedLink);
     });
   });
 });

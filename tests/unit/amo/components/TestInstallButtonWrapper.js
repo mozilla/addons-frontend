@@ -4,10 +4,6 @@ import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper, {
   InstallButtonWrapperBase,
 } from 'amo/components/InstallButtonWrapper';
-import {
-  EXPERIMENT_CONFIG,
-  VARIANT_CURRENT,
-} from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import { setInstallState } from 'amo/reducers/installations';
 import AMInstallButton from 'amo/components/AMInstallButton';
 import {
@@ -522,26 +518,5 @@ describe(__filename, () => {
     });
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
-  });
-
-  it('passes the expected overrideQueryParams to GetFirefoxButton if an experiment is active', () => {
-    _dispatchClientMetadata({
-      userAgent: userAgentsByPlatform.mac.chrome41,
-    });
-    const root = render({ variant: VARIANT_CURRENT });
-
-    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {
-      experiment: EXPERIMENT_CONFIG.id,
-      variation: VARIANT_CURRENT,
-    });
-  });
-
-  it('passes an empty object as overrideQueryParams to GetFirefoxButton if no experiment is active', () => {
-    _dispatchClientMetadata({
-      userAgent: userAgentsByPlatform.mac.chrome41,
-    });
-    const root = render({ variant: null });
-
-    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {});
   });
 });

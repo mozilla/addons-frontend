@@ -15,12 +15,10 @@ import {
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   UNKNOWN,
 } from 'amo/constants';
-import { EXPERIMENT_CONFIG } from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import translate from 'amo/i18n/translate';
 import { withInstallHelpers } from 'amo/installAddon';
 import { getVersionById } from 'amo/reducers/versions';
 import { getClientCompatibility, isFirefox } from 'amo/utils/compatibility';
-import { withExperiment } from 'amo/withExperiment';
 import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
 import type { UserAgentInfoType } from 'amo/reducers/api';
 import type { InstalledAddon } from 'amo/reducers/installations';
@@ -28,7 +26,6 @@ import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
-import type { WithExperimentInjectedProps } from 'amo/withExperiment';
 
 import './styles.scss';
 
@@ -57,7 +54,6 @@ type InternalProps = {|
   ...Props,
   ...WithInstallHelpersInjectedProps,
   ...PropsFromState,
-  ...WithExperimentInjectedProps,
   i18n: I18nType,
 |};
 
@@ -71,7 +67,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     currentVersion,
     defaultButtonText,
     enable,
-    experimentId,
     hasAddonManager,
     i18n,
     install,
@@ -82,7 +77,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     showLinkInsteadOfButton,
     uninstall,
     userAgentInfo,
-    variant,
   } = props;
 
   const browserIsFirefox = isFirefox({ userAgentInfo });
@@ -136,13 +130,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     );
   };
 
-  const overrideQueryParams = variant
-    ? {
-        experiment: experimentId,
-        variation: variant,
-      }
-    : {};
-
   return (
     addon && (
       <div className="InstallButtonWrapper">
@@ -176,8 +163,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
                 addon={addon}
                 className={className ? `GetFirefoxButton--${className}` : ''}
                 forIncompatibleAddon={forIncompatibleAddon}
-                overrideQueryParams={overrideQueryParams}
-                variant={variant}
               />
             ) : null}
           </>
@@ -218,7 +203,6 @@ const InstallButtonWrapper: React.ComponentType<Props> = compose(
   withInstallHelpers,
   connect(mapStateToProps),
   translate(),
-  withExperiment({ experimentConfig: EXPERIMENT_CONFIG }),
 )(InstallButtonWrapperBase);
 
 export default InstallButtonWrapper;

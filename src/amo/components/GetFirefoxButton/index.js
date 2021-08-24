@@ -6,12 +6,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Button from 'amo/components/Button';
-import { VARIANT_NEW } from 'amo/experiments/20210531_amo_download_funnel_experiment';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FIREFOX_BASE_URL,
-  DOWNLOAD_FIREFOX_EXPERIMENTAL_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   LINE,
   RECOMMENDED,
@@ -38,7 +36,6 @@ export type Props = {|
   className?: string,
   forIncompatibleAddon?: boolean,
   overrideQueryParams?: {| [name: string]: string | null |},
-  variant?: string | null,
 |};
 
 export type DefaultProps = {|
@@ -86,27 +83,13 @@ export const getDownloadLink = ({
   _getDownloadCampaign = getDownloadCampaign,
   addon,
   overrideQueryParams = {},
-  variant,
 }: GetDownloadLinkParams): string => {
-  const baseURL =
-    variant === VARIANT_NEW
-      ? DOWNLOAD_FIREFOX_EXPERIMENTAL_URL
-      : DOWNLOAD_FIREFOX_BASE_URL;
+  const baseURL = DOWNLOAD_FIREFOX_BASE_URL;
 
-  let queryParams = overrideQueryParams;
-
-  // If this is the new experiment variant, add a query param which will direct
-  // to the experimental download funnel.
-  if (variant === VARIANT_NEW) {
-    queryParams = {
-      ...queryParams,
-      xv: 'amo',
-    };
-  }
   return `${baseURL}${makeQueryStringWithUTM({
     utm_campaign: _getDownloadCampaign({ addonId: addon && addon.id }),
     utm_content: addon && addon.guid ? `rta:${_encode(addon.guid)}` : '',
-    ...queryParams,
+    ...overrideQueryParams,
   })}`;
 };
 
@@ -121,7 +104,6 @@ export const GetFirefoxButtonBase = ({
   i18n,
   overrideQueryParams = {},
   userAgentInfo,
-  variant,
 }: InternalProps): null | React.Node => {
   if (isFirefox({ userAgentInfo }) && !forIncompatibleAddon) {
     return null;
@@ -132,9 +114,6 @@ export const GetFirefoxButtonBase = ({
       action: GET_FIREFOX_BUTTON_CLICK_ACTION,
       category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
       label: addon.guid,
-      sendSecondEventWithOverrides: variant && {
-        category: `${GET_FIREFOX_BUTTON_CLICK_CATEGORY}-${variant}`,
-      },
     });
   };
 
@@ -178,7 +157,7 @@ export const GetFirefoxButtonBase = ({
     <Button
       buttonType="action"
       className="GetFirefoxButton-button"
-      href={getDownloadLink({ _encode, addon, overrideQueryParams, variant })}
+      href={getDownloadLink({ _encode, addon, overrideQueryParams })}
       onClick={onButtonClick}
       puffy
     >
