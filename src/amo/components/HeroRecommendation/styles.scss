@@ -55,6 +55,7 @@
   display: flex;
   flex-direction: column;
   line-height: $line-height-compressed;
+  min-width: 300px;
 
   @include respond-to(medium) {
     @include margin-start(24px);

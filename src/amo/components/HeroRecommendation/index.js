@@ -267,7 +267,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           gradientsClassName,
           heightClassName,
           {
-            'HeroRecommendation--no-image': !featuredImage,
+            'HeroRecommendation--no-image': !featuredImage && !loading,
           },
         )}
       >
@@ -284,14 +284,18 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           {errorHandler.renderErrorIfPresent()}
 
           <div className="HeroRecommendation-content">
-            {featuredImage && (
-              <div className="HeroRecommendation-image-wrapper">
-                <img
-                  className="HeroRecommendation-image"
-                  alt=""
-                  src={featuredImage}
-                />
-              </div>
+            {loading ? (
+              <LoadingText width={40} />
+            ) : (
+              featuredImage && (
+                <div className="HeroRecommendation-image-wrapper">
+                  <img
+                    className="HeroRecommendation-image"
+                    alt=""
+                    src={featuredImage}
+                  />
+                </div>
+              )
             )}
             <div className="HeroRecommendation-info">
               {renderHeroTitle()}
