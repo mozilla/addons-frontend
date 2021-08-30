@@ -218,7 +218,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     const renderHeroTitle = () => {
       // translators: If uppercase does not work in your locale,
       // change it to lowercase. This is used as a secondary heading.
-      let titleText = i18n.gettext('SPONSORED');
+      let titleText = null;
 
       const promotedCategory = _getPromotedCategory({
         addon,
@@ -226,20 +226,24 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
         forBadging: true,
       });
 
-      if (promotedCategory === RECOMMENDED) {
-        // translators: If uppercase does not work in your locale,
-        // change it to lowercase. This is used as a secondary heading.
-        titleText = i18n.gettext('RECOMMENDED');
-      } else if (promotedCategory === LINE) {
-        // translators: If uppercase does not work in your locale,
-        // change it to lowercase. This is used as a secondary heading.
-        titleText = i18n.gettext('BY FIREFOX');
+      if (!loading) {
+        if (promotedCategory === RECOMMENDED) {
+          // translators: If uppercase does not work in your locale,
+          // change it to lowercase. This is used as a secondary heading.
+          titleText = i18n.gettext('RECOMMENDED');
+        } else if (promotedCategory === LINE) {
+          // translators: If uppercase does not work in your locale,
+          // change it to lowercase. This is used as a secondary heading.
+          titleText = i18n.gettext('BY FIREFOX');
+        } else {
+          titleText = i18n.gettext('SPONSORED');
+        }
       }
 
       return (
         <div className="HeroRecommendation-title">
           <div className="HeroRecommendation-title-text">
-            {loading ? <LoadingText width={20} /> : titleText}
+            {titleText || <LoadingText width={20} />}
           </div>
           {![LINE, RECOMMENDED].includes(promotedCategory) && !loading ? (
             <a
