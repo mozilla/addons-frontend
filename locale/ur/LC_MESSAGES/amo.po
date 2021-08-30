@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-24 16:36+0000\n"
-"PO-Revision-Date: 2021-08-28 12:15+0000\n"
+"PO-Revision-Date: 2021-08-30 05:21+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -1146,7 +1146,7 @@ msgstr "ایکسٹینشن حاصل کریں"
 # If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:221
 msgid "SPONSORED"
-msgstr ""
+msgstr "سپانسرڈ"
 
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:232
@@ -2103,7 +2103,7 @@ msgstr "اس ایڈاون کو اسکے مصنف نے ہٹا دیا ہے۔"
 
 #: src/amo/pages/Block/index.js:160
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "اسے کیوں بلاک کیا گیا؟"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
