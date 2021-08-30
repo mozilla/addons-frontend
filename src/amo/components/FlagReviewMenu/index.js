@@ -43,8 +43,14 @@ type InternalProps = {|
 |};
 
 export class FlagReviewMenuBase extends React.Component<InternalProps> {
+  firstItemButtonRef: React.ElementRef<'button'> | null;
+
   static defaultProps: DefaultProps = {
     isDeveloperReply: false,
+  };
+
+  setFocusOnFirstItem: Function = (): void => {
+    this.firstItemButtonRef?.focus();
   };
 
   render(): React.Node {
@@ -87,6 +93,9 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
             review={review}
             buttonText={i18n.gettext('This is spam')}
             wasFlaggedText={i18n.gettext('Flagged as spam')}
+            btnRef={(button: HTMLButtonElement | null) => {
+              this.firstItemButtonRef = button;
+            }}
           />
         </ListItem>,
         <ListItem
@@ -98,6 +107,9 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
             review={review}
             buttonText={i18n.gettext('This contains inappropriate language')}
             wasFlaggedText={i18n.gettext('Flagged for inappropriate language')}
+            {...(isDeveloperReply && {
+              setFocusOnFirstItem: this.setFocusOnFirstItem,
+            })}
           />
         </ListItem>,
         // Only reviews (not developer responses) can be flagged as
@@ -116,6 +128,7 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
               wasFlaggedText={i18n.gettext(
                 'Flagged as a bug report or support request',
               )}
+              setFocusOnFirstItem={this.setFocusOnFirstItem}
             />
           </ListItem>
         ),

@@ -19,6 +19,8 @@ type Props = {|
   reason: FlagReviewReasonType,
   review: UserReviewType,
   wasFlaggedText: string,
+  setFocusOnFirstItem?: Function,
+  btnRef?: Function,
 |};
 
 type PropsFromState = {|
@@ -46,8 +48,21 @@ export class FlagReviewBase extends React.Component<InternalProps> {
     );
   };
 
+  onKeyDown: (event: SyntheticKeyboardEvent<HTMLButtonElement>) => void = (
+    event: SyntheticKeyboardEvent<HTMLButtonElement>,
+  ) => {
+    const { setFocusOnFirstItem } = this.props;
+    if (setFocusOnFirstItem) {
+      if (!event.shiftKey && event.key === 'Tab') {
+        event.preventDefault();
+        setFocusOnFirstItem();
+      }
+    }
+  };
+
   renderControls(): React.Node {
-    const { errorHandler, flagState, buttonText, wasFlaggedText } = this.props;
+    const { errorHandler, flagState, buttonText, wasFlaggedText, btnRef } =
+      this.props;
 
     if (flagState) {
       if (flagState.inProgress && !errorHandler.hasError()) {
@@ -63,6 +78,8 @@ export class FlagReviewBase extends React.Component<InternalProps> {
         className="FlagReview-button"
         onClick={this.onClick}
         type="button"
+        ref={btnRef}
+        onKeyDown={this.onKeyDown}
       >
         {buttonText}
       </button>

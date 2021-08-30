@@ -22,6 +22,7 @@
     // See: https://github.com/facebook/flow/issues/1609
     "SyntheticEvent": true,
     "SyntheticInputEvent": true,
+    "SyntheticKeyboardEvent": true,
     // See: https://github.com/facebook/flow/issues/5627
     "TimeoutID": true,
     // Standard DOM globals:
