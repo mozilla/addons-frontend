@@ -19,7 +19,13 @@ const lang = 'en-US';
   await Promise.all(
     addons.map(({ id, url }) => {
       const filePath =   path.join(distDir, `${id}.png`);
-      return QRCode.toFile(filePath, url.replace(`/${lang}`, ''));
+      let content = url.replace(`/${lang}`, '');
+      content = [
+        `${content}?utm_campaign=amo-fenix-qr-code`,
+        `utm_content=${id}`,
+        `utm_medium=referral&utm_source=addons.mozilla.org`,
+      ].join('&')
+      return QRCode.toFile(filePath, content);
     })
   );
   console.log(addons.length, ' QR codes created');
