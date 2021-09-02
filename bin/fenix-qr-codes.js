@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable global-require, no-console */
 
+const fs = require('fs');
 const path = require('path');
 
 const fetch = require('node-fetch');
@@ -8,7 +9,12 @@ const QRCode = require('qrcode');
 
 const rootDir = path.join(__dirname, '..');
 const distDir = path.join(rootDir, 'dist');
+const destDir = path.join(distDir, 'qrcodes');
 const lang = 'en-US';
+
+if (!fs.existsSync(destDir)) {
+  fs.mkdirSync(destDir);
+}
 
 (async () => {
   const res = await fetch(
@@ -18,7 +24,7 @@ const lang = 'en-US';
 
   await Promise.all(
     addons.map(({ id, url }) => {
-      const filePath =   path.join(distDir, `${id}.png`);
+      const filePath =   path.join(destDir, `${id}.png`);
       let content = url.replace(`/${lang}`, '');
       content = [
         `${content}?utm_campaign=amo-fenix-qr-code`,
