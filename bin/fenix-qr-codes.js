@@ -1,17 +1,17 @@
 #!/usr/bin/env node
-/* eslint-disable global-require, no-console */
+/* eslint-disable global-require, no-console, no-shadow */
 
 const fs = require('fs');
 const path = require('path');
 
-const fetch = require('node-fetch');
 const QRCode = require('qrcode');
+
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 const rootDir = path.join(__dirname, '..');
 const distDir = path.join(rootDir, 'dist');
 const destDir = path.join(distDir, 'qrcodes');
 const lang = 'en-US';
-
 if (!fs.existsSync(destDir)) {
   fs.mkdirSync(destDir);
 }
