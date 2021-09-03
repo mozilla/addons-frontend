@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-24 16:36+0000\n"
-"PO-Revision-Date: 2021-08-25 21:49+0000\n"
+"PO-Revision-Date: 2021-09-03 20:32+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -2014,7 +2014,7 @@ msgstr[2] "Історія версій %(addonName)s - %(total)s версій"
 
 #: src/amo/pages/AddonVersions/index.js:165
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr "Будьте обачні із застарілими версіями! Ці версії відображаються лише з метою тестування й довідки."
+msgstr "Будьте обачні із застарілими версіями! Ці версії показано лише з метою тестування й довідки."
 
 #: src/amo/pages/AddonVersions/index.js:170
 msgid "You should always use the latest version of an add-on."
