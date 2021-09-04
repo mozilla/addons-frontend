@@ -118,6 +118,35 @@ describe(__filename, () => {
       expect(items).toHaveLength(1);
       expect(items.at(0).html()).toContain('You cannot flag your own response');
     });
+
+    it('assigns setFocusOnFirstItem prop only on the last list item', () => {
+      const review = createInternalReview(fakeReview);
+      const { menu } = renderMenu({ review });
+
+      const items = menu.find(ListItem);
+      expect(items).toHaveLength(3);
+
+      expect(items.at(0).find(FlagReview)).not.toHaveProp(
+        'setFocusOnFirstItem',
+      );
+      expect(items.at(1).find(FlagReview)).not.toHaveProp(
+        'setFocusOnFirstItem',
+      );
+      expect(items.at(2).find(FlagReview)).toHaveProp('setFocusOnFirstItem');
+    });
+
+    it('assigns setFocusOnFirstItem prop only on the last list item when isDeveloperReply is true', () => {
+      const review = createInternalReview(fakeReview);
+      const { menu } = renderMenu({ review, isDeveloperReply: true });
+
+      const items = menu.find(ListItem);
+      expect(items).toHaveLength(2);
+
+      expect(items.at(0).find(FlagReview)).not.toHaveProp(
+        'setFocusOnFirstItem',
+      );
+      expect(items.at(1).find(FlagReview)).toHaveProp('setFocusOnFirstItem');
+    });
   });
 
   describe('prompts and FlagReview configuration', () => {

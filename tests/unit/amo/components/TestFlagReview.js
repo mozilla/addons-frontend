@@ -22,11 +22,14 @@ import {
 import ErrorList from 'amo/components/ErrorList';
 import LoadingText from 'amo/components/LoadingText';
 
+const setFocusOnFirstItem = jest.fn();
+
 describe(__filename, () => {
   let store;
 
   beforeEach(() => {
     store = dispatchSignInActions().store;
+    setFocusOnFirstItem.mockClear();
   });
 
   const render = (customProps = {}) => {
@@ -126,5 +129,27 @@ describe(__filename, () => {
 
     // It should still display a button so they can try again.
     expect(root.find('.FlagReview-button')).toHaveLength(1);
+  });
+
+  it('calls setFocusOnFirstItem on tab', () => {
+    const root = render({ setFocusOnFirstItem });
+    const flagReviewBtn = root.find('.FlagReview-button');
+    flagReviewBtn.simulate('keydown', {
+      shiftKey: false,
+      key: 'Tab',
+      preventDefault: () => {},
+    });
+    expect(setFocusOnFirstItem).toHaveBeenCalled();
+  });
+
+  it('does not calls setFocusOnFirstItem on `shift + tab`', () => {
+    const root = render({ setFocusOnFirstItem });
+    const flagReviewBtn = root.find('.FlagReview-button');
+    flagReviewBtn.simulate('keydown', {
+      shiftKey: true,
+      key: 'Tab',
+      preventDefault: () => {},
+    });
+    expect(setFocusOnFirstItem).not.toHaveBeenCalled();
   });
 });
