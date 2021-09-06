@@ -289,7 +289,9 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
           <div className="HeroRecommendation-content">
             {loading ? (
-              <LoadingText width={40} />
+              <div className="HeroRecommendation-image-loading">
+                <LoadingText width={100} />
+              </div>
             ) : (
               featuredImage && (
                 <div className="HeroRecommendation-image-wrapper">

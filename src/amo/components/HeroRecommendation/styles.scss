@@ -41,6 +41,16 @@
   }
 }
 
+.HeroRecommendation-image-loading {
+  @include respond-to(medium) {
+    width: 40%;
+  }
+
+  .LoadingText {
+    height: 14em;
+  }
+}
+
 .HeroRecommendation-image-wrapper {
   @include respond-to(medium) {
     flex: 40%;
