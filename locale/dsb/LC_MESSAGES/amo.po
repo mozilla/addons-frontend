@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-24 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 16:25+0000\n"
 "PO-Revision-Date: 2021-08-17 17:48+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -1161,45 +1161,45 @@ msgstr "Źěłowa kupka rozšyrjenjow"
 msgid "Developer Hub"
 msgstr "Wuwijarski rožk"
 
-#: src/amo/components/GetFirefoxBanner/index.js:90
+#: src/amo/components/GetFirefoxBanner/index.js:72
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 "Aby toś te dodanki wužywał, musyśo %(linkStart)sFirefox ześěgnuś%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:153
+#: src/amo/components/GetFirefoxButton/index.js:132
 msgid "Download Firefox and get the theme"
 msgstr "Firefox ześěgnuś a drastwu wobstaraś"
 
-#: src/amo/components/GetFirefoxButton/index.js:154
+#: src/amo/components/GetFirefoxButton/index.js:133
 msgid "Download Firefox and get the extension"
 msgstr "Firefox ześěgnuś a rozšyrjenje wobstaraś"
 
-#: src/amo/components/GetFirefoxButton/index.js:158
+#: src/amo/components/GetFirefoxButton/index.js:137
 msgid "Download the new Firefox and get the theme"
 msgstr "Ześěgniśo nowy Firefox a wobstarajśo se drastwu"
 
-#: src/amo/components/GetFirefoxButton/index.js:159
+#: src/amo/components/GetFirefoxButton/index.js:138
 msgid "Download the new Firefox and get the extension"
 msgstr "Ześěgniśo nowy Firefox a wobstarajśo se rozšyrjenje"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:142
 msgid "Download Firefox"
 msgstr "Firefox ześěgnuś"
 
-#: src/amo/components/GetFirefoxButton/index.js:166
+#: src/amo/components/GetFirefoxButton/index.js:145
 msgid "You'll need Firefox to use this theme"
 msgstr "Trjebaśo Firefox, aby toś tu drastwu wužywał"
 
-#: src/amo/components/GetFirefoxButton/index.js:167
+#: src/amo/components/GetFirefoxButton/index.js:146
 msgid "You'll need Firefox to use this extension"
 msgstr "Trjebaśo Firefox, aby toś to rozšyrjenje wužywał"
 
-#: src/amo/components/GetFirefoxButton/index.js:171
+#: src/amo/components/GetFirefoxButton/index.js:150
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Trjebaśo zaktualizěrowanu wersiju Firefox za toś tu drastwu"
 
-#: src/amo/components/GetFirefoxButton/index.js:172
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Trjebaśo zaktualizěrowanu wersiju Firefox za toś to rozšyrjenje"
 
@@ -1313,7 +1313,7 @@ msgstr "Dopórucone"
 msgid "Verified"
 msgstr "Wobkšuśony"
 
-#: src/amo/components/InstallButtonWrapper/index.js:133
+#: src/amo/components/InstallButtonWrapper/index.js:127
 msgid "Download file"
 msgstr "Dataju ześěgnuś"
 
@@ -1756,7 +1756,46 @@ msgstr "Woblubowane dodanki"
 msgid "Search results for \"%(query)s\""
 msgstr "Pytańske wuslědki za \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:110
+#: src/amo/components/SearchContextCard/index.js:104
+msgid "%(count)s extension found for \"%(query)s\""
+msgid_plural "%(count)s extensions found for \"%(query)s\""
+msgstr[0] "%(count)s rozšyrjenje za \"%(query)s\" namakany"
+msgstr[1] "%(count)s rozšyrjeni za \"%(query)s\" namakanej"
+msgstr[2] "%(count)s rozšyrjenja za \"%(query)s\" namakane"
+msgstr[3] "%(count)s rozšyrjenjow za \"%(query)s\" namakane"
+
+#: src/amo/components/SearchContextCard/index.js:113
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "%(count)s rozšyrjenje jo se namakało z wobznamjenim %(tag)s"
+msgstr[1] "%(count)s rozšyrjeni stej se namakałej z wobznamjenim %(tag)s"
+msgstr[2] "%(count)s rozšyrjenja su se namakali z wobznamjenim %(tag)s"
+msgstr[3] "%(count)s rozšyrjenjow jo se namakało z wobznamjenim %(tag)s"
+
+#: src/amo/components/SearchContextCard/index.js:122
+msgid "%(count)s extension found"
+msgid_plural "%(count)s extensions found"
+msgstr[0] "%(count)s rozšyrjenje jo se namakało"
+msgstr[1] "%(count)s rozšyrjeni stej se namakałej"
+msgstr[2] "%(count)s rozšyrjenja su se namakali"
+msgstr[3] "%(count)s rozšyrjenjow jo se namakało"
+
+#: src/amo/components/SearchContextCard/index.js:134
+#, fuzzy
+msgid ""
+"%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural ""
+"%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] ""
+"%(count)s drastwa jo se namakała za \"%(query)s\" w %(categoryName)s"
+msgstr[1] ""
+"%(count)s drastwje stej se namakałej za \"%(query)s\" w %(categoryName)s"
+msgstr[2] ""
+"%(count)s drastwy su se namakali za \"%(query)s\" w %(categoryName)s"
+msgstr[3] ""
+"%(count)s drastwow jo se namakało za \"%(query)s\" w %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] ""
@@ -1768,7 +1807,16 @@ msgstr[2] ""
 msgstr[3] ""
 "%(count)s drastwow jo se namakało za \"%(query)s\" w %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:119
+#: src/amo/components/SearchContextCard/index.js:152
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s drastwa jo se namakała w %(categoryName)s"
+msgstr[1] "%(count)s drastwje stej se namakałej w %(categoryName)s"
+msgstr[2] "%(count)s drastwy su se namakali w %(categoryName)s"
+msgstr[3] "%(count)s drastwow jo se namakało w %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "%(count)s drastwa jo se namakała w %(categoryName)s"
@@ -1776,7 +1824,20 @@ msgstr[1] "%(count)s drastwje stej se namakałej w %(categoryName)s"
 msgstr[2] "%(count)s drastwy su se namakali w %(categoryName)s"
 msgstr[3] "%(count)s drastwow jo se namakało w %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:129
+#: src/amo/components/SearchContextCard/index.js:170
+#, fuzzy
+msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] ""
+"%(count)s drastwa jo se namakała za \"%(query)s\" w %(categoryName)s"
+msgstr[1] ""
+"%(count)s drastwje stej se namakałej za \"%(query)s\" w %(categoryName)s"
+msgstr[2] ""
+"%(count)s drastwy su se namakali za \"%(query)s\" w %(categoryName)s"
+msgstr[3] ""
+"%(count)s drastwow jo se namakało za \"%(query)s\" w %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s drastwa za \"%(query)s\" namakana"
@@ -1784,7 +1845,7 @@ msgstr[1] "%(count)s drastwje za \"%(query)s\" namakanej"
 msgstr[2] "%(count)s drastwy za \"%(query)s\" namakane"
 msgstr[3] "%(count)s drastwow za \"%(query)s\" namakane"
 
-#: src/amo/components/SearchContextCard/index.js:138
+#: src/amo/components/SearchContextCard/index.js:188
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
 msgstr[0] "%(count)s drastwa jo se namakała z wobznamjenim %(tag)s"
@@ -1792,7 +1853,7 @@ msgstr[1] "%(count)s drastwje stej se namakałej z wobznamjenim %(tag)s"
 msgstr[2] "%(count)s drastwy su se namakali z wobznamjenim %(tag)s"
 msgstr[3] "%(count)s drastwow jo se namakało z wobznamjenim %(tag)s"
 
-#: src/amo/components/SearchContextCard/index.js:147
+#: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "%(count)s drastwa jo se namakała"
@@ -1800,7 +1861,16 @@ msgstr[1] "%(count)s drastwje stej se namakałej"
 msgstr[2] "%(count)s drastwy su se namakali"
 msgstr[3] "%(count)s drastwow jo se namakało"
 
-#: src/amo/components/SearchContextCard/index.js:159
+#: src/amo/components/SearchContextCard/index.js:209
+#, fuzzy
+msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "%(count)s wuslědk jo se namakał z wobznamjenim %(tag)s"
+msgstr[1] "%(count)s wuslědka stej se namakałej z wobznamjenim %(tag)s"
+msgstr[2] "%(count)s wuslědki su se namakali z wobznamjenim %(tag)s"
+msgstr[3] "%(count)s wuslědkow jo se namakało z wobznamjenim %(tag)s"
+
+#: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "%(count)s wuslědk za \"%(query)s\" namakany"
@@ -1808,7 +1878,7 @@ msgstr[1] "%(count)s wuslědka za \"%(query)s\" namakanej"
 msgstr[2] "%(count)s wuslědki za \"%(query)s\" namakane"
 msgstr[3] "%(count)s wuslědkow za \"%(query)s\" namakane"
 
-#: src/amo/components/SearchContextCard/index.js:168
+#: src/amo/components/SearchContextCard/index.js:227
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
 msgstr[0] "%(count)s wuslědk jo se namakał z wobznamjenim %(tag)s"
@@ -1816,7 +1886,7 @@ msgstr[1] "%(count)s wuslědka stej se namakałej z wobznamjenim %(tag)s"
 msgstr[2] "%(count)s wuslědki su se namakali z wobznamjenim %(tag)s"
 msgstr[3] "%(count)s wuslědkow jo se namakało z wobznamjenim %(tag)s"
 
-#: src/amo/components/SearchContextCard/index.js:177
+#: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "%(count)s wuslědk jo se namakał"
@@ -1824,15 +1894,32 @@ msgstr[1] "%(count)s wuslědka stej se namakałej"
 msgstr[2] "%(count)s wuslědki su se namakali"
 msgstr[3] "%(count)s wuslědkow jo se namakało"
 
-#: src/amo/components/SearchContextCard/index.js:188
+#: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
 msgstr "\"%(query)s\" se pyta"
 
-#: src/amo/components/SearchContextCard/index.js:192
+#: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
 msgstr "Dodanki pytaś"
 
-#: src/amo/components/SearchContextCard/index.js:60
+#: src/amo/components/SearchContextCard/index.js:59
+#, fuzzy
+msgid ""
+"%(count)s extension found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgid_plural ""
+"%(count)s extensions found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgstr[0] ""
+"%(count)s rozšyrjenje jo se namakało za \"%(query)s\" w %(categoryName)s"
+msgstr[1] ""
+"%(count)s rozšyrjeni stej se namakałej za \"%(query)s\" w %(categoryName)s"
+msgstr[2] ""
+"%(count)s rozšyrjenja su se namakali za \"%(query)s\" w %(categoryName)s"
+msgstr[3] ""
+"%(count)s rozšyrjenjow jo se namakało za \"%(query)s\" w %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] ""
@@ -1844,7 +1931,16 @@ msgstr[2] ""
 msgstr[3] ""
 "%(count)s rozšyrjenjow jo se namakało za \"%(query)s\" w %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:69
+#: src/amo/components/SearchContextCard/index.js:77
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s rozšyrjenje jo se namakało w %(categoryName)s"
+msgstr[1] "%(count)s rozšyrjeni stej se namakałej w %(categoryName)s"
+msgstr[2] "%(count)s rozšyrjenja su se namakali w %(categoryName)s"
+msgstr[3] "%(count)s rozšyrjenjow jo se namakało w %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "%(count)s rozšyrjenje jo se namakało w %(categoryName)s"
@@ -1852,29 +1948,18 @@ msgstr[1] "%(count)s rozšyrjeni stej se namakałej w %(categoryName)s"
 msgstr[2] "%(count)s rozšyrjenja su se namakali w %(categoryName)s"
 msgstr[3] "%(count)s rozšyrjenjow jo se namakało w %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:79
-msgid "%(count)s extension found for \"%(query)s\""
-msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s rozšyrjenje za \"%(query)s\" namakany"
-msgstr[1] "%(count)s rozšyrjeni za \"%(query)s\" namakanej"
-msgstr[2] "%(count)s rozšyrjenja za \"%(query)s\" namakane"
-msgstr[3] "%(count)s rozšyrjenjow za \"%(query)s\" namakane"
-
-#: src/amo/components/SearchContextCard/index.js:88
-msgid "%(count)s extension found with tag %(tag)s"
-msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s rozšyrjenje jo se namakało z wobznamjenim %(tag)s"
-msgstr[1] "%(count)s rozšyrjeni stej se namakałej z wobznamjenim %(tag)s"
-msgstr[2] "%(count)s rozšyrjenja su se namakali z wobznamjenim %(tag)s"
-msgstr[3] "%(count)s rozšyrjenjow jo se namakało z wobznamjenim %(tag)s"
-
-#: src/amo/components/SearchContextCard/index.js:97
-msgid "%(count)s extension found"
-msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s rozšyrjenje jo se namakało"
-msgstr[1] "%(count)s rozšyrjeni stej se namakałej"
-msgstr[2] "%(count)s rozšyrjenja su se namakali"
-msgstr[3] "%(count)s rozšyrjenjow jo se namakało"
+#: src/amo/components/SearchContextCard/index.js:95
+#, fuzzy
+msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] ""
+"%(count)s rozšyrjenje jo se namakało za \"%(query)s\" w %(categoryName)s"
+msgstr[1] ""
+"%(count)s rozšyrjeni stej se namakałej za \"%(query)s\" w %(categoryName)s"
+msgstr[2] ""
+"%(count)s rozšyrjenja su se namakali za \"%(query)s\" w %(categoryName)s"
+msgstr[3] ""
+"%(count)s rozšyrjenjow jo se namakało za \"%(query)s\" w %(categoryName)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"

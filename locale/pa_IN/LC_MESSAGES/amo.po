@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-24 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 16:25+0000\n"
 "PO-Revision-Date: 2021-01-30 18:44+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1142,50 +1142,50 @@ msgstr "ਇਕਸਟੈਨਸ਼ਨ ਵਰਕਸ਼ਾਪ"
 msgid "Developer Hub"
 msgstr "ਡਿਵੈਲਪਰ ਹੱਬ"
 
-#: src/amo/components/GetFirefoxBanner/index.js:90
+#: src/amo/components/GetFirefoxBanner/index.js:72
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:153
+#: src/amo/components/GetFirefoxButton/index.js:132
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ ਕਰੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:154
+#: src/amo/components/GetFirefoxButton/index.js:133
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:158
+#: src/amo/components/GetFirefoxButton/index.js:137
 #, fuzzy
 msgid "Download the new Firefox and get the theme"
 msgstr "ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ ਕਰੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:159
+#: src/amo/components/GetFirefoxButton/index.js:138
 #, fuzzy
 msgid "Download the new Firefox and get the extension"
 msgstr "ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ ਕਰੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:142
 msgid "Download Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ ਕਰੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:166
+#: src/amo/components/GetFirefoxButton/index.js:145
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "ਇਸ ਥੀਮ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:167
+#: src/amo/components/GetFirefoxButton/index.js:146
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
 msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:171
+#: src/amo/components/GetFirefoxButton/index.js:150
 #, fuzzy
 msgid "You need an updated version of Firefox for this theme"
 msgstr "ਇਸ ਥੀਮ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
-#: src/amo/components/GetFirefoxButton/index.js:172
+#: src/amo/components/GetFirefoxButton/index.js:151
 #, fuzzy
 msgid "You need an updated version of Firefox for this extension"
 msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
@@ -1302,7 +1302,7 @@ msgstr "ਸਿਫ਼ਾਰਸ਼ੀ"
 msgid "Verified"
 msgstr "ਤਸਦੀਕ ਕੀਤਾ"
 
-#: src/amo/components/InstallButtonWrapper/index.js:133
+#: src/amo/components/InstallButtonWrapper/index.js:127
 #, fuzzy
 msgid "Download file"
 msgstr "ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
@@ -1744,94 +1744,149 @@ msgstr "ਹਰਮਨਪਿਆਰੀਆਂ ਐਡ-ਆਨ"
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\" ਲਈ ਖੋਜ ਨਤੀਜੇ"
 
-#: src/amo/components/SearchContextCard/index.js:110
-msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
-msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦਾ ਥੀਮ ਪਾਇਆ ਗਿਆ ਹੈ"
-msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਥੀਮ ਲੱਭੇ"
-
-#: src/amo/components/SearchContextCard/index.js:119
-msgid "%(count)s theme found in %(categoryName)s"
-msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s ਦਾ ਥੀਮ %(categoryName)s ਵਿੱਚ ਮਿਲਿਆ ਹੈ"
-msgstr[1] "%(count)s ਦੇ ਥੀਮ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
-
-#: src/amo/components/SearchContextCard/index.js:129
-msgid "%(count)s theme found for \"%(query)s\""
-msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s ਲਈ \"%(query)s\" ਦਾ ਥੀਮ ਮਿਲਿਆ"
-msgstr[1] "%(count)s ਦੇ ਥੀਮ \"%(query)s\" ਲਈ ਲੱਭੇ"
-
-#: src/amo/components/SearchContextCard/index.js:138
-#, fuzzy
-msgid "%(count)s theme found with tag %(tag)s"
-msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "%(count)s ਦਾ ਥੀਮ %(categoryName)s ਵਿੱਚ ਮਿਲਿਆ ਹੈ"
-msgstr[1] "%(count)s ਦੇ ਥੀਮ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
-
-#: src/amo/components/SearchContextCard/index.js:147
-msgid "%(count)s theme found"
-msgid_plural "%(count)s themes found"
-msgstr[0] "%(count)s ਦਾ ਥੀਮ ਲੱਭਿਆ ਹੈ"
-msgstr[1] "%(count)s ਦੇ ਵਿਸ਼ੇ ਮਿਲੇ ਹਨ"
-
-#: src/amo/components/SearchContextCard/index.js:159
-msgid "%(count)s result found for \"%(query)s\""
-msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s ਦਾ ਨਤੀਜਾ \"%(query)s\" ਲਈ ਮਿਲਿਆ ਹੈ"
-msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
-
-#: src/amo/components/SearchContextCard/index.js:168
-#, fuzzy
-msgid "%(count)s result found with tag %(tag)s"
-msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "%(count)s ਦਾ ਨਤੀਜਾ \"%(query)s\" ਲਈ ਮਿਲਿਆ ਹੈ"
-msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
-
-#: src/amo/components/SearchContextCard/index.js:177
-msgid "%(count)s result found"
-msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s ਦਾ ਨਤੀਜਾ ਮਿਲਿਆ"
-msgstr[1] "%(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
-
-#: src/amo/components/SearchContextCard/index.js:188
-msgid "Searching for \"%(query)s\""
-msgstr "\"%(query)s\" ਲਈ ਖੋਜ ਕਰ ਰਿਹਾ ਹੈ"
-
-#: src/amo/components/SearchContextCard/index.js:192
-msgid "Searching for add-ons"
-msgstr "ਐਡ-ਆਨ ਲੱਭ ਰਿਹਾ ਹੈ"
-
-#: src/amo/components/SearchContextCard/index.js:60
-msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
-msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀ ਹੈ"
-msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀਆਂ"
-
-#: src/amo/components/SearchContextCard/index.js:69
-msgid "%(count)s extension found in %(categoryName)s"
-msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s ਦਾ ਇਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
-msgstr[1] "%(count)s ਦੇ ਇਕਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
-
-#: src/amo/components/SearchContextCard/index.js:79
+#: src/amo/components/SearchContextCard/index.js:104
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀ"
 msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀਆਂ"
 
-#: src/amo/components/SearchContextCard/index.js:88
+#: src/amo/components/SearchContextCard/index.js:113
 #, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
 msgstr[0] "%(count)s ਦਾ ਇਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
 msgstr[1] "%(count)s ਦੇ ਇਕਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
 
-#: src/amo/components/SearchContextCard/index.js:97
+#: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s ਇਕਸਟੈਨਸ਼ਨ ਲੱਭੀ"
 msgstr[1] "%(count)s ਇਕਸਟੈਨਸ਼ਨ ਲੱਭੀਆਂ"
+
+#: src/amo/components/SearchContextCard/index.js:134
+#, fuzzy
+msgid ""
+"%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural ""
+"%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦਾ ਥੀਮ ਪਾਇਆ ਗਿਆ ਹੈ"
+msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਥੀਮ ਲੱਭੇ"
+
+#: src/amo/components/SearchContextCard/index.js:143
+msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
+msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦਾ ਥੀਮ ਪਾਇਆ ਗਿਆ ਹੈ"
+msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਥੀਮ ਲੱਭੇ"
+
+#: src/amo/components/SearchContextCard/index.js:152
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s ਦਾ ਥੀਮ %(categoryName)s ਵਿੱਚ ਮਿਲਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਥੀਮ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:161
+msgid "%(count)s theme found in %(categoryName)s"
+msgid_plural "%(count)s themes found in %(categoryName)s"
+msgstr[0] "%(count)s ਦਾ ਥੀਮ %(categoryName)s ਵਿੱਚ ਮਿਲਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਥੀਮ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:170
+#, fuzzy
+msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦਾ ਥੀਮ ਪਾਇਆ ਗਿਆ ਹੈ"
+msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਥੀਮ ਲੱਭੇ"
+
+#: src/amo/components/SearchContextCard/index.js:179
+msgid "%(count)s theme found for \"%(query)s\""
+msgid_plural "%(count)s themes found for \"%(query)s\""
+msgstr[0] "%(count)s ਲਈ \"%(query)s\" ਦਾ ਥੀਮ ਮਿਲਿਆ"
+msgstr[1] "%(count)s ਦੇ ਥੀਮ \"%(query)s\" ਲਈ ਲੱਭੇ"
+
+#: src/amo/components/SearchContextCard/index.js:188
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s"
+msgid_plural "%(count)s themes found with tag %(tag)s"
+msgstr[0] "%(count)s ਦਾ ਥੀਮ %(categoryName)s ਵਿੱਚ ਮਿਲਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਥੀਮ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:197
+msgid "%(count)s theme found"
+msgid_plural "%(count)s themes found"
+msgstr[0] "%(count)s ਦਾ ਥੀਮ ਲੱਭਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਵਿਸ਼ੇ ਮਿਲੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:209
+#, fuzzy
+msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "%(count)s ਦਾ ਨਤੀਜਾ \"%(query)s\" ਲਈ ਮਿਲਿਆ ਹੈ"
+msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:218
+msgid "%(count)s result found for \"%(query)s\""
+msgid_plural "%(count)s results found for \"%(query)s\""
+msgstr[0] "%(count)s ਦਾ ਨਤੀਜਾ \"%(query)s\" ਲਈ ਮਿਲਿਆ ਹੈ"
+msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:227
+#, fuzzy
+msgid "%(count)s result found with tag %(tag)s"
+msgid_plural "%(count)s results found with tag %(tag)s"
+msgstr[0] "%(count)s ਦਾ ਨਤੀਜਾ \"%(query)s\" ਲਈ ਮਿਲਿਆ ਹੈ"
+msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:236
+msgid "%(count)s result found"
+msgid_plural "%(count)s results found"
+msgstr[0] "%(count)s ਦਾ ਨਤੀਜਾ ਮਿਲਿਆ"
+msgstr[1] "%(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:247
+msgid "Searching for \"%(query)s\""
+msgstr "\"%(query)s\" ਲਈ ਖੋਜ ਕਰ ਰਿਹਾ ਹੈ"
+
+#: src/amo/components/SearchContextCard/index.js:251
+msgid "Searching for add-ons"
+msgstr "ਐਡ-ਆਨ ਲੱਭ ਰਿਹਾ ਹੈ"
+
+#: src/amo/components/SearchContextCard/index.js:59
+#, fuzzy
+msgid ""
+"%(count)s extension found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgid_plural ""
+"%(count)s extensions found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀ ਹੈ"
+msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀਆਂ"
+
+#: src/amo/components/SearchContextCard/index.js:68
+msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
+msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀ ਹੈ"
+msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀਆਂ"
+
+#: src/amo/components/SearchContextCard/index.js:77
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s ਦਾ ਇਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਇਕਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:86
+msgid "%(count)s extension found in %(categoryName)s"
+msgid_plural "%(count)s extensions found in %(categoryName)s"
+msgstr[0] "%(count)s ਦਾ ਇਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਇਕਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
+
+#: src/amo/components/SearchContextCard/index.js:95
+#, fuzzy
+msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀ ਹੈ"
+msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀਆਂ"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
