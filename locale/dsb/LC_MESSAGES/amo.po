@@ -1720,7 +1720,7 @@ msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] "%(count)s rozšyrjenje jo se namakało za \"%(query)s\" z wobznamjenim %(tag)s"
 msgstr[1] "%(count)s rozšyrjeni stej se namakałej za \"%(query)s\" z wobznamjenim %(tag)s"
 msgstr[2] "%(count)s rozšyrjenja su se namakali za \"%(query)s\" z wobznamjenim %(tag)s"
-msgstr[3] ""
+msgstr[3] "%(count)s rozšyrjenjow jo se namakało za \"%(query)s\" z wobznamjenim %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
