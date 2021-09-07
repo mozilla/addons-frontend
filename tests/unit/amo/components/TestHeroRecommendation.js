@@ -326,7 +326,7 @@ describe(__filename, () => {
     const root = render();
 
     expect(root).toHaveClassName('HeroRecommendation--loading');
-    expect(root.find(LoadingText)).toHaveLength(4);
+    expect(root.find(LoadingText)).toHaveLength(5);
   });
 
   it('renders nothing if shelfData is null', () => {
