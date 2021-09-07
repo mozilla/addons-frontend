@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-07 16:25+0000\n"
-"PO-Revision-Date: 2021-09-07 20:38+0000\n"
+"PO-Revision-Date: 2021-09-07 20:39+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1678,12 +1678,11 @@ msgstr[1] "На запит \"%(query)s\" знайдено %(count)s розшир
 msgstr[2] "На запит \"%(query)s\" знайдено %(count)s розширень в категорії %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "Знайдено %(count)s розширення в категорії %(categoryName)s"
-msgstr[1] "Знайдено %(count)s розширення в категорії %(categoryName)s"
-msgstr[2] "Знайдено %(count)s розширень в категорії %(categoryName)s"
+msgstr[0] "Знайдено %(count)s розширення в категорії %(categoryName)s з міткою %(tag)s"
+msgstr[1] "Знайдено %(count)s розширення в категорії %(categoryName)s з міткою %(tag)s"
+msgstr[2] "Знайдено %(count)s розширень в категорії %(categoryName)s з міткою %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -1693,12 +1692,11 @@ msgstr[1] "Знайдено %(count)s розширення в категорії
 msgstr[2] "Знайдено %(count)s розширень в категорії %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "На запит \"%(query)s\" знайдено %(count)s розширення в категорії %(categoryName)s"
-msgstr[1] "На запит \"%(query)s\" знайдено %(count)s розширення в категорії %(categoryName)s"
-msgstr[2] "На запит \"%(query)s\" знайдено %(count)s розширень в категорії %(categoryName)s"
+msgstr[0] "За запитом \"%(query)s\" знайдено %(count)s розширення з міткою %(tag)s"
+msgstr[1] "За запитом \"%(query)s\" знайдено %(count)s розширення з міткою %(tag)s"
+msgstr[2] "За запитом \"%(query)s\" знайдено %(count)s розширень із міткою %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
