@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-07 16:25+0000\n"
-"PO-Revision-Date: 2021-09-07 19:20+0000\n"
+"PO-Revision-Date: 2021-09-07 19:24+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1584,11 +1584,10 @@ msgstr[0] "Βρέθηκε %(count)s θέμα στην κατηγορία %(categ
 msgstr[1] "Βρέθηκαν %(count)s θέματα στην κατηγορία %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:170
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "Βρέθηκε %(count)s θέμα για \"%(query)s\" στην κατηγορία %(categoryName)s"
-msgstr[1] "Βρέθηκαν %(count)s θέματα για \"%(query)s\" στην κατηγορία %(categoryName)s"
+msgstr[0] "Βρέθηκε %(count)s θέμα για «%(query)s» με ετικέτα «%(tag)s»"
+msgstr[1] "Βρέθηκαν %(count)s θέματα για «%(query)s» με ετικέτα «%(tag)s»"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1609,11 +1608,10 @@ msgstr[0] "Βρέθηκε %(count)s θέμα"
 msgstr[1] "Βρέθηκαν %(count)s θέματα"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "Βρέθηκε %(count)s αποτέλεσμα με ετικέτα %(tag)s"
-msgstr[1] "Βρέθηκαν %(count)s αποτελέσματα με ετικέτα %(tag)s"
+msgstr[0] "Βρέθηκε %(count)s αποτέλεσμα για «%(query)s» με ετικέτα «%(tag)s»"
+msgstr[1] "Βρέθηκαν %(count)s αποτελέσματα για «%(query)s» με ετικέτα «%(tag)s»"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -1642,11 +1640,10 @@ msgid "Searching for add-ons"
 msgstr "Αναζήτηση για πρόσθετα"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "Βρέθηκε %(count)s επέκταση για \"%(query)s\" στην κατηγορία %(categoryName)s"
-msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για \"%(query)s\" στην κατηγορία %(categoryName)s"
+msgstr[0] "Βρέθηκε %(count)s επέκταση για «%(query)s» με ετικέτα «%(tag)s» στην κατηγορία «%(categoryName)s»"
+msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για «%(query)s» με ετικέτα «%(tag)s» στην κατηγορία «%(categoryName)s»"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
