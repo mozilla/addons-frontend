@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-07 16:25+0000\n"
-"PO-Revision-Date: 2021-09-07 18:37+0000\n"
+"PO-Revision-Date: 2021-09-07 18:38+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1671,11 +1671,10 @@ msgstr[0] "%(count)s extension trovate in %(categoryName)s"
 msgstr[1] "%(count)s extensiones trovate in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s extension trovate pro \"%(query)s\" in %(categoryName)s"
-msgstr[1] "%(count)s extensiones trovate pro \"%(query)s\" in %(categoryName)s"
+msgstr[0] "%(count)s extension trovate pro \"%(query)s\" con tag %(tag)s"
+msgstr[1] "%(count)s extensiones trovate pro \"%(query)s\" con tag %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
