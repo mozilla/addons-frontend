@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-24 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 16:25+0000\n"
 "PO-Revision-Date: 2021-08-17 22:33+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -1126,45 +1126,45 @@ msgstr "Extension Workshop"
 msgid "Developer Hub"
 msgstr "מרכז המפתחים"
 
-#: src/amo/components/GetFirefoxBanner/index.js:90
+#: src/amo/components/GetFirefoxBanner/index.js:72
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 "כדי להשתמש בתוספות אלו, יש צורך %(linkStart)sלהוריד את Firefox%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:153
+#: src/amo/components/GetFirefoxButton/index.js:132
 msgid "Download Firefox and get the theme"
 msgstr "הורדת Firefox וקבלת ערכת הנושא"
 
-#: src/amo/components/GetFirefoxButton/index.js:154
+#: src/amo/components/GetFirefoxButton/index.js:133
 msgid "Download Firefox and get the extension"
 msgstr "הורדת Firefox וקבלת ההרחבה"
 
-#: src/amo/components/GetFirefoxButton/index.js:158
+#: src/amo/components/GetFirefoxButton/index.js:137
 msgid "Download the new Firefox and get the theme"
 msgstr "הורדת Firefox החדש וקבלת ערכת הנושא"
 
-#: src/amo/components/GetFirefoxButton/index.js:159
+#: src/amo/components/GetFirefoxButton/index.js:138
 msgid "Download the new Firefox and get the extension"
 msgstr "הורדת Firefox החדש וקבלת ההרחבה"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:142
 msgid "Download Firefox"
 msgstr "הורדת Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:166
+#: src/amo/components/GetFirefoxButton/index.js:145
 msgid "You'll need Firefox to use this theme"
 msgstr "יש צורך ב־Firefox כדי להשתמש בערכת נושא זו"
 
-#: src/amo/components/GetFirefoxButton/index.js:167
+#: src/amo/components/GetFirefoxButton/index.js:146
 msgid "You'll need Firefox to use this extension"
 msgstr "יש צורך ב־Firefox כדי להשתמש בהרחבה זו"
 
-#: src/amo/components/GetFirefoxButton/index.js:171
+#: src/amo/components/GetFirefoxButton/index.js:150
 msgid "You need an updated version of Firefox for this theme"
 msgstr "יש צורך בגרסה העדכנית של Firefox כדי להשתמש בערכת נושא זו"
 
-#: src/amo/components/GetFirefoxButton/index.js:172
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "You need an updated version of Firefox for this extension"
 msgstr "יש צורך בגרסה העדכנית של Firefox כדי להשתמש בהרחבה זו"
 
@@ -1276,7 +1276,7 @@ msgstr "מומלץ"
 msgid "Verified"
 msgstr "מאומת"
 
-#: src/amo/components/InstallButtonWrapper/index.js:133
+#: src/amo/components/InstallButtonWrapper/index.js:127
 msgid "Download file"
 msgstr "הורדת קובץ"
 
@@ -1698,92 +1698,149 @@ msgstr "תוספות פופולריות"
 msgid "Search results for \"%(query)s\""
 msgstr "תוצאות חיפוש עבור ״%(query)s״"
 
-#: src/amo/components/SearchContextCard/index.js:110
+#: src/amo/components/SearchContextCard/index.js:104
+msgid "%(count)s extension found for \"%(query)s\""
+msgid_plural "%(count)s extensions found for \"%(query)s\""
+msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\""
+msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:113
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "נמצאה הרחבה אחת עם התגית %(tag)s"
+msgstr[1] "נמצאו %(count)s הרחבות עם התגית %(tag)s"
+
+#: src/amo/components/SearchContextCard/index.js:122
+msgid "%(count)s extension found"
+msgid_plural "%(count)s extensions found"
+msgstr[0] "נמצאה הרחבה אחת"
+msgstr[1] "נמצאו %(count)s הרחבות"
+
+#: src/amo/components/SearchContextCard/index.js:134
+#, fuzzy
+msgid ""
+"%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural ""
+"%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\" בקטגוריה %(categoryName)s"
+msgstr[1] ""
+"נמצאו %(count)s ערכות נושא עבור \"%(query)s\" בקטגוריה %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\" בקטגוריה %(categoryName)s"
 msgstr[1] ""
 "נמצאו %(count)s ערכות נושא עבור \"%(query)s\" בקטגוריה %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:119
+#: src/amo/components/SearchContextCard/index.js:152
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "נמצאה ערכת נושא אחת בקטגוריה %(categoryName)s"
+msgstr[1] "נמצאו %(count)s ערכות נושא בקטגוריה %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "נמצאה ערכת נושא אחת בקטגוריה %(categoryName)s"
 msgstr[1] "נמצאו %(count)s ערכות נושא בקטגוריה %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:129
+#: src/amo/components/SearchContextCard/index.js:170
+#, fuzzy
+msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\" בקטגוריה %(categoryName)s"
+msgstr[1] ""
+"נמצאו %(count)s ערכות נושא עבור \"%(query)s\" בקטגוריה %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\""
 msgstr[1] "נמצאו %(count)s ערכות נושא עבור \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:138
+#: src/amo/components/SearchContextCard/index.js:188
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
 msgstr[0] "נמצאה ערכת נושא אחת עם התגית %(tag)s"
 msgstr[1] "נמצאו %(count)s ערכות נושא עם התגית %(tag)s"
 
-#: src/amo/components/SearchContextCard/index.js:147
+#: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "נמצאה ערכת נושא אחת"
 msgstr[1] "נמצאו %(count)s ערכות נושא"
 
-#: src/amo/components/SearchContextCard/index.js:159
+#: src/amo/components/SearchContextCard/index.js:209
+#, fuzzy
+msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "נמצאה תוצאה אחת עם התגית %(tag)s"
+msgstr[1] "נמצאו %(count)s תוצאות עם התגית %(tag)s"
+
+#: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "נמצאה תוצאה אחת עבור \"%(query)s\""
 msgstr[1] "נמצאו %(count)s תוצאות עבור \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:168
+#: src/amo/components/SearchContextCard/index.js:227
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
 msgstr[0] "נמצאה תוצאה אחת עם התגית %(tag)s"
 msgstr[1] "נמצאו %(count)s תוצאות עם התגית %(tag)s"
 
-#: src/amo/components/SearchContextCard/index.js:177
+#: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "נמצאה תוצאה אחת"
 msgstr[1] "נמצאו %(count)s תוצאות"
 
-#: src/amo/components/SearchContextCard/index.js:188
+#: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
 msgstr "בחיפוש אחר ״%(query)s״"
 
-#: src/amo/components/SearchContextCard/index.js:192
+#: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
 msgstr "בחיפוש אחר תוספות"
 
-#: src/amo/components/SearchContextCard/index.js:60
+#: src/amo/components/SearchContextCard/index.js:59
+#, fuzzy
+msgid ""
+"%(count)s extension found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgid_plural ""
+"%(count)s extensions found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\" בקטגוריה %(categoryName)s"
+msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\" בקטגוריה %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\" בקטגוריה %(categoryName)s"
 msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\" בקטגוריה %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:69
+#: src/amo/components/SearchContextCard/index.js:77
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "נמצאה הרחבה אחת בקטגוריה %(categoryName)s"
+msgstr[1] "נמצאו %(count)s הרחבות בקטגוריה %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "נמצאה הרחבה אחת בקטגוריה %(categoryName)s"
 msgstr[1] "נמצאו %(count)s הרחבות בקטגוריה %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:79
-msgid "%(count)s extension found for \"%(query)s\""
-msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\""
-msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\""
-
-#: src/amo/components/SearchContextCard/index.js:88
-msgid "%(count)s extension found with tag %(tag)s"
-msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "נמצאה הרחבה אחת עם התגית %(tag)s"
-msgstr[1] "נמצאו %(count)s הרחבות עם התגית %(tag)s"
-
-#: src/amo/components/SearchContextCard/index.js:97
-msgid "%(count)s extension found"
-msgid_plural "%(count)s extensions found"
-msgstr[0] "נמצאה הרחבה אחת"
-msgstr[1] "נמצאו %(count)s הרחבות"
+#: src/amo/components/SearchContextCard/index.js:95
+#, fuzzy
+msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\" בקטגוריה %(categoryName)s"
+msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\" בקטגוריה %(categoryName)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-24 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 16:25+0000\n"
 "PO-Revision-Date: 2021-08-18 17:50+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -1140,46 +1140,46 @@ msgstr "Extension Workshop"
 msgid "Developer Hub"
 msgstr "Trung tâm nhà phát triển"
 
-#: src/amo/components/GetFirefoxBanner/index.js:90
+#: src/amo/components/GetFirefoxBanner/index.js:72
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 "Để sử dụng các tiện ích mở rộng này, bạn cần %(linkStart)stải xuống Firefox"
 "%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:153
+#: src/amo/components/GetFirefoxButton/index.js:132
 msgid "Download Firefox and get the theme"
 msgstr "Tải xuống Firefox và nhận chủ đề"
 
-#: src/amo/components/GetFirefoxButton/index.js:154
+#: src/amo/components/GetFirefoxButton/index.js:133
 msgid "Download Firefox and get the extension"
 msgstr "Tải xuống Firefox và tải tiện ích mở rộng"
 
-#: src/amo/components/GetFirefoxButton/index.js:158
+#: src/amo/components/GetFirefoxButton/index.js:137
 msgid "Download the new Firefox and get the theme"
 msgstr "Tải xuống Firefox mới và nhận chủ đề"
 
-#: src/amo/components/GetFirefoxButton/index.js:159
+#: src/amo/components/GetFirefoxButton/index.js:138
 msgid "Download the new Firefox and get the extension"
 msgstr "Tải xuống Firefox mới và tải tiện ích mở rộng"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:142
 msgid "Download Firefox"
 msgstr "Tải xuông Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:166
+#: src/amo/components/GetFirefoxButton/index.js:145
 msgid "You'll need Firefox to use this theme"
 msgstr "Bạn sẽ cần Firefox để sử dụng chủ đề này"
 
-#: src/amo/components/GetFirefoxButton/index.js:167
+#: src/amo/components/GetFirefoxButton/index.js:146
 msgid "You'll need Firefox to use this extension"
 msgstr "Bạn sẽ cần Firefox để sử dụng tiện ích mở rộng này"
 
-#: src/amo/components/GetFirefoxButton/index.js:171
+#: src/amo/components/GetFirefoxButton/index.js:150
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Bạn sẽ cần phiên bản Firefox cập nhật cho chủ đề này"
 
-#: src/amo/components/GetFirefoxButton/index.js:172
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Bạn sẽ cần phiên bản Firefox cập nhật cho tiện ích mở rộng này"
 
@@ -1293,7 +1293,7 @@ msgstr "Được đề xuất"
 msgid "Verified"
 msgstr "Đã xác minh"
 
-#: src/amo/components/InstallButtonWrapper/index.js:133
+#: src/amo/components/InstallButtonWrapper/index.js:127
 msgid "Download file"
 msgstr "Tải xuống tập tin"
 
@@ -1731,79 +1731,129 @@ msgstr "Tiện ích phổ biến"
 msgid "Search results for \"%(query)s\""
 msgstr "Kiếm quả tìm kiếm cho \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:110
+#: src/amo/components/SearchContextCard/index.js:104
+msgid "%(count)s extension found for \"%(query)s\""
+msgid_plural "%(count)s extensions found for \"%(query)s\""
+msgstr[0] "%(count)s tiện ích đã tìm thấy cho \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:113
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "%(count)s tiện ích đã tìm thấy với thẻ %(tag)s"
+
+#: src/amo/components/SearchContextCard/index.js:122
+msgid "%(count)s extension found"
+msgid_plural "%(count)s extensions found"
+msgstr[0] "%(count)s tiện ích đã tìm thấy"
+
+#: src/amo/components/SearchContextCard/index.js:134
+#, fuzzy
+msgid ""
+"%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural ""
+"%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s chủ đề tìm thấy cho \"%(query)s\" trong %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s chủ đề tìm thấy cho \"%(query)s\" trong %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:119
+#: src/amo/components/SearchContextCard/index.js:152
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s chủ đề tìm thấy trong %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "%(count)s chủ đề tìm thấy trong %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:129
+#: src/amo/components/SearchContextCard/index.js:170
+#, fuzzy
+msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "%(count)s chủ đề tìm thấy cho \"%(query)s\" trong %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s chủ đề tìm thấy cho \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:138
+#: src/amo/components/SearchContextCard/index.js:188
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
 msgstr[0] "%(count)s chủ đề đã tìm thấy với thẻ %(tag)s"
 
-#: src/amo/components/SearchContextCard/index.js:147
+#: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "%(count)s chủ đề đã tìm thấy"
 
-#: src/amo/components/SearchContextCard/index.js:159
+#: src/amo/components/SearchContextCard/index.js:209
+#, fuzzy
+msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "%(count)s kết quả đã tìm thấy với thẻ %(tag)s"
+
+#: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "%(count)s kết quả đã tìm thấy cho \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:168
+#: src/amo/components/SearchContextCard/index.js:227
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
 msgstr[0] "%(count)s kết quả đã tìm thấy với thẻ %(tag)s"
 
-#: src/amo/components/SearchContextCard/index.js:177
+#: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "%(count)s kết quả tìm thấy"
 
-#: src/amo/components/SearchContextCard/index.js:188
+#: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
 msgstr "Đang tìm kiếm cho \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:192
+#: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
 msgstr "Đang tìm kiếm tiện ích"
 
-#: src/amo/components/SearchContextCard/index.js:60
+#: src/amo/components/SearchContextCard/index.js:59
+#, fuzzy
+msgid ""
+"%(count)s extension found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgid_plural ""
+"%(count)s extensions found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgstr[0] ""
+"%(count)s tiện ích tìm thấy cho \"%(query)s\" trong %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] ""
 "%(count)s tiện ích tìm thấy cho \"%(query)s\" trong %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:69
+#: src/amo/components/SearchContextCard/index.js:77
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "%(count)s tiện ích tìm thấy trong %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "%(count)s tiện ích tìm thấy trong %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:79
-msgid "%(count)s extension found for \"%(query)s\""
-msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s tiện ích đã tìm thấy cho \"%(query)s\""
-
-#: src/amo/components/SearchContextCard/index.js:88
-msgid "%(count)s extension found with tag %(tag)s"
-msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "%(count)s tiện ích đã tìm thấy với thẻ %(tag)s"
-
-#: src/amo/components/SearchContextCard/index.js:97
-msgid "%(count)s extension found"
-msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s tiện ích đã tìm thấy"
+#: src/amo/components/SearchContextCard/index.js:95
+#, fuzzy
+msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] ""
+"%(count)s tiện ích tìm thấy cho \"%(query)s\" trong %(categoryName)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"

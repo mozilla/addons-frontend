@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-24 16:36+0000\n"
+"POT-Creation-Date: 2021-09-07 16:25+0000\n"
 "PO-Revision-Date: 2020-07-14 06:20+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
@@ -1137,50 +1137,50 @@ msgstr "ورشة عمل الامتدادات"
 msgid "Developer Hub"
 msgstr "مركز المطورين"
 
-#: src/amo/components/GetFirefoxBanner/index.js:90
+#: src/amo/components/GetFirefoxBanner/index.js:72
 msgid ""
 "To use these add-ons, you'll need to %(linkStart)sdownload Firefox%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:153
+#: src/amo/components/GetFirefoxButton/index.js:132
 #, fuzzy
 msgid "Download Firefox and get the theme"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:154
+#: src/amo/components/GetFirefoxButton/index.js:133
 msgid "Download Firefox and get the extension"
 msgstr ""
 
-#: src/amo/components/GetFirefoxButton/index.js:158
+#: src/amo/components/GetFirefoxButton/index.js:137
 #, fuzzy
 msgid "Download the new Firefox and get the theme"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:159
+#: src/amo/components/GetFirefoxButton/index.js:138
 #, fuzzy
 msgid "Download the new Firefox and get the extension"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:163
+#: src/amo/components/GetFirefoxButton/index.js:142
 msgid "Download Firefox"
 msgstr "نزّل فَيَرفُكس"
 
-#: src/amo/components/GetFirefoxButton/index.js:166
+#: src/amo/components/GetFirefoxButton/index.js:145
 #, fuzzy
 msgid "You'll need Firefox to use this theme"
 msgstr "لِج لتقييم السمة هذه"
 
-#: src/amo/components/GetFirefoxButton/index.js:167
+#: src/amo/components/GetFirefoxButton/index.js:146
 #, fuzzy
 msgid "You'll need Firefox to use this extension"
 msgstr "لِج لتقييم الامتداد هذا"
 
-#: src/amo/components/GetFirefoxButton/index.js:171
+#: src/amo/components/GetFirefoxButton/index.js:150
 #, fuzzy
 msgid "You need an updated version of Firefox for this theme"
 msgstr "لِج لتقييم السمة هذه"
 
-#: src/amo/components/GetFirefoxButton/index.js:172
+#: src/amo/components/GetFirefoxButton/index.js:151
 #, fuzzy
 msgid "You need an updated version of Firefox for this extension"
 msgstr "لِج لتقييم الامتداد هذا"
@@ -1295,7 +1295,7 @@ msgstr "مُقترحة"
 msgid "Verified"
 msgstr ""
 
-#: src/amo/components/InstallButtonWrapper/index.js:133
+#: src/amo/components/InstallButtonWrapper/index.js:127
 #, fuzzy
 msgid "Download file"
 msgstr "لا تنزيلات"
@@ -1733,7 +1733,54 @@ msgstr "إضافات شائعة"
 msgid "Search results for \"%(query)s\""
 msgstr "نتائج البحث عن ”⁨%(query)s⁩“"
 
-#: src/amo/components/SearchContextCard/index.js:110
+#: src/amo/components/SearchContextCard/index.js:104
+msgid "%(count)s extension found for \"%(query)s\""
+msgid_plural "%(count)s extensions found for \"%(query)s\""
+msgstr[0] "لم يُعثر على أي امتداد عند البحث عن ”⁨%(query)s⁩“"
+msgstr[1] "عُثر على امتداد واحد عند البحث عن ”⁨%(query)s⁩“"
+msgstr[2] "عُثر على امتدادين اثنين عند البحث عن ”⁨%(query)s⁩“"
+msgstr[3] "عُثر على %(count)s امتدادات عند البحث عن ”⁨%(query)s⁩“"
+msgstr[4] "عُثر على %(count)s امتدادا عند البحث عن ”⁨%(query)s⁩“"
+msgstr[5] "عُثر على %(count)s امتداد عند البحث عن ”⁨%(query)s⁩“"
+
+#: src/amo/components/SearchContextCard/index.js:113
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s"
+msgstr[0] "لم يُعثر على أي امتداد عند البحث في %(categoryName)s"
+msgstr[1] "عُثر على امتداد واحد عند البحث في %(categoryName)s"
+msgstr[2] "عُثر على امتدادين اثنين عند البحث في %(categoryName)s"
+msgstr[3] "عُثر على %(count)s امتدادات عند البحث في %(categoryName)s"
+msgstr[4] "عُثر على %(count)s امتدادا عند البحث في %(categoryName)s"
+msgstr[5] "عُثر على %(count)s امتداد عند البحث في %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:122
+msgid "%(count)s extension found"
+msgid_plural "%(count)s extensions found"
+msgstr[0] "لم يُعثر على امتدادات"
+msgstr[1] "عُثر على امتدادات واحد"
+msgstr[2] "عُثر على امتدادين"
+msgstr[3] "عُثر على %(count)s امتدادات"
+msgstr[4] "عُثر على %(count)s امتدادا"
+msgstr[5] "عُثر على %(count)s امتداد"
+
+#: src/amo/components/SearchContextCard/index.js:134
+#, fuzzy
+msgid ""
+"%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgid_plural ""
+"%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
+msgstr[0] "لم يُعثر على أية سمة عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[1] "عُثر على سمة واحدة عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[2] "عُثر على سمتين اثنتين عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[3] ""
+"عُثر على %(count)s سمات عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[4] ""
+"عُثر على %(count)s سمة عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[5] ""
+"عُثر على %(count)s سمة عند البحث عن \"%(query)s\" في %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "لم يُعثر على أية سمة عند البحث عن \"%(query)s\" في %(categoryName)s"
@@ -1746,7 +1793,18 @@ msgstr[4] ""
 msgstr[5] ""
 "عُثر على %(count)s سمة عند البحث عن \"%(query)s\" في %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:119
+#: src/amo/components/SearchContextCard/index.js:152
+#, fuzzy
+msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "لم يُعثر على أية سمة عند البحث في %(categoryName)s"
+msgstr[1] "عُثر على سمة واحدة عند البحث في %(categoryName)s"
+msgstr[2] "عُثر على سمتين اثنتين عند البحث في %(categoryName)s"
+msgstr[3] "عُثر على %(count)s سمات عند البحث في %(categoryName)s"
+msgstr[4] "عُثر على %(count)s سمة عند البحث في %(categoryName)s"
+msgstr[5] "عُثر على %(count)s سمة عند البحث في %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "لم يُعثر على أية سمة عند البحث في %(categoryName)s"
@@ -1756,7 +1814,21 @@ msgstr[3] "عُثر على %(count)s سمات عند البحث في %(categoryN
 msgstr[4] "عُثر على %(count)s سمة عند البحث في %(categoryName)s"
 msgstr[5] "عُثر على %(count)s سمة عند البحث في %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:129
+#: src/amo/components/SearchContextCard/index.js:170
+#, fuzzy
+msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "لم يُعثر على أية سمة عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[1] "عُثر على سمة واحدة عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[2] "عُثر على سمتين اثنتين عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[3] ""
+"عُثر على %(count)s سمات عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[4] ""
+"عُثر على %(count)s سمة عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[5] ""
+"عُثر على %(count)s سمة عند البحث عن \"%(query)s\" في %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "لم يُعثر على أية سمة عند البحث عن ”⁨%(query)s⁩“"
@@ -1766,7 +1838,7 @@ msgstr[3] "عُثر على %(count)s سمات عند البحث عن ”⁨%(que
 msgstr[4] "عُثر على %(count)s سمة عند البحث عن ”⁨%(query)s⁩“"
 msgstr[5] "عُثر على %(count)s سمة عند البحث عن ”⁨%(query)s⁩“"
 
-#: src/amo/components/SearchContextCard/index.js:138
+#: src/amo/components/SearchContextCard/index.js:188
 #, fuzzy
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
@@ -1777,7 +1849,7 @@ msgstr[3] "عُثر على %(count)s سمات عند البحث في %(categoryN
 msgstr[4] "عُثر على %(count)s سمة عند البحث في %(categoryName)s"
 msgstr[5] "عُثر على %(count)s سمة عند البحث في %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:147
+#: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "لم يُعثر على أية سمات"
@@ -1787,7 +1859,18 @@ msgstr[3] "عُثر على %(count)s سمات"
 msgstr[4] "عُثر على %(count)s سمة"
 msgstr[5] "عُثر على %(count)s سمة"
 
-#: src/amo/components/SearchContextCard/index.js:159
+#: src/amo/components/SearchContextCard/index.js:209
+#, fuzzy
+msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] "لم يُعثر على أية نتيجة عند البحث عن ”⁨%(query)s⁩“"
+msgstr[1] "عُثر على نتيجة واحدة عند البحث عن ”⁨%(query)s⁩“"
+msgstr[2] "عُثر على نتيجتين اثنتين عند البحث عن ”⁨%(query)s⁩“"
+msgstr[3] "عُثر على %(count)s نتائج عند البحث عن ”⁨%(query)s⁩“"
+msgstr[4] "عُثر على %(count)s نتيجة عند البحث عن ”⁨%(query)s⁩“"
+msgstr[5] "عُثر على %(count)s نتيجة عند البحث عن ”⁨%(query)s⁩“"
+
+#: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "لم يُعثر على أية نتيجة عند البحث عن ”⁨%(query)s⁩“"
@@ -1797,7 +1880,7 @@ msgstr[3] "عُثر على %(count)s نتائج عند البحث عن ”⁨%(q
 msgstr[4] "عُثر على %(count)s نتيجة عند البحث عن ”⁨%(query)s⁩“"
 msgstr[5] "عُثر على %(count)s نتيجة عند البحث عن ”⁨%(query)s⁩“"
 
-#: src/amo/components/SearchContextCard/index.js:168
+#: src/amo/components/SearchContextCard/index.js:227
 #, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
@@ -1808,7 +1891,7 @@ msgstr[3] "عُثر على %(count)s نتائج عند البحث عن ”⁨%(q
 msgstr[4] "عُثر على %(count)s نتيجة عند البحث عن ”⁨%(query)s⁩“"
 msgstr[5] "عُثر على %(count)s نتيجة عند البحث عن ”⁨%(query)s⁩“"
 
-#: src/amo/components/SearchContextCard/index.js:177
+#: src/amo/components/SearchContextCard/index.js:236
 #, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
@@ -1819,15 +1902,35 @@ msgstr[3] "%(count)s نتائج عند البحث عن ”⁨%(query)s⁩“"
 msgstr[4] "%(count)s نتيجة عند البحث عن ”⁨%(query)s⁩“"
 msgstr[5] "%(count)s نتيجة عند البحث عن ”⁨%(query)s⁩“"
 
-#: src/amo/components/SearchContextCard/index.js:188
+#: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
 msgstr "يبحث عن ”⁨%(query)s⁩“"
 
-#: src/amo/components/SearchContextCard/index.js:192
+#: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
 msgstr "يبحث في الإضافات"
 
-#: src/amo/components/SearchContextCard/index.js:60
+#: src/amo/components/SearchContextCard/index.js:59
+#, fuzzy
+msgid ""
+"%(count)s extension found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgid_plural ""
+"%(count)s extensions found for \"%(query)s\" with tag %(tag)s in "
+"%(categoryName)s"
+msgstr[0] ""
+"لم يُعثر على أي امتداد عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[1] "عُثر على امتداد واحد عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[2] ""
+"عُثر على امتدادين اثنين عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[3] ""
+"عُثر على %(count)s امتدادات عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[4] ""
+"عُثر على %(count)s امتدادا عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[5] ""
+"عُثر على %(count)s امتداد عند البحث عن \"%(query)s\" في %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] ""
@@ -1842,7 +1945,18 @@ msgstr[4] ""
 msgstr[5] ""
 "عُثر على %(count)s امتداد عند البحث عن \"%(query)s\" في %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:69
+#: src/amo/components/SearchContextCard/index.js:77
+#, fuzzy
+msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
+msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
+msgstr[0] "لم يُعثر على أي امتداد عند البحث في %(categoryName)s"
+msgstr[1] "عُثر على امتداد واحد عند البحث في %(categoryName)s"
+msgstr[2] "عُثر على امتدادين اثنين عند البحث في %(categoryName)s"
+msgstr[3] "عُثر على %(count)s امتدادات عند البحث في %(categoryName)s"
+msgstr[4] "عُثر على %(count)s امتدادا عند البحث في %(categoryName)s"
+msgstr[5] "عُثر على %(count)s امتداد عند البحث في %(categoryName)s"
+
+#: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "لم يُعثر على أي امتداد عند البحث في %(categoryName)s"
@@ -1852,36 +1966,21 @@ msgstr[3] "عُثر على %(count)s امتدادات عند البحث في %(c
 msgstr[4] "عُثر على %(count)s امتدادا عند البحث في %(categoryName)s"
 msgstr[5] "عُثر على %(count)s امتداد عند البحث في %(categoryName)s"
 
-#: src/amo/components/SearchContextCard/index.js:79
-msgid "%(count)s extension found for \"%(query)s\""
-msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "لم يُعثر على أي امتداد عند البحث عن ”⁨%(query)s⁩“"
-msgstr[1] "عُثر على امتداد واحد عند البحث عن ”⁨%(query)s⁩“"
-msgstr[2] "عُثر على امتدادين اثنين عند البحث عن ”⁨%(query)s⁩“"
-msgstr[3] "عُثر على %(count)s امتدادات عند البحث عن ”⁨%(query)s⁩“"
-msgstr[4] "عُثر على %(count)s امتدادا عند البحث عن ”⁨%(query)s⁩“"
-msgstr[5] "عُثر على %(count)s امتداد عند البحث عن ”⁨%(query)s⁩“"
-
-#: src/amo/components/SearchContextCard/index.js:88
+#: src/amo/components/SearchContextCard/index.js:95
 #, fuzzy
-msgid "%(count)s extension found with tag %(tag)s"
-msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "لم يُعثر على أي امتداد عند البحث في %(categoryName)s"
-msgstr[1] "عُثر على امتداد واحد عند البحث في %(categoryName)s"
-msgstr[2] "عُثر على امتدادين اثنين عند البحث في %(categoryName)s"
-msgstr[3] "عُثر على %(count)s امتدادات عند البحث في %(categoryName)s"
-msgstr[4] "عُثر على %(count)s امتدادا عند البحث في %(categoryName)s"
-msgstr[5] "عُثر على %(count)s امتداد عند البحث في %(categoryName)s"
-
-#: src/amo/components/SearchContextCard/index.js:97
-msgid "%(count)s extension found"
-msgid_plural "%(count)s extensions found"
-msgstr[0] "لم يُعثر على امتدادات"
-msgstr[1] "عُثر على امتدادات واحد"
-msgstr[2] "عُثر على امتدادين"
-msgstr[3] "عُثر على %(count)s امتدادات"
-msgstr[4] "عُثر على %(count)s امتدادا"
-msgstr[5] "عُثر على %(count)s امتداد"
+msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
+msgstr[0] ""
+"لم يُعثر على أي امتداد عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[1] "عُثر على امتداد واحد عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[2] ""
+"عُثر على امتدادين اثنين عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[3] ""
+"عُثر على %(count)s امتدادات عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[4] ""
+"عُثر على %(count)s امتدادا عند البحث عن \"%(query)s\" في %(categoryName)s"
+msgstr[5] ""
+"عُثر على %(count)s امتداد عند البحث عن \"%(query)s\" في %(categoryName)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
