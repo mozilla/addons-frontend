@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-07 16:25+0000\n"
-"PO-Revision-Date: 2021-09-07 18:29+0000\n"
+"PO-Revision-Date: 2021-09-07 18:33+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1683,13 +1683,12 @@ msgid "Searching for add-ons"
 msgstr "Přidatki pytać"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s rozšěrjenje je so za \"%(query)s\" w %(categoryName)s namakało"
-msgstr[1] "%(count)s rozšěrjeni stej so za \"%(query)s\" w %(categoryName)s namakałoj"
-msgstr[2] "%(count)s rozšěrjenja su so za \"%(query)s\" w %(categoryName)s namakali"
-msgstr[3] "%(count)s rozšěrjenjow je so za \"%(query)s\" w %(categoryName)s namakało"
+msgstr[0] "%(count)s rozšěrjenje je so za \"%(query)s\" ze značku %(tag)s w %(categoryName)s namakało"
+msgstr[1] "%(count)s rozšěrjeni stej so za \"%(query)s\" ze značku %(tag)s w %(categoryName)s namakałoj"
+msgstr[2] "%(count)s rozšěrjenja su so za \"%(query)s\" ze značku %(tag)s w %(categoryName)s namakali"
+msgstr[3] "%(count)s rozšěrjenjow je so za \"%(query)s\" ze značku %(tag)s w %(categoryName)s namakało"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -1700,13 +1699,12 @@ msgstr[2] "%(count)s rozšěrjenja su so za \"%(query)s\" w %(categoryName)s nam
 msgstr[3] "%(count)s rozšěrjenjow je so za \"%(query)s\" w %(categoryName)s namakało"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s rozšěrjenje je so w %(categoryName)s namakało"
-msgstr[1] "%(count)s rozšěrjeni stej so w %(categoryName)s namakałoj"
-msgstr[2] "%(count)s rozšěrjenja su so w %(categoryName)s namakali"
-msgstr[3] "%(count)s rozšěrjenjow je so w %(categoryName)s namakało"
+msgstr[0] "%(count)s rozšěrjenje je so ze značku %(tag)s w %(categoryName)s namakało"
+msgstr[1] "%(count)s rozšěrjeni stej so ze značku %(tag)s w %(categoryName)s namakałoj"
+msgstr[2] "%(count)s rozšěrjenja su so ze značku %(tag)s w %(categoryName)s namakali"
+msgstr[3] "%(count)s rozšěrjenjow je so ze značku %(tag)s w %(categoryName)s namakało"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -1717,13 +1715,12 @@ msgstr[2] "%(count)s rozšěrjenja su so w %(categoryName)s namakali"
 msgstr[3] "%(count)s rozšěrjenjow je so w %(categoryName)s namakało"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s rozšěrjenje je so za \"%(query)s\" w %(categoryName)s namakało"
-msgstr[1] "%(count)s rozšěrjeni stej so za \"%(query)s\" w %(categoryName)s namakałoj"
-msgstr[2] "%(count)s rozšěrjenja su so za \"%(query)s\" w %(categoryName)s namakali"
-msgstr[3] "%(count)s rozšěrjenjow je so za \"%(query)s\" w %(categoryName)s namakało"
+msgstr[0] "%(count)s rozšěrjenje je so za \"%(query)s\" ze značku %(tag)s namakało"
+msgstr[1] "%(count)s rozšěrjeni stej so za \"%(query)s\" ze značku %(tag)s namakałoj"
+msgstr[2] "%(count)s rozšěrjenja su so za \"%(query)s\" ze značku %(tag)s namakali"
+msgstr[3] "%(count)s rozšěrjenjow je so za \"%(query)s\" ze značku %(tag)s namakało"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
