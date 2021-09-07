@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-07 16:25+0000\n"
-"PO-Revision-Date: 2021-09-07 19:24+0000\n"
+"PO-Revision-Date: 2021-09-07 19:21+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1575,7 +1575,7 @@ msgstr[1] "Βρέθηκαν %(count)s θέματα για \"%(query)s\" στην
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
 msgstr[0] "Βρέθηκε %(count)s θέμα με ετικέτα «%(tag)s» στην κατηγορία «%(categoryName)s»"
-msgstr[1] ""
+msgstr[1] "Βρέθηκαν %(count)s θέματα με ετικέτα «%(tag)s» στην κατηγορία «%(categoryName)s»"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
