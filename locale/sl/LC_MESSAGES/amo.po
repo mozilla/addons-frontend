@@ -1611,10 +1611,10 @@ msgstr[3] "%(count)s najdenih tem v %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s najdena tema z oznako %(tag)s za \"%(query)s\" v %(categoryName)s"
-msgstr[1] "%(count)s najdeni temi z oznako %(tag)s za \"%(query)s\" v %(categoryName)s"
-msgstr[2] "%(count)s najdene teme z oznako %(tag)s za \"%(query)s\" v %(categoryName)s"
-msgstr[3] "%(count)s najdenih tem z oznako %(tag)s za \"%(query)s\" v %(categoryName)s"
+msgstr[0] "%(count)s najdena tema z oznako %(tag)s za \"%(query)s\""
+msgstr[1] "%(count)s najdeni temi z oznako %(tag)s za \"%(query)s\""
+msgstr[2] "%(count)s najdene teme z oznako %(tag)s za \"%(query)s\""
+msgstr[3] "%(count)s najdenih tem z oznako %(tag)s za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
