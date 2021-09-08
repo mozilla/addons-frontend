@@ -1656,11 +1656,10 @@ msgstr[0] "%(count)s extensie voor ‘%(query)s’ gevonden in %(categoryName)s"
 msgstr[1] "%(count)s extensies voor ‘%(query)s’ gevonden in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s extensie gevonden in %(categoryName)s"
-msgstr[1] "%(count)s extensies gevonden in %(categoryName)s"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -1669,11 +1668,10 @@ msgstr[0] "%(count)s extensie gevonden in %(categoryName)s"
 msgstr[1] "%(count)s extensies gevonden in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s extensie voor ‘%(query)s’ gevonden in %(categoryName)s"
-msgstr[1] "%(count)s extensies voor ‘%(query)s’ gevonden in %(categoryName)s"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
