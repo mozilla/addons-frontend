@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-07 16:25+0000\n"
-"PO-Revision-Date: 2021-09-08 06:28+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2021-09-08 07:58+0000\n"
+"Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1590,8 +1590,8 @@ msgstr[1] "%(count)s thema’s gevonden in %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s thema voor ‘%(query)s’ met label %(tag)s gevonden"
+msgstr[1] "%(count)s thema’s voor ‘%(query)s’ met label %(tag)s gevonden"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1614,8 +1614,8 @@ msgstr[1] "%(count)s thema’s gevonden"
 #: src/amo/components/SearchContextCard/index.js:209
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s resultaat gevonden voor ‘%(query)s’ met label %(tag)s"
+msgstr[1] "%(count)s resultaten gevonden voor ‘%(query)s’ met label %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -1646,8 +1646,8 @@ msgstr "Add-ons worden gezocht"
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s extensie voor ‘%(query)s’ met label %(tag)s gevonden in %(categoryName)s"
+msgstr[1] "%(count)s extensies voor ‘%(query)s’ met label %(tag)s gevonden in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -1658,8 +1658,8 @@ msgstr[1] "%(count)s extensies voor ‘%(query)s’ gevonden in %(categoryName)s
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s extensie met label %(tag)s gevonden in %(categoryName)s"
+msgstr[1] "%(count)s extensies met label %(tag)s gevonden in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -1670,8 +1670,8 @@ msgstr[1] "%(count)s extensies gevonden in %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:95
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s extensie voor ‘%(query)s’ met label %(tag)s gevonden"
+msgstr[1] "%(count)s extensies voor ‘%(query)s’ met label %(tag)s gevonden"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
