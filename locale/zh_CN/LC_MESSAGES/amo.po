@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-07 16:25+0000\n"
-"PO-Revision-Date: 2021-09-08 13:49+0000\n"
+"PO-Revision-Date: 2021-09-08 13:56+0000\n"
 "Last-Translator: 你我皆凡人 <yuanbingyan@mail.ee>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1546,7 +1546,7 @@ msgstr[0] "找到 %(count)s 个扩展"
 #: src/amo/components/SearchContextCard/index.js:134
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个含 %(tag)s 标签且有关“%(query)s”的主题"
+msgstr[0] "分类 %(categoryName)s 中找到“%(query)s”含 %(tag)s 标签的 %(count)s 个主题"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -1556,7 +1556,7 @@ msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个有关“%(query)s”�
 #: src/amo/components/SearchContextCard/index.js:152
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个含 %(tag)s 标签的主题"
+msgstr[0] "分类 %(categoryName)s 中找到含 %(tag)s 标签的 %(count)s 个主题"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
@@ -1566,7 +1566,7 @@ msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个主题"
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "标签 %(tag)s 中找到 %(count)s 个有关“%(query)s”的主题"
+msgstr[0] "找到“%(query)s”含 %(tag)s 标签的 %(count)s 个主题"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1584,10 +1584,9 @@ msgid_plural "%(count)s themes found"
 msgstr[0] "找到 %(count)s 个主题"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "标签 %(tag)s 中找到 %(count)s 个结果"
+msgstr[0] "找到“%(query)s”含 %(tag)s 标签的 %(count)s 个结果"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -1613,10 +1612,9 @@ msgid "Searching for add-ons"
 msgstr "正在搜索附加组件"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个有关“%(query)s”的扩展"
+msgstr[0] "分类 %(categoryName)s 中找到“%(query)s”含 %(tag)s 标签的 %(count)s 个扩展"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -1624,10 +1622,9 @@ msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个有关“%(query)s”的扩展"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个扩展"
+msgstr[0] "分类 %(categoryName)s 中找到含 %(tag)s 标签的 %(count)s 个扩展"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -1635,10 +1632,9 @@ msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个扩展"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个有关“%(query)s”的扩展"
+msgstr[0] "找到“%(query)s”含 %(tag)s 标签的 %(count)s 个扩展"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
