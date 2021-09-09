@@ -21,6 +21,7 @@ import {
   VARIANT_HIDE,
   VARIANT_SHOW,
 } from 'amo/experiments/20210714_amo_vpn_promo';
+import { loadAddon } from 'amo/reducers/addons';
 import {
   EXPERIMENT_COOKIE_NAME,
   NOT_IN_EXPERIMENT,
@@ -34,6 +35,7 @@ import {
   createFakeLocation,
   createFakeTracking,
   dispatchClientMetadata,
+  fakeAddon,
   fakeCookies,
   fakeI18n,
   shallowUntilTarget,
@@ -62,6 +64,11 @@ describe(__filename, () => {
     // to show by default for all tests.
     clientApp = CLIENT_APP_FIREFOX,
     location,
+    match = {
+      params: {
+        slug: 'some-slug',
+      },
+    },
     regionCode = 'US',
     variant = VARIANT_SHOW,
     ...props
@@ -79,7 +86,7 @@ describe(__filename, () => {
       />,
       VPNPromoBannerBase,
       {
-        shallowOptions: createContextWithFakeRouter({ location }),
+        shallowOptions: createContextWithFakeRouter({ location, match }),
       },
     );
   };
@@ -112,15 +119,35 @@ describe(__filename, () => {
     expect(root.find('.VPNPromoBanner')).toHaveLength(0);
   });
 
-  it('renders a link with the expected href', () => {
+  it('renders a link with the expected href without an add-on loaded', () => {
+    const slug = 'some-addon-slug';
     const queryString = [
       `utm_campaign=${VPN_PROMO_CAMPAIGN}`,
+      `utm_content=${slug}`,
       `utm_medium=${DEFAULT_UTM_MEDIUM}`,
       `utm_source=${DEFAULT_UTM_SOURCE}`,
     ].join('&');
     const href = `${VPN_URL}?${queryString}`;
 
-    const root = render();
+    const root = render({ match: { params: { slug } } });
+
+    expect(root.find('.VPNPromoBanner-cta')).toHaveProp('href', href);
+  });
+
+  it('renders a link with the expected href with an add-on loaded', () => {
+    const slug = 'some-addon-slug';
+    const addon = { ...fakeAddon, slug };
+    const queryString = [
+      `utm_campaign=${VPN_PROMO_CAMPAIGN}`,
+      `utm_content=${addon.id}`,
+      `utm_medium=${DEFAULT_UTM_MEDIUM}`,
+      `utm_source=${DEFAULT_UTM_SOURCE}`,
+    ].join('&');
+    const href = `${VPN_URL}?${queryString}`;
+
+    store.dispatch(loadAddon({ addon, slug }));
+
+    const root = render({ match: { params: { slug } } });
 
     expect(root.find('.VPNPromoBanner-cta')).toHaveProp('href', href);
   });
