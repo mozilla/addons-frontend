@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-07 16:25+0000\n"
-"PO-Revision-Date: 2021-09-08 13:13+0000\n"
+"PO-Revision-Date: 2021-09-10 11:14+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1263,7 +1263,7 @@ msgstr "Exibir notificações para você"
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
-msgstr "Fornecer serviços de autenticação criptográfica"
+msgstr "Fornecer serviços de autenticação com criptografia"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
