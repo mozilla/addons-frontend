@@ -31,7 +31,7 @@ export const UserCollectionBase = (props: InternalProps): React.Node => {
   const linkProps = {};
   let numberText;
 
-  if (loading) {
+  if (loading || numberOfAddons === null) {
     linkProps.href = '';
   } else {
     invariant(authorId, 'authorId is required');

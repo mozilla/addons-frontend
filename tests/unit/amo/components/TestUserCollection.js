@@ -57,6 +57,22 @@ describe(__filename, () => {
     );
   });
 
+  it('can render a collection that is loading', () => {
+    const props = {
+      authorId: 1234,
+      id: 1,
+      name: 'collection name',
+      // When a collection is in a loading state, numberOfAddons is null.
+      numberOfAddons: null,
+      slug: 'some-slug',
+    };
+
+    const root = render(props);
+
+    expect(root.find('.UserCollection')).toHaveLength(1);
+    expect(root.find('.UserCollection-link')).toHaveProp('href', '');
+  });
+
   it('renders singular text for a collection with 1 add-on', () => {
     const props = {
       authorId: 1234,
