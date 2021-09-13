@@ -71,6 +71,10 @@ describe(__filename, () => {
 
     expect(root.find('.UserCollection')).toHaveLength(1);
     expect(root.find('.UserCollection-link')).toHaveProp('href', '');
+    expect(root.find('.UserCollection-name').find(LoadingText)).toHaveLength(1);
+    expect(root.find('.UserCollection-number').find(LoadingText)).toHaveLength(
+      1,
+    );
   });
 
   it('renders singular text for a collection with 1 add-on', () => {
@@ -86,22 +90,6 @@ describe(__filename, () => {
 
     expect(root.find('.UserCollection-number').children()).toHaveText(
       `${props.numberOfAddons} add-on`,
-    );
-  });
-
-  it('renders loading text when loading is true', () => {
-    const props = {
-      id: 99,
-      loading: true,
-    };
-
-    const root = render(props);
-
-    expect(root.find('.UserCollection')).toHaveLength(1);
-    expect(root.find('.UserCollection-link')).toHaveProp('href', '');
-    expect(root.find('.UserCollection-name').find(LoadingText)).toHaveLength(1);
-    expect(root.find('.UserCollection-number').find(LoadingText)).toHaveLength(
-      1,
     );
   });
 });

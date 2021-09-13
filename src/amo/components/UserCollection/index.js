@@ -14,9 +14,9 @@ import './styles.scss';
 type Props = {|
   authorId?: number,
   id: number,
-  loading?: boolean,
   name?: string,
-  numberOfAddons?: number,
+  // numberOfAddons is null when the collection is in a loading state.
+  numberOfAddons: number | null,
   slug?: string,
 |};
 
@@ -26,12 +26,12 @@ type InternalProps = {|
 |};
 
 export const UserCollectionBase = (props: InternalProps): React.Node => {
-  const { authorId, id, loading, name, numberOfAddons, slug, i18n } = props;
+  const { authorId, id, name, numberOfAddons, slug, i18n } = props;
 
   const linkProps = {};
   let numberText;
 
-  if (loading || numberOfAddons === null) {
+  if (numberOfAddons === null) {
     linkProps.href = '';
   } else {
     invariant(authorId, 'authorId is required');
@@ -52,7 +52,11 @@ export const UserCollectionBase = (props: InternalProps): React.Node => {
     <li className="UserCollection" key={id}>
       <Link className="UserCollection-link" {...linkProps}>
         <h2 className="UserCollection-name">
-          {loading ? <LoadingText /> : collectionName({ name, i18n })}
+          {numberOfAddons === null ? (
+            <LoadingText />
+          ) : (
+            collectionName({ name, i18n })
+          )}
         </h2>
         <p className="UserCollection-number">{numberText || <LoadingText />}</p>
       </Link>
