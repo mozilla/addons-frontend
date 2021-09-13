@@ -1,13 +1,11 @@
 // Config for the stage server.
 import { addonsServerStageCDN, analyticsHost, apiStageHost, baseUrlStage, stageDomain, staticPath } from './lib/shared';
 
-const addonsFrontendCDN = 'https://addons-amo-cdn.allizom.org';
-
 module.exports = {
   baseURL: baseUrlStage,
   apiHost: apiStageHost,
   amoCDN: addonsServerStageCDN,
-  staticHost: addonsFrontendCDN,
+  staticHost: undefined,
   staticPath,
 
   cookieDomain: `.${stageDomain}`,
@@ -20,23 +18,23 @@ module.exports = {
         apiStageHost,
       ],
       fontSrc: [
-        `${addonsFrontendCDN}${staticPath}`,
+        `${baseUrlStage}${staticPath}`,
       ],
       imgSrc: [
         "'self'",
         'data:',
         `${addonsServerStageCDN}/user-media/`,
         `${addonsServerStageCDN}/static/`,
-        `${addonsFrontendCDN}${staticPath}`,
+        `${baseUrlStage}${staticPath}`,
         // This file isn't bundled with addons-frontend.
         `${addonsServerStageCDN}/favicon.ico`,
       ],
       scriptSrc: [
-        `${addonsFrontendCDN}${staticPath}`,
+        `${baseUrlStage}${staticPath}`,
         `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
-        `${addonsFrontendCDN}${staticPath}`,
+        `${baseUrlStage}${staticPath}`,
       ],
     },
   },

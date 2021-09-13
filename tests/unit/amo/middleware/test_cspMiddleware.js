@@ -5,18 +5,7 @@ import parse from 'content-security-policy-parser';
 import { csp } from 'amo/middleware';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
-const deployedEnvsWithSeparateStaticsDomain = ['production', 'stage'];
-
-// Eventually we want to move all envs to load statics from the same domain
-// but at the moment we only do that on dev for testing.
-// https://github.com/mozilla/addons-frontend/issues/10785
-const deployedEnvsWithStaticsOnSameDomain = ['dev'];
-
-const cdnHosts = {
-  dev: 'https://addons-amo-dev-cdn.allizom.org',
-  stage: 'https://addons-amo-cdn.allizom.org',
-  production: 'https://addons-amo.cdn.mozilla.net',
-};
+const configs = ['dev', 'stage', 'production'];
 
 const serverCdnHosts = {
   dev: 'https://addons-dev-cdn.allizom.org',
@@ -38,7 +27,7 @@ describe(__filename, () => {
   });
 
   describe('CSP Config', () => {
-    it.each(deployedEnvsWithStaticsOnSameDomain)(
+    it.each(configs)(
       'should have a CSP config for %s (statics on same domain)',
       (env) => {
         process.env.NODE_ENV = env;
@@ -66,40 +55,6 @@ describe(__filename, () => {
         // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
         expect(cspConfig.styleSrc).not.toContain(mainHost);
         expect(cspConfig.styleSrc).toContain(`${mainHost}/static-frontend/`);
-        expect(cspConfig.styleSrc).not.toContain("'self'");
-        expect(cspConfig.connectSrc).toContain(apiHost);
-        expect(cspConfig.connectSrc).not.toContain("'self'");
-      },
-    );
-
-    it.each(deployedEnvsWithSeparateStaticsDomain)(
-      'should have a CSP config for %s (statics on separate domain)',
-      (env) => {
-        process.env.NODE_ENV = env;
-        // Reset the require cache so that the config require
-        // takes into account changes to NODE_ENV.
-        jest.resetModules();
-        const cdnHost = cdnHosts[env];
-        const apiHost = apiHosts[env];
-        const serverCdnHost = serverCdnHosts[env];
-        // eslint-disable-next-line global-require
-        const config = require('config');
-        const cspConfig = config.get('CSP').directives;
-        // We use a sub-folder on purpose, see:
-        // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
-        expect(cspConfig.scriptSrc).not.toContain(cdnHost);
-        expect(cspConfig.scriptSrc).toContain(`${cdnHost}/static-frontend/`);
-        expect(cspConfig.scriptSrc).not.toContain("'self'");
-        // We use a sub-folder on purpose, see:
-        // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
-        expect(cspConfig.imgSrc).not.toContain(cdnHost);
-        expect(cspConfig.imgSrc).toContain(`${cdnHost}/static-frontend/`);
-        expect(cspConfig.imgSrc).toContain(`${serverCdnHost}/favicon.ico`);
-        expect(cspConfig.imgSrc).toContain("'self'");
-        // We use a sub-folder on purpose, see:
-        // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
-        expect(cspConfig.styleSrc).not.toContain(cdnHost);
-        expect(cspConfig.styleSrc).toContain(`${cdnHost}/static-frontend/`);
         expect(cspConfig.styleSrc).not.toContain("'self'");
         expect(cspConfig.connectSrc).toContain(apiHost);
         expect(cspConfig.connectSrc).not.toContain("'self'");
@@ -178,8 +133,8 @@ describe(__filename, () => {
       middleware(req, res, nextSpy);
       const cspHeader = res.get('content-security-policy');
       const policy = parse(cspHeader);
-      const cdnHost = 'https://addons-amo.cdn.mozilla.net';
-      expect(policy['style-src']).toEqual([`${cdnHost}/static-frontend/`]);
+      const host = 'https://addons.mozilla.org';
+      expect(policy['style-src']).toEqual([`${host}/static-frontend/`]);
       sinon.assert.calledOnce(nextSpy);
     });
 
