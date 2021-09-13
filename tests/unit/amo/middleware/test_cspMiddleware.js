@@ -5,7 +5,7 @@ import parse from 'content-security-policy-parser';
 import { csp } from 'amo/middleware';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
-const configs = ['dev', 'stage', 'production'];
+const envs = ['dev', 'stage', 'production'];
 
 const serverCdnHosts = {
   dev: 'https://addons-dev-cdn.allizom.org',
@@ -27,7 +27,7 @@ describe(__filename, () => {
   });
 
   describe('CSP Config', () => {
-    it.each(configs)(
+    it.each(envs)(
       'should have a CSP config for %s (statics on same domain)',
       (env) => {
         process.env.NODE_ENV = env;
