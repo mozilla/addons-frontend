@@ -87,7 +87,8 @@ export class CollectionListBase extends React.Component<InternalProps> {
       // Create 4 "loading" components.
       for (let count = 0; count < 4; count++) {
         collectionElements.push(
-          <UserCollection id={count} key={count} loading />,
+          // numberOfAddons is null when the collection is in a loading state.
+          <UserCollection id={count} key={count} numberOfAddons={null} />,
         );
       }
     }

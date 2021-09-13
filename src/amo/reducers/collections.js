@@ -72,7 +72,7 @@ export type CollectionType = {
   id: number,
   lastUpdatedDate: string,
   name: string,
-  numberOfAddons: number,
+  numberOfAddons: number | null,
   pageSize: string | null,
   slug: string,
 };

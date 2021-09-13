@@ -188,7 +188,7 @@ describe(__filename, () => {
     expect(userCollections).toHaveLength(4);
     for (let count = 0; count < 4; count++) {
       expect(userCollections.at(count)).toHaveProp('id', count);
-      expect(userCollections.at(count)).toHaveProp('loading', true);
+      expect(userCollections.at(count)).toHaveProp('numberOfAddons', null);
     }
   });
 
