@@ -17,6 +17,9 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
+// We need this to avoid firing sendEvent during tests, which will throw.
+jest.mock('amo/tracking');
+
 describe(__filename, () => {
   const render = (props = {}) => {
     const allProps = {
