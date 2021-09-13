@@ -165,12 +165,9 @@ describe(__filename, () => {
     });
 
     it('preconnects to addons-server CDN', async () => {
-      const config = getFakeConfig(
-        {
-          amoCDN: 'https://cdn.example.com',
-        },
-        { allowUnknownKeys: true },
-      );
+      const config = getFakeConfig({
+        amoCDN: 'https://cdn.example.com',
+      });
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({
@@ -231,12 +228,9 @@ describe(__filename, () => {
     });
 
     it('does not preconnect to CDNs not in config', async () => {
-      const config = getFakeConfig(
-        {
-          amoCDN: undefined,
-        },
-        { allowUnknownKeys: true },
-      );
+      const config = getFakeConfig({
+        amoCDN: undefined,
+      });
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({
@@ -250,13 +244,10 @@ describe(__filename, () => {
     });
 
     it('does not preconnect to addons-server CDN if equal to baseURL', async () => {
-      const config = getFakeConfig(
-        {
-          amoCDN: 'https://example.com',
-          baseURL: 'https://example.com',
-        },
-        { allowUnknownKeys: true },
-      );
+      const config = getFakeConfig({
+        amoCDN: 'https://example.com',
+        baseURL: 'https://example.com',
+      });
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({
