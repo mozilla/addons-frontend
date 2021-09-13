@@ -167,7 +167,6 @@ describe(__filename, () => {
     it('preconnects to addons-server CDN', async () => {
       const config = getFakeConfig(
         {
-          staticHost: undefined,
           amoCDN: 'https://cdn.example.com',
         },
         { allowUnknownKeys: true },
@@ -234,7 +233,6 @@ describe(__filename, () => {
     it('does not preconnect to CDNs not in config', async () => {
       const config = getFakeConfig(
         {
-          staticHost: undefined,
           amoCDN: undefined,
         },
         { allowUnknownKeys: true },
@@ -254,7 +252,6 @@ describe(__filename, () => {
     it('does not preconnect to addons-server CDN if equal to baseURL', async () => {
       const config = getFakeConfig(
         {
-          staticHost: undefined,
           amoCDN: 'https://example.com',
           baseURL: 'https://example.com',
         },
