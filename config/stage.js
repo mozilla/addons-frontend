@@ -5,8 +5,6 @@ module.exports = {
   baseURL: baseUrlStage,
   apiHost: apiStageHost,
   amoCDN: addonsServerStageCDN,
-  staticHost: undefined,
-  staticPath,
 
   cookieDomain: `.${stageDomain}`,
 

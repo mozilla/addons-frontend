@@ -5,10 +5,6 @@ module.exports = {
   baseURL: baseUrlDev,
   apiHost: apiDevHost,
   amoCDN: addonsServerDevCDN,
-  // addons-frontend statics are served by the CDN from the main domain.
-  staticHost: undefined,
-  staticPath,
-
   cookieDomain: `.${devDomain}`,
 
   enableDevTools: true,
