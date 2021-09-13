@@ -10,7 +10,6 @@ import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
 import defaultConfig from 'config';
 import cheerio from 'cheerio';
-import { oneLine } from 'common-tags';
 
 import { REGION_CODE_HEADER, createApiError } from 'amo/api';
 import { AMO_REQUEST_ID_HEADER } from 'amo/constants';
@@ -182,52 +181,7 @@ describe(__filename, () => {
       expect(response.statusCode).toEqual(200);
     });
 
-    it('preconnects to addons-frontend CDN', async () => {
-      const config = getFakeConfig(
-        {
-          staticHost: 'https://cdn2.example.com',
-          amoCDN: undefined,
-        },
-        { allowUnknownKeys: true },
-      );
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const response = await testClient({
-        config,
-        store,
-        sagaMiddleware,
-      }).get('/en-US/firefox/');
-
-      expect(response.headers).toMatchObject({
-        'link': '<https://cdn2.example.com>; rel=preconnect; crossorigin',
-      });
-      expect(response.statusCode).toEqual(200);
-    });
-
-    it('preconnects to both CDNs if both are in config', async () => {
-      const config = getFakeConfig(
-        {
-          staticHost: 'https://cdn2.example.com',
-          amoCDN: 'https://cdn.example.com',
-        },
-        { allowUnknownKeys: true },
-      );
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const response = await testClient({
-        config,
-        store,
-        sagaMiddleware,
-      }).get('/en-US/firefox/');
-
-      expect(response.headers).toMatchObject({
-        link: oneLine`<https://cdn.example.com>; rel=preconnect; crossorigin,
-          <https://cdn2.example.com>; rel=preconnect; crossorigin`,
-      });
-      expect(response.statusCode).toEqual(200);
-    });
-
-    it('does not preconnect to CDNs not in config', async () => {
+    it('does not preconnect to CDN addons-server if not in config', async () => {
       const config = getFakeConfig({
         amoCDN: undefined,
       });
@@ -257,49 +211,6 @@ describe(__filename, () => {
       }).get('/en-US/firefox/');
 
       expect(response.headers).not.toContain('link');
-      expect(response.statusCode).toEqual(200);
-    });
-
-    it('does not preconnect to addons-frontend CDN if equal to baseURL', async () => {
-      const config = getFakeConfig(
-        {
-          staticHost: 'https://example.com',
-          amoCDN: undefined,
-          baseURL: 'https://example.com',
-        },
-        { allowUnknownKeys: true },
-      );
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const response = await testClient({
-        config,
-        store,
-        sagaMiddleware,
-      }).get('/en-US/firefox/');
-
-      expect(response.headers).not.toContain('link');
-      expect(response.statusCode).toEqual(200);
-    });
-
-    it('does not preconnect to the same CDN twice', async () => {
-      const config = getFakeConfig(
-        {
-          amoCDN: 'https://cdn.example.com',
-          staticHost: 'https://cdn.example.com',
-        },
-        { allowUnknownKeys: true },
-      );
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const response = await testClient({
-        config,
-        store,
-        sagaMiddleware,
-      }).get('/en-US/firefox/');
-
-      expect(response.headers).toMatchObject({
-        'link': '<https://cdn.example.com>; rel=preconnect; crossorigin',
-      });
       expect(response.statusCode).toEqual(200);
     });
 

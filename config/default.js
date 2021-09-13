@@ -63,7 +63,6 @@ module.exports = {
   // The CDN host for AMO.
   amoCDN: addonsServerProdCDN,
   // addons-frontend statics are served by the CDN from the main domain.
-  staticHost: undefined,
   staticPath,
   apiHost: apiProdHost,
   apiPath: '/api/',
