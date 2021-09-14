@@ -51,7 +51,7 @@ export type DeafultProps = {|
 |};
 
 type PropsFromState = {|
-  addonIdentifier: string,
+  addonIdentifier: string | null,
   clientApp: string,
   regionCode: RegionCodeType,
 |};
@@ -223,7 +223,7 @@ const mapStateToProps = (
   const addon = getAddonByIdInURL(state.addons, slug);
 
   return {
-    addonIdentifier: (addon && String(addon.id)) || slug,
+    addonIdentifier: (addon && String(addon.id)) || null,
     clientApp: state.api.clientApp,
     regionCode: state.api.regionCode,
   };

@@ -120,16 +120,14 @@ describe(__filename, () => {
   });
 
   it('renders a link with the expected href without an add-on loaded', () => {
-    const slug = 'some-addon-slug';
     const queryString = [
       `utm_campaign=${VPN_PROMO_CAMPAIGN}`,
-      `utm_content=${slug}`,
       `utm_medium=${DEFAULT_UTM_MEDIUM}`,
       `utm_source=${DEFAULT_UTM_SOURCE}`,
     ].join('&');
     const href = `${VPN_URL}?${queryString}`;
 
-    const root = render({ match: { params: { slug } } });
+    const root = render();
 
     expect(root.find('.VPNPromoBanner-cta')).toHaveProp('href', href);
   });
