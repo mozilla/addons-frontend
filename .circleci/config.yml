@@ -11,13 +11,13 @@ references:
     working_directory: ~/addons-frontend
     docker:
       # This is the NodeJS version we run in production.
-      - image: circleci/node:14
+      - image: cimg/node:14
 
   defaults-next: &defaults-next
     working_directory: ~/addons-frontend
     docker:
       # This is the next NodeJS version we will support.
-      - image: circleci/node:16
+      - image: cimg/node:16.8
 
   defaults-release: &defaults-release
     machine:
