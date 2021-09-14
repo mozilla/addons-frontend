@@ -6,7 +6,6 @@ import path from 'path';
 
 import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlProd, staticPath } from './lib/shared';
 
-const addonsFrontendCDN = 'https://addons-amo.cdn.mozilla.net';
 const basePath = path.resolve(__dirname, '../');
 
 module.exports = {
@@ -63,7 +62,7 @@ module.exports = {
 
   // The CDN host for AMO.
   amoCDN: addonsServerProdCDN,
-  staticHost: addonsFrontendCDN,
+  // addons-frontend statics are served by the CDN from the main domain.
   staticPath,
   apiHost: apiProdHost,
   apiPath: '/api/',
@@ -135,7 +134,7 @@ module.exports = {
       childSrc: ["'none'"],
       connectSrc: [analyticsHost, apiProdHost],
       fontSrc: [
-        `${addonsFrontendCDN}${staticPath}`,
+        `${baseUrlProd}${staticPath}`,
       ],
       formAction: ["'self'"],
       frameSrc: ["'none'"],
@@ -144,7 +143,7 @@ module.exports = {
         'data:',
         `${addonsServerProdCDN}/user-media/`,
         `${addonsServerProdCDN}/static/`,
-        `${addonsFrontendCDN}${staticPath}`,
+        `${baseUrlProd}${staticPath}`,
         // This file isn't bundled with addons-frontend.
         `${addonsServerProdCDN}/favicon.ico`,
       ],
@@ -153,11 +152,11 @@ module.exports = {
       objectSrc: ["'none'"],
       // Script is limited to the amo specific CDN.
       scriptSrc: [
-        `${addonsFrontendCDN}${staticPath}`,
+        `${baseUrlProd}${staticPath}`,
         `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
-        `${addonsFrontendCDN}${staticPath}`,
+        `${baseUrlProd}${staticPath}`,
       ],
       workerSrc: ["'none'"],
       reportUri: '/__cspreport__',
