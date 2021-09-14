@@ -11,7 +11,7 @@ references:
     working_directory: ~/addons-frontend
     docker:
       # This is the NodeJS version we run in production.
-      - image: cimg/node:14
+      - image: circleci/node:14
 
   defaults-next: &defaults-next
     working_directory: ~/addons-frontend
