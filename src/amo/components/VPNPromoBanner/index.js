@@ -14,8 +14,9 @@ import {
   VARIANT_SHOW,
   shouldExcludeUser,
 } from 'amo/experiments/20210714_amo_vpn_promo';
-import tracking from 'amo/tracking';
 import translate from 'amo/i18n/translate';
+import { getAddonByIdInURL } from 'amo/reducers/addons';
+import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   EXPERIMENT_COOKIE_NAME,
@@ -25,7 +26,10 @@ import {
 import type { RegionCodeType } from 'amo/reducers/api';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'amo/types/i18n';
-import type { ReactRouterLocationType } from 'amo/types/router';
+import type {
+  ReactRouterLocationType,
+  ReactRouterMatchType,
+} from 'amo/types/router';
 
 import './styles.scss';
 import vpnLogo from './img/mozilla-vpn.svg';
@@ -47,6 +51,7 @@ export type DeafultProps = {|
 |};
 
 type PropsFromState = {|
+  addonIdentifier: string | null,
   clientApp: string,
   regionCode: RegionCodeType,
 |};
@@ -58,6 +63,12 @@ type InternalProps = {|
   cookies: typeof Cookies,
   i18n: I18nType,
   location: ReactRouterLocationType,
+  match: {|
+    ...ReactRouterMatchType,
+    params: {
+      slug: string,
+    },
+  |},
 |};
 
 export const getImpressionCount = (
@@ -156,7 +167,7 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
   }
 
   render(): null | React.Node {
-    const { i18n } = this.props;
+    const { addonIdentifier, i18n } = this.props;
 
     if (!this.shouldShowBanner()) {
       return null;
@@ -170,6 +181,7 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
 
     const ctaURL = `${VPN_URL}${makeQueryStringWithUTM({
       utm_campaign: VPN_PROMO_CAMPAIGN,
+      utm_content: addonIdentifier,
     })}`;
 
     return (
@@ -203,8 +215,15 @@ export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
   }
 }
 
-const mapStateToProps = (state: AppState): PropsFromState => {
+const mapStateToProps = (
+  state: AppState,
+  ownProps: InternalProps,
+): PropsFromState => {
+  const { slug } = ownProps.match.params;
+  const addon = getAddonByIdInURL(state.addons, slug);
+
   return {
+    addonIdentifier: (addon && String(addon.id)) || null,
     clientApp: state.api.clientApp,
     regionCode: state.api.regionCode,
   };
