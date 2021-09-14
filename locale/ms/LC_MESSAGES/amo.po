@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-07 16:25+0000\n"
+"POT-Creation-Date: 2021-09-14 18:31+0000\n"
 "PO-Revision-Date: 2018-11-21 10:22+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1251,21 +1251,21 @@ msgstr "Edit Profil Saya"
 msgid "Get the extension"
 msgstr "Ekstensi sorotan"
 
-# If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:221
-msgid "SPONSORED"
-msgstr ""
-
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:233
 msgid "RECOMMENDED"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:236
+#: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:252
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:239
+msgid "SPONSORED"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:256
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -2094,17 +2094,17 @@ msgstr "Pilih Foto…"
 msgid "Developer response"
 msgstr "Respons pembangun"
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:176
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:166
+#: src/amo/components/VPNPromoBanner/index.js:177
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:192
+#: src/amo/components/VPNPromoBanner/index.js:204
 msgid "Get Mozilla VPN"
 msgstr ""
 
@@ -2384,16 +2384,16 @@ msgstr "Log masuk untuk mencipta koleksi"
 msgid "Log in to edit this collection"
 msgstr "Log masuk untuk mengedit koleksi ini"
 
-#: src/amo/pages/Collection/index.js:455
+#: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Pertama sekali, cipta koleksi. Kemudian anda boleh tambah ekstensi dan tema."
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Cari ekstensi dan tema untuk ditambah dalam koleksi anda."
 
-#: src/amo/pages/Collection/index.js:516
+#: src/amo/pages/Collection/index.js:517
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2401,7 +2401,7 @@ msgstr ""
 "Muat turun dan buat koleksi Firefox untuk mengikuti ekstensi dan tema "
 "kegemaran anda. Terokai %(collectionName)s—%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:519
+#: src/amo/pages/Collection/index.js:520
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2409,19 +2409,19 @@ msgstr ""
 "Muat turun dan cipta koleksi Firefox untuk mengikuti ekstensi dan tema "
 "kegemaran anda. Teroka %(collectionName)s."
 
-#: src/amo/pages/CollectionList/index.js:101
+#: src/amo/pages/CollectionList/index.js:102
 msgid "My collections"
 msgstr "Koleksi saya"
 
-#: src/amo/pages/CollectionList/index.js:119
+#: src/amo/pages/CollectionList/index.js:120
 msgid "Collections"
 msgstr "Koleksi"
 
-#: src/amo/pages/CollectionList/index.js:124
+#: src/amo/pages/CollectionList/index.js:125
 msgid "Log in to view your collections"
 msgstr "Log masuk untuk melihat koleksi anda"
 
-#: src/amo/pages/CollectionList/index.js:129
+#: src/amo/pages/CollectionList/index.js:130
 msgid ""
 "Collections make it easy to keep track of favorite add-ons and share your "
 "perfectly customized browser with others."
@@ -2429,7 +2429,7 @@ msgstr ""
 "Koleksi memudahkan anda menjejaki add-ons kegemaran anda dan berkongsi "
 "pelayar yang sudah lengkap penyesesuaiannya dengan orang lain."
 
-#: src/amo/pages/CollectionList/index.js:139
+#: src/amo/pages/CollectionList/index.js:140
 msgid "Create a collection"
 msgstr "Cipta koleksi"
 

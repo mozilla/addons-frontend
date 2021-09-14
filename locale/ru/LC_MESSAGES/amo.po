@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-07 16:25+0000\n"
+"POT-Creation-Date: 2021-09-14 18:31+0000\n"
 "PO-Revision-Date: 2021-08-28 12:48+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -1257,21 +1257,21 @@ msgstr "Изменить мой профиль"
 msgid "Get the extension"
 msgstr "Загрузить расширение"
 
-# If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:221
-msgid "SPONSORED"
-msgstr "ОТ СПОНСОРА"
-
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:233
 msgid "RECOMMENDED"
 msgstr "РЕКОМЕНДУЕМЫЕ"
 
-#: src/amo/components/HeroRecommendation/index.js:236
+#: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
 msgstr "ОТ FIREFOX"
 
-#: src/amo/components/HeroRecommendation/index.js:252
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:239
+msgid "SPONSORED"
+msgstr "ОТ СПОНСОРА"
+
+#: src/amo/components/HeroRecommendation/index.js:256
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -2133,18 +2133,18 @@ msgstr "Выберите фото…"
 msgid "Developer response"
 msgstr "Ответ разработчика"
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:176
 msgid "Save 50% with a full year subscription"
 msgstr "Сэкономьте 50% с годовой подпиской"
 
-#: src/amo/components/VPNPromoBanner/index.js:166
+#: src/amo/components/VPNPromoBanner/index.js:177
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
 msgstr ""
 "Защитите свои данные в Интернете — выберите подходящий план подписки на VPN."
 
-#: src/amo/components/VPNPromoBanner/index.js:192
+#: src/amo/components/VPNPromoBanner/index.js:204
 msgid "Get Mozilla VPN"
 msgstr "Установите Mozilla VPN"
 
@@ -2427,16 +2427,16 @@ msgstr "Войдите, чтобы создать подборку"
 msgid "Log in to edit this collection"
 msgstr "Войдите, чтобы изменить эту подборку"
 
-#: src/amo/pages/Collection/index.js:455
+#: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Сначала создайте свою подборку, а затем добавляйте в неё расширения и темы."
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Найдите расширения и темы для добавления в вашу подборку."
 
-#: src/amo/pages/Collection/index.js:516
+#: src/amo/pages/Collection/index.js:517
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2445,7 +2445,7 @@ msgstr ""
 "расширения и темы. Откройте для себя %(collectionName)s—"
 "%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:519
+#: src/amo/pages/Collection/index.js:520
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2453,19 +2453,19 @@ msgstr ""
 "Загружайте и создавайте подборки для Firefox, чтобы отслеживать любимые "
 "расширения и темы. Откройте для себя %(collectionName)s."
 
-#: src/amo/pages/CollectionList/index.js:101
+#: src/amo/pages/CollectionList/index.js:102
 msgid "My collections"
 msgstr "Мои подборки"
 
-#: src/amo/pages/CollectionList/index.js:119
+#: src/amo/pages/CollectionList/index.js:120
 msgid "Collections"
 msgstr "Подборки"
 
-#: src/amo/pages/CollectionList/index.js:124
+#: src/amo/pages/CollectionList/index.js:125
 msgid "Log in to view your collections"
 msgstr "Войдите, чтобы просмотреть свои подборки"
 
-#: src/amo/pages/CollectionList/index.js:129
+#: src/amo/pages/CollectionList/index.js:130
 msgid ""
 "Collections make it easy to keep track of favorite add-ons and share your "
 "perfectly customized browser with others."
@@ -2473,7 +2473,7 @@ msgstr ""
 "Подборки позволяют легко отслеживать любимые дополнения и поделиться с "
 "другими вашим прекрасно настроенным браузером."
 
-#: src/amo/pages/CollectionList/index.js:139
+#: src/amo/pages/CollectionList/index.js:140
 msgid "Create a collection"
 msgstr "Создать подборку"
 

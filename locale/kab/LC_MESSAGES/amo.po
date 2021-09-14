@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-07 16:25+0000\n"
+"POT-Creation-Date: 2021-09-14 18:31+0000\n"
 "PO-Revision-Date: 2021-08-21 13:57+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
@@ -1227,21 +1227,21 @@ msgstr "Ẓreg amaɣnu-iw"
 msgid "Get the extension"
 msgstr "Sbedd asiɣzef"
 
-# If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:221
-msgid "SPONSORED"
-msgstr "S LMENDAD"
-
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:233
 msgid "RECOMMENDED"
 msgstr "YELHA"
 
-#: src/amo/components/HeroRecommendation/index.js:236
+#: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
 msgstr "S FIREFOX"
 
-#: src/amo/components/HeroRecommendation/index.js:252
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:239
+msgid "SPONSORED"
+msgstr "S LMENDAD"
+
+#: src/amo/components/HeroRecommendation/index.js:256
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -2060,17 +2060,17 @@ msgstr "Fren tawlaft…"
 msgid "Developer response"
 msgstr "Tiririt n ineflayen"
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:176
 msgid "Save 50% with a full year subscription"
 msgstr "Ḥrez 50 % s ujerred n useggas ikmel"
 
-#: src/amo/components/VPNPromoBanner/index.js:166
+#: src/amo/components/VPNPromoBanner/index.js:177
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:192
+#: src/amo/components/VPNPromoBanner/index.js:204
 msgid "Get Mozilla VPN"
 msgstr "Awi Mozilla VPN"
 
@@ -2345,17 +2345,17 @@ msgstr "Qqen akken ad terniḍ tagrumma"
 msgid "Log in to edit this collection"
 msgstr "Qqen akken ad tbeddleḍ tagrumma-agi"
 
-#: src/amo/pages/Collection/index.js:455
+#: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Di tazwara, rnu tagrumma-ik, sakin ad tizmireḍ ad ternuḍ isiɣzaf akked "
 "isental."
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Nadi isiɣzaf akked isental ara ternuḍ ar tegrumma-ik."
 
-#: src/amo/pages/Collection/index.js:516
+#: src/amo/pages/Collection/index.js:517
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2363,7 +2363,7 @@ msgstr ""
 "Sader daɣen rnu tigrummiwin Firefox akken ad tefreḍ isiɣzaf akked isental "
 "inurifen. Snirem %(collectionName)s—%(collectionDescription)s"
 
-#: src/amo/pages/Collection/index.js:519
+#: src/amo/pages/Collection/index.js:520
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2371,19 +2371,19 @@ msgstr ""
 "Sader daɣen rnu tigrummiwin Firefox akken ad tefreḍ isiɣzaf akked isental "
 "inurifen. Snirem %(collectionName)s."
 
-#: src/amo/pages/CollectionList/index.js:101
+#: src/amo/pages/CollectionList/index.js:102
 msgid "My collections"
 msgstr "Tigrummiwin-iw"
 
-#: src/amo/pages/CollectionList/index.js:119
+#: src/amo/pages/CollectionList/index.js:120
 msgid "Collections"
 msgstr "Tigrummiwin"
 
-#: src/amo/pages/CollectionList/index.js:124
+#: src/amo/pages/CollectionList/index.js:125
 msgid "Log in to view your collections"
 msgstr "Qqen akken ad twalid tigrummiwin-ik"
 
-#: src/amo/pages/CollectionList/index.js:129
+#: src/amo/pages/CollectionList/index.js:130
 msgid ""
 "Collections make it easy to keep track of favorite add-ons and share your "
 "perfectly customized browser with others."
@@ -2391,7 +2391,7 @@ msgstr ""
 "Tigrummiwin ttaǧant lǧeṛṛat s wudem fessusen n izegrar-ik inuraf daɣen ad "
 "bḍun iminig-ik udmawan akked yemdanen-nniḍen."
 
-#: src/amo/pages/CollectionList/index.js:139
+#: src/amo/pages/CollectionList/index.js:140
 msgid "Create a collection"
 msgstr "Rnu tagrumma"
 

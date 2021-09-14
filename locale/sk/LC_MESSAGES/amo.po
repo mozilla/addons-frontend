@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-07 16:25+0000\n"
+"POT-Creation-Date: 2021-09-14 18:31+0000\n"
 "PO-Revision-Date: 2021-08-20 18:08+0000\n"
 "Last-Translator: Vlado Valaštiak <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
@@ -1242,21 +1242,21 @@ msgstr "Upraviť môj profil"
 msgid "Get the extension"
 msgstr "Získať rozšírenie"
 
-# If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:221
-msgid "SPONSORED"
-msgstr "SPONZOROVANÉ"
-
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:233
 msgid "RECOMMENDED"
 msgstr "ODPORÚČANÉ"
 
-#: src/amo/components/HeroRecommendation/index.js:236
+#: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
 msgstr "OD FIREFOXU"
 
-#: src/amo/components/HeroRecommendation/index.js:252
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:239
+msgid "SPONSORED"
+msgstr "SPONZOROVANÉ"
+
+#: src/amo/components/HeroRecommendation/index.js:256
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -2144,11 +2144,11 @@ msgstr "Vyberte fotografiu…"
 msgid "Developer response"
 msgstr "Odpoveď od vývojára"
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:176
 msgid "Save 50% with a full year subscription"
 msgstr "Ušetrite 50% pri celoročnom predplatnom"
 
-#: src/amo/components/VPNPromoBanner/index.js:166
+#: src/amo/components/VPNPromoBanner/index.js:177
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
@@ -2156,7 +2156,7 @@ msgstr ""
 "Chráňte svoje online dáta - a vyberte si plán predplatného VPN, ktorý vám "
 "vyhovuje."
 
-#: src/amo/components/VPNPromoBanner/index.js:192
+#: src/amo/components/VPNPromoBanner/index.js:204
 msgid "Get Mozilla VPN"
 msgstr "Získajte Mozilla VPN"
 
@@ -2438,18 +2438,18 @@ msgstr "Ak chcete vytvoriť kolekciu, musíte sa prihlásiť"
 msgid "Log in to edit this collection"
 msgstr "Ak chcete upravovať túto kolekciu, musíte sa prihlásiť"
 
-#: src/amo/pages/Collection/index.js:455
+#: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Najskôr svoju kolekciu vytvorte. Potom do nej môžete pridávať rozšírenia a "
 "témy vzhľadu."
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 "Nájdite rozšírenia a témy vzhľadu, ktoré si pridáte do svojej kolekcie."
 
-#: src/amo/pages/Collection/index.js:516
+#: src/amo/pages/Collection/index.js:517
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2458,7 +2458,7 @@ msgstr ""
 "rozšíreniach a témach vzhľadu. Preskúmajte zbierku %(collectionName)s—"
 "%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:519
+#: src/amo/pages/Collection/index.js:520
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2466,19 +2466,19 @@ msgstr ""
 "Sťahujte a tvorte kolekcie aby ste si udržiavali prehľad o obľúbených "
 "rozšíreniach a témach vzhľadu. Preskúmajte zbierku %(collectionName)s."
 
-#: src/amo/pages/CollectionList/index.js:101
+#: src/amo/pages/CollectionList/index.js:102
 msgid "My collections"
 msgstr "Moje kolekcie"
 
-#: src/amo/pages/CollectionList/index.js:119
+#: src/amo/pages/CollectionList/index.js:120
 msgid "Collections"
 msgstr "Kolekcie"
 
-#: src/amo/pages/CollectionList/index.js:124
+#: src/amo/pages/CollectionList/index.js:125
 msgid "Log in to view your collections"
 msgstr "Ak chcete zobraziť kolekciu, musíte sa prihlásiť"
 
-#: src/amo/pages/CollectionList/index.js:129
+#: src/amo/pages/CollectionList/index.js:130
 msgid ""
 "Collections make it easy to keep track of favorite add-ons and share your "
 "perfectly customized browser with others."
@@ -2486,7 +2486,7 @@ msgstr ""
 "Vďaka kolekciám môžete mať prehľad o svojich obľúbených doplnkoch a môžete "
 "zdieľať svoj perfektne prispôsobený prehliadač s ostatnými."
 
-#: src/amo/pages/CollectionList/index.js:139
+#: src/amo/pages/CollectionList/index.js:140
 msgid "Create a collection"
 msgstr "Vytvoriť kolekciu"
 
