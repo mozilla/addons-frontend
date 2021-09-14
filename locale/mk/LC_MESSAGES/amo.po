@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-07 16:25+0000\n"
+"POT-Creation-Date: 2021-09-14 18:31+0000\n"
 "PO-Revision-Date: 2020-01-06 09:08+0000\n"
 "Last-Translator: Matej Plavevski <matej.plavevski@gmail.com>\n"
 "Language-Team: none\n"
@@ -1248,21 +1248,21 @@ msgstr "Промени ја мојата критика"
 msgid "Get the extension"
 msgstr "Проширување"
 
-# If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:221
-msgid "SPONSORED"
-msgstr ""
-
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:233
 msgid "RECOMMENDED"
 msgstr "ПРЕПОРАЧАНО"
 
-#: src/amo/components/HeroRecommendation/index.js:236
+#: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:252
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:239
+msgid "SPONSORED"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:256
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -2098,17 +2098,17 @@ msgstr "Изберете фотографија…"
 msgid "Developer response"
 msgstr "Одговор на развивачот"
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:176
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:166
+#: src/amo/components/VPNPromoBanner/index.js:177
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:192
+#: src/amo/components/VPNPromoBanner/index.js:204
 msgid "Get Mozilla VPN"
 msgstr ""
 
@@ -2389,48 +2389,48 @@ msgstr "Најавете се за да го оцените овој речни�
 msgid "Log in to edit this collection"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/pages/Collection/index.js:455
+#: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:516
+#: src/amo/pages/Collection/index.js:517
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:519
+#: src/amo/pages/Collection/index.js:520
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
 msgstr ""
 
-#: src/amo/pages/CollectionList/index.js:101
+#: src/amo/pages/CollectionList/index.js:102
 #, fuzzy
 msgid "My collections"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/pages/CollectionList/index.js:119
+#: src/amo/pages/CollectionList/index.js:120
 #, fuzzy
 msgid "Collections"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/pages/CollectionList/index.js:124
+#: src/amo/pages/CollectionList/index.js:125
 #, fuzzy
 msgid "Log in to view your collections"
 msgstr "Најавете се за да го оцените овој речник"
 
-#: src/amo/pages/CollectionList/index.js:129
+#: src/amo/pages/CollectionList/index.js:130
 msgid ""
 "Collections make it easy to keep track of favorite add-ons and share your "
 "perfectly customized browser with others."
 msgstr ""
 
-#: src/amo/pages/CollectionList/index.js:139
+#: src/amo/pages/CollectionList/index.js:140
 #, fuzzy
 msgid "Create a collection"
 msgstr "Најавете се за да го оцените овој речник"

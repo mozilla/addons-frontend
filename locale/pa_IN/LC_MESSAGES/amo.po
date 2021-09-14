@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-07 16:25+0000\n"
+"POT-Creation-Date: 2021-09-14 18:31+0000\n"
 "PO-Revision-Date: 2021-01-30 18:44+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1245,21 +1245,21 @@ msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਸੰਪਾਦਿਤ ਕਰੋ"
 msgid "Get the extension"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਲਵੋ"
 
-# If uppercase does not work in your locale,
-#: src/amo/components/HeroRecommendation/index.js:221
-msgid "SPONSORED"
-msgstr "ਇਸ਼ਤਿਹਾਰ"
-
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:232
+#: src/amo/components/HeroRecommendation/index.js:233
 msgid "RECOMMENDED"
 msgstr "ਸਿਫਾਰਸ਼ੀ"
 
-#: src/amo/components/HeroRecommendation/index.js:236
+#: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
 msgstr "FIREFOX ਦੁਆਰਾ"
 
-#: src/amo/components/HeroRecommendation/index.js:252
+# If uppercase does not work in your locale,
+#: src/amo/components/HeroRecommendation/index.js:239
+msgid "SPONSORED"
+msgstr "ਇਸ਼ਤਿਹਾਰ"
+
+#: src/amo/components/HeroRecommendation/index.js:256
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
@@ -2097,17 +2097,17 @@ msgstr "ਫੋਟੋ ਚੁਣੋ…"
 msgid "Developer response"
 msgstr "ਵਿਕਾਸਕਾਰ ਜਵਾਬ"
 
-#: src/amo/components/VPNPromoBanner/index.js:165
+#: src/amo/components/VPNPromoBanner/index.js:176
 msgid "Save 50% with a full year subscription"
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:166
+#: src/amo/components/VPNPromoBanner/index.js:177
 msgid ""
 "Protect your online data—and choose a VPN subscription plan that works for "
 "you."
 msgstr ""
 
-#: src/amo/components/VPNPromoBanner/index.js:192
+#: src/amo/components/VPNPromoBanner/index.js:204
 msgid "Get Mozilla VPN"
 msgstr ""
 
@@ -2384,15 +2384,15 @@ msgstr "ਇੱਕ ਸੰਗ੍ਰਹਿ ਬਣਾਉਣ ਲਈ ਲਾਗਇਨ �
 msgid "Log in to edit this collection"
 msgstr "ਇਸ ਭੰਡਾਰ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
-#: src/amo/pages/Collection/index.js:455
+#: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "ਪਹਿਲਾਂ, ਆਪਣਾ ਸੰਗ੍ਰਹਿ ਬਣਾਓ। ਫਿਰ ਤੁਸੀਂ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਨੂੰ ਜੋੜ ਸਕਦੇ ਹੋ।"
 
-#: src/amo/pages/Collection/index.js:458
+#: src/amo/pages/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
 msgstr "ਆਪਣੇ ਸੰਗ੍ਰਹਿ ਵਿੱਚ ਜੋੜਨ ਲਈ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਵਿਸ਼ਿਆਂ ਲਈ ਖੋਜ ਕਰੋ।"
 
-#: src/amo/pages/Collection/index.js:516
+#: src/amo/pages/Collection/index.js:517
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2400,7 +2400,7 @@ msgstr ""
 "ਮਨਪਸੰਦ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਦਾ ਟਰੈਕ ਰੱਖਣ ਲਈ ਫਾਇਰਫਾਕਸ ਸੰਗ੍ਰਿਹ ਡਾਊਨਲੋਡ ਕਰੋ ਅਤੇ ਬਣਾਓ। "
 "%(collectionName)s—%(collectionDescription)s ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/Collection/index.js:519
+#: src/amo/pages/Collection/index.js:520
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2408,19 +2408,19 @@ msgstr ""
 "ਮਨਪਸੰਦ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਦਾ ਟਰੈਕ ਰੱਖਣ ਲਈ ਫਾਇਰਫਾਕਸ ਸੰਗ੍ਰਿਹ ਡਾਊਨਲੋਡ ਕਰੋ ਅਤੇ ਬਣਾਓ। "
 "%(collectionName)s ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/CollectionList/index.js:101
+#: src/amo/pages/CollectionList/index.js:102
 msgid "My collections"
 msgstr "ਮੇਰੇ ਸੰਗ੍ਰਹਿ"
 
-#: src/amo/pages/CollectionList/index.js:119
+#: src/amo/pages/CollectionList/index.js:120
 msgid "Collections"
 msgstr "ਸੰਗ੍ਰਹਿ"
 
-#: src/amo/pages/CollectionList/index.js:124
+#: src/amo/pages/CollectionList/index.js:125
 msgid "Log in to view your collections"
 msgstr "ਆਪਣੇ ਸੰਗ੍ਰਿਹਾਂ ਨੂੰ ਦੇਖਣ ਲਈ ਦਾਖਲ ਹੋਵੋ"
 
-#: src/amo/pages/CollectionList/index.js:129
+#: src/amo/pages/CollectionList/index.js:130
 msgid ""
 "Collections make it easy to keep track of favorite add-ons and share your "
 "perfectly customized browser with others."
@@ -2428,7 +2428,7 @@ msgstr ""
 "ਸੰਗ੍ਰਹਿ ਪਸੰਦ ਕਰਦੇ ਹੋਏ ਐਡ-ਆਨ ਦਾ ਟ੍ਰੈਕ ਰੱਖਣਾ ਆਸਾਨ ਬਣਾਉਂਦੇ ਹਨ ਅਤੇ ਦੂਜਿਆਂ ਦੁਆਰਾ ਤੁਹਾਡੇ ਬਿਲਕੁਲ "
 "ਅਨੁਕੂਲ ਬਣਾਏ ਗਏ ਬ੍ਰਾਉਜ਼ਰ ਨੂੰ ਸਾਂਝਾ ਕਰਦੇ ਹਨ।"
 
-#: src/amo/pages/CollectionList/index.js:139
+#: src/amo/pages/CollectionList/index.js:140
 msgid "Create a collection"
 msgstr "ਸੰਗ੍ਰਹਿ ਬਣਾਓ"
 
