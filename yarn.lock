@@ -5178,10 +5178,10 @@ filename-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
   integrity sha1-wcS5vuPglyXdsQa3XB4wH+LxiyY=
 
-filesize@8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/filesize/-/filesize-8.0.2.tgz#59be16fa41c8d249e89ecaaf1422acf04220db98"
-  integrity sha512-sm/y5NAhVbcJoqMdNdfqoR/Evi1sMpKDJvWu4fa0o5OHNvX7nSXXGsg/5Pcp5L8uuI/7Hbn82Kk2PTCJmCOemQ==
+filesize@8.0.3:
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/filesize/-/filesize-8.0.3.tgz#b53541cc42418ec716b41cd74831793964ff90ac"
+  integrity sha512-UrhwVdUWmP0Jo9uLhVro8U36D4Yp3uT6pfXeNJHVRwyQrZjsqfnypOLthfnuB/bk1glUu7aIY947kyfoOfXuog==
 
 fill-range@^2.1.0:
   version "2.2.4"
