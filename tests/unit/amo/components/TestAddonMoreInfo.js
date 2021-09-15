@@ -219,12 +219,10 @@ describe(__filename, () => {
   it('renders file size of an add-on', () => {
     const size = 10;
     _loadVersions({
-      files: [
-        {
-          ...fakeFile,
-          size,
-        },
-      ],
+      file: {
+        ...fakeFile,
+        size,
+      },
     });
     const root = render();
 
@@ -529,12 +527,10 @@ describe(__filename, () => {
   it('renders the last updated date', () => {
     const created = new Date();
     _loadVersions({
-      files: [
-        {
-          ...fakeFile,
-          created,
-        },
-      ],
+      file: {
+        ...fakeFile,
+        created,
+      },
     });
     const root = render();
 

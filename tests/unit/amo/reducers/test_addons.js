@@ -142,9 +142,9 @@ describe(__filename, () => {
     );
   });
 
-  it('exposes `isMozillaSignedExtension` from current version files', () => {
+  it('exposes `isMozillaSignedExtension` from current version file', () => {
     const addon = createFakeAddon({
-      files: [{ is_mozilla_signed_extension: true }],
+      file: { is_mozilla_signed_extension: true },
     });
 
     const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
@@ -153,30 +153,11 @@ describe(__filename, () => {
 
   it('sets `isMozillaSignedExtension` to `false` when not declared', () => {
     const addon = createFakeAddon({
-      files: [{ is_mozilla_signed_extension: false }],
+      file: { is_mozilla_signed_extension: false },
     });
 
     const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
     expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(false);
-  });
-
-  it('sets `isMozillaSignedExtension` to `false` without files', () => {
-    const addon = createFakeAddon({ files: [] });
-
-    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
-    expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(false);
-  });
-
-  it('sets `isMozillaSignedExtension` to `true` when any file declares it', () => {
-    const addon = createFakeAddon({
-      files: [
-        { is_mozilla_signed_extension: false },
-        { is_mozilla_signed_extension: true },
-      ],
-    });
-
-    const state = addons(stateWithLang, loadAddon({ addon, slug: addon.slug }));
-    expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(true);
   });
 
   it('sets the loading state for add-ons to false', () => {

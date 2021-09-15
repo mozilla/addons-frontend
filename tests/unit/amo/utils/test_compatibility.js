@@ -295,12 +295,10 @@ describe(__filename, () => {
       });
       const currentVersion = createInternalVersionWithLang({
         ...fakeVersion,
-        files: [
-          {
-            ...fakeAddon.current_version.files[0],
-            platform: OS_MAC,
-          },
-        ],
+        file: {
+          ...fakeAddon.current_version.file,
+          platform: OS_MAC,
+        },
       });
 
       expect(
@@ -601,7 +599,7 @@ describe(__filename, () => {
                 min: '24.0',
               },
             },
-            files: [fakeAddon.current_version.files[0]],
+            file: fakeAddon.current_version.file,
             is_strict_compatibility_enabled: false,
           }),
           userAgentInfo,
@@ -625,7 +623,7 @@ describe(__filename, () => {
                 min: '24.0',
               },
             },
-            files: [fakeAddon.current_version.files[0]],
+            file: fakeAddon.current_version.file,
             is_strict_compatibility_enabled: true,
           }),
           userAgentInfo,

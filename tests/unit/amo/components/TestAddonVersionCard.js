@@ -147,7 +147,7 @@ describe(__filename, () => {
       const size = 12345;
       const version = {
         ...fakeVersion,
-        files: [{ ...fakeFile, created, size }],
+        file: { ...fakeFile, created, size },
       };
       const addon = { ...fakeAddon, current_version: version };
       _loadVersions({ addon });
@@ -162,18 +162,6 @@ describe(__filename, () => {
           size,
         })}`,
       );
-    });
-
-    it('renders nothing for released date and file size when no file exists for the version', () => {
-      const version = { ...fakeVersion, files: [] };
-      const addon = { ...fakeAddon, current_version: version };
-      _loadVersions({ addon });
-
-      const root = render({
-        version: createInternalVersionWithLang(version),
-      });
-
-      expect(root.find('.AddonVersionCard-fileInfo')).toHaveLength(0);
     });
   });
 

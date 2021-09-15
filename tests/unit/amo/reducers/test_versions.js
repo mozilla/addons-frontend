@@ -206,7 +206,7 @@ describe(__filename, () => {
 
       const version = {
         ...fakeVersion,
-        files: [{ created, size }],
+        file: { created, size },
       };
       const state = versionsReducer(
         stateWithLang,
@@ -233,27 +233,6 @@ describe(__filename, () => {
           versionId: 1,
         }),
       ).toEqual(null);
-    });
-
-    it('returns null for created and filesize when no file is found', () => {
-      const version = {
-        ...fakeVersion,
-        files: [],
-      };
-      const state = versionsReducer(
-        stateWithLang,
-        loadVersions({
-          slug: 'some-slug',
-          versions: [version],
-        }),
-      );
-
-      expect(
-        _getVersionInfo({
-          state,
-          versionId: fakeVersion.id,
-        }),
-      ).toMatchObject({ created: null, filesize: null });
     });
 
     it('returns the expected compatibility string for a max=*', () => {

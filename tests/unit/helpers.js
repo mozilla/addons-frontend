@@ -103,7 +103,7 @@ export const fakeVersion = Object.freeze({
     },
   },
   edit_url: 'https://addons.m.o/addon/chill-out/edit',
-  files: [fakeFile],
+  file: fakeFile,
   id: 123,
   is_strict_compatibility_enabled: false,
   license: {
@@ -621,7 +621,7 @@ export function createFakeAutocompleteResult({
 }
 
 export function createFakeAddon({
-  files = [...fakeAddon.current_version.files],
+  file = fakeAddon.current_version.file,
   compatibility = { ...fakeAddon.current_version.compatibility },
   // eslint-disable-next-line camelcase
   is_strict_compatibility_enabled = fakeAddon.current_version
@@ -633,12 +633,10 @@ export function createFakeAddon({
     current_version: {
       ...fakeAddon.current_version,
       compatibility,
-      files: files.map((fileProps) => {
-        return {
-          ...fakeAddon.current_version.files[0],
-          ...fileProps,
-        };
-      }),
+      file: {
+        ...fakeAddon.current_version.file,
+        ...file,
+      },
       is_strict_compatibility_enabled,
     },
     ...overrides,
