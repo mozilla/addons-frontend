@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-14 18:31+0000\n"
-"PO-Revision-Date: 2021-09-17 18:24+0000\n"
+"PO-Revision-Date: 2021-09-17 19:49+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -933,11 +933,11 @@ msgstr "Signalar iste revision"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "Log in to flag this response"
-msgstr "Authentica te pro signalar iste responsa"
+msgstr "Aperi session pro signalar iste responsa"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "Log in to flag this review"
-msgstr "Authentica te pro signalar iste revision"
+msgstr "Aperi session pro signalar iste recension"
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "You cannot flag your own response"
