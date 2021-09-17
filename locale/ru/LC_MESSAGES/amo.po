@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-14 18:31+0000\n"
-"PO-Revision-Date: 2021-09-17 17:45+0000\n"
+"PO-Revision-Date: 2021-09-17 17:49+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1666,9 +1666,9 @@ msgstr "Поиск дополнений"
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "по запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширение"
-msgstr[1] "по запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширения"
-msgstr[2] "по запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширений"
+msgstr[0] "в %(categoryName)s по запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширение"
+msgstr[1] "в %(categoryName)s по запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширения"
+msgstr[2] "в %(categoryName)s по запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширений"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -1678,12 +1678,11 @@ msgstr[1] "найдено %(count)s расширения в %(categoryName)s п�
 msgstr[2] "найдено %(count)s расширений в %(categoryName)s по запросу «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "найдено %(count)s расширение в %(categoryName)s"
-msgstr[1] "найдено %(count)s расширения в %(categoryName)s"
-msgstr[2] "найдено %(count)s расширений в %(categoryName)s"
+msgstr[0] "в %(categoryName)s с меткой %(tag)s найдено %(count)s расширение"
+msgstr[1] "в %(categoryName)s с меткой %(tag)s найдено %(count)s расширения"
+msgstr[2] "в %(categoryName)s с меткой %(tag)s найдено %(count)s расширений"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
@@ -1693,12 +1692,11 @@ msgstr[1] "найдено %(count)s расширения в %(categoryName)s"
 msgstr[2] "найдено %(count)s расширений в %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "найдено %(count)s расширение в %(categoryName)s по запросу «%(query)s»"
-msgstr[1] "найдено %(count)s расширения в %(categoryName)s по запросу «%(query)s»"
-msgstr[2] "найдено %(count)s расширений в %(categoryName)s по запросу «%(query)s»"
+msgstr[0] "по запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширение"
+msgstr[1] "по запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширения"
+msgstr[2] "по запросу «%(query)s» с меткой %(tag)s найдено %(count)s расширений"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
