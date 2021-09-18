@@ -866,9 +866,8 @@ msgid "That page is not available in your region"
 msgstr "หน้านี้ไม่พร้อมใช้งานในภูมิภาคของคุณ"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
-#, fuzzy
 msgid "The page you tried to access is not available in your region."
-msgstr "ส่วนเสริมนี้ไม่พร้อมใช้งานบนแพลตฟอร์มของคุณ"
+msgstr "หน้าที่คุณพยายามเข้าถึงไม่พร้อมใช้งานในภูมิภาคของคุณ"
 
 #: src/amo/components/ExpandableCard/index.js:58
 msgid "Toggle contents"
