@@ -195,3 +195,28 @@
     margin-top: 0;
   }
 }
+
+.Addon-showQRCode-link {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0;
+  margin-top: 4px;
+
+  @include respond-to(medium) {
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+}
+
+.Addon-showQRCode-button {
+  color: $link-color;
+  cursor: pointer;
+}
+
+.Overlay-contents .Addon-QRCode-modal {
+  max-width: 300px;
+
+  .Card-contents {
+    padding: 8px;
+  }
+}

@@ -10,6 +10,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import AddonQRCode from 'amo/components/AddonQRCode';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonHead from 'amo/components/AddonHead';
 import AddonTitle from 'amo/components/AddonTitle';
@@ -36,6 +37,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   FATAL_ERROR,
   INSTALLING,
@@ -46,6 +48,7 @@ import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   createCapturedErrorHandler,
   createFakeClientCompatibility,
+  createFakeEvent,
   createFakeLocation,
   createInternalAddonWithLang,
   createInternalVersionWithLang,
@@ -57,6 +60,7 @@ import {
   fakeI18n,
   fakeTheme,
   fakeVersion,
+  getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -1630,6 +1634,141 @@ describe(__filename, () => {
       const root = renderComponent({ addon: internalAddon, store });
 
       expect(root.find(InstallWarning)).toHaveProp('addon', internalAddon);
+    });
+  });
+
+  describe('AddonQRCode logic', () => {
+    const goodAddonId = 12345;
+    const testConfig = { addonIdsWithQRCodes: [goodAddonId] };
+    const goodAddon = createInternalAddonWithLang({
+      ...fakeAddon,
+      id: goodAddonId,
+    });
+
+    describe('flag enabled', () => {
+      const _config = getFakeConfig({
+        ...testConfig,
+        enableFeatureAddonQRCode: true,
+      });
+
+      it('displays a link for a QR code on desktop, for an applicable add-on', () => {
+        const root = shallowRender({
+          _config,
+          addon: goodAddon,
+          clientApp: CLIENT_APP_FIREFOX,
+        });
+
+        expect(root.find('.Addon-showQRCode-button')).toHaveLength(1);
+      });
+
+      it('does not display a link for a QR code on desktop, with no add-on', () => {
+        const root = shallowRender({
+          _config,
+          addon: null,
+          clientApp: CLIENT_APP_FIREFOX,
+        });
+
+        expect(root.find('.Addon-showQRCode-button')).toHaveLength(0);
+      });
+
+      it('does not display a link for a QR code on desktop, for an invalid add-on', () => {
+        const root = shallowRender({
+          _config,
+          addon: createInternalAddonWithLang({
+            ...fakeAddon,
+            id: goodAddonId + 1,
+          }),
+          clientApp: CLIENT_APP_FIREFOX,
+        });
+
+        expect(root.find('.Addon-showQRCode-button')).toHaveLength(0);
+      });
+
+      it('does not display a link for a QR code on mobile, for an applicable add-on', () => {
+        const root = shallowRender({
+          _config,
+          addon: goodAddon,
+          clientApp: CLIENT_APP_ANDROID,
+        });
+
+        expect(root.find('.Addon-showQRCode-button')).toHaveLength(0);
+      });
+
+      it('displays a modal when user clicks the QRCode link', () => {
+        const preventDefaultSpy = sinon.spy();
+        const root = shallowRender({
+          _config,
+          addon: goodAddon,
+          clientApp: CLIENT_APP_FIREFOX,
+        });
+
+        expect(root.find('.Addon-QRCode-modal')).toHaveLength(0);
+
+        root
+          .find('.Addon-showQRCode-button')
+          .simulate(
+            'click',
+            createFakeEvent({ preventDefault: preventDefaultSpy }),
+          );
+
+        sinon.assert.called(preventDefaultSpy);
+
+        const modal = root.find('.Addon-QRCode-modal');
+
+        expect(modal).toHaveLength(1);
+        expect(modal).toHaveProp('id', 'Addon-QRCode-modal');
+
+        expect(root.find(AddonQRCode)).toHaveLength(1);
+        expect(root.find(AddonQRCode)).toHaveProp('addon', goodAddon);
+        expect(root.find(AddonQRCode)).toHaveProp(
+          'onDismiss',
+          root.instance().onHideQRCode,
+        );
+      });
+
+      it('closes the modal when user clicks the dismiss button', () => {
+        const preventDefaultSpy = sinon.spy();
+        const root = shallowRender({
+          _config,
+          addon: goodAddon,
+          clientApp: CLIENT_APP_FIREFOX,
+        });
+
+        expect(root.find('.Addon-QRCode-modal')).toHaveLength(0);
+
+        root
+          .find('.Addon-showQRCode-button')
+          .simulate(
+            'click',
+            createFakeEvent({ preventDefault: preventDefaultSpy }),
+          );
+
+        sinon.assert.called(preventDefaultSpy);
+
+        expect(root.find('.Addon-QRCode-modal')).toHaveLength(1);
+
+        // Simulate clicking on the dismiss button.
+        root.instance().onHideQRCode();
+
+        expect(root.find('.Addon-QRCode-modal')).toHaveLength(0);
+      });
+    });
+
+    describe('flag disabled', () => {
+      const _config = getFakeConfig({
+        ...testConfig,
+        enableFeatureAddonQRCode: false,
+      });
+
+      it('does not display a link for a QR code on desktop, for an applicable add-on', () => {
+        const root = shallowRender({
+          _config,
+          addon: goodAddon,
+          clientApp: CLIENT_APP_FIREFOX,
+        });
+
+        expect(root.find('.Addon-showQRCode-button')).toHaveLength(0);
+      });
     });
   });
 });
