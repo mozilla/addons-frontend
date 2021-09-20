@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-14 18:31+0000\n"
-"PO-Revision-Date: 2021-09-17 19:49+0000\n"
+"PO-Revision-Date: 2021-09-20 06:10+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -395,7 +395,7 @@ msgstr "Actualisar le recension"
 
 #: src/amo/components/AddonReviewManager/index.js:125
 msgid "Updating review"
-msgstr "Actualisation del revision"
+msgstr "Actualisation del recension"
 
 #: src/amo/components/AddonReviewManager/index.js:146
 msgid "Saving"
