@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
+import config from 'config';
 
 import {
   CLIENT_APP_ANDROID,
@@ -21,41 +22,6 @@ import type { ElementEvent } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
-import qrCode229918 from './img/229918.png';
-import qrCode328839 from './img/328839.png';
-import qrCode506646 from './img/506646.png';
-import qrCode520576 from './img/520576.png';
-import qrCode521554 from './img/521554.png';
-import qrCode607454 from './img/607454.png';
-import qrCode627490 from './img/627490.png';
-import qrCode722 from './img/722.png';
-import qrCode735894 from './img/735894.png';
-import qrCode811592 from './img/811592.png';
-import qrCode824288 from './img/824288.png';
-import qrCode855413 from './img/855413.png';
-import qrCode866226 from './img/866226.png';
-import qrCode869140 from './img/869140.png';
-import qrCode953945 from './img/953945.png';
-import qrCode9609 from './img/9609.png';
-
-export const qrCodeSrcs = {
-  '229918': qrCode229918,
-  '328839': qrCode328839,
-  '506646': qrCode506646,
-  '520576': qrCode520576,
-  '521554': qrCode521554,
-  '607454': qrCode607454,
-  '627490': qrCode627490,
-  '722': qrCode722,
-  '735894': qrCode735894,
-  '811592': qrCode811592,
-  '824288': qrCode824288,
-  '855413': qrCode855413,
-  '866226': qrCode866226,
-  '869140': qrCode869140,
-  '953945': qrCode953945,
-  '9609': qrCode9609,
-};
 
 export const ADDON_QRCODE_CAMPAIGN = 'addon-qr-code';
 export const ADDON_QRCODE_CATEGORY = 'Addon QR Code';
@@ -68,6 +34,7 @@ type Props = {|
 |};
 
 export type DeafultProps = {|
+  _config: typeof config,
   _tracking: typeof tracking,
 |};
 
@@ -79,6 +46,7 @@ export type InternalProps = {|
 
 export class AddonQRCodeBase extends React.Component<InternalProps> {
   static defaultProps: DeafultProps = {
+    _config: config,
     _tracking: tracking,
   };
 
@@ -102,17 +70,18 @@ export class AddonQRCodeBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { addon, i18n, onDismiss } = this.props;
+    const { _config, addon, i18n, onDismiss } = this.props;
 
-    const idAsString = String(addon.id);
-    const imgSrc = qrCodeSrcs[idAsString];
-    invariant(imgSrc, `Could not find a QR code for addonId: ${idAsString}`);
+    invariant(
+      _config.get('addonIdsWithQRCodes').includes(addon.id),
+      `Could not find a QR code for addonId: ${addon.id}`,
+    );
 
     let addonUrl = addQueryParams(getAddonURL(addon.slug), {
       utm_source: DEFAULT_UTM_SOURCE,
       utm_medium: DEFAULT_UTM_MEDIUM,
       utm_campaign: ADDON_QRCODE_CAMPAIGN,
-      utm_content: String(idAsString),
+      utm_content: String(addon.id),
     });
     addonUrl = `/${CLIENT_APP_ANDROID}${addonUrl}`;
 
@@ -169,7 +138,7 @@ export class AddonQRCodeBase extends React.Component<InternalProps> {
         <img
           alt={altText}
           className="AddonQRCode-img"
-          src={qrCodeSrcs[idAsString]}
+          src={`${config.get('staticPath')}${addon.id}.png?v=1`}
         />
         <div className="AddonQRCode-label">{labelWithLink}</div>
       </div>

@@ -6,7 +6,6 @@ import AddonQRCode, {
   ADDON_QRCODE_CLICK_ACTION,
   ADDON_QRCODE_IMPRESSION_ACTION,
   AddonQRCodeBase,
-  qrCodeSrcs,
 } from 'amo/components/AddonQRCode';
 import {
   CLIENT_APP_ANDROID,
@@ -20,11 +19,13 @@ import {
   createInternalAddonWithLang,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const goodAddonId = 229918;
+  const goodAddonId = 12345;
+  const _config = getFakeConfig({ addonIdsWithQRCodes: [goodAddonId] });
 
   const createGoodAddon = (addon = fakeAddon) => {
     return createInternalAddonWithLang({ ...addon, id: goodAddonId });
@@ -32,6 +33,7 @@ describe(__filename, () => {
 
   const getProps = (customProps = {}) => {
     return {
+      _config,
       _tracking: createFakeTracking(),
       addon: createGoodAddon(),
       i18n: fakeI18n(),
@@ -46,12 +48,12 @@ describe(__filename, () => {
   };
 
   it('throws an exception if a QR code is not found for the add-on', () => {
-    const id = 1;
-    const addon = createInternalAddonWithLang({ ...fakeAddon, id });
+    const badAddonId = goodAddonId + 1;
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: badAddonId });
 
     expect(() => {
       render({ addon });
-    }).toThrowError(`Could not find a QR code for addonId: ${id}`);
+    }).toThrowError(`Could not find a QR code for addonId: ${badAddonId}`);
   });
 
   it('renders a link with the expected destination', () => {
@@ -89,7 +91,14 @@ describe(__filename, () => {
       ...fakeAddon,
       name: createLocalizedString(name),
     });
-    const root = render({ addon });
+    const staticPath = '/some-static/path/';
+    const root = render({
+      _config: getFakeConfig({
+        addonIdsWithQRCodes: [goodAddonId],
+        staticPath,
+      }),
+      addon,
+    });
 
     expect(root.find('.AddonQRCode-img')).toHaveProp(
       'alt',
@@ -97,7 +106,7 @@ describe(__filename, () => {
     );
     expect(root.find('.AddonQRCode-img')).toHaveProp(
       'src',
-      qrCodeSrcs[String(goodAddonId)],
+      `${_config.get('staticPath')}${goodAddonId}.png?v=1`,
     );
   });
 

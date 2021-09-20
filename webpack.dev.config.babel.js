@@ -30,10 +30,9 @@ export const babelOptions = {
     : babelPlugins,
 };
 
-const webpackHost = config.get('webpackServerHost');
-const webpackPort = config.get('webpackServerPort');
-
-const hmr = `webpack-hot-middleware/client?path=//${webpackHost}:${webpackPort}/__webpack_hmr`;
+const hmr = `webpack-hot-middleware/client?path=${config.get(
+  'staticPath',
+)}__webpack_hmr`;
 
 const entryPoints = { [WEBPACK_ENTRYPOINT]: [hmr, 'amo/client'] };
 
@@ -51,7 +50,7 @@ export default {
     filename: '[name]-[contenthash].js',
     chunkFilename: '[name]-[contenthash].js',
     // We need to remove the protocol because of `yarn amo:dev-https`.
-    publicPath: `//${webpackHost}:${webpackPort}/`,
+    publicPath: config.get('staticPath'),
   },
   module: {
     rules: getRules({ babelOptions, bundleStylesWithJs: true }),

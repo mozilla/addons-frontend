@@ -84,6 +84,7 @@ module.exports = {
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
   clientConfigKeys: [
+    'addonIdsWithQRCodes',
     'allowErrorSimulation',
     'amoCDN',
     'apiHost',
@@ -111,6 +112,7 @@ module.exports = {
     'mozillaUserId',
     'restrictSearchResultsToAppVersion',
     'rtlLangs',
+    'staticPath',
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
@@ -421,4 +423,9 @@ module.exports = {
     // e.g., 20210531_amo_download_funnel_experiment: true,
     '20210714_amo_vpn_promo': true,
   },
+
+  addonIdsWithQRCodes: [
+    229918, 328839, 506646, 520576, 521554, 607454, 627490, 722, 735894, 811592,
+    824288, 855413, 866226, 869140, 953945, 9609,
+  ],
 };

@@ -1,6 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import path from 'path';
+
 import autoprefixer from 'autoprefixer';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import config from 'config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
@@ -143,6 +146,20 @@ export function getPlugins({ withBrowserWindow = true } = {}) {
       /locale$/,
       new RegExp(`^\\.\\/.*?\\/amo\\.js$`),
     ),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(
+            __dirname,
+            'src',
+            'amo',
+            'components',
+            'AddonQRCode',
+            'img',
+          ),
+        },
+      ],
+    }),
   ];
 
   if (withBrowserWindow) {
