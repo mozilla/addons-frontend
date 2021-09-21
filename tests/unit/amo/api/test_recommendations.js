@@ -8,6 +8,7 @@ describe(__filename, () => {
     const apiState = dispatchClientMetadata().store.getState().api;
 
     const params = {
+      app: apiState.clientApp,
       guid: 'addon-guid',
       recommended: true,
     };
