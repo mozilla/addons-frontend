@@ -6,6 +6,8 @@ const path = require('path');
 
 const QRCode = require('qrcode');
 
+const addonIdsWithQRCodes = require('../config/lib/addonIdsWithQRCodes');
+
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 const rootDir = path.join(__dirname, '..');
@@ -31,8 +33,21 @@ if (!fs.existsSync(destDir)) {
         `utm_content=${id}`,
         `utm_medium=referral&utm_source=addons.mozilla.org`,
       ].join('&')
-      return QRCode.toFile(filePath, content);
+      return QRCode.toFile(filePath, content, {margin: 1});
     })
   );
+
+  const knownIds = addonIdsWithQRCodes.addonIds;
+  const addonIdsFromAPI = addons.map(({ id }) => id);
+
+  for (const addonId of addonIdsFromAPI) {
+    if (!knownIds.includes(addonId)) {
+      console.log(`'addonIdsWithQRCodes' might be outdated:`);
+      console.log(`  addonIdsWithQRCodes=${knownIds.sort()}`);
+      console.log(`  IDs from API=${addonIdsFromAPI.sort()}`);
+      process.exit(1);
+    }
+  }
+
   console.log(addons.length, ' QR codes created');
 })();

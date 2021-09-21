@@ -5,6 +5,7 @@
 import path from 'path';
 
 import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlProd, staticPath } from './lib/shared';
+import { addonIds } from './lib/addonIdsWithQRCodes';
 
 const basePath = path.resolve(__dirname, '../');
 
@@ -84,6 +85,7 @@ module.exports = {
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
   clientConfigKeys: [
+    'addonIdsWithQRCodes',
     'allowErrorSimulation',
     'amoCDN',
     'apiHost',
@@ -111,6 +113,7 @@ module.exports = {
     'mozillaUserId',
     'restrictSearchResultsToAppVersion',
     'rtlLangs',
+    'staticPath',
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
@@ -421,4 +424,6 @@ module.exports = {
     // e.g., 20210531_amo_download_funnel_experiment: true,
     '20210714_amo_vpn_promo': true,
   },
+
+  addonIdsWithQRCodes: addonIds,
 };

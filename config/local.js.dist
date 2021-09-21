@@ -1,3 +1,5 @@
+import { staticPath } from './lib/shared';
+
 // This configuration file is used to build and run production builds locally.
 // More information in the README.md file.
 module.exports = {
@@ -10,6 +12,10 @@ module.exports = {
     },
     reportOnly: true,
   },
+
+  // `config/development.js` overrides the static path to use
+  // webpack-dev-server but we don't want that for this environment.
+  staticPath,
 
   // Serve static via Node.
   enableNodeStatics: true,

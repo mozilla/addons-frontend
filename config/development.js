@@ -3,7 +3,7 @@ import { addonsServerDevCDN, analyticsHost, apiDevHost } from './lib/shared';
 
 const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
 const webpackServerPort = 3001;
-const webpackHost = `${webpackServerHost}:${webpackServerPort}`;
+const webpackDevServer = `${webpackServerHost}:${webpackServerPort}`;
 
 module.exports = {
   apiHost: 'http://localhost:3000',
@@ -38,7 +38,10 @@ module.exports = {
   serverPort: 3333,
   webpackServerHost,
   webpackServerPort,
-  webpackHost,
+
+  // In local dev, we serve static files using webpack-dev-server.
+  // We need to remove the protocol because of `yarn amo:dev-https`.
+  staticPath: `//${webpackDevServer}/`,
 
   CSP: {
     directives: {
@@ -47,25 +50,25 @@ module.exports = {
         addonsServerDevCDN,
         analyticsHost,
         apiDevHost,
-        webpackHost,
+        webpackDevServer,
         // This is needed for pino-devtools.
         `${webpackServerHost}:3010`,
       ],
       fontSrc: [
-        webpackHost,
+        webpackDevServer,
       ],
       imgSrc: [
         "'self'",
         'data:',
         addonsServerDevCDN,
-        webpackHost,
+        webpackDevServer,
       ],
       scriptSrc: [
         "'self'",
         // webpack injects inline JS
         "'unsafe-inline'",
         addonsServerDevCDN,
-        webpackHost,
+        webpackDevServer,
         `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
