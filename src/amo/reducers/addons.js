@@ -250,14 +250,9 @@ export function createInternalAddon(
 
   const currentVersion = apiAddon.current_version;
 
-  if (
-    currentVersion &&
-    currentVersion.files &&
-    currentVersion.files.length > 0
-  ) {
-    addon.isMozillaSignedExtension = currentVersion.files.some(
-      (file) => !!file.is_mozilla_signed_extension,
-    );
+  if (currentVersion) {
+    addon.isMozillaSignedExtension =
+      currentVersion.file.is_mozilla_signed_extension;
   }
 
   return addon;

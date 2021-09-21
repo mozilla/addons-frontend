@@ -29,13 +29,12 @@ describe(__filename, () => {
   } = {}) => {
     return createInternalVersionWithLang({
       ...fakeVersion,
-      files: [
-        {
-          ...fakeFile,
-          optional_permissions: optional,
-          permissions: required,
-        },
-      ],
+      file: {
+        ...fakeFile,
+        optional_permissions: optional,
+        permissions: required,
+      },
+
       ...versionProps,
     });
   };

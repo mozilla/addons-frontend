@@ -486,7 +486,7 @@ describe(__filename, () => {
       _getClientCompatibility,
       version: createInternalVersionWithLang({
         ...fakeAddon.current_version,
-        files: [{ ...fakeFile, url: fileURL }],
+        file: { ...fakeFile, url: fileURL },
       }),
     });
 
@@ -501,21 +501,6 @@ describe(__filename, () => {
       compatible: false,
     });
     const root = render({ _getClientCompatibility, version: null });
-
-    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
-  });
-
-  it('does not display a download link when currentVersion has no file', () => {
-    const _getClientCompatibility = sinon.stub().returns({
-      compatible: false,
-    });
-    const root = render({
-      _getClientCompatibility,
-      version: createInternalVersionWithLang({
-        ...fakeAddon.current_version,
-        files: [],
-      }),
-    });
 
     expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
   });

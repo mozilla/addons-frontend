@@ -332,7 +332,7 @@ describe(__filename, () => {
         _loadVersions({
           store,
           versionProps: {
-            files: [{ platform: OS_ALL, url: installURL }],
+            file: { platform: OS_ALL, url: installURL },
           },
         });
       };
@@ -958,13 +958,11 @@ describe(__filename, () => {
         _loadVersions({
           store,
           versionProps: {
-            files: [
-              {
-                platform: OS_ALL,
-                url: installURL,
-                hash,
-              },
-            ],
+            file: {
+              platform: OS_ALL,
+              url: installURL,
+              hash,
+            },
           },
         });
 
@@ -995,13 +993,11 @@ describe(__filename, () => {
         _loadVersions({
           store,
           versionProps: {
-            files: [
-              {
-                platform: OS_ALL,
-                url: currentInstallURL,
-                hash: currentHash,
-              },
-            ],
+            file: {
+              platform: OS_ALL,
+              url: currentInstallURL,
+              hash: currentHash,
+            },
           },
         });
 
@@ -1011,13 +1007,11 @@ describe(__filename, () => {
           store,
           version: createInternalVersionWithLang({
             ...fakeVersion,
-            files: [
-              {
-                ...fakeFile,
-                hash: versionHash,
-                url: versionInstallURL,
-              },
-            ],
+            file: {
+              ...fakeFile,
+              hash: versionHash,
+              url: versionInstallURL,
+            },
           }),
         });
         const { install } = root.instance().props;
@@ -1212,29 +1206,6 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             _log.debug,
             'no currentVersion found, aborting install().',
-          );
-        });
-      });
-
-      it('does nothing when install() is called with a version without files', () => {
-        const _log = getFakeLogger();
-
-        const addon = createInternalAddonWithLang(fakeAddon);
-        const { root } = renderWithInstallHelpers({
-          _log,
-          addon,
-          store,
-          version: createInternalVersionWithLang({
-            ...fakeVersion,
-            files: [],
-          }),
-        });
-        const { install } = root.instance().props;
-
-        return install().then(() => {
-          sinon.assert.calledWith(
-            _log.debug,
-            'no file found, aborting install().',
           );
         });
       });

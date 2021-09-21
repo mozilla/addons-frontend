@@ -49,7 +49,7 @@ export type PartialExternalAddonVersionType = {|
   channel: string,
   compatibility: AddonCompatibilityType,
   edit_url: string,
-  files: Array<AddonFileType>,
+  file: AddonFileType,
   id: number,
   is_strict_compatibility_enabled: boolean,
   reviewed: Date,
@@ -140,7 +140,7 @@ export const createInternalVersion = (
           url: version.license.url,
         }
       : null,
-    file: version.files.length > 0 ? version.files[0] : null,
+    file: version.file,
     releaseNotes: selectLocalizedContent(version.release_notes, lang),
     version: version.version,
   };

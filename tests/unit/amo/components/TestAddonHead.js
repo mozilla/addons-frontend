@@ -92,12 +92,10 @@ describe(__filename, () => {
         versions: [
           {
             ...fakeAddon.current_version,
-            files: [
-              {
-                ...fakeFile,
-                created,
-              },
-            ],
+            file: {
+              ...fakeFile,
+              created,
+            },
           },
         ],
       }),

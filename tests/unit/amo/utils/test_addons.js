@@ -62,12 +62,10 @@ describe(__filename, () => {
     it('finds a file hash if the URL matches', () => {
       const version = createInternalVersionWithLang({
         ...fakeVersion,
-        files: [
-          {
-            url: 'https://first-url',
-            hash: 'hash-of-first-file',
-          },
-        ],
+        file: {
+          url: 'https://first-url',
+          hash: 'hash-of-first-file',
+        },
       });
 
       expect(
@@ -75,34 +73,11 @@ describe(__filename, () => {
       ).toEqual('hash-of-first-file');
     });
 
-    it('does not find a file hash if the URL of the first file does not match', () => {
-      const version = createInternalVersionWithLang({
-        ...fakeVersion,
-        files: [
-          {
-            url: 'https://first-url',
-            hash: 'hash-of-first-file',
-          },
-          // This shouldn't happen in real life: add-ons shouldn't have multiple files
-          // any longer. So we fail like we do when there are no files, because the URL
-          // doesn't match.
-          {
-            url: 'https://second-url',
-            hash: 'hash-of-second-file',
-          },
-        ],
-      });
-
-      expect(
-        _getFileHash({ installURL: 'https://second-url', version }),
-      ).toBeUndefined();
-    });
-
     it('strips query string parameters from the URL', () => {
       const url = 'https://a.m.o/addons/file.xpi';
       const version = createInternalVersionWithLang({
         ...fakeVersion,
-        files: [{ platform: OS_ALL, url, hash: 'hash-of-file' }],
+        file: { platform: OS_ALL, url, hash: 'hash-of-file' },
       });
 
       expect(
@@ -117,13 +92,11 @@ describe(__filename, () => {
       const url = 'https://a.m.o/addons/file.xpi';
       const version = createInternalVersionWithLang({
         ...fakeVersion,
-        files: [
-          {
-            platform: OS_ALL,
-            url: `${url}?src=some-install-source`,
-            hash: 'hash-of-file',
-          },
-        ],
+        file: {
+          platform: OS_ALL,
+          url: `${url}?src=some-install-source`,
+          hash: 'hash-of-file',
+        },
       });
 
       expect(
@@ -132,15 +105,6 @@ describe(__filename, () => {
           version,
         }),
       ).toEqual('hash-of-file');
-    });
-
-    it('does not find a file hash without files', () => {
-      const version = createInternalVersionWithLang({
-        ...fakeVersion,
-        files: [],
-      });
-
-      expect(_getFileHash({ version })).toBeUndefined();
     });
   });
 

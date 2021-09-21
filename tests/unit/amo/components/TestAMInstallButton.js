@@ -54,13 +54,11 @@ describe(__filename, () => {
   }) => {
     return createInternalVersionWithLang({
       ...fakeVersion,
-      files: [
-        {
-          ...fakeVersion.files[0],
-          platform: OS_ALL,
-          url: installURL,
-        },
-      ],
+      file: {
+        ...fakeVersion.file,
+        platform: OS_ALL,
+        url: installURL,
+      },
     });
   };
 
