@@ -26,6 +26,6 @@ export const getRecommendations = ({
     apiState: api,
     auth: true,
     endpoint: 'addons/recommendations/',
-    params: { guid, recommended },
+    params: { app: api.clientApp, guid, recommended },
   });
 };
