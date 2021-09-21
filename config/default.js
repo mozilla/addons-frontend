@@ -5,7 +5,6 @@
 import path from 'path';
 
 import { addonsServerProdCDN, analyticsHost, prodDomain, apiProdHost, baseUrlProd, staticPath } from './lib/shared';
-import { addonIds } from './lib/addonIdsWithQRCodes';
 
 const basePath = path.resolve(__dirname, '../');
 
@@ -425,5 +424,8 @@ module.exports = {
     '20210714_amo_vpn_promo': true,
   },
 
-  addonIdsWithQRCodes: addonIds,
+  addonIdsWithQRCodes: [
+    229918, 328839, 506646, 520576, 521554, 607454, 627490, 722, 735894,
+    811592, 824288, 855413, 866226, 869140, 953945, 9609,
+  ],
 };
