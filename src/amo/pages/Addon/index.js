@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import makeClassName from 'classnames';
-import config from 'config';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -14,15 +13,13 @@ import AddonHead from 'amo/components/AddonHead';
 import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
-import AddonQRCode from 'amo/components/AddonQRCode';
+import AddonQRCodeLink from 'amo/components/AddonQRCodeLink';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
-import Button from 'amo/components/Button';
 import ContributeCard from 'amo/components/ContributeCard';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
-import OverlayCard from 'amo/components/OverlayCard';
 import Page from 'amo/components/Page';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
@@ -45,7 +42,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_ANDROID,
 } from 'amo/constants';
 import { getAddonIconUrl } from 'amo/imageUtils';
 import translate from 'amo/i18n/translate';
@@ -61,7 +57,6 @@ export const STATUS_PUBLIC = 'public';
 
 export class AddonBase extends React.Component {
   static propTypes = {
-    _config: PropTypes.object,
     RatingManager: PropTypes.func,
     addon: PropTypes.object,
     addonIsLoading: PropTypes.bool,
@@ -81,16 +76,11 @@ export class AddonBase extends React.Component {
   };
 
   static defaultProps = {
-    _config: config,
     RatingManager: DefaultRatingManager,
   };
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      showQRCode: false,
-    };
 
     const {
       addon,
@@ -408,56 +398,6 @@ export class AddonBase extends React.Component {
     );
   }
 
-  onShowQRCode = (e) => {
-    e.preventDefault();
-
-    this.setState({ showQRCode: true });
-  };
-
-  onHideQRCode = () => {
-    this.setState({ showQRCode: false });
-  };
-
-  renderQRCodeLink() {
-    const { _config, addon, clientApp, i18n } = this.props;
-
-    if (
-      !addon ||
-      !_config.get('addonIdsWithQRCodes').includes(addon.id) ||
-      clientApp === CLIENT_APP_ANDROID ||
-      !_config.get('enableFeatureAddonQRCode')
-    ) {
-      return null;
-    }
-
-    const overlayClassName = 'Addon-QRCode-modal';
-
-    return (
-      <div className="Addon-showQRCode-link">
-        <Button
-          buttonType="none"
-          className="Addon-showQRCode-button"
-          onClick={this.onShowQRCode}
-          type="button"
-        >
-          {i18n.gettext('Also available on Firefox for Android')}
-        </Button>
-        {this.state.showQRCode && (
-          <OverlayCard
-            onEscapeOverlay={this.onHideQRCode}
-            className={overlayClassName}
-            id={overlayClassName}
-            visibleOnLoad
-          >
-            <Card>
-              <AddonQRCode addon={addon} onDismiss={this.onHideQRCode} />
-            </Card>
-          </OverlayCard>
-        )}
-      </div>
-    );
-  }
-
   render() {
     const { addon, addonsByAuthors, currentVersion, errorHandler, i18n } =
       this.props;
@@ -545,7 +485,7 @@ export class AddonBase extends React.Component {
                   <InstallButtonWrapper addon={addon} />
                 </div>
 
-                {this.renderQRCodeLink()}
+                {addon && <AddonQRCodeLink addon={addon} />}
 
                 <h2 className="visually-hidden">
                   {i18n.gettext('Extension Metadata')}
