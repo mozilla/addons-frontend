@@ -16,17 +16,19 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const goodAddonId = 12345;
-  const testConfig = { addonIdsWithQRCodes: [goodAddonId] };
-  const goodAddon = createInternalAddonWithLang({
+  const addonIdsWithQRCodes = [12345];
+  const addonWithQRCode = createInternalAddonWithLang({
     ...fakeAddon,
-    id: goodAddonId,
+    id: addonIdsWithQRCodes[0],
   });
 
   const render = ({
     _config = getFakeConfig(),
-    addon = goodAddon,
-    store = dispatchClientMetadata().store,
+    addon = addonWithQRCode,
+    // By default all tests will run with firefox as the clientApp.
+    store = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+    }).store,
   } = {}) => {
     return shallowUntilTarget(
       <AddonQRCodeLink
@@ -41,39 +43,29 @@ describe(__filename, () => {
 
   describe('flag enabled', () => {
     const _config = getFakeConfig({
-      ...testConfig,
+      addonIdsWithQRCodes,
       enableFeatureAddonQRCode: true,
     });
 
     it('displays a link for a QR code on desktop, for an applicable add-on', () => {
-      const { store } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-      });
-      const root = render({ _config, addon: goodAddon, store });
+      const root = render({ _config, addon: addonWithQRCode });
 
       expect(root.find('.AddonQRCodeLink')).toHaveLength(1);
     });
 
     it('does not display a link for a QR code on desktop, with no add-on', () => {
-      const { store } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-      });
-      const root = render({ _config, addon: null, store });
+      const root = render({ _config, addon: null });
 
       expect(root.find('.AddonQRCodeLink')).toHaveLength(0);
     });
 
     it('does not display a link for a QR code on desktop, for an invalid add-on', () => {
-      const { store } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-      });
       const root = render({
         _config,
         addon: createInternalAddonWithLang({
           ...fakeAddon,
-          id: goodAddonId + 1,
+          id: addonIdsWithQRCodes[0] + 1,
         }),
-        store,
       });
 
       expect(root.find('.AddonQRCodeLink')).toHaveLength(0);
@@ -83,17 +75,14 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_ANDROID,
       });
-      const root = render({ _config, addon: goodAddon, store });
+      const root = render({ _config, addon: addonWithQRCode, store });
 
       expect(root.find('.AddonQRCodeLink')).toHaveLength(0);
     });
 
     it('displays a modal when user clicks the QRCode link', () => {
       const preventDefaultSpy = sinon.spy();
-      const { store } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-      });
-      const root = render({ _config, addon: goodAddon, store });
+      const root = render({ _config, addon: addonWithQRCode });
 
       expect(root.find('.AddonQRCodeLink-modal')).toHaveLength(0);
 
@@ -112,7 +101,7 @@ describe(__filename, () => {
       expect(modal).toHaveProp('id', 'AddonQRCodeLink-modal');
 
       expect(root.find(AddonQRCode)).toHaveLength(1);
-      expect(root.find(AddonQRCode)).toHaveProp('addon', goodAddon);
+      expect(root.find(AddonQRCode)).toHaveProp('addon', addonWithQRCode);
       expect(root.find(AddonQRCode)).toHaveProp(
         'onDismiss',
         root.instance().onHideQRCode,
@@ -121,10 +110,7 @@ describe(__filename, () => {
 
     it('closes the modal when user clicks the dismiss button', () => {
       const preventDefaultSpy = sinon.spy();
-      const { store } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-      });
-      const root = render({ _config, addon: goodAddon, store });
+      const root = render({ _config });
 
       expect(root.find('.AddonQRCodeLink-modal')).toHaveLength(0);
 
@@ -148,15 +134,12 @@ describe(__filename, () => {
 
   describe('flag disabled', () => {
     const _config = getFakeConfig({
-      ...testConfig,
+      addonIdsWithQRCodes,
       enableFeatureAddonQRCode: false,
     });
 
     it('does not display a link for a QR code on desktop, for an applicable add-on', () => {
-      const { store } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-      });
-      const root = render({ _config, addon: goodAddon, store });
+      const root = render({ _config, addon: addonWithQRCode });
 
       expect(root.find('.AddonQRCodeLink-button')).toHaveLength(0);
     });
