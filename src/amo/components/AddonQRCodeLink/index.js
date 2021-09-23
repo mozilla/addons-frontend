@@ -17,10 +17,10 @@ import type { I18nType } from 'amo/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  addon: AddonType,
+  addon?: AddonType,
 |};
 
-export type DeafultProps = {|
+export type DefaultProps = {|
   _config: typeof config,
 |};
 
@@ -30,7 +30,7 @@ type PropsFromState = {|
 
 export type InternalProps = {|
   ...Props,
-  ...DeafultProps,
+  ...DefaultProps,
   ...PropsFromState,
   i18n: I18nType,
 |};
@@ -40,7 +40,7 @@ type State = {|
 |};
 
 export class AddonQRCodeLinkBase extends React.Component<InternalProps, State> {
-  static defaultProps: DeafultProps = {
+  static defaultProps: DefaultProps = {
     _config: config,
   };
 
@@ -66,6 +66,7 @@ export class AddonQRCodeLinkBase extends React.Component<InternalProps, State> {
     const { _config, addon, clientApp, i18n } = this.props;
 
     if (
+      !addon ||
       !_config.get('addonIdsWithQRCodes').includes(addon.id) ||
       clientApp === CLIENT_APP_ANDROID ||
       !_config.get('enableFeatureAddonQRCode')

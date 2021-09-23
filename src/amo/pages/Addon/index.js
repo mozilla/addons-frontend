@@ -485,7 +485,7 @@ export class AddonBase extends React.Component {
                   <InstallButtonWrapper addon={addon} />
                 </div>
 
-                {addon && <AddonQRCodeLink addon={addon} />}
+                <AddonQRCodeLink addon={addon} />
 
                 <h2 className="visually-hidden">
                   {i18n.gettext('Extension Metadata')}

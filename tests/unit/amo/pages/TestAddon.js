@@ -1641,10 +1641,4 @@ describe(__filename, () => {
     expect(root.find(AddonQRCodeLink)).toHaveLength(1);
     expect(root.find(AddonQRCodeLink)).toHaveProp('addon', addon);
   });
-
-  it('does not display a link for a QR code without an add-on', () => {
-    const root = shallowRender({ addon: null });
-
-    expect(root.find(AddonQRCodeLink)).toHaveLength(0);
-  });
 });

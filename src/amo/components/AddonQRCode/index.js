@@ -33,19 +33,19 @@ type Props = {|
   onDismiss: (e: ElementEvent | null) => void,
 |};
 
-export type DeafultProps = {|
+export type DefaultProps = {|
   _config: typeof config,
   _tracking: typeof tracking,
 |};
 
 export type InternalProps = {|
   ...Props,
-  ...DeafultProps,
+  ...DefaultProps,
   i18n: I18nType,
 |};
 
 export class AddonQRCodeBase extends React.Component<InternalProps> {
-  static defaultProps: DeafultProps = {
+  static defaultProps: DefaultProps = {
     _config: config,
     _tracking: tracking,
   };
