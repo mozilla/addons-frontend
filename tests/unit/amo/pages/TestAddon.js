@@ -10,6 +10,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import AddonQRCodeLink from 'amo/components/AddonQRCodeLink';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonHead from 'amo/components/AddonHead';
 import AddonTitle from 'amo/components/AddonTitle';
@@ -1631,5 +1632,13 @@ describe(__filename, () => {
 
       expect(root.find(InstallWarning)).toHaveProp('addon', internalAddon);
     });
+  });
+
+  it('displays a link for a QR code with an add-on', () => {
+    const addon = createInternalAddonWithLang(fakeAddon);
+    const root = shallowRender({ addon });
+
+    expect(root.find(AddonQRCodeLink)).toHaveLength(1);
+    expect(root.find(AddonQRCodeLink)).toHaveProp('addon', addon);
   });
 });

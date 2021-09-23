@@ -98,6 +98,7 @@ module.exports = {
     'defaultLang',
     'enableDevTools',
     'enableFeatureVPNPromo',
+    'enableFeatureAddonQRCode',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -409,6 +410,7 @@ module.exports = {
   // https://github.com/mozilla/addons-frontend/issues/6362.
 
   enableFeatureVPNPromo: true,
+  enableFeatureAddonQRCode: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 

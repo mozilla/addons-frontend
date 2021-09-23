@@ -13,6 +13,7 @@ import AddonHead from 'amo/components/AddonHead';
 import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import AddonQRCodeLink from 'amo/components/AddonQRCodeLink';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
@@ -483,6 +484,8 @@ export class AddonBase extends React.Component {
 
                   <InstallButtonWrapper addon={addon} />
                 </div>
+
+                <AddonQRCodeLink addon={addon} />
 
                 <h2 className="visually-hidden">
                   {i18n.gettext('Extension Metadata')}
