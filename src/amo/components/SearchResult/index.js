@@ -28,7 +28,7 @@ import type { ReactRouterHistoryType } from 'amo/types/router';
 
 import './styles.scss';
 
-type DeafultProps = {|
+type DefaultProps = {|
   showFullSizePreview?: boolean,
   showMetadata?: boolean,
   showPromotedBadge?: boolean,
@@ -37,7 +37,7 @@ type DeafultProps = {|
 |};
 
 type Props = {|
-  ...DeafultProps,
+  ...DefaultProps,
   addon?: AddonType | CollectionAddonType,
   addonInstallSource?: string,
   onClick?: (addon: AddonType | CollectionAddonType) => void,
@@ -59,7 +59,7 @@ type InternalProps = {|
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps: {|
-    ...DeafultProps,
+    ...DefaultProps,
     _getPromotedCategory: typeof getPromotedCategory,
   |} = {
     _getPromotedCategory: getPromotedCategory,

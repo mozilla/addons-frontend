@@ -45,7 +45,7 @@ export const VPN_URL = 'https://www.mozilla.org/products/vpn';
 
 export type Props = {| variant: string | null |};
 
-export type DeafultProps = {|
+export type DefaultProps = {|
   _tracking: typeof tracking,
   _localStorage: typeof window.localStorage | Object,
 |};
@@ -58,7 +58,7 @@ type PropsFromState = {|
 
 type InternalProps = {|
   ...Props,
-  ...DeafultProps,
+  ...DefaultProps,
   ...PropsFromState,
   cookies: typeof Cookies,
   i18n: I18nType,
@@ -90,7 +90,7 @@ type State = {|
 |};
 
 export class VPNPromoBannerBase extends React.Component<InternalProps, State> {
-  static defaultProps: DeafultProps = {
+  static defaultProps: DefaultProps = {
     _tracking: tracking,
     _localStorage: typeof window !== 'undefined' ? window.localStorage : {},
   };
