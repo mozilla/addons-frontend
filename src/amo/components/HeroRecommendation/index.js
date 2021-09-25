@@ -51,7 +51,7 @@ export type PropsFromState = {|
   siteNotice: string | null,
 |};
 
-export type DeafultProps = {|
+export type DefaultProps = {|
   _checkInternalURL: typeof checkInternalURL,
   _getPromotedCategory: typeof getPromotedCategory,
   _tracking: typeof tracking,
@@ -60,12 +60,12 @@ export type DeafultProps = {|
 export type InternalProps = {|
   ...Props,
   ...PropsFromState,
-  ...DeafultProps,
+  ...DefaultProps,
   i18n: I18nType,
 |};
 
 export class HeroRecommendationBase extends React.Component<InternalProps> {
-  static defaultProps: DeafultProps = {
+  static defaultProps: DefaultProps = {
     _checkInternalURL: checkInternalURL,
     _getPromotedCategory: getPromotedCategory,
     _tracking: tracking,

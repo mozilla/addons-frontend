@@ -26,7 +26,7 @@ type Props = {|
   addon: AddonType | null,
 |};
 
-type DeafultProps = {|
+type DefaultProps = {|
   _getClientCompatibility: typeof getClientCompatibility,
 |};
 
@@ -38,13 +38,13 @@ type PropsFromState = {|
 
 type InternalProps = {|
   ...Props,
-  ...DeafultProps,
+  ...DefaultProps,
   ...PropsFromState,
   i18n: I18nType,
 |};
 
 export class AddonCompatibilityErrorBase extends React.Component<InternalProps> {
-  static defaultProps: DeafultProps = {
+  static defaultProps: DefaultProps = {
     _getClientCompatibility: getClientCompatibility,
   };
 
