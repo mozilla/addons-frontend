@@ -28,7 +28,7 @@ export const GET_FIREFOX_BANNER_UTM_CONTENT = 'banner-download-button';
 
 export type Props = {||};
 
-export type DeafultProps = {|
+export type DefaultProps = {|
   _tracking: typeof tracking,
 |};
 
@@ -38,7 +38,7 @@ type PropsFromState = {|
 
 type InternalProps = {|
   ...Props,
-  ...DeafultProps,
+  ...DefaultProps,
   ...PropsFromState,
   i18n: I18nType,
 |};
