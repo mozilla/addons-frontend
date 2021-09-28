@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -1688,9 +1688,8 @@ msgstr[2] "V kategórii „%(categoryName)s“ bolo nájdených %(count)s rozš�
 #: src/amo/components/SearchContextCard/index.js:95
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bolo v kategórii „%(categoryName)s“ nájdené %(count)s rozšírenie so značkou %(tag)s"
-msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli v kategórii „%(categoryName)s“ nájdené %(count)s rozšírenia so značkou %(tag)s"
-msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo v kategórii „%(categoryName)s“ nájdených %(count)s rozšírení so značkou %(tag)s"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
