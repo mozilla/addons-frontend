@@ -423,7 +423,7 @@ module.exports = {
     // See: https://github.com/mozilla/addons-frontend/pull/9125#issuecomment-580683288
     //
     // e.g., 20210531_amo_download_funnel_experiment: true,
-    '20210714_amo_vpn_promo': true,
+    '20210714_amo_vpn_promo': false,
   },
 
   addonIdsWithQRCodes: [
