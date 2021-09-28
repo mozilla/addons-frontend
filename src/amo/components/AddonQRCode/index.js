@@ -23,7 +23,7 @@ import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
 
-export const ADDON_QRCODE_CAMPAIGN = 'addon-qr-code';
+export const ADDON_QRCODE_CAMPAIGN = 'addon-qr-code-link';
 export const ADDON_QRCODE_CATEGORY = 'Addon QR Code';
 export const ADDON_QRCODE_CLICK_ACTION = 'addon-qr-code-click';
 export const ADDON_QRCODE_IMPRESSION_ACTION = 'addon-qr-code-impression';
