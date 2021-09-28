@@ -31,7 +31,7 @@ if (!fs.existsSync(destDir)) {
       const filePath = path.join(destDir, `${id}.png`);
       let content = url.replace(`/${lang}`, '');
       content = [
-        `${content}?utm_campaign=amo-fenix-qr-code`,
+        `${content}?utm_campaign=addon-qr-code`,
         `utm_content=${id}`,
         `utm_medium=referral&utm_source=addons.mozilla.org`,
       ].join('&');
