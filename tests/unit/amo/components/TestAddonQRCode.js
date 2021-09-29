@@ -106,7 +106,7 @@ describe(__filename, () => {
     );
     expect(root.find('.AddonQRCode-img')).toHaveProp(
       'src',
-      `${_config.get('staticPath')}${goodAddonId}.png?v=1`,
+      `${_config.get('staticPath')}${goodAddonId}.png?v=2`,
     );
   });
 
