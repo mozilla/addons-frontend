@@ -321,7 +321,7 @@ function baseServer(
           // This stops all running sagas.
           store.dispatch(END);
 
-          await runningSagas.done;
+          await runningSagas.toPromise();
           _log.warn('Server side rendering is disabled.');
 
           return hydrateOnClient({ res, pageProps, store });
@@ -373,7 +373,7 @@ function baseServer(
 
       try {
         // Once all sagas have completed, we load the page.
-        await runningSagas.done;
+        await runningSagas.toPromise();
         _log.debug('Second component render after sagas have finished');
 
         const finalHTML = renderHTML({ props, pageProps, store });
