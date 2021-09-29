@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-29 08:41+0000\n"
-"PO-Revision-Date: 2021-09-29 13:43+0000\n"
+"PO-Revision-Date: 2021-09-29 13:56+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -263,18 +263,16 @@ msgid "More information"
 msgstr "Περισσότερες πληροφορίες"
 
 #: src/amo/components/AddonQRCode/index.js:101
-#, fuzzy
 msgid "Get %(addonName)s for Android"
-msgstr "Πρόσθετα για Android"
+msgstr "Λήψη του %(addonName)s για Android"
 
 #: src/amo/components/AddonQRCode/index.js:134
-#, fuzzy
 msgid "Dismiss this message"
-msgstr "Απόρριψη σημείωσης"
+msgstr "Απόρριψη μηνύματος"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
-msgstr ""
+msgstr "Για να αποκτήσετε το %(addonName)s στο Firefox για Android, στρέψτε στην κάμερα της συσκευής σας προς τον παραπάνω κωδικό ή αντιγράψτε %(linkStart)sαυτόν τον σύνδεσμο%(linkEnd)s"
 
 #: src/amo/components/AddonQRCodeLink/index.js:87
 msgid "Also available on Firefox for Android"
