@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-21 16:36+0000\n"
+"POT-Creation-Date: 2021-09-29 08:41+0000\n"
 "PO-Revision-Date: 2021-08-23 17:39+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,6 +270,26 @@ msgstr ""
 #: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
 msgstr "మరింత సమాచారం"
+
+#: src/amo/components/AddonQRCode/index.js:101
+#, fuzzy
+msgid "Get %(addonName)s for Android"
+msgstr "Android యొక్క పొడిగింతలు"
+
+#: src/amo/components/AddonQRCode/index.js:134
+#, fuzzy
+msgid "Dismiss this message"
+msgstr "ఈ గమనికను తీసేయి"
+
+#: src/amo/components/AddonQRCode/index.js:89
+msgid ""
+"To get %(addonName)s on Firefox for Android, point your device camera to the "
+"code above or copy %(linkStart)sthis link%(linkEnd)s"
+msgstr ""
+
+#: src/amo/components/AddonQRCodeLink/index.js:87
+msgid "Also available on Firefox for Android"
+msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -1985,7 +2005,7 @@ msgstr "అన్ని అలంకారాలను విహరించు"
 msgid "Add-ons Home Page"
 msgstr "పొడిగింతల ముంగిలి పేజీ"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "%(title)s మునుజూపు"
 
@@ -2065,63 +2085,63 @@ msgstr "%(localizedSize)s గిబై"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s టెబై"
 
-#: src/amo/pages/Addon/index.js:206
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "ఈ పొడగింతను రేట్ చేయలేరు ఎందుకంటే ఎటువంటి వెర్షన్లు ప్రచురించబడలేదు."
 
-#: src/amo/pages/Addon/index.js:217
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s సమీక్షను చదవండి"
 msgstr[1] "అన్ని%(count)s సమీక్షలను చదవండి"
 
-#: src/amo/pages/Addon/index.js:238
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "సమీక్షలు ఇంకా లేవు"
 
-#: src/amo/pages/Addon/index.js:248
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "మీ అనుభవమును రేట్ చేయండి"
 
-#: src/amo/pages/Addon/index.js:267
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "ఈ నిఘంటువు గురించి"
 
-#: src/amo/pages/Addon/index.js:270
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "ఈ పొడిగింత గురించి"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "ఈ భాషా ప్యాక్ గురించి"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "ఈ అలంకారం గురించి"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "ఈ పొడిగింత గురించి"
 
-#: src/amo/pages/Addon/index.js:323
+#: src/amo/pages/Addon/index.js:324
 msgid "Developer comments"
 msgstr "డెవలపర్ వ్యాఖ్యలు"
 
-#: src/amo/pages/Addon/index.js:346
+#: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s కోసం విడుదల గమనికలు"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:467
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:488
+#: src/amo/pages/Addon/index.js:491
 msgid "Extension Metadata"
 msgstr "పొడిగింత మెటాడేటా"
 
-#: src/amo/pages/Addon/index.js:512
+#: src/amo/pages/Addon/index.js:515
 msgid "Screenshots"
 msgstr "తెరపట్లు"
 

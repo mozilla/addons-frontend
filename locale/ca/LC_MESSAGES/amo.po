@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-21 16:36+0000\n"
+"POT-Creation-Date: 2021-09-29 08:41+0000\n"
 "PO-Revision-Date: 2021-04-09 13:01+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -282,6 +282,26 @@ msgstr ""
 #: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
 msgstr "Més informació"
+
+#: src/amo/components/AddonQRCode/index.js:101
+#, fuzzy
+msgid "Get %(addonName)s for Android"
+msgstr "Complements per a Android"
+
+#: src/amo/components/AddonQRCode/index.js:134
+#, fuzzy
+msgid "Dismiss this message"
+msgstr "Elimina aquest avís"
+
+#: src/amo/components/AddonQRCode/index.js:89
+msgid ""
+"To get %(addonName)s on Firefox for Android, point your device camera to the "
+"code above or copy %(linkStart)sthis link%(linkEnd)s"
+msgstr ""
+
+#: src/amo/components/AddonQRCodeLink/index.js:87
+msgid "Also available on Firefox for Android"
+msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -2084,7 +2104,7 @@ msgstr "Cerca tots els temes"
 msgid "Add-ons Home Page"
 msgstr "Pàgina d'inici dels complements"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "Previsualització de %(title)s"
 
@@ -2169,66 +2189,66 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:206
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Aquest complement no es pot valorar perquè encara no s'ha publicat cap "
 "versió."
 
-#: src/amo/pages/Addon/index.js:217
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Llegiu %(count)s ressenya"
 msgstr[1] "Llegiu %(count)s ressenyes"
 
-#: src/amo/pages/Addon/index.js:238
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "Encara no hi ha ressenyes"
 
-#: src/amo/pages/Addon/index.js:248
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "Valoreu l'experiència"
 
-#: src/amo/pages/Addon/index.js:267
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "Quant a aquest diccionari"
 
-#: src/amo/pages/Addon/index.js:270
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "Quant a aquesta extensió"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "Quant a aquest paquet de llengua"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "Quant a aquest tema"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "Quant a aquest complement"
 
-#: src/amo/pages/Addon/index.js:323
+#: src/amo/pages/Addon/index.js:324
 msgid "Developer comments"
 msgstr "Comentaris del desenvolupador"
 
-#: src/amo/pages/Addon/index.js:346
+#: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
 msgstr "Notes de versió per a %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:467
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Aquest llistat no és públic. El podeu veure perquè teniu permisos elevats."
 
-#: src/amo/pages/Addon/index.js:488
+#: src/amo/pages/Addon/index.js:491
 msgid "Extension Metadata"
 msgstr "Metadades de l'extensió"
 
-#: src/amo/pages/Addon/index.js:512
+#: src/amo/pages/Addon/index.js:515
 msgid "Screenshots"
 msgstr "Captures de pantalla"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-21 16:36+0000\n"
+"POT-Creation-Date: 2021-09-29 08:41+0000\n"
 "PO-Revision-Date: 2021-08-19 23:34+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -277,6 +277,26 @@ msgstr "Etikettar"
 #: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
 msgstr "Meir informasjon"
+
+#: src/amo/components/AddonQRCode/index.js:101
+#, fuzzy
+msgid "Get %(addonName)s for Android"
+msgstr "Utvidingar for Android"
+
+#: src/amo/components/AddonQRCode/index.js:134
+#, fuzzy
+msgid "Dismiss this message"
+msgstr "Avvis denne meldinga"
+
+#: src/amo/components/AddonQRCode/index.js:89
+msgid ""
+"To get %(addonName)s on Firefox for Android, point your device camera to the "
+"code above or copy %(linkStart)sthis link%(linkEnd)s"
+msgstr ""
+
+#: src/amo/components/AddonQRCodeLink/index.js:87
+msgid "Also available on Firefox for Android"
+msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -2061,7 +2081,7 @@ msgstr "Bla i alle tema"
 msgid "Add-ons Home Page"
 msgstr "Heimeside for utvidingar"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "Førehandsvising %(title)s"
 
@@ -2145,54 +2165,54 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:206
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Denne utvidinga kan ikkje vurderast fordi ingen versonar er publiserte."
 
-#: src/amo/pages/Addon/index.js:217
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Les %(count)s vurdering"
 msgstr[1] "Les %(count)s vurderingar"
 
-#: src/amo/pages/Addon/index.js:238
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "Ingen vurderingar enno"
 
-#: src/amo/pages/Addon/index.js:248
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "Vurder opplevinga di"
 
-#: src/amo/pages/Addon/index.js:267
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "Om denne ordboka"
 
-#: src/amo/pages/Addon/index.js:270
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "Om denne utvidinga"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "Om denne språkpakken"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "Om dette temaet"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "Om dette tillegget"
 
-#: src/amo/pages/Addon/index.js:323
+#: src/amo/pages/Addon/index.js:324
 msgid "Developer comments"
 msgstr "Utviklarkommentarar"
 
-#: src/amo/pages/Addon/index.js:346
+#: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
 msgstr "Versjonsnotat for %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:467
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2200,11 +2220,11 @@ msgstr ""
 "Dette er ikkje ei offentleg liste. Du ser det berre på grunn av forhøgde "
 "løyve."
 
-#: src/amo/pages/Addon/index.js:488
+#: src/amo/pages/Addon/index.js:491
 msgid "Extension Metadata"
 msgstr "Metadata for utvidingar"
 
-#: src/amo/pages/Addon/index.js:512
+#: src/amo/pages/Addon/index.js:515
 msgid "Screenshots"
 msgstr "Skjermbilde"
 

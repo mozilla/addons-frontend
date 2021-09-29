@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-21 16:36+0000\n"
+"POT-Creation-Date: 2021-09-29 08:41+0000\n"
 "PO-Revision-Date: 2021-08-21 13:57+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
@@ -268,6 +268,26 @@ msgstr "Tibzimin"
 #: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
 msgstr "Ugar n telɣut"
+
+#: src/amo/components/AddonQRCode/index.js:101
+#, fuzzy
+msgid "Get %(addonName)s for Android"
+msgstr "Izegrar i Android"
+
+#: src/amo/components/AddonQRCode/index.js:134
+#, fuzzy
+msgid "Dismiss this message"
+msgstr "Fer izen-agi"
+
+#: src/amo/components/AddonQRCode/index.js:89
+msgid ""
+"To get %(addonName)s on Firefox for Android, point your device camera to the "
+"code above or copy %(linkStart)sthis link%(linkEnd)s"
+msgstr ""
+
+#: src/amo/components/AddonQRCodeLink/index.js:87
+msgid "Also available on Firefox for Android"
+msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -2026,7 +2046,7 @@ msgstr "Inig ɣer akk isental"
 msgid "Add-ons Home Page"
 msgstr "Asebter agejdan n uzegrir"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:171
+#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "Taskant n %(title)s"
 
@@ -2110,63 +2130,63 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:206
+#: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Azegrir-agi ur yezmir ara ad yettwasezmel acku ulac lqem i d-yeffɣen."
 
-#: src/amo/pages/Addon/index.js:217
+#: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Ɣeṛ %(count)s n ucegger"
 msgstr[1] "Ɣeṛ akk %(count)s n iceggiren"
 
-#: src/amo/pages/Addon/index.js:238
+#: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
 msgstr "Ulac iceggiren tura"
 
-#: src/amo/pages/Addon/index.js:248
+#: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
 msgstr "Sezmel tarmit-ik"
 
-#: src/amo/pages/Addon/index.js:267
+#: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
 msgstr "Ɣef umawal-agi"
 
-#: src/amo/pages/Addon/index.js:270
+#: src/amo/pages/Addon/index.js:271
 msgid "About this extension"
 msgstr "Ɣef usiɣzef agi"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
 msgstr "Ɣef ukemmus-agi utlayan"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
 msgstr "Ɣef usentel-agi"
 
-#: src/amo/pages/Addon/index.js:279
+#: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
 msgstr "Ɣef uzegrir-agi"
 
-#: src/amo/pages/Addon/index.js:323
+#: src/amo/pages/Addon/index.js:324
 msgid "Developer comments"
 msgstr "Iwenniten n uneflay"
 
-#: src/amo/pages/Addon/index.js:346
+#: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
 msgstr "Tizmilin n tuffɣa n %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:466
+#: src/amo/pages/Addon/index.js:467
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "Aktazal-a ur yelli d azayaz. Tettawalid-t acku ɣur-k tisirag meqqren."
 
-#: src/amo/pages/Addon/index.js:488
+#: src/amo/pages/Addon/index.js:491
 msgid "Extension Metadata"
 msgstr "Asiɣzef aɣefisefka"
 
-#: src/amo/pages/Addon/index.js:512
+#: src/amo/pages/Addon/index.js:515
 msgid "Screenshots"
 msgstr "Tuṭṭfiwin n wegdil"
 
