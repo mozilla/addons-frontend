@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-29 08:41+0000\n"
-"PO-Revision-Date: 2021-09-29 16:15+0000\n"
+"PO-Revision-Date: 2021-09-29 16:16+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -283,7 +283,7 @@ msgstr "Tutu powěsć zaćisnyć"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
-msgstr ""
+msgstr "Zo byšće sej %(addonName)s za Firefox za Android wobstarał, wusměrće swoju gratowu kameru na kod horjeka abo kopěrujće %(linkStart)stutón wotkaz%(linkEnd)s"
 
 #: src/amo/components/AddonQRCodeLink/index.js:87
 msgid "Also available on Firefox for Android"
