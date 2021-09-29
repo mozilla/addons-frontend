@@ -6,19 +6,20 @@ require('@babel/register');
 const fs = require('fs');
 const path = require('path');
 
-const QRCode = require('qrcode');
 const config = require('config');
+const QRCode = require('qrcode');
+const rimraf = require('rimraf');
 
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const rootDir = path.join(__dirname, '..');
-const distDir = path.join(rootDir, 'dist');
-const destDir = path.join(distDir, 'qrcodes');
+const destDir = path.join(rootDir, 'src', 'amo', 'components', 'AddonQRCode', 'img');
 const lang = 'en-US';
-if (!fs.existsSync(destDir)) {
-  fs.mkdirSync(destDir);
-}
+
+// Remove, then recreate, the img folder to clear pre-existing files.
+rimraf.sync(destDir);
+fs.mkdirSync(destDir);
 
 (async () => {
   const res = await fetch(
@@ -39,7 +40,17 @@ if (!fs.existsSync(destDir)) {
     }),
   );
 
-  console.log(addons.length, ' QR codes created');
+  const fileCount = fs.readdirSync(destDir).length;
+
+  console.log(addons.length, 'QR codes requested');
+  console.log(fileCount, 'files written');
+
+  if (fileCount !== addons.length) {
+    console.log('Invalid number of files written:');
+    console.log(`${addons.length} files requested`);
+    console.log(`${fileCount} files written`);
+    process.exit(1);
+  }
 
   const knownIds = config.get('addonIdsWithQRCodes');
   const addonIdsFromAPI = [...new Set(addons.map(({ id }) => id))];
