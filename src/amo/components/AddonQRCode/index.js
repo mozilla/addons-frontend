@@ -138,7 +138,7 @@ export class AddonQRCodeBase extends React.Component<InternalProps> {
         <img
           alt={altText}
           className="AddonQRCode-img"
-          src={`${config.get('staticPath')}${addon.id}.png?v=1`}
+          src={`${config.get('staticPath')}${addon.id}.png?v=2`}
         />
         <div className="AddonQRCode-label">{labelWithLink}</div>
       </div>
