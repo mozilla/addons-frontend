@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-29 08:41+0000\n"
-"PO-Revision-Date: 2021-10-01 14:50+0000\n"
+"PO-Revision-Date: 2021-10-01 14:51+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -273,7 +273,7 @@ msgstr ""
 
 #: src/amo/components/AddonQRCodeLink/index.js:87
 msgid "Also available on Firefox for Android"
-msgstr ""
+msgstr "Android 版 Firefox でも利用可能です"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -1643,10 +1643,9 @@ msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "拡張機能が %(categoryName)s のカテゴリーに %(count)s 件見つかりました"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "\"%(query)s\" に一致する拡張機能が %(categoryName)s のカテゴリーに %(count)s 件見つかりました"
+msgstr[0] "%(tag)s タグを持ち「%(query)s」と一致する拡張機能が %(count)s 件見つかりました"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
