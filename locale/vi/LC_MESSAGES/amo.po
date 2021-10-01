@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-29 08:41+0000\n"
-"PO-Revision-Date: 2021-09-30 10:33+0000\n"
+"PO-Revision-Date: 2021-10-01 09:46+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -260,14 +260,12 @@ msgid "More information"
 msgstr "Thêm thông tin"
 
 #: src/amo/components/AddonQRCode/index.js:101
-#, fuzzy
 msgid "Get %(addonName)s for Android"
-msgstr "Tiện ích cho Android"
+msgstr "Tải %(addonName)s dành cho Android"
 
 #: src/amo/components/AddonQRCode/index.js:134
-#, fuzzy
 msgid "Dismiss this message"
-msgstr "Bỏ qua thông báo này"
+msgstr "Loại bỏ tin nhắn này"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
