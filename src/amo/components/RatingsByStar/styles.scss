@@ -5,8 +5,14 @@
   display: grid;
   font-size: $font-size-default;
   grid-gap: 12px;
-  grid-template-columns: max-content auto max-content;
   // This controls whitespace and should also match the bar height.
+}
+
+.RatingsByStar-row {
+  color: $grey-50 !important;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: max-content auto max-content;
   line-height: 1;
 }
 

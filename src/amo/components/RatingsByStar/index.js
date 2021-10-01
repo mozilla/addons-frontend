@@ -54,13 +54,25 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     const { addon, i18n, location } = this.props;
     const loading = !addon;
 
-    const linkTitles = {
+    const getLinkTitles = (rating, total) => {
+      const ratings = {
+        '5': 'five',
+        '4': 'four',
+        '3': 'three',
+        '2': 'two',
+        '1': 'one',
+      };
+
+      const countText = total && total > 1 ? `all ${total}` : 'the';
+      const reviewText = total && total > 1 ? 'reviews' : 'review';
+
       /* eslint-disable quote-props */
-      '5': i18n.gettext('Read all five-star reviews'),
-      '4': i18n.gettext('Read all four-star reviews'),
-      '3': i18n.gettext('Read all three-star reviews'),
-      '2': i18n.gettext('Read all two-star reviews'),
-      '1': i18n.gettext('Read all one-star reviews'),
+      if (total && total > 0) {
+        return i18n.gettext(
+          `Read ${countText} ${ratings[rating]}-star ${reviewText}`,
+        );
+      }
+      return i18n.gettext(`No ${ratings[rating]}-star reviews yet`);
       /* eslint-enable quote-props */
     };
 
@@ -75,7 +87,9 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 
               return (
                 <Link
-                  title={linkTitles[star] || ''}
+                  className="RatingsByStar-row"
+                  key={star}
+                  title={getLinkTitles(star, starCount) || ''}
                   to={reviewListURL({
                     addonSlug: addon.slug,
                     score: star,
@@ -91,38 +105,45 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               starCount = addon.ratings.grouped_counts[star];
             }
 
-            const starCountNode = loading ? (
-              <LoadingText width={100} />
-            ) : (
-              createLink(i18n.formatNumber(starCount || 0))
-            );
-
-            return (
-              <React.Fragment key={star}>
+            const loadingRow = (
+              <div key={star} className="RatingsByStar-row">
                 <div className="RatingsByStar-star">
-                  {loading ? (
-                    <LoadingText width={100} />
-                  ) : (
-                    createLink(i18n.formatNumber(star))
-                  )}
+                  <LoadingText width={100} />
                   <IconStar selected />
                 </div>
+
                 <div className="RatingsByStar-barContainer">
-                  {loading ? (
-                    <div className="RatingsByStar-bar RatingsByStar-barFrame" />
-                  ) : (
-                    createLink(
-                      <div className="RatingsByStar-bar RatingsByStar-barFrame">
-                        {starCount !== undefined
-                          ? this.renderBarValue(starCount)
-                          : null}
-                      </div>,
-                    )
-                  )}
+                  <div className="RatingsByStar-bar RatingsByStar-barFrame" />
                 </div>
-                <div className="RatingsByStar-count">{starCountNode}</div>
-              </React.Fragment>
+
+                <div className="RatingsByStar-count">
+                  <LoadingText width={100} />
+                </div>
+              </div>
             );
+
+            const ratingsByStarRow = (
+              <>
+                <div className="RatingsByStar-star">
+                  {i18n.formatNumber(star)}
+                  <IconStar selected />
+                </div>
+
+                <div className="RatingsByStar-barContainer">
+                  <div className="RatingsByStar-bar RatingsByStar-barFrame">
+                    {starCount !== undefined
+                      ? this.renderBarValue(starCount)
+                      : null}
+                  </div>
+                </div>
+
+                <div className="RatingsByStar-count">
+                  {i18n.formatNumber(starCount || 0)}
+                </div>
+              </>
+            );
+
+            return loading ? loadingRow : createLink(ratingsByStarRow);
           })}
         </div>
       </div>
