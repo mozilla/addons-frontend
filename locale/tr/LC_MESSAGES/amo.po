@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-29 08:41+0000\n"
-"PO-Revision-Date: 2021-09-29 10:33+0000\n"
-"Last-Translator: Selim Şumlu <selim@sum.lu>\n"
+"PO-Revision-Date: 2021-10-01 12:06+0000\n"
+"Last-Translator: Grk <gu0townkg@relay.firefox.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -263,14 +263,12 @@ msgid "More information"
 msgstr "Daha fazla bilgi"
 
 #: src/amo/components/AddonQRCode/index.js:101
-#, fuzzy
 msgid "Get %(addonName)s for Android"
-msgstr "Android eklentileri"
+msgstr "Android için %(addonName)s eklentisini edinin"
 
 #: src/amo/components/AddonQRCode/index.js:134
-#, fuzzy
 msgid "Dismiss this message"
-msgstr "Bu bildirimi kapat"
+msgstr "Bu mesajı kapat"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
