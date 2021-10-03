@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-29 08:41+0000\n"
-"PO-Revision-Date: 2021-09-29 09:00+0000\n"
-"Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
+"PO-Revision-Date: 2021-10-03 12:31+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -269,7 +269,7 @@ msgstr "Plus d’informations"
 
 #: src/amo/components/AddonQRCode/index.js:101
 msgid "Get %(addonName)s for Android"
-msgstr ""
+msgstr "Obtenir %(addonName)s pour Android"
 
 #: src/amo/components/AddonQRCode/index.js:134
 msgid "Dismiss this message"
@@ -277,11 +277,11 @@ msgstr "Cacher ce message"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
-msgstr ""
+msgstr "Pour obtenir %(addonName)s sur Firefox pour Android, pointez la caméra de votre appareil sur le code ci-dessus ou copiez %(linkStart)sce lien%(linkEnd)s"
 
 #: src/amo/components/AddonQRCodeLink/index.js:87
 msgid "Also available on Firefox for Android"
-msgstr ""
+msgstr "Également disponible sur Firefox pour Android"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
