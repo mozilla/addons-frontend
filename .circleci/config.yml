@@ -93,7 +93,7 @@ jobs:
   check:
     <<: *defaults
     docker:
-      - image: cimg/python:3.9-node
+      - image: cimg/python:3.10-node
     steps:
       - checkout
       - *restore_build_cache
