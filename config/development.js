@@ -1,5 +1,5 @@
 // Config specific to local development
-import { addonsServerDevCDN, analyticsHost, apiDevHost } from './lib/shared';
+import { baseUrlDev, analyticsHost, apiDevHost } from './lib/shared';
 
 const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
 const webpackServerPort = 3001;
@@ -24,7 +24,7 @@ module.exports = {
   trackingEnabled: false,
   loggingLevel: 'debug',
 
-  amoCDN: addonsServerDevCDN,
+  amoCDN: baseUrlDev,
 
   isDeployed: false,
   isDevelopment: true,
@@ -47,7 +47,7 @@ module.exports = {
     directives: {
       connectSrc: [
         "'self'",
-        addonsServerDevCDN,
+        baseUrlDev,
         analyticsHost,
         apiDevHost,
         webpackDevServer,
@@ -60,14 +60,14 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        addonsServerDevCDN,
+        baseUrlDev,
         webpackDevServer,
       ],
       scriptSrc: [
         "'self'",
         // webpack injects inline JS
         "'unsafe-inline'",
-        addonsServerDevCDN,
+        baseUrlDev,
         webpackDevServer,
         `${analyticsHost}/analytics.js`,
       ],
