@@ -70,7 +70,6 @@
     "amo:dev": {
       "command": "better-npm-run start-dev-proxy",
       "env": {
-        "AMO_CDN": "https://addons-dev-cdn.allizom.org",
         "PROXY_API_HOST": "https://addons-dev.allizom.org"
       }
     },

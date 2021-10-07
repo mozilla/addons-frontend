@@ -258,7 +258,7 @@ export function isAddonAuthor({
 export function isAllowedOrigin(
   urlString: string,
   {
-    allowedOrigins = [config.get('amoCDN')],
+    allowedOrigins = [config.get('amoCDN'), config.get('baseURL')],
   }: {| allowedOrigins?: Array<string> |} = {},
 ): boolean {
   let parsedURL;
