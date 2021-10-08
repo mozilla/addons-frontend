@@ -30,7 +30,7 @@ const makeConfig = ({ target, externals = {} }) => ({
     rules: getRules({ fileLimit: 20000 }),
   },
   plugins: [
-    ...getPlugins({ withBrowserWindow: target === 'web' }),
+    ...getPlugins({ withBrowserWindow: target === 'web', withQRCodes: false }),
     new webpack.NormalModuleReplacementPlugin(
       /amo\/tracking/,
       'blog-utils/tracking.js',

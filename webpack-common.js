@@ -120,7 +120,10 @@ export function getRules({
   ];
 }
 
-export function getPlugins({ withBrowserWindow = true } = {}) {
+export function getPlugins({
+  withBrowserWindow = true,
+  withQRCodes = true,
+} = {}) {
   const clientConfig = getClientConfig(config);
 
   const plugins = [
@@ -146,21 +149,26 @@ export function getPlugins({ withBrowserWindow = true } = {}) {
       /locale$/,
       new RegExp(`^\\.\\/.*?\\/amo\\.js$`),
     ),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(
-            __dirname,
-            'src',
-            'amo',
-            'components',
-            'AddonQRCode',
-            'img',
-          ),
-        },
-      ],
-    }),
   ];
+
+  if (withQRCodes) {
+    plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(
+              __dirname,
+              'src',
+              'amo',
+              'components',
+              'AddonQRCode',
+              'img',
+            ),
+          },
+        ],
+      }),
+    );
+  }
 
   if (withBrowserWindow) {
     plugins.push(
