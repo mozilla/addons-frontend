@@ -12,7 +12,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  VIEW_CONTEXT_EXPLORE,
   VIEW_CONTEXT_HOME,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'amo/constants';
@@ -31,20 +30,20 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
-  forBlog?: boolean,
+    forBlog ?: boolean,
 |};
 
 type PropsFromState = {|
   clientApp: string,
-  viewContext: ViewContextType,
+    viewContext: ViewContextType,
 |};
 
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
   dispatch: DispatchFunc,
-  history: ReactRouterHistoryType,
-  i18n: I18nType,
+    history: ReactRouterHistoryType,
+      i18n: I18nType,
 |};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
@@ -67,9 +66,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
 
   render(): React.Node {
     const { className, clientApp, forBlog, i18n, viewContext } = this.props;
-    const isExploring =
-      [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
-      !forBlog;
+    const isExploring = [VIEW_CONTEXT_HOME].includes(viewContext) && !forBlog;
 
     let forBrowserNameText;
     if (clientApp === CLIENT_APP_FIREFOX) {
@@ -122,25 +119,10 @@ export class SectionLinksBase extends React.Component<InternalProps> {
           <Link
             className={makeClassName(
               'SectionLinks-link',
-              'SectionLinks-link-explore',
-              {
-                'SectionLinks-link--active': isExploring,
-              },
-            )}
-            to="/"
-            {...linkProps}
-          >
-            {i18n.gettext('Explore')}
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={makeClassName(
-              'SectionLinks-link',
               'SectionLinks-link-extension',
               {
                 'SectionLinks-link--active':
-                  viewContext === ADDON_TYPE_EXTENSION,
+                  isExploring || viewContext === ADDON_TYPE_EXTENSION,
               },
             )}
             to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
