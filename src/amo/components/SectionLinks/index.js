@@ -30,7 +30,7 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
-  forBlog ?: boolean,
+  forBlog?: boolean,
 |};
 
 type PropsFromState = {|
@@ -66,7 +66,9 @@ export class SectionLinksBase extends React.Component<InternalProps> {
 
   render(): React.Node {
     const { className, clientApp, forBlog, i18n, viewContext } = this.props;
-    const isExploring = [VIEW_CONTEXT_HOME].includes(viewContext) && !forBlog;
+    const isExploring =
+      [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
+      !forBlog;
 
     let forBrowserNameText;
     if (clientApp === CLIENT_APP_FIREFOX) {
