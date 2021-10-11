@@ -30,20 +30,20 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
-    forBlog ?: boolean,
+  forBlog ?: boolean,
 |};
 
 type PropsFromState = {|
   clientApp: string,
-    viewContext: ViewContextType,
+  viewContext: ViewContextType,
 |};
 
 type InternalProps = {|
   ...Props,
   ...PropsFromState,
   dispatch: DispatchFunc,
-    history: ReactRouterHistoryType,
-      i18n: I18nType,
+  history: ReactRouterHistoryType,
+  i18n: I18nType,
 |};
 
 export class SectionLinksBase extends React.Component<InternalProps> {
