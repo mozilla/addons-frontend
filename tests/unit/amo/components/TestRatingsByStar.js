@@ -87,8 +87,8 @@ describe(__filename, () => {
       validateLink(links.at(0), '5', 'Read all 964 five-star reviews');
       validateLink(links.at(1), '4', 'Read all 821 four-star reviews');
       validateLink(links.at(2), '3', 'Read all 543 three-star reviews');
-      validateLink(links.at(3), '2', 'Read the two-star review');
-      validateLink(links.at(4), '1', 'No one-star reviews yet');
+      validateLink(links.at(3), '2', 'Read the 1 two-star review');
+      validateLink(links.at(4), '1', 'There are no one-star reviews');
     });
   });
 
@@ -115,8 +115,8 @@ describe(__filename, () => {
     validateLink(rows.at(0), '5', 'Read all 964 five-star reviews');
     validateLink(rows.at(1), '4', 'Read all 821 four-star reviews');
     validateLink(rows.at(2), '3', 'Read all 543 three-star reviews');
-    validateLink(rows.at(3), '2', 'Read the two-star review');
-    validateLink(rows.at(4), '1', 'No one-star reviews yet');
+    validateLink(rows.at(3), '2', 'Read the 1 two-star review');
+    validateLink(rows.at(4), '1', 'There are no one-star reviews');
   });
 
   it('adds UTM query parameters to the review links when there are some', () => {

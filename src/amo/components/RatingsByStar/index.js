@@ -63,16 +63,25 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
         '1': 'one',
       };
 
-      const countText = total && total > 1 ? `all ${total}` : 'the';
-      const reviewText = total && total > 1 ? 'reviews' : 'review';
+      const num = ratings[rating];
 
       /* eslint-disable quote-props */
       if (total && total > 0) {
-        return i18n.gettext(
-          `Read ${countText} ${ratings[rating]}-star ${reviewText}`,
+        return i18n.sprintf(
+          i18n.ngettext(
+            'Read the 1 %(num)s-star review',
+            'Read all %(total)s %(num)s-star reviews',
+            total,
+          ),
+          {
+            num,
+            total: i18n.formatNumber(total || 0),
+          },
         );
       }
-      return i18n.gettext(`No ${ratings[rating]}-star reviews yet`);
+      return i18n.sprintf(i18n.gettext('There are no %(num)s-star reviews'), {
+        num,
+      });
       /* eslint-enable quote-props */
     };
 
