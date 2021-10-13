@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-29 08:41+0000\n"
-"PO-Revision-Date: 2021-09-29 11:33+0000\n"
+"PO-Revision-Date: 2021-10-13 17:54+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1716,7 +1716,7 @@ msgstr[2] "За запитом \"%(query)s\" знайдено %(count)s розш
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
-msgstr "Всі"
+msgstr "Усі"
 
 #: src/amo/components/SearchFilters/index.js:149
 msgid "Extension"
@@ -1871,11 +1871,11 @@ msgstr "Пропоновані сторінки"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr "Перегляд всіх розширень"
+msgstr "Перегляд усіх розширень"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr "Перегляд всіх тем"
+msgstr "Перегляд усіх тем"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
@@ -2143,11 +2143,11 @@ msgstr "Заблоковано %(date)s."
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
-msgstr "Всі категорії розширень"
+msgstr "Усі категорії розширень"
 
 #: src/amo/pages/CategoriesPage/index.js:37
 msgid "All theme categories"
-msgstr "Всі категорії тем"
+msgstr "Усі категорії тем"
 
 #: src/amo/pages/CategoryPage/index.js:57
 msgid "Themes in %(categoryName)s"
@@ -2311,7 +2311,7 @@ msgstr "Локалізації змінюють мову інтерфейсу в
 
 #: src/amo/pages/LanguageTools/index.js:190
 msgid "All Locales"
-msgstr "Всі мови"
+msgstr "Усі мови"
 
 #: src/amo/pages/LanguageTools/index.js:197
 msgid "Locale Name"
