@@ -18,7 +18,7 @@ import {
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_POPULAR,
   VERIFIED_FILTER,
-  VIEW_CONTEXT_EXPLORE,
+  VIEW_CONTEXT_HOME,
 } from 'amo/constants';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
 import { ErrorHandler } from 'amo/errorHandler';
@@ -51,7 +51,7 @@ describe(__filename, () => {
 
   beforeEach(() => {
     props = {
-      context: VIEW_CONTEXT_EXPLORE,
+      context: VIEW_CONTEXT_HOME,
       count: 80,
       dispatch: sinon.stub(),
       errorHandler: createStubErrorHandler(),
@@ -404,7 +404,7 @@ describe(__filename, () => {
 
     renderWithStore({ store });
 
-    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
   });
 
   it('does not set the viewContext if already set to exploring', () => {
@@ -413,7 +413,7 @@ describe(__filename, () => {
 
     render({ context: ADDON_TYPE_EXTENSION, dispatch: fakeDispatch, filters });
 
-    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
   });
 
   it.each([400, 404])('returns a Not Found page when error is %s', (status) => {
