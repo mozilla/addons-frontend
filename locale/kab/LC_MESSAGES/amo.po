@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-09-29 08:41+0000\n"
-"PO-Revision-Date: 2021-10-14 14:15+0000\n"
+"PO-Revision-Date: 2021-10-14 14:21+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1575,7 +1575,7 @@ msgstr[1] "%(count)s n isiγzaf ttwafen"
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgstr[0] "%(count)s n usentel yettwafen i \"%(query)s\" s tecreḍt %(tag)s deg %(categoryName)s"
-msgstr[1] ""
+msgstr[1] "%(count)s n usentel yettwafen i \"%(query)s\" s tecreḍt %(tag)s deg %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -1584,11 +1584,10 @@ msgstr[0] "%(count)s n usentel yettwaf i \"%(query)s\" deg %(categoryName)s"
 msgstr[1] "%(count)s n usentel yettwaf i \"%(query)s\" deg %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s n usentel yettwaf deg %(categoryName)s"
-msgstr[1] "%(count)s n isental ttwafen deg %(categoryName)s"
+msgstr[0] "%(count)s n usentel yettwafen s tecreḍt %(tag)s deg %(categoryName)s"
+msgstr[1] "%(count)s n isental ttwafen s tecreḍt %(tag)s deg %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
@@ -1597,11 +1596,10 @@ msgstr[0] "%(count)s n usentel yettwaf deg %(categoryName)s"
 msgstr[1] "%(count)s n isental ttwafen deg %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:170
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s n usentel yettwaf i \"%(query)s\" deg %(categoryName)s"
-msgstr[1] "%(count)s n usentel yettwaf i \"%(query)s\" deg %(categoryName)s"
+msgstr[0] "%(count)s n usentel yettwafen i \"%(query)s\" s tecreḍt"
+msgstr[1] "%(count)s n usentel yettwafen i \"%(query)s\" s tecreḍt %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1622,11 +1620,10 @@ msgstr[0] "%(count)s n usentel i yellan"
 msgstr[1] "%(count)s n yisental i yellan"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s n ugmud yettwaf s tebzimt %(tag)s"
-msgstr[1] "%(count)s n yigmaḍ yettwafen s tebzimt %(tag)s"
+msgstr[0] "%(count)s n ugmud yettwafen i \"%(query)s\" s tebzimt %(tag)s"
+msgstr[1] "%(count)s n yigmaḍ yettwafen i \"%(query)s\" s tebzimt %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
