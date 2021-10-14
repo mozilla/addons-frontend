@@ -8,8 +8,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  VIEW_CONTEXT_EXPLORE,
-  VIEW_CONTEXT_HOME,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'amo/constants';
 import {
@@ -43,7 +41,7 @@ describe(__filename, () => {
   it('renders four sections', () => {
     const root = render({ viewContext: ADDON_TYPE_EXTENSION });
 
-    expect(root.find('.SectionLinks-link')).toHaveLength(4);
+    expect(root.find('.SectionLinks-link')).toHaveLength(3);
   });
 
   it('renders a DropdownMenu for the "More" section', () => {
@@ -72,23 +70,6 @@ describe(__filename, () => {
         return element.prop('to') === '/language-tools/';
       }),
     ).toHaveProp('children', 'Dictionaries & Language Packs');
-  });
-
-  it('renders Explore active on homepage', () => {
-    _store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
-    const root = render();
-
-    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
-      'Explore',
-    );
-  });
-
-  it('renders Explore active when exploring', () => {
-    const root = render({ viewContext: VIEW_CONTEXT_HOME });
-
-    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
-      'Explore',
-    );
   });
 
   it('renders Extensions active when addonType is extensions', () => {
@@ -194,15 +175,6 @@ describe(__filename, () => {
 
   it('renders links without clientApp/locale for the blog', () => {
     const root = render({ forBlog: true });
-
-    expect(root.find('.SectionLinks-link-explore')).toHaveProp(
-      'prependClientApp',
-      false,
-    );
-    expect(root.find('.SectionLinks-link-explore')).toHaveProp(
-      'prependLang',
-      false,
-    );
 
     expect(root.find('.SectionLinks-link-extension')).toHaveProp(
       'prependClientApp',

@@ -140,7 +140,6 @@ export const INSTALL_SOURCE_TOP_RATED = 'rating';
 export const INSTALL_SOURCE_TRENDING = 'hotness';
 
 // View Contexts that aren't an addonType
-export const VIEW_CONTEXT_EXPLORE = 'VIEW_CONTEXT_EXPLORE';
 export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';
 // Language tools contain both ADDON_TYPE_DICT and ADDON_TYPE_LANG so
 // we share a custom view context for both add-on types.

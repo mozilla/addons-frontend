@@ -12,8 +12,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  VIEW_CONTEXT_EXPLORE,
-  VIEW_CONTEXT_HOME,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -67,9 +65,6 @@ export class SectionLinksBase extends React.Component<InternalProps> {
 
   render(): React.Node {
     const { className, clientApp, forBlog, i18n, viewContext } = this.props;
-    const isExploring =
-      [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(viewContext) &&
-      !forBlog;
 
     let forBrowserNameText;
     if (clientApp === CLIENT_APP_FIREFOX) {
@@ -118,21 +113,6 @@ export class SectionLinksBase extends React.Component<InternalProps> {
 
     return (
       <ul className={makeClassName('SectionLinks', className)}>
-        <li>
-          <Link
-            className={makeClassName(
-              'SectionLinks-link',
-              'SectionLinks-link-explore',
-              {
-                'SectionLinks-link--active': isExploring,
-              },
-            )}
-            to="/"
-            {...linkProps}
-          >
-            {i18n.gettext('Explore')}
-          </Link>
-        </li>
         <li>
           <Link
             className={makeClassName(
