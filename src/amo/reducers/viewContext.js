@@ -2,7 +2,6 @@
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  VIEW_CONTEXT_EXPLORE,
   VIEW_CONTEXT_HOME,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
   SET_VIEW_CONTEXT,
@@ -11,7 +10,6 @@ import {
 export type ViewContextType =
   | typeof ADDON_TYPE_EXTENSION
   | typeof ADDON_TYPE_STATIC_THEME
-  | typeof VIEW_CONTEXT_EXPLORE
   | typeof VIEW_CONTEXT_HOME
   | typeof VIEW_CONTEXT_LANGUAGE_TOOLS;
 
@@ -24,7 +22,7 @@ export type ViewContextActionType = {|
   payload: ViewContextState,
 |};
 
-export const initialState = { context: VIEW_CONTEXT_EXPLORE };
+export const initialState = { context: VIEW_CONTEXT_HOME };
 
 export default function viewContext(
   state: ViewContextState = initialState,

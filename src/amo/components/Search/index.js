@@ -22,7 +22,7 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
-  VIEW_CONTEXT_EXPLORE,
+  VIEW_CONTEXT_HOME,
   VERIFIED_FILTER,
 } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
@@ -126,8 +126,8 @@ export class SearchBase extends React.Component<InternalProps> {
       }
     }
 
-    if (!addonType && context !== VIEW_CONTEXT_EXPLORE) {
-      dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
+    if (!addonType && context !== VIEW_CONTEXT_HOME) {
+      dispatch(setViewContext(VIEW_CONTEXT_HOME));
     }
   }
 
