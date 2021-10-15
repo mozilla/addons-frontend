@@ -4,7 +4,6 @@ import EditableCollectionAddon, {
   EditableCollectionAddonBase,
   extractId,
 } from 'amo/components/EditableCollectionAddon';
-import fallbackIcon from 'amo/img/icons/default.svg';
 import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import {
   applyUIStateChanges,
@@ -76,18 +75,6 @@ describe(__filename, () => {
     expect(root.find('.EditableCollectionAddon-icon')).toHaveProp(
       'src',
       addon.icon_url,
-    );
-  });
-
-  it('renders the fallback icon if the origin is not allowed', () => {
-    const addon = createInternalAddonWithLang({
-      ...fakeAddon,
-      icon_url: 'http://foo.com/hax.png',
-    });
-    const root = render({ addon });
-    expect(root.find('.EditableCollectionAddon-icon')).toHaveProp(
-      'src',
-      fallbackIcon,
     );
   });
 

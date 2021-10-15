@@ -1,7 +1,5 @@
 import url from 'url';
 
-import config from 'config';
-
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
@@ -25,7 +23,6 @@ import {
   getClientAppAndLangFromPath,
   getPromotedBadgesLinkUrl,
   isAddonAuthor,
-  isAllowedOrigin,
   isValidClientApp,
   makeQueryStringWithUTM,
   nl2br,
@@ -454,8 +451,8 @@ describe(__filename, () => {
         {
           id: 5838591,
           name: 'tofumatt',
-          picture_url: 'http://cdn.a.m.o/myphoto.jpg',
-          url: 'http://a.m.o/en-GB/firefox/user/tofumatt/',
+          picture_url: 'https://addons.mozilla.org//user-media/myphoto.jpg',
+          url: 'https://addons.mozilla.org//en-GB/firefox/user/tofumatt/',
           username: 'tofumatt',
         },
       ],
@@ -587,34 +584,6 @@ describe(__filename, () => {
 
       expect(nl2br(htmlValue)).toEqual(
         '<strong>A title:</strong><br /><a href="something">A link</a><br />Some text',
-      );
-    });
-  });
-
-  describe('isAllowedOrigin', () => {
-    it('disallows a random origin', () => {
-      expect(isAllowedOrigin('http://whatever.com')).toEqual(false);
-    });
-
-    it('allows amoCDN by default', () => {
-      expect(isAllowedOrigin(`${config.get('amoCDN')}/foo.png`)).toEqual(true);
-    });
-
-    it('returns false for a bogus url', () => {
-      expect(isAllowedOrigin(1)).toEqual(false);
-    });
-
-    it('returns false for an empty string', () => {
-      expect(isAllowedOrigin('')).toEqual(false);
-    });
-
-    it('accepts overriding the allowed origins', () => {
-      const allowedOrigins = ['http://foo.com', 'https://foo.com'];
-      expect(isAllowedOrigin('http://foo.com', { allowedOrigins })).toEqual(
-        true,
-      );
-      expect(isAllowedOrigin('https://foo.com', { allowedOrigins })).toEqual(
-        true,
       );
     });
   });

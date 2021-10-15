@@ -1,4 +1,3 @@
-import config from 'config';
 import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -831,7 +830,7 @@ describe(__filename, () => {
         const fakeTracking = createFakeTracking();
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const name = 'the-name';
-        const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
+        const iconUrl = `https://addons.mozilla.org/some-icon.png`;
         const addon = createInternalAddonWithLang({
           ...fakeAddon,
           name,
@@ -862,7 +861,7 @@ describe(__filename, () => {
         const fakeTracking = createFakeTracking();
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const name = 'the-name';
-        const iconUrl = 'https://a.m.o/some-icon.png';
+        const iconUrl = 'https://addons.mozilla.org/some-icon.png';
         const addon = createInternalAddonWithLang({
           ...fakeAddon,
           name,

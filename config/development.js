@@ -24,8 +24,6 @@ module.exports = {
   trackingEnabled: false,
   loggingLevel: 'debug',
 
-  amoCDN: baseUrlDev,
-
   isDeployed: false,
   isDevelopment: true,
 

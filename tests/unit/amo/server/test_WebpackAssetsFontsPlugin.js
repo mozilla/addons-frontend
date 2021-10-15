@@ -25,7 +25,7 @@ describe(__filename, () => {
     compilation: {},
     toJson: () => {
       return {
-        publicPath: 'https://cdn.example.com/static/',
+        publicPath: 'https://example.com/static/',
         assets: [
           {
             name: 'app-somehash.js',
@@ -82,10 +82,10 @@ describe(__filename, () => {
     expect(fakeStats.compilation.errors).toEqual([]);
     const assetsAfterPlugin = fs.readJsonSync(assetsFile.name);
     expect(assetsAfterPlugin.assets['./font1.woff2']).toEqual(
-      'https://cdn.example.com/static/font1-somehash.woff2',
+      'https://example.com/static/font1-somehash.woff2',
     );
     expect(assetsAfterPlugin.assets['./font2.woff2']).toEqual(
-      'https://cdn.example.com/static/font2-somehash.woff2',
+      'https://example.com/static/font2-somehash.woff2',
     );
   });
 

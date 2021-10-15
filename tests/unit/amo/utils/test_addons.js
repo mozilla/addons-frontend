@@ -53,7 +53,7 @@ describe(__filename, () => {
   describe('getFileHash', () => {
     const _getFileHash = ({
       addon = createInternalAddonWithLang(fakeAddon),
-      installURL = 'https://a.m.o/addons/file.xpi',
+      installURL = 'https://addons.mozilla.org/addons/file.xpi',
       version = createInternalVersionWithLang(fakeVersion),
     } = {}) => {
       return getFileHash({ addon, installURL, version });
@@ -74,7 +74,7 @@ describe(__filename, () => {
     });
 
     it('strips query string parameters from the URL', () => {
-      const url = 'https://a.m.o/addons/file.xpi';
+      const url = 'https://addons.mozilla.org/addons/file.xpi';
       const version = createInternalVersionWithLang({
         ...fakeVersion,
         file: { platform: OS_ALL, url, hash: 'hash-of-file' },
@@ -89,7 +89,7 @@ describe(__filename, () => {
     });
 
     it('handles addon file URLs with unrelated query strings', () => {
-      const url = 'https://a.m.o/addons/file.xpi';
+      const url = 'https://addons.mozilla.org/addons/file.xpi';
       const version = createInternalVersionWithLang({
         ...fakeVersion,
         file: {

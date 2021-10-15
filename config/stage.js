@@ -1,10 +1,9 @@
 // Config for the stage server.
-import { addonsServerStageCDN, analyticsHost, apiStageHost, baseUrlStage, stageDomain, staticPath } from './lib/shared';
+import { analyticsHost, apiStageHost, baseUrlStage, mediaPath, stageDomain, staticPath } from './lib/shared';
 
 module.exports = {
   baseURL: baseUrlStage,
   apiHost: apiStageHost,
-  amoCDN: addonsServerStageCDN,
 
   cookieDomain: `.${stageDomain}`,
 
@@ -21,11 +20,9 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        `${addonsServerStageCDN}/user-media/`,
-        `${addonsServerStageCDN}/static/`,
+        `${baseUrlStage}${mediaPath}`,
         `${baseUrlStage}${staticPath}`,
-        // This file isn't bundled with addons-frontend.
-        `${addonsServerStageCDN}/favicon.ico`,
+        `${baseUrlStage}${staticPath}`,
       ],
       scriptSrc: [
         `${baseUrlStage}${staticPath}`,

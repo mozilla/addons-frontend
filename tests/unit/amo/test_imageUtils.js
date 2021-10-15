@@ -1,5 +1,3 @@
-import config from 'config';
-
 import { getAddonIconUrl, getPreviewImage } from 'amo/imageUtils';
 import {
   createInternalAddonWithLang,
@@ -9,19 +7,13 @@ import {
 import fallbackIcon from 'amo/img/icons/default.svg';
 
 describe(__filename, () => {
-  const allowedIcon = 'https://addons.cdn.mozilla.net/webdev-64.png';
+  const allowedIcon = 'https://addons.mozilla.org/webdev-64.png';
 
   describe('getAddonIconUrl', () => {
     it('return icon url as in fake addon', () => {
       expect(getAddonIconUrl({ ...fakeAddon, icon_url: allowedIcon })).toEqual(
         allowedIcon,
       );
-    });
-
-    it('return fallback icon in case of non allowed origin', () => {
-      expect(
-        getAddonIconUrl({ ...fakeAddon, icon_url: 'https://xyz.com/a.png' }),
-      ).toEqual(fallbackIcon);
     });
 
     it('return fallback icon in case of null addon value', () => {
@@ -31,7 +23,7 @@ describe(__filename, () => {
 
   describe('getPreviewImage', () => {
     it('returns the first full image from the previews array', () => {
-      const fullImage = `${config.get('amoCDN')}/full/12345.png`;
+      const fullImage = `https://addons.mozilla.org/full/12345.png`;
       const addon = createInternalAddonWithLang({
         previews: [
           {
@@ -40,7 +32,7 @@ describe(__filename, () => {
           },
           {
             ...fakePreview,
-            image_url: `${config.get('amoCDN')}/image.not.used.here.png`,
+            image_url: `https://addons.mozilla.org/image.not.used.here.png`,
           },
         ],
       });
@@ -57,22 +49,8 @@ describe(__filename, () => {
       expect(image).toEqual(null);
     });
 
-    it('returns null if the isAllowedOrigin returns false', () => {
-      const addon = createInternalAddonWithLang({
-        previews: [
-          {
-            ...fakePreview,
-            image_url: 'http://www.example.com',
-          },
-        ],
-      });
-
-      const image = getPreviewImage(addon);
-      expect(image).toEqual(null);
-    });
-
     it('uses the standard preview size (720)', () => {
-      const image720 = `${config.get('amoCDN')}/full/12345.png`;
+      const image720 = `https://addons.mozilla.org/full/12345.png`;
       const addon = createInternalAddonWithLang({
         previews: [
           {
@@ -96,7 +74,7 @@ describe(__filename, () => {
     });
 
     it('returns the thumb image from the previews array when full is false', () => {
-      const thumbImage = `${config.get('amoCDN')}/thumb/12345.png`;
+      const thumbImage = `https://addons.mozilla.org/thumb/12345.png`;
       const addon = createInternalAddonWithLang({
         previews: [
           {
@@ -116,7 +94,7 @@ describe(__filename, () => {
     });
 
     it('uses the first preview image when the 720 size is not present', () => {
-      const image300 = `${config.get('amoCDN')}/full/12345.png`;
+      const image300 = `https://addons.mozilla.org/full/12345.png`;
       const addon = createInternalAddonWithLang({
         previews: [
           {

@@ -118,9 +118,9 @@ export default class ServerHtml extends Component {
 
   getFaviconLink() {
     const { _config } = this.props;
-    return `${_config.get('amoCDN')}/favicon.ico?v=${_config.get(
-      'faviconVersion',
-    )}`;
+    // /favicon.ico is an alias handled in nginx - the favicon is actually in
+    // addons-server static files.
+    return `/favicon.ico?v=${_config.get('faviconVersion')}`;
   }
 
   getFontPreload() {

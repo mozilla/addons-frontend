@@ -35,7 +35,7 @@ describe(__filename, () => {
         setInstallState({
           ...fakeInstalledAddon,
           guid,
-          url: 'https://cdn.amo/download/my-addon.xpi',
+          url: 'https://addons.cdn.mozilla.net/download/my-addon.xpi',
           status: UNINSTALLED,
         }),
       ),
@@ -47,7 +47,7 @@ describe(__filename, () => {
         guid,
         needsRestart: false,
         status: UNINSTALLED,
-        url: 'https://cdn.amo/download/my-addon.xpi',
+        url: 'https://addons.cdn.mozilla.net/download/my-addon.xpi',
       },
     });
   });
