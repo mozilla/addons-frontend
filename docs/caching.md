@@ -29,11 +29,7 @@ The origin will send a `Cache-Control: s-maxage=<value>` header (causing the CDN
 
 ### Cookies in requests
 
-We can't `Vary` on a specific cookie, only the whole header, which would include all cookies ever set on the AMO domain, including analytics - so we would likely see an extremely poor cache hit ratio if we did that. Therefore, cookies that affect the CDN cache
-are hardcoded in the CDN configuration for a given path pattern. This allows us to cache differently based on the value of
-`frontend_active_experiments` for instance, but any other cookie not specified in that configuration will be ignored for caching
-purposes. If a request comes in with a `foo=bar` cookie, it could be served the same response from cache as someone coming in
-without it.
+We can't `Vary` on a specific cookie, only the whole header, which would include all cookies ever set on the AMO domain, including analytics - so we would likely see an extremely poor cache hit ratio if we did that. Therefore, cookies that affect the CDN cache are hardcoded in the CDN configuration for a given path pattern. This allows us to cache differently based on the value of `frontend_active_experiments` for instance, but any other cookie not specified in that configuration will be ignored for caching purposes. If a request comes in with a `foo=bar` cookie, it could be served the same response from cache as someone coming in without it.
 
 ### Cache duration
 
