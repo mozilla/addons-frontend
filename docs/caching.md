@@ -17,13 +17,13 @@ For the cache key, we take into account the following parameters:
 - `frontend_active_experiments`
 - `sessionid`
 
-If a response is found in the cache with the key, and it's returned and the request never reaches the origin server.
+If a response is found in the cache with the key, it's returned and the request never reaches the origin server.
 
 If a response is not found in the cache, the request is forwarded to the origin server, and if the response returned by the origin server contains a `Cache-Control: s-maxage=<value>` header, it's cached using the same logic to determine the key described above. The duration of the cache is the value of that header.
 
 Behind the scenes the cache key is generated with a mix of hardcoded CDN configuration and HTTP headers returned in the `Vary` header(s) in the response. It might include more headers depending on the page, for instance pages doing `Accept-Language` detection add that header to the key automatically by adding it to the `Vary` header in the response).
 
-The origin will send a `Cache-Control: s-maxage=<value>` header (causing the CDN to cache response) on all responses unless the request came in with a `frontend_auth_token` or the response being generated is a 40x or 50x. On top of that, a `Cache-Control: max-age=0` is sent by default so browsers themselves never cache the responses, to deal with authentication and back/forward cache interaction.
+The origin will send a `Cache-Control: s-maxage=<value>` header (causing the CDN to cache the response) on all responses unless the request came in with a `frontend_auth_token` or the response being generated is a 40x or 50x. On top of that, a `Cache-Control: max-age=0` is sent by default so browsers themselves never cache the responses, to deal with authentication and back/forward cache interaction.
 
 ## Additional considerations
 
