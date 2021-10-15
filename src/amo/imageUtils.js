@@ -20,5 +20,5 @@ export const getPreviewImage = (addon, { full = true } = {}) => {
   const preview = addon.previews[imageIndex];
 
   const previewSize = full ? 'src' : 'thumbnail_src';
-  return preview[previewSize];
+  return preview[previewSize] || null;
 };
