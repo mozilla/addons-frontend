@@ -55,34 +55,87 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     const loading = !addon;
 
     const getLinkTitles = (rating, total) => {
-      const ratings = {
-        '5': 'five',
-        '4': 'four',
-        '3': 'three',
-        '2': 'two',
-        '1': 'one',
-      };
+      switch (rating) {
+        /* eslint-disable quote-props */
+        case '5':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 five-star review',
+                'Read all %(total)s five-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no five-star reviews');
 
-      const num = ratings[rating];
+        case '4':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 four-star review',
+                'Read all %(total)s four-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no four-star reviews');
 
-      /* eslint-disable quote-props */
-      if (total && total > 0) {
-        return i18n.sprintf(
-          i18n.ngettext(
-            'Read the 1 %(num)s-star review',
-            'Read all %(total)s %(num)s-star reviews',
-            total,
-          ),
-          {
-            num,
-            total: i18n.formatNumber(total || 0),
-          },
-        );
+        case '3':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 three-star review',
+                'Read all %(total)s three-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no three-star reviews');
+
+        case '2':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 two-star review',
+                'Read all %(total)s two-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no two-star reviews');
+
+        case '1':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 one-star review',
+                'Read all %(total)s one-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no one-star reviews');
+
+        default:
+          return i18n.gettext('There are no reviews');
+        /* eslint-enable quote-props */
       }
-      return i18n.sprintf(i18n.gettext('There are no %(num)s-star reviews'), {
-        num,
-      });
-      /* eslint-enable quote-props */
     };
 
     return (
