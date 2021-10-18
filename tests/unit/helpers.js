@@ -63,8 +63,8 @@ export const createLocalizedString = (string, lang = DEFAULT_LANG_IN_TESTS) => {
 export const fakePreview = Object.freeze({
   id: 1,
   caption: createLocalizedString('Image 1'),
-  image_url: 'https://addons.cdn.mozilla.net/full/1.png',
-  thumbnail_url: 'https://addons.cdn.mozilla.net/thumb/1.png',
+  image_url: 'https://addons.mozilla.org/user-media/full/1.png',
+  thumbnail_url: 'https://addons.mozilla.org/user-media/thumb/1.png',
   image_size: [400, 200],
   thumbnail_size: [200, 100],
 });
@@ -79,13 +79,13 @@ export const fakeFile = Object.freeze({
   platform: OS_ALL,
   size: 123,
   status: 'public',
-  url: 'https://a.m.o/files/321/addon.xpi',
+  url: 'https://addons.mozilla.org/files/321/addon.xpi',
 });
 
 export const fakeAuthor = Object.freeze({
   id: 98811255,
   name: 'Krupa',
-  picture_url: 'https://addons.cdn.mozilla.net/static/img/anon_user.png',
+  picture_url: 'https://addons.mozilla.org/user-media/static/img/anon_user.png',
   url: 'http://olympia.test/en-US/firefox/user/krupa/',
   username: 'krupa',
 });
@@ -136,7 +136,7 @@ export const fakeAddon = Object.freeze({
     'outgoing': createLocalizedString('https://outgoing.mozilla.org/hamster'),
   },
   id: 1234,
-  icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
+  icon_url: 'https://addons.mozilla.org/user-media/webdev-64.png',
   is_disabled: false,
   is_experimental: false,
   is_source_public: true,
@@ -197,14 +197,14 @@ export const fakeInstalledAddon = Object.freeze({
   guid: 'installed-addon@company',
   needsRestart: false,
   status: ENABLED,
-  url: 'https://a.m.o/addon/detail/view',
+  url: 'https://addons.mozilla.org/addon/detail/view',
 });
 
 export const fakeReview = Object.freeze({
   id: 8876,
   // The API only provides a minimal add-on representation.
   addon: {
-    icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
+    icon_url: 'https://addons.mozilla.org/user-media/webdev-64.png',
     id: 28014,
     name: createLocalizedString('fake add-on name'),
     slug: fakeAddon.slug,
@@ -310,7 +310,7 @@ export const createPrimaryHeroShelf = ({
   addon = undefined,
   description = 'Primary shelf description',
   external = undefined,
-  featuredImage = 'https://addons-dev-cdn.allizom.org/static/img/hero/featured/teamaddons.jpg',
+  featuredImage = 'https://addons.mozilla.org/static/img/hero/featured/teamaddons.jpg',
   gradient = { start: 'color-ink-80', end: 'color-blue-70' },
 } = {}) => {
   return {
@@ -480,7 +480,7 @@ export function createUserAccountResponse({
   is_addon_developer = false,
   is_artist = false,
   num_addons_listed = 1,
-  picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+  picture_url = `https://addons.mozilla.org/static/img/zamboni/anon_user.png`,
   picture_type = '',
   homepage = null,
   permissions = [],
@@ -612,7 +612,7 @@ export function createFakeAutocompleteResult({
 } = {}) {
   return {
     id: randomId(),
-    icon_url: `${config.get('amoCDN')}/${name}.png`,
+    icon_url: `https://addons.mozilla.org/${name}.png`,
     name: createLocalizedString(name),
     promoted: null,
     url: `https://example.org/en-US/firefox/addons/${name}/`,

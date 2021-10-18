@@ -1,4 +1,3 @@
-import config from 'config';
 import * as React from 'react';
 
 import SearchSuggestion, {
@@ -37,7 +36,7 @@ describe(__filename, () => {
   };
 
   it('renders itself', () => {
-    const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
+    const iconUrl = `https://addons.mozilla.org/user-media/some-icon.png`;
     const name = 'suggestion name';
     const suggestion = createInternalSuggestionWithLang(
       createFakeAutocompleteResult({ icon_url: iconUrl, name }),

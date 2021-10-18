@@ -968,8 +968,8 @@ describe(__filename, () => {
     expect(root.find('.Addon-summary').html()).toContain(summary);
   });
 
-  it('renders an amo CDN icon image', () => {
-    const iconURL = 'https://addons.cdn.mozilla.net/foo.jpg';
+  it('renders an amo icon image', () => {
+    const iconURL = 'https://addons.mozilla.org/foo.jpg';
     const addonName = 'some-addon-name';
     const root = shallowRender({
       addon: createInternalAddonWithLang({
@@ -981,17 +981,6 @@ describe(__filename, () => {
     const image = root.find('.Addon-icon img');
     expect(image.prop('src')).toEqual(iconURL);
     expect(image.prop('alt')).toEqual(`Preview of ${addonName}`);
-  });
-
-  it('renders a fall-back asset', () => {
-    const root = shallowRender({
-      addon: createInternalAddonWithLang({
-        ...fakeAddon,
-        icon_url: 'http://foo.com/whatever.jpg',
-      }),
-    });
-    const src = root.find('.Addon-icon img').prop('src');
-    expect(src).toEqual('default.svg');
   });
 
   it('renders screenshots for type extension', () => {

@@ -480,7 +480,7 @@ describe(__filename, () => {
     const _getClientCompatibility = sinon.stub().returns({
       compatible: false,
     });
-    const fileURL = 'https://a.m.o/files/addon.xpi';
+    const fileURL = 'https://addons.mozilla.org/files/addon.xpi';
 
     const root = render({
       _getClientCompatibility,

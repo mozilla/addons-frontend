@@ -1,5 +1,4 @@
 import * as React from 'react';
-import config from 'config';
 
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import ThemeImage, { ThemeImageBase } from 'amo/components/ThemeImage';
@@ -70,7 +69,7 @@ describe(__filename, () => {
   });
 
   it('displays a preview with 720 width', () => {
-    const fullImage720 = `${config.get('amoCDN')}/full/720.png`;
+    const fullImage720 = `https://addons.mozilla.org/user-media/full/720.png`;
     const addon = createInternalAddonWithLang({
       ...fakeTheme,
       type: ADDON_TYPE_STATIC_THEME,

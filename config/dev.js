@@ -1,10 +1,9 @@
 // Config for the -dev server.
-import { addonsServerDevCDN, analyticsHost, apiDevHost, baseUrlDev, devDomain, staticPath } from './lib/shared';
+import { analyticsHost, apiDevHost, baseUrlDev, devDomain, mediaPath, staticPath } from './lib/shared';
 
 module.exports = {
   baseURL: baseUrlDev,
   apiHost: apiDevHost,
-  amoCDN: addonsServerDevCDN,
   cookieDomain: `.${devDomain}`,
 
   enableDevTools: true,
@@ -22,11 +21,8 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        `${addonsServerDevCDN}/user-media/`,
-        `${addonsServerDevCDN}/static/`,
+        `${baseUrlDev}${mediaPath}`,
         `${baseUrlDev}${staticPath}`,
-        // This file isn't bundled with addons-frontend.
-        `${addonsServerDevCDN}/favicon.ico`,
       ],
       scriptSrc: [
         `${baseUrlDev}${staticPath}`,

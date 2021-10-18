@@ -88,17 +88,6 @@ describe(__filename, () => {
       );
     });
 
-    it('renders the fallback icon if the origin is not allowed', () => {
-      const addon = {
-        ...fakeAddon,
-        icon_url: 'http://foo.com/hax.png',
-      };
-      const header = renderAddonHeader({ addon });
-      const img = header.find('.AddonSummaryCard-header-icon img');
-
-      expect(img).toHaveProp('src', fallbackIcon);
-    });
-
     it('renders a hidden h1 for SEO', () => {
       const headerText = 'Expected header text';
       const header = renderAddonHeader({ headerText });

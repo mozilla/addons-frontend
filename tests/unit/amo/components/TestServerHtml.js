@@ -132,15 +132,14 @@ describe(__filename, () => {
   });
 
   it('renders favicon', () => {
-    const amoCDN = 'https://test.cdn.net';
-    const _config = getFakeConfig({ amoCDN });
+    const _config = getFakeConfig();
 
     const root = render({ _config });
     const favicon = root.find('link[rel="shortcut icon"]');
 
     expect(favicon).toHaveProp(
       'href',
-      `${amoCDN}/favicon.ico?v=${_config.get('faviconVersion')}`,
+      `/favicon.ico?v=${_config.get('faviconVersion')}`,
     );
   });
 

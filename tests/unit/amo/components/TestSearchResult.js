@@ -260,17 +260,6 @@ describe(__filename, () => {
     expect(root.find('.SearchResult-metadata')).toHaveLength(1);
   });
 
-  it('displays a placeholder if the icon is malformed', () => {
-    const addon = createInternalAddonWithLang({
-      ...fakeAddon,
-      icon_url: 'whatevs',
-    });
-    const root = render({ addon });
-
-    // image `require` calls in jest return the filename
-    expect(root.find('.SearchResult-icon')).toHaveProp('src', 'default.svg');
-  });
-
   it('adds a theme-specific class', () => {
     const root = render({
       addon: createInternalAddonWithLang({
@@ -286,19 +275,6 @@ describe(__filename, () => {
     const root = render({ noAddon: true, useThemePlaceholder: true });
 
     expect(root).toHaveClassName('SearchResult--theme');
-  });
-
-  it('does not render a theme image if the isAllowedOrigin is false', () => {
-    const root = render({
-      _isAllowedOrigin: sinon.stub().returns(false),
-      addon: createInternalAddonWithLang({
-        ...fakeAddon,
-        previews: [],
-        type: ADDON_TYPE_STATIC_THEME,
-      }),
-    });
-
-    expect(root.find('.SearchResult-icon')).toHaveLength(0);
   });
 
   it("renders an image's alt attribute as its addon name", () => {
@@ -328,7 +304,8 @@ describe(__filename, () => {
   });
 
   it('displays the thumbnail image as the default src for static theme', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+    const headerImageThumb =
+      'https://addons.mozilla.org/user-media/thumb/12345.png';
 
     const root = render({
       addon: createInternalAddonWithLang({
@@ -348,7 +325,8 @@ describe(__filename, () => {
   });
 
   it('displays the full preview for static theme when showFullSizePreview: true', () => {
-    const headerImageFull = 'https://addons.cdn.mozilla.net/full/12345.png';
+    const headerImageFull =
+      'https://addons.mozilla.org/user-media/full/12345.png';
 
     const root = render({
       addon: createInternalAddonWithLang({
@@ -369,7 +347,8 @@ describe(__filename, () => {
   });
 
   it('displays a fallback image for themes that only have 1 preview option', () => {
-    const headerImageThumb = 'https://addons.cdn.mozilla.net/thumb/12345.png';
+    const headerImageThumb =
+      'https://addons.mozilla.org/user-media/thumb/12345.png';
 
     const root = render({
       addon: createInternalAddonWithLang({

@@ -50,7 +50,7 @@ describe(__filename, () => {
   };
 
   const createInternalVersionWithInstallURL = ({
-    installURL = 'https://a.m.o/files/addon.xpi',
+    installURL = 'https://addons.mozilla.org/files/addon.xpi',
   }) => {
     return createInternalVersionWithLang({
       ...fakeVersion,
@@ -91,7 +91,7 @@ describe(__filename, () => {
   };
 
   it('renders a Button for extensions', () => {
-    const installURL = 'https://a.m.o/files/addon.xpi';
+    const installURL = 'https://addons.mozilla.org/files/addon.xpi';
 
     const root = render({
       currentVersion: createInternalVersionWithInstallURL({ installURL }),

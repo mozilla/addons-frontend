@@ -7,12 +7,6 @@ import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 const envs = ['dev', 'stage', 'production'];
 
-const serverCdnHosts = {
-  dev: 'https://addons-dev-cdn.allizom.org',
-  stage: 'https://addons-stage-cdn.allizom.org',
-  production: 'https://addons.cdn.mozilla.net',
-};
-
 const apiHosts = {
   dev: 'https://addons-dev.allizom.org',
   stage: 'https://addons.allizom.org',
@@ -35,7 +29,6 @@ describe(__filename, () => {
         // takes into account changes to NODE_ENV.
         jest.resetModules();
         const apiHost = apiHosts[env];
-        const serverCdnHost = serverCdnHosts[env];
         const mainHost = apiHost;
         // eslint-disable-next-line global-require
         const config = require('config');
@@ -49,7 +42,7 @@ describe(__filename, () => {
         // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
         expect(cspConfig.imgSrc).not.toContain(mainHost);
         expect(cspConfig.imgSrc).toContain(`${mainHost}/static-frontend/`);
-        expect(cspConfig.imgSrc).toContain(`${serverCdnHost}/favicon.ico`);
+        expect(cspConfig.imgSrc).toContain(`${mainHost}/user-media/`);
         expect(cspConfig.imgSrc).toContain("'self'");
         // We use a sub-folder on purpose, see:
         // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687

@@ -1,10 +1,7 @@
-import { isAllowedOrigin } from 'amo/utils';
 import fallbackIcon from 'amo/img/icons/default.svg';
 
 export function getAddonIconUrl(addon) {
-  return addon && isAllowedOrigin(addon.icon_url)
-    ? addon.icon_url
-    : fallbackIcon;
+  return addon ? addon.icon_url : fallbackIcon;
 }
 
 export const getPreviewImage = (addon, { full = true } = {}) => {
@@ -23,7 +20,5 @@ export const getPreviewImage = (addon, { full = true } = {}) => {
   const preview = addon.previews[imageIndex];
 
   const previewSize = full ? 'src' : 'thumbnail_src';
-  return preview[previewSize] && isAllowedOrigin(preview[previewSize])
-    ? preview[previewSize]
-    : null;
+  return preview[previewSize] || null;
 };

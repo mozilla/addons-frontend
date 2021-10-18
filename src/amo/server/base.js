@@ -254,13 +254,6 @@ function baseServer(
       // banners depending on the user-agent.
       res.vary('User-Agent');
 
-      const amoCDN = config.has('amoCDN') ? config.get('amoCDN') : null;
-      const baseURL = config.get('baseURL');
-
-      if (amoCDN && amoCDN !== baseURL) {
-        res.append('Link', `<${amoCDN}>; rel=preconnect; crossorigin`);
-      }
-
       const history = _createHistory({ req });
       const { sagaMiddleware, store } = createStore({ history });
 

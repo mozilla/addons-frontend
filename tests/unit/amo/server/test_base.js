@@ -163,57 +163,6 @@ describe(__filename, () => {
       expect(response.headers['content-encoding']).toEqual('gzip');
     });
 
-    it('preconnects to addons-server CDN', async () => {
-      const config = getFakeConfig({
-        amoCDN: 'https://cdn.example.com',
-      });
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const response = await testClient({
-        config,
-        store,
-        sagaMiddleware,
-      }).get('/en-US/firefox/');
-
-      expect(response.headers).toMatchObject({
-        'link': '<https://cdn.example.com>; rel=preconnect; crossorigin',
-      });
-      expect(response.statusCode).toEqual(200);
-    });
-
-    it('does not preconnect to CDN addons-server if not in config', async () => {
-      const config = getFakeConfig({
-        amoCDN: undefined,
-      });
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const response = await testClient({
-        config,
-        store,
-        sagaMiddleware,
-      }).get('/en-US/firefox/');
-
-      expect(response.headers).not.toContain('link');
-      expect(response.statusCode).toEqual(200);
-    });
-
-    it('does not preconnect to addons-server CDN if equal to baseURL', async () => {
-      const config = getFakeConfig({
-        amoCDN: 'https://example.com',
-        baseURL: 'https://example.com',
-      });
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const response = await testClient({
-        config,
-        store,
-        sagaMiddleware,
-      }).get('/en-US/firefox/');
-
-      expect(response.headers).not.toContain('link');
-      expect(response.statusCode).toEqual(200);
-    });
-
     it('varies on DNT, User-Agent and Accept-Encoding', async () => {
       const response = await testClient().get('/en-US/firefox/');
 

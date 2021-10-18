@@ -18,7 +18,6 @@ import {
   PROMOTED_ADDONS_SUMO_URL,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'amo/constants';
-import log from 'amo/logger';
 import purify from 'amo/purify';
 import type { AddonType } from 'amo/types/addons';
 
@@ -253,25 +252,6 @@ export function isAddonAuthor({
   return addon.authors.some((author) => {
     return author.id === userId;
   });
-}
-
-export function isAllowedOrigin(
-  urlString: string,
-  {
-    allowedOrigins = [config.get('amoCDN'), config.get('baseURL')],
-  }: {| allowedOrigins?: Array<string> |} = {},
-): boolean {
-  let parsedURL;
-  try {
-    parsedURL = url.parse(urlString);
-  } catch (e) {
-    log.error(`invalid urlString provided to isAllowedOrigin: ${urlString}`);
-    return false;
-  }
-
-  return allowedOrigins.includes(
-    `${parsedURL.protocol || ''}//${parsedURL.host || ''}`,
-  );
 }
 
 export function apiAddonTypeIsValid(addonType: string): boolean {

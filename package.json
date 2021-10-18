@@ -85,7 +85,6 @@
     "amo:stage": {
       "command": "better-npm-run start-dev-proxy",
       "env": {
-        "AMO_CDN": "https://addons-stage-cdn.allizom.org",
         "PROXY_API_HOST": "https://addons.allizom.org",
         "FXA_CONFIG": "local",
         "CSP": false

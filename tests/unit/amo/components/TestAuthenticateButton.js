@@ -114,12 +114,14 @@ describe(__filename, () => {
     });
     const startLoginUrlStub = sinon
       .stub(api, 'startLoginUrl')
-      .returns('https://a.m.org/login');
+      .returns('https://https://addons.mozilla.org/login');
 
     const { handleLogIn } = mapStateToProps(store.getState(), {});
     handleLogIn(location, { _window });
 
-    expect(_window.location).toEqual('https://a.m.org/login');
+    expect(_window.location).toEqual(
+      'https://https://addons.mozilla.org/login',
+    );
     sinon.assert.calledWith(startLoginUrlStub, { location });
   });
 

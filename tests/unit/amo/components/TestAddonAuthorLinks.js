@@ -40,8 +40,8 @@ describe(__filename, () => {
         {
           id: 10642015,
           name: 'avgupt',
-          picture_url: 'http://cdn.a.m.o/myphoto.jpg',
-          url: 'http://a.m.o/en-GB/firefox/user/avgupt/',
+          picture_url: 'https://addons.mozilla.org/user-media/myphoto.jpg',
+          url: 'https://addons.mozilla.org/en-GB/firefox/user/avgupt/',
           username: 'avgupt',
         },
       ],
