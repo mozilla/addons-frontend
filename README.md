@@ -352,13 +352,13 @@ This library is exclusively designed to work with [addons-blog][].
 
 ### Release process
 
-In order to publish a new version of `addons-frontend-blog-utils`, a special tag has to be pushed to the main repository. The tag name must starts with `blog-utils-` and usually contains the version number. This can be automated using the following command:
+In order to publish a new version of `addons-frontend-blog-utils`, a special tag has to be pushed to the main repository. The tag name must start with `blog-utils-` and usually contains the version number. This can be automated using the following command:
 
 ```
 npm version [major|minor|patch]
 ```
 
-Once the commit and the tag have been created, push them to the main repository.
+Issuing this command from the `master` branch will update the `package.json` and create a commit. Push both this commit and the tag to the main repository.
 
 ## Core technologies
 
