@@ -121,25 +121,30 @@
     grid-column: 2 / -1;
     grid-row: 1 / 2;
   }
+
+  .Header-blog-link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .Header-button {
+  @include margin-start(20px);
+
   margin-bottom: 12px;
   vertical-align: top;
   white-space: nowrap;
 }
 
+.Header-blog-link,
 .Header-developer-hub-link,
 .Header-extension-workshop-link {
   display: none;
-
-  &,
-  &:link {
-    @include margin-start(12px);
-  }
 }
 
 .Header-authenticate-button,
+.Header-blog-link,
 .Header-developer-hub-link,
 .Header-extension-workshop-link {
   &,
@@ -155,12 +160,6 @@
   @include respond-to(large) {
     display: inline-block;
   }
-}
-
-.Header-download-button {
-  @include margin-start(12px);
-
-  width: auto;
 }
 
 .Header-authenticate-button {
@@ -181,7 +180,7 @@
   }
 
   @include respond-to(medium) {
-    @include margin-start(12px);
+    @include margin-start(20px);
 
     display: initial;
 

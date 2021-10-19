@@ -71,7 +71,6 @@ describe(__filename, () => {
       const html = cheerio.load(buildHeader());
 
       expect(html('.Header')).toHaveLength(1);
-      expect(html('.SectionLinks-dropdownlink-blog')).toHaveLength(1);
       // addons-blog relies on these class names to open/close the "More..."
       // menu so they shouldn't be changed without considerations.
       expect(html('.DropdownMenu')).toHaveLength(1);

@@ -90,7 +90,7 @@ export class AuthenticateButtonBase extends React.Component<InternalProps> {
 
     const buttonText = siteUser
       ? logOutText || i18n.gettext('Log out')
-      : logInText || i18n.gettext('Register or log in');
+      : logInText || i18n.gettext('Log in');
 
     const title = siteIsReadOnly
       ? i18n.gettext(`This action is currently unavailable. Please reload the
