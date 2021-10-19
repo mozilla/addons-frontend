@@ -358,7 +358,7 @@ In order to publish a new version of `addons-frontend-blog-utils`, a special tag
 npm version [major|minor|patch]
 ```
 
-Issuing this command from the `master` branch will update the `package.json` and create a commit. Push both this commit and the tag to the main repository.
+Issuing this command from the `master` branch will update the version in the `package.json`, create a commit and create a tag. Push both this commit and the tag to the main repository.
 
 ## Core technologies
 
