@@ -1,4 +1,4 @@
-FROM node:14-slim
+FROM node:17-slim
 
 # Install node_modules into a different directory to avoid npm/npm#9863.
 RUN mkdir -p /srv/node
