@@ -9,11 +9,15 @@
 }
 
 .RatingsByStar-row {
-  color: $grey-50 !important;
+  color: $grey-50;
   display: grid;
   grid-gap: 12px;
   grid-template-columns: max-content auto max-content;
   line-height: 1;
+}
+
+a.RatingsByStar-row {
+  color: $grey-50;
 }
 
 .RatingsByStar-star {
