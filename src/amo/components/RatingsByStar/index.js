@@ -54,14 +54,88 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     const { addon, i18n, location } = this.props;
     const loading = !addon;
 
-    const linkTitles = {
-      /* eslint-disable quote-props */
-      '5': i18n.gettext('Read all five-star reviews'),
-      '4': i18n.gettext('Read all four-star reviews'),
-      '3': i18n.gettext('Read all three-star reviews'),
-      '2': i18n.gettext('Read all two-star reviews'),
-      '1': i18n.gettext('Read all one-star reviews'),
-      /* eslint-enable quote-props */
+    const getLinkTitles = (rating, total) => {
+      switch (rating) {
+        /* eslint-disable quote-props */
+        case '5':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 five-star review',
+                'Read all %(total)s five-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no five-star reviews');
+
+        case '4':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 four-star review',
+                'Read all %(total)s four-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no four-star reviews');
+
+        case '3':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 three-star review',
+                'Read all %(total)s three-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no three-star reviews');
+
+        case '2':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 two-star review',
+                'Read all %(total)s two-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no two-star reviews');
+
+        case '1':
+          if (total && total > 0) {
+            return i18n.sprintf(
+              i18n.ngettext(
+                'Read the 1 one-star review',
+                'Read all %(total)s one-star reviews',
+                total,
+              ),
+              {
+                total: i18n.formatNumber(total || 0),
+              },
+            );
+          }
+          return i18n.gettext('There are no one-star reviews');
+
+        default:
+          return i18n.gettext('There are no reviews');
+        /* eslint-enable quote-props */
+      }
     };
 
     return (
@@ -75,7 +149,9 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 
               return (
                 <Link
-                  title={linkTitles[star] || ''}
+                  className="RatingsByStar-row"
+                  key={star}
+                  title={getLinkTitles(star, starCount) || ''}
                   to={reviewListURL({
                     addonSlug: addon.slug,
                     score: star,
@@ -91,38 +167,45 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               starCount = addon.ratings.grouped_counts[star];
             }
 
-            const starCountNode = loading ? (
-              <LoadingText width={100} />
-            ) : (
-              createLink(i18n.formatNumber(starCount || 0))
-            );
-
-            return (
-              <React.Fragment key={star}>
+            const loadingRow = (
+              <div key={star} className="RatingsByStar-row">
                 <div className="RatingsByStar-star">
-                  {loading ? (
-                    <LoadingText width={100} />
-                  ) : (
-                    createLink(i18n.formatNumber(star))
-                  )}
+                  <LoadingText width={100} />
                   <IconStar selected />
                 </div>
+
                 <div className="RatingsByStar-barContainer">
-                  {loading ? (
-                    <div className="RatingsByStar-bar RatingsByStar-barFrame" />
-                  ) : (
-                    createLink(
-                      <div className="RatingsByStar-bar RatingsByStar-barFrame">
-                        {starCount !== undefined
-                          ? this.renderBarValue(starCount)
-                          : null}
-                      </div>,
-                    )
-                  )}
+                  <div className="RatingsByStar-bar RatingsByStar-barFrame" />
                 </div>
-                <div className="RatingsByStar-count">{starCountNode}</div>
-              </React.Fragment>
+
+                <div className="RatingsByStar-count">
+                  <LoadingText width={100} />
+                </div>
+              </div>
             );
+
+            const ratingsByStarRow = (
+              <>
+                <div className="RatingsByStar-star">
+                  {i18n.formatNumber(star)}
+                  <IconStar selected />
+                </div>
+
+                <div className="RatingsByStar-barContainer">
+                  <div className="RatingsByStar-bar RatingsByStar-barFrame">
+                    {starCount !== undefined
+                      ? this.renderBarValue(starCount)
+                      : null}
+                  </div>
+                </div>
+
+                <div className="RatingsByStar-count">
+                  {i18n.formatNumber(starCount || 0)}
+                </div>
+              </>
+            );
+
+            return loading ? loadingRow : createLink(ratingsByStarRow);
           })}
         </div>
       </div>

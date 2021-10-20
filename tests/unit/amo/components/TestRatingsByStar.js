@@ -55,6 +55,7 @@ describe(__filename, () => {
   it('renders a loading state without an add-on', () => {
     const root = render({ addon: null });
 
+    expect(root.find('.RatingsByStar-row')).toHaveLength(5);
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
     expect(root.find('.RatingsByStar-barContainer')).toHaveLength(5);
     expect(root.find('.RatingsByStar-barFrame')).toHaveLength(5);
@@ -67,13 +68,12 @@ describe(__filename, () => {
       5: 964,
       4: 821,
       3: 543,
-      2: 22,
+      2: 1,
       1: 0,
     };
     const addon = addonForGrouping(grouping);
     const root = render({ addon });
-    const counts = root.find('.RatingsByStar-star').find(Link);
-    const bars = root.find('.RatingsByStar-barContainer').find(Link);
+    const ratingsByStarRow = root.find('.RatingsByStar-row').find(Link);
 
     function validateLink(link, score, expectedTitle) {
       expect(link).toHaveProp(
@@ -83,19 +83,13 @@ describe(__filename, () => {
       expect(link).toHaveProp('title', expectedTitle);
     }
 
-    [counts, bars].forEach((links) => {
-      validateLink(links.at(0), '5', 'Read all five-star reviews');
-      validateLink(links.at(1), '4', 'Read all four-star reviews');
-      validateLink(links.at(2), '3', 'Read all three-star reviews');
-      validateLink(links.at(3), '2', 'Read all two-star reviews');
-      validateLink(links.at(4), '1', 'Read all one-star reviews');
+    [ratingsByStarRow].forEach((links) => {
+      validateLink(links.at(0), '5', 'Read all 964 five-star reviews');
+      validateLink(links.at(1), '4', 'Read all 821 four-star reviews');
+      validateLink(links.at(2), '3', 'Read all 543 three-star reviews');
+      validateLink(links.at(3), '2', 'Read the 1 two-star review');
+      validateLink(links.at(4), '1', 'There are no one-star reviews');
     });
-
-    expect(counts.at(0).children()).toHaveText('5');
-    expect(counts.at(1).children()).toHaveText('4');
-    expect(counts.at(2).children()).toHaveText('3');
-    expect(counts.at(3).children()).toHaveText('2');
-    expect(counts.at(4).children()).toHaveText('1');
   });
 
   it('renders star counts', () => {
@@ -103,15 +97,14 @@ describe(__filename, () => {
       5: 964,
       4: 821,
       3: 543,
-      2: 22,
+      2: 1,
       1: 0,
     };
     const addon = addonForGrouping(grouping);
     const root = render({ addon });
-    const counts = root.find('.RatingsByStar-count').find(Link);
+    const rows = root.find('.RatingsByStar-row').find(Link);
 
     function validateLink(link, score, expectedTitle) {
-      expect(link.children()).toHaveText(grouping[score].toString());
       expect(link).toHaveProp(
         'to',
         reviewListURL({ addonSlug: addon.slug, score }),
@@ -119,11 +112,11 @@ describe(__filename, () => {
       expect(link).toHaveProp('title', expectedTitle);
     }
 
-    validateLink(counts.at(0), '5', 'Read all five-star reviews');
-    validateLink(counts.at(1), '4', 'Read all four-star reviews');
-    validateLink(counts.at(2), '3', 'Read all three-star reviews');
-    validateLink(counts.at(3), '2', 'Read all two-star reviews');
-    validateLink(counts.at(4), '1', 'Read all one-star reviews');
+    validateLink(rows.at(0), '5', 'Read all 964 five-star reviews');
+    validateLink(rows.at(1), '4', 'Read all 821 four-star reviews');
+    validateLink(rows.at(2), '3', 'Read all 543 three-star reviews');
+    validateLink(rows.at(3), '2', 'Read the 1 two-star review');
+    validateLink(rows.at(4), '1', 'There are no one-star reviews');
   });
 
   it('adds UTM query parameters to the review links when there are some', () => {
@@ -138,7 +131,7 @@ describe(__filename, () => {
     };
     const addon = addonForGrouping(grouping);
     const root = render({ addon, location });
-    const counts = root.find('.RatingsByStar-count').find(Link);
+    const rows = root.find('.RatingsByStar-row').find(Link);
 
     function validateLink(link, score) {
       const expectedQueryString = [
@@ -151,11 +144,11 @@ describe(__filename, () => {
       );
     }
 
-    validateLink(counts.at(0), '5');
-    validateLink(counts.at(1), '4');
-    validateLink(counts.at(2), '3');
-    validateLink(counts.at(3), '2');
-    validateLink(counts.at(4), '1');
+    validateLink(rows.at(0), '5');
+    validateLink(rows.at(1), '4');
+    validateLink(rows.at(2), '3');
+    validateLink(rows.at(3), '2');
+    validateLink(rows.at(4), '1');
   });
 
   it('renders IconStar', () => {
@@ -229,8 +222,6 @@ describe(__filename, () => {
     const addon = addonForGrouping(grouping);
     const root = render({ addon, i18n: fakeI18n({ lang: 'de' }) });
 
-    expect(
-      root.find('.RatingsByStar-count').at(0).find(Link).children(),
-    ).toHaveText('1.000');
+    expect(root.find('.RatingsByStar-count').at(0)).toHaveText('1.000');
   });
 });
