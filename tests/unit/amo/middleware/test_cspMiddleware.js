@@ -42,6 +42,7 @@ describe(__filename, () => {
         // https://bugzilla.mozilla.org/show_bug.cgi?id=1501687
         expect(cspConfig.imgSrc).not.toContain(mainHost);
         expect(cspConfig.imgSrc).toContain(`${mainHost}/static-frontend/`);
+        expect(cspConfig.imgSrc).toContain(`${mainHost}/static-server/`);
         expect(cspConfig.imgSrc).toContain(`${mainHost}/user-media/`);
         expect(cspConfig.imgSrc).toContain("'self'");
         // We use a sub-folder on purpose, see:
