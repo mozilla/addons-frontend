@@ -36,6 +36,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(_window.scrollTo, 0, 0);
   });
 
+  // eslint-disable-next-line jest/expect-expect
   it('does not call window.scrollTo() when window is not defined', () => {
     const _window = null;
 

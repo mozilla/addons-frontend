@@ -14,12 +14,10 @@ const basePath = config.get('basePath');
 const placeholderRX = /%\(.*?\)s/g;
 
 describe(__filename, () => {
-  for (const lang of langs) {
-    // eslint-disable no-loop-func
-    it(`should have a corresponding ${lang} dir in locale`, () => {
-      fs.lstatSync(path.join(basePath, 'locale', langToLocale(lang)));
-    });
-  }
+  // eslint-disable-next-line jest/expect-expect
+  it.each(langs)('should have a corresponding %s dir in locale', (lang) => {
+    fs.lstatSync(path.join(basePath, 'locale', langToLocale(lang)));
+  });
 
   for (const localeDir of glob.sync('locale/*')) {
     const locale = path.basename(localeDir);

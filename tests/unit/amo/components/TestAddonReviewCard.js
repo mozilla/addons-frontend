@@ -656,6 +656,7 @@ describe(__filename, () => {
   it('cannot begin a review reply without a review', () => {
     const root = render({ review: null });
 
+    // eslint-disable-next-line jest/expect-expect
     root.instance().onClickToBeginReviewReply(createFakeEvent());
   });
 
