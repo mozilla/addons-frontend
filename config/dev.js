@@ -1,5 +1,5 @@
 // Config for the -dev server.
-import { analyticsHost, apiDevHost, baseUrlDev, devDomain, mediaPath, staticPath } from './lib/shared';
+import { analyticsHost, apiDevHost, baseUrlDev, devDomain, mediaPath, serverStaticPath, staticPath } from './lib/shared';
 
 module.exports = {
   baseURL: baseUrlDev,
@@ -23,6 +23,7 @@ module.exports = {
         'data:',
         `${baseUrlDev}${mediaPath}`,
         `${baseUrlDev}${staticPath}`,
+        `${baseUrlDev}${serverStaticPath}`,
       ],
       scriptSrc: [
         `${baseUrlDev}${staticPath}`,
