@@ -42,15 +42,8 @@
     // Types that can be used with sendBeacon:
     "BodyInit": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "rules": {
-    // These rules are not compatible with Prettier.
-    "implicit-arrow-linebreak": "off",
-    "indent": "off",
-    "no-mixed-operators": "off",
-    "operator-linebreak": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/jsx-curly-newline": "off",
     // We omit `debug` because we don't turn that on by default.
     "amo/only-log-strings": ["error", {
       "methods": ["fatal", "info", "error", "warn"]
@@ -59,9 +52,16 @@
     // This rule is disabled because it outputs a lot of false positives, see:
     // https://github.com/benmosher/eslint-plugin-import/issues/1343
     "import/no-cycle": "off",
-    // This rule is only a warning but it is too noisy: we have test cases
-    // without `expect` because we're using `sinon` too.
-    "jest/expect-expect": "off"
+    "jest/expect-expect": ["warn", {
+      "assertFunctionNames": [
+        "expect",
+        // Allow the use of `sinon` in test cases.
+        "sinon.assert.*",
+        "mock*.verify",
+        // Allow our custom matcher.
+        "matchingSagaAction",
+      ],
+    }]
   },
   "settings": {
     "import/core-modules": [

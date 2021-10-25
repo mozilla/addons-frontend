@@ -183,6 +183,7 @@ describe(__filename, () => {
             _checkInternalURL,
             sinon.match({ urlString: sinon.match(moduleData.cta.url) }),
           );
+          // eslint-disable-next-line jest/no-conditional-expect
           expect(module.find('.SecondaryHero-module-linkText')).toHaveText(
             moduleData.cta.text,
           );
@@ -190,6 +191,7 @@ describe(__filename, () => {
           const link = module.find('.SecondaryHero-module-link');
 
           if (linkType === 'external') {
+            // eslint-disable-next-line jest/no-conditional-expect
             expect(link).toHaveProp(
               'href',
               addQueryParams(moduleData.cta.url, {
@@ -198,8 +200,10 @@ describe(__filename, () => {
                 utm_content: SECONDARY_HERO_SRC,
               }),
             );
+            // eslint-disable-next-line jest/no-conditional-expect
             expect(link).toHaveProp('target', '_blank');
           } else if (linkType === 'internal') {
+            // eslint-disable-next-line jest/no-conditional-expect
             expect(link).toHaveProp(
               'to',
               addQueryParams(moduleData.cta.url, {
@@ -208,6 +212,7 @@ describe(__filename, () => {
                 utm_content: SECONDARY_HERO_SRC,
               }),
             );
+            // eslint-disable-next-line jest/no-conditional-expect
             expect(link).not.toHaveProp('target');
           }
         }

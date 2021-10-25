@@ -912,6 +912,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(_window.location.assign, expectedURL);
     };
 
+    // eslint-disable-next-line jest/expect-expect
     it('redirects to the user profile page when there is no `to` param', () => {
       const clientApp = CLIENT_APP_FIREFOX;
       const lang = 'en-US';
@@ -923,18 +924,21 @@ describe(__filename, () => {
       testRedirect({ clientApp, expectedURL, lang, to, userId });
     });
 
+    // eslint-disable-next-line jest/expect-expect
     it('redirects to the `to` URL param', () => {
       const to = '/addon/some-slug/';
 
       testRedirect({ expectedURL: to, to });
     });
 
+    // eslint-disable-next-line jest/expect-expect
     it('converts an absolute `to` URL into a relative one', () => {
       const to = 'https://addons.mozilla.org/addon/some-slug/';
 
       testRedirect({ expectedURL: `/${to}`, to });
     });
 
+    // eslint-disable-next-line jest/expect-expect
     it('redirects to user profile page when the `to` param is a protocol-less URL', () => {
       const clientApp = CLIENT_APP_FIREFOX;
       const lang = 'en-US';
@@ -946,6 +950,7 @@ describe(__filename, () => {
       testRedirect({ expectedURL, to });
     });
 
+    // eslint-disable-next-line jest/expect-expect
     it('redirects to user profile page when the `to` param is not a string', () => {
       const clientApp = CLIENT_APP_FIREFOX;
       const lang = 'en-US';

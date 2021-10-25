@@ -126,6 +126,7 @@ describe(__filename, () => {
     sinon.assert.called(onCancel);
   });
 
+  // eslint-disable-next-line jest/expect-expect
   it('handles an empty cancel callback', () => {
     const root = renderOpen({ onCancel: undefined });
     // This should not throw an error.
@@ -140,6 +141,7 @@ describe(__filename, () => {
     sinon.assert.called(onSubmit);
   });
 
+  // eslint-disable-next-line jest/expect-expect
   it('handles an empty submit callback', () => {
     const root = renderOpen({ onSubmit: undefined });
     // This should not throw an error.

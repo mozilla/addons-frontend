@@ -653,6 +653,7 @@ describe(__filename, () => {
     ).toHaveLength(0);
   });
 
+  // eslint-disable-next-line jest/expect-expect
   it('cannot begin a review reply without a review', () => {
     const root = render({ review: null });
 

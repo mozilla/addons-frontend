@@ -893,6 +893,7 @@ describe(__filename, () => {
       );
     });
 
+    // eslint-disable-next-line jest/expect-expect
     it('allows valid locale keys', () => {
       const description = { fr: 'la description' };
       api.validateLocalizedString(description);

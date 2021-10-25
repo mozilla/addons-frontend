@@ -105,6 +105,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(onDismiss, event);
   });
 
+  // eslint-disable-next-line jest/expect-expect
   it('does not require a dismissal callback', () => {
     const root = render({ dismissible: true, onDismiss: undefined });
 

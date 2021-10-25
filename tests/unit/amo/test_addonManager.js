@@ -279,6 +279,7 @@ describe(__filename, () => {
         );
     });
 
+    // eslint-disable-next-line jest/expect-expect
     it('should resolve if addon.uninstall resolves with true', () => {
       const fakeAddon = fakeClientAddon({
         uninstall: sinon.stub().resolves(true),
@@ -290,6 +291,7 @@ describe(__filename, () => {
       });
     });
 
+    // eslint-disable-next-line jest/expect-expect
     it('should resolve if addon.uninstall just resolves', () => {
       const fakeAddon = fakeClientAddon({
         uninstall: sinon.stub().resolves(),

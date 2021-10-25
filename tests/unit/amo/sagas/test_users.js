@@ -98,6 +98,7 @@ describe(__filename, () => {
         })
         .catch((error) => {
           mockApi.verify();
+          // eslint-disable-next-line jest/no-conditional-expect
           expect(error).toBe(expectedError);
         });
     });
@@ -120,6 +121,7 @@ describe(__filename, () => {
         })
         .catch((error) => {
           mockApi.verify();
+          // eslint-disable-next-line jest/no-conditional-expect
           expect(error).toBe(expectedError);
         });
     });

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const { CLIEngine } = require('eslint');
+const { ESLint } = require('eslint');
 
 const { getChangedFiles } = require('./utils');
 
@@ -7,7 +7,7 @@ const NO_ESLINT_ENV_VAR = 'NO_ESLINT';
 
 class EslintCheckReporter {
   constructor() {
-    this.eslint = new CLIEngine();
+    this.eslint = new ESLint();
     this.eslintOutput = null;
   }
 
@@ -26,13 +26,13 @@ class EslintCheckReporter {
       throw new Error(`Failed to retrieve files in the eslint check reporter.`);
     }
 
-    const report = this.eslint.executeOnFiles(files);
+    const report = await this.eslint.lintFiles(files);
 
     if (report.errorCount === 0 && report.warningCount === 0) {
       // All good.
       this.eslintOutput = null;
     } else {
-      this.eslintOutput = CLIEngine.getFormatter()(report.results);
+      this.eslintOutput = (await this.eslint.loadFormatter()).format(report);
     }
   }
 

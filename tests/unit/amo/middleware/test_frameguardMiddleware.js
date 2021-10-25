@@ -24,6 +24,7 @@ describe(__filename, () => {
     sinon.assert.calledOnce(nextSpy);
   });
 
+  // eslint-disable-next-line jest/expect-expect
   it('does not blow up if optional args not defined', () => {
     frameguard();
   });
