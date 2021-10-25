@@ -13,4 +13,5 @@ export const baseUrlStage = apiStageHost;
 export const analyticsHost = 'https://www.google-analytics.com';
 
 export const staticPath = '/static-frontend/';
+export const serverStaticPath = '/static-server/';  // addons-server statics.
 export const mediaPath = '/user-media/';  // addons-server user-uploaded media.

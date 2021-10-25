@@ -1,5 +1,5 @@
 // Config for the stage server.
-import { analyticsHost, apiStageHost, baseUrlStage, mediaPath, stageDomain, staticPath } from './lib/shared';
+import { analyticsHost, apiStageHost, baseUrlStage, mediaPath, serverStaticPath, stageDomain, staticPath } from './lib/shared';
 
 module.exports = {
   baseURL: baseUrlStage,
@@ -22,7 +22,7 @@ module.exports = {
         'data:',
         `${baseUrlStage}${mediaPath}`,
         `${baseUrlStage}${staticPath}`,
-        `${baseUrlStage}${staticPath}`,
+        `${baseUrlStage}${serverStaticPath}`,
       ],
       scriptSrc: [
         `${baseUrlStage}${staticPath}`,

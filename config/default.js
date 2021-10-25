@@ -4,7 +4,7 @@
 
 import path from 'path';
 
-import { analyticsHost, prodDomain, apiProdHost, baseUrlProd, mediaPath, staticPath } from './lib/shared';
+import { analyticsHost, prodDomain, apiProdHost, baseUrlProd, mediaPath, serverStaticPath, staticPath } from './lib/shared';
 
 const basePath = path.resolve(__dirname, '../');
 
@@ -143,6 +143,10 @@ module.exports = {
         'data:',
         `${baseUrlProd}${mediaPath}`,
         `${baseUrlProd}${staticPath}`,
+        `${baseUrlProd}${serverStaticPath}`,
+        // For backwards-compatibility, allow images to be served from the old
+        // dedicated domain for statics and user uploaded content:
+        'https://addons.cdn.mozilla.net/',
       ],
       manifestSrc: ["'none'"],
       mediaSrc: ["'none'"],
