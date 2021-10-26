@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 16:38+0000\n"
+"PO-Revision-Date: 2021-10-26 16:43+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1394,56 +1394,48 @@ msgstr[0] "קריאת סקירה אחת בדירוג 2 כוכבים"
 msgstr[1] "קריאת כל %(total)s הסקירות בדירוג 2 כוכבים"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "אין דירוגים"
+msgstr "אין סקירות בדירוג של 2 כוכבים"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "קריאת כל הסקירות בדירוג כוכב אחד"
-msgstr[1] "קריאת כל הסקירות בדירוג כוכב אחד"
+msgstr[0] "קריאת סקירה אחת בדירוג כוכב אחד"
+msgstr[1] "קריאת כל %(total)s הסקירות בדירוג כוכב אחד"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "אין דירוגים"
+msgstr "אין סקירות בדירוג של כוכב אחד"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "אין דירוגים"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "קריאת כל הסקירות בדירוג 5 כוכבים"
-msgstr[1] "קריאת כל הסקירות בדירוג 5 כוכבים"
+msgstr[0] "קריאת סקירה אחת בדירוג 5 כוכבים"
+msgstr[1] "קריאת כל %(total)s הסקירות בדירוג 5 כוכבים"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "אין דירוגים"
+msgstr "אין סקירות בדירוג של 5 כוכבים"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "קריאת כל הסקירות בדירוג 4 כוכבים"
-msgstr[1] "קריאת כל הסקירות בדירוג 4 כוכבים"
+msgstr[0] "קריאת סקירה אחת בדירוג 4 כוכבים"
+msgstr[1] "קריאת כל %(total)s הסקירות בדירוג 4 כוכבים"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "אין דירוגים"
+msgstr "אין סקירות בדירוג של 4 כוכבים"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "קריאת כל הסקירות בדירוג 3 כוכבים"
-msgstr[1] "קריאת כל הסקירות בדירוג 3 כוכבים"
+msgstr[0] "קריאת סקירה אחת בדירוג 3 כוכבים"
+msgstr[1] "קריאת כל %(total)s הסקירות בדירוג 3 כוכבים"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
