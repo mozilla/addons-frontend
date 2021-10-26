@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 18:50+0000\n"
+"PO-Revision-Date: 2021-10-26 19:09+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1382,63 +1382,54 @@ msgid "There are no three-star reviews"
 msgstr "Não há avaliações de três estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Ler todas as análises de duas estrelas"
-msgstr[1] "Ler todas as análises de duas estrelas"
+msgstr[0] "Ler a única avaliação de duas estrelas"
+msgstr[1] "Ler todas as %(total)s avaliações de duas estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Ainda não existem análises"
+msgstr "Não há avaliações de duas estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Ler todas as análises de uma estrela"
-msgstr[1] "Ler todas as análises de uma estrela"
+msgstr[0] "Ler a única avaliação de uma estrela"
+msgstr[1] "Ler todas as %(total)s avaliações de uma estrela"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Ainda não existem análises"
+msgstr "Não há avaliações de uma estrela"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "Ainda não existem análises"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Ler todas as análises de cinco estrelas"
-msgstr[1] "Ler todas as análises de cinco estrelas"
+msgstr[0] "Ler a única avaliação de cinco estrelas"
+msgstr[1] "Ler todas as %(total)s avaliações de cinco estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Ainda não existem análises"
+msgstr "Não há avaliações de cinco estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Ler todas as análises de quatro estrelas"
-msgstr[1] "Ler todas as análises de quatro estrelas"
+msgstr[0] "Ler a única avaliação de quatro estrelas"
+msgstr[1] "Ler todas as %(total)s avaliações de quatro estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Ainda não existem análises"
+msgstr "Não há avaliações de quatro estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Ler todas as análises de três estrelas"
-msgstr[1] "Ler todas as análises de três estrelas"
+msgstr[0] "Ler a única avaliação de três estrelas"
+msgstr[1] "Ler todas as %(total)s avaliações de três estrelas"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
