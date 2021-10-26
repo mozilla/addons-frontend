@@ -9558,10 +9558,10 @@ pino-syslog@1.3.1:
     split2 "^2.1.1"
     through2 "^2.0.3"
 
-pino@7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-7.0.1.tgz#a7034c6d3247da30513cadc826431345418486ee"
-  integrity sha512-lQze+stYPTV232Et/lerFI3AatzGVPCWQuOgoOIncfbBgPCu66pjknRfSyCKeVrlOAqqFgne52nJNZleOBUKxw==
+pino@7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-7.0.5.tgz#7b49dbc6734237041849599ce4fde39f579f078f"
+  integrity sha512-ePain4FiooTqiqg0eLQ/KBfRepKPZBggmF1caUrLX+Ku1erPAiIZL3p2lycM3UhorVYbFt4CuDFAHP/d80hCzg==
   dependencies:
     fast-redact "^3.0.0"
     fastify-warning "^0.2.0"
