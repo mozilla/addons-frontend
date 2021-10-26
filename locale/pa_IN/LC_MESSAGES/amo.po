@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-29 08:41+0000\n"
+"POT-Creation-Date: 2021-10-26 16:08+0000\n"
 "PO-Revision-Date: 2021-01-30 18:44+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -647,8 +647,8 @@ msgstr "ਲਾਗ ਆਉਟ"
 
 #: src/amo/components/AuthenticateButton/index.js:93
 #, fuzzy
-msgid "Register or log in"
-msgstr "ਰਜਿਸਟਰ ਜਾਂ ਲਾਗਇਨ ਕਰੋ"
+msgid "Log in"
+msgstr "ਲਾਗ ਆਉਟ"
 
 #: src/amo/components/AuthenticateButton/index.js:96
 #: src/amo/components/Header/index.js:144
@@ -1148,17 +1148,16 @@ msgstr "ਮੋਜ਼ੀਲਾ ਮੁੱਖ ਸਫ਼ੇ ਉਤੇ ਜਾਓ"
 msgid "About"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: src/amo/components/Footer/index.js:68
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
 #, fuzzy
-msgid "Firefox Add-on Reviews"
+msgid "Firefox Add-ons Blog"
 msgstr "ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਵਰਕਸ਼ਾਪ"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
 msgid "Developer Hub"
 msgstr "ਡਿਵੈਲਪਰ ਹੱਬ"
 
@@ -1235,11 +1234,11 @@ msgstr "ਸਮੀਖਿਅਕ ਸੰਦ"
 msgid "Firefox Browser Add-ons"
 msgstr "ਫਾਇਰਫਾਕਸ ਬਰਾਊਜ਼ਰ ਐਡ-ਆਨ"
 
-#: src/amo/components/Header/index.js:204
+#: src/amo/components/Header/index.js:212
 msgid "Learn how to create extensions and themes"
 msgstr "ਸਿੱਖੋ ਕਿ ਇਕਸਟੈਨਸ਼ਨ ਅਤੇ ਵਿਸ਼ੇ ਕਿਵੇਂ ਬਣਾਉਣੇ ਹਨ"
 
-#: src/amo/components/Header/index.js:214
+#: src/amo/components/Header/index.js:222
 msgid "Submit and manage extensions and themes"
 msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਤੇ ਥੀਮ ਭੇਜੋ ਅਤੇ ਇੰਤਜ਼ਾਮ ਕਰੋ"
 
@@ -1546,25 +1545,70 @@ msgstr "ਸਟਾਰ ਰੇਟਿੰਗ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕ�
 msgid "Star rating saved"
 msgstr "ਸਟਾਰ ਰੇਟਿੰਗ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ"
 
-#: src/amo/components/RatingsByStar/index.js:59
-msgid "Read all five-star reviews"
-msgstr "ਸਾਰੇ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+#: src/amo/components/RatingsByStar/index.js:103
+#, fuzzy
+msgid "There are no three-star reviews"
+msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
-#: src/amo/components/RatingsByStar/index.js:60
-msgid "Read all four-star reviews"
-msgstr "ਚਾਰ-ਸਟਾਰ ਦੀਆਂ ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+#: src/amo/components/RatingsByStar/index.js:108
+#, fuzzy
+msgid "Read the 1 two-star review"
+msgid_plural "Read all %(total)s two-star reviews"
+msgstr[0] "ਸਾਰੀਆਂ ਦੋ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+msgstr[1] "ਸਾਰੀਆਂ ਦੋ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
-#: src/amo/components/RatingsByStar/index.js:61
-msgid "Read all three-star reviews"
-msgstr "ਸਾਰੇ ਤਾਰੇ ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
+#: src/amo/components/RatingsByStar/index.js:118
+#, fuzzy
+msgid "There are no two-star reviews"
+msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
-#: src/amo/components/RatingsByStar/index.js:62
-msgid "Read all two-star reviews"
-msgstr "ਸਾਰੀਆਂ ਦੋ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+#: src/amo/components/RatingsByStar/index.js:123
+#, fuzzy
+msgid "Read the 1 one-star review"
+msgid_plural "Read all %(total)s one-star reviews"
+msgstr[0] "ਸਾਰੇ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
+msgstr[1] "ਸਾਰੇ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
+
+#: src/amo/components/RatingsByStar/index.js:133
+#, fuzzy
+msgid "There are no one-star reviews"
+msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
+
+#: src/amo/components/RatingsByStar/index.js:136
+#: src/amo/pages/AddonReviewList/index.js:380
+msgid "There are no reviews"
+msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:63
-msgid "Read all one-star reviews"
-msgstr "ਸਾਰੇ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
+#, fuzzy
+msgid "Read the 1 five-star review"
+msgid_plural "Read all %(total)s five-star reviews"
+msgstr[0] "ਸਾਰੇ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+msgstr[1] "ਸਾਰੇ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+
+#: src/amo/components/RatingsByStar/index.js:73
+#, fuzzy
+msgid "There are no five-star reviews"
+msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
+
+#: src/amo/components/RatingsByStar/index.js:78
+#, fuzzy
+msgid "Read the 1 four-star review"
+msgid_plural "Read all %(total)s four-star reviews"
+msgstr[0] "ਚਾਰ-ਸਟਾਰ ਦੀਆਂ ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+msgstr[1] "ਚਾਰ-ਸਟਾਰ ਦੀਆਂ ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
+
+#: src/amo/components/RatingsByStar/index.js:88
+#, fuzzy
+msgid "There are no four-star reviews"
+msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
+
+#: src/amo/components/RatingsByStar/index.js:93
+#, fuzzy
+msgid "Read the 1 three-star review"
+msgid_plural "Read all %(total)s three-star reviews"
+msgstr[0] "ਸਾਰੇ ਤਾਰੇ ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
+msgstr[1] "ਸਾਰੇ ਤਾਰੇ ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
@@ -2003,47 +2047,43 @@ msgstr "\"%(query)s\" ਲਈ ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿ
 msgid "No results were found."
 msgstr "ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ।"
 
-#: src/amo/components/SectionLinks/index.js:133
-msgid "Explore"
-msgstr "ਪੜਚੋਲ"
-
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/SectionLinks/index.js:114
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
-#: src/amo/components/SectionLinks/index.js:165
+#: src/amo/components/SectionLinks/index.js:130
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "ਥੀਮ"
 
-#: src/amo/components/SectionLinks/index.js:171
+#: src/amo/components/SectionLinks/index.js:136
 msgid "More…"
 msgstr "…ਹੋਰ"
 
-#: src/amo/components/SectionLinks/index.js:181
+#: src/amo/components/SectionLinks/index.js:146
 msgid "Other Browser Sites"
 msgstr "ਹੋਰ ਬਰਾਊਜ਼ਰ ਸਾਈਟਾਂ"
 
-#: src/amo/components/SectionLinks/index.js:192
+#: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Android"
 msgstr "ਐਂਡਰਾਇਡ ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/SectionLinks/index.js:205
+#: src/amo/components/SectionLinks/index.js:170
 msgid "Add-ons for Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/SectionLinks/index.js:76
+#: src/amo/components/SectionLinks/index.js:71
 msgid "for Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਲਈ"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:73
 msgid "for Android"
 msgstr "ਐਂਡਰਾਈਡ ਲਈ"
 
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/SectionLinks/index.js:88
 msgid "Dictionaries & Language Packs"
 msgstr "ਸ਼ਬਦ-ਕੋਸ਼ ਅਤੇ ਭਾਸ਼ਾ ਪੈਕ"
 
@@ -2282,10 +2322,6 @@ msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s ਸਮੀਖਿਆ"
 msgstr[1] "%(total)s ਸਮੀਖਿਆਵਾਂ"
-
-#: src/amo/pages/AddonReviewList/index.js:380
-msgid "There are no reviews"
-msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
@@ -3363,6 +3399,17 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਸਫ਼ਲਤਾਪੂਰਨ ਅੱਪਗਰੇਡ ਹੋਈ"
+
+#, fuzzy
+#~ msgid "Register or log in"
+#~ msgstr "ਰਜਿਸਟਰ ਜਾਂ ਲਾਗਇਨ ਕਰੋ"
+
+#, fuzzy
+#~ msgid "Firefox Add-on Reviews"
+#~ msgstr "ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ"
+
+#~ msgid "Explore"
+#~ msgstr "ਪੜਚੋਲ"
 
 #~ msgid "Restart Required"
 #~ msgstr "ਮੁੜ-ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਲੋੜ ਹੈ"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-29 08:41+0000\n"
+"POT-Creation-Date: 2021-10-26 16:08+0000\n"
 "PO-Revision-Date: 2021-08-31 22:01+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -636,8 +636,9 @@ msgid "Log out"
 msgstr "로그아웃"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-msgid "Register or log in"
-msgstr "가입하기 또는 로그인"
+#, fuzzy
+msgid "Log in"
+msgstr "로그아웃"
 
 #: src/amo/components/AuthenticateButton/index.js:96
 #: src/amo/components/Header/index.js:144
@@ -1130,17 +1131,16 @@ msgstr "Mozilla 홈페이지로 이동"
 msgid "About"
 msgstr "소개"
 
-#: src/amo/components/Footer/index.js:68
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
 #, fuzzy
-msgid "Firefox Add-on Reviews"
+msgid "Firefox Add-ons Blog"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
 msgstr "확장 기능 워크샵"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
 msgid "Developer Hub"
 msgstr "개발자 허브"
 
@@ -1213,11 +1213,11 @@ msgstr "리뷰어 도구"
 msgid "Firefox Browser Add-ons"
 msgstr "Firefox 브라우저 부가 기능"
 
-#: src/amo/components/Header/index.js:204
+#: src/amo/components/Header/index.js:212
 msgid "Learn how to create extensions and themes"
 msgstr "확장 기능 및 테마를 만드는 방법 알아보기"
 
-#: src/amo/components/Header/index.js:214
+#: src/amo/components/Header/index.js:222
 msgid "Submit and manage extensions and themes"
 msgstr "확장 기능과 테마 제출 및 관리"
 
@@ -1510,25 +1510,65 @@ msgstr "별점 저장 중"
 msgid "Star rating saved"
 msgstr "별점 저장됨"
 
-#: src/amo/components/RatingsByStar/index.js:59
-msgid "Read all five-star reviews"
-msgstr "5 별점 리뷰 모두 보기"
+#: src/amo/components/RatingsByStar/index.js:103
+#, fuzzy
+msgid "There are no three-star reviews"
+msgstr "리뷰가 없습니다"
 
-#: src/amo/components/RatingsByStar/index.js:60
-msgid "Read all four-star reviews"
-msgstr "4 별점 리뷰 모두 보기"
+#: src/amo/components/RatingsByStar/index.js:108
+#, fuzzy
+msgid "Read the 1 two-star review"
+msgid_plural "Read all %(total)s two-star reviews"
+msgstr[0] "2 별점 리뷰 모두 보기"
 
-#: src/amo/components/RatingsByStar/index.js:61
-msgid "Read all three-star reviews"
-msgstr "3 별점 리뷰 모두 보기"
+#: src/amo/components/RatingsByStar/index.js:118
+#, fuzzy
+msgid "There are no two-star reviews"
+msgstr "리뷰가 없습니다"
 
-#: src/amo/components/RatingsByStar/index.js:62
-msgid "Read all two-star reviews"
-msgstr "2 별점 리뷰 모두 보기"
+#: src/amo/components/RatingsByStar/index.js:123
+#, fuzzy
+msgid "Read the 1 one-star review"
+msgid_plural "Read all %(total)s one-star reviews"
+msgstr[0] "1 별점 리뷰 모두 보기"
+
+#: src/amo/components/RatingsByStar/index.js:133
+#, fuzzy
+msgid "There are no one-star reviews"
+msgstr "리뷰가 없습니다"
+
+#: src/amo/components/RatingsByStar/index.js:136
+#: src/amo/pages/AddonReviewList/index.js:380
+msgid "There are no reviews"
+msgstr "리뷰가 없습니다"
 
 #: src/amo/components/RatingsByStar/index.js:63
-msgid "Read all one-star reviews"
-msgstr "1 별점 리뷰 모두 보기"
+#, fuzzy
+msgid "Read the 1 five-star review"
+msgid_plural "Read all %(total)s five-star reviews"
+msgstr[0] "5 별점 리뷰 모두 보기"
+
+#: src/amo/components/RatingsByStar/index.js:73
+#, fuzzy
+msgid "There are no five-star reviews"
+msgstr "리뷰가 없습니다"
+
+#: src/amo/components/RatingsByStar/index.js:78
+#, fuzzy
+msgid "Read the 1 four-star review"
+msgid_plural "Read all %(total)s four-star reviews"
+msgstr[0] "4 별점 리뷰 모두 보기"
+
+#: src/amo/components/RatingsByStar/index.js:88
+#, fuzzy
+msgid "There are no four-star reviews"
+msgstr "리뷰가 없습니다"
+
+#: src/amo/components/RatingsByStar/index.js:93
+#, fuzzy
+msgid "Read the 1 three-star review"
+msgid_plural "Read all %(total)s three-star reviews"
+msgstr[0] "3 별점 리뷰 모두 보기"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
@@ -1948,47 +1988,43 @@ msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 msgid "No results were found."
 msgstr "검색 결과가 없습니다."
 
-#: src/amo/components/SectionLinks/index.js:133
-msgid "Explore"
-msgstr "탐색"
-
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/SectionLinks/index.js:114
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "확장 기능"
 
-#: src/amo/components/SectionLinks/index.js:165
+#: src/amo/components/SectionLinks/index.js:130
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "테마"
 
-#: src/amo/components/SectionLinks/index.js:171
+#: src/amo/components/SectionLinks/index.js:136
 msgid "More…"
 msgstr "더보기…"
 
-#: src/amo/components/SectionLinks/index.js:181
+#: src/amo/components/SectionLinks/index.js:146
 msgid "Other Browser Sites"
 msgstr "다른 브라우저 사이트"
 
-#: src/amo/components/SectionLinks/index.js:192
+#: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Android"
 msgstr "Android 부가 기능"
 
-#: src/amo/components/SectionLinks/index.js:205
+#: src/amo/components/SectionLinks/index.js:170
 msgid "Add-ons for Firefox"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/SectionLinks/index.js:76
+#: src/amo/components/SectionLinks/index.js:71
 msgid "for Firefox"
 msgstr "Firefox용"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:73
 msgid "for Android"
 msgstr "Android용"
 
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/SectionLinks/index.js:88
 msgid "Dictionaries & Language Packs"
 msgstr "사전 및 언어 팩"
 
@@ -2222,10 +2258,6 @@ msgstr "%(addonName)s에 대한 리뷰"
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "리뷰 %(total)s개"
-
-#: src/amo/pages/AddonReviewList/index.js:380
-msgid "There are no reviews"
-msgstr "리뷰가 없습니다"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
@@ -3259,6 +3291,16 @@ msgstr "부가 기능 호환성을 업그레이드 할 수 없습니다"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "부가 기능 호환성이 업그레이드 되었습니다"
+
+#~ msgid "Register or log in"
+#~ msgstr "가입하기 또는 로그인"
+
+#, fuzzy
+#~ msgid "Firefox Add-on Reviews"
+#~ msgstr "Firefox 부가 기능"
+
+#~ msgid "Explore"
+#~ msgstr "탐색"
 
 #~ msgid "Restart Required"
 #~ msgstr "재시작 필요"

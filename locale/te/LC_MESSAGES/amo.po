@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-29 08:41+0000\n"
+"POT-Creation-Date: 2021-10-26 16:08+0000\n"
 "PO-Revision-Date: 2021-08-23 17:39+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -639,8 +639,9 @@ msgid "Log out"
 msgstr "లాగ్ అవుట్"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-msgid "Register or log in"
-msgstr "నమోదవ్వండి లేదా ప్రవేశించండి"
+#, fuzzy
+msgid "Log in"
+msgstr "లాగ్ అవుట్"
 
 #: src/amo/components/AuthenticateButton/index.js:96
 #: src/amo/components/Header/index.js:144
@@ -1110,16 +1111,16 @@ msgid "About"
 msgstr "గురించి"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Footer/index.js:68
-#: src/amo/components/SectionLinks/index.js:108
-msgid "Firefox Add-on Reviews"
-msgstr "Firefox పొడగింతల సమీక్షలు"
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
+#, fuzzy
+msgid "Firefox Add-ons Blog"
+msgstr "Firefox పొడగింతలు"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
 msgstr "పొడగింతల కార్యశాల"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
 msgid "Developer Hub"
 msgstr "డెవలపర్ కేంద్రం"
 
@@ -1189,11 +1190,11 @@ msgstr "సమీక్షకుల పనిముట్లు"
 msgid "Firefox Browser Add-ons"
 msgstr "Firefox విహారిణి పొడగింతలు"
 
-#: src/amo/components/Header/index.js:204
+#: src/amo/components/Header/index.js:212
 msgid "Learn how to create extensions and themes"
 msgstr "పొడగింతలను, అలంకారాలను ఎలా తయారుచేయాలో తెలుసుకోండి"
 
-#: src/amo/components/Header/index.js:214
+#: src/amo/components/Header/index.js:222
 msgid "Submit and manage extensions and themes"
 msgstr "పొడగింతలు, అలంకారాల దాఖలు, నిర్వహణ"
 
@@ -1483,25 +1484,70 @@ msgstr "స్టార్ రేటింగ్‌ను భద్రపరు�
 msgid "Star rating saved"
 msgstr "స్టార్ రేటింగ్ భద్రమయింది"
 
-#: src/amo/components/RatingsByStar/index.js:59
-msgid "Read all five-star reviews"
-msgstr "ఐదు-చుక్కల సమీక్షలన్నీ చదవండి"
+#: src/amo/components/RatingsByStar/index.js:103
+#, fuzzy
+msgid "There are no three-star reviews"
+msgstr "సమీక్షలు ఏమీ లేవు"
 
-#: src/amo/components/RatingsByStar/index.js:60
-msgid "Read all four-star reviews"
-msgstr "నాలుగు నక్షత్రాల సమీక్షలన్నీ చదవండి"
+#: src/amo/components/RatingsByStar/index.js:108
+#, fuzzy
+msgid "Read the 1 two-star review"
+msgid_plural "Read all %(total)s two-star reviews"
+msgstr[0] "రెండు-నక్షత్రాల సమీక్షలన్నీ చదవండి"
+msgstr[1] "రెండు-నక్షత్రాల సమీక్షలన్నీ చదవండి"
 
-#: src/amo/components/RatingsByStar/index.js:61
-msgid "Read all three-star reviews"
-msgstr "మూడు నక్షత్రాల సమీక్షలన్నీ చదవండి"
+#: src/amo/components/RatingsByStar/index.js:118
+#, fuzzy
+msgid "There are no two-star reviews"
+msgstr "సమీక్షలు ఏమీ లేవు"
 
-#: src/amo/components/RatingsByStar/index.js:62
-msgid "Read all two-star reviews"
-msgstr "రెండు-నక్షత్రాల సమీక్షలన్నీ చదవండి"
+#: src/amo/components/RatingsByStar/index.js:123
+#, fuzzy
+msgid "Read the 1 one-star review"
+msgid_plural "Read all %(total)s one-star reviews"
+msgstr[0] "ఒక-నక్షత్ర సమీక్షలన్నీ చదవండి"
+msgstr[1] "ఒక-నక్షత్ర సమీక్షలన్నీ చదవండి"
+
+#: src/amo/components/RatingsByStar/index.js:133
+#, fuzzy
+msgid "There are no one-star reviews"
+msgstr "సమీక్షలు ఏమీ లేవు"
+
+#: src/amo/components/RatingsByStar/index.js:136
+#: src/amo/pages/AddonReviewList/index.js:380
+msgid "There are no reviews"
+msgstr "సమీక్షలు ఏమీ లేవు"
 
 #: src/amo/components/RatingsByStar/index.js:63
-msgid "Read all one-star reviews"
-msgstr "ఒక-నక్షత్ర సమీక్షలన్నీ చదవండి"
+#, fuzzy
+msgid "Read the 1 five-star review"
+msgid_plural "Read all %(total)s five-star reviews"
+msgstr[0] "ఐదు-చుక్కల సమీక్షలన్నీ చదవండి"
+msgstr[1] "ఐదు-చుక్కల సమీక్షలన్నీ చదవండి"
+
+#: src/amo/components/RatingsByStar/index.js:73
+#, fuzzy
+msgid "There are no five-star reviews"
+msgstr "సమీక్షలు ఏమీ లేవు"
+
+#: src/amo/components/RatingsByStar/index.js:78
+#, fuzzy
+msgid "Read the 1 four-star review"
+msgid_plural "Read all %(total)s four-star reviews"
+msgstr[0] "నాలుగు నక్షత్రాల సమీక్షలన్నీ చదవండి"
+msgstr[1] "నాలుగు నక్షత్రాల సమీక్షలన్నీ చదవండి"
+
+#: src/amo/components/RatingsByStar/index.js:88
+#, fuzzy
+msgid "There are no four-star reviews"
+msgstr "సమీక్షలు ఏమీ లేవు"
+
+#: src/amo/components/RatingsByStar/index.js:93
+#, fuzzy
+msgid "Read the 1 three-star review"
+msgid_plural "Read all %(total)s three-star reviews"
+msgstr[0] "మూడు నక్షత్రాల సమీక్షలన్నీ చదవండి"
+msgstr[1] "మూడు నక్షత్రాల సమీక్షలన్నీ చదవండి"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
@@ -1927,47 +1973,43 @@ msgstr "\"%(query)s\"కి ఫలితాలేమీ దొరకలేదు
 msgid "No results were found."
 msgstr "ఫలితాలు కనుగొనబడలేదు."
 
-#: src/amo/components/SectionLinks/index.js:133
-msgid "Explore"
-msgstr "అన్వేషణ"
-
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/SectionLinks/index.js:114
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "పొడిగింతలు"
 
-#: src/amo/components/SectionLinks/index.js:165
+#: src/amo/components/SectionLinks/index.js:130
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "అలంకారాలు"
 
-#: src/amo/components/SectionLinks/index.js:171
+#: src/amo/components/SectionLinks/index.js:136
 msgid "More…"
 msgstr "మరిన్ని…"
 
-#: src/amo/components/SectionLinks/index.js:181
+#: src/amo/components/SectionLinks/index.js:146
 msgid "Other Browser Sites"
 msgstr "ఇతర విహారిణుల సైట్లు"
 
-#: src/amo/components/SectionLinks/index.js:192
+#: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Android"
 msgstr "Android యొక్క పొడిగింతలు"
 
-#: src/amo/components/SectionLinks/index.js:205
+#: src/amo/components/SectionLinks/index.js:170
 msgid "Add-ons for Firefox"
 msgstr "Firefox యొక్క పొడిగింతలు"
 
-#: src/amo/components/SectionLinks/index.js:76
+#: src/amo/components/SectionLinks/index.js:71
 msgid "for Firefox"
 msgstr "Firefox కోసం"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:73
 msgid "for Android"
 msgstr "Android కోసం"
 
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/SectionLinks/index.js:88
 msgid "Dictionaries & Language Packs"
 msgstr "నిఘంటువులు మరియు భాషా ప్యాక్లు"
 
@@ -2196,10 +2238,6 @@ msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s సమీక్ష"
 msgstr[1] "%(total)s సమీక్షలు"
-
-#: src/amo/pages/AddonReviewList/index.js:380
-msgid "There are no reviews"
-msgstr "సమీక్షలు ఏమీ లేవు"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
@@ -3150,6 +3188,16 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid "Register or log in"
+#~ msgstr "నమోదవ్వండి లేదా ప్రవేశించండి"
+
+# "Firefox" should not be translated. :-)
+#~ msgid "Firefox Add-on Reviews"
+#~ msgstr "Firefox పొడగింతల సమీక్షలు"
+
+#~ msgid "Explore"
+#~ msgstr "అన్వేషణ"
 
 #~ msgid "Restart Required"
 #~ msgstr "పునఃప్రారంభం అవసరం"

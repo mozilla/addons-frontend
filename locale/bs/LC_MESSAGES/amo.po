@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-29 08:41+0000\n"
+"POT-Creation-Date: 2021-10-26 16:08+0000\n"
 "PO-Revision-Date: 2018-07-02 12:25+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -696,8 +696,8 @@ msgstr "Odjavi se"
 
 #: src/amo/components/AuthenticateButton/index.js:93
 #, fuzzy
-msgid "Register or log in"
-msgstr "Registruj se ili prijavi"
+msgid "Log in"
+msgstr "Odjavi se"
 
 #: src/amo/components/AuthenticateButton/index.js:96
 #: src/amo/components/Header/index.js:144
@@ -1196,18 +1196,17 @@ msgstr "Idite na Mozilla početnu stranicu"
 msgid "About"
 msgstr "O nama"
 
-#: src/amo/components/Footer/index.js:68
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
 #, fuzzy
-msgid "Firefox Add-on Reviews"
+msgid "Firefox Add-ons Blog"
 msgstr "O Firefox dodacima"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "Ekstenzije"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
 msgid "Developer Hub"
 msgstr "Centar za razvoj"
 
@@ -1285,12 +1284,12 @@ msgstr "Alati za pregledanje"
 msgid "Firefox Browser Add-ons"
 msgstr "Firefox dodaci"
 
-#: src/amo/components/Header/index.js:204
+#: src/amo/components/Header/index.js:212
 #, fuzzy
 msgid "Learn how to create extensions and themes"
 msgstr "Nadgleda upotrebu ekstenzija i upravlja temama"
 
-#: src/amo/components/Header/index.js:214
+#: src/amo/components/Header/index.js:222
 #, fuzzy
 msgid "Submit and manage extensions and themes"
 msgstr "Nadgleda upotrebu ekstenzija i upravlja temama"
@@ -1593,28 +1592,76 @@ msgstr ""
 msgid "Star rating saved"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:59
-msgid "Read all five-star reviews"
-msgstr ""
-
-#: src/amo/components/RatingsByStar/index.js:60
+#: src/amo/components/RatingsByStar/index.js:103
 #, fuzzy
-msgid "Read all four-star reviews"
-msgstr "Pročitaj %(count)s pregled"
+msgid "There are no three-star reviews"
+msgstr "Još nema nikakvih ocjena"
 
-#: src/amo/components/RatingsByStar/index.js:61
-msgid "Read all three-star reviews"
-msgstr ""
-
-#: src/amo/components/RatingsByStar/index.js:62
+#: src/amo/components/RatingsByStar/index.js:108
 #, fuzzy
-msgid "Read all two-star reviews"
-msgstr "Odgovori na ovu recenziju"
+msgid "Read the 1 two-star review"
+msgid_plural "Read all %(total)s two-star reviews"
+msgstr[0] "Odgovori na ovu recenziju"
+msgstr[1] "Odgovori na ovu recenziju"
+msgstr[2] "Odgovori na ovu recenziju"
+
+#: src/amo/components/RatingsByStar/index.js:118
+#, fuzzy
+msgid "There are no two-star reviews"
+msgstr "Još nema nikakvih ocjena"
+
+#: src/amo/components/RatingsByStar/index.js:123
+#, fuzzy
+msgid "Read the 1 one-star review"
+msgid_plural "Read all %(total)s one-star reviews"
+msgstr[0] "Pročitaj %(count)s pregled"
+msgstr[1] "Pročitaj %(count)s pregled"
+msgstr[2] "Pročitaj %(count)s pregled"
+
+#: src/amo/components/RatingsByStar/index.js:133
+#, fuzzy
+msgid "There are no one-star reviews"
+msgstr "Još nema nikakvih ocjena"
+
+#: src/amo/components/RatingsByStar/index.js:136
+#: src/amo/pages/AddonReviewList/index.js:380
+#, fuzzy
+msgid "There are no reviews"
+msgstr "Još nema nikakvih ocjena"
 
 #: src/amo/components/RatingsByStar/index.js:63
 #, fuzzy
-msgid "Read all one-star reviews"
-msgstr "Pročitaj %(count)s pregled"
+msgid "Read the 1 five-star review"
+msgid_plural "Read all %(total)s five-star reviews"
+msgstr[0] "Pročitaj %(count)s pregled"
+msgstr[1] "Pročitaj %(count)s pregled"
+msgstr[2] "Pročitaj %(count)s pregled"
+
+#: src/amo/components/RatingsByStar/index.js:73
+#, fuzzy
+msgid "There are no five-star reviews"
+msgstr "Još nema nikakvih ocjena"
+
+#: src/amo/components/RatingsByStar/index.js:78
+#, fuzzy
+msgid "Read the 1 four-star review"
+msgid_plural "Read all %(total)s four-star reviews"
+msgstr[0] "Pročitaj %(count)s pregled"
+msgstr[1] "Pročitaj %(count)s pregled"
+msgstr[2] "Pročitaj %(count)s pregled"
+
+#: src/amo/components/RatingsByStar/index.js:88
+#, fuzzy
+msgid "There are no four-star reviews"
+msgstr "Još nema nikakvih ocjena"
+
+#: src/amo/components/RatingsByStar/index.js:93
+#, fuzzy
+msgid "Read the 1 three-star review"
+msgid_plural "Read all %(total)s three-star reviews"
+msgstr[0] "Pročitaj %(count)s pregled"
+msgstr[1] "Pročitaj %(count)s pregled"
+msgstr[2] "Pročitaj %(count)s pregled"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
@@ -2096,47 +2143,43 @@ msgstr "Nisu pronađeni rezultati za \"%(query)s\"."
 msgid "No results were found."
 msgstr "Nisu pronađeni rezultati."
 
-#: src/amo/components/SectionLinks/index.js:133
-msgid "Explore"
-msgstr "Istraži"
-
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/SectionLinks/index.js:114
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Ekstenzije"
 
-#: src/amo/components/SectionLinks/index.js:165
+#: src/amo/components/SectionLinks/index.js:130
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Teme"
 
-#: src/amo/components/SectionLinks/index.js:171
+#: src/amo/components/SectionLinks/index.js:136
 msgid "More…"
 msgstr "Više..."
 
-#: src/amo/components/SectionLinks/index.js:181
+#: src/amo/components/SectionLinks/index.js:146
 msgid "Other Browser Sites"
 msgstr "Druge stranice pretraživača"
 
-#: src/amo/components/SectionLinks/index.js:192
+#: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Android"
 msgstr "Dodaci za Android"
 
-#: src/amo/components/SectionLinks/index.js:205
+#: src/amo/components/SectionLinks/index.js:170
 msgid "Add-ons for Firefox"
 msgstr "Dodaci za Firefox"
 
-#: src/amo/components/SectionLinks/index.js:76
+#: src/amo/components/SectionLinks/index.js:71
 msgid "for Firefox"
 msgstr "za Firefox"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:73
 msgid "for Android"
 msgstr "za android"
 
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/SectionLinks/index.js:88
 msgid "Dictionaries & Language Packs"
 msgstr "Rječnici & paketi jezika"
 
@@ -2385,11 +2428,6 @@ msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s korisnik"
 msgstr[1] "%(total)s korisnika"
 msgstr[2] "%(total)s korisnika"
-
-#: src/amo/pages/AddonReviewList/index.js:380
-#, fuzzy
-msgid "There are no reviews"
-msgstr "Još nema nikakvih ocjena"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
@@ -3472,6 +3510,17 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Register or log in"
+#~ msgstr "Registruj se ili prijavi"
+
+#, fuzzy
+#~ msgid "Firefox Add-on Reviews"
+#~ msgstr "O Firefox dodacima"
+
+#~ msgid "Explore"
+#~ msgstr "Istraži"
 
 #~ msgid "Restart Required"
 #~ msgstr "Potrebno je ponovno pokretanje"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-29 08:41+0000\n"
+"POT-Creation-Date: 2021-10-26 16:08+0000\n"
 "PO-Revision-Date: 2021-09-18 09:27+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -634,8 +634,9 @@ msgid "Log out"
 msgstr "ออกจากระบบ"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-msgid "Register or log in"
-msgstr "ลงทะเบียนหรือเข้าสู่ระบบ"
+#, fuzzy
+msgid "Log in"
+msgstr "ออกจากระบบ"
 
 #: src/amo/components/AuthenticateButton/index.js:96
 #: src/amo/components/Header/index.js:144
@@ -1106,17 +1107,16 @@ msgstr "ไปยังหน้าแรกของ Mozilla"
 msgid "About"
 msgstr "เกี่ยวกับ"
 
-#: src/amo/components/Footer/index.js:68
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
 #, fuzzy
-msgid "Firefox Add-on Reviews"
+msgid "Firefox Add-ons Blog"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
 msgstr "Extension Workshop"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
 msgid "Developer Hub"
 msgstr "ศูนย์กลางนักพัฒนา"
 
@@ -1192,11 +1192,11 @@ msgstr "เครื่องมือผู้วิจารณ์"
 msgid "Firefox Browser Add-ons"
 msgstr "ส่วนเสริมเบราว์เซอร์ Firefox"
 
-#: src/amo/components/Header/index.js:204
+#: src/amo/components/Header/index.js:212
 msgid "Learn how to create extensions and themes"
 msgstr "เรียนรู้วิธีสร้างส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/components/Header/index.js:214
+#: src/amo/components/Header/index.js:222
 msgid "Submit and manage extensions and themes"
 msgstr "ส่งและจัดการส่วนขยายและชุดตกแต่ง"
 
@@ -1493,25 +1493,65 @@ msgstr "กำลังบันทึกการจัดอันดับด
 msgid "Star rating saved"
 msgstr "บันทึกการจัดอันดับดาวแล้ว"
 
-#: src/amo/components/RatingsByStar/index.js:59
-msgid "Read all five-star reviews"
-msgstr "อ่านบทวิจารณ์ห้าดาวทั้งหมด"
+#: src/amo/components/RatingsByStar/index.js:103
+#, fuzzy
+msgid "There are no three-star reviews"
+msgstr "ไม่มีบทวิจารณ์"
 
-#: src/amo/components/RatingsByStar/index.js:60
-msgid "Read all four-star reviews"
-msgstr "อ่านบทวิจารณ์สี่ดาวทั้งหมด"
+#: src/amo/components/RatingsByStar/index.js:108
+#, fuzzy
+msgid "Read the 1 two-star review"
+msgid_plural "Read all %(total)s two-star reviews"
+msgstr[0] "อ่านบทวิจารณ์สองดาวทั้งหมด"
 
-#: src/amo/components/RatingsByStar/index.js:61
-msgid "Read all three-star reviews"
-msgstr "อ่านบทวิจารณ์สามดาวทั้งหมด"
+#: src/amo/components/RatingsByStar/index.js:118
+#, fuzzy
+msgid "There are no two-star reviews"
+msgstr "ไม่มีบทวิจารณ์"
 
-#: src/amo/components/RatingsByStar/index.js:62
-msgid "Read all two-star reviews"
-msgstr "อ่านบทวิจารณ์สองดาวทั้งหมด"
+#: src/amo/components/RatingsByStar/index.js:123
+#, fuzzy
+msgid "Read the 1 one-star review"
+msgid_plural "Read all %(total)s one-star reviews"
+msgstr[0] "อ่านบทวิจารณ์หนึ่งดาวทั้งหมด"
+
+#: src/amo/components/RatingsByStar/index.js:133
+#, fuzzy
+msgid "There are no one-star reviews"
+msgstr "ไม่มีบทวิจารณ์"
+
+#: src/amo/components/RatingsByStar/index.js:136
+#: src/amo/pages/AddonReviewList/index.js:380
+msgid "There are no reviews"
+msgstr "ไม่มีบทวิจารณ์"
 
 #: src/amo/components/RatingsByStar/index.js:63
-msgid "Read all one-star reviews"
-msgstr "อ่านบทวิจารณ์หนึ่งดาวทั้งหมด"
+#, fuzzy
+msgid "Read the 1 five-star review"
+msgid_plural "Read all %(total)s five-star reviews"
+msgstr[0] "อ่านบทวิจารณ์ห้าดาวทั้งหมด"
+
+#: src/amo/components/RatingsByStar/index.js:73
+#, fuzzy
+msgid "There are no five-star reviews"
+msgstr "ไม่มีบทวิจารณ์"
+
+#: src/amo/components/RatingsByStar/index.js:78
+#, fuzzy
+msgid "Read the 1 four-star review"
+msgid_plural "Read all %(total)s four-star reviews"
+msgstr[0] "อ่านบทวิจารณ์สี่ดาวทั้งหมด"
+
+#: src/amo/components/RatingsByStar/index.js:88
+#, fuzzy
+msgid "There are no four-star reviews"
+msgstr "ไม่มีบทวิจารณ์"
+
+#: src/amo/components/RatingsByStar/index.js:93
+#, fuzzy
+msgid "Read the 1 three-star review"
+msgid_plural "Read all %(total)s three-star reviews"
+msgstr[0] "อ่านบทวิจารณ์สามดาวทั้งหมด"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
@@ -1929,47 +1969,43 @@ msgstr "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
 msgid "No results were found."
 msgstr "ไม่พบผลลัพธ์"
 
-#: src/amo/components/SectionLinks/index.js:133
-msgid "Explore"
-msgstr "สำรวจ"
-
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/SectionLinks/index.js:114
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "ส่วนขยาย"
 
-#: src/amo/components/SectionLinks/index.js:165
+#: src/amo/components/SectionLinks/index.js:130
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "ชุดตกแต่ง"
 
-#: src/amo/components/SectionLinks/index.js:171
+#: src/amo/components/SectionLinks/index.js:136
 msgid "More…"
 msgstr "เพิ่มเติม…"
 
-#: src/amo/components/SectionLinks/index.js:181
+#: src/amo/components/SectionLinks/index.js:146
 msgid "Other Browser Sites"
 msgstr "ไซต์ของเบราว์เซอร์อื่น ๆ"
 
-#: src/amo/components/SectionLinks/index.js:192
+#: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Android"
 msgstr "ส่วนเสริมสำหรับ Android"
 
-#: src/amo/components/SectionLinks/index.js:205
+#: src/amo/components/SectionLinks/index.js:170
 msgid "Add-ons for Firefox"
 msgstr "ส่วนเสริมสำหรับ Firefox"
 
-#: src/amo/components/SectionLinks/index.js:76
+#: src/amo/components/SectionLinks/index.js:71
 msgid "for Firefox"
 msgstr "สำหรับ Firefox"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:73
 msgid "for Android"
 msgstr "สำหรับ Android"
 
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/SectionLinks/index.js:88
 msgid "Dictionaries & Language Packs"
 msgstr "พจนานุกรมและชุดภาษา"
 
@@ -2197,10 +2233,6 @@ msgstr "บทวิจารณ์สำหรับ %(addonName)s"
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s บทวิจารณ์"
-
-#: src/amo/pages/AddonReviewList/index.js:380
-msgid "There are no reviews"
-msgstr "ไม่มีบทวิจารณ์"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
@@ -3178,6 +3210,16 @@ msgstr "ไม่สามารถอัปเกรดความเข้า
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "อัปเกรดความเข้ากันได้ของส่วนเสริมของฉันสำเร็จ"
+
+#~ msgid "Register or log in"
+#~ msgstr "ลงทะเบียนหรือเข้าสู่ระบบ"
+
+#, fuzzy
+#~ msgid "Firefox Add-on Reviews"
+#~ msgstr "Firefox Add-ons"
+
+#~ msgid "Explore"
+#~ msgstr "สำรวจ"
 
 #~ msgid "Restart Required"
 #~ msgstr "ต้องเริ่มการทำงานใหม่"
