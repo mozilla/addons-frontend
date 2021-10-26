@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 22:10+0000\n"
+"PO-Revision-Date: 2021-10-26 22:15+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1390,7 +1390,7 @@ msgstr "Рейтинг збережено"
 
 #: src/amo/components/RatingsByStar/index.js:103
 msgid "There are no three-star reviews"
-msgstr "Немає тризіркових відгуків"
+msgstr "Немає відгуків з оцінкою три зірки"
 
 #: src/amo/components/RatingsByStar/index.js:108
 msgid "Read the 1 two-star review"
@@ -1400,34 +1400,30 @@ msgstr[1] "Читати всі %(total)s огляди з оцінкою дві �
 msgstr[2] "Читати всі %(total)s оглядів з оцінкою дві зірки"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Відгуків немає"
+msgstr "Немає відгуків з оцінкою дві зірки"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Читати всі відгуки з оцінкою 1 зірка"
-msgstr[1] "Читати всі відгуки з оцінкою 1 зірка"
-msgstr[2] "Читати всі відгуки з оцінкою 1 зірка"
+msgstr[0] "Читати відгуки з оцінкою 1 зірка"
+msgstr[1] "Читати всі %(total)s відгуки з оцінкою 1 зірка"
+msgstr[2] "Читати всі %(total)s відгуків з оцінкою 1 зірка"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Відгуків немає"
+msgstr "Немає відгуків з оцінкою одна зірка"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "Відгуків немає"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Читати всі відгуки з оцінкою 5 зірок"
-msgstr[1] "Читати всі відгуки з оцінкою 5 зірок"
-msgstr[2] "Читати всі відгуки з оцінкою 5 зірок"
+msgstr[0] "Читати 1 відгук з оцінкою 5 зірок"
+msgstr[1] "Читати всі %(total)s відгуки з оцінкою 5 зірок"
+msgstr[2] "Читати всі %(total)s відгуків з оцінкою 5 зірок"
 
 #: src/amo/components/RatingsByStar/index.js:73
 #, fuzzy
