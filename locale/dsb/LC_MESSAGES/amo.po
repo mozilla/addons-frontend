@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 16:35+0000\n"
+"PO-Revision-Date: 2021-10-26 16:49+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1425,18 +1425,16 @@ msgid "There are no reviews"
 msgstr "Njedaju pógódnośenja"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Wšykne pógódnośenja z pěś gwězdkami cytaś"
-msgstr[1] "Wšykne pógódnośenja z pěś gwězdkami cytaś"
-msgstr[2] "Wšykne pógódnośenja z pěś gwězdkami cytaś"
-msgstr[3] "Wšykne pógódnośenja z pěś gwězdkami cytaś"
+msgstr[0] "%(total)s pógódnośenje z pěś gwězdkami cytaś"
+msgstr[1] "Wšyknej %(total)s pógódnośeni z pěś gwězdkami cytaś"
+msgstr[2] "Wšykne %(total)s pógódnośenja z pěś gwězdkami cytaś"
+msgstr[3] "Wšykne %(total)s pógódnośenjow z pěś gwězdkami cytaś"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Njedaju pógódnośenja"
+msgstr "Njedaju pógódnośenja z pěś gwězdkami"
 
 #: src/amo/components/RatingsByStar/index.js:78
 #, fuzzy
