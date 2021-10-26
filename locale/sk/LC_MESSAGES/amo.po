@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 16:31+0000\n"
+"PO-Revision-Date: 2021-10-26 18:09+0000\n"
 "Last-Translator: Vlado Valaštiak <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1033,9 +1033,8 @@ msgid "About"
 msgstr "O nás"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
-#, fuzzy
 msgid "Firefox Add-ons Blog"
-msgstr "Doplnky pre Firefox"
+msgstr "Blog doplnkov pre Firefox"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
@@ -1399,12 +1398,11 @@ msgid "There are no two-star reviews"
 msgstr "Neexistujú žiadne dvojhviezdičkové recenzie"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Všetky recenzie s 1 hviezdičkou"
-msgstr[1] "Všetky recenzie s 1 hviezdičkou"
-msgstr[2] "Všetky recenzie s 1 hviezdičkou"
+msgstr[0] "Prečítajte si jednu jednohviezdičkovú recenziu"
+msgstr[1] "Prečítajte si %(total)s jednohviezdičkové recenzie"
+msgstr[2] "Prečítajte si %(total)s jednohviezdičkových recenzií"
 
 #: src/amo/components/RatingsByStar/index.js:133
 msgid "There are no one-star reviews"
@@ -1415,36 +1413,33 @@ msgid "There are no reviews"
 msgstr "Bez recenzií"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Všetky recenzie s 5 hviezdičkami"
-msgstr[1] "Všetky recenzie s 5 hviezdičkami"
-msgstr[2] "Všetky recenzie s 5 hviezdičkami"
+msgstr[0] "Prečítajte si 1 päťhviezdičkovú recenziu"
+msgstr[1] "Prečítajte si %(total)s päťhviezdičkové recenzie"
+msgstr[2] "Prečítajte si %(total)s päťhviezdičkových recenzií"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
 msgstr "Neexistujú žiadne päťhviezdičkové recenzie"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Všetky recenzie s 4 hviezdičkami"
-msgstr[1] "Všetky recenzie s 4 hviezdičkami"
-msgstr[2] "Všetky recenzie s 4 hviezdičkami"
+msgstr[0] "Prečítajte si 1 štvorhviezdičkovú recenziu"
+msgstr[1] "Prečítajte si %(total)s štvorhviezdičkové recenzie"
+msgstr[2] "Prečítajte si %(total)s štvorhviezdičkových recenzií"
 
 #: src/amo/components/RatingsByStar/index.js:88
 msgid "There are no four-star reviews"
 msgstr "Neexistujú žiadne štvorhviezdičkové recenzie"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Všetky recenzie s 3 hviezdičkami"
-msgstr[1] "Všetky recenzie s 3 hviezdičkami"
-msgstr[2] "Všetky recenzie s 3 hviezdičkami"
+msgstr[0] ""
+msgstr[1] "Prečítajte si %(total)s trojhviezdičkové recenzie"
+msgstr[2] "Prečítajte si %(total)s trojhviezdičkových recenzií"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
