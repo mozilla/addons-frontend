@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 16:28+0000\n"
+"PO-Revision-Date: 2021-10-26 16:35+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1399,29 +1399,26 @@ msgstr "Njedaju pógódnośenja z tśimi gwězdkami"
 #: src/amo/components/RatingsByStar/index.js:108
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Pogódnośenje z jadneju gwězdku cytaś"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%(totals) pogódnośenje z jadneju gwězdku cytaś"
+msgstr[1] "Wšykne %(total)s pógódnośeni z dwěma gwězdkoma cytaś"
+msgstr[2] "Wšykne %(total)s pógódnośenje z dwěma gwězdkoma cytaś"
+msgstr[3] "Wšykne %(total)s pógódnośenjow z dwěma gwězdkoma cytaś"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Njedaju pógódnośenja"
+msgstr "Njedaju pógódnośenja z dwěma gwězdkami"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Wšykne pogódnośenja z jadneju gwězdku cytaś"
-msgstr[1] "Wšykne pogódnośenja z jadneju gwězdku cytaś"
-msgstr[2] "Wšykne pogódnośenja z jadneju gwězdku cytaś"
-msgstr[3] "Wšykne pogódnośenja z jadneju gwězdku cytaś"
+msgstr[0] "%(totals) pógódnośenje z jadneju gwězdku cytaś"
+msgstr[1] "Wšyknej %(total)s pógódnośeni z jadneju gwězdku cytaś"
+msgstr[2] "Wšykne %(total)s pógódnośenja z jadneju gwězdku cytaś"
+msgstr[3] "Wšykne %(total)s pógódnośenjow z jadneju gwězdku cytaś"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Njedaju pógódnośenja"
+msgstr "Njedaju pógódnośenja z jadneju gwězdku"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
