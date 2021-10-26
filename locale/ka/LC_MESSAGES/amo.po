@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 16:17+0000\n"
+"PO-Revision-Date: 2021-10-26 16:23+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -611,9 +611,8 @@ msgid "Log out"
 msgstr "გასვლა"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Log in"
-msgstr "გასვლა"
+msgstr "შესვლა"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:144
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -1041,9 +1040,8 @@ msgstr "შესახებ"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
-#, fuzzy
 msgid "Firefox Add-ons Blog"
-msgstr "Firefox-დამატებები"
+msgstr "Firefox-დამატებების სვეტი"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
@@ -1393,68 +1391,58 @@ msgid "Star rating saved"
 msgstr "ვარსკვლავით შეფასება შენახულია"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
-msgstr "მიმოხილვები არაა"
+msgstr "სამვარსკვლავიანი მიმოხილვები არაა"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "ყველა ორვარსკვლავიანი მიმოხილვის წაკითხვა"
-msgstr[1] "ყველა ორვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[0] "1 ორვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[1] "%(total)s ორვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "მიმოხილვები არაა"
+msgstr "ორვარსკვლავიანი მიმოხილვები არაა"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "ყველა ერთვარსკვლავიანი მიმოხილვის წაკითხვა"
-msgstr[1] "ყველა ერთვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[0] "1 ერთვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[1] "%(total)s ერთვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "მიმოხილვები არაა"
+msgstr "ერთვარსკვლავიანი მიმოხილვები არაა"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "მიმოხილვები არაა"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "ყველა ხუთვარსკვლავიანი მიმოხილვის წაკითხვა"
-msgstr[1] "ყველა ხუთვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[0] "1 ხუთვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[1] "%(total)s ხუთვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "მიმოხილვები არაა"
+msgstr "ხუთვარსკვლავიანი მიმოხილვები არაა"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "ყველა ოთხვარსკვლავიანი მიმოხილვის წაკითხვა"
-msgstr[1] "ყველა ოთხვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[0] "1 ოთხვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[1] "%(total)s ოთხვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "მიმოხილვები არაა"
+msgstr "ოთხვარსკვლავიანი მიმოხილვები არაა"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "ყველა სამვარსკვლავიანი მიმოხილვის წაკითხვა"
-msgstr[1] "ყველა სამვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[0] "1 სამვარსკვლავიანი მიმოხილვის წაკითხვა"
+msgstr[1] "%(total)s სამვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
