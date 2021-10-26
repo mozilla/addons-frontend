@@ -89,21 +89,6 @@ export class SectionLinksBase extends React.Component<InternalProps> {
           </Link>
         </DropdownMenuItem>,
       );
-      sectionsForBrowser.push(
-        <DropdownMenuItem key="blog">
-          <Link
-            className={makeClassName(
-              'SectionLinks-dropdownlink',
-              'SectionLinks-dropdownlink-blog',
-            )}
-            href="/blog/"
-            prependClientApp={false}
-            prependLang={false}
-          >
-            {i18n.gettext('Firefox Add-ons Blog')}
-          </Link>
-        </DropdownMenuItem>,
-      );
     }
 
     const linkProps = {

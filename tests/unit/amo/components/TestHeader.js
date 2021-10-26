@@ -185,7 +185,7 @@ describe(__filename, () => {
     expect(link).toHaveProp('href', '/developers/addons/');
   });
 
-  it('displays devhub and extension workshop links in the header on Firefox', () => {
+  it('displays blog, devhub and extension workshop links in the header on Firefox', () => {
     const { store } = dispatchClientMetadata({
       userAgent: userAgents.firefox[0],
     });
@@ -206,6 +206,11 @@ describe(__filename, () => {
         utm_campaign: null,
       })}`,
     );
+
+    const blogLink = wrapper.find('.Header-blog-link');
+    expect(blogLink).toHaveLength(1);
+    expect(blogLink).toHaveProp('prependClientApp', false);
+    expect(blogLink).toHaveProp('prependLang', false);
   });
 
   it('does not display links for devhub and extension workshop on non-Firefox', () => {
@@ -306,7 +311,6 @@ describe(__filename, () => {
     expect(root.find('.Header-title')).toHaveProp('prependClientApp', false);
     expect(root.find('.Header-title')).toHaveProp('prependLang', false);
     expect(root.find('.Header-authenticate-button')).toHaveLength(0);
-    expect(root.find('.Header-download-button')).toHaveLength(0);
     expect(root.find(SearchForm)).toHaveLength(0);
     expect(root.find(SectionLinks)).toHaveProp('forBlog', true);
     expect(root.find(GetFirefoxBanner)).toHaveLength(0);

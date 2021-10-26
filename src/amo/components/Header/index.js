@@ -190,6 +190,14 @@ export class HeaderBase extends React.Component {
     const otherSiteLinks = isFirefox({ userAgentInfo }) ? (
       <>
         <Link
+          className="Header-blog-link Header-button"
+          href="/blog/"
+          prependClientApp={false}
+          prependLang={false}
+        >
+          {i18n.gettext('Firefox Add-ons Blog')}
+        </Link>
+        <Link
           className="Header-extension-workshop-link Header-button"
           href={`${_config.get(
             'extensionWorkshopUrl',
