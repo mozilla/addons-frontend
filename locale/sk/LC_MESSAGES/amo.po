@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 16:29+0000\n"
+"PO-Revision-Date: 2021-10-26 16:31+0000\n"
 "Last-Translator: Vlado Valaštiak <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1388,12 +1388,11 @@ msgid "There are no three-star reviews"
 msgstr "Neexistujú žiadne trojhviezdičkové recenzie"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Všetky recenzie s 2 hviezdičkami"
-msgstr[1] "Všetky recenzie s 2 hviezdičkami"
-msgstr[2] "Všetky recenzie s 2 hviezdičkami"
+msgstr[0] "Prečítajte si jednu dvojhviezdičkovú recenziu"
+msgstr[1] "Prečítajte si %(total)s dvojhviezdičkové recenzie"
+msgstr[2] "Prečítajte si %(total)s dvojhviezdičkových recenzií"
 
 #: src/amo/components/RatingsByStar/index.js:118
 msgid "There are no two-star reviews"
