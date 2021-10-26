@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-29 08:41+0000\n"
+"POT-Creation-Date: 2021-10-26 16:08+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -726,8 +726,9 @@ msgid "Log out"
 msgstr "Logáil amach"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-msgid "Register or log in"
-msgstr ""
+#, fuzzy
+msgid "Log in"
+msgstr "Logáil amach"
 
 #: src/amo/components/AuthenticateButton/index.js:96
 #: src/amo/components/Header/index.js:144
@@ -1231,18 +1232,17 @@ msgstr "Leathanach Baile Mozilla"
 msgid "About"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:68
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
 #, fuzzy
-msgid "Firefox Add-on Reviews"
+msgid "Firefox Add-ons Blog"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "Eisínteachtaí"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
 msgid "Developer Hub"
 msgstr "Lárionad na bhForbróirí"
 
@@ -1321,12 +1321,12 @@ msgstr "Níl aon léirmheas ann"
 msgid "Firefox Browser Add-ons"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/Header/index.js:204
+#: src/amo/components/Header/index.js:212
 #, fuzzy
 msgid "Learn how to create extensions and themes"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
-#: src/amo/components/Header/index.js:214
+#: src/amo/components/Header/index.js:222
 msgid "Submit and manage extensions and themes"
 msgstr ""
 
@@ -1634,28 +1634,86 @@ msgstr ""
 msgid "Star rating saved"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:59
-msgid "Read all five-star reviews"
-msgstr ""
-
-#: src/amo/components/RatingsByStar/index.js:60
+#: src/amo/components/RatingsByStar/index.js:103
 #, fuzzy
-msgid "Read all four-star reviews"
-msgstr "Léigh %(count)s léirmheas"
+msgid "There are no three-star reviews"
+msgstr "Scríobh léirmheas"
 
-#: src/amo/components/RatingsByStar/index.js:61
-msgid "Read all three-star reviews"
-msgstr ""
-
-#: src/amo/components/RatingsByStar/index.js:62
+#: src/amo/components/RatingsByStar/index.js:108
 #, fuzzy
-msgid "Read all two-star reviews"
-msgstr "Tapáil le haghaidh réamhamhairc"
+msgid "Read the 1 two-star review"
+msgid_plural "Read all %(total)s two-star reviews"
+msgstr[0] "Tapáil le haghaidh réamhamhairc"
+msgstr[1] "Tapáil le haghaidh réamhamhairc"
+msgstr[2] "Tapáil le haghaidh réamhamhairc"
+msgstr[3] "Tapáil le haghaidh réamhamhairc"
+msgstr[4] "Tapáil le haghaidh réamhamhairc"
+
+#: src/amo/components/RatingsByStar/index.js:118
+#, fuzzy
+msgid "There are no two-star reviews"
+msgstr "Scríobh léirmheas"
+
+#: src/amo/components/RatingsByStar/index.js:123
+#, fuzzy
+msgid "Read the 1 one-star review"
+msgid_plural "Read all %(total)s one-star reviews"
+msgstr[0] "Léigh %(count)s léirmheas"
+msgstr[1] "Léigh %(count)s léirmheas"
+msgstr[2] "Léigh %(count)s léirmheas"
+msgstr[3] "Léigh %(count)s léirmheas"
+msgstr[4] "Léigh %(count)s léirmheas"
+
+#: src/amo/components/RatingsByStar/index.js:133
+#, fuzzy
+msgid "There are no one-star reviews"
+msgstr "Scríobh léirmheas"
+
+#: src/amo/components/RatingsByStar/index.js:136
+#: src/amo/pages/AddonReviewList/index.js:380
+#, fuzzy
+msgid "There are no reviews"
+msgstr "Scríobh léirmheas"
 
 #: src/amo/components/RatingsByStar/index.js:63
 #, fuzzy
-msgid "Read all one-star reviews"
-msgstr "Léigh %(count)s léirmheas"
+msgid "Read the 1 five-star review"
+msgid_plural "Read all %(total)s five-star reviews"
+msgstr[0] "Léigh %(count)s léirmheas"
+msgstr[1] "Léigh %(count)s léirmheas"
+msgstr[2] "Léigh %(count)s léirmheas"
+msgstr[3] "Léigh %(count)s léirmheas"
+msgstr[4] "Léigh %(count)s léirmheas"
+
+#: src/amo/components/RatingsByStar/index.js:73
+#, fuzzy
+msgid "There are no five-star reviews"
+msgstr "Scríobh léirmheas"
+
+#: src/amo/components/RatingsByStar/index.js:78
+#, fuzzy
+msgid "Read the 1 four-star review"
+msgid_plural "Read all %(total)s four-star reviews"
+msgstr[0] "Léigh %(count)s léirmheas"
+msgstr[1] "Léigh %(count)s léirmheas"
+msgstr[2] "Léigh %(count)s léirmheas"
+msgstr[3] "Léigh %(count)s léirmheas"
+msgstr[4] "Léigh %(count)s léirmheas"
+
+#: src/amo/components/RatingsByStar/index.js:88
+#, fuzzy
+msgid "There are no four-star reviews"
+msgstr "Scríobh léirmheas"
+
+#: src/amo/components/RatingsByStar/index.js:93
+#, fuzzy
+msgid "Read the 1 three-star review"
+msgid_plural "Read all %(total)s three-star reviews"
+msgstr[0] "Léigh %(count)s léirmheas"
+msgstr[1] "Léigh %(count)s léirmheas"
+msgstr[2] "Léigh %(count)s léirmheas"
+msgstr[3] "Léigh %(count)s léirmheas"
+msgstr[4] "Léigh %(count)s léirmheas"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 #, fuzzy
@@ -2183,49 +2241,45 @@ msgstr "Gan torthaí ar \"%(query)s\"."
 msgid "No results were found."
 msgstr "Gan torthaí ar bith."
 
-#: src/amo/components/SectionLinks/index.js:133
-msgid "Explore"
-msgstr "Taiscéal"
-
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/SectionLinks/index.js:114
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Eisínteachtaí"
 
-#: src/amo/components/SectionLinks/index.js:165
+#: src/amo/components/SectionLinks/index.js:130
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Téamaí"
 
-#: src/amo/components/SectionLinks/index.js:171
+#: src/amo/components/SectionLinks/index.js:136
 msgid "More…"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:181
+#: src/amo/components/SectionLinks/index.js:146
 msgid "Other Browser Sites"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:192
+#: src/amo/components/SectionLinks/index.js:157
 #, fuzzy
 msgid "Add-ons for Android"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/SectionLinks/index.js:205
+#: src/amo/components/SectionLinks/index.js:170
 msgid "Add-ons for Firefox"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/SectionLinks/index.js:76
+#: src/amo/components/SectionLinks/index.js:71
 #, fuzzy
 msgid "for Firefox"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:73
 msgid "for Android"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/SectionLinks/index.js:88
 msgid "Dictionaries & Language Packs"
 msgstr ""
 
@@ -2485,11 +2539,6 @@ msgstr[1] "%(total)s úsáideoir"
 msgstr[2] "%(total)s úsáideoir"
 msgstr[3] "%(total)s n-úsáideoir"
 msgstr[4] "%(total)s úsáideoir"
-
-#: src/amo/pages/AddonReviewList/index.js:380
-#, fuzzy
-msgid "There are no reviews"
-msgstr "Scríobh léirmheas"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
@@ -3494,6 +3543,13 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Firefox Add-on Reviews"
+#~ msgstr "Breiseáin Firefox"
+
+#~ msgid "Explore"
+#~ msgstr "Taiscéal"
 
 #, fuzzy
 #~ msgid ""

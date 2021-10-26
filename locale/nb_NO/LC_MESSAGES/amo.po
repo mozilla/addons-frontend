@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-29 08:41+0000\n"
+"POT-Creation-Date: 2021-10-26 16:08+0000\n"
 "PO-Revision-Date: 2021-08-18 07:19+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -645,8 +645,9 @@ msgid "Log out"
 msgstr "Logg ut"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-msgid "Register or log in"
-msgstr "Registrer deg eller logg inn"
+#, fuzzy
+msgid "Log in"
+msgstr "Logg ut"
 
 #: src/amo/components/AuthenticateButton/index.js:96
 #: src/amo/components/Header/index.js:144
@@ -1149,16 +1150,16 @@ msgstr "Gå til Mozillas hjemmeside"
 msgid "About"
 msgstr "Om"
 
-#: src/amo/components/Footer/index.js:68
-#: src/amo/components/SectionLinks/index.js:108
-msgid "Firefox Add-on Reviews"
-msgstr "Firefox-tilleggsvurderinger"
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
+#, fuzzy
+msgid "Firefox Add-ons Blog"
+msgstr "Firefox-tillegg"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
 msgstr "Utvidelsesverksted"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
 msgid "Developer Hub"
 msgstr "Utvikler-knutepunkt"
 
@@ -1228,11 +1229,11 @@ msgstr "Omtalingsverktøy"
 msgid "Firefox Browser Add-ons"
 msgstr "Tillegg for Firefox-nettleser"
 
-#: src/amo/components/Header/index.js:204
+#: src/amo/components/Header/index.js:212
 msgid "Learn how to create extensions and themes"
 msgstr "Les om hvordan du lager utvidelser og tema"
 
-#: src/amo/components/Header/index.js:214
+#: src/amo/components/Header/index.js:222
 msgid "Submit and manage extensions and themes"
 msgstr "Send inn og håndter utvidelser og temaer"
 
@@ -1533,25 +1534,70 @@ msgstr "Lagrer stjernevurdering"
 msgid "Star rating saved"
 msgstr "Stjernevurdering lagret"
 
-#: src/amo/components/RatingsByStar/index.js:59
-msgid "Read all five-star reviews"
-msgstr "Les alle omtaler med fem stjerner"
+#: src/amo/components/RatingsByStar/index.js:103
+#, fuzzy
+msgid "There are no three-star reviews"
+msgstr "Det er ingen omtaler"
 
-#: src/amo/components/RatingsByStar/index.js:60
-msgid "Read all four-star reviews"
-msgstr "Les alle omtaler med fire stjerner"
+#: src/amo/components/RatingsByStar/index.js:108
+#, fuzzy
+msgid "Read the 1 two-star review"
+msgid_plural "Read all %(total)s two-star reviews"
+msgstr[0] "Les alle omtaler med to stjerner"
+msgstr[1] "Les alle omtaler med to stjerner"
 
-#: src/amo/components/RatingsByStar/index.js:61
-msgid "Read all three-star reviews"
-msgstr "Les alle omtaler med tre stjerner"
+#: src/amo/components/RatingsByStar/index.js:118
+#, fuzzy
+msgid "There are no two-star reviews"
+msgstr "Det er ingen omtaler"
 
-#: src/amo/components/RatingsByStar/index.js:62
-msgid "Read all two-star reviews"
-msgstr "Les alle omtaler med to stjerner"
+#: src/amo/components/RatingsByStar/index.js:123
+#, fuzzy
+msgid "Read the 1 one-star review"
+msgid_plural "Read all %(total)s one-star reviews"
+msgstr[0] "Les alle omtaler med en stjerne"
+msgstr[1] "Les alle omtaler med en stjerne"
+
+#: src/amo/components/RatingsByStar/index.js:133
+#, fuzzy
+msgid "There are no one-star reviews"
+msgstr "Det er ingen omtaler"
+
+#: src/amo/components/RatingsByStar/index.js:136
+#: src/amo/pages/AddonReviewList/index.js:380
+msgid "There are no reviews"
+msgstr "Det er ingen omtaler"
 
 #: src/amo/components/RatingsByStar/index.js:63
-msgid "Read all one-star reviews"
-msgstr "Les alle omtaler med en stjerne"
+#, fuzzy
+msgid "Read the 1 five-star review"
+msgid_plural "Read all %(total)s five-star reviews"
+msgstr[0] "Les alle omtaler med fem stjerner"
+msgstr[1] "Les alle omtaler med fem stjerner"
+
+#: src/amo/components/RatingsByStar/index.js:73
+#, fuzzy
+msgid "There are no five-star reviews"
+msgstr "Det er ingen omtaler"
+
+#: src/amo/components/RatingsByStar/index.js:78
+#, fuzzy
+msgid "Read the 1 four-star review"
+msgid_plural "Read all %(total)s four-star reviews"
+msgstr[0] "Les alle omtaler med fire stjerner"
+msgstr[1] "Les alle omtaler med fire stjerner"
+
+#: src/amo/components/RatingsByStar/index.js:88
+#, fuzzy
+msgid "There are no four-star reviews"
+msgstr "Det er ingen omtaler"
+
+#: src/amo/components/RatingsByStar/index.js:93
+#, fuzzy
+msgid "Read the 1 three-star review"
+msgid_plural "Read all %(total)s three-star reviews"
+msgstr[0] "Les alle omtaler med tre stjerner"
+msgstr[1] "Les alle omtaler med tre stjerner"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
@@ -1986,47 +2032,43 @@ msgstr "Fant ingen resultat for «%(query)s»."
 msgid "No results were found."
 msgstr "Fant ingen resultat."
 
-#: src/amo/components/SectionLinks/index.js:133
-msgid "Explore"
-msgstr "Utforsk"
-
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/SectionLinks/index.js:114
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "Utvidelser"
 
-#: src/amo/components/SectionLinks/index.js:165
+#: src/amo/components/SectionLinks/index.js:130
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Tema"
 
-#: src/amo/components/SectionLinks/index.js:171
+#: src/amo/components/SectionLinks/index.js:136
 msgid "More…"
 msgstr "Mer…"
 
-#: src/amo/components/SectionLinks/index.js:181
+#: src/amo/components/SectionLinks/index.js:146
 msgid "Other Browser Sites"
 msgstr "Andre nettlesersteder"
 
-#: src/amo/components/SectionLinks/index.js:192
+#: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Android"
 msgstr "Utvidelser for Android"
 
-#: src/amo/components/SectionLinks/index.js:205
+#: src/amo/components/SectionLinks/index.js:170
 msgid "Add-ons for Firefox"
 msgstr "Utvidelser for Firefox"
 
-#: src/amo/components/SectionLinks/index.js:76
+#: src/amo/components/SectionLinks/index.js:71
 msgid "for Firefox"
 msgstr "for Firefox"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:73
 msgid "for Android"
 msgstr "for Android"
 
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/SectionLinks/index.js:88
 msgid "Dictionaries & Language Packs"
 msgstr "Ordbøker og språkpakker"
 
@@ -2268,10 +2310,6 @@ msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s omtale"
 msgstr[1] "%(total)s omtaler"
-
-#: src/amo/pages/AddonReviewList/index.js:380
-msgid "There are no reviews"
-msgstr "Det er ingen omtaler"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
@@ -3403,6 +3441,15 @@ msgstr "mitt tilleggs kompatibilitet kan ikke oppgraderes"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "mitt tilleggs kompatibilitet har blitt oppgradert"
+
+#~ msgid "Register or log in"
+#~ msgstr "Registrer deg eller logg inn"
+
+#~ msgid "Firefox Add-on Reviews"
+#~ msgstr "Firefox-tilleggsvurderinger"
+
+#~ msgid "Explore"
+#~ msgstr "Utforsk"
 
 #~ msgid "Restart Required"
 #~ msgstr "Omstart kreves"

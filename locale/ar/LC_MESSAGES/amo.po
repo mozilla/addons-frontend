@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-29 08:41+0000\n"
+"POT-Creation-Date: 2021-10-26 16:08+0000\n"
 "PO-Revision-Date: 2020-07-14 06:20+0000\n"
 "Last-Translator: ibraheem5000 <ibraheem5000@hotmail.com>\n"
 "Language-Team: none\n"
@@ -658,8 +658,8 @@ msgstr "اخرج"
 
 #: src/amo/components/AuthenticateButton/index.js:93
 #, fuzzy
-msgid "Register or log in"
-msgstr "سجّل أو لِج"
+msgid "Log in"
+msgstr "اخرج"
 
 #: src/amo/components/AuthenticateButton/index.js:96
 #: src/amo/components/Header/index.js:144
@@ -1142,17 +1142,16 @@ msgstr "انتقل إلى صفحة بداية موزيلا"
 msgid "About"
 msgstr "عن"
 
-#: src/amo/components/Footer/index.js:68
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
 #, fuzzy
-msgid "Firefox Add-on Reviews"
+msgid "Firefox Add-ons Blog"
 msgstr "إضافات فيرفكس"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:206
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
 msgstr "ورشة عمل الامتدادات"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:216
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
 msgid "Developer Hub"
 msgstr "مركز المطورين"
 
@@ -1228,11 +1227,11 @@ msgstr "أدوات المراجعين"
 msgid "Firefox Browser Add-ons"
 msgstr "إضافات متصفح فيرفكس"
 
-#: src/amo/components/Header/index.js:204
+#: src/amo/components/Header/index.js:212
 msgid "Learn how to create extensions and themes"
 msgstr "تعرف على كيفية إنشاء الإضافات والسمات"
 
-#: src/amo/components/Header/index.js:214
+#: src/amo/components/Header/index.js:222
 msgid "Submit and manage extensions and themes"
 msgstr "تقديم وإدارة الامتدادات والسمات"
 
@@ -1532,25 +1531,90 @@ msgstr ""
 msgid "Star rating saved"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:59
-msgid "Read all five-star reviews"
-msgstr "اقرأ جميع المراجعات ذات الخمس نجوم"
+#: src/amo/components/RatingsByStar/index.js:103
+#, fuzzy
+msgid "There are no three-star reviews"
+msgstr "لا توجد مراجعات بعد"
 
-#: src/amo/components/RatingsByStar/index.js:60
-msgid "Read all four-star reviews"
-msgstr "اقرأ جميع المراجعات ذات الأربع نجوم"
+#: src/amo/components/RatingsByStar/index.js:108
+#, fuzzy
+msgid "Read the 1 two-star review"
+msgid_plural "Read all %(total)s two-star reviews"
+msgstr[0] "اقرأ جميع المراجعات ذات النجمتين"
+msgstr[1] "اقرأ جميع المراجعات ذات النجمتين"
+msgstr[2] "اقرأ جميع المراجعات ذات النجمتين"
+msgstr[3] "اقرأ جميع المراجعات ذات النجمتين"
+msgstr[4] "اقرأ جميع المراجعات ذات النجمتين"
+msgstr[5] "اقرأ جميع المراجعات ذات النجمتين"
 
-#: src/amo/components/RatingsByStar/index.js:61
-msgid "Read all three-star reviews"
-msgstr "اقرأ جميع المراجعات ذات الثلاث نجوم"
+#: src/amo/components/RatingsByStar/index.js:118
+#, fuzzy
+msgid "There are no two-star reviews"
+msgstr "لا توجد مراجعات بعد"
 
-#: src/amo/components/RatingsByStar/index.js:62
-msgid "Read all two-star reviews"
-msgstr "اقرأ جميع المراجعات ذات النجمتين"
+#: src/amo/components/RatingsByStar/index.js:123
+#, fuzzy
+msgid "Read the 1 one-star review"
+msgid_plural "Read all %(total)s one-star reviews"
+msgstr[0] "اقرأ جميع المراجعات ذات النجمة الواحدة"
+msgstr[1] "اقرأ جميع المراجعات ذات النجمة الواحدة"
+msgstr[2] "اقرأ جميع المراجعات ذات النجمة الواحدة"
+msgstr[3] "اقرأ جميع المراجعات ذات النجمة الواحدة"
+msgstr[4] "اقرأ جميع المراجعات ذات النجمة الواحدة"
+msgstr[5] "اقرأ جميع المراجعات ذات النجمة الواحدة"
+
+#: src/amo/components/RatingsByStar/index.js:133
+#, fuzzy
+msgid "There are no one-star reviews"
+msgstr "لا توجد مراجعات بعد"
+
+#: src/amo/components/RatingsByStar/index.js:136
+#: src/amo/pages/AddonReviewList/index.js:380
+msgid "There are no reviews"
+msgstr "لا توجد مراجعات بعد"
 
 #: src/amo/components/RatingsByStar/index.js:63
-msgid "Read all one-star reviews"
-msgstr "اقرأ جميع المراجعات ذات النجمة الواحدة"
+#, fuzzy
+msgid "Read the 1 five-star review"
+msgid_plural "Read all %(total)s five-star reviews"
+msgstr[0] "اقرأ جميع المراجعات ذات الخمس نجوم"
+msgstr[1] "اقرأ جميع المراجعات ذات الخمس نجوم"
+msgstr[2] "اقرأ جميع المراجعات ذات الخمس نجوم"
+msgstr[3] "اقرأ جميع المراجعات ذات الخمس نجوم"
+msgstr[4] "اقرأ جميع المراجعات ذات الخمس نجوم"
+msgstr[5] "اقرأ جميع المراجعات ذات الخمس نجوم"
+
+#: src/amo/components/RatingsByStar/index.js:73
+#, fuzzy
+msgid "There are no five-star reviews"
+msgstr "لا توجد مراجعات بعد"
+
+#: src/amo/components/RatingsByStar/index.js:78
+#, fuzzy
+msgid "Read the 1 four-star review"
+msgid_plural "Read all %(total)s four-star reviews"
+msgstr[0] "اقرأ جميع المراجعات ذات الأربع نجوم"
+msgstr[1] "اقرأ جميع المراجعات ذات الأربع نجوم"
+msgstr[2] "اقرأ جميع المراجعات ذات الأربع نجوم"
+msgstr[3] "اقرأ جميع المراجعات ذات الأربع نجوم"
+msgstr[4] "اقرأ جميع المراجعات ذات الأربع نجوم"
+msgstr[5] "اقرأ جميع المراجعات ذات الأربع نجوم"
+
+#: src/amo/components/RatingsByStar/index.js:88
+#, fuzzy
+msgid "There are no four-star reviews"
+msgstr "لا توجد مراجعات بعد"
+
+#: src/amo/components/RatingsByStar/index.js:93
+#, fuzzy
+msgid "Read the 1 three-star review"
+msgid_plural "Read all %(total)s three-star reviews"
+msgstr[0] "اقرأ جميع المراجعات ذات الثلاث نجوم"
+msgstr[1] "اقرأ جميع المراجعات ذات الثلاث نجوم"
+msgstr[2] "اقرأ جميع المراجعات ذات الثلاث نجوم"
+msgstr[3] "اقرأ جميع المراجعات ذات الثلاث نجوم"
+msgstr[4] "اقرأ جميع المراجعات ذات الثلاث نجوم"
+msgstr[5] "اقرأ جميع المراجعات ذات الثلاث نجوم"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
@@ -2100,47 +2164,43 @@ msgstr "لم يُعثر على نتائج لِ‍ ”⁨%(query)s⁩“."
 msgid "No results were found."
 msgstr "لم يُعثر على نتائج."
 
-#: src/amo/components/SectionLinks/index.js:133
-msgid "Explore"
-msgstr "استكشف"
-
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/SectionLinks/index.js:114
 #: src/amo/pages/CategoryPage/index.js:66
 #: src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
 msgstr "الامتدادات"
 
-#: src/amo/components/SectionLinks/index.js:165
+#: src/amo/components/SectionLinks/index.js:130
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "السمات"
 
-#: src/amo/components/SectionLinks/index.js:171
+#: src/amo/components/SectionLinks/index.js:136
 msgid "More…"
 msgstr "أكثر…"
 
-#: src/amo/components/SectionLinks/index.js:181
+#: src/amo/components/SectionLinks/index.js:146
 msgid "Other Browser Sites"
 msgstr "مواقع المتصفح الأخرى"
 
-#: src/amo/components/SectionLinks/index.js:192
+#: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Android"
 msgstr "إضافات إصدارة أندرويد"
 
-#: src/amo/components/SectionLinks/index.js:205
+#: src/amo/components/SectionLinks/index.js:170
 msgid "Add-ons for Firefox"
 msgstr "إضافات فيرفكس"
 
-#: src/amo/components/SectionLinks/index.js:76
+#: src/amo/components/SectionLinks/index.js:71
 msgid "for Firefox"
 msgstr "لفيرفكس"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:73
 msgid "for Android"
 msgstr "لنظام أندرويد"
 
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/SectionLinks/index.js:88
 msgid "Dictionaries & Language Packs"
 msgstr "القواميس وحزم اللغات"
 
@@ -2388,10 +2448,6 @@ msgstr[2] "مراجعتان"
 msgstr[3] "%(total)s مراجعات"
 msgstr[4] "%(total)s مراجعة"
 msgstr[5] "%(total)s مراجعة"
-
-#: src/amo/pages/AddonReviewList/index.js:380
-msgid "There are no reviews"
-msgstr "لا توجد مراجعات بعد"
 
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
@@ -3430,6 +3486,17 @@ msgstr "عندما يتعذر ترقية التوافقية لإضافتي"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "عندما تنجح ترقية توافقية إضافتي"
+
+#, fuzzy
+#~ msgid "Register or log in"
+#~ msgstr "سجّل أو لِج"
+
+#, fuzzy
+#~ msgid "Firefox Add-on Reviews"
+#~ msgstr "إضافات فيرفكس"
+
+#~ msgid "Explore"
+#~ msgstr "استكشف"
 
 #~ msgid "Restart Required"
 #~ msgstr "إعادة التشغيل مطلوبة"
