@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 22:15+0000\n"
+"PO-Revision-Date: 2021-10-26 22:23+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1426,30 +1426,26 @@ msgstr[1] "Читати всі %(total)s відгуки з оцінкою 5 зі
 msgstr[2] "Читати всі %(total)s відгуків з оцінкою 5 зірок"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Відгуків немає"
+msgstr "Немає відгуків з оцінкою п'ять зірок"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Читати всі відгуки з оцінкою 4 зірки"
-msgstr[1] "Читати всі відгуки з оцінкою 4 зірки"
-msgstr[2] "Читати всі відгуки з оцінкою 4 зірки"
+msgstr[0] "Читати 1 відгук з оцінкою 4 зірки"
+msgstr[1] "Читати всі %(total)s відгуки з оцінкою 4 зірки"
+msgstr[2] "Читати всі %(total)s відгуків з оцінкою 4 зірки"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Відгуків немає"
+msgstr "Немає відгуків з оцінкою чотири зірки"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Читати всі відгуки з оцінкою 3 зірки"
-msgstr[1] "Читати всі відгуки з оцінкою 3 зірки"
-msgstr[2] "Читати всі відгуки з оцінкою 3 зірки"
+msgstr[0] "Читати 1 відгук з оцінкою 3 зірки"
+msgstr[1] "Читати всі %(total)s відгуки з оцінкою 3 зірки"
+msgstr[2] "Читати всі %(total)s відгуків з оцінкою 3 зірки"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
