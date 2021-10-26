@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-26 18:57+0000\n"
+"PO-Revision-Date: 2021-10-26 19:05+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1391,8 +1391,8 @@ msgstr "Det finns inga trestjärniga recensioner"
 #: src/amo/components/RatingsByStar/index.js:108
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Läs recensionen med två stjärnor"
+msgstr[1] "Läs alla %(total)s tvåstjärniga recensioner"
 
 #: src/amo/components/RatingsByStar/index.js:118
 msgid "There are no two-star reviews"
@@ -1401,7 +1401,7 @@ msgstr "Det finns inga tvåstjärniga recensioner"
 #: src/amo/components/RatingsByStar/index.js:123
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Läs recensionen med 1 stjärna"
+msgstr[0] "Läs recensionen med en stjärna"
 msgstr[1] "Läs alla %(total)s enstjärniga recensioner"
 
 #: src/amo/components/RatingsByStar/index.js:133
@@ -1415,8 +1415,8 @@ msgstr "Det finns inga recensioner"
 #: src/amo/components/RatingsByStar/index.js:63
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Läs recensionen med fem stjärnor"
+msgstr[1] "Läs alla %(total)s femstjärniga recensioner"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
@@ -1425,8 +1425,8 @@ msgstr "Det finns inga femstjärniga recensioner"
 #: src/amo/components/RatingsByStar/index.js:78
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Läs recensionen med fyra stjärnor"
+msgstr[1] "Läs alla %(total)s fyrstjärniga recensioner"
 
 #: src/amo/components/RatingsByStar/index.js:88
 msgid "There are no four-star reviews"
@@ -1435,8 +1435,8 @@ msgstr "Det finns inga fyrstjärniga recensioner"
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Läs recensionen med tre stjärnor"
+msgstr[1] "Läs alla %(total)s trestjärniga recensioner"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
