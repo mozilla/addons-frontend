@@ -138,6 +138,7 @@ export const INSTALL_SOURCE_MOST_POPULAR = 'mostpopular';
 export const INSTALL_SOURCE_SEARCH = 'search';
 export const INSTALL_SOURCE_TOP_RATED = 'rating';
 export const INSTALL_SOURCE_TRENDING = 'hotness';
+export const INSTALL_SOURCE_TAG_SHELF = 'tag-shelf-{tagName}';
 
 // View Contexts that aren't an addonType
 export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';

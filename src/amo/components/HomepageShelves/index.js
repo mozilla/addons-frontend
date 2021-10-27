@@ -1,4 +1,6 @@
 /* @flow */
+import url from 'url';
+
 import * as React from 'react';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
@@ -7,6 +9,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_FEATURED_COLLECTION,
+  INSTALL_SOURCE_TAG_SHELF,
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
@@ -28,6 +31,12 @@ type InternalProps = {|
 
 export const HOMESHELVES_ENDPOINT_COLLECTIONS = 'collections';
 export const HOMESHELVES_ENDPOINT_SEARCH = 'search';
+export const HOMESHELVES_ENDPOINT_RANDOM_TAG = 'random-tag';
+
+function getTagFromUrl(api_url: string): string {
+  const { query } = url.parse(api_url, true);
+  return query && typeof query === 'object' ? query.tag : 'undefined';
+}
 
 export const HomepageShelvesBase = (props: InternalProps): React.Node => {
   const {
@@ -58,7 +67,14 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
     );
   } else {
     shelvesContent = shelves.map((shelf) => {
-      const { addons, addonType, endpoint, footer, title } = shelf;
+      const {
+        addons,
+        addonType,
+        endpoint,
+        footer,
+        title,
+        url: api_url,
+      } = shelf;
       const shelfKey = title.replace(/\s/g, '-');
 
       const footerText = footer.text
@@ -67,10 +83,22 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
             categoryName: title.toLowerCase(),
           });
 
-      const addonInstallSource =
-        endpoint === HOMESHELVES_ENDPOINT_COLLECTIONS
-          ? INSTALL_SOURCE_FEATURED_COLLECTION
-          : INSTALL_SOURCE_FEATURED;
+      let addonInstallSource;
+      switch (endpoint) {
+        case HOMESHELVES_ENDPOINT_COLLECTIONS:
+          addonInstallSource = INSTALL_SOURCE_FEATURED_COLLECTION;
+          break;
+
+        case HOMESHELVES_ENDPOINT_RANDOM_TAG:
+          addonInstallSource = INSTALL_SOURCE_TAG_SHELF.replace(
+            '{tagName}',
+            getTagFromUrl(api_url),
+          );
+          break;
+
+        default:
+          addonInstallSource = INSTALL_SOURCE_FEATURED;
+      }
 
       const hasThemes = addonType === ADDON_TYPE_STATIC_THEME;
 
