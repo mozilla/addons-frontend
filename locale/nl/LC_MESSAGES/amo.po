@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-09-29 09:50+0000\n"
+"PO-Revision-Date: 2021-10-27 06:03+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -610,7 +610,7 @@ msgstr "Afmelden"
 
 #: src/amo/components/AuthenticateButton/index.js:93
 msgid "Log in"
-msgstr ""
+msgstr "Aanmelden"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:144
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -1035,7 +1035,7 @@ msgstr "Over"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
 msgid "Firefox Add-ons Blog"
-msgstr ""
+msgstr "Firefox-add-onsblog"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
@@ -1385,23 +1385,23 @@ msgstr "Sterrenwaardering opgeslagen"
 
 #: src/amo/components/RatingsByStar/index.js:103
 msgid "There are no three-star reviews"
-msgstr ""
+msgstr "Er zijn geen driesterrenbeoordelingen"
 
 #: src/amo/components/RatingsByStar/index.js:108
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "De enige tweesterrenbeoordeling lezen"
+msgstr[1] "Alle %(total)s tweesterrenbeoordelingen lezen"
 
 #: src/amo/components/RatingsByStar/index.js:118
 msgid "There are no two-star reviews"
-msgstr ""
+msgstr "Er zijn geen tweesterrenbeoordelingen"
 
 #: src/amo/components/RatingsByStar/index.js:123
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "De enige éénsterbeoordeling lezen"
+msgstr[1] "Alle %(total)s éénsterbeoordelingen lezen"
 
 #: src/amo/components/RatingsByStar/index.js:133
 msgid "There are no one-star reviews"
@@ -1414,32 +1414,28 @@ msgstr "Er zijn geen beoordelingen"
 #: src/amo/components/RatingsByStar/index.js:63
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "De enige vijfsterrenbeoordeling lezen"
+msgstr[1] "Alle %(total)s vijfsterrenbeoordelingen lezen"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Er zijn geen beoordelingen"
+msgstr "Er zijn geen vijfsterrenbeoordelingen"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Alle viersterrenbeoordelingen lezen"
-msgstr[1] "Alle viersterrenbeoordelingen lezen"
+msgstr[0] "De enige viersterrenbeoordeling lezen"
+msgstr[1] "Alle %(total)s viersterrenbeoordelingen lezen"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Er zijn geen beoordelingen"
+msgstr "Er zijn geen viersterrenbeoordelingen"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Alle driesterrenbeoordelingen lezen"
-msgstr[1] "Alle driesterrenbeoordelingen lezen"
+msgstr[0] "De enige driesterrenbeoordeling lezen"
+msgstr[1] "Alle %(total)s driesterrenbeoordelingen lezen"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
