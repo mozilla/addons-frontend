@@ -125,7 +125,6 @@ jobs:
       - *run_yarn_install
       - *save_next_build_cache
       - run: yarn test-ci
-      - codecov/upload
 
   dennis-lint:
     <<: *defaults-release
