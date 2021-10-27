@@ -1388,39 +1388,34 @@ msgid "There are no three-star reviews"
 msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Alle tweesterrenbeoordelingen lezen"
-msgstr[1] "Alle tweesterrenbeoordelingen lezen"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Er zijn geen beoordelingen"
+msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Alle éénsterbeoordelingen lezen"
-msgstr[1] "Alle éénsterbeoordelingen lezen"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Er zijn geen beoordelingen"
+msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "Er zijn geen beoordelingen"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Alle vijfsterrenbeoordelingen lezen"
-msgstr[1] "Alle vijfsterrenbeoordelingen lezen"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/RatingsByStar/index.js:73
 #, fuzzy
