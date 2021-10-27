@@ -6,6 +6,9 @@
 # NPM_TOKEN - A valid NPM token for releases
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@3.2.0
+
 references:
   defaults: &defaults
     working_directory: ~/addons-frontend
@@ -89,6 +92,7 @@ jobs:
       - *run_yarn_install
       - *save_build_cache
       - run: yarn test-ci
+      - codecov/upload
 
   check:
     <<: *defaults
