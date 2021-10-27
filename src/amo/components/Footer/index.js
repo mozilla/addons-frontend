@@ -204,15 +204,39 @@ export class FooterBase extends React.Component<InternalProps> {
             <ul className="Footer-links">
               <li>
                 <a
-                  className="Footer-lockwise-link"
-                  href={`https://www.mozilla.org/firefox/lockwise/${makeQueryStringWithUTM(
+                  className="Footer-browsers-link"
+                  href={`https://www.mozilla.org/firefox/browsers/${makeQueryStringWithUTM(
                     {
                       utm_content: 'footer-link',
                       utm_campaign: null,
                     },
                   )}`}
                 >
-                  Lockwise
+                  Browsers
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-vpn-link"
+                  href={`https://www.mozilla.org/products/vpn/${makeQueryStringWithUTM(
+                    {
+                      utm_content: 'footer-link',
+                      utm_campaign: null,
+                    },
+                  )}#pricing`}
+                >
+                  VPN
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-relay-link"
+                  href={`https://relay.firefox.com/${makeQueryStringWithUTM({
+                    utm_content: 'footer-link',
+                    utm_campaign: null,
+                  })}`}
+                >
+                  Relay
                 </a>
               </li>
               <li>
@@ -224,19 +248,6 @@ export class FooterBase extends React.Component<InternalProps> {
                   })}`}
                 >
                   Monitor
-                </a>
-              </li>
-              <li>
-                <a
-                  className="Footer-browsers-link"
-                  href={`https://www.mozilla.org/firefox/browsers/${makeQueryStringWithUTM(
-                    {
-                      utm_content: 'footer-link',
-                      utm_campaign: null,
-                    },
-                  )}`}
-                >
-                  Browsers
                 </a>
               </li>
               <li>
