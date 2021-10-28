@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-28 06:30+0000\n"
+"PO-Revision-Date: 2021-10-28 06:31+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1399,7 +1399,7 @@ msgstr "Der binne gjin twastjerrenbeoardielingen"
 #: src/amo/components/RatingsByStar/index.js:123
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Alle %(total)s ienstjerbeoardielingen lêze"
+msgstr[0] "De iennige ienstjerbeoardieling lêze"
 msgstr[1] "Alle %(total)s ienstjerbeoardielingen lêze"
 
 #: src/amo/components/RatingsByStar/index.js:133
@@ -1413,8 +1413,8 @@ msgstr "Der binne gjin beoardielingen"
 #: src/amo/components/RatingsByStar/index.js:63
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Alle %(total)s fiifstjerrenbeoardielingen lêze"
-msgstr[1] "De iennige fiifstjerrenbeoardieling lêze"
+msgstr[0] "De iennige fiifstjerrenbeoardieling lêze"
+msgstr[1] "Alle %(total)s fiifstjerrenbeoardielingen lêze"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
@@ -1423,8 +1423,8 @@ msgstr "Der binne gjin fiifstjerrenbeoardielingen"
 #: src/amo/components/RatingsByStar/index.js:78
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Alle %(total)s fjouwerstjerrenbeoardielingen lêze"
-msgstr[1] "De iennige fjouwerstjerrenbeoardieling lêze"
+msgstr[0] "De iennige fjouwerstjerrenbeoardieling lêze"
+msgstr[1] "Alle %(total)s fjouwerstjerrenbeoardielingen lêze"
 
 #: src/amo/components/RatingsByStar/index.js:88
 msgid "There are no four-star reviews"
