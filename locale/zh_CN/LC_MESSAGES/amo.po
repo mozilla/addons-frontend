@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-28 02:03+0000\n"
+"PO-Revision-Date: 2021-10-28 02:26+0000\n"
 "Last-Translator: 你我皆凡人 <yuanbingyan@mail.ee>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1142,7 +1142,7 @@ msgstr "Firefox 只推荐符合我们的安全和性能标准的扩展。"
 
 #: src/amo/components/HomepageShelves/index.js:66
 msgid "See more %(categoryName)s"
-msgstr "看看更多 %(categoryName)s 结果"
+msgstr "浏览更多 %(categoryName)s 结果"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -2178,7 +2178,7 @@ msgstr "下载 Firefox 扩展与主题，它们就像是您浏览器上的应用
 
 #: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
-msgstr "看看更多推荐扩展"
+msgstr "更多推荐扩展"
 
 #: src/amo/pages/Home/index.js:83
 msgid "Abstract"
@@ -2198,23 +2198,23 @@ msgstr "风景"
 
 #: src/amo/pages/LandingPage/index.js:143
 msgid "See more trending extensions"
-msgstr "看看更多热门扩展"
+msgstr "更多热门扩展"
 
 #: src/amo/pages/LandingPage/index.js:153
 msgid "See more top rated extensions"
-msgstr "看看更多好评扩展"
+msgstr "更多好评扩展"
 
 #: src/amo/pages/LandingPage/index.js:165
 msgid "See more recommended themes"
-msgstr "看看更多推荐主题"
+msgstr "更多推荐主题"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more trending themes"
-msgstr "看看更多热门主题"
+msgstr "更多热门主题"
 
 #: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
-msgstr "看看更多好评主题"
+msgstr "更多好评主题"
 
 #: src/amo/pages/LandingPage/index.js:207
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
