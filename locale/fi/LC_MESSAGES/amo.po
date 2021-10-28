@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-28 11:22+0000\n"
+"PO-Revision-Date: 2021-10-28 20:13+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1410,16 +1410,14 @@ msgid "There are no reviews"
 msgstr "Ei arvioita"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Lue kaikki viiden tähden arviot"
-msgstr[1] "Lue kaikki viiden tähden arviot"
+msgstr[0] "Lue yksi viiden tähden arvio"
+msgstr[1] "Lue kaikki %(total)s viiden tähden arviota"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Ei arvioita"
+msgstr "Viiden tähden arvioita ei ole"
 
 #: src/amo/components/RatingsByStar/index.js:78
 #, fuzzy
