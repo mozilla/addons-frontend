@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-28 06:45+0000\n"
+"PO-Revision-Date: 2021-10-28 06:50+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1391,63 +1391,54 @@ msgid "There are no three-star reviews"
 msgstr "Il non ha recensiones a tres stellas"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Leger tote le recensiones a duo stellas"
-msgstr[1] "Leger tote le recensiones a duo stellas"
+msgstr[0] "Leger le 1 recensiones a duo stellas"
+msgstr[1] "Leger tote le %(total)s recensiones a duo stellas"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Il non ha recensiones"
+msgstr "Il non ha recensiones a duo stellas"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Leger tote le recensiones a un stella"
-msgstr[1] "Leger tote le recensiones a un stella"
+msgstr[0] "Leger le 1 recensiones a un stella"
+msgstr[1] "Leger tote le %(total)s recensiones a un stella"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Il non ha recensiones"
+msgstr "Il non ha recensiones a un stella"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "Il non ha recensiones"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Leger tote le recensiones a cinque stellas"
-msgstr[1] "Leger tote le recensiones a cinque stellas"
+msgstr[0] "Leger le 1 recensiones a cinque stella"
+msgstr[1] "Leger tote le %(total)s recensiones a cinque stellas"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Il non ha recensiones"
+msgstr "Il non ha recensiones cinque stellas"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Leger tote le recensiones a quatro stellas"
-msgstr[1] "Leger tote le recensiones a quatro stellas"
+msgstr[0] "Leger le 1 recensiones a quatro stellas"
+msgstr[1] "Leger tote le %(total)s recensiones a quatro stellas"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Il non ha recensiones"
+msgstr "Il non ha recensiones quatro stellas"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Leger tote le recensiones a tres stellas"
-msgstr[1] "Leger tote le recensiones a tres stellas"
+msgstr[0] "Leger tote le 1 recensiones a tres stellas"
+msgstr[1] "Leger tote le %(total)s recensiones a tres stellas"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
