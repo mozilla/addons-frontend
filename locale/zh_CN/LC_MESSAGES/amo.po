@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-27 15:16+0000\n"
+"PO-Revision-Date: 2021-10-28 02:03+0000\n"
 "Last-Translator: 你我皆凡人 <yuanbingyan@mail.ee>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1547,7 +1547,7 @@ msgstr "热门附加组件"
 
 #: src/amo/components/Search/index.js:205 src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
-msgstr "最受好评的扩展"
+msgstr "好评扩展"
 
 #: src/amo/components/Search/index.js:208 src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
@@ -1555,7 +1555,7 @@ msgstr "最受好评的主题"
 
 #: src/amo/components/Search/index.js:211
 msgid "Top rated add-ons"
-msgstr "最受好评附加组件"
+msgstr "好评附加组件"
 
 #: src/amo/components/Search/index.js:217
 msgid "Popular extensions"
