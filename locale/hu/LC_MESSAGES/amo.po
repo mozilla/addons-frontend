@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-29 12:37+0000\n"
+"PO-Revision-Date: 2021-10-29 12:38+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1421,11 +1421,10 @@ msgid "There are no five-star reviews"
 msgstr "Nincsenek ötcsillagos értékelések"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Összes négy csillagos értékelés elolvasása"
-msgstr[1] "Összes négy csillagos értékelés elolvasása"
+msgstr[0] "1 négycsillagos értékelés elolvasása"
+msgstr[1] "%(total)s négycsillagos értékelés elolvasása"
 
 #: src/amo/components/RatingsByStar/index.js:88
 msgid "There are no four-star reviews"
