@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-10-26 16:08+0000\n"
-"PO-Revision-Date: 2021-10-30 21:25+0000\n"
+"PO-Revision-Date: 2021-10-30 21:36+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1384,22 +1384,20 @@ msgid "There are no three-star reviews"
 msgstr "Καμία κριτική τριών αστέρων"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Ανάγνωση όλων των κριτικών δύο αστέρων"
-msgstr[1] "Ανάγνωση όλων των κριτικών δύο αστέρων"
+msgstr[0] "Ανάγνωση 1 κριτικής δύο αστέρων"
+msgstr[1] "Ανάγνωση και των %(total)s κριτικών δύο αστέρων"
 
 #: src/amo/components/RatingsByStar/index.js:118
 msgid "There are no two-star reviews"
 msgstr "Καμία κριτική δύο αστέρων"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Ανάγνωση όλων των κριτικών ενός αστεριού"
-msgstr[1] "Ανάγνωση όλων των κριτικών ενός αστεριού"
+msgstr[0] "Ανάγνωση 1 κριτικής ενός αστεριού"
+msgstr[1] "Ανάγνωση και των %(total)s κριτικών ενός αστεριού"
 
 #: src/amo/components/RatingsByStar/index.js:133
 msgid "There are no one-star reviews"
@@ -1410,11 +1408,10 @@ msgid "There are no reviews"
 msgstr "Δεν υπάρχουν κριτικές"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Ανάγνωση όλων των κριτικών πέντε αστέρων"
-msgstr[1] "Ανάγνωση όλων των κριτικών πέντε αστέρων"
+msgstr[0] "Ανάγνωση 1 κριτικής πέντε αστέρων"
+msgstr[1] "Ανάγνωση και των %(total)s κριτικών πέντε αστέρων"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
