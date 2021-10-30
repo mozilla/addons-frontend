@@ -1412,28 +1412,24 @@ msgstr[0] "Read the 1 five-star review"
 msgstr[1] ""
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "There are no reviews"
+msgstr "There are no five-star reviews"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Read all four-star reviews"
-msgstr[1] "Read all four-star reviews"
+msgstr[0] "Read the 1 four-star review"
+msgstr[1] "Read all %(total)s four-star reviews"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "There are no reviews"
+msgstr "There are no four-star reviews"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Read all three-star reviews"
-msgstr[1] "Read all three-star reviews"
+msgstr[0] "Read the 1 three-star review"
+msgstr[1] "Read all %(total)s three-star reviews"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
