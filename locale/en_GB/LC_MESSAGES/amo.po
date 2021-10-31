@@ -1409,7 +1409,7 @@ msgstr "There are no reviews"
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
 msgstr[0] "Read the 1 five-star review"
-msgstr[1] ""
+msgstr[1] "Read all %(total)s five-star reviews"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
