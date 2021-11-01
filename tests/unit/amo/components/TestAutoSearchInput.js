@@ -133,6 +133,14 @@ describe(__filename, () => {
       expect(root).toHaveState('searchValue', '');
     });
 
+    it('sets the search value to an empty string when `location.query` is not a string', () => {
+      const location = createFakeLocation({ query: { query: ['a', 'b'] } });
+
+      const root = render({ location });
+
+      expect(root).toHaveState('searchValue', '');
+    });
+
     it('does not update the query on location changes', () => {
       const query = 'ad blocker';
       const location = createFakeLocation({ query: { query } });
