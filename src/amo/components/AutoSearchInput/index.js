@@ -127,7 +127,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
   }
 
   getSearchValueFromProps({ location, inputName }: InternalProps): string {
-    if (!location.query) {
+    if (!location.query || typeof location.query[inputName] !== 'string') {
       return '';
     }
 
