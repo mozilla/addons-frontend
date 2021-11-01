@@ -157,10 +157,7 @@ describe(__filename, () => {
       ],
     });
 
-    const addonInstallSource = INSTALL_SOURCE_TAG_SHELF.replace(
-      '{tagName}',
-      'foo',
-    );
+    const addonInstallSource = `${INSTALL_SOURCE_TAG_SHELF}foo`;
     expect(root.find(LandingAddonsCard)).toHaveProp(
       'addonInstallSource',
       addonInstallSource,

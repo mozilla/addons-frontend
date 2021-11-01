@@ -33,10 +33,10 @@ export const HOMESHELVES_ENDPOINT_COLLECTIONS = 'collections';
 export const HOMESHELVES_ENDPOINT_SEARCH = 'search';
 export const HOMESHELVES_ENDPOINT_RANDOM_TAG = 'random-tag';
 
-function getTagFromUrl(api_url: string): string {
-  const { query } = url.parse(api_url, true);
-  return query && typeof query === 'object' ? query.tag : 'undefined';
-}
+const getTagFromUrl = (apiUrl: string): string => {
+  const { query } = url.parse(apiUrl, true);
+  return query && query.tag;
+};
 
 export const HomepageShelvesBase = (props: InternalProps): React.Node => {
   const {
@@ -90,10 +90,9 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           break;
 
         case HOMESHELVES_ENDPOINT_RANDOM_TAG:
-          addonInstallSource = INSTALL_SOURCE_TAG_SHELF.replace(
-            '{tagName}',
-            getTagFromUrl(api_url),
-          );
+          addonInstallSource = `${INSTALL_SOURCE_TAG_SHELF}${getTagFromUrl(
+            api_url,
+          )}`;
           break;
 
         default:
