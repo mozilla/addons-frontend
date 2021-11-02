@@ -62,10 +62,19 @@ describe(__filename, () => {
       })}`,
     );
 
-    expect(root.find('.Footer-lockwise-link')).toHaveText('Lockwise');
-    expect(root.find('.Footer-lockwise-link')).toHaveProp(
+    expect(root.find('.Footer-vpn-link')).toHaveText('VPN');
+    expect(root.find('.Footer-vpn-link')).toHaveProp(
       'href',
-      `https://www.mozilla.org/firefox/lockwise/${makeQueryStringWithUTM({
+      `https://www.mozilla.org/products/vpn/${makeQueryStringWithUTM({
+        utm_content: 'footer-link',
+        utm_campaign: null,
+      })}#pricing`,
+    );
+
+    expect(root.find('.Footer-relay-link')).toHaveText('Relay');
+    expect(root.find('.Footer-relay-link')).toHaveProp(
+      'href',
+      `https://relay.firefox.com/${makeQueryStringWithUTM({
         utm_content: 'footer-link',
         utm_campaign: null,
       })}`,
