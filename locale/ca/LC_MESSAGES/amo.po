@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-26 16:08+0000\n"
+"POT-Creation-Date: 2021-11-02 18:11+0000\n"
 "PO-Revision-Date: 2021-04-09 13:01+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -1140,19 +1140,19 @@ msgstr "Navegadors"
 msgid "Products"
 msgstr "Productes"
 
-#: src/amo/components/Footer/index.js:279
+#: src/amo/components/Footer/index.js:290
 msgid "Privacy"
 msgstr "Privadesa"
 
-#: src/amo/components/Footer/index.js:287
+#: src/amo/components/Footer/index.js:298
 msgid "Cookies"
 msgstr "Galetes"
 
-#: src/amo/components/Footer/index.js:295
+#: src/amo/components/Footer/index.js:306
 msgid "Legal"
 msgstr "Avís legal"
 
-#: src/amo/components/Footer/index.js:305
+#: src/amo/components/Footer/index.js:316
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1309,7 +1309,7 @@ msgstr ""
 "El Firefox només recomana extensions que compleixen els estàndards de "
 "seguretat i de rendiment."
 
-#: src/amo/components/HomepageShelves/index.js:66
+#: src/amo/components/HomepageShelves/index.js:82
 #, fuzzy
 msgid "See more %(categoryName)s"
 msgstr "Temes en %(categoryName)s"

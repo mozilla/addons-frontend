@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-26 16:08+0000\n"
+"POT-Creation-Date: 2021-11-02 18:11+0000\n"
 "PO-Revision-Date: 2021-03-26 23:11+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1144,19 +1144,19 @@ msgstr "iOS Okik'amaya'l"
 msgid "Products"
 msgstr "Ruwa k'ay"
 
-#: src/amo/components/Footer/index.js:279
+#: src/amo/components/Footer/index.js:290
 msgid "Privacy"
 msgstr "Ichinanem"
 
-#: src/amo/components/Footer/index.js:287
+#: src/amo/components/Footer/index.js:298
 msgid "Cookies"
 msgstr "Taq kaxlanwey"
 
-#: src/amo/components/Footer/index.js:295
+#: src/amo/components/Footer/index.js:306
 msgid "Legal"
 msgstr "Ruchojmil tzij"
 
-#: src/amo/components/Footer/index.js:305
+#: src/amo/components/Footer/index.js:316
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1320,7 +1320,7 @@ msgstr ""
 "Firefox xa xe yeruchilab'ej taq k'amal kojqan rub'eyal qajikomal chuqa' "
 "rub'eyal qasamaj"
 
-#: src/amo/components/HomepageShelves/index.js:66
+#: src/amo/components/HomepageShelves/index.js:82
 #, fuzzy
 msgid "See more %(categoryName)s"
 msgstr "Taq ruwäch"
