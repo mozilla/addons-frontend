@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-26 16:08+0000\n"
+"POT-Creation-Date: 2021-11-02 18:11+0000\n"
 "PO-Revision-Date: 2018-06-01 14:56+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -1174,19 +1174,19 @@ msgstr "مرورگر iOS"
 msgid "Products"
 msgstr "بهره‌وری"
 
-#: src/amo/components/Footer/index.js:279
+#: src/amo/components/Footer/index.js:290
 msgid "Privacy"
 msgstr "حریم‌خصوصی"
 
-#: src/amo/components/Footer/index.js:287
+#: src/amo/components/Footer/index.js:298
 msgid "Cookies"
 msgstr "کوکی‌ها"
 
-#: src/amo/components/Footer/index.js:295
+#: src/amo/components/Footer/index.js:306
 msgid "Legal"
 msgstr "حقوقی"
 
-#: src/amo/components/Footer/index.js:305
+#: src/amo/components/Footer/index.js:316
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1346,7 +1346,7 @@ msgid ""
 "performance."
 msgstr ""
 
-#: src/amo/components/HomepageShelves/index.js:66
+#: src/amo/components/HomepageShelves/index.js:82
 #, fuzzy
 msgid "See more %(categoryName)s"
 msgstr "دسته‌بندی‌ها"
