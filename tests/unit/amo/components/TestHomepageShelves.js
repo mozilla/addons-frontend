@@ -4,6 +4,7 @@ import * as React from 'react';
 import {
   HOMESHELVES_ENDPOINT_COLLECTIONS,
   HOMESHELVES_ENDPOINT_SEARCH,
+  HOMESHELVES_ENDPOINT_RANDOM_TAG,
   HomepageShelvesBase,
 } from 'amo/components/HomepageShelves';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
@@ -12,6 +13,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_FEATURED_COLLECTION,
   INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_TAG_SHELF,
 } from 'amo/constants';
 import { createInternalShelf } from 'amo/reducers/home';
 import {
@@ -145,6 +147,21 @@ describe(__filename, () => {
       );
     },
   );
+
+  it('passes addonInstallSource as tag-shelf-{tag} when endpoint is random-tag', () => {
+    const tagName = 'foo';
+    const url = `https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&tag=${tagName}`;
+    const root = render({
+      shelves: [
+        _createShelf({ url, endpoint: HOMESHELVES_ENDPOINT_RANDOM_TAG }),
+      ],
+    });
+
+    expect(root.find(LandingAddonsCard)).toHaveProp(
+      'addonInstallSource',
+      `${INSTALL_SOURCE_TAG_SHELF}${tagName}`,
+    );
+  });
 
   it('passes isHomepageShelf to LandingAddonsCard', () => {
     const root = render({
