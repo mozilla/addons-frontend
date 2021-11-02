@@ -149,18 +149,17 @@ describe(__filename, () => {
   );
 
   it('passes addonInstallSource as tag-shelf-{tag} when endpoint is random-tag', () => {
-    const url =
-      'https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&tag=foo';
+    const tagName = 'foo';
+    const url = `https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&tag=${tagName}`;
     const root = render({
       shelves: [
         _createShelf({ url, endpoint: HOMESHELVES_ENDPOINT_RANDOM_TAG }),
       ],
     });
 
-    const addonInstallSource = `${INSTALL_SOURCE_TAG_SHELF}foo`;
     expect(root.find(LandingAddonsCard)).toHaveProp(
       'addonInstallSource',
-      addonInstallSource,
+      `${INSTALL_SOURCE_TAG_SHELF}${tagName}`,
     );
   });
 
