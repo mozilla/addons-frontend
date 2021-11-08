@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-02 18:11+0000\n"
-"PO-Revision-Date: 2021-11-08 09:03+0000\n"
+"PO-Revision-Date: 2021-11-08 16:40+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -277,11 +277,11 @@ msgstr "Shpërfille këtë mesazh"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
-msgstr ""
+msgstr "Që të merrni %(addonName)s në Firefox për Android, fokusoni kamerën e pajisjes suaj te kodi më sipër, ose kopjoni %(linkStart)skëtë lidhje%(linkEnd)s"
 
 #: src/amo/components/AddonQRCodeLink/index.js:87
 msgid "Also available on Firefox for Android"
-msgstr ""
+msgstr "I gatshëm dhe për Firefox për Android"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -2592,7 +2592,7 @@ msgstr "Mos bëni pohime të rreme, mos përçmoni autorë shtesash ose mos i fy
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Shtesa të etiketuara me %(tag)s"
 
 #: src/amo/pages/UserProfile/index.js:238
 msgid "My reviews"
