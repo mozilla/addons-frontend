@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-02 18:11+0000\n"
-"PO-Revision-Date: 2021-11-08 08:34+0000\n"
+"PO-Revision-Date: 2021-11-08 08:39+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -1399,51 +1399,44 @@ msgid "There are no two-star reviews"
 msgstr "S’ka shqyrtime me dy yje"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Lexoni krejt shqyrtimet me një yll"
-msgstr[1] "Lexoni krejt shqyrtimet me një yll"
+msgstr[0] "Lexoni 1 shqyrtim me një yll"
+msgstr[1] "Lexoni krejt %(total)s shqyrtimet me një yll"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "S’ka shqyrtime"
+msgstr "S’ka shqyrtime me një yll"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "S’ka shqyrtime"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Lexoni krejt shqyrtimet me pesë yje"
-msgstr[1] "Lexoni krejt shqyrtimet me pesë yje"
+msgstr[0] "Lexoni 1 shqyrtim me pesë yje"
+msgstr[1] "Lexoni krejt %(total)s shqyrtimet me pesë yje"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "S’ka shqyrtime"
+msgstr "S’ka shqyrtime me pesë yje"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Lexoni krejt shqyrtimet me katër yje"
-msgstr[1] "Lexoni krejt shqyrtimet me katër yje"
+msgstr[0] "Lexoni 1 shqyrtim me katër yje"
+msgstr[1] "Lexoni krejt %(total)s shqyrtimet me katër yje"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "S’ka shqyrtime"
+msgstr "S’ka shqyrtime me katër yje"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "Lexoni krejt shqyrtimet me tre yje"
-msgstr[1] "Lexoni krejt shqyrtimet me tre yje"
+msgstr[0] "Lexoni 1 shqyrtim me tre yje"
+msgstr[1] "Lexoni krejt %(total)s shqyrtimet me tre yje"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
@@ -1610,11 +1603,10 @@ msgstr[0] "U gjet %(count)s zgjerim për \"%(query)s\""
 msgstr[1] "U gjetën %(count)s zgjerime për \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:113
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "U gjet %(count)s zgjerim te %(categoryName)s"
-msgstr[1] "U gjetën %(count)s zgjerime te %(categoryName)s"
+msgstr[0] "U gjet %(count)s zgjerim me etiketën %(tag)s"
+msgstr[1] "U gjetën %(count)s zgjerime me etiketën %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
@@ -1623,11 +1615,10 @@ msgstr[0] "U gjet %(count)s zgjerim"
 msgstr[1] "U gjetën %(count)s zgjerime"
 
 #: src/amo/components/SearchContextCard/index.js:134
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "U gjet %(count)s temë për \"%(query)s\" te %(categoryName)s"
-msgstr[1] "U gjetën %(count)s tema për \"%(query)s\" te %(categoryName)s"
+msgstr[0] "U gjet %(count)s temë për kërkesën \"%(query)s\" me etiketë %(tag)s te %(categoryName)s"
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
