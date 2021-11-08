@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-02 18:11+0000\n"
-"PO-Revision-Date: 2021-11-08 08:39+0000\n"
+"PO-Revision-Date: 2021-11-08 09:03+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -1617,8 +1617,8 @@ msgstr[1] "U gjetën %(count)s zgjerime"
 #: src/amo/components/SearchContextCard/index.js:134
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "U gjet %(count)s temë për kërkesën \"%(query)s\" me etiketë %(tag)s te %(categoryName)s"
-msgstr[1] ""
+msgstr[0] "U gjet %(count)s temë për “%(query)s” me etiketën %(tag)s te %(categoryName)s"
+msgstr[1] "U gjetën %(count)s tema për “%(query)s” me etiketën %(tag)s te %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -1627,11 +1627,10 @@ msgstr[0] "U gjet %(count)s temë për \"%(query)s\" te %(categoryName)s"
 msgstr[1] "U gjetën %(count)s tema për \"%(query)s\" te %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "U gjet %(count)s temë te %(categoryName)s"
-msgstr[1] "U gjetën %(count)s tema te %(categoryName)s"
+msgstr[0] "U gjet %(count)s temë me etiketën %(tag)s te %(categoryName)s"
+msgstr[1] "U gjetën %(count)s tema me etiketën %(tag)s te %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
@@ -1640,11 +1639,10 @@ msgstr[0] "U gjet %(count)s temë te %(categoryName)s"
 msgstr[1] "U gjetën %(count)s tema te %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:170
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "U gjet %(count)s temë për \"%(query)s\" te %(categoryName)s"
-msgstr[1] "U gjetën %(count)s tema për \"%(query)s\" te %(categoryName)s"
+msgstr[0] "U gjet %(count)s temë për “%(query)s” me etiketën %(tag)s"
+msgstr[1] "U gjetën %(count)s tema për “%(query)s” me etiketën %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1653,11 +1651,10 @@ msgstr[0] "U gjet %(count)s temë për \"%(query)s\""
 msgstr[1] "U gjetën %(count)s tema për \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:188
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] "U gjet %(count)s temë te %(categoryName)s"
-msgstr[1] "U gjetën %(count)s tema te %(categoryName)s"
+msgstr[0] "U gjet %(count)s temë me etiketën %(tag)s"
+msgstr[1] "U gjetën %(count)s tema me etiketën %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
@@ -1666,11 +1663,10 @@ msgstr[0] "U gjet %(count)s temë"
 msgstr[1] "U gjetën %(count)s tema"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "U gjet %(count)s përfundim për \"%(query)s\""
-msgstr[1] "U gjetën %(count)s përfundime për \"%(query)s\""
+msgstr[0] "U gjet %(count)s përfundim për “%(query)s” me etiketën %(tag)s"
+msgstr[1] "U gjetën %(count)s përfundime për “%(query)s” me etiketën %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -1679,11 +1675,10 @@ msgstr[0] "U gjet %(count)s përfundim për \"%(query)s\""
 msgstr[1] "U gjetën %(count)s përfundime për \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:227
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "U gjet %(count)s përfundim për \"%(query)s\""
-msgstr[1] "U gjetën %(count)s përfundime për \"%(query)s\""
+msgstr[0] "U gjet %(count)s përfundim me etiketën %(tag)s"
+msgstr[1] "U gjetën %(count)s përfundime me etiketën %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
@@ -1700,11 +1695,10 @@ msgid "Searching for add-ons"
 msgstr "Po kërkohet për shtesa"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "U gjet %(count)s zgjerim për \"%(query)s\" te %(categoryName)s"
-msgstr[1] "U gjetën %(count)s zgjerime për \"%(query)s\" te %(categoryName)s"
+msgstr[0] "U gjet %(count)s zgjerim për “%(query)s” me etiketën %(tag)s te %(categoryName)s"
+msgstr[1] "U gjetën %(count)s zgjerime për “%(query)s” me etiketën %(tag)s te %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -1713,11 +1707,10 @@ msgstr[0] "U gjet %(count)s zgjerim për \"%(query)s\" te %(categoryName)s"
 msgstr[1] "U gjetën %(count)s zgjerime për \"%(query)s\" te %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "U gjet %(count)s zgjerim te %(categoryName)s"
-msgstr[1] "U gjetën %(count)s zgjerime te %(categoryName)s"
+msgstr[0] "U gjet %(count)s zgjerim me etiketën %(tag)s te %(categoryName)s"
+msgstr[1] "U gjetën %(count)s zgjerime me etiketën %(tag)s te %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
