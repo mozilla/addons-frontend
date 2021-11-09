@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-02 18:11+0000\n"
-"PO-Revision-Date: 2021-11-08 16:40+0000\n"
+"PO-Revision-Date: 2021-11-09 17:39+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -1719,11 +1719,10 @@ msgstr[0] "U gjet %(count)s zgjerim te %(categoryName)s"
 msgstr[1] "U gjetën %(count)s zgjerime te %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:95
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "U gjet %(count)s zgjerim për \"%(query)s\" te %(categoryName)s"
-msgstr[1] "U gjetën %(count)s zgjerime për \"%(query)s\" te %(categoryName)s"
+msgstr[0] "U gjet %(count)s zgjerim për \"%(query)s\" me etiketën %(tag)s"
+msgstr[1] "U gjetën %(count)s zgjerime për \"%(query)s\" me etiketën %(tag)s"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "All"
