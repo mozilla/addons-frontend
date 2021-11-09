@@ -9,7 +9,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_FEATURED_COLLECTION,
-  INSTALL_SOURCE_TAG_SHELF,
+  INSTALL_SOURCE_TAG_SHELF_PREFIX,
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
@@ -67,14 +67,7 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
     );
   } else {
     shelvesContent = shelves.map((shelf) => {
-      const {
-        addons,
-        addonType,
-        endpoint,
-        footer,
-        title,
-        url: api_url,
-      } = shelf;
+      const { addons, addonType, endpoint, footer, title, url: apiUrl } = shelf;
       const shelfKey = title.replace(/\s/g, '-');
 
       const footerText = footer.text
@@ -90,8 +83,8 @@ export const HomepageShelvesBase = (props: InternalProps): React.Node => {
           break;
 
         case HOMESHELVES_ENDPOINT_RANDOM_TAG:
-          addonInstallSource = `${INSTALL_SOURCE_TAG_SHELF}${getTagFromUrl(
-            api_url,
+          addonInstallSource = `${INSTALL_SOURCE_TAG_SHELF_PREFIX}${getTagFromUrl(
+            apiUrl,
           )}`;
           break;
 
