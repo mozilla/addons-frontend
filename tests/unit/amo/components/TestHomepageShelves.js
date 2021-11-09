@@ -13,7 +13,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_FEATURED_COLLECTION,
   INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_TAG_SHELF,
+  INSTALL_SOURCE_TAG_SHELF_PREFIX,
 } from 'amo/constants';
 import { createInternalShelf } from 'amo/reducers/home';
 import {
@@ -159,7 +159,7 @@ describe(__filename, () => {
 
     expect(root.find(LandingAddonsCard)).toHaveProp(
       'addonInstallSource',
-      `${INSTALL_SOURCE_TAG_SHELF}${tagName}`,
+      `${INSTALL_SOURCE_TAG_SHELF_PREFIX}${tagName}`,
     );
   });
 
