@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-02 18:11+0000\n"
-"PO-Revision-Date: 2021-11-10 18:33+0000\n"
+"PO-Revision-Date: 2021-11-10 21:31+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1394,8 +1394,8 @@ msgstr "Ulac iceggiren n sin yitran"
 #: src/amo/components/RatingsByStar/index.js:123
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Ɣeṛ 1 uceggir n yiwen n yitri"
-msgstr[1] ""
+msgstr[0] "Ɣeṛ 1 uceggir s yiwen n yitri"
+msgstr[1] "Ɣer meṛṛa %(total)s yiceggiren s yiwen n yitri"
 
 #: src/amo/components/RatingsByStar/index.js:133
 msgid "There are no one-star reviews"
@@ -1409,7 +1409,7 @@ msgstr "Ulac iceggiren akka tura"
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
 msgstr[0] "Ɣeṛ 1 uceggir s semmus yitran"
-msgstr[1] ""
+msgstr[1] "Ɣer meṛṛa %(total)s yiceggiren s semmus n yitran"
 
 #: src/amo/components/RatingsByStar/index.js:73
 msgid "There are no five-star reviews"
