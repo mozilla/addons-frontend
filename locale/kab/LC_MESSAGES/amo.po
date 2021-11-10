@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-02 18:11+0000\n"
-"PO-Revision-Date: 2021-11-10 17:53+0000\n"
+"PO-Revision-Date: 2021-11-10 18:06+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1382,56 +1382,48 @@ msgid "There are no three-star reviews"
 msgstr "Ulac iceggiren s kraḍ yitran"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Ɣer meṛṛa tikta n sin n yitran"
-msgstr[1] "Ɣer meṛṛa tikta n sin n yitran"
+msgstr[0] "Ɣeṛ 1 uceggir n sin n yitran"
+msgstr[1] "Ɣeṛ meṛṛa %(total)s tikta n sin n yitran"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Ulac iceggiren akka tura"
+msgstr "Ulac iceggiren n sin yitran"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Ɣer meṛṛa tikta n yiwen n yitri"
-msgstr[1] "Ɣer meṛṛa tikta n yiwen n yitri"
+msgstr[0] "Ɣeṛ 1 uceggir n yiwen n yitri"
+msgstr[1] ""
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Ulac iceggiren akka tura"
+msgstr "Ulac iceggiren s yiwen yitri"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "Ulac iceggiren akka tura"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Ɣer meṛṛa tikta n xemsa n yitran"
-msgstr[1] "Ɣer meṛṛa tikta n xemsa n yitran"
+msgstr[0] "Ɣeṛ 1 uceggir s semmus yitran"
+msgstr[1] ""
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Ulac iceggiren akka tura"
+msgstr "Ulac iceggiren akk s semmus yitran"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Ɣer meṛṛa tikta n kuẓ n yitran"
-msgstr[1] "Ɣer meṛṛa tikta n kuẓ n yitran"
+msgstr[0] "Ɣeṛ 1 uceggir s ukkuẓ yitran"
+msgstr[1] "Ɣeṛ  meṛṛa %(total)s yiceggiren s ukkuẓ yitran"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Ulac iceggiren akka tura"
+msgstr "Ulac akk iceggiren s ukkuẓ yitran"
 
 #: src/amo/components/RatingsByStar/index.js:93
 #, fuzzy
