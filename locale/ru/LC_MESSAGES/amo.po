@@ -1039,9 +1039,8 @@ msgid "About"
 msgstr "О сайте"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
-#, fuzzy
 msgid "Firefox Add-ons Blog"
-msgstr "Дополнения для Firefox"
+msgstr "Блог дополнений для Firefox"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
@@ -1445,7 +1444,7 @@ msgstr "Отзывов с оценкой 4 пока нет"
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "Прочитать %(total)s отзыв с оценкой 3"
-msgstr[1] ""
+msgstr[1] "Прочитать %(total)s отзыва с оценкой 3"
 msgstr[2] "Прочитать %(total)s отзывов с оценкой 3"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
