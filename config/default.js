@@ -396,8 +396,8 @@ module.exports = {
 
   // The amount of time (in seconds) that an auth token lives for.
   // This needs to match the SESSION_COOKIE_AGE in addons-server:
-  // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L990
-  authTokenValidFor: 2592000, // 30 days
+  // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L954
+  authTokenValidFor: 432000, // 5 days
 
   // This is the public Mozilla user ID (similar to TASK_USER_ID in
   // addons-server).
