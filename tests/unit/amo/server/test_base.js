@@ -507,6 +507,23 @@ describe(__filename, () => {
       );
     });
 
+    it('catches a URIError from _createHistory and returns a 404', async () => {
+      const _log = getFakeLogger();
+      const _createHistory = () => {
+        throw new URIError('oops');
+      };
+
+      const response = await testClient({ _createHistory, _log }).get(
+        '/en-US/firefox/',
+      );
+      expect(response.statusCode).toEqual(404);
+
+      sinon.assert.calledWith(
+        _log.error,
+        sinon.match(/Caught an error during createHistory: URIError: oops/),
+      );
+    });
+
     it('handles requests slightly differently when loaded page is anonymous', async () => {
       const url = '/en-US/firefox/';
       const config = getFakeConfig({ anonymousPagePatterns: [url] });

@@ -254,7 +254,24 @@ function baseServer(
       // banners depending on the user-agent.
       res.vary('User-Agent');
 
-      const history = _createHistory({ req });
+      let history;
+
+      try {
+        history = _createHistory({ req });
+      } catch (error) {
+        // See https://github.com/mozilla/addons-frontend/issues/10061
+        if (error instanceof URIError) {
+          _log.error(`Caught an error during createHistory: ${error}`);
+          return res
+            .status(404)
+            .send(
+              `<!DOCTYPE html>\nWe're sorry, we were unable to parse the request URL: ${error}`,
+            )
+            .end();
+        }
+        throw error;
+      }
+
       const { sagaMiddleware, store } = createStore({ history });
 
       let pageProps;
