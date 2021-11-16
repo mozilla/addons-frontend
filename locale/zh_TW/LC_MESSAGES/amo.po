@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-02 18:11+0000\n"
+"POT-Creation-Date: 2021-11-16 17:23+0000\n"
 "PO-Revision-Date: 2021-10-27 00:22+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -1245,7 +1245,7 @@ msgid ""
 "performance."
 msgstr "Firefox 僅推薦符合我們的安全性與運作效能標準的擴充套件。"
 
-#: src/amo/components/HomepageShelves/index.js:82
+#: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
 msgstr "看更多%(categoryName)s"
 

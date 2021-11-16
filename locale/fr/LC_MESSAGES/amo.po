@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-02 18:11+0000\n"
+"POT-Creation-Date: 2021-11-16 17:23+0000\n"
 "PO-Revision-Date: 2021-10-26 17:36+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
@@ -1296,7 +1296,7 @@ msgstr ""
 "Firefox ne recommande que des extensions conformes à nos normes en matière "
 "de sécurité et de performances."
 
-#: src/amo/components/HomepageShelves/index.js:82
+#: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
 msgstr "Voir plus de %(categoryName)s"
 

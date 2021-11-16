@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-02 18:11+0000\n"
+"POT-Creation-Date: 2021-11-16 17:23+0000\n"
 "PO-Revision-Date: 2021-10-26 19:09+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
@@ -1283,7 +1283,7 @@ msgstr ""
 "O Firefox só recomenda extensões que atendem nossos padrões de segurança e "
 "desempenho."
 
-#: src/amo/components/HomepageShelves/index.js:82
+#: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
 msgstr "Mais %(categoryName)s"
 
