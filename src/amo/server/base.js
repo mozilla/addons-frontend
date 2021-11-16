@@ -259,6 +259,7 @@ function baseServer(
       try {
         history = _createHistory({ req });
       } catch (error) {
+        // See https://github.com/mozilla/addons-frontend/issues/10061
         if (error instanceof URIError) {
           _log.error(`Caught an error during createHistory: ${error}`);
           return res
