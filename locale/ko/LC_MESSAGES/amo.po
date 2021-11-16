@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-02 18:11+0000\n"
+"POT-Creation-Date: 2021-11-16 17:23+0000\n"
 "PO-Revision-Date: 2021-08-31 22:01+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -1263,7 +1263,7 @@ msgid ""
 "performance."
 msgstr "Firefox는 보안 및 성능 표준을 충족하는 확장 기능만 추천합니다."
 
-#: src/amo/components/HomepageShelves/index.js:82
+#: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
 msgstr "%(categoryName)s 자세히 보기"
 
