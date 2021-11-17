@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-16 17:23+0000\n"
-"PO-Revision-Date: 2021-11-17 07:33+0000\n"
+"PO-Revision-Date: 2021-11-17 07:43+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1061,9 +1061,8 @@ msgid "Download the new Firefox and get the theme"
 msgstr "Last ned nye Firefox og få temaet"
 
 #: src/amo/components/GetFirefoxButton/index.js:138
-#, fuzzy
 msgid "Download the new Firefox and get the extension"
-msgstr "Last ned Firefox og få utvidinga"
+msgstr "Last ned nye Firefox og få utvidinga"
 
 #: src/amo/components/GetFirefoxButton/index.js:142
 msgid "Download Firefox"
@@ -1078,14 +1077,12 @@ msgid "You'll need Firefox to use this extension"
 msgstr "Du treng Firefox for å bruke denne utvidinga"
 
 #: src/amo/components/GetFirefoxButton/index.js:150
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "Du treng Firefox for å bruke dette temaet"
+msgstr "Du treng ein oppdatert versjon av Firefox for å bruke dette temaet"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "Du treng Firefox for å bruke denne utvidinga"
+msgstr "Du treng ein oppdatert versjon av Firefox for å bruke denne utvidinga"
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
@@ -1386,16 +1383,14 @@ msgid "Star rating saved"
 msgstr "Stjernevurdering lagra"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
-msgstr "Det finst ingen vurderingar"
+msgstr "Det finst ingen tre-stjerners vurderingar"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Les alle vurderingar med fire stjerner"
-msgstr[1] "Les alle vurderingar med fire stjerner"
+msgstr[0] "Les vurderinga med to stjerner"
+msgstr[1] "Les alle %(total)s tostjerners-vurderingar"
 
 #: src/amo/components/RatingsByStar/index.js:118
 #, fuzzy
