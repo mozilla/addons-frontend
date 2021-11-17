@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-16 17:23+0000\n"
-"PO-Revision-Date: 2021-11-17 07:43+0000\n"
+"PO-Revision-Date: 2021-11-17 11:24+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1393,9 +1393,8 @@ msgstr[0] "Les vurderinga med to stjerner"
 msgstr[1] "Les alle %(total)s tostjerners-vurderingar"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Det finst ingen vurderingar"
+msgstr "Det finst ingen to-stjerners vurderingar"
 
 #: src/amo/components/RatingsByStar/index.js:123
 #, fuzzy
