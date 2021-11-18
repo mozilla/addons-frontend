@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-16 17:23+0000\n"
-"PO-Revision-Date: 2021-11-18 11:18+0000\n"
+"PO-Revision-Date: 2021-11-18 11:46+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1476,7 +1476,7 @@ msgstr "Fuortsmite"
 
 #: src/amo/components/ReportAbuseButton/index.js:212
 msgid "Explain how this add-on is violating our policies."
-msgstr "Lis út hoe't dizze add-on yn striid is mei ús belied."
+msgstr "Lis út hoe’t dizze add-on yn striid is mei ús belied."
 
 #: src/amo/components/ReportUserAbuse/index.js:105 src/amo/components/ReportUserAbuse/index.js:112
 msgid "Report this user for abuse"
@@ -1492,7 +1492,7 @@ msgstr "Brûk dit formulier net om flaters te melden of kontakt op te nimmen mei
 
 #: src/amo/components/ReportUserAbuse/index.js:147
 msgid "Explain how this user is violating our policies."
-msgstr "Lis út hoe't dizze brûker yn striid is mei ús belied."
+msgstr "Lis út hoe’t dizze brûker yn striid is mei ús belied."
 
 #: src/amo/components/ReportUserAbuse/index.js:159
 msgid "You reported this user for abuse"
@@ -2267,7 +2267,7 @@ msgstr "Mear heechst wurdearre tema’s"
 
 #: src/amo/pages/LandingPage/index.js:207
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr "Download tema’s om te wizigjen hoe't Firefox derút sjocht. Pas jo ûnderfining nei jo smaak oan. Skattige bisten, kwea-aardige robots, prachtige lânskippen — der binne tûzenen opsjes."
+msgstr "Download tema’s om te wizigjen hoe’t Firefox derút sjocht. Pas jo ûnderfining nei jo smaak oan. Skattige bisten, kwea-aardige robots, prachtige lânskippen — der binne tûzenen opsjes."
 
 #: src/amo/pages/LandingPage/index.js:212
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
@@ -2384,7 +2384,7 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"As jo mear witte wolle oer hoe't jo add-ons yn Firefox beheare, of op syk binne nei algemiene stipe foar Firefox, besykje dan %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. As jo dêr gjin antwurd "
+"As jo mear witte wolle oer hoe’t jo add-ons yn Firefox beheare, of op syk binne nei algemiene stipe foar Firefox, besykje dan %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. As jo dêr gjin antwurd "
 "fine, dan kinne jo jo %(startForumLink)sfraach stelle op ús mienskipsfoarum%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:258
