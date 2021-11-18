@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-16 17:23+0000\n"
-"PO-Revision-Date: 2021-11-18 11:09+0000\n"
+"PO-Revision-Date: 2021-11-18 11:18+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -834,7 +834,7 @@ msgstr "Sorry, mar wy kinne neat op de ynfierde URL fine."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr "As jo oanmeld binne en tinke dat dizze melding ûnterjochte is, <a href=\"%(url)s\">meld dan in probleem</a>. Fertel ús wêr't jo wei kamen en wat jo probearre te iepenjen, en wy sille it ferhelpe."
+msgstr "As jo oanmeld binne en tinke dat dizze melding ûnterjochte is, <a href=\"%(url)s\">meld dan in probleem</a>. Fertel ús wêr’t jo wei kamen en wat jo probearre te iepenjen, en wy sille it ferhelpe."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
@@ -1512,7 +1512,7 @@ msgstr "Oanrekommandearre tafoegingen"
 
 #: src/amo/components/Search/index.js:149 src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
-msgstr "Oanrekommandearre tema's"
+msgstr "Oanrekommandearre tema’s"
 
 #: src/amo/components/Search/index.js:152
 msgid "Recommended add-ons"
@@ -1524,7 +1524,7 @@ msgstr "Utwreidingen fan Firefox"
 
 #: src/amo/components/Search/index.js:160
 msgid "Themes by Firefox"
-msgstr "Tema's fan Firefox"
+msgstr "Tema’s fan Firefox"
 
 #: src/amo/components/Search/index.js:163
 msgid "Add-ons by Firefox"
@@ -1560,7 +1560,7 @@ msgstr "Oanrekommandearre útwreidingen"
 
 #: src/amo/components/Search/index.js:196 src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
-msgstr "Oanrekommandearre tema's"
+msgstr "Oanrekommandearre tema’s"
 
 #: src/amo/components/Search/index.js:199
 msgid "Trending add-ons"
@@ -1572,7 +1572,7 @@ msgstr "Heechst wurdearre útwreidingen"
 
 #: src/amo/components/Search/index.js:208 src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
-msgstr "Heechst wurdearre tema's"
+msgstr "Heechst wurdearre tema’s"
 
 #: src/amo/components/Search/index.js:211
 msgid "Top rated add-ons"
@@ -1584,7 +1584,7 @@ msgstr "Populêre útwreidingen"
 
 #: src/amo/components/Search/index.js:220
 msgid "Popular themes"
-msgstr "Populêre tema's"
+msgstr "Populêre tema’s"
 
 #: src/amo/components/Search/index.js:223
 msgid "Popular add-ons"
@@ -1616,49 +1616,49 @@ msgstr[1] "%(count)s útwreidingen fûn"
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgstr[0] "%(count)s tema foar ‘%(query)s’ mei label %(tag)s fûn yn %(categoryName)s"
-msgstr[1] "%(count)s tema's foar ‘%(query)s’ mei label %(tag)s fûn yn %(categoryName)s"
+msgstr[1] "%(count)s tema’s foar ‘%(query)s’ mei label %(tag)s fûn yn %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s tema foar ‘%(query)s’ fûn yn %(categoryName)s"
-msgstr[1] "%(count)s tema's foar ‘%(query)s’ fûn yn %(categoryName)s"
+msgstr[1] "%(count)s tema’s foar ‘%(query)s’ fûn yn %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
 msgstr[0] "%(count)s tema mei label %(tag)s fûn yn %(categoryName)s"
-msgstr[1] "%(count)s tema's mei label %(tag)s fûn yn %(categoryName)s"
+msgstr[1] "%(count)s tema’s mei label %(tag)s fûn yn %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "%(count)s tema fûn yn %(categoryName)s"
-msgstr[1] "%(count)s tema's fûn yn %(categoryName)s"
+msgstr[1] "%(count)s tema’s fûn yn %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
 msgstr[0] "%(count)s tema foar ‘%(query)s’ mei label %(tag)s fûn"
-msgstr[1] "%(count)s tema's foar ‘%(query)s’ mei label %(tag)s fûn"
+msgstr[1] "%(count)s tema’s foar ‘%(query)s’ mei label %(tag)s fûn"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s tema foar ‘%(query)s’ fûn"
-msgstr[1] "%(count)s tema's foar ‘%(query)s’ fûn"
+msgstr[1] "%(count)s tema’s foar ‘%(query)s’ fûn"
 
 #: src/amo/components/SearchContextCard/index.js:188
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
 msgstr[0] "%(count)s tema fûn mei label %(tag)s"
-msgstr[1] "%(count)s tema's fûn mei label %(tag)s"
+msgstr[1] "%(count)s tema’s fûn mei label %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "%(count)s tema fûn"
-msgstr[1] "%(count)s tema's fûn"
+msgstr[1] "%(count)s tema’s fûn"
 
 #: src/amo/components/SearchContextCard/index.js:209
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
@@ -1822,7 +1822,7 @@ msgstr "Utwreidingen"
 
 #: src/amo/components/SectionLinks/index.js:130 src/amo/pages/CategoryPage/index.js:60 src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
-msgstr "Tema's"
+msgstr "Tema’s"
 
 #: src/amo/components/SectionLinks/index.js:136
 msgid "More…"
@@ -1878,7 +1878,7 @@ msgstr "Alle útwreidingen besjen"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr "Alle tema's besjen"
+msgstr "Alle tema’s besjen"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
@@ -2171,7 +2171,7 @@ msgstr "Meld jo oan om dizze kolleksje te bewurkjen"
 
 #: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "Meitsje jo earste kolleksje. Dêrnei kinne jo der add-ons en tema's oan tafoegje."
+msgstr "Meitsje jo earste kolleksje. Dêrnei kinne jo der add-ons en tema’s oan tafoegje."
 
 #: src/amo/pages/Collection/index.js:459
 msgid "Search for extensions and themes to add to your collection."
@@ -2263,7 +2263,7 @@ msgstr "Mear oanrekommandearre tema’s"
 
 #: src/amo/pages/LandingPage/index.js:183
 msgid "See more top rated themes"
-msgstr "Mear heechst wurdearre tema's"
+msgstr "Mear heechst wurdearre tema’s"
 
 #: src/amo/pages/LandingPage/index.js:207
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2277,7 +2277,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Wizigje it uterlik fan jo browser. Kies út tûzenen tema's om Firefox oan te klaaien sa as jo wolle."
+msgstr "Wizigje it uterlik fan jo browser. Kies út tûzenen tema’s om Firefox oan te klaaien sa as jo wolle."
 
 #: src/amo/pages/LandingPage/index.js:236
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
