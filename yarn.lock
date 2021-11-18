@@ -12561,10 +12561,10 @@ typescript@4.5.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.2.tgz#8ac1fba9f52256fdb06fb89e4122fa6a346c2998"
   integrity sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw==
 
-ua-parser-js@0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.8.1.tgz#aa3fea52565c5e36cd84ad5a47497e8f2abadc9a"
-  integrity sha512-top37bpoaHp+wJBAqjm5KNz7qNfSZ/tmHEisuMMK5uzjdIo/L6uWovDFuYboO+q8EMz1f67exTnd+OPYESuu8Q==
+ua-parser-js@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-1.0.2.tgz#e2976c34dbfb30b15d2c300b2a53eac87c57a775"
+  integrity sha512-00y/AXhx0/SsnI51fTc0rLRmafiGOM4/O+ny10Ps7f+j/b8p/ZY11ytMgznXkOVo4GQ+KwQG5UQLkLGirsACRg==
 
 uglify-js@^2.7.0:
   version "2.8.29"
