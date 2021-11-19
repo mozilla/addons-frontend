@@ -309,7 +309,10 @@ describe(__filename, () => {
   it('does not prefix a non-custom license link to point to AMO', () => {
     // See: https://github.com/mozilla/addons-frontend/issues/3339
     _loadVersions({
-      license: { name: 'tofulicense', url: 'www.license.com/' },
+      license: {
+        name: createLocalizedString('tofulicense'),
+        url: 'www.license.com/',
+      },
     });
     const root = render();
     const link = root.find('.AddonMoreInfo-license-link');
@@ -813,7 +816,7 @@ describe(__filename, () => {
       _loadVersions({
         license: {
           is_custom: true,
-          name: 'tofulicense',
+          name: createLocalizedString('tofulicense'),
           url: 'www.license.com',
         },
       });

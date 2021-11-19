@@ -130,7 +130,7 @@ describe(__filename, () => {
     const root = render({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
-        name: '<script>alert(document.cookie);</script>',
+        name: createLocalizedString('<script>alert(document.cookie);</script>'),
         authors: [],
       }),
     });
