@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .LandingPage {
-  @include page-padding();
+  @include page-padding;
 }
 
 .LandingPage--theme {
@@ -36,7 +36,7 @@
 }
 
 .LandingPage-addonType-name {
-  @include font-bold();
+  @include font-bold;
 
   font-size: $font-size-heading-s;
   margin: 0 0 6px;
@@ -48,7 +48,7 @@
 }
 
 .LandingPage-heading-content {
-  @include font-regular();
+  @include font-regular;
 
   font-size: $font-size-s;
   margin: 0;

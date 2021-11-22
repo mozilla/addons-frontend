@@ -23,14 +23,14 @@ $callout-color: $yellow-50;
   color: $grey-90;
   display: flex;
   justify-content: center;
-  margin: 16px 0 16px 0;
+  margin: 16px 0;
   padding: 10px;
   position: relative;
   text-align: center;
   width: 100%;
 
   @include respond-to(medium) {
-    margin: 16px auto 16px auto;
+    margin: 16px auto;
     width: fit-content;
   }
 
@@ -51,7 +51,7 @@ $callout-color: $yellow-50;
 
   background-image: url('../Notice/img/generic-info-mark.svg');
   height: 16px;
-  margin: 2px 0 0 0;
+  margin: 2px 0 0;
   min-width: 16px;
   width: 16px;
 }

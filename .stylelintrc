@@ -1,49 +1,78 @@
 {
   "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-suitcss"
+    "stylelint-config-suitcss",
+    "stylelint-config-standard-scss"
   ],
   "rules": {
-    "at-rule-empty-line-before": ["always", {
-      "ignore": [
-        "after-comment",
-        "blockless-after-same-name-blockless",
-        "inside-block",
-      ],
-    }],
-    "at-rule-no-unknown": [true, {
-      "ignoreAtRules": [
-        "content",
-        "each",
-        "else",
-        "for",
-        "function",
-        "if",
-        "include",
-        "mixin",
-        "return",
-        "warn",
-      ],
-    }],
-    "block-closing-brace-newline-after": ["always", {
-      "ignoreAtRules": ["if", "else"],
-    }],
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "ignore": [
+          "after-comment",
+          "blockless-after-same-name-blockless",
+          "inside-block",
+        ],
+      }
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "content",
+          "each",
+          "else",
+          "for",
+          "function",
+          "if",
+          "include",
+          "mixin",
+          "return",
+          "warn",
+        ],
+      }
+    ],
+    "block-closing-brace-newline-after": [
+      "always",
+      {
+        "ignoreAtRules": [
+          "if",
+          "else"
+        ],
+      }
+    ],
+    "color-function-notation": null,
     "declaration-colon-newline-after": null,
-    "function-disallowed-list": ["random"],
-    "function-url-quotes": ["always"],
+    "function-disallowed-list": [
+      "random"
+    ],
+    "function-url-quotes": [
+      "always"
+    ],
     "indentation": null,
-    "max-nesting-depth": [3, {
-      "ignore": ["blockless-at-rules"],
-    }],
+    "max-nesting-depth": [
+      3,
+      {
+        "ignore": [
+          "blockless-at-rules"
+        ],
+      }
+    ],
     "no-descending-specificity": null,
-    "rule-empty-line-before": ["always", {
-      "except": [
-        "first-nested"
-      ],
-      "ignore": [
-        "after-comment"
-      ]
-    }],
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
+      }
+    ],
+    "scss/dollar-variable-pattern": null,
+    "scss/no-global-function-names": null,
+    "selector-class-pattern": "^([a-zA-Z][a-zA-Z0-9]*)([-[a-zA-Z0-9]+|--[a-zA-Z0-9]+])*$",
+    "selector-id-pattern": "^([a-zA-Z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$",
     "string-quotes": null,
     "value-keyword-case": null,
     "value-list-comma-newline-after": null,

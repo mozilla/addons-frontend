@@ -3,9 +3,9 @@
 $footer-padding: 10px;
 
 .Card-header {
-  @include addonSection();
-  @include font-bold();
-  @include text-align-start();
+  @include addon-section;
+  @include font-bold;
+  @include text-align-start;
 
   border-top-left-radius: $border-radius-default;
   border-top-right-radius: $border-radius-default;
@@ -15,7 +15,7 @@ $footer-padding: 10px;
 }
 
 .Card-contents {
-  @include addonSection();
+  @include addon-section;
 
   font-size: $font-size-s;
   margin: 0;
@@ -43,7 +43,7 @@ $footer-padding: 10px;
 }
 
 .Card-footer {
-  @include addonSection();
+  @include addon-section;
 
   border-bottom-left-radius: $border-radius-default;
   border-bottom-right-radius: $border-radius-default;

@@ -1,4 +1,5 @@
 @import '~amo/css/styles';
+
 $icon-large: 64px;
 $icon-medium: 19px;
 $icon-small: 13px;
@@ -48,7 +49,7 @@ $icon-small: 13px;
   }
 }
 
-@keyframes pulseOpaqueRatingStars {
+@keyframes pulse-opaque-rating-stars {
   0%,
   100% {
     opacity: 0.2;
@@ -60,7 +61,7 @@ $icon-small: 13px;
 }
 
 // Since dim stars are already dim, set the opacity higher.
-@keyframes pulseDimRatingStars {
+@keyframes pulse-dim-rating-stars {
   0%,
   100% {
     opacity: 0.5;
@@ -86,7 +87,7 @@ $icon-small: 13px;
   }
 
   .Rating--loading & {
-    animation: pulseDimRatingStars 1s infinite;
+    animation: pulse-dim-rating-stars 1s infinite;
   }
 }
 
@@ -96,10 +97,9 @@ $icon-small: 13px;
   }
 
   &.Rating.Rating--loading .Rating-star {
-    animation-name: pulseOpaqueRatingStars;
     // Ensure editable rating stars always render as open stars while
     // loading, even if some are selected (e.g. while hovering).
-
+    animation-name: pulse-opaque-rating-stars;
     cursor: initial;
   }
 }

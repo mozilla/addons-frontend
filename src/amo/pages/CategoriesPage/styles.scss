@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .CategoriesPage {
-  @include page-padding();
+  @include page-padding;
 
   .Categories-item {
     display: block;

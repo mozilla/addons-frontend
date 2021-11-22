@@ -8,7 +8,7 @@
 
 .DropdownMenuItem-link a,
 .DropdownMenuItem-link button {
-  @include font-medium();
+  @include font-medium;
 
   &,
   &:link {
@@ -34,7 +34,7 @@
 .DropdownMenuItem--disabled {
   &,
   & button {
-    @include disabled();
+    @include disabled;
 
     // We override the opacity because the default value in the `disabled()`
     // mixin makes the text hard to read.

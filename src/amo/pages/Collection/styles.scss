@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .Collection {
-  @include page-padding();
+  @include page-padding;
 }
 
 .Collection-login {

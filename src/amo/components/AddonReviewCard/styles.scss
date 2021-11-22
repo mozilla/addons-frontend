@@ -126,7 +126,7 @@
 
   .ShowMoreCard-contents::after {
     background: linear-gradient(
-      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0%),
       $showmorecard-gradient-color
     );
   }
@@ -215,7 +215,7 @@
     padding: 12px;
 
     @include respond-to(medium) {
-      padding: 12px 24px 12px 24px;
+      padding: 12px 24px;
     }
 
     footer {
@@ -228,8 +228,7 @@
 .AddonReviewCard:not(.AddonReviewCard-slim)
   .AddonReviewCard-confirmDeleteDialog {
   /* stylelint-enable */
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
 
   .Button.ConfirmationDialog-cancel-button {
     @include margin-start(6px);

@@ -4,8 +4,7 @@
 .AddonReviewManagerRating {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
 
   .Rating {
     height: 36px;

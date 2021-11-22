@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .Addon {
-  @include page-padding();
+  @include page-padding;
 
   .Addon-summary-and-install-button-wrapper {
     .AMInstallButton {
@@ -151,10 +151,12 @@
 
     .Addon-main-content {
       grid-column: 2;
+
       // This span makes sure the left widget does not move vertically when
       // there is a long description.
 
       grid-row: 1 / span 100000;
+
       // Fixes screenshot overflow in FF 52 ESR.
       max-width: 100%;
       overflow-x: hidden;
@@ -187,7 +189,7 @@
 }
 
 .Addon-WrongPlatformWarning {
-  margin: 12px 0 0 0;
+  margin: 12px 0 0;
   padding-left: 0;
   padding-right: 0;
 

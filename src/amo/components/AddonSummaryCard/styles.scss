@@ -40,7 +40,7 @@
   min-width: 50%;
 
   .AddonTitle {
-    @include font-bold();
+    @include font-bold;
 
     font-size: $font-size-l;
     line-height: $line-height-body;
@@ -54,7 +54,7 @@
     }
 
     .AddonTitle-author {
-      @include font-bold();
+      @include font-bold;
 
       font-size: $font-size-l;
       margin: 0;

@@ -37,7 +37,7 @@ $picture-size: 128px;
 
   .UserProfileEditPicture-file--has-focus {
     .Button {
-      @include focus();
+      @include focus;
     }
 
     // See: https://github.com/WICG/focus-visible

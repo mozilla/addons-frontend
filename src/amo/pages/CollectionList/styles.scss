@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .CollectionList {
-  @include page-padding();
+  @include page-padding;
 
   .Card-contents {
     background: $white;

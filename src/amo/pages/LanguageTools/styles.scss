@@ -3,7 +3,7 @@
 $cell-padding: 6px;
 
 .LanguageTools {
-  @include page-padding();
+  @include page-padding;
 }
 
 .LanguageTools-table {
@@ -15,7 +15,7 @@ $cell-padding: 6px;
 }
 
 .LanguageTools-header-cell {
-  @include text-align-start();
+  @include text-align-start;
 
   font-size: $font-size-l;
 }

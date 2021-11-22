@@ -2,6 +2,7 @@
 
 .AppBanner {
   padding: $padding-page;
+
   // When the div contains no child
   &:empty {
     padding: 0;

@@ -20,7 +20,7 @@
 }
 
 .UserCollection-name {
-  @include font-bold();
+  @include font-bold;
 
   color: $black;
   flex-grow: 1;
@@ -40,7 +40,7 @@
 }
 
 .UserCollection-number {
-  @include font-light();
+  @include font-light;
 
   color: $grey-50;
   font-size: $font-size-default;

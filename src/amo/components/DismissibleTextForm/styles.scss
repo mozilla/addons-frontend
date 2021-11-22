@@ -29,10 +29,12 @@
 
 .DismissibleTextForm-textarea {
   margin: 0 auto;
+
   // The max height ensures that the textarea won't expand beyond 600
   // characters and instead shows a scrollbar
 
   max-height: 230px;
+
   // This is the height of two lines of text. Often the placeholder text
   // will span two lines–because this element will grow/shrink based on
   // the contents of the text inside it, we set a minimum height so it

@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .StaticPage {
-  @include page-padding();
+  @include page-padding;
 
   .Card-contents li,
   .Card-contents p {

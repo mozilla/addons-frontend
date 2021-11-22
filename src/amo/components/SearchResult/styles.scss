@@ -100,6 +100,7 @@ $icon-default-size: 32px;
   justify-content: space-between;
   margin: 0 10px;
   order: 1;
+
   // `width: 0;` allows the users section to expand.
   width: 0;
 
@@ -113,14 +114,13 @@ $icon-default-size: 32px;
 }
 
 .SearchResult-name {
-  @include font-medium();
+  @include font-medium;
 
   align-items: flex-start;
   color: $type-black;
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   flex-grow: 1;
-  flex-wrap: wrap;
   font-size: $font-size-default;
   line-height: $line-height-compressed;
   margin: 0;

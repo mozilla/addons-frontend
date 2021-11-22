@@ -60,7 +60,7 @@
 }
 
 .Paginate-page-number {
-  @include font-light();
+  @include font-light;
 
   color: $grey-50;
   margin: $padding-page 0 0;

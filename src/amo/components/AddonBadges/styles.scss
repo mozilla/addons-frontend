@@ -20,7 +20,7 @@
 }
 
 .AddonBadges .Badge {
-  @include text-align-start();
+  @include text-align-start;
 
   .Addon-theme & {
     @include margin-end(12px);
@@ -28,7 +28,7 @@
 
   @include respond-to(large) {
     @include margin-start(12px);
-    @include text-align-end();
+    @include text-align-end;
 
     .Addon-theme & {
       @include margin-start(0);
