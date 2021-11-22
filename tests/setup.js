@@ -1,3 +1,5 @@
+import { TextEncoder, TextDecoder } from 'util';
+
 import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
@@ -12,6 +14,10 @@ import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 
 import 'amo/polyfill';
+
+// These are needed for Jest + jsdom v17.
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
 
 Enzyme.configure({ adapter: new Adapter() });
 
