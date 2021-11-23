@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .AddonReviewList {
-  @include page-padding();
+  @include page-padding;
 
   @include respond-to(large) {
     display: flex;
@@ -17,6 +17,7 @@
 
   .CardList {
     margin: 0 0 8px;
+
     // https://stackoverflow.com/questions/36150458
     min-width: 50%;
   }
@@ -48,9 +49,10 @@
 .AddonReviewList-reviewCount {
   // This is necessary to show LoadingText.
   flex-grow: 1;
+
   // This creates vertical space when items are wrapped on very
   // small-width screens.
-  margin: 6px auto 6px auto;
+  margin: 6px auto;
 
   @include margin-start(0);
 

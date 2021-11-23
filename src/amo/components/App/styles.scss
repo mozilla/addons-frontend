@@ -12,7 +12,7 @@ html {
 
 input,
 textarea {
-  @include font-regular();
+  @include font-regular;
 
   // Fix search input and possibly other inputs.
   // See https://github.com/mozilla/addons-frontend/issues/3640
@@ -30,15 +30,17 @@ textarea {
 *::before,
 *::after {
   box-sizing: inherit;
+
   // We use `anywhere` instead of `break-word` so that it works even when the
   // container does not have a well-defined width.
   overflow-wrap: anywhere;
+
   // This is needed for Safari, which does not support `anywhere`.
   word-break: break-word;
 }
 
 body {
-  @include font-regular();
+  @include font-regular;
 
   color: $body-font-color;
   font-size: $font-size-default;
@@ -51,7 +53,7 @@ body {
 
 h1,
 h2 {
-  @include font-bold();
+  @include font-bold;
 
   color: $primary-font-color;
   font-weight: 600;
@@ -67,24 +69,24 @@ h2 {
 }
 
 h3 {
-  @include font-bold();
+  @include font-bold;
 
   font-size: $font-size-default;
   line-height: $line-height-compressed;
 }
 
 a:link {
-  @include font-medium();
+  @include font-medium;
 
   color: $link-color;
 }
 
 em {
-  @include font-regular-italic();
+  @include font-regular-italic;
 }
 
 strong {
-  @include font-bold();
+  @include font-bold;
 }
 
 .caption {

@@ -40,7 +40,7 @@
   }
 
   @include respond-to(medium) {
-    @include text-align-start();
+    @include text-align-start;
 
     align-self: end;
     grid-row: 1 / 2;
@@ -111,7 +111,7 @@
   text-align: center;
 
   @include respond-to(medium) {
-    @include text-align-end();
+    @include text-align-end;
 
     grid-column: 4 / -1;
     grid-row: 1 / 2;

@@ -12,7 +12,7 @@
 }
 
 .Definition-dt {
-  @include font-regular();
+  @include font-regular;
 
   color: $grey-50;
   margin: 0;
@@ -20,7 +20,7 @@
 }
 
 .Definition-dd {
-  @include font-medium();
+  @include font-medium;
 
   margin: 0 0 12px;
   padding: 0;

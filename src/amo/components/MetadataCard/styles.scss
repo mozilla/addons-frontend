@@ -13,7 +13,7 @@
 }
 
 .MetadataCard-list {
-  @include text-align-start();
+  @include text-align-start;
 
   flex: 1;
   hyphens: auto;

@@ -4,6 +4,6 @@
       "eslint"
   ],
   "*.scss": [
-      "stylelint --syntax scss"
+      "stylelint"
   ]
 }

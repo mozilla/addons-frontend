@@ -45,7 +45,7 @@ $icon-size: 32px;
 }
 
 .EditableCollectionAddon-name {
-  @include font-medium();
+  @include font-medium;
 
   font-size: $font-size-default;
   hyphens: auto;
@@ -109,7 +109,7 @@ div.EditableCollectionAddon-notes {
 }
 
 .EditableCollectionAddon-notes-form {
-  margin: 12px 0 0 0;
+  margin: 12px 0 0;
 
   .DismissibleTextForm-buttons {
     margin-top: 12px;

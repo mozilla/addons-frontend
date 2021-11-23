@@ -20,6 +20,7 @@
   @include margin-end(12px);
 
   height: 16px;
+
   // To handle 404 images, image width is very small so alt text distorts UI
   // https://github.com/mozilla/addons-frontend/issues/4009
 

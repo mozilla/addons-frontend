@@ -59,7 +59,7 @@
   }
 
   a:focus {
-    @include focus();
+    @include focus;
   }
 }
 

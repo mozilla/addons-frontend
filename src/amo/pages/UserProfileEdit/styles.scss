@@ -3,7 +3,7 @@
 $font-size-aside: $font-size-xs;
 
 .UserProfileEdit {
-  @include page-padding();
+  @include page-padding;
 
   @include respond-to(large) {
     display: flex;
@@ -27,7 +27,7 @@ $font-size-aside: $font-size-xs;
     }
 
     li {
-      @include font-bold();
+      @include font-bold;
 
       font-size: $font-size-default;
       list-style-type: none;
@@ -93,7 +93,7 @@ $font-size-aside: $font-size-xs;
   }
 
   &:focus {
-    @include focus();
+    @include focus;
   }
 }
 
@@ -142,7 +142,7 @@ $font-size-aside: $font-size-xs;
     font-size: $font-size-default;
 
     p {
-      @include text-align-start();
+      @include text-align-start;
     }
   }
 

@@ -15,39 +15,39 @@
 
 /* Font mixins. Changes here affect *all* apps */
 @mixin font-family-inter() {
-  font-family: 'Inter', sans-serif;
+  font-family: Inter, sans-serif;
 }
 
 @mixin font-light() {
-  @include font-family-inter();
+  @include font-family-inter;
 
   font-style: normal;
   font-weight: 300;
 }
 
 @mixin font-regular() {
-  @include font-family-inter();
+  @include font-family-inter;
 
   font-style: normal;
   font-weight: 400;
 }
 
 @mixin font-regular-italic() {
-  @include font-family-inter();
+  @include font-family-inter;
 
   font-style: italic;
   font-weight: 400;
 }
 
 @mixin font-medium() {
-  @include font-family-inter();
+  @include font-family-inter;
 
   font-style: normal;
   font-weight: 500;
 }
 
 @mixin font-bold() {
-  @include font-family-inter();
+  @include font-family-inter;
 
   font-style: normal;
   font-weight: 600;
@@ -160,7 +160,7 @@
   }
 }
 
-@mixin addonSection() {
+@mixin addon-section() {
   background: $base-color;
   overflow: hidden;
   padding: 10px 20px;

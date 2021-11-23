@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .Footer {
-  @include font-regular();
+  @include font-regular;
 
   background: $footer-base-color;
   color: $white;
@@ -11,7 +11,7 @@
   a:visited,
   a:hover,
   a:active {
-    @include font-regular();
+    @include font-regular;
 
     color: $white;
     font-size: $font-size-l;
@@ -60,7 +60,7 @@
 }
 
 .Footer-links-header {
-  @include font-bold();
+  @include font-bold;
 
   font-size: $font-size-l;
   margin: 40px 0 0;
@@ -71,7 +71,7 @@
 
   a:link,
   a:visited {
-    @include font-bold();
+    @include font-bold;
 
     margin: 0;
   }

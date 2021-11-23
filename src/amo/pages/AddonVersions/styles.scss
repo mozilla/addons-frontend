@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .AddonVersions {
-  @include page-padding();
+  @include page-padding;
 }
 
 .AddonVersions-wrapper {
@@ -36,10 +36,10 @@
     }
 
     .InstallButtonWrapper-download {
-      @include text-align-start();
+      @include text-align-start;
 
       @include respond-to(extraLarge) {
-        @include text-align-end();
+        @include text-align-end;
       }
     }
   }

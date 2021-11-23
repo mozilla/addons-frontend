@@ -1,5 +1,7 @@
 @import '~amo/css/styles';
 
+/* stylelint-disable selector-class-pattern */
+
 // image-height has to be 20px smaller to prevent screenshot overflow.
 // See: https://github.com/mozilla/addons-frontend/issues/4887
 $screenshot-height: 220px;

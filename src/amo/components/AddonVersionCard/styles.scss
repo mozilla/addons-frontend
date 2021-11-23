@@ -38,14 +38,14 @@
 }
 
 .AddonVersionCard .AddonVersionCard-header {
-  @include font-regular();
-  @include text-align-start();
+  @include font-regular;
+  @include text-align-start;
 
   font-size: $font-size-heading-xs;
 }
 
 .AddonVersionCard-version {
-  @include font-medium();
+  @include font-medium;
 
   color: $link-color;
 }

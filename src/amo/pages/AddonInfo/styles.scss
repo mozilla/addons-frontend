@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .AddonInfo {
-  @include page-padding();
+  @include page-padding;
 
   @include respond-to(large) {
     display: flex;

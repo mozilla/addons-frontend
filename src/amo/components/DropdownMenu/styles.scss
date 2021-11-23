@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .DropdownMenu {
-  @include text-align-start();
+  @include text-align-start;
 
   display: inline-block;
   height: 27px;
@@ -19,6 +19,7 @@
   &:focus {
     // Fix outline for Firefox (see #3110)
     outline: 1px dotted $white;
+
     // Restore default outline for webkit.
     outline: auto 5px -webkit-focus-ring-color;
   }
@@ -28,7 +29,7 @@
   }
 
   .DropdownMenu-button-text {
-    @include font-regular();
+    @include font-regular;
 
     color: $white;
     display: inline-block;
@@ -64,7 +65,7 @@
 }
 
 .DropdownMenu-items {
-  @include font-regular();
+  @include font-regular;
   @include end(0);
 
   background: $white;

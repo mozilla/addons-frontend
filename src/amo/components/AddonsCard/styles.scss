@@ -14,7 +14,7 @@
     .Card-footer-text,
     .Card-footer-link {
       @include end(0);
-      @include text-align-end();
+      @include text-align-end;
 
       background: none;
       border: 0;
@@ -30,6 +30,7 @@
       .SearchResult {
         grid-column: auto;
         margin: 0 6px 1px;
+
         // Prevents content overflow.
         min-width: 0;
         padding: 0;
@@ -58,6 +59,7 @@
         grid-column: 2 / 2;
         grid-row: 1 / 2;
         margin: 0;
+
         // Prevents content overflow.
         min-width: 0;
         width: auto;

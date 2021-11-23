@@ -85,7 +85,7 @@
 }
 
 .HeroRecommendation-title-text {
-  @include font-medium();
+  @include font-medium;
 
   display: inline;
   font-size: $font-size-s;
@@ -129,11 +129,11 @@
 }
 
 .HeroRecommendation-heading {
-  @include font-medium();
+  @include font-medium;
 
   color: $white;
   font-size: $font-size-heading-s;
-  margin: 14px 0 0 0;
+  margin: 14px 0 0;
 
   @include respond-to(extraExtraLarge) {
     font-size: $font-size-heading-m;
@@ -141,11 +141,11 @@
 }
 
 .HeroRecommendation-body {
-  @include font-light();
+  @include font-light;
 
   font-size: $font-size-s;
   line-height: $line-height-body;
-  margin: 18px 0 24px 0;
+  margin: 18px 0 24px;
 
   @include respond-to(medium) {
     font-size: $font-size-heading-xs;
@@ -203,6 +203,7 @@
   font-size: $font-size-l;
   padding: 12px 24px;
   text-align: center;
+
   // The theme styles will add a hover effect.
   transition: background-color $transition-medium ease-in-out;
   white-space: nowrap;
@@ -222,7 +223,7 @@
   }
 }
 
-@mixin gradientStyle($startColor, $stopColor) {
+@mixin gradient-style($startColor, $stopColor) {
   background-image: linear-gradient($startColor, $stopColor);
 
   .HeroRecommendation-link {
@@ -235,27 +236,27 @@
 
 // Styles that correspond to gradients returned by the hero API
 .HeroRecommendation-color-ink-80-color-blue-70 {
-  @include gradientStyle($color-ink-80, $color-blue-70);
+  @include gradient-style($color-ink-80, $color-blue-70);
 }
 
 .HeroRecommendation-color-ink-80-color-green-70 {
-  @include gradientStyle($color-ink-80, $color-green-70);
+  @include gradient-style($color-ink-80, $color-green-70);
 }
 
 .HeroRecommendation-color-ink-80-color-pink-70 {
-  @include gradientStyle($color-ink-80, $color-pink-70);
+  @include gradient-style($color-ink-80, $color-pink-70);
 }
 
 .HeroRecommendation-color-ink-80-color-purple-70 {
-  @include gradientStyle($color-ink-80, $color-purple-70);
+  @include gradient-style($color-ink-80, $color-purple-70);
 }
 
 .HeroRecommendation-color-ink-80-color-violet-70 {
-  @include gradientStyle($color-ink-80, $color-violet-70);
+  @include gradient-style($color-ink-80, $color-violet-70);
 }
 
 .HeroRecommendation--loading {
-  @include gradientStyle($color-ink-80, $color-blue-70);
+  @include gradient-style($color-ink-80, $color-blue-70);
 }
 
 .HeroRecommendation-WrongPlatformWarning {

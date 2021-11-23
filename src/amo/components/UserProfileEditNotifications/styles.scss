@@ -34,7 +34,7 @@ $input-height: 16px;
     }
 
     &:focus ~ .UserProfileEditNotification-checkbox {
-      @include focus();
+      @include focus;
     }
   }
 

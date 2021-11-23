@@ -11,7 +11,7 @@ $micro-font-size: $font-size-xs;
   $border-radius: $border-radius-l,
   $color: $white
 ) {
-  @include font-regular();
+  @include font-regular;
 
   align-items: center;
   background: $background;
@@ -93,6 +93,7 @@ $micro-font-size: $font-size-xs;
 
     &:active:not(.Button--disabled) {
       background: $background-active;
+
       // This is not part of the Photon button spec, but without it only color
       // is changed onClick of a button. Even as someone without
       // colourblindness I find this to be so subtle as to sometimes not
@@ -105,7 +106,7 @@ $micro-font-size: $font-size-xs;
   }
 
   &:focus {
-    @include focus();
+    @include focus;
 
     // See: https://github.com/WICG/focus-visible
     &:not(.focus-visible) {
@@ -114,7 +115,7 @@ $micro-font-size: $font-size-xs;
   }
 
   &.Button--disabled {
-    @include disabled();
+    @include disabled;
   }
 
   &::-moz-focus-inner {

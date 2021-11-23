@@ -13,6 +13,7 @@
 .Icon {
   content: '';
   display: inline-block;
+
   // Do not let flex containers shrink icons.
   flex-shrink: 0;
   height: $default-icon-size;

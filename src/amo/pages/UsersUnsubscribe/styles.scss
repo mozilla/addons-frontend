@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
 .UsersUnsubscribe {
-  @include page-padding();
+  @include page-padding;
 
   .UsersUnsubscribe-content-explanation,
   .UsersUnsubscribe-content-edit-profile,

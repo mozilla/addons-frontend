@@ -1,6 +1,6 @@
 @import '~amo/css/styles';
 
-@keyframes placeHolderShimmer {
+@keyframes place-holder-shimmer {
   0% {
     opacity: 0.5;
   }
@@ -23,7 +23,7 @@
 }
 
 .LoadingText {
-  animation: placeHolderShimmer 3s infinite cubic-bezier(0.65, 0.05, 0.36, 1);
+  animation: place-holder-shimmer 3s infinite cubic-bezier(0.65, 0.05, 0.36, 1);
   background: $grey-30;
   display: inline-block;
   height: 1rem;
@@ -32,8 +32,9 @@
 }
 
 @for $delay from 1 through 3 {
+  // stylelint-disable scss/operator-no-newline-after
   .LoadingText--delay-#{$delay} {
-    animation: placeHolderShimmer
+    animation: place-holder-shimmer
       #{$delay *
       1.5}s
       infinite

@@ -16,7 +16,7 @@
     grid-gap: 32px;
     grid-template-columns: repeat(4, 1fr);
     min-height: 340px;
-    padding: 48px 0 24px 0;
+    padding: 48px 0 24px;
   }
 
   @include respond-to(extraLarge) {
@@ -25,11 +25,11 @@
 }
 
 .SecondaryHero-message {
-  @include font-regular();
+  @include font-regular;
 
   font-size: $font-size-l;
   margin-top: 0;
-  padding: 0 10px 10px 10px;
+  padding: 0 10px 10px;
 
   @include respond-to(large) {
     padding: 0;
@@ -37,7 +37,7 @@
 }
 
 .SecondaryHero-message-headline {
-  @include font-medium();
+  @include font-medium;
 
   font-size: $font-size-heading-xs;
   line-height: $line-height-compressed;
@@ -52,7 +52,7 @@
   padding: $padding-page 0;
 
   @include respond-to(large) {
-    padding: 8px 0 24px 0;
+    padding: 8px 0 24px;
   }
 
   .LoadingText {
@@ -71,7 +71,7 @@
   padding-top: 0;
 
   @include respond-to(large) {
-    padding: 0 24px 24px 24px;
+    padding: 0 24px 24px;
   }
 }
 
@@ -81,7 +81,7 @@
   width: 60px;
 
   @include respond-to(large) {
-    margin: 30px auto 30px auto;
+    margin: 30px auto;
   }
 }
 

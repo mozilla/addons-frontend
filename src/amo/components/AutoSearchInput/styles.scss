@@ -24,7 +24,7 @@
   }
 
   &:focus {
-    @include focus();
+    @include focus;
 
     border-color: $teal-50;
   }
