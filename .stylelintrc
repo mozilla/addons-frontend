@@ -1,6 +1,5 @@
 {
   "extends": [
-    "stylelint-config-suitcss",
     "stylelint-config-standard-scss"
   ],
   "rules": {
