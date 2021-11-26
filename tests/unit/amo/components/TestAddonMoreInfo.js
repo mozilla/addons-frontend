@@ -752,7 +752,7 @@ describe(__filename, () => {
       _loadVersions({
         license: {
           is_custom: true,
-          name: 'tofulicense',
+          name: createLocalizedString('tofulicense'),
           url: 'www.license.com',
         },
       });
