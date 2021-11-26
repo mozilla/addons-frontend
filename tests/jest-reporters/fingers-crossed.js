@@ -1,10 +1,8 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 const chalk = require('chalk');
 const { getConsoleOutput } = require('@jest/console');
-const DefaultReporter =
-  require('@jest/reporters/build/DefaultReporter').default;
-const getResultHeader =
-  require('@jest/reporters/build/getResultHeader').default;
+const { DefaultReporter } = require('@jest/reporters');
+const { utils } = require('@jest/reporters');
 
 const TITLE_BULLET = chalk.bold('\u25cf ');
 
@@ -12,7 +10,7 @@ const TITLE_BULLET = chalk.bold('\u25cf ');
 // failing, see: https://github.com/mozilla/addons-frontend/issues/2980.
 class FingersCrossedReporter extends DefaultReporter {
   printTestFileHeader(testPath, config, result) {
-    this.log(getResultHeader(result, this._globalConfig, config));
+    this.log(utils.getResultHeader(result, this._globalConfig, config));
 
     const consoleBuffer = result.console;
     const testFailed = result.numFailingTests > 0;
@@ -21,9 +19,9 @@ class FingersCrossedReporter extends DefaultReporter {
       // prettier-ignore
       this.log(
         `  ${TITLE_BULLET}Console\n\n${getConsoleOutput(
-          config.cwd,
-          !!this._globalConfig.verbose,
-          consoleBuffer
+          consoleBuffer,
+          config,
+          this._globalConfig,
         )}`
       );
     }
