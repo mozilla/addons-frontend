@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-16 17:23+0000\n"
-"PO-Revision-Date: 2021-11-28 13:23+0000\n"
+"PO-Revision-Date: 2021-11-28 13:25+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -263,18 +263,16 @@ msgid "More information"
 msgstr "Mer informasjon"
 
 #: src/amo/components/AddonQRCode/index.js:101
-#, fuzzy
 msgid "Get %(addonName)s for Android"
-msgstr "Utvidelser for Android"
+msgstr "Få %(addonName)s for Android"
 
 #: src/amo/components/AddonQRCode/index.js:134
-#, fuzzy
 msgid "Dismiss this message"
 msgstr "Avvis denne meldingen"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
-msgstr ""
+msgstr "For å få %(addonName)s på Firefox for Android, pek kameraet på enheten mot koden ovenfor eller kopier %(linkStart)sdenne lenken%(linkEnd)s"
 
 #: src/amo/components/AddonQRCodeLink/index.js:87
 msgid "Also available on Firefox for Android"
@@ -606,9 +604,8 @@ msgid "Log out"
 msgstr "Logg ut"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Log in"
-msgstr "Logg ut"
+msgstr "Logg inn"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:144
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -1032,9 +1029,8 @@ msgid "About"
 msgstr "Om"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
-#, fuzzy
 msgid "Firefox Add-ons Blog"
-msgstr "Firefox-tillegg"
+msgstr "Firefox tilleggsblogg"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
 msgid "Extension Workshop"
@@ -1383,9 +1379,8 @@ msgid "Star rating saved"
 msgstr "Stjernevurdering lagret"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
-msgstr "Det er ingen omtaler"
+msgstr "Det er ingen trestjerners omtaler"
 
 #: src/amo/components/RatingsByStar/index.js:108
 #, fuzzy
