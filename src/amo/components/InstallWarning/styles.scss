@@ -1,6 +1,7 @@
 @import '~amo/css/styles';
 
 .InstallWarning {
+  grid-column: 1 / span 2;
   margin: 8px auto;
   width: 100%;
 
