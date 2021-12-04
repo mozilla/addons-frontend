@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-16 17:23+0000\n"
-"PO-Revision-Date: 2021-11-17 11:24+0000\n"
+"PO-Revision-Date: 2021-12-04 12:02+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1397,32 +1397,28 @@ msgid "There are no two-star reviews"
 msgstr "Det finst ingen to-stjerners vurderingar"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Les alle vurderingar med ei stjerne"
-msgstr[1] "Les alle vurderingar med ei stjerne"
+msgstr[0] ""
+msgstr[1] "Les alle %(total)s vurderingar med ei stjerne"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Det finst ingen vurderingar"
+msgstr "Det finst ingen vurderingar med ei stjerne"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "Det finst ingen vurderingar"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "Les alle vurderingar med fem stjerner"
-msgstr[1] "Les alle vurderingar med fem stjerner"
+msgstr[0] "Les den eine vurderinga med fem stjerner"
+msgstr[1] "Les alle %(total)s vurderingar med fem stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Det finst ingen vurderingar"
+msgstr "Det finst ingen vurderingar med fem stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:78
 #, fuzzy
