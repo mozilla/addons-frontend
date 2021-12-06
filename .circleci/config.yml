@@ -124,7 +124,7 @@ jobs:
       - *restore_next_build_cache
       - *run_yarn_install
       - *save_next_build_cache
-      - run: yarn test-ci
+      - run: yarn test-ci-next
 
   dennis-lint:
     <<: *defaults-release
