@@ -131,7 +131,7 @@
       }
     },
     "test-ci": {
-      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --color=false --coverage -i",
+      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --maxWorkers=2 --color=false --coverage",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
