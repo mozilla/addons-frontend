@@ -477,6 +477,8 @@ export class AddonBase extends React.Component {
 
                 <AddonBadges addon={addon} />
 
+                {addon && <InstallWarning addon={addon} />}
+
                 <div className="Addon-summary-and-install-button-wrapper">
                   {showSummary ? (
                     <p className="Addon-summary" {...summaryProps} />
@@ -497,7 +499,6 @@ export class AddonBase extends React.Component {
                   className="Addon-WrongPlatformWarning"
                 />
               ) : null}
-              {addon && <InstallWarning addon={addon} />}
             </Card>
 
             <Card className="Addon-header-meta-and-ratings" photonStyle>
