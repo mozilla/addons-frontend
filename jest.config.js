@@ -24,7 +24,7 @@ module.exports = {
     '<rootDir>/tests/jest-reporters/eslint-check.js',
   ],
   setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
-  testEnvironment: '<rootDir>/tests/jest-environment.js',
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/(assets|bin|config|coverage|dist|docs|flow|locale|src)/',
