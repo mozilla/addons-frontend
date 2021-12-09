@@ -395,7 +395,7 @@ describe(__filename, () => {
     it('prompts to delete a review when beginningToDeleteReview', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        name: createLocalizedString('uBlock Origin'),
+        name: 'uBlock Origin',
       });
       const review = { ...fakeReview, body: 'This add-on is nice' };
       const { userId, store } = createStoreWithLatestReview({ addon, review });
@@ -411,7 +411,7 @@ describe(__filename, () => {
     it('prompts to delete a rating when beginningToDeleteReview', () => {
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
-        name: createLocalizedString('uBlock Origin'),
+        name: 'uBlock Origin',
       });
       const review = { ...fakeReview, body: undefined, score: 4 };
       const { userId, store } = createStoreWithLatestReview({ addon, review });

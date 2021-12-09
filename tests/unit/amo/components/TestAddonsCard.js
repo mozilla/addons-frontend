@@ -7,11 +7,7 @@ import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
 import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import CardList from 'amo/components/CardList';
-import {
-  createInternalAddonWithLang,
-  createLocalizedString,
-  fakeAddon,
-} from 'tests/unit/helpers';
+import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let addons;
@@ -28,16 +24,8 @@ describe(__filename, () => {
 
   beforeAll(() => {
     addons = [
-      {
-        ...fakeAddon,
-        name: createLocalizedString('I am add-on! '),
-        slug: 'i-am-addon',
-      },
-      {
-        ...fakeAddon,
-        name: createLocalizedString('I am also add-on!'),
-        slug: 'i-am-also-addon',
-      },
+      { ...fakeAddon, name: 'I am add-on! ', slug: 'i-am-addon' },
+      { ...fakeAddon, name: 'I am also add-on!', slug: 'i-am-also-addon' },
     ];
   });
 

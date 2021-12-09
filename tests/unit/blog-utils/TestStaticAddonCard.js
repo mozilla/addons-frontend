@@ -62,6 +62,9 @@ describe(__filename, () => {
 
     const root = render({ addon });
 
+    expect(root.find('.StaticAddonCard-summary').html()).not.toContain(
+      addon.summary,
+    );
     expect(root.find('.StaticAddonCard-summary').html()).toContain(
       addon.description,
     );
