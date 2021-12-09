@@ -130,7 +130,7 @@
       }
     },
     "test-ci": {
-      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --maxWorkers=2 --color=false --coverage --verbose",
+      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --maxWorkers=2 --color=false --coverage",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
@@ -188,7 +188,7 @@
     "isomorphic-fetch": "3.0.0",
     "jed": "1.1.1",
     "join-url": "2.0.0",
-    "jsdom": "18.1.1",
+    "jsdom": "19.0.0",
     "localforage": "1.10.0",
     "lodash.debounce": "4.0.8",
     "moment": "2.29.1",
