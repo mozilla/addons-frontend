@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { Provider } from 'react-redux';
-import { mount } from 'enzyme';
 
-import I18nProvider from 'amo/i18n/Provider';
 import {
   createFakeDebounce,
   createFakeEvent,
@@ -37,17 +34,6 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <DismissibleTextForm {...props} />,
       DismissibleTextFormBase,
-    );
-  };
-
-  const mountRender = (customProps = {}) => {
-    const props = renderProps(customProps);
-    return mount(
-      <I18nProvider i18n={props.i18n}>
-        <Provider store={props.store}>
-          <DismissibleTextForm {...props} />
-        </Provider>
-      </I18nProvider>,
     );
   };
 
@@ -115,14 +101,6 @@ describe(__filename, () => {
     expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
       'value',
       'Some text to edit',
-    );
-  });
-
-  it('focuses the textarea on mount', () => {
-    mountRender();
-    // This checks that textarea.focus() was called.
-    expect(document.activeElement.className).toEqual(
-      'DismissibleTextForm-textarea',
     );
   });
 
