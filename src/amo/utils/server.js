@@ -1,4 +1,5 @@
 /* @flow */
+/* global fetch */
 import path from 'path';
 
 import fs from 'fs-extra';
@@ -9,12 +10,19 @@ import log from 'amo/logger';
 
 const PREFIX = 'enableFeature';
 
-type ExpressHandler = (req: typeof $Request, res: typeof $Response) => void;
+type ExpressHandler = (
+  req: typeof $Request,
+  res: typeof $Response,
+) => void | Promise<Function>;
 
 type ViewFrontendVersionHandlerParams = {|
   _config?: typeof config,
   _log?: typeof log,
   versionFilename?: string,
+|};
+
+type ViewHeartbeatHandlerParams = {|
+  _config?: typeof config,
 |};
 
 export const viewFrontendVersionHandler = ({
@@ -57,5 +65,25 @@ export const viewFrontendVersionHandler = ({
         });
       }
     });
+  };
+};
+
+export const viewHeartbeatHandler = ({
+  _config = config,
+  _fetch = fetch,
+}: ViewHeartbeatHandlerParams = {}): ExpressHandler => {
+  const apiURL = `${_config.get('apiHost')}${_config.get(
+    'apiPath',
+  )}${_config.get('apiVersion')}/site/?disable_caching`;
+  return async (req: typeof $Request, res: typeof $Response) => {
+    const response = await _fetch(apiURL);
+    if (response.status !== 200) {
+      res.sendStatus(400);
+    } else {
+      const siteStatus = await response.json();
+      res.json({ siteStatus });
+      // Allow anyone to fetch this file.
+      res.header('Access-Control-Allow-Origin', '*');
+    }
   };
 };

@@ -331,6 +331,8 @@ module.exports = {
   // because they are app-independant, like `/en-US/developers/`.
   validClientAppUrlExceptions: [
     '__frontend_version__',
+    '__heartbeat__',
+    '__lbheartbeat__',
     '__version__',
     'about',
     'admin',

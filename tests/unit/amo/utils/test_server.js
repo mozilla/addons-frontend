@@ -3,7 +3,10 @@ import path from 'path';
 import fs from 'fs-extra';
 import MockExpressResponse from 'mock-express-response';
 
-import { viewFrontendVersionHandler } from 'amo/utils/server';
+import {
+  viewFrontendVersionHandler,
+  viewHeartbeatHandler,
+} from 'amo/utils/server';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -76,6 +79,54 @@ describe(__filename, () => {
       res.on('finish', () => {
         expect(res.statusCode).toEqual(415);
         sinon.assert.calledOnce(_log.error);
+
+        done();
+      });
+    });
+  });
+
+  describe('viewHeartbeatHandler', () => {
+    // eslint-disable-next-line jest/no-done-callback
+    it('exposes the version.json file', async (done) => {
+      const apiHost = 'https://somehost/';
+      const apiPath = 'some/path/';
+      const apiVersion = 'someVersion';
+      const siteStatus = { read_only: false, notice: 'some notice' };
+      const _config = getFakeConfig({ apiHost, apiPath, apiVersion });
+      const _fetch = sinon
+        .stub()
+        .resolves({ json: sinon.stub().resolves(siteStatus), status: 200 });
+      const handler = viewHeartbeatHandler({ _config, _fetch });
+
+      const res = new MockExpressResponse();
+      handler(null, res);
+
+      res.on('finish', () => {
+        // console.log(_fetch.getCalls());
+        // expect(_fetch).toHaveBeenCalledWith(
+        //   `${apiHost}${apiPath}${apiVersion}/site/?disable_caching`,
+        // );
+        expect(res.statusCode).toEqual(200);
+        expect(res.get('content-type')).toEqual(
+          'application/json; charset=utf-8',
+        );
+        expect(res.get('access-control-allow-origin')).toEqual('*');
+        expect(res._getJSON()).toMatchObject({ siteStatus });
+
+        done();
+      });
+    });
+
+    // eslint-disable-next-line jest/no-done-callback
+    it('returns a 400 if there is an API error', (done) => {
+      const _fetch = sinon.stub().resolves({ status: 400 });
+      const handler = viewHeartbeatHandler({ _fetch });
+
+      const res = new MockExpressResponse();
+      handler(null, res);
+
+      res.on('finish', () => {
+        expect(res.statusCode).toEqual(400);
 
         done();
       });
