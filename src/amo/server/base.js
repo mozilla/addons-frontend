@@ -209,10 +209,10 @@ function baseServer(
   // For AMO, this helps differentiate from /__version__ served by addons-server.
   app.get('/__frontend_version__', viewFrontendVersionHandler());
   // Also return info for requests to __heartbeat__ and __lbheartbeat__.
-  app.get('/__lbheartbeat__', (req, res) => {
+  app.get('/__frontend_heartbeat__', viewHeartbeatHandler());
+  app.get('/__frontend_lbheartbeat__', (req, res) => {
     return res.status(200).end('ok');
   });
-  app.get('/__heartbeat__', viewHeartbeatHandler());
 
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
