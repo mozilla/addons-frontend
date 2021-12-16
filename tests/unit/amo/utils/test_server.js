@@ -86,50 +86,36 @@ describe(__filename, () => {
   });
 
   describe('viewHeartbeatHandler', () => {
-    // eslint-disable-next-line jest/no-done-callback
-    it('exposes the version.json file', async (done) => {
+    it('calls the site API and returns 200 if successful', async () => {
       const apiHost = 'https://somehost/';
       const apiPath = 'some/path/';
       const apiVersion = 'someVersion';
-      const siteStatus = { read_only: false, notice: 'some notice' };
       const _config = getFakeConfig({ apiHost, apiPath, apiVersion });
-      const _fetch = sinon
-        .stub()
-        .resolves({ json: sinon.stub().resolves(siteStatus), status: 200 });
+      const _fetch = sinon.stub().resolves({ status: 200 });
       const handler = viewHeartbeatHandler({ _config, _fetch });
 
       const res = new MockExpressResponse();
-      handler(null, res);
+      await handler(null, res);
 
-      res.on('finish', () => {
-        // console.log(_fetch.getCalls());
-        // expect(_fetch).toHaveBeenCalledWith(
-        //   `${apiHost}${apiPath}${apiVersion}/site/?disable_caching`,
-        // );
-        expect(res.statusCode).toEqual(200);
-        expect(res.get('content-type')).toEqual(
-          'application/json; charset=utf-8',
-        );
-        expect(res.get('access-control-allow-origin')).toEqual('*');
-        expect(res._getJSON()).toMatchObject({ siteStatus });
-
-        done();
-      });
+      // Note: The following assertion does not seem to be possible, which is
+      // why we are using getCalls()[0].
+      // expect(_fetch).toHaveBeenCalledWith(
+      //   `${apiHost}${apiPath}${apiVersion}/site/?disable_caching`,
+      // );
+      expect(_fetch.getCalls()[0].args).toEqual([
+        `${apiHost}${apiPath}${apiVersion}/site/?disable_caching`,
+      ]);
+      expect(res.statusCode).toEqual(200);
     });
 
-    // eslint-disable-next-line jest/no-done-callback
-    it('returns a 400 if there is an API error', (done) => {
+    it('returns a 500 if there is an API error', async () => {
       const _fetch = sinon.stub().resolves({ status: 400 });
       const handler = viewHeartbeatHandler({ _fetch });
 
       const res = new MockExpressResponse();
-      handler(null, res);
+      await handler(null, res);
 
-      res.on('finish', () => {
-        expect(res.statusCode).toEqual(400);
-
-        done();
-      });
+      expect(res.statusCode).toEqual(500);
     });
   });
 });

@@ -78,13 +78,7 @@ export const viewHeartbeatHandler = ({
 
   return async (req: typeof $Request, res: typeof $Response) => {
     const response = await _fetch(apiURL);
-    if (response.status !== 200) {
-      res.sendStatus(400);
-    } else {
-      const siteStatus = await response.json();
-      res.json({ siteStatus });
-      // Allow anyone to fetch this file.
-      res.header('Access-Control-Allow-Origin', '*');
-    }
+    const ok = response.status === 200;
+    res.status(ok ? response.status : 500).end(ok ? 'ok' : 'ko');
   };
 };
