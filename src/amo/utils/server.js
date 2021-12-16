@@ -75,6 +75,7 @@ export const viewHeartbeatHandler = ({
   const apiURL = `${_config.get('apiHost')}${_config.get(
     'apiPath',
   )}${_config.get('apiVersion')}/site/?disable_caching`;
+
   return async (req: typeof $Request, res: typeof $Response) => {
     const response = await _fetch(apiURL);
     if (response.status !== 200) {
