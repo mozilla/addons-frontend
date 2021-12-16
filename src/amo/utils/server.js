@@ -78,12 +78,15 @@ export const viewHeartbeatHandler = ({
   )}${_config.get('apiVersion')}/site/?disable_caching`;
 
   return async (req: typeof $Request, res: typeof $Response) => {
+   let ok;
+   
     try {
       const response = await _fetch(apiURL);
-      const ok = response.status === 200;
-      res.status(ok ? response.status : 500).end(ok ? 'ok' : 'ko');
+      ok = response.status === 200;
     } catch (err) {
-      res.status(500).end();
+      ok = false;
     }
+    
+    res.status(ok ? 200 : 500).end(ok ? 'ok' : 'ko');
   };
 };
