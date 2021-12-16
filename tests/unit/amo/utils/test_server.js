@@ -104,7 +104,17 @@ describe(__filename, () => {
     });
 
     it('returns a 500 if there is an API error', async () => {
-      const _fetch = sinon.stub().resolves({ status: 400 });
+      const _fetch = jest.fn().mockResolvedValue({ status: 400 });
+      const handler = viewHeartbeatHandler({ _fetch });
+
+      const res = new MockExpressResponse();
+      await handler(null, res);
+
+      expect(res.statusCode).toEqual(500);
+    });
+
+    it('returns a 500 if fetch fails', async () => {
+      const _fetch = jest.fn().mockRejectedValue();
       const handler = viewHeartbeatHandler({ _fetch });
 
       const res = new MockExpressResponse();

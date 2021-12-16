@@ -23,6 +23,7 @@ type ViewFrontendVersionHandlerParams = {|
 
 type ViewHeartbeatHandlerParams = {|
   _config?: typeof config,
+  _fetch?: typeof fetch,
 |};
 
 export const viewFrontendVersionHandler = ({
@@ -77,8 +78,12 @@ export const viewHeartbeatHandler = ({
   )}${_config.get('apiVersion')}/site/?disable_caching`;
 
   return async (req: typeof $Request, res: typeof $Response) => {
-    const response = await _fetch(apiURL);
-    const ok = response.status === 200;
-    res.status(ok ? response.status : 500).end(ok ? 'ok' : 'ko');
+    try {
+      const response = await _fetch(apiURL);
+      const ok = response.status === 200;
+      res.status(ok ? response.status : 500).end(ok ? 'ok' : 'ko');
+    } catch (err) {
+      res.status(500).end();
+    }
   };
 };
