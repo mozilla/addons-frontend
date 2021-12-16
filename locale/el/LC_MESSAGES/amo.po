@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-16 17:23+0000\n"
-"PO-Revision-Date: 2021-12-16 12:12+0000\n"
+"PO-Revision-Date: 2021-12-16 13:36+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -2705,7 +2705,7 @@ msgstr "Δημιουργία προφίλ"
 
 #: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Updating your profile…"
-msgstr "Γίνεται ενημέρωση του προφίλ σας…"
+msgstr "Ενημέρωση του προφίλ σας…"
 
 #: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Update My Profile"
@@ -2713,7 +2713,7 @@ msgstr "Ενημέρωση προφίλ"
 
 #: src/amo/pages/UserProfileEdit/index.js:540
 msgid "Updating profile…"
-msgstr "Γίνεται ενημέρωση του προφίλ…"
+msgstr "Ενημέρωση προφίλ…"
 
 #: src/amo/pages/UserProfileEdit/index.js:541
 msgid "Update Profile"
@@ -2733,7 +2733,7 @@ msgstr "Λογαριασμός"
 
 #: src/amo/pages/UserProfileEdit/index.js:593
 msgid "Account for %(userName)s"
-msgstr "Λογαριασμός για %(userName)s"
+msgstr "Λογαριασμός του/της %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:600
 msgid "Email Address"
@@ -2898,7 +2898,7 @@ msgstr "Προέκυψε απροσδόκητο σφάλμα κατά την ε�
 
 #: src/amo/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Προέκυψε απροσδόκητο σφάλμα κατά την απεγκατάσταση."
+msgstr "Προέκυψε απροσδόκητο σφάλμα κατά την αφαίρεση."
 
 #: src/amo/utils/addons.js:51
 msgid "An unexpected error occurred."
