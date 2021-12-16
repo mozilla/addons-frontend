@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-16 17:23+0000\n"
-"PO-Revision-Date: 2021-12-16 13:36+0000\n"
+"PO-Revision-Date: 2021-12-16 13:45+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1672,7 +1672,7 @@ msgstr[1] "Βρέθηκαν %(count)s αποτελέσματα για \"%(query)
 #: src/amo/components/SearchContextCard/index.js:227
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "Βρέθηκε %(count)s αποτέλεσμα με ετικέτα %(tag)s"
+msgstr[0] "Βρέθηκε %(count)s αποτέλεσμα με ετικέτα «%(tag)s»"
 msgstr[1] "Βρέθηκαν %(count)s αποτελέσματα με ετικέτα %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:236
@@ -1683,7 +1683,7 @@ msgstr[1] "Βρέθηκαν %(count)s αποτελέσματα"
 
 #: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
-msgstr "Αναζήτηση για \"%(query)s\""
+msgstr "Αναζήτηση για «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
@@ -1698,8 +1698,8 @@ msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για «%(query)s» 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "Βρέθηκε %(count)s επέκταση για \"%(query)s\" στην κατηγορία %(categoryName)s"
-msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για \"%(query)s\" στην κατηγορία %(categoryName)s"
+msgstr[0] "Βρέθηκε %(count)s επέκταση για «%(query)s» στην κατηγορία «%(categoryName)s»"
+msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για «%(query)s» στην κατηγορία «%(categoryName)s»"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
@@ -1710,8 +1710,8 @@ msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις με ετικέτα �
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "Βρέθηκε %(count)s επέκταση στην κατηγορία %(categoryName)s"
-msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις στην κατηγορία %(categoryName)s"
+msgstr[0] "Βρέθηκε %(count)s επέκταση στην κατηγορία «%(categoryName)s»"
+msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις στην κατηγορία «%(categoryName)s»"
 
 #: src/amo/components/SearchContextCard/index.js:95
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s"
@@ -1901,7 +1901,7 @@ msgstr "Διαγραφή εικόνας"
 
 #: src/amo/components/UserProfileEditPicture/index.js:51
 msgid "Profile picture for %(name)s"
-msgstr "Εικόνα προφίλ για %(name)s"
+msgstr "Εικόνα προφίλ του/της %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:61
 msgid "Profile photo"
@@ -1999,7 +1999,7 @@ msgstr "Σχόλια προγραμματιστών"
 
 #: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
-msgstr "Σημειώσεις έκδοσης για το %(addonVersion)s"
+msgstr "Σημειώσεις έκδοσης του %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:467
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
@@ -2019,11 +2019,11 @@ msgstr "Προσαρμοσμένη άδεια για το %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Συμφωνία άδειας τελικού χρήστη για το %(addonName)s"
+msgstr "Συμφωνία άδειας τελικού χρήστη του %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
-msgstr "Πολιτική απορρήτου για το %(addonName)s"
+msgstr "Πολιτική απορρήτου του %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:207
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -2144,11 +2144,11 @@ msgstr "Όλες οι κατηγορίες θεμάτων"
 
 #: src/amo/pages/CategoryPage/index.js:57
 msgid "Themes in %(categoryName)s"
-msgstr "Θέματα στην κατηγορία %(categoryName)s"
+msgstr "Θέματα στην κατηγορία «%(categoryName)s»"
 
 #: src/amo/pages/CategoryPage/index.js:63
 msgid "Extensions in %(categoryName)s"
-msgstr "Επεκτάσεις στην κατηγορία %(categoryName)s"
+msgstr "Επεκτάσεις στην κατηγορία «%(categoryName)s»"
 
 #: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
@@ -2632,7 +2632,7 @@ msgstr "Καλλιτέχνης θέματος"
 
 #: src/amo/pages/UserProfile/index.js:327 src/amo/pages/UserProfileEdit/index.js:555
 msgid "User Profile for %(user)s"
-msgstr "Προφίλ για το χρήστη %(user)s"
+msgstr "Προφίλ του χρήστη %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:330
 msgid "User Profile"
