@@ -13,7 +13,7 @@ const PREFIX = 'enableFeature';
 type ExpressHandler = (
   req: typeof $Request,
   res: typeof $Response,
-) => void | Promise<Function>;
+) => void | Promise<void>;
 
 type ViewFrontendVersionHandlerParams = {|
   _config?: typeof config,
