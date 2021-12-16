@@ -91,20 +91,15 @@ describe(__filename, () => {
       const apiPath = 'some/path/';
       const apiVersion = 'someVersion';
       const _config = getFakeConfig({ apiHost, apiPath, apiVersion });
-      const _fetch = sinon.stub().resolves({ status: 200 });
+      const _fetch = jest.fn().mockResolvedValue({ status: 200 });
       const handler = viewHeartbeatHandler({ _config, _fetch });
 
       const res = new MockExpressResponse();
       await handler(null, res);
 
-      // Note: The following assertion does not seem to be possible, which is
-      // why we are using getCalls()[0].
-      // expect(_fetch).toHaveBeenCalledWith(
-      //   `${apiHost}${apiPath}${apiVersion}/site/?disable_caching`,
-      // );
-      expect(_fetch.getCalls()[0].args).toEqual([
+      expect(_fetch).toHaveBeenCalledWith(
         `${apiHost}${apiPath}${apiVersion}/site/?disable_caching`,
-      ]);
+      );
       expect(res.statusCode).toEqual(200);
     });
 
