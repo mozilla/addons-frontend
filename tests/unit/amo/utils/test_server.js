@@ -3,7 +3,10 @@ import path from 'path';
 import fs from 'fs-extra';
 import MockExpressResponse from 'mock-express-response';
 
-import { viewFrontendVersionHandler } from 'amo/utils/server';
+import {
+  viewFrontendVersionHandler,
+  viewHeartbeatHandler,
+} from 'amo/utils/server';
 import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -79,6 +82,45 @@ describe(__filename, () => {
 
         done();
       });
+    });
+  });
+
+  describe('viewHeartbeatHandler', () => {
+    it('calls the site API and returns 200 if successful', async () => {
+      const apiHost = 'https://somehost/';
+      const apiPath = 'some/path/';
+      const apiVersion = 'someVersion';
+      const _config = getFakeConfig({ apiHost, apiPath, apiVersion });
+      const _fetch = jest.fn().mockResolvedValue({ status: 200 });
+      const handler = viewHeartbeatHandler({ _config, _fetch });
+
+      const res = new MockExpressResponse();
+      await handler(null, res);
+
+      expect(_fetch).toHaveBeenCalledWith(
+        `${apiHost}${apiPath}${apiVersion}/site/?disable_caching`,
+      );
+      expect(res.statusCode).toEqual(200);
+    });
+
+    it('returns a 500 if there is an API error', async () => {
+      const _fetch = jest.fn().mockResolvedValue({ status: 400 });
+      const handler = viewHeartbeatHandler({ _fetch });
+
+      const res = new MockExpressResponse();
+      await handler(null, res);
+
+      expect(res.statusCode).toEqual(500);
+    });
+
+    it('returns a 500 if fetch fails', async () => {
+      const _fetch = jest.fn().mockRejectedValue();
+      const handler = viewHeartbeatHandler({ _fetch });
+
+      const res = new MockExpressResponse();
+      await handler(null, res);
+
+      expect(res.statusCode).toEqual(500);
     });
   });
 });

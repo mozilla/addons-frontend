@@ -330,6 +330,8 @@ module.exports = {
   // clientApp. These are all URLs that don't require a clientApp in them
   // because they are app-independant, like `/en-US/developers/`.
   validClientAppUrlExceptions: [
+    '__frontend_heartbeat__',
+    '__frontend_lbheartbeat__',
     '__frontend_version__',
     '__version__',
     'about',

@@ -26,7 +26,10 @@ import * as middleware from 'amo/middleware';
 import requestId from 'amo/middleware/requestId';
 import { loadErrorPage } from 'amo/reducers/errorPage';
 import { addQueryParamsToHistory, convertBoolean } from 'amo/utils';
-import { viewFrontendVersionHandler } from 'amo/utils/server';
+import {
+  viewFrontendVersionHandler,
+  viewHeartbeatHandler,
+} from 'amo/utils/server';
 import {
   setAuthToken,
   setClientApp,
@@ -205,6 +208,11 @@ function baseServer(
   app.get('/__version__', viewFrontendVersionHandler());
   // For AMO, this helps differentiate from /__version__ served by addons-server.
   app.get('/__frontend_version__', viewFrontendVersionHandler());
+  // Also return info for requests to __heartbeat__ and __lbheartbeat__.
+  app.get('/__frontend_heartbeat__', viewHeartbeatHandler());
+  app.get('/__frontend_lbheartbeat__', (req, res) => {
+    return res.status(200).end('ok');
+  });
 
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
