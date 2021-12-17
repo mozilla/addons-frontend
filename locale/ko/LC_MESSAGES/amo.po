@@ -260,9 +260,8 @@ msgid "More information"
 msgstr "추가 정보"
 
 #: src/amo/components/AddonQRCode/index.js:101
-#, fuzzy
 msgid "Get %(addonName)s for Android"
-msgstr "Android 부가 기능"
+msgstr "Android용 %(addonName)s 받기"
 
 #: src/amo/components/AddonQRCode/index.js:134
 msgid "Dismiss this message"
@@ -1061,14 +1060,12 @@ msgid "You'll need Firefox to use this extension"
 msgstr "이 확장 기능을 사용하려면 Firefox가 필요함"
 
 #: src/amo/components/GetFirefoxButton/index.js:150
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "이 테마를 사용하려면 Firefox가 필요함"
+msgstr "이 테마를 사용하려면 업데이트된 버전의 Firefox가 필요합니다."
 
 #: src/amo/components/GetFirefoxButton/index.js:151
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "이 확장 기능을 사용하려면 Firefox가 필요함"
+msgstr "이 확장 기능을 사용하려면 업데이트된 버전의 Firefox가 필요합니다."
 
 #: src/amo/components/Header/index.js:102
 msgid "Tools"
@@ -1302,7 +1299,7 @@ msgstr "탐색중에 브라우저 활동에 접근"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr ""
+msgstr "Mozilla Firefox에서 만든 공식 확장 기능입니다. 보안 및 성능 표준을 충족합니다."
 
 #: src/amo/components/PromotedBadge/index.js:49
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
@@ -1413,9 +1410,8 @@ msgid_plural "Read all %(total)s four-star reviews"
 msgstr[0] "4 별점 리뷰 모두 보기"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "리뷰가 없습니다"
+msgstr "별 4개 리뷰가 없습니다"
 
 #: src/amo/components/RatingsByStar/index.js:93
 #, fuzzy
@@ -1901,7 +1897,7 @@ msgstr ""
 
 #: src/amo/components/VPNPromoBanner/index.js:204
 msgid "Get Mozilla VPN"
-msgstr ""
+msgstr "Mozilla VPN 받기"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
