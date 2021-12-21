@@ -3,13 +3,12 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 
 const LOAD_ERROR_PAGE: 'LOAD_ERROR_PAGE' = 'LOAD_ERROR_PAGE';
 
-export type ErrorType = Error & {
-  apiURL?: string,
-  response?: {
-    status?: number,
-  },
-  jsonResponse?: Object,
-};
+export type ErrorType = Error &
+  interface {
+    apiURL?: string,
+    response?: Response,
+    jsonResponse?: Object,
+  };
 
 export type ErrorPageState = {|
   clearOnNext: boolean,

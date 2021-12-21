@@ -45,7 +45,7 @@ export function makeQueryString(query: {
 
 type CreateApiErrorParams = {|
   apiURL?: string,
-  response: { status: number },
+  response: Response,
   jsonResponse?: Object,
 |};
 
