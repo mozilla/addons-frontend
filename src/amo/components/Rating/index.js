@@ -53,6 +53,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   }
 
   _setState(newState: $Shape<StateType>): void {
+    // $FlowFixMe: Deal with method-unbinding error.
     const setState = this.props._setState || this.setState.bind(this);
     return setState(newState);
   }
