@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-16 17:23+0000\n"
-"PO-Revision-Date: 2021-12-21 22:13+0000\n"
+"PO-Revision-Date: 2021-12-21 22:14+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1306,11 +1306,11 @@ msgstr "Nastajenja priwatnosće čitać a změnić"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
-msgstr "Mějće přistup na njedawno začinjene rajtarki"
+msgstr "Mějće přistup k njedawno začinjenym rajtarkam"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Access browser tabs"
-msgstr "Přistup na rajtarki wobhladowaka měć"
+msgstr "Mějće přistup k rajtarkam wobhladowaka"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
@@ -1322,7 +1322,7 @@ msgstr "Njewobmjezowanu ličbu klientowych datow składować"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
-msgstr "Přistup na aktiwitu wobhladowaka za nawigaciju měć"
+msgstr "Mějće přistup k aktiwiće wobhladowaka za nawigaciju"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
