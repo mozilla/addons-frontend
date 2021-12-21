@@ -1,4 +1,4 @@
-/* global Headers, Response */
+/* global Headers */
 import urllib from 'url';
 
 import { LOCATION_CHANGE } from 'connected-react-router';
