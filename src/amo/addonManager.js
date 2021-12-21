@@ -84,6 +84,7 @@ export function getAddon(
   guid: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ): Promise<FirefoxAddon> {
+  // $FlowFixMe: Deal with cannot-read error.
   if (_mozAddonManager || module.exports.hasAddonManager()) {
     // Resolves a promise with the addon on success.
     return _mozAddonManager.getAddonByID(guid).then((addon) => {
