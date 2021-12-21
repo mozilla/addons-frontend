@@ -174,6 +174,7 @@ export class Tracking {
       if (convertBoolean(_config.get('trackingSendWebVitals'))) {
         this.log('trackingSendWebVitals is enabled');
 
+        // $FlowFixMe: Deal with method-unbinding error.
         const sendWebVitalStats = this.sendWebVitalStats.bind(this);
         _getCLS(sendWebVitalStats);
         _getFID(sendWebVitalStats);

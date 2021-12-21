@@ -255,6 +255,7 @@ export function isAddonAuthor({
 }
 
 export function apiAddonTypeIsValid(addonType: string): boolean {
+  // $FlowFixMe: Deal with method-unbinding error.
   return Object.prototype.hasOwnProperty.call(
     API_ADDON_TYPES_MAPPING,
     addonType,
@@ -269,6 +270,7 @@ export function apiAddonType(addonType: string): string {
 }
 
 export function visibleAddonTypeIsValid(addonType: string): boolean {
+  // $FlowFixMe: Deal with method-unbinding error.
   return Object.prototype.hasOwnProperty.call(
     VISIBLE_ADDON_TYPES_MAPPING,
     addonType,

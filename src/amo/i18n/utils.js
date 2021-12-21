@@ -338,6 +338,7 @@ export function makeI18n(
   // Note: the available locales for tests are controlled in tests/setup.js
   if (
     typeof _Intl === 'object' &&
+    // $FlowFixMe: Deal with method-unbinding error.
     Object.prototype.hasOwnProperty.call(_Intl, 'NumberFormat')
   ) {
     log.debug('Intl.NumberFormat exists');

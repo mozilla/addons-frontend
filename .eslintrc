@@ -40,7 +40,9 @@
     "FileReader": true,
     "ProgressEvent": true,
     // Types that can be used with sendBeacon:
-    "BodyInit": true
+    "BodyInit": true,
+    // This is used by api/index.js.
+    "Response": true
   },
   "parser": "@babel/eslint-parser",
   "rules": {
