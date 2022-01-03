@@ -108,7 +108,7 @@
       }
     },
     "start-dev-proxy": {
-      "command": "npm run clean && concurrently 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools --mode buffer --tee | pino-pretty' 'node bin/proxy.js | pino-pretty'",
+      "command": "npm run clean && concurrently -c 'dim' 'npm run webpack-dev-server' 'node bin/server.js | pino-devtools --mode buffer --tee | pino-pretty' 'node bin/proxy.js | pino-pretty'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
