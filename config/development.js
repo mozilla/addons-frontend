@@ -42,6 +42,7 @@ module.exports = {
   staticPath: `//${webpackDevServer}/`,
 
   CSP: {
+    useDefaults: false,
     directives: {
       connectSrc: [
         "'self'",

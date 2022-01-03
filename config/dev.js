@@ -10,6 +10,7 @@ module.exports = {
 
   // Content security policy.
   CSP: {
+    useDefaults: false,
     directives: {
       connectSrc: [
         analyticsHost,
