@@ -128,6 +128,7 @@ module.exports = {
   // NOTE: if a config contains a var, consider importing it
   // from ./lib/shared.js
   CSP: {
+    useDefaults: false,
     directives: {
       defaultSrc: ["'none'"],
       baseUri: ["'self'"],
