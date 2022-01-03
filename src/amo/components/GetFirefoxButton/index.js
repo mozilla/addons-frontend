@@ -84,11 +84,12 @@ export const getDownloadLink = ({
   addon,
   overrideQueryParams = {},
 }: GetDownloadLinkParams): string => {
-  const baseURL = DOWNLOAD_FIREFOX_BASE_URL;
-
-  return `${baseURL}${makeQueryStringWithUTM({
+  return `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
     utm_campaign: _getDownloadCampaign({ addonId: addon && addon.id }),
     utm_content: addon && addon.guid ? `rta:${_encode(addon.guid)}` : '',
+    // This is needed for the Firefox direct download.
+    // See https://bedrock.readthedocs.io/en/latest/download-buttons.html#external-referrers
+    s: 'direct',
     ...overrideQueryParams,
   })}`;
 };

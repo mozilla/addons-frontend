@@ -369,7 +369,8 @@ describe(__filename, () => {
       const addon = createInternalAddonWithLang({ ...fakeAddon, id: addonId });
 
       const expectedLink = [
-        `${DOWNLOAD_FIREFOX_BASE_URL}?utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
+        `${DOWNLOAD_FIREFOX_BASE_URL}?s=direct`,
+        `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
         `utm_content=rta%3A${encode(addon.guid)}`,
         `utm_medium=referral&utm_source=addons.mozilla.org`,
       ].join('&');

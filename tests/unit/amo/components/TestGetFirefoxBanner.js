@@ -98,10 +98,12 @@ describe(__filename, () => {
       const root = render({ store });
 
       const expectedHref = [
-        `${DOWNLOAD_FIREFOX_BASE_URL}?utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
+        `${DOWNLOAD_FIREFOX_BASE_URL}?s=direct`,
+        `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}`,
         `utm_content=${GET_FIREFOX_BANNER_UTM_CONTENT}`,
         `utm_medium=referral&utm_source=addons.mozilla.org`,
       ].join('&');
+
       expect(root.find(Button)).toHaveProp('href', expectedHref);
     });
 
