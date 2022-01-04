@@ -20,8 +20,7 @@ export const LANDING_PAGE_EXTENSION_COUNT = 4;
 export const LANDING_PAGE_THEME_COUNT = 3;
 export const MOBILE_HOME_PAGE_EXTENSION_COUNT = 10;
 
-export const DOWNLOAD_FIREFOX_BASE_URL = 'https://www.mozilla.org/firefox/new/';
-export const DOWNLOAD_FIREFOX_EXPERIMENTAL_URL =
+export const DOWNLOAD_FIREFOX_BASE_URL =
   'https://www.mozilla.org/firefox/download/thanks/';
 export const PROMOTED_ADDONS_SUMO_URL =
   'https://support.mozilla.org/kb/add-on-badges';
