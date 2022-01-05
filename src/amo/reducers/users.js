@@ -79,8 +79,6 @@ export type BaseExternalUserType = {|
   last_login_ip?: string,
   permissions?: Array<string>,
   read_dev_agreement?: boolean,
-  // This field is only returned for reviewers.
-  reviewer_name?: string | null,
 |};
 
 // Basic user account object fields, returned by the API. You can update
@@ -123,7 +121,6 @@ export type UserEditableFieldsType = {|
   homepage?: string | null,
   location?: string | null,
   occupation?: string | null,
-  reviewer_name?: string | null, // only for reviewers.
   username?: string | null,
 |};
 
