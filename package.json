@@ -64,7 +64,8 @@
     "amo:olympia": {
       "command": "better-npm-run start-dev-proxy",
       "env": {
-        "NODE_APP_INSTANCE": "local"
+        "NODE_APP_INSTANCE": "local",
+        "WEBPACK_SERVER_HOST": "olympia.test"
       }
     },
     "amo:dev": {
