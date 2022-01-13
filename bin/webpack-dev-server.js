@@ -13,7 +13,6 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const webpackDevConfig = require('../webpack.dev.config.babel').default;
 
-const host = config.get('webpackServerHost');
 const port = config.get('webpackServerPort');
 
 const compiler = webpack(webpackDevConfig);
@@ -42,6 +41,6 @@ server.listen(port, (err) => {
   if (err) {
     console.error(err);
   } else {
-    console.info(`🚧  Webpack development server listening on host: ${host} port: ${port}`);
+    console.info(`🚧  Webpack development server listening on port: ${port}`);
   }
 });

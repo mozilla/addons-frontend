@@ -2,7 +2,7 @@
 import { baseUrlDev, analyticsHost, apiDevHost } from './lib/shared';
 
 const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
-const webpackServerPort = 3001;
+const webpackServerPort = process.env.WEBPACK_SERVER_PORT || 3001;
 const webpackDevServer = `${webpackServerHost}:${webpackServerPort}`;
 
 module.exports = {
@@ -34,7 +34,8 @@ module.exports = {
   enableStrictMode: true,
 
   serverPort: 3333,
-  webpackServerHost,
+  
+  // We need this config variable for `bin/webpack-dev-server.js`.
   webpackServerPort,
 
   // In local dev, we serve static files using webpack-dev-server.
