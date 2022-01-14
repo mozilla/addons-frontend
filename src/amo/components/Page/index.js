@@ -7,13 +7,14 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import AppBanner from 'amo/components/AppBanner';
+import AuthExpired from 'amo/components/Errors/AuthExpired';
 import NotFound from 'amo/components/Errors/NotFound';
 import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLegalReasons';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import VPNPromoBanner from 'amo/components/VPNPromoBanner';
-import { CLIENT_APP_ANDROID } from 'amo/constants';
+import { API_ERROR_SIGNATURE_EXPIRED, CLIENT_APP_ANDROID } from 'amo/constants';
 import { EXPERIMENT_CONFIG } from 'amo/experiments/20210714_amo_vpn_promo';
 import log from 'amo/logger';
 import { withExperiment } from 'amo/withExperiment';
@@ -64,6 +65,11 @@ export const PageBase = ({
     // 401 and 403 for an add-on lookup is made to look like a 404 on purpose.
     // See https://github.com/mozilla/addons-frontend/issues/3061
     if (
+      errorHandler.capturedError.responseStatusCode === 401 &&
+      errorHandler.capturedError.code === API_ERROR_SIGNATURE_EXPIRED
+    ) {
+      errorContent = <AuthExpired />;
+    } else if (
       errorHandler.capturedError.responseStatusCode === 401 ||
       errorHandler.capturedError.responseStatusCode === 403 ||
       errorHandler.capturedError.responseStatusCode === 404
