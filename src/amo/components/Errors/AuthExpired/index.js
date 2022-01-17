@@ -2,11 +2,14 @@
 /* global window */
 import * as React from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
 
 import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 import translate from 'amo/i18n/translate';
 import Button from 'amo/components/Button';
 import type { I18nType } from 'amo/types/i18n';
+import { logOutUser as logOutUserAction } from 'amo/reducers/users';
+import type { DispatchFunc } from 'amo/types/redux';
 
 type Props = {||};
 
@@ -18,12 +21,18 @@ type InternalProps = {|
   ...Props,
   ...DefaultProps,
   i18n: I18nType,
+  dispatch: DispatchFunc,
 |};
 
 export class AuthExpiredBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     _window: typeof window !== 'undefined' ? window : {},
   };
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(logOutUserAction());
+  }
 
   render(): React.Node {
     const { _window, i18n } = this.props;
@@ -52,8 +61,9 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
   }
 }
 
-const AuthExpired: React.ComponentType<Props> = compose(translate())(
-  AuthExpiredBase,
-);
+const AuthExpired: React.ComponentType<Props> = compose(
+  connect(),
+  translate(),
+)(AuthExpiredBase);
 
 export default AuthExpired;
