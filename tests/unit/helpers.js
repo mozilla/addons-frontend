@@ -529,7 +529,7 @@ export function createStubErrorHandler(capturedError = null) {
 
 export function createCapturedErrorHandler({
   status = 400,
-  message = 'Unknown error',
+  jsonResponse = { detail: 'Unknown error' },
   store = createStore().store,
 }) {
   const id = 'error-handler-id';
@@ -537,7 +537,7 @@ export function createCapturedErrorHandler({
   const error = createApiError({
     response: { status },
     apiURL: 'https://some/api/endpoint',
-    jsonResponse: { message },
+    jsonResponse,
   });
   store.dispatch(setError({ id, error }));
   const capturedError = store.getState().errors[id];

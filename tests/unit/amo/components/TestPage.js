@@ -170,7 +170,7 @@ describe(__filename, () => {
   it('renders AuthFailed for 401 error with a signiture expired code', () => {
     const errorHandler = createCapturedErrorHandler({
       status: 401,
-      message: { code: API_ERROR_SIGNATURE_EXPIRED },
+      jsonResponse: { detail: 'something', code: API_ERROR_SIGNATURE_EXPIRED },
     });
 
     const root = render({ errorHandler });
@@ -208,7 +208,10 @@ describe(__filename, () => {
     (status) => {
       const _log = getFakeLogger();
       const message = 'Some error occured';
-      const errorHandler = createCapturedErrorHandler({ message, status });
+      const errorHandler = createCapturedErrorHandler({
+        jsonResponse: { detail: message },
+        status,
+      });
       render({ _log, errorHandler });
 
       sinon.assert.calledWith(_log.debug, `Captured API Error: ${message}`);
@@ -227,7 +230,10 @@ describe(__filename, () => {
   it('logs a warning message when there is an uncaught error', () => {
     const _log = getFakeLogger();
     const message = 'Some error occured';
-    const errorHandler = createCapturedErrorHandler({ message, status: 400 });
+    const errorHandler = createCapturedErrorHandler({
+      jsonResponse: { detail: message },
+      status: 400,
+    });
     render({ _log, errorHandler });
 
     sinon.assert.calledWith(_log.warn, `Captured API Error: ${message}`);
