@@ -442,8 +442,8 @@ export const unfilteredLanguages = {
     native: 'Sepedi',
   },
   oc: {
-    English: 'Occitan (Lengadocian)',
-    native: 'occitan (lengadocian)',
+    English: 'Occitan',
+    native: 'occitan',
   },
   or: {
     English: 'Oriya',
