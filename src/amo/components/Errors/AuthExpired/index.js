@@ -4,11 +4,11 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import Button from 'amo/components/Button';
 import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 import translate from 'amo/i18n/translate';
-import Button from 'amo/components/Button';
+import { logOutUser } from 'amo/reducers/users';
 import type { I18nType } from 'amo/types/i18n';
-import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import type { DispatchFunc } from 'amo/types/redux';
 
 type Props = {||};
@@ -20,8 +20,8 @@ type DefaultProps = {|
 type InternalProps = {|
   ...Props,
   ...DefaultProps,
-  i18n: I18nType,
   dispatch: DispatchFunc,
+  i18n: I18nType,
 |};
 
 export class AuthExpiredBase extends React.Component<InternalProps> {
@@ -31,7 +31,7 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
 
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(logOutUserAction());
+    dispatch(logOutUser());
   }
 
   render(): React.Node {
