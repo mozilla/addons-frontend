@@ -371,3 +371,4 @@ Issuing this command from the `master` branch will update the version in the `pa
 [jest]: https://jestjs.io/docs/en/getting-started.html
 [prettier]: https://prettier.io/
 [addons-blog]: https://github.com/mozilla/addons-blog
+[issue-7196]: https://github.com/mozilla/addons-frontend/issues/7196
