@@ -10,6 +10,7 @@
 .*/node_modules/react-nested-status/node_modules/.*
 .*/node_modules/stylelint
 .*/node_modules/@snyk/composer-lockfile-parser/.*
+.*/node_modules/resolve
 
 [include]
 
