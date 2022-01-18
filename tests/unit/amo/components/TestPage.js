@@ -170,7 +170,8 @@ describe(__filename, () => {
   it('renders AuthFailed for 401 error with a signiture expired code', () => {
     const errorHandler = createCapturedErrorHandler({
       status: 401,
-      jsonResponse: { detail: 'something', code: API_ERROR_SIGNATURE_EXPIRED },
+      detail: 'something',
+      code: API_ERROR_SIGNATURE_EXPIRED,
     });
 
     const root = render({ errorHandler });
@@ -209,7 +210,7 @@ describe(__filename, () => {
       const _log = getFakeLogger();
       const message = 'Some error occured';
       const errorHandler = createCapturedErrorHandler({
-        jsonResponse: { detail: message },
+        detail: message,
         status,
       });
       render({ _log, errorHandler });
@@ -231,7 +232,7 @@ describe(__filename, () => {
     const _log = getFakeLogger();
     const message = 'Some error occured';
     const errorHandler = createCapturedErrorHandler({
-      jsonResponse: { detail: message },
+      detail: message,
       status: 400,
     });
     render({ _log, errorHandler });

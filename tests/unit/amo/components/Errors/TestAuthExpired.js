@@ -17,7 +17,7 @@ import { API_ERROR_SIGNATURE_EXPIRED } from 'amo/constants';
 describe(__filename, () => {
   let store;
 
-  const render = ({ ...props } = {}) => {
+  const render = () => {
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 401, code: API_ERROR_SIGNATURE_EXPIRED },
@@ -25,7 +25,7 @@ describe(__filename, () => {
     store.dispatch(loadErrorPage({ error }));
 
     return shallowUntilTarget(
-      <AuthExpired i18n={fakeI18n()} {...props} />,
+      <AuthExpired i18n={fakeI18n()} store={store} />,
       AuthExpiredBase,
     );
   };
@@ -35,16 +35,17 @@ describe(__filename, () => {
   });
 
   it('renders a not authorized error', () => {
-    const root = render({ store });
+    const root = render();
 
-    expect(root.find(ErrorComponent)).toHaveProp('code', 401);
-    expect(root.find(ErrorComponent)).toHaveProp('header', 'Login Expired');
+    const component = root.find(ErrorComponent);
+    expect(component).toHaveProp('code', 401);
+    expect(component).toHaveProp('header', 'Login Expired');
   });
 
   it('logs out the user', () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    render({ store });
+    render();
 
     sinon.assert.calledWith(dispatchSpy, logOutUserAction());
   });
