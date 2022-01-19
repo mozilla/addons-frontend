@@ -38,11 +38,7 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
     const { _window, i18n } = this.props;
 
     const reloadButton = (
-      <Button
-        buttonType="action"
-        micro
-        onClick={() => _window.location.reload()}
-      >
+      <Button buttonType="none" micro onClick={() => _window.location.reload()}>
         {i18n.gettext('Reload the page')}
       </Button>
     );
