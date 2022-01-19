@@ -87,7 +87,6 @@ module.exports = {
     'apiHost',
     'apiPath',
     'apiVersion',
-    'authTokenValidFor',
     'baseURL',
     'cookieMaxAge',
     'cookieName',
@@ -398,11 +397,6 @@ module.exports = {
   // If true, enable a route that explicitly triggers a server error
   // to test our internal error handler.
   allowErrorSimulation: false,
-
-  // The amount of time (in seconds) that an auth token lives for.
-  // This needs to match the SESSION_COOKIE_AGE in addons-server:
-  // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L990
-  authTokenValidFor: 2592000, // 30 days
 
   // This is the public Mozilla user ID (similar to TASK_USER_ID in
   // addons-server).

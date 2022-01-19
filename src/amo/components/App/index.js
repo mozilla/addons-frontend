@@ -1,7 +1,6 @@
 /* @flow */
 /* global Navigator, navigator */
 import config from 'config';
-import { oneLine } from 'common-tags';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
@@ -24,11 +23,7 @@ import ScrollToTop from 'amo/components/ScrollToTop';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
-import {
-  getDjangoBase62,
-  getClientAppAndLangFromPath,
-  isValidClientApp,
-} from 'amo/utils';
+import { getClientAppAndLangFromPath, isValidClientApp } from 'amo/utils';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'amo/addonManager';
 import {
@@ -36,7 +31,7 @@ import {
   setUserAgent as setUserAgentAction,
 } from 'amo/reducers/api';
 import { setInstallState } from 'amo/reducers/installations';
-import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'amo/constants';
+import { CLIENT_APP_ANDROID } from 'amo/constants';
 import ErrorPage from 'amo/components/ErrorPage';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
@@ -52,7 +47,6 @@ interface MozNavigator extends Navigator {
 }
 
 type PropsFromState = {|
-  authToken: string | null,
   clientApp: string,
   lang: string,
   userAgent: string | null,
@@ -61,7 +55,6 @@ type PropsFromState = {|
 type DefaultProps = {|
   _addChangeListeners: (callback: Function, mozAddonManager: Object) => any,
   _navigator: typeof navigator | null,
-  authTokenValidFor?: number,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
   userAgent: string | null,
 |};
@@ -72,7 +65,6 @@ type Props = {|
   handleGlobalEvent: () => void,
   i18n: I18nType,
   location: ReactRouterLocationType,
-  logOutUser: () => void,
   setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
 |};
@@ -94,7 +86,6 @@ export class AppBase extends React.Component<Props> {
   static defaultProps: DefaultProps = {
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
-    authTokenValidFor: config.get('authTokenValidFor'),
     mozAddonManager: config.get('server')
       ? {}
       : (navigator: MozNavigator).mozAddonManager,
@@ -105,7 +96,6 @@ export class AppBase extends React.Component<Props> {
     const {
       _addChangeListeners,
       _navigator,
-      authToken,
       handleGlobalEvent,
       mozAddonManager,
       setUserAgent,
@@ -124,83 +114,18 @@ export class AppBase extends React.Component<Props> {
       );
       setUserAgent(_navigator.userAgent);
     }
-
-    if (authToken) {
-      this.setLogOutTimer(authToken);
-    }
   }
 
   componentDidUpdate() {
-    const { authToken, clientApp, location, setClientApp } = this.props;
+    const { clientApp, location, setClientApp } = this.props;
 
     const { clientApp: clientAppFromURL } = getClientAppAndLangFromPath(
       location.pathname,
     );
 
-    if (authToken) {
-      this.setLogOutTimer(authToken);
-    }
-
     if (isValidClientApp(clientAppFromURL) && clientAppFromURL !== clientApp) {
       setClientApp(clientAppFromURL);
     }
-  }
-
-  setLogOutTimer(authToken: string) {
-    const { authTokenValidFor, logOutUser } = this.props;
-
-    const expiresAt = authTokenValidFor;
-    if (!expiresAt) {
-      log.warn(oneLine`configured authTokenValidFor is falsey, not
-        checking for auth expiration`);
-      return;
-    }
-
-    const parts = authToken.split(':');
-    const encodedTimestamp = parts[1];
-    const base62 = getDjangoBase62();
-    let createdAt;
-    try {
-      // This is a UTC Unix timestamp.
-      createdAt = base62.decode(encodedTimestamp);
-    } catch (base62Error) {
-      log.error(
-        `Auth token "${encodedTimestamp}" triggered this base62 error: "${base62Error}"`,
-      );
-      return;
-    }
-    // If the encoded timestamp was malformed it will be NaN, 0 or negative.
-    if (Number.isNaN(createdAt) || createdAt <= 0) {
-      log.error(oneLine`Got an invalid timestamp from auth token;
-        encoded value: ${encodedTimestamp}; decoded value: ${createdAt}`);
-      return;
-    }
-    const readableCreatedAt = new Date(createdAt * 1000).toString();
-    log.debug(`Auth token was created at: ${readableCreatedAt}`);
-
-    // Get the current UTC Unix timestamp.
-    const now = Date.now() / 1000;
-    // Set the expiration time in seconds.
-    const expirationTime = createdAt + expiresAt - now;
-    const readableExpiration = new Date(
-      (now + expirationTime) * 1000,
-    ).toString();
-    log.debug(`Auth token expires at ${readableExpiration}`);
-
-    const setTimeoutDelay = expirationTime * 1000;
-    if (setTimeoutDelay >= maximumSetTimeoutDelay) {
-      log.debug(oneLine`No logout was scheduled because the expiration
-        exceeded the setTimeout limit`);
-      return;
-    }
-    if (this.scheduledLogout) {
-      clearTimeout(this.scheduledLogout);
-    }
-    log.info('Setting a logout timer for when the token expires');
-    this.scheduledLogout = setTimeout(() => {
-      log.info('Logging out because the auth token has expired');
-      logOutUser();
-    }, setTimeoutDelay);
   }
 
   render(): React.Node {
@@ -248,7 +173,6 @@ export class AppBase extends React.Component<Props> {
 }
 
 export const mapStateToProps = (state: AppState): PropsFromState => ({
-  authToken: state.api && state.api.token,
   clientApp: state.api.clientApp,
   lang: state.api.lang,
   userAgent: state.api.userAgent,

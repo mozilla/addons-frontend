@@ -272,12 +272,6 @@ export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';
 export const ERROR_ADDON_DISABLED_BY_DEV = 'ERROR_ADDON_DISABLED_BY_DEV';
 export const ERROR_ADDON_DISABLED_BY_ADMIN = 'ERROR_ADDON_DISABLED_BY_ADMIN';
 
-// This is the limit in milleseconds for how long a setTimeout delay can be.
-// No setTimeout should be scheduled for this time because it
-// will be triggered immediately.
-// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Maximum_delay_value
-export const maximumSetTimeoutDelay = 2147483647;
-
 // Allows viewing and editing of any add-ons details in developer tools.
 export const ADDONS_EDIT = 'Addons:Edit';
 // Can access the add-on reviewer tools to approve/reject add-on submissions.
