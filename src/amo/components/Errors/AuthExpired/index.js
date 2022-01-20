@@ -40,17 +40,17 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
     const { _window, i18n } = this.props;
 
     const reloadButton = (
-      <Button buttonType="none" onClick={() => _window.location.reload()}>
+      <Button
+        className="ReloadPageButton"
+        buttonType="none"
+        onClick={() => _window.location.reload()}
+      >
         {i18n.gettext('Reload the page')}
       </Button>
     );
 
     return (
-      <ErrorComponent
-        className="AuthExpired"
-        code={401}
-        header={i18n.gettext('Login Expired')}
-      >
+      <ErrorComponent code={401} header={i18n.gettext('Login Expired')}>
         <p>
           {i18n.gettext(`Login authentication has expired.`)}
           {reloadButton}

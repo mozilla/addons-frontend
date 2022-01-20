@@ -1,7 +1,7 @@
 @import '~amo/css/styles';
 
-.AuthExpired .Button {
-  color: $blue-50;
+.ReloadPageButton {
+  color: $link-color;
   text-decoration: underline;
   cursor: pointer;
 }
