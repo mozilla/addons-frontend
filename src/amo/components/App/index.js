@@ -24,7 +24,6 @@ import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { getClientAppAndLangFromPath, isValidClientApp } from 'amo/utils';
-import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'amo/addonManager';
 import {
   setClientApp as setClientAppAction,
@@ -180,14 +179,10 @@ export const mapStateToProps = (state: AppState): PropsFromState => ({
 
 export function mapDispatchToProps(dispatch: DispatchFunc): {|
   handleGlobalEvent: (payload: InstalledAddon) => void,
-  logOutUser: () => void,
   setClientApp: (clientApp: string) => void,
   setUserAgent: (userAgent: string) => void,
 |} {
   return {
-    logOutUser() {
-      dispatch(logOutUserAction());
-    },
     handleGlobalEvent(payload: InstalledAddon) {
       dispatch(setInstallState(payload));
     },
