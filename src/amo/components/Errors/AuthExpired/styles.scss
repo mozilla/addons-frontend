@@ -1,0 +1,7 @@
+@import '~amo/css/styles';
+
+.AuthExpired .Button {
+  color: $blue-50;
+  text-decoration: underline;
+  cursor: pointer;
+}

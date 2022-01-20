@@ -11,6 +11,8 @@ import { logOutUser } from 'amo/reducers/users';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
 
+import './styles.scss';
+
 type Props = {||};
 
 type DefaultProps = {|
@@ -38,13 +40,17 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
     const { _window, i18n } = this.props;
 
     const reloadButton = (
-      <Button buttonType="none" micro onClick={() => _window.location.reload()}>
+      <Button buttonType="none" onClick={() => _window.location.reload()}>
         {i18n.gettext('Reload the page')}
       </Button>
     );
 
     return (
-      <ErrorComponent code={401} header={i18n.gettext('Login Expired')}>
+      <ErrorComponent
+        className="AuthExpired"
+        code={401}
+        header={i18n.gettext('Login Expired')}
+      >
         <p>
           {i18n.gettext(`Login authentication has expired.`)}
           {reloadButton}
