@@ -13,7 +13,6 @@ import App, {
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
-import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
 import {
   setClientApp as setClientAppAction,
@@ -23,16 +22,13 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INSTALL_STATE,
-  maximumSetTimeoutDelay,
 } from 'amo/constants';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
   dispatchClientMetadata,
-  dispatchSignInActions,
   fakeI18n,
   shallowUntilTarget,
-  userAuthToken,
 } from 'tests/unit/helpers';
 
 // Skip `withCookies` HOC since Enzyme does not support the React Context API.
@@ -237,157 +233,6 @@ describe(__filename, () => {
       'titleTemplate',
       `%s – Add-ons for Firefox Android (${lang})`,
     );
-  });
-
-  describe('handling expired auth tokens', () => {
-    let clock;
-    let store;
-
-    function renderAppWithAuth({ ...customProps } = {}) {
-      const props = {
-        store,
-        ...customProps,
-      };
-
-      return render(props);
-    }
-
-    beforeEach(() => {
-      store = dispatchSignInActions().store;
-      clock = sinon.useFakeTimers(Date.now());
-    });
-
-    afterEach(() => {
-      clock.restore();
-    });
-
-    it('logs out when the token expires', () => {
-      const authTokenValidFor = 10; // seconds
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      renderAppWithAuth({ authTokenValidFor });
-
-      const fuzz = 3; // account for the rounded offset calculation.
-      clock.tick((authTokenValidFor + fuzz) * 1000);
-
-      sinon.assert.calledWith(dispatchSpy, logOutUserAction());
-    });
-
-    it('only sets one timer when receiving new props', () => {
-      const authTokenValidFor = 10; // seconds
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const root = renderAppWithAuth({ authTokenValidFor });
-      // Simulate updating the component with new properties.
-      root.setProps();
-
-      const fuzz = 3; // account for the rounded offset calculation.
-      clock.tick((authTokenValidFor + fuzz) * 1000);
-
-      sinon.assert.calledWith(dispatchSpy, logOutUserAction());
-    });
-
-    it('does not set a timer when receiving an empty auth token', () => {
-      const authTokenValidFor = 10; // seconds
-      store = dispatchClientMetadata().store;
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      render({ authTokenValidFor, store });
-      dispatchSpy.resetHistory();
-
-      const fuzz = 3; // account for the rounded offset calculation.
-      clock.tick((authTokenValidFor + fuzz) * 1000);
-      // Make sure log out was not called since the component does not have an
-      // auth token.
-      sinon.assert.notCalled(dispatchSpy);
-    });
-
-    it('does not log out until the token expires', () => {
-      const authTokenValidFor = 10; // seconds
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      renderAppWithAuth({ authTokenValidFor });
-      dispatchSpy.resetHistory();
-
-      clock.tick(5 * 1000); // 5 seconds
-
-      sinon.assert.notCalled(dispatchSpy);
-    });
-
-    it('only starts a timer when authTokenValidFor is configured', () => {
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      renderAppWithAuth({ authTokenValidFor: null });
-      dispatchSpy.resetHistory();
-
-      clock.tick(100 * 1000);
-
-      sinon.assert.notCalled(dispatchSpy);
-    });
-
-    it('ignores malformed timestamps', () => {
-      const authTokenValidFor = 10; // seconds
-      const authToken = userAuthToken(
-        {},
-        {
-          tokenCreatedAt: 'bogus-timestamp',
-        },
-      );
-
-      store = dispatchSignInActions({ authToken }).store;
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      render({ authTokenValidFor, store });
-      dispatchSpy.resetHistory();
-
-      clock.tick(authTokenValidFor * 1000);
-
-      sinon.assert.notCalled(dispatchSpy);
-    });
-
-    it('ignores empty timestamps', () => {
-      const authTokenValidFor = 10; // seconds
-      const authToken = 'this-is-a-token-with-an-empty-timestamp';
-
-      store = dispatchSignInActions({ authToken }).store;
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      render({ authTokenValidFor, store });
-      dispatchSpy.resetHistory();
-
-      clock.tick(authTokenValidFor * 1000);
-
-      sinon.assert.notCalled(dispatchSpy);
-    });
-
-    it('ignores malformed tokens', () => {
-      const authTokenValidFor = 10; // seconds
-      const authToken = 'not-auth-data:^&invalid-characters:not-a-signature';
-
-      store = dispatchSignInActions({ authToken }).store;
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      render({ authTokenValidFor, store });
-      dispatchSpy.resetHistory();
-
-      clock.tick(authTokenValidFor * 1000);
-
-      sinon.assert.notCalled(dispatchSpy);
-    });
-
-    it('does not set a timeout for expirations too far in the future', () => {
-      const authTokenValidFor = maximumSetTimeoutDelay / 1000 + 1;
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      renderAppWithAuth({ authTokenValidFor });
-      dispatchSpy.resetHistory();
-
-      const fuzz = 3; // account for the rounded offset calculation.
-      clock.tick((authTokenValidFor + fuzz) * 1000);
-
-      sinon.assert.notCalled(dispatchSpy);
-    });
   });
 
   describe('getErrorPage', () => {
