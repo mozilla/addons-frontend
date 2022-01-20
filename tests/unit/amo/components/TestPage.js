@@ -2,12 +2,17 @@ import * as React from 'react';
 
 import Page, { PageBase } from 'amo/components/Page';
 import AppBanner from 'amo/components/AppBanner';
+import AuthExpired from 'amo/components/Errors/AuthExpired';
 import NotFound from 'amo/components/Errors/NotFound';
 import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLegalReasons';
 import Header from 'amo/components/Header';
 import VPNPromoBanner from 'amo/components/VPNPromoBanner';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
+import {
+  API_ERROR_SIGNATURE_EXPIRED,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'amo/constants';
 import {
   createCapturedErrorHandler,
   createContextWithFakeRouter,
@@ -162,6 +167,17 @@ describe(__filename, () => {
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
+  it('renders AuthFailed for 401 error with a signiture expired code', () => {
+    const errorHandler = createCapturedErrorHandler({
+      status: 401,
+      detail: 'something',
+      code: API_ERROR_SIGNATURE_EXPIRED,
+    });
+
+    const root = render({ errorHandler });
+    expect(root.find(AuthExpired)).toHaveLength(1);
+  });
+
   it('renders NotFound for forbidden add-on - 403 error', () => {
     const errorHandler = createCapturedErrorHandler({ status: 403 });
 
@@ -193,7 +209,10 @@ describe(__filename, () => {
     (status) => {
       const _log = getFakeLogger();
       const message = 'Some error occured';
-      const errorHandler = createCapturedErrorHandler({ message, status });
+      const errorHandler = createCapturedErrorHandler({
+        detail: message,
+        status,
+      });
       render({ _log, errorHandler });
 
       sinon.assert.calledWith(_log.debug, `Captured API Error: ${message}`);
@@ -212,7 +231,10 @@ describe(__filename, () => {
   it('logs a warning message when there is an uncaught error', () => {
     const _log = getFakeLogger();
     const message = 'Some error occured';
-    const errorHandler = createCapturedErrorHandler({ message, status: 400 });
+    const errorHandler = createCapturedErrorHandler({
+      detail: message,
+      status: 400,
+    });
     render({ _log, errorHandler });
 
     sinon.assert.calledWith(_log.warn, `Captured API Error: ${message}`);
