@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-21 19:54+0000\n"
+"PO-Revision-Date: 2022-01-21 19:55+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -842,7 +842,7 @@ msgstr "Перезавантажити сторінку"
 
 #: src/amo/components/Errors/AuthExpired/index.js:53
 msgid "Login Expired"
-msgstr "Сеанс завершився"
+msgstr "Час входу завершився"
 
 #: src/amo/components/Errors/AuthExpired/index.js:55
 msgid "Login authentication has expired."
