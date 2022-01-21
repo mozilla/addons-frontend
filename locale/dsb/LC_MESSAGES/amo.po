@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-16 17:23+0000\n"
+"POT-Creation-Date: 2022-01-21 16:31+0000\n"
 "PO-Revision-Date: 2021-10-26 16:56+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -206,7 +206,7 @@ msgstr "Wužyty wót"
 #: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
-#: src/amo/pages/UserProfileEdit/index.js:694
+#: src/amo/pages/UserProfileEdit/index.js:668
 msgid "Homepage"
 msgstr "Startowy bok"
 
@@ -364,7 +364,7 @@ msgstr "Wulašowaś"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:917
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Cancel"
 msgstr "Pśetergnuś"
 
@@ -639,22 +639,22 @@ msgstr "Drastwu instalěrowaś"
 msgid "Add to Firefox"
 msgstr "Programoju Firefox pśidaś"
 
-#: src/amo/components/App/index.js:214
+#: src/amo/components/App/index.js:138
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Dodanki za Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:218
+#: src/amo/components/App/index.js:142
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Dodanki za Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:226
+#: src/amo/components/App/index.js:150
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Dodanki za Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:230
+#: src/amo/components/App/index.js:154
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Dodanki za Firefox Android (%(locale)s)"
@@ -925,6 +925,28 @@ msgstr "Bok njejo se namakał"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Bóžko njamóžomy nic na URL namakaś, kótaryž sćo pódał."
 
+#: src/amo/components/Errors/AuthExpired/index.js:48
+msgid "Reload the page"
+msgstr ""
+
+#: src/amo/components/Errors/AuthExpired/index.js:53
+msgid "Login Expired"
+msgstr ""
+
+#: src/amo/components/Errors/AuthExpired/index.js:55
+#, fuzzy
+msgid "Login authentication has expired."
+msgstr "Wašo pósejźenje jo pśepadnuło"
+
+#: src/amo/components/Errors/AuthExpired/index.js:57
+#, fuzzy
+msgid ""
+"to continue without authentication, or login again using the Log In link at "
+"the top of the page."
+msgstr ""
+"Bóžko njejsćo za pśistup k toś tomu bokoju awtorizěrowany. Jolic njejsćo "
+"pśizjawjony, pśizjawśo se z pomocu wótkaza górjejce na boku."
+
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
@@ -1186,39 +1208,39 @@ msgid ""
 msgstr ""
 "Aby toś te dodanki wužywał, musyśo %(linkStart)sFirefox ześěgnuś%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:132
+#: src/amo/components/GetFirefoxButton/index.js:133
 msgid "Download Firefox and get the theme"
 msgstr "Firefox ześěgnuś a drastwu wobstaraś"
 
-#: src/amo/components/GetFirefoxButton/index.js:133
+#: src/amo/components/GetFirefoxButton/index.js:134
 msgid "Download Firefox and get the extension"
 msgstr "Firefox ześěgnuś a rozšyrjenje wobstaraś"
 
-#: src/amo/components/GetFirefoxButton/index.js:137
+#: src/amo/components/GetFirefoxButton/index.js:138
 msgid "Download the new Firefox and get the theme"
 msgstr "Ześěgniśo nowy Firefox a wobstarajśo se drastwu"
 
-#: src/amo/components/GetFirefoxButton/index.js:138
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "Download the new Firefox and get the extension"
 msgstr "Ześěgniśo nowy Firefox a wobstarajśo se rozšyrjenje"
 
-#: src/amo/components/GetFirefoxButton/index.js:142
+#: src/amo/components/GetFirefoxButton/index.js:143
 msgid "Download Firefox"
 msgstr "Firefox ześěgnuś"
 
-#: src/amo/components/GetFirefoxButton/index.js:145
+#: src/amo/components/GetFirefoxButton/index.js:146
 msgid "You'll need Firefox to use this theme"
 msgstr "Trjebaśo Firefox, aby toś tu drastwu wužywał"
 
-#: src/amo/components/GetFirefoxButton/index.js:146
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "You'll need Firefox to use this extension"
 msgstr "Trjebaśo Firefox, aby toś to rozšyrjenje wužywał"
 
-#: src/amo/components/GetFirefoxButton/index.js:150
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Trjebaśo zaktualizěrowanu wersiju Firefox za toś tu drastwu"
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:152
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Trjebaśo zaktualizěrowanu wersiju Firefox za toś to rozšyrjenje"
 
@@ -1263,12 +1285,12 @@ msgid "View My Collections"
 msgstr "Móje zběrki pokazaś"
 
 #: src/amo/components/Header/index.js:90
-#: src/amo/pages/UserProfileEdit/index.js:567
+#: src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
 msgstr "Mój profil pokazaś"
 
 #: src/amo/components/Header/index.js:98
-#: src/amo/pages/UserProfileEdit/index.js:573
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "Edit My Profile"
 msgstr "Mój profil wobźěłaś"
 
@@ -1498,19 +1520,19 @@ msgstr ""
 "Toś ten dodank jo se pśeglědał, aby našym standardam za wěstotu a wugbaśe "
 "wótpowědował."
 
-#: src/amo/components/Rating/index.js:104 src/amo/components/Rating/index.js:93
+#: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "Z %(rating)s z 5 pógódnośony"
 
-#: src/amo/components/Rating/index.js:110
+#: src/amo/components/Rating/index.js:111
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Aktualizěrujśo swójo pógódnośenje na %(starRating)s z 5 gwězdkow"
 
-#: src/amo/components/Rating/index.js:116
+#: src/amo/components/Rating/index.js:117
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Pógódnośćo toś ten dodank z %(starRating)s z 5 gwězdkow"
 
-#: src/amo/components/Rating/index.js:97
+#: src/amo/components/Rating/index.js:98
 msgid "There are no ratings yet"
 msgstr "Hyšći pógódnośenja njejsu"
 
@@ -2362,11 +2384,11 @@ msgstr ""
 "To njejo zjawny lisćinowy zapisk. Wiźiśo jen jano, dokulaž maśo rozšyrjone "
 "pšawa."
 
-#: src/amo/pages/Addon/index.js:491
+#: src/amo/pages/Addon/index.js:493
 msgid "Extension Metadata"
 msgstr "Metadaty rozšyrjenja"
 
-#: src/amo/pages/Addon/index.js:515
+#: src/amo/pages/Addon/index.js:516
 msgid "Screenshots"
 msgstr "Fota wobrazowki"
 
@@ -3194,7 +3216,7 @@ msgid "Theme artist"
 msgstr "Drastwowy wuměłc"
 
 #: src/amo/pages/UserProfile/index.js:327
-#: src/amo/pages/UserProfileEdit/index.js:555
+#: src/amo/pages/UserProfileEdit/index.js:546
 msgid "User Profile for %(user)s"
 msgstr "Wužywarski profil za %(user)s"
 
@@ -3203,12 +3225,12 @@ msgid "User Profile"
 msgstr "Wužywarski profil"
 
 #: src/amo/pages/UserProfile/index.js:356
-#: src/amo/pages/UserProfileEdit/index.js:711
+#: src/amo/pages/UserProfileEdit/index.js:685
 msgid "Location"
 msgstr "Městno"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:700
 msgid "Occupation"
 msgstr "Pówołanje"
 
@@ -3225,7 +3247,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Pśerězne pógódnośenje dodankow wuwijarja"
 
 #: src/amo/pages/UserProfile/index.js:402
-#: src/amo/pages/UserProfileEdit/index.js:748
+#: src/amo/pages/UserProfileEdit/index.js:722
 msgid "Biography"
 msgstr "Biografija"
 
@@ -3237,11 +3259,11 @@ msgstr "Profil wobźěłaś"
 msgid "Admin user"
 msgstr "Administraciski wužywaŕ"
 
-#: src/amo/pages/UserProfileEdit/index.js:209
+#: src/amo/pages/UserProfileEdit/index.js:206
 msgid "Picture successfully deleted"
 msgstr "Wobraz jo se wuspěšnje wulašował"
 
-#: src/amo/pages/UserProfileEdit/index.js:462
+#: src/amo/pages/UserProfileEdit/index.js:454
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3249,7 +3271,7 @@ msgstr ""
 "Dajśo wužywarjam někotare informacije wó sebje. Nejwěcej pólow jo "
 "opcionalne, ale buźo drugim wužywarjam pomagaś, was lěpjej póznaś."
 
-#: src/amo/pages/UserProfileEdit/index.js:466
+#: src/amo/pages/UserProfileEdit/index.js:458
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3258,67 +3280,67 @@ msgstr ""
 "jo opcionalne, ale buźo drugim wužywarjam pomagaś, %(userName)s lěpjej "
 "póznaś."
 
-#: src/amo/pages/UserProfileEdit/index.js:481
+#: src/amo/pages/UserProfileEdit/index.js:473
 msgid "Introduce yourself to the community if you like"
 msgstr "Pśedstajśo se zgromaźeństwoju, jolic cośo"
 
-#: src/amo/pages/UserProfileEdit/index.js:482
+#: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Introduce %(userName)s to the community"
 msgstr "Pśedstajśo %(userName)s zgromaźeństwoju"
 
-#: src/amo/pages/UserProfileEdit/index.js:509
+#: src/amo/pages/UserProfileEdit/index.js:500
 msgid "Log in to edit the profile"
 msgstr "Pśizjewśo se, aby profil wobźěłał"
 
-#: src/amo/pages/UserProfileEdit/index.js:531
+#: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Creating your profile…"
 msgstr "Waš profil se załožujo…"
 
-#: src/amo/pages/UserProfileEdit/index.js:532
+#: src/amo/pages/UserProfileEdit/index.js:523
 msgid "Create My Profile"
 msgstr "Mój profil załožyś"
 
-#: src/amo/pages/UserProfileEdit/index.js:536
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Updating your profile…"
 msgstr "Waš profil se aktualizěrujo…"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Update My Profile"
 msgstr "Mój profil aktualizěrowaś"
 
-#: src/amo/pages/UserProfileEdit/index.js:540
+#: src/amo/pages/UserProfileEdit/index.js:531
 msgid "Updating profile…"
 msgstr "Profil se aktualizěrujo…"
 
-#: src/amo/pages/UserProfileEdit/index.js:541
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Update Profile"
 msgstr "Profil aktualizěrowaś"
 
-#: src/amo/pages/UserProfileEdit/index.js:568
+#: src/amo/pages/UserProfileEdit/index.js:559
 msgid "View user's profile"
 msgstr "Profil wužywarja pokazaś"
 
-#: src/amo/pages/UserProfileEdit/index.js:574
+#: src/amo/pages/UserProfileEdit/index.js:565
 msgid "Edit user's profile"
 msgstr "Profil wužywarja wobźěłaś"
 
-#: src/amo/pages/UserProfileEdit/index.js:592
+#: src/amo/pages/UserProfileEdit/index.js:583
 msgid "Account"
 msgstr "Konto"
 
-#: src/amo/pages/UserProfileEdit/index.js:593
+#: src/amo/pages/UserProfileEdit/index.js:584
 msgid "Account for %(userName)s"
 msgstr "Konto za %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:600
+#: src/amo/pages/UserProfileEdit/index.js:591
 msgid "Email Address"
 msgstr "E-mailowa adresa"
 
-#: src/amo/pages/UserProfileEdit/index.js:607
+#: src/amo/pages/UserProfileEdit/index.js:598
 msgid "Email address cannot be changed here"
 msgstr "E-mailowa adresa njedajo se how změniś"
 
-#: src/amo/pages/UserProfileEdit/index.js:618
+#: src/amo/pages/UserProfileEdit/index.js:609
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3326,39 +3348,35 @@ msgstr ""
 "Móžośo swóju e-mailowu adresu na Firefox Accounts změniś. "
 "%(startLink)sTrjebaśo pomoc?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:635
+#: src/amo/pages/UserProfileEdit/index.js:626
 msgid "Manage Firefox Accounts…"
 msgstr "Konta Firefox zastojaś…"
 
-#: src/amo/pages/UserProfileEdit/index.js:643
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:652
+#: src/amo/pages/UserProfileEdit/index.js:643
 msgid "This field is required"
 msgstr "Toś to pólo jo trěbne"
 
-#: src/amo/pages/UserProfileEdit/index.js:656
+#: src/amo/pages/UserProfileEdit/index.js:647
 msgid "Display Name *"
 msgstr "Pokazane mě *"
 
-#: src/amo/pages/UserProfileEdit/index.js:673
-msgid "Reviewer Name"
-msgstr "Mě pśeglědowarja"
-
-#: src/amo/pages/UserProfileEdit/index.js:706
+#: src/amo/pages/UserProfileEdit/index.js:680
 msgid "This URL will only be visible for users who are developers."
 msgstr "Toś ten URL buźośo jano widobny za wužywarje, kótarež su wuwijarje."
 
-#: src/amo/pages/UserProfileEdit/index.js:763
+#: src/amo/pages/UserProfileEdit/index.js:737
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Źěl HTML se pódpěra: %(htmlTags)s. Wótkaze su zakazane."
 
-#: src/amo/pages/UserProfileEdit/index.js:787
+#: src/amo/pages/UserProfileEdit/index.js:761
 msgid "Notifications"
 msgstr "Powěźeńki"
 
-#: src/amo/pages/UserProfileEdit/index.js:791
+#: src/amo/pages/UserProfileEdit/index.js:765
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3366,7 +3384,7 @@ msgstr ""
 "Wótergi Mozilla wam mejlku wó pśichodnych wersijach a dodankowych tšojenjach "
 "sćelo. Pšosym wubjeŕśo temy, za kótarež zajmujośo."
 
-#: src/amo/pages/UserProfileEdit/index.js:796
+#: src/amo/pages/UserProfileEdit/index.js:770
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3375,7 +3393,7 @@ msgstr ""
 "dodankowych tšojenjach sćelo. Pšosym wubjeŕśo temy, za kótarež se toś ten "
 "wužywaŕ zajmujo."
 
-#: src/amo/pages/UserProfileEdit/index.js:811
+#: src/amo/pages/UserProfileEdit/index.js:785
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3383,27 +3401,27 @@ msgstr ""
 "Mozilla sebje pšawo wuměnjujo, se z wami wó wěstych nastupnosćach z wašymi "
 "góspodowanymi dodankami do zwiska stajiś."
 
-#: src/amo/pages/UserProfileEdit/index.js:837
-#: src/amo/pages/UserProfileEdit/index.js:909
+#: src/amo/pages/UserProfileEdit/index.js:811
+#: src/amo/pages/UserProfileEdit/index.js:883
 msgid "Delete My Profile"
 msgstr "Mój profil wulašowaś"
 
-#: src/amo/pages/UserProfileEdit/index.js:838
-#: src/amo/pages/UserProfileEdit/index.js:910
+#: src/amo/pages/UserProfileEdit/index.js:812
+#: src/amo/pages/UserProfileEdit/index.js:884
 msgid "Delete Profile"
 msgstr "Profil wulašowaś"
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:824
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "WAŽNY: Lašowanje wašogo profila za dodanki Firefox njedajo se anulěrowaś."
 
-#: src/amo/pages/UserProfileEdit/index.js:853
+#: src/amo/pages/UserProfileEdit/index.js:827
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "WAŽNY: Lašowanje toś togo profila za dodanki Firefox njedajo se anulěrowaś."
 
-#: src/amo/pages/UserProfileEdit/index.js:862
+#: src/amo/pages/UserProfileEdit/index.js:836
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3413,7 +3431,7 @@ msgstr ""
 "(wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, "
 "žywjenjoběg, pówołanje), nastajenja powěźeńkow, pógódnośenja a zběrki."
 
-#: src/amo/pages/UserProfileEdit/index.js:868
+#: src/amo/pages/UserProfileEdit/index.js:842
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3423,7 +3441,7 @@ msgstr ""
 "drobnostki (wobraz, wužywarske mě, zwobraznjeńske mě, městno, startowy bok, "
 "žywjenjoběg, pówołanje), nastajenja powěźeńkow, pógódnośenja a zběrki."
 
-#: src/amo/pages/UserProfileEdit/index.js:877
+#: src/amo/pages/UserProfileEdit/index.js:851
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3433,7 +3451,7 @@ msgstr ""
 "wobsejźarje. W toś tom paźe was ako awtora wótwónoźiju a zbytne awtory "
 "wobsejźarje dodanka wóstanu."
 
-#: src/amo/pages/UserProfileEdit/index.js:883
+#: src/amo/pages/UserProfileEdit/index.js:857
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3443,7 +3461,7 @@ msgstr ""
 "su teke wobsejźarje. W toś tom paźe wužywarja ako awtora wótwónoźiju a "
 "zbytne awtory wobsejźarje dodanka wóstanu."
 
-#: src/amo/pages/UserProfileEdit/index.js:893
+#: src/amo/pages/UserProfileEdit/index.js:867
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3556,6 +3574,9 @@ msgstr "kompatibelnosć mójogo dodanka njedajo se pówušyś"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "Kompatibelnosć mójogo dodanka jo se wuspěšnje pówušiła"
+
+#~ msgid "Reviewer Name"
+#~ msgstr "Mě pśeglědowarja"
 
 #~ msgid "Register or log in"
 #~ msgstr "Registrěrowaś abo pśizjawiś"

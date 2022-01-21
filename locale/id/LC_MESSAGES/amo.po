@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-16 17:23+0000\n"
+"POT-Creation-Date: 2022-01-21 16:31+0000\n"
 "PO-Revision-Date: 2021-06-12 02:32+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
@@ -191,7 +191,7 @@ msgstr "Digunakan oleh"
 #: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
-#: src/amo/pages/UserProfileEdit/index.js:694
+#: src/amo/pages/UserProfileEdit/index.js:668
 msgid "Homepage"
 msgstr "Halaman depan"
 
@@ -350,7 +350,7 @@ msgstr "Hapus"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:917
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Cancel"
 msgstr "Batalkan"
 
@@ -621,22 +621,22 @@ msgstr "Pasang Tema"
 msgid "Add to Firefox"
 msgstr "Tambah ke Firefox"
 
-#: src/amo/components/App/index.js:214
+#: src/amo/components/App/index.js:138
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Pengaya untuk Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:218
+#: src/amo/components/App/index.js:142
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Pengaya untuk Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:226
+#: src/amo/components/App/index.js:150
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Pengaya untuk Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:230
+#: src/amo/components/App/index.js:154
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Pengaya untuk Firefox Android (%(locale)s)"
@@ -909,6 +909,28 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 "Maaf, tapi kami tidak dapat menemukan apapun dalam URL yang Anda masukkan."
 
+#: src/amo/components/Errors/AuthExpired/index.js:48
+msgid "Reload the page"
+msgstr ""
+
+#: src/amo/components/Errors/AuthExpired/index.js:53
+msgid "Login Expired"
+msgstr ""
+
+#: src/amo/components/Errors/AuthExpired/index.js:55
+#, fuzzy
+msgid "Login authentication has expired."
+msgstr "Sesi anda telah berakhir"
+
+#: src/amo/components/Errors/AuthExpired/index.js:57
+#, fuzzy
+msgid ""
+"to continue without authentication, or login again using the Log In link at "
+"the top of the page."
+msgstr ""
+"Maaf, tapi Anda tidak berwenang mengakses laman ini. Jika Anda tidak masuk, "
+"coba masuk menggunakan tautan di bagian atas laman."
+
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
@@ -1174,39 +1196,39 @@ msgstr ""
 "Untuk menggunakan pengaya ini, Anda perlu %(linkStart)smengunduh Firefox"
 "%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:132
+#: src/amo/components/GetFirefoxButton/index.js:133
 msgid "Download Firefox and get the theme"
 msgstr "Unduh Firefox dan dapatkan temanya"
 
-#: src/amo/components/GetFirefoxButton/index.js:133
+#: src/amo/components/GetFirefoxButton/index.js:134
 msgid "Download Firefox and get the extension"
 msgstr "Unduh Firefox dan dapatkan ekstensinya"
 
-#: src/amo/components/GetFirefoxButton/index.js:137
+#: src/amo/components/GetFirefoxButton/index.js:138
 msgid "Download the new Firefox and get the theme"
 msgstr "Unduh Firefox terbaru dan dapatkan temanya"
 
-#: src/amo/components/GetFirefoxButton/index.js:138
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "Download the new Firefox and get the extension"
 msgstr "Unduh Firefox terbaru dan dapatkan ekstensinya"
 
-#: src/amo/components/GetFirefoxButton/index.js:142
+#: src/amo/components/GetFirefoxButton/index.js:143
 msgid "Download Firefox"
 msgstr "Unduh Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:145
+#: src/amo/components/GetFirefoxButton/index.js:146
 msgid "You'll need Firefox to use this theme"
 msgstr "Anda memerlukan Firefox untuk menggunakan tema ini"
 
-#: src/amo/components/GetFirefoxButton/index.js:146
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "You'll need Firefox to use this extension"
 msgstr "Anda memerlukan Firefox untuk menggunakan ekstensi ini"
 
-#: src/amo/components/GetFirefoxButton/index.js:150
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Anda memerlukan Firefox terbaru untuk menggunakan tema ini"
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:152
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Anda memerlukan Firefox terbaru untuk menggunakan ekstensi ini"
 
@@ -1251,12 +1273,12 @@ msgid "View My Collections"
 msgstr "Lihat Koleksi Saya"
 
 #: src/amo/components/Header/index.js:90
-#: src/amo/pages/UserProfileEdit/index.js:567
+#: src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
 msgstr "Lihat Profil Saya"
 
 #: src/amo/components/Header/index.js:98
-#: src/amo/pages/UserProfileEdit/index.js:573
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "Edit My Profile"
 msgstr "Edit Profil Saya"
 
@@ -1481,19 +1503,19 @@ msgid ""
 msgstr ""
 "Pengaya ini telah ditinjau untuk memenuhi standar keamanan dan kinerja kami."
 
-#: src/amo/components/Rating/index.js:104 src/amo/components/Rating/index.js:93
+#: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "Diberi peringkat %(rating)s dari 5"
 
-#: src/amo/components/Rating/index.js:110
+#: src/amo/components/Rating/index.js:111
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Menaikkan peringkat menjadi %(starRating)s dari 5"
 
-#: src/amo/components/Rating/index.js:116
+#: src/amo/components/Rating/index.js:117
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Memberi pengaya ini peringkat %(starRating)s dari 5"
 
-#: src/amo/components/Rating/index.js:97
+#: src/amo/components/Rating/index.js:98
 msgid "There are no ratings yet"
 msgstr "Belum ada peringkat"
 
@@ -2227,11 +2249,11 @@ msgid ""
 msgstr ""
 "Ini bukan daftar publik. Anda hanya melihatnya karena izin yang lebih tinggi."
 
-#: src/amo/pages/Addon/index.js:491
+#: src/amo/pages/Addon/index.js:493
 msgid "Extension Metadata"
 msgstr "Metadata Ekstensi"
 
-#: src/amo/pages/Addon/index.js:515
+#: src/amo/pages/Addon/index.js:516
 msgid "Screenshots"
 msgstr "Tangkapan Layar"
 
@@ -3053,7 +3075,7 @@ msgid "Theme artist"
 msgstr "Seniman tema"
 
 #: src/amo/pages/UserProfile/index.js:327
-#: src/amo/pages/UserProfileEdit/index.js:555
+#: src/amo/pages/UserProfileEdit/index.js:546
 msgid "User Profile for %(user)s"
 msgstr "Profil Pengguna untuk %(user)s"
 
@@ -3062,12 +3084,12 @@ msgid "User Profile"
 msgstr "Profil Pengguna"
 
 #: src/amo/pages/UserProfile/index.js:356
-#: src/amo/pages/UserProfileEdit/index.js:711
+#: src/amo/pages/UserProfileEdit/index.js:685
 msgid "Location"
 msgstr "Lokasi"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:700
 msgid "Occupation"
 msgstr "Pekerjaan"
 
@@ -3084,7 +3106,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Rerata peringkat untuk pengembang pengaya"
 
 #: src/amo/pages/UserProfile/index.js:402
-#: src/amo/pages/UserProfileEdit/index.js:748
+#: src/amo/pages/UserProfileEdit/index.js:722
 msgid "Biography"
 msgstr "Biografi"
 
@@ -3096,11 +3118,11 @@ msgstr "Edit profil"
 msgid "Admin user"
 msgstr "Pengguna admin"
 
-#: src/amo/pages/UserProfileEdit/index.js:209
+#: src/amo/pages/UserProfileEdit/index.js:206
 msgid "Picture successfully deleted"
 msgstr "Gambar berhasil dihapus"
 
-#: src/amo/pages/UserProfileEdit/index.js:462
+#: src/amo/pages/UserProfileEdit/index.js:454
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3109,7 +3131,7 @@ msgstr ""
 "Kebanyakan bidang memang tidak wajib diisi, tetapi akan membantu pengguna "
 "lain mengenal Anda lebih baik."
 
-#: src/amo/pages/UserProfileEdit/index.js:466
+#: src/amo/pages/UserProfileEdit/index.js:458
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3118,67 +3140,67 @@ msgstr ""
 "pengguna lain. Kebanyakan bidang memang tidak wajib diisi, tetapi akan "
 "membantu pengguna lain mengenal %(userName)s lebih baik."
 
-#: src/amo/pages/UserProfileEdit/index.js:481
+#: src/amo/pages/UserProfileEdit/index.js:473
 msgid "Introduce yourself to the community if you like"
 msgstr "Perkenalkan diri Anda pada komunitas, jika Anda berkenan"
 
-#: src/amo/pages/UserProfileEdit/index.js:482
+#: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Introduce %(userName)s to the community"
 msgstr "Perkenalkan %(userName)s ke komunitas"
 
-#: src/amo/pages/UserProfileEdit/index.js:509
+#: src/amo/pages/UserProfileEdit/index.js:500
 msgid "Log in to edit the profile"
 msgstr "Masuk untuk menyunting profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:531
+#: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Creating your profile…"
 msgstr "Membuat profil Anda…"
 
-#: src/amo/pages/UserProfileEdit/index.js:532
+#: src/amo/pages/UserProfileEdit/index.js:523
 msgid "Create My Profile"
 msgstr "Buat Profil Saya"
 
-#: src/amo/pages/UserProfileEdit/index.js:536
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Updating your profile…"
 msgstr "Memperbarui profil Anda…"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Update My Profile"
 msgstr "Perbarui Profil Saya"
 
-#: src/amo/pages/UserProfileEdit/index.js:540
+#: src/amo/pages/UserProfileEdit/index.js:531
 msgid "Updating profile…"
 msgstr "Memperbarui profil…"
 
-#: src/amo/pages/UserProfileEdit/index.js:541
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Update Profile"
 msgstr "Perbarui Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:568
+#: src/amo/pages/UserProfileEdit/index.js:559
 msgid "View user's profile"
 msgstr "Lihat profil pengguna"
 
-#: src/amo/pages/UserProfileEdit/index.js:574
+#: src/amo/pages/UserProfileEdit/index.js:565
 msgid "Edit user's profile"
 msgstr "Sunting profil pengguna"
 
-#: src/amo/pages/UserProfileEdit/index.js:592
+#: src/amo/pages/UserProfileEdit/index.js:583
 msgid "Account"
 msgstr "Akun"
 
-#: src/amo/pages/UserProfileEdit/index.js:593
+#: src/amo/pages/UserProfileEdit/index.js:584
 msgid "Account for %(userName)s"
 msgstr "Akun untuk %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:600
+#: src/amo/pages/UserProfileEdit/index.js:591
 msgid "Email Address"
 msgstr "Alamat Surel"
 
-#: src/amo/pages/UserProfileEdit/index.js:607
+#: src/amo/pages/UserProfileEdit/index.js:598
 msgid "Email address cannot be changed here"
 msgstr "Alamat surel tidak dapat diubah di sini"
 
-#: src/amo/pages/UserProfileEdit/index.js:618
+#: src/amo/pages/UserProfileEdit/index.js:609
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3186,39 +3208,35 @@ msgstr ""
 "Anda dapat mengubah alamat surel Anda di Firefox Accounts. "
 "%(startLink)sPerlu bantuan?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:635
+#: src/amo/pages/UserProfileEdit/index.js:626
 msgid "Manage Firefox Accounts…"
 msgstr "Kelola Akun Firefox…"
 
-#: src/amo/pages/UserProfileEdit/index.js:643
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:652
+#: src/amo/pages/UserProfileEdit/index.js:643
 msgid "This field is required"
 msgstr "Bidang ini wajib diisi"
 
-#: src/amo/pages/UserProfileEdit/index.js:656
+#: src/amo/pages/UserProfileEdit/index.js:647
 msgid "Display Name *"
 msgstr "Nama Tampilan *"
 
-#: src/amo/pages/UserProfileEdit/index.js:673
-msgid "Reviewer Name"
-msgstr "Nama Peninjau"
-
-#: src/amo/pages/UserProfileEdit/index.js:706
+#: src/amo/pages/UserProfileEdit/index.js:680
 msgid "This URL will only be visible for users who are developers."
 msgstr "URL ini hanya terlihat oleh pengguna yang adalah pengembang."
 
-#: src/amo/pages/UserProfileEdit/index.js:763
+#: src/amo/pages/UserProfileEdit/index.js:737
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Sebagian HTML didukung: %(htmlTags)s. Tautan ini terlarang."
 
-#: src/amo/pages/UserProfileEdit/index.js:787
+#: src/amo/pages/UserProfileEdit/index.js:761
 msgid "Notifications"
 msgstr "Notifikasi"
 
-#: src/amo/pages/UserProfileEdit/index.js:791
+#: src/amo/pages/UserProfileEdit/index.js:765
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3226,7 +3244,7 @@ msgstr ""
 "Sewaktu-waktu, Mozilla akan mengirimi Anda surel mengenai rilis yang akan "
 "datang dan acara pengaya. Silakan memilih topik yang Anda minati."
 
-#: src/amo/pages/UserProfileEdit/index.js:796
+#: src/amo/pages/UserProfileEdit/index.js:770
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3235,7 +3253,7 @@ msgstr ""
 "akan datang dan acara pengaya. Silakan memilih topik yang mungkin diminati "
 "pengguna ini."
 
-#: src/amo/pages/UserProfileEdit/index.js:811
+#: src/amo/pages/UserProfileEdit/index.js:785
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3243,27 +3261,27 @@ msgstr ""
 "Mozilla memiliki hak untuk menghubungi Anda secara langsung tentang "
 "pertimbangan tertentu untuk pengaya yang diinangi di sini."
 
-#: src/amo/pages/UserProfileEdit/index.js:837
-#: src/amo/pages/UserProfileEdit/index.js:909
+#: src/amo/pages/UserProfileEdit/index.js:811
+#: src/amo/pages/UserProfileEdit/index.js:883
 msgid "Delete My Profile"
 msgstr "Hapus Profil Saya"
 
-#: src/amo/pages/UserProfileEdit/index.js:838
-#: src/amo/pages/UserProfileEdit/index.js:910
+#: src/amo/pages/UserProfileEdit/index.js:812
+#: src/amo/pages/UserProfileEdit/index.js:884
 msgid "Delete Profile"
 msgstr "Hapus Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:824
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "PENTING: Penghapusan profil Pengaya Firefox Anda tidak dapat diurungkan."
 
-#: src/amo/pages/UserProfileEdit/index.js:853
+#: src/amo/pages/UserProfileEdit/index.js:827
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "PENTING: Penghapusan profil Pengaya Firefox ini tidak dapat diurungkan."
 
-#: src/amo/pages/UserProfileEdit/index.js:862
+#: src/amo/pages/UserProfileEdit/index.js:836
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3273,7 +3291,7 @@ msgstr ""
 "nama pengguna, nama tampilan, lokasi, laman beranda, biografi, pekerjaan), "
 "preferensi notifikasi, ulasan, dan koleksi."
 
-#: src/amo/pages/UserProfileEdit/index.js:868
+#: src/amo/pages/UserProfileEdit/index.js:842
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3283,7 +3301,7 @@ msgstr ""
 "nama pengguna, nama tampilan, lokasi, laman beranda, biografi, pekerjaan), "
 "preferensi notifikasi, ulasan, dan koleksi."
 
-#: src/amo/pages/UserProfileEdit/index.js:877
+#: src/amo/pages/UserProfileEdit/index.js:851
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3294,7 +3312,7 @@ msgstr ""
 "tersebut, Anda akan dihapus sebagai seorang pembuat dan pembuat lainnya akan "
 "tetap memiliki kepemilikan pengaya tersebut."
 
-#: src/amo/pages/UserProfileEdit/index.js:883
+#: src/amo/pages/UserProfileEdit/index.js:857
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3305,7 +3323,7 @@ msgstr ""
 "Dalam kasus tersebut, pengguna tersebut akan dihapus sebagai seorang pembuat "
 "dan pembuat lainnya akan tetap memiliki kepemilikan pengaya tersebut."
 
-#: src/amo/pages/UserProfileEdit/index.js:893
+#: src/amo/pages/UserProfileEdit/index.js:867
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3418,6 +3436,9 @@ msgstr "keselarasan pengaya saya tidak dapat ditingkatkan"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "keselarasan pengaya saya berhasil ditingkatkan"
+
+#~ msgid "Reviewer Name"
+#~ msgstr "Nama Peninjau"
 
 #~ msgid "Register or log in"
 #~ msgstr "Daftar atau masuk"
