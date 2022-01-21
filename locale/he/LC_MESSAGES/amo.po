@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-16 17:23+0000\n"
+"POT-Creation-Date: 2022-01-21 16:31+0000\n"
 "PO-Revision-Date: 2021-10-26 16:43+0000\n"
 "Last-Translator: Itiel <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -192,7 +192,7 @@ msgstr "בשימוש ע״י"
 #: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:348
 #: src/amo/pages/UserProfile/index.js:350
-#: src/amo/pages/UserProfileEdit/index.js:694
+#: src/amo/pages/UserProfileEdit/index.js:668
 msgid "Homepage"
 msgstr "דף הבית"
 
@@ -350,7 +350,7 @@ msgstr "מחיקה"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:917
+#: src/amo/pages/UserProfileEdit/index.js:891
 msgid "Cancel"
 msgstr "ביטול"
 
@@ -622,22 +622,22 @@ msgstr "התקנת ערכת נושא"
 msgid "Add to Firefox"
 msgstr "הוספה ל־Firefox"
 
-#: src/amo/components/App/index.js:214
+#: src/amo/components/App/index.js:138
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "תוספות עבור Firefox ‏(%(locale)s)"
 
-#: src/amo/components/App/index.js:218
+#: src/amo/components/App/index.js:142
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "‏%(title)s – תוספות עבור Firefox ‏(%(locale)s)"
 
-#: src/amo/components/App/index.js:226
+#: src/amo/components/App/index.js:150
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "תוספות עבור Firefox ל־Android ‏(%(locale)s)"
 
-#: src/amo/components/App/index.js:230
+#: src/amo/components/App/index.js:154
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "‏%(title)s – תוספות עבור Firefox ל־Android ‏(%(locale)s)"
@@ -895,6 +895,28 @@ msgstr "הדף לא נמצא"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "מצטערים, אבל לא הצלחנו למצוא כלום בכתובת שהזנת."
 
+#: src/amo/components/Errors/AuthExpired/index.js:48
+msgid "Reload the page"
+msgstr ""
+
+#: src/amo/components/Errors/AuthExpired/index.js:53
+msgid "Login Expired"
+msgstr ""
+
+#: src/amo/components/Errors/AuthExpired/index.js:55
+#, fuzzy
+msgid "Login authentication has expired."
+msgstr "פג תוקף החיבור שלך"
+
+#: src/amo/components/Errors/AuthExpired/index.js:57
+#, fuzzy
+msgid ""
+"to continue without authentication, or login again using the Log In link at "
+"the top of the page."
+msgstr ""
+"מצטערים, אבל אין לך גישה לעמוד זה. אם לא התחברת, כדאי לנסות להתחבר באמצעות "
+"הקישור שבראש העמוד."
+
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
@@ -1151,39 +1173,39 @@ msgid ""
 msgstr ""
 "כדי להשתמש בתוספות אלו, יש צורך %(linkStart)sלהוריד את Firefox%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:132
+#: src/amo/components/GetFirefoxButton/index.js:133
 msgid "Download Firefox and get the theme"
 msgstr "הורדת Firefox וקבלת ערכת הנושא"
 
-#: src/amo/components/GetFirefoxButton/index.js:133
+#: src/amo/components/GetFirefoxButton/index.js:134
 msgid "Download Firefox and get the extension"
 msgstr "הורדת Firefox וקבלת ההרחבה"
 
-#: src/amo/components/GetFirefoxButton/index.js:137
+#: src/amo/components/GetFirefoxButton/index.js:138
 msgid "Download the new Firefox and get the theme"
 msgstr "הורדת Firefox החדש וקבלת ערכת הנושא"
 
-#: src/amo/components/GetFirefoxButton/index.js:138
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "Download the new Firefox and get the extension"
 msgstr "הורדת Firefox החדש וקבלת ההרחבה"
 
-#: src/amo/components/GetFirefoxButton/index.js:142
+#: src/amo/components/GetFirefoxButton/index.js:143
 msgid "Download Firefox"
 msgstr "הורדת Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:145
+#: src/amo/components/GetFirefoxButton/index.js:146
 msgid "You'll need Firefox to use this theme"
 msgstr "יש צורך ב־Firefox כדי להשתמש בערכת נושא זו"
 
-#: src/amo/components/GetFirefoxButton/index.js:146
+#: src/amo/components/GetFirefoxButton/index.js:147
 msgid "You'll need Firefox to use this extension"
 msgstr "יש צורך ב־Firefox כדי להשתמש בהרחבה זו"
 
-#: src/amo/components/GetFirefoxButton/index.js:150
+#: src/amo/components/GetFirefoxButton/index.js:151
 msgid "You need an updated version of Firefox for this theme"
 msgstr "יש צורך בגרסה העדכנית של Firefox כדי להשתמש בערכת נושא זו"
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:152
 msgid "You need an updated version of Firefox for this extension"
 msgstr "יש צורך בגרסה העדכנית של Firefox כדי להשתמש בהרחבה זו"
 
@@ -1228,12 +1250,12 @@ msgid "View My Collections"
 msgstr "צפייה באוספים שלי"
 
 #: src/amo/components/Header/index.js:90
-#: src/amo/pages/UserProfileEdit/index.js:567
+#: src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
 msgstr "הצגת הפרופיל שלי"
 
 #: src/amo/components/Header/index.js:98
-#: src/amo/pages/UserProfileEdit/index.js:573
+#: src/amo/pages/UserProfileEdit/index.js:564
 msgid "Edit My Profile"
 msgstr "עריכת הפרופיל שלי"
 
@@ -1452,19 +1474,19 @@ msgid ""
 "performance."
 msgstr "תוספת זו נסקרה לטובת עמידה בתקנים שלנו לאבטחה וביצועים."
 
-#: src/amo/components/Rating/index.js:104 src/amo/components/Rating/index.js:93
+#: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "דירוג %(rating)s מתוך 5"
 
-#: src/amo/components/Rating/index.js:110
+#: src/amo/components/Rating/index.js:111
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "עדכון הדירוג שלך ל־%(starRating)s מתוך 5"
 
-#: src/amo/components/Rating/index.js:116
+#: src/amo/components/Rating/index.js:117
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "דירוג התוספת הזו ב־%(starRating)s מתוך 5"
 
-#: src/amo/components/Rating/index.js:97
+#: src/amo/components/Rating/index.js:98
 msgid "There are no ratings yet"
 msgstr "אין דירוגים עדיין"
 
@@ -2203,11 +2225,11 @@ msgid ""
 msgstr ""
 "רשומה זו אינה ציבורית. הסיבה שהיא מופיעה בפניך היא שיש לך רמת הרשאות מספיקה."
 
-#: src/amo/pages/Addon/index.js:491
+#: src/amo/pages/Addon/index.js:493
 msgid "Extension Metadata"
 msgstr "נתוני העל של ההרחבה"
 
-#: src/amo/pages/Addon/index.js:515
+#: src/amo/pages/Addon/index.js:516
 msgid "Screenshots"
 msgstr "צילומי מסך"
 
@@ -2976,7 +2998,7 @@ msgid "Theme artist"
 msgstr "אמן ערכת נושא"
 
 #: src/amo/pages/UserProfile/index.js:327
-#: src/amo/pages/UserProfileEdit/index.js:555
+#: src/amo/pages/UserProfileEdit/index.js:546
 msgid "User Profile for %(user)s"
 msgstr "פרופיל משתמש עבור %(user)s"
 
@@ -2985,12 +3007,12 @@ msgid "User Profile"
 msgstr "פרופיל משתמש"
 
 #: src/amo/pages/UserProfile/index.js:356
-#: src/amo/pages/UserProfileEdit/index.js:711
+#: src/amo/pages/UserProfileEdit/index.js:685
 msgid "Location"
 msgstr "מיקום"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:700
 msgid "Occupation"
 msgstr "עיסוק"
 
@@ -3007,7 +3029,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "דירוג ממוצע של התוספות של המפתח"
 
 #: src/amo/pages/UserProfile/index.js:402
-#: src/amo/pages/UserProfileEdit/index.js:748
+#: src/amo/pages/UserProfileEdit/index.js:722
 msgid "Biography"
 msgstr "קורות חיים"
 
@@ -3019,11 +3041,11 @@ msgstr "עריכת פרופיל"
 msgid "Admin user"
 msgstr "משתמש מנהל מערכת"
 
-#: src/amo/pages/UserProfileEdit/index.js:209
+#: src/amo/pages/UserProfileEdit/index.js:206
 msgid "Picture successfully deleted"
 msgstr "התמונה נמחקה בהצלחה"
 
-#: src/amo/pages/UserProfileEdit/index.js:462
+#: src/amo/pages/UserProfileEdit/index.js:454
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3031,7 +3053,7 @@ msgstr ""
 "ניתן לספר למשתמשים קצת יותר על עצמך. רוב השדות הם בגדר רשות, אך הם יסייעו "
 "למשתמשים אחרים להכיר אותך טוב יותר."
 
-#: src/amo/pages/UserProfileEdit/index.js:466
+#: src/amo/pages/UserProfileEdit/index.js:458
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3039,67 +3061,67 @@ msgstr ""
 "ניתן לספר למשתמשים קצת יותר על משתמש זה. שדות אלו הם בגדר רשות, אך הם יסייעו "
 "למשתמשים אחרים להכיר את %(userName)s טוב יותר."
 
-#: src/amo/pages/UserProfileEdit/index.js:481
+#: src/amo/pages/UserProfileEdit/index.js:473
 msgid "Introduce yourself to the community if you like"
 msgstr "יש לך אפשרות להציג את עצמך בפני הקהילה אם מתחשק לך"
 
-#: src/amo/pages/UserProfileEdit/index.js:482
+#: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Introduce %(userName)s to the community"
 msgstr "היכרות של %(userName)s לקהילה"
 
-#: src/amo/pages/UserProfileEdit/index.js:509
+#: src/amo/pages/UserProfileEdit/index.js:500
 msgid "Log in to edit the profile"
 msgstr "יש להתחבר כדי לערוך את הפרופיל"
 
-#: src/amo/pages/UserProfileEdit/index.js:531
+#: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Creating your profile…"
 msgstr "בתהליך יצירת הפרופיל שלך…"
 
-#: src/amo/pages/UserProfileEdit/index.js:532
+#: src/amo/pages/UserProfileEdit/index.js:523
 msgid "Create My Profile"
 msgstr "יצירת הפרופיל שלי"
 
-#: src/amo/pages/UserProfileEdit/index.js:536
+#: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Updating your profile…"
 msgstr "הפרופיל שלך מתעדכן…"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Update My Profile"
 msgstr "עדכון הפרופיל שלי"
 
-#: src/amo/pages/UserProfileEdit/index.js:540
+#: src/amo/pages/UserProfileEdit/index.js:531
 msgid "Updating profile…"
 msgstr "הפרופיל מתעדכן…"
 
-#: src/amo/pages/UserProfileEdit/index.js:541
+#: src/amo/pages/UserProfileEdit/index.js:532
 msgid "Update Profile"
 msgstr "עדכון פרופיל"
 
-#: src/amo/pages/UserProfileEdit/index.js:568
+#: src/amo/pages/UserProfileEdit/index.js:559
 msgid "View user's profile"
 msgstr "הצגת פרופיל המשתמש"
 
-#: src/amo/pages/UserProfileEdit/index.js:574
+#: src/amo/pages/UserProfileEdit/index.js:565
 msgid "Edit user's profile"
 msgstr "עריכת פרופיל המשתמש"
 
-#: src/amo/pages/UserProfileEdit/index.js:592
+#: src/amo/pages/UserProfileEdit/index.js:583
 msgid "Account"
 msgstr "חשבון"
 
-#: src/amo/pages/UserProfileEdit/index.js:593
+#: src/amo/pages/UserProfileEdit/index.js:584
 msgid "Account for %(userName)s"
 msgstr "חשבון עבור %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:600
+#: src/amo/pages/UserProfileEdit/index.js:591
 msgid "Email Address"
 msgstr "כתובת דוא״ל"
 
-#: src/amo/pages/UserProfileEdit/index.js:607
+#: src/amo/pages/UserProfileEdit/index.js:598
 msgid "Email address cannot be changed here"
 msgstr "לא ניתן לשנות מכאן את כתובת הדוא״ל"
 
-#: src/amo/pages/UserProfileEdit/index.js:618
+#: src/amo/pages/UserProfileEdit/index.js:609
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3107,39 +3129,35 @@ msgstr ""
 "ניתן לשנות את כתובת הדוא״ל שלך ב־Firefox Accounts. %(startLink)sיש לך צורך "
 "בעזרה?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:635
+#: src/amo/pages/UserProfileEdit/index.js:626
 msgid "Manage Firefox Accounts…"
 msgstr "ניהול חשבונות Firefox…"
 
-#: src/amo/pages/UserProfileEdit/index.js:643
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Profile"
 msgstr "פרופיל"
 
-#: src/amo/pages/UserProfileEdit/index.js:652
+#: src/amo/pages/UserProfileEdit/index.js:643
 msgid "This field is required"
 msgstr "שדה זה בגדר חובה"
 
-#: src/amo/pages/UserProfileEdit/index.js:656
+#: src/amo/pages/UserProfileEdit/index.js:647
 msgid "Display Name *"
 msgstr "שם תצוגה *"
 
-#: src/amo/pages/UserProfileEdit/index.js:673
-msgid "Reviewer Name"
-msgstr "שם הסוקר"
-
-#: src/amo/pages/UserProfileEdit/index.js:706
+#: src/amo/pages/UserProfileEdit/index.js:680
 msgid "This URL will only be visible for users who are developers."
 msgstr "כתובת זו תהיה גלויה אך ורק למשתמשים שהם מפתחים."
 
-#: src/amo/pages/UserProfileEdit/index.js:763
+#: src/amo/pages/UserProfileEdit/index.js:737
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "ישנה תמיכה חלקית ב־HTML:‏ %(htmlTags)s. אסור להשתמש בקישורים."
 
-#: src/amo/pages/UserProfileEdit/index.js:787
+#: src/amo/pages/UserProfileEdit/index.js:761
 msgid "Notifications"
 msgstr "התרעות"
 
-#: src/amo/pages/UserProfileEdit/index.js:791
+#: src/amo/pages/UserProfileEdit/index.js:765
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3147,7 +3165,7 @@ msgstr ""
 "מדי פעם בפעם, עשויות להישלח אליך הודעות בדוא״ל מ־Mozilla על מהדורות חדשות "
 "ואירועי תוספות. נא לבחור את הנושאים שמעניינים אותך."
 
-#: src/amo/pages/UserProfileEdit/index.js:796
+#: src/amo/pages/UserProfileEdit/index.js:770
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3155,7 +3173,7 @@ msgstr ""
 "מדי פעם בפעם, עשויות להישלח למשתמש זה הודעות בדוא״ל מ־Mozilla על מהדורות "
 "חדשות ואירועי תוספות. נא לבחור את הנושאים שמעניינים את המשתמש הזה."
 
-#: src/amo/pages/UserProfileEdit/index.js:811
+#: src/amo/pages/UserProfileEdit/index.js:785
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3163,25 +3181,25 @@ msgstr ""
 "Mozilla שומרת את הזכות ליצור אתך קשר באופן אישי בנוגע לחששות שעולים סביב "
 "התוספות שלך שמתארחות אצלה."
 
-#: src/amo/pages/UserProfileEdit/index.js:837
-#: src/amo/pages/UserProfileEdit/index.js:909
+#: src/amo/pages/UserProfileEdit/index.js:811
+#: src/amo/pages/UserProfileEdit/index.js:883
 msgid "Delete My Profile"
 msgstr "מחיקת הפרופיל שלי"
 
-#: src/amo/pages/UserProfileEdit/index.js:838
-#: src/amo/pages/UserProfileEdit/index.js:910
+#: src/amo/pages/UserProfileEdit/index.js:812
+#: src/amo/pages/UserProfileEdit/index.js:884
 msgid "Delete Profile"
 msgstr "מחיקת פרופיל"
 
-#: src/amo/pages/UserProfileEdit/index.js:850
+#: src/amo/pages/UserProfileEdit/index.js:824
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "חשוב: מחיקת פרופיל ה־Firefox Add-ons שלך היא פעולה בלתי הפיכה."
 
-#: src/amo/pages/UserProfileEdit/index.js:853
+#: src/amo/pages/UserProfileEdit/index.js:827
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "חשוב: מחיקת פרופיל Firefox Add-ons זה היא פעולה בלתי הפיכה."
 
-#: src/amo/pages/UserProfileEdit/index.js:862
+#: src/amo/pages/UserProfileEdit/index.js:836
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
@@ -3190,7 +3208,7 @@ msgstr ""
 "הנתונים שלך יוסרו לצמיתות, לרבות פרטי הפרופיל (תמונה, שם משתמש, שם תצוגה, "
 "מיקום, דף הבית, קורות חיים ועיסוק), העדפות להתרעות, סקירות ואוספים."
 
-#: src/amo/pages/UserProfileEdit/index.js:868
+#: src/amo/pages/UserProfileEdit/index.js:842
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3199,7 +3217,7 @@ msgstr ""
 "הנתונים של המשתמש יוסרו לצמיתות, לרבות פרטי הפרופיל (תמונה, שם משתמש, שם "
 "תצוגה, מיקום, דף הבית, קורות חיים ועיסוק), העדפות להתרעות, סקירות ואוספים."
 
-#: src/amo/pages/UserProfileEdit/index.js:877
+#: src/amo/pages/UserProfileEdit/index.js:851
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
@@ -3208,7 +3226,7 @@ msgstr ""
 "אם פיתחת תוספות הן תימחקנה גם כן, אלא אם חלקת בעלות עם מפתחים אחרים. במקרה "
 "שכזה, המשתמש שלך יוסר כמפתח והמפתחים הנותרים יישאו בבעלות על התוספת."
 
-#: src/amo/pages/UserProfileEdit/index.js:883
+#: src/amo/pages/UserProfileEdit/index.js:857
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
@@ -3217,7 +3235,7 @@ msgstr ""
 "אם משתמש פיתח תוספות הן תימחקנה גם כן, אלא אם הבעלות משותפת עם מפתחים אחרים. "
 "במקרה שכזה, המשתמש יוסר כמפתח והמפתחים הנותרים יישאו בבעלות על התוספת."
 
-#: src/amo/pages/UserProfileEdit/index.js:893
+#: src/amo/pages/UserProfileEdit/index.js:867
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3328,6 +3346,9 @@ msgstr "לא ניתן לשדרג את תאימות התוספת שלי"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "תאימות התוספת שלי משודרגת בהצלחה"
+
+#~ msgid "Reviewer Name"
+#~ msgstr "שם הסוקר"
 
 #~ msgid "Register or log in"
 #~ msgstr "הרשמה או התחברות"
