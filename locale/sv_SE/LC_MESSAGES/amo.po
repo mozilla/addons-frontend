@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-21 16:45+0000\n"
+"PO-Revision-Date: 2022-01-21 16:46+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -834,7 +834,7 @@ msgstr "Tyvärr, men vi kan inte hitta något på den URL som du angav."
 
 #: src/amo/components/Errors/AuthExpired/index.js:48
 msgid "Reload the page"
-msgstr ""
+msgstr "Ladda om sidan"
 
 #: src/amo/components/Errors/AuthExpired/index.js:53
 msgid "Login Expired"
@@ -845,9 +845,8 @@ msgid "Login authentication has expired."
 msgstr "Inloggningsautentisering har upphört."
 
 #: src/amo/components/Errors/AuthExpired/index.js:57
-#, fuzzy
 msgid "to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Tyvärr, men du har inte behörighet att komma åt sidan. Om du inte är inloggad kan du prova att logga in via länken överst på sidan."
+msgstr "för att fortsätta utan autentisering eller logga in igen med hjälp av länken Logga in högst upp på sidan."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
