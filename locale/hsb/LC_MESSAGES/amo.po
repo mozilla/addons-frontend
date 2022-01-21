@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-21 17:37+0000\n"
+"PO-Revision-Date: 2022-01-21 19:00+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -854,7 +854,7 @@ msgstr "Waše přizjewjenska awtentifikacija je spadnyła."
 
 #: src/amo/components/Errors/AuthExpired/index.js:57
 msgid "to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "zo byšće bjez awtentifikacije pokročował, abo přizjewće so z pomocu wotkaza Přizjewić horjeka na stronje."
+msgstr "zo byšće bjez awtentifikacije pokročował, abo přizjewće so znowa z pomocu wotkaza Přizjewić horjeka na stronje."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
