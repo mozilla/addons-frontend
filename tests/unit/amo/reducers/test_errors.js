@@ -1,7 +1,7 @@
 import { createApiError } from 'amo/api/index';
 import { clearError, setError, setErrorMessage } from 'amo/actions/errors';
 import {
-  API_ERROR_SIGNATURE_EXPIRED,
+  API_ERRORS_SESSION_EXPIRY,
   ERROR_ADDON_DISABLED_BY_ADMIN,
   ERROR_ADDON_DISABLED_BY_DEV,
   ERROR_UNKNOWN,
@@ -144,29 +144,32 @@ describe(__filename, () => {
     });
   });
 
-  it('adds an error code', () => {
+  it.each(API_ERRORS_SESSION_EXPIRY)('adds an error code', (code) => {
     const error = createApiError({
       response: { status: 401 },
       apiURL: 'https://some/api/endpoint',
       jsonResponse: {
-        code: API_ERROR_SIGNATURE_EXPIRED,
+        code,
         detail: 'Any message about an expired signature.',
       },
     });
-    expect(getReducedError(error).code).toEqual(API_ERROR_SIGNATURE_EXPIRED);
+    expect(getReducedError(error).code).toEqual(code);
   });
 
-  it('does not turn an error code into a message', () => {
-    const error = createApiError({
-      response: { status: 401 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: {
-        code: API_ERROR_SIGNATURE_EXPIRED,
-        detail: 'Some message.',
-      },
-    });
-    expect(getReducedError(error).messages).toEqual(['Some message.']);
-  });
+  it.each(API_ERRORS_SESSION_EXPIRY)(
+    'does not turn an error code into a message',
+    (code) => {
+      const error = createApiError({
+        response: { status: 401 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: {
+          code,
+          detail: 'Some message.',
+        },
+      });
+      expect(getReducedError(error).messages).toEqual(['Some message.']);
+    },
+  );
 
   it('can capture an error about add-ons disabled by the developer', () => {
     const message = 'Authentication credentials were not provided.';

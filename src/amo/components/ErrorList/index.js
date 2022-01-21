@@ -4,7 +4,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
-import { API_ERROR_SIGNATURE_EXPIRED } from 'amo/constants';
+import { API_ERRORS_SESSION_EXPIRY } from 'amo/constants';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
 import Notice from 'amo/components/Notice';
@@ -37,7 +37,7 @@ export class ErrorListBase extends React.Component {
         // Until then, let's just prevent it from triggering an exception.
         message = JSON.stringify(message);
       }
-      if (code === API_ERROR_SIGNATURE_EXPIRED) {
+      if (API_ERRORS_SESSION_EXPIRY.includes(code)) {
         // This API error describes exactly what happened but that isn't
         // very helpful for AMO users. Let's help them figure it out.
         log.debug(`Detected ${code}, replacing API message: ${message}`);
@@ -53,7 +53,7 @@ export class ErrorListBase extends React.Component {
 
     let action;
     let actionText;
-    if (code === API_ERROR_SIGNATURE_EXPIRED) {
+    if (API_ERRORS_SESSION_EXPIRY.includes(code)) {
       // Let the user recover from signature expired errors.
       action = () => _window.location.reload();
       actionText = i18n.gettext('Reload To Continue');

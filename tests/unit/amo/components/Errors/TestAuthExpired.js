@@ -13,15 +13,15 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { API_ERROR_SIGNATURE_EXPIRED } from 'amo/constants';
+import { API_ERRORS_SESSION_EXPIRY } from 'amo/constants';
 
 describe(__filename, () => {
   let store;
 
-  const render = (customProps = {}) => {
+  const render = (code, customProps = {}) => {
     const error = createApiError({
       apiURL: 'http://test.com',
-      response: { status: 401, code: API_ERROR_SIGNATURE_EXPIRED },
+      response: { status: 401, code },
     });
     store.dispatch(loadErrorPage({ error }));
     const props = {
@@ -37,25 +37,28 @@ describe(__filename, () => {
     store = dispatchSignInActions().store;
   });
 
-  it('renders a not authorized error', () => {
-    const root = render();
+  it.each(API_ERRORS_SESSION_EXPIRY)(
+    'renders a not authorized error',
+    (code) => {
+      const root = render(code);
 
-    const component = root.find(ErrorComponent);
-    expect(component).toHaveProp('code', 401);
-    expect(component).toHaveProp('header', 'Login Expired');
-  });
+      const component = root.find(ErrorComponent);
+      expect(component).toHaveProp('code', 401);
+      expect(component).toHaveProp('header', 'Login Expired');
+    },
+  );
 
-  it('logs out the user', () => {
+  it.each(API_ERRORS_SESSION_EXPIRY)('logs out the user', (code) => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    render();
+    render(code);
 
     sinon.assert.calledWith(dispatchSpy, logOutUserAction());
   });
 
-  it('renders a reload button', () => {
+  it.each(API_ERRORS_SESSION_EXPIRY)('renders a reload button', (code) => {
     const _window = { location: { reload: sinon.stub() } };
-    const root = render({ _window });
+    const root = render(code, { _window });
 
     const button = root.find(Button);
     expect(button.childAt(0).text()).toContain('Reload the page');

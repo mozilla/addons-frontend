@@ -265,9 +265,15 @@ export const GLOBAL_EVENTS: Array<$Keys<typeof GLOBAL_EVENT_STATUS_MAP>> =
 export const ERROR_UNKNOWN = 'ERROR_UNKNOWN';
 // API error codes. These values match the error codes defined here:
 // http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#unauthorized-and-permission-denied
+export const API_ERROR_AUTHENTICATION_EXPIRED = 'ERROR_AUTHENTICATION_EXPIRED';
 export const API_ERROR_DECODING_SIGNATURE = 'ERROR_DECODING_SIGNATURE';
 export const API_ERROR_INVALID_HEADER = 'ERROR_INVALID_HEADER';
 export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';
+export const API_ERRORS_SESSION_EXPIRY = [
+  API_ERROR_AUTHENTICATION_EXPIRED,
+  API_ERROR_DECODING_SIGNATURE,
+  API_ERROR_SIGNATURE_EXPIRED,
+];
 // Interpreted error codes.
 export const ERROR_ADDON_DISABLED_BY_DEV = 'ERROR_ADDON_DISABLED_BY_DEV';
 export const ERROR_ADDON_DISABLED_BY_ADMIN = 'ERROR_ADDON_DISABLED_BY_ADMIN';
