@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-21 18:40+0000\n"
-"Last-Translator: Tim <tim.marringa@gmail.com>\n"
+"PO-Revision-Date: 2022-01-22 16:23+0000\n"
+"Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -838,12 +838,11 @@ msgstr "Pagina vernieuwen"
 
 #: src/amo/components/Errors/AuthExpired/index.js:53
 msgid "Login Expired"
-msgstr ""
+msgstr "Aanmelding verlopen"
 
 #: src/amo/components/Errors/AuthExpired/index.js:55
-#, fuzzy
 msgid "Login authentication has expired."
-msgstr "Uw sessie is verlopen"
+msgstr "Aanmeldauthenticatie is verlopen."
 
 #: src/amo/components/Errors/AuthExpired/index.js:57
 #, fuzzy
