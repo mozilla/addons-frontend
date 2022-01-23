@@ -845,9 +845,8 @@ msgid "Login authentication has expired."
 msgstr "Aanmeldauthenticatie is verlopen."
 
 #: src/amo/components/Errors/AuthExpired/index.js:57
-#, fuzzy
 msgid "to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Sorry, maar u hebt geen toegang tot deze pagina. Als u niet bent aangemeld, probeer u dan aan te melden via de koppeling boven in de pagina."
+msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
