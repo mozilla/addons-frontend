@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-22 03:15+0000\n"
+"PO-Revision-Date: 2022-01-24 22:11+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -835,11 +835,11 @@ msgstr "Pardono, ma nos non pote trovar tote le cosas al URL que tu specificava.
 
 #: src/amo/components/Errors/AuthExpired/index.js:48
 msgid "Reload the page"
-msgstr ""
+msgstr "Recargar le pagina"
 
 #: src/amo/components/Errors/AuthExpired/index.js:53
 msgid "Login Expired"
-msgstr ""
+msgstr "Connexion expirate"
 
 #: src/amo/components/Errors/AuthExpired/index.js:55
 msgid "Login authentication has expired."
