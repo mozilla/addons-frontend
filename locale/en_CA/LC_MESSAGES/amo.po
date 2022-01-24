@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-24 16:31+0000\n"
+"PO-Revision-Date: 2022-01-24 16:40+0000\n"
 "Last-Translator: chutten <chutten@mozilla.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en_CA\n"
@@ -842,14 +842,12 @@ msgid "Login Expired"
 msgstr "Login Expired"
 
 #: src/amo/components/Errors/AuthExpired/index.js:55
-#, fuzzy
 msgid "Login authentication has expired."
-msgstr "Your session has expired"
+msgstr "Login authentication has expired."
 
 #: src/amo/components/Errors/AuthExpired/index.js:57
-#, fuzzy
 msgid "to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Sorry, but you aren’t authorized to access this page. If you aren’t signed in, try signing in using the link at the top of the page."
+msgstr "to continue without authentication, or login again using the Log In link at the top of the page."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
