@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { API_ERROR_SIGNATURE_EXPIRED } from 'amo/constants';
+import { API_ERRORS_SESSION_EXPIRY } from 'amo/constants';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import ErrorList, { ErrorListBase } from 'amo/components/ErrorList';
 import Notice from 'amo/components/Notice';
@@ -58,36 +58,42 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a reload button for signature expired errors', () => {
-    const _window = { location: { reload: sinon.stub() } };
-    const root = render({
-      _window,
-      code: API_ERROR_SIGNATURE_EXPIRED,
-      messages: ['Signature error'],
-    });
+  it.each(API_ERRORS_SESSION_EXPIRY)(
+    'renders a reload button for session expiry error: %s',
+    (code) => {
+      const _window = { location: { reload: sinon.stub() } };
+      const root = render({
+        _window,
+        code,
+        messages: ['Signature error'],
+      });
 
-    const notice = root.find(Notice);
-    // Make sure the Signature error message is replaced with a new message.
-    expect(notice.childAt(0).text()).toContain('Your session has expired');
+      const notice = root.find(Notice);
+      // Make sure the Signature error message is replaced with a new message.
+      expect(notice.childAt(0).text()).toContain('Your session has expired');
 
-    expect(notice.prop('actionText')).toEqual('Reload To Continue');
-    expect(notice.prop('actionOnClick')).toBeDefined();
+      expect(notice.prop('actionText')).toEqual('Reload To Continue');
+      expect(notice.prop('actionOnClick')).toBeDefined();
 
-    const action = notice.prop('actionOnClick');
-    // Simulate how <Notice /> will execute this callback on button press.
-    action();
+      const action = notice.prop('actionOnClick');
+      // Simulate how <Notice /> will execute this callback on button press.
+      action();
 
-    // The button should reload the location.
-    sinon.assert.called(_window.location.reload);
-  });
+      // The button should reload the location.
+      sinon.assert.called(_window.location.reload);
+    },
+  );
 
-  it('handles multiple signature expired errors', () => {
-    // Make sure this doesn't throw any errors when logging a warning.
-    const root = render({
-      code: API_ERROR_SIGNATURE_EXPIRED,
-      messages: ['First signature error', 'Second signature error'],
-    });
+  it.each(API_ERRORS_SESSION_EXPIRY)(
+    'handles multiple session expiry error: %s',
+    (code) => {
+      // Make sure this doesn't throw any errors when logging a warning.
+      const root = render({
+        code,
+        messages: ['First signature error', 'Second signature error'],
+      });
 
-    expect(root.find('.ErrorList-item')).toHaveLength(2);
-  });
+      expect(root.find('.ErrorList-item')).toHaveLength(2);
+    },
+  );
 });

@@ -14,7 +14,7 @@ import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import VPNPromoBanner from 'amo/components/VPNPromoBanner';
-import { API_ERROR_SIGNATURE_EXPIRED, CLIENT_APP_ANDROID } from 'amo/constants';
+import { API_ERRORS_SESSION_EXPIRY, CLIENT_APP_ANDROID } from 'amo/constants';
 import { EXPERIMENT_CONFIG } from 'amo/experiments/20210714_amo_vpn_promo';
 import log from 'amo/logger';
 import { withExperiment } from 'amo/withExperiment';
@@ -66,7 +66,7 @@ export const PageBase = ({
     // See https://github.com/mozilla/addons-frontend/issues/3061
     if (
       errorHandler.capturedError.responseStatusCode === 401 &&
-      errorHandler.capturedError.code === API_ERROR_SIGNATURE_EXPIRED
+      API_ERRORS_SESSION_EXPIRY.includes(errorHandler.capturedError.code)
     ) {
       errorContent = <AuthExpired />;
     } else if (

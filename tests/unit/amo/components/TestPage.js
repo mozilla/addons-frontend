@@ -9,7 +9,7 @@ import Header from 'amo/components/Header';
 import VPNPromoBanner from 'amo/components/VPNPromoBanner';
 import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import {
-  API_ERROR_SIGNATURE_EXPIRED,
+  API_ERRORS_SESSION_EXPIRY,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'amo/constants';
@@ -167,16 +167,19 @@ describe(__filename, () => {
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
-  it('renders AuthFailed for 401 error with a signiture expired code', () => {
-    const errorHandler = createCapturedErrorHandler({
-      status: 401,
-      detail: 'something',
-      code: API_ERROR_SIGNATURE_EXPIRED,
-    });
+  it.each(API_ERRORS_SESSION_EXPIRY)(
+    'renders AuthFailed for 401 error with a session expiry code: %s',
+    (code) => {
+      const errorHandler = createCapturedErrorHandler({
+        status: 401,
+        detail: 'something',
+        code,
+      });
 
-    const root = render({ errorHandler });
-    expect(root.find(AuthExpired)).toHaveLength(1);
-  });
+      const root = render({ errorHandler });
+      expect(root.find(AuthExpired)).toHaveLength(1);
+    },
+  );
 
   it('renders NotFound for forbidden add-on - 403 error', () => {
     const errorHandler = createCapturedErrorHandler({ status: 403 });
