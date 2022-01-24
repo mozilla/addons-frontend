@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-24 09:25+0000\n"
+"PO-Revision-Date: 2022-01-24 09:45+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -834,7 +834,7 @@ msgstr "Sajnáljuk, de semmit sem találunk a megadott URL-en."
 
 #: src/amo/components/Errors/AuthExpired/index.js:48
 msgid "Reload the page"
-msgstr "Oldal újratöltése"
+msgstr "Töltse újra az oldalt"
 
 #: src/amo/components/Errors/AuthExpired/index.js:53
 msgid "Login Expired"
