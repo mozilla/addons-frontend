@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-24 09:19+0000\n"
+"PO-Revision-Date: 2022-01-24 09:25+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -841,14 +841,12 @@ msgid "Login Expired"
 msgstr "A bejelentkezés lejárt"
 
 #: src/amo/components/Errors/AuthExpired/index.js:55
-#, fuzzy
 msgid "Login authentication has expired."
-msgstr "A munkamenet lejárt"
+msgstr "A bejelentkezési hitelesítés lejárt."
 
 #: src/amo/components/Errors/AuthExpired/index.js:57
-#, fuzzy
 msgid "to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Sajnáljuk, de nem férhet hozzá ehhez az oldalhoz. Ha nincs bejelentkezve, akkor jelentkezzen be a lap tetején lévő hivatkozással."
+msgstr "a hitelesítés nélküli folytatáshoz, vagy jelentkezzen be újra az oldal tetején található Bejelentkezés hivatkozás segítségével."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
