@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Button from 'amo/components/Button';
+import Link from 'amo/components/Link';
 import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 import AuthExpired, {
   AuthExpiredBase,
@@ -53,15 +53,15 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, logOutUserAction());
   });
 
-  it('renders a reload button', () => {
+  it('renders a reload link', () => {
     const _window = { location: { reload: sinon.stub() } };
     const root = render({ _window });
 
-    const button = root.find(Button);
-    expect(button.childAt(0).text()).toContain('Reload the page');
-    expect(button.prop('onClick')).toBeDefined();
+    const link = root.find(Link);
+    expect(link.childAt(0).text()).toContain('Reload the page');
+    expect(link.prop('onClick')).toBeDefined();
 
-    const action = button.prop('onClick');
+    const action = link.prop('onClick');
     // Simulate the callback on button press.
     action();
 
