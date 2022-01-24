@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-24 08:21+0000\n"
+"PO-Revision-Date: 2022-01-24 15:54+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -840,9 +840,8 @@ msgid "Login authentication has expired."
 msgstr "Innloggingsautentisering er utløpt."
 
 #: src/amo/components/Errors/AuthExpired/index.js:57
-#, fuzzy
 msgid "to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Beklager, men du har ikke tillatelse til å se denne siden. Hvis du ikke er innlogget, kan du prøve å logge inn gjennom lenken på toppen av siden."
+msgstr "for å fortsette uten autentisering, eller logg inn igjen ved å bruke koblingen Logg inn øverst på siden."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
