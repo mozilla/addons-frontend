@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-21 16:31+0000\n"
-"PO-Revision-Date: 2022-01-24 22:11+0000\n"
+"PO-Revision-Date: 2022-01-24 22:15+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -846,9 +846,8 @@ msgid "Login authentication has expired."
 msgstr "Tu session ha expirate."
 
 #: src/amo/components/Errors/AuthExpired/index.js:57
-#, fuzzy
 msgid "to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Tu non es autorisate a acceder a iste pagina. Si tu non ha aperite session, prova a authenticar te con le ligamine al initio del pagina."
+msgstr "pro continuar sin authentication, o acceder de novo per le ligamine al summitate del pagina."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
