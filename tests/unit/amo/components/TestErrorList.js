@@ -59,7 +59,7 @@ describe(__filename, () => {
   });
 
   it.each(API_ERRORS_SESSION_EXPIRY)(
-    'renders a reload button for session expiry errors',
+    'renders a reload button for session expiry error: %s',
     (code) => {
       const _window = { location: { reload: sinon.stub() } };
       const root = render({
@@ -85,7 +85,7 @@ describe(__filename, () => {
   );
 
   it.each(API_ERRORS_SESSION_EXPIRY)(
-    'handles multiple session expiry errors',
+    'handles multiple session expiry error: %s',
     (code) => {
       // Make sure this doesn't throw any errors when logging a warning.
       const root = render({

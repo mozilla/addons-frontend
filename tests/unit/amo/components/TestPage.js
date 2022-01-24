@@ -168,7 +168,7 @@ describe(__filename, () => {
   });
 
   it.each(API_ERRORS_SESSION_EXPIRY)(
-    'renders AuthFailed for 401 error with a session expiry code',
+    'renders AuthFailed for 401 error with a session expiry code: %s',
     (code) => {
       const errorHandler = createCapturedErrorHandler({
         status: 401,
