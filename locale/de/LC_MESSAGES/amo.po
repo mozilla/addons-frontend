@@ -835,7 +835,7 @@ msgstr "Entschuldigen Sie, aber wir konnten zu der eingegebenen URL nichts finde
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
 msgstr ""
-"Die Anmeldeauthentifizierung ist abgelaufen. %(startLink)sLaden Sie die Seite neu%(startLink)s, um ohne Authentifizierung fortzufahren oder melden Sie sich über den Link oben an der Seite erneut an."
+"Die Anmeldeauthentifizierung ist abgelaufen. %(startLink)sLaden Sie die Seite neu%(endLink)s, um ohne Authentifizierung fortzufahren oder melden Sie sich über den Link oben an der Seite erneut an."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
