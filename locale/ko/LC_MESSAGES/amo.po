@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 16:31+0000\n"
+"POT-Creation-Date: 2022-01-25 18:54+0000\n"
 "PO-Revision-Date: 2021-12-17 07:34+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -892,27 +892,19 @@ msgstr "페이지 찾을 수 없음"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "죄송합니다. 입력하신 URL을 찾을 수 없습니다."
 
-#: src/amo/components/Errors/AuthExpired/index.js:48
-msgid "Reload the page"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:53
-msgid "Login Expired"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:55
-#, fuzzy
-msgid "Login authentication has expired."
-msgstr "세션이 만료되었습니다"
-
-#: src/amo/components/Errors/AuthExpired/index.js:57
+#: src/amo/components/Errors/AuthExpired/index.js:44
 #, fuzzy
 msgid ""
-"to continue without authentication, or login again using the Log In link at "
-"the top of the page."
+"Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
+"continue without authentication, or login again using the Log In link at the "
+"top of the page."
 msgstr ""
 "죄송하지만, 이 페이지에 접근할 권한이 없습니다. 로그인 하지 않으셨다면, 페이"
 "지 상단의 링크를 통해 로그인하십시오."
+
+#: src/amo/components/Errors/AuthExpired/index.js:68
+msgid "Login Expired"
+msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
@@ -3298,6 +3290,10 @@ msgstr "부가 기능 호환성을 업그레이드 할 수 없습니다"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "부가 기능 호환성이 업그레이드 되었습니다"
+
+#, fuzzy
+#~ msgid "Login authentication has expired."
+#~ msgstr "세션이 만료되었습니다"
 
 #~ msgid "Reviewer Name"
 #~ msgstr "리뷰어 이름"

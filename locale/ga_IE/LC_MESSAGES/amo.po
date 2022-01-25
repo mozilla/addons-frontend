@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 16:31+0000\n"
+"POT-Creation-Date: 2022-01-25 18:54+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -997,28 +997,20 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 "Ár leithscéal, ach ní bhfuaireamar aon rud ag an URL a chuir tú isteach."
 
-#: src/amo/components/Errors/AuthExpired/index.js:48
-msgid "Reload the page"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:53
-msgid "Login Expired"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:55
-#, fuzzy
-msgid "Login authentication has expired."
-msgstr "Seisiún imithe in éag"
-
-#: src/amo/components/Errors/AuthExpired/index.js:57
+#: src/amo/components/Errors/AuthExpired/index.js:44
 #, fuzzy
 msgid ""
-"to continue without authentication, or login again using the Log In link at "
-"the top of the page."
+"Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
+"continue without authentication, or login again using the Log In link at the "
+"top of the page."
 msgstr ""
 "Ár leithscéal, ach níl cead agat an leathanach seo a fheiceáil. Ba chóir "
 "duit logáil isteach mura bhfuil tú cheana, ag baint úsáide as an nasc ag "
 "barr an leathanaigh."
+
+#: src/amo/components/Errors/AuthExpired/index.js:68
+msgid "Login Expired"
+msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
@@ -3561,6 +3553,10 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Login authentication has expired."
+#~ msgstr "Seisiún imithe in éag"
 
 #, fuzzy
 #~ msgid "Reviewer Name"

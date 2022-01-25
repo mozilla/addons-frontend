@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 16:31+0000\n"
+"POT-Creation-Date: 2022-01-25 18:54+0000\n"
 "PO-Revision-Date: 2021-08-22 17:37+0000\n"
 "Last-Translator: cfatls <cfatls@gmail.com>\n"
 "Language-Team: none\n"
@@ -911,28 +911,20 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 "Lo sentimos, pero no hemos encontrado nada en la URL que has introducido."
 
-#: src/amo/components/Errors/AuthExpired/index.js:48
-msgid "Reload the page"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:53
-msgid "Login Expired"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:55
-#, fuzzy
-msgid "Login authentication has expired."
-msgstr "Tu sesión ha expirado"
-
-#: src/amo/components/Errors/AuthExpired/index.js:57
+#: src/amo/components/Errors/AuthExpired/index.js:44
 #, fuzzy
 msgid ""
-"to continue without authentication, or login again using the Log In link at "
-"the top of the page."
+"Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
+"continue without authentication, or login again using the Log In link at the "
+"top of the page."
 msgstr ""
 "Lo sentimos, pero no estás autorizado para acceder a esta página. Si no has "
 "iniciado sesión, puedes hacerlo utilizando el enlace de la parte superior de "
 "la página."
+
+#: src/amo/components/Errors/AuthExpired/index.js:68
+msgid "Login Expired"
+msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
@@ -3496,6 +3488,10 @@ msgstr "no se puede actualizar la compatibilidad de mi complemento"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "se ha actualizado correctamente la compatibilidad de mi complemento"
+
+#, fuzzy
+#~ msgid "Login authentication has expired."
+#~ msgstr "Tu sesión ha expirado"
 
 #~ msgid "Reviewer Name"
 #~ msgstr "Nombre del revisor"

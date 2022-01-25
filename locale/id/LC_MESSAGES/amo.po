@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 16:31+0000\n"
+"POT-Creation-Date: 2022-01-25 18:54+0000\n"
 "PO-Revision-Date: 2021-06-12 02:32+0000\n"
 "Last-Translator: Fauzan Alfi <fauzan.alfi@gmail.com>\n"
 "Language-Team: none\n"
@@ -909,27 +909,19 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 "Maaf, tapi kami tidak dapat menemukan apapun dalam URL yang Anda masukkan."
 
-#: src/amo/components/Errors/AuthExpired/index.js:48
-msgid "Reload the page"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:53
-msgid "Login Expired"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:55
-#, fuzzy
-msgid "Login authentication has expired."
-msgstr "Sesi anda telah berakhir"
-
-#: src/amo/components/Errors/AuthExpired/index.js:57
+#: src/amo/components/Errors/AuthExpired/index.js:44
 #, fuzzy
 msgid ""
-"to continue without authentication, or login again using the Log In link at "
-"the top of the page."
+"Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
+"continue without authentication, or login again using the Log In link at the "
+"top of the page."
 msgstr ""
 "Maaf, tapi Anda tidak berwenang mengakses laman ini. Jika Anda tidak masuk, "
 "coba masuk menggunakan tautan di bagian atas laman."
+
+#: src/amo/components/Errors/AuthExpired/index.js:68
+msgid "Login Expired"
+msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
@@ -3436,6 +3428,10 @@ msgstr "keselarasan pengaya saya tidak dapat ditingkatkan"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "keselarasan pengaya saya berhasil ditingkatkan"
+
+#, fuzzy
+#~ msgid "Login authentication has expired."
+#~ msgstr "Sesi anda telah berakhir"
 
 #~ msgid "Reviewer Name"
 #~ msgstr "Nama Peninjau"

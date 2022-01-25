@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 16:31+0000\n"
+"POT-Creation-Date: 2022-01-25 18:54+0000\n"
 "PO-Revision-Date: 2021-01-30 18:44+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -905,27 +905,19 @@ msgstr "ਸਫਾ ਨਹੀ ਲੱਭਾ"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "ਅਫਸੋਸ ਹੈ, ਪਰ ਅਸੀਂ ਤੁਹਾਡੇ ਦੁਆਰਾ ਦਾਖ਼ਲ ਕੀਤੇ ਗਏ URL ਤੇ ਕੁਝ ਨਹੀਂ ਲੱਭ ਸਕਦੇ।"
 
-#: src/amo/components/Errors/AuthExpired/index.js:48
-msgid "Reload the page"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:53
-msgid "Login Expired"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:55
-#, fuzzy
-msgid "Login authentication has expired."
-msgstr "ਤੁਹਾਡੇ ਸੈਸ਼ਨ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ"
-
-#: src/amo/components/Errors/AuthExpired/index.js:57
+#: src/amo/components/Errors/AuthExpired/index.js:44
 #, fuzzy
 msgid ""
-"to continue without authentication, or login again using the Log In link at "
-"the top of the page."
+"Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
+"continue without authentication, or login again using the Log In link at the "
+"top of the page."
 msgstr ""
 "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਤੁਸੀਂ ਇਸ ਪੇਜ ਨੂੰ ਐਕਸੈਸ ਕਰਨ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀਂ ਹੋ। ਜੇਕਰ ਤੁਸੀਂ ਸਾਇਨ ਇਨ ਨਹੀਂ ਹੋ, "
 "ਤਾਂ ਪੰਨੇ ਦੇ ਸਿਖਰ ਤੇ ਲਿੰਕ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਸਾਈਨ ਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+#: src/amo/components/Errors/AuthExpired/index.js:68
+msgid "Login Expired"
+msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
@@ -3416,6 +3408,10 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਸਫ਼ਲਤਾਪੂਰਨ ਅੱਪਗਰੇਡ ਹੋਈ"
+
+#, fuzzy
+#~ msgid "Login authentication has expired."
+#~ msgstr "ਤੁਹਾਡੇ ਸੈਸ਼ਨ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ"
 
 # This action allows a reviewer to perform a review of a theme.
 #~ msgid "Reviewer Name"
