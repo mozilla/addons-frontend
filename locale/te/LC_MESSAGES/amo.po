@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 16:31+0000\n"
+"POT-Creation-Date: 2022-01-25 18:54+0000\n"
 "PO-Revision-Date: 2021-12-07 12:54+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -889,27 +889,19 @@ msgstr "పేజీ కనుగొనబడలేదు"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "క్షమించండి, కాని మీరు ఇచ్చిన URL వద్ద ఏమీ కనబడలేదు."
 
-#: src/amo/components/Errors/AuthExpired/index.js:48
-msgid "Reload the page"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:53
-msgid "Login Expired"
-msgstr ""
-
-#: src/amo/components/Errors/AuthExpired/index.js:55
-#, fuzzy
-msgid "Login authentication has expired."
-msgstr "మీ సెషన్ గడువు ముగిసింది"
-
-#: src/amo/components/Errors/AuthExpired/index.js:57
+#: src/amo/components/Errors/AuthExpired/index.js:44
 #, fuzzy
 msgid ""
-"to continue without authentication, or login again using the Log In link at "
-"the top of the page."
+"Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
+"continue without authentication, or login again using the Log In link at the "
+"top of the page."
 msgstr ""
 "క్షమించండి, ఈ పేజీని చూడడానికి మీకు అధికారం లేదు. మీరు సైన్ ఇన్ చేసిలేకపోతే, పేజీ ఎగువ ఉన్న లంకెను వాడి "
 "సైన్ ఇన్ కావడానికి ప్రయత్నించండి."
+
+#: src/amo/components/Errors/AuthExpired/index.js:68
+msgid "Login Expired"
+msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid ""
@@ -3203,6 +3195,10 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Login authentication has expired."
+#~ msgstr "మీ సెషన్ గడువు ముగిసింది"
 
 #~ msgid "Reviewer Name"
 #~ msgstr "సమీక్షని పేరు"
