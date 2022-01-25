@@ -4,8 +4,9 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import Button from 'amo/components/Button';
 import ErrorComponent from 'amo/components/Errors/ErrorComponent';
+import Link from 'amo/components/Link';
+import { replaceStringsWithJSX } from 'amo/i18n/utils';
 import translate from 'amo/i18n/translate';
 import { logOutUser } from 'amo/reducers/users';
 import type { I18nType } from 'amo/types/i18n';
@@ -39,25 +40,33 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
   render(): React.Node {
     const { _window, i18n } = this.props;
 
-    const reloadButton = (
-      <Button
-        className="ReloadPageButton"
-        buttonType="none"
-        onClick={() => _window.location.reload()}
-      >
-        {i18n.gettext('Reload the page')}
-      </Button>
-    );
+    const paragraph = replaceStringsWithJSX({
+      text: i18n.gettext(`
+        Login authentication has expired. %(startLink)sReload the page%(endLink)s
+        to continue without authentication, or login again using the Log In
+        link at the top of the page.`),
+      replacements: [
+        [
+          'startLink',
+          'endLink',
+          (text) => (
+            <Link
+              className="ReloadPageLink"
+              onClick={() => _window.location.reload()}
+              href="#"
+              prependClientApp={false}
+              prependLang={false}
+            >
+              {text}
+            </Link>
+          ),
+        ],
+      ],
+    });
 
     return (
       <ErrorComponent code={401} header={i18n.gettext('Login Expired')}>
-        <p>
-          {i18n.gettext(`Login authentication has expired.`)}
-          {reloadButton}
-          {i18n.gettext(`
-            to continue without authentication, or login again using the Log In
-            link at the top of the page.`)}
-        </p>
+        <p>{paragraph}</p>
       </ErrorComponent>
     );
   }
