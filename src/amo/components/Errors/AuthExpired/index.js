@@ -53,6 +53,9 @@ export class AuthExpiredBase extends React.Component<InternalProps> {
             <Link
               className="ReloadPageLink"
               onClick={() => _window.location.reload()}
+              href="#"
+              prependClientApp={false}
+              prependLang={false}
             >
               {text}
             </Link>
