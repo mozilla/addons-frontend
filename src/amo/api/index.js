@@ -1,5 +1,5 @@
 /* @flow */
-/* global fetch */
+/* global fetch, window */
 import url from 'url';
 
 import FormData from '@willdurand/isomorphic-formdata';
@@ -267,14 +267,20 @@ export function fetchAddon({
 
 export function startLoginUrl({
   _config = config,
+  _window = typeof window !== 'undefined' ? window : null,
   location,
 }: {|
   _config?: typeof config,
+  _window?: typeof window | null,
   location: ReactRouterLocationType,
 |}): string {
+  const fxaConfig = _config.get('fxaConfig');
   const params = {
-    config: _config.get('fxaConfig'),
-    to: url.format({ ...location }),
+    config: fxaConfig,
+    to:
+      fxaConfig === 'local' && _window
+        ? _window.location.href
+        : url.format({ ...location }),
   };
   const query = makeQueryString(params);
 
