@@ -311,6 +311,7 @@ describe(__filename, () => {
     expect(root.find('.Header-title')).toHaveProp('prependClientApp', false);
     expect(root.find('.Header-title')).toHaveProp('prependLang', false);
     expect(root.find('.Header-authenticate-button')).toHaveLength(0);
+    expect(root.find('.Header-user-and-external-links')).toHaveLength(0);
     expect(root.find(SearchForm)).toHaveLength(0);
     expect(root.find(SectionLinks)).toHaveProp('forBlog', true);
     expect(root.find(GetFirefoxBanner)).toHaveLength(0);
