@@ -681,9 +681,13 @@ describe(__filename, () => {
   });
 
   describe('startLoginUrl', () => {
-    const getStartLoginQs = ({ _config, location }) => {
+    const getStartLoginQs = ({
+      _config,
+      _window,
+      location = createFakeLocation(),
+    }) => {
       return querystring.parse(
-        api.startLoginUrl({ _config, location }).split('?')[1],
+        api.startLoginUrl({ _config, _window, location }).split('?')[1],
       );
     };
 
@@ -696,6 +700,33 @@ describe(__filename, () => {
       });
 
       expect(getStartLoginQs({ _config, location })).toEqual({
+        to: '/foo?bar=BAR',
+        config: fxaConfig,
+      });
+    });
+
+    it('uses window.location when running locally', () => {
+      const fxaConfig = 'local';
+      const _config = getFakeConfig({ fxaConfig });
+      const currentHref = 'http://olympia.test:7000/foo?test=1';
+      const _window = { location: { href: currentHref } };
+
+      expect(getStartLoginQs({ _config, _window })).toEqual({
+        to: currentHref,
+        config: fxaConfig,
+      });
+    });
+
+    it('does not use window.location when running locally if window does not exist', () => {
+      // This should never happen, but is here for code coverage.
+      const fxaConfig = 'local';
+      const _config = getFakeConfig({ fxaConfig });
+      const location = createFakeLocation({
+        pathname: '/foo',
+        query: { bar: 'BAR' },
+      });
+
+      expect(getStartLoginQs({ _config, _window: null, location })).toEqual({
         to: '/foo?bar=BAR',
         config: fxaConfig,
       });
