@@ -27,7 +27,7 @@ import {
   createUserAccountResponse,
   createUserNotificationsResponse,
   dispatchClientMetadata,
-  userAuthToken,
+  userAuthSessionId,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -63,7 +63,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve(user));
 
-      sagaTester.dispatch(setAuthToken(userAuthToken()));
+      sagaTester.dispatch(setAuthToken(userAuthSessionId()));
 
       const expectedLoadUserAction = loadCurrentUserAccount({ user });
       const firstCalledAction = await sagaTester.waitFor(
@@ -90,7 +90,7 @@ describe(__filename, () => {
         .expects('currentUserAccount')
         .returns(Promise.reject(expectedError));
 
-      sagaTester.dispatch(setAuthToken(userAuthToken()));
+      sagaTester.dispatch(setAuthToken(userAuthSessionId()));
 
       return rootTask.done
         .then(() => {
@@ -113,7 +113,7 @@ describe(__filename, () => {
         .expects('currentUserAccount')
         .returns(Promise.reject(expectedError));
 
-      sagaTester.dispatch(setAuthToken(userAuthToken()));
+      sagaTester.dispatch(setAuthToken(userAuthSessionId()));
 
       return rootTask.done
         .then(() => {
@@ -132,7 +132,7 @@ describe(__filename, () => {
         .expects('currentUserAccount')
         .returns(Promise.reject(expectedError));
 
-      sagaTester.dispatch(setAuthToken(userAuthToken()));
+      sagaTester.dispatch(setAuthToken(userAuthSessionId()));
 
       const expectedAction = logOutUser();
       const calledAction = await sagaTester.waitFor(expectedAction.type);

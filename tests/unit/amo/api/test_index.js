@@ -629,7 +629,7 @@ describe(__filename, () => {
       const { api: apiState } = dispatchSignInActions().state;
       mockWindow.expects('fetch').callsFake((urlString, request) => {
         expect(request.headers.authorization).toEqual(
-          `Bearer ${apiState.token}`,
+          `Session ${apiState.token}`,
         );
         return mockResponse();
       });

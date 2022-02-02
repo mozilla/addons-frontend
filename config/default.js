@@ -23,7 +23,7 @@ module.exports = {
 
   // 2592000 is 30 days in seconds.
   cookieMaxAge: 2592000,
-  cookieName: 'frontend_auth_token',
+  cookieName: 'sessionid',
   cookieSecure: true,
   cookieDomain: `.${prodDomain}`,
   cookieSameSite: 'lax',

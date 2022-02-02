@@ -18,7 +18,7 @@ import {
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,
-  userAuthToken,
+  userAuthSessionId,
 } from 'tests/unit/helpers';
 import Icon from 'amo/components/Icon';
 
@@ -131,7 +131,7 @@ describe(__filename, () => {
 
     expect(mapStateToProps(store.getState(), {}).siteUser).toEqual(null);
 
-    store.dispatch(setAuthToken(userAuthToken()));
+    store.dispatch(setAuthToken(userAuthSessionId()));
     store.dispatch(loadCurrentUserAccount({ user }));
 
     expect(mapStateToProps(store.getState(), {}).siteUser).toMatchObject(user);
