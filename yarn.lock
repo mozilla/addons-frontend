@@ -9256,10 +9256,10 @@ pino-devtools@^2.1.0:
     through2 "^2.0.3"
     ws "^6.0.0"
 
-pino-mozlog@2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-2.8.0.tgz#d670b6c65923e674c5ff2c386a48ce57a2b7fad4"
-  integrity sha512-h3mZJ+ftCpbcM8jnHD1jbz82DsB8omYcefYN0aLVkayZJCVROFeueDQUY/vVp+ECycqPqA8Dbi5TEsGgoZI96g==
+pino-mozlog@2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-2.9.0.tgz#60974cb80d3c3788cd9372623751b9eab7282d1e"
+  integrity sha512-026M8BUHvaKaY0iW+0tPEWfFj3r/+vUdQv86R2eH5ZqD1MSKWfQtICRKjm2b4XcNlSX2sL/5d/XlaU+ojeI6Cw==
   dependencies:
     minimist "1.2.5"
     pino-syslog "2.0.0"
