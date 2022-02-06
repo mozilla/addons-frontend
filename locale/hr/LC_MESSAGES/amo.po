@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-25 18:54+0000\n"
-"PO-Revision-Date: 2022-02-06 18:32+0000\n"
+"PO-Revision-Date: 2022-02-06 18:41+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1666,9 +1666,9 @@ msgstr[2] "Pronađeno je %(count)s motiva u kategoriji %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "Pronađena je %(count)s tema za „%(query)s” s oznakom %(tag)s"
-msgstr[1] "Pronađene si %(count)s teme za „%(query)s” s oznakom %(tag)s"
-msgstr[2] "Pronađeno je %(count)s tema za „%(query)s” s oznakom %(tag)s"
+msgstr[0] "Pronađena je %(count)s tema za %(query)s s oznakom %(tag)s"
+msgstr[1] "Pronađene su %(count)s teme za „%(query)s” s oznakom %(tag)s"
+msgstr[2] "Pronađeno je %(count)s tema za %(query)s s oznakom %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1680,9 +1680,9 @@ msgstr[2] "Pronađeno je %(count)s tema za „%(query)s”"
 #: src/amo/components/SearchContextCard/index.js:188
 msgid "%(count)s theme found with tag %(tag)s"
 msgid_plural "%(count)s themes found with tag %(tag)s"
-msgstr[0] ""
+msgstr[0] "Pronađena je %(count)s tema s oznakom %(tag)s"
 msgstr[1] "Pronađene su %(count)s teme s oznakom %(tag)s"
-msgstr[2] ""
+msgstr[2] "Pronađeno je %(count)s tema s oznakom %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:197
 msgid "%(count)s theme found"
