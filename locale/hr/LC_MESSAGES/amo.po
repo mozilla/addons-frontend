@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-25 18:54+0000\n"
-"PO-Revision-Date: 2022-02-06 18:09+0000\n"
+"PO-Revision-Date: 2022-02-06 18:21+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1623,12 +1623,11 @@ msgstr[1] "Pronađena su %(count)s proširenja za „%(query)s”"
 msgstr[2] "Pronađeno je %(count)s proširenja za „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:113
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s"
-msgstr[0] "Pronađeno je %(count)s proširenje u kategoriji %(categoryName)s"
-msgstr[1] "Pronađena su %(count)s proširenja u kategoriji %(categoryName)s"
-msgstr[2] "Pronađeno je %(count)s proširenja u kategoriji %(categoryName)s"
+msgstr[0] "Pronađeno je %(count)s proširenje s oznakom %(tag)s"
+msgstr[1] "Pronađena su %(count)s proširenja s oznakom %(tag)s"
+msgstr[2] "Pronađeno je %(count)s proširenja s oznakom %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s extension found"
@@ -1638,12 +1637,11 @@ msgstr[1] "Pronađena su %(count)s proširenja"
 msgstr[2] "Pronađeno je %(count)s proširenja"
 
 #: src/amo/components/SearchContextCard/index.js:134
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "Pronađena je %(count)s tema za „%(query)s” u kategoriji %(categoryName)s"
-msgstr[1] "Pronađene su %(count)s teme za „%(query)s” u kategoriji %(categoryName)s"
-msgstr[2] "Pronađeno je %(count)s tema za „%(query)s” u kategoriji %(categoryName)s"
+msgstr[0] ""
+msgstr[1] "Pronađene su %(count)s teme za „%(query)s” s oznakom %(tag)s u kategoriji %(categoryName)s"
+msgstr[2] "Pronađeno je %(count)s tema za „%(query)s” s oznakom %(tag)s u kategoriji %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
