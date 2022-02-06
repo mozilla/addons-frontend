@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-25 18:54+0000\n"
-"PO-Revision-Date: 2022-02-06 18:03+0000\n"
+"PO-Revision-Date: 2022-02-06 18:09+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1432,25 +1432,22 @@ msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
 msgstr[0] "Pročitaj jednu recenziju s pet zvjezdica"
 msgstr[1] "Pročitaj sve r%(total)s ecenzije s pet zvjezdica"
-msgstr[2] ""
+msgstr[2] "Pročitaj svih %(total)s recenzija s pet zvjezdica"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "Nema recenzija"
+msgstr "Nema recenzija s pet zvjezdica"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "Pročitaj sve recenzije s četiri zvjezdice"
-msgstr[1] "Pročitaj sve recenzije s četiri zvjezdice"
-msgstr[2] "Pročitaj sve recenzije s četiri zvjezdice"
+msgstr[0] ""
+msgstr[1] "Pročitaj sve %(total)s recenzije s četiri zvjezdice"
+msgstr[2] "Pročitaj svih %(total)s recenzija s četiri zvjezdice"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "Nema recenzija"
+msgstr "Nema recenzija s četiri zvjezdica"
 
 #: src/amo/components/RatingsByStar/index.js:93
 #, fuzzy
