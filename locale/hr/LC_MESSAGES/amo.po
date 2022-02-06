@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-01-25 18:54+0000\n"
-"PO-Revision-Date: 2022-02-06 18:41+0000\n"
+"PO-Revision-Date: 2022-02-06 18:52+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -838,9 +838,8 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Nažalost, za upisani URL ne možemo ništa pronaći."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
-#, fuzzy
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Nažalost, nisi autoriziran/a pristupiti ovoj stranici. Ako nisi prijavljen/a, pokušaj se prijaviti pomoću poveznice na vrhu stranice."
+msgstr "Autentifikacija prijave je istekla. %(startLink)sPonovo učitaj stranicu%(endLink)s za nastavljeanje bez autentifikacije ili se ponovo prijavi pomoću poveznice za prijavu na vrhu stranice."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
@@ -1692,12 +1691,11 @@ msgstr[1] "Pronađene su %(count)s teme"
 msgstr[2] "Pronađeno je %(count)s tema"
 
 #: src/amo/components/SearchContextCard/index.js:209
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s results found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "Pronađen je %(count)s rezultat za „%(query)s”"
-msgstr[1] "Pronađena su %(count)s rezultata za „%(query)s”"
-msgstr[2] "Pronađeno je %(count)s rezultata za „%(query)s”"
+msgstr[0] "Pronađen je %(count)s rezultat za „%(query)s” s oznakom %(tag)s"
+msgstr[1] "Pronađena su %(count)s rezultata za „%(query)s” s oznakom %(tag)s"
+msgstr[2] "Pronađeno je %(count)s rezultat za „%(query)s” s oznakom %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:218
 msgid "%(count)s result found for \"%(query)s\""
@@ -1707,12 +1705,11 @@ msgstr[1] "Pronađena su %(count)s rezultata za „%(query)s”"
 msgstr[2] "Pronađeno je %(count)s rezultata za „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:227
-#, fuzzy
 msgid "%(count)s result found with tag %(tag)s"
 msgid_plural "%(count)s results found with tag %(tag)s"
-msgstr[0] "Pronađen je %(count)s rezultat za „%(query)s”"
-msgstr[1] "Pronađena su %(count)s rezultata za „%(query)s”"
-msgstr[2] "Pronađeno je %(count)s rezultata za „%(query)s”"
+msgstr[0] "Pronađen je %(count)s rezultat s oznakom %(tag)s"
+msgstr[1] "Pronađena su %(count)s rezultata s oznakom %(tag)s"
+msgstr[2] "Pronađeno je %(count)s rezultata s oznakom %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
