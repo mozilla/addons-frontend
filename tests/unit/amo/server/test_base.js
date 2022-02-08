@@ -28,7 +28,7 @@ import {
   createUserAccountResponse,
   getFakeConfig,
   getFakeLogger,
-  userAuthToken,
+  userAuthSessionId,
 } from 'tests/unit/helpers';
 
 function createStoreAndSagas({
@@ -203,7 +203,7 @@ describe(__filename, () => {
     });
 
     it('dispatches setAuthToken() if cookie is present', async () => {
-      const token = userAuthToken();
+      const token = userAuthSessionId();
       const { store, sagaMiddleware } = createStoreAndSagas();
       const response = await testClient({ store, sagaMiddleware })
         .get('/en-US/firefox/')
@@ -280,7 +280,7 @@ describe(__filename, () => {
         yield all([fork(usersSaga), fork(siteSaga)]);
       }
 
-      const token = userAuthToken();
+      const token = userAuthSessionId();
       const { store, sagaMiddleware } = createStoreAndSagas();
       const response = await testClient({
         store,
@@ -351,7 +351,7 @@ describe(__filename, () => {
         .once()
         .rejects(new Error('example of an API error'));
 
-      const token = userAuthToken();
+      const token = userAuthSessionId();
       const { store, sagaMiddleware } = createStoreAndSagas();
       const response = await testClient({
         store,
@@ -372,7 +372,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve(user));
 
-      const token = userAuthToken();
+      const token = userAuthSessionId();
       const { store, sagaMiddleware } = createStoreAndSagas();
       const config = getFakeConfig({ disableSSR: true });
 
@@ -413,7 +413,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve(user));
 
-      const token = userAuthToken();
+      const token = userAuthSessionId();
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const client = testClient({
@@ -527,7 +527,7 @@ describe(__filename, () => {
     it('handles requests slightly differently when loaded page is anonymous', async () => {
       const url = '/en-US/firefox/';
       const config = getFakeConfig({ anonymousPagePatterns: [url] });
-      const token = userAuthToken();
+      const token = userAuthSessionId();
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       const response = await testClient({
@@ -547,7 +547,7 @@ describe(__filename, () => {
 
     it('does not dispatch loadedPageIsAnonymous() when loaded page is not anoynmous', async () => {
       const config = getFakeConfig({ anonymousPagePatterns: [] });
-      const token = userAuthToken();
+      const token = userAuthSessionId();
       const { store, sagaMiddleware } = createStoreAndSagas();
 
       await testClient({
@@ -562,7 +562,7 @@ describe(__filename, () => {
     });
 
     it('removes the cookie when user has been logged out', async () => {
-      const token = userAuthToken();
+      const token = userAuthSessionId();
       const { store, sagaMiddleware } = createStoreAndSagas();
       const apiError = createApiError({ response: { status: 401 } });
       mockUsersApi.expects('currentUserAccount').once().rejects(apiError);

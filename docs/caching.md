@@ -13,7 +13,6 @@ For the cache key, we take into account the following parameters:
   - `User-Agent`
   - `DNT`
 - The following cookies, extracted from the `Cookie` HTTP header:
-- `frontend_auth_token`
 - `frontend_active_experiments`
 - `sessionid`
 
@@ -23,7 +22,7 @@ If a response is not found in the cache, the request is forwarded to the origin 
 
 Behind the scenes the cache key is generated with a mix of hardcoded CDN configuration and HTTP headers returned in the `Vary` header(s) in the response. It might include more headers depending on the page, for instance pages doing `Accept-Language` detection add that header to the key automatically by adding it to the `Vary` header in the response).
 
-The origin will send a `Cache-Control: s-maxage=<value>` header (causing the CDN to cache the response) on all responses unless the request came in with a `frontend_auth_token` or the response being generated is a 40x or 50x. On top of that, a `Cache-Control: max-age=0` is sent by default so browsers themselves never cache the responses, to deal with authentication and back/forward cache interaction.
+The origin will send a `Cache-Control: s-maxage=<value>` header (causing the CDN to cache the response) on all responses unless the request came in with a `sessionId` or the response being generated is a 40x or 50x. On top of that, a `Cache-Control: max-age=0` is sent by default so browsers themselves never cache the responses, to deal with authentication and back/forward cache interaction.
 
 ## Additional considerations
 
@@ -37,4 +36,4 @@ We currently return `180` as the number of seconds to cache responses. The CDN m
 
 ### API
 
-The API also has a similar caching layer, using a different set of parameters for the cache key: `User-Agent` and `DNT` are ignored, `Origin` is used instead, `frontend_active_experiments` cookie is ignored, and the cache is bypassed for requests coming in with a `sessionid` cookie or `Authorization` header instead of the `frontend_auth_token` cookie.
+The API also has a similar caching layer, using a different set of parameters for the cache key: `User-Agent` and `DNT` are ignored, `Origin` is used instead, `frontend_active_experiments` cookie is ignored, and the cache is bypassed for requests coming in with a `sessionid` cookie or `Authorization` header instead of the `sessionId` cookie.

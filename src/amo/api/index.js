@@ -156,7 +156,7 @@ export function callApi({
   }
   if (auth) {
     if (apiState.token) {
-      options.headers.authorization = `Bearer ${apiState.token}`;
+      options.headers.authorization = `Session ${apiState.token}`;
     }
   }
   if (apiState.regionCode) {

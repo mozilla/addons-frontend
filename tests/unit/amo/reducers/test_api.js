@@ -3,7 +3,7 @@ import UAParser from 'ua-parser-js';
 import * as actions from 'amo/reducers/api';
 import { logOutUser } from 'amo/reducers/users';
 import api, { initialApiState } from 'amo/reducers/api';
-import { userAgents, userAuthToken } from 'tests/unit/helpers';
+import { userAgents, userAuthSessionId } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('maintains the old state', () => {
@@ -12,7 +12,7 @@ describe(__filename, () => {
   });
 
   it('stores the auth token', () => {
-    const token = userAuthToken();
+    const token = userAuthSessionId();
     expect(api({ foo: 'bar' }, actions.setAuthToken(token))).toEqual({
       foo: 'bar',
       token,
@@ -20,7 +20,7 @@ describe(__filename, () => {
   });
 
   it('clears the auth token on log out', () => {
-    const state = api(undefined, actions.setAuthToken(userAuthToken));
+    const state = api(undefined, actions.setAuthToken(userAuthSessionId));
     expect(state.token).toBeTruthy();
 
     const expectedState = { ...state, token: null };
@@ -108,7 +108,7 @@ describe(__filename, () => {
       api(undefined, actions.setAuthToken(token));
 
     it('sets auth state based on the token', () => {
-      const token = userAuthToken({ user_id: 91234 });
+      const token = userAuthSessionId();
       expect(setAndReduceToken(token)).toHaveProperty('token', token);
     });
   });

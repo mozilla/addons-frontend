@@ -3,7 +3,6 @@ import urllib from 'url';
 
 import { LOCATION_CHANGE } from 'connected-react-router';
 import PropTypes from 'prop-types';
-import { encode } from 'universal-base64url';
 import config from 'config';
 import invariant from 'invariant';
 import { shallow } from 'enzyme';
@@ -25,7 +24,7 @@ import {
 import { createInternalCollection } from 'amo/reducers/collections';
 import { createInternalHomeShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
-import { getDjangoBase62, addQueryParamsToHistory } from 'amo/utils';
+import { addQueryParamsToHistory } from 'amo/utils';
 import { setError } from 'amo/actions/errors';
 import { createApiError } from 'amo/api/index';
 import {
@@ -444,28 +443,10 @@ export function dispatchClientMetadata({
 }
 
 /*
- * Return a fake authentication token that can be
- * at least decoded in a realistic way.
+ * Return a sample sessionId value that we use as the auth token.
  */
-export function userAuthToken(
-  dataOverrides = {},
-  { tokenCreatedAt = (Date.now() / 1000).toFixed(0), tokenData } = {},
-) {
-  const data = {
-    user_id: 102345,
-    ...dataOverrides,
-  };
-
-  let encodedToken = tokenData;
-  if (!encodedToken) {
-    encodedToken = encode(JSON.stringify(data));
-  }
-
-  const base62 = getDjangoBase62();
-  const timestamp = base62.encode(tokenCreatedAt);
-  const sig = encode('pretend-this-is-a-signature');
-
-  return `${encodedToken}:${timestamp}:${sig}`;
+export function userAuthSessionId() {
+  return '123456';
 }
 
 export function createUserAccountResponse({
@@ -558,7 +539,7 @@ export const randomId = () => {
 };
 
 export function dispatchSignInActions({
-  authToken = userAuthToken(),
+  authToken = userAuthSessionId(),
   userId = 12345,
   userProps = {},
   ...otherArgs
