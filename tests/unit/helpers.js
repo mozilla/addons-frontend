@@ -1,6 +1,7 @@
 /* global Headers */
 import urllib from 'url';
 
+import { queries, render as rtlRender } from '@testing-library/react';
 import { LOCATION_CHANGE } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import config from 'config';
@@ -10,6 +11,8 @@ import Jed from 'jed';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 import { createMemoryHistory } from 'history';
+import { Provider } from 'react-redux';
+import React from 'react';
 
 import {
   DOWNLOAD_FIREFOX_BASE_URL,
@@ -1469,4 +1472,56 @@ export const createExperimentData = ({
   variantId = 'some-variant-id',
 }) => {
   return { [id]: variantId };
+};
+
+const queryByClassName = (container, className) => {
+  return container.querySelectorAll(`.${className}`);
+};
+
+const getByClassName = (container, className) => {
+  return container.querySelector(`.${className}`);
+};
+
+const queryByTagName = (container, tagName) => {
+  return container.getElementsByTagName(tagName);
+};
+
+const getByTagName = (container, tagName) => {
+  const elements = queryByTagName(container, tagName);
+  if (!elements.length) {
+    return null;
+  }
+  if (elements.length > 1) {
+    throw new Error(`More than one element found for tag ${tagName}`);
+  }
+  return elements[0];
+};
+
+export const render = (ui, options = {}) => {
+  const rtlOptions = {
+    queries: {
+      ...queries,
+      queryByClassName,
+      queryByTagName,
+      getByClassName,
+      getByTagName,
+    },
+    ...options,
+  };
+  const result = rtlRender(ui, rtlOptions);
+  return { ...result, root: result.container.firstChild };
+};
+
+export const renderWithStore = (ui, options = {}) => {
+  const store = createStore();
+  const rtlOptions = {
+    queries: { ...queries, queryByTagName, getByClassName, getByTagName },
+    ...options,
+  };
+  // eslint-disable-next-line react/prop-types
+  function Wrapper({ children }) {
+    return <Provider store={store}>{children}</Provider>;
+  }
+  const result = rtlRender(ui, { wrapper: Wrapper, ...rtlOptions });
+  return { ...result, root: result.container.firstChild };
 };
