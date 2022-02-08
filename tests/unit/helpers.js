@@ -1,7 +1,7 @@
 /* global Headers */
 import urllib from 'url';
 
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE, ConnectedRouter } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import config from 'config';
 import invariant from 'invariant';
@@ -10,6 +10,9 @@ import Jed from 'jed';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 import { createMemoryHistory } from 'history';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { queries, render as rtlRender } from '@testing-library/react';
 
 import {
   DOWNLOAD_FIREFOX_BASE_URL,
@@ -21,6 +24,7 @@ import {
   ENABLED,
   OS_ALL,
 } from 'amo/constants';
+import I18nProvider from 'amo/i18n/Provider';
 import { createInternalCollection } from 'amo/reducers/collections';
 import { createInternalHomeShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
@@ -1469,4 +1473,69 @@ export const createExperimentData = ({
   variantId = 'some-variant-id',
 }) => {
   return { [id]: variantId };
+};
+
+const queryByClassName = (container, className) => {
+  return container.querySelectorAll(`.${className}`);
+};
+
+const getByClassName = (container, className) => {
+  const elements = queryByClassName(container, className);
+  if (!elements.length) {
+    return null;
+  }
+  if (elements.length > 1) {
+    throw new Error(`More than one element found for className ${className}`);
+  }
+  return elements[0];
+};
+
+const queryByTagName = (container, tagName) => {
+  return container.getElementsByTagName(tagName);
+};
+
+const getByTagName = (container, tagName) => {
+  const elements = queryByTagName(container, tagName);
+  if (!elements.length) {
+    return null;
+  }
+  if (elements.length > 1) {
+    throw new Error(`More than one element found for tag ${tagName}`);
+  }
+  return elements[0];
+};
+
+export const render = (ui, options = {}) => {
+  const internalOptions = {
+    history: addQueryParamsToHistory({ history: createMemoryHistory() }),
+    i18n: fakeI18n(),
+    store: dispatchClientMetadata().store,
+    rtlOptions: {},
+    ...options,
+  };
+  const rtlOptions = {
+    queries: {
+      ...queries,
+      queryByClassName,
+      queryByTagName,
+      getByClassName,
+      getByTagName,
+    },
+    ...internalOptions.rtlOptions,
+  };
+
+  const wrapper = ({ children }) => {
+    return (
+      <I18nProvider i18n={internalOptions.i18n}>
+        <Provider store={internalOptions.store}>
+          <ConnectedRouter history={internalOptions.history}>
+            {children}
+          </ConnectedRouter>
+        </Provider>
+      </I18nProvider>
+    );
+  };
+
+  const result = rtlRender(ui, { wrapper, ...rtlOptions });
+  return { ...result, root: result.container.firstChild };
 };
