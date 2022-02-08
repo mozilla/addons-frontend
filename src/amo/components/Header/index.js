@@ -53,7 +53,6 @@ export class HeaderBase extends React.Component {
 
   renderMenuOrAuthButton() {
     const {
-      forBlog,
       i18n,
       isReviewer,
       loadedPageIsAnonymous,
@@ -61,7 +60,7 @@ export class HeaderBase extends React.Component {
       siteUser,
     } = this.props;
 
-    if (forBlog || loadedPageIsAnonymous) {
+    if (loadedPageIsAnonymous) {
       // The server has loaded a page that is marked as anonymous so we do not
       // want to render any menu or authentication button here so that
       // logged-in users are not confused.
@@ -250,19 +249,21 @@ export class HeaderBase extends React.Component {
             />
           ) : null}
 
-          <div className="Header-user-and-external-links">
-            {otherSiteLinks}
-
-            {this.renderMenuOrAuthButton()}
-          </div>
-
           {!forBlog && (
-            <SearchForm
-              className={makeClassName('Header-search-form', {
-                'Header-search-form--desktop': clientApp === CLIENT_APP_FIREFOX,
-              })}
-              pathname="/search/"
-            />
+            <>
+              <div className="Header-user-and-external-links">
+                {otherSiteLinks}
+
+                {this.renderMenuOrAuthButton()}
+              </div>
+              <SearchForm
+                className={makeClassName('Header-search-form', {
+                  'Header-search-form--desktop':
+                    clientApp === CLIENT_APP_FIREFOX,
+                })}
+                pathname="/search/"
+              />
+            </>
           )}
         </div>
       </header>
