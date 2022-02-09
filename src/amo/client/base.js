@@ -1,7 +1,6 @@
 import 'amo/polyfill';
 import { oneLine } from 'common-tags';
 import config from 'config';
-import FastClick from 'fastclick';
 import { createBrowserHistory } from 'history';
 import * as React from 'react';
 import { render } from 'react-dom';
@@ -15,7 +14,6 @@ import tracking from 'amo/tracking';
 export default async function createClient(
   createStore,
   {
-    _FastClick = FastClick,
     _config = config,
     _createBrowserHistory = createBrowserHistory,
     _tracking = tracking,
@@ -32,8 +30,6 @@ export default async function createClient(
     log.info(oneLine`StrictMode is enabled, which causes double redux action
       dispatching. See: https://github.com/mozilla/addons-frontend/issues/6424`);
   }
-
-  _FastClick.attach(document.body);
 
   const initialStateContainer = document.getElementById('redux-store-state');
   let initialState;
