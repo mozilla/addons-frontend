@@ -8,20 +8,11 @@ import { createFakeTracking } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('createClient()', () => {
-    let fakeFastClick;
-
-    beforeEach(() => {
-      fakeFastClick = {
-        attach: sinon.stub(),
-      };
-    });
-
     const _createClient = ({
-      _FastClick = fakeFastClick,
       createStore = createAmoStore,
       ...others
     } = {}) => {
-      return createClient(createStore, { _FastClick, ...others });
+      return createClient(createStore, { ...others });
     };
 
     it('returns an object with a `renderApp` function', async () => {
