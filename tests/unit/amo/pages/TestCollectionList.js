@@ -20,6 +20,8 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import UserCollection from 'amo/components/UserCollection';
+import { VIEW_CONTEXT_HOME } from 'amo/constants';
+import { setViewContext } from 'amo/actions/viewContext';
 
 describe(__filename, () => {
   const getProps = () => ({
@@ -48,7 +50,7 @@ describe(__filename, () => {
 
     renderComponent({ errorHandler, store });
 
-    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.callCount(fakeDispatch, 2);
     sinon.assert.calledWith(
       fakeDispatch,
       fetchUserCollections({
@@ -56,6 +58,7 @@ describe(__filename, () => {
         userId,
       }),
     );
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
   });
 
   it('does not dispatch fetchUserCollections if there is no user', () => {
@@ -64,7 +67,8 @@ describe(__filename, () => {
 
     renderComponent({ store });
 
-    sinon.assert.notCalled(fakeDispatch);
+    // Should still dispatch setViewContext
+    sinon.assert.calledOnce(fakeDispatch);
   });
 
   it('does not dispatch fetchUserCollections if collections are loading', () => {
@@ -85,7 +89,13 @@ describe(__filename, () => {
 
     renderComponent({ store });
 
-    sinon.assert.notCalled(fakeDispatch);
+    sinon.assert.neverCalledWith(
+      fakeDispatch,
+      fetchUserCollections({
+        errorHandlerId: errorHandler.id,
+        userId,
+      }),
+    );
   });
 
   it('does not dispatch fetchUserCollections if collections are loaded', () => {
@@ -101,10 +111,16 @@ describe(__filename, () => {
     );
 
     fakeDispatch.resetHistory();
-
+    const errorHandler = createStubErrorHandler();
     renderComponent({ store });
 
-    sinon.assert.notCalled(fakeDispatch);
+    sinon.assert.neverCalledWith(
+      fakeDispatch,
+      fetchUserCollections({
+        errorHandlerId: errorHandler.id,
+        userId,
+      }),
+    );
   });
 
   it('renders an AuthenticateButton without a logged in user', () => {
@@ -249,5 +265,12 @@ describe(__filename, () => {
     it('returns a blank ID with no currentUserId', () => {
       expect(extractId({})).toEqual('');
     });
+  });
+
+  it(`dispatches setViewContext when component mounts`, () => {
+    const { store } = dispatchSignInActions();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    renderComponent({ store });
+    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
   });
 });

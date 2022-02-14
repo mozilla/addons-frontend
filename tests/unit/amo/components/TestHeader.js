@@ -11,7 +11,6 @@ import {
   ADDONS_REVIEW,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  VIEW_CONTEXT_HOME,
 } from 'amo/constants';
 import DropdownMenu from 'amo/components/DropdownMenu';
 import { loadSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
@@ -25,7 +24,6 @@ import {
   shallowUntilTarget,
   userAgents,
 } from 'tests/unit/helpers';
-import { setViewContext } from 'amo/actions/viewContext';
 
 describe(__filename, () => {
   function renderHeader({
@@ -317,29 +315,5 @@ describe(__filename, () => {
     expect(root.find(SearchForm)).toHaveLength(0);
     expect(root.find(SectionLinks)).toHaveProp('forBlog', true);
     expect(root.find(GetFirefoxBanner)).toHaveLength(0);
-  });
-
-  it(`changes viewContext when user clicks 'View My Collections'`, () => {
-    const { store } = dispatchSignInActions();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderHeader({ store });
-    root.find('.Header-user-menu-collections-link').simulate('click');
-    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
-  });
-
-  it(`changes viewContext when user clicks 'View My Profile'`, () => {
-    const { store } = dispatchSignInActions();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderHeader({ store });
-    root.find('.Header-user-menu-view-profile-link').simulate('click');
-    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
-  });
-
-  it(`changes viewContext when user clicks 'Edit My Profile'`, () => {
-    const { store } = dispatchSignInActions();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderHeader({ store });
-    root.find('.Header-user-menu-edit-profile-link').simulate('click');
-    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
   });
 });

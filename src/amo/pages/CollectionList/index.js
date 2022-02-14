@@ -22,7 +22,8 @@ import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
-
+import { setViewContext } from 'amo/actions/viewContext';
+import { VIEW_CONTEXT_HOME } from 'amo/constants';
 import './styles.scss';
 
 export type Props = {||};
@@ -51,6 +52,8 @@ export class CollectionListBase extends React.Component<InternalProps> {
       errorHandler,
       loadingUserCollections,
     } = this.props;
+
+    dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
     if (currentUserId && !loadingUserCollections && !collections) {
       dispatch(

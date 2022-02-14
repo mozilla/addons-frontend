@@ -23,7 +23,11 @@ import {
   logOutUser,
 } from 'amo/reducers/users';
 import { createApiError } from 'amo/api';
-import { CLIENT_APP_FIREFOX, USERS_EDIT } from 'amo/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  USERS_EDIT,
+  VIEW_CONTEXT_HOME,
+} from 'amo/constants';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
 import { ErrorHandler } from 'amo/errorHandler';
 import ErrorList from 'amo/components/ErrorList';
@@ -41,6 +45,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import { setViewContext } from 'amo/actions/viewContext';
 
 describe(__filename, () => {
   const defaultUserProps = (props = {}) => {
@@ -165,7 +170,7 @@ describe(__filename, () => {
     const userId = 456;
     const root = renderUserProfileEdit({ params: { userId }, store });
 
-    sinon.assert.callCount(dispatchSpy, 2);
+    sinon.assert.callCount(dispatchSpy, 3);
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserAccount({
@@ -180,6 +185,7 @@ describe(__filename, () => {
         userId,
       }),
     );
+    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
   });
 
   it('dispatches fetchUserNotifications and not fetchUserAccount when the current logged-in user is being edited', () => {
@@ -197,7 +203,7 @@ describe(__filename, () => {
     // logged-in user (e.g., page refresh).
     renderUserProfileEdit({ errorHandler, params: {}, store });
 
-    sinon.assert.calledOnce(dispatchSpy);
+    sinon.assert.calledTwice(dispatchSpy);
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserNotifications({
@@ -205,9 +211,10 @@ describe(__filename, () => {
         userId,
       }),
     );
+    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
   });
 
-  it('does not dispatch any actions if the current logged-in user is being edited and the notifications are loaded', () => {
+  it('dispatches only setViewContext if the current logged-in user is being edited and the notifications are loaded', () => {
     const userId = 2;
 
     const { store } = signInUserWithUserId(userId);
@@ -226,7 +233,8 @@ describe(__filename, () => {
     // logged-in user (e.g., page refresh).
     renderUserProfileEdit({ params: {}, store });
 
-    sinon.assert.notCalled(dispatchSpy);
+    sinon.assert.calledOnce(dispatchSpy);
+    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
   });
 
   it('dispatches fetchUserAccount and fetchUserNotifications actions if userId changes', () => {
@@ -1132,7 +1140,7 @@ describe(__filename, () => {
     expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
-  it('does not dispatch any action when there is an error', () => {
+  it('dispatches only setViewContext when there is an error', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -1146,7 +1154,8 @@ describe(__filename, () => {
 
     renderUserProfileEdit({ errorHandler, store });
 
-    sinon.assert.notCalled(fakeDispatch);
+    sinon.assert.calledOnce(fakeDispatch);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
   });
 
   it('dispatches a deleteUserPicture action when user deletes their profile picture', () => {

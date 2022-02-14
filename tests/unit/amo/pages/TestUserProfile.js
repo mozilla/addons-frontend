@@ -24,6 +24,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
+  VIEW_CONTEXT_HOME,
 } from 'amo/constants';
 import { ErrorHandler } from 'amo/errorHandler';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
@@ -42,6 +43,7 @@ import {
   createFakeLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import { setViewContext } from 'amo/actions/viewContext';
 
 describe(__filename, () => {
   function defaultUserProps(props = {}) {
@@ -666,7 +668,7 @@ describe(__filename, () => {
     expect(root.find('.UserProfile-admin-link')).toHaveLength(0);
   });
 
-  it('does not dispatch any action when there is an error', () => {
+  it('only dispatches setViewContext when there is an error', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -680,7 +682,7 @@ describe(__filename, () => {
 
     renderUserProfile({ errorHandler, store });
 
-    sinon.assert.notCalled(fakeDispatch);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
   });
 
   it('fetches reviews if not loaded and userId does not change', () => {
@@ -755,7 +757,6 @@ describe(__filename, () => {
 
     renderUserProfile({ errorHandler, location, params, store });
 
-    sinon.assert.calledOnce(dispatchSpy);
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserReviews({
@@ -776,7 +777,15 @@ describe(__filename, () => {
 
     renderUserProfile({ params, store });
 
-    sinon.assert.notCalled(dispatchSpy);
+    sinon.assert.neverCalledWith(
+      dispatchSpy,
+      setUserReviews({
+        pageSize: DEFAULT_API_PAGE_SIZE,
+        reviewCount: 1,
+        reviews: [fakeReview],
+        userId: user.id,
+      }),
+    );
   });
 
   it(`displays the user's reviews`, () => {
@@ -858,7 +867,7 @@ describe(__filename, () => {
     const params = { userId: user.id };
     renderUserProfile({ params, store });
 
-    sinon.assert.notCalled(dispatchSpy);
+    sinon.assert.neverCalledWith(dispatchSpy, loadUserAccount({ user }));
   });
 
   it('does not fetch the reviews when page has changed and userId does not change but user is not the owner', () => {
@@ -1041,7 +1050,7 @@ describe(__filename, () => {
         url: `/${lang}/${clientApp}/user/${user.id}/`,
       }),
     );
-    sinon.assert.calledOnce(dispatchSpy);
+    sinon.assert.calledTwice(dispatchSpy);
   });
 
   it('sends a server redirect when another user profile is loaded with a "username" in the URL', () => {
@@ -1067,7 +1076,7 @@ describe(__filename, () => {
         url: `/${lang}/${clientApp}/user/${anotherUserId}/`,
       }),
     );
-    sinon.assert.calledOnce(dispatchSpy);
+    sinon.assert.calledTwice(dispatchSpy);
   });
 
   it('dispatches an action to fetch a user profile by username', () => {

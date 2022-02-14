@@ -25,7 +25,7 @@ import {
   logOutUser,
 } from 'amo/reducers/users';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
-import { USERS_EDIT } from 'amo/constants';
+import { USERS_EDIT, VIEW_CONTEXT_HOME } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
@@ -50,6 +50,7 @@ import type {
   ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'amo/types/router';
+import { setViewContext } from 'amo/actions/viewContext';
 
 import './styles.scss';
 
@@ -142,6 +143,12 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
         }),
       );
     }
+  }
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+
+    dispatch(setViewContext(VIEW_CONTEXT_HOME));
   }
 
   componentDidUpdate(prevProps: InternalProps, prevState: State) {
