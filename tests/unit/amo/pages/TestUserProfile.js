@@ -1104,4 +1104,11 @@ describe(__filename, () => {
       expect(extractId({ match })).toEqual(userId);
     });
   });
+
+  it(`dispatches setViewContext when component mounts`, () => {
+    const { store } = dispatchSignInActions();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    renderUserProfile({ store });
+    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
+  });
 });

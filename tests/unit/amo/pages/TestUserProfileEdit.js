@@ -1705,4 +1705,11 @@ describe(__filename, () => {
 
     sinon.assert.notCalled(setStateSpy);
   });
+
+  it(`dispatches setViewContext when component mounts`, () => {
+    const { store } = dispatchSignInActions();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    renderUserProfileEdit({ store });
+    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
+  });
 });
