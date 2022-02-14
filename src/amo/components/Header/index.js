@@ -59,7 +59,7 @@ export class HeaderBase extends React.Component {
       loadedPageIsAnonymous,
       siteIsReadOnly,
       siteUser,
-      setViewContext,
+      setViewContextHome,
     } = this.props;
 
     if (loadedPageIsAnonymous) {
@@ -79,7 +79,7 @@ export class HeaderBase extends React.Component {
           <Link
             className="Header-user-menu-collections-link"
             to="/collections/"
-            onClick={setViewContext}
+            onClick={setViewContextHome}
           >
             {i18n.gettext('View My Collections')}
           </Link>
@@ -88,7 +88,7 @@ export class HeaderBase extends React.Component {
           <Link
             className="Header-user-menu-view-profile-link"
             to={siteUser ? `/user/${siteUser.id}/` : null}
-            onClick={setViewContext}
+            onClick={setViewContextHome}
           >
             {i18n.gettext('View My Profile')}
           </Link>
@@ -97,7 +97,7 @@ export class HeaderBase extends React.Component {
           <Link
             className="Header-user-menu-edit-profile-link"
             to={siteUser ? '/users/edit' : null}
-            onClick={setViewContext}
+            onClick={setViewContextHome}
           >
             {i18n.gettext('Edit My Profile')}
           </Link>
@@ -290,7 +290,7 @@ const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = (dispatch, ownProps) => ({
   handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),
-  setViewContext: () => dispatch(setViewContext(VIEW_CONTEXT_HOME)),
+  setViewContextHome: () => dispatch(setViewContext(VIEW_CONTEXT_HOME)),
 });
 
 export default compose(
