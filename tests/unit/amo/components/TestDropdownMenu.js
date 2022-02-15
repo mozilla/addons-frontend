@@ -105,10 +105,13 @@ describe(__filename, () => {
     // User hovers on the menu.
     getMenu().simulate('mouseEnter', createFakeEvent());
     expect(getMenu()).toHaveClassName('DropdownMenu--active');
+    sinon.assert.calledWith(_window.matchMedia, '(hover)');
 
     // User's mouse leaves the menu.
+    _window.matchMedia.resetHistory();
     getMenu().simulate('mouseLeave', createFakeEvent());
     expect(getMenu()).not.toHaveClassName('DropdownMenu--active');
+    sinon.assert.calledWith(_window.matchMedia, '(hover)');
   });
 
   it('does not touch active on mouseleave/enter if device doesnt support hover', () => {
@@ -124,18 +127,19 @@ describe(__filename, () => {
     // User hovers on the menu.
     getMenu().simulate('mouseEnter', createFakeEvent());
     expect(getMenu()).not.toHaveClassName('DropdownMenu--active');
+    sinon.assert.calledWith(_window.matchMedia, '(hover)');
 
     // User's mouse leaves the menu (no changes).
+    _window.matchMedia.resetHistory();
     getMenu().simulate('mouseLeave', createFakeEvent());
     expect(getMenu()).not.toHaveClassName('DropdownMenu--active');
+    sinon.assert.calledWith(_window.matchMedia, '(hover)');
   });
 
   it('does not touch active on mouseleave/enter if window is null', () => {
-    const _window = null;
-
     // We do this instead of a :hover with CSS to allow clearing the active
     // state after a click.
-    const root = mount(<DropdownMenu text="Menu" _window={_window} />);
+    const root = mount(<DropdownMenu text="Menu" _window={null} />);
     const getMenu = () => root.find('.DropdownMenu');
 
     // User hovers on the menu.
