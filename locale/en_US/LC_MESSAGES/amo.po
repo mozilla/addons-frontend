@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-25 18:54+0000\n"
+"POT-Creation-Date: 2022-02-15 17:34+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -693,7 +693,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "Add-ons for Firefox"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:149
+#: src/amo/components/Header/index.js:148
 msgid "Log out"
 msgstr "Log out"
 
@@ -703,7 +703,7 @@ msgid "Log in"
 msgstr "Log out"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:144
+#: src/amo/components/Header/index.js:143
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -1188,17 +1188,17 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 #, fuzzy
 msgid "Firefox Add-ons Blog"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "Extension Metadata"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
 msgid "Developer Hub"
 msgstr ""
 
@@ -1249,55 +1249,55 @@ msgstr ""
 msgid "You need an updated version of Firefox for this extension"
 msgstr "About this extension"
 
-#: src/amo/components/Header/index.js:102
+#: src/amo/components/Header/index.js:101
 msgid "Tools"
 msgstr ""
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:107
 msgid "Submit a New Add-on"
 msgstr ""
 
-#: src/amo/components/Header/index.js:113
+#: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
 msgstr ""
 
-#: src/amo/components/Header/index.js:122
+#: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
 msgstr ""
 
-#: src/amo/components/Header/index.js:132
+#: src/amo/components/Header/index.js:131
 #, fuzzy
 msgid "Reviewer Tools"
 msgstr "Write a review"
 
-#: src/amo/components/Header/index.js:184
+#: src/amo/components/Header/index.js:183
 #, fuzzy
 msgid "Firefox Browser Add-ons"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/Header/index.js:212
+#: src/amo/components/Header/index.js:211
 #, fuzzy
 msgid "Learn how to create extensions and themes"
 msgstr "Browse all extensions"
 
-#: src/amo/components/Header/index.js:222
+#: src/amo/components/Header/index.js:221
 msgid "Submit and manage extensions and themes"
 msgstr ""
 
-#: src/amo/components/Header/index.js:76
+#: src/amo/components/Header/index.js:75
 msgid "My Account"
 msgstr ""
 
-#: src/amo/components/Header/index.js:82
+#: src/amo/components/Header/index.js:81
 msgid "View My Collections"
 msgstr ""
 
-#: src/amo/components/Header/index.js:90
+#: src/amo/components/Header/index.js:89
 #: src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
 msgstr ""
 
-#: src/amo/components/Header/index.js:98
+#: src/amo/components/Header/index.js:97
 #: src/amo/pages/UserProfileEdit/index.js:564
 #, fuzzy
 msgid "Edit My Profile"

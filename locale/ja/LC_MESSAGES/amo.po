@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-25 18:54+0000\n"
+"POT-Creation-Date: 2022-02-15 17:34+0000\n"
 "PO-Revision-Date: 2022-01-21 20:40+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
@@ -635,7 +635,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Firefox Android (%(locale)s) 向けアドオン"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:149
+#: src/amo/components/Header/index.js:148
 msgid "Log out"
 msgstr "ログアウト"
 
@@ -644,7 +644,7 @@ msgid "Log in"
 msgstr "ログイン"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:144
+#: src/amo/components/Header/index.js:143
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr "この操作は現在利用できません。ページを再読み込みしてください。"
@@ -1138,15 +1138,15 @@ msgstr "Mozilla のホームページへ"
 msgid "About"
 msgstr "このサイトについて"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
 msgstr "Firefox アドオンブログ"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
 msgstr "拡張機能ワークショップ"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
 msgid "Developer Hub"
 msgstr "開発者センター"
 
@@ -1193,52 +1193,52 @@ msgstr "このテーマを使用するには新しいバージョンの Firefox 
 msgid "You need an updated version of Firefox for this extension"
 msgstr "この拡張機能を使用するには新しいバージョンの Firefox が必要です"
 
-#: src/amo/components/Header/index.js:102
+#: src/amo/components/Header/index.js:101
 msgid "Tools"
 msgstr "ツール"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:107
 msgid "Submit a New Add-on"
 msgstr "新しいアドオンを登録"
 
-#: src/amo/components/Header/index.js:113
+#: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
 msgstr "新しいテーマを登録"
 
-#: src/amo/components/Header/index.js:122
+#: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
 msgstr "自分の登録アイテムを管理"
 
-#: src/amo/components/Header/index.js:132
+#: src/amo/components/Header/index.js:131
 msgid "Reviewer Tools"
 msgstr "審査担当者用ツール"
 
-#: src/amo/components/Header/index.js:184
+#: src/amo/components/Header/index.js:183
 msgid "Firefox Browser Add-ons"
 msgstr "Firefox ブラウザーアドオン"
 
-#: src/amo/components/Header/index.js:212
+#: src/amo/components/Header/index.js:211
 msgid "Learn how to create extensions and themes"
 msgstr "拡張機能とテーマの制作方法を学んでください"
 
-#: src/amo/components/Header/index.js:222
+#: src/amo/components/Header/index.js:221
 msgid "Submit and manage extensions and themes"
 msgstr "拡張機能とテーマの投稿と管理"
 
-#: src/amo/components/Header/index.js:76
+#: src/amo/components/Header/index.js:75
 msgid "My Account"
 msgstr "マイアカウント"
 
-#: src/amo/components/Header/index.js:82
+#: src/amo/components/Header/index.js:81
 msgid "View My Collections"
 msgstr "自分のコレクションを見る"
 
-#: src/amo/components/Header/index.js:90
+#: src/amo/components/Header/index.js:89
 #: src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
 msgstr "自分のプロファイルを表示"
 
-#: src/amo/components/Header/index.js:98
+#: src/amo/components/Header/index.js:97
 #: src/amo/pages/UserProfileEdit/index.js:564
 msgid "Edit My Profile"
 msgstr "自分のプロファイルを編集"

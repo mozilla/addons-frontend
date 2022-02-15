@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-25 18:54+0000\n"
+"POT-Creation-Date: 2022-02-15 17:34+0000\n"
 "PO-Revision-Date: 2022-01-24 15:54+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -640,7 +640,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Tillegg for Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:149
+#: src/amo/components/Header/index.js:148
 msgid "Log out"
 msgstr "Logg ut"
 
@@ -649,7 +649,7 @@ msgid "Log in"
 msgstr "Logg inn"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:144
+#: src/amo/components/Header/index.js:143
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -1163,15 +1163,15 @@ msgstr "Gå til Mozillas hjemmeside"
 msgid "About"
 msgstr "Om"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
 msgstr "Firefox tilleggsblogg"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
 msgstr "Utvidelsesverksted"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
 msgid "Developer Hub"
 msgstr "Utvikler-knutepunkt"
 
@@ -1217,52 +1217,52 @@ msgstr "Du trenger en oppdatert versjon av Firefox for dette temaet"
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Du trenger en oppdatert versjon av Firefox for denne utvidelsen"
 
-#: src/amo/components/Header/index.js:102
+#: src/amo/components/Header/index.js:101
 msgid "Tools"
 msgstr "Verktøy"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:107
 msgid "Submit a New Add-on"
 msgstr "Send inn en ny utvidelse"
 
-#: src/amo/components/Header/index.js:113
+#: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
 msgstr "Send inn et nytt tema"
 
-#: src/amo/components/Header/index.js:122
+#: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
 msgstr "Håndter mine bidrag"
 
-#: src/amo/components/Header/index.js:132
+#: src/amo/components/Header/index.js:131
 msgid "Reviewer Tools"
 msgstr "Omtalingsverktøy"
 
-#: src/amo/components/Header/index.js:184
+#: src/amo/components/Header/index.js:183
 msgid "Firefox Browser Add-ons"
 msgstr "Tillegg for Firefox-nettleser"
 
-#: src/amo/components/Header/index.js:212
+#: src/amo/components/Header/index.js:211
 msgid "Learn how to create extensions and themes"
 msgstr "Les om hvordan du lager utvidelser og tema"
 
-#: src/amo/components/Header/index.js:222
+#: src/amo/components/Header/index.js:221
 msgid "Submit and manage extensions and themes"
 msgstr "Send inn og håndter utvidelser og temaer"
 
-#: src/amo/components/Header/index.js:76
+#: src/amo/components/Header/index.js:75
 msgid "My Account"
 msgstr "Min konto"
 
-#: src/amo/components/Header/index.js:82
+#: src/amo/components/Header/index.js:81
 msgid "View My Collections"
 msgstr "Vis mine samlinger"
 
-#: src/amo/components/Header/index.js:90
+#: src/amo/components/Header/index.js:89
 #: src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
 msgstr "Vis profilen min"
 
-#: src/amo/components/Header/index.js:98
+#: src/amo/components/Header/index.js:97
 #: src/amo/pages/UserProfileEdit/index.js:564
 msgid "Edit My Profile"
 msgstr "Rediger profilen min"
