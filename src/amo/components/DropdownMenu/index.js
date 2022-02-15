@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import makeClassName from 'classnames';
@@ -20,12 +21,25 @@ type Props = {|
   className?: string,
 |};
 
+type DefaultProps = {|
+  _window: typeof window,
+|};
+
+type InternalProps = {|
+  ...Props,
+  ...DefaultProps,
+|};
+
 type State = {|
   buttonIsActive: boolean,
 |};
 
-export class DropdownMenuBase extends React.Component<Props, State> {
-  constructor(props: Props) {
+export class DropdownMenuBase extends React.Component<InternalProps, State> {
+  static defaultProps: DefaultProps = {
+    _window: typeof window !== 'undefined' ? window : null,
+  };
+
+  constructor(props: InternalProps) {
     super(props);
 
     this.state = { buttonIsActive: false };
@@ -54,11 +68,23 @@ export class DropdownMenuBase extends React.Component<Props, State> {
   };
 
   handleOnMouseEnter: () => void = () => {
-    this.setState({ buttonIsActive: true });
+    const { _window } = this.props;
+
+    // Check device is actually capable of proper hover handling because touch
+    // emulation can mess up with click event later.
+    // https://github.com/mozilla/addons-frontend/issues/11137#issuecomment-1039218104
+    if (_window && _window.matchMedia('(hover)').matches) {
+      this.setState({ buttonIsActive: true });
+    }
   };
 
   handleOnMouseLeave: () => void = () => {
-    this.setState({ buttonIsActive: false });
+    const { _window } = this.props;
+
+    // As above, check device is actually capable of hover through media query.
+    if (_window && _window.matchMedia('(hover)').matches) {
+      this.setState({ buttonIsActive: false });
+    }
   };
 
   render(): React.Node {
