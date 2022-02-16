@@ -8,6 +8,7 @@ import CollectionList, {
 import {
   fetchUserCollections,
   loadUserCollections,
+  FETCH_USER_COLLECTIONS,
 } from 'amo/reducers/collections';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
 import {
@@ -50,6 +51,7 @@ describe(__filename, () => {
 
     renderComponent({ errorHandler, store });
 
+    // This should be called with fetchUserCollections and with setViewContext.
     sinon.assert.callCount(fakeDispatch, 2);
     sinon.assert.calledWith(
       fakeDispatch,
@@ -58,17 +60,18 @@ describe(__filename, () => {
         userId,
       }),
     );
-    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
   });
 
   it('does not dispatch fetchUserCollections if there is no user', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
 
-    renderComponent({ store });
+    renderComponent({ store, errorHandler });
 
-    // Should still dispatch setViewContext
-    sinon.assert.calledOnce(fakeDispatch);
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_USER_COLLECTIONS,
+    });
   });
 
   it('does not dispatch fetchUserCollections if collections are loading', () => {
@@ -87,7 +90,7 @@ describe(__filename, () => {
 
     fakeDispatch.resetHistory();
 
-    renderComponent({ store });
+    renderComponent({ store, errorHandler });
 
     sinon.assert.neverCalledWith(
       fakeDispatch,
@@ -112,7 +115,7 @@ describe(__filename, () => {
 
     fakeDispatch.resetHistory();
     const errorHandler = createStubErrorHandler();
-    renderComponent({ store });
+    renderComponent({ store, errorHandler });
 
     sinon.assert.neverCalledWith(
       fakeDispatch,
@@ -267,7 +270,7 @@ describe(__filename, () => {
     });
   });
 
-  it(`dispatches setViewContext when component mounts`, () => {
+  it('dispatches setViewContext when component mounts', () => {
     const { store } = dispatchSignInActions();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     renderComponent({ store });

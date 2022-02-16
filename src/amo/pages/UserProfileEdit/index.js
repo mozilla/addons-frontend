@@ -121,6 +121,8 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
       ...this.getFormValues(user),
     };
 
+    dispatch(setViewContext(VIEW_CONTEXT_HOME));
+
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
       return;
@@ -143,12 +145,6 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
         }),
       );
     }
-  }
-
-  componentDidMount() {
-    const { dispatch } = this.props;
-
-    dispatch(setViewContext(VIEW_CONTEXT_HOME));
   }
 
   componentDidUpdate(prevProps: InternalProps, prevState: State) {

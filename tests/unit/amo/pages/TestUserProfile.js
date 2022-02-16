@@ -5,6 +5,7 @@ import {
   createInternalReview,
   fetchUserReviews,
   setUserReviews,
+  FETCH_REVIEWS,
 } from 'amo/actions/reviews';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
@@ -774,15 +775,15 @@ describe(__filename, () => {
     _setUserReviews({ store, userId: user.id });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
 
-    renderUserProfile({ params, store });
+    renderUserProfile({ params, store, errorHandler });
 
     sinon.assert.neverCalledWith(
       dispatchSpy,
-      setUserReviews({
-        pageSize: DEFAULT_API_PAGE_SIZE,
-        reviewCount: 1,
-        reviews: [fakeReview],
+      fetchUserReviews({
+        errorHandlerId: errorHandler.id,
+        page: '1',
         userId: user.id,
       }),
     );
@@ -867,7 +868,9 @@ describe(__filename, () => {
     const params = { userId: user.id };
     renderUserProfile({ params, store });
 
-    sinon.assert.neverCalledWith(dispatchSpy, loadUserAccount({ user }));
+    sinon.assert.neverCalledWithMatch(dispatchSpy, {
+      type: FETCH_REVIEWS,
+    });
   });
 
   it('does not fetch the reviews when page has changed and userId does not change but user is not the owner', () => {
@@ -1050,6 +1053,7 @@ describe(__filename, () => {
         url: `/${lang}/${clientApp}/user/${user.id}/`,
       }),
     );
+    // This should have been called once with sendServerRedirect, and once with setViewContext.
     sinon.assert.calledTwice(dispatchSpy);
   });
 
@@ -1076,6 +1080,7 @@ describe(__filename, () => {
         url: `/${lang}/${clientApp}/user/${anotherUserId}/`,
       }),
     );
+    // This should have been called once with sendServerRedirect, and once with setViewContext.
     sinon.assert.calledTwice(dispatchSpy);
   });
 
@@ -1105,7 +1110,7 @@ describe(__filename, () => {
     });
   });
 
-  it(`dispatches setViewContext when component mounts`, () => {
+  it('dispatches setViewContext when component mounts', () => {
     const { store } = dispatchSignInActions();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     renderUserProfile({ store });

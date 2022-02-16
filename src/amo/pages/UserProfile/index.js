@@ -106,6 +106,8 @@ export class UserProfileBase extends React.Component<InternalProps> {
       user,
     } = props;
 
+    dispatch(setViewContext(VIEW_CONTEXT_HOME));
+
     if (shouldRedirect && user) {
       dispatch(
         sendServerRedirect({
@@ -142,12 +144,6 @@ export class UserProfileBase extends React.Component<InternalProps> {
         }),
       );
     }
-  }
-
-  componentDidMount() {
-    const { dispatch } = this.props;
-
-    dispatch(setViewContext(VIEW_CONTEXT_HOME));
   }
 
   componentDidUpdate(prevProps: InternalProps) {
