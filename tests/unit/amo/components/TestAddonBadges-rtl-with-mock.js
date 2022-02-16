@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
 
-import AddonBadges from 'amo/components/AddonBadges';
+import AddonBadges, { AddonBadgesBase } from 'amo/components/AddonBadges';
 import { CLIENT_APP_FIREFOX, RECOMMENDED } from 'amo/constants';
 import {
   createInternalAddonWithLang,
@@ -10,6 +10,7 @@ import {
   fakeAddon,
   fakeI18n,
   render as defaultRender,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Badge from 'amo/components/Badge';
 import PromotedBadge from 'amo/components/PromotedBadge';
@@ -52,6 +53,16 @@ jest.mock('amo/components/Badge', () => {
 });
 
 describe(__filename, () => {
+  function shallowRender(props) {
+    const allProps = {
+      i18n: fakeI18n(),
+      store: dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store,
+      ...props,
+    };
+
+    return shallowUntilTarget(<AddonBadges {...allProps} />, AddonBadgesBase);
+  }
+
   function render(props) {
     const allProps = {
       i18n: fakeI18n(),
@@ -70,6 +81,19 @@ describe(__filename, () => {
     const category = RECOMMENDED;
     const _getPromotedCategory = sinon.stub().returns(category);
 
+    const root = shallowRender({
+      _getPromotedCategory,
+      addon: createInternalAddonWithLang(fakeAddon),
+    });
+
+    expect(root.find(PromotedBadge)).toHaveLength(1);
+    expect(root.find(PromotedBadge)).toHaveProp('category', category);
+  });
+
+  it('displays a promoted badge for a promoted add-on RTL', () => {
+    const category = RECOMMENDED;
+    const _getPromotedCategory = sinon.stub().returns(category);
+
     render({
       _getPromotedCategory,
       addon: createInternalAddonWithLang(fakeAddon),
@@ -83,6 +107,18 @@ describe(__filename, () => {
   });
 
   it('displays a badge when the addon is experimental', () => {
+    const addon = createInternalAddonWithLang(
+      createFakeAddon({
+        is_experimental: true,
+      }),
+    );
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'experimental');
+    expect(root.find(Badge)).toHaveProp('label', 'Experimental');
+  });
+
+  it('displays a badge when the addon is experimental RTL', () => {
     const addon = createInternalAddonWithLang(
       createFakeAddon({
         is_experimental: true,
