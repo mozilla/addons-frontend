@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-25 18:54+0000\n"
+"POT-Creation-Date: 2022-02-15 17:34+0000\n"
 "PO-Revision-Date: 2021-11-10 21:48+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
@@ -634,7 +634,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Izegrar i Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:149
+#: src/amo/components/Header/index.js:148
 msgid "Log out"
 msgstr "Tufɣa"
 
@@ -643,7 +643,7 @@ msgid "Log in"
 msgstr "Qqen"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:144
+#: src/amo/components/Header/index.js:143
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr "Tigawt-a ulac-itt tura. Ma ulac aɣilif, ales asali n usebter ticki."
@@ -1150,15 +1150,15 @@ msgstr "Ddu γer usebter agejdan n Mozilla"
 msgid "About"
 msgstr "Γef"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
 msgstr "Ablug n yizegrar Firefox"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
 msgstr "Tanemselt ɣef usiɣzef"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
 msgid "Developer Hub"
 msgstr "Tarbaɛt n ineflayen"
 
@@ -1204,52 +1204,52 @@ msgstr "Ilaq-ak·am lqem yettwaleqqmen n Firefox i usentel-a"
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Ilaq-ak·am lqem yettwaleqqmen n Firefox i usiɣzef-a"
 
-#: src/amo/components/Header/index.js:102
+#: src/amo/components/Header/index.js:101
 msgid "Tools"
 msgstr "Ifecka"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:107
 msgid "Submit a New Add-on"
 msgstr "Azen azegrir amaynut"
 
-#: src/amo/components/Header/index.js:113
+#: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
 msgstr "Azen asentel amaynut"
 
-#: src/amo/components/Header/index.js:122
+#: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
 msgstr "Mhel isumeren-iw"
 
-#: src/amo/components/Header/index.js:132
+#: src/amo/components/Header/index.js:131
 msgid "Reviewer Tools"
 msgstr "Ifecka n umcegger"
 
-#: src/amo/components/Header/index.js:184
+#: src/amo/components/Header/index.js:183
 msgid "Firefox Browser Add-ons"
 msgstr "Izegrar i yiminig Firefox"
 
-#: src/amo/components/Header/index.js:212
+#: src/amo/components/Header/index.js:211
 msgid "Learn how to create extensions and themes"
 msgstr "Issin ad ternuḍ isiɣzaf akked isental"
 
-#: src/amo/components/Header/index.js:222
+#: src/amo/components/Header/index.js:221
 msgid "Submit and manage extensions and themes"
 msgstr "Azen daɣen sefrek isiɣzaf akked isental"
 
-#: src/amo/components/Header/index.js:76
+#: src/amo/components/Header/index.js:75
 msgid "My Account"
 msgstr "Amiḍan-iw"
 
-#: src/amo/components/Header/index.js:82
+#: src/amo/components/Header/index.js:81
 msgid "View My Collections"
 msgstr "Wali Tilkensiyin-iw"
 
-#: src/amo/components/Header/index.js:90
+#: src/amo/components/Header/index.js:89
 #: src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
 msgstr "Sken amaɣnu-iw"
 
-#: src/amo/components/Header/index.js:98
+#: src/amo/components/Header/index.js:97
 #: src/amo/pages/UserProfileEdit/index.js:564
 msgid "Edit My Profile"
 msgstr "Ẓreg amaɣnu-iw"

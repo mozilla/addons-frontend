@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-25 18:54+0000\n"
-"PO-Revision-Date: 2022-01-24 16:40+0000\n"
-"Last-Translator: chutten <chutten@mozilla.com>\n"
+"POT-Creation-Date: 2022-02-15 17:34+0000\n"
+"PO-Revision-Date: 2022-02-15 02:19+0000\n"
+"Last-Translator: pdehaan <pdehaan@mozilla.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en_CA\n"
 "MIME-Version: 1.0\n"
@@ -642,7 +642,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:149
+#: src/amo/components/Header/index.js:148
 msgid "Log out"
 msgstr "Log out"
 
@@ -651,7 +651,7 @@ msgid "Log in"
 msgstr "Log in"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:144
+#: src/amo/components/Header/index.js:143
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -907,14 +907,14 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sorry, but we can’t find anything at the URL you entered."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
-#, fuzzy
 msgid ""
 "Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
 "continue without authentication, or login again using the Log In link at the "
 "top of the page."
 msgstr ""
-"to continue without authentication, or login again using the Log In link at "
-"the top of the page."
+"Login authentication has expired. %(startLink)sReload the page%(endLink)s to "
+"continue without authentication, or login again using the Log In link at the "
+"top of the page."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
@@ -1162,15 +1162,15 @@ msgstr "Go to Mozilla’s homepage"
 msgid "About"
 msgstr "About"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
 msgstr "Firefox Add-ons Blog"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
 msgstr "Extension Workshop"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
 msgid "Developer Hub"
 msgstr "Developer Hub"
 
@@ -1216,53 +1216,53 @@ msgstr "You need an updated version of Firefox for this theme"
 msgid "You need an updated version of Firefox for this extension"
 msgstr "You need an updated version of Firefox for this extension"
 
-#: src/amo/components/Header/index.js:102
+#: src/amo/components/Header/index.js:101
 msgid "Tools"
 msgstr "Tools"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:107
 msgid "Submit a New Add-on"
 msgstr "Submit a New Add-on"
 
-#: src/amo/components/Header/index.js:113
+#: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
 msgstr "Submit a New Theme"
 
-#: src/amo/components/Header/index.js:122
+#: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
 msgstr "Manage My Submissions"
 
-#: src/amo/components/Header/index.js:132
+#: src/amo/components/Header/index.js:131
 msgid "Reviewer Tools"
 msgstr "Reviewer Tools"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:184
+#: src/amo/components/Header/index.js:183
 msgid "Firefox Browser Add-ons"
 msgstr "Firefox Browser Add-ons"
 
-#: src/amo/components/Header/index.js:212
+#: src/amo/components/Header/index.js:211
 msgid "Learn how to create extensions and themes"
 msgstr "Learn how to create extensions and themes"
 
-#: src/amo/components/Header/index.js:222
+#: src/amo/components/Header/index.js:221
 msgid "Submit and manage extensions and themes"
 msgstr "Submit and manage extensions and themes"
 
-#: src/amo/components/Header/index.js:76
+#: src/amo/components/Header/index.js:75
 msgid "My Account"
 msgstr "My Account"
 
-#: src/amo/components/Header/index.js:82
+#: src/amo/components/Header/index.js:81
 msgid "View My Collections"
 msgstr "View My Collections"
 
-#: src/amo/components/Header/index.js:90
+#: src/amo/components/Header/index.js:89
 #: src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
 msgstr "View My Profile"
 
-#: src/amo/components/Header/index.js:98
+#: src/amo/components/Header/index.js:97
 #: src/amo/pages/UserProfileEdit/index.js:564
 msgid "Edit My Profile"
 msgstr "Edit My Profile"

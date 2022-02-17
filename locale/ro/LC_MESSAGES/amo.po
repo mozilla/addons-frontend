@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-25 18:54+0000\n"
+"POT-Creation-Date: 2022-02-15 17:34+0000\n"
 "PO-Revision-Date: 2021-12-07 14:53+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -653,7 +653,7 @@ msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Suplimente pentru Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92
-#: src/amo/components/Header/index.js:149
+#: src/amo/components/Header/index.js:148
 msgid "Log out"
 msgstr "Deconectare"
 
@@ -663,7 +663,7 @@ msgid "Log in"
 msgstr "Deconectare"
 
 #: src/amo/components/AuthenticateButton/index.js:96
-#: src/amo/components/Header/index.js:144
+#: src/amo/components/Header/index.js:143
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
@@ -1182,16 +1182,16 @@ msgstr "Du-te pe pagina de start Mozilla"
 msgid "About"
 msgstr "Despre"
 
-#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:198
+#: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 #, fuzzy
 msgid "Firefox Add-ons Blog"
 msgstr "Suplimente Firefox"
 
-#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:214
+#: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
 msgstr "Atelier de lucru pentru extensii"
 
-#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:224
+#: src/amo/components/Footer/index.js:86 src/amo/components/Header/index.js:223
 msgid "Developer Hub"
 msgstr "Hubul dezvoltatorilor"
 
@@ -1243,52 +1243,52 @@ msgstr "Intră în cont pentru a evalua această temă"
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Intră în cont pentru a evalua această extensie"
 
-#: src/amo/components/Header/index.js:102
+#: src/amo/components/Header/index.js:101
 msgid "Tools"
 msgstr "Unelte"
 
-#: src/amo/components/Header/index.js:108
+#: src/amo/components/Header/index.js:107
 msgid "Submit a New Add-on"
 msgstr "Propune un supliment nou"
 
-#: src/amo/components/Header/index.js:113
+#: src/amo/components/Header/index.js:112
 msgid "Submit a New Theme"
 msgstr "Propune o temă nouă"
 
-#: src/amo/components/Header/index.js:122
+#: src/amo/components/Header/index.js:121
 msgid "Manage My Submissions"
 msgstr "Gestionează propunerile mele"
 
-#: src/amo/components/Header/index.js:132
+#: src/amo/components/Header/index.js:131
 msgid "Reviewer Tools"
 msgstr "Instrumente pentru recenzori"
 
-#: src/amo/components/Header/index.js:184
+#: src/amo/components/Header/index.js:183
 msgid "Firefox Browser Add-ons"
 msgstr "Suplimente pentru Firefox"
 
-#: src/amo/components/Header/index.js:212
+#: src/amo/components/Header/index.js:211
 msgid "Learn how to create extensions and themes"
 msgstr "Află cum să creezi extensii și teme"
 
-#: src/amo/components/Header/index.js:222
+#: src/amo/components/Header/index.js:221
 msgid "Submit and manage extensions and themes"
 msgstr "Trimitere și gestionare de extensii și teme"
 
-#: src/amo/components/Header/index.js:76
+#: src/amo/components/Header/index.js:75
 msgid "My Account"
 msgstr "Contul meu"
 
-#: src/amo/components/Header/index.js:82
+#: src/amo/components/Header/index.js:81
 msgid "View My Collections"
 msgstr "Vezi colecțiile mele"
 
-#: src/amo/components/Header/index.js:90
+#: src/amo/components/Header/index.js:89
 #: src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
 msgstr "Vezi profilul meu"
 
-#: src/amo/components/Header/index.js:98
+#: src/amo/components/Header/index.js:97
 #: src/amo/pages/UserProfileEdit/index.js:564
 msgid "Edit My Profile"
 msgstr "Editează profilul meu"
