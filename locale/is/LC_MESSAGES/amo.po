@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-17 09:55+0000\n"
+"PO-Revision-Date: 2022-02-17 11:06+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -71,7 +71,7 @@ msgstr "Breyta viðbót"
 # This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:90
 msgid "Admin add-on"
-msgstr ""
+msgstr "Stjórnandaviðbót"
 
 # This is a list of links to Developer functions.
 #: src/amo/components/AddonAuthorLinks/index.js:62
@@ -96,19 +96,19 @@ msgstr "Þessi viðbót er ekki í boði fyrir stýrikerfið þitt."
 
 #: src/amo/components/AddonHead/index.js:102
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þennan forritsauka fyrir 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þennan forritsauka á 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:107
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þennan tungumálapakka fyrir 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þennan tungumálapakka á 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:112
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þetta þema fyrir 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þetta þema á 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þessa viðbót fyrir 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þessa viðbót á 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:131
 msgid "Download %(addonName)s for Firefox. %(summary)s"
@@ -116,27 +116,27 @@ msgstr "Sækja %(addonName)s fyrir Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:69
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þetta orðasafn fyrir 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þetta orðasafn á 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þennan forritsauka fyrir 🦊 Firefox fyrir Android (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þennan forritsauka á 🦊 Firefox fyrir Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:79
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þennan tungumálapakka fyrir 🦊 Firefox fyrir Android (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þennan tungumálapakka á 🦊 Firefox fyrir Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þetta þema fyrir 🦊 Firefox fyrir Android (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þetta þema á 🦊 Firefox fyrir Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:90
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þessa viðbót fyrir 🦊 Firefox fyrir Android (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þessa viðbót á 🦊 Firefox fyrir Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Náðu í þetta orðasafn fyrir 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Náðu í þetta orðasafn á 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
@@ -275,11 +275,11 @@ msgstr "Hunsa þessi skilaboð"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
-msgstr ""
+msgstr "Til að ná í %(addonName)s á Firefox fyrir Android, skaltu beina myndavélinni þinni að kóðanum hér fyrir ofan eða afrita %(linkStart)sþennan tengil%(linkEnd)s"
 
 #: src/amo/components/AddonQRCodeLink/index.js:87
 msgid "Also available on Firefox for Android"
-msgstr ""
+msgstr "Einnig tiltæk á Firefox fyrir Android"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -332,11 +332,11 @@ msgstr "Hætta við"
 
 #: src/amo/components/AddonReviewCard/index.js:272
 msgid "Keep reply"
-msgstr ""
+msgstr "Halda svari"
 
 #: src/amo/components/AddonReviewCard/index.js:276
 msgid "Keep rating"
-msgstr ""
+msgstr "Halda einkunn"
 
 #: src/amo/components/AddonReviewCard/index.js:279
 msgid "Keep review"
@@ -348,32 +348,32 @@ msgstr "Skrifa svar við þessari umsögn."
 
 #: src/amo/components/AddonReviewCard/index.js:318 src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
-msgstr ""
+msgstr "Uppfæra svar"
 
 #: src/amo/components/AddonReviewCard/index.js:319
 msgid "Publish reply"
-msgstr ""
+msgstr "Birta svar"
 
 #: src/amo/components/AddonReviewCard/index.js:323 src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
-msgstr ""
+msgstr "Uppfæri svar"
 
 #: src/amo/components/AddonReviewCard/index.js:324
 msgid "Publishing reply"
-msgstr ""
+msgstr "Birti svar"
 
 # Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:370
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "birti %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:373
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "eftir %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:376
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "eftir %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:491
 msgid "Deleting…"
@@ -385,7 +385,7 @@ msgstr "Svara þessari umsögn"
 
 #: src/amo/components/AddonReviewCard/index.js:552
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Þessari einkunn eða umsögn hefur verið eytt. Þú sérð þetta aðeins vegna aukinna heimilda."
 
 #: src/amo/components/AddonReviewCard/index.js:598
 msgid "Write a review"
@@ -393,7 +393,7 @@ msgstr "Skrifa umsögn"
 
 #: src/amo/components/AddonReviewManager/index.js:113
 msgid "Write about your experience with this add-on."
-msgstr ""
+msgstr "Skrifaðu um reynslu þína af þessari viðbót."
 
 #: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submit review"
@@ -425,15 +425,15 @@ msgstr "Farðu eftir %(linkStart)sleiðbeiningum okkar varðandi umsagnir%(linkE
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "Stjörnugjöfin þín:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:254
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Fleiri orðasöfn frá %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Fleiri orðasöfn frá þessum þýðendum"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:261
 msgid "Dictionaries by %(author)s"
@@ -441,11 +441,11 @@ msgstr "Orðasöfn frá %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "Dictionaries by these translators"
-msgstr ""
+msgstr "Orðasöfn frá þessum þýðendum"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "More extensions by %(author)s"
-msgstr "Fleiri forritsaukar eftir %(author)s"
+msgstr "Fleiri forritsaukar frá %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:274
 msgid "More extensions by these developers"
@@ -461,51 +461,51 @@ msgstr "Forritsaukar eftir þessa hönnuði"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Fleiri tungumálapakkar frá %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Fleiri tungumálapakkar frá þessum þýðendum"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:298
 msgid "Language packs by %(author)s"
-msgstr ""
+msgstr "Tungumálapakkar frá %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "Language packs by these translators"
-msgstr ""
+msgstr "Tungumálapakkar frá þessum þýðendum"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Fleiri þemu frá %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:311
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Fleiri þemu frá þessum listamönnum"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:315
 msgid "Themes by %(author)s"
-msgstr ""
+msgstr "Þemu frá %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "Themes by these artists"
-msgstr ""
+msgstr "Þemu frá þessum listamönnum"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Fleiri viðbætur frá %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Fleiri viðbætur eftir þessa hönnuði"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:332
 msgid "Add-ons by %(author)s"
-msgstr ""
+msgstr "Viðbætur frá %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:335
 msgid "Add-ons by these developers"
-msgstr ""
+msgstr "Viðbætur eftir þessa hönnuði"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -515,8 +515,8 @@ msgstr "Táknmynd viðbótar"
 #: src/amo/components/AddonSummaryCard/index.js:78
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(rating)s stjarna af 5 mögulegum"
+msgstr[1] "%(rating)s stjörnur af 5 mögulegum"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:49
@@ -530,15 +530,15 @@ msgstr "eftir"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr ""
+msgstr "Grunnkóði gefinn út með %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr ""
+msgstr "Grunnkóði gefinn út með %(linkStart)sCustom License%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
-msgstr ""
+msgstr "Grunnkóði gefinn út með %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
@@ -594,15 +594,15 @@ msgstr "Viðbætur fyrir Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:142 src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Viðbætur fyrir Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:150 src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "Viðbætur fyrir Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:154 src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Viðbætur fyrir Firefox Android (%(locale)s)"
 
 #: src/amo/components/AuthenticateButton/index.js:92 src/amo/components/Header/index.js:148
 msgid "Log out"
@@ -614,7 +614,7 @@ msgstr "Skrá inn"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:143
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Þessi aðgerð] er ekki aðgengileg í bili. Endurlestu síðuna innan skamms."
 
 #: src/amo/components/AutoSearchInput/index.js:205
 msgid "Loading"
@@ -638,31 +638,31 @@ msgstr "Flokkar"
 
 #: src/amo/components/Categories/index.js:117
 msgid "Loading categories."
-msgstr ""
+msgstr "Hleð inn flokkum."
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Added to collection"
-msgstr ""
+msgstr "Bætt í safn"
 
 #: src/amo/components/CollectionAddAddon/index.js:170
 msgid "Removed from collection"
-msgstr ""
+msgstr "Fjarlægt úr safni"
 
 #: src/amo/components/CollectionAddAddon/index.js:179
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Finndu viðbót til að bæta í þetta safn"
 
 #: src/amo/components/CollectionDetails/index.js:101
 msgid "Edit this collection"
-msgstr ""
+msgstr "Breyta þessu safni"
 
 #: src/amo/components/CollectionDetails/index.js:112
 msgid "Edit collection details"
-msgstr ""
+msgstr "Breyta nánari upplýsingum um safn"
 
 #: src/amo/components/CollectionDetails/index.js:124
 msgid "Back to collection"
-msgstr ""
+msgstr "Til baka í safn"
 
 #: src/amo/components/CollectionDetails/index.js:77 src/amo/components/Footer/index.js:58
 msgid "Add-ons"
@@ -674,7 +674,7 @@ msgstr "Búið til af"
 
 #: src/amo/components/CollectionManager/index.js:248
 msgid "Create collection"
-msgstr ""
+msgstr "Útbúa safn"
 
 #: src/amo/components/CollectionManager/index.js:249
 msgid "Save changes"
@@ -682,7 +682,7 @@ msgstr "Vista breytingar"
 
 #: src/amo/components/CollectionManager/index.js:258
 msgid "Collection name"
-msgstr ""
+msgstr "Heiti á safni"
 
 #: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
@@ -690,11 +690,11 @@ msgstr "Lýsing"
 
 #: src/amo/components/CollectionManager/index.js:284
 msgid "Custom URL"
-msgstr ""
+msgstr "Sérsniðin slóð"
 
 #: src/amo/components/CollectionSort/index.js:108
 msgid "Sort add-ons by"
-msgstr ""
+msgstr "Raða viðbótum eftir"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Newest first"
@@ -718,15 +718,15 @@ msgstr "Staðfesta"
 
 #: src/amo/components/ContributeCard/index.js:112
 msgid "Contribute now"
-msgstr ""
+msgstr "Leggðu þitt af mörkum núna"
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this developer"
-msgstr ""
+msgstr "Styrkja þennan hönnuð"
 
 #: src/amo/components/ContributeCard/index.js:47
 msgid "Support these developers"
-msgstr ""
+msgstr "Styrkja þessa hönnuði"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -738,11 +738,11 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this artist"
-msgstr ""
+msgstr "Styrkja þennan listamann"
 
 #: src/amo/components/ContributeCard/index.js:61
 msgid "Support these artists"
-msgstr ""
+msgstr "Styrkja þessa listamenn"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -754,11 +754,11 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:74
 msgid "Support this author"
-msgstr ""
+msgstr "Styrkja þennan höfund"
 
 #: src/amo/components/ContributeCard/index.js:75
 msgid "Support these authors"
-msgstr ""
+msgstr "Styrkja þessa höfunda"
 
 #: src/amo/components/ContributeCard/index.js:79
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -782,7 +782,7 @@ msgstr "Sendi inn"
 
 #: src/amo/components/EditableCollectionAddon/index.js:134 src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Leave a note"
-msgstr ""
+msgstr "Skildu eftir minnispunkt"
 
 #: src/amo/components/EditableCollectionAddon/index.js:153
 msgid "Collector's note"
@@ -790,7 +790,7 @@ msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Add a comment about this add-on."
-msgstr ""
+msgstr "Bættu við athugasemd um þessa viðbót."
 
 #: src/amo/components/EditableCollectionAddon/index.js:169
 msgid "Save"
@@ -802,7 +802,7 @@ msgstr "Breyta"
 
 #: src/amo/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Setan þín er útrunnin"
 
 #: src/amo/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
@@ -810,11 +810,11 @@ msgstr "Óvænt villa kom upp"
 
 #: src/amo/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Endurlestu til að halda áfram"
 
 #: src/amo/components/ErrorPage/GenericError/index.js:24 src/amo/components/Errors/ServerError/index.js:30
 msgid "Server Error"
-msgstr "Villa í netþjóni"
+msgstr "Villa á netþjóni"
 
 #: src/amo/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -822,7 +822,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/GenericError/index.js:33 src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Villukóði: %(status)s."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -838,7 +838,7 @@ msgstr ""
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
-msgstr ""
+msgstr "Innskráning útrunnin"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -846,7 +846,7 @@ msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Ekki heimilt"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:36
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
@@ -860,7 +860,7 @@ msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Úbbs! Fundum ekki þessa síðu"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -906,7 +906,7 @@ msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:77
 msgid "Response by %(userName)s"
-msgstr ""
+msgstr "Svar frá %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Review by %(userName)s"
@@ -918,7 +918,7 @@ msgstr "Umsögnin fannst ekki."
 
 #: src/amo/components/FlagReviewMenu/index.js:100
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Flaggað vegna viðeigandi umtals/málfars"
 
 #: src/amo/components/FlagReviewMenu/index.js:113
 msgid "This is a bug report or support request"
@@ -926,7 +926,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Flaggað sem villutilkynning eða aðstoðarbeiðni"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
@@ -946,7 +946,7 @@ msgstr "Flagga þessa umsögn"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "Skráðu inn til að flagga þetta svar"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "Log in to flag this review"
@@ -954,7 +954,7 @@ msgstr "Skráðu inn til að flagga þessa umsögn"
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Þú getur ekki flaggað þitt eigið svar"
 
 #: src/amo/components/FlagReviewMenu/index.js:79
 msgid "You cannot flag your own review"
@@ -970,7 +970,7 @@ msgstr "Merkt sem ruslpóstur"
 
 #: src/amo/components/FlagReviewMenu/index.js:99
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Þetta inniheldur óviðeigandi umtal/málfar"
 
 #: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
@@ -978,7 +978,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:115
 msgid "Community Blog"
-msgstr ""
+msgstr "Blogg félaga"
 
 #: src/amo/components/Footer/index.js:120
 msgid "Forum"
@@ -1024,7 +1024,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Fara á heimasíðu Mozilla"
 
 #: src/amo/components/Footer/index.js:63
 msgid "About"
@@ -1032,7 +1032,7 @@ msgstr "Um hugbúnaðinn"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
 msgid "Firefox Add-ons Blog"
-msgstr ""
+msgstr "Blogg um viðbætur Firefox"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
@@ -1048,7 +1048,7 @@ msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:133
 msgid "Download Firefox and get the theme"
-msgstr ""
+msgstr "Sækja Firefox og ná í þemað"
 
 #: src/amo/components/GetFirefoxButton/index.js:134
 msgid "Download Firefox and get the extension"
@@ -1056,7 +1056,7 @@ msgstr "Sækja Firefox og ná í forritsaukann"
 
 #: src/amo/components/GetFirefoxButton/index.js:138
 msgid "Download the new Firefox and get the theme"
-msgstr ""
+msgstr "Sækja nýja Firefox og ná í þemað"
 
 #: src/amo/components/GetFirefoxButton/index.js:139
 msgid "Download the new Firefox and get the extension"
@@ -1068,7 +1068,7 @@ msgstr "Sækja Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:146
 msgid "You'll need Firefox to use this theme"
-msgstr ""
+msgstr "Þú verður að vera með Firefox til að nota þetta þema"
 
 #: src/amo/components/GetFirefoxButton/index.js:147
 msgid "You'll need Firefox to use this extension"
@@ -1076,7 +1076,7 @@ msgstr "Þú verður að vera með Firefox til að nota þennan forritsauka"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
 msgid "You need an updated version of Firefox for this theme"
-msgstr ""
+msgstr "Þú verður að vera með uppfærða útgáfu af Firefox fyrir þetta þema"
 
 #: src/amo/components/GetFirefoxButton/index.js:152
 msgid "You need an updated version of Firefox for this extension"
@@ -1105,7 +1105,7 @@ msgstr "Yfirferðarverkfæri"
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:183
 msgid "Firefox Browser Add-ons"
-msgstr ""
+msgstr "Viðbætur fyrir Firefox-vafrann"
 
 #: src/amo/components/Header/index.js:211
 msgid "Learn how to create extensions and themes"
@@ -1117,19 +1117,19 @@ msgstr "Senda inn og sýsla með forritsauka og þemu"
 
 #: src/amo/components/Header/index.js:75
 msgid "My Account"
-msgstr "Minn aðgangur"
+msgstr "Notandaaðgangurinn minn"
 
 #: src/amo/components/Header/index.js:81
 msgid "View My Collections"
-msgstr ""
+msgstr "Skoða söfnin mín"
 
 #: src/amo/components/Header/index.js:89 src/amo/pages/UserProfileEdit/index.js:558
 msgid "View My Profile"
-msgstr ""
+msgstr "Skoða notandasniðið mitt"
 
 #: src/amo/components/Header/index.js:97 src/amo/pages/UserProfileEdit/index.js:564
 msgid "Edit My Profile"
-msgstr "Breyta notandasniði mínu"
+msgstr "Breyta notandasniðinu mínu"
 
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "Get the extension"
@@ -1153,7 +1153,7 @@ msgstr "Firefox mælir aðeins með forritsaukum sem hafa verið yfirfarðir me�
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
-msgstr ""
+msgstr "Sjá meira úr %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1197,7 +1197,7 @@ msgstr "Skipta um tungumál"
 
 #: src/amo/components/Notice/index.js:154
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Hunsa þessi skilaboð"
 
 #: src/amo/components/Paginate/index.js:135
 msgid "Previous"
@@ -1237,11 +1237,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Sækja gögn af klippispjaldinu"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Setja gögn á klippispjaldið"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
@@ -1337,19 +1337,19 @@ msgstr ""
 
 #: src/amo/components/Rating/index.js:98
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Það eru engar einkunnir ennþá"
 
 #: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Skráðu inn til að gefa þessu orðasafni einkunn"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Skráðu inn til að gefa þessum tungumálapakka einkunn"
 
 #: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Skráðu inn til að gefa þessu þema einkunn"
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this extension"
@@ -1357,7 +1357,7 @@ msgstr "Skráðu inn til að gefa þessum forritsauka einkunn"
 
 #: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Skráðu inn til að gefa þessari viðbót einkunn"
 
 #: src/amo/components/RatingManager/index.js:178
 msgid "Are you sure you want to delete your review of %(addonName)s?"
@@ -1365,19 +1365,19 @@ msgstr "Ertu viss um að þú viljir eyða umsögninni þinni um %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr ""
+msgstr "Ertu viss um að þú viljir eyða einkuninni þinni fyrir %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:188
 msgid "How are you enjoying %(addonName)s?"
-msgstr ""
+msgstr "Hvernig líkar þér við %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:231
 msgid "Saving star rating"
-msgstr ""
+msgstr "Vista stjörnugjöf"
 
 #: src/amo/components/RatingManager/index.js:232
 msgid "Star rating saved"
-msgstr ""
+msgstr "Stjörnugjöf vistuð"
 
 #: src/amo/components/RatingsByStar/index.js:103
 msgid "There are no three-star reviews"
