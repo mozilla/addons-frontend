@@ -21,6 +21,8 @@ import {
   loadUserAccount,
   loadUserNotifications,
   logOutUser,
+  FETCH_USER_ACCOUNT,
+  FETCH_USER_NOTIFICATIONS,
 } from 'amo/reducers/users';
 import { createApiError } from 'amo/api';
 import {
@@ -170,7 +172,6 @@ describe(__filename, () => {
     const userId = 456;
     const root = renderUserProfileEdit({ params: { userId }, store });
 
-    sinon.assert.callCount(dispatchSpy, 3);
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserAccount({
@@ -185,7 +186,6 @@ describe(__filename, () => {
         userId,
       }),
     );
-    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
   });
 
   it('dispatches fetchUserNotifications and not fetchUserAccount when the current logged-in user is being edited', () => {
@@ -203,6 +203,7 @@ describe(__filename, () => {
     // logged-in user (e.g., page refresh).
     renderUserProfileEdit({ errorHandler, params: {}, store });
 
+    // This should have been called twice. Once for fetchUserNotifications, and once for setViewContext.
     sinon.assert.calledTwice(dispatchSpy);
     sinon.assert.calledWith(
       dispatchSpy,
@@ -211,21 +212,27 @@ describe(__filename, () => {
         userId,
       }),
     );
-    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
+    sinon.assert.neverCalledWith(
+      dispatchSpy,
+      fetchUserAccount({
+        errorHandlerId: errorHandler.id,
+        userId,
+      }),
+    );
   });
 
-  it('dispatches only setViewContext if the current logged-in user is being edited and the notifications are loaded', () => {
+  it('does not dispatch user actions if the current logged-in user is being edited and the notifications are loaded', () => {
     const userId = 2;
 
     const { store } = signInUserWithUserId(userId);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    store.dispatch(
-      loadUserNotifications({
-        userId,
-        notifications: createUserNotificationsResponse(),
-      }),
-    );
+    const loadUserNotificationsAction = loadUserNotifications({
+      userId,
+      notifications: createUserNotificationsResponse(),
+    });
+
+    store.dispatch(loadUserNotificationsAction);
 
     dispatchSpy.resetHistory();
 
@@ -233,8 +240,10 @@ describe(__filename, () => {
     // logged-in user (e.g., page refresh).
     renderUserProfileEdit({ params: {}, store });
 
-    sinon.assert.calledOnce(dispatchSpy);
-    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
+    sinon.assert.neverCalledWithMatch(dispatchSpy, {
+      type: FETCH_USER_ACCOUNT,
+    });
+    sinon.assert.neverCalledWith(dispatchSpy, loadUserNotificationsAction);
   });
 
   it('dispatches fetchUserAccount and fetchUserNotifications actions if userId changes', () => {
@@ -1140,7 +1149,7 @@ describe(__filename, () => {
     expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
-  it('dispatches only setViewContext when there is an error', () => {
+  it('does not dispatch user actions when there is an error', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -1153,9 +1162,12 @@ describe(__filename, () => {
     fakeDispatch.resetHistory();
 
     renderUserProfileEdit({ errorHandler, store });
-
-    sinon.assert.calledOnce(fakeDispatch);
-    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_USER_ACCOUNT,
+    });
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_USER_NOTIFICATIONS,
+    });
   });
 
   it('dispatches a deleteUserPicture action when user deletes their profile picture', () => {
