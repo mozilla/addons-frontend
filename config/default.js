@@ -204,6 +204,7 @@ module.exports = {
     'hu',
     'ia',
     'id',
+    'is',
     'it',
     'ja',
     'ka',
