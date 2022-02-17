@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-17 12:28+0000\n"
+"PO-Revision-Date: 2022-02-17 13:14+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -786,7 +786,7 @@ msgstr "Skildu eftir minnispunkt"
 
 #: src/amo/components/EditableCollectionAddon/index.js:153
 msgid "Collector's note"
-msgstr ""
+msgstr "Athugasemd safnara"
 
 #: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Add a comment about this add-on."
@@ -2069,7 +2069,7 @@ msgstr[1] "Útgáfuferill %(addonName)s - %(total)s útgáfur"
 
 #: src/amo/pages/AddonVersions/index.js:165
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Farðu varlega með gamlar útgáfur. Þessar útgáfur eru birtar til prófunar og varðveislu."
 
 #: src/amo/pages/AddonVersions/index.js:170
 msgid "You should always use the latest version of an add-on."
@@ -2085,27 +2085,27 @@ msgstr "Eldri útgáfur"
 
 #: src/amo/pages/Block/index.js:102
 msgid "View block request"
-msgstr ""
+msgstr "Skoða beiðni um útilokun"
 
 #: src/amo/pages/Block/index.js:119
 msgid "Versions blocked: all versions."
-msgstr ""
+msgstr "Útilokaðar útgáfur: allar útgáfur."
 
 #: src/amo/pages/Block/index.js:122
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Útilokaðar útgáfur: %(min)s til %(max)s."
 
 #: src/amo/pages/Block/index.js:144
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "Lokað hefur verið á %(addonName)s til að vernda þig."
 
 #: src/amo/pages/Block/index.js:149
 msgid "This add-on has been blocked for your protection."
-msgstr ""
+msgstr "Lokað hefur verið á þessa útgáfu til að vernda þig."
 
 #: src/amo/pages/Block/index.js:160
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Hvers vegna var lokað á þetta?"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
@@ -2155,11 +2155,11 @@ msgstr "Eyða þessu safni"
 
 #: src/amo/pages/Collection/index.js:421
 msgid "Log in to create a collection"
-msgstr ""
+msgstr "Skráðu inn til að útbúa safn"
 
 #: src/amo/pages/Collection/index.js:422
 msgid "Log in to edit this collection"
-msgstr ""
+msgstr "Skráðu inn til að breyta þessu safni"
 
 #: src/amo/pages/Collection/index.js:456
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -2187,7 +2187,7 @@ msgstr "Söfn"
 
 #: src/amo/pages/CollectionList/index.js:125
 msgid "Log in to view your collections"
-msgstr ""
+msgstr "Skráðu inn til að skoða söfnin þín"
 
 #: src/amo/pages/CollectionList/index.js:130
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
@@ -2211,7 +2211,7 @@ msgstr "Árstíðabundið"
 
 #: src/amo/pages/Home/index.js:158
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Breyttu með þemum hvernig Firefox lítur út."
 
 #: src/amo/pages/Home/index.js:167
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
@@ -2275,15 +2275,15 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:276
 msgid "Explore all categories"
-msgstr ""
+msgstr "Skoða alla flokka"
 
 #: src/amo/pages/LanguageTools/index.js:119
 msgid "Available for your locale"
-msgstr ""
+msgstr "Í boði fyrir staðfærsluna þína"
 
 #: src/amo/pages/LanguageTools/index.js:157
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "Orðasöfn og tungumálapakkar"
 
 #: src/amo/pages/LanguageTools/index.js:167
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
@@ -2303,7 +2303,7 @@ msgstr "Allar staðfærslur"
 
 #: src/amo/pages/LanguageTools/index.js:197
 msgid "Locale Name"
-msgstr ""
+msgstr "Heiti staðfærslu"
 
 #: src/amo/pages/LanguageTools/index.js:200
 msgid "Language Packs"
@@ -2345,7 +2345,7 @@ msgstr "Tilkynna um vandamál"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
-msgstr ""
+msgstr "Um Firefox-viðbæturnar"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid "If you find a problem with the site, we'd love to fix it. Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much detail as possible."
@@ -2387,7 +2387,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
-msgstr ""
+msgstr "Samfélag skapandi fólks"
 
 #: src/amo/pages/StaticPages/About/index.js:56
 msgid ""
@@ -2477,7 +2477,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Leiðbeiningar til að skrifa frábæra umsögn"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
@@ -2551,7 +2551,7 @@ msgstr ""
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Viðbætur merktar með %(tag)s"
 
 #: src/amo/pages/UserProfile/index.js:238
 msgid "My reviews"
@@ -2571,15 +2571,15 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:307
 msgid "Add-ons developer"
-msgstr ""
+msgstr "Hönnuður viðbótar"
 
 #: src/amo/pages/UserProfile/index.js:313
 msgid "Theme artist"
-msgstr ""
+msgstr "Listamaður þema"
 
 #: src/amo/pages/UserProfile/index.js:327 src/amo/pages/UserProfileEdit/index.js:546
 msgid "User Profile for %(user)s"
-msgstr ""
+msgstr "Notandasnið fyrir %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:330
 msgid "User Profile"
@@ -2591,19 +2591,19 @@ msgstr "Staðsetning"
 
 #: src/amo/pages/UserProfile/index.js:364 src/amo/pages/UserProfileEdit/index.js:700
 msgid "Occupation"
-msgstr ""
+msgstr "Starf"
 
 #: src/amo/pages/UserProfile/index.js:371
 msgid "User since"
-msgstr ""
+msgstr "Notandi síðan"
 
 #: src/amo/pages/UserProfile/index.js:381
 msgid "Number of add-ons"
-msgstr ""
+msgstr "Fjöldi viðbóta"
 
 #: src/amo/pages/UserProfile/index.js:387
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Meðaleinkunn viðbóta hönnuðarins"
 
 #: src/amo/pages/UserProfile/index.js:402 src/amo/pages/UserProfileEdit/index.js:722
 msgid "Biography"
@@ -2620,7 +2620,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:206
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Tókst að eyða mynd"
 
 #: src/amo/pages/UserProfileEdit/index.js:454
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
@@ -2632,27 +2632,27 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:473
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Kynntu sjálfan þig fyrir samfélaginu, ef þér sýnist svo"
 
 #: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "Kynntu %(userName)s fyrir samfélaginu"
 
 #: src/amo/pages/UserProfileEdit/index.js:500
 msgid "Log in to edit the profile"
-msgstr ""
+msgstr "Skráðu inn til að breyta notandasniðinu"
 
 #: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Creating your profile…"
-msgstr ""
+msgstr "Útbý notandasniðið þitt…"
 
 #: src/amo/pages/UserProfileEdit/index.js:523
 msgid "Create My Profile"
-msgstr ""
+msgstr "Búa til notandasniðið mitt"
 
 #: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Updating your profile…"
-msgstr ""
+msgstr "Uppfæri notandasniðið þitt…"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Update My Profile"
@@ -2668,11 +2668,11 @@ msgstr "Uppfæra notandasnið"
 
 #: src/amo/pages/UserProfileEdit/index.js:559
 msgid "View user's profile"
-msgstr ""
+msgstr "Skoða notandasnið notandans"
 
 #: src/amo/pages/UserProfileEdit/index.js:565
 msgid "Edit user's profile"
-msgstr ""
+msgstr "Breyta notandasniði notandans"
 
 #: src/amo/pages/UserProfileEdit/index.js:583
 msgid "Account"
@@ -2680,7 +2680,7 @@ msgstr "Notandaaðgangur"
 
 #: src/amo/pages/UserProfileEdit/index.js:584
 msgid "Account for %(userName)s"
-msgstr ""
+msgstr "Aðgangur fyrir %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:591
 msgid "Email Address"
@@ -2688,15 +2688,15 @@ msgstr "Tölvupóstfang"
 
 #: src/amo/pages/UserProfileEdit/index.js:598
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Ekki er hægt að breyta tölvupóstfangi hér"
 
 #: src/amo/pages/UserProfileEdit/index.js:609
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Þú getur breytt tölvupóstfanginu þínu á Firefox Accounts reikningagáttinni. %(startLink)sÞarftu aðstoð?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:626
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "Sýsla með Firefox-reikninga…"
 
 #: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Profile"
@@ -2713,11 +2713,11 @@ msgstr "Birtingarnafn *"
 
 #: src/amo/pages/UserProfileEdit/index.js:680
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Þessi slóð verður aðeins sýnileg notendum sem eru forritarar/hönnuðir."
 
 #: src/amo/pages/UserProfileEdit/index.js:737
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Sum HTML-einindi studd: %(htmlTags)s. Tenglar eru bannaðir."
 
 #: src/amo/pages/UserProfileEdit/index.js:761
 msgid "Notifications"
@@ -2737,7 +2737,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:811 src/amo/pages/UserProfileEdit/index.js:883
 msgid "Delete My Profile"
-msgstr ""
+msgstr "Eyða notandasniðinu mínu"
 
 #: src/amo/pages/UserProfileEdit/index.js:812 src/amo/pages/UserProfileEdit/index.js:884
 msgid "Delete Profile"
@@ -2789,7 +2789,7 @@ msgstr "Þér hefur tekist að segja upp áskriftinni!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "Tölvupóstfangið %(strongStart)s%(email)s%(strongEnd)s mun ekki lengur fá skilaboð þegar:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
@@ -2802,37 +2802,37 @@ msgstr "[ekkert nafn]"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:296
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s og nýrri"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/amo/reducers/versions.js:300
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s til %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/amo/reducers/versions.js:320
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Virkar með %(listOfApplicatonsAndVersions)s"
 
 #: src/amo/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Hætt við uppsetningu þar sem viðbótin virðist vera skemmd."
 
 #: src/amo/utils/addons.js:40
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Uppsetning mistókst. Reyndu aftur."
 
 #: src/amo/utils/addons.js:42
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Niðurhal mistókst. Athugaðu nettenginguna þína."
 
 #: src/amo/utils/addons.js:44
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Óvænt villa kom upp á meðan uppsetningu stóð."
 
 #: src/amo/utils/addons.js:46
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Óvænt villa kom upp á meðan fjarlægingu stóð."
 
 #: src/amo/utils/addons.js:51
 msgid "An unexpected error occurred."
@@ -2840,23 +2840,23 @@ msgstr "Upp kom óvænt villa."
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "fylgjast með fréttum og viðburðum fyrir þróunaraðila Firefox-viðbóta (þar með talið about:addons fréttabréfið)"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla þarf að hafa samband við mig út af minni tilteknu viðbót"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "nýjar viðbætur eða eiginleikar Firefox eru til taks"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "einhver skrifar umsög um viðbótina mína"
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "forritari/hönnuður viðbótar svarar umsögninni minni"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
@@ -2864,8 +2864,8 @@ msgstr "viðbótin mín er yfirfarin af yfirferðaraðila"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "ekki er hægt að uppfæra samhæfni viðbótarinnar minnar"
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "hægt er að uppfæra samhæfni viðbótarinnar minnar"
