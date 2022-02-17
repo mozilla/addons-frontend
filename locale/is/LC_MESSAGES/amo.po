@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-17 11:06+0000\n"
+"PO-Revision-Date: 2022-02-17 12:28+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -1157,15 +1157,15 @@ msgstr "Sjá meira úr %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Fáðu aðgang að gögnunum þínum fyrir öll vefsvæði"
 
 #: src/amo/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Fáðu aðgang að gögnunum þínum fyrir öll vefsvæði á %(param)s léninu"
 
 #: src/amo/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Fáðu aðgang að gögnunum þínum á %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:182
 msgid "By Firefox"
@@ -1189,7 +1189,7 @@ msgstr "Kanna nánar"
 
 #: src/amo/components/InstallWarning/index.js:112
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr ""
+msgstr "Þessi viðbót er ekki vöktuð af Mozilla gagnvart öryggismálum. Vertu viss um að þú treystir henni áður en þú setur hana upp."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1209,7 +1209,7 @@ msgstr "Næsta"
 
 #: src/amo/components/Paginate/index.js:158
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Síða %(currentPage)s af %(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
@@ -1217,23 +1217,23 @@ msgstr "Heimildir"
 
 #: src/amo/components/PermissionsCard/index.js:84
 msgid "This add-on needs to:"
-msgstr ""
+msgstr "Þessi viðbót þarf að:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "This add-on may also ask to:"
-msgstr ""
+msgstr "Þessi viðbót gæti einnig beðið um að:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Lesa og breyta bókamerkjum"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Lesa og breyta stillingum vafrans"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Hreinsa nýlegan vafurferil, vefkökur og tengd gögn"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Get data from the clipboard"
@@ -1245,27 +1245,27 @@ msgstr "Setja gögn á klippispjaldið"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Útvíkka forritunartól til að fá aðgang að gögnum þínum í opnum flipum"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Sækja skrár og lesa og breyta niðurhalsferli vafrans"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Opna skrár sem sóttar hafa verið inn á tölvuna"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Lesa texta í öllum opnum flipum"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Access your location"
-msgstr ""
+msgstr "Fá aðgang að staðsetningunni þinni"
 
 #: src/amo/components/PermissionsCard/permissions.js:42 src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
-msgstr ""
+msgstr "Fá aðgang að vafurferlinum þínum"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
@@ -1273,51 +1273,51 @@ msgstr "Vakta notkun forritsauka og sýsla með þemu"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Skiptast á skilaboðum við önnur forrit en Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Birta þér tilkynningar"
 
 #: src/amo/components/PermissionsCard/permissions.js:50
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Veita dulritaðar auðkenningarþjónustur"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Stýra milliþjónastillingum vafrans"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Lesa og breyta stillingum á friðhelgi"
 
 #: src/amo/components/PermissionsCard/permissions.js:53
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Fá aðgang að nýlokuðum flipum"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Fá aðgang að flipum vafrans"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Birta og fela vafraflipa"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Geyma ótakmarkað magn gagna í forritinu"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Fá aðgang að virkni vafrans á meðan flakki stendur"
 
 #: src/amo/components/PromotedBadge/index.js:42
 msgid "Official add-on built by Mozilla Firefox. Meets security and performance standards."
-msgstr ""
+msgstr "Opinber viðbót byggð af Mozilla Firefox. Stenst kröfur okkar varðandi öryggi og afköst."
 
 #: src/amo/components/PromotedBadge/index.js:49
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox mælir aðeins með viðbótum sem hafa verið yfirfarnar með tilliti til viðmiða okkar varðandi öryggi og afköst."
 
 #: src/amo/components/PromotedBadge/index.js:57
 msgid "This add-on has been reviewed to meet our standards for security and performance."
@@ -1325,15 +1325,15 @@ msgstr "Þessi viðbót hefur verið yfirfarin með tilliti til viðmiða okkar 
 
 #: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Gefið %(rating)s af 5"
 
 #: src/amo/components/Rating/index.js:111
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "Uppfæra einkunnina þína í %(starRating)s af 5 mögulegum"
 
 #: src/amo/components/Rating/index.js:117
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr ""
+msgstr "Gefa þessari viðbót einkunn upp á %(starRating)s af 5 mögulegum"
 
 #: src/amo/components/Rating/index.js:98
 msgid "There are no ratings yet"
@@ -1435,7 +1435,7 @@ msgstr[1] "Lesa allar %(total)s þriggja-stjörnu umsagnirnar"
 
 #: src/amo/components/ReportAbuseButton/index.js:127
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Þú tilkynntir þessa viðbót vegna misnotkunar"
 
 #: src/amo/components/ReportAbuseButton/index.js:131
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1451,7 +1451,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:164
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Tilkynna þessa viðbót vegna misnotkunar"
 
 #: src/amo/components/ReportAbuseButton/index.js:195
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1459,11 +1459,11 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:208 src/amo/components/ReportUserAbuse/index.js:150
 msgid "Send abuse report"
-msgstr ""
+msgstr "Senda skýrslu um misnotkun"
 
 #: src/amo/components/ReportAbuseButton/index.js:209 src/amo/components/ReportUserAbuse/index.js:151
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Sendi skýrslu um misnotkun"
 
 #: src/amo/components/ReportAbuseButton/index.js:211
 msgid "Dismiss"
@@ -1475,7 +1475,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:105 src/amo/components/ReportUserAbuse/index.js:112
 msgid "Report this user for abuse"
-msgstr ""
+msgstr "Tilkynna þennan notanda vegna misnotkunar"
 
 #: src/amo/components/ReportUserAbuse/index.js:119
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
@@ -1491,7 +1491,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:159
 msgid "You reported this user for abuse"
-msgstr ""
+msgstr "Þú tilkynntir þennan notanda vegna misnotkunar"
 
 #: src/amo/components/ReportUserAbuse/index.js:163
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1511,7 +1511,7 @@ msgstr "Þemu sem mælt er með"
 
 #: src/amo/components/Search/index.js:152
 msgid "Recommended add-ons"
-msgstr ""
+msgstr "Viðbætur sem mælt er með"
 
 #: src/amo/components/Search/index.js:157
 msgid "Extensions by Firefox"
@@ -1519,11 +1519,11 @@ msgstr "Forritsaukar frá Firefox"
 
 #: src/amo/components/Search/index.js:160
 msgid "Themes by Firefox"
-msgstr ""
+msgstr "Þemu frá Firefox"
 
 #: src/amo/components/Search/index.js:163
 msgid "Add-ons by Firefox"
-msgstr ""
+msgstr "Viðbætur frá Firefox"
 
 #: src/amo/components/Search/index.js:168
 msgid "Reviewed extensions"
@@ -1539,15 +1539,15 @@ msgstr "Yfirfarnar viðbætur"
 
 #: src/amo/components/Search/index.js:179
 msgid "Verified extensions"
-msgstr "Yfirfarnir forritsaukar"
+msgstr "Sannreyndir forritsaukar"
 
 #: src/amo/components/Search/index.js:182
 msgid "Verified themes"
-msgstr ""
+msgstr "Sannreynd þemu"
 
 #: src/amo/components/Search/index.js:185
 msgid "Verified add-ons"
-msgstr ""
+msgstr "Sannreyndar viðbætur"
 
 #: src/amo/components/Search/index.js:193 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1555,23 +1555,23 @@ msgstr "Forritsaukar á uppleið"
 
 #: src/amo/components/Search/index.js:196 src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
-msgstr "Þemu í umræðunni"
+msgstr "Þemu á uppleið"
 
 #: src/amo/components/Search/index.js:199
 msgid "Trending add-ons"
-msgstr ""
+msgstr "Viðbætur á uppleið"
 
 #: src/amo/components/Search/index.js:205 src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
-msgstr "Efstu forritsaukarnir"
+msgstr "Hátt skrifaðir forritsaukar"
 
 #: src/amo/components/Search/index.js:208 src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
-msgstr "Þemu með hæstu einkunn"
+msgstr "Hátt skrifuð þemu"
 
 #: src/amo/components/Search/index.js:211
 msgid "Top rated add-ons"
-msgstr ""
+msgstr "Hátt skrifaðar viðbætur"
 
 #: src/amo/components/Search/index.js:217
 msgid "Popular extensions"
@@ -1583,11 +1583,11 @@ msgstr "Vinsæl þemu"
 
 #: src/amo/components/Search/index.js:223
 msgid "Popular add-ons"
-msgstr ""
+msgstr "Vinsælar viðbætur"
 
 #: src/amo/components/Search/index.js:229
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "Leitarniðurstöður fyrir \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:104
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1676,16 +1676,16 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:236
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s niðurstaða fannst"
+msgstr[1] "%(count)s niðurstöður fundust"
 
 #: src/amo/components/SearchContextCard/index.js:247
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "Leita að \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:251
 msgid "Searching for add-ons"
-msgstr ""
+msgstr "Leita að viðbótum"
 
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
@@ -1767,23 +1767,23 @@ msgstr "Raða eftir"
 
 #: src/amo/components/SearchFilters/index.js:237
 msgid "Add-on Type"
-msgstr ""
+msgstr "Tegund viðbótar"
 
 #: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
-msgstr ""
+msgstr "Skildir"
 
 #: src/amo/components/SearchForm/index.js:65
 msgid "Firefox Add-ons for Android"
-msgstr ""
+msgstr "Firefox viðbætur fyrir Android"
 
 #: src/amo/components/SearchForm/index.js:66
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox viðbætur"
 
 #: src/amo/components/SearchForm/index.js:89
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Fara á síðu viðbótarinnar"
 
 #: src/amo/components/SearchResult/index.js:195
 msgid "No theme preview available"
@@ -1791,13 +1791,13 @@ msgstr "Engin forskoðun á þema til"
 
 #: src/amo/components/SearchResult/index.js:230
 msgid "Add-on note"
-msgstr ""
+msgstr "Athugasemd fyrir viðbótina"
 
 #: src/amo/components/SearchResult/index.js:248
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s notandi"
+msgstr[1] "%(total)s notendur"
 
 #: src/amo/components/SearchResults/index.js:45
 msgid "Searching…"
@@ -1805,11 +1805,11 @@ msgstr "Leita…"
 
 #: src/amo/components/SearchResults/index.js:50
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Engar niðurstöður fundust fyrir \"%(query)s\"."
 
 #: src/amo/components/SearchResults/index.js:56
 msgid "No results were found."
-msgstr ""
+msgstr "Engar niðurstöður fundust."
 
 #: src/amo/components/SectionLinks/index.js:114 src/amo/pages/CategoryPage/index.js:66 src/amo/pages/LandingPage/index.js:231
 msgid "Extensions"
@@ -1825,35 +1825,35 @@ msgstr "Meira…"
 
 #: src/amo/components/SectionLinks/index.js:146
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Önnur vafravefsvæði"
 
 #: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Viðbætur fyrir Android"
 
 #: src/amo/components/SectionLinks/index.js:170
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Viðbætur fyrir Firefox"
 
 #: src/amo/components/SectionLinks/index.js:71
 msgid "for Firefox"
-msgstr ""
+msgstr "fyrir Firefox"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "for Android"
-msgstr ""
+msgstr "fyrir Android"
 
 #: src/amo/components/SectionLinks/index.js:88
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Orðasöfn og tungumálapakkar"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
-msgstr ""
+msgstr "Fletta út til að lesa meira"
 
 #: src/amo/components/ShowMoreCard/index.js:133
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Fletta út til að</span> lesa meira"
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -1873,11 +1873,11 @@ msgstr "Skoða alla forritsauka"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr ""
+msgstr "Skoða öll þemu"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "Heimasíða viðbóta"
 
 #: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
@@ -1886,20 +1886,20 @@ msgstr "Forskoðun á %(title)s"
 #: src/amo/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s viðbót"
+msgstr[1] "%(total)s viðbætur"
 
 #: src/amo/components/UserProfileEditPicture/index.js:100
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Viltu í alvörunni eyða þessari mynd?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:103
 msgid "Delete This Picture"
-msgstr ""
+msgstr "Eyða þessari mynd"
 
 #: src/amo/components/UserProfileEditPicture/index.js:51
 msgid "Profile picture for %(name)s"
-msgstr ""
+msgstr "Auðkennismynd fyrir %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:61
 msgid "Profile photo"
@@ -1907,27 +1907,27 @@ msgstr "Auðkennismynd"
 
 #: src/amo/components/UserProfileEditPicture/index.js:90
 msgid "Choose Photo…"
-msgstr ""
+msgstr "Velja mynd…"
 
 #: src/amo/components/UserReview/index.js:108
 msgid "Developer response"
-msgstr ""
+msgstr "Svar forritara"
 
 #: src/amo/components/VPNPromoBanner/index.js:176
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "Sparaðu 50% með heils-árs áskrift"
 
 #: src/amo/components/VPNPromoBanner/index.js:177
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
-msgstr ""
+msgstr "Verndaðu friðhelgi þína á netinu - og kjóstu þá VPN-áskriftarleið sem hentar þér."
 
 #: src/amo/components/VPNPromoBanner/index.js:204
 msgid "Get Mozilla VPN"
-msgstr ""
+msgstr "Fáðu þér Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr ""
+msgstr "Til að finna viðbætur sem eru samhæfðar við Firefox fyrir Android, <a href=\"%(newLocation)s\">smelltu hér</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
@@ -1955,7 +1955,7 @@ msgstr "%(localizedSize)s TB"
 
 #: src/amo/pages/Addon/index.js:207
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "Ekki er hægt að gefa þessari viðbót einkunn þar sem engar útgáfur hafa verið birtar."
 
 #: src/amo/pages/Addon/index.js:218
 msgid "Read %(count)s review"
@@ -1969,7 +1969,7 @@ msgstr "Engar umsagnir ennþá"
 
 #: src/amo/pages/Addon/index.js:249
 msgid "Rate your experience"
-msgstr ""
+msgstr "Gefðu reynslu þinni einkunn"
 
 #: src/amo/pages/Addon/index.js:268
 msgid "About this dictionary"
@@ -1981,15 +1981,15 @@ msgstr "Um þennan forritsauka"
 
 #: src/amo/pages/Addon/index.js:274
 msgid "About this language pack"
-msgstr ""
+msgstr "Um þennan tungumálapakka"
 
 #: src/amo/pages/Addon/index.js:277
 msgid "About this theme"
-msgstr ""
+msgstr "Um þetta þema"
 
 #: src/amo/pages/Addon/index.js:280
 msgid "About this add-on"
-msgstr ""
+msgstr "Um þessa viðbót"
 
 #: src/amo/pages/Addon/index.js:324
 msgid "Developer comments"
@@ -1997,11 +1997,11 @@ msgstr "Athugasemdir forritara"
 
 #: src/amo/pages/Addon/index.js:347
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "Útgáfuupplýsingar fyrir %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:467
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Þetta er ekki opinber útlistun. Þú sérð þetta aðeins vegna aukinna heimilda."
 
 #: src/amo/pages/Addon/index.js:493
 msgid "Extension Metadata"
@@ -2013,15 +2013,15 @@ msgstr "Skjámyndir"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
-msgstr ""
+msgstr "Sérsniðið notkunarleyfi fyrir %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
-msgstr ""
+msgstr "EULA samningur um notandaleyfi fyrir %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
-msgstr ""
+msgstr "Meðferð persónuupplýsinga af hálfu %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:207
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -2064,8 +2064,8 @@ msgstr[1] "%(total)s umsagnir"
 #: src/amo/pages/AddonVersions/index.js:131
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Útgáfuferill %(addonName)s - %(total)s útgáfa"
+msgstr[1] "Útgáfuferill %(addonName)s - %(total)s útgáfur"
 
 #: src/amo/pages/AddonVersions/index.js:165
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -2073,7 +2073,7 @@ msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:170
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Þú ættir alltaf að nota nýjustu útgáfuna af viðbótum."
 
 #: src/amo/pages/AddonVersions/index.js:179
 msgid "Latest version"
@@ -2135,11 +2135,11 @@ msgstr "Allir flokkar forritsauka"
 
 #: src/amo/pages/CategoriesPage/index.js:37
 msgid "All theme categories"
-msgstr ""
+msgstr "Allir flokkar af þemum"
 
 #: src/amo/pages/CategoryPage/index.js:57
 msgid "Themes in %(categoryName)s"
-msgstr ""
+msgstr "Þemu í %(categoryName)s"
 
 #: src/amo/pages/CategoryPage/index.js:63
 msgid "Extensions in %(categoryName)s"
@@ -2147,11 +2147,11 @@ msgstr "Forritsaukar í %(categoryName)s"
 
 #: src/amo/pages/Collection/index.js:400
 msgid "Do you really want to delete this collection?"
-msgstr ""
+msgstr "Viltu í alvörunni eyða þessu safni?"
 
 #: src/amo/pages/Collection/index.js:403
 msgid "Delete this collection"
-msgstr ""
+msgstr "Eyða þessu safni"
 
 #: src/amo/pages/Collection/index.js:421
 msgid "Log in to create a collection"
@@ -2199,7 +2199,7 @@ msgstr "Útbúðu safn"
 
 #: src/amo/pages/CollectionList/index.js:67
 msgid "You do not have any collections."
-msgstr ""
+msgstr "Þú ert ekki með nein söfn."
 
 #: src/amo/pages/Home/index.js:103
 msgid "Music"
