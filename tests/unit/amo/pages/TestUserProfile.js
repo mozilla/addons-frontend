@@ -17,6 +17,7 @@ import {
   fetchUserAccount,
   getCurrentUser,
   loadUserAccount,
+  FETCH_USER_ACCOUNT,
 } from 'amo/reducers/users';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
 import Paginate from 'amo/components/Paginate';
@@ -669,7 +670,7 @@ describe(__filename, () => {
     expect(root.find('.UserProfile-admin-link')).toHaveLength(0);
   });
 
-  it('only dispatches setViewContext when there is an error', () => {
+  it('does not dispatch any user actions when there is an error', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -683,7 +684,10 @@ describe(__filename, () => {
 
     renderUserProfile({ errorHandler, store });
 
-    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_USER_ACCOUNT,
+    });
+    sinon.assert.neverCalledWithMatch(fakeDispatch, { type: FETCH_REVIEWS });
   });
 
   it('fetches reviews if not loaded and userId does not change', () => {
