@@ -1961,7 +1961,7 @@ msgstr "Ekki er hægt að gefa þessari viðbót einkunn þar sem engar útgáfu
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lesa %(count)s umsögn"
-msgstr[1] "Lesa allar %(total)s umsagnirnar"
+msgstr[1] "Lesa allar %(count)s umsagnirnar"
 
 #: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
