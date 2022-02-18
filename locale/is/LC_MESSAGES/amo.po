@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-18 08:35+0000\n"
+"PO-Revision-Date: 2022-02-18 08:47+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2535,29 +2535,31 @@ msgstr "Ekki:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Senda inn eins-orðs umsagnir á borð við \"Frábært!\", \"Dásamlegt,\" eða \"Lélegt\"."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Birta tæknilegar útlistingar, biðja um aðstoð eða stinga upp á eiginleikum. Notaðu frekar þær leiðir sem hver viðbót býður uppá til að koma slíku á framfæri. Þú finnur þær í hlutanum \"Nánari "
+"upplýsingar\" á ítarlegri síðu viðbótarinnar."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Skrifa umsagnir um viðbætur sem þú hefur ekki notað persónulega."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Nota blótsyrði, klæmast eða málfar sem hægt sé að flokka sem hatursorðræðu."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Hafa með HTML-merkingar, frumkóða eða kóðadæmi. Ætlast er til að umsagnir séu einungis texti."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Gefa rangar yfirlýsingar, skamma höfunda viðbóta eða níða þá persónulega."
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
@@ -2626,7 +2628,7 @@ msgstr "Breyta notandasniði"
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:439
 msgid "Admin user"
-msgstr ""
+msgstr "Stjórnandi"
 
 #: src/amo/pages/UserProfileEdit/index.js:206
 msgid "Picture successfully deleted"
@@ -2634,11 +2636,11 @@ msgstr "Tókst að eyða mynd"
 
 #: src/amo/pages/UserProfileEdit/index.js:454
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Segðu notendum eitthvað um þig. Flestir reitirnir eru valkvæðir, en þeir hjálpa öðrum þátttakendum við að kynnast þér betur."
 
 #: src/amo/pages/UserProfileEdit/index.js:458
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "Segðu notendum eitthvað um þennan notanda. Flestir reitirnir eru valkvæðir, en þeir hjálpa öðrum þátttakendum við að kynnast þér betur."
 
 #: src/amo/pages/UserProfileEdit/index.js:473
 msgid "Introduce yourself to the community if you like"
