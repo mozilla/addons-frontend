@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
 
-import Icon from 'amo/components/Icon';
 import Permission from 'amo/components/Permission';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const defaultProps = {
@@ -11,32 +10,37 @@ describe(__filename, () => {
   };
 
   function render(props = {}) {
-    return shallow(<Permission {...defaultProps} {...props} />);
+    return defaultRender(<Permission {...defaultProps} {...props} />);
   }
 
   it('renders an li element', () => {
-    const root = render();
+    render();
 
-    expect(root.find('li')).toHaveClassName(`Permission`);
+    expect(screen.getByTagName('li')).toBeInTheDocument();
   });
 
   it('renders an icon with custom name', () => {
     const type = 'testType';
-    const root = render({ type });
+    render({ type });
 
-    expect(root.find(Icon)).toHaveProp('name', `permission-${type}`);
+    expect(
+      screen.getByClassName(`Icon-permission-${type}`),
+    ).toBeInTheDocument();
   });
 
   it('replaces dots in icon name with dashes', () => {
-    const root = render({ type: 'test.Type' });
+    render({ type: 'test.Type' });
 
-    expect(root.find(Icon)).toHaveProp('name', 'permission-test-Type');
+    expect(
+      screen.getByClassName('Icon-permission-test-Type'),
+    ).toBeInTheDocument();
   });
 
   it('renders the description', () => {
     const description = 'It can access your bookmarks';
-    const root = render({ description });
+    render({ description });
+    screen.debug();
 
-    expect(root.find('.Permission-description').text()).toEqual(description);
+    expect(screen.getByText(description)).toBeInTheDocument();
   });
 });
