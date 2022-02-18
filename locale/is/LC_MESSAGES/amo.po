@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-18 16:29+0000\n"
+"PO-Revision-Date: 2022-02-18 16:38+0000\n"
 "Last-Translator: Peiying Mo [:CocoMo] <pmo@mozilla.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2182,7 +2182,7 @@ msgstr "Sæktu og útbúðu Firefox-söfn til að halda utan um eftirlætis forr
 
 #: src/amo/pages/Collection/index.js:520
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "Sæktu og útbúðu Firefox-söfn til að halda utan um eftirlætis forritsauka og þemu. Skoðaðu (collectionName)s."
+msgstr "Sæktu og útbúðu Firefox-söfn til að halda utan um eftirlætis forritsauka og þemu. Skoðaðu %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:102
 msgid "My collections"
@@ -2640,7 +2640,7 @@ msgstr "Segðu notendum eitthvað um þig. Flestir reitirnir eru valkvæðir, en
 
 #: src/amo/pages/UserProfileEdit/index.js:458
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Segðu notendum eitthvað um þennan notanda. Flestir reitirnir eru valkvæðir, en þeir hjálpa öðrum þátttakendum við að kynnast þér betur."
+msgstr "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
 
 #: src/amo/pages/UserProfileEdit/index.js:473
 msgid "Introduce yourself to the community if you like"
