@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-18 08:47+0000\n"
+"PO-Revision-Date: 2022-02-18 14:56+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2332,7 +2332,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Taktu þátt á %(startLink)sspjallsvæðinu%(endLink)s okkar."
 
 #: src/amo/pages/StaticPages/About/index.js:162
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -2441,11 +2441,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Algengar spurningar varðandi umsagnir"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Hvernig get ég tilkynnt vafasama umsögn?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
@@ -2455,7 +2455,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Ég er höfundur viðbótar, get ég svarað umsögnum?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
@@ -2463,7 +2463,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Ég er höfundur viðbótar, get ég eytt neikvæðum umsögnum eða einkunnum?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
@@ -2495,39 +2495,39 @@ msgstr "Gera:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Skrifaðu eins og þú sért að segja vini þínum frá reynslu þinni af viðbótinni."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Haltu umsögnum skýrum og auðveldum að skilja."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Gefðu upp nákvæm og hjálpleg atriði. Til dæmis:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Virkaði viðbótin eins og við var að búast?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Hvaða eiginleika líkaði þér við eða ekki?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
-msgstr ""
+msgstr "Var viðbótin hjálpleg?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Var hún auðveld í notkun?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "Muntu halda áfram að nota hana?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Taktu þér tíma til að lesa yfir umsögnina áður en þú sendir hana inn, til að laga málfar og fækka stafsetningarvillum."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
@@ -2757,11 +2757,11 @@ msgstr "Eyða sniði"
 
 #: src/amo/pages/UserProfileEdit/index.js:824
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "MIKILVÆGT: Það að eyða notandasniðinu þínu á Firefox Add-ons er ekki hægt að afturkalla."
 
 #: src/amo/pages/UserProfileEdit/index.js:827
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "MIKILVÆGT: Það að eyða þessu notandasniði á Firefox Add-ons er ekki hægt að afturkalla."
 
 #: src/amo/pages/UserProfileEdit/index.js:836
 msgid ""
