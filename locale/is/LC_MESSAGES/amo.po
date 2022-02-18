@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-18 16:38+0000\n"
-"Last-Translator: Peiying Mo [:CocoMo] <pmo@mozilla.com>\n"
+"PO-Revision-Date: 2022-02-18 17:06+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -834,7 +834,7 @@ msgstr "Því miður, en við finnum ekki neitt á slóðinni sem þú settir in
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr ""
+msgstr "Auðkenning innskráningar er útrunnin. %(startLink)sEndurlestu síðuna%(endLink)s til að halda áfram án auðkenningar, eða skráðu þig inn aftur með tenglinum \"Skrá inn\" efst á síðunni."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
@@ -842,7 +842,7 @@ msgstr "Innskráning útrunnin"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr ""
+msgstr "Ef þú hefur skráð þig inn og heldur að þessi skilaboð séu villa, skaltu <a href=\"%(url)s\">tilkynna vandamál</a>. Segðu okkur hvað það var sem þú varst að reyna að gera, við munum leysa vandann."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:34
 msgid "Not Authorized"
@@ -2640,7 +2640,7 @@ msgstr "Segðu notendum eitthvað um þig. Flestir reitirnir eru valkvæðir, en
 
 #: src/amo/pages/UserProfileEdit/index.js:458
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
+msgstr "Segðu notendum eitthvað um þennan notanda. Flestir reitirnir eru valkvæðir, en þeir hjálpa öðrum þátttakendum við að kynnast %(userName)s betur."
 
 #: src/amo/pages/UserProfileEdit/index.js:473
 msgid "Introduce yourself to the community if you like"
@@ -2805,7 +2805,7 @@ msgstr "Tölvupóstfangið %(strongStart)s%(email)s%(strongEnd)s mun ekki lengur
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Þú getur stillt tilkynningarnar þínar með því að %(linkStart)sbreyta notandasniðinu þínu%(linkEnd)s."
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
