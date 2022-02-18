@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-18 14:56+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"PO-Revision-Date: 2022-02-18 16:29+0000\n"
+"Last-Translator: Peiying Mo [:CocoMo] <pmo@mozilla.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -1483,7 +1483,7 @@ msgstr "Tilkynna þennan notanda vegna misnotkunar"
 
 #: src/amo/components/ReportUserAbuse/index.js:119
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr "Ef þú heldur að þessi notandi gangi gegn (linkTagStart)sstefnu Mozilla varðandi viðbætur%(linkTagEnd)s, skaltu endilega tilkynna þennan notanda til Mozilla."
+msgstr "Ef þú heldur að þessi notandi gangi gegn %(linkTagStart)sstefnu Mozilla varðandi viðbætur%(linkTagEnd)s, skaltu endilega tilkynna þennan notanda til Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
@@ -1965,7 +1965,7 @@ msgstr "Ekki er hægt að gefa þessari viðbót einkunn þar sem engar útgáfu
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lesa %(count)s umsögn"
-msgstr[1] "Lesa allar %(total)s umsagnirnar"
+msgstr[1] "Lesa allar %(count)s umsagnirnar"
 
 #: src/amo/pages/Addon/index.js:239
 msgid "No reviews yet"
@@ -2113,7 +2113,7 @@ msgstr "Hvers vegna var lokað á þetta?"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr "Þessi viðbót gengur gegn %(linkTagStart)sstefnu Mozilla varðandi viðbætur%(linkTagEnd)s."
+msgstr "Þessi viðbót gengur gegn %(startLink)sstefnu Mozilla varðandi viðbætur%(endLink)s."
 
 #: src/amo/pages/Block/index.js:177
 msgid "What does this mean?"
