@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-18 08:09+0000\n"
+"PO-Revision-Date: 2022-02-18 08:35+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2128,6 +2128,9 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Þegar Mozilla verður vart við viðbætur, tengiforrit eða annan utanaðkomandi hugbúnað sem ógnar alvarlega öryggi, stöðugleika eða afköstum Firefox, og sem uppfyllir %(criteriaStartLink)sákveðin "
+"skilyrði%(criteriaEndLink)s, er mögulegt að sá hugbúnaður verði útilokaður frá almennri notkun. Til að sjá nanari upplýsingar um þetta ættirðu að lesa %(supportStartLink)sþessa "
+"hjálpargrein%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:93
 msgid "Blocked on %(date)s."
@@ -2195,7 +2198,7 @@ msgstr "Skráðu inn til að skoða söfnin þín"
 
 #: src/amo/pages/CollectionList/index.js:130
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Söfn einfalda mjög að halda utan um eftirlætis viðbætur og að deila sérsníðingum vafrans þíns til annarra."
 
 #: src/amo/pages/CollectionList/index.js:140
 msgid "Create a collection"
@@ -2219,7 +2222,7 @@ msgstr "Breyttu með þemum hvernig Firefox lítur út."
 
 #: src/amo/pages/Home/index.js:167
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Sæktu forritsauka og þemu fyrir Firefox. Þetta er eins og smáforrit fyrir vafrann. Þetta getur lokað á pirrandi auglýsingar, verndað lykilorð, breytt útliti vafrans, og margt fleira."
 
 #: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
@@ -2299,7 +2302,7 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:183
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Tungumálapakkar breyta tungumáli viðmótsins í vafranum, þar með töldum valmyndum og stillingum."
 
 #: src/amo/pages/LanguageTools/index.js:190
 msgid "All Locales"
@@ -2384,10 +2387,13 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), er opinbert vefsvæði Mozilla þar sem hægt er að finna viðbætur og setja þær upp í Firefox-vafrann. Viðbætur gera þér kleift að breyta og persónugera vafrið þitt með nýjum "
+"eiginleikum í Firefox, bættri virkni á vefefni og breytingum á útliti vafrans."
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 msgstr ""
+"Ef þú ert að leita að viðbótum fyrir Thunderbird eða SeaMonkey, ættirðu að skoða %(startTBLink)saddons.thunderbird.net%(endTBLink)s eða %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
