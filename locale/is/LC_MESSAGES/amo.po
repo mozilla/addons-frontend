@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-19 15:27+0000\n"
+"PO-Revision-Date: 2022-02-19 15:45+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2340,7 +2340,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Ef þú hefur áhuga á að leggja þitt af mörkum, en ert kannski ekki svo tæknilega þenkjandi, þá eru samt leiðir til að hjálpa:"
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -2348,15 +2348,15 @@ msgstr "Taktu þátt á %(startLink)sspjallsvæðinu%(endLink)s okkar."
 
 #: src/amo/pages/StaticPages/About/index.js:162
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "Settu inn umsagnir um eftirlætisviðbæturnar þínar. Höfundar viðbóta eru líklegri til að bæta viðbæturnar sínar og að útbúa nýjar ef þeir vita að fólk kunni að meta vinnuna þeirra."
 
 #: src/amo/pages/StaticPages/About/index.js:167
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Segðu fjölskyldu og vinum að Firefox sé hraðvirkur, öruggur vafri sem verndi persónuupplýsingar þeirra og sem þau geti aðlagað að sínum þörfum."
 
 #: src/amo/pages/StaticPages/About/index.js:175
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr ""
+msgstr "Til að skoða fleiri leiðir til að leggja þitt af mörkum í samfélaginu í kringum viðbæturnar, ættirðu að skoða %(startLink)swiki-síðurnar%(endLink)s okkar."
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Report an issue"
@@ -2392,7 +2392,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sHér er hægt að finna upplýsingar um hvernig hægt sé að hafa samband við viðbótateymi Mozilla%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
