@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-19 14:17+0000\n"
+"PO-Revision-Date: 2022-02-19 15:27+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2288,7 +2288,7 @@ msgstr "Breyttu því hvernig vafrinn þinn lítur út. Veldu úr þúsundum af 
 
 #: src/amo/pages/LandingPage/index.js:236
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Kannaðu ýmis öflug verkfæri til að sérsníða Firefox og gerðu hann að vafranum þínum."
 
 #: src/amo/pages/LandingPage/index.js:276
 msgid "Explore all categories"
@@ -2304,11 +2304,11 @@ msgstr "Orðasöfn og tungumálapakkar"
 
 #: src/amo/pages/LanguageTools/index.js:167
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Sæktu orðasöfn og tungumálapakka fyrir Firefox. Bættu nýjum valkostum tungumála við stafsetningaryfirferð vafrans, eða skiptu um tungumálið í viðmóti vafrans."
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Uppsetning á orðasöfnum bætir nýjum valkostum tungumála við stafsetningaryfirferð vafrans, sem gefur færi á að yfirfara stafsetninguna þína um leið og þú skrifar."
 
 #: src/amo/pages/LanguageTools/index.js:183
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -2335,6 +2335,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Viltu eiga samskipti við addons.mozilla.org (AMO) í gegnum forritun? Skoðaðu %(startAddonsServerDocumentation)shjálparskjöl viðbótanetþjónanna%(endAddonsServerDocumentation)s til að sjá nánari "
+"upplýsingar um API-kerfisviðmótin sem AMO notar auk upplýsinga um %(startAddonsManager)sViðbótastjórann%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
