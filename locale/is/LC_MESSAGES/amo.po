@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-19 09:04+0000\n"
+"PO-Revision-Date: 2022-02-19 14:17+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -850,13 +850,15 @@ msgstr "Ekki heimilt"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:36
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Því miður, en þú hefur ekki heimild til að skoða þessa síðu. Ef þú ert ekki skráð/ur inn, geturðu prófað að skrá þig inn með tenglinum efst á síðunni."
 
 #: src/amo/components/Errors/NotFound/index.js:25
 msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Prófaðu að opna síðuna seinna, þegar þemað eða forritsaukinn verður tiltækt aftur. Að öðrum kosti gætirðu mögulega fundið það sem þú ert að leita að í tiltækum "
+"%(extensionStart)sforritsaukum%(extensionEnd)s eða %(themeStart)sþemum%(themeEnd)s, eða með því að biðja um aðstoð á %(communityStart)sspjallsvæði notendanna%(communityEnd)s okkar."
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
@@ -864,23 +866,29 @@ msgstr "Úbbs! Fundum ekki þessa síðu"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Ef þú fylgdir tengli á forritsauka eða þema af öðru vefsvæði, þá er viðkomandi atriði ekki lengur til staðar. Það gæti verið vegna þess að:"
 
 #: src/amo/components/Errors/NotFound/index.js:87
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
 msgstr ""
+"Hönnuðurinn hefur fjarlægt þetta. Forritarar/hönnuðir eiga til að gera slíkt, mögulega vegna þess að þeir eru ekki lengur að sinna forritsaukanum eða þemanu, eða eru komnir með annað sem leysir hitt"
+" af hólmi."
 
 #: src/amo/components/Errors/NotFound/index.js:92
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla hefur fjarlægt þetta. Það getur gerst þegar vandamál finnast við yfirferð á forritsauka eða þema, eða þegar upp kemur grunur um misnotkun á skilmálum addons.mozilla.org. Hönnuðir hafa "
+"tækifæri á að leysa slík vandamál og gera viðbæturnar tiltækar aftur."
 
 #: src/amo/components/Errors/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Ef þú ert með einhverjar viðbótarupplýsingar sem gætu hjálpað okkur, geturðu <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">skráð verkbeiðni</a>. Segðu okkur hvaða skref þú fórst"
+" sem leiða að villunni, við munum gera okkar besta til að laga hana."
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -891,6 +899,8 @@ msgid ""
 "You may be able to find what you’re looking for in one of the available %(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
 "%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Þú gætir mögulega fundið það sem þú ert að leita að í tiltækum %(extensionStart)sforritsaukum%(extensionEnd)s eða %(themeStart)sþemum%(themeEnd)s, eða með því að biðja um aðstoð á "
+"%(communityStart)sspjallsvæði notendanna%(communityEnd)s okkar."
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
@@ -2274,7 +2284,7 @@ msgstr "Sæktu Firefox-viðbætur til að bæta við eiginleikum sem sérsníða
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "Breyttu því hvernig vafrinn þinn lítur út. Veldu úr þúsundum af þemum til að gera Firefox eins útlítandi og þig lystir."
 
 #: src/amo/pages/LandingPage/index.js:236
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
