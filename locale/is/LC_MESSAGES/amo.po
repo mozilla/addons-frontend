@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-20 10:16+0000\n"
+"PO-Revision-Date: 2022-02-20 12:33+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2420,6 +2420,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
+"Viðbæturnar sem eru útlistaðar hér hafa verið útbúnar af þúsundum forritara og hönnuða víðs vegar að úr heiminum, allt frá sjálfstæðum tómstundagrúskurum til stórfyrirtækaj. Sumar víðbætur sem "
+"taldar eru upp hér á AMO hafa verið gefnar út með sjálfvirkum kerfum og gætu þurft að ganga í gegnum yfirferðarferli hjá teymi prófarkalesara um leið og þær birtast opinberlega."
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
@@ -2430,6 +2432,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla er einn veigamesti drifkraftur internetsins, við byggjum Firefox til að halda því heilbrigðu, opnu og aðgengilegu. Viðbætur auka valkosti notendanna og ýta undir fjölbreytileika Firefox, þú "
+"getur lagt þitt af mörkum á eftirfarandi vegu:"
 
 #: src/amo/pages/StaticPages/About/index.js:77
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2503,7 +2507,7 @@ msgstr "Leiðbeiningar fyrir umsagnir"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Leiðbeiningar, ábendingar og algengar spurningar varðandi það að gefa umsögn um forritsauka og þemu sem þú hefur sótt og notað í Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
