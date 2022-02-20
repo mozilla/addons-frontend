@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-20 08:51+0000\n"
+"PO-Revision-Date: 2022-02-20 10:16+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2472,6 +2472,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Tilkynntu eða flaggaðu allar vafasamar umsagnir með því að smella á \"Tikynna þessa umsögn\", hún verður þá send inn til yfirferðar. Umsjónarteymið mun styðjast við leiðbeiningar fyrir gerð umsagna "
+"til að meta hvort eyða skuli umsögninni eða ekki og að birta hana aftur á vefsvæðinu."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -2480,6 +2482,8 @@ msgstr "Ég er höfundur viðbótar, get ég svarað umsögnum?"
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Jú, höfundar viðbóta geta svarað einu sinni hverri umsögn. Þú getur líka sett upp spjallþráð á %(startLink)sspjallsvæðinu%(endLink)s okkar, þar sem hægt er að ræða og fylgjast með viðbrögðum "
+"notenda."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -2490,6 +2494,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Almennt séð nei. En ef umsögnin stenst ekki kröfur sem gerðar eru í leiðbeiningunum hér fyrir ofan, geturðu smellt á \"Tikynna þessa umsögn\" og láta umsjónarmenn yfirfara hana. Ef umsögn inniheldur"
+" körtun sem ekki fær lengur staðist þar sem ný útgáfa víðbótarinnar sé komin út, gætum við íhugað að eyða umsögninni."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
