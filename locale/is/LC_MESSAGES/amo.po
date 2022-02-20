@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-20 12:33+0000\n"
+"PO-Revision-Date: 2022-02-20 13:00+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2514,6 +2514,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Umsagnir um viðbætur eru leið til að deila skoðunum þínum um þær viðbætur sem þú hefur sett inn og notað. Umsjónarmannateymið okkar áskilur sér rétt til að hafna umsögnum eða fjarlægja allar "
+"umsagnir sem ekki fylgja þessum leiðbeiningum."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
@@ -2601,15 +2603,15 @@ msgstr "Umsagnirnar mínar"
 
 #: src/amo/pages/UserProfile/index.js:266
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Notandasnið %(user)s, höfundar Firefox forritsauka og þema. Finndu önnur framlög frá %(user)s, skoðaðu meðaleinkunn hans, viðveru og hvernig hægt sé að tilkynna vandamál."
 
 #: src/amo/pages/UserProfile/index.js:270
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Notandasnið %(user)s, höfundar Firefox forritsauka. Finndu aðra forritsauka frá %(user)s, skoðaðu meðaleinkunn hans, viðveru og hvernig hægt sé að tilkynna vandamál."
 
 #: src/amo/pages/UserProfile/index.js:274
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Notandasnið %(user)s, höfundar Firefox þema. Finndu önnur þemu frá %(user)s, skoðaðu meðaleinkunn hans, viðveru og hvernig hægt sé að tilkynna vandamál."
 
 #: src/amo/pages/UserProfile/index.js:307
 msgid "Add-ons developer"
