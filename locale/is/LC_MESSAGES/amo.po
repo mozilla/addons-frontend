@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-19 16:34+0000\n"
+"PO-Revision-Date: 2022-02-20 08:51+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2433,27 +2433,31 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:77
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sÚtbúðu þína eigin viðbót%(endLink)s. Við útvegum ókeypis hýsingu og uppfærsluþjónustur og getum hjálpað þér að ná til mikils fjölda notenda."
 
 #: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Hjálpaðu til við að bæta þetta vefsvæði. Kóðinn er opinn öllum og þú getur tilkynnt galla og sent inn bætur. Þú getur byrjað á %(startGoodFirstBugLink)sgóðum fyrsta galla%(endGoodFirstBugLink)s eða "
+"skoðað allar opnar verkbeiðnir fyrir %(startAddonsServerRepoLink)snetþjóna %(endAddonsServerRepoLink)s og %(startAddonsFrontendRepoLink)sviðmót/framenda %(endAddonsFrontendRepoLink)s AMO á Github."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Hafa með tölvupóstfangið þitt eða annarra, símanúmer eða aðrar persónulegar upplýsingar."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Senda inn umsagir um viðbætur sem þú eða þínir hafa skrifað eða standa fyrir."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Gagnrýna viðbót fyrir eitthvað sem henni er ætlað að gera. Til dæmis, að setja inn neikvæða umsögn um að viðbót birti auglýsingar eða safni gögnum, þegar það er einmitt hlutverk viðbótarinnar, eða "
+"ef viðbótin virkar ekki án gagnasöfnunar."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
