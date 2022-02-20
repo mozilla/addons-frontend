@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-20 13:00+0000\n"
+"PO-Revision-Date: 2022-02-20 15:31+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -2769,15 +2769,15 @@ msgstr "Tilkynningar"
 
 #: src/amo/pages/UserProfileEdit/index.js:765
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Öðru hverju gæti Mozilla átt það til að senda þér tölvupóst um væntanlegar uppfærslur og atburði tengda viðbótum. Veldu þau efni sem þú hefðir áhuga á."
 
 #: src/amo/pages/UserProfileEdit/index.js:770
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Öðru hverju gæti Mozilla átt það til að senda þessum notanda tölvupóst um væntanlegar uppfærslur og atburði tengda viðbótum. Veldu þau efni sem notandinn gæti haft áhuga á."
 
 #: src/amo/pages/UserProfileEdit/index.js:785
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla áskilur sér rétt til að hafa samband við þig persónulega varðandi mál sem tengjast hýstum viðbótum á þínum vegum."
 
 #: src/amo/pages/UserProfileEdit/index.js:811 src/amo/pages/UserProfileEdit/index.js:883
 msgid "Delete My Profile"
@@ -2799,28 +2799,34 @@ msgstr "MIKILVÆGT: Það að eyða þessu notandasniði á Firefox Add-ons er e
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
 msgstr ""
+"Gögnin þín verða fjarlægð varanlega, þar á meðal upplýsingar notandasniðs (mynd, notandanafn, birtingarnafn, staðsetning, heimasíða, æviágrip, starf), stillingar tilkynninga, umsagnir og söfn."
 
 #: src/amo/pages/UserProfileEdit/index.js:842
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
 msgstr ""
+"Gögnin notandans verða fjarlægð varanlega, þar á meðal upplýsingar notandasniðs (mynd, notandanafn, birtingarnafn, staðsetning, heimasíða, æviágrip, starf), stillingar tilkynninga, umsagnir og söfn."
 
 #: src/amo/pages/UserProfileEdit/index.js:851
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share ownership with other authors. In that case, you will be removed as an author and the remaining authors will maintain ownership"
 " of the add-on."
 msgstr ""
+"Ef þú skrifaðir einhverjar viðbætur verður þeim einnig eytt, nema þú deilir eignarhaldi með öðrum höfundum. Í því tilviki verður þú fjarlægður sem höfundur og þeir höfundar sem eftir eru munu halda "
+"eignarhaldi á viðbótinni."
 
 #: src/amo/pages/UserProfileEdit/index.js:857
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership is shared with other authors. In that case, the user will be removed as an author and the remaining authors will maintain"
 " ownership of the add-on."
 msgstr ""
+"Ef notandinn skrifaði einhverjar viðbætur verður þeim einnig eytt, nema hann deili eignarhaldi með öðrum höfundum. Í því tilviki verður hann fjarlægður sem höfundur og þeir höfundar sem eftir eru "
+"munu halda eignarhaldi á viðbótinni."
 
 #: src/amo/pages/UserProfileEdit/index.js:867
 msgid "When you use this email address to log in again to addons.mozilla.org, your profile on Firefox Add-ons will not have access to any of its previous content."
-msgstr ""
+msgstr "Þegar þú notar þetta tölvupóstfang til að skrá þig aftur inn á addons.mozilla.org, mun notandasniðið þitt á Firefox-viðbótum ekki hafa aðgang að neinu eldra efni þess."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:103
 msgid "Unsubscribe"
