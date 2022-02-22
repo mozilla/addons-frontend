@@ -31,6 +31,7 @@ import ErrorList from 'amo/components/ErrorList';
 import Icon from 'amo/components/Icon';
 import LoadingText from 'amo/components/LoadingText';
 import Rating from 'amo/components/Rating';
+import Page from 'amo/components/Page';
 import UserAvatar from 'amo/components/UserAvatar';
 import {
   createStubErrorHandler,
@@ -465,6 +466,13 @@ describe(__filename, () => {
       'errorHandler',
       errorHandler,
     );
+  });
+
+  it('passes the errorHandler to Page', () => {
+    const errorHandler = createStubErrorHandler();
+    const root = renderUserProfile({ errorHandler });
+
+    expect(root.find(Page).at(0)).toHaveProp('errorHandler', errorHandler);
   });
 
   it('renders AddonsByAuthorsCards without a user', () => {

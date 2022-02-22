@@ -330,7 +330,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       : i18n.gettext('User Profile');
 
     return (
-      <Page>
+      <Page errorHandler={errorHandler}>
         <div className="UserProfile">
           <UserProfileHead
             title={userProfileTitle}
