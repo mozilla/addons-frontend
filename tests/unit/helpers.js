@@ -407,12 +407,16 @@ export const createHomeShelves = ({
   };
 };
 
-export const onLocationChanged = ({ pathname, search = '', ...others }) => {
-  const history = addQueryParamsToHistory({
+export const createHistory = ({ initialEntries } = {}) => {
+  return addQueryParamsToHistory({
     history: createMemoryHistory({
-      initialEntries: [`${pathname}${search}`],
+      initialEntries,
     }),
   });
+};
+
+export const onLocationChanged = ({ pathname, search = '', ...others }) => {
+  const history = createHistory({ initialEntries: [`${pathname}${search}`] });
 
   return {
     type: LOCATION_CHANGE,
@@ -1516,9 +1520,7 @@ export const screen = {
 
 export const render = (ui, options = {}) => {
   const i18n = options.i18n || fakeI18n();
-  const history =
-    options.history ||
-    addQueryParamsToHistory({ history: createMemoryHistory() });
+  const history = options.history || createHistory();
   const store = options.store || dispatchClientMetadata().store;
 
   const wrapper = ({ children }) => {

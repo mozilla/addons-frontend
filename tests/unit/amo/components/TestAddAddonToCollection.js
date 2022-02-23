@@ -1,35 +1,32 @@
 import * as React from 'react';
+import userEvent from '@testing-library/user-event';
 
 import AddAddonToCollection, {
-  AddAddonToCollectionBase,
   extractId,
-  mapStateToProps,
 } from 'amo/components/AddAddonToCollection';
+import { setClientApp } from 'amo/reducers/api';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import { ErrorHandler } from 'amo/errorHandler';
 import {
+  FETCH_USER_COLLECTIONS,
   addAddonToCollection,
   addonAddedToCollection,
   collectionName,
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
-import { CLIENT_APP_FIREFOX } from 'amo/constants';
-import { ErrorHandler } from 'amo/errorHandler';
 import {
   DEFAULT_LANG_IN_TESTS,
-  createContextWithFakeRouter,
   createFakeCollectionDetail,
-  createFakeEvent,
-  createFakeHistory,
+  createHistory,
   createInternalAddonWithLang,
-  createInternalCollectionWithLang,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
   fakeI18n,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
-import ErrorList from 'amo/components/ErrorList';
-import Notice from 'amo/components/Notice';
 
 describe(__filename, () => {
   let store;
@@ -41,9 +38,6 @@ describe(__filename, () => {
   const getProps = (customProps = {}) => {
     return {
       addon: createInternalAddonWithLang(fakeAddon),
-      i18n: fakeI18n(),
-      history: createFakeHistory(),
-      store,
       ...customProps,
     };
   };
@@ -51,13 +45,10 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const { history, ...props } = getProps(customProps);
 
-    return shallowUntilTarget(
-      <AddAddonToCollection {...props} />,
-      AddAddonToCollectionBase,
-      {
-        shallowOptions: createContextWithFakeRouter({ history }),
-      },
-    );
+    return defaultRender(<AddAddonToCollection {...props} />, {
+      history,
+      store,
+    });
   };
 
   const signInAndDispatchCollections = ({
@@ -92,37 +83,43 @@ describe(__filename, () => {
     return { firstCollection, secondCollection };
   };
 
+  const createErrorHandlerId = ({ addon = null, userId = null }) => {
+    return `src/amo/components/AddAddonToCollection/index.js-${extractId({
+      addon,
+      currentUserId: userId,
+    })}`;
+  };
+
   describe('fetching user collections', () => {
     it('fetches user collections on first render', () => {
+      const addon = createInternalAddonWithLang(fakeAddon);
       const userId = 345;
       dispatchSignInActions({ store, userId });
-      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const dispatch = jest.spyOn(store, 'dispatch');
 
-      const root = render();
+      render({ addon });
 
-      sinon.assert.calledWith(
-        dispatchSpy,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchUserCollections({
-          errorHandlerId: root.instance().props.errorHandler.id,
+          errorHandlerId: createErrorHandlerId({ addon, userId }),
           userId,
         }),
       );
     });
 
     it('fetches user collections on update', () => {
+      const addon = createInternalAddonWithLang(fakeAddon);
       dispatchSignInActions({ store, userId: 10 });
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const root = render();
-      dispatchSpy.resetHistory();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ addon });
+      dispatch.mockClear();
 
       const userId = 20;
       dispatchSignInActions({ store, userId });
-      root.setProps(mapStateToProps(store.getState(), {}));
 
-      sinon.assert.calledWith(
-        dispatchSpy,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchUserCollections({
-          errorHandlerId: root.instance().props.errorHandler.id,
+          errorHandlerId: createErrorHandlerId({ addon, userId }),
           userId,
         }),
       );
@@ -130,31 +127,37 @@ describe(__filename, () => {
 
     it('does not fetch user collections when signed out', () => {
       dispatchClientMetadata({ store });
-      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
-      sinon.assert.notCalled(dispatchSpy);
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ 'type': FETCH_USER_COLLECTIONS }),
+      );
     });
 
     it('does not fetch collections on first render if they exist', () => {
       signInAndDispatchCollections();
-      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
-      sinon.assert.notCalled(dispatchSpy);
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ 'type': FETCH_USER_COLLECTIONS }),
+      );
     });
 
     it('does not fetch collections on update if they exist', () => {
       signInAndDispatchCollections();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+      dispatch.mockClear();
 
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const root = render();
-      dispatchSpy.resetHistory();
+      // Force an update via an unrelated prop.
+      const { api } = store.getState();
+      store.dispatch(setClientApp(api.clientApp));
 
-      // Pretend this is updating some unrelated props.
-      root.setProps({});
-
-      sinon.assert.notCalled(dispatchSpy);
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ 'type': FETCH_USER_COLLECTIONS }),
+      );
     });
 
     it('does not fetch user collections while loading', () => {
@@ -167,24 +170,17 @@ describe(__filename, () => {
           userId,
         }),
       );
+      const dispatch = jest.spyOn(store, 'dispatch');
 
-      const dispatchSpy = sinon.spy(store, 'dispatch');
       render({ addon });
 
-      sinon.assert.notCalled(dispatchSpy);
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ 'type': FETCH_USER_COLLECTIONS }),
+      );
     });
   });
 
   describe('selecting a user collection', () => {
-    const lang = DEFAULT_LANG_IN_TESTS;
-    const findOption = ({ root, text }) => {
-      const option = root
-        .find('.AddAddonToCollection-option')
-        .filterWhere((opt) => opt.text() === text);
-      expect(option).toHaveLength(1);
-      return option;
-    };
-
     it('renders a disabled select when loading user collections', () => {
       const userId = 10;
       dispatchSignInActions({ store, userId });
@@ -195,17 +191,19 @@ describe(__filename, () => {
         }),
       );
 
-      const root = render();
+      render();
 
-      const select = root.find('.AddAddonToCollection-select');
-      expect(select).toHaveProp('disabled', true);
-      expect(select.html()).toContain('Loading…');
+      expect(screen.getByRole('combobox')).toHaveAttribute('disabled');
+      expect(screen.getByRole('option')).toHaveTextContent('Loading…');
     });
 
     it('renders a disabled select when adding add-on to collection', () => {
       const addon = createInternalAddonWithLang(fakeAddon);
       const userId = 10;
-      dispatchSignInActions({ store, userId });
+      signInAndDispatchCollections({ userId });
+
+      render({ addon });
+
       store.dispatch(
         addAddonToCollection({
           addonId: addon.id,
@@ -216,18 +214,15 @@ describe(__filename, () => {
         }),
       );
 
-      const root = render({ addon });
-
-      const select = root.find('.AddAddonToCollection-select');
-      expect(select).toHaveProp('disabled', true);
-      expect(select.html()).toContain('Adding…');
+      expect(screen.getByRole('combobox')).toHaveAttribute('disabled');
+      expect(screen.getByRole('option')).toHaveTextContent('Adding…');
     });
 
     it('does not render collection optgroup without collections', () => {
       dispatchSignInActions({ store });
-      const root = render();
+      render();
 
-      expect(root.find('optgroup')).toHaveLength(0);
+      expect(screen.queryByRole('group')).not.toBeInTheDocument();
     });
 
     it('lets you select a collection', () => {
@@ -239,32 +234,19 @@ describe(__filename, () => {
         secondName,
         userId,
       });
-
       signInAndDispatchCollections({
         userId,
         collections: [firstCollection, secondCollection],
       });
-      const dispatchStub = sinon.stub(store, 'dispatch');
-      const root = render({ addon });
+      const dispatch = jest.spyOn(store, 'dispatch');
 
-      const select = root.find('.AddAddonToCollection-select');
-      const secondOption = findOption({
-        root,
-        text: secondName,
-      });
+      render({ addon });
 
-      // Add the add-on to the second collection.
-      select.simulate(
-        'change',
-        createFakeEvent({
-          target: { value: secondOption.prop('value') },
-        }),
-      );
+      userEvent.selectOptions(screen.getByRole('combobox'), secondName);
 
-      sinon.assert.calledWith(
-        dispatchStub,
+      expect(dispatch).toHaveBeenCalledWith(
         addAddonToCollection({
-          errorHandlerId: root.instance().props.errorHandler.id,
+          errorHandlerId: createErrorHandlerId({ addon, userId }),
           addonId: addon.id,
           collectionId: secondCollection.id,
           slug: secondCollection.slug,
@@ -291,10 +273,13 @@ describe(__filename, () => {
         collections: [secondCollection, firstCollection],
       });
 
-      const root = render({ addon });
-      const option = root.find('optgroup .AddAddonToCollection-option').at(0);
+      render({ addon });
 
-      expect(option).toHaveText(firstName);
+      const options = screen.getAllByRole('option');
+      expect(options[0]).toHaveTextContent('Select a collection…');
+      expect(options[1]).toHaveTextContent('Create new collection');
+      expect(options[2]).toHaveTextContent(firstName);
+      expect(options[3]).toHaveTextContent(secondName);
     });
 
     it('displays expected name for collections without names', () => {
@@ -311,10 +296,10 @@ describe(__filename, () => {
         collections: [firstCollection, secondCollection],
       });
 
-      const root = render({ addon });
-      const option = root.find('optgroup .AddAddonToCollection-option').at(0);
+      render({ addon });
 
-      expect(option).toHaveText(
+      const options = screen.getAllByRole('option');
+      expect(options[2]).toHaveTextContent(
         collectionName({ name: null, i18n: fakeI18n() }),
       );
     });
@@ -330,6 +315,9 @@ describe(__filename, () => {
         userId,
         collections: [firstCollection],
       });
+
+      render({ addon });
+
       store.dispatch(
         addonAddedToCollection({
           addonId: addon.id,
@@ -338,11 +326,9 @@ describe(__filename, () => {
         }),
       );
 
-      const root = render({ addon });
-
-      const notice = root.find(Notice);
-      expect(notice.prop('type')).toEqual('success');
-      expect(notice.childAt(0).text()).toContain(`Added to ${firstName}`);
+      expect(screen.getByClassName('Notice-success')).toHaveTextContent(
+        `Added to ${firstName}`,
+      );
     });
 
     it('shows notices for each target collection', () => {
@@ -362,6 +348,8 @@ describe(__filename, () => {
         collections: [firstCollection, secondCollection],
       });
 
+      render({ addon });
+
       const addParams = { addonId: addon.id, userId };
 
       // Add the add-on to both collections.
@@ -379,14 +367,8 @@ describe(__filename, () => {
         }),
       );
 
-      const root = render({ addon });
-
-      const notice = root.find(Notice);
-      const text = (index) => {
-        return notice.at(index).childAt(0).text();
-      };
-      expect(text(0)).toContain(`Added to ${firstName}`);
-      expect(text(1)).toContain(`Added to ${secondName}`);
+      expect(screen.getByText(`Added to ${firstName}`)).toBeInTheDocument();
+      expect(screen.getByText(`Added to ${secondName}`)).toBeInTheDocument();
     });
 
     it('uses expected name in the notice when the collection name is missing', () => {
@@ -402,6 +384,9 @@ describe(__filename, () => {
         userId,
         collections: [firstCollection],
       });
+
+      render({ addon });
+
       store.dispatch(
         addonAddedToCollection({
           addonId: addon.id,
@@ -410,40 +395,31 @@ describe(__filename, () => {
         }),
       );
 
-      const root = render({ addon });
-
-      const notice = root.find(Notice);
-      expect(notice.prop('type')).toEqual('success');
-      expect(notice.childAt(0).text()).toContain(
-        `Added to ${collectionName({ name: null, i18n: fakeI18n() })}`,
-      );
+      expect(
+        screen.getByText(
+          `Added to ${collectionName({ name: null, i18n: fakeI18n() })}`,
+        ),
+      ).toBeInTheDocument();
     });
 
     it('does nothing when you select the prompt', () => {
       signInAndDispatchCollections();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
 
-      const dispatchStub = sinon.stub(store, 'dispatch');
-      const root = render();
+      dispatch.mockClear();
 
-      const select = root.find('.AddAddonToCollection-select');
-      const promptOption = findOption({
-        root,
-        text: 'Select a collection…',
-      });
-
-      // Select the prompt (first option) which doesn't do anything.
-      select.simulate(
-        'change',
-        createFakeEvent({
-          target: { value: promptOption.prop('value') },
-        }),
+      userEvent.selectOptions(
+        screen.getByRole('combobox'),
+        'Select a collection…',
       );
 
-      sinon.assert.notCalled(dispatchStub);
+      expect(dispatch).not.toBeCalled();
     });
 
     it('lets you create a new collection by navigating to the collection page', () => {
       const clientApp = CLIENT_APP_FIREFOX;
+      const lang = DEFAULT_LANG_IN_TESTS;
       const id = 234;
 
       const addon = createInternalAddonWithLang({ ...fakeAddon, id });
@@ -453,101 +429,67 @@ describe(__filename, () => {
         lang,
       });
 
-      const historySpy = createFakeHistory();
-      const root = render({ addon, history: historySpy });
+      const history = createHistory();
+      const pushSpy = jest.spyOn(history, 'push');
+      render({ addon, history });
 
-      const select = root.find('.AddAddonToCollection-select');
-      const createOption = findOption({
-        root,
-        text: 'Create new collection',
-      });
-
-      select.simulate(
-        'change',
-        createFakeEvent({
-          target: { value: createOption.prop('value') },
-        }),
+      userEvent.selectOptions(
+        screen.getByRole('combobox'),
+        'Create new collection',
       );
 
-      sinon.assert.calledWith(
-        historySpy.push,
+      expect(pushSpy).toHaveBeenCalledWith(
         `/${lang}/${clientApp}/collections/add/?include_addon_id=${id}`,
       );
     });
 
-    it('requires an add-on before you can add to a collection', () => {
-      signInAndDispatchCollections();
-      const root = render({ addon: null });
-
-      const collection = createInternalCollectionWithLang({
-        detail: createFakeCollectionDetail(),
-        lang,
-      });
-      // This should not be possible through the UI.
-      expect(() => root.instance().addToCollection(collection)).toThrow(
-        /no add-on has been loaded/,
-      );
-    });
-
-    it('requires you to sign in before adding to a collection', () => {
-      const root = render();
-
-      const collection = createInternalCollectionWithLang({
-        detail: createFakeCollectionDetail(),
-        lang,
-      });
-      // This should not be possible through the UI.
-      expect(() => root.instance().addToCollection(collection)).toThrow(
-        /you are not signed in/,
-      );
-    });
-  });
-
-  describe('error handling', () => {
-    const createFailedErrorHandler = () => {
-      const error = new Error('unexpected error');
-      const errorHandler = new ErrorHandler({
-        dispatch: store.dispatch,
-        id: 'some-error-handler',
-      });
-      errorHandler.handle(error);
-      return errorHandler;
-    };
-
-    it('renders an error', () => {
-      const root = render({ errorHandler: createFailedErrorHandler() });
-
-      expect(root.find(ErrorList)).toHaveLength(1);
-    });
-
-    it('does not load data when there is an error', () => {
-      dispatchSignInActions({ store });
-      const errorHandler = createFailedErrorHandler();
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      render({ errorHandler });
-
-      sinon.assert.notCalled(dispatchSpy);
-    });
-  });
-
-  describe('extractId', () => {
-    const _props = (customProps = {}) => {
-      return {
-        ...getProps(customProps),
-        ...mapStateToProps(store.getState(), {}),
+    describe('error handling', () => {
+      const createFailedErrorHandler = (message = 'An error message') => {
+        const error = new Error('unexpected error');
+        const errorHandler = new ErrorHandler({
+          dispatch: store.dispatch,
+          id: 'some-error-handler',
+        });
+        errorHandler.handle(error);
+        errorHandler.addMessage(message);
+        return errorHandler;
       };
-    };
 
-    it('renders an ID without an add-on or user', () => {
-      expect(extractId(_props({ addon: null }))).toEqual('-');
+      it('renders an error', () => {
+        const message = 'Some error message';
+        const errorHandler = createFailedErrorHandler(message);
+        render({ errorHandler });
+        screen.debug();
+
+        expect(screen.getByText(message)).toBeInTheDocument();
+      });
+
+      it('does not fetch data when there is an error', () => {
+        dispatchSignInActions({ store });
+        const errorHandler = createFailedErrorHandler();
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ errorHandler });
+
+        expect(dispatch).not.toHaveBeenCalledWith(
+          expect.objectContaining({ 'type': FETCH_USER_COLLECTIONS }),
+        );
+      });
     });
 
-    it('renders an ID with an add-on ID and user', () => {
-      const addon = createInternalAddonWithLang({ ...fakeAddon, id: 5432 });
-      const userId = 123;
+    describe('extractId', () => {
+      it('renders an ID without an add-on or user', () => {
+        expect(extractId({ addon: null, currentUserId: null })).toEqual('-');
+      });
 
-      dispatchSignInActions({ store, userId });
-      expect(extractId(_props({ addon }))).toEqual(`${addon.id}-${userId}`);
+      it('renders an ID with an add-on ID and user', () => {
+        const addon = createInternalAddonWithLang({ ...fakeAddon, id: 5432 });
+        const currentUserId = 123;
+
+        expect(extractId({ addon, currentUserId })).toEqual(
+          `${addon.id}-${currentUserId}`,
+        );
+      });
     });
   });
 });
