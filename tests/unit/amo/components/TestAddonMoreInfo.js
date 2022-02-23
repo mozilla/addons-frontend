@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { screen } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 
 import { createApiError } from 'amo/api';
@@ -33,6 +32,7 @@ import {
   fakeFile,
   fakeVersion,
   render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -59,13 +59,13 @@ describe(__filename, () => {
   }
 
   it('renders LoadingText if no add-on is present', () => {
-    const { queryByClassName } = render({ addon: null });
+    render({ addon: null });
 
     // These fields will be visible during loading since
     // they will always exist for the loaded add-on.
     expect(screen.getByText('Last updated')).toBeInTheDocument();
 
-    expect(queryByClassName('LoadingText')).toHaveLength(1);
+    expect(screen.queryByClassName('LoadingText')).toHaveLength(1);
 
     // These fields will not be visible during loading
     // since they may not exist.

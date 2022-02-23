@@ -12,7 +12,10 @@ import { oneLine } from 'common-tags';
 import { createMemoryHistory } from 'history';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { queries, render as rtlRender } from '@testing-library/react';
+import {
+  render as libraryRender,
+  screen as libraryScreen,
+} from '@testing-library/react';
 
 import {
   DOWNLOAD_FIREFOX_BASE_URL,
@@ -1479,63 +1482,55 @@ const queryByClassName = (container, className) => {
   return container.querySelectorAll(`.${className}`);
 };
 
-const getByClassName = (container, className) => {
-  const elements = queryByClassName(container, className);
-  if (!elements.length) {
-    return null;
-  }
-  if (elements.length > 1) {
-    throw new Error(`More than one element found for className ${className}`);
-  }
-  return elements[0];
-};
-
 const queryByTagName = (container, tagName) => {
   return container.getElementsByTagName(tagName);
 };
 
-const getByTagName = (container, tagName) => {
-  const elements = queryByTagName(container, tagName);
-  if (!elements.length) {
-    return null;
-  }
-  if (elements.length > 1) {
-    throw new Error(`More than one element found for tag ${tagName}`);
+const getByFeature = (container, queryFunction, value) => {
+  const elements = queryFunction(container, value);
+  if (!elements.length === 1) {
+    throw new Error('getByFeature did not return exactly one element.');
   }
   return elements[0];
 };
 
+const getByClassName = (container, className) => {
+  return getByFeature(container, queryByClassName, className);
+};
+
+const getByTagName = (container, tagName) => {
+  return getByFeature(container, queryByTagName, tagName);
+};
+
+const customQueries = {
+  'getByClassName': getByClassName.bind(null, document.body),
+  'getByTagName': getByTagName.bind(null, document.body),
+  'queryByClassName': queryByClassName.bind(null, document.body),
+  'queryByTagName': queryByTagName.bind(null, document.body),
+};
+
+export const screen = {
+  ...libraryScreen,
+  ...customQueries,
+};
+
 export const render = (ui, options = {}) => {
-  const internalOptions = {
-    history: addQueryParamsToHistory({ history: createMemoryHistory() }),
-    i18n: fakeI18n(),
-    store: dispatchClientMetadata().store,
-    rtlOptions: {},
-    ...options,
-  };
-  const rtlOptions = {
-    queries: {
-      ...queries,
-      queryByClassName,
-      queryByTagName,
-      getByClassName,
-      getByTagName,
-    },
-    ...internalOptions.rtlOptions,
-  };
+  const i18n = options.i18n || fakeI18n();
+  const history =
+    options.history ||
+    addQueryParamsToHistory({ history: createMemoryHistory() });
+  const store = options.store || dispatchClientMetadata().store;
 
   const wrapper = ({ children }) => {
     return (
-      <I18nProvider i18n={internalOptions.i18n}>
-        <Provider store={internalOptions.store}>
-          <ConnectedRouter history={internalOptions.history}>
-            {children}
-          </ConnectedRouter>
+      <I18nProvider i18n={i18n}>
+        <Provider store={store}>
+          <ConnectedRouter history={history}>{children}</ConnectedRouter>
         </Provider>
       </I18nProvider>
     );
   };
 
-  const result = rtlRender(ui, { wrapper, ...rtlOptions });
+  const result = libraryRender(ui, { wrapper });
   return { ...result, root: result.container.firstChild };
 };
