@@ -1478,20 +1478,55 @@ export const createExperimentData = ({
   return { [id]: variantId };
 };
 
-const queryByClassName = (container, className) => {
+const queryAllByClassName = (container, className) => {
   return container.querySelectorAll(`.${className}`);
 };
 
-const queryByTagName = (container, tagName) => {
+const queryAllByTagName = (container, tagName) => {
   return container.getElementsByTagName(tagName);
 };
 
-const getByFeature = (container, queryFunction, value) => {
+const getAllByFeature = (container, queryFunction, value) => {
   const elements = queryFunction(container, value);
-  if (!elements.length === 1) {
-    throw new Error('getByFeature did not return exactly one element.');
+  if (elements.length) {
+    return elements;
   }
-  return elements[0];
+  throw new Error('getAllByFeature returned more than one element.');
+};
+
+const queryByFeature = (container, queryFunction, value) => {
+  const elements = queryFunction(container, value);
+  if (!elements.length) {
+    return null;
+  }
+  if (elements.length === 1) {
+    return elements[0];
+  }
+  throw new Error('queryByFeature returned more than one element.');
+};
+
+const getByFeature = (container, queryFunction, value) => {
+  const element = queryFunction(container, value);
+  if (!element) {
+    throw new Error('getByFeature did not return any elements.');
+  }
+  return element;
+};
+
+export const getAllByClassName = (container, className) => {
+  return getAllByFeature(container, queryAllByClassName, className);
+};
+
+export const getAllByTagName = (container, tagName) => {
+  return getAllByFeature(container, queryAllByTagName, tagName);
+};
+
+const queryByClassName = (container, className) => {
+  return queryByFeature(container, queryAllByClassName, className);
+};
+
+const queryByTagName = (container, tagName) => {
+  return queryByFeature(container, queryAllByTagName, tagName);
 };
 
 const getByClassName = (container, className) => {
@@ -1503,6 +1538,10 @@ const getByTagName = (container, tagName) => {
 };
 
 const customQueries = {
+  'getAllByClassName': getAllByClassName.bind(null, document.body),
+  'getAllByTagName': getAllByTagName.bind(null, document.body),
+  'queryAllByClassName': queryAllByClassName.bind(null, document.body),
+  'queryAllByTagName': queryAllByTagName.bind(null, document.body),
   'getByClassName': getByClassName.bind(null, document.body),
   'getByTagName': getByTagName.bind(null, document.body),
   'queryByClassName': queryByClassName.bind(null, document.body),
