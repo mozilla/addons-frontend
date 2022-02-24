@@ -459,7 +459,6 @@ describe(__filename, () => {
         const message = 'Some error message';
         const errorHandler = createFailedErrorHandler(message);
         render({ errorHandler });
-        screen.debug();
 
         expect(screen.getByText(message)).toBeInTheDocument();
       });
