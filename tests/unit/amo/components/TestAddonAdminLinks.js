@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import AddonAdminLinks, {
-  AddonAdminLinksBase,
-} from 'amo/components/AddonAdminLinks';
+import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import {
   ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
@@ -15,9 +13,9 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
-  fakeI18n,
   fakeTheme,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -30,14 +28,12 @@ describe(__filename, () => {
   });
 
   function render(props = {}) {
-    return shallowUntilTarget(
+    return defaultRender(
       <AddonAdminLinks
         addon={props.addon || createInternalAddonWithLang(fakeAddon)}
-        i18n={fakeI18n()}
-        store={store}
         {...props}
       />,
-      AddonAdminLinksBase,
+      { store },
     );
   }
 
@@ -55,115 +51,93 @@ describe(__filename, () => {
   };
 
   it('returns nothing if the user does not have permission for any links', () => {
-    const root = render();
+    const { root } = render();
 
-    expect(root.find('.AddonAdminLinks')).toHaveLength(0);
+    expect(root).toBeNull();
   });
 
   it('returns nothing if the add-on is null', () => {
-    const root = renderWithPermissions({
+    const { root } = renderWithPermissions({
       addon: null,
       permissions: ADDONS_EDIT,
     });
 
-    expect(root.find('.AddonAdminLinks')).toHaveLength(0);
+    expect(root).toBeNull();
   });
 
   it('shows the Admin Links heading if the user has permission for a link', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_EDIT });
+    renderWithPermissions({ permissions: ADDONS_EDIT });
 
-    expect(root.find('.AddonAdminLinks')).toHaveLength(1);
+    expect(screen.getByText('Admin Links')).toBeInTheDocument();
   });
 
-  it('shows an edit add-on link if the user has permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_EDIT });
+  it('shows edit and admin add-on links if the user has permission', () => {
+    renderWithPermissions({ permissions: ADDONS_EDIT });
 
-    expect(root.find('.AddonAdminLinks-edit-link')).toHaveProp(
+    expect(screen.getByText('Edit add-on')).toHaveAttribute(
       'href',
       `/developers/addon/${slug}/edit`,
     );
-  });
-
-  it('does not show an edit add-on link if the user does not have permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_REVIEW });
-
-    expect(root.find('.AddonAdminLinks')).toHaveLength(1);
-    expect(root.find('.AddonAdminLinks-edit-link')).toHaveLength(0);
-  });
-
-  it('does not show an admin add-on status link if the user does not have permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_EDIT });
-
-    expect(root.find('.AddonAdminLinks')).toHaveLength(1);
-    expect(root.find('.AddonAdminLinks-admin-status-link')).toHaveLength(0);
-  });
-
-  it('shows an admin add-on link if the user has permission', () => {
-    const addon = createInternalAddonWithLang({
-      ...fakeAddon,
-      id: addonId,
-    });
-
-    const root = renderWithPermissions({
-      addon,
-      permissions: [ADDONS_EDIT],
-    });
-
-    expect(root.find('.AddonAdminLinks-admin-link')).toHaveProp(
+    expect(screen.getByText('Admin add-on')).toHaveAttribute(
       'href',
       `/admin/models/addons/addon/${addonId}`,
     );
   });
 
-  it('shows a content review link if the user has permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_CONTENT_REVIEW });
+  it('does not show an edit or admin add-on link if the user does not have permission', () => {
+    renderWithPermissions({ permissions: ADDONS_REVIEW });
 
-    expect(root.find('.AddonAdminLinks-contentReview-link')).toHaveProp(
+    expect(screen.getByText('Admin Links')).toBeInTheDocument();
+    expect(screen.queryByText('Edit add-on')).not.toBeInTheDocument();
+    expect(screen.queryByText('Admin add-on')).not.toBeInTheDocument();
+  });
+
+  it('shows a content review link if the user has permission', () => {
+    renderWithPermissions({ permissions: ADDONS_CONTENT_REVIEW });
+
+    expect(screen.getByText('Content review add-on')).toHaveAttribute(
       'href',
       `/reviewers/review-content/${addonId}`,
     );
   });
 
   it('does not show a content review link if the user does not have permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_EDIT });
+    renderWithPermissions({ permissions: ADDONS_EDIT });
 
-    expect(root.find('.AddonAdminLinks')).toHaveLength(1);
-    expect(root.find('.AddonAdminLinks-contentReview-link')).toHaveLength(0);
+    expect(screen.getByText('Admin Links')).toBeInTheDocument();
+    expect(screen.queryByText('Content review add-on')).not.toBeInTheDocument();
   });
 
   it('does not show a content review link for a theme', () => {
-    const root = renderWithPermissions({
+    renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeTheme,
       }),
       permissions: [ADDONS_CONTENT_REVIEW, ADDONS_EDIT],
     });
 
-    expect(root.find('.AddonAdminLinks')).toHaveLength(1);
-    expect(root.find('.AddonAdminLinks-contentReview-link')).toHaveLength(0);
+    expect(screen.getByText('Admin Links')).toBeInTheDocument();
+    expect(screen.queryByText('Content review add-on')).not.toBeInTheDocument();
   });
 
   it('shows a code review link for an extension if the user has permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_REVIEW });
+    renderWithPermissions({ permissions: ADDONS_REVIEW });
 
-    expect(root.find('.AddonAdminLinks-codeReview-link')).toHaveProp(
+    expect(screen.getByText('Review add-on code')).toHaveAttribute(
       'href',
       `/reviewers/review/${addonId}`,
-    );
-    expect(root.find('.AddonAdminLinks-codeReview-link').children()).toHaveText(
-      'Review add-on code',
     );
   });
 
   it('does not show a code review link if the user does not have permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_EDIT });
+    renderWithPermissions({ permissions: ADDONS_EDIT });
 
-    expect(root.find('.AddonAdminLinks')).toHaveLength(1);
-    expect(root.find('.AddonAdminLinks-codeReview-link')).toHaveLength(0);
+    expect(screen.getByText('Admin Links')).toBeInTheDocument();
+    expect(screen.queryByText('Review add-on code')).not.toBeInTheDocument();
   });
 
   it('shows a theme review link for a static theme if the user has permission', () => {
-    const root = renderWithPermissions({
+    renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
         id: addonId,
@@ -172,17 +146,14 @@ describe(__filename, () => {
       permissions: STATIC_THEMES_REVIEW,
     });
 
-    expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveProp(
+    expect(screen.getByText('Review theme')).toHaveAttribute(
       'href',
       `/reviewers/review/${addonId}`,
     );
-    expect(
-      root.find('.AddonAdminLinks-themeReview-link').children(),
-    ).toHaveText('Review theme');
   });
 
   it('does not show a theme review link if the user does not have permission', () => {
-    const root = renderWithPermissions({
+    renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeTheme,
         id: addonId,
@@ -190,12 +161,12 @@ describe(__filename, () => {
       permissions: ADDONS_EDIT,
     });
 
-    expect(root.find('.AddonAdminLinks')).toHaveLength(1);
-    expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveLength(0);
+    expect(screen.getByText('Admin Links')).toBeInTheDocument();
+    expect(screen.queryByText('Review theme')).not.toBeInTheDocument();
   });
 
   it('does not show a theme review link if the user has permission but the add-on is not a theme', () => {
-    const root = renderWithPermissions({
+    renderWithPermissions({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
         id: addonId,
@@ -203,7 +174,7 @@ describe(__filename, () => {
       permissions: [ADDONS_EDIT, STATIC_THEMES_REVIEW],
     });
 
-    expect(root.find('.AddonAdminLinks')).toHaveLength(1);
-    expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveLength(0);
+    expect(screen.getByText('Admin Links')).toBeInTheDocument();
+    expect(screen.queryByText('Review theme')).not.toBeInTheDocument();
   });
 });
