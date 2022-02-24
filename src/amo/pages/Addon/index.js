@@ -195,13 +195,7 @@ export class AddonBase extends React.Component {
 
     let ratingManager;
     if (addon && currentVersion) {
-      ratingManager = (
-        <RatingManager
-          addon={addon}
-          location={location}
-          version={currentVersion}
-        />
-      );
+      ratingManager = <RatingManager addon={addon} version={currentVersion} />;
     } else {
       ratingManager = (
         <p className="Addon-no-rating-manager">

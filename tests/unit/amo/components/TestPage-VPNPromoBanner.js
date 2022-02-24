@@ -7,10 +7,9 @@ import {
   EXPERIMENT_CONFIG,
   VARIANT_SHOW,
 } from 'amo/experiments/20210714_amo_vpn_promo';
-import { EXPERIMENT_COOKIE_NAME } from 'amo/withExperiment';
 import {
   DEFAULT_LANG_IN_TESTS,
-  createExperimentData,
+  createVPNExperimentCookie,
   dispatchClientMetadata,
   getMockConfig,
   render as defaultRender,
@@ -46,18 +45,6 @@ describe(__filename, () => {
     });
   });
 
-  // Write a cookie that will be read by withExperiment to allow the banner to
-  // appear on the page.
-  const createExperimentCookie = (variant) => {
-    const cookieContent = JSON.stringify(
-      createExperimentData({
-        id: EXPERIMENT_CONFIG.id,
-        variantId: variant,
-      }),
-    );
-    document.cookie = `${EXPERIMENT_COOKIE_NAME}=${cookieContent}; path=/`;
-  };
-
   const render = ({
     clientApp = CLIENT_APP_FIREFOX,
     lang = DEFAULT_LANG_IN_TESTS,
@@ -69,7 +56,7 @@ describe(__filename, () => {
       return fakeConfig[key];
     });
     dispatchClientMetadata({ store, clientApp, lang, regionCode });
-    createExperimentCookie(variant);
+    createVPNExperimentCookie(variant);
 
     return defaultRender(<Page {...props} />, { store });
   };

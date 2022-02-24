@@ -24,40 +24,6 @@ Enzyme.configure({ adapter: new Adapter() });
 // FIXME: Server tests should be be ran w/ `testEnvironment: 'node'`.
 global.setImmediate = setImmediate;
 
-class LocalStorageMock {
-  constructor() {
-    this.store = {};
-  }
-
-  clear() {
-    Object.keys(this.store).forEach((key) => {
-      delete this.store[key];
-    });
-  }
-
-  getItem(key) {
-    return this.store[key] || null;
-  }
-
-  setItem(key, value) {
-    this.store[key] = value;
-  }
-
-  removeItem(key) {
-    delete this.store[key];
-  }
-
-  key(index) {
-    const keys = Object.keys(this.store);
-    return keys[index] || null;
-  }
-
-  get length() {
-    return Object.keys(this.store).length;
-  }
-}
-global.localStorage = new LocalStorageMock();
-
 const localesMyAppSupports = ['de', 'fr'];
 
 if (global.Intl) {

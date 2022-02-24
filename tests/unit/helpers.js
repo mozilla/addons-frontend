@@ -53,6 +53,7 @@ import * as coreApi from 'amo/api';
 import { getAddonStatus } from 'amo/addonManager';
 import App from 'amo/components/App';
 import { ErrorHandler } from 'amo/errorHandler';
+import { EXPERIMENT_CONFIG } from 'amo/experiments/20210714_amo_vpn_promo';
 import { makeI18n } from 'amo/i18n/utils';
 import { createGroupedRatings, createInternalAddon } from 'amo/reducers/addons';
 import {
@@ -64,6 +65,7 @@ import { searchLoad, searchStart } from 'amo/reducers/search';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
 import { createInternalVersion } from 'amo/reducers/versions';
 import defaultSagas from 'amo/sagas';
+import { EXPERIMENT_COOKIE_NAME } from 'amo/withExperiment';
 // eslint-disable-next-line import/default
 import prodConfig from 'config/default';
 import testConfig from 'config/test';
@@ -559,11 +561,10 @@ export function createStubErrorHandler(capturedError = null) {
 export function createCapturedErrorHandler({
   code,
   detail = 'Unknown error',
+  id = 'error-handler-id',
   status = 400,
   store = createStore().store,
 }) {
-  const id = 'error-handler-id';
-
   const error = createApiError({
     response: { status },
     apiURL: 'https://some/api/endpoint',
@@ -1729,4 +1730,16 @@ export const loadAddonsByAuthors = ({
       pageSize,
     }),
   );
+};
+
+// Write a cookie that will be read by withExperiment to allow the banner to
+// appear on the page.
+export const createVPNExperimentCookie = (variant) => {
+  const cookieContent = JSON.stringify(
+    createExperimentData({
+      id: EXPERIMENT_CONFIG.id,
+      variantId: variant,
+    }),
+  );
+  document.cookie = `${EXPERIMENT_COOKIE_NAME}=${cookieContent}; path=/`;
 };
