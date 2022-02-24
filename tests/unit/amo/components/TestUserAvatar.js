@@ -70,6 +70,6 @@ describe(__filename, () => {
     const preview = 'https://example.org/image.jpg';
     render({ altText, preview });
 
-    expect(screen.getByTagName('img')).toHaveAttribute('alt', altText);
+    expect(screen.getByAltText(altText)).toHaveAttribute('src', preview);
   });
 });
