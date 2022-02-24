@@ -1,46 +1,43 @@
 import * as React from 'react';
 
-import AddonTitle, { AddonTitleBase } from 'amo/components/AddonTitle';
-import Link from 'amo/components/Link';
+import AddonTitle from 'amo/components/AddonTitle';
 import { getAddonURL } from 'amo/utils';
-import LoadingText from 'amo/components/LoadingText';
 import {
   createInternalAddonWithLang,
   createLocalizedString,
   dispatchClientMetadata,
   fakeAddon,
-  fakeI18n,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
   const render = (props = {}) => {
-    return shallowUntilTarget(
-      <AddonTitle
-        i18n={fakeI18n()}
-        store={dispatchClientMetadata().store}
-        {...props}
-      />,
-      AddonTitleBase,
-    );
+    return defaultRender(<AddonTitle {...props} />, { store });
   };
 
-  it('renders a LoadingText component when add-on is passed', () => {
-    const root = render({ addon: null });
+  it('renders LoadingText when no add-on is passed', () => {
+    render({ addon: null });
 
-    expect(root.find(LoadingText)).toHaveLength(1);
+    expect(screen.getByClassName('LoadingText')).toBeInTheDocument();
   });
 
   it('renders the name of the add-on', () => {
     const name = 'some addon name';
-    const root = render({
+    render({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
         name: createLocalizedString(name),
       }),
     });
 
-    expect(root).toIncludeText(name);
+    expect(screen.getByRole('heading')).toHaveTextContent(name);
   });
 
   it('renders a single author', () => {
@@ -49,13 +46,12 @@ describe(__filename, () => {
       id: 123,
     };
 
-    const root = render({
+    render({
       addon: createInternalAddonWithLang({ ...fakeAddon, authors: [author] }),
     });
 
-    expect(root.find(Link)).toHaveLength(1);
-    expect(root.find(Link)).toHaveProp('children', author.name);
-    expect(root.find(Link)).toHaveProp('to', `/user/${author.id}/`);
+    const link = screen.getByRole('link', { name: author.name });
+    expect(link).toHaveAttribute('href', `/en-US/android/user/${author.id}/`);
   });
 
   it('renders multiple authors', () => {
@@ -70,64 +66,55 @@ describe(__filename, () => {
       id: 102,
     };
 
-    const root = render({
+    render({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
         authors: [author1, author2],
       }),
     });
 
-    expect(root.find(Link)).toHaveLength(2);
-    expect(root.find(Link).at(1)).toHaveProp('children', author2.name);
-    expect(root.find(Link).at(1)).toHaveProp('to', `/user/${author2.id}/`);
+    expect(screen.getAllByRole('link')).toHaveLength(2);
+    const link1 = screen.getByRole('link', { name: author1.name });
+    expect(link1).toHaveAttribute('href', `/en-US/android/user/${author1.id}/`);
+    const link2 = screen.getByRole('link', { name: author2.name });
+    expect(link2).toHaveAttribute('href', `/en-US/android/user/${author2.id}/`);
 
-    const authors = root.find('.AddonTitle-author');
-
-    // First child should be a whitespace
-    expect(authors.childAt(0).text()).toEqual(' ');
-    // Second child should be the "by"
-    expect(authors.childAt(1).text()).toEqual('by');
-    // Then it should be the empty space between "by" and the links
-    expect(authors.childAt(2).text()).toEqual(' ');
-    // Then it should be a Link
-    expect(authors.childAt(3)).toHaveProp('to');
-    expect(authors.childAt(3)).toHaveProp('children', author1.name);
-    expect(authors.childAt(3)).toHaveProp('to', `/user/${author1.id}/`);
-    // Then, it should be a separator (comma)
-    expect(authors.childAt(4).text()).toEqual(', ');
-    // Then, it should be the second Link
-    expect(authors.childAt(5)).toHaveProp('to');
-    expect(authors.childAt(5)).toHaveProp('children', author2.name);
-    expect(authors.childAt(5)).toHaveProp('to', `/user/${author2.id}/`);
+    expect(
+      screen.getByTextInDocument(` by ${author1.name}, ${author2.name}`),
+    ).toBeInTheDocument();
   });
 
   it('renders without authors', () => {
     const addon = createInternalAddonWithLang({ ...fakeAddon, authors: null });
-    const root = render({ addon });
+    render({ addon });
 
     // This makes sure only the add-on name is displayed.
-    expect(root.text()).toEqual(addon.name);
+    expect(screen.getByRole('heading')).toHaveTextContent(addon.name);
+    expect(
+      screen.queryByClassName('AddonTitle-author'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders an author without url', () => {
-    const root = render({
+    const name = 'Bob';
+    render({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
         authors: [
           {
-            name: 'Krupa',
+            name,
             url: null,
           },
         ],
       }),
     });
 
-    expect(root).toIncludeText('Krupa');
-    expect(root.find(Link)).toHaveLength(0);
+    expect(screen.getByText(`by ${name}`)).toBeInTheDocument();
+    expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 
   it('sanitizes a title', () => {
-    const root = render({
+    render({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
         name: createLocalizedString('<script>alert(document.cookie);</script>'),
@@ -135,15 +122,12 @@ describe(__filename, () => {
       }),
     });
 
-    // Make sure an actual script tag was not created.
-    expect(root.find('h1 script')).toHaveLength(0);
-    // Make sure the script removed.
-    expect(root.find('h1').html()).not.toContain('<script>');
+    expect(screen.queryByTagName('script')).not.toBeInTheDocument();
   });
 
   it('handles RTL mode', () => {
     // `fa` is a RTL language.
-    const { store } = dispatchClientMetadata({ lang: 'fa' });
+    dispatchClientMetadata({ lang: 'fa', store });
 
     const author1 = {
       ...fakeAddon.authors[0],
@@ -156,74 +140,76 @@ describe(__filename, () => {
       id: 102,
     };
 
-    const root = render({
+    render({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
         authors: [author1, author2],
       }),
-      store,
     });
 
-    const authors = root.find('.AddonTitle-author');
+    expect(screen.getAllByRole('link')).toHaveLength(2);
+    const link1 = screen.getByRole('link', { name: author1.name });
+    expect(link1).toHaveAttribute('href', `/fa/android/user/${author1.id}/`);
+    const link2 = screen.getByRole('link', { name: author2.name });
+    expect(link2).toHaveAttribute('href', `/fa/android/user/${author2.id}/`);
 
-    // First child should be a whitespace
-    expect(authors.childAt(0).text()).toEqual(' ');
-    // Second child should be a Link
-    expect(authors.childAt(1)).toHaveProp('children', author1.name);
-    expect(authors.childAt(1)).toHaveProp('to', `/user/${author1.id}/`);
-    // Then, it should be a separator (comma)
-    expect(authors.childAt(2).text()).toEqual(' ,');
-    // Then it should be a second Link
-    expect(authors.childAt(3)).toHaveProp('children', author2.name);
-    expect(authors.childAt(3)).toHaveProp('to', `/user/${author2.id}/`);
-    // Then it should be the empty space between "by" and the links
-    expect(authors.childAt(4).text()).toEqual(' ');
-    // Finally, it should be the "by"
-    expect(authors.childAt(5).text()).toEqual('by');
+    expect(screen.getByClassName('AddonTitle-author')).toHaveTextContent(
+      `${author1.name} ,${author2.name} by`,
+    );
   });
 
   it('does not link to the add-on detail page when the "linkToAddon" prop is false', () => {
     const addon = createInternalAddonWithLang(fakeAddon);
-    const root = render({ addon, linkToAddon: false });
+    render({ addon, linkToAddon: false });
 
-    expect(root.find(Link)).toHaveLength(1);
+    // Only the author link should appear.
+    expect(screen.getAllByRole('link')).toHaveLength(1);
+    expect(
+      screen.getByRole('link', { name: addon.authors[0].name }),
+    ).toHaveAttribute('href', `/en-US/android/user/${addon.authors[0].id}/`);
   });
 
   it('links to the add-on detail page when the "linkToAddon" prop is true', () => {
     const addon = createInternalAddonWithLang(fakeAddon);
-    const root = render({ addon, linkToAddon: true });
+    render({ addon, linkToAddon: true });
 
-    expect(root.find(Link)).toHaveLength(2);
-    expect(root.find(Link).at(0)).toHaveProp('children', addon.name);
-    expect(root.find(Link).at(0)).toHaveProp('to', getAddonURL(addon.slug));
+    expect(screen.getAllByRole('link')).toHaveLength(2);
+    expect(screen.getByRole('link', { name: addon.name })).toHaveAttribute(
+      'href',
+      `/en-US/android${getAddonURL(addon.slug)}`,
+    );
+    expect(
+      screen.getByRole('link', { name: addon.authors[0].name }),
+    ).toHaveAttribute('href', `/en-US/android/user/${addon.authors[0].id}/`);
   });
 
   it('renders with a h1 tag by default', () => {
-    const root = render();
+    render();
 
-    expect(root.find('h1.AddonTitle')).toHaveLength(1);
+    expect(screen.getByRole('heading')).toBeInTheDocument();
   });
 
   it("renders the element tag that is specified by the 'as' prop", () => {
-    const root = render({ as: 'span' });
+    const addon = createInternalAddonWithLang(fakeAddon);
+    render({ addon, as: 'span' });
 
-    expect(root.find('h1')).toHaveLength(0);
-    expect(root.find('span.AddonTitle')).toHaveLength(1);
+    expect(screen.queryByRole('heading')).not.toBeInTheDocument();
+    expect(screen.getAllByTagName('span')[0]).toHaveTextContent(addon.name);
   });
 
   it('accepts some query params for attribution to append to the add-on URL', () => {
     const queryParamsForAttribution = { some: 'value' };
     const addon = createInternalAddonWithLang(fakeAddon);
 
-    const root = render({
+    render({
       addon,
       linkToAddon: true,
       queryParamsForAttribution,
     });
 
-    expect(root.find(Link).at(0)).toHaveProp(
-      'to',
-      `${getAddonURL(addon.slug)}?some=value`,
+    expect(screen.getByRole('link', { name: addon.name })).toHaveAttribute(
+      'href',
+      `/en-US/android${getAddonURL(addon.slug)}?some=value`,
     );
   });
 });

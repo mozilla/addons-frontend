@@ -1,98 +1,142 @@
 import * as React from 'react';
-import { Helmet } from 'react-helmet';
+import { waitFor } from '@testing-library/react';
 
-import HeadMetaTags, { HeadMetaTagsBase } from 'amo/components/HeadMetaTags';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
+  createHistory,
   dispatchClientMetadata,
-  fakeI18n,
   getFakeConfig,
-  shallowUntilTarget,
+  getElement,
+  getElements,
+  render as defaultRender,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = (props = {}) => {
-    const allProps = {
-      i18n: fakeI18n(),
-      store: dispatchClientMetadata().store,
-      ...props,
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
+  const render = ({ location, ...props } = {}) => {
+    const renderOptions = {
+      history: createHistory({
+        initialEntries: [location || '/'],
+      }),
+      store,
     };
 
-    return shallowUntilTarget(<HeadMetaTags {...allProps} />, HeadMetaTagsBase);
+    return defaultRender(<HeadMetaTags {...props} />, renderOptions);
   };
 
-  it('renders a Helmet component', () => {
-    const root = render();
-
-    expect(root.find(Helmet)).toHaveLength(1);
-  });
-
-  it('renders a description meta tag', () => {
+  it('renders a description meta tag', async () => {
     const description = 'page desc here';
 
-    const root = render({ description });
+    render({ description });
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-  });
+    // Without the waitFor, the meta tags have not rendered into the head yet.
+    await waitFor(() =>
+      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
+    );
 
-  it('does not render a "description" meta tag when description is not defined', () => {
-    const root = render({ description: undefined });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(0);
-  });
-
-  it('does not render a "description" meta tag when description is null', () => {
-    const root = render({ description: null });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(0);
-  });
-
-  it('renders a "date" meta tag', () => {
-    const date = Date.now();
-
-    const root = render({ date });
-
-    expect(root.find('meta[name="date"]')).toHaveLength(1);
-    expect(root.find('meta[name="date"]')).toHaveProp('content', date);
-  });
-
-  it('does not render a "date" meta tag when date is not defined', () => {
-    const root = render({ date: undefined });
-
-    expect(root.find('meta[name="date"]')).toHaveLength(0);
-  });
-
-  it('does not render a "date" meta tag when date is null', () => {
-    const root = render({ date: null });
-
-    expect(root.find('meta[name="date"]')).toHaveLength(0);
-  });
-
-  it('renders a "last-modified" meta tag', () => {
-    const lastModified = Date.now();
-
-    const root = render({ lastModified });
-
-    expect(root.find('meta[name="last-modified"]')).toHaveLength(1);
-    expect(root.find('meta[name="last-modified"]')).toHaveProp(
+    expect(getElement('meta[name="description"]')).toHaveAttribute(
       'content',
-      lastModified,
+      description,
     );
   });
 
-  it('does not render a "last-modified" meta tag when lastModified is not defined', () => {
-    const root = render({ lastModified: undefined });
+  it('does not render a "description" meta tag when description is not defined', async () => {
+    render({ description: undefined });
 
-    expect(root.find('meta[name="last-modified"]')).toHaveLength(0);
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements('meta[name="description"]')).toHaveLength(0);
   });
 
-  it('does not render a "last-modified" meta tag when lastModified is null', () => {
-    const root = render({ lastModified: null });
+  it('does not render a "description" meta tag when description is null', async () => {
+    render({ description: null });
 
-    expect(root.find('meta[name="last-modified"]')).toHaveLength(0);
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements('meta[name="description"]')).toHaveLength(0);
   });
 
-  it('renders Open Graph meta tags', () => {
+  it('renders a "date" meta tag', async () => {
+    const date = Date.now();
+
+    render({ date });
+
+    await waitFor(() =>
+      expect(getElement('meta[name="date"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement('meta[name="date"]')).toHaveAttribute(
+      'content',
+      String(date),
+    );
+  });
+
+  it('does not render a "date" meta tag when date is not defined', async () => {
+    render({ date: undefined });
+
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements('meta[name="date"]')).toHaveLength(0);
+  });
+
+  it('does not render a "date" meta tag when date is null', async () => {
+    render({ date: null });
+
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements('meta[name="date"]')).toHaveLength(0);
+  });
+
+  it('renders a "last-modified" meta tag', async () => {
+    const lastModified = Date.now();
+
+    render({ lastModified });
+
+    await waitFor(() =>
+      expect(getElement('meta[name="last-modified"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement('meta[name="last-modified"]')).toHaveAttribute(
+      'content',
+      String(lastModified),
+    );
+  });
+
+  it('does not render a "last-modified" meta tag when lastModified is not defined', async () => {
+    render({ lastModified: undefined });
+
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements('meta[name="last-modified"]')).toHaveLength(0);
+  });
+
+  it('does not render a "last-modified" meta tag when lastModified is null', async () => {
+    render({ lastModified: null });
+
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements('meta[name="last-modified"]')).toHaveLength(0);
+  });
+
+  it('renders Open Graph meta tags', async () => {
     const baseURL = 'https://example.org';
     const _config = getFakeConfig({ baseURL });
 
@@ -102,9 +146,14 @@ describe(__filename, () => {
 
     const lang = 'fr';
     const pathname = '/foo';
-    const { store } = dispatchClientMetadata({ lang, pathname });
+    dispatchClientMetadata({ lang, store });
+    const location = pathname;
 
-    const root = render({ _config, description, image, title, store });
+    render({ _config, description, image, title, location });
+
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
 
     [
       ['og:description', description],
@@ -113,103 +162,148 @@ describe(__filename, () => {
       ['og:type', 'website'],
       ['og:url', `${baseURL}${pathname}`],
     ].forEach(([property, expectedValue]) => {
-      expect(root.find(`meta[property="${property}"]`)).toHaveProp(
+      expect(getElement(`meta[property="${property}"]`)).toHaveAttribute(
         'content',
         expectedValue,
       );
     });
 
-    expect(root.find(`meta[property="og:title"]`)).toHaveLength(1);
-    expect(root.find(`meta[property="og:title"]`).prop('content')).toContain(
-      title,
+    expect(getElement('meta[property="og:title"]')).toHaveAttribute(
+      'content',
+      expect.stringMatching(new RegExp(title)),
     );
   });
 
-  it('renders a default image in "og:image" meta tag when image is null', () => {
-    const root = render({ image: null });
+  it('renders a default image in "og:image" meta tag when image is null', async () => {
+    render({ image: null });
 
-    expect(root.find(`meta[property="og:image"]`)).toHaveProp(
+    await waitFor(() =>
+      expect(getElement('meta[property="og:image"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement(`meta[property="og:image"]`)).toHaveAttribute(
       'content',
       'default-og-image.png',
     );
   });
 
-  it('renders a default image in "og:image" meta tag when image is not defined', () => {
-    const root = render({ image: undefined });
+  it('renders a default image in "og:image" meta tag when image is not defined', async () => {
+    render({ image: undefined });
 
-    expect(root.find(`meta[property="og:image"]`)).toHaveProp(
+    await waitFor(() =>
+      expect(getElement('meta[property="og:image"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement(`meta[property="og:image"]`)).toHaveAttribute(
       'content',
       'default-og-image.png',
     );
   });
 
-  it('does not render a "og:description" meta tag when description is null', () => {
-    const root = render({ description: null });
+  it('does not render a "og:description" meta tag when description is null', async () => {
+    render({ description: null });
 
-    expect(root.find(`meta[property="og:description"]`)).toHaveLength(0);
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements(`meta[property="og:description"]`)).toHaveLength(0);
   });
 
-  it('does not render a "og:description" meta tag when description is not defined', () => {
-    const root = render({ description: undefined });
+  it('does not render a "og:description" meta tag when description is not defined', async () => {
+    render({ description: undefined });
 
-    expect(root.find(`meta[property="og:description"]`)).toHaveLength(0);
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements(`meta[property="og:description"]`)).toHaveLength(0);
   });
 
-  it('does not append the default title in the "og:title" meta tag when `appendDefaultTitle` is `false`', () => {
+  it('does not append the default title in the "og:title" meta tag when `appendDefaultTitle` is `false`', async () => {
     const title = 'some title';
 
-    const root = render({ title, appendDefaultTitle: false });
+    render({ title, appendDefaultTitle: false });
 
-    expect(root.find(`meta[property="og:title"]`).prop('content')).toEqual(
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement(`meta[property="og:title"]`)).toHaveAttribute(
+      'content',
       title,
     );
   });
 
   it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
     'appends a default %s title in the "og:title" meta tag when title is supplied',
-    (clientApp) => {
+    async (clientApp) => {
       const title = 'some title';
       const lang = 'fr';
-      const { store } = dispatchClientMetadata({ clientApp, lang });
+      dispatchClientMetadata({ clientApp, lang, store });
 
-      const root = render({ store, title });
+      render({ title });
 
-      expect(root.find(`meta[property="og:title"]`).prop('content')).toMatch(
-        new RegExp(`^${title} – Add-ons for Firefox( Android)? \\(${lang}\\)$`),
+      await waitFor(() =>
+        expect(getElement('meta[property="og:title"]')).toBeInTheDocument(),
+      );
+
+      expect(getElement('meta[property="og:title"]')).toHaveAttribute(
+        'content',
+        expect.stringMatching(
+          new RegExp(
+            `^${title} – Add-ons for Firefox( Android)? \\(${lang}\\)$`,
+          ),
+        ),
       );
     },
   );
 
   it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
     'uses the default %s title in the "og:title" meta tag when title is not supplied',
-    (clientApp) => {
+    async (clientApp) => {
       const lang = 'fr';
-      const { store } = dispatchClientMetadata({ clientApp, lang });
+      dispatchClientMetadata({ clientApp, lang, store });
 
-      const root = render({ store, title: null });
+      render({ title: null });
 
-      expect(root.find(`meta[property="og:title"]`).prop('content')).toMatch(
-        new RegExp(`^Add-ons for Firefox( Android)? \\(${lang}\\)$`),
+      await waitFor(() =>
+        expect(getElement('meta[property="og:title"]')).toBeInTheDocument(),
+      );
+
+      expect(getElement(`meta[property="og:title"]`)).toHaveAttribute(
+        'content',
+        expect.stringMatching(
+          new RegExp(`^Add-ons for Firefox( Android)? \\(${lang}\\)$`),
+        ),
       );
     },
   );
 
-  it('does not render Twitter meta tags by default', () => {
-    const root = render();
+  it('does not render Twitter meta tags by default', async () => {
+    render();
+
+    await waitFor(() =>
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
+    );
 
     ['twitter:site', 'twitter:card'].forEach((name) => {
-      expect(root.find(`meta[name="${name}"]`)).toHaveLength(0);
+      expect(getElements(`meta[name="${name}"]`)).toHaveLength(0);
     });
   });
 
-  it('renders Twitter meta tags when withTwitterMeta is true', () => {
-    const root = render({ withTwitterMeta: true });
+  it('renders Twitter meta tags when withTwitterMeta is true', async () => {
+    render({ withTwitterMeta: true });
+
+    await waitFor(() =>
+      expect(getElement('meta[name="twitter:site"]')).toBeInTheDocument(),
+    );
 
     [
       ['twitter:site', '@mozamo'],
       ['twitter:card', 'summary_large_image'],
     ].forEach(([name, expectedValue]) => {
-      expect(root.find(`meta[name="${name}"]`)).toHaveProp(
+      expect(getElement(`meta[name="${name}"]`)).toHaveAttribute(
         'content',
         expectedValue,
       );
