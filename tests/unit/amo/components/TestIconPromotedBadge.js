@@ -16,7 +16,7 @@ describe(__filename, () => {
   it.each([
     ['IconPromotedBadge-large', 'large'],
     ['IconPromotedBadge-small', 'small'],
-  ])('adds the class "%s" for size="%s" RTL', (className, size) => {
+  ])('adds the class "%s" for size="%s"', (className, size) => {
     const { root } = render({ size });
 
     expect(root).toHaveClass(className);
@@ -45,7 +45,7 @@ describe(__filename, () => {
     },
   );
 
-  it('adds a custom class RTL', () => {
+  it('adds a custom class', () => {
     const className = 'MyCoolBadge';
     const { root } = render({ className });
 
@@ -57,7 +57,7 @@ describe(__filename, () => {
     ['recommended', 'Recommended'],
     ['verified', 'Verified'],
   ])(
-    'adds an alt property for category="%s" when showAlt is true RTL',
+    'adds an alt property for category="%s" when showAlt is true',
     (category, alt) => {
       render({ category, showAlt: true });
 
@@ -75,7 +75,7 @@ describe(__filename, () => {
   });
 
   it.each(['recommended', 'verified'])(
-    'sets the icon with category="%s" to inline content RTL',
+    'sets the icon with category="%s" to inline content',
     (category) => {
       const { root } = render({ category });
 
@@ -83,7 +83,7 @@ describe(__filename, () => {
     },
   );
 
-  it('does not use inline-content but a real icon (image) for the category="line" RTL', () => {
+  it('does not use inline-content but a real icon (image) for the category="line"', () => {
     const { root } = render({ category: 'line' });
 
     expect(root).toHaveClass('Icon-line');
