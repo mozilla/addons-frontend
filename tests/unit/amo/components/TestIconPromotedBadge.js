@@ -1,44 +1,36 @@
 import * as React from 'react';
 
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
-import Icon from 'amo/components/Icon';
-import IconPromotedBadge, {
-  IconPromotedBadgeBase,
-  paths,
-} from 'amo/components/IconPromotedBadge';
+import IconPromotedBadge, { paths } from 'amo/components/IconPromotedBadge';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = (moreProps = {}) => {
     const props = {
       category: 'line',
-      i18n: fakeI18n(),
       size: 'large',
       ...moreProps,
     };
-    return shallowUntilTarget(
-      <IconPromotedBadge {...props} />,
-      IconPromotedBadgeBase,
-    );
+    return defaultRender(<IconPromotedBadge {...props} />);
   };
 
   it.each([
     ['IconPromotedBadge-large', 'large'],
     ['IconPromotedBadge-small', 'small'],
   ])('adds the class "%s" for size="%s"', (className, size) => {
-    const root = render({ size });
+    const { root } = render({ size });
 
-    expect(root).toHaveClassName(className);
+    expect(root).toHaveClass(className);
   });
 
   it.each(['recommended', 'verified'])(
     'adds the expected classes for category="%s"',
     (category) => {
-      const root = render({ category });
+      render({ category });
 
-      expect(root.find('circle').at(0)).toHaveClassName(
+      expect(screen.getByTagName('circle')).toHaveClass(
         `IconPromotedBadge-circle-bgColor--${category}`,
       );
-      expect(root.find('path')).toHaveClassName(
+      expect(screen.getByTagName('path')).toHaveClass(
         `IconPromotedBadge-iconPath--${category}`,
       );
     },
@@ -47,17 +39,17 @@ describe(__filename, () => {
   it.each(['recommended', 'verified'])(
     'uses the expected path for category="%s"',
     (category) => {
-      const root = render({ category });
+      render({ category });
 
-      expect(root.find('path')).toHaveProp('d', paths[category]);
+      expect(screen.getByTagName('path')).toHaveAttribute('d', paths[category]);
     },
   );
 
   it('adds a custom class', () => {
     const className = 'MyCoolBadge';
-    const root = render({ className });
+    const { root } = render({ className });
 
-    expect(root).toHaveClassName(className);
+    expect(root).toHaveClass(className);
   });
 
   it.each([
@@ -67,30 +59,33 @@ describe(__filename, () => {
   ])(
     'adds an alt property for category="%s" when showAlt is true',
     (category, alt) => {
-      const root = render({ category, showAlt: true });
+      render({ category, showAlt: true });
 
-      expect(root.find(Icon)).toHaveProp('alt', alt);
+      expect(screen.getByText(alt)).toBeInTheDocument();
     },
   );
 
   it('does not add an alt property showAlt is false', () => {
-    const root = render({ showAlt: false });
+    render({ showAlt: false });
 
-    expect(root.find(Icon)).toHaveProp('alt', undefined);
+    // Icon will render a <span> with a class of
+    // 'visually-hidden' if an `alt` prop was passed.
+    screen.debug();
+    expect(screen.queryByClassName('visually-hidden')).toHaveLength(0);
   });
 
   it.each(['recommended', 'verified'])(
     'sets the icon with category="%s" to inline content',
     (category) => {
-      const root = render({ category });
+      const { root } = render({ category });
 
-      expect(root).toHaveProp('name', 'inline-content');
+      expect(root).toHaveClass('Icon-inline-content');
     },
   );
 
   it('does not use inline-content but a real icon (image) for the category="line"', () => {
-    const root = render({ category: 'line' });
+    const { root } = render({ category: 'line' });
 
-    expect(root).toHaveProp('name', 'line');
+    expect(root).toHaveClass('Icon-line');
   });
 });

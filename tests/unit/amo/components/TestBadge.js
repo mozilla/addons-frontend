@@ -1,45 +1,53 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Badge from 'amo/components/Badge';
-import Icon from 'amo/components/Icon';
+import { render, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('renders a badge', () => {
-    const badge = shallow(<Badge label="super badge" />);
+    const label = 'badge label';
+    const { root } = render(<Badge label={label} />);
 
-    expect(badge).toHaveClassName('Badge');
-    expect(badge.find(Icon)).toHaveLength(0);
-    expect(badge.children()).toIncludeText('super badge');
+    expect(root).toHaveClass('Badge');
+    expect(screen.queryByClassName('Icon')).toHaveLength(0);
+    expect(screen.getByText(label)).toBeInTheDocument();
   });
 
   it('can override the icon label', () => {
-    const badge = shallow(<Badge type="experimental" label="foo" />);
+    const label = 'foo';
+    render(<Badge type="experimental" label={label} />);
 
-    expect(badge.find(Icon)).toHaveProp('alt', 'foo');
+    // The label will appear twice because of the output of Icon.
+    expect(screen.getAllByText(label)).toHaveLength(2);
   });
 
   it('displays the experimental badge icon for type `experimental`', () => {
-    const badge = shallow(<Badge type="experimental" label="experimental" />);
+    const label = 'experimental';
+    const { root } = render(<Badge type="experimental" label={label} />);
 
-    expect(badge).toHaveClassName('Badge');
-    expect(badge).toHaveClassName('Badge-experimental');
-    expect(badge.find(Icon)).toHaveLength(1);
-    expect(badge.find(Icon)).toHaveProp('name', 'experimental-badge');
-    expect(badge.text()).toContain('experimental');
+    expect(root).toHaveClass('Badge');
+    expect(root).toHaveClass('Badge-experimental');
+    expect(screen.getAllByText(label).length).toEqual(2);
+    expect(screen.getByClassName('Icon-experimental-badge')).toHaveTextContent(
+      label,
+    );
   });
 
   it('displays the payment required badge icon for type `requires-payment`', () => {
-    const badge = shallow(<Badge type="requires-payment" label="label text" />);
+    const label = 'label text';
+    const { root } = render(<Badge type="requires-payment" label={label} />);
 
-    expect(badge).toHaveClassName('Badge-requires-payment');
-    expect(badge.find(Icon)).toHaveProp('name', 'requires-payment');
-    expect(badge.text()).toContain('label text');
+    expect(root).toHaveClass('Badge');
+    expect(root).toHaveClass('Badge-requires-payment');
+    expect(screen.getAllByText(label).length).toEqual(2);
+    expect(screen.getByClassName('Icon-requires-payment')).toHaveTextContent(
+      label,
+    );
   });
 
   it('throws an error if invalid type is supplied', () => {
     expect(() => {
-      shallow(<Badge type="invalid" label="foo" />);
+      render(<Badge type="invalid" label="foo" />);
     }).toThrowError(/Invalid badge type given: "invalid"/);
   });
 });
