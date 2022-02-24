@@ -65,7 +65,7 @@ describe(__filename, () => {
     // they will always exist for the loaded add-on.
     expect(screen.getByText('Last updated')).toBeInTheDocument();
 
-    expect(screen.queryByClassName('LoadingText')).toHaveLength(1);
+    expect(screen.getByClassName('LoadingText')).toBeInTheDocument();
 
     // These fields will not be visible during loading
     // since they may not exist.

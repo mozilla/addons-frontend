@@ -9,7 +9,7 @@ describe(__filename, () => {
     const { root } = render(<Badge label={label} />);
 
     expect(root).toHaveClass('Badge');
-    expect(screen.queryByClassName('Icon')).toHaveLength(0);
+    expect(screen.queryByClassName('Icon')).not.toBeInTheDocument();
     expect(screen.getByText(label)).toBeInTheDocument();
   });
 

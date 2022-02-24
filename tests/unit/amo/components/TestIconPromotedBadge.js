@@ -70,8 +70,7 @@ describe(__filename, () => {
 
     // Icon will render a <span> with a class of
     // 'visually-hidden' if an `alt` prop was passed.
-    screen.debug();
-    expect(screen.queryByClassName('visually-hidden')).toHaveLength(0);
+    expect(screen.queryByClassName('visually-hidden')).not.toBeInTheDocument();
   });
 
   it.each(['recommended', 'verified'])(
