@@ -19,7 +19,6 @@ describe(__filename, () => {
   it('can pass an alt to Icon', () => {
     const alt = 'click to close';
     render({ alt });
-    screen.debug();
 
     expect(screen.getByText(alt)).toBeInTheDocument();
   });
