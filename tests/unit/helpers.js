@@ -1,4 +1,5 @@
 /* global Headers */
+/* global window */
 import urllib from 'url';
 
 import { LOCATION_CHANGE, ConnectedRouter } from 'connected-react-router';
@@ -17,6 +18,7 @@ import {
   getDefaultNormalizer,
   render as libraryRender,
   screen as libraryScreen,
+  within as libraryWithin,
 } from '@testing-library/react';
 
 import {
@@ -45,6 +47,7 @@ import {
 } from 'amo/reducers/api';
 import * as coreApi from 'amo/api';
 import { getAddonStatus } from 'amo/addonManager';
+import App from 'amo/components/App';
 import { ErrorHandler } from 'amo/errorHandler';
 import { makeI18n } from 'amo/i18n/utils';
 import { createGroupedRatings, createInternalAddon } from 'amo/reducers/addons';
@@ -570,14 +573,12 @@ export const randomId = () => {
   return Math.floor(Math.random() * 10000) + 1;
 };
 
-export function dispatchSignInActions({
+export function dispatchSignInActionsWithStore({
+  store,
   authToken = userAuthSessionId(),
   userId = 12345,
   userProps = {},
-  ...otherArgs
-} = {}) {
-  const { store } = dispatchClientMetadata(otherArgs);
-
+}) {
   store.dispatch(setAuthToken(authToken));
   store.dispatch(
     loadCurrentUserAccount({
@@ -589,6 +590,21 @@ export function dispatchSignInActions({
     store,
     state: store.getState(),
   };
+}
+
+export function dispatchSignInActions({
+  authToken = userAuthSessionId(),
+  userId = 12345,
+  userProps = {},
+  ...otherArgs
+} = {}) {
+  const { store } = dispatchClientMetadata(otherArgs);
+  return dispatchSignInActionsWithStore({
+    authToken,
+    userId,
+    userProps,
+    store,
+  });
 }
 
 export function dispatchSearchResults({
@@ -1522,6 +1538,22 @@ export const createInternalSuggestionWithLang = (
   return createInternalSuggestion(suggestion, lang);
 };
 
+export const createFailedErrorHandler = ({
+  error = new Error(),
+  id = 'some-error-handler-id',
+  message = 'An error message',
+  store,
+}) => {
+  invariant(store, 'store must be passed into createFailedErrorHandler');
+  const errorHandler = new ErrorHandler({
+    dispatch: store.dispatch,
+    id,
+  });
+  errorHandler.handle(error);
+  errorHandler.addMessage(message);
+  return errorHandler;
+};
+
 export const fakeTrackingEvent = Object.freeze({
   action: 'some-action',
   category: 'some-category',
@@ -1598,20 +1630,29 @@ const getByTagName = (container, tagName) => {
   return getByFeature(container, queryByTagName, tagName);
 };
 
-const customQueries = {
-  'getAllByClassName': getAllByClassName.bind(null, document.body),
-  'getAllByTagName': getAllByTagName.bind(null, document.body),
-  'queryAllByClassName': queryAllByClassName.bind(null, document.body),
-  'queryAllByTagName': queryAllByTagName.bind(null, document.body),
-  'getByClassName': getByClassName.bind(null, document.body),
-  'getByTagName': getByTagName.bind(null, document.body),
-  'queryByClassName': queryByClassName.bind(null, document.body),
-  'queryByTagName': queryByTagName.bind(null, document.body),
+const customQueries = (element) => {
+  return {
+    'getAllByClassName': getAllByClassName.bind(null, element),
+    'getAllByTagName': getAllByTagName.bind(null, element),
+    'queryAllByClassName': queryAllByClassName.bind(null, element),
+    'queryAllByTagName': queryAllByTagName.bind(null, element),
+    'getByClassName': getByClassName.bind(null, element),
+    'getByTagName': getByTagName.bind(null, element),
+    'queryByClassName': queryByClassName.bind(null, element),
+    'queryByTagName': queryByTagName.bind(null, element),
+  };
 };
 
 export const screen = {
   ...libraryScreen,
-  ...customQueries,
+  ...customQueries(document.body),
+};
+
+export const within = (element) => {
+  return {
+    ...libraryWithin(element),
+    ...customQueries(element),
+  };
 };
 
 const getByTextAcrossTags = (text) => {
@@ -1671,4 +1712,13 @@ export const mockMatchMedia = {
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
   })),
+};
+
+export const renderPage = (ui, options = {}) => {
+  // window.scrollTo isn't provided by jsdom, so we need to mock it.
+  window.scrollTo = jest.fn();
+
+  // Render the App component, which will use the location from options to
+  // render the correct page.
+  return render(<App>{ui}</App>, options);
 };
