@@ -752,7 +752,7 @@ describe(__filename, () => {
       _loadVersions({
         license: {
           is_custom: true,
-          name: 'tofulicense',
+          name: createLocalizedString('tofulicense'),
           url: 'www.license.com',
         },
       });
@@ -771,7 +771,7 @@ describe(__filename, () => {
         'href',
         `/en-US/android/addon/${addon.slug}/statistics/?${expectedQueryString}`,
       );
-      expect(screen.getByText('Custom License')).toHaveAttribute(
+      expect(screen.getByText('tofulicense')).toHaveAttribute(
         'href',
         `/en-US/android/addon/${addon.slug}/license/?${expectedQueryString}`,
       );
