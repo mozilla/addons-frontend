@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-20 15:31+0000\n"
+"PO-Revision-Date: 2022-02-25 12:16+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -1165,7 +1165,7 @@ msgstr "Firefox mælir aðeins með forritsaukum sem hafa verið yfirfarðir me�
 
 #: src/amo/components/HomepageShelves/index.js:75
 msgid "See more %(categoryName)s"
-msgstr "Sjá meira úr %(categoryName)s"
+msgstr "Sjá meira úr flokknum %(categoryName)s"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
