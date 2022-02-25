@@ -78,8 +78,11 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ userId });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
+    const errorHandler = createStubErrorHandler();
+
     store.dispatch(
       fetchUserCollections({
+        errorHandlerId: errorHandler.id,
         userId,
       }),
     );
