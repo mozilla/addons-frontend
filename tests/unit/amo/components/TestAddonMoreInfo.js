@@ -1,11 +1,8 @@
 import * as React from 'react';
+import { createMemoryHistory } from 'history';
 
 import { createApiError } from 'amo/api';
-import AddonAdminLinks from 'amo/components/AddonAdminLinks';
-import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
-import AddonMoreInfo, { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
-import ErrorList from 'amo/components/ErrorList';
-import Link from 'amo/components/Link';
+import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import { ErrorHandler } from 'amo/errorHandler';
 import { setClientApp } from 'amo/reducers/api';
 import { loadCategories } from 'amo/reducers/categories';
@@ -15,13 +12,13 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
+  ADDONS_EDIT,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   STATS_VIEW,
 } from 'amo/constants';
 import { formatFilesize } from 'amo/i18n/utils';
 import {
-  createContextWithFakeRouter,
   createFakeLocation,
   createInternalAddonWithLang,
   createLocalizedString,
@@ -29,14 +26,14 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
+  fakeAuthor,
   fakeCategory,
   fakeI18n,
   fakeFile,
-  fakeTheme,
   fakeVersion,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
-import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   let store;
@@ -46,42 +43,43 @@ describe(__filename, () => {
 
   function render({ location, ...props } = {}) {
     const errorHandler = createStubErrorHandler();
+    const allProps = {
+      addon: createInternalAddonWithLang(fakeAddon),
+      errorHandler,
+      ...props,
+    };
 
-    return shallowUntilTarget(
-      <AddonMoreInfo
-        addon={props.addon || createInternalAddonWithLang(fakeAddon)}
-        errorHandler={errorHandler}
-        i18n={fakeI18n()}
-        store={store}
-        {...props}
-      />,
-      AddonMoreInfoBase,
-      {
-        shallowOptions: createContextWithFakeRouter({ location }),
-      },
-    );
+    const renderOptions = { store };
+    if (location) {
+      renderOptions.history = createMemoryHistory();
+      renderOptions.history.push(location);
+    }
+
+    return defaultRender(<AddonMoreInfo {...allProps} />, renderOptions);
   }
 
   it('renders LoadingText if no add-on is present', () => {
-    const root = render({ addon: null });
+    render({ addon: null });
 
     // These fields will be visible during loading since
     // they will always exist for the loaded add-on.
-    expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(1);
+    expect(screen.getByText('Last updated')).toBeInTheDocument();
 
-    expect(root.find(LoadingText)).toHaveLength(1);
+    expect(screen.getByClassName('LoadingText')).toBeInTheDocument();
 
     // These fields will not be visible during loading
     // since they may not exist.
-    expect(root.find('.AddonMoreInfo-links')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-license')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-privacy-policy')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-version')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-version-history')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-eula')).toHaveLength(0);
+    expect(screen.queryByText('Add-on Links')).not.toBeInTheDocument();
+    expect(screen.queryByText('License')).not.toBeInTheDocument();
+    expect(screen.queryByText('Privacy Policy')).not.toBeInTheDocument();
+    expect(screen.queryByText('Version')).not.toBeInTheDocument();
+    expect(screen.queryByText('Version History')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('End-User License Agreement'),
+    ).not.toBeInTheDocument();
   });
 
-  it('renders a link <dt> if links exist', () => {
+  it('renders an "Add-on Links" heading if links exist', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
       homepage: null,
@@ -90,57 +88,51 @@ describe(__filename, () => {
         outgoing: createLocalizedString('baa.com'),
       },
     });
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find('.AddonMoreInfo-links')).toHaveProp(
-      'term',
-      'Add-on Links',
-    );
+    expect(screen.getByText('Add-on Links')).toBeInTheDocument();
   });
 
-  it('renders a link <dt> if support email exists', () => {
+  it('renders an "Add-on Links" heading if support email exists', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
       homepage: null,
       support_url: null,
       support_email: createLocalizedString('hello@foo.com'),
     });
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find('.AddonMoreInfo-links')).toHaveProp(
-      'term',
-      'Add-on Links',
-    );
+    expect(screen.getByText('Add-on Links')).toBeInTheDocument();
   });
 
-  it('does not render a link <dt> if no links exist', () => {
+  it('does not render an "Add-on Links" heading if no links exist', () => {
     const partialAddon = createInternalAddonWithLang(fakeAddon);
     delete partialAddon.homepage;
     delete partialAddon.support_email;
     delete partialAddon.support_url;
-    const root = render({ addon: partialAddon });
+    render({ addon: partialAddon });
 
-    expect(root.find('.AddonMoreInfo-links')).toHaveLength(0);
+    expect(screen.queryByText('Add-on Links')).not.toBeInTheDocument();
   });
 
   it('does not render a homepage if none exists', () => {
     const partialAddon = createInternalAddonWithLang(fakeAddon);
     delete partialAddon.homepage;
-    const root = render({ addon: partialAddon });
+    render({ addon: partialAddon });
 
-    expect(root.find('.AddonMoreInfo-homepage')).toHaveLength(0);
+    expect(screen.queryByText('Homepage')).not.toBeInTheDocument();
   });
 
-  it('does not render a link <dt> if support email is not valid', () => {
+  it('does not render an "Add-on Links" heading if support email is not valid', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
       homepage: null,
       support_url: null,
       support_email: createLocalizedString('invalid-email'),
     });
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find('.AddonMoreInfo-links')).toHaveLength(0);
+    expect(screen.queryByText('Add-on Links')).not.toBeInTheDocument();
   });
 
   it('renders the homepage of an add-on', () => {
@@ -151,20 +143,22 @@ describe(__filename, () => {
         outgoing: createLocalizedString('https://outgoing.mozilla.org/hamster'),
       },
     });
-    const root = render({ addon });
-    const link = root.find('.AddonMoreInfo-homepage-link');
+    render({ addon });
 
-    expect(link).toIncludeText('Homepage');
-    expect(link).toHaveProp('href', 'https://outgoing.mozilla.org/hamster');
-    expect(link).toHaveProp('title', 'http://hamsterdance.com/');
+    const link = screen.getByText('Homepage');
+    expect(link).toHaveAttribute(
+      'href',
+      'https://outgoing.mozilla.org/hamster',
+    );
+    expect(link).toHaveAttribute('title', 'http://hamsterdance.com/');
   });
 
   it('does not render a support link if none exists', () => {
     const partialAddon = createInternalAddonWithLang(fakeAddon);
     delete partialAddon.support_url;
-    const root = render({ addon: partialAddon });
+    render({ addon: partialAddon });
 
-    expect(root.find('.AddonMoreInfo-support-link')).toHaveLength(0);
+    expect(screen.queryByText('Support site')).not.toBeInTheDocument();
   });
 
   it('renders the support link of an add-on', () => {
@@ -175,12 +169,14 @@ describe(__filename, () => {
         outgoing: createLocalizedString('https://outgoing.mozilla.org/hamster'),
       },
     });
-    const root = render({ addon });
-    const link = root.find('.AddonMoreInfo-support-link');
+    render({ addon });
 
-    expect(link).toIncludeText('Support site');
-    expect(link).toHaveProp('href', 'https://outgoing.mozilla.org/hamster');
-    expect(link).toHaveProp('title', 'http://support.hamsterdance.com/');
+    const link = screen.getByText('Support site');
+    expect(link).toHaveAttribute(
+      'href',
+      'https://outgoing.mozilla.org/hamster',
+    );
+    expect(link).toHaveAttribute('title', 'http://support.hamsterdance.com/');
   });
 
   it('renders the email link of an add-on', () => {
@@ -188,11 +184,10 @@ describe(__filename, () => {
       ...fakeAddon,
       support_email: createLocalizedString('ba@bar.com'),
     });
-    const root = render({ addon });
-    const link = root.find('.AddonMoreInfo-support-email');
+    render({ addon });
 
-    expect(link).toIncludeText('Support Email');
-    expect(link).toHaveProp('href', 'mailto:ba@bar.com');
+    const link = screen.getByText('Support Email');
+    expect(link).toHaveAttribute('href', 'mailto:ba@bar.com');
   });
 
   const _loadVersions = (versionProps = {}) => {
@@ -211,9 +206,10 @@ describe(__filename, () => {
 
   it('renders the version number of an add-on', () => {
     _loadVersions({ version: '2.0.1' });
-    const root = render();
+    render();
 
-    expect(root.find('.AddonMoreInfo-version').children()).toHaveText('2.0.1');
+    expect(screen.getByText('Version')).toBeInTheDocument();
+    expect(screen.getByText('2.0.1')).toBeInTheDocument();
   });
 
   it('renders file size of an add-on', () => {
@@ -224,11 +220,12 @@ describe(__filename, () => {
         size,
       },
     });
-    const root = render();
+    render();
 
-    expect(root.find('.AddonMoreInfo-filesize').children()).toHaveText(
-      formatFilesize({ size, i18n: fakeI18n() }),
-    );
+    expect(screen.getByText('Size')).toBeInTheDocument();
+    expect(
+      screen.getByText(formatFilesize({ size, i18n: fakeI18n() })),
+    ).toBeInTheDocument();
   });
 
   it('renders a non-custom license and link', () => {
@@ -241,12 +238,11 @@ describe(__filename, () => {
         url: licenseUrl,
       },
     });
-    const root = render();
-    const link = root.find('.AddonMoreInfo-license-link');
+    render();
 
-    expect(root.find('.AddonMoreInfo-license')).toHaveProp('term', 'License');
-    expect(link.children()).toIncludeText(licenseName);
-    expect(link).toHaveProp('href', licenseUrl);
+    expect(screen.getByText('License')).toBeInTheDocument();
+    const link = screen.getByText(licenseName);
+    expect(link).toHaveAttribute('href', licenseUrl);
   });
 
   it('renders a custom license link', () => {
@@ -259,63 +255,68 @@ describe(__filename, () => {
         url: 'http://license.com/',
       },
     });
+    render({ addon });
 
-    const root = render({ addon });
-    const link = root.find('.AddonMoreInfo-license-link');
-
-    expect(root.find('.AddonMoreInfo-license')).toHaveProp('term', 'License');
-    expect(link.children()).toIncludeText(licenseName);
-    expect(link).toHaveProp('to', `/addon/${addon.slug}/license/`);
+    expect(screen.getByText('License')).toBeInTheDocument();
+    const link = screen.getByText(licenseName);
+    expect(link).toHaveAttribute(
+      'href',
+      `/en-US/android/addon/${addon.slug}/license/`,
+    );
   });
 
   it('renders a default name when the license name is null', () => {
-    _loadVersions({ license: { name: null, url: 'some-url' } });
+    const url = 'some-url';
+    _loadVersions({ license: { name: null, url } });
+    render();
 
-    const root = render();
-
-    const license = root.find('.AddonMoreInfo-license-link');
-    expect(license).toHaveLength(1);
-    expect(license.children()).toIncludeText('Custom License');
+    expect(screen.getByText('License')).toBeInTheDocument();
+    const link = screen.getByText('Custom License');
+    expect(link).toHaveAttribute('href', url);
   });
 
   it('renders a default name when the license name and url are null', () => {
     _loadVersions({ license: { name: null, url: null } });
+    render();
 
-    const root = render();
-
-    const license = root.find('.AddonMoreInfo-license-name');
-    expect(license).toHaveLength(1);
-    expect(license.children()).toIncludeText('Custom License');
-    expect(root.find('.AddonMoreInfo-license-link')).toHaveLength(0);
+    expect(screen.getByText('License')).toBeInTheDocument();
+    const licenseDd = screen.getByText('Custom License');
+    expect(licenseDd).not.toHaveAttribute('href');
   });
 
   it('renders the license info without a link if the url is null', () => {
     _loadVersions({
       license: { name: createLocalizedString('justText'), url: null },
     });
-    const root = render();
-    expect(root.find('.AddonMoreInfo-license-link')).toHaveLength(0);
+    render();
 
-    const link = root.find('.AddonMoreInfo-license-name');
-    expect(link.children()).toIncludeText('justText');
+    const licenseDd = screen.getByText('justText');
+    expect(licenseDd).not.toHaveAttribute('href');
   });
 
   it('does not render any license info if the license is null', () => {
     _loadVersions({ license: null });
-    const root = render();
-    expect(root.find('.AddonMoreInfo-license')).toHaveLength(0);
+    render();
+
+    expect(screen.queryByText('License')).not.toBeInTheDocument();
   });
 
   it('does not prefix a non-custom license link to point to AMO', () => {
     // See: https://github.com/mozilla/addons-frontend/issues/3339
+    const licenseName = 'some license';
+    const url = 'www.license.com/';
     _loadVersions({
-      license: { name: 'tofulicense', url: 'www.license.com/' },
+      license: {
+        name: createLocalizedString(licenseName),
+        url,
+      },
     });
-    const root = render();
-    const link = root.find('.AddonMoreInfo-license-link');
+    render();
 
-    expect(link).toHaveProp('prependClientApp', false);
-    expect(link).toHaveProp('prependLang', false);
+    expect(screen.getByText('License')).toBeInTheDocument();
+    const link = screen.getByText(licenseName);
+    // We don't expect lang or app to be prepended.
+    expect(link).toHaveAttribute('href', url);
   });
 
   it('does not render a privacy policy if none exists', () => {
@@ -323,9 +324,9 @@ describe(__filename, () => {
       ...fakeAddon,
       has_privacy_policy: false,
     });
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find('.AddonMoreInfo-privacy-policy')).toHaveLength(0);
+    expect(screen.queryByText('Privacy Policy')).not.toBeInTheDocument();
   });
 
   it('renders the privacy policy and link', () => {
@@ -333,17 +334,14 @@ describe(__filename, () => {
       ...fakeAddon,
       has_privacy_policy: true,
     });
-    const root = render({ addon });
-    const link = root.find('.AddonMoreInfo-privacy-policy').find(Link);
+    render({ addon });
 
-    expect(root.find('.AddonMoreInfo-privacy-policy')).toHaveProp(
-      'term',
-      'Privacy Policy',
+    expect(screen.getByText('Privacy Policy')).toBeInTheDocument();
+    const link = screen.getByText('Read the privacy policy for this add-on');
+    expect(link).toHaveAttribute(
+      'href',
+      '/en-US/android/addon/chill-out/privacy/',
     );
-    expect(link.children()).toHaveText(
-      'Read the privacy policy for this add-on',
-    );
-    expect(link).toHaveProp('to', '/addon/chill-out/privacy/');
   });
 
   it('does not render a EULA if none exists', () => {
@@ -351,25 +349,22 @@ describe(__filename, () => {
       ...fakeAddon,
       has_eula: false,
     });
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find('.AddonMoreInfo-eula')).toHaveLength(0);
+    expect(
+      screen.queryByText('End-User License Agreement'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders the EULA and link', () => {
     const addon = createInternalAddonWithLang({ ...fakeAddon, has_eula: true });
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find('.AddonMoreInfo-eula')).toHaveProp(
-      'term',
-      'End-User License Agreement',
-    );
-    expect(root.find('.AddonMoreInfo-eula').find(Link).children()).toHaveText(
-      'Read the license agreement for this add-on',
-    );
-    expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
-      'to',
-      '/addon/chill-out/eula/',
+    expect(screen.getByText('End-User License Agreement')).toBeInTheDocument();
+    const link = screen.getByText('Read the license agreement for this add-on');
+    expect(link).toHaveAttribute(
+      'href',
+      '/en-US/android/addon/chill-out/eula/',
     );
   });
 
@@ -389,13 +384,12 @@ describe(__filename, () => {
         },
       ],
     });
-    const root = render({
+    render({
       addon,
       store: dispatchSignInActions({ userId: 5 }).store,
     });
 
-    const statsLink = root.find('.AddonMoreInfo-stats-link');
-    expect(statsLink).toHaveLength(0);
+    expect(screen.queryByText('Usage Statistics')).not.toBeInTheDocument();
   });
 
   it('links to stats if add-on author is viewing the page', () => {
@@ -414,88 +408,48 @@ describe(__filename, () => {
         },
       ],
     });
-    const root = render({
+    render({
       addon,
       store: dispatchSignInActions({ userId: authorUserId }).store,
     });
 
-    const statsLink = root.find('.AddonMoreInfo-stats-link');
-    expect(statsLink).toHaveLength(1);
-    expect(statsLink.children()).toHaveText('Visit stats dashboard');
-    expect(statsLink).toHaveProp('href', '/addon/coolio/statistics/');
+    expect(screen.getByText('Usage Statistics')).toBeInTheDocument();
+    const statsLink = screen.getByText('Visit stats dashboard');
+    expect(statsLink).toHaveAttribute(
+      'href',
+      '/en-US/android/addon/coolio/statistics/',
+    );
   });
 
   it('links to stats if user has STATS_VIEW permission', () => {
     const addon = createInternalAddonWithLang(fakeAddon);
-    const root = render({
+    render({
       addon,
       store: dispatchSignInActions({
         userProps: { permissions: [STATS_VIEW] },
       }).store,
     });
 
-    const statsLink = root.find('.AddonMoreInfo-stats-link');
-    expect(statsLink).toHaveLength(1);
+    expect(screen.getByText('Visit stats dashboard')).toBeInTheDocument();
   });
 
-  it('links to version history if add-on is extension', () => {
+  it.each([
+    ADDON_TYPE_EXTENSION,
+    ADDON_TYPE_DICT,
+    ADDON_TYPE_LANG,
+    ADDON_TYPE_STATIC_THEME,
+  ])('links to version history if add-on is a %s', (type) => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      type: ADDON_TYPE_EXTENSION,
+      type,
     });
+    render({ addon });
 
-    const root = render({ addon });
-    const history = root.find('.AddonMoreInfo-version-history');
-
-    expect(history).toHaveProp('term', 'Version History');
-    expect(history.find(Link)).toHaveProp(
-      'to',
-      `/addon/${addon.slug}/versions/`,
-    );
-  });
-
-  it('links to version history if add-on is a dictionary', () => {
-    const addon = createInternalAddonWithLang({
-      ...fakeAddon,
-      type: ADDON_TYPE_DICT,
-    });
-
-    const root = render({ addon });
-    const history = root.find('.AddonMoreInfo-version-history');
-
-    expect(history).toHaveProp('term', 'Version History');
-    expect(history.find(Link)).toHaveProp(
-      'to',
-      `/addon/${addon.slug}/versions/`,
-    );
-  });
-
-  it('links to version history if add-on is a language pack', () => {
-    const addon = createInternalAddonWithLang({
-      ...fakeAddon,
-      type: ADDON_TYPE_LANG,
-    });
-
-    const root = render({ addon });
-    const history = root.find('.AddonMoreInfo-version-history');
-
-    expect(history).toHaveProp('term', 'Version History');
-    expect(history.find(Link)).toHaveProp(
-      'to',
-      `/addon/${addon.slug}/versions/`,
-    );
-  });
-
-  it('links to version history if add-on is a theme', () => {
-    const addon = createInternalAddonWithLang({ ...fakeTheme });
-
-    const root = render({ addon });
-    const history = root.find('.AddonMoreInfo-version-history');
-
-    expect(history).toHaveProp('term', 'Version History');
-    expect(history.find(Link)).toHaveProp(
-      'to',
-      `/addon/${addon.slug}/versions/`,
+    expect(screen.getByText('Version History')).toBeInTheDocument();
+    const link = screen.getByText('See all versions');
+    expect(link).toHaveAttribute(
+      'href',
+      `/en-US/android/addon/${addon.slug}/versions/`,
     );
   });
 
@@ -505,23 +459,18 @@ describe(__filename, () => {
       ...fakeAddon,
       tags: [tagText],
     });
+    render({ addon });
 
-    const root = render({ addon });
-    const tagsLinks = root.find('.AddonMoreInfo-tag-links');
-
-    expect(tagsLinks).toHaveProp('term', 'Tags');
-    expect(tagsLinks.find(Link)).toHaveLength(addon.tags.length);
-    expect(tagsLinks.find(Link)).toHaveProp('to', `/tag/${tagText}/`);
-    expect(tagsLinks.find(Link).children()).toHaveText(tagText);
+    expect(screen.getByText('Tags')).toBeInTheDocument();
+    const link = screen.getByText(tagText);
+    expect(link).toHaveAttribute('href', `/en-US/android/tag/${tagText}/`);
   });
 
   it("doesn't show tag section if addon.tags is empty list", () => {
     const addon = createInternalAddonWithLang({ ...fakeAddon, tags: [] });
+    render({ addon });
 
-    const root = render({ addon });
-    const tagsLinks = root.find('.AddonMoreInfo-tag-links');
-
-    expect(tagsLinks).toHaveLength(0);
+    expect(screen.queryByText('Tags')).not.toBeInTheDocument();
   });
 
   it('renders the last updated date', () => {
@@ -532,32 +481,41 @@ describe(__filename, () => {
         created,
       },
     });
-    const root = render();
+    render();
 
-    expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(1);
-    expect(root.find('.AddonMoreInfo-last-updated').children()).toIncludeText(
-      'a few seconds ago',
-    );
+    expect(screen.getByText('Last updated')).toBeInTheDocument();
+    expect(screen.getByText(/^a few seconds ago/)).toBeInTheDocument();
   });
 
   it('does not show the last updated date if there is no last updated date', () => {
-    const root = render();
+    render();
 
-    expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(0);
+    expect(screen.queryByText('Last updated')).not.toBeInTheDocument();
   });
 
   it('renders admin links', () => {
     const addon = createInternalAddonWithLang(fakeAddon);
-    const root = render({ addon });
+    dispatchSignInActions({ store, userProps: { permissions: [ADDONS_EDIT] } });
+    render({ addon });
 
-    expect(root.find(AddonAdminLinks)).toHaveProp('addon', addon);
+    expect(screen.getByText('Admin Links')).toBeInTheDocument();
   });
 
   it('renders author links', () => {
-    const addon = createInternalAddonWithLang(fakeAddon);
-    const root = render({ addon });
+    const userId = 12345;
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      authors: [
+        {
+          ...fakeAuthor,
+          id: userId,
+        },
+      ],
+    });
+    dispatchSignInActions({ store, userId });
+    render({ addon });
 
-    expect(root.find(AddonAuthorLinks)).toHaveProp('addon', addon);
+    expect(screen.getByText('Author Links')).toBeInTheDocument();
   });
 
   describe('related categories', () => {
@@ -621,8 +579,8 @@ describe(__filename, () => {
     ];
 
     it('renders related categories', () => {
-      const { slug: slug1 } = categories[3];
-      const { slug: slug2 } = categories[4];
+      const { slug: slug1, name: name1 } = categories[3];
+      const { slug: slug2, name: name2 } = categories[4];
       const addon = createInternalAddonWithLang({
         ...fakeAddon,
         categories: { [CLIENT_APP_FIREFOX]: [slug1, slug2] },
@@ -631,25 +589,17 @@ describe(__filename, () => {
       store.dispatch(loadCategories({ results: categories }));
       store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
 
-      const root = render({ addon, store });
+      render({ addon, store });
 
-      expect(
-        root.find('.AddonMoreInfo-related-categories').find(Link),
-      ).toHaveLength(2);
-      expect(
-        root
-          .find('.AddonMoreInfo-related-categories')
-          .find(Link)
-          .at(0)
-          .prop('to'),
-      ).toEqual(`/extensions/category/${slug1}/`);
-      expect(
-        root
-          .find('.AddonMoreInfo-related-categories')
-          .find(Link)
-          .at(1)
-          .prop('to'),
-      ).toEqual(`/extensions/category/${slug2}/`);
+      expect(screen.getByText('Related Categories')).toBeInTheDocument();
+      expect(screen.getByText(name1)).toHaveAttribute(
+        'href',
+        `/en-US/firefox/extensions/category/${slug1}/`,
+      );
+      expect(screen.getByText(name2)).toHaveAttribute(
+        'href',
+        `/en-US/firefox/extensions/category/${slug2}/`,
+      );
     });
 
     it('does not render related categories when add-on has no category', () => {
@@ -661,11 +611,9 @@ describe(__filename, () => {
       store.dispatch(loadCategories({ results: categories }));
       store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
 
-      const root = render({ addon, store });
+      render({ addon, store });
 
-      expect(
-        root.find('.AddonMoreInfo-related-categories').find(Link),
-      ).toHaveLength(0);
+      expect(screen.queryByText('Related Categories')).not.toBeInTheDocument();
     });
 
     it('does not render related categories when there are no loaded categories', () => {
@@ -679,11 +627,9 @@ describe(__filename, () => {
       store.dispatch(loadCategories({ results: [] }));
       store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
 
-      const root = render({ addon, store });
+      render({ addon, store });
 
-      expect(
-        root.find('.AddonMoreInfo-related-categories').find(Link),
-      ).toHaveLength(0);
+      expect(screen.queryByText('Related Categories')).not.toBeInTheDocument();
     });
 
     it('does not render related categories when categories for add-on do not exist in clientApp', () => {
@@ -698,11 +644,9 @@ describe(__filename, () => {
       store.dispatch(loadCategories({ results: categories }));
       store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
 
-      const root = render({ addon, store });
+      render({ addon, store });
 
-      expect(
-        root.find('.AddonMoreInfo-related-categories').find(Link),
-      ).toHaveLength(0);
+      expect(screen.queryByText('Related Categories')).not.toBeInTheDocument();
     });
 
     it('does not render a related category if add-on does not have that category', () => {
@@ -713,11 +657,9 @@ describe(__filename, () => {
 
       store.dispatch(loadCategories({ results: categories }));
 
-      const root = render({ addon, store });
+      render({ addon, store });
 
-      expect(
-        root.find('.AddonMoreInfo-related-categories').find(Link),
-      ).toHaveLength(0);
+      expect(screen.queryByText('Related Categories')).not.toBeInTheDocument();
     });
 
     it('does not render a related category if add-on does not have any category at all', () => {
@@ -727,11 +669,9 @@ describe(__filename, () => {
       });
       store.dispatch(loadCategories({ results: categories }));
 
-      const root = render({ addon, store });
+      render({ addon, store });
 
-      expect(
-        root.find('.AddonMoreInfo-related-categories').find(Link),
-      ).toHaveLength(0);
+      expect(screen.queryByText('Related Categories')).not.toBeInTheDocument();
     });
 
     it('does not render a related category when add-on type does not have this category', () => {
@@ -744,11 +684,9 @@ describe(__filename, () => {
 
       store.dispatch(loadCategories({ results: categories }));
 
-      const root = render({ addon, store });
+      render({ addon, store });
 
-      expect(
-        root.find('.AddonMoreInfo-related-categories').find(Link),
-      ).toHaveLength(0);
+      expect(screen.queryByText('Related Categories')).not.toBeInTheDocument();
     });
 
     it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
@@ -761,11 +699,11 @@ describe(__filename, () => {
         });
         store.dispatch(loadCategories({ results: categories }));
 
-        const root = render({ addon, store });
+        render({ addon, store });
 
         expect(
-          root.find('.AddonMoreInfo-related-categories').find(Link),
-        ).toHaveLength(0);
+          screen.queryByText('Related Categories'),
+        ).not.toBeInTheDocument();
       },
     );
 
@@ -774,18 +712,19 @@ describe(__filename, () => {
         id: 'some-error-handler-id',
         dispatch: store.dispatch,
       });
+      const message = 'Some error message';
 
       errorHandler.handle(
         createApiError({
           response: { status: 404 },
           apiURL: 'https://some/api/endpoint',
-          jsonResponse: { message: 'not found' },
+          jsonResponse: { message },
         }),
       );
 
-      const root = render({ errorHandler });
+      render({ errorHandler });
 
-      expect(root.find(ErrorList)).toHaveLength(1);
+      expect(screen.getByText(message)).toBeInTheDocument();
     });
   });
 
@@ -813,7 +752,7 @@ describe(__filename, () => {
       _loadVersions({
         license: {
           is_custom: true,
-          name: 'tofulicense',
+          name: createLocalizedString('tofulicense'),
           url: 'www.license.com',
         },
       });
@@ -822,33 +761,35 @@ describe(__filename, () => {
     it('renders links with UTM query params when there are some', () => {
       const utm_medium = 'referral';
 
-      const root = render({
+      render({
         addon,
         location: createFakeLocation({ query: { utm_medium } }),
       });
 
       const expectedQueryString = `utm_medium=${utm_medium}`;
-      expect(root.find('.AddonMoreInfo-stats-link')).toHaveProp(
+      expect(screen.getByText('Visit stats dashboard')).toHaveAttribute(
         'href',
-        `/addon/${addon.slug}/statistics/?${expectedQueryString}`,
+        `/en-US/android/addon/${addon.slug}/statistics/?${expectedQueryString}`,
       );
-      expect(root.find('.AddonMoreInfo-license-link')).toHaveProp(
-        'to',
-        `/addon/${addon.slug}/license/?${expectedQueryString}`,
-      );
-      expect(root.find('.AddonMoreInfo-privacy-policy').find(Link)).toHaveProp(
-        'to',
-        `/addon/${addon.slug}/privacy/?${expectedQueryString}`,
-      );
-      expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
-        'to',
-        `/addon/${addon.slug}/eula/?${expectedQueryString}`,
+      expect(screen.getByText('tofulicense')).toHaveAttribute(
+        'href',
+        `/en-US/android/addon/${addon.slug}/license/?${expectedQueryString}`,
       );
       expect(
-        root.find('.AddonMoreInfo-version-history-link').find(Link),
-      ).toHaveProp(
-        'to',
-        `/addon/${addon.slug}/versions/?${expectedQueryString}`,
+        screen.getByText('Read the privacy policy for this add-on'),
+      ).toHaveAttribute(
+        'href',
+        `/en-US/android/addon/${addon.slug}/privacy/?${expectedQueryString}`,
+      );
+      expect(
+        screen.getByText('Read the license agreement for this add-on'),
+      ).toHaveAttribute(
+        'href',
+        `/en-US/android/addon/${addon.slug}/eula/?${expectedQueryString}`,
+      );
+      expect(screen.getByText('See all versions')).toHaveAttribute(
+        'href',
+        `/en-US/android/addon/${addon.slug}/versions/?${expectedQueryString}`,
       );
     });
   });

@@ -125,14 +125,14 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
 
   addToCollection(collection: CollectionType) {
     const { addon, currentUserId, dispatch, errorHandler } = this.props;
-    if (!addon) {
-      throw new Error(
-        'Cannot add to collection because no add-on has been loaded',
-      );
-    }
-    if (!currentUserId) {
-      throw new Error('Cannot add to collection because you are not signed in');
-    }
+    invariant(
+      addon,
+      'Cannot add to collection because no add-on has been loaded',
+    );
+    invariant(
+      currentUserId,
+      'Cannot add to collection because you are not signed in',
+    );
 
     dispatch(
       addAddonToCollection({
@@ -290,10 +290,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (
-  state: AppState,
-  ownProps: Props,
-): PropsFromState => {
+const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   const { collections, users } = state;
   const currentUser = getCurrentUser(users);
   const currentUserId = currentUser && currentUser.id;

@@ -4,6 +4,7 @@ import areIntlLocalesSupported from 'intl-locales-supported';
 import values from 'object.values';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import '@testing-library/jest-dom/extend-expect';
 
 // Side-effects from imports are quite unfortunate but this is required
 // to get all of the cool jest + enzyme integration for calls like:

@@ -1,7 +1,7 @@
 /* global Headers */
 import urllib from 'url';
 
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE, ConnectedRouter } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import config from 'config';
 import invariant from 'invariant';
@@ -10,6 +10,12 @@ import Jed from 'jed';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 import { createMemoryHistory } from 'history';
+import React from 'react';
+import { Provider } from 'react-redux';
+import {
+  render as libraryRender,
+  screen as libraryScreen,
+} from '@testing-library/react';
 
 import {
   DOWNLOAD_FIREFOX_BASE_URL,
@@ -21,6 +27,7 @@ import {
   ENABLED,
   OS_ALL,
 } from 'amo/constants';
+import I18nProvider from 'amo/i18n/Provider';
 import { createInternalCollection } from 'amo/reducers/collections';
 import { createInternalHomeShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
@@ -400,12 +407,16 @@ export const createHomeShelves = ({
   };
 };
 
-export const onLocationChanged = ({ pathname, search = '', ...others }) => {
-  const history = addQueryParamsToHistory({
+export const createHistory = ({ initialEntries } = {}) => {
+  return addQueryParamsToHistory({
     history: createMemoryHistory({
-      initialEntries: [`${pathname}${search}`],
+      initialEntries,
     }),
   });
+};
+
+export const onLocationChanged = ({ pathname, search = '', ...others }) => {
+  const history = createHistory({ initialEntries: [`${pathname}${search}`] });
 
   return {
     type: LOCATION_CHANGE,
@@ -1470,3 +1481,99 @@ export const createExperimentData = ({
 }) => {
   return { [id]: variantId };
 };
+
+/* eslint-disable testing-library/no-node-access */
+const queryAllByClassName = (container, className) => {
+  return container.querySelectorAll(`.${className}`);
+};
+
+const queryAllByTagName = (container, tagName) => {
+  return container.getElementsByTagName(tagName);
+};
+
+const getAllByFeature = (container, queryFunction, value) => {
+  const elements = queryFunction(container, value);
+  if (elements.length) {
+    return elements;
+  }
+  throw new Error('getAllByFeature returned more than one element.');
+};
+
+const queryByFeature = (container, queryFunction, value) => {
+  const elements = queryFunction(container, value);
+  if (!elements.length) {
+    return null;
+  }
+  if (elements.length === 1) {
+    return elements[0];
+  }
+  throw new Error('queryByFeature returned more than one element.');
+};
+
+const getByFeature = (container, queryFunction, value) => {
+  const element = queryFunction(container, value);
+  if (!element) {
+    throw new Error('getByFeature did not return any elements.');
+  }
+  return element;
+};
+
+export const getAllByClassName = (container, className) => {
+  return getAllByFeature(container, queryAllByClassName, className);
+};
+
+export const getAllByTagName = (container, tagName) => {
+  return getAllByFeature(container, queryAllByTagName, tagName);
+};
+
+const queryByClassName = (container, className) => {
+  return queryByFeature(container, queryAllByClassName, className);
+};
+
+const queryByTagName = (container, tagName) => {
+  return queryByFeature(container, queryAllByTagName, tagName);
+};
+
+const getByClassName = (container, className) => {
+  return getByFeature(container, queryByClassName, className);
+};
+
+const getByTagName = (container, tagName) => {
+  return getByFeature(container, queryByTagName, tagName);
+};
+
+const customQueries = {
+  'getAllByClassName': getAllByClassName.bind(null, document.body),
+  'getAllByTagName': getAllByTagName.bind(null, document.body),
+  'queryAllByClassName': queryAllByClassName.bind(null, document.body),
+  'queryAllByTagName': queryAllByTagName.bind(null, document.body),
+  'getByClassName': getByClassName.bind(null, document.body),
+  'getByTagName': getByTagName.bind(null, document.body),
+  'queryByClassName': queryByClassName.bind(null, document.body),
+  'queryByTagName': queryByTagName.bind(null, document.body),
+};
+
+export const screen = {
+  ...libraryScreen,
+  ...customQueries,
+};
+
+export const render = (ui, options = {}) => {
+  const i18n = options.i18n || fakeI18n();
+  const history = options.history || createHistory();
+  const store = options.store || dispatchClientMetadata().store;
+
+  const wrapper = ({ children }) => {
+    return (
+      <I18nProvider i18n={i18n}>
+        <Provider store={store}>
+          <ConnectedRouter history={history}>{children}</ConnectedRouter>
+        </Provider>
+      </I18nProvider>
+    );
+  };
+
+  const result = libraryRender(ui, { wrapper });
+  return { ...result, root: result.container.firstChild };
+};
+/* eslint-enable testing-library/no-node-access */

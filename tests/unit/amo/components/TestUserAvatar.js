@@ -1,88 +1,75 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { getCurrentUser } from 'amo/reducers/users';
-import Icon from 'amo/components/Icon';
 import UserAvatar from 'amo/components/UserAvatar';
-import { dispatchSignInActions } from 'tests/unit/helpers';
+import { getCurrentUser } from 'amo/reducers/users';
+import {
+  dispatchSignInActions,
+  render as defaultRender,
+  screen,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function renderUserAvatar({ ...props } = {}) {
-    return shallow(<UserAvatar {...props} />);
+  function render({ ...props } = {}) {
+    return defaultRender(<UserAvatar {...props} />);
   }
 
-  it('renders user avatar', () => {
+  const getUser = ({
+    picture_url = 'http://tofumatt.com/photo.jpg',
+    picture_type = 'jpg',
+  }) => {
     const { state } = dispatchSignInActions({
       userProps: {
-        picture_url: 'http://tofumatt.com/photo.jpg',
-        picture_type: 'jpg',
+        picture_url,
+        picture_type,
       },
     });
-    const user = getCurrentUser(state.users);
-    const root = renderUserAvatar({ user });
+    return getCurrentUser(state.users);
+  };
 
-    expect(root.find('.UserAvatar-image')).toHaveLength(1);
-    expect(root.find('.UserAvatar-image')).toHaveProp(
-      'src',
-      'http://tofumatt.com/photo.jpg',
-    );
+  it('renders user avatar', () => {
+    const user = getUser({ picture_url: 'http://tofumatt.com/photo.jpg' });
+    render({ user });
+
+    const img = screen.getByTagName('img');
+    expect(img).toHaveClass('UserAvatar-image');
+    expect(img).toHaveAttribute('src', 'http://tofumatt.com/photo.jpg');
   });
 
   it('renders extra classNames while rendering user avatar', () => {
-    const { state } = dispatchSignInActions({
-      userProps: {
-        picture_url: 'http://tofumatt.com/photo.jpg',
-        picture_type: 'jpg',
-      },
-    });
-    const user = getCurrentUser(state.users);
-    const root = renderUserAvatar({ className: 'test', user });
+    const user = getUser({ picture_url: 'http://tofumatt.com/photo.jpg' });
+    const className = 'test';
+    const { root } = render({ className, user });
 
-    expect(root.find('.test')).toHaveLength(1);
+    expect(root).toHaveClass(className);
   });
 
   it('renders an anonymous icon if the user has no photo', () => {
-    const { state } = dispatchSignInActions({
-      userProps: {
-        // Since https://github.com/mozilla/addons-server/issues/7679, the API
-        // returns `null` when the user does not have a profile picture.
-        picture_url: null,
-      },
-    });
-    const user = getCurrentUser(state.users);
-    const root = renderUserAvatar({ user });
+    // Since https://github.com/mozilla/addons-server/issues/7679, the API
+    // returns `null` when the user does not have a profile picture.
+    const user = getUser({ picture_url: null });
+    render({ user });
 
-    expect(root.find('.UserAvatar').find(Icon)).toHaveProp(
-      'name',
-      'anonymous-user',
-    );
+    expect(screen.getByClassName('Icon-anonymous-user')).toBeInTheDocument();
   });
 
   it('renders an anonymous icon if there is no user', () => {
-    const root = renderUserAvatar({ user: undefined });
+    render({ user: undefined });
 
-    expect(root.find('.UserAvatar').find(Icon)).toHaveProp(
-      'name',
-      'anonymous-user',
-    );
+    expect(screen.getByClassName('Icon-anonymous-user')).toBeInTheDocument();
   });
 
   it('renders a preview image when supplied', () => {
     const preview = 'https://example.org/image.jpg';
+    render({ preview });
 
-    const root = renderUserAvatar({ preview });
-
-    expect(root.find('.UserAvatar-image')).toHaveLength(1);
-    expect(root.find('.UserAvatar-image')).toHaveProp('src', preview);
+    expect(screen.getByTagName('img')).toHaveAttribute('src', preview);
   });
 
   it('passes the given altText prop to the user picture or preview image', () => {
     const altText = 'some alt text';
     const preview = 'https://example.org/image.jpg';
+    render({ altText, preview });
 
-    const root = renderUserAvatar({ altText, preview });
-
-    expect(root.find('.UserAvatar-image')).toHaveLength(1);
-    expect(root.find('.UserAvatar-image')).toHaveProp('alt', altText);
+    expect(screen.getByAltText(altText)).toHaveAttribute('src', preview);
   });
 });
