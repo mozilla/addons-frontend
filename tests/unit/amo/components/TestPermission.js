@@ -39,7 +39,6 @@ describe(__filename, () => {
   it('renders the description', () => {
     const description = 'It can access your bookmarks';
     render({ description });
-    screen.debug();
 
     expect(screen.getByText(description)).toBeInTheDocument();
   });

@@ -1478,6 +1478,7 @@ export const createExperimentData = ({
   return { [id]: variantId };
 };
 
+/* eslint-disable testing-library/no-node-access */
 const queryByClassName = (container, className) => {
   return container.querySelectorAll(`.${className}`);
 };
@@ -1534,3 +1535,4 @@ export const render = (ui, options = {}) => {
   const result = libraryRender(ui, { wrapper });
   return { ...result, root: result.container.firstChild };
 };
+/* eslint-enable testing-library/no-node-access */

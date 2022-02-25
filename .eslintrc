@@ -3,6 +3,15 @@
     "amo",
     "plugin:amo/recommended"
   ],
+  "plugins": ["testing-library"],
+  "overrides": [
+    {
+      //Enable eslint-plugin-testing-library rules only for test files.
+      "files": ["**/tests/**/*.js"],
+      "extends": ["plugin:testing-library/react"],
+      "rules": {"testing-library/render-result-naming-convention": "off"}
+    },
+  ],
   "globals": {
     "CLIENT_CONFIG": true,
     "document": true,
