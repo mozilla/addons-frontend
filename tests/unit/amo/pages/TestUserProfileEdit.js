@@ -243,7 +243,6 @@ describe(__filename, () => {
     sinon.assert.neverCalledWithMatch(dispatchSpy, {
       type: FETCH_USER_ACCOUNT,
     });
-    sinon.assert.neverCalledWith(dispatchSpy, loadUserNotificationsAction);
   });
 
   it('dispatches fetchUserAccount and fetchUserNotifications actions if userId changes', () => {

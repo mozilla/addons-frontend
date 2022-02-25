@@ -783,14 +783,9 @@ describe(__filename, () => {
 
     renderUserProfile({ params, store, errorHandler });
 
-    sinon.assert.neverCalledWith(
-      dispatchSpy,
-      fetchUserReviews({
-        errorHandlerId: errorHandler.id,
-        page: '1',
-        userId: user.id,
-      }),
-    );
+    sinon.assert.neverCalledWithMatch(dispatchSpy, {
+      type: FETCH_REVIEWS,
+    });
   });
 
   it(`displays the user's reviews`, () => {

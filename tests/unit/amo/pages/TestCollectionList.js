@@ -65,9 +65,8 @@ describe(__filename, () => {
   it('does not dispatch fetchUserCollections if there is no user', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
 
-    renderComponent({ store, errorHandler });
+    renderComponent({ store });
 
     sinon.assert.neverCalledWithMatch(fakeDispatch, {
       type: FETCH_USER_COLLECTIONS,
@@ -79,26 +78,19 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ userId });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    const errorHandler = createStubErrorHandler();
-
     store.dispatch(
       fetchUserCollections({
-        errorHandlerId: errorHandler.id,
         userId,
       }),
     );
 
     fakeDispatch.resetHistory();
 
-    renderComponent({ store, errorHandler });
+    renderComponent({ store });
 
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchUserCollections({
-        errorHandlerId: errorHandler.id,
-        userId,
-      }),
-    );
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_USER_COLLECTIONS,
+    });
   });
 
   it('does not dispatch fetchUserCollections if collections are loaded', () => {
@@ -117,13 +109,9 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     renderComponent({ store, errorHandler });
 
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchUserCollections({
-        errorHandlerId: errorHandler.id,
-        userId,
-      }),
-    );
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_USER_COLLECTIONS,
+    });
   });
 
   it('renders an AuthenticateButton without a logged in user', () => {
