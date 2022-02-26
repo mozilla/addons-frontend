@@ -133,11 +133,6 @@ export class FooterBase extends React.Component<InternalProps> {
                   {i18n.gettext('Review Guide')}
                 </Link>
               </li>
-              <li>
-                <a href="https://status.mozilla.org/">
-                  {i18n.gettext('Site Status')}
-                </a>
-              </li>
             </ul>
           </section>
 
