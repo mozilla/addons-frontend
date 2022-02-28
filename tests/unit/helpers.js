@@ -12,6 +12,7 @@ import { oneLine } from 'common-tags';
 import { createMemoryHistory } from 'history';
 import React from 'react';
 import { Provider } from 'react-redux';
+import { all, fork } from 'redux-saga/effects';
 import {
   render as libraryRender,
   screen as libraryScreen,
@@ -56,6 +57,7 @@ import { selectUIState } from 'amo/reducers/uiState';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
 import { createInternalVersion } from 'amo/reducers/versions';
 import { createUIStateMapper, mergeUIStateProps } from 'amo/withUIState';
+import defaultSagas from 'amo/sagas';
 
 export const DEFAULT_LANG_IN_TESTS = config.get('defaultLang');
 export const sampleUserAgent =
@@ -451,6 +453,21 @@ export function dispatchClientMetadata({
     store,
     state: store.getState(),
   };
+}
+
+export function dispatchClientMetadataWithSagas({
+  sagas = defaultSagas,
+  ...otherArgs
+} = {}) {
+  // Enable the sagas for this test.
+  function* testSagas() {
+    yield all(sagas.map((saga) => fork(saga)));
+  }
+
+  const { sagaMiddleware, store } = createStore();
+  sagaMiddleware.run(testSagas);
+
+  return dispatchClientMetadata({ store, ...otherArgs });
 }
 
 /*

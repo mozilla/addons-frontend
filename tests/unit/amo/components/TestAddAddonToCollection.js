@@ -10,23 +10,39 @@ import { ErrorHandler } from 'amo/errorHandler';
 import {
   FETCH_USER_COLLECTIONS,
   addAddonToCollection,
-  addonAddedToCollection,
   collectionName,
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
+import collectionsSaga from 'amo/sagas/collections';
 import {
   DEFAULT_LANG_IN_TESTS,
   createFakeCollectionDetail,
   createHistory,
   createInternalAddonWithLang,
   dispatchClientMetadata,
+  dispatchClientMetadataWithSagas,
   dispatchSignInActions,
   fakeAddon,
   fakeI18n,
   render as defaultRender,
   screen,
 } from 'tests/unit/helpers';
+
+// By allowing sagas to run for some tests, we will be calling the mocked
+// versions of these API methods.
+// createCollectionAddon is used in a couple of tests, for when a user
+// selects a collection from the drop-down.
+// getAllUserCollections is mocked to throw an error to test the
+// error handling in the component.
+jest.mock('amo/api/collections', () => {
+  return {
+    createCollectionAddon: jest.fn(),
+    getAllUserCollections: jest.fn().mockImplementation(() => {
+      throw new Error();
+    }),
+  };
+});
 
 describe(__filename, () => {
   let store;
@@ -89,6 +105,11 @@ describe(__filename, () => {
       currentUserId: userId,
     })}`;
   };
+
+  const createStoreWithSaga = () =>
+    dispatchClientMetadataWithSagas({
+      sagas: [collectionsSaga],
+    }).store;
 
   describe('fetching user collections', () => {
     it('fetches user collections on first render', () => {
@@ -225,7 +246,7 @@ describe(__filename, () => {
       expect(screen.queryByRole('group')).not.toBeInTheDocument();
     });
 
-    it('lets you select a collection', () => {
+    it('dispatches the expected action when a user selects a collection', () => {
       const addon = createInternalAddonWithLang({ ...fakeAddon, id: 234 });
       const secondName = 'second';
       const userId = 10;
@@ -311,6 +332,10 @@ describe(__filename, () => {
 
       const { firstCollection } = createSomeCollections({ firstName, userId });
 
+      // This enables the saga for this test, which will execute the mocked
+      // createCollectionAddon API function and continue after that.
+      store = createStoreWithSaga();
+
       signInAndDispatchCollections({
         userId,
         collections: [firstCollection],
@@ -318,13 +343,7 @@ describe(__filename, () => {
 
       render({ addon });
 
-      store.dispatch(
-        addonAddedToCollection({
-          addonId: addon.id,
-          userId,
-          collectionId: firstCollection.id,
-        }),
-      );
+      userEvent.selectOptions(screen.getByRole('combobox'), firstName);
 
       expect(screen.getByClassName('Notice-success')).toHaveTextContent(
         `Added to ${firstName}`,
@@ -343,6 +362,8 @@ describe(__filename, () => {
         userId,
       });
 
+      store = createStoreWithSaga();
+
       signInAndDispatchCollections({
         userId,
         collections: [firstCollection, secondCollection],
@@ -350,22 +371,8 @@ describe(__filename, () => {
 
       render({ addon });
 
-      const addParams = { addonId: addon.id, userId };
-
-      // Add the add-on to both collections.
-      store.dispatch(
-        addonAddedToCollection({
-          ...addParams,
-          collectionId: firstCollection.id,
-        }),
-      );
-
-      store.dispatch(
-        addonAddedToCollection({
-          ...addParams,
-          collectionId: secondCollection.id,
-        }),
-      );
+      userEvent.selectOptions(screen.getByRole('combobox'), firstName);
+      userEvent.selectOptions(screen.getByRole('combobox'), secondName);
 
       expect(screen.getByText(`Added to ${firstName}`)).toBeInTheDocument();
       expect(screen.getByText(`Added to ${secondName}`)).toBeInTheDocument();
@@ -380,6 +387,8 @@ describe(__filename, () => {
         userId,
       });
 
+      store = createStoreWithSaga();
+
       signInAndDispatchCollections({
         userId,
         collections: [firstCollection],
@@ -387,19 +396,9 @@ describe(__filename, () => {
 
       render({ addon });
 
-      store.dispatch(
-        addonAddedToCollection({
-          addonId: addon.id,
-          userId,
-          collectionId: firstCollection.id,
-        }),
-      );
+      userEvent.selectOptions(screen.getByRole('combobox'), '(no name)');
 
-      expect(
-        screen.getByText(
-          `Added to ${collectionName({ name: null, i18n: fakeI18n() })}`,
-        ),
-      ).toBeInTheDocument();
+      expect(screen.getByText('Added to (no name)')).toBeInTheDocument();
     });
 
     it('does nothing when you select the prompt', () => {
@@ -442,53 +441,55 @@ describe(__filename, () => {
         `/${lang}/${clientApp}/collections/add/?include_addon_id=${id}`,
       );
     });
+  });
 
-    describe('error handling', () => {
-      const createFailedErrorHandler = (message = 'An error message') => {
-        const error = new Error('unexpected error');
-        const errorHandler = new ErrorHandler({
-          dispatch: store.dispatch,
-          id: 'some-error-handler',
-        });
-        errorHandler.handle(error);
-        errorHandler.addMessage(message);
-        return errorHandler;
-      };
+  describe('error handling', () => {
+    it('renders an error', () => {
+      const addon = createInternalAddonWithLang(fakeAddon);
+      const userId = 345;
 
-      it('renders an error', () => {
-        const message = 'Some error message';
-        const errorHandler = createFailedErrorHandler(message);
-        render({ errorHandler });
+      // This enables the saga for this test, which will execute the mocked
+      // getAllUserCollections API function, which will throw an exception.
+      store = createStoreWithSaga();
 
-        expect(screen.getByText(message)).toBeInTheDocument();
-      });
+      dispatchSignInActions({ store, userId });
 
-      it('does not fetch data when there is an error', () => {
-        dispatchSignInActions({ store });
-        const errorHandler = createFailedErrorHandler();
-        const dispatch = jest.spyOn(store, 'dispatch');
+      render({ addon });
 
-        render({ errorHandler });
-
-        expect(dispatch).not.toHaveBeenCalledWith(
-          expect.objectContaining({ 'type': FETCH_USER_COLLECTIONS }),
-        );
-      });
+      expect(
+        screen.getByText('An unexpected error occurred'),
+      ).toBeInTheDocument();
     });
 
-    describe('extractId', () => {
-      it('renders an ID without an add-on or user', () => {
-        expect(extractId({ addon: null, currentUserId: null })).toEqual('-');
+    it('does not fetch data when there is an error', () => {
+      dispatchSignInActions({ store });
+      const errorHandler = new ErrorHandler({
+        dispatch: store.dispatch,
+        id: 'some-error-handler',
       });
+      errorHandler.handle(new Error());
+      const dispatch = jest.spyOn(store, 'dispatch');
 
-      it('renders an ID with an add-on ID and user', () => {
-        const addon = createInternalAddonWithLang({ ...fakeAddon, id: 5432 });
-        const currentUserId = 123;
+      render({ errorHandler });
 
-        expect(extractId({ addon, currentUserId })).toEqual(
-          `${addon.id}-${currentUserId}`,
-        );
-      });
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ 'type': FETCH_USER_COLLECTIONS }),
+      );
+    });
+  });
+
+  describe('extractId', () => {
+    it('renders an ID without an add-on or user', () => {
+      expect(extractId({ addon: null, currentUserId: null })).toEqual('-');
+    });
+
+    it('renders an ID with an add-on ID and user', () => {
+      const addon = createInternalAddonWithLang({ ...fakeAddon, id: 5432 });
+      const currentUserId = 123;
+
+      expect(extractId({ addon, currentUserId })).toEqual(
+        `${addon.id}-${currentUserId}`,
+      );
     });
   });
 });
