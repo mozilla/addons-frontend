@@ -109,8 +109,7 @@ describe(__filename, () => {
     );
 
     fakeDispatch.resetHistory();
-    const errorHandler = createStubErrorHandler();
-    renderComponent({ store, errorHandler });
+    renderComponent({ store });
 
     sinon.assert.neverCalledWithMatch(fakeDispatch, {
       type: FETCH_USER_COLLECTIONS,

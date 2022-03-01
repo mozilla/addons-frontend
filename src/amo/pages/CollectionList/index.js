@@ -16,14 +16,14 @@ import Button from 'amo/components/Button';
 import Card from 'amo/components/Card';
 import CardList from 'amo/components/CardList';
 import UserCollection from 'amo/components/UserCollection';
+import { setViewContext } from 'amo/actions/viewContext';
+import { VIEW_CONTEXT_HOME } from 'amo/constants';
 import type { CollectionType } from 'amo/reducers/collections';
 import type { UserId } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
 import type { DispatchFunc } from 'amo/types/redux';
-import { setViewContext } from 'amo/actions/viewContext';
-import { VIEW_CONTEXT_HOME } from 'amo/constants';
 import './styles.scss';
 
 export type Props = {||};

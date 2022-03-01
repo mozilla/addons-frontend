@@ -787,9 +787,8 @@ describe(__filename, () => {
     _setUserReviews({ store, userId: user.id });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
 
-    renderUserProfile({ params, store, errorHandler });
+    renderUserProfile({ params, store });
 
     sinon.assert.neverCalledWithMatch(dispatchSpy, {
       type: FETCH_REVIEWS,
