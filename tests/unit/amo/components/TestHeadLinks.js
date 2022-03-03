@@ -1,58 +1,70 @@
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 
-import HeadLinks, { HeadLinksBase } from 'amo/components/HeadLinks';
+import HeadLinks from 'amo/components/HeadLinks';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
+  createHistory,
   dispatchClientMetadata,
   getFakeConfig,
-  shallowUntilTarget,
+  getElement,
+  getElements,
+  render as defaultRender,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({
-    store = dispatchClientMetadata().store,
-    ...props
-  } = {}) => {
-    return shallowUntilTarget(
-      <HeadLinks store={store} {...props} />,
-      HeadLinksBase,
-    );
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
+  const render = ({ location, ...props } = {}) => {
+    const renderOptions = {
+      history: createHistory({
+        initialEntries: [location || '/'],
+      }),
+      store,
+    };
+
+    return defaultRender(<HeadLinks {...props} />, renderOptions);
   };
 
   it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
     'renders alternate links with hreflang for %s',
-    (clientApp) => {
+    async (clientApp) => {
       const baseURL = 'https://example.org';
       const lang = 'fr';
       const to = '/some-url';
 
       const _hrefLangs = ['fr', 'en-US'];
       const _config = getFakeConfig({ baseURL });
-      const { store } = dispatchClientMetadata({
+      dispatchClientMetadata({
         clientApp,
         lang,
-        pathname: `/${lang}/${clientApp}${to}`,
+        store,
       });
+      const location = `/${lang}/${clientApp}${to}`;
 
-      const root = render({ _config, _hrefLangs, store });
+      render({ _config, _hrefLangs, location });
 
-      expect(root.find('link[rel="alternate"]')).toHaveLength(
+      // Without the waitFor, the links have not rendered into the head yet.
+      await waitFor(() =>
+        expect(getElement('link[rel="alternate"]')).toBeInTheDocument(),
+      );
+
+      expect(getElements('link[rel="alternate"]')).toHaveLength(
         _hrefLangs.length,
       );
-      _hrefLangs.forEach((locale, index) => {
-        expect(root.find('link[rel="alternate"]').at(index)).toHaveProp(
-          'hrefLang',
-          locale,
-        );
-        expect(root.find('link[rel="alternate"]').at(index)).toHaveProp(
-          'href',
-          `${baseURL}/${locale}/${clientApp}${to}`,
-        );
+      _hrefLangs.forEach((locale) => {
+        expect(
+          getElement(`link[rel="alternate"][hreflang="${locale}"]`),
+        ).toHaveAttribute('href', `${baseURL}/${locale}/${clientApp}${to}`);
       });
     },
   );
 
-  it('renders alternate links for aliased locales', () => {
+  it('renders alternate links for aliased locales', async () => {
     const baseURL = 'https://example.org';
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'de';
@@ -66,47 +78,55 @@ describe(__filename, () => {
     };
 
     const _config = getFakeConfig({ baseURL, hrefLangsMap });
-    const { store } = dispatchClientMetadata({
+    dispatchClientMetadata({
       clientApp,
       lang,
-      pathname: `/${lang}/${clientApp}${to}`,
+      store,
     });
+    const location = `/${lang}/${clientApp}${to}`;
 
-    const root = render({ _config, _hrefLangs, store });
+    render({ _config, _hrefLangs, location });
 
-    expect(root.find('link[rel="alternate"]')).toHaveLength(_hrefLangs.length);
-    expect(root.find('link[rel="alternate"]').at(0)).toHaveProp(
-      'hrefLang',
-      aliasKey,
+    await waitFor(() =>
+      expect(getElement('link[rel="alternate"]')).toBeInTheDocument(),
     );
-    expect(root.find('link[rel="alternate"]').at(0)).toHaveProp(
-      'href',
-      `${baseURL}/${aliasValue}/${clientApp}${to}`,
+
+    expect(getElements('link[rel="alternate"]')).toHaveLength(
+      _hrefLangs.length,
     );
+    expect(
+      getElement(`link[rel="alternate"][hreflang="${aliasKey}"]`),
+    ).toHaveAttribute('href', `${baseURL}/${aliasValue}/${clientApp}${to}`);
   });
 
-  it('does not render any links for unsupported alternate link locales', () => {
+  it('does not render any links for unsupported alternate link locales', async () => {
     const lang = 'fr';
     const _hrefLangs = [lang, 'en-US'];
     // We mark the current locale as excluded.
     const _config = getFakeConfig({ unsupportedHrefLangs: [lang] });
-    const { store } = dispatchClientMetadata({ lang });
+    dispatchClientMetadata({ lang, store });
 
-    const root = render({ _config, _hrefLangs, store });
+    render({ _config, _hrefLangs });
 
-    expect(root.find('link[rel="alternate"]')).toHaveLength(0);
+    await waitFor(() =>
+      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements('link[rel="alternate"]')).toHaveLength(0);
   });
 
-  it('always renders a "canonical" link', () => {
+  it('always renders a "canonical" link', async () => {
     const lang = 'fr';
     const _hrefLangs = [lang, 'en-US'];
     // We mark the current locale as excluded.
     const _config = getFakeConfig({ unsupportedHrefLangs: [lang] });
-    const { store } = dispatchClientMetadata({ lang });
+    dispatchClientMetadata({ lang, store });
 
-    const root = render({ _config, _hrefLangs, store });
+    render({ _config, _hrefLangs });
 
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+    await waitFor(() =>
+      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
+    );
   });
 
   // This test case ensures the production configuration is taken into account.
@@ -114,50 +134,59 @@ describe(__filename, () => {
     ['x-default', 'en-US'],
     ['pt', 'pt-PT'],
     ['en', 'en-US'],
-  ])('renders a "%s" alternate link', (hrefLang, locale) => {
+  ])('renders a "%s" alternate link', async (hrefLang, locale) => {
     const baseURL = 'https://example.org';
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'fr';
     const to = '/some-url';
 
     const _config = getFakeConfig({ baseURL });
-    const { store } = dispatchClientMetadata({
+    dispatchClientMetadata({
       clientApp,
       lang,
-      pathname: `/${lang}/${clientApp}${to}`,
+      store,
     });
+    const location = `/${lang}/${clientApp}${to}`;
 
-    const root = render({ _config, store });
+    render({ _config, location });
 
-    expect(root.find(`link[hrefLang="${hrefLang}"]`)).toHaveProp(
+    await waitFor(() =>
+      expect(getElement(`link[hrefLang="${hrefLang}"]`)).toBeInTheDocument(),
+    );
+
+    expect(getElement(`link[hreflang="${hrefLang}"]`)).toHaveAttribute(
       'href',
       `${baseURL}/${locale}/${clientApp}${to}`,
     );
   });
 
-  it('renders a canonical link tag', () => {
+  it('renders a canonical link tag', async () => {
     const baseURL = 'https://example.org';
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'de';
     const to = '/some-canonical-url';
 
     const _config = getFakeConfig({ baseURL });
-    const { store } = dispatchClientMetadata({
+    dispatchClientMetadata({
       clientApp,
       lang,
-      pathname: `/${lang}/${clientApp}${to}`,
+      store,
     });
+    const location = `/${lang}/${clientApp}${to}`;
 
-    const root = render({ _config, store });
+    render({ _config, location });
 
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
+    await waitFor(() =>
+      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement('link[rel="canonical"]')).toHaveAttribute(
       'href',
       `${baseURL}/${lang}/${clientApp}${to}`,
     );
   });
 
-  it('does render the "alternate" links when current URL is not the "canonical" URL', () => {
+  it('does not render the "alternate" links when current URL is not the "canonical" URL', async () => {
     const baseURL = 'https://example.org';
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'de';
@@ -165,19 +194,23 @@ describe(__filename, () => {
 
     const _hrefLangs = ['fr', 'en-US'];
     const _config = getFakeConfig({ baseURL });
-    const { store } = dispatchClientMetadata({
+    dispatchClientMetadata({
       clientApp,
       lang,
-      pathname: `/${lang}/${clientApp}${to}`,
-      search: '?src=hotness',
+      store,
     });
+    const location = `/${lang}/${clientApp}${to}?src=hotness`;
 
-    const root = render({ _config, _hrefLangs, store });
+    render({ _config, _hrefLangs, location });
 
-    expect(root.find('link[rel="alternate"]')).toHaveLength(0);
+    await waitFor(() =>
+      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
+    );
+
+    expect(getElements('link[rel="alternate"]')).toHaveLength(0);
   });
 
-  it('accepts a queryString prop that is added to the URLs', () => {
+  it('accepts a queryString prop that is added to the URLs', async () => {
     const baseURL = 'https://example.org';
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'de';
@@ -185,21 +218,24 @@ describe(__filename, () => {
     const queryString = '?foo=bar';
 
     const _config = getFakeConfig({ baseURL });
-    const { store } = dispatchClientMetadata({
+    dispatchClientMetadata({
       clientApp,
       lang,
-      pathname: `/${lang}/${clientApp}${to}`,
-      search: queryString,
+      store,
     });
+    const location = `/${lang}/${clientApp}${to}${queryString}`;
 
-    const root = render({ _config, store, queryString });
+    render({ _config, location, queryString });
 
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
+    await waitFor(() =>
+      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement('link[rel="canonical"]')).toHaveAttribute(
       'href',
       `${baseURL}/${lang}/${clientApp}${to}${queryString}`,
     );
-    expect(root.find(`link[hrefLang="${lang}"]`)).toHaveProp(
+    expect(getElement(`link[hrefLang="${lang}"]`)).toHaveAttribute(
       'href',
       `${baseURL}/${lang}/${clientApp}${to}${queryString}`,
     );

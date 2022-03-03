@@ -14,6 +14,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { all, fork } from 'redux-saga/effects';
 import {
+  getDefaultNormalizer,
   render as libraryRender,
   screen as libraryScreen,
 } from '@testing-library/react';
@@ -1575,9 +1576,35 @@ export const screen = {
   ...customQueries,
 };
 
+const getByTextAcrossTags = (text) => {
+  return screen.getByText(
+    (content, element) => {
+      const hasText = (el) => el.textContent === text;
+      const elementHasText = hasText(element);
+      const childrenDontHaveText = Array.from(element?.children || []).every(
+        (child) => !hasText(child),
+      );
+      return elementHasText && childrenDontHaveText;
+    },
+    {
+      normalizer: getDefaultNormalizer({ trim: false }),
+    },
+  );
+};
+screen.getByTextAcrossTags = getByTextAcrossTags;
+
+export const getElements = (selector) => {
+  return document.querySelectorAll(selector);
+};
+export const getElement = (selector) => getElements(selector)[0];
+
 export const render = (ui, options = {}) => {
   const i18n = options.i18n || fakeI18n();
-  const history = options.history || createHistory();
+  const history =
+    options.history ||
+    createHistory({
+      initialEntries: options.initialEntries || ['/'],
+    });
   const store = options.store || dispatchClientMetadata().store;
 
   const wrapper = ({ children }) => {
