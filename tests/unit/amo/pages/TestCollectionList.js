@@ -8,6 +8,7 @@ import CollectionList, {
 import {
   fetchUserCollections,
   loadUserCollections,
+  FETCH_USER_COLLECTIONS,
 } from 'amo/reducers/collections';
 import AuthenticateButton from 'amo/components/AuthenticateButton';
 import {
@@ -20,6 +21,8 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import UserCollection from 'amo/components/UserCollection';
+import { VIEW_CONTEXT_HOME } from 'amo/constants';
+import { setViewContext } from 'amo/actions/viewContext';
 
 describe(__filename, () => {
   const getProps = () => ({
@@ -48,7 +51,8 @@ describe(__filename, () => {
 
     renderComponent({ errorHandler, store });
 
-    sinon.assert.callCount(fakeDispatch, 1);
+    // This should be called with fetchUserCollections and with setViewContext.
+    sinon.assert.callCount(fakeDispatch, 2);
     sinon.assert.calledWith(
       fakeDispatch,
       fetchUserCollections({
@@ -64,7 +68,9 @@ describe(__filename, () => {
 
     renderComponent({ store });
 
-    sinon.assert.notCalled(fakeDispatch);
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_USER_COLLECTIONS,
+    });
   });
 
   it('does not dispatch fetchUserCollections if collections are loading', () => {
@@ -85,7 +91,9 @@ describe(__filename, () => {
 
     renderComponent({ store });
 
-    sinon.assert.notCalled(fakeDispatch);
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_USER_COLLECTIONS,
+    });
   });
 
   it('does not dispatch fetchUserCollections if collections are loaded', () => {
@@ -101,10 +109,11 @@ describe(__filename, () => {
     );
 
     fakeDispatch.resetHistory();
-
     renderComponent({ store });
 
-    sinon.assert.notCalled(fakeDispatch);
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_USER_COLLECTIONS,
+    });
   });
 
   it('renders an AuthenticateButton without a logged in user', () => {
@@ -249,5 +258,12 @@ describe(__filename, () => {
     it('returns a blank ID with no currentUserId', () => {
       expect(extractId({})).toEqual('');
     });
+  });
+
+  it('dispatches setViewContext when component mounts', () => {
+    const { store } = dispatchSignInActions();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    renderComponent({ store });
+    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
   });
 });

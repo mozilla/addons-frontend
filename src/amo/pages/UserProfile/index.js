@@ -30,6 +30,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   USERS_EDIT,
+  VIEW_CONTEXT_HOME,
 } from 'amo/constants';
 import { withFixedErrorHandler } from 'amo/errorHandler';
 import translate from 'amo/i18n/translate';
@@ -54,6 +55,7 @@ import type {
 } from 'amo/types/router';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import type { I18nType } from 'amo/types/i18n';
+import { setViewContext } from 'amo/actions/viewContext';
 
 import './styles.scss';
 
@@ -103,6 +105,8 @@ export class UserProfileBase extends React.Component<InternalProps> {
       shouldRedirect,
       user,
     } = props;
+
+    dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
     if (shouldRedirect && user) {
       dispatch(
