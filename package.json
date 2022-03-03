@@ -36,6 +36,7 @@
     "start": "npm run version-check && better-npm-run --silent node bin/server.js | pino-mozlog",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
     "test-ci": "bin/config-check.js && npm run build-locales && better-npm-run test-ci",
+    "test-ci-next": "bin/config-check.js && npm run build-locales && better-npm-run test-ci-next",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
@@ -132,6 +133,16 @@
     },
     "test-ci": {
       "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --maxWorkers=2 --color=false --coverage",
+      "env": {
+        "NODE_ICU_DATA": "./node_modules/full-icu",
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "test",
+        "NO_FLOW": "1",
+        "NO_ESLINT": "1"
+      }
+    },
+    "test-ci-next": {
+      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --color=false --coverage -i",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
