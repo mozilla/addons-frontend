@@ -80,7 +80,7 @@ describe(__filename, () => {
     expect(link2).toHaveAttribute('href', `/en-US/android/user/${author2.id}/`);
 
     expect(
-      screen.getByTextInDocument(` by ${author1.name}, ${author2.name}`),
+      screen.getByTextAcrossTags(` by ${author1.name}, ${author2.name}`),
     ).toBeInTheDocument();
   });
 

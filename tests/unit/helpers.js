@@ -1576,7 +1576,7 @@ export const screen = {
   ...customQueries,
 };
 
-const getByTextInDocument = (text) => {
+const getByTextAcrossTags = (text) => {
   return screen.getByText(
     (content, element) => {
       const hasText = (el) => el.textContent === text;
@@ -1591,7 +1591,7 @@ const getByTextInDocument = (text) => {
     },
   );
 };
-screen.getByTextInDocument = getByTextInDocument;
+screen.getByTextAcrossTags = getByTextAcrossTags;
 
 export const getElements = (selector) => {
   return document.querySelectorAll(selector);
