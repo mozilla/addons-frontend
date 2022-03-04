@@ -12,7 +12,11 @@ import {
 } from 'amo/reducers/recommendations';
 import { formatFilesize } from 'amo/i18n/utils';
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
-import { ADDON_TYPE_EXTENSION } from 'amo/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'amo/constants';
 import { loadAddon } from 'amo/reducers/addons';
 import { setLang } from 'amo/reducers/api';
 import { searchLoad } from 'amo/reducers/search';
@@ -175,6 +179,57 @@ describe(__filename, () => {
       // fakeVersion does not include license.text.
       const version = createInternalVersion(fakeVersion, lang);
       expect(version.license.text).toEqual(undefined);
+    });
+
+    // See https://github.com/mozilla/addons-frontend/issues/11337
+    it('overwrites version 91.1.0 with 91.0.0 for firefox', () => {
+      const version = {
+        ...fakeVersion,
+        compatibility: {
+          [CLIENT_APP_ANDROID]: {
+            min: '91.1.0',
+            max: '*',
+          },
+          [CLIENT_APP_FIREFOX]: {
+            min: '91.1.0',
+            max: '*',
+          },
+        },
+      };
+
+      const internalVersion = createInternalVersion(version, lang);
+      expect(internalVersion.compatibility).toEqual({
+        [CLIENT_APP_ANDROID]: {
+          min: '91.1.0',
+          max: '*',
+        },
+        [CLIENT_APP_FIREFOX]: {
+          min: '91.0.0',
+          max: '*',
+        },
+      });
+
+      // Also test that it doesn't break anything if firefox compatibility is missing.
+      const versionWithouFirefox = {
+        ...fakeVersion,
+        compatibility: {
+          [CLIENT_APP_ANDROID]: {
+            min: '91.1.0',
+            max: '*',
+          },
+        },
+      };
+
+      const internalVersionWithouFirefox = createInternalVersion(
+        versionWithouFirefox,
+        lang,
+      );
+      expect(internalVersionWithouFirefox.compatibility).toEqual({
+        [CLIENT_APP_ANDROID]: {
+          min: '91.1.0',
+          max: '*',
+        },
+      });
     });
   });
 

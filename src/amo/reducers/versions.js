@@ -1,6 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
 
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import { LOAD_ADDONS_BY_AUTHORS } from 'amo/reducers/addonsByAuthors';
 import {
   LOAD_COLLECTION_ADDONS,
@@ -123,8 +124,15 @@ export const createInternalVersion = (
   version: ExternalAddonVersionType,
   lang: string,
 ): AddonVersionType => {
+  // See https://github.com/mozilla/addons-frontend/issues/11337
+  const compatibility = { ...version.compatibility };
+  const firefoxCompatibility = compatibility[CLIENT_APP_FIREFOX];
+  if (firefoxCompatibility && firefoxCompatibility.min === '91.1.0') {
+    compatibility[CLIENT_APP_FIREFOX].min = '91.0.0';
+  }
+
   return {
-    compatibility: version.compatibility,
+    compatibility,
     id: version.id,
     isStrictCompatibilityEnabled: Boolean(
       version.is_strict_compatibility_enabled,
