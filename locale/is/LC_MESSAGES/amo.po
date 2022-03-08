@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-02-25 12:16+0000\n"
+"PO-Revision-Date: 2022-03-08 14:58+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -1201,7 +1201,7 @@ msgstr "Kanna nánar"
 
 #: src/amo/components/InstallWarning/index.js:112
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "Þessi viðbót er ekki vöktuð af Mozilla gagnvart öryggismálum. Vertu viss um að þú treystir henni áður en þú setur hana upp."
+msgstr "Þessi viðbót er ekki vöktuð að staðaldri af Mozilla með tilliti til öryggisþátta. Vertu viss um að þú treystir henni áður en þú setur hana upp."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
