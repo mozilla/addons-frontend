@@ -1312,12 +1312,33 @@ export function fakeCookies(overrides = {}) {
   };
 }
 
+export function fakeCookiesWithJest(overrides = {}) {
+  return {
+    addChangeListener: jest.fn(),
+    get: jest.fn(),
+    getAll: jest.fn(),
+    removeChangeListener: jest.fn(),
+    set: jest.fn(),
+    ...overrides,
+  };
+}
+
 export const createFakeTracking = (overrides = {}) => {
   return {
     pageView: sinon.stub(),
     sendEvent: sinon.stub(),
     setDimension: sinon.stub(),
     setPage: sinon.stub(),
+    ...overrides,
+  };
+};
+
+export const createFakeTrackingWithJest = (overrides = {}) => {
+  return {
+    pageView: jest.fn(),
+    sendEvent: jest.fn(),
+    setDimension: jest.fn(),
+    setPage: jest.fn(),
     ...overrides,
   };
 };

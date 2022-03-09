@@ -1,4 +1,3 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { storeExperimentVariant } from 'amo/reducers/experiments';
@@ -15,24 +14,38 @@ import {
 import * as defaultConfig from 'config/default';
 import {
   createExperimentData,
-  createFakeTracking,
+  createFakeTrackingWithJest,
   dispatchClientMetadata,
-  fakeCookies,
+  fakeCookiesWithJest,
   getFakeConfig,
   makeExperimentId,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  class SomeComponentBase extends React.Component {
-    render() {
-      return <div className="component" />;
-    }
-  }
+  const SomeComponentBase = ({
+    /* eslint-disable react/prop-types */
+    experimentId,
+    isExperimentEnabled,
+    isUserInExperiment,
+    variant,
+    /* eslint-enable react/prop-types */
+  }) => {
+    return (
+      <div className="component">
+        <p>experimentId: {experimentId}</p>
+        <p>isExperimentEnabled: {String(isExperimentEnabled)}</p>
+        <p>isUserInExperiment: {String(isUserInExperiment)}</p>
+        <p>variant: {variant}</p>
+      </div>
+    );
+  };
 
-  const renderWithExperiment = ({
-    _tracking = createFakeTracking(),
+  const render = ({
+    _tracking = createFakeTrackingWithJest(),
     configOverrides = {},
-    cookies = fakeCookies(),
+    cookies = fakeCookiesWithJest(),
     experimentProps,
     props,
     store = dispatchClientMetadata().store,
@@ -60,25 +73,13 @@ describe(__filename, () => {
 
     const SomeComponent = withExperiment(allExperimentProps)(SomeComponentBase);
 
-    // Temporary workaround for supporting the React (stable) Context API.
-    // See: https://github.com/mozilla/addons-frontend/issues/6839
-    //
-    // 1. Render everything
-    const root = shallow(<SomeComponent store={store} {...props} />);
-    // 2. Get and render the withExperiment HOC (inside withCookies() HOC)
-    return shallow(root.props().children(cookies));
-  };
-
-  const render = (props = {}) => {
-    const root = renderWithExperiment(props);
-    // Return the wrapped instance (`SomeComponentBase`)
-    // We have to dive twice because of the withCookies HOC and the connect
-    // wrapper.
-    return root.dive().dive();
+    return defaultRender(<SomeComponent cookies={cookies} {...props} />, {
+      store,
+    });
   };
 
   it('calls shouldExcludeUser to determine whether the current user should be in the experiment', () => {
-    const shouldExcludeUser = sinon.spy();
+    const shouldExcludeUser = jest.fn();
     const { state, store } = dispatchClientMetadata();
 
     render({
@@ -86,48 +87,50 @@ describe(__filename, () => {
       store,
     });
 
-    sinon.assert.calledWith(shouldExcludeUser, { state });
+    expect(shouldExcludeUser).toHaveBeenCalledWith({
+      state: expect.objectContaining({ api: state.api }),
+    });
   });
 
   it.each([true, false])(
     'injects a variant prop from a cookie whether a user is excluded or not',
     (isExcluded) => {
-      const shouldExcludeUser = sinon.stub().returns(isExcluded);
+      const shouldExcludeUser = jest.fn().mockReturnValue(isExcluded);
       const id = makeExperimentId('test-id');
       const variantId = 'some-variant-id';
-      const cookies = fakeCookies({
-        get: sinon.stub().returns(createExperimentData({ id, variantId })),
+      const cookies = fakeCookiesWithJest({
+        get: jest.fn().mockReturnValue(createExperimentData({ id, variantId })),
       });
 
-      const root = render({
+      render({
         cookies,
         experimentProps: { id, shouldExcludeUser },
       });
 
-      expect(root).toHaveProp('variant', variantId);
+      expect(screen.getByText(`variant: ${variantId}`)).toBeInTheDocument();
     },
   );
 
   it.each([true, false])(
     'injects a variant prop from the redux store whether a user is excluded or not',
     (isExcluded) => {
-      const shouldExcludeUser = sinon.stub().returns(isExcluded);
+      const shouldExcludeUser = jest.fn().mockReturnValue(isExcluded);
       const { store } = dispatchClientMetadata();
       const id = makeExperimentId('test-id');
       const variantId = 'some-variant-id';
-      const cookies = fakeCookies({
-        get: sinon.stub().returns(undefined),
+      const cookies = fakeCookiesWithJest({
+        get: jest.fn().mockReturnValue(undefined),
       });
 
       store.dispatch(storeExperimentVariant({ id, variant: variantId }));
 
-      const root = render({
+      render({
         cookies,
         experimentProps: { id, shouldExcludeUser },
         store,
       });
 
-      expect(root).toHaveProp('variant', variantId);
+      expect(screen.getByText(`variant: ${variantId}`)).toBeInTheDocument();
     },
   );
 
@@ -138,126 +141,136 @@ describe(__filename, () => {
     const id = makeExperimentId('test-id');
     const cookieVariant = 'cookie-variant';
     const storeVariant = 'store-variant';
-    const cookies = fakeCookies({
-      get: sinon
-        .stub()
-        .returns(createExperimentData({ id, variantId: cookieVariant })),
+    const cookies = fakeCookiesWithJest({
+      get: jest
+        .fn()
+        .mockReturnValue(
+          createExperimentData({ id, variantId: cookieVariant }),
+        ),
     });
 
     store.dispatch(storeExperimentVariant({ id, variant: storeVariant }));
 
-    const root = render({ cookies, experimentProps: { id }, store });
+    render({ cookies, experimentProps: { id }, store });
 
-    expect(root).toHaveProp('variant', cookieVariant);
+    expect(screen.getByText(`variant: ${cookieVariant}`)).toBeInTheDocument();
   });
 
   it('uses an updated cookie value on re-render', () => {
     const id = makeExperimentId('test-id');
     const originalCookieVariant = 'cookie-variant';
     const updatedCookieVariant = 'cookie-variant-updated';
-    const cookies = fakeCookies({
-      get: sinon
-        .stub()
-        .returns(
+    const cookies = fakeCookiesWithJest({
+      get: jest
+        .fn()
+        .mockReturnValue(
           createExperimentData({ id, variantId: originalCookieVariant }),
         ),
     });
 
-    const root = render({ cookies, experimentProps: { id } });
+    render({ cookies, experimentProps: { id } });
 
-    expect(root).toHaveProp('variant', originalCookieVariant);
+    expect(
+      screen.getByText(`variant: ${originalCookieVariant}`),
+    ).toBeInTheDocument();
 
-    root.setProps({
-      cookies: fakeCookies({
+    render({
+      cookies: fakeCookiesWithJest({
         get: sinon
           .stub()
           .returns(
             createExperimentData({ id, variantId: updatedCookieVariant }),
           ),
       }),
+      experimentProps: { id },
     });
 
-    expect(root).toHaveProp('variant', updatedCookieVariant);
+    expect(
+      screen.getByText(`variant: ${updatedCookieVariant}`),
+    ).toBeInTheDocument();
   });
 
   // Test for https://github.com/mozilla/addons-frontend/issues/10681
   it('injects a newly created variant prop', () => {
     const id = makeExperimentId('hero');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(undefined),
     });
-    const _getVariant = sinon.stub().returns(variantId);
+    const _getVariant = jest.fn().mockReturnValue(variantId);
 
-    const root = render({
+    render({
       cookies,
       experimentProps: { id },
       props: { _getVariant },
     });
 
-    expect(root).toHaveProp('variant', variantId);
+    expect(screen.getByText(`variant: ${variantId}`)).toBeInTheDocument();
   });
 
   it('injects a variant prop when shouldExcludeUser is undefined', () => {
     const id = makeExperimentId('hero');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(undefined),
     });
-    const _getVariant = sinon.stub().returns(variantId);
+    const _getVariant = jest.fn().mockReturnValue(variantId);
 
-    const root = render({
+    render({
       cookies,
       experimentProps: { id, shouldExcludeUser: undefined },
       props: { _getVariant },
     });
 
-    expect(root).toHaveProp('variant', variantId);
+    expect(screen.getByText(`variant: ${variantId}`)).toBeInTheDocument();
   });
 
   it('makes the variant NOT_IN_EXPERIMENT if a user should be excluded, and no variant exists (cookie or store)', () => {
-    const shouldExcludeUser = sinon.stub().returns(true);
-    const root = render({ experimentProps: { shouldExcludeUser } });
+    const shouldExcludeUser = jest.fn().mockReturnValue(true);
+    render({ experimentProps: { shouldExcludeUser } });
 
-    expect(root).toHaveProp('variant', NOT_IN_EXPERIMENT);
+    expect(
+      screen.getByText(`variant: ${NOT_IN_EXPERIMENT}`),
+    ).toBeInTheDocument();
   });
 
   it('injects an experimentId', () => {
     const id = makeExperimentId('injected-id');
+    render({ experimentProps: { id } });
 
-    const root = render({ experimentProps: { id } });
-    expect(root).toHaveProp('experimentId', id);
+    expect(screen.getByText(`experimentId: ${id}`)).toBeInTheDocument();
   });
 
   it('injects an isExperimentEnabled prop', () => {
-    const root = render();
-    expect(root).toHaveProp('isExperimentEnabled', true);
+    render();
+
+    expect(screen.getByText('isExperimentEnabled: true')).toBeInTheDocument();
   });
 
   it('injects an isUserInExperiment prop', () => {
     const id = makeExperimentId('test-id');
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(createExperimentData({ id })),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(createExperimentData({ id })),
     });
 
-    const root = render({ cookies, experimentProps: { id } });
+    render({ cookies, experimentProps: { id } });
 
-    expect(root).toHaveProp('isUserInExperiment', true);
+    expect(screen.getByText('isUserInExperiment: true')).toBeInTheDocument();
   });
 
   it('reads the experiment cookie upon render', () => {
-    const cookies = fakeCookies();
+    const cookies = fakeCookiesWithJest();
 
     render({ cookies });
 
-    sinon.assert.calledWith(cookies.get, EXPERIMENT_COOKIE_NAME);
+    expect(cookies.get).toHaveBeenCalledWith(EXPERIMENT_COOKIE_NAME);
   });
 
   it('deletes the data for an experiment from the cookie if the experiment is disabled', () => {
     const experimentId = makeExperimentId('thisExperiment');
     const anotherExperimentId = makeExperimentId('anotherExperiment');
-    const cookies = fakeCookies({
-      get: sinon.stub().returns({
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue({
         ...createExperimentData({ id: experimentId }),
         ...createExperimentData({ id: anotherExperimentId }),
       }),
@@ -275,9 +288,8 @@ describe(__filename, () => {
       experimentProps: { id: experimentId },
     });
 
-    sinon.assert.calledOnce(cookies.set);
-    sinon.assert.calledWith(
-      cookies.set,
+    expect(cookies.set).toHaveBeenCalledTimes(1);
+    expect(cookies.set).toHaveBeenCalledWith(
       EXPERIMENT_COOKIE_NAME,
       createExperimentData({ id: anotherExperimentId }),
       defaultCookieConfig,
@@ -286,14 +298,14 @@ describe(__filename, () => {
 
   it('calls getVariant to set a value for a cookie upon construction if needed', () => {
     const id = makeExperimentId('hero');
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(undefined),
     });
     const variants = [
       { id: 'some-variant-a', percentage: 0.5 },
       { id: 'some-variant-b', percentage: 0.5 },
     ];
-    const _getVariant = sinon.stub().returns(variants[0].id);
+    const _getVariant = jest.fn().mockReturnValue(variants[0].id);
 
     render({
       cookies,
@@ -301,12 +313,11 @@ describe(__filename, () => {
       props: { _getVariant },
     });
 
-    sinon.assert.calledOnce(_getVariant);
-    sinon.assert.calledWith(_getVariant, { variants });
+    expect(_getVariant).toHaveBeenCalledTimes(1);
+    expect(_getVariant).toHaveBeenCalledWith({ variants });
 
-    sinon.assert.calledOnce(cookies.set);
-    sinon.assert.calledWith(
-      cookies.set,
+    expect(cookies.set).toHaveBeenCalledTimes(1);
+    expect(cookies.set).toHaveBeenCalledWith(
       EXPERIMENT_COOKIE_NAME,
       createExperimentData({ id, variantId: variants[0].id }),
       defaultCookieConfig,
@@ -317,10 +328,10 @@ describe(__filename, () => {
     const otherExperimentVariant = 'variant-for-another-experiment';
     const thisExperimentVariant = 'variant-for-this-experiment';
     const id = makeExperimentId('hero');
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(undefined),
     });
-    const _getVariant = sinon.stub().returns(thisExperimentVariant);
+    const _getVariant = jest.fn().mockReturnValue(thisExperimentVariant);
     const { store } = dispatchClientMetadata();
 
     // Store a variant for a different experiment.
@@ -331,7 +342,7 @@ describe(__filename, () => {
       }),
     );
 
-    const root = render({
+    render({
       cookies,
       experimentProps: { id },
       props: { _getVariant },
@@ -339,15 +350,17 @@ describe(__filename, () => {
     });
 
     // This expected variant comes from the mocked _getVariant.
-    expect(root).toHaveProp('variant', thisExperimentVariant);
+    expect(
+      screen.getByText(`variant: ${thisExperimentVariant}`),
+    ).toBeInTheDocument();
   });
 
   it('uses the stored variant for this experiment, even when others are present', () => {
     const otherExperimentVariant = 'variant-for-another-experiment';
     const thisExperimentVariant = 'variant-for-this-experiment';
     const id = makeExperimentId('hero');
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(undefined),
     });
     const { store } = dispatchClientMetadata();
 
@@ -367,31 +380,35 @@ describe(__filename, () => {
       }),
     );
 
-    const root = render({
+    render({
       cookies,
       experimentProps: { id },
       store,
     });
 
     // This expected variant comes from the store.
-    expect(root).toHaveProp('variant', thisExperimentVariant);
+    expect(
+      screen.getByText(`variant: ${thisExperimentVariant}`),
+    ).toBeInTheDocument();
   });
 
   it('does not call getVariant if the user is to be excluded', () => {
-    const _getVariant = sinon.spy();
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
+    const _getVariant = jest.fn();
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(undefined),
     });
-    const shouldExcludeUser = sinon.stub().returns(true);
+    const shouldExcludeUser = jest.fn().mockReturnValue(true);
 
-    const root = render({
+    render({
       cookies,
       experimentProps: { shouldExcludeUser },
       props: { _getVariant },
     });
 
-    sinon.assert.notCalled(_getVariant);
-    expect(root).toHaveProp('variant', NOT_IN_EXPERIMENT);
+    expect(_getVariant).not.toHaveBeenCalled();
+    expect(
+      screen.getByText(`variant: ${NOT_IN_EXPERIMENT}`),
+    ).toBeInTheDocument();
   });
 
   it('creates a cookie upon render if the current experiment is not already in the cookie', () => {
@@ -404,12 +421,12 @@ describe(__filename, () => {
       },
     };
     const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns({
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue({
         ...createExperimentData({ id: anotherExperimentId, variantId }),
       }),
     });
-    const _getVariant = sinon.stub().returns(variantId);
+    const _getVariant = jest.fn().mockReturnValue(variantId);
 
     render({
       configOverrides,
@@ -418,8 +435,7 @@ describe(__filename, () => {
       props: { _getVariant },
     });
 
-    sinon.assert.calledWith(
-      cookies.set,
+    expect(cookies.set).toHaveBeenCalledWith(
       EXPERIMENT_COOKIE_NAME,
       {
         ...createExperimentData({ id: experimentId, variantId }),
@@ -432,12 +448,12 @@ describe(__filename, () => {
   it('dispatches storeExperimentVariant to store the variant', () => {
     const id = makeExperimentId('hero');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(undefined),
     });
-    const _getVariant = sinon.stub().returns(variantId);
+    const _getVariant = jest.fn().mockReturnValue(variantId);
     const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const fakeDispatch = jest.spyOn(store, 'dispatch');
 
     render({
       cookies,
@@ -446,9 +462,9 @@ describe(__filename, () => {
       store,
     });
 
-    sinon.assert.calledOnce(fakeDispatch);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    // @@router/LOCATION_CHANGE is always called when a component is rendered.
+    expect(fakeDispatch).toHaveBeenCalledTimes(2);
+    expect(fakeDispatch).toHaveBeenCalledWith(
       storeExperimentVariant({ id, variant: variantId }),
     );
   });
@@ -463,12 +479,12 @@ describe(__filename, () => {
       },
     };
     const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
-      get: sinon.stub().returns({
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue({
         ...createExperimentData({ id: anotherExperimentId, variantId }),
       }),
     });
-    const _getVariant = sinon.stub().returns(variantId);
+    const _getVariant = jest.fn().mockReturnValue(variantId);
 
     render({
       configOverrides,
@@ -477,9 +493,8 @@ describe(__filename, () => {
       props: { _getVariant },
     });
 
-    sinon.assert.calledOnce(cookies.set);
-    sinon.assert.calledWith(
-      cookies.set,
+    expect(cookies.set).toHaveBeenCalledTimes(1);
+    expect(cookies.set).toHaveBeenCalledWith(
       EXPERIMENT_COOKIE_NAME,
       createExperimentData({ id: experimentId, variantId }),
       defaultCookieConfig,
@@ -488,8 +503,8 @@ describe(__filename, () => {
 
   it('does not update the cookie if the current experiment is already in the cookie', () => {
     const id = makeExperimentId('test-id');
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(createExperimentData({ id })),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(createExperimentData({ id })),
     });
 
     render({
@@ -497,20 +512,20 @@ describe(__filename, () => {
       experimentProps: { id },
     });
 
-    sinon.assert.notCalled(cookies.set);
+    expect(cookies.set).not.toHaveBeenCalled();
   });
 
   it('sends an enrollment event if the experiment is not already present in the cookie', () => {
     const experimentId = makeExperimentId('thisExperiment');
     const anotherExperimentId = makeExperimentId('anotherExperiment');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookies({
+    const cookies = fakeCookiesWithJest({
       get: sinon
         .stub()
         .returns(createExperimentData({ id: anotherExperimentId })),
     });
-    const _getVariant = sinon.stub().returns(variantId);
-    const _tracking = createFakeTracking();
+    const _getVariant = jest.fn().mockReturnValue(variantId);
+    const _tracking = createFakeTrackingWithJest();
 
     render({
       _tracking,
@@ -519,10 +534,9 @@ describe(__filename, () => {
       props: { _getVariant },
     });
 
-    sinon.assert.calledOnce(_tracking.sendEvent);
-    sinon.assert.calledWith(
-      _tracking.sendEvent,
-      sinon.match({
+    expect(_tracking.sendEvent).toHaveBeenCalledTimes(1);
+    expect(_tracking.sendEvent).toHaveBeenCalledWith(
+      expect.objectContaining({
         action: variantId,
         category: [EXPERIMENT_ENROLLMENT_CATEGORY, experimentId].join(' '),
       }),
@@ -531,10 +545,10 @@ describe(__filename, () => {
 
   it('does not send an enrollment event if the user is in the experiment', () => {
     const id = makeExperimentId('hero');
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(createExperimentData({ id })),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(createExperimentData({ id })),
     });
-    const _tracking = createFakeTracking();
+    const _tracking = createFakeTrackingWithJest();
 
     render({
       _tracking,
@@ -542,20 +556,20 @@ describe(__filename, () => {
       experimentProps: { id },
     });
 
-    sinon.assert.notCalled(_tracking.sendEvent);
+    expect(_tracking.sendEvent).not.toHaveBeenCalled();
   });
 
   it('does not send an enrollment event if the experiment is disabled', () => {
     const id = makeExperimentId('hero');
-    const cookies = fakeCookies({
-      get: sinon.stub().returns(undefined),
+    const cookies = fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(undefined),
     });
     const configOverrides = {
       experiments: {
         [id]: false,
       },
     };
-    const _tracking = createFakeTracking();
+    const _tracking = createFakeTrackingWithJest();
 
     render({
       _tracking,
@@ -564,15 +578,15 @@ describe(__filename, () => {
       experimentProps: { id },
     });
 
-    sinon.assert.notCalled(_tracking.sendEvent);
+    expect(_tracking.sendEvent).not.toHaveBeenCalled();
   });
 
   it('allows a custom cookie configuration', () => {
     const id = makeExperimentId('custom_cookie_config');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookies();
+    const cookies = fakeCookiesWithJest();
     const cookieConfig = { path: '/test' };
-    const _getVariant = sinon.stub().returns(variantId);
+    const _getVariant = jest.fn().mockReturnValue(variantId);
 
     render({
       cookies,
@@ -580,19 +594,12 @@ describe(__filename, () => {
       props: { _getVariant },
     });
 
-    sinon.assert.calledOnce(cookies.set);
-    sinon.assert.calledWith(
-      cookies.set,
+    expect(cookies.set).toHaveBeenCalledTimes(1);
+    expect(cookies.set).toHaveBeenCalledWith(
       EXPERIMENT_COOKIE_NAME,
       createExperimentData({ id, variantId }),
       cookieConfig,
     );
-  });
-
-  it('sets a display name', () => {
-    const SomeComponent = renderWithExperiment();
-
-    expect(SomeComponent.name()).toMatch(/WithExperiment\(SomeComponentBase\)/);
   });
 
   it('sets isExperimentEnabled prop to false when experiment is disabled by config', () => {
@@ -603,21 +610,24 @@ describe(__filename, () => {
       },
     };
 
-    const root = render({ configOverrides, experimentProps: { id } });
-    expect(root).toHaveProp('isExperimentEnabled', false);
+    render({ configOverrides, experimentProps: { id } });
+
+    expect(screen.getByText('isExperimentEnabled: false')).toBeInTheDocument();
   });
 
   it('sets isUserInExperiment prop to false when the user is not in the experiment', () => {
     const id = makeExperimentId('test-id');
-    const cookies = fakeCookies({
-      get: sinon
-        .stub()
-        .returns(createExperimentData({ id, variantId: NOT_IN_EXPERIMENT })),
+    const cookies = fakeCookiesWithJest({
+      get: jest
+        .fn()
+        .mockReturnValue(
+          createExperimentData({ id, variantId: NOT_IN_EXPERIMENT }),
+        ),
     });
 
-    const root = render({ cookies, experimentProps: { id } });
+    render({ cookies, experimentProps: { id } });
 
-    expect(root).toHaveProp('isUserInExperiment', false);
+    expect(screen.getByText('isUserInExperiment: false')).toBeInTheDocument();
   });
 
   it('sets isUserInExperiment prop to false when the experiment is disabled', () => {
@@ -628,9 +638,9 @@ describe(__filename, () => {
       },
     };
 
-    const root = render({ configOverrides, experimentProps: { id } });
+    render({ configOverrides, experimentProps: { id } });
 
-    expect(root).toHaveProp('isUserInExperiment', false);
+    expect(screen.getByText('isUserInExperiment: false')).toBeInTheDocument();
   });
 
   it('disables the experiment by default', () => {
@@ -639,17 +649,17 @@ describe(__filename, () => {
       experiments: {},
     };
 
-    const root = render({ configOverrides });
+    render({ configOverrides });
 
-    expect(root).toHaveProp('isExperimentEnabled', false);
+    expect(screen.getByText('isExperimentEnabled: false')).toBeInTheDocument();
   });
 
   it('can handle a null for experiments in the config', () => {
     const configOverrides = { experiments: null };
 
-    const root = render({ configOverrides });
+    render({ configOverrides });
 
-    expect(root).toHaveProp('isExperimentEnabled', false);
+    expect(screen.getByText('isExperimentEnabled: false')).toBeInTheDocument();
   });
 
   it('throws an exception for a badly formatted experimentId', () => {
@@ -692,17 +702,17 @@ describe(__filename, () => {
     ])(
       'assigns variant %s based on a percent of %s',
       (expectedVariant, randomNumber) => {
-        const randomizer = sinon.stub().returns(randomNumber);
+        const randomizer = jest.fn().mockReturnValue(randomNumber);
 
         expect(getVariant({ randomizer, variants })).toEqual(
           expectedVariant.id,
         );
-        sinon.assert.called(randomizer);
+        expect(randomizer).toHaveBeenCalled();
       },
     );
 
     it('throws an exception if the percentages of variants is less than 100%', () => {
-      const randomizer = sinon.stub().returns(1);
+      const randomizer = jest.fn().mockReturnValue(1);
       const badVariants = [
         { id: 'some-variant-a', percentage: 1 / 3 },
         { id: 'some-variant-b', percentage: 1 / 3 },
@@ -714,7 +724,7 @@ describe(__filename, () => {
     });
 
     it('throws an exception if the percentages of variants is greater than 100%', () => {
-      const randomizer = sinon.stub().returns(1);
+      const randomizer = jest.fn().mockReturnValue(1);
       const badVariants = [
         { id: 'some-variant-a', percentage: 2 / 3 },
         { id: 'some-variant-b', percentage: 2 / 3 },
