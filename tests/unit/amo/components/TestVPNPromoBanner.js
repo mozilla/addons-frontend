@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Route } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
 
 import VPNPromoBanner, {
   IMPRESSION_COUNT_KEY,
@@ -8,7 +10,6 @@ import VPNPromoBanner, {
   VPN_PROMO_DISMISS_ACTION,
   VPN_PROMO_IMPRESSION_ACTION,
   VPN_URL,
-  VPNPromoBannerBase,
 } from 'amo/components/VPNPromoBanner';
 import {
   CLIENT_APP_ANDROID,
@@ -28,29 +29,31 @@ import {
   defaultCookieConfig,
 } from 'amo/withExperiment';
 import {
-  createContextWithFakeRouter,
+  DEFAULT_LANG_IN_TESTS,
   createExperimentData,
-  createFakeEvent,
   createFakeLocalStorage,
-  createFakeLocation,
-  createFakeTracking,
+  createFakeTrackingWithJest,
+  createHistory,
   dispatchClientMetadata,
   fakeAddon,
-  fakeCookies,
-  fakeI18n,
-  shallowUntilTarget,
+  fakeCookiesWithJest,
+  onLocationChanged,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
+  const addonId = 123;
+  const slug = 'some-slug';
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
   });
 
   const createCookies = () => {
-    return fakeCookies({
-      get: sinon.stub().returns(
+    return fakeCookiesWithJest({
+      get: jest.fn().mockReturnValue(
         createExperimentData({
           id: EXPERIMENT_CONFIG.id,
           variantId: VARIANT_SHOW,
@@ -63,60 +66,70 @@ describe(__filename, () => {
     // The defaults for clientApp, regionCode and variant set up the component
     // to show by default for all tests.
     clientApp = CLIENT_APP_FIREFOX,
+    lang = DEFAULT_LANG_IN_TESTS,
     location,
-    match = {
-      params: {
-        slug: 'some-slug',
-      },
-    },
     regionCode = 'US',
     variant = VARIANT_SHOW,
     ...props
   } = {}) => {
-    dispatchClientMetadata({ store, clientApp, regionCode });
-    return shallowUntilTarget(
-      <VPNPromoBanner
-        _tracking={createFakeTracking()}
-        _localStorage={createFakeLocalStorage()}
-        cookies={createCookies()}
-        i18n={fakeI18n()}
-        store={store}
-        variant={variant}
-        {...props}
-      />,
-      VPNPromoBannerBase,
-      {
-        shallowOptions: createContextWithFakeRouter({ location, match }),
-      },
+    const addonPageLocation = `/${lang}/${clientApp}/addon/${slug}/`;
+    dispatchClientMetadata({ store, clientApp, lang, regionCode });
+
+    const renderOptions = {
+      history: createHistory({
+        initialEntries: [location || addonPageLocation],
+      }),
+      store,
+    };
+
+    return defaultRender(
+      <Route path="/:lang/:application(firefox|android)/addon/:slug/">
+        <VPNPromoBanner
+          _tracking={createFakeTrackingWithJest()}
+          _localStorage={createFakeLocalStorage()}
+          cookies={createCookies()}
+          variant={variant}
+          {...props}
+        />
+      </Route>,
+      renderOptions,
     );
   };
 
   // This validates that render configures the component to display by default.
   it('displays the promo on desktop, for an accepted region, with the show variant', () => {
-    const root = render();
+    render();
 
-    expect(root.find('.VPNPromoBanner')).toHaveLength(1);
+    expect(
+      screen.getByRole('link', { name: 'Get Mozilla VPN' }),
+    ).toBeInTheDocument();
   });
 
   it.each([VARIANT_HIDE, NOT_IN_EXPERIMENT, null])(
-    'renders nothing when the variant is %s',
+    'does not display the promo when the variant is %s',
     (variant) => {
-      const root = render({ variant });
+      render({ variant });
 
-      expect(root.find('.VPNPromoBanner')).toHaveLength(0);
+      expect(
+        screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
+      ).not.toBeInTheDocument();
     },
   );
 
-  it('renders nothing when the region should not be included', () => {
-    const root = render({ regionCode: 'CN' });
+  it('does not display the promo when the region should not be included', () => {
+    render({ regionCode: 'CN' });
 
-    expect(root.find('.VPNPromoBanner')).toHaveLength(0);
+    expect(
+      screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
+    ).not.toBeInTheDocument();
   });
 
-  it('renders nothing on android', () => {
-    const root = render({ clientApp: CLIENT_APP_ANDROID });
+  it('does not display the promo on android', () => {
+    render({ clientApp: CLIENT_APP_ANDROID });
 
-    expect(root.find('.VPNPromoBanner')).toHaveLength(0);
+    expect(
+      screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
+    ).not.toBeInTheDocument();
   });
 
   it('renders a link with the expected href without an add-on loaded', () => {
@@ -127,56 +140,55 @@ describe(__filename, () => {
     ].join('&');
     const href = `${VPN_URL}?${queryString}`;
 
-    const root = render();
+    render();
 
-    expect(root.find('.VPNPromoBanner-cta')).toHaveProp('href', href);
+    expect(
+      screen.getByRole('link', { name: 'Get Mozilla VPN' }),
+    ).toHaveAttribute('href', href);
   });
 
   it('renders a link with the expected href with an add-on loaded', () => {
-    const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, slug };
     const queryString = [
       `utm_campaign=${VPN_PROMO_CAMPAIGN}`,
-      `utm_content=${addon.id}`,
+      `utm_content=${addonId}`,
       `utm_medium=${DEFAULT_UTM_MEDIUM}`,
       `utm_source=${DEFAULT_UTM_SOURCE}`,
     ].join('&');
     const href = `${VPN_URL}?${queryString}`;
 
-    store.dispatch(loadAddon({ addon, slug }));
+    store.dispatch(
+      loadAddon({ addon: { ...fakeAddon, id: addonId, slug }, slug }),
+    );
+    render();
 
-    const root = render({ match: { params: { slug } } });
-
-    expect(root.find('.VPNPromoBanner-cta')).toHaveProp('href', href);
+    expect(
+      screen.getByRole('link', { name: 'Get Mozilla VPN' }),
+    ).toHaveAttribute('href', href);
   });
 
-  const clickCta = (root) => {
-    root.find('.VPNPromoBanner-cta').simulate('click', createFakeEvent());
+  const clickCta = () => {
+    userEvent.click(screen.getByRole('link', { name: 'Get Mozilla VPN' }));
   };
 
-  const clickDismiss = (root) => {
-    root
-      .find('.VPNPromoBanner-dismisser-button')
-      .simulate('click', createFakeEvent());
+  const clickDismiss = () => {
+    userEvent.click(screen.getByRole('button'));
   };
 
   it('clears the impression count when the cta is clicked', () => {
     const _localStorage = createFakeLocalStorage();
+    render({ _localStorage });
+    clickCta();
 
-    const root = render({ _localStorage });
-    clickCta(root);
-
-    sinon.assert.calledWith(_localStorage.removeItem, IMPRESSION_COUNT_KEY);
+    expect(_localStorage.removeItem).toHaveBeenCalledWith(IMPRESSION_COUNT_KEY);
   });
 
   it('reads and updates the experiment cookie when the cta is clicked', () => {
     const cookies = createCookies();
-    const root = render({ cookies });
-    clickCta(root);
+    render({ cookies });
+    clickCta();
 
-    sinon.assert.calledWith(cookies.get, EXPERIMENT_COOKIE_NAME);
-    sinon.assert.calledWith(
-      cookies.set,
+    expect(cookies.get).toHaveBeenCalledWith(EXPERIMENT_COOKIE_NAME);
+    expect(cookies.set).toHaveBeenCalledWith(
       EXPERIMENT_COOKIE_NAME,
       createExperimentData({
         id: EXPERIMENT_CONFIG.id,
@@ -187,29 +199,34 @@ describe(__filename, () => {
   });
 
   it('hides itself when the cta is clicked', () => {
-    const root = render();
-    clickCta(root);
+    render();
 
-    expect(root.find('.VPNPromoBanner')).toHaveLength(0);
+    expect(
+      screen.getByRole('link', { name: 'Get Mozilla VPN' }),
+    ).toBeInTheDocument();
+
+    clickCta();
+
+    expect(
+      screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
+    ).not.toBeInTheDocument();
   });
 
   it('clears the impression count when the dismiss button is clicked', () => {
     const _localStorage = createFakeLocalStorage();
+    render({ _localStorage });
+    clickDismiss();
 
-    const root = render({ _localStorage });
-    clickDismiss(root);
-
-    sinon.assert.calledWith(_localStorage.removeItem, IMPRESSION_COUNT_KEY);
+    expect(_localStorage.removeItem).toHaveBeenCalledWith(IMPRESSION_COUNT_KEY);
   });
 
   it('reads and updates the experiment cookie when the dismiss button is clicked', () => {
     const cookies = createCookies();
-    const root = render({ cookies });
-    clickDismiss(root);
+    render({ cookies });
+    clickDismiss();
 
-    sinon.assert.calledWith(cookies.get, EXPERIMENT_COOKIE_NAME);
-    sinon.assert.calledWith(
-      cookies.set,
+    expect(cookies.get).toHaveBeenCalledWith(EXPERIMENT_COOKIE_NAME);
+    expect(cookies.set).toHaveBeenCalledWith(
       EXPERIMENT_COOKIE_NAME,
       createExperimentData({
         id: EXPERIMENT_CONFIG.id,
@@ -220,15 +237,22 @@ describe(__filename, () => {
   });
 
   it('hides itself when the dismiss button is clicked', () => {
-    const root = render();
-    clickDismiss(root);
+    render();
 
-    expect(root.find('.VPNPromoBanner')).toHaveLength(0);
+    expect(
+      screen.getByRole('link', { name: 'Get Mozilla VPN' }),
+    ).toBeInTheDocument();
+
+    clickDismiss();
+
+    expect(
+      screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
+    ).not.toBeInTheDocument();
   });
 
   it('throws an exception if something other than a number is stored', () => {
     const _localStorage = createFakeLocalStorage({
-      getItem: sinon.stub().returns('not a number!'),
+      getItem: jest.fn().mockReturnValue('not a number!'),
     });
 
     expect(() => {
@@ -240,58 +264,55 @@ describe(__filename, () => {
     it('sends a tracking event when the cta is clicked', () => {
       const impressionCount = '5';
       const _localStorage = createFakeLocalStorage({
-        getItem: sinon.stub().returns(impressionCount),
+        getItem: jest.fn().mockReturnValue(impressionCount),
       });
-      const _tracking = createFakeTracking();
-      const root = render({ _tracking, _localStorage });
-      root.find('.VPNPromoBanner-cta').simulate('click', createFakeEvent());
+      const _tracking = createFakeTrackingWithJest();
+      render({ _tracking, _localStorage });
+      clickCta();
 
-      sinon.assert.calledWith(_tracking.sendEvent, {
+      expect(_tracking.sendEvent).toHaveBeenCalledWith({
         action: VPN_PROMO_CLICK_ACTION,
         category: VPN_PROMO_CATEGORY,
         label: impressionCount,
       });
       // One event is the impression.
-      sinon.assert.calledTwice(_tracking.sendEvent);
+      expect(_tracking.sendEvent).toHaveBeenCalledTimes(2);
     });
 
     it('sends a tracking event when the dismiss button is clicked', () => {
       const impressionCount = '5';
       const _localStorage = createFakeLocalStorage({
-        getItem: sinon.stub().returns(impressionCount),
+        getItem: jest.fn().mockReturnValue(impressionCount),
       });
-      const _tracking = createFakeTracking();
-      const root = render({ _tracking, _localStorage });
-      root
-        .find('.VPNPromoBanner-dismisser-button')
-        .simulate('click', createFakeEvent());
+      const _tracking = createFakeTrackingWithJest();
+      render({ _tracking, _localStorage });
+      clickDismiss();
 
-      sinon.assert.calledWith(_tracking.sendEvent, {
+      expect(_tracking.sendEvent).toHaveBeenCalledWith({
         action: VPN_PROMO_DISMISS_ACTION,
         category: VPN_PROMO_CATEGORY,
         label: impressionCount,
       });
       // One event is the impression.
-      sinon.assert.calledTwice(_tracking.sendEvent);
+      expect(_tracking.sendEvent).toHaveBeenCalledTimes(2);
     });
 
     it('sends a tracking event and increases the count for the impression on mount', () => {
       const impressionCount = '5';
       const nextImpressionCount = 6;
       const _localStorage = createFakeLocalStorage({
-        getItem: sinon.stub().returns(impressionCount),
+        getItem: jest.fn().mockReturnValue(impressionCount),
       });
-      const _tracking = createFakeTracking();
+      const _tracking = createFakeTrackingWithJest();
       render({ _tracking, _localStorage });
 
-      sinon.assert.calledWith(_tracking.sendEvent, {
+      expect(_tracking.sendEvent).toHaveBeenCalledWith({
         action: VPN_PROMO_IMPRESSION_ACTION,
         category: VPN_PROMO_CATEGORY,
         label: String(nextImpressionCount),
       });
-      sinon.assert.calledOnce(_tracking.sendEvent);
-      sinon.assert.calledWith(
-        _localStorage.setItem,
+      expect(_tracking.sendEvent).toHaveBeenCalledTimes(1);
+      expect(_localStorage.setItem).toHaveBeenCalledWith(
         IMPRESSION_COUNT_KEY,
         nextImpressionCount,
       );
@@ -300,50 +321,53 @@ describe(__filename, () => {
     it.each([VARIANT_HIDE, NOT_IN_EXPERIMENT, null])(
       'does not send a tracking event for the impression on mount when the variant is %s',
       (variant) => {
-        const _tracking = createFakeTracking();
+        const _tracking = createFakeTrackingWithJest();
         render({ _tracking, variant });
 
-        sinon.assert.notCalled(_tracking.sendEvent);
+        expect(_tracking.sendEvent).not.toHaveBeenCalled();
       },
     );
 
     it('does not send a tracking event for the impression on mount when the region should not be included', () => {
-      const _tracking = createFakeTracking();
+      const _tracking = createFakeTrackingWithJest();
       render({ _tracking, regionCode: 'CN' });
 
-      sinon.assert.notCalled(_tracking.sendEvent);
+      expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
 
     it('does not send a tracking event for the impression on mount on android', () => {
-      const _tracking = createFakeTracking();
+      const _tracking = createFakeTrackingWithJest();
       render({ _tracking, clientApp: CLIENT_APP_ANDROID });
 
-      sinon.assert.notCalled(_tracking.sendEvent);
+      expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
 
     it('sends a tracking event and increases the count for the impression on update', () => {
       const impressionCount = '5';
       const nextImpressionCount = 6;
       const _localStorage = createFakeLocalStorage({
-        getItem: sinon.stub().returns(impressionCount),
+        getItem: jest.fn().mockReturnValue(impressionCount),
       });
-      const _tracking = createFakeTracking();
-      const location = createFakeLocation({ pathname: '/a/' });
-      const root = render({ _tracking, _localStorage, location });
+      const _tracking = createFakeTrackingWithJest();
+      render({ _tracking, _localStorage });
 
       // Reset as the on mount impression would have been called.
-      _tracking.sendEvent.resetHistory();
+      _tracking.sendEvent.mockClear();
 
-      root.setProps({ location: createFakeLocation({ pathname: '/b/' }) });
+      store.dispatch(
+        onLocationChanged({
+          pathname: `/en-US/firefox/addon/${slug}-new/`,
+        }),
+      );
 
-      sinon.assert.calledWith(_tracking.sendEvent, {
+      expect(_tracking.sendEvent).toHaveBeenCalledWith({
         action: VPN_PROMO_IMPRESSION_ACTION,
         category: VPN_PROMO_CATEGORY,
         label: String(nextImpressionCount),
       });
-      sinon.assert.calledOnce(_tracking.sendEvent);
-      sinon.assert.calledWith(
-        _localStorage.setItem,
+      expect(_tracking.sendEvent).toHaveBeenCalledTimes(1);
+
+      expect(_localStorage.setItem).toHaveBeenCalledWith(
         IMPRESSION_COUNT_KEY,
         nextImpressionCount,
       );
@@ -352,51 +376,59 @@ describe(__filename, () => {
     it.each([VARIANT_HIDE, NOT_IN_EXPERIMENT, null])(
       'does not send a tracking event for the impression on update when the variant is %s',
       (variant) => {
-        const _tracking = createFakeTracking();
-        const location = createFakeLocation({ pathname: '/a/' });
-        const root = render({ _tracking, location, variant });
+        const _tracking = createFakeTrackingWithJest();
+        render({ _tracking, variant });
 
-        root.setProps({ location: createFakeLocation({ pathname: '/b/' }) });
+        store.dispatch(
+          onLocationChanged({
+            pathname: `/en-US/firefox/addon/${slug}-new/`,
+          }),
+        );
 
-        sinon.assert.notCalled(_tracking.sendEvent);
+        expect(_tracking.sendEvent).not.toHaveBeenCalled();
       },
     );
 
     it('does not send a tracking event for the impression on update when the region should not be included', () => {
-      const _tracking = createFakeTracking();
-      const location = createFakeLocation({ pathname: '/a/' });
-      const root = render({ _tracking, location, regionCode: 'CN' });
+      const _tracking = createFakeTrackingWithJest();
+      render({ _tracking, regionCode: 'CN' });
 
-      root.setProps({ location: createFakeLocation({ pathname: '/b/' }) });
+      store.dispatch(
+        onLocationChanged({
+          pathname: `/en-US/firefox/addon/${slug}-new/`,
+        }),
+      );
 
-      sinon.assert.notCalled(_tracking.sendEvent);
+      expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
 
     it('does not send a tracking event for the impression on update on android', () => {
-      const _tracking = createFakeTracking();
-      const location = createFakeLocation({ pathname: '/a/' });
-      const root = render({
+      const _tracking = createFakeTrackingWithJest();
+      render({
         _tracking,
         clientApp: CLIENT_APP_ANDROID,
-        location,
       });
 
-      root.setProps({ location: createFakeLocation({ pathname: '/b/' }) });
+      store.dispatch(
+        onLocationChanged({
+          pathname: `/en-US/firefox/addon/${slug}-new/`,
+        }),
+      );
 
-      sinon.assert.notCalled(_tracking.sendEvent);
+      expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
 
     it('does not send a tracking event for the impression on update if location has not changed', () => {
-      const _tracking = createFakeTracking();
-      const location = createFakeLocation({ pathname: '/a/' });
-      const root = render({ _tracking, location });
+      const _tracking = createFakeTrackingWithJest();
+      const location = `/en-US/firefox/addon/${slug}/`;
+      render({ _tracking, location });
 
       // Reset as the on mount impression would have been called.
-      _tracking.sendEvent.resetHistory();
+      _tracking.sendEvent.mockClear();
 
-      root.setProps({ location });
+      store.dispatch(onLocationChanged({ pathname: location }));
 
-      sinon.assert.notCalled(_tracking.sendEvent);
+      expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
   });
 });
