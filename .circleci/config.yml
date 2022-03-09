@@ -14,7 +14,7 @@ references:
     working_directory: ~/addons-frontend
     docker:
       # This is the NodeJS version we run in production.
-      - image: circleci/node:14
+      - image: cimg/node:14.19
 
   defaults-next: &defaults-next
     working_directory: ~/addons-frontend
@@ -24,7 +24,7 @@ references:
 
   defaults-release: &defaults-release
     machine:
-      image: ubuntu-1604:201903-01
+      image: ubuntu-2004:202201-02
     working_directory: ~/addons-frontend
 
   restore_build_cache: &restore_build_cache
