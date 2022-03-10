@@ -59,8 +59,11 @@ import { loadCurrentUserAccount } from 'amo/reducers/users';
 import { createInternalVersion } from 'amo/reducers/versions';
 import { createUIStateMapper, mergeUIStateProps } from 'amo/withUIState';
 import defaultSagas from 'amo/sagas';
+// eslint-disable-next-line import/default
+import prodConfig from 'config/default';
+import testConfig from 'config/test';
 
-export const DEFAULT_LANG_IN_TESTS = config.get('defaultLang');
+export const DEFAULT_LANG_IN_TESTS = prodConfig.defaultLang;
 export const sampleUserAgent =
   'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
@@ -1080,6 +1083,10 @@ export const getFakeConfig = (
     }
   }
   return Object.assign(config.util.cloneDeep(config), params);
+};
+
+export const getMockConfig = (overrides = {}) => {
+  return { ...prodConfig, ...testConfig, ...overrides };
 };
 
 /*
