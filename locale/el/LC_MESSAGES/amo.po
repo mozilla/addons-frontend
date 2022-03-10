@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 17:34+0000\n"
-"PO-Revision-Date: 2022-03-10 13:32+0000\n"
+"PO-Revision-Date: 2022-03-10 13:33+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -405,7 +405,7 @@ msgstr "Ενημέρωση κριτικής"
 
 #: src/amo/components/AddonReviewManager/index.js:125
 msgid "Updating review"
-msgstr "Γίνεται ενημέρωση της κριτικής"
+msgstr "Ενημέρωση κριτικής"
 
 #: src/amo/components/AddonReviewManager/index.js:146
 msgid "Saving"
