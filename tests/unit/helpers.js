@@ -1,5 +1,4 @@
-/* global Headers */
-/* global window */
+/* global Headers, window */
 import urllib from 'url';
 
 import { LOCATION_CHANGE, ConnectedRouter } from 'connected-react-router';
@@ -585,11 +584,6 @@ export function dispatchSignInActionsWithStore({
       user: createUserAccountResponse({ id: userId, ...userProps }),
     }),
   );
-
-  return {
-    store,
-    state: store.getState(),
-  };
 }
 
 export function dispatchSignInActions({
@@ -599,12 +593,16 @@ export function dispatchSignInActions({
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
-  return dispatchSignInActionsWithStore({
+  dispatchSignInActionsWithStore({
     authToken,
     userId,
     userProps,
     store,
   });
+  return {
+    store,
+    state: store.getState(),
+  };
 }
 
 export function dispatchSearchResults({
@@ -1714,11 +1712,11 @@ export const mockMatchMedia = {
   })),
 };
 
-export const renderPage = (ui, options = {}) => {
+export const renderPage = (options = {}) => {
   // window.scrollTo isn't provided by jsdom, so we need to mock it.
   window.scrollTo = jest.fn();
 
   // Render the App component, which will use the location from options to
   // render the correct page.
-  return render(<App>{ui}</App>, options);
+  return render(<App />, options);
 };
