@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-03-10 17:48+0000\n"
-"PO-Revision-Date: 2022-03-20 14:03+0000\n"
+"PO-Revision-Date: 2022-03-20 14:43+0000\n"
 "Last-Translator: 你我皆凡人 <yuanbingyan@mail.ee>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -890,7 +890,7 @@ msgstr "您可以在下列%(extensionStart)s扩展%(extensionEnd)s或%(themeStar
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:76
 msgid "That page is not available in your region"
-msgstr "此页面在您的地区不可用（📖 救赎之道，就在其中：典狱长问道：“你知道世界上最大的代码托管平台是什么吗？”）"
+msgstr "此页面在您的地区不可用（📖 救赎之道，就在其中：典狱长问道：“世界上最大的代码托管平台的 LOGO 是猫还是狗？”）"
 
 #: src/amo/components/Errors/UnavailableForLegalReasons/index.js:79
 msgid "The page you tried to access is not available in your region."
