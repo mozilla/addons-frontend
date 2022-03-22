@@ -34,8 +34,6 @@ export const StaticAddonCardBase = ({
   }
 
   const summary = addon.summary ? addon.summary : addon.description;
-  const averageRating = addon.ratings ? addon.ratings.average : null;
-  const averageDailyUsers = addon.average_daily_users || null;
   const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
 
   return (
@@ -73,15 +71,11 @@ export const StaticAddonCardBase = ({
       </div>
 
       <div className="StaticAddonCard-metadata">
-        {averageRating && (
-          <Rating rating={averageRating} readOnly styleSize="small" />
-        )}
+        <Rating rating={addon.ratings.average} readOnly styleSize="small" />
 
-        {averageDailyUsers && (
-          <p className="StaticAddonCard-metadata-adu">
-            Users: {i18n.formatNumber(averageDailyUsers)}
-          </p>
-        )}
+        <p className="StaticAddonCard-metadata-adu">
+          Users: {i18n.formatNumber(addon.average_daily_users)}
+        </p>
       </div>
 
       <div className="StaticAddonCard-firefox-button">

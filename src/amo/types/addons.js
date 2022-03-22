@@ -99,7 +99,7 @@ export type GroupedRatingsType = {|
  */
 export type ExternalAddonType = {|
   authors?: Array<AddonAuthorType>,
-  average_daily_users?: number,
+  average_daily_users: number,
   categories?: Object,
   contributions_url: UrlWithOutgoing | null,
   created: Date,
@@ -125,7 +125,7 @@ export type ExternalAddonType = {|
   name: LocalizedString,
   previews?: Array<ExternalPreviewType>,
   promoted: PromotedType | null,
-  ratings?: {|
+  ratings: {|
     average: number,
     bayesian_average: number,
     count: number,
