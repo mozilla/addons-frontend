@@ -13,7 +13,11 @@ import {
   FETCH_USER_ACCOUNT,
 } from 'amo/reducers/users';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
-import { CLIENT_APP_FIREFOX, USERS_EDIT } from 'amo/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  USERS_EDIT,
+  VIEW_CONTEXT_HOME,
+} from 'amo/constants';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   createFailedErrorHandler,
@@ -29,11 +33,13 @@ import {
   screen,
   within,
 } from 'tests/unit/helpers';
+import { setViewContext } from 'amo/actions/viewContext';
 
 describe(__filename, () => {
   const lang = 'fr';
   const clientApp = CLIENT_APP_FIREFOX;
   let store;
+  const defaultUserId = 100;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
@@ -47,20 +53,24 @@ describe(__filename, () => {
     };
   }
 
-  function signInUserWithProps({ userId = 123, ...props } = {}) {
+  function signInUserWithProps(
+    { userId = defaultUserId, ...props } = { userId: defaultUserId },
+  ) {
     dispatchSignInActionsWithStore({
       userId,
-      userProps: defaultUserProps({ userId, ...props }),
+      userProps: defaultUserProps(props),
       store,
     });
     return userId;
   }
 
-  function getLocation({ userId = 100, search = '' } = {}) {
+  function getLocation(
+    { userId = defaultUserId, search = '' } = { userId: defaultUserId },
+  ) {
     return `/${lang}/${clientApp}/user/${userId}/${search}`;
   }
 
-  function renderUserProfile({ userId, location } = {}) {
+  function renderUserProfile({ userId = defaultUserId, location } = {}) {
     const renderOptions = {
       history: createHistory({
         initialEntries: [location || getLocation({ userId })],
@@ -76,7 +86,11 @@ describe(__filename, () => {
     });
   }
 
-  function _setUserReviews({ userId, reviews = [fakeReview], count = null }) {
+  function _setUserReviews(
+    { userId = defaultUserId, reviews = [fakeReview], count = null } = {
+      userId: defaultUserId,
+    },
+  ) {
     store.dispatch(
       setUserReviews({
         pageSize: DEFAULT_API_PAGE_SIZE,
@@ -87,36 +101,38 @@ describe(__filename, () => {
     );
   }
 
-  const createErrorHandlerId = ({ userId = null }) => {
+  const createErrorHandlerId = (
+    { userId = defaultUserId } = { userId: defaultUserId },
+  ) => {
     return `src/amo/pages/UserProfile/index.js-${extractId({
       match: { params: { userId } },
     })}`;
   };
 
   it('dispatches fetchUserAccount action if userId is not found', () => {
-    signInUserWithProps();
+    const userId = signInUserWithProps();
     const dispatch = jest.spyOn(store, 'dispatch');
-    const userId = '200';
+    const notFoundUserId = userId + 1;
 
-    renderUserProfile({ userId });
+    renderUserProfile({ userId: notFoundUserId });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchUserAccount({
-        errorHandlerId: createErrorHandlerId({ userId }),
-        userId,
+        errorHandlerId: createErrorHandlerId({ userId: notFoundUserId }),
+        userId: String(notFoundUserId),
       }),
     );
   });
 
   it('dispatches fetchUserAccount action if userId param changes', () => {
-    const firstUserId = signInUserWithProps();
+    const userId = signInUserWithProps();
     const dispatch = jest.spyOn(store, 'dispatch');
 
-    renderUserProfile({ userId: firstUserId });
+    renderUserProfile({ userId });
 
     dispatch.mockClear();
 
-    const secondUserId = 200;
+    const secondUserId = userId + 1;
     store.dispatch(
       onLocationChanged({
         pathname: getLocation({ userId: secondUserId }),
@@ -132,16 +148,16 @@ describe(__filename, () => {
   });
 
   it('does not dispatch fetchUserAccount if userId does not change', () => {
-    const userId = signInUserWithProps();
+    signInUserWithProps();
     const dispatch = jest.spyOn(store, 'dispatch');
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     dispatch.mockClear();
 
     store.dispatch(
       onLocationChanged({
-        pathname: getLocation({ userId }),
+        pathname: getLocation(),
       }),
     );
 
@@ -151,13 +167,12 @@ describe(__filename, () => {
   });
 
   it('renders the user avatar', () => {
-    const userId = 100;
-    const picture_url = `https://addons.mozilla.org/pictures/${userId}.png`;
-    signInUserAndRenderUserProfile({ userId, picture_url });
+    const pictureUrl = `https://addons.mozilla.org/pictures/${defaultUserId}.png`;
+    signInUserAndRenderUserProfile({ picture_url: pictureUrl });
 
     expect(screen.getByAltText('User Avatar')).toHaveAttribute(
       'src',
-      picture_url,
+      pictureUrl,
     );
   });
 
@@ -332,10 +347,10 @@ describe(__filename, () => {
   });
 
   it('renders a report abuse button if user is not the current logged-in user', () => {
-    signInUserWithProps();
+    const userId = signInUserWithProps();
 
     // Create a user with another userId.
-    const anotherUserId = 222;
+    const anotherUserId = userId + 1;
     store.dispatch(
       loadUserAccount({
         user: createUserAccountResponse({ id: anotherUserId }),
@@ -359,26 +374,23 @@ describe(__filename, () => {
   });
 
   it('renders two AddonsByAuthorsCard', () => {
-    const userId = 123;
-    const user = createUserAccountResponse({ id: userId });
+    const user = createUserAccountResponse({ id: defaultUserId });
     store.dispatch(loadUserAccount({ user }));
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(screen.getByText(`Extensions by ${user.name}`)).toBeInTheDocument();
     expect(screen.getByText(`Themes by ${user.name}`)).toBeInTheDocument();
   });
 
   it('renders AddonsByAuthorsCard for extensions', () => {
-    const userId = signInUserWithProps();
+    signInUserWithProps();
     const user = getCurrentUser(store.getState().users);
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(screen.getByText(`Extensions by ${user.name}`)).toBeInTheDocument();
-    const extensionCard = screen
-      .queryAllByClassName('AddonsByAuthorsCard')
-      .item(0);
+    const extensionCard = screen.queryAllByClassName('AddonsByAuthorsCard')[0];
     expect(
       within(extensionCard).queryByText('Previous'),
     ).not.toBeInTheDocument();
@@ -386,30 +398,29 @@ describe(__filename, () => {
   });
 
   it('renders AddonsByAuthorsCard for themes', () => {
-    const userId = signInUserWithProps();
+    signInUserWithProps();
     const user = getCurrentUser(store.getState().users);
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(screen.getByText(`Themes by ${user.name}`)).toBeInTheDocument();
-    const themeCard = screen.queryAllByClassName('AddonsByAuthorsCard').item(1);
+    const themeCard = screen.queryAllByClassName('AddonsByAuthorsCard')[1];
     expect(screen.queryByText(themeCard, 'Previous')).not.toBeInTheDocument();
     expect(screen.queryByText(themeCard, 'Next')).not.toBeInTheDocument();
   });
 
   it('renders a not found page if the API request is a 404', () => {
-    const userId = 123;
     createFailedErrorHandler({
       error: createApiError({
         response: { status: 404 },
         apiURL: 'https://some/api/endpoint',
         jsonResponse: { message: 'not found' },
       }),
-      id: createErrorHandlerId({ userId }),
+      id: createErrorHandlerId(),
       store,
     });
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(
       screen.getByText('Oops! We can’t find that page'),
@@ -417,16 +428,15 @@ describe(__filename, () => {
   });
 
   it('renders errors', () => {
-    const userId = 123;
     const errorString = 'unexpected error';
     createFailedErrorHandler({
       error: new Error(),
-      id: createErrorHandlerId({ userId }),
+      id: createErrorHandlerId(),
       message: errorString,
       store,
     });
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(screen.getAllByText(errorString)).toHaveLength(3);
   });
@@ -448,10 +458,10 @@ describe(__filename, () => {
   });
 
   it('renders an edit link if user has sufficient permission', () => {
-    signInUserWithProps({ permissions: [USERS_EDIT] });
+    const userId = signInUserWithProps({ permissions: [USERS_EDIT] });
 
     // Create a user with another userId.
-    const anotherUserId = 222;
+    const anotherUserId = userId + 1;
     store.dispatch(
       loadUserAccount({
         user: createUserAccountResponse({ id: anotherUserId }),
@@ -468,10 +478,10 @@ describe(__filename, () => {
   });
 
   it('does not render an edit link if user is not allowed to edit other users', () => {
-    signInUserWithProps({ permissions: [] });
+    const userId = signInUserWithProps({ permissions: [] });
 
     // Create a user with another userId.
-    const anotherUserId = 222;
+    const anotherUserId = userId + 1;
     store.dispatch(
       loadUserAccount({
         user: createUserAccountResponse({ id: anotherUserId }),
@@ -536,15 +546,14 @@ describe(__filename, () => {
   it('does not dispatch any user actions when there is an error', () => {
     const dispatch = jest.spyOn(store, 'dispatch');
 
-    const userId = 123;
     createFailedErrorHandler({
       error: new Error(),
-      id: createErrorHandlerId({ userId }),
+      id: createErrorHandlerId(),
       message: 'unexpected error',
       store,
     });
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ 'type': FETCH_USER_ACCOUNT }),
@@ -555,37 +564,37 @@ describe(__filename, () => {
   });
 
   it('fetches reviews if not loaded and userId does not change', () => {
-    const userId = signInUserWithProps();
+    signInUserWithProps();
     const dispatch = jest.spyOn(store, 'dispatch');
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     dispatch.mockClear();
 
     store.dispatch(
       onLocationChanged({
-        pathname: getLocation({ userId }),
+        pathname: getLocation(),
       }),
     );
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchUserReviews({
-        errorHandlerId: createErrorHandlerId({ userId }),
+        errorHandlerId: createErrorHandlerId(),
         page: '1',
-        userId,
+        userId: defaultUserId,
       }),
     );
   });
 
   it('fetches reviews if page has changed and username does not change', () => {
-    const userId = signInUserWithProps();
+    signInUserWithProps();
 
-    _setUserReviews({ store, userId });
+    _setUserReviews();
 
     const dispatch = jest.spyOn(store, 'dispatch');
-    const location = getLocation({ userId, search: `?page=1` });
+    const location = getLocation({ search: `?page=1` });
 
-    renderUserProfile({ location, userId });
+    renderUserProfile({ location });
 
     dispatch.mockClear();
 
@@ -593,47 +602,47 @@ describe(__filename, () => {
 
     store.dispatch(
       onLocationChanged({
-        pathname: getLocation({ userId }),
+        pathname: getLocation(),
         search: `?page=${newPage}`,
       }),
     );
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchUserReviews({
-        errorHandlerId: createErrorHandlerId({ userId }),
+        errorHandlerId: createErrorHandlerId(),
         page: newPage,
-        userId,
+        userId: defaultUserId,
       }),
     );
   });
 
   it('fetches reviews if user is loaded', () => {
-    const userId = signInUserWithProps();
+    signInUserWithProps();
 
     const dispatch = jest.spyOn(store, 'dispatch');
 
-    const page = 123;
-    const location = getLocation({ userId, search: `?page=${page}` });
+    const page = '123';
+    const location = getLocation({ search: `?page=${page}` });
 
-    renderUserProfile({ location, userId });
+    renderUserProfile({ location });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchUserReviews({
-        errorHandlerId: createErrorHandlerId({ userId }),
-        page: `${page}`,
-        userId,
+        errorHandlerId: createErrorHandlerId(),
+        page,
+        userId: defaultUserId,
       }),
     );
   });
 
   it('does not fetch reviews if already loaded', () => {
-    const userId = signInUserWithProps();
+    signInUserWithProps();
 
-    _setUserReviews({ store, userId });
+    _setUserReviews();
 
     const dispatch = jest.spyOn(store, 'dispatch');
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ 'type': FETCH_USER_REVIEWS }),
@@ -641,36 +650,34 @@ describe(__filename, () => {
   });
 
   it(`displays the user's reviews`, () => {
-    const userId = signInUserWithProps();
+    signInUserWithProps();
 
     const review = fakeReview;
     const reviews = [review];
-    _setUserReviews({ store, userId, reviews });
+    _setUserReviews({ reviews });
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(screen.getByText('My reviews')).toBeInTheDocument();
     expect(screen.getByText(fakeReview.body)).toBeInTheDocument();
   });
 
   it(`displays the user's reviews with pagination when there are more reviews than the default API page size`, () => {
-    const userId = signInUserWithProps();
+    signInUserWithProps();
 
     const reviews = Array(DEFAULT_API_PAGE_SIZE).fill(fakeReview);
     _setUserReviews({
-      store,
-      userId,
       reviews,
       count: DEFAULT_API_PAGE_SIZE + 2,
     });
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     const paginator = screen.getByClassName('UserProfile-reviews');
     expect(screen.getByText(`Page 1 of 2`)).toBeInTheDocument();
     expect(
       within(paginator).getByRole('link', { name: 'Next' }),
-    ).toHaveAttribute('href', getLocation({ userId, search: `?page=2` }));
+    ).toHaveAttribute('href', getLocation({ search: `?page=2` }));
 
     expect(screen.queryAllByText('posted')).toHaveLength(DEFAULT_API_PAGE_SIZE);
   });
@@ -679,14 +686,14 @@ describe(__filename, () => {
     const userId = signInUserWithProps();
 
     // Create a user with another userId.
-    const anotherUserId = 222;
+    const anotherUserId = userId + 1;
     store.dispatch(
       loadUserAccount({
         user: createUserAccountResponse({ id: anotherUserId }),
       }),
     );
 
-    _setUserReviews({ store, userId });
+    _setUserReviews({ userId });
 
     // See this other user profile page.
     renderUserProfile({ userId: anotherUserId });
@@ -695,10 +702,10 @@ describe(__filename, () => {
   });
 
   it('does not fetch the reviews when user is loaded but current user is not the owner', () => {
-    signInUserWithProps();
+    const userId = signInUserWithProps();
 
     // Create a user with another userId.
-    const anotherUserId = 222;
+    const anotherUserId = userId + 1;
     store.dispatch(
       loadUserAccount({
         user: createUserAccountResponse({ id: anotherUserId }),
@@ -716,10 +723,10 @@ describe(__filename, () => {
   });
 
   it('does not fetch the reviews when page has changed and userId does not change but user is not the owner', () => {
-    signInUserWithProps();
+    const userId = signInUserWithProps();
 
     // Create a user with another userId.
-    const anotherUserId = 222;
+    const anotherUserId = userId + 1;
     store.dispatch(
       loadUserAccount({
         user: createUserAccountResponse({ id: anotherUserId }),
@@ -747,18 +754,17 @@ describe(__filename, () => {
   });
 
   it('returns a 404 when the API returns a 404', () => {
-    const userId = 123;
     createFailedErrorHandler({
       error: createApiError({
         response: { status: 404 },
         apiURL: 'https://some/api/endpoint',
         jsonResponse: { message: 'not found' },
       }),
-      id: createErrorHandlerId({ userId }),
+      id: createErrorHandlerId(),
       store,
     });
 
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(
       screen.getByText('Oops! We can’t find that page'),
@@ -766,37 +772,35 @@ describe(__filename, () => {
   });
 
   it('renders a user profile when URL contains a user ID', () => {
-    const name = 'some user name';
-    const userId = signInUserWithProps({ name });
+    const name = 'some name';
+    signInUserWithProps({ name });
 
     const reviews = Array(DEFAULT_API_PAGE_SIZE).fill(fakeReview);
     _setUserReviews({
-      userId,
       reviews,
       count: DEFAULT_API_PAGE_SIZE + 2,
     });
 
-    renderUserProfile({ userId });
-
-    expect(screen.getByClassName('UserProfile')).toBeInTheDocument();
+    renderUserProfile();
+    expect(
+      within(screen.getByClassName('UserProfile')).getByText(name),
+    ).toBeInTheDocument();
 
     expect(screen.getByText(`Extensions by ${name}`)).toBeInTheDocument();
-    const extensionCard = screen
-      .queryAllByClassName('AddonsByAuthorsCard')
-      .item(0);
+    const extensionCard = screen.queryAllByClassName('AddonsByAuthorsCard')[0];
     expect(
       within(extensionCard).queryByText('Previous'),
     ).not.toBeInTheDocument();
     expect(within(extensionCard).queryByText('Next')).not.toBeInTheDocument();
 
     expect(screen.getByText(`Themes by ${name}`)).toBeInTheDocument();
-    const themeCard = screen.queryAllByClassName('AddonsByAuthorsCard').item(1);
+    const themeCard = screen.queryAllByClassName('AddonsByAuthorsCard')[1];
     expect(within(themeCard).queryByText('Previous')).not.toBeInTheDocument();
     expect(within(themeCard).queryByText('Next')).not.toBeInTheDocument();
 
     expect(screen.getByText('Next')).toHaveAttribute(
       'href',
-      getLocation({ userId, search: `?page=2` }),
+      getLocation({ search: `?page=2` }),
     );
   });
 
@@ -808,17 +812,12 @@ describe(__filename, () => {
       is_artist: false,
     });
 
-    let metaTag;
-
     await waitFor(() => {
-      metaTag = getElement('meta[name="description"]');
-      return expect(metaTag).toBeInTheDocument();
+      expect(getElement('meta[name="description"]')).toHaveAttribute(
+        'content',
+        `The profile of ${name}, Firefox extension author. Find other extensions by ${name}, including average ratings, tenure, and the option to report issues.`,
+      );
     });
-
-    expect(metaTag).toHaveAttribute(
-      'content',
-      `The profile of ${name}, Firefox extension author. Find other extensions by ${name}, including average ratings, tenure, and the option to report issues.`,
-    );
   });
 
   it('renders a UserProfileHead component when user is an artist', async () => {
@@ -829,17 +828,12 @@ describe(__filename, () => {
       is_artist: true,
     });
 
-    let metaTag;
-
     await waitFor(() => {
-      metaTag = getElement('meta[name="description"]');
-      return expect(metaTag).toBeInTheDocument();
+      expect(getElement('meta[name="description"]')).toHaveAttribute(
+        'content',
+        `The profile of ${name}, Firefox theme author. Find other themes by ${name}, including average ratings, tenure, and the option to report issues.`,
+      );
     });
-
-    expect(metaTag).toHaveAttribute(
-      'content',
-      `The profile of ${name}, Firefox theme author. Find other themes by ${name}, including average ratings, tenure, and the option to report issues.`,
-    );
   });
 
   it('renders a UserProfileHead component when user is a developer and an artist', async () => {
@@ -850,17 +844,12 @@ describe(__filename, () => {
       is_artist: true,
     });
 
-    let metaTag;
-
     await waitFor(() => {
-      metaTag = getElement('meta[name="description"]');
-      return expect(metaTag).toBeInTheDocument();
+      expect(getElement('meta[name="description"]')).toHaveAttribute(
+        'content',
+        `The profile of ${name}, a Firefox extension and theme author. Find other apps by ${name}, including average ratings, tenure, and the option to report issues.`,
+      );
     });
-
-    expect(metaTag).toHaveAttribute(
-      'content',
-      `The profile of ${name}, a Firefox extension and theme author. Find other apps by ${name}, including average ratings, tenure, and the option to report issues.`,
-    );
   });
 
   it('sets the description to `null` to UserProfileHead when user is neither a developer nor an artist', async () => {
@@ -872,18 +861,18 @@ describe(__filename, () => {
     });
 
     await waitFor(() => {
-      const metaTag = getElements('meta[name="description"]');
-      return expect(metaTag).toHaveLength(0);
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument();
     });
+    expect(getElements('meta[name="description"]')).toHaveLength(0);
   });
 
   it('sets description to `null` to UserProfileHead when there is no user loaded', async () => {
     renderUserProfile({ userId: 1234 });
 
     await waitFor(() => {
-      const metaTag = getElements('meta[name="description"]');
-      return expect(metaTag).toHaveLength(0);
+      expect(getElement('meta[property="og:type"]')).toBeInTheDocument();
     });
+    expect(getElements('meta[name="description"]')).toHaveLength(0);
   });
 
   it('sends a server redirect when the current user loads their profile with their "username" in the URL', () => {
@@ -904,11 +893,11 @@ describe(__filename, () => {
   });
 
   it('sends a server redirect when another user profile is loaded with a "username" in the URL', () => {
-    signInUserWithProps();
+    const userId = signInUserWithProps();
     const dispatch = jest.spyOn(store, 'dispatch');
 
     // Create a user with another userId.
-    const anotherUserId = 222;
+    const anotherUserId = userId + 1;
     const user = createUserAccountResponse({ id: anotherUserId });
     store.dispatch(loadUserAccount({ user }));
 
@@ -933,18 +922,24 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(
       fetchUserAccount({
         errorHandlerId: createErrorHandlerId({ userId }),
-        userId: `${userId}`,
+        userId: String(userId),
       }),
     );
   });
 
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on match.params', () => {
-      const userId = 123;
-      const params = { userId };
-      const match = { params };
+      const match = { params: { userId: defaultUserId } };
 
-      expect(extractId({ match })).toEqual(userId);
+      expect(extractId({ match })).toEqual(defaultUserId);
     });
+  });
+
+  it('dispatches setViewContext when component mounts', () => {
+    signInUserWithProps();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderUserProfile();
+
+    expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
   });
 });
