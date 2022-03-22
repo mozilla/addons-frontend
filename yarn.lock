@@ -9778,10 +9778,10 @@ pino-syslog@2.0.0:
     split2 "^3.2.2"
     through2 "^4.0.2"
 
-pino@7.6.5:
-  version "7.6.5"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-7.6.5.tgz#a8bf9bfacbbcb78b4fe34f9378c29ef229b07b5d"
-  integrity sha512-38tAwlJ7HevMENHD5FZE+yxSlAH5Wg3FoOjbB3MX2j3/kgpOEkmDHhTVKkecR57qxD5doHo2yi9nac94gqqbiQ==
+pino@7.9.1:
+  version "7.9.1"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-7.9.1.tgz#7e6f401cac6e80b4eaee908ab90a05e48455cec2"
+  integrity sha512-28+D7c5orCoScdcWtiPXrCA9tdVosBWrYQgVtPdYTyiuTt6u/+rbEtpJR+dtVG8k1flhv0H2f0XSkgGm+TdjqQ==
   dependencies:
     fast-redact "^3.0.0"
     on-exit-leak-free "^0.2.0"
