@@ -102,15 +102,15 @@ describe(__filename, () => {
     );
   });
 
-  it('hides the number of users when there is no data', () => {
+  it('shows 0 users', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      average_daily_users: null,
+      average_daily_users: 0,
     });
 
     const root = render({ addon });
 
-    expect(root.find('.StaticAddonCard-metadata-adu')).toHaveLength(0);
+    expect(root.find('.StaticAddonCard-metadata-adu')).toHaveLength(1);
   });
 
   it('displays ratings', () => {
@@ -128,15 +128,17 @@ describe(__filename, () => {
     expect(root.find(Rating)).toHaveProp('styleSize', 'small');
   });
 
-  it('hides ratings when there is no data', () => {
+  it('shows 0 ratings', () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
-      ratings: null,
+      ratings: {
+        average: 0,
+      },
     });
 
     const root = render({ addon });
 
-    expect(root.find(Rating)).toHaveLength(0);
+    expect(root.find(Rating)).toHaveLength(1);
   });
 
   it('renders a theme image preview when add-on is a theme', () => {
