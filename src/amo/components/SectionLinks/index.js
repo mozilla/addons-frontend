@@ -1,5 +1,6 @@
 /* @flow */
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -11,7 +12,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -66,30 +66,11 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   render(): React.Node {
     const { className, clientApp, forBlog, i18n, viewContext } = this.props;
 
-    let forBrowserNameText;
-    if (clientApp === CLIENT_APP_FIREFOX) {
-      forBrowserNameText = i18n.gettext('for Firefox');
-    } else if (clientApp === CLIENT_APP_ANDROID) {
-      forBrowserNameText = i18n.gettext('for Android');
-    }
-
-    const sectionsForBrowser = [];
-
-    if (clientApp !== CLIENT_APP_ANDROID) {
-      sectionsForBrowser.push(
-        <DropdownMenuItem key="dictionaries-and-language-packs">
-          <Link
-            className={makeClassName('SectionLinks-dropdownlink', {
-              'SectionLinks-dropdownlink--active':
-                viewContext === VIEW_CONTEXT_LANGUAGE_TOOLS,
-            })}
-            to="/language-tools/"
-          >
-            {i18n.gettext('Dictionaries & Language Packs')}
-          </Link>
-        </DropdownMenuItem>,
-      );
-    }
+    // These SectionLinks should never be included when clientApp is Android.
+    invariant(
+      clientApp !== CLIENT_APP_ANDROID,
+      'SectionLinks included when clientApp is Android',
+    );
 
     const linkProps = {
       prependClientApp: !forBlog,
@@ -135,17 +116,24 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             className="SectionLinks-link SectionLinks-dropdown"
             text={i18n.gettext('More…')}
           >
-            {sectionsForBrowser.length > 0 && (
+            <>
               <DropdownMenuItem className="SectionLinks-subheader">
-                {forBrowserNameText}
+                {i18n.gettext('for Firefox')}
               </DropdownMenuItem>
-            )}
-            {sectionsForBrowser}
-
-            <DropdownMenuItem className="SectionLinks-subheader">
-              {i18n.gettext('Other Browser Sites')}
-            </DropdownMenuItem>
-            {clientApp !== CLIENT_APP_ANDROID ? (
+              <DropdownMenuItem key="dictionaries-and-language-packs">
+                <Link
+                  className={makeClassName('SectionLinks-dropdownlink', {
+                    'SectionLinks-dropdownlink--active':
+                      viewContext === VIEW_CONTEXT_LANGUAGE_TOOLS,
+                  })}
+                  to="/language-tools/"
+                >
+                  {i18n.gettext('Dictionaries & Language Packs')}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="SectionLinks-subheader">
+                {i18n.gettext('Other Browser Sites')}
+              </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link
                   className={`SectionLinks-clientApp-${CLIENT_APP_ANDROID}`}
@@ -157,20 +145,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
                   {i18n.gettext('Add-ons for Android')}
                 </Link>
               </DropdownMenuItem>
-            ) : null}
-            {clientApp !== CLIENT_APP_FIREFOX ? (
-              <DropdownMenuItem>
-                <Link
-                  className={`SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`}
-                  data-clientapp={CLIENT_APP_FIREFOX}
-                  onClick={this.setClientApp}
-                  prependClientApp={false}
-                  to={`/${CLIENT_APP_FIREFOX}/`}
-                >
-                  {i18n.gettext('Add-ons for Firefox')}
-                </Link>
-              </DropdownMenuItem>
-            ) : null}
+            </>
           </DropdownMenu>
         </li>
       </ul>

@@ -651,15 +651,6 @@ describe(__filename, () => {
         ).toBeInTheDocument();
       });
 
-      it('hides link to the Language Tools page on Android clients', () => {
-        _dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-        render();
-
-        expect(
-          screen.queryByText('Dictionaries & Language Packs'),
-        ).not.toBeInTheDocument();
-      });
-
       it('renders Extensions active when addonType is extensions', () => {
         _dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
         store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
@@ -705,15 +696,6 @@ describe(__filename, () => {
           screen.queryByClassName(
             `SectionLinks-clientApp-${CLIENT_APP_FIREFOX}`,
           ),
-        ).not.toBeInTheDocument();
-      });
-
-      it('hides link to the Android version of the site when client is Android', () => {
-        _dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-        render();
-
-        expect(
-          screen.queryByText('Add-ons for Android'),
         ).not.toBeInTheDocument();
       });
 
