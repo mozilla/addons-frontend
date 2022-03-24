@@ -1,44 +1,32 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import MetadataCard from 'amo/components/MetadataCard';
-import LoadingText from 'amo/components/LoadingText';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function renderShallow({ metadata = [], ...props } = {}) {
-    return shallow(<MetadataCard metadata={metadata} {...props} />);
+  function render({ metadata = [], ...props } = {}) {
+    return defaultRender(<MetadataCard metadata={metadata} {...props} />);
   }
 
-  it('renders a MetadataCard', () => {
-    const item = renderShallow();
-
-    expect(item).toHaveClassName('MetadataCard');
-  });
-
   it('renders metadata', () => {
-    const item = renderShallow({
-      metadata: [
-        {
-          content: 'Hello I am content',
-          title: 'I am title',
-        },
-      ],
-    });
+    const content = 'Hello I am content';
+    const title = 'I am title';
+    render({ metadata: [{ content, title }] });
 
-    expect(item.find('dd')).toHaveText('Hello I am content');
-    expect(item.find('dt')).toHaveText('I am title');
+    expect(screen.getByText(content)).toBeInTheDocument();
+    expect(screen.getByText(title)).toBeInTheDocument();
   });
 
   it('adds a custom className', () => {
     const className = 'MyClassName';
-    const item = renderShallow({ className });
+    render({ className });
 
-    expect(item).toHaveClassName(className);
+    expect(screen.getByClassName('MetadataCard')).toHaveClass(className);
   });
 
   it('requires content', () => {
     expect(() => {
-      renderShallow({
+      render({
         metadata: [
           {
             title: 'I am a title',
@@ -50,7 +38,7 @@ describe(__filename, () => {
 
   it('requires a title', () => {
     expect(() => {
-      renderShallow({
+      render({
         metadata: [
           {
             content: 'Hello I am content',
@@ -61,44 +49,28 @@ describe(__filename, () => {
   });
 
   it('renders null content as LoadingText', () => {
-    const item = renderShallow({
-      metadata: [
-        {
-          content: null,
-          title: 'I am title',
-        },
-      ],
-    });
+    const title = 'I am title';
+    render({ metadata: [{ content: null, title }] });
 
-    expect(item.find('dd').find(LoadingText)).toHaveLength(1);
-    expect(item.find('dt')).toHaveText('I am title');
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+    expect(screen.getByText(title)).toBeInTheDocument();
   });
 
   it('allows an empty string to render empty content', () => {
-    const item = renderShallow({
-      metadata: [
-        {
-          content: '',
-          title: 'I am title',
-        },
-      ],
-    });
+    const content = '';
+    const title = 'I am title';
+    render({ metadata: [{ content, title }] });
 
-    expect(item.find('dd')).toHaveText('');
-    expect(item.find('dt')).toHaveText('I am title');
+    expect(screen.getByTagName('dd')).toHaveTextContent('');
+    expect(screen.getByText(title)).toBeInTheDocument();
   });
 
   it('allows a zero value to render empty content', () => {
-    const item = renderShallow({
-      metadata: [
-        {
-          content: 0,
-          title: 'I am title',
-        },
-      ],
-    });
+    const content = 0;
+    const title = 'I am title';
+    render({ metadata: [{ content, title }] });
 
-    expect(item.find('dd')).toHaveText('0');
-    expect(item.find('dt')).toHaveText('I am title');
+    expect(screen.getByText(content)).toBeInTheDocument();
+    expect(screen.getByText(title)).toBeInTheDocument();
   });
 });
