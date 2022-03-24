@@ -140,24 +140,28 @@ describe(__filename, () => {
   });
 
   it('renders an AppBanner if it is not the home page', () => {
+    const notice = 'site is kaput';
+    store.dispatch(loadSiteStatus({ readOnly: false, notice }));
     render({ isHomePage: false });
 
-    expect(screen.getByClassName('AppBanner')).toBeInTheDocument();
+    expect(screen.getByText(notice)).toBeInTheDocument();
   });
 
   it('renders an AppBanner if it is the home page and clientApp is `android`', () => {
+    const notice = 'site is kaput';
+    store.dispatch(loadSiteStatus({ readOnly: false, notice }));
     _dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
     render({ isHomePage: true });
 
-    expect(screen.getByClassName('AppBanner')).toBeInTheDocument();
+    expect(screen.getByText(notice)).toBeInTheDocument();
   });
 
   it('renders children', () => {
-    const className = 'some-class-name';
-    const children = <div className={className} />;
+    const childText = 'Some text in a child';
+    const children = <div>{childText}</div>;
     render({ children });
 
-    expect(screen.getByClassName(className)).toBeInTheDocument();
+    expect(screen.getByText(childText)).toBeInTheDocument();
   });
 
   it('renders NotFound for missing add-on - 404 error', () => {
@@ -213,12 +217,12 @@ describe(__filename, () => {
   it.each([401, 403, 404, 451])(
     'does not render children when there is a %s error',
     (status) => {
-      const className = 'some-class-name';
-      const children = <div className={className} />;
+      const childText = 'Some text in a child';
+      const children = <div>{childText}</div>;
       const errorHandler = createCapturedErrorHandler({ status });
       render({ children, errorHandler });
 
-      expect(screen.queryByClassName(className)).not.toBeInTheDocument();
+      expect(screen.queryByText(childText)).not.toBeInTheDocument();
     },
   );
 
@@ -238,12 +242,12 @@ describe(__filename, () => {
   );
 
   it('renders children when there is an uncaught error', () => {
-    const className = 'some-class-name';
-    const children = <div className={className} />;
+    const childText = 'Some text in a child';
+    const children = <div>{childText}</div>;
     const errorHandler = createCapturedErrorHandler({ status: 400 });
     render({ children, errorHandler });
 
-    expect(screen.getByClassName(className)).toBeInTheDocument();
+    expect(screen.getByText(childText)).toBeInTheDocument();
   });
 
   it('logs a warning message when there is an uncaught error', () => {
@@ -364,7 +368,7 @@ describe(__filename, () => {
   });
 
   describe('Tests for Header', () => {
-    it('renders an <h1> when isHomepage is true', () => {
+    it('renders "Firefox Browser Add-ons" in a heading when isHomePage is true', () => {
       render({ isHomePage: true });
 
       expect(
@@ -423,16 +427,6 @@ describe(__filename, () => {
         screen.getByRole('button', { name: displayName }),
       ).toBeInTheDocument();
       expect(screen.getByText('My Account')).toBeInTheDocument();
-    });
-
-    it('displays the username when user is signed in but has no display name', () => {
-      const username = 'babar';
-      _dispatchSignInActions({ userProps: { username } });
-      render();
-
-      expect(
-        screen.getByRole('button', { name: username }),
-      ).toBeInTheDocument();
     });
 
     it('displays link to my collections when user is signed in', () => {

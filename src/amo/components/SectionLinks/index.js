@@ -12,6 +12,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
@@ -66,10 +67,10 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   render(): React.Node {
     const { className, clientApp, forBlog, i18n, viewContext } = this.props;
 
-    // These SectionLinks should never be included when clientApp is Android.
+    // These SectionLinks should only be included when clientApp is Firefox.
     invariant(
-      clientApp !== CLIENT_APP_ANDROID,
-      'SectionLinks included when clientApp is Android',
+      clientApp === CLIENT_APP_FIREFOX,
+      'SectionLinks included when clientApp is not Firefox',
     );
 
     const linkProps = {
