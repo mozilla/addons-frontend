@@ -360,6 +360,8 @@ npm version [major|minor|patch]
 
 Issuing this command from the `master` branch will update the version in the `package.json`, create a commit and create a tag. Push both this commit and the tag to the main repository.
 
+**Note:** When a new `addons-frontend-blog-utils` release is merged in [addons-blog][], you should publish a new version of the WordPress theme. Please follow [these instructions in the addons-blog repository][addons-blog-wp-theme].
+
 ## Core technologies
 
 - Based on Redux + React
@@ -372,3 +374,4 @@ Issuing this command from the `master` branch will update the version in the `pa
 [prettier]: https://prettier.io/
 [addons-blog]: https://github.com/mozilla/addons-blog
 [issue-7196]: https://github.com/mozilla/addons-frontend/issues/7196
+[addons-blog-wp-theme]: https://github.com/mozilla/addons-blog#about-the-wordpress-theme
