@@ -786,7 +786,7 @@ export function JedSpy(data = {}) {
  * Creates a stand-in for a jed instance,
  */
 export function fakeI18n({
-  lang = config.get('defaultLang'),
+  lang = DEFAULT_LANG_IN_TESTS,
   includeJedSpy = true,
 } = {}) {
   return makeI18n({}, lang, includeJedSpy ? JedSpy : undefined);
@@ -1417,6 +1417,16 @@ export const getFakeLogger = (params = {}) => {
   };
 };
 
+export const getFakeLoggerWithJest = (params = {}) => {
+  return {
+    debug: jest.fn(),
+    error: jest.fn(),
+    info: jest.fn(),
+    warn: jest.fn(),
+    ...params,
+  };
+};
+
 // This simulates debounce() without any debouncing.
 export function createFakeDebounce() {
   return sinon.spy(
@@ -1649,3 +1659,16 @@ export const render = (ui, options = {}) => {
   return { ...result, root: result.container.firstChild };
 };
 /* eslint-enable testing-library/no-node-access */
+
+// This is used to mock window.matchMedia.
+export const mockMatchMedia = {
+  writable: true,
+  value: jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+};
