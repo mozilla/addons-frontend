@@ -53,9 +53,7 @@ describe(__filename, () => {
     };
   }
 
-  function signInUserWithProps(
-    { userId = defaultUserId, ...props } = { userId: defaultUserId },
-  ) {
+  function signInUserWithProps({ userId = defaultUserId, ...props } = {}) {
     dispatchSignInActionsWithStore({
       userId,
       userProps: defaultUserProps(props),
@@ -64,9 +62,7 @@ describe(__filename, () => {
     return userId;
   }
 
-  function getLocation(
-    { userId = defaultUserId, search = '' } = { userId: defaultUserId },
-  ) {
+  function getLocation({ userId = defaultUserId, search = '' } = {}) {
     return `/${lang}/${clientApp}/user/${userId}/${search}`;
   }
 
@@ -80,17 +76,20 @@ describe(__filename, () => {
     return defaultRender(renderOptions);
   }
 
-  function signInUserAndRenderUserProfile({ userId, ...props } = {}) {
+  function signInUserAndRenderUserProfile({
+    userId = defaultUserId,
+    ...props
+  } = {}) {
     return renderUserProfile({
       userId: signInUserWithProps({ userId, ...props }),
     });
   }
 
-  function _setUserReviews(
-    { userId = defaultUserId, reviews = [fakeReview], count = null } = {
-      userId: defaultUserId,
-    },
-  ) {
+  function _setUserReviews({
+    userId = defaultUserId,
+    reviews = [fakeReview],
+    count = null,
+  } = {}) {
     store.dispatch(
       setUserReviews({
         pageSize: DEFAULT_API_PAGE_SIZE,
@@ -101,9 +100,7 @@ describe(__filename, () => {
     );
   }
 
-  const createErrorHandlerId = (
-    { userId = defaultUserId } = { userId: defaultUserId },
-  ) => {
+  const createErrorHandlerId = ({ userId = defaultUserId } = {}) => {
     return `src/amo/pages/UserProfile/index.js-${extractId({
       match: { params: { userId } },
     })}`;
@@ -787,16 +784,7 @@ describe(__filename, () => {
     ).toBeInTheDocument();
 
     expect(screen.getByText(`Extensions by ${name}`)).toBeInTheDocument();
-    const extensionCard = screen.queryAllByClassName('AddonsByAuthorsCard')[0];
-    expect(
-      within(extensionCard).queryByText('Previous'),
-    ).not.toBeInTheDocument();
-    expect(within(extensionCard).queryByText('Next')).not.toBeInTheDocument();
-
     expect(screen.getByText(`Themes by ${name}`)).toBeInTheDocument();
-    const themeCard = screen.queryAllByClassName('AddonsByAuthorsCard')[1];
-    expect(within(themeCard).queryByText('Previous')).not.toBeInTheDocument();
-    expect(within(themeCard).queryByText('Next')).not.toBeInTheDocument();
 
     expect(screen.getByText('Next')).toHaveAttribute(
       'href',
