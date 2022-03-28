@@ -1,19 +1,17 @@
 import * as React from 'react';
 
-import Link from 'amo/components/Link';
-import RatingsByStar, { RatingsByStarBase } from 'amo/components/RatingsByStar';
+import RatingsByStar from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
 import {
-  createContextWithFakeRouter,
-  createFakeLocation,
+  createHistory,
   createInternalAddonWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
-import IconStar from 'amo/components/IconStar';
-import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   let store;
@@ -22,19 +20,22 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  const getProps = ({
+  const render = ({
     addon = createInternalAddonWithLang(fakeAddon),
-    ...customProps
+    location,
+    ...props
   } = {}) => {
-    return { addon, i18n: fakeI18n(), store, ...customProps };
-  };
+    const renderOptions = {
+      history: createHistory({
+        initialEntries: [location || '/'],
+      }),
+      store,
+    };
 
-  const render = ({ location, ...customProps } = {}) => {
-    const props = getProps(customProps);
-
-    return shallowUntilTarget(<RatingsByStar {...props} />, RatingsByStarBase, {
-      shallowOptions: createContextWithFakeRouter({ location }),
-    });
+    return defaultRender(
+      <RatingsByStar addon={addon} {...props} />,
+      renderOptions,
+    );
   };
 
   const addonForGrouping = (grouping, addonParams = {}) => {
@@ -53,17 +54,14 @@ describe(__filename, () => {
   };
 
   it('renders a loading state without an add-on', () => {
-    const root = render({ addon: null });
+    render({ addon: null });
 
-    expect(root.find('.RatingsByStar-row')).toHaveLength(5);
-    expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
-    expect(root.find('.RatingsByStar-barContainer')).toHaveLength(5);
-    expect(root.find('.RatingsByStar-barFrame')).toHaveLength(5);
-    // In loading state, we do not render a bar value
-    expect(root.find('.RatingsByStar-barValue')).toHaveLength(0);
+    // There will be two loading indicators, and one IconStar per row.
+    expect(screen.getAllByRole('alert')).toHaveLength(10);
+    expect(screen.getAllByTagName('path')).toHaveLength(5);
   });
 
-  it('renders star labels, bars and links', () => {
+  it('renders star labels, counts and links', () => {
     const grouping = {
       5: 964,
       4: 821,
@@ -72,90 +70,60 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    const root = render({ addon });
-    const ratingsByStarRow = root.find('.RatingsByStar-row').find(Link);
+    render({ addon });
 
-    function validateLink(link, score, expectedTitle) {
-      expect(link).toHaveProp(
-        'to',
-        reviewListURL({ addonSlug: addon.slug, score }),
+    function validateLink(score, count, expectedTitle) {
+      const link = screen.getByTitle(expectedTitle);
+      expect(link).toHaveAttribute(
+        'href',
+        `/en-US/android${reviewListURL({ addonSlug: addon.slug, score })}`,
       );
-      expect(link).toHaveProp('title', expectedTitle);
+      expect(within(link).getByText(count)).toBeInTheDocument();
     }
 
-    [ratingsByStarRow].forEach((links) => {
-      validateLink(links.at(0), '5', 'Read all 964 five-star reviews');
-      validateLink(links.at(1), '4', 'Read all 821 four-star reviews');
-      validateLink(links.at(2), '3', 'Read all 543 three-star reviews');
-      validateLink(links.at(3), '2', 'Read the 1 two-star review');
-      validateLink(links.at(4), '1', 'There are no one-star reviews');
-    });
-  });
-
-  it('renders star counts', () => {
-    const grouping = {
-      5: 964,
-      4: 821,
-      3: 543,
-      2: 1,
-      1: 0,
-    };
-    const addon = addonForGrouping(grouping);
-    const root = render({ addon });
-    const rows = root.find('.RatingsByStar-row').find(Link);
-
-    function validateLink(link, score, expectedTitle) {
-      expect(link).toHaveProp(
-        'to',
-        reviewListURL({ addonSlug: addon.slug, score }),
-      );
-      expect(link).toHaveProp('title', expectedTitle);
-    }
-
-    validateLink(rows.at(0), '5', 'Read all 964 five-star reviews');
-    validateLink(rows.at(1), '4', 'Read all 821 four-star reviews');
-    validateLink(rows.at(2), '3', 'Read all 543 three-star reviews');
-    validateLink(rows.at(3), '2', 'Read the 1 two-star review');
-    validateLink(rows.at(4), '1', 'There are no one-star reviews');
+    validateLink('5', 964, 'Read all 964 five-star reviews');
+    validateLink('4', 821, 'Read all 821 four-star reviews');
+    validateLink('3', 543, 'Read all 543 three-star reviews');
+    validateLink('2', 1, 'Read the 1 two-star review');
+    validateLink('1', 0, 'There are no one-star reviews');
   });
 
   it('adds UTM query parameters to the review links when there are some', () => {
     const utm_medium = 'some-utm-medium';
-    const location = createFakeLocation({ query: { utm_medium } });
+    const location = `/?utm_medium=${utm_medium}`;
     const grouping = {
       5: 964,
       4: 821,
       3: 543,
-      2: 22,
+      2: 1,
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    const root = render({ addon, location });
-    const rows = root.find('.RatingsByStar-row').find(Link);
+    render({ addon, location });
 
-    function validateLink(link, score) {
+    function validateLink(score, expectedTitle) {
+      const link = screen.getByTitle(expectedTitle);
       const expectedQueryString = [
         `score=${score}`,
         `utm_medium=${utm_medium}`,
       ].join('&');
-      expect(link).toHaveProp(
-        'to',
-        `/addon/${addon.slug}/reviews/?${expectedQueryString}`,
+      expect(link).toHaveAttribute(
+        'href',
+        `/en-US/android/addon/${addon.slug}/reviews/?${expectedQueryString}`,
       );
     }
 
-    validateLink(rows.at(0), '5');
-    validateLink(rows.at(1), '4');
-    validateLink(rows.at(2), '3');
-    validateLink(rows.at(3), '2');
-    validateLink(rows.at(4), '1');
+    validateLink('5', 'Read all 964 five-star reviews');
+    validateLink('4', 'Read all 821 four-star reviews');
+    validateLink('3', 'Read all 543 three-star reviews');
+    validateLink('2', 'Read the 1 two-star review');
+    validateLink('1', 'There are no one-star reviews');
   });
 
-  it('renders IconStar', () => {
-    const root = render();
-    const star = root.find(IconStar).at(0);
-    expect(star).toHaveLength(1);
-    expect(star).toHaveProp('selected');
+  it('renders IconStars', () => {
+    render();
+
+    expect(screen.getAllByTagName('path')).toHaveLength(5);
   });
 
   it('renders bar value widths based on total ratings', () => {
@@ -167,14 +135,14 @@ describe(__filename, () => {
       1: 5, // 33.3%
     };
     const addon = addonForGrouping(grouping);
-    const root = render({ addon });
+    render({ addon });
 
-    const barValues = root.find('.RatingsByStar-barValue');
-    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--7pct');
-    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--13pct');
-    expect(barValues.at(2)).toHaveClassName('RatingsByStar-barValue--20pct');
-    expect(barValues.at(3)).toHaveClassName('RatingsByStar-barValue--27pct');
-    expect(barValues.at(4)).toHaveClassName('RatingsByStar-barValue--33pct');
+    const barValues = screen.getAllByClassName('RatingsByStar-barValue');
+    expect(barValues[0]).toHaveClass('RatingsByStar-barValue--7pct');
+    expect(barValues[1]).toHaveClass('RatingsByStar-barValue--13pct');
+    expect(barValues[2]).toHaveClass('RatingsByStar-barValue--20pct');
+    expect(barValues[3]).toHaveClass('RatingsByStar-barValue--27pct');
+    expect(barValues[4]).toHaveClass('RatingsByStar-barValue--33pct');
   });
 
   it('renders different styles for partial / full bars', () => {
@@ -187,27 +155,25 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    const root = render({ addon });
+    render({ addon });
 
-    const barValues = root.find('.RatingsByStar-barValue');
+    const barValues = screen.getAllByClassName('RatingsByStar-barValue');
 
-    expect(barValues.at(0)).toHaveClassName('RatingsByStar-barValue--100pct');
-    expect(barValues.at(0)).not.toHaveClassName('RatingsByStar-partialBar');
+    expect(barValues[0]).toHaveClass('RatingsByStar-barValue--100pct');
+    expect(barValues[0]).not.toHaveClass('RatingsByStar-partialBar');
 
-    expect(barValues.at(1)).toHaveClassName('RatingsByStar-barValue--0pct');
-    expect(barValues.at(1)).toHaveClassName('RatingsByStar-partialBar');
+    expect(barValues[1]).toHaveClass('RatingsByStar-barValue--0pct');
+    expect(barValues[1]).toHaveClass('RatingsByStar-partialBar');
   });
 
   it('renders 0% bar values when ratings are all 0', () => {
     const grouping = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
     const addon = addonForGrouping(grouping);
-    const root = render({ addon });
+    render({ addon });
 
-    const barValues = root.find('.RatingsByStar-barValue');
+    const barValues = screen.getAllByClassName('RatingsByStar-barValue');
     for (const index of [0, 1, 2, 3, 4]) {
-      expect(barValues.at(index)).toHaveClassName(
-        'RatingsByStar-barValue--0pct',
-      );
+      expect(barValues[index]).toHaveClass('RatingsByStar-barValue--0pct');
     }
   });
 
@@ -220,8 +186,8 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    const root = render({ addon, i18n: fakeI18n({ lang: 'de' }) });
+    render({ addon, i18n: fakeI18n({ lang: 'de' }) });
 
-    expect(root.find('.RatingsByStar-count').at(0)).toHaveText('1.000');
+    expect(screen.getByText('1.000')).toBeInTheDocument();
   });
 });
