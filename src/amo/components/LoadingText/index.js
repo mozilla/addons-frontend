@@ -43,6 +43,8 @@ export default class LoadingText extends React.Component<Props> {
           `LoadingText--width-${finalWidth}`,
           className,
         )}
+        role="alert"
+        aria-busy="true"
       />
     );
   }
