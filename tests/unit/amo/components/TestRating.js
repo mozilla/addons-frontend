@@ -251,15 +251,6 @@ describe(__filename, () => {
     expect(stopPropagationWatcher).toHaveBeenCalled();
   });
 
-  // TODO: I can't seem to figure out how to test this. expect.toThrow
-  // doesn't work, and even wrapping the call ro userEvent.click in a try/
-  // catch doesn't work. This is strange.
-  // it('requires a valid onSelectRating callback', async () => {
-  //   renderWithEmptyRating({ onSelectRating: null });
-  //   const star = getStarButton({ rating: 1 });
-  //   expect(() => userEvent.click(star)).toThrow();
-  // });
-
   it('selects stars on hover', () => {
     renderWithEmptyRating();
 

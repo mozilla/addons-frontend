@@ -61,18 +61,18 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   onSelectRating: (event: SyntheticEvent<HTMLButtonElement>) => void = (
     event: SyntheticEvent<HTMLButtonElement>,
   ) => {
+    const { onSelectRating } = this.props;
+    invariant(
+      onSelectRating,
+      'onSelectRating was empty. Did you mean to set readOnly=true?',
+    );
+
     event.preventDefault();
     event.stopPropagation();
     const button = event.currentTarget;
     const rating = parseInt(button.value, 10);
     log.debug(`Selected rating from form button: ${rating}`);
-
-    if (!this.props.onSelectRating) {
-      throw new Error(
-        'onSelectRating was empty. Did you mean to set readOnly=true?',
-      );
-    }
-    this.props.onSelectRating(rating);
+    onSelectRating(rating);
   };
 
   // Helper function used to render title attributes
