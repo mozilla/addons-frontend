@@ -1,103 +1,100 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import AddonMeta, {
-  AddonMetaBase,
-  roundToOneDigit,
-} from 'amo/components/AddonMeta';
-import Link from 'amo/components/Link';
-import RatingsByStar from 'amo/components/RatingsByStar';
+import AddonMeta, { roundToOneDigit } from 'amo/components/AddonMeta';
 import { reviewListURL } from 'amo/reducers/reviews';
 import {
-  createContextWithFakeRouter,
-  createFakeLocation,
+  createHistory,
   createInternalAddonWithLang,
-  dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
-import MetadataCard from 'amo/components/MetadataCard';
-import Rating from 'amo/components/Rating';
 
 describe(__filename, () => {
-  function render({
+  const render = ({
     addon = createInternalAddonWithLang(fakeAddon),
-    store = dispatchClientMetadata().store,
     location,
     ...props
-  } = {}) {
-    return shallowUntilTarget(
-      <AddonMeta addon={addon} i18n={fakeI18n()} store={store} {...props} />,
-      AddonMetaBase,
-      {
-        shallowOptions: createContextWithFakeRouter({ location }),
-      },
-    );
-  }
+  } = {}) => {
+    const renderOptions = {
+      history: createHistory({
+        initialEntries: [location || '/'],
+      }),
+    };
+
+    return defaultRender(<AddonMeta addon={addon} {...props} />, renderOptions);
+  };
 
   it('can render without an addon', () => {
-    const root = render({ addon: null });
-    expect(root.find('.AddonMeta')).toHaveLength(1);
-    expect(root.find(MetadataCard)).toHaveLength(1);
+    render({ addon: null });
+
+    expect(screen.getAllByRole('alert')).toHaveLength(12);
+    expect(screen.getByText('Reviews')).toBeInTheDocument();
+    expect(screen.getByText('Users')).toBeInTheDocument();
+    expect(screen.getByText('Not rated yet')).toBeInTheDocument();
   });
 
   describe('average daily users', () => {
-    function getUserCount(root) {
-      return root.find(MetadataCard).prop('metadata')[0];
-    }
-
     it('renders the user count', () => {
-      const root = render({
+      render({
         addon: createInternalAddonWithLang({
           ...fakeAddon,
           average_daily_users: 2,
         }),
       });
 
-      expect(getUserCount(root).content).toEqual('2');
-      expect(getUserCount(root).title).toEqual('Users');
+      const overallRating = screen.getByClassName('AddonMeta-overallRating');
+      expect(within(overallRating).getByText('Users')).toBeInTheDocument();
+      expect(within(overallRating).getByText('2')).toBeInTheDocument();
     });
 
     it('renders one user', () => {
-      const root = render({
+      render({
         addon: createInternalAddonWithLang({
           ...fakeAddon,
           average_daily_users: 1,
         }),
       });
 
-      expect(getUserCount(root).content).toEqual('1');
-      expect(getUserCount(root).title).toEqual('User');
+      const overallRating = screen.getByClassName('AddonMeta-overallRating');
+      expect(within(overallRating).getByText('User')).toBeInTheDocument();
+      expect(within(overallRating).getByText('1')).toBeInTheDocument();
     });
 
     it('renders no users', () => {
-      const root = render({
+      render({
         addon: createInternalAddonWithLang({
           ...fakeAddon,
           average_daily_users: 0,
         }),
       });
 
-      expect(getUserCount(root).content).toEqual('');
-      expect(getUserCount(root).title).toEqual('No Users');
+      const overallRating = screen.getByClassName('AddonMeta-overallRating');
+      expect(within(overallRating).getByText('No Users')).toBeInTheDocument();
+      expect(
+        within(overallRating).getAllByClassName('MetadataCard-content')[0],
+      ).toHaveTextContent('');
     });
 
     it('localizes the user count', () => {
       const i18n = fakeI18n({ lang: 'de' });
-      const root = render({
+      render({
         addon: createInternalAddonWithLang({
           ...fakeAddon,
           average_daily_users: 1000,
         }),
         i18n,
       });
-      expect(getUserCount(root).content).toMatch(/^1\.000/);
+
+      const overallRating = screen.getByClassName('AddonMeta-overallRating');
+      expect(within(overallRating).getByText(/^1\.000/)).toBeInTheDocument();
     });
   });
 
   describe('ratings', () => {
-    function renderRatings(ratings = {}, otherProps = {}) {
+    function renderWithRatings(ratings = {}, otherProps = {}) {
       return render({
         addon: createInternalAddonWithLang({
           ...fakeAddon,
@@ -110,181 +107,133 @@ describe(__filename, () => {
       });
     }
 
-    function getReviewData(root) {
-      return root.find(MetadataCard).prop('metadata')[1];
-    }
-
-    function getReviewTitle(root) {
-      const { title } = getReviewData(root);
-      return shallow(<div>{title}</div>);
-    }
-
-    function getReviewCount(root) {
-      const { content } = getReviewData(root);
-      return shallow(<div>{content}</div>);
-    }
-
-    function getAverageData(root) {
-      return root.find(MetadataCard).prop('metadata')[2];
-    }
-
-    function getAverageTitle(root) {
-      return shallow(getAverageData(root).title);
-    }
-
-    function getAverageNumber(root) {
-      return shallow(getAverageData(root).content);
-    }
-
     it('renders a count of multiple reviews', () => {
       const slug = 'some-slug';
       const ratingsCount = 5;
-      const root = render({
+      render({
         addon: createInternalAddonWithLang({
           ...fakeAddon,
-          ratings: { text_count: 3, count: ratingsCount },
+          ratings: {
+            ...fakeAddon.ratings,
+            text_count: 3,
+            count: ratingsCount,
+          },
           slug,
         }),
       });
 
-      const reviewTitleLink = getReviewTitle(root).find(Link);
-      const reviewCountLink = getReviewCount(root).find(Link);
-
-      const listURL = reviewListURL({ addonSlug: slug });
-
-      expect(reviewTitleLink).toHaveProp('to', listURL);
-      expect(reviewTitleLink.children()).toHaveText('Reviews');
-
-      expect(reviewCountLink).toHaveProp('to', listURL);
-      expect(reviewCountLink.children()).toHaveText(ratingsCount.toString());
-    });
-
-    it('renders links with `src` query parameters when the location has one', () => {
-      const slug = 'some-slug';
-      const src = 'some-src';
-      const location = createFakeLocation({ query: { src } });
-
-      const root = render({
-        addon: createInternalAddonWithLang({
-          ...fakeAddon,
-          ratings: { text_count: 3, count: 123 },
-          slug,
-        }),
-        location,
-      });
-
-      const reviewTitleLink = getReviewTitle(root).find(Link);
-      const reviewCountLink = getReviewCount(root).find(Link);
-
-      const listURL = reviewListURL({ addonSlug: slug, src, location });
-
-      expect(reviewTitleLink).toHaveProp('to', listURL);
-      expect(reviewCountLink).toHaveProp('to', listURL);
+      const listURL = `/en-US/android${reviewListURL({ addonSlug: slug })}`;
+      expect(screen.getByRole('link', { name: 'Reviews' })).toHaveAttribute(
+        'href',
+        listURL,
+      );
+      expect(screen.getByRole('link', { name: ratingsCount })).toHaveAttribute(
+        'href',
+        listURL,
+      );
     });
 
     it('renders links with UTM query parameters when the location has some', () => {
+      const count = 123;
       const slug = 'some-slug';
       const utm_source = 'some-src';
       const utm_medium = 'some-medium';
-      const location = createFakeLocation({
-        query: { utm_source, utm_medium },
-      });
 
-      const root = render({
+      render({
         addon: createInternalAddonWithLang({
           ...fakeAddon,
-          ratings: { text_count: 3, count: 123 },
+          ratings: { ...fakeAddon.ratings, text_count: 3, count },
           slug,
         }),
-        location,
+        location: `/?utm_source=${utm_source}&utm_medium=${utm_medium}`,
       });
 
-      const reviewTitleLink = getReviewTitle(root).find(Link);
-      const reviewCountLink = getReviewCount(root).find(Link);
+      const listURL = `/en-US/android/addon/${slug}/reviews/?utm_medium=${utm_medium}&utm_source=${utm_source}`;
 
-      const listURL = `/addon/${slug}/reviews/?utm_medium=some-medium&utm_source=some-src`;
-
-      expect(reviewTitleLink).toHaveProp('to', listURL);
-      expect(reviewCountLink).toHaveProp('to', listURL);
+      expect(screen.getByRole('link', { name: 'Reviews' })).toHaveAttribute(
+        'href',
+        listURL,
+      );
+      expect(screen.getByRole('link', { name: count })).toHaveAttribute(
+        'href',
+        listURL,
+      );
     });
 
     it('renders a count of one review', () => {
-      const root = renderRatings({ count: 1 });
+      renderWithRatings({ count: 1 });
 
-      expect(getReviewCount(root).find(Link).children()).toHaveText('1');
-      expect(getReviewTitle(root).find(Link).children()).toHaveText('Review');
+      expect(screen.getByRole('link', { name: 'Review' })).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: '1' })).toBeInTheDocument();
     });
 
     it('localizes review count', () => {
       const i18n = fakeI18n({ lang: 'de' });
-      const root = renderRatings({ count: 1000 }, { i18n });
+      renderWithRatings({ count: 1000 }, { i18n });
 
-      expect(getReviewCount(root).find(Link).children()).toHaveText('1.000');
-    });
-
-    it('handles no addon', () => {
-      const root = render({ addon: null });
-
-      expect(getReviewTitle(root).children()).toHaveText('Reviews');
-      expect(getReviewCount(root).children()).toHaveLength(0);
-      // rating=undefined will render a loading state.
-      expect(getAverageNumber(root).find(Rating)).toHaveProp(
-        'rating',
-        undefined,
-      );
+      expect(screen.getByRole('link', { name: '1.000' })).toBeInTheDocument();
     });
 
     it('handles zero reviews', () => {
-      const root = render({
+      render({
         addon: createInternalAddonWithLang({ ...fakeAddon, ratings: null }),
       });
 
-      expect(getReviewTitle(root).children()).toHaveText('No Reviews');
-      expect(getReviewCount(root).children()).toHaveLength(0);
-
-      expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', null);
-      expect(getAverageTitle(root)).toHaveText('Not rated yet');
+      expect(screen.getByText('No Reviews')).toBeInTheDocument();
+      expect(screen.getByText('Not rated yet')).toBeInTheDocument();
     });
 
     it('handles an addon without ratings', () => {
-      const root = render({
+      render({
         addon: createInternalAddonWithLang({
           ...fakeAddon,
           ratings: undefined,
         }),
       });
 
-      // This should be null so it doesn't render a loading state.
-      expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', null);
+      expect(screen.getByText('No Reviews')).toBeInTheDocument();
+      expect(screen.getByText('Not rated yet')).toBeInTheDocument();
+      // The Ratings should not render in a loading state.
+      expect(
+        screen.queryByClassName('Rating--loading'),
+      ).not.toBeInTheDocument();
     });
 
     it('renders RatingsByStar with an add-on', () => {
       const addon = createInternalAddonWithLang(fakeAddon);
-      const root = render({ addon });
+      render({ addon });
 
-      expect(root.find(RatingsByStar)).toHaveProp('addon', addon);
+      const link = screen.getByTitle('There are no five-star reviews');
+      expect(link).toHaveAttribute(
+        'href',
+        `/en-US/android/addon/${addon.slug}/reviews/?score=5`,
+      );
     });
 
     it('renders RatingsByStar without an add-on', () => {
-      const root = render({ addon: null });
+      render({ addon: null });
 
-      expect(root.find(RatingsByStar)).toHaveProp('addon', null);
+      expect(
+        within(screen.getByClassName('RatingsByStar')).getAllByRole('alert'),
+      ).toHaveLength(10);
     });
 
     it('renders the average rating', () => {
       const average = 2.34;
-      const root = renderRatings({ average });
+      renderWithRatings({ average });
 
-      expect(getAverageNumber(root).find(Rating)).toHaveProp('rating', average);
-      expect(getAverageTitle(root)).toHaveText(
-        `${roundToOneDigit(average)} Stars`,
-      );
+      expect(
+        screen.getByText(`${roundToOneDigit(average)} Stars`),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(`Rated ${roundToOneDigit(average)} out of 5`),
+      ).toBeInTheDocument();
     });
 
     it('renders a 1 star average rating', () => {
-      const root = renderRatings({ average: 1.0 });
+      renderWithRatings({ average: 1.0 });
 
-      expect(getAverageTitle(root)).toHaveText('1 Star');
+      expect(screen.getByText('1 Star')).toBeInTheDocument();
     });
   });
 
