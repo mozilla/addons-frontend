@@ -1,15 +1,18 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
 
-import AddonsCard from 'amo/components/AddonsCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import Link from 'amo/components/Link';
 import {
+  ADDON_TYPE_STATIC_THEME,
+  DEFAULT_UTM_SOURCE,
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
-  ADDON_TYPE_STATIC_THEME,
 } from 'amo/constants';
-import { createInternalAddonWithLang, fakeAddon } from 'tests/unit/helpers';
+import {
+  createInternalAddonWithLang,
+  fakeAddon,
+  render as defaultRender,
+  screen,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(customProps = {}) {
@@ -29,112 +32,144 @@ describe(__filename, () => {
       ...customProps,
     };
 
-    return shallow(<LandingAddonsCard {...props} />);
+    return defaultRender(<LandingAddonsCard {...props} />);
   }
 
-  it('passes loading parameter to AddonsCard', () => {
-    const root = render({ loading: true });
-    expect(root.find(AddonsCard)).toHaveProp('loading', true);
+  it('renders AddonsCard in a non-loading state when not loading', () => {
+    render({
+      footerLink: '/some-path/',
+      footerText: 'Footer text',
+      loading: false,
+    });
 
-    root.setProps({ loading: false });
-    expect(root.find(AddonsCard)).toHaveProp('loading', false);
-    expect(root.find(AddonsCard)).not.toHaveProp('footerLink', null);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Footer text' })).toHaveAttribute(
+      'href',
+      '/en-US/android/some-path/',
+    );
+  });
+
+  it('renders AddonsCard in a loading state when loading', () => {
+    render({
+      addons: [],
+      footerLink: '/some-path/',
+      footerText: 'Footer text',
+      loading: true,
+    });
+
+    // There will be 4 loading indicators per SearchResult.
+    expect(screen.getAllByRole('alert')).toHaveLength(
+      LANDING_PAGE_EXTENSION_COUNT * 4,
+    );
+    expect(
+      screen.queryByRole('link', { name: 'Footer text' }),
+    ).not.toBeInTheDocument();
   });
 
   it('passes addons to AddonsCard', () => {
-    const addons = [
-      createInternalAddonWithLang({
-        ...fakeAddon,
-        slug: 'custom-addon',
-      }),
-    ];
-    const root = render({ addons });
-    expect(root.find(AddonsCard)).toHaveProp('addons', addons);
+    const addons = [createInternalAddonWithLang(fakeAddon)];
+    render({ addons });
+
+    expect(
+      screen.getByRole('link', { name: addons[0].name }),
+    ).toBeInTheDocument();
   });
 
   it('passes addonInstallSource to AddonsCard', () => {
     const addonInstallSource = 'featured-on-home-page';
     const addons = [createInternalAddonWithLang(fakeAddon)];
-    const root = render({ addons, addonInstallSource });
+    render({ addons, addonInstallSource });
 
-    expect(root.find(AddonsCard)).toHaveProp(
-      'addonInstallSource',
-      addonInstallSource,
+    const expectedLink = [
+      `/en-US/android/addon/${addons[0].slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+      'utm_medium=referral',
+      `utm_content=${addonInstallSource}`,
+    ].join('&');
+    expect(screen.getByRole('link', { name: addons[0].name })).toHaveAttribute(
+      'href',
+      expectedLink,
     );
   });
 
   it('passes isHomepageShelf to AddonsCard', () => {
-    const isHomepageShelf = true;
-    const root = render({ isHomepageShelf });
+    render({ isHomepageShelf: true });
 
-    expect(root.find(AddonsCard)).toHaveProp(
-      'isHomepageShelf',
-      isHomepageShelf,
-    );
-  });
-
-  it('sets the number of placeholders to render while loading', () => {
-    const root = render({ loading: true });
-    expect(root).toHaveProp('placeholderCount', LANDING_PAGE_EXTENSION_COUNT);
+    expect(screen.getByClassName('Card-shelf-footer')).toBeInTheDocument();
   });
 
   it('overrides the default placeholder value when passed in', () => {
-    const root = render({ placeholderCount: LANDING_PAGE_THEME_COUNT });
+    render({
+      addons: [],
+      loading: true,
+      placeholderCount: 1,
+    });
 
-    expect(root.find(AddonsCard)).toHaveProp(
-      'placeholderCount',
-      LANDING_PAGE_THEME_COUNT,
-    );
+    // There will be 4 loading indicators per SearchResult.
+    expect(screen.getAllByRole('alert')).toHaveLength(4);
   });
 
   it('overrides the placeholder prop value when isTheme is passed in', () => {
-    const root = render({ isTheme: true, placeholderCount: 2 });
+    render({
+      addons: [],
+      isTheme: true,
+      loading: true,
+      placeholderCount: 1,
+    });
 
-    expect(root.find(AddonsCard)).toHaveProp(
-      'placeholderCount',
-      LANDING_PAGE_THEME_COUNT,
+    expect(screen.getAllByRole('alert')).toHaveLength(
+      LANDING_PAGE_THEME_COUNT * 4,
     );
   });
 
   it('uses the placeholder prop value when isTheme is passed in as false', () => {
     const placeholderCount = 2;
-    const root = render({ isTheme: false, placeholderCount });
-
-    expect(root.find(AddonsCard)).toHaveProp(
-      'placeholderCount',
+    render({
+      addons: [],
+      isTheme: false,
+      loading: true,
       placeholderCount,
-    );
+    });
+
+    expect(screen.getAllByRole('alert')).toHaveLength(placeholderCount * 4);
   });
 
   it('hides the footer link when there are less add-ons than placeholderCount', () => {
-    const addons = [
-      createInternalAddonWithLang({
-        ...fakeAddon,
-        slug: 'custom-addon',
-      }),
-    ];
-    const root = render({ addons, placeholderCount: 2 });
-    expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
+    const addons = [createInternalAddonWithLang(fakeAddon)];
+    render({
+      addons,
+      footerLink: '/some-path/',
+      footerText: 'Footer text',
+      placeholderCount: 2,
+    });
+
+    expect(
+      screen.queryByRole('link', { name: 'Footer text' }),
+    ).not.toBeInTheDocument();
   });
 
   it('hides the footer link when there are less add-ons than LANDING_PAGE_THEME_COUNT', () => {
-    const root = render({
+    render({
       addons: Array(LANDING_PAGE_THEME_COUNT - 1).fill(
         createInternalAddonWithLang({
           ...fakeAddon,
           type: ADDON_TYPE_STATIC_THEME,
         }),
       ),
+      footerLink: '/some-path/',
+      footerText: 'Footer text',
       isTheme: true,
     });
-    expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
+
+    expect(
+      screen.queryByRole('link', { name: 'Footer text' }),
+    ).not.toBeInTheDocument();
   });
 
   it('shows the footer link when there are more or as many add-ons as LANDING_PAGE_THEME_COUNT', () => {
-    const footerLink = 'footer-link-path';
+    const footerLink = '/footer-link-path/';
     const footerText = 'footer link text';
 
-    const root = render({
+    render({
       addons: Array(LANDING_PAGE_THEME_COUNT).fill(
         createInternalAddonWithLang({
           ...fakeAddon,
@@ -146,17 +181,18 @@ describe(__filename, () => {
       footerText,
     });
 
-    expect(root.find(AddonsCard).prop('footerLink')).toEqual(
-      <Link to={footerLink}>{footerText}</Link>,
+    expect(screen.getByRole('link', { name: footerText })).toHaveAttribute(
+      'href',
+      `/en-US/android${footerLink}`,
     );
   });
 
   it('shows the footer link when there are more or as many add-ons as placeholderCount', () => {
-    const footerLink = 'footer-link-path';
+    const footerLink = '/footer-link-path/';
     const footerText = 'footer link text';
     const placeholderCount = 2;
 
-    const root = render({
+    render({
       addons: Array(placeholderCount).fill(
         createInternalAddonWithLang({
           ...fakeAddon,
@@ -168,38 +204,36 @@ describe(__filename, () => {
       footerText,
     });
 
-    expect(root.find(AddonsCard).prop('footerLink')).toEqual(
-      <Link to={footerLink}>{footerText}</Link>,
-    );
-  });
-
-  it('accepts a string for the footer link', () => {
-    const linkString = '/some/link/';
-    const root = render({ footerLink: linkString });
-    expect(root.find(AddonsCard).prop('footerLink').props.to).toEqual(
-      linkString,
+    expect(screen.getByRole('link', { name: footerText })).toHaveAttribute(
+      'href',
+      `/en-US/android${footerLink}`,
     );
   });
 
   it('accepts an object with an href for the footer link', () => {
     const url = '/some/link/';
     const footerLink = { href: url };
-    const root = render({ footerLink });
-    expect(root.find(AddonsCard).prop('footerLink').props.href).toEqual(url);
-    expect(root.find(AddonsCard).prop('footerLink').props.to).toEqual(
-      undefined,
-    );
-    expect(root.find(AddonsCard).prop('footerLink').props.target).toEqual(
-      '_blank',
+    const footerText = 'footer link text';
+    render({ footerLink, footerText });
+
+    const link = screen.getByRole('link', { name: footerText });
+    expect(link).toHaveAttribute('href', url);
+    expect(link).toHaveAttribute('target', '_blank');
+  });
+
+  it('sets useThemePlaceholder to true if isTheme is true', () => {
+    render({ addons: [], loading: true, isTheme: true });
+
+    expect(screen.getAllByRole('listitem')[0]).toHaveClass(
+      'SearchResult--theme',
     );
   });
 
-  it.each([true, false])(
-    'sets useThemePlaceholder to the value of isTheme on the AddonsCard',
-    (isTheme) => {
-      const root = render({ isTheme });
+  it('sets useThemePlaceholder to false if isTheme is false', () => {
+    render({ addons: [], loading: true, isTheme: false });
 
-      expect(root.find(AddonsCard)).toHaveProp('useThemePlaceholder', isTheme);
-    },
-  );
+    expect(screen.getAllByRole('listitem')[0]).not.toHaveClass(
+      'SearchResult--theme',
+    );
+  });
 });
