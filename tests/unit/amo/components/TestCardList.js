@@ -1,28 +1,31 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import CardList from 'amo/components/CardList';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = (props) => {
-    return shallow(<CardList {...props} />);
+    return defaultRender(<CardList {...props} />);
   };
 
   it('adds a CardList class', () => {
-    const root = render();
+    render();
 
-    expect(root).toHaveClassName('CardList');
+    expect(screen.getByClassName('Card')).toHaveClass('CardList');
   });
 
   it('adds a custom CSS class', () => {
-    const root = render({ className: 'SystematicDysfunctioner' });
+    render({ className: 'SystematicDysfunctioner' });
 
-    expect(root).toHaveClassName('SystematicDysfunctioner');
+    expect(screen.getByClassName('Card')).toHaveClass('CardList');
+    expect(screen.getByClassName('Card')).toHaveClass(
+      'SystematicDysfunctioner',
+    );
   });
 
   it('renders children', () => {
-    const root = render({ children: <div>Child Content</div> });
+    render({ children: <div>Child Content</div> });
 
-    expect(root.children()).toHaveText('Child Content');
+    expect(screen.getByText('Child Content')).toBeInTheDocument();
   });
 });
