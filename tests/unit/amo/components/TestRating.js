@@ -32,22 +32,15 @@ describe(__filename, () => {
     return render({ rating: null, ...props });
   }
 
-  const getStarName = ({ rating, currentRating = null }) => {
-    if (!currentRating) {
-      return `Rate this add-on ${rating} out of 5`;
-    }
-
-    if (currentRating === rating) {
-      return `Rated ${rating} out of 5`;
-    }
-
-    return `Update your rating to ${rating} out of 5`;
-  };
-
   const getStarButton = ({ rating, currentRating = null }) => {
-    return screen.getByRole('button', {
-      name: getStarName({ rating, currentRating }),
-    });
+    let name = `Update your rating to ${rating} out of 5`;
+    if (!currentRating) {
+      name = `Rate this add-on ${rating} out of 5`;
+    } else if (currentRating === rating) {
+      name = `Rated ${rating} out of 5`;
+    }
+
+    return screen.getByRole('button', { name });
   };
 
   const getStar = ({ rating }) => {
