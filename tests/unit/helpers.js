@@ -17,6 +17,7 @@ import {
   getDefaultNormalizer,
   render as libraryRender,
   screen as libraryScreen,
+  within as libraryWithin,
 } from '@testing-library/react';
 
 import {
@@ -1598,20 +1599,29 @@ const getByTagName = (container, tagName) => {
   return getByFeature(container, queryByTagName, tagName);
 };
 
-const customQueries = {
-  'getAllByClassName': getAllByClassName.bind(null, document.body),
-  'getAllByTagName': getAllByTagName.bind(null, document.body),
-  'queryAllByClassName': queryAllByClassName.bind(null, document.body),
-  'queryAllByTagName': queryAllByTagName.bind(null, document.body),
-  'getByClassName': getByClassName.bind(null, document.body),
-  'getByTagName': getByTagName.bind(null, document.body),
-  'queryByClassName': queryByClassName.bind(null, document.body),
-  'queryByTagName': queryByTagName.bind(null, document.body),
+const customQueries = (element) => {
+  return {
+    'getAllByClassName': getAllByClassName.bind(null, element),
+    'getAllByTagName': getAllByTagName.bind(null, element),
+    'queryAllByClassName': queryAllByClassName.bind(null, element),
+    'queryAllByTagName': queryAllByTagName.bind(null, element),
+    'getByClassName': getByClassName.bind(null, element),
+    'getByTagName': getByTagName.bind(null, element),
+    'queryByClassName': queryByClassName.bind(null, element),
+    'queryByTagName': queryByTagName.bind(null, element),
+  };
 };
 
 export const screen = {
   ...libraryScreen,
-  ...customQueries,
+  ...customQueries(document.body),
+};
+
+export const within = (element) => {
+  return {
+    ...libraryWithin(element),
+    ...customQueries(element),
+  };
 };
 
 const getByTextAcrossTags = (text) => {
