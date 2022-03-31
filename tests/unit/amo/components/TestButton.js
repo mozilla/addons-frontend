@@ -1,66 +1,63 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
+import { createEvent, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import Link from 'amo/components/Link';
 import Button from 'amo/components/Button';
-import { createFakeEvent } from 'tests/unit/helpers';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(props = {}) {
-    return shallow(<Button {...props} />);
+    return defaultRender(<Button {...props} />);
   }
 
   it('renders a button', () => {
-    const onClick = sinon.spy();
-    const button = render({
+    const onClick = jest.fn();
+    render({
       children: 'My button!',
       className: 'Foo',
       onClick,
     });
 
-    expect(button.type()).toEqual('button');
-    expect(button).toHaveClassName('Button');
-    expect(button).toHaveClassName('Foo');
-    expect(button).toHaveProp('onClick', onClick);
-    expect(button.children()).toIncludeText('My button!');
+    const button = screen.getByRole('button');
+    expect(button).toHaveTextContent('My button!');
+    expect(button).toHaveClass('Foo');
+
+    userEvent.click(button);
+    expect(onClick).toHaveBeenCalled();
   });
 
   it('renders an in-app link with a to prop', () => {
     const href = '/profile/';
-    const button = render({
+    render({
       children: 'Link text!',
       className: 'Bar',
       to: href,
     });
 
-    expect(button.type()).toEqual(Link);
-    expect(button).toHaveClassName('Button');
-    expect(button).toHaveClassName('Bar');
-    expect(button).toHaveProp('to', href);
-    expect(button.children()).toIncludeText('Link text!');
+    const button = screen.getByRole('link');
+    expect(button).toHaveTextContent('Link text!');
+    expect(button).toHaveClass('Bar');
+    expect(button).toHaveAttribute('href', `/en-US/android${href}`);
   });
 
   it('renders a link with a href', () => {
     const href = 'https://addons.mozilla.org';
 
-    const button = render({
+    render({
       children: 'Link text!',
       className: 'Bar',
       href,
     });
 
-    expect(button.type()).toEqual(Link);
-    expect(button).toHaveClassName('Button');
-    expect(button).toHaveClassName('Bar');
-    expect(button).toHaveProp('href', href);
-    expect(button.children()).toIncludeText('Link text!');
-    expect(button.find(Link)).toHaveProp('prependClientApp', false);
-    expect(button.find(Link)).toHaveProp('prependLang', false);
+    const button = screen.getByRole('link');
+    expect(button).toHaveTextContent('Link text!');
+    expect(button).toHaveClass('Bar');
+    expect(button).toHaveAttribute('href', href);
   });
 
   it('can disable an anchor with a `href` prop', () => {
-    const onClick = sinon.stub();
-    const button = render({
+    const onClick = jest.fn();
+    render({
       buttonType: 'action',
       children: 'Link text!',
       disabled: true,
@@ -68,16 +65,18 @@ describe(__filename, () => {
       onClick,
     });
 
-    const event = createFakeEvent();
-    button.simulate('click', event);
+    const button = screen.getByRole('link');
+    const clickEvent = createEvent.click(button);
+    const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    sinon.assert.notCalled(onClick);
-    sinon.assert.called(event.preventDefault);
+    fireEvent(button, clickEvent);
+    expect(onClick).not.toHaveBeenCalled();
+    expect(preventDefaultWatcher).toHaveBeenCalled();
   });
 
   it('can disable an anchor with a `to` prop', () => {
-    const onClick = sinon.stub();
-    const button = render({
+    const onClick = jest.fn();
+    render({
       buttonType: 'action',
       children: 'Link text!',
       disabled: true,
@@ -85,15 +84,17 @@ describe(__filename, () => {
       to: '/addon/foo/',
     });
 
-    const event = createFakeEvent();
-    button.simulate('click', event);
+    const button = screen.getByRole('link');
+    const clickEvent = createEvent.click(button);
+    const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    sinon.assert.notCalled(onClick);
-    sinon.assert.called(event.preventDefault);
+    fireEvent(button, clickEvent);
+    expect(onClick).not.toHaveBeenCalled();
+    expect(preventDefaultWatcher).toHaveBeenCalled();
   });
 
   it('sets a disabled link class when disabled', () => {
-    const button = render({
+    render({
       buttonType: 'action',
       children: 'Link text!',
       className: 'CustomClass',
@@ -101,8 +102,9 @@ describe(__filename, () => {
       href: 'https://addons.mozilla.org',
     });
 
-    expect(button).toHaveClassName('Button--disabled');
-    expect(button).toHaveClassName('CustomClass');
+    const button = screen.getByRole('link');
+    expect(button).toHaveClass('Button--disabled');
+    expect(button).toHaveClass('CustomClass');
   });
 
   it('throws when an invalid type is supplied', () => {
@@ -118,42 +120,40 @@ describe(__filename, () => {
   });
 
   it('renders a read only button', () => {
-    const className = 'som-css-class';
-    const button = render({ noLink: true, className });
+    const className = 'some-css-class';
+    render({ noLink: true, className });
 
-    expect(button.type()).toEqual('span');
-    expect(button).toHaveClassName(className);
+    expect(screen.getByTagName('span')).toHaveClass(className);
   });
 
   it('renders a read only button with a title', () => {
     const title = 'some title';
-    const button = render({ noLink: true, title });
+    render({ noLink: true, title });
 
-    expect(button.type()).toEqual('span');
-    expect(button).toHaveProp('title', title);
+    expect(screen.getByTitle(title)).toBeInTheDocument();
   });
 
   it('renders a link with a title', () => {
     const title = 'some title';
-    const button = render({ href: '/', title });
+    render({ href: '/', title });
 
-    expect(button.type()).toEqual(Link);
-    expect(button).toHaveProp('title', title);
+    expect(screen.getByRole('link', { title })).toBeInTheDocument();
   });
 
   it('renders a submit button with a title', () => {
     const title = 'some title';
-    const button = render({ title });
+    render({ title });
 
-    expect(button.type()).toEqual('button');
-    expect(button).toHaveProp('title', title);
-    expect(button).toHaveProp('type', 'submit');
+    expect(screen.getByRole('button', { title })).toHaveAttribute(
+      'type',
+      'submit',
+    );
   });
 
   it('renders a button with a different html type', () => {
     const htmlType = 'button';
-    const button = render({ htmlType });
+    render({ htmlType });
 
-    expect(button).toHaveProp('type', htmlType);
+    expect(screen.getByRole('button')).toHaveAttribute('type', htmlType);
   });
 });
