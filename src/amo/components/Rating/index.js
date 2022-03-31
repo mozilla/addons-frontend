@@ -234,11 +234,18 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       },
     );
 
+    const extraProps = {};
+    if (this.isLoading()) {
+      extraProps.role = 'alert';
+      extraProps['aria-busy'] = 'true';
+    }
+
     return (
       <div
         className={allClassNames}
         title={description}
         onMouseLeave={this.stopHovering}
+        {...extraProps}
       >
         {this.renderRatings()}
         <span className="visually-hidden">{description}</span>

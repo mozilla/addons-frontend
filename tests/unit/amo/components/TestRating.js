@@ -398,23 +398,19 @@ describe(__filename, () => {
     it('enters a loading state without a rating', () => {
       render({ rating: undefined });
 
-      expect(screen.getByClassName('Rating')).toHaveClass('Rating--loading');
+      expect(screen.getByRole('alert')).toBeInTheDocument();
     });
 
     it('exits the loading state with a rating value', () => {
       render({ rating: 4 });
 
-      expect(screen.getByClassName('Rating')).not.toHaveClass(
-        'Rating--loading',
-      );
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
     });
 
     it('exits the loading state with an empty rating', () => {
       renderWithEmptyRating();
 
-      expect(screen.getByClassName('Rating')).not.toHaveClass(
-        'Rating--loading',
-      );
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
     });
   });
 });
