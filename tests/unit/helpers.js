@@ -607,7 +607,9 @@ export function dispatchSignInActions({
 
 export function dispatchSearchResults({
   addons = [fakeAddon, { ...fakeAddon, slug: 'some-other-slug' }],
+  count,
   filters = { query: 'test' },
+  pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
   store = dispatchClientMetadata().store,
 } = {}) {
   store.dispatch(
@@ -618,9 +620,9 @@ export function dispatchSearchResults({
   );
   store.dispatch(
     searchLoad({
-      count: Object.keys(addons).length,
+      count: count || Object.keys(addons).length,
       results: addons,
-      pageSize: coreApi.DEFAULT_API_PAGE_SIZE,
+      pageSize,
     }),
   );
 
@@ -1724,3 +1726,6 @@ export const renderPage = (options = {}) => {
   // render the correct page.
   return render(<App />, options);
 };
+
+export const getSearchErrorHandlerId = (page) =>
+  `src/amo/components/Search/index.js-${page}`;
