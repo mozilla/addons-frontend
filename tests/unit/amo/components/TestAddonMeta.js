@@ -30,7 +30,7 @@ describe(__filename, () => {
   it('can render without an addon', () => {
     render({ addon: null });
 
-    expect(screen.getAllByRole('alert')).toHaveLength(12);
+    expect(screen.getAllByRole('alert')).toHaveLength(13);
     expect(screen.getByText('Reviews')).toBeInTheDocument();
     expect(screen.getByText('Users')).toBeInTheDocument();
     expect(screen.getByText('Not rated yet')).toBeInTheDocument();
