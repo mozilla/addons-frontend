@@ -336,6 +336,8 @@ describe(__filename, () => {
   });
 
   it('renders a report abuse button if user is not logged-in', () => {
+    const user = createUserAccountResponse({ id: defaultUserId });
+    store.dispatch(loadUserAccount({ user }));
     renderUserProfile();
 
     expect(
@@ -378,32 +380,6 @@ describe(__filename, () => {
 
     expect(screen.getByText(`Extensions by ${user.name}`)).toBeInTheDocument();
     expect(screen.getByText(`Themes by ${user.name}`)).toBeInTheDocument();
-  });
-
-  it('renders AddonsByAuthorsCard for extensions', () => {
-    signInUserWithProps();
-    const user = getCurrentUser(store.getState().users);
-
-    renderUserProfile();
-
-    expect(screen.getByText(`Extensions by ${user.name}`)).toBeInTheDocument();
-    const extensionCard = screen.queryAllByClassName('AddonsByAuthorsCard')[0];
-    expect(
-      within(extensionCard).queryByText('Previous'),
-    ).not.toBeInTheDocument();
-    expect(within(extensionCard).queryByText('Next')).not.toBeInTheDocument();
-  });
-
-  it('renders AddonsByAuthorsCard for themes', () => {
-    signInUserWithProps();
-    const user = getCurrentUser(store.getState().users);
-
-    renderUserProfile();
-
-    expect(screen.getByText(`Themes by ${user.name}`)).toBeInTheDocument();
-    const themeCard = screen.queryAllByClassName('AddonsByAuthorsCard')[1];
-    expect(screen.queryByText(themeCard, 'Previous')).not.toBeInTheDocument();
-    expect(screen.queryByText(themeCard, 'Next')).not.toBeInTheDocument();
   });
 
   it('renders a not found page if the API request is a 404', () => {
@@ -502,9 +478,9 @@ describe(__filename, () => {
   });
 
   it('does not render an admin link if no user is found', () => {
-    signInUserWithProps({ permissions: [USERS_EDIT] });
+    const userId = signInUserWithProps({ permissions: [USERS_EDIT] });
 
-    renderUserProfile({ userId: 3456 });
+    renderUserProfile({ userId: userId + 1 });
 
     expect(
       screen.queryByRole('link', { name: 'Admin user' }),
@@ -513,10 +489,6 @@ describe(__filename, () => {
 
   it('renders an admin link if user has sufficient permission', () => {
     const userId = signInUserWithProps({ permissions: [USERS_EDIT] });
-
-    store.dispatch(
-      loadUserAccount({ user: createUserAccountResponse({ userId }) }),
-    );
 
     renderUserProfile({ userId });
 
@@ -527,13 +499,9 @@ describe(__filename, () => {
   });
 
   it('does not render an admin link if user is not allowed to admin users', () => {
-    const userId = signInUserWithProps({ permissions: [] });
+    signInUserWithProps({ permissions: [] });
 
-    store.dispatch(
-      loadUserAccount({ user: createUserAccountResponse({ userId }) }),
-    );
-
-    renderUserProfile({ userId });
+    renderUserProfile();
 
     expect(
       screen.queryByRole('link', { name: 'Admin user' }),
@@ -657,6 +625,11 @@ describe(__filename, () => {
 
     expect(screen.getByText('My reviews')).toBeInTheDocument();
     expect(screen.getByText(fakeReview.body)).toBeInTheDocument();
+
+    const paginator = screen.getByClassName('UserProfile-reviews');
+    expect(
+      within(paginator).queryByRole('link', { name: 'Next' }),
+    ).not.toBeInTheDocument();
   });
 
   it(`displays the user's reviews with pagination when there are more reviews than the default API page size`, () => {
@@ -690,7 +663,7 @@ describe(__filename, () => {
       }),
     );
 
-    _setUserReviews({ userId });
+    _setUserReviews({ userId: anotherUserId });
 
     // See this other user profile page.
     renderUserProfile({ userId: anotherUserId });
@@ -748,24 +721,6 @@ describe(__filename, () => {
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ 'type': FETCH_USER_REVIEWS }),
     );
-  });
-
-  it('returns a 404 when the API returns a 404', () => {
-    createFailedErrorHandler({
-      error: createApiError({
-        response: { status: 404 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'not found' },
-      }),
-      id: createErrorHandlerId(),
-      store,
-    });
-
-    renderUserProfile();
-
-    expect(
-      screen.getByText('Oops! We can’t find that page'),
-    ).toBeInTheDocument();
   });
 
   it('renders a user profile when URL contains a user ID', () => {
