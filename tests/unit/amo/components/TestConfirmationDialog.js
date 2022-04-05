@@ -1,36 +1,20 @@
 import * as React from 'react';
+import { createEvent, fireEvent } from '@testing-library/react';
 
-import Button from 'amo/components/Button';
-import ConfirmationDialog, {
-  ConfirmationDialogBase,
-} from 'amo/components/ConfirmationDialog';
-import {
-  createFakeEvent,
-  fakeI18n,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import ConfirmationDialog from 'amo/components/ConfirmationDialog';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function render(otherProps = {}) {
-    const props = {
-      i18n: fakeI18n(),
-      onCancel: sinon.stub(),
-      onConfirm: sinon.stub(),
-      ...otherProps,
-    };
-    return shallowUntilTarget(
-      <ConfirmationDialog {...props} />,
-      ConfirmationDialogBase,
-    );
+  function render(props = {}) {
+    return defaultRender(<ConfirmationDialog {...props} />);
   }
 
   it('renders a dialog', () => {
     const message = 'this action is risky, are you sure?';
-    const root = render({ message });
+    render({ message });
 
-    expect(root.find('.ConfirmationDialog-message')).toHaveLength(1);
-    expect(root.find('.ConfirmationDialog-message')).toHaveText(message);
-
+    expect(screen.getByText(message)).toHaveClass('ConfirmationDialog-message');
+    /*
     expect(root.find(Button)).toHaveLength(2);
 
     const confirmButton = root.find(Button).at(0);
@@ -42,77 +26,65 @@ describe(__filename, () => {
     expect(cancelButton).toHaveClassName('ConfirmationDialog-cancel-button');
     expect(cancelButton).toHaveProp('buttonType', 'cancel');
     expect(cancelButton.children()).toHaveText('Cancel');
+    */
   });
 
   it('renders a custom className', () => {
     const className = 'MyComponent';
-    const root = render({ className });
-    expect(root).toHaveClassName(className);
-    expect(root).toHaveClassName('ConfirmationDialog');
+    render({ className });
+    expect(screen.getByClassName(className)).toHaveClass('ConfirmationDialog');
   });
 
-  it.each([true, false])(
-    'can configure buttons as puffy=%s',
-    (puffyButtons) => {
-      const root = render({ puffyButtons });
+  it('can configure buttons as non puffy', () => {
+    render({ puffyButtons: false });
 
-      expect(root.find('.ConfirmationDialog-cancel-button')).toHaveProp(
-        'puffy',
-        puffyButtons,
-      );
-      expect(root.find('.ConfirmationDialog-confirm-button')).toHaveProp(
-        'puffy',
-        puffyButtons,
-      );
-    },
-  );
+    expect(
+      screen.getByClassName('ConfirmationDialog-cancel-button'),
+    ).not.toHaveClass('Button--puffy');
+    expect(
+      screen.getByClassName('ConfirmationDialog-confirm-button'),
+    ).not.toHaveClass('Button--puffy');
+  });
+
+  it('can configure buttons as puffy', () => {
+    render({ puffyButtons: true });
+
+    expect(
+      screen.getByClassName('ConfirmationDialog-cancel-button'),
+    ).toHaveClass('Button--puffy');
+    expect(
+      screen.getByClassName('ConfirmationDialog-confirm-button'),
+    ).toHaveClass('Button--puffy');
+  });
 
   it('calls onConfirm() when user clicks Confirm', () => {
-    const onConfirm = sinon.spy();
-    const root = render({ onConfirm });
-
-    const event = createFakeEvent();
-    root.find('.ConfirmationDialog-confirm-button').simulate('click', event);
-
-    sinon.assert.calledWith(onConfirm, event);
+    const onConfirm = jest.fn();
+    render({ onConfirm });
+    const button = screen.getByClassName('ConfirmationDialog-confirm-button');
+    const clickEvent = createEvent.click(button);
+    fireEvent(button, clickEvent);
+    expect(onConfirm).toHaveBeenCalled();
   });
 
   it('calls onCancel() when user clicks Cancel', () => {
-    const onCancel = sinon.spy();
-    const root = render({ onCancel });
-
-    const event = createFakeEvent();
-    root.find('.ConfirmationDialog-cancel-button').simulate('click', event);
-
-    sinon.assert.calledWith(onCancel, event);
+    const onCancel = jest.fn();
+    render({ onCancel });
+    const button = screen.getByClassName('ConfirmationDialog-cancel-button');
+    const clickEvent = createEvent.click(button);
+    fireEvent(button, clickEvent);
+    expect(onCancel).toHaveBeenCalled();
   });
 
   it('lets you configure the confirm button', () => {
     const confirmButtonText = 'Yes, do it!';
-    const confirmButtonType = 'neutral';
 
-    const root = render({ confirmButtonText, confirmButtonType });
-
-    expect(root.find('.ConfirmationDialog-confirm-button')).toHaveProp(
-      'buttonType',
-      confirmButtonType,
-    );
-    expect(
-      root.find('.ConfirmationDialog-confirm-button').children(),
-    ).toHaveText(confirmButtonText);
+    render({ confirmButtonText, confirmButtonType: 'neutral' });
+    expect(screen.getByText(confirmButtonText)).toHaveClass('Button--neutral');
   });
 
   it('lets you configure the cancel button', () => {
     const cancelButtonText = 'Nevermind, cancel';
-    const cancelButtonType = 'neutral';
-    const root = render({ cancelButtonText, cancelButtonType });
-
-    expect(root.find('.ConfirmationDialog-cancel-button')).toHaveProp(
-      'buttonType',
-      cancelButtonType,
-    );
-    expect(
-      root.find('.ConfirmationDialog-cancel-button').children(),
-    ).toHaveText(cancelButtonText);
+    render({ cancelButtonText, cancelButtonType: 'neutral' });
+    expect(screen.getByText(cancelButtonText)).toHaveClass('Button--neutral');
   });
 });
