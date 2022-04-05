@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-10 17:48+0000\n"
+"POT-Creation-Date: 2022-04-05 17:51+0000\n"
 "PO-Revision-Date: 2022-02-02 14:02+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
@@ -196,8 +196,8 @@ msgid "Used by"
 msgstr "Uporablja"
 
 #: src/amo/components/AddonMoreInfo/index.js:101
-#: src/amo/pages/UserProfile/index.js:352
-#: src/amo/pages/UserProfile/index.js:354
+#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:671
 msgid "Homepage"
 msgstr "Domača stran"
@@ -2090,45 +2090,37 @@ msgstr "Ni najdenih rezultatov za \"%(query)s\"."
 msgid "No results were found."
 msgstr "Ni najdenih rezultatov."
 
-#: src/amo/components/SectionLinks/index.js:114
-#: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
-msgid "Extensions"
-msgstr "Razširitve"
-
-#: src/amo/components/SectionLinks/index.js:130
+#: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Teme"
 
-#: src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/SectionLinks/index.js:118
 msgid "More…"
 msgstr "Več …"
 
-#: src/amo/components/SectionLinks/index.js:146
-msgid "Other Browser Sites"
-msgstr "Druge strani brskalnika"
-
-#: src/amo/components/SectionLinks/index.js:157
-msgid "Add-ons for Android"
-msgstr "Dodatki za Android"
-
-#: src/amo/components/SectionLinks/index.js:170
-msgid "Add-ons for Firefox"
-msgstr "Dodatki za Firefox"
-
-#: src/amo/components/SectionLinks/index.js:71
+#: src/amo/components/SectionLinks/index.js:122
 msgid "for Firefox"
 msgstr "za Firefox"
 
-#: src/amo/components/SectionLinks/index.js:73
-msgid "for Android"
-msgstr "za Android"
-
-#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
 msgstr "Slovarji in jezikovni paketi"
+
+#: src/amo/components/SectionLinks/index.js:136
+msgid "Other Browser Sites"
+msgstr "Druge strani brskalnika"
+
+#: src/amo/components/SectionLinks/index.js:146
+msgid "Add-ons for Android"
+msgstr "Dodatki za Android"
+
+#: src/amo/components/SectionLinks/index.js:96
+#: src/amo/pages/CategoryPage/index.js:66
+#: src/amo/pages/LandingPage/index.js:231
+msgid "Extensions"
+msgstr "Razširitve"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -3119,55 +3111,60 @@ msgstr ""
 "avtorja %(user)s, vključno s povprečnimi ocenami, lastništvom in možnostjo "
 "prijave težav."
 
-#: src/amo/pages/UserProfile/index.js:311
+#: src/amo/pages/UserProfile/index.js:308
+#, fuzzy
+msgid "User Avatar"
+msgstr "Laser Cat"
+
+#: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
 msgstr "Razvijalec dodatkov"
 
-#: src/amo/pages/UserProfile/index.js:317
+#: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
 msgstr "Ustvarjalec teme"
 
-#: src/amo/pages/UserProfile/index.js:331
+#: src/amo/pages/UserProfile/index.js:335
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "User Profile for %(user)s"
 msgstr "Uporabniški profil: %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:334
+#: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
 msgstr "Uporabniški profil"
 
-#: src/amo/pages/UserProfile/index.js:360
+#: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:688
 msgid "Location"
 msgstr "Lokacija"
 
-#: src/amo/pages/UserProfile/index.js:368
+#: src/amo/pages/UserProfile/index.js:372
 #: src/amo/pages/UserProfileEdit/index.js:703
 msgid "Occupation"
 msgstr "Poklic"
 
-#: src/amo/pages/UserProfile/index.js:375
+#: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
 msgstr "Uporabnik od"
 
-#: src/amo/pages/UserProfile/index.js:385
+#: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
 msgstr "Število dodatkov"
 
-#: src/amo/pages/UserProfile/index.js:391
+#: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
 msgstr "Povprečna ocena dodatkov tega razvijalca"
 
-#: src/amo/pages/UserProfile/index.js:406
+#: src/amo/pages/UserProfile/index.js:410
 #: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Biography"
 msgstr "Življenjepis"
 
-#: src/amo/pages/UserProfile/index.js:430
+#: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
 msgstr "Uredi profil"
 
-#: src/amo/pages/UserProfile/index.js:443
+#: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
 msgstr "Skrbniški uporabnik"
 
@@ -3483,6 +3480,12 @@ msgstr "združljivosti mojega dodatka ni mogoče nadgraditi"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "združljivost mojega dodatka je uspešno nadgrajena"
+
+#~ msgid "Add-ons for Firefox"
+#~ msgstr "Dodatki za Firefox"
+
+#~ msgid "for Android"
+#~ msgstr "za Android"
 
 #~ msgid "Site Status"
 #~ msgstr "Stanje strani"
@@ -4896,9 +4899,6 @@ msgstr "združljivost mojega dodatka je uspešno nadgrajena"
 #~ msgstr ""
 #~ "Zmagovalec razširitvenega izziva Quantum! Različne barve zavihkov za "
 #~ "različna razvojna okolja"
-
-#~ msgid "Laser Cat"
-#~ msgstr "Laser Cat"
 
 #~ msgid ""
 #~ "For moments on the internet when you need to fire lasers out of a cat"

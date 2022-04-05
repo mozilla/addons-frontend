@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-10 17:48+0000\n"
+"POT-Creation-Date: 2022-04-05 17:51+0000\n"
 "PO-Revision-Date: 2022-03-05 12:45+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
@@ -186,8 +186,8 @@ msgid "Used by"
 msgstr "Používá"
 
 #: src/amo/components/AddonMoreInfo/index.js:101
-#: src/amo/pages/UserProfile/index.js:352
-#: src/amo/pages/UserProfile/index.js:354
+#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:671
 msgid "Homepage"
 msgstr "Domovská stránka"
@@ -2088,45 +2088,37 @@ msgstr "Na dotaz \"%(query)s\" nebyly nalezeny žádné výsledky."
 msgid "No results were found."
 msgstr "Nenalezeny žádné výsledky."
 
-#: src/amo/components/SectionLinks/index.js:114
-#: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
-msgid "Extensions"
-msgstr "Rozšíření"
-
-#: src/amo/components/SectionLinks/index.js:130
+#: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Motivy vzhledu"
 
-#: src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/SectionLinks/index.js:118
 msgid "More…"
 msgstr "Více…"
 
-#: src/amo/components/SectionLinks/index.js:146
-msgid "Other Browser Sites"
-msgstr "Ostatní stránky prohlížeče"
-
-#: src/amo/components/SectionLinks/index.js:157
-msgid "Add-ons for Android"
-msgstr "Doplňky pro Android"
-
-#: src/amo/components/SectionLinks/index.js:170
-msgid "Add-ons for Firefox"
-msgstr "Doplňky pro Firefox"
-
-#: src/amo/components/SectionLinks/index.js:71
+#: src/amo/components/SectionLinks/index.js:122
 msgid "for Firefox"
 msgstr "pro Firefox"
 
-#: src/amo/components/SectionLinks/index.js:73
-msgid "for Android"
-msgstr "pro Android"
-
-#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
 msgstr "Slovníky a jazykové balíčky"
+
+#: src/amo/components/SectionLinks/index.js:136
+msgid "Other Browser Sites"
+msgstr "Ostatní stránky prohlížeče"
+
+#: src/amo/components/SectionLinks/index.js:146
+msgid "Add-ons for Android"
+msgstr "Doplňky pro Android"
+
+#: src/amo/components/SectionLinks/index.js:96
+#: src/amo/pages/CategoryPage/index.js:66
+#: src/amo/pages/LandingPage/index.js:231
+msgid "Extensions"
+msgstr "Rozšíření"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -3123,55 +3115,60 @@ msgstr ""
 "aplikace od uživatele %(user)s, včetně průměrných hodnocení, licenčních "
 "ujednání a možnosti nahlásit problémy."
 
-#: src/amo/pages/UserProfile/index.js:311
+#: src/amo/pages/UserProfile/index.js:308
+#, fuzzy
+msgid "User Avatar"
+msgstr "Laser Cat"
+
+#: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
 msgstr "Vývojář doplňků"
 
-#: src/amo/pages/UserProfile/index.js:317
+#: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
 msgstr "Autor motivů vzhledu"
 
-#: src/amo/pages/UserProfile/index.js:331
+#: src/amo/pages/UserProfile/index.js:335
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "User Profile for %(user)s"
 msgstr "Profil uživatele %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:334
+#: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
 msgstr "Uživatelský profil"
 
-#: src/amo/pages/UserProfile/index.js:360
+#: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:688
 msgid "Location"
 msgstr "Umístění"
 
-#: src/amo/pages/UserProfile/index.js:368
+#: src/amo/pages/UserProfile/index.js:372
 #: src/amo/pages/UserProfileEdit/index.js:703
 msgid "Occupation"
 msgstr "Povolání"
 
-#: src/amo/pages/UserProfile/index.js:375
+#: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
 msgstr "Zaregistrován(a) od"
 
-#: src/amo/pages/UserProfile/index.js:385
+#: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
 msgstr "Počet doplňků"
 
-#: src/amo/pages/UserProfile/index.js:391
+#: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
 msgstr "Průměrné hodnocení doplňků vývojáře"
 
-#: src/amo/pages/UserProfile/index.js:406
+#: src/amo/pages/UserProfile/index.js:410
 #: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Biography"
 msgstr "Biografie"
 
-#: src/amo/pages/UserProfile/index.js:430
+#: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
 msgstr "Upravit profil"
 
-#: src/amo/pages/UserProfile/index.js:443
+#: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
 msgstr "Administrátor"
 
@@ -3487,6 +3484,12 @@ msgstr "kompatibilita mého doplňku nemůže být aktualizována"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "kompatibilita mého doplňku je úspěšně aktualizována"
+
+#~ msgid "Add-ons for Firefox"
+#~ msgstr "Doplňky pro Firefox"
+
+#~ msgid "for Android"
+#~ msgstr "pro Android"
 
 #~ msgid "Site Status"
 #~ msgstr "Stav webu"
@@ -4666,9 +4669,6 @@ msgstr "kompatibilita mého doplňku je úspěšně aktualizována"
 #~ msgstr ""
 #~ "Vítěz v soutěži rozšíření! Barevně odlišené panely pro různá vývojářská "
 #~ "prostředí"
-
-#~ msgid "Laser Cat"
-#~ msgstr "Laser Cat"
 
 #~ msgid ""
 #~ "For moments on the internet when you need to fire lasers out of a cat"

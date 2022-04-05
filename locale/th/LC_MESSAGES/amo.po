@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-10 17:48+0000\n"
+"POT-Creation-Date: 2022-04-05 17:51+0000\n"
 "PO-Revision-Date: 2021-09-18 09:27+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -179,8 +179,8 @@ msgid "Used by"
 msgstr "ใช้โดย"
 
 #: src/amo/components/AddonMoreInfo/index.js:101
-#: src/amo/pages/UserProfile/index.js:352
-#: src/amo/pages/UserProfile/index.js:354
+#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:671
 msgid "Homepage"
 msgstr "หน้าแรก"
@@ -1979,45 +1979,37 @@ msgstr "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
 msgid "No results were found."
 msgstr "ไม่พบผลลัพธ์"
 
-#: src/amo/components/SectionLinks/index.js:114
-#: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
-msgid "Extensions"
-msgstr "ส่วนขยาย"
-
-#: src/amo/components/SectionLinks/index.js:130
+#: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "ชุดตกแต่ง"
 
-#: src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/SectionLinks/index.js:118
 msgid "More…"
 msgstr "เพิ่มเติม…"
 
-#: src/amo/components/SectionLinks/index.js:146
-msgid "Other Browser Sites"
-msgstr "ไซต์ของเบราว์เซอร์อื่น ๆ"
-
-#: src/amo/components/SectionLinks/index.js:157
-msgid "Add-ons for Android"
-msgstr "ส่วนเสริมสำหรับ Android"
-
-#: src/amo/components/SectionLinks/index.js:170
-msgid "Add-ons for Firefox"
-msgstr "ส่วนเสริมสำหรับ Firefox"
-
-#: src/amo/components/SectionLinks/index.js:71
+#: src/amo/components/SectionLinks/index.js:122
 msgid "for Firefox"
 msgstr "สำหรับ Firefox"
 
-#: src/amo/components/SectionLinks/index.js:73
-msgid "for Android"
-msgstr "สำหรับ Android"
-
-#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
 msgstr "พจนานุกรมและชุดภาษา"
+
+#: src/amo/components/SectionLinks/index.js:136
+msgid "Other Browser Sites"
+msgstr "ไซต์ของเบราว์เซอร์อื่น ๆ"
+
+#: src/amo/components/SectionLinks/index.js:146
+msgid "Add-ons for Android"
+msgstr "ส่วนเสริมสำหรับ Android"
+
+#: src/amo/components/SectionLinks/index.js:96
+#: src/amo/pages/CategoryPage/index.js:66
+#: src/amo/pages/LandingPage/index.js:231
+msgid "Extensions"
+msgstr "ส่วนขยาย"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -2881,55 +2873,60 @@ msgid ""
 "%(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:311
+#: src/amo/pages/UserProfile/index.js:308
+#, fuzzy
+msgid "User Avatar"
+msgstr "Laser Cat"
+
+#: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
 msgstr "นักพัฒนาส่วนเสริม"
 
-#: src/amo/pages/UserProfile/index.js:317
+#: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
 msgstr "ศิลปินชุดตกแต่ง"
 
-#: src/amo/pages/UserProfile/index.js:331
+#: src/amo/pages/UserProfile/index.js:335
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "User Profile for %(user)s"
 msgstr "โปรไฟล์ผู้ใช้สำหรับ %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:334
+#: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
 msgstr "โปรไฟล์ผู้ใช้"
 
-#: src/amo/pages/UserProfile/index.js:360
+#: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:688
 msgid "Location"
 msgstr "ตำแหน่งที่ตั้ง"
 
-#: src/amo/pages/UserProfile/index.js:368
+#: src/amo/pages/UserProfile/index.js:372
 #: src/amo/pages/UserProfileEdit/index.js:703
 msgid "Occupation"
 msgstr "อาชีพ"
 
-#: src/amo/pages/UserProfile/index.js:375
+#: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
 msgstr "ผู้ใช้ตั้งแต่"
 
-#: src/amo/pages/UserProfile/index.js:385
+#: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
 msgstr "จำนวนส่วนเสริม"
 
-#: src/amo/pages/UserProfile/index.js:391
+#: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
 msgstr "การจัดอันดับเฉลี่ยของส่วนเสริมของนักพัฒนา"
 
-#: src/amo/pages/UserProfile/index.js:406
+#: src/amo/pages/UserProfile/index.js:410
 #: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
-#: src/amo/pages/UserProfile/index.js:430
+#: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
 msgstr "แก้ไขโปรไฟล์"
 
-#: src/amo/pages/UserProfile/index.js:443
+#: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
 msgstr "ผู้ใช้ที่เป็นผู้ดูแล"
 
@@ -3216,6 +3213,12 @@ msgstr "ไม่สามารถอัปเกรดความเข้า
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "อัปเกรดความเข้ากันได้ของส่วนเสริมของฉันสำเร็จ"
+
+#~ msgid "Add-ons for Firefox"
+#~ msgstr "ส่วนเสริมสำหรับ Firefox"
+
+#~ msgid "for Android"
+#~ msgstr "สำหรับ Android"
 
 #~ msgid "Site Status"
 #~ msgstr "สถานะไซต์"
@@ -3960,9 +3963,6 @@ msgstr "อัปเกรดความเข้ากันได้ของ
 #~ msgstr ""
 #~ "ผู้ชนะ Quantum Extensions Challenge! "
 #~ "สีแท็บที่แตกต่างกันสำหรับสภาพแวดล้อมการพัฒนาที่แตกต่างกัน"
-
-#~ msgid "Laser Cat"
-#~ msgstr "Laser Cat"
 
 #~ msgid "Manage downloads from a tidy status bar"
 #~ msgstr "จัดการการดาวน์โหลดจากแถบสถานะที่เป็นระเบียบ"

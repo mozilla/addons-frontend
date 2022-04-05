@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-10 17:48+0000\n"
+"POT-Creation-Date: 2022-04-05 17:51+0000\n"
 "PO-Revision-Date: 2021-04-09 13:01+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -195,8 +195,8 @@ msgid "Used by"
 msgstr "Utilitzat per"
 
 #: src/amo/components/AddonMoreInfo/index.js:101
-#: src/amo/pages/UserProfile/index.js:352
-#: src/amo/pages/UserProfile/index.js:354
+#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:671
 msgid "Homepage"
 msgstr "Pàgina d'inici"
@@ -2079,45 +2079,37 @@ msgstr "No s'ha trobat cap resultat per a «%(query)s»."
 msgid "No results were found."
 msgstr "No s'ha trobat cap resultat."
 
-#: src/amo/components/SectionLinks/index.js:114
-#: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
-msgid "Extensions"
-msgstr "Extensions"
-
-#: src/amo/components/SectionLinks/index.js:130
+#: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Temes"
 
-#: src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/SectionLinks/index.js:118
 msgid "More…"
 msgstr "Més…"
 
-#: src/amo/components/SectionLinks/index.js:146
-msgid "Other Browser Sites"
-msgstr "Altres pàgines del navegador"
-
-#: src/amo/components/SectionLinks/index.js:157
-msgid "Add-ons for Android"
-msgstr "Complements per a Android"
-
-#: src/amo/components/SectionLinks/index.js:170
-msgid "Add-ons for Firefox"
-msgstr "Complements per al Firefox"
-
-#: src/amo/components/SectionLinks/index.js:71
+#: src/amo/components/SectionLinks/index.js:122
 msgid "for Firefox"
 msgstr "per al Firefox"
 
-#: src/amo/components/SectionLinks/index.js:73
-msgid "for Android"
-msgstr "per a Android"
-
-#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
 msgstr "Diccionaris i paquets de llengua"
+
+#: src/amo/components/SectionLinks/index.js:136
+msgid "Other Browser Sites"
+msgstr "Altres pàgines del navegador"
+
+#: src/amo/components/SectionLinks/index.js:146
+msgid "Add-ons for Android"
+msgstr "Complements per a Android"
+
+#: src/amo/components/SectionLinks/index.js:96
+#: src/amo/pages/CategoryPage/index.js:66
+#: src/amo/pages/LandingPage/index.js:231
+msgid "Extensions"
+msgstr "Extensions"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -3106,56 +3098,60 @@ msgstr ""
 "aplicacions de %(user)s amb la mitjana de valoracions, la permanència i "
 "l'opció de notificar problemes."
 
-#: src/amo/pages/UserProfile/index.js:311
+#: src/amo/pages/UserProfile/index.js:308
+msgid "User Avatar"
+msgstr ""
+
+#: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
 msgstr "Desenvolupador de complements"
 
-#: src/amo/pages/UserProfile/index.js:317
+#: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
 msgstr "Artista del tema"
 
-#: src/amo/pages/UserProfile/index.js:331
+#: src/amo/pages/UserProfile/index.js:335
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "User Profile for %(user)s"
 msgstr "Perfil d'usuari de %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:334
+#: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
 msgstr "Perfil d’usuari"
 
-#: src/amo/pages/UserProfile/index.js:360
+#: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:688
 msgid "Location"
 msgstr "Ubicació"
 
-#: src/amo/pages/UserProfile/index.js:368
+#: src/amo/pages/UserProfile/index.js:372
 #: src/amo/pages/UserProfileEdit/index.js:703
 msgid "Occupation"
 msgstr "Ocupació"
 
-#: src/amo/pages/UserProfile/index.js:375
+#: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
 msgstr "Usuari des de"
 
-#: src/amo/pages/UserProfile/index.js:385
+#: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
 msgstr "Nombre de complements"
 
-#: src/amo/pages/UserProfile/index.js:391
+#: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
 msgstr "Valoració mitjana dels complements del desenvolupador"
 
-#: src/amo/pages/UserProfile/index.js:406
+#: src/amo/pages/UserProfile/index.js:410
 #: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Biography"
 msgstr "Biografia"
 
-#: src/amo/pages/UserProfile/index.js:430
+#: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
 msgstr "Edita el perfil"
 
 # This action allows an admin to maintain a user.
-#: src/amo/pages/UserProfile/index.js:443
+#: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
 msgstr "Usuari administrador"
 
@@ -3483,6 +3479,12 @@ msgstr "la compatibilitat del meu complement no es pot actualitzar"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "la compatibilitat del meu complement s'ha actualitzat correctament"
+
+#~ msgid "Add-ons for Firefox"
+#~ msgstr "Complements per al Firefox"
+
+#~ msgid "for Android"
+#~ msgstr "per a Android"
 
 #~ msgid "Site Status"
 #~ msgstr "Estat del lloc"

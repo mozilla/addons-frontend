@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-10 17:48+0000\n"
+"POT-Creation-Date: 2022-04-05 17:51+0000\n"
 "PO-Revision-Date: 2022-03-10 13:33+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -188,8 +188,8 @@ msgid "Used by"
 msgstr "Χρήση από"
 
 #: src/amo/components/AddonMoreInfo/index.js:101
-#: src/amo/pages/UserProfile/index.js:352
-#: src/amo/pages/UserProfile/index.js:354
+#: src/amo/pages/UserProfile/index.js:356
+#: src/amo/pages/UserProfile/index.js:358
 #: src/amo/pages/UserProfileEdit/index.js:671
 msgid "Homepage"
 msgstr "Αρχική σελίδα"
@@ -2062,45 +2062,37 @@ msgstr "Δεν βρέθηκε κανένα αποτέλεσμα για το \"%(
 msgid "No results were found."
 msgstr "Δεν βρέθηκαν αποτελέσματα."
 
-#: src/amo/components/SectionLinks/index.js:114
-#: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
-msgid "Extensions"
-msgstr "Επεκτάσεις"
-
-#: src/amo/components/SectionLinks/index.js:130
+#: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Themes"
 msgstr "Θέματα"
 
-#: src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/SectionLinks/index.js:118
 msgid "More…"
 msgstr "Περισσότερα…"
 
-#: src/amo/components/SectionLinks/index.js:146
-msgid "Other Browser Sites"
-msgstr "Ιστότοποι άλλων φυλλομετρητών"
-
-#: src/amo/components/SectionLinks/index.js:157
-msgid "Add-ons for Android"
-msgstr "Πρόσθετα για Android"
-
-#: src/amo/components/SectionLinks/index.js:170
-msgid "Add-ons for Firefox"
-msgstr "Πρόσθετα για το Firefox"
-
-#: src/amo/components/SectionLinks/index.js:71
+#: src/amo/components/SectionLinks/index.js:122
 msgid "for Firefox"
 msgstr "για το Firefox"
 
-#: src/amo/components/SectionLinks/index.js:73
-msgid "for Android"
-msgstr "για Android"
-
-#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/components/SectionLinks/index.js:132
 msgid "Dictionaries & Language Packs"
 msgstr "Λεξικά & πακέτα γλωσσών"
+
+#: src/amo/components/SectionLinks/index.js:136
+msgid "Other Browser Sites"
+msgstr "Ιστότοποι άλλων φυλλομετρητών"
+
+#: src/amo/components/SectionLinks/index.js:146
+msgid "Add-ons for Android"
+msgstr "Πρόσθετα για Android"
+
+#: src/amo/components/SectionLinks/index.js:96
+#: src/amo/pages/CategoryPage/index.js:66
+#: src/amo/pages/LandingPage/index.js:231
+msgid "Extensions"
+msgstr "Επεκτάσεις"
 
 #: src/amo/components/ShowMoreCard/index.js:128
 msgid "Expand to read more"
@@ -3117,55 +3109,60 @@ msgstr ""
 "εφαρμογές από τον/την %(user)s, καθώς και μέσους όρους αξιολογήσεων, την "
 "ημερομηνία εγγραφής και την επιλογή για αναφορά ζητημάτων."
 
-#: src/amo/pages/UserProfile/index.js:311
+#: src/amo/pages/UserProfile/index.js:308
+#, fuzzy
+msgid "User Avatar"
+msgstr "Laser Cat"
+
+#: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
 msgstr "Προγραμματιστής προσθέτων"
 
-#: src/amo/pages/UserProfile/index.js:317
+#: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
 msgstr "Καλλιτέχνης θέματος"
 
-#: src/amo/pages/UserProfile/index.js:331
+#: src/amo/pages/UserProfile/index.js:335
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "User Profile for %(user)s"
 msgstr "Προφίλ του χρήστη %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:334
+#: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
 msgstr "Προφίλ χρήστη"
 
-#: src/amo/pages/UserProfile/index.js:360
+#: src/amo/pages/UserProfile/index.js:364
 #: src/amo/pages/UserProfileEdit/index.js:688
 msgid "Location"
 msgstr "Τοποθεσία"
 
-#: src/amo/pages/UserProfile/index.js:368
+#: src/amo/pages/UserProfile/index.js:372
 #: src/amo/pages/UserProfileEdit/index.js:703
 msgid "Occupation"
 msgstr "Επάγγελμα"
 
-#: src/amo/pages/UserProfile/index.js:375
+#: src/amo/pages/UserProfile/index.js:379
 msgid "User since"
 msgstr "Χρήστης από"
 
-#: src/amo/pages/UserProfile/index.js:385
+#: src/amo/pages/UserProfile/index.js:389
 msgid "Number of add-ons"
 msgstr "Αριθμός προσθέτων"
 
-#: src/amo/pages/UserProfile/index.js:391
+#: src/amo/pages/UserProfile/index.js:395
 msgid "Average rating of developer’s add-ons"
 msgstr "Μέση βαθμολογία προσθέτων προγραμματιστή"
 
-#: src/amo/pages/UserProfile/index.js:406
+#: src/amo/pages/UserProfile/index.js:410
 #: src/amo/pages/UserProfileEdit/index.js:725
 msgid "Biography"
 msgstr "Βιογραφία"
 
-#: src/amo/pages/UserProfile/index.js:430
+#: src/amo/pages/UserProfile/index.js:434
 msgid "Edit profile"
 msgstr "Επεξεργασία προφίλ"
 
-#: src/amo/pages/UserProfile/index.js:443
+#: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
 msgstr "Χρήστης-διαχειριστής"
 
@@ -3490,6 +3487,12 @@ msgstr "η συμβατότητα του προσθέτου μου δεν μπο
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "η συμβατότητα του προσθέτου μου αναβαθμίζεται επιτυχώς"
+
+#~ msgid "Add-ons for Firefox"
+#~ msgstr "Πρόσθετα για το Firefox"
+
+#~ msgid "for Android"
+#~ msgstr "για Android"
 
 #~ msgid "Site Status"
 #~ msgstr "Κατάσταση ιστοτόπου"
@@ -4853,9 +4856,6 @@ msgstr "η συμβατότητα του προσθέτου μου αναβαθ�
 
 #~ msgid "Envify"
 #~ msgstr "Envify"
-
-#~ msgid "Laser Cat"
-#~ msgstr "Laser Cat"
 
 #~ msgid "Session Sync"
 #~ msgstr "Session Sync"
