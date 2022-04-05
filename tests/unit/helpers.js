@@ -1,4 +1,4 @@
-/* global Headers */
+/* global Headers, window */
 import urllib from 'url';
 
 import { LOCATION_CHANGE, ConnectedRouter } from 'connected-react-router';
@@ -46,6 +46,7 @@ import {
 } from 'amo/reducers/api';
 import * as coreApi from 'amo/api';
 import { getAddonStatus } from 'amo/addonManager';
+import App from 'amo/components/App';
 import { ErrorHandler } from 'amo/errorHandler';
 import { makeI18n } from 'amo/i18n/utils';
 import { createGroupedRatings, createInternalAddon } from 'amo/reducers/addons';
@@ -571,6 +572,20 @@ export const randomId = () => {
   return Math.floor(Math.random() * 10000) + 1;
 };
 
+export function dispatchSignInActionsWithStore({
+  store,
+  authToken = userAuthSessionId(),
+  userId = 12345,
+  userProps = {},
+}) {
+  store.dispatch(setAuthToken(authToken));
+  store.dispatch(
+    loadCurrentUserAccount({
+      user: createUserAccountResponse({ id: userId, ...userProps }),
+    }),
+  );
+}
+
 export function dispatchSignInActions({
   authToken = userAuthSessionId(),
   userId = 12345,
@@ -578,14 +593,12 @@ export function dispatchSignInActions({
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
-
-  store.dispatch(setAuthToken(authToken));
-  store.dispatch(
-    loadCurrentUserAccount({
-      user: createUserAccountResponse({ id: userId, ...userProps }),
-    }),
-  );
-
+  dispatchSignInActionsWithStore({
+    authToken,
+    userId,
+    userProps,
+    store,
+  });
   return {
     store,
     state: store.getState(),
@@ -1523,6 +1536,22 @@ export const createInternalSuggestionWithLang = (
   return createInternalSuggestion(suggestion, lang);
 };
 
+export const createFailedErrorHandler = ({
+  error = new Error(),
+  id = 'some-error-handler-id',
+  message = 'An error message',
+  store,
+}) => {
+  invariant(store, 'store must be passed into createFailedErrorHandler');
+  const errorHandler = new ErrorHandler({
+    dispatch: store.dispatch,
+    id,
+  });
+  errorHandler.handle(error);
+  errorHandler.addMessage(message);
+  return errorHandler;
+};
+
 export const fakeTrackingEvent = Object.freeze({
   action: 'some-action',
   category: 'some-category',
@@ -1681,4 +1710,13 @@ export const mockMatchMedia = {
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
   })),
+};
+
+export const renderPage = (options = {}) => {
+  // window.scrollTo isn't provided by jsdom, so we need to mock it.
+  window.scrollTo = jest.fn();
+
+  // Render the App component, which will use the location from options to
+  // render the correct page.
+  return render(<App />, options);
 };

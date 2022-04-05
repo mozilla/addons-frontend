@@ -302,7 +302,11 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
     const userProfileHeader = (
       <div className="UserProfile-header">
-        <UserAvatar className="UserProfile-avatar" user={user} />
+        <UserAvatar
+          className="UserProfile-avatar"
+          user={user}
+          altText={i18n.gettext('User Avatar')}
+        />
 
         {user && isDeveloper(user) && (
           <div className="UserProfile-tags">
