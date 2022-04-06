@@ -32,7 +32,7 @@ describe(__filename, () => {
   it('renders a custom className', () => {
     const className = 'MyComponent';
     render({ className });
-    expect(screen.getByClassName(className)).toHaveClass('ConfirmationDialog');
+    expect(screen.getByClassName('ConfirmationDialog')).toHaveClass(className);
   });
 
   it('can configure buttons as puffy', () => {
