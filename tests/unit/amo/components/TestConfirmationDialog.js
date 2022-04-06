@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createEvent, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import ConfirmationDialog from 'amo/components/ConfirmationDialog';
 import { render as defaultRender, screen } from 'tests/unit/helpers';
@@ -35,34 +35,35 @@ describe(__filename, () => {
     expect(screen.getByClassName(className)).toHaveClass('ConfirmationDialog');
   });
 
-  it('can configure buttons as non puffy', () => {
-    render({ puffyButtons: false });
-
-    expect(
-      screen.getByClassName('ConfirmationDialog-cancel-button'),
-    ).not.toHaveClass('Button--puffy');
-    expect(
-      screen.getByClassName('ConfirmationDialog-confirm-button'),
-    ).not.toHaveClass('Button--puffy');
-  });
-
   it('can configure buttons as puffy', () => {
     render({ puffyButtons: true });
 
-    expect(
-      screen.getByClassName('ConfirmationDialog-cancel-button'),
-    ).toHaveClass('Button--puffy');
-    expect(
-      screen.getByClassName('ConfirmationDialog-confirm-button'),
-    ).toHaveClass('Button--puffy');
+    const cancelButton = screen.getByRole('button', { name: 'Cancel' });
+    expect(cancelButton).toHaveClass('ConfirmationDialog-cancel-button');
+    expect(cancelButton).toHaveClass('Button--puffy');
+
+    const confirmButton = screen.getByRole('button', { name: 'Confirm' });
+    expect(confirmButton).toHaveClass('ConfirmationDialog-confirm-button');
+    expect(confirmButton).toHaveClass('Button--puffy');
+  });
+
+  it('can configure buttons as non puffy', () => {
+    render({ puffyButtons: false });
+
+    const cancelButton = screen.getByRole('button', { name: 'Cancel' });
+    expect(cancelButton).toHaveClass('ConfirmationDialog-cancel-button');
+    expect(cancelButton).not.toHaveClass('Button--puffy');
+
+    const confirmButton = screen.getByRole('button', { name: 'Confirm' });
+    expect(confirmButton).toHaveClass('ConfirmationDialog-confirm-button');
+    expect(confirmButton).not.toHaveClass('Button--puffy');
   });
 
   it('calls onConfirm() when user clicks Confirm', () => {
     const onConfirm = jest.fn();
     render({ onConfirm });
     const button = screen.getByClassName('ConfirmationDialog-confirm-button');
-    const clickEvent = createEvent.click(button);
-    fireEvent(button, clickEvent);
+    userEvent.click(button);
     expect(onConfirm).toHaveBeenCalled();
   });
 
@@ -70,8 +71,7 @@ describe(__filename, () => {
     const onCancel = jest.fn();
     render({ onCancel });
     const button = screen.getByClassName('ConfirmationDialog-cancel-button');
-    const clickEvent = createEvent.click(button);
-    fireEvent(button, clickEvent);
+    userEvent.click(button);
     expect(onCancel).toHaveBeenCalled();
   });
 
