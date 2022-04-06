@@ -14,19 +14,14 @@ describe(__filename, () => {
     render({ message });
 
     expect(screen.getByText(message)).toHaveClass('ConfirmationDialog-message');
-    /*
-    expect(root.find(Button)).toHaveLength(2);
 
-    const confirmButton = root.find(Button).at(0);
-    expect(confirmButton).toHaveClassName('ConfirmationDialog-confirm-button');
-    expect(confirmButton).toHaveProp('buttonType', 'alert');
-    expect(confirmButton.children()).toHaveText('Confirm');
+    const confirmButton = screen.getByRole('button', { name: 'Confirm' });
+    expect(confirmButton).toHaveClass('ConfirmationDialog-confirm-button');
+    expect(confirmButton).toHaveClass('Button--alert');
 
-    const cancelButton = root.find(Button).at(1);
-    expect(cancelButton).toHaveClassName('ConfirmationDialog-cancel-button');
-    expect(cancelButton).toHaveProp('buttonType', 'cancel');
-    expect(cancelButton.children()).toHaveText('Cancel');
-    */
+    const cancelButton = screen.getByRole('button', { name: 'Cancel' });
+    expect(cancelButton).toHaveClass('ConfirmationDialog-cancel-button');
+    expect(cancelButton).toHaveClass('Button--cancel');
   });
 
   it('renders a custom className', () => {
