@@ -31,10 +31,15 @@ const MetadataCard = ({ className, metadata }: Props): React.Node => {
         return (
           // eslint-disable-next-line react/no-array-index-key
           <dl className="MetadataCard-list" key={index}>
-            <dd className="MetadataCard-content">
+            <dd
+              aria-label={hasContent ? content : 'Loading'}
+              className="MetadataCard-content"
+            >
               {hasContent ? content : <LoadingText />}
             </dd>
-            <dt className="MetadataCard-title">{title}</dt>
+            <dt aria-label={title} className="MetadataCard-title">
+              {title}
+            </dt>
           </dl>
         );
       })}

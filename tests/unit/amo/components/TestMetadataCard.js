@@ -13,8 +13,10 @@ describe(__filename, () => {
     const title = 'I am title';
     render({ metadata: [{ content, title }] });
 
-    expect(screen.getByText(content)).toBeInTheDocument();
-    expect(screen.getByText(title)).toBeInTheDocument();
+    expect(
+      screen.getByRole('definition', { name: content }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('term', { name: title })).toBeInTheDocument();
   });
 
   it('adds a custom className', () => {
@@ -52,8 +54,11 @@ describe(__filename, () => {
     const title = 'I am title';
     render({ metadata: [{ content: null, title }] });
 
+    expect(
+      screen.getByRole('definition', { name: 'Loading' }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('alert')).toBeInTheDocument();
-    expect(screen.getByText(title)).toBeInTheDocument();
+    expect(screen.getByRole('term', { name: title })).toBeInTheDocument();
   });
 
   it('allows an empty string to render empty content', () => {
@@ -61,8 +66,8 @@ describe(__filename, () => {
     const title = 'I am title';
     render({ metadata: [{ content, title }] });
 
-    expect(screen.getByTagName('dd')).toHaveTextContent('');
-    expect(screen.getByText(title)).toBeInTheDocument();
+    expect(screen.getByRole('definition', { name: '' })).toBeInTheDocument();
+    expect(screen.getByRole('term', { name: title })).toBeInTheDocument();
   });
 
   it('allows a zero value to render empty content', () => {
@@ -70,7 +75,9 @@ describe(__filename, () => {
     const title = 'I am title';
     render({ metadata: [{ content, title }] });
 
-    expect(screen.getByText(content)).toBeInTheDocument();
-    expect(screen.getByText(title)).toBeInTheDocument();
+    expect(
+      screen.getByRole('definition', { name: content }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('term', { name: title })).toBeInTheDocument();
   });
 });
