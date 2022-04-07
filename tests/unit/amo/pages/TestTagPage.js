@@ -31,7 +31,6 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(Search)).toHaveLength(1);
-    expect(root.find(Search)).toHaveProp('enableSearchFilters', true);
   });
 
   it('adds tag and sort to Search filters', () => {

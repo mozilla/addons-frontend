@@ -39,12 +39,6 @@ describe(__filename, () => {
     expect(root.find(Search)).toHaveLength(1);
   });
 
-  it('enables search filters', () => {
-    const root = render();
-
-    expect(root.find(Search)).toHaveProp('enableSearchFilters', true);
-  });
-
   it("doesn't duplicate the clientApp in the URL in the queryParams", () => {
     const root = render({
       location: createFakeLocation({ query: { page: 3, q: 'fries' } }),

@@ -91,7 +91,6 @@ export class CategoryPageBase extends React.Component<InternalProps> {
       <Page>
         <HeadLinks />
         <Search
-          enableSearchFilters
           filters={filtersForSearch}
           pageTitle={this.getPageTitle(categoryName)}
           paginationQueryParams={convertFiltersToQueryParams(filters)}

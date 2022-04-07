@@ -134,7 +134,6 @@ export class SearchPageBase extends React.Component<InternalProps> {
     return (
       <Page>
         <Search
-          enableSearchFilters
           filters={filters}
           paginationQueryParams={convertFiltersToQueryParams(filters)}
         />
