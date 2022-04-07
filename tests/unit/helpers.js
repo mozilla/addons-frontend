@@ -737,9 +737,9 @@ export const createFakeCollectionAddons = ({
 };
 
 export const createFakeCollectionAddonsListResponse = ({
-  addons = [createFakeCollectionAddon()],
   count,
   pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
+  addons = Array(pageSize).fill(createFakeCollectionAddon()),
 } = {}) => {
   return {
     count: count || addons.length,
