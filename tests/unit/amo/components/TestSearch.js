@@ -129,12 +129,6 @@ describe(__filename, () => {
     expect(root.find(SearchFilters)).toHaveLength(1);
   });
 
-  it('does not render SearchFilters when enableSearchFilters is false', () => {
-    const root = render({ enableSearchFilters: false });
-
-    expect(root.find(SearchFilters)).toHaveLength(0);
-  });
-
   it('dispatches the search on mount', () => {
     render();
 

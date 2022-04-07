@@ -40,7 +40,6 @@ import type { DispatchFunc } from 'amo/types/redux';
 import './styles.scss';
 
 type DefaultExternalProps = {|
-  enableSearchFilters?: boolean,
   paginationQueryParams?: Object,
   pathname?: string,
   pageTitle?: string,
@@ -82,7 +81,6 @@ type InternalProps = {|
 export class SearchBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     LinkComponent: Link,
-    enableSearchFilters: true,
     paginationQueryParams: null,
     pathname: '/search/',
   };
@@ -244,7 +242,6 @@ export class SearchBase extends React.Component<InternalProps> {
     const {
       LinkComponent,
       count,
-      enableSearchFilters,
       errorHandler,
       filters,
       loading,
@@ -297,11 +294,7 @@ export class SearchBase extends React.Component<InternalProps> {
         {errorHandler.renderErrorIfPresent()}
 
         <SearchContextCard />
-
-        {enableSearchFilters ? (
-          <SearchFilters filters={filters || {}} pathname={pathname} />
-        ) : null}
-
+        <SearchFilters filters={filters || {}} pathname={pathname} />
         <SearchResults
           count={count}
           filters={filters}

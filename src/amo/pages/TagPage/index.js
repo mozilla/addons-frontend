@@ -60,7 +60,6 @@ export class TagPageBase extends React.Component<InternalProps> {
       <Page>
         <HeadLinks />
         <Search
-          enableSearchFilters
           filters={filtersForSearch}
           pageTitle={this.getPageTitle(tag)}
           paginationQueryParams={convertFiltersToQueryParams(filters)}
