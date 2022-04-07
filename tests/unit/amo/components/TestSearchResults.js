@@ -1,125 +1,151 @@
 import * as React from 'react';
 
-import AddonsCard from 'amo/components/AddonsCard';
-import SearchResults, { SearchResultsBase } from 'amo/components/SearchResults';
+import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
+import Paginate from 'amo/components/Paginate';
+import SearchResults from 'amo/components/SearchResults';
 import {
+  ADDON_TYPE_STATIC_THEME,
+  DEFAULT_UTM_SOURCE,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_SEARCH,
   RECOMMENDED,
 } from 'amo/constants';
-import Paginate from 'amo/components/Paginate';
 import {
-  dispatchClientMetadata,
+  createInternalAddonWithLang,
   fakeAddon,
-  fakeI18n,
-  shallowUntilTarget,
+  fakePreview,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(props = {}) {
     const allProps = {
-      i18n: fakeI18n(),
       paginator: null,
-      store: dispatchClientMetadata().store,
       ...props,
     };
 
-    return shallowUntilTarget(
-      <SearchResults {...allProps} />,
-      SearchResultsBase,
-    );
+    return defaultRender(<SearchResults {...allProps} />);
   }
 
   it('renders no results when searched but nothing is found', () => {
-    const root = render({
+    render({
       count: 0,
       filters: { category: 'big-papa' },
       loading: false,
       results: [],
     });
 
-    expect(root.find('.SearchResults-message')).toHaveText(
-      'No results were found.',
-    );
+    expect(screen.getByText('No results were found.')).toBeInTheDocument();
   });
 
-  it('renders error when no results and valid query', () => {
-    const root = render({
+  it('renders a message when no results and valid query', () => {
+    render({
       count: 0,
       filters: { query: 'test' },
       results: [],
     });
 
-    expect(root.find('.SearchResults-message')).toHaveText(
-      'No results were found for "test".',
-    );
+    expect(
+      screen.getByText('No results were found for "test".'),
+    ).toBeInTheDocument();
   });
 
   it('renders searching text during search', () => {
-    const root = render({
+    render({
       filters: { query: 'test' },
       loading: true,
     });
 
-    expect(root).toIncludeText('Searching…');
+    expect(screen.getByText('Searching…')).toBeInTheDocument();
   });
 
   it('renders search result placeholders while loading', () => {
-    const root = render({
+    render({
       filters: { query: 'test' },
       loading: true,
     });
 
-    // Make sure it just renders AddonsCard in a loading state.
-    expect(root.find(AddonsCard)).toHaveProp('addons', []);
-    expect(root.find(AddonsCard)).toHaveProp('loading', true);
-    expect(root.find(AddonsCard)).toHaveProp('showFullSizePreview', true);
+    // There will be 4 loading indicators per SearchResult.
+    expect(screen.getAllByRole('alert')).toHaveLength(
+      DEFAULT_API_PAGE_SIZE * 4,
+    );
   });
 
   it('renders results', () => {
+    const headerImageFull =
+      'https://addons.mozilla.org/user-media/full/12345.png';
     const results = [
-      fakeAddon,
-      { ...fakeAddon, id: 3753735, slug: 'new-slug' },
+      createInternalAddonWithLang({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+        previews: [
+          {
+            ...fakePreview,
+            image_url: headerImageFull,
+          },
+        ],
+      }),
     ];
-    const root = render({
+    render({
       filters: { query: 'test' },
       loading: false,
       results,
     });
 
-    expect(root.find(AddonsCard)).toHaveProp('addons', results);
-    expect(root.find(AddonsCard)).toHaveProp('loading', false);
-    expect(root.find(AddonsCard)).toHaveProp('showFullSizePreview', true);
+    expect(
+      screen.getByRole('link', { name: results[0].name }),
+    ).toBeInTheDocument();
+    expect(screen.getByAltText(results[0].name)).toHaveAttribute(
+      'src',
+      headerImageFull,
+    );
   });
 
   it('sets add-on install source to search by default', () => {
-    const root = render({
+    const results = [createInternalAddonWithLang(fakeAddon)];
+    render({
       filters: { query: 'ad blockers' },
       loading: false,
-      results: [fakeAddon],
+      results,
     });
-    expect(root.find(AddonsCard)).toHaveProp(
-      'addonInstallSource',
-      INSTALL_SOURCE_SEARCH,
+
+    const expectedLink = [
+      `/en-US/android/addon/${results[0].slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+      'utm_medium=referral',
+      `utm_content=${INSTALL_SOURCE_SEARCH}`,
+    ].join('&');
+    expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
+      'href',
+      expectedLink,
     );
   });
 
   it('sets add-on install source to recommended when approrpriate', () => {
-    const root = render({
+    const results = [createInternalAddonWithLang(fakeAddon)];
+    render({
       filters: { query: 'ad blockers', promoted: RECOMMENDED },
       loading: false,
-      results: [fakeAddon],
+      results,
     });
-    expect(root.find(AddonsCard)).toHaveProp(
-      'addonInstallSource',
-      INSTALL_SOURCE_FEATURED,
+
+    const expectedLink = [
+      `/en-US/android/addon/${results[0].slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+      'utm_medium=referral',
+      `utm_content=${INSTALL_SOURCE_FEATURED}`,
+    ].join('&');
+    expect(screen.getByRole('link', { name: results[0].name })).toHaveAttribute(
+      'href',
+      expectedLink,
     );
   });
 
   it('passes a paginator as footer prop to the AddonsCard if supplied', () => {
-    const paginator = <Paginate />;
-    const root = render({ paginator });
+    const paginator = (
+      <Paginate count={10} currentPage={1} pathname="/" perPage={5} />
+    );
+    render({ paginator });
 
-    expect(root.find(AddonsCard)).toHaveProp('footer', paginator);
+    expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
   });
 });

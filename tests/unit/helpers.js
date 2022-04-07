@@ -1500,7 +1500,11 @@ export const createInternalAddonWithLang = (
   addon,
   lang = DEFAULT_LANG_IN_TESTS,
 ) => {
-  return createInternalAddon(addon, lang);
+  const internalAddon = createInternalAddon(addon, lang);
+  if (addon.notes) {
+    internalAddon.notes = addon.notes;
+  }
+  return internalAddon;
 };
 
 export const createInternalVersionWithLang = (
