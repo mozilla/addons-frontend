@@ -13,8 +13,6 @@ describe(__filename, () => {
     const message = 'this action is risky, are you sure?';
     render({ message });
 
-    expect(screen.getByText(message)).toHaveClass('ConfirmationDialog-message');
-
     const confirmButton = screen.getByRole('button', { name: 'Confirm' });
     expect(confirmButton).toHaveClass('ConfirmationDialog-confirm-button');
     expect(confirmButton).toHaveClass('Button--alert');
@@ -57,16 +55,14 @@ describe(__filename, () => {
   it('calls onConfirm() when user clicks Confirm', () => {
     const onConfirm = jest.fn();
     render({ onConfirm });
-    const button = screen.getByClassName('ConfirmationDialog-confirm-button');
-    userEvent.click(button);
+    userEvent.click(screen.getByClassName('ConfirmationDialog-confirm-button'));
     expect(onConfirm).toHaveBeenCalled();
   });
 
   it('calls onCancel() when user clicks Cancel', () => {
     const onCancel = jest.fn();
     render({ onCancel });
-    const button = screen.getByClassName('ConfirmationDialog-cancel-button');
-    userEvent.click(button);
+    userEvent.click(screen.getByClassName('ConfirmationDialog-cancel-button'));
     expect(onCancel).toHaveBeenCalled();
   });
 
