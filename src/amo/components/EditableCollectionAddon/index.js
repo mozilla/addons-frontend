@@ -27,6 +27,8 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | CollectionAddonType,
+  // TODO: Remove this as it isn't used and therefore cannot be tested.
+  // See https://github.com/mozilla/addons-frontend/issues/11392.
   className?: string,
   deleteNote: DeleteAddonNoteFunc,
   removeAddon: RemoveCollectionAddonFunc,

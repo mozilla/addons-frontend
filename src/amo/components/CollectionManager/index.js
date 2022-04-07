@@ -187,6 +187,10 @@ export class CollectionManagerBase extends React.Component<
     const { name, value } = event.target;
     const { creating } = this.props;
 
+    // TODO: Remeove the test for null, as it is not possible for
+    // event.target.value to be null, and therefore we cannot write a test for
+    // it.
+    // See https://github.com/mozilla/addons-frontend/issues/11391.
     if (value === null || typeof value === 'undefined') {
       return;
     }

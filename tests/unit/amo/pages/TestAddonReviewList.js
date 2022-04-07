@@ -1142,7 +1142,7 @@ describe(__filename, () => {
         location: createFakeLocation({ query: { score } }),
       });
 
-      expect(selector).toHaveValue(score);
+      expect(selector).toHaveProp('value', score);
     });
 
     it('defaults the selector to showing all reviews', () => {
@@ -1150,7 +1150,7 @@ describe(__filename, () => {
         location: createFakeLocation({ query: {} }),
       });
 
-      expect(selector).toHaveValue(SHOW_ALL_REVIEWS);
+      expect(selector).toHaveProp('value', SHOW_ALL_REVIEWS);
     });
   });
 
