@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-04-05 17:51+0000\n"
-"PO-Revision-Date: 2022-04-08 17:36+0000\n"
+"PO-Revision-Date: 2022-04-08 20:56+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1236,7 +1236,7 @@ msgstr "ამ დამატებას ესაჭიროება:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 msgid "This add-on may also ask to:"
-msgstr "ამ დამატებამ, ასევე შესაძლოა მოითხოვოს:"
+msgstr "გარდა ამისა, შეიძლება მოითხოვოს:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
@@ -1288,7 +1288,7 @@ msgstr "გაფართოების მოხმარების შე�
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Exchange messages with programs other than Firefox"
-msgstr "შეტყობინებების გაცვლა სხვა პროგრამებთანაც Firefox-ის გარდა"
+msgstr "შეტყობინებების გაცვლა სხვა პროგრამებთან Firefox-ის მიღმა"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Display notifications to you"
@@ -1300,7 +1300,7 @@ msgstr "ანგარიშზე დაშიფრულად შესვ�
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Control browser proxy settings"
-msgstr "ბრაუზერის პროქსი პარამეტრების მართვა"
+msgstr "ბრაუზერის პროქსის პარამეტრების მართვა"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Read and modify privacy settings"
