@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-04-05 17:51+0000\n"
-"PO-Revision-Date: 2022-04-07 08:17+0000\n"
-"Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
+"PO-Revision-Date: 2022-03-10 03:43+0000\n"
+"Last-Translator: mari.kim <marikim36@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -830,7 +830,7 @@ msgstr "죄송하지만, 이 페이지에 접근할 권한이 없습니다. 로�
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
-msgstr ""
+msgstr "로그인이 만료됨"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -1886,7 +1886,7 @@ msgstr "개발자 답글"
 
 #: src/amo/components/VPNPromoBanner/index.js:176
 msgid "Save 50% with a full year subscription"
-msgstr ""
+msgstr "1년 구독으로 50% 할인"
 
 #: src/amo/components/VPNPromoBanner/index.js:177
 msgid "Protect your online data—and choose a VPN subscription plan that works for you."
