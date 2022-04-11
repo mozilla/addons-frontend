@@ -86,17 +86,6 @@ describe(__filename, () => {
     render({ history, location });
   };
 
-  it("doesn't duplicate the clientApp in the URL in the queryParams", async () => {
-    const page = '2';
-    const term = 'fries';
-    renderWithResults({ page, term });
-
-    expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
-      'href',
-      `${defaultLocation}?page=1&q=${term}`,
-    );
-  });
-
   it('preserves category in paginationQueryParams', () => {
     const category = 'some-category';
     const page = '2';
