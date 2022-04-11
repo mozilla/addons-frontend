@@ -1,46 +1,65 @@
-import * as React from 'react';
+import { waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import Search from 'amo/components/Search';
-import CategoryPage, { CategoryPageBase } from 'amo/pages/CategoryPage';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RECOMMENDED,
+  SEARCH_SORT_TRENDING,
 } from 'amo/constants';
-import { fetchCategories, loadCategories } from 'amo/reducers/categories';
+import {
+  FETCH_CATEGORIES,
+  fetchCategories,
+  loadCategories,
+} from 'amo/reducers/categories';
+import { searchStart } from 'amo/reducers/search';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import { visibleAddonType } from 'amo/utils';
 import {
+  createHistory,
   dispatchClientMetadata,
+  dispatchSearchResults,
+  fakeAddon,
   fakeCategory,
-  fakeI18n,
-  shallowUntilTarget,
+  getElement,
+  getSearchErrorHandlerId,
+  renderPage as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
-
-  const defaultParams = {
-    categorySlug: 'some-category',
-    visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
-  };
-
-  function render({ params = defaultParams, ...props } = {}) {
-    return shallowUntilTarget(
-      <CategoryPage
-        i18n={fakeI18n()}
-        match={{ params }}
-        store={store}
-        {...props}
-      />,
-      CategoryPageBase,
-    );
-  }
+  const lang = 'en-US';
+  const clientApp = CLIENT_APP_FIREFOX;
+  const defaultAddonType = ADDON_TYPE_EXTENSION;
+  const defaultAddonTypeForURL = visibleAddonType(defaultAddonType);
+  const defaultCategory = 'bookmarks';
+  const defaultLocation = `/${lang}/${clientApp}/${defaultAddonTypeForURL}/category/${defaultCategory}/`;
 
   beforeEach(() => {
-    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
+    store = dispatchClientMetadata({ clientApp, lang }).store;
   });
+
+  function render({
+    addonType = defaultAddonTypeForURL,
+    category = defaultCategory,
+    history,
+    location,
+  } = {}) {
+    const initialEntry =
+      location || `/${lang}/${clientApp}/${addonType}/category/${category}/`;
+    const renderOptions = {
+      history:
+        history ||
+        createHistory({
+          initialEntries: [initialEntry],
+        }),
+      store,
+    };
+    return defaultRender(renderOptions);
+  }
 
   const _loadCategories = ({
     name = 'Causes',
@@ -61,141 +80,102 @@ describe(__filename, () => {
     );
   };
 
-  it('renders a Search component', () => {
-    const root = render();
+  it('causes Search to dispatch a search using category, addonType and sort filters', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    expect(root.find(Search)).toHaveLength(1);
-  });
-
-  it('adds category, addonType and sort to Search filters', () => {
-    const category = 'some-category';
-    const addonType = ADDON_TYPE_EXTENSION;
-
-    const root = render({
-      params: {
-        categorySlug: category,
-        visibleAddonType: visibleAddonType(addonType),
-      },
-    });
-
-    expect(root.find(Search).prop('filters')).toEqual({
-      addonType,
-      category,
-      sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
-    });
+    expect(dispatch).toHaveBeenCalledWith(
+      searchStart({
+        errorHandlerId: getSearchErrorHandlerId(),
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category: defaultCategory,
+          sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+        },
+      }),
+    );
   });
 
   it('does not override an existing sort filter', () => {
-    const category = 'some-category';
-    const addonType = ADDON_TYPE_EXTENSION;
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ location: `${defaultLocation}?sort=${SEARCH_SORT_POPULAR}` });
 
-    dispatchClientMetadata({
-      store,
-      search: `?sort=${SEARCH_SORT_POPULAR}`,
-    });
-
-    const root = render({
-      params: {
-        categorySlug: category,
-        visibleAddonType: visibleAddonType(addonType),
-      },
-    });
-
-    expect(root.find(Search).prop('filters')).toEqual({
-      addonType,
-      category,
-      sort: SEARCH_SORT_POPULAR,
-    });
+    expect(dispatch).toHaveBeenCalledWith(
+      searchStart({
+        errorHandlerId: getSearchErrorHandlerId(),
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category: defaultCategory,
+          sort: SEARCH_SORT_POPULAR,
+        },
+      }),
+    );
   });
 
-  it('sets the paginationQueryParams from filters, excluding category and type', () => {
+  it('configures pagination using filters and the category/type', () => {
+    const addonType = ADDON_TYPE_STATIC_THEME;
+    const category = 'privacy';
     const page = '2';
-    const q = 'testQ';
-
-    dispatchClientMetadata({
+    const pageSize = 2;
+    const sort = SEARCH_SORT_POPULAR;
+    const addons = Array(pageSize).fill(fakeAddon);
+    dispatchSearchResults({
+      addons,
+      count: 5,
+      filters: { addonType, category, page, sort },
+      pageSize,
       store,
-      search: `?page=${page}&q=${q}`,
     });
 
-    const root = render({
-      params: {
-        categorySlug: 'some-category',
-        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
-      },
+    render({
+      location: `/${lang}/${clientApp}/${visibleAddonType(
+        addonType,
+      )}/category/${category}/?page=${page}&sort=${sort}`,
     });
 
-    expect(root.find(Search)).toHaveProp('paginationQueryParams', {
-      page,
-      q,
-    });
-  });
-
-  it('sets the pathname using the category and add-on type', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const category = 'some-category';
-
-    const root = render({
-      params: {
-        categorySlug: category,
-        visibleAddonType: visibleAddonType(addonType),
-      },
-    });
-
-    expect(root.find(Search)).toHaveProp(
-      'pathname',
-      `/${visibleAddonType(addonType)}/category/${category}/`,
+    expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}/${visibleAddonType(
+        addonType,
+      )}/category/${category}/?page=1&sort=${SEARCH_SORT_POPULAR}`,
     );
   });
 
   it('should fetch categories if there is no name for the current category', () => {
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const root = render();
-
-    sinon.assert.calledWith(
-      dispatchSpy,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchCategories({
-        errorHandlerId: root.instance().props.errorHandler.id,
+        errorHandlerId: `src/amo/pages/CategoryPage/index.js-${defaultCategory}`,
       }),
     );
   });
 
   it('should not fetch categories if there is a name for the current category', () => {
-    const slug = 'some-category';
-    const type = ADDON_TYPE_EXTENSION;
+    _loadCategories({ slug: defaultCategory, type: defaultAddonType });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    _loadCategories({ slug, type });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
-    render({
-      params: {
-        categorySlug: slug,
-        visibleAddonType: visibleAddonType(type),
-      },
-    });
-
-    sinon.assert.notCalled(dispatchSpy);
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_CATEGORIES }),
+    );
   });
 
   it.each([
     [ADDON_TYPE_EXTENSION, 'Extensions'],
     [ADDON_TYPE_STATIC_THEME, 'Themes'],
-  ])('sets the expected title for type: %s', (type, expectedTitle) => {
-    const slug = 'some-category';
+  ])('sets the expected title for type: %s', async (type, expectedTitle) => {
     const name = 'Category Name';
 
-    _loadCategories({ name, slug, type });
+    _loadCategories({ name, slug: defaultCategory, type });
 
-    const root = render({
-      params: {
-        categorySlug: slug,
-        visibleAddonType: type ? visibleAddonType(type) : type,
-      },
-    });
+    render({ addonType: visibleAddonType(type) });
 
-    expect(root.find(Search)).toHaveProp(
-      'pageTitle',
-      `${expectedTitle} in ${name}`,
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(getElement('title')).toHaveTextContent(
+      `${expectedTitle} in ${name} – Add-ons for Firefox (en-US)`,
     );
   });
 
@@ -204,17 +184,76 @@ describe(__filename, () => {
     [ADDON_TYPE_STATIC_THEME, 'Themes'],
   ])(
     'sets the expected title for type: %s without a category name',
-    (type, expectedTitle) => {
-      const slug = 'some-category';
+    async (type, expectedTitle) => {
+      render({ addonType: visibleAddonType(type) });
 
-      const root = render({
-        params: {
-          categorySlug: slug,
-          visibleAddonType: type ? visibleAddonType(type) : type,
-        },
-      });
+      await waitFor(() => expect(getElement('title')).toBeInTheDocument());
 
-      expect(root.find(Search)).toHaveProp('pageTitle', expectedTitle);
+      expect(getElement('title')).toHaveTextContent(
+        `${expectedTitle} – Add-ons for Firefox (en-US)`,
+      );
     },
   );
+
+  describe('Tests for Search', () => {
+    it('forces recommended add-ons to the top when a category is specified and a new sort filter is selected', () => {
+      const sort = SEARCH_SORT_POPULAR;
+      const history = createHistory({
+        initialEntries: [`${defaultLocation}?sort=${sort}`],
+      });
+      const pushSpy = jest.spyOn(history, 'push');
+
+      render({ history });
+
+      userEvent.selectOptions(
+        screen.getByRole('combobox', { name: 'Sort by' }),
+        'Trending',
+      );
+
+      expect(pushSpy).toHaveBeenCalledWith({
+        pathname: defaultLocation,
+        query: convertFiltersToQueryParams({
+          sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
+        }),
+      });
+    });
+
+    it('removes category and addonType from the URL if category is in filters', () => {
+      const sort = SEARCH_SORT_POPULAR;
+      const history = createHistory({
+        initialEntries: [
+          `${defaultLocation}?sort=${sort}&category=${defaultCategory}&type=${defaultAddonType}`,
+        ],
+      });
+      const pushSpy = jest.spyOn(history, 'push');
+
+      render({ history });
+
+      userEvent.selectOptions(
+        screen.getByRole('combobox', { name: 'Sort by' }),
+        'Trending',
+      );
+
+      expect(pushSpy).toHaveBeenCalledWith({
+        pathname: defaultLocation,
+        query: convertFiltersToQueryParams({
+          sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
+        }),
+      });
+    });
+  });
+
+  describe('Tests for SearchFilters', () => {
+    it('does not display the addonType filter when a category is defined', () => {
+      // See: https://github.com/mozilla/addons-frontend/issues/3747
+      render();
+
+      expect(
+        screen.getByRole('combobox', { name: 'Sort by' }),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByRole('combobox', { name: 'Add-on Type' }),
+      ).not.toBeInTheDocument();
+    });
+  });
 });

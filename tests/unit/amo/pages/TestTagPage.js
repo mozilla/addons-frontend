@@ -1,118 +1,134 @@
-import * as React from 'react';
+import { waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import Search from 'amo/components/Search';
-import TagPage, { TagPageBase } from 'amo/pages/TagPage';
 import {
   CLIENT_APP_FIREFOX,
-  SEARCH_SORT_POPULAR,
   SEARCH_SORT_RECOMMENDED,
+  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_POPULAR,
 } from 'amo/constants';
+import { searchStart } from 'amo/reducers/search';
+import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import {
+  createHistory,
   dispatchClientMetadata,
-  fakeI18n,
-  shallowUntilTarget,
+  dispatchSearchResults,
+  fakeAddon,
+  getElement,
+  getSearchErrorHandlerId,
+  renderPage as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
-
-  function render({ params = { tag: 'some-tag' }, ...props } = {}) {
-    return shallowUntilTarget(
-      <TagPage i18n={fakeI18n()} match={{ params }} store={store} {...props} />,
-      TagPageBase,
-    );
-  }
+  const lang = 'en-US';
+  const clientApp = CLIENT_APP_FIREFOX;
+  const defaultTag = 'privacy';
+  const defaultLocation = `/${lang}/${clientApp}/tag/${defaultTag}/`;
 
   beforeEach(() => {
-    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
+    store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  it('renders a Search component', () => {
-    const root = render();
+  function render({ history, location = defaultLocation, tag } = {}) {
+    const renderOptions = {
+      history:
+        history ||
+        createHistory({
+          initialEntries: [
+            tag ? `/${lang}/${clientApp}/tag/${tag}/` : location,
+          ],
+        }),
+      store,
+    };
+    return defaultRender(renderOptions);
+  }
 
-    expect(root.find(Search)).toHaveLength(1);
+  it('removes tag from the query params if tag is in filters', () => {
+    const tag = 'myTag';
+    const location = `/${lang}/${clientApp}/tag/${tag}/`;
+    const history = createHistory({
+      initialEntries: [`${location}?tag=${tag}`],
+    });
+    const pushSpy = jest.spyOn(history, 'push');
+
+    render({ history });
+
+    userEvent.selectOptions(
+      screen.getByRole('combobox', { name: 'Sort by' }),
+      'Trending',
+    );
+
+    expect(pushSpy).toHaveBeenCalledWith({
+      pathname: location,
+      query: convertFiltersToQueryParams({
+        sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
+      }),
+    });
   });
 
-  it('adds tag and sort to Search filters', () => {
-    const tag = 'some-tag';
+  it('causes Search to dispatch a search using tag and sort filters', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const root = render({
-      params: {
-        tag,
-      },
-    });
-
-    expect(root.find(Search).prop('filters')).toEqual({
-      tag,
-      sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
-    });
+    expect(dispatch).toHaveBeenCalledWith(
+      searchStart({
+        errorHandlerId: getSearchErrorHandlerId(),
+        filters: {
+          sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+          tag: defaultTag,
+        },
+      }),
+    );
   });
 
   it('does not override an existing sort filter', () => {
-    const tag = 'some-tag';
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ location: `${defaultLocation}?sort=${SEARCH_SORT_POPULAR}` });
 
-    dispatchClientMetadata({
-      store,
-      search: `?sort=${SEARCH_SORT_POPULAR}`,
-    });
-
-    const root = render({
-      params: {
-        tag,
-      },
-    });
-
-    expect(root.find(Search).prop('filters')).toEqual({
-      tag,
-      sort: SEARCH_SORT_POPULAR,
-    });
+    expect(dispatch).toHaveBeenCalledWith(
+      searchStart({
+        errorHandlerId: getSearchErrorHandlerId(),
+        filters: {
+          sort: SEARCH_SORT_POPULAR,
+          tag: defaultTag,
+        },
+      }),
+    );
   });
 
-  it('sets the paginationQueryParams from filters, excluding tag', () => {
+  it('configures pagination using filters and the tag', () => {
     const page = '2';
-    const q = 'testQ';
-
-    dispatchClientMetadata({
+    const pageSize = 2;
+    const sort = SEARCH_SORT_POPULAR;
+    const tag = 'someTag';
+    const addons = Array(pageSize).fill(fakeAddon);
+    dispatchSearchResults({
+      addons,
+      count: 5,
+      filters: { page, sort, tag },
+      pageSize,
       store,
-      search: `?page=${page}&q=${q}`,
     });
 
-    const root = render({
-      params: {
-        tag: 'some-tag',
-      },
+    render({
+      location: `/${lang}/${clientApp}/tag/${tag}/?page=${page}&sort=${sort}`,
     });
 
-    expect(root.find(Search)).toHaveProp('paginationQueryParams', {
-      page,
-      q,
-    });
+    expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}/tag/${tag}/?page=1&sort=${SEARCH_SORT_POPULAR}`,
+    );
   });
 
-  it('sets the pathname using the tag', () => {
-    const tag = 'some-tag';
+  it('sets the expected title for the tag', async () => {
+    render();
 
-    const root = render({
-      params: {
-        tag,
-      },
-    });
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
 
-    expect(root.find(Search)).toHaveProp('pathname', `/tag/${tag}/`);
-  });
-
-  it('sets the expected title for the tag', () => {
-    const tag = 'some-tag';
-
-    const root = render({
-      params: {
-        tag,
-      },
-    });
-
-    expect(root.find(Search)).toHaveProp(
-      'pageTitle',
-      `Add-ons tagged with ${tag}`,
+    expect(getElement('title')).toHaveTextContent(
+      `Add-ons tagged with ${defaultTag} – Add-ons for Firefox (en-US)`,
     );
   });
 });
