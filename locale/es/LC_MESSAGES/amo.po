@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-05 17:51+0000\n"
+"POT-Creation-Date: 2022-04-12 16:22+0000\n"
 "PO-Revision-Date: 2021-08-22 17:37+0000\n"
 "Last-Translator: cfatls <cfatls@gmail.com>\n"
 "Language-Team: none\n"
@@ -1733,111 +1733,111 @@ msgstr ""
 "Hemos recibido tu notificación. Gracias por hacernos saber tu preocupación "
 "sobre este usuario."
 
-#: src/amo/components/Search/index.js:140
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "Resultados de la búsqueda"
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Extensiones recomendadas"
 
-#: src/amo/components/Search/index.js:149
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Temas recomendados"
 
-#: src/amo/components/Search/index.js:152
+#: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
 msgstr "Complementos recomendados"
 
-#: src/amo/components/Search/index.js:157
+#: src/amo/components/Search/index.js:155
 #, fuzzy
 msgid "Extensions by Firefox"
 msgstr "Extensiones de %(author)s"
 
-#: src/amo/components/Search/index.js:160
+#: src/amo/components/Search/index.js:158
 #, fuzzy
 msgid "Themes by Firefox"
 msgstr "para Firefox"
 
-#: src/amo/components/Search/index.js:163
+#: src/amo/components/Search/index.js:161
 #, fuzzy
 msgid "Add-ons by Firefox"
 msgstr "Complementos para Firefox"
 
-#: src/amo/components/Search/index.js:168
+#: src/amo/components/Search/index.js:166
 #, fuzzy
 msgid "Reviewed extensions"
 msgstr "Extensiones recomendadas"
 
-#: src/amo/components/Search/index.js:171
+#: src/amo/components/Search/index.js:169
 #, fuzzy
 msgid "Reviewed themes"
 msgstr "Revisar tema"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:172
 #, fuzzy
 msgid "Reviewed add-ons"
 msgstr "Revisar código del complemento"
 
-#: src/amo/components/Search/index.js:179
+#: src/amo/components/Search/index.js:177
 #, fuzzy
 msgid "Verified extensions"
 msgstr "Extensiones promocionadas"
 
-#: src/amo/components/Search/index.js:182
+#: src/amo/components/Search/index.js:180
 #, fuzzy
 msgid "Verified themes"
 msgstr "Temas promocionados"
 
-#: src/amo/components/Search/index.js:185
+#: src/amo/components/Search/index.js:183
 #, fuzzy
 msgid "Verified add-ons"
 msgstr "Complementos promocionados"
 
-#: src/amo/components/Search/index.js:193
+#: src/amo/components/Search/index.js:191
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Extensiones más populares"
 
-#: src/amo/components/Search/index.js:196
+#: src/amo/components/Search/index.js:194
 #: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "Temas más populares"
 
-#: src/amo/components/Search/index.js:199
+#: src/amo/components/Search/index.js:197
 msgid "Trending add-ons"
 msgstr "Complementos más populares"
 
-#: src/amo/components/Search/index.js:205
+#: src/amo/components/Search/index.js:203
 #: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "Extensiones más valoradas"
 
-#: src/amo/components/Search/index.js:208
+#: src/amo/components/Search/index.js:206
 #: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "Temas más valorados"
 
-#: src/amo/components/Search/index.js:211
+#: src/amo/components/Search/index.js:209
 msgid "Top rated add-ons"
 msgstr "Complementos mejor valorados"
 
-#: src/amo/components/Search/index.js:217
+#: src/amo/components/Search/index.js:215
 msgid "Popular extensions"
 msgstr "Extensiones populares"
 
-#: src/amo/components/Search/index.js:220
+#: src/amo/components/Search/index.js:218
 msgid "Popular themes"
 msgstr "Temas populares"
 
-#: src/amo/components/Search/index.js:223
+#: src/amo/components/Search/index.js:221
 msgid "Popular add-ons"
 msgstr "Complementos populares"
 
-#: src/amo/components/Search/index.js:229
+#: src/amo/components/Search/index.js:227
 msgid "Search results for \"%(query)s\""
 msgstr "Resultados de búsqueda de «%(query)s»"
 

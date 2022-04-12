@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-05 17:51+0000\n"
+"POT-Creation-Date: 2022-04-12 16:22+0000\n"
 "PO-Revision-Date: 2019-11-08 07:05+0000\n"
 "Last-Translator: Tanha Islam <pink.devil.tanha@hotmail.com>\n"
 "Language-Team: none\n"
@@ -1666,111 +1666,111 @@ msgstr ""
 "আমরা আপনার রিপোর্ট পেয়েছি। এই ব্যবহারকারী নিয়ে আপনার উদ্বেগ সম্পর্কে আমাদের কে "
 "জানানোর জন্য ধন্যবাদ।"
 
-#: src/amo/components/Search/index.js:140
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "অনুসন্ধান ফলাফল"
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr ""
 
-#: src/amo/components/Search/index.js:149
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr ""
 
-#: src/amo/components/Search/index.js:152
+#: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
 msgstr ""
 
-#: src/amo/components/Search/index.js:157
+#: src/amo/components/Search/index.js:155
 #, fuzzy
 msgid "Extensions by Firefox"
 msgstr "এক্সটেনশন সমূহ"
 
-#: src/amo/components/Search/index.js:160
+#: src/amo/components/Search/index.js:158
 #, fuzzy
 msgid "Themes by Firefox"
 msgstr "Firefox এর জন্য"
 
-#: src/amo/components/Search/index.js:163
+#: src/amo/components/Search/index.js:161
 #, fuzzy
 msgid "Add-ons by Firefox"
 msgstr "Firefox এর জন্য অ্যাড-অন"
 
-#: src/amo/components/Search/index.js:168
+#: src/amo/components/Search/index.js:166
 #, fuzzy
 msgid "Reviewed extensions"
 msgstr "বৈশিষ্ট্যপূর্ণ এক্সটেনশনসমূহ"
 
-#: src/amo/components/Search/index.js:171
+#: src/amo/components/Search/index.js:169
 #, fuzzy
 msgid "Reviewed themes"
 msgstr "থিম পর্যালোচনা"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:172
 #, fuzzy
 msgid "Reviewed add-ons"
 msgstr "অ্যাড-অন কোড পর্যালোচনা"
 
-#: src/amo/components/Search/index.js:179
+#: src/amo/components/Search/index.js:177
 #, fuzzy
 msgid "Verified extensions"
 msgstr "বৈশিষ্ট্যপূর্ণ এক্সটেনশনসমূহ"
 
-#: src/amo/components/Search/index.js:182
+#: src/amo/components/Search/index.js:180
 #, fuzzy
 msgid "Verified themes"
 msgstr "বৈশিষ্ট্যপূর্ণ থিম"
 
-#: src/amo/components/Search/index.js:185
+#: src/amo/components/Search/index.js:183
 #, fuzzy
 msgid "Verified add-ons"
 msgstr "নির্বাচিত অ্যাড-অন"
 
-#: src/amo/components/Search/index.js:193
+#: src/amo/components/Search/index.js:191
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "প্রচলিত এক্সটেনশন"
 
-#: src/amo/components/Search/index.js:196
+#: src/amo/components/Search/index.js:194
 #: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "প্রচলিত থিম"
 
-#: src/amo/components/Search/index.js:199
+#: src/amo/components/Search/index.js:197
 msgid "Trending add-ons"
 msgstr "ট্রেন্ডিং অ্যাড-অন"
 
-#: src/amo/components/Search/index.js:205
+#: src/amo/components/Search/index.js:203
 #: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন"
 
-#: src/amo/components/Search/index.js:208
+#: src/amo/components/Search/index.js:206
 #: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "সর্বোচ্চ রেট পাওয়া থিম"
 
-#: src/amo/components/Search/index.js:211
+#: src/amo/components/Search/index.js:209
 msgid "Top rated add-ons"
 msgstr "সর্বোচ্চ রেট পাওয়া অ্যাড-অন"
 
-#: src/amo/components/Search/index.js:217
+#: src/amo/components/Search/index.js:215
 msgid "Popular extensions"
 msgstr "জনপ্রিয় এক্সটেনশন"
 
-#: src/amo/components/Search/index.js:220
+#: src/amo/components/Search/index.js:218
 msgid "Popular themes"
 msgstr "জনপ্রিয় থিম"
 
-#: src/amo/components/Search/index.js:223
+#: src/amo/components/Search/index.js:221
 msgid "Popular add-ons"
 msgstr "জনপ্রিয় অ্যাড-অন"
 
-#: src/amo/components/Search/index.js:229
+#: src/amo/components/Search/index.js:227
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\" এর জন্য অনুসন্ধান ফলাফল"
 
