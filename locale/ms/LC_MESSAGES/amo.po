@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-05 17:51+0000\n"
+"POT-Creation-Date: 2022-04-12 16:22+0000\n"
 "PO-Revision-Date: 2018-11-21 10:22+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1710,115 +1710,115 @@ msgstr ""
 "Kami telah menerima laporan anda. Terima kasih atas keprihatinan anda "
 "terhadap pengguna ini."
 
-#: src/amo/components/Search/index.js:140
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "Hasil carian"
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
 #: src/amo/pages/LandingPage/index.js:124
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Cari ekstensi"
 
-#: src/amo/components/Search/index.js:149
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:156
 #, fuzzy
 msgid "Recommended themes"
 msgstr "Tema musim panas"
 
-#: src/amo/components/Search/index.js:152
+#: src/amo/components/Search/index.js:150
 #, fuzzy
 msgid "Recommended add-ons"
 msgstr "Cari add-ons"
 
-#: src/amo/components/Search/index.js:157
+#: src/amo/components/Search/index.js:155
 #, fuzzy
 msgid "Extensions by Firefox"
 msgstr "Ekstensi oleh %(author)s"
 
-#: src/amo/components/Search/index.js:160
+#: src/amo/components/Search/index.js:158
 #, fuzzy
 msgid "Themes by Firefox"
 msgstr "untuk Firefox"
 
-#: src/amo/components/Search/index.js:163
+#: src/amo/components/Search/index.js:161
 #, fuzzy
 msgid "Add-ons by Firefox"
 msgstr "Add-on untuk Firefox"
 
-#: src/amo/components/Search/index.js:168
+#: src/amo/components/Search/index.js:166
 #, fuzzy
 msgid "Reviewed extensions"
 msgstr "Cari ekstensi"
 
-#: src/amo/components/Search/index.js:171
+#: src/amo/components/Search/index.js:169
 #, fuzzy
 msgid "Reviewed themes"
 msgstr "Ulasan tema"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:172
 #, fuzzy
 msgid "Reviewed add-ons"
 msgstr "Ulasan kod add-on"
 
-#: src/amo/components/Search/index.js:179
+#: src/amo/components/Search/index.js:177
 #, fuzzy
 msgid "Verified extensions"
 msgstr "Ekstensi sorotan"
 
-#: src/amo/components/Search/index.js:182
+#: src/amo/components/Search/index.js:180
 #, fuzzy
 msgid "Verified themes"
 msgstr "Tema sorotan"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Search/index.js:185
+#: src/amo/components/Search/index.js:183
 #, fuzzy
 msgid "Verified add-ons"
 msgstr "Add-ons sorotan"
 
-#: src/amo/components/Search/index.js:193
+#: src/amo/components/Search/index.js:191
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Ekstensi sohor kini"
 
-#: src/amo/components/Search/index.js:196
+#: src/amo/components/Search/index.js:194
 #: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "Tema sohor kini"
 
-#: src/amo/components/Search/index.js:199
+#: src/amo/components/Search/index.js:197
 msgid "Trending add-ons"
 msgstr "Add-ons sohor kini"
 
-#: src/amo/components/Search/index.js:205
+#: src/amo/components/Search/index.js:203
 #: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "Ekstensi tahap tinggi"
 
-#: src/amo/components/Search/index.js:208
+#: src/amo/components/Search/index.js:206
 #: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "Tema tahap tinggi"
 
-#: src/amo/components/Search/index.js:211
+#: src/amo/components/Search/index.js:209
 msgid "Top rated add-ons"
 msgstr "Add-ons tahap tinggi"
 
-#: src/amo/components/Search/index.js:217
+#: src/amo/components/Search/index.js:215
 msgid "Popular extensions"
 msgstr "Ekstensi popular"
 
-#: src/amo/components/Search/index.js:220
+#: src/amo/components/Search/index.js:218
 msgid "Popular themes"
 msgstr "Tema popular"
 
-#: src/amo/components/Search/index.js:223
+#: src/amo/components/Search/index.js:221
 msgid "Popular add-ons"
 msgstr "Add-ons popular"
 
-#: src/amo/components/Search/index.js:229
+#: src/amo/components/Search/index.js:227
 msgid "Search results for \"%(query)s\""
 msgstr "Hasil carian \"%(query)s\""
 

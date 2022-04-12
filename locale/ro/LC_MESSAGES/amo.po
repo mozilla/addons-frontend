@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-05 17:51+0000\n"
+"POT-Creation-Date: 2022-04-12 16:22+0000\n"
 "PO-Revision-Date: 2021-12-07 14:53+0000\n"
 "Last-Translator: snow <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -1742,111 +1742,111 @@ msgstr ""
 "Am primit raportul tău. Îți mulțumim că ne-ai anunțat despre îngrijorările "
 "tale cu privire la acest utilizator."
 
-#: src/amo/components/Search/index.js:140
+#: src/amo/components/Search/index.js:138
 #: src/amo/components/SearchResults/index.js:71
 msgid "Search results"
 msgstr "Rezultatele căutării"
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Home/index.js:213
+#: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
 #: src/amo/pages/LandingPage/index.js:124
 msgid "Recommended extensions"
 msgstr "Extensii recomandate"
 
-#: src/amo/components/Search/index.js:149
+#: src/amo/components/Search/index.js:147
 #: src/amo/pages/LandingPage/index.js:156
 msgid "Recommended themes"
 msgstr "Teme recomandate"
 
-#: src/amo/components/Search/index.js:152
+#: src/amo/components/Search/index.js:150
 msgid "Recommended add-ons"
 msgstr "Suplimente recomandate"
 
-#: src/amo/components/Search/index.js:157
+#: src/amo/components/Search/index.js:155
 #, fuzzy
 msgid "Extensions by Firefox"
 msgstr "Extensii create de %(author)s"
 
-#: src/amo/components/Search/index.js:160
+#: src/amo/components/Search/index.js:158
 #, fuzzy
 msgid "Themes by Firefox"
 msgstr "De Firefox"
 
-#: src/amo/components/Search/index.js:163
+#: src/amo/components/Search/index.js:161
 #, fuzzy
 msgid "Add-ons by Firefox"
 msgstr "Suplimente pentru Firefox"
 
-#: src/amo/components/Search/index.js:168
+#: src/amo/components/Search/index.js:166
 #, fuzzy
 msgid "Reviewed extensions"
 msgstr "Extensii recomandate"
 
-#: src/amo/components/Search/index.js:171
+#: src/amo/components/Search/index.js:169
 #, fuzzy
 msgid "Reviewed themes"
 msgstr "Scrie o recenzie la temă"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:172
 #, fuzzy
 msgid "Reviewed add-ons"
 msgstr "Scrie o recenzie la codul suplimentului"
 
-#: src/amo/components/Search/index.js:179
+#: src/amo/components/Search/index.js:177
 #, fuzzy
 msgid "Verified extensions"
 msgstr "Extensii promovate"
 
-#: src/amo/components/Search/index.js:182
+#: src/amo/components/Search/index.js:180
 #, fuzzy
 msgid "Verified themes"
 msgstr "Teme promovate"
 
-#: src/amo/components/Search/index.js:185
+#: src/amo/components/Search/index.js:183
 #, fuzzy
 msgid "Verified add-ons"
 msgstr "Suplimente promovate"
 
-#: src/amo/components/Search/index.js:193
+#: src/amo/components/Search/index.js:191
 #: src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
 msgstr "Extensii în tendințe"
 
-#: src/amo/components/Search/index.js:196
+#: src/amo/components/Search/index.js:194
 #: src/amo/pages/LandingPage/index.js:166
 msgid "Trending themes"
 msgstr "Teme în tendințe"
 
-#: src/amo/components/Search/index.js:199
+#: src/amo/components/Search/index.js:197
 msgid "Trending add-ons"
 msgstr "Suplimente în tendințe"
 
-#: src/amo/components/Search/index.js:205
+#: src/amo/components/Search/index.js:203
 #: src/amo/pages/LandingPage/index.js:144
 msgid "Top rated extensions"
 msgstr "Extensii în topul evaluărilor"
 
-#: src/amo/components/Search/index.js:208
+#: src/amo/components/Search/index.js:206
 #: src/amo/pages/LandingPage/index.js:175
 msgid "Top rated themes"
 msgstr "Teme în topul evaluărilor"
 
-#: src/amo/components/Search/index.js:211
+#: src/amo/components/Search/index.js:209
 msgid "Top rated add-ons"
 msgstr "Suplimente în topul evaluărilor"
 
-#: src/amo/components/Search/index.js:217
+#: src/amo/components/Search/index.js:215
 msgid "Popular extensions"
 msgstr "Extensii populare"
 
-#: src/amo/components/Search/index.js:220
+#: src/amo/components/Search/index.js:218
 msgid "Popular themes"
 msgstr "Teme populare"
 
-#: src/amo/components/Search/index.js:223
+#: src/amo/components/Search/index.js:221
 msgid "Popular add-ons"
 msgstr "Suplimente populare"
 
-#: src/amo/components/Search/index.js:229
+#: src/amo/components/Search/index.js:227
 msgid "Search results for \"%(query)s\""
 msgstr "Rezultatele căutării pentru „%(query)s”"
 
