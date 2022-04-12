@@ -9813,11 +9813,12 @@ pino-syslog@2.0.0:
     split2 "^3.2.2"
     through2 "^4.0.2"
 
-pino@7.9.2:
-  version "7.9.2"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-7.9.2.tgz#0519ac79b9db17f0c63bb4267f7e8133f5c517ad"
-  integrity sha512-c8wmB2PuhdJurYPRl/eo3+PosHe7Ep6GZvBJFIrp9oV1YRZQ3qm3MujaEolaKUfwX8cDL96WKCWWMedB2drXqw==
+pino@7.10.0:
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-7.10.0.tgz#c621a3acf3b7aa50a6156c1b3989d1703666b2b1"
+  integrity sha512-T6R92jy/APDElEuOk0gqa4nds3ZgqFbHde2X0g8XorlyPlVGlr9T5KQphtp72a3ByKOdZMg/gM/0IprpGQfTWg==
   dependencies:
+    atomic-sleep "^1.0.0"
     fast-redact "^3.0.0"
     on-exit-leak-free "^0.2.0"
     pino-abstract-transport v0.5.0
@@ -9827,7 +9828,7 @@ pino@7.9.2:
     real-require "^0.1.0"
     safe-stable-stringify "^2.1.0"
     sonic-boom "^2.2.1"
-    thread-stream "^0.15.0"
+    thread-stream "^0.15.1"
 
 piping@^1.0.0-rc.4:
   version "1.0.0-rc.4"
@@ -12521,10 +12522,10 @@ then-request@^2.0.1:
     promise "^7.1.1"
     qs "^6.1.0"
 
-thread-stream@^0.15.0:
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/thread-stream/-/thread-stream-0.15.1.tgz#5aba24a35aa5e9e4eb66173826443d7167b34b07"
-  integrity sha512-SCnuIT27gc2h/F/RY2peuC7brgLy+1oXU+7yOIAITz1z5stDpXCF5rAoFcykjuK6ifbTlKAHL7Ccq8oc5Btv1w==
+thread-stream@^0.15.1:
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/thread-stream/-/thread-stream-0.15.2.tgz#fb95ad87d2f1e28f07116eb23d85aba3bc0425f4"
+  integrity sha512-UkEhKIg2pD+fjkHQKyJO3yoIvAP3N6RlNFt2dUhcS1FGvCD1cQa1M/PGknCLFIyZdtJOWQjejp7bdNqmN7zwdA==
   dependencies:
     real-require "^0.1.0"
 
