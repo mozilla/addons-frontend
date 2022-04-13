@@ -1,170 +1,147 @@
 import * as React from 'react';
+import userEvent from '@testing-library/user-event';
 
-import Button from 'amo/components/Button';
-import ConfirmButton, {
-  ConfirmButtonBase,
-  extractId,
-} from 'amo/components/ConfirmButton';
-import ConfirmationDialog from 'amo/components/ConfirmationDialog';
-import {
-  applyUIStateChanges,
-  createFakeEvent,
-  dispatchClientMetadata,
-  fakeI18n,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import ConfirmButton, { extractId } from 'amo/components/ConfirmButton';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const getProps = ({ i18n = fakeI18n(), ...props } = {}) => {
-    return {
-      i18n,
-      id: 'Collection-confirm-delete',
-      message: 'some warning message',
-      onConfirm: sinon.stub(),
-      store: dispatchClientMetadata().store,
-      ...props,
-    };
-  };
+  const defaultChildText = 'the default text of this button';
 
-  const render = ({ children, ...otherProps } = {}) => {
-    return shallowUntilTarget(
-      <ConfirmButton {...getProps(otherProps)}>
-        {children || 'the default text of this button'}
+  const render = ({
+    children = defaultChildText,
+    message = 'some warning message',
+    id = 'Some-confirm-button',
+    onConfirm = jest.fn(),
+    ...otherProps
+  } = {}) => {
+    return defaultRender(
+      <ConfirmButton
+        onConfirm={onConfirm}
+        message={message}
+        id={id}
+        {...otherProps}
+      >
+        {children}
       </ConfirmButton>,
-      ConfirmButtonBase,
     );
   };
 
-  const renderWithDialog = ({
-    store = dispatchClientMetadata().store,
-    ...otherProps
-  } = {}) => {
-    const root = render({ store, ...otherProps });
+  const renderWithDialog = ({ ...otherProps } = {}) => {
+    render(otherProps);
 
     // Click to open ConfirmationDialog.
-    root.find(Button).simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
-
-    expect(root.find(ConfirmationDialog)).toHaveLength(1);
-
-    return root;
-  };
-
-  const getDialogProp = (root, propName) => {
-    const confirmDialog = root.find(ConfirmationDialog);
-    expect(confirmDialog).toHaveProp(propName);
-    return confirmDialog.prop(propName);
+    userEvent.click(
+      screen.getByRole('button', {
+        name: defaultChildText,
+      }),
+    );
+    expect(screen.getAllByRole('button')).toHaveLength(2);
   };
 
   it('renders a button', () => {
-    const root = render();
+    render();
 
-    expect(root).toHaveClassName('ConfirmButton');
-    expect(root.find(Button)).toHaveLength(1);
-    expect(root.find(Button)).toHaveClassName('ConfirmButton-default-button');
-    expect(root.find(Button)).toHaveProp('buttonType', 'neutral');
+    const button = screen.getByRole('button', {
+      name: defaultChildText,
+    });
+    expect(button).toHaveClass('ConfirmButton-default-button');
+    expect(button).toHaveClass('Button--neutral');
   });
 
   it('passes the buttonType prop to the button', () => {
-    const buttonType = 'alert';
-    const root = render({ buttonType });
+    render({ buttonType: 'alert' });
 
-    expect(root.find(Button)).toHaveProp('buttonType', buttonType);
+    expect(
+      screen.getByRole('button', {
+        name: defaultChildText,
+      }),
+    ).toHaveClass('Button--alert');
   });
 
   it('passes the children prop to the button', () => {
     const children = 'Do you really want to delete this?';
-    const root = render({ children });
+    render({ children });
 
-    expect(root.find(Button).children()).toHaveText(children);
+    expect(screen.getByRole('button', { name: children })).toBeInTheDocument();
   });
 
   it('shows ConfirmationDialog when button is clicked', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
+    render();
 
-    expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
-    expect(root.find(ConfirmationDialog)).toHaveLength(0);
+    expect(screen.queryByText('some warning message')).not.toBeInTheDocument();
 
-    root.find(Button).simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
+    userEvent.click(
+      screen.getByRole('button', {
+        name: defaultChildText,
+      }),
+    );
 
-    expect(root).toHaveClassName('ConfirmButton--show-confirmation');
-    expect(root.find(ConfirmationDialog)).toHaveLength(1);
+    expect(screen.getByText('some warning message')).toBeInTheDocument();
   });
 
   it('configures ConfirmationDialog', () => {
     const cancelButtonText = 'Nevermind, take me back';
-    const cancelButtonType = 'alert';
     const confirmButtonText = 'Do it!';
-    const confirmButtonType = 'alert';
     const message = 'Do you really want to cancel?';
-    const puffyButtons = true;
 
-    const root = renderWithDialog({
+    renderWithDialog({
       cancelButtonText,
-      cancelButtonType,
+      cancelButtonType: 'alert',
       confirmButtonText,
-      confirmButtonType,
+      confirmButtonType: 'alert',
       message,
-      puffyButtons,
+      puffyButtons: true,
     });
 
-    const confirmDialog = root.find(ConfirmationDialog);
-    expect(confirmDialog).toHaveProp('cancelButtonText', cancelButtonText);
-    expect(confirmDialog).toHaveProp('cancelButtonType', cancelButtonType);
-    expect(confirmDialog).toHaveProp('confirmButtonText', confirmButtonText);
-    expect(confirmDialog).toHaveProp('confirmButtonType', confirmButtonType);
-    expect(confirmDialog).toHaveProp('message', message);
-    expect(confirmDialog).toHaveProp('puffyButtons', puffyButtons);
+    expect(screen.getByText(message)).toBeInTheDocument();
+
+    const dialogCancelButton = screen.getByRole('button', {
+      name: cancelButtonText,
+    });
+    expect(dialogCancelButton).toHaveClass('Button--alert');
+    expect(dialogCancelButton).toHaveClass('Button--puffy');
+
+    const dialogConfirmButton = screen.getByRole('button', {
+      name: confirmButtonText,
+    });
+    expect(dialogConfirmButton).toHaveClass('Button--alert');
+    expect(dialogConfirmButton).toHaveClass('Button--puffy');
   });
 
   it('hides the default button after it is clicked', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
+    render();
 
-    root
-      .find('.ConfirmButton-default-button')
-      .simulate('click', createFakeEvent());
-    applyUIStateChanges({ root, store });
-
-    expect(root.find('.ConfirmButton-default-button')).toHaveLength(0);
+    const button = screen.getByRole('button', {
+      name: defaultChildText,
+    });
+    userEvent.click(button);
+    expect(button).not.toBeInTheDocument();
   });
 
-  it('hides ConfirmationDialog via onCancel', () => {
-    const { store } = dispatchClientMetadata();
-    const root = renderWithDialog({ store });
+  it('hides ConfirmationDialog on cancel', () => {
+    renderWithDialog();
 
-    const onCancel = getDialogProp(root, 'onCancel');
-    // Simulate a cancellation.
-    onCancel(createFakeEvent());
+    userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    applyUIStateChanges({ root, store });
-    expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
-    expect(root.find(ConfirmationDialog)).toHaveLength(0);
+    expect(screen.getAllByRole('button')).toHaveLength(1);
   });
 
-  it('handles the onConfirm callback', () => {
-    const { store } = dispatchClientMetadata();
-    const onConfirmSpy = sinon.spy();
-    const root = renderWithDialog({ onConfirm: onConfirmSpy, store });
+  it('handles onConfirm callback and hides ConfirmationDialog on confirm', () => {
+    const onConfirm = jest.fn();
+    renderWithDialog({ onConfirm });
 
-    const onConfirm = getDialogProp(root, 'onConfirm');
+    expect(screen.getAllByRole('button')).toHaveLength(2);
 
-    // Simulate a confirmation.
-    const event = createFakeEvent();
-    onConfirm(event);
-    applyUIStateChanges({ root, store });
+    userEvent.click(screen.getByRole('button', { name: 'Confirm' }));
 
-    expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
-    expect(root.find(ConfirmationDialog)).toHaveLength(0);
-    sinon.assert.calledWith(onConfirmSpy, event);
+    expect(screen.getAllByRole('button')).toHaveLength(1);
+    expect(onConfirm).toHaveBeenCalled();
   });
 
   describe('extractId', () => {
     it('returns a unique ID provided by the ID prop', () => {
       const id = 'special-button';
-      expect(extractId(getProps({ id }))).toEqual(id);
+      expect(extractId({ id })).toEqual(id);
     });
   });
 });
