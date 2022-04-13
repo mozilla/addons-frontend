@@ -35,7 +35,7 @@ describe(__filename, () => {
         name: defaultChildText,
       }),
     );
-    expect(screen.getByClassName('ConfirmationDialog')).toBeInTheDocument();
+    expect(screen.getAllByRole('button')).toHaveLength(2);
   };
 
   it('renders a button', () => {
@@ -51,10 +51,11 @@ describe(__filename, () => {
   it('passes the buttonType prop to the button', () => {
     render({ buttonType: 'alert' });
 
-    const button = screen.getByRole('button', {
-      name: defaultChildText,
-    });
-    expect(button).toHaveClass('Button--alert');
+    expect(
+      screen.getByRole('button', {
+        name: defaultChildText,
+      }),
+    ).toHaveClass('Button--alert');
   });
 
   it('passes the children prop to the button', () => {
@@ -67,9 +68,6 @@ describe(__filename, () => {
   it('shows ConfirmationDialog when button is clicked', () => {
     render();
 
-    expect(
-      screen.queryByClassName('ConfirmationDialog'),
-    ).not.toBeInTheDocument();
     expect(screen.queryByText('some warning message')).not.toBeInTheDocument();
 
     userEvent.click(
@@ -79,7 +77,6 @@ describe(__filename, () => {
     );
 
     expect(screen.getByText('some warning message')).toBeInTheDocument();
-    expect(screen.getByClassName('ConfirmationDialog')).toBeInTheDocument();
   });
 
   it('configures ConfirmationDialog', () => {
@@ -126,22 +123,18 @@ describe(__filename, () => {
 
     userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    expect(
-      screen.queryByClassName('ConfirmationDialog'),
-    ).not.toBeInTheDocument();
+    expect(screen.getAllByRole('button')).toHaveLength(1);
   });
 
   it('handles onConfirm callback and hides ConfirmationDialog on confirm', () => {
     const onConfirm = jest.fn();
     renderWithDialog({ onConfirm });
 
-    expect(screen.getByClassName('ConfirmationDialog')).toBeInTheDocument();
+    expect(screen.getAllByRole('button')).toHaveLength(2);
 
     userEvent.click(screen.getByRole('button', { name: 'Confirm' }));
 
-    expect(
-      screen.queryByClassName('ConfirmationDialog'),
-    ).not.toBeInTheDocument();
+    expect(screen.getAllByRole('button')).toHaveLength(1);
     expect(onConfirm).toHaveBeenCalled();
   });
 
