@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-04-12 16:22+0000\n"
-"PO-Revision-Date: 2022-04-14 02:15+0000\n"
+"PO-Revision-Date: 2022-04-16 21:51+0000\n"
 "Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -276,7 +276,7 @@ msgstr ""
 
 #: src/amo/components/AddonQRCodeLink/index.js:87
 msgid "Also available on Firefox for Android"
-msgstr ""
+msgstr "Yella daɣen ɣef Firefox i Android."
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -2560,7 +2560,7 @@ msgstr "Ittawi-d talɣut n tkerkas, isefcal tazmert n ineflayen neɣ ireggem-ite
 
 #: src/amo/pages/TagPage/index.js:43
 msgid "Add-ons tagged with %(tag)s"
-msgstr ""
+msgstr "Izegrar yettwacerḍen s %(tag)s"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "My reviews"
