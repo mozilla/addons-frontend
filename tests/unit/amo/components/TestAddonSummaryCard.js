@@ -1,158 +1,141 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import AddonTitle from 'amo/components/AddonTitle';
-import AddonSummaryCard, {
-  AddonSummaryCardBase,
-} from 'amo/components/AddonSummaryCard';
-import RatingsByStar from 'amo/components/RatingsByStar';
-import Link from 'amo/components/Link';
-import fallbackIcon from 'amo/img/icons/default.svg';
-import {
-  createContextWithFakeRouter,
-  createFakeLocation,
-  createInternalAddonWithLang,
-  fakeAddon,
-  fakeI18n,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import { getAddonURL } from 'amo/utils';
-import LoadingText from 'amo/components/LoadingText';
-import Rating from 'amo/components/Rating';
+import {
+  createHistory,
+  createInternalAddonWithLang,
+  createLocalizedString,
+  fakeAddon,
+  render as defaultRender,
+  screen,
+  within,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ addon, headerText, location, ...props }) => {
-    return shallowUntilTarget(
+  const render = ({ addon, headerText, location, ...props } = {}) => {
+    const renderOptions = {
+      history: createHistory({
+        initialEntries: [location || '/'],
+      }),
+    };
+
+    return defaultRender(
       <AddonSummaryCard
         addon={addon ? createInternalAddonWithLang(addon) : addon}
         headerText={headerText}
-        i18n={fakeI18n()}
         {...props}
       />,
-      AddonSummaryCardBase,
-      {
-        shallowOptions: createContextWithFakeRouter({ location }),
-      },
+      renderOptions,
     );
-  };
-
-  const getAddonHeader = (root) => {
-    return shallow(root.find('.AddonSummaryCard').prop('header'));
-  };
-
-  const renderAddonHeader = (props = {}) => {
-    const root = render(props);
-
-    return getAddonHeader(root);
   };
 
   describe('Card header', () => {
     it('renders a fallback icon without an add-on', () => {
-      const header = renderAddonHeader({ addon: null });
+      render({ addon: null });
 
-      expect(header.find('.AddonSummaryCard-header-icon img')).toHaveProp(
+      expect(screen.getByAltText('Add-on icon')).toHaveAttribute(
         'src',
-        fallbackIcon,
+        'default.svg',
       );
     });
 
     it("renders the add-on's icon in the header", () => {
       const addon = fakeAddon;
-      const header = renderAddonHeader({ addon });
-      const img = header.find('.AddonSummaryCard-header-icon img');
+      render({ addon });
 
-      expect(img).toHaveProp('src', addon.icon_url);
+      expect(screen.getByAltText('Add-on icon')).toHaveAttribute(
+        'src',
+        addon.icon_url,
+      );
     });
 
     it('adds a link on the icon when there is an add-on', () => {
       const addon = fakeAddon;
+      render({ addon });
 
-      const header = renderAddonHeader({ addon });
-
-      expect(header.find(Link)).toHaveLength(1);
-      expect(header.find(Link)).toHaveProp('to', getAddonURL(addon.slug));
+      expect(screen.getByRole('link', { name: 'Add-on icon' })).toHaveAttribute(
+        'href',
+        `/en-US/android${getAddonURL(addon.slug)}`,
+      );
     });
 
     it('adds UTM query parameters to the link on the icon when there are some', () => {
       const addon = fakeAddon;
-      const utm_medium = 'some-utm-medium';
-
-      const header = renderAddonHeader({
+      const utmMedium = 'some-utm-medium';
+      render({
         addon,
-        location: createFakeLocation({ query: { utm_medium } }),
+        location: `/?utm_medium=${utmMedium}`,
       });
 
-      expect(header.find(Link)).toHaveProp(
-        'to',
-        `${getAddonURL(addon.slug)}?utm_medium=${utm_medium}`,
+      expect(screen.getByRole('link', { name: 'Add-on icon' })).toHaveAttribute(
+        'href',
+        `/en-US/android${getAddonURL(addon.slug)}?utm_medium=${utmMedium}`,
       );
     });
 
     it('renders a hidden h1 for SEO', () => {
       const headerText = 'Expected header text';
-      const header = renderAddonHeader({ headerText });
-      const h1 = header.find('.AddonSummaryCard-header h1');
-      expect(h1).toHaveClassName('visually-hidden');
-      expect(h1).toHaveText(headerText);
+      render({ headerText });
+
+      expect(screen.getByRole('heading', { name: headerText })).toHaveClass(
+        'visually-hidden',
+      );
     });
 
     it('renders an AddonTitle', () => {
-      const addon = fakeAddon;
+      const addonName = 'My Add-On';
+      const addon = { ...fakeAddon, name: createLocalizedString(addonName) };
+      render({ addon });
 
-      const header = renderAddonHeader({ addon });
-
-      expect(header.find(AddonTitle)).toHaveProp(
-        'addon',
-        createInternalAddonWithLang(addon),
-      );
-      expect(header.find(AddonTitle)).toHaveProp(
-        'queryParamsForAttribution',
-        {},
+      expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
+        'href',
+        `/en-US/android${getAddonURL(addon.slug)}`,
       );
     });
 
     it('passes an empty queryParamsForAttribution when there is no UTM parameter', () => {
-      const src = 'some-src';
-
-      const header = renderAddonHeader({
-        addon: fakeAddon,
-        location: createFakeLocation({ query: { src } }),
+      const addonName = 'My Add-On';
+      const addon = { ...fakeAddon, name: createLocalizedString(addonName) };
+      render({
+        addon,
+        location: `/?src=someSrc`,
       });
 
-      expect(header.find(AddonTitle)).toHaveProp(
-        'queryParamsForAttribution',
-        {},
+      expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
+        'href',
+        `/en-US/android${getAddonURL(addon.slug)}`,
       );
     });
 
     it('passes queryParamsForAttribution with the value of `utm_content` when available', () => {
-      const utm_content = 'some-src';
-
-      const header = renderAddonHeader({
-        addon: fakeAddon,
-        location: createFakeLocation({ query: { utm_content } }),
+      const addonName = 'My Add-On';
+      const addon = { ...fakeAddon, name: createLocalizedString(addonName) };
+      const utmContent = 'some-src';
+      render({
+        addon,
+        location: `/?utm_content=${utmContent}`,
       });
 
-      expect(header.find(AddonTitle)).toHaveProp('queryParamsForAttribution', {
-        utm_content,
-      });
+      expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
+        'href',
+        `/en-US/android${getAddonURL(addon.slug)}?utm_content=${utmContent}`,
+      );
     });
   });
 
   describe('overallRatingStars', () => {
     it('renders Rating without an add-on', () => {
-      const root = render({ addon: null });
-      const rating = root.find(Rating);
+      render({ addon: null });
 
-      expect(rating).toHaveProp('rating', null);
+      expect(screen.getAllByTitle('There are no ratings yet')).toHaveLength(6);
     });
 
     it('renders Rating without add-on ratings', () => {
       const addon = { ...fakeAddon, ratings: undefined };
-      const root = render({ addon });
-      const rating = root.find(Rating);
+      render({ addon });
 
-      expect(rating).toHaveProp('rating', undefined);
+      expect(screen.getAllByTitle('There are no ratings yet')).toHaveLength(6);
     });
 
     it('renders Rating with add-on ratings', () => {
@@ -163,47 +146,53 @@ describe(__filename, () => {
           average: 4.5,
         },
       };
-      const root = render({ addon });
-      const rating = root.find(Rating);
+      render({ addon });
 
-      expect(rating).toHaveProp('rating', addon.ratings.average);
+      expect(screen.getAllByTitle('Rated 4.5 out of 5')).toHaveLength(6);
     });
 
     it('renders RatingsByStar without an add-on', () => {
-      const root = render({ addon: null });
-      const ratingsByStar = root.find(RatingsByStar);
+      render({ addon: null });
 
-      expect(ratingsByStar).toHaveProp('addon', null);
+      // There will be two loading indicators per row.
+      expect(
+        within(screen.getByClassName('RatingsByStar')).getAllByRole('alert'),
+      ).toHaveLength(10);
     });
 
     it('renders RatingsByStar with an add-on', () => {
-      const addon = { ...fakeAddon, id: 8892 };
-      const root = render({ addon });
-      const ratingsByStar = root.find(RatingsByStar);
+      const addon = fakeAddon;
+      render({ addon });
 
-      expect(ratingsByStar).toHaveProp('addon');
       // Do a sanity check to make sure the right add-on was used.
-      // This can't compare the full object since it the test doesn't have
-      // access to the internal add-on.
-      expect(ratingsByStar.prop('addon')).toMatchObject({ id: addon.id });
+      expect(
+        screen.getByTitle('There are no five-star reviews'),
+      ).toHaveAttribute(
+        'href',
+        `/en-US/android/addon/${addon.slug}/reviews/?score=5`,
+      );
     });
 
     it('renders loading text without an add-on', () => {
-      const root = render({ addon: null });
+      render({ addon: null });
 
       expect(
-        root.find('.AddonSummaryCard-addonAverage').find(LoadingText),
-      ).toHaveLength(1);
+        within(
+          screen.getByClassName('AddonSummaryCard-addonAverage'),
+        ).getByRole('alert'),
+      ).toBeInTheDocument();
     });
 
     it('renders empty text without add-on ratings', () => {
-      const root = render({ addon: { ...fakeAddon, ratings: undefined } });
+      render({ addon: { ...fakeAddon, ratings: undefined } });
 
-      expect(root.find('.AddonSummaryCard-addonAverage').text()).toEqual('');
+      expect(
+        screen.getByClassName('AddonSummaryCard-addonAverage'),
+      ).toHaveTextContent('');
     });
 
     it('renders a fixed star average', () => {
-      const root = render({
+      render({
         addon: {
           ...fakeAddon,
           ratings: {
@@ -213,13 +202,11 @@ describe(__filename, () => {
         },
       });
 
-      expect(root.find('.AddonSummaryCard-addonAverage').text()).toEqual(
-        '4.7 Stars out of 5',
-      );
+      expect(screen.getByText('4.7 Stars out of 5')).toBeInTheDocument();
     });
 
     it('renders whole number star averages', () => {
-      const root = render({
+      render({
         addon: {
           ...fakeAddon,
           ratings: {
@@ -229,13 +216,11 @@ describe(__filename, () => {
         },
       });
 
-      expect(root.find('.AddonSummaryCard-addonAverage').text()).toEqual(
-        '4 Stars out of 5',
-      );
+      expect(screen.getByText('4 Stars out of 5')).toBeInTheDocument();
     });
 
     it('renders a single star average with singular text', () => {
-      const root = render({
+      render({
         addon: {
           ...fakeAddon,
           ratings: {
@@ -245,9 +230,7 @@ describe(__filename, () => {
         },
       });
 
-      expect(root.find('.AddonSummaryCard-addonAverage').text()).toEqual(
-        '1 Star out of 5',
-      );
+      expect(screen.getByText('1 Star out of 5')).toBeInTheDocument();
     });
   });
 });
