@@ -3,7 +3,8 @@ import config from 'config';
 
 import log from 'amo/logger';
 
-const SEND_SERVER_REDIRECT: 'SEND_SERVER_REDIRECT' = 'SEND_SERVER_REDIRECT';
+export const SEND_SERVER_REDIRECT: 'SEND_SERVER_REDIRECT' =
+  'SEND_SERVER_REDIRECT';
 
 export type RedirectToState = {|
   url: null | string,

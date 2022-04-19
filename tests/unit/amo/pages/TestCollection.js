@@ -1,116 +1,126 @@
-import { shallow } from 'enzyme';
-import * as React from 'react';
+import config from 'config';
+import { createEvent, fireEvent, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import Collection, {
-  CollectionBase,
-  DEFAULT_ADDON_PLACEHOLDER_COUNT,
-  extractId,
-  mapStateToProps,
-} from 'amo/pages/Collection';
-import AddonsCard from 'amo/components/AddonsCard';
-import CollectionAddAddon from 'amo/components/CollectionAddAddon';
-import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
-import CollectionControls from 'amo/components/CollectionControls';
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
-import AuthenticateButton from 'amo/components/AuthenticateButton';
-import Paginate from 'amo/components/Paginate';
-import ConfirmButton from 'amo/components/ConfirmButton';
-import ErrorList from 'amo/components/ErrorList';
-import LoadingText from 'amo/components/LoadingText';
+import { createApiError } from 'amo/api';
 import {
+  ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_FIREFOX,
+  COLLECTION_SORT_DATE_ADDED_DESCENDING,
+  COLLECTION_SORT_NAME,
+} from 'amo/constants';
+import {
+  FETCH_CURRENT_COLLECTION,
+  FETCH_CURRENT_COLLECTION_PAGE,
   collectionName,
   deleteCollection,
   deleteCollectionAddonNotes,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
-  getCurrentCollection,
   loadCurrentCollection,
   removeAddonFromCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
-import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
 import {
-  CLIENT_APP_FIREFOX,
-  COLLECTION_SORT_DATE_ADDED_DESCENDING,
-  COLLECTION_SORT_NAME,
-} from 'amo/constants';
-import { ErrorHandler } from 'amo/errorHandler';
-import { sendServerRedirect } from 'amo/reducers/redirectTo';
+  SEND_SERVER_REDIRECT,
+  sendServerRedirect,
+} from 'amo/reducers/redirectTo';
+import {
+  DEFAULT_ADDON_PLACEHOLDER_COUNT,
+  extractId,
+} from 'amo/pages/Collection';
 import {
   createFakeCollectionAddon,
+  createFailedErrorHandler,
   createFakeCollectionDetail,
-  createFakeEvent,
-  createFakeHistory,
-  createInternalCollectionWithLang,
   createLocalizedString,
-  createStubErrorHandler,
+  createFakeCollectionAddonsListResponse,
+  createHistory,
   dispatchClientMetadata,
-  dispatchSignInActions,
+  dispatchSignInActionsWithStore,
   fakeAddon,
   fakeI18n,
-  createFakeLocation,
-  shallowUntilTarget,
-  createFakeCollectionAddonsListResponse,
+  fakePreview,
+  getElement,
+  onLocationChanged,
+  renderPage as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let store;
+  const clientApp = CLIENT_APP_FIREFOX;
+  const defaultCollectionDescription = 'Collection description';
+  const defaultCollectionId = 987;
   const defaultCollectionName = 'Collection name';
-  const defaultCollectionDetail = createFakeCollectionDetail({
-    name: defaultCollectionName,
+  const defaultCollectionSort = COLLECTION_SORT_DATE_ADDED_DESCENDING;
+  const defaultPage = '1';
+  const defaultFilters = {
+    collectionSort: defaultCollectionSort,
+    page: defaultPage,
+  };
+  const defaultSlug = 'default-collection-slug';
+  const defaultUserId = 123;
+  const editableCollectionAddonErrorHandlerId =
+    'src/amo/components/EditableCollectionAddon/index.js-editable-collection-addon-1234';
+  const lang = 'en-US';
+
+  const getLocation = ({
+    editing = false,
+    slug = defaultSlug,
+    userId = defaultUserId,
+  } = {}) =>
+    `/${lang}/${clientApp}/collections/${userId}/${slug}/${
+      editing ? 'edit/' : ''
+    }`;
+  const defaultLocation = getLocation();
+
+  const getCollectionPageErrorHandlerId = ({
+    page = '',
+    slug = defaultSlug,
+    userId = defaultUserId,
+  } = {}) => `src/amo/pages/Collection/index.js-${userId}/${slug}/${page}`;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata({ clientApp, lang }).store;
   });
-  const defaultUserId = defaultCollectionDetail.author.id;
-  const defaultSlug = defaultCollectionDetail.slug;
 
-  const getProps = ({ ...otherProps } = {}) => ({
-    dispatch: sinon.stub(),
-    errorHandler: createStubErrorHandler(),
-    i18n: fakeI18n(),
-    location: createFakeLocation(),
-    match: {
-      params: {
-        userId: String(defaultUserId),
-        slug: defaultSlug,
-      },
-    },
-    history: createFakeHistory(),
-    store: dispatchClientMetadata().store,
-    ...otherProps,
-  });
-
-  const renderComponent = ({ ...otherProps } = {}) => {
-    const allProps = {
-      ...getProps(),
-      ...otherProps,
-    };
-
-    return shallowUntilTarget(<Collection {...allProps} />, CollectionBase);
+  const _createFakeCollectionDetail = (props = {}) => {
+    return createFakeCollectionDetail({
+      authorId: defaultUserId,
+      description: defaultCollectionDescription,
+      id: defaultCollectionId,
+      name: defaultCollectionName,
+      slug: defaultSlug,
+      ...props,
+    });
   };
 
-  const simulateReduxStateChange = ({ wrapper, store }) => {
-    // This is needed because shallowUntilTarget() does not trigger any
-    // lifecycle methods.
-    wrapper.setProps(
-      mapStateToProps(store.getState(), { location: createFakeLocation() }),
-    );
-  };
+  const render = ({
+    editing = false,
+    history,
+    location,
+    slug = defaultSlug,
+    userId = defaultUserId,
+  } = {}) => {
+    const initialEntry = location || getLocation({ editing, slug, userId });
 
-  const createCollectionWithTwoAddons = () => {
-    const addons = [
-      createFakeCollectionAddon({ addon: { ...fakeAddon, id: 1 } }),
-      createFakeCollectionAddon({ addon: { ...fakeAddon, id: 2 } }),
-    ];
-
-    return {
-      detail: createFakeCollectionDetail(),
-      addonsResponse: createFakeCollectionAddonsListResponse({ addons }),
+    const renderOptions = {
+      history:
+        history ||
+        createHistory({
+          initialEntries: [initialEntry],
+        }),
+      store,
     };
+    return defaultRender(renderOptions);
   };
 
   const _loadCurrentCollection = ({
     addonsResponse = createFakeCollectionAddonsListResponse(),
-    detail = defaultCollectionDetail,
-    store,
-  }) => {
+    detail = _createFakeCollectionDetail(),
+  } = {}) => {
     store.dispatch(
       loadCurrentCollection({
         addonsResponse,
@@ -119,13 +129,97 @@ describe(__filename, () => {
     );
   };
 
-  it('renders itself', () => {
-    const wrapper = renderComponent();
+  const renderWithCollection = ({
+    addons = [createFakeCollectionAddon({ addon: fakeAddon })],
+    addonsResponse = createFakeCollectionAddonsListResponse({ addons }),
+    detailProps = {},
+    editing,
+    history,
+    location,
+    slug,
+    userId,
+  } = {}) => {
+    _loadCurrentCollection({
+      addonsResponse,
+      detail: {
+        ..._createFakeCollectionDetail(detailProps),
+        count: addons.length,
+      },
+    });
 
-    expect(wrapper.find('.Collection')).toHaveLength(1);
-    expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
-  });
+    return render({ editing, history, location, slug, userId });
+  };
 
+  const renderWithCollectionForSignedInUser = ({
+    addons,
+    addonsResponse,
+    detailProps = {},
+    editing,
+    history,
+    location,
+    slug,
+    userId = defaultUserId,
+  } = {}) => {
+    dispatchSignInActionsWithStore({ store, userId });
+    return renderWithCollection({
+      addons,
+      addonsResponse,
+      detailProps: { ...detailProps, authorId: userId },
+      editing,
+      history,
+      location,
+      slug,
+      userId,
+    });
+  };
+
+  const renderInAddMode = ({ history, loggedIn = true, withAddonId } = {}) => {
+    if (loggedIn) {
+      dispatchSignInActionsWithStore({ store, userId: defaultUserId });
+    }
+    return render({
+      history:
+        history ||
+        createHistory({
+          initialEntries: [
+            `/${lang}/${clientApp}/collections/add/${
+              withAddonId ? `?include_addon_id=${withAddonId}` : ''
+            }`,
+          ],
+        }),
+    });
+  };
+
+  const renderWithNotes = (notes = 'Some notes') => {
+    renderWithCollectionForSignedInUser({
+      addons: [
+        createFakeCollectionAddon({
+          notes,
+        }),
+      ],
+      editing: true,
+    });
+  };
+
+  const clickEditButton = () =>
+    userEvent.click(screen.getByRole('link', { name: 'Edit this collection' }));
+
+  const assertNoLoadingActionsDispatched = (dispatch) => {
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_CURRENT_COLLECTION }),
+    );
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_CURRENT_COLLECTION_PAGE }),
+    );
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: SEND_SERVER_REDIRECT }),
+    );
+    return true;
+  };
+
+  // Note: This test will be replaced by a test for CollectionDetailsCard
+  // eslint-disable-next-line jest/no-commented-out-tests
+  /*
   it('renders a CollectionDetailsCard', () => {
     const creating = false;
     const editing = false;
@@ -155,1377 +249,844 @@ describe(__filename, () => {
     expect(detailsCard).toHaveProp('editing', editing);
     expect(detailsCard).toHaveProp('filters', { page, collectionSort: sort });
   });
+  */
 
   it('renders placeholder text if there are no add-ons', () => {
-    const { store } = dispatchSignInActions();
+    renderWithCollectionForSignedInUser({ addons: [] });
 
-    _loadCurrentCollection({
-      store,
-      addonsResponse: createFakeCollectionAddonsListResponse({ addons: [] }),
-    });
-
-    const wrapper = renderComponent({ store });
-
-    expect(wrapper.find('.Collection-placeholder')).toHaveLength(1);
-    expect(wrapper.find('.Collection-placeholder').text()).toEqual(
-      'Search for extensions and themes to add to your collection.',
-    );
+    expect(
+      screen.getByText(
+        'Search for extensions and themes to add to your collection.',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders placeholder text when creating a collection', () => {
-    const { store } = dispatchSignInActions();
+    renderInAddMode();
 
-    const wrapper = renderComponent({ creating: true, store });
-
-    expect(wrapper.find('.Collection-placeholder')).toHaveLength(1);
-    expect(wrapper.find('.Collection-placeholder').text()).toEqual(
-      'First, create your collection. Then you can add extensions and themes.',
-    );
+    expect(
+      screen.getByText(
+        'First, create your collection. Then you can add extensions and themes.',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('hides placeholder text when creating a collection if not logged in', () => {
-    const { store } = dispatchClientMetadata();
-    const wrapper = renderComponent({ creating: true, store });
+    renderInAddMode({ loggedIn: false });
 
-    expect(wrapper.find('.Collection-placeholder')).toHaveLength(0);
+    expect(
+      screen.queryByText(
+        'First, create your collection. Then you can add extensions and themes.',
+      ),
+    ).not.toBeInTheDocument();
   });
 
   it('hides placeholder text if there are add-ons', () => {
-    const { store } = dispatchSignInActions();
-
-    const addonsResponse = createFakeCollectionAddonsListResponse();
-    const collectionDetail = createFakeCollectionDetail();
-
-    _loadCurrentCollection({
-      store,
-      addonsResponse,
-      detail: collectionDetail,
+    renderWithCollectionForSignedInUser({
+      addons: [createFakeCollectionAddon({ addon: fakeAddon })],
     });
 
-    const wrapper = renderComponent({ store });
-
-    expect(wrapper.find('.Collection-placeholder')).toHaveLength(0);
+    expect(
+      screen.queryByText(
+        'Search for extensions and themes to add to your collection.',
+      ),
+    ).not.toBeInTheDocument();
   });
 
   it('hides placeholder text when viewing a collection if the user is not logged in', () => {
-    const { store } = dispatchClientMetadata();
+    renderWithCollection({ addons: [] });
 
-    _loadCurrentCollection({
-      store,
-      addonsResponse: createFakeCollectionAddonsListResponse({ addons: [] }),
-    });
-
-    const wrapper = renderComponent({ store });
-
-    expect(wrapper.find('.Collection-placeholder')).toHaveLength(0);
+    expect(
+      screen.queryByText(
+        'Search for extensions and themes to add to your collection.',
+      ),
+    ).not.toBeInTheDocument();
   });
 
   it('dispatches fetchCurrentCollection on mount', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
-    const userId = 456;
-    const params = { slug, userId: String(userId) };
-
-    renderComponent({ errorHandler, match: { params }, store });
-
-    // These are the expected default values for filters.
-    const filters = {
-      page: '1',
-      collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
-    };
-
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollection({
-        errorHandlerId: errorHandler.id,
-        filters,
-        slug,
-        userId,
+        errorHandlerId: getCollectionPageErrorHandlerId(),
+        filters: defaultFilters,
+        slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
   });
 
-  // See: https://github.com/mozilla/addons-frontend/issues/7424
+  // // See: https://github.com/mozilla/addons-frontend/issues/7424
   it('dispatches fetchCurrentCollection on mount with a username in the URL', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
+    const dispatch = jest.spyOn(store, 'dispatch');
     const userId = 'this-is-not-a-user-id';
-    const params = { slug, userId };
+    render({ userId });
 
-    renderComponent({ errorHandler, match: { params }, store });
-
-    // These are the expected default values for filters.
-    const filters = {
-      page: '1',
-      collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
-    };
-
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollection({
-        errorHandlerId: errorHandler.id,
-        filters,
-        slug,
+        errorHandlerId: getCollectionPageErrorHandlerId({ userId }),
+        filters: defaultFilters,
+        slug: defaultSlug,
         userId,
       }),
     );
   });
 
-  it('does not dispatch any fetches when switching to edit mode', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
+  it('does not dispatch any loading actions when switching to edit mode', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithCollectionForSignedInUser();
 
-    _loadCurrentCollection({ store });
+    clickEditButton();
 
-    fakeDispatch.resetHistory();
-
-    renderComponent({ editing: true, errorHandler, store });
-
-    sinon.assert.notCalled(fakeDispatch);
+    expect(
+      screen.getByRole('link', { name: 'Back to collection' }),
+    ).toBeInTheDocument();
+    expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
   });
 
-  it('does not dispatch any fetches when creating a collection', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
+  it('does not dispatch any loading actions when creating a collection', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderInAddMode();
 
-    renderComponent({ creating: true, store });
-
-    sinon.assert.notCalled(fakeDispatch);
+    expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
   });
 
   it('passes filters from the query string to fetchCurrentCollection', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
-    const userId = 567;
-    const page = 123;
+    const page = '123';
     const sort = COLLECTION_SORT_NAME;
-
-    renderComponent({
-      errorHandler,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      match: { params: { slug, userId: String(userId) } },
-      store,
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({
+      location: `${defaultLocation}?page=${page}&collection_sort=${sort}`,
     });
 
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollection({
-        errorHandlerId: errorHandler.id,
+        errorHandlerId: getCollectionPageErrorHandlerId({ page }),
         filters: { page, collectionSort: sort },
-        slug,
-        userId,
+        slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
   });
 
-  it('does not dispatch any action when nothing has changed', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    _loadCurrentCollection({ store });
-
-    const wrapper = renderComponent({ store });
-    fakeDispatch.resetHistory();
-
-    // This will trigger the componentDidUpdate() method.
-    wrapper.setProps();
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
-  it('does not dispatch any action when location has not changed', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    _loadCurrentCollection({ store });
-
-    const location = createFakeLocation();
-
-    const wrapper = renderComponent({ location, store });
-    fakeDispatch.resetHistory();
-
-    // This will trigger the componentDidUpdate() method.
-    wrapper.setProps({ location });
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
-  it('does not dispatch any action when loading collection', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
-    const userId = 456;
+  it('does not dispatch any loading actions when location has not changed', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithCollection();
 
     store.dispatch(
-      fetchCurrentCollection({
-        errorHandlerId: errorHandler.id,
-        slug,
-        userId,
+      onLocationChanged({
+        pathname: defaultLocation,
       }),
     );
 
-    fakeDispatch.resetHistory();
-    renderComponent({ store });
-
-    sinon.assert.notCalled(fakeDispatch);
+    expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
   });
 
-  it('does not dispatch any action when loading collection page', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
+  it('does not dispatch any loading actions when a collection is loaded', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithCollection();
 
-    const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
-    const userId = 456;
+    expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
+  });
 
+  it('does not dispatch any loading actions when a collection is loading', () => {
+    store.dispatch(
+      fetchCurrentCollection({
+        errorHandlerId: getCollectionPageErrorHandlerId(),
+        slug: defaultSlug,
+        userId: defaultUserId,
+      }),
+    );
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
+
+    expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
+  });
+
+  it('does not dispatch any loading actions when a collection page is loading', () => {
     store.dispatch(
       fetchCurrentCollectionPage({
-        errorHandlerId: errorHandler.id,
-        slug,
-        userId,
+        errorHandlerId: getCollectionPageErrorHandlerId(),
+        slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    fakeDispatch.resetHistory();
-    renderComponent({ store });
-
-    sinon.assert.notCalled(fakeDispatch);
+    expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
   });
 
-  it('does not dispatch any action when there is an error', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-    const wrapper = renderComponent({ dispatch: store.dispatch, store });
+  it('does not dispatch any loading actions when there is an error', () => {
+    createFailedErrorHandler({
+      id: getCollectionPageErrorHandlerId(),
+      store,
+    });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const { errorHandler } = wrapper.instance().props;
-    errorHandler.captureError(new Error('an unexpected error'));
-
-    fakeDispatch.resetHistory();
-    wrapper.setProps({ collection: null, errorHandler });
-
-    sinon.assert.notCalled(fakeDispatch);
+    expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
   });
 
   it('dispatches fetchCurrentCollection when location pathname has changed', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const slug = `${defaultSlug}-new`;
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithCollection();
 
-    _loadCurrentCollection({ store });
+    store.dispatch(
+      onLocationChanged({
+        pathname: getLocation({ slug }),
+      }),
+    );
 
-    const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
-    const userId = 456;
-    const page = 123;
-    const sort = COLLECTION_SORT_NAME;
-
-    const location = createFakeLocation({
-      pathname: `/collections/${userId}/${slug}/`,
-      query: { page, collection_sort: sort },
-    });
-
-    const newSlug = 'other-collection';
-    const newLocation = {
-      ...location,
-      pathname: `/collections/${userId}/${newSlug}/`,
-    };
-
-    const wrapper = renderComponent({
-      errorHandler,
-      location,
-      match: { params: { slug, userId: String(userId) } },
-      store,
-    });
-    fakeDispatch.resetHistory();
-
-    // This will trigger the componentDidUpdate() method.
-    wrapper.setProps({
-      location: newLocation,
-      match: { params: { slug: newSlug, userId: String(userId) } },
-    });
-
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollection({
-        errorHandlerId: errorHandler.id,
-        filters: { page, collectionSort: sort },
-        slug: newSlug,
-        userId,
+        errorHandlerId: getCollectionPageErrorHandlerId({ slug }),
+        filters: defaultFilters,
+        slug,
+        userId: defaultUserId,
       }),
     );
   });
 
   it('dispatches fetchCurrentCollectionPage when page has changed', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 123;
-    const sort = COLLECTION_SORT_NAME;
+    const page = '2';
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithCollection({ location: `${defaultLocation}?page=1` });
 
-    _loadCurrentCollection({ store });
+    store.dispatch(
+      onLocationChanged({
+        pathname: `${defaultLocation}?page=${page}`,
+      }),
+    );
 
-    const errorHandler = createStubErrorHandler();
-
-    const wrapper = renderComponent({
-      errorHandler,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      store,
-    });
-    fakeDispatch.resetHistory();
-
-    const newFilters = { collectionSort: sort, page: 999 };
-
-    // This will trigger the componentDidUpdate() method.
-    wrapper.setProps({ filters: newFilters });
-
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollectionPage({
-        errorHandlerId: errorHandler.id,
-        filters: newFilters,
-        userId: defaultUserId,
+        errorHandlerId: getCollectionPageErrorHandlerId({ page }),
+        filters: { ...defaultFilters, page },
         slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
   });
 
   it('dispatches fetchCurrentCollectionPage when sort has changed', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 123;
     const sort = COLLECTION_SORT_NAME;
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    _loadCurrentCollection({ store });
+    renderWithCollection();
 
-    const errorHandler = createStubErrorHandler();
+    store.dispatch(
+      onLocationChanged({
+        pathname: `${defaultLocation}?collection_sort=${sort}`,
+      }),
+    );
 
-    const wrapper = renderComponent({
-      errorHandler,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      store,
-    });
-    fakeDispatch.resetHistory();
-
-    const newFilters = {
-      page,
-      collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
-    };
-
-    // This will trigger the componentDidUpdate() method.
-    wrapper.setProps({ filters: newFilters });
-
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollectionPage({
-        errorHandlerId: errorHandler.id,
-        filters: newFilters,
-        userId: defaultUserId,
+        errorHandlerId: getCollectionPageErrorHandlerId(),
+        filters: { ...defaultFilters, collectionSort: sort },
         slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
   });
 
   it('dispatches fetchCurrentCollection when user param has changed', () => {
-    const errorHandler = createStubErrorHandler();
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 123;
-    const sort = COLLECTION_SORT_NAME;
+    const userId = defaultUserId + 1;
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    _loadCurrentCollection({ store });
+    renderWithCollection();
 
-    const wrapper = renderComponent({
-      errorHandler,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      store,
-    });
-    fakeDispatch.resetHistory();
+    store.dispatch(onLocationChanged({ pathname: getLocation({ userId }) }));
 
-    const newParams = {
-      slug: defaultSlug,
-      userId: '890',
-    };
-    wrapper.setProps({ match: { params: newParams } });
-
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollection({
-        errorHandlerId: errorHandler.id,
-        filters: { page, collectionSort: sort },
-        slug: newParams.slug,
-        userId: Number(newParams.userId),
+        errorHandlerId: getCollectionPageErrorHandlerId({ userId }),
+        filters: defaultFilters,
+        slug: defaultSlug,
+        userId,
       }),
     );
   });
 
   it('dispatches fetchCurrentCollection when slug param has changed', () => {
-    const errorHandler = createStubErrorHandler();
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 123;
-    const sort = COLLECTION_SORT_NAME;
+    const slug = `${defaultSlug}-new`;
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    _loadCurrentCollection({ store });
+    renderWithCollection();
 
-    const wrapper = renderComponent({
-      errorHandler,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      store,
-    });
-    fakeDispatch.resetHistory();
+    store.dispatch(onLocationChanged({ pathname: getLocation({ slug }) }));
 
-    const newParams = {
-      slug: 'some-other-collection-slug',
-      userId: String(defaultUserId),
-    };
-    wrapper.setProps({ match: { params: newParams } });
-
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollection({
-        errorHandlerId: errorHandler.id,
-        filters: { page, collectionSort: sort },
-        slug: newParams.slug,
-        userId: Number(newParams.userId),
+        errorHandlerId: getCollectionPageErrorHandlerId({ slug }),
+        filters: defaultFilters,
+        slug,
+        userId: defaultUserId,
       }),
     );
   });
 
-  it('renders a collection', () => {
-    const slug = 'some-slug';
-    const userId = 1234;
-    const page = 2;
-    const sort = COLLECTION_SORT_NAME;
-    const queryParams = { page, collection_sort: sort };
-
-    const { store } = dispatchClientMetadata();
-
-    const detail = createFakeCollectionDetail({
-      authorId: userId,
-      count: 10,
-      slug,
+  it('renders collection add-ons', () => {
+    const addonName = 'My add-on';
+    renderWithCollection({
+      addons: [
+        createFakeCollectionAddon({
+          addon: {
+            ...fakeAddon,
+            name: createLocalizedString(addonName),
+            type: ADDON_TYPE_STATIC_THEME,
+          },
+        }),
+      ],
     });
 
-    _loadCurrentCollection({ store, detail });
-
-    const wrapper = renderComponent({
-      location: createFakeLocation({ query: queryParams }),
-      match: { params: { userId: String(userId), slug } },
-      store,
-    });
-
-    expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
-    expect(wrapper.find(AddonsCard)).toHaveProp('editing', false);
-    expect(wrapper.find(AddonsCard)).toHaveProp('showFullSizePreview', true);
-  });
-
-  it('sets a default placeholder count', () => {
-    const wrapper = renderComponent();
-    expect(wrapper.find(AddonsCard)).toHaveProp(
-      'placeholderCount',
-      DEFAULT_ADDON_PLACEHOLDER_COUNT,
+    expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}/addon/${fakeAddon.slug}/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=collection`,
+    );
+    expect(screen.getByAltText(addonName)).toHaveAttribute(
+      'src',
+      fakePreview.image_url,
     );
   });
 
-  it('initializes add-on placeholder count with collection add-ons', () => {
-    const { store } = dispatchClientMetadata();
-    const { detail, addonsResponse } = createCollectionWithTwoAddons();
+  it('sets placeholder counts for the AddonsCard as expected', () => {
+    render();
+
+    // Each SearchResult will have 4 instances of LoadingText.
+    expect(
+      within(screen.getByClassName('AddonsCard')).getAllByRole('alert'),
+    ).toHaveLength(DEFAULT_ADDON_PLACEHOLDER_COUNT * 4);
 
     _loadCurrentCollection({
-      store,
-      detail,
-      addonsResponse,
+      addonsResponse: createFakeCollectionAddonsListResponse({
+        addons: [
+          createFakeCollectionAddon({
+            addon: fakeAddon,
+          }),
+        ],
+      }),
     });
 
-    const wrapper = renderComponent({
-      params: { userId: detail.author.id, slug: detail.slug },
-      store,
-    });
+    // After loading no loading indicators will be present.
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
 
-    expect(wrapper.find(AddonsCard)).toHaveProp(
-      'placeholderCount',
-      addonsResponse.results.length,
+    // Switch to a different slug, which will initiate a new loading state.
+    store.dispatch(
+      onLocationChanged({
+        pathname: getLocation({ slug: `${defaultSlug}-new` }),
+      }),
     );
-  });
 
-  it('updates add-on placeholder count with collection add-ons', () => {
-    const { store } = dispatchClientMetadata();
-    const { detail, addonsResponse } = createCollectionWithTwoAddons();
-
-    const wrapper = renderComponent({
-      params: { userId: detail.author.id, slug: detail.slug },
-      store,
-    });
-
-    _loadCurrentCollection({
-      store,
-      detail,
-      addonsResponse,
-    });
-    simulateReduxStateChange({ wrapper, store });
-
-    // Since the placeholder calculation happens in
-    // componentDidUpdate(), we need to re-render to see the effect.
-    wrapper.setProps();
-
-    expect(wrapper.find(AddonsCard)).toHaveProp(
-      'placeholderCount',
-      addonsResponse.results.length,
-    );
+    // Only expect one loading SearchResult as that matches the number of
+    // add-ons in the previously loaded collection.
+    expect(
+      within(screen.getByClassName('AddonsCard')).getAllByRole('alert'),
+    ).toHaveLength(4);
   });
 
   it('renders a collection with pagination', () => {
-    const slug = 'some-slug';
-    const userId = 123;
-    const page = 2;
-    const filters = { page, collection_sort: COLLECTION_SORT_NAME };
-
-    const { store } = dispatchClientMetadata();
-
-    const detail = createFakeCollectionDetail({
-      authorId: userId,
-      slug,
-    });
-
+    const sort = COLLECTION_SORT_NAME;
     // With a pageSize < count, the pagination will be displayed.
     const addonsResponse = createFakeCollectionAddonsListResponse({
       count: 10,
       pageSize: 5,
     });
-    _loadCurrentCollection({ store, addonsResponse, detail });
+    _loadCurrentCollection({ addonsResponse });
 
-    const wrapper = renderComponent({
-      location: createFakeLocation({ query: filters }),
-      match: { params: { userId: String(userId), slug } },
-      store,
+    render({
+      location: `${getLocation()}?collection_sort=${sort}&page=2`,
     });
 
-    const footer = wrapper.find(AddonsCard).prop('footer');
-    const paginator = shallow(footer);
-
-    expect(paginator.instance()).toBeInstanceOf(Paginate);
-    expect(paginator).toHaveProp('count', addonsResponse.count);
-    expect(paginator).toHaveProp('currentPage', page);
-    expect(paginator).toHaveProp('pathname', `/collections/${userId}/${slug}/`);
-    expect(paginator).toHaveProp('queryParams', filters);
-    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
-  });
-
-  it('renders a CollectionControls component', () => {
-    const editing = false;
-    const page = 2;
-    const slug = 'some-slug';
-    const sort = COLLECTION_SORT_NAME;
-    const userId = 1234567;
-
-    const { store } = dispatchClientMetadata();
-    const addonsResponse = createFakeCollectionAddonsListResponse();
-    const detail = createFakeCollectionDetail({
-      authorId: userId,
-      slug,
-    });
-    const collection = createInternalCollectionWithLang({
-      detail,
-      addonsResponse,
-    });
-
-    _loadCurrentCollection({
-      store,
-      addonsResponse,
-      detail,
-    });
-
-    const wrapper = renderComponent({
-      editing,
-      location: createFakeLocation({ query: { collection_sort: sort, page } }),
-      params: { userId: String(userId), slug },
-      store,
-    });
-
-    const controls = wrapper.find(CollectionControls);
-
-    expect(controls).toHaveProp('collection', collection);
-    expect(controls).toHaveProp('editing', editing);
-    expect(controls).toHaveProp('filters', {
-      page,
-      collectionSort: sort,
-    });
-  });
-
-  it('renders a collection for editing', () => {
-    const signedUserId = 11;
-    const { store } = dispatchSignInActions({ userId: signedUserId });
-
-    const slug = 'some-slug';
-    const userId = signedUserId + 123;
-    const page = 2;
-    const sort = COLLECTION_SORT_NAME;
-
-    // With a pageSize < count, the pagination will be displayed.
-    const addonsResponse = createFakeCollectionAddonsListResponse({
-      count: 10,
-      pageSize: 5,
-    });
-    const detail = createFakeCollectionDetail({
-      authorId: userId,
-      slug,
-    });
-
-    _loadCurrentCollection({
-      store,
-      addonsResponse,
-      detail,
-    });
-
-    const wrapper = renderComponent({
-      editing: true,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      match: { params: { userId: String(userId), slug } },
-      store,
-    });
-
-    expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
-    expect(wrapper.find(AddonsCard)).toHaveProp('editing', true);
-
-    const footer = wrapper.find(AddonsCard).prop('footer');
-    const paginator = shallow(footer);
-    expect(paginator).toHaveProp(
-      'pathname',
-      `/collections/${userId}/${slug}/edit/`,
+    expect(screen.getByText('Page 2 of 2')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
+      'href',
+      `${defaultLocation}?page=1&collection_sort=${sort}`,
     );
-
-    expect(wrapper.find(AddonsCard)).toHaveProp(
-      'deleteNote',
-      wrapper.instance().deleteNote,
-    );
-    expect(wrapper.find(AddonsCard)).toHaveProp(
-      'removeAddon',
-      wrapper.instance().removeAddon,
-    );
-    expect(wrapper.find(AddonsCard)).toHaveProp(
-      'saveNote',
-      wrapper.instance().saveNote,
-    );
+    expect(screen.getByText('Next')).toBeInTheDocument();
   });
 
   it('renders a create collection page', () => {
-    const { store } = dispatchSignInActions();
+    renderInAddMode();
 
-    const wrapper = renderComponent({ creating: true, store });
+    const expectedUrlPrefix = `${config.get(
+      'apiHost',
+    )}/${lang}/${clientApp}/collections/${defaultUserId}/`;
+    expect(
+      screen.getByRole('textbox', { name: 'Collection name' }),
+    ).toHaveValue('');
+    expect(screen.getByRole('textbox', { name: 'Description' })).toHaveValue(
+      '',
+    );
+    expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue('');
+    expect(screen.getByTitle(expectedUrlPrefix)).toHaveTextContent(
+      expectedUrlPrefix,
+    );
+    expect(
+      screen.getByRole('button', { name: 'Create collection' }),
+    ).toHaveProperty('disabled', true);
 
-    expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
-    expect(wrapper.find(AddonsCard)).toHaveLength(0);
-    expect(wrapper.find(CollectionDetailsCard)).toHaveProp('creating', true);
-    expect(wrapper.find(CollectionControls)).toHaveLength(0);
+    // Sort controls should be absent.
+    expect(
+      screen.queryByRole('combobox', { name: 'Sort add-ons by' }),
+    ).not.toBeInTheDocument();
+
+    // Collection add-ons should be absent.
+    expect(screen.queryByClassName('AddonsCard')).not.toBeInTheDocument();
   });
 
   it('does not render the pagination when no add-ons in the collection', () => {
-    const { store } = dispatchClientMetadata();
+    renderWithCollection({ addons: [] });
 
-    const addonsResponse = createFakeCollectionAddonsListResponse({
-      addons: [],
-    });
-    const collectionDetail = createFakeCollectionDetail();
-
-    _loadCurrentCollection({
-      store,
-      addonsResponse,
-      detail: collectionDetail,
-    });
-
-    const wrapper = renderComponent({ store });
-    expect(wrapper.find(AddonsCard).prop('footer')).toEqual(null);
+    expect(screen.queryByText('Next')).not.toBeInTheDocument();
   });
 
   it('renders loading indicator on add-ons when fetching next page', () => {
-    const { store } = dispatchClientMetadata();
-
-    const errorHandler = createStubErrorHandler();
-    const { slug } = defaultCollectionDetail;
-    const userId = defaultUserId;
-
-    // User loads the collection page.
-    _loadCurrentCollection({ store });
-
-    const wrapper = renderComponent({
-      errorHandler,
-      match: { params: { slug, userId: String(userId) } },
-      store,
+    const name = 'My Collection';
+    const numberOfAddons = 5;
+    const addonsResponse = createFakeCollectionAddonsListResponse({
+      count: 10,
+      pageSize: numberOfAddons,
+    });
+    _loadCurrentCollection({
+      addonsResponse,
+      detail: _createFakeCollectionDetail({ name }),
     });
 
-    expect(wrapper.find(AddonsCard)).toHaveProp('loading', false);
+    render({
+      location: `${getLocation()}?page=1`,
+    });
 
-    // User clicks on 'next' pagination link.
-    store.dispatch(
-      fetchCurrentCollectionPage({
-        errorHandlerId: errorHandler.id,
-        filters: { page: 2 },
-        slug,
-        userId,
-      }),
-    );
+    userEvent.click(screen.getByRole('link', { name: 'Next' }));
 
-    simulateReduxStateChange({ wrapper, store });
-
-    expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
-    // We should not update the collection detail card.
-    expect(wrapper.find('.Collection-detail').find(LoadingText)).toHaveLength(
-      0,
-    );
+    // Expect loading indicators for the add-ons.
+    expect(
+      within(screen.getByClassName('AddonsCard')).getAllByRole('alert'),
+    ).toHaveLength(numberOfAddons * 4);
+    // Expect to retain the details of the collection.
+    expect(screen.getByRole('heading', { name })).toBeInTheDocument();
   });
 
   it('renders 404 page for missing collection', () => {
-    const { store } = dispatchClientMetadata();
-
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(
-      createApiError({
+    createFailedErrorHandler({
+      error: createApiError({
         response: { status: 404 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'not found' },
       }),
-    );
+      id: getCollectionPageErrorHandlerId(),
+      store,
+    });
 
-    const wrapper = renderComponent({ errorHandler, store });
-    expect(wrapper.find(NotFoundPage)).toHaveLength(1);
+    render();
+
+    expect(
+      screen.getByText('Oops! We can’t find that page'),
+    ).toBeInTheDocument();
   });
 
   it('renders an error if one exists', () => {
-    const { store } = dispatchClientMetadata();
-
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(
-      createApiError({
-        response: { status: 500 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'Nope.' },
-      }),
-    );
-
-    const wrapper = renderComponent({ errorHandler, store });
-    expect(wrapper.find(ErrorList)).toHaveLength(1);
-  });
-
-  it('renders an HTML title', () => {
-    const { store } = dispatchClientMetadata();
-
-    _loadCurrentCollection({ store });
-
-    const wrapper = renderComponent({ store });
-    expect(wrapper.find('title')).toHaveText(defaultCollectionName);
-  });
-
-  it('renders an HTML title for a collection with a missing name', () => {
-    const { store } = dispatchClientMetadata();
-
-    _loadCurrentCollection({
-      detail: createFakeCollectionDetail({
-        name: null,
-      }),
+    const message = 'Some error message';
+    createFailedErrorHandler({
+      id: getCollectionPageErrorHandlerId(),
+      message,
       store,
     });
 
-    const wrapper = renderComponent({ store });
-    expect(wrapper.find('title')).toHaveText(
-      collectionName({ name: null, i18n: fakeI18n() }),
+    render();
+
+    expect(screen.getByText(message)).toBeInTheDocument();
+  });
+
+  it('renders an HTML title', async () => {
+    renderWithCollection();
+
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(getElement('title')).toHaveTextContent(
+      `${defaultCollectionName} – Add-ons for Firefox (en-US)`,
     );
   });
 
-  it('does not render an HTML title when there is no collection loaded', () => {
-    const wrapper = renderComponent();
-    expect(wrapper.find('title')).toHaveLength(0);
+  it('renders an HTML title for a collection with a missing name', async () => {
+    renderWithCollection({ detailProps: { name: null } });
+
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(getElement('title')).toHaveTextContent(
+      `${collectionName({
+        name: null,
+        i18n: fakeI18n(),
+      })} – Add-ons for Firefox (en-US)`,
+    );
+  });
+
+  it('renders the default HTML title when there is no collection loaded', async () => {
+    render();
+
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(getElement('title')).toHaveTextContent(
+      'Add-ons for Firefox (en-US)',
+    );
   });
 
   it('renders a delete button when user is the collection owner', () => {
-    const authorId = 11;
-    const { store } = dispatchSignInActions({ userId: authorId });
+    renderWithCollectionForSignedInUser();
 
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorId,
-      }),
-    });
-
-    const wrapper = renderComponent({ store });
-    expect(wrapper.find(ConfirmButton)).toHaveLength(1);
+    expect(
+      screen.getByRole('button', { name: 'Delete this collection' }),
+    ).toBeInTheDocument();
   });
 
   it('does not render a delete button when user is not the collection owner', () => {
-    const authorId = 11;
-    const { store } = dispatchSignInActions({ userId: authorId });
+    dispatchSignInActionsWithStore({ store, userId: defaultUserId + 1 });
+    renderWithCollection();
 
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorId: 99,
-      }),
-    });
-
-    const wrapper = renderComponent({ store });
-    expect(wrapper.find(ConfirmButton)).toHaveLength(0);
-  });
-
-  it('passes the correct editing flag to AddonsCard when editing', () => {
-    const authorId = 11;
-    const { store } = dispatchSignInActions({ userId: authorId });
-
-    _loadCurrentCollection({
-      store,
-      detail: createFakeCollectionDetail({
-        authorId,
-      }),
-    });
-
-    const root = renderComponent({ store, editing: true });
-
-    expect(root.find(AddonsCard)).toHaveProp('editing', true);
+    expect(
+      screen.queryByRole('button', { name: 'Delete this collection' }),
+    ).not.toBeInTheDocument();
   });
 
   it('renders a CollectionAddAddon component when editing', () => {
-    const authorId = 11;
-    const page = 2;
-    const sort = COLLECTION_SORT_NAME;
-    const queryParams = { page, collection_sort: sort };
-    const filters = { collectionSort: sort, page };
-    const { store } = dispatchSignInActions({ userId: authorId });
+    renderWithCollectionForSignedInUser({ editing: true });
 
-    const addonsResponse = createFakeCollectionAddonsListResponse();
-    const detail = createFakeCollectionDetail({ authorId });
-    const collection = createInternalCollectionWithLang({
-      detail,
-      addonsResponse,
-    });
-
-    _loadCurrentCollection({ addonsResponse, detail, store });
-
-    const root = renderComponent({
-      store,
-      editing: true,
-      location: createFakeLocation({ query: queryParams }),
-    });
-
-    expect(root.find(CollectionAddAddon)).toHaveProp('collection', collection);
-    expect(root.find(CollectionAddAddon)).toHaveProp('filters', filters);
+    expect(
+      screen.getByPlaceholderText(
+        'Find an add-on to include in this collection',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('does not render a CollectionAddAddon component when not editing', () => {
-    const root = renderComponent({ editing: false });
+    renderWithCollectionForSignedInUser();
 
-    expect(root.find(CollectionAddAddon)).toHaveLength(0);
+    expect(
+      screen.queryByPlaceholderText(
+        'Find an add-on to include in this collection',
+      ),
+    ).not.toBeInTheDocument();
   });
 
   it('renders AuthenticateButton when creating and not signed in', () => {
-    const { store } = dispatchClientMetadata();
-    const location = createFakeLocation({
-      pathname: '/create/url/',
-    });
-    const root = renderComponent({ store, creating: true, location });
+    renderInAddMode({ loggedIn: false });
 
-    const authButton = root.find(AuthenticateButton);
-    expect(authButton).toHaveProp('logInText', 'Log in to create a collection');
+    expect(
+      screen.getByRole('link', { name: 'Log in to create a collection' }),
+    ).toBeInTheDocument();
 
-    // Make sure the collection was not rendered.
-    expect(root.find('.Collection-wrapper')).toHaveLength(0);
+    // Make sure the form was not rendered.
+    expect(
+      screen.queryByRole('textbox', { name: 'Collection name' }),
+    ).not.toBeInTheDocument();
   });
 
   it('renders AuthenticateButton when editing and not signed in', () => {
-    const { store } = dispatchClientMetadata();
-    const location = createFakeLocation({
-      pathname: '/current/edit/url/',
-    });
-    const root = renderComponent({ store, editing: true, location });
+    renderWithCollection({ editing: true });
 
-    const authButton = root.find(AuthenticateButton);
-    expect(authButton).toHaveProp(
-      'logInText',
-      'Log in to edit this collection',
-    );
+    expect(
+      screen.getByRole('link', { name: 'Log in to edit this collection' }),
+    ).toBeInTheDocument();
 
-    // Make sure the collection was not rendered.
-    expect(root.find('.Collection-wrapper')).toHaveLength(0);
+    // Make sure the form was not rendered.
+    expect(
+      screen.queryByRole('textbox', { name: 'Collection name' }),
+    ).not.toBeInTheDocument();
   });
 
   it('does not update the page when removeAddon is called and there are still addons to show on the current page', () => {
-    const authorId = 11;
-    const { store } = dispatchSignInActions({ userId: authorId });
-
-    // This will simulate a few items on the 2nd page.
+    const numberOfAddons = 5;
     const addonsResponse = createFakeCollectionAddonsListResponse({
-      count: DEFAULT_API_PAGE_SIZE + 2,
+      count: 10,
+      pageSize: numberOfAddons,
     });
     const addonId = addonsResponse.results[0].addon.id;
-    const detail = createFakeCollectionDetail({ authorId });
-    const errorHandler = createStubErrorHandler();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = '2';
-    const sort = COLLECTION_SORT_NAME;
-    const location = createFakeLocation({
-      query: { page, collection_sort: sort },
+    const history = createHistory({
+      initialEntries: [`${defaultLocation}edit/?page=${page}`],
     });
-    const history = createFakeHistory({ location });
+    const pushSpy = jest.spyOn(history, 'push');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    store.dispatch(
-      loadCurrentCollection({
-        addonsResponse,
-        detail,
-      }),
-    );
-
-    const root = renderComponent({
-      editing: true,
-      errorHandler,
+    renderWithCollectionForSignedInUser({
+      addonsResponse,
       history,
-      location,
-      store,
     });
 
-    fakeDispatch.resetHistory();
+    userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
 
-    // This simulates the user clicking the "Remove" button on the
-    // EditableCollectionAddon component.
-    root.instance().removeAddon(addonId);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       removeAddonFromCollection({
         addonId,
-        errorHandlerId: errorHandler.id,
-        filters: { page, collectionSort: sort },
-        slug: detail.slug,
-        userId: detail.author.id,
+        errorHandlerId: getCollectionPageErrorHandlerId({ page }),
+        filters: { ...defaultFilters, page },
+        slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
-    sinon.assert.callCount(fakeDispatch, 1);
-
-    sinon.assert.notCalled(history.push);
+    expect(pushSpy).not.toHaveBeenCalled();
   });
 
   it("does not update the page when removeAddon is called and the current page isn't the last page", () => {
-    const authorId = 11;
-    const { store } = dispatchSignInActions({ userId: authorId });
-
-    // This will simulate 1 item on the 3nd page.
+    const numberOfAddons = 5;
     const addonsResponse = createFakeCollectionAddonsListResponse({
-      count: DEFAULT_API_PAGE_SIZE * 2 + 1,
+      count: 10,
+      pageSize: numberOfAddons,
     });
     const addonId = addonsResponse.results[0].addon.id;
-    const detail = createFakeCollectionDetail({ authorId });
-    const errorHandler = createStubErrorHandler();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = '1';
-    const sort = COLLECTION_SORT_NAME;
-    const location = createFakeLocation({
-      query: { page, collection_sort: sort },
+    const history = createHistory({
+      initialEntries: [`${defaultLocation}edit/?page=${page}`],
     });
-    const history = createFakeHistory({ location });
+    const pushSpy = jest.spyOn(history, 'push');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    store.dispatch(
-      loadCurrentCollection({
-        addonsResponse,
-        detail,
-      }),
-    );
-
-    const root = renderComponent({
-      editing: true,
-      errorHandler,
+    renderWithCollectionForSignedInUser({
+      addonsResponse,
       history,
-      location,
-      store,
     });
 
-    fakeDispatch.resetHistory();
+    userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
 
-    // This simulates the user clicking the "Remove" button on the
-    // EditableCollectionAddon component.
-    root.instance().removeAddon(addonId);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       removeAddonFromCollection({
         addonId,
-        errorHandlerId: errorHandler.id,
-        filters: { page, collectionSort: sort },
-        slug: detail.slug,
-        userId: detail.author.id,
+        errorHandlerId: getCollectionPageErrorHandlerId({ page }),
+        filters: { ...defaultFilters, page },
+        slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
-    sinon.assert.callCount(fakeDispatch, 1);
-
-    sinon.assert.notCalled(history.push);
+    expect(pushSpy).not.toHaveBeenCalled();
   });
 
   it('updates the page when removeAddon removes the last addon from the current page', () => {
-    const authorId = 11;
-    const { store } = dispatchSignInActions({ userId: authorId });
-
+    const numberOfAddons = 1;
     const addonsResponse = createFakeCollectionAddonsListResponse({
-      count: DEFAULT_API_PAGE_SIZE + 1,
+      count: 2,
+      pageSize: numberOfAddons,
     });
     const addonId = addonsResponse.results[0].addon.id;
-    const detail = createFakeCollectionDetail({ authorId });
-    const errorHandler = createStubErrorHandler();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = '2';
-    const newPage = '1';
     const sort = COLLECTION_SORT_DATE_ADDED_DESCENDING;
-    const location = createFakeLocation({
-      query: { page, collectionSort: sort },
+    const history = createHistory({
+      initialEntries: [
+        `${defaultLocation}edit/?page=${page}&collection_sort=${sort}`,
+      ],
     });
-    const history = createFakeHistory({ location });
+    const pushSpy = jest.spyOn(history, 'push');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    store.dispatch(
-      loadCurrentCollection({
-        addonsResponse,
-        detail,
-      }),
-    );
+    renderWithCollectionForSignedInUser({ addonsResponse, history });
 
-    const root = renderComponent({
-      editing: true,
-      errorHandler,
-      history,
-      location,
-      store,
-    });
+    userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
 
-    fakeDispatch.resetHistory();
-
-    // This simulates the user clicking the "Remove" button on the
-    // EditableCollectionAddon component.
-    root.instance().removeAddon(addonId);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       removeAddonFromCollection({
         addonId,
-        errorHandlerId: errorHandler.id,
-        filters: { page: newPage, collectionSort: sort },
-        slug: detail.slug,
-        userId: detail.author.id,
+        errorHandlerId: getCollectionPageErrorHandlerId({ page }),
+        filters: { ...defaultFilters, page: '1' },
+        slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
-    sinon.assert.callCount(fakeDispatch, 1);
-
-    sinon.assert.calledWith(history.push, {
-      pathname: location.pathname,
+    expect(pushSpy).toHaveBeenCalledWith({
+      pathname: `${defaultLocation}edit/`,
       query: {
-        ...location.query,
-        page: newPage,
+        collection_sort: sort,
+        page: '1',
       },
     });
   });
 
-  it('dispatches deleteCollection when onDelete is called', () => {
-    const authorId = 11;
-    const slug = 'some-slug';
-    const { store } = dispatchSignInActions({ userId: authorId });
+  it('dispatches deleteCollection when the Delete collection button is clicked and confirmed', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithCollectionForSignedInUser();
 
-    const detail = createFakeCollectionDetail({ authorId, slug });
+    const button = screen.getByRole('button', {
+      name: 'Delete this collection',
+    });
+    const clickEvent = createEvent.click(button);
+    const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
+    fireEvent(button, clickEvent);
 
-    store.dispatch(
-      loadCurrentCollection({
-        addonsResponse: createFakeCollectionAddonsListResponse(),
-        detail,
-      }),
-    );
+    userEvent.click(screen.getByRole('button', { name: 'Confirm' }));
 
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const preventDefaultSpy = sinon.spy();
-    const errorHandler = createStubErrorHandler();
-
-    const wrapper = renderComponent({ errorHandler, store });
-
-    dispatchSpy.resetHistory();
-
-    // This emulates a user clicking the delete button and confirming.
-    const onDelete = wrapper.find(ConfirmButton).prop('onConfirm');
-    onDelete(createFakeEvent({ preventDefault: preventDefaultSpy }));
-
-    sinon.assert.calledOnce(preventDefaultSpy);
-    sinon.assert.callCount(dispatchSpy, 1);
-    sinon.assert.calledWith(
-      dispatchSpy,
+    expect(preventDefaultWatcher).toHaveBeenCalledTimes(1);
+    expect(dispatch).toHaveBeenCalledWith(
       deleteCollection({
-        errorHandlerId: errorHandler.id,
-        slug,
-        userId: detail.author.id,
+        errorHandlerId: getCollectionPageErrorHandlerId(),
+        slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
   });
 
-  it('dispatches deleteCollectionAddonNotes when deleteNote is called', () => {
-    const authorId = 11;
-    const lang = 'fr';
-    const { store } = dispatchSignInActions({ lang, userId: authorId });
+  it('dispatches deleteCollectionAddonNotes when clicking delete on DismissibleTextForm', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithNotes();
 
-    const addonsResponse = createFakeCollectionAddonsListResponse();
-    const addonId = addonsResponse.results[0].addon.id;
-    const detail = createFakeCollectionDetail({ authorId });
-    const errorHandler = createStubErrorHandler();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 123;
-    const sort = COLLECTION_SORT_NAME;
+    userEvent.click(screen.getByRole('button', { name: 'Edit' }));
+    userEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
-    store.dispatch(
-      loadCurrentCollection({
-        addonsResponse,
-        detail,
-      }),
-    );
-    const root = renderComponent({
-      editing: true,
-      errorHandler,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      store,
-    });
-
-    fakeDispatch.resetHistory();
-
-    // This simulates the user clicking the "Delete" button on the
-    // EditableCollectionAddon component's comment form.
-    const deleteNote = root.find(AddonsCard).prop('deleteNote');
-    deleteNote(addonId, errorHandler);
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       deleteCollectionAddonNotes({
-        addonId,
-        errorHandlerId: errorHandler.id,
-        filters: { page, collectionSort: sort },
+        addonId: fakeAddon.id,
+        errorHandlerId: editableCollectionAddonErrorHandlerId,
+        filters: defaultFilters,
         lang,
-        slug: detail.slug,
-        userId: detail.author.id,
+        slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
   });
 
-  it('dispatches updateCollectionAddon when saveNote is called', () => {
-    const authorId = 11;
-    const lang = 'fr';
-    const { store } = dispatchSignInActions({ lang, userId: authorId });
+  it('dispatches updateCollectionAddon when saving DismissibleTextForm', () => {
+    const newNotes = 'Some new notes';
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithNotes();
 
-    const addonsResponse = createFakeCollectionAddonsListResponse();
-    const addonId = addonsResponse.results[0].addon.id;
-    const detail = createFakeCollectionDetail({ authorId });
-    const errorHandler = createStubErrorHandler();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-    const page = 123;
-    const notes = 'These are some notes.';
-    const sort = COLLECTION_SORT_NAME;
+    userEvent.click(screen.getByRole('button', { name: 'Edit' }));
 
-    store.dispatch(
-      loadCurrentCollection({
-        addonsResponse,
-        detail,
-      }),
+    userEvent.type(
+      screen.getByPlaceholderText('Add a comment about this add-on.'),
+      `{selectall}{del}${newNotes}`,
     );
-    const root = renderComponent({
-      editing: true,
-      errorHandler,
-      location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      store,
-    });
 
-    fakeDispatch.resetHistory();
-
-    // This simulates the user clicking the "Save" button on the
-    // EditableCollectionAddon component's comment form.
-    root.instance().saveNote(addonId, errorHandler, notes);
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    userEvent.click(screen.getByRole('button', { name: 'Save' }));
+    expect(dispatch).toHaveBeenCalledWith(
       updateCollectionAddon({
-        addonId,
-        errorHandlerId: errorHandler.id,
-        notes: createLocalizedString(notes, lang),
-        filters: { page, collectionSort: sort },
-        slug: detail.slug,
-        userId: detail.author.id,
+        addonId: fakeAddon.id,
+        errorHandlerId: editableCollectionAddonErrorHandlerId,
+        filters: defaultFilters,
+        notes: createLocalizedString(newNotes, lang),
+        slug: defaultSlug,
+        userId: defaultUserId,
       }),
     );
   });
 
   it('sends a server redirect when userId parameter is not a numeric ID', () => {
-    const clientApp = CLIENT_APP_FIREFOX;
-    const lang = 'fr';
-    const authorId = 123;
+    const authorId = 19;
     const authorUsername = 'john';
-
-    const { store } = dispatchClientMetadata({ clientApp, lang });
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    const addonsResponse = createFakeCollectionAddonsListResponse();
-    const collectionDetail = createFakeCollectionDetail({
-      authorId,
-      authorUsername,
-    });
+    const dispatch = jest.spyOn(store, 'dispatch');
 
     _loadCurrentCollection({
-      store,
-      addonsResponse,
-      detail: collectionDetail,
+      detail: _createFakeCollectionDetail({
+        authorId,
+        authorUsername,
+      }),
     });
 
-    fakeDispatch.resetHistory();
+    render({ userId: authorUsername });
 
-    const collection = getCurrentCollection(store.getState().collections);
-
-    const params = {
-      slug: collection.slug,
-      // We use the `username` here.
-      userId: authorUsername.toUpperCase(),
-    };
-    renderComponent({ match: { params }, store });
-
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       sendServerRedirect({
         status: 301,
-        url: `/${lang}/${clientApp}/collections/${collection.authorId}/${collection.slug}/`,
+        url: `/${lang}/${clientApp}/collections/${authorId}/${defaultSlug}/`,
       }),
     );
-    sinon.assert.calledOnce(fakeDispatch);
   });
 
   it('sends a server redirect when slug parameter case is not the same as the collection slug', () => {
-    const clientApp = CLIENT_APP_FIREFOX;
-    const lang = 'fr';
-    const slug = 'some-slug-collection';
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    const { store } = dispatchClientMetadata({ clientApp, lang });
-    const fakeDispatch = sinon.spy(store, 'dispatch');
+    _loadCurrentCollection();
 
-    const addonsResponse = createFakeCollectionAddonsListResponse();
-    const collectionDetail = createFakeCollectionDetail({ slug });
+    render({ slug: defaultSlug.toUpperCase() });
 
-    _loadCurrentCollection({
-      store,
-      addonsResponse,
-      detail: collectionDetail,
-    });
-
-    fakeDispatch.resetHistory();
-
-    const collection = getCurrentCollection(store.getState().collections);
-
-    const params = {
-      slug: slug.toUpperCase(),
-      // We use the `username` here.
-      userId: collection.authorUsername,
-    };
-    renderComponent({ match: { params }, store });
-
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       sendServerRedirect({
         status: 301,
-        url: `/${lang}/${clientApp}/collections/${collection.authorId}/${collection.slug}/`,
+        url: `/${lang}/${clientApp}/collections/${defaultUserId}/${defaultSlug}/`,
       }),
     );
-    sinon.assert.calledOnce(fakeDispatch);
   });
 
-  it('renders a "description" meta tag', () => {
+  it('renders a "description" meta tag', async () => {
     const name = 'my super collection';
     const description = 'this is the description of my super collection';
+    renderWithCollection({ detailProps: { name, description } });
 
-    const { store } = dispatchClientMetadata();
-    const detail = createFakeCollectionDetail({ description, name });
-    _loadCurrentCollection({ detail, store });
+    await waitFor(() =>
+      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
+    );
 
-    const root = renderComponent({ store });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      new RegExp(`Explore the ${name}—${description}.`),
+    expect(getElement('meta[name="description"]')).toHaveAttribute(
+      'content',
+      [
+        'Download and create Firefox collections to keep track of favorite extensions and themes.',
+        `Explore the ${name}—${description}.`,
+      ].join(' '),
     );
   });
 
-  it('renders a "description" meta tag without a collection description', () => {
+  it('renders a "description" meta tag without a collection description', async () => {
     const name = 'my super collection';
     const description = '';
+    renderWithCollection({ detailProps: { name, description } });
 
-    const { store } = dispatchClientMetadata();
-    const detail = createFakeCollectionDetail({ description, name });
-    _loadCurrentCollection({ detail, store });
+    await waitFor(() =>
+      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
+    );
 
-    const root = renderComponent({ store });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      new RegExp(`Explore the ${name}.`),
+    expect(getElement('meta[name="description"]')).toHaveAttribute(
+      'content',
+      [
+        'Download and create Firefox collections to keep track of favorite extensions and themes.',
+        `Explore the ${name}.`,
+      ].join(' '),
     );
   });
 
-  it('renders a "description" meta tag for a collection with a missing name', () => {
+  it('renders a "description" meta tag for a collection with a missing name', async () => {
     const name = null;
     const description = '';
 
-    const { store } = dispatchClientMetadata();
-    const detail = createFakeCollectionDetail({ description, name });
-    _loadCurrentCollection({ detail, store });
+    renderWithCollection({ detailProps: { name, description } });
 
-    const root = renderComponent({ store });
+    await waitFor(() =>
+      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
+    );
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      new RegExp(
-        collectionName({
+    expect(getElement('meta[name="description"]')).toHaveAttribute(
+      'content',
+      [
+        'Download and create Firefox collections to keep track of favorite extensions and themes.',
+        `Explore the ${collectionName({
           name,
           i18n: fakeI18n(),
-        }),
-      ),
+        })}.`,
+      ].join(' '),
     );
   });
 
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on params', () => {
-      const props = getProps({
+      const props = {
         match: {
           params: {
             userId: '123',
             slug: 'collection-bar',
           },
         },
-        location: createFakeLocation(),
-      });
+        location: { query: {} },
+      };
 
       expect(extractId(props)).toEqual('123/collection-bar/');
     });
 
     it('adds the page as part of unique ID', () => {
-      const props = getProps({
+      const props = {
         match: {
           params: {
             userId: '123',
             slug: 'collection-bar',
           },
         },
-        location: createFakeLocation({ query: { page: '124' } }),
-      });
+        location: { query: { page: '124' } },
+      };
 
       expect(extractId(props)).toEqual('123/collection-bar/124');
     });
