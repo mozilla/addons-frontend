@@ -4,6 +4,10 @@ import userEvent from '@testing-library/user-event';
 
 import { createApiError } from 'amo/api';
 import {
+  extractId as collectionAddAddonExtractId,
+  MESSAGE_RESET_TIME,
+} from 'amo/components/CollectionAddAddon';
+import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
@@ -12,6 +16,9 @@ import {
 import {
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
+  addAddonToCollection,
+  addonAddedToCollection,
+  addonRemovedFromCollection,
   collectionName,
   deleteCollection,
   deleteCollectionAddonNotes,
@@ -30,12 +37,15 @@ import {
   extractId,
 } from 'amo/pages/Collection';
 import {
+  createFakeAutocompleteResult,
   createFakeCollectionAddon,
   createFailedErrorHandler,
   createFakeCollectionDetail,
+  createInternalCollectionWithLang,
   createLocalizedString,
   createFakeCollectionAddonsListResponse,
   createHistory,
+  dispatchAutocompleteResults,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
   fakeAddon,
@@ -84,6 +94,10 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   const _createFakeCollectionDetail = (props = {}) => {
@@ -215,6 +229,20 @@ describe(__filename, () => {
       expect.objectContaining({ type: SEND_SERVER_REDIRECT }),
     );
     return true;
+  };
+
+  const _addonAddedToCollection = () => {
+    store.dispatch(
+      addonAddedToCollection({
+        addonId: 123,
+        collectionId: defaultCollectionId,
+        userId: defaultUserId,
+      }),
+    );
+  };
+
+  const _addonRemovedFromCollection = () => {
+    store.dispatch(addonRemovedFromCollection());
   };
 
   // Note: This test will be replaced by a test for CollectionDetailsCard
@@ -1089,6 +1117,188 @@ describe(__filename, () => {
       };
 
       expect(extractId(props)).toEqual('123/collection-bar/124');
+    });
+  });
+
+  describe('Tests for CollectionAddAddon', () => {
+    const getErrorHandlerId = (id = '') =>
+      `src/amo/components/CollectionAddAddon/index.js-collection${id}`;
+
+    const selectAnAddon = ({ addonName, id }) => {
+      userEvent.type(
+        screen.getByPlaceholderText(
+          'Find an add-on to include in this collection',
+        ),
+        'test',
+      );
+      const externalSuggestion = createFakeAutocompleteResult({
+        name: addonName,
+        id,
+      });
+      dispatchAutocompleteResults({
+        results: [externalSuggestion],
+        store,
+      });
+      userEvent.click(screen.getByText(addonName));
+    };
+
+    it('renders an error', () => {
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      const message = 'Some error message';
+      createFailedErrorHandler({
+        id: getErrorHandlerId(defaultCollectionId),
+        message,
+        store,
+      });
+
+      expect(screen.getByText(message)).toBeInTheDocument();
+    });
+
+    it('dispatches addAddonToCollection when selecting an add-on', () => {
+      const addonName = 'uBlock Origin';
+      const id = 123;
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      selectAnAddon({ addonName, id });
+
+      expect(dispatch).toHaveBeenCalledWith(
+        addAddonToCollection({
+          addonId: id,
+          collectionId: defaultCollectionId,
+          slug: defaultSlug,
+          editing: true,
+          errorHandlerId: getErrorHandlerId(defaultCollectionId),
+          filters: defaultFilters,
+          userId: defaultUserId,
+        }),
+      );
+    });
+
+    it('displays a notification for 5 seconds after an add-on has been added', async () => {
+      jest.useFakeTimers();
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      expect(screen.queryByText('Added to collection')).not.toBeInTheDocument();
+
+      _addonAddedToCollection();
+
+      expect(screen.getByText('Added to collection')).toBeInTheDocument();
+      expect(screen.getByClassName('Notice-success')).toHaveClass(
+        'CollectionAddAddon-noticePlaceholder-transition-enter',
+      );
+
+      // Trigger the setTimeout behavior.
+      jest.advanceTimersByTime(MESSAGE_RESET_TIME);
+
+      // The Notice element will still be present, but the fade transition,
+      // controlled by CSSTransition should have been started.
+      expect(screen.getByClassName('Notice-success')).toHaveClass(
+        'CollectionAddAddon-noticePlaceholder-transition-enter-done',
+      );
+    });
+
+    it('displays a notification for 5 seconds after an add-on has been removed', () => {
+      jest.useFakeTimers();
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      expect(
+        screen.queryByText('Removed from collection'),
+      ).not.toBeInTheDocument();
+
+      _addonRemovedFromCollection();
+
+      expect(screen.getByText('Removed from collection')).toBeInTheDocument();
+      expect(screen.getByClassName('Notice-generic')).toHaveClass(
+        'CollectionAddAddon-noticePlaceholder-transition-enter',
+      );
+
+      // Trigger the setTimeout behavior.
+      jest.advanceTimersByTime(MESSAGE_RESET_TIME);
+
+      // The Notice element will still be present, but the fade transition,
+      // controlled by CSSTransition should have been started.
+      expect(screen.getByClassName('Notice-generic')).toHaveClass(
+        'CollectionAddAddon-noticePlaceholder-transition-enter-done',
+      );
+    });
+
+    it('clears the errorHandler when an add-on is added', () => {
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      const message = 'Some error message';
+      createFailedErrorHandler({
+        id: getErrorHandlerId(defaultCollectionId),
+        message,
+        store,
+      });
+
+      expect(screen.getByText(message)).toBeInTheDocument();
+
+      _addonAddedToCollection();
+
+      expect(screen.queryByText(message)).not.toBeInTheDocument();
+    });
+
+    it('clears the errorHandler when an add-on is removed', () => {
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      const message = 'Some error message';
+      createFailedErrorHandler({
+        id: getErrorHandlerId(defaultCollectionId),
+        message,
+        store,
+      });
+
+      expect(screen.getByText(message)).toBeInTheDocument();
+
+      _addonRemovedFromCollection();
+
+      expect(screen.queryByText(message)).not.toBeInTheDocument();
+    });
+
+    it('removes the notification after a new add-on has been selected', () => {
+      const addonName = 'uBlock Origin';
+      const id = 123;
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      expect(screen.queryByText('Added to collection')).not.toBeInTheDocument();
+
+      _addonAddedToCollection();
+
+      expect(screen.getByText('Added to collection')).toBeInTheDocument();
+      expect(screen.getByClassName('Notice-success')).toHaveClass(
+        'CollectionAddAddon-noticePlaceholder-transition-enter',
+      );
+
+      selectAnAddon({ addonName, id });
+
+      // The Notice element will still be present, but the fade transition,
+      // controlled by CSSTransition should be exiting.
+      expect(screen.getByClassName('Notice-success')).toHaveClass(
+        'CollectionAddAddon-noticePlaceholder-transition-exit',
+      );
+    });
+
+    describe('extractId', () => {
+      it('generates an ID without a collection', () => {
+        expect(collectionAddAddonExtractId({ collection: null })).toEqual(
+          'collection',
+        );
+      });
+
+      it('generates an ID with a collection', () => {
+        const id = 12345;
+        const collection = createInternalCollectionWithLang({
+          detail: createFakeCollectionDetail({
+            id,
+          }),
+        });
+        expect(collectionAddAddonExtractId({ collection })).toEqual(
+          `collection${id}`,
+        );
+      });
     });
   });
 });
