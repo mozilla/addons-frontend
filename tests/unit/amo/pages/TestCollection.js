@@ -14,6 +14,9 @@ import {
   CLIENT_APP_FIREFOX,
   COLLECTION_SORT_DATE_ADDED_DESCENDING,
   COLLECTION_SORT_NAME,
+  FEATURED_THEMES_COLLECTION_EDIT,
+  FEATURED_THEMES_COLLECTION_SLUG,
+  MOZILLA_COLLECTIONS_EDIT,
 } from 'amo/constants';
 import {
   FETCH_CURRENT_COLLECTION,
@@ -81,6 +84,7 @@ describe(__filename, () => {
   const editableCollectionAddonErrorHandlerId =
     'src/amo/components/EditableCollectionAddon/index.js-editable-collection-addon-1234';
   const lang = 'en-US';
+  const mozillaUserId = config.get('mozillaUserId');
 
   const getLocation = ({
     editing = false,
@@ -2131,6 +2135,204 @@ describe(__filename, () => {
           'collection-some-slug',
         );
       });
+    });
+  });
+  describe('Tests for CollectionDetails', () => {
+    it('renders collection details', () => {
+      const authorName = 'Collection author';
+      const description = 'Collection description';
+      const modified = 'Jan 1, 1999';
+      const name = 'Collection Name';
+      const addons = [
+        createFakeCollectionAddon({ addon: { ...fakeAddon, id: 1 } }),
+        createFakeCollectionAddon({ addon: { ...fakeAddon, id: 2 } }),
+      ];
+
+      renderWithCollection({
+        addons,
+        detailProps: {
+          authorName,
+          count: addons.length,
+          description,
+          modified: new Date(modified),
+          name,
+        },
+      });
+
+      expect(screen.getByRole('heading', { name })).toBeInTheDocument();
+      expect(screen.getByText(description)).toBeInTheDocument();
+      const terms = screen.getAllByRole('term');
+      const definitions = screen.getAllByRole('definition');
+      expect(terms[0]).toHaveTextContent('Add-ons');
+      expect(definitions[0]).toHaveTextContent(addons.length);
+      expect(terms[1]).toHaveTextContent('Creator');
+      expect(definitions[1]).toHaveTextContent(authorName);
+      expect(terms[2]).toHaveTextContent('Last updated');
+      expect(definitions[2]).toHaveTextContent(modified);
+    });
+
+    it('can handle a blank name', () => {
+      renderWithCollection({ detailProps: { name: null } });
+
+      expect(
+        screen.getByRole('heading', {
+          name: collectionName({ name: null, i18n: fakeI18n() }),
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('renders loading indicators when there is no collection', () => {
+      render();
+
+      expect(
+        within(screen.getByClassName('CollectionDetails')).getAllByRole(
+          'alert',
+        ),
+      ).toHaveLength(5);
+    });
+
+    it('does not render buttons when there is no collection', () => {
+      dispatchSignInActionsWithStore({ store, userId: defaultUserId });
+      render();
+
+      expect(
+        screen.queryByRole('link', { name: 'Edit this collection' }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('link', { name: 'Edit collection details' }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('link', { name: 'Back to collection' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('switches into collection edit mode when the edit button is clicked', () => {
+      renderWithCollectionForSignedInUser();
+
+      clickEditButton();
+
+      expect(
+        screen.queryByRole('link', { name: 'Edit this collection' }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByRole('link', { name: 'Edit collection details' }),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByRole('link', { name: 'Back to collection' }),
+      ).toHaveAttribute(
+        'href',
+        `${defaultLocation}?page=1&collection_sort=-added`,
+      );
+    });
+
+    it('switches into collection details edit mode when the edit details button is clicked', () => {
+      renderWithCollectionForSignedInUser();
+
+      clickEditButton();
+
+      const link = screen.getByRole('link', {
+        name: 'Edit collection details',
+      });
+      const clickEvent = createEvent.click(link);
+      const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
+      const stopPropagationWatcher = jest.spyOn(clickEvent, 'stopPropagation');
+
+      fireEvent(link, clickEvent);
+      expect(preventDefaultWatcher).toHaveBeenCalled();
+      expect(stopPropagationWatcher).toHaveBeenCalled();
+
+      expect(
+        screen.getByRole('button', { name: 'Save changes' }),
+      ).toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for CollectionDetailsCard', () => {
+    it('renders an edit button if the current user is the author', () => {
+      renderWithCollectionForSignedInUser();
+
+      expect(
+        screen.getByRole('link', { name: 'Edit this collection' }),
+      ).toHaveAttribute(
+        'href',
+        `${defaultLocation}edit/?page=1&collection_sort=-added`,
+      );
+    });
+
+    it('does not render an edit button if the current user is not the author', () => {
+      dispatchSignInActionsWithStore({ store, userId: defaultUserId + 1 });
+      renderWithCollection();
+
+      expect(
+        screen.queryByRole('link', { name: 'Edit this collection' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders an edit button for a mozilla collection when user has the `Admin:Curation` permission', () => {
+      dispatchSignInActionsWithStore({
+        store,
+        userId: defaultUserId,
+        userProps: {
+          permissions: [MOZILLA_COLLECTIONS_EDIT],
+        },
+      });
+      renderWithCollection({
+        detailProps: { authorId: mozillaUserId },
+        userId: mozillaUserId,
+      });
+
+      expect(
+        screen.getByRole('link', { name: 'Edit this collection' }),
+      ).toBeInTheDocument();
+    });
+
+    it('does not render an edit button for a mozilla collection when user does not have the `Admin:Curation` permission', () => {
+      dispatchSignInActionsWithStore({ store, userId: defaultUserId });
+      renderWithCollection({
+        detail: createFakeCollectionDetail({ authorId: mozillaUserId }),
+        userId: mozillaUserId,
+      });
+
+      expect(
+        screen.queryByRole('link', { name: 'Edit this collection' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders an edit button for the Featured Themes collection when user has only the `Collections:Contribute` permission', () => {
+      dispatchSignInActionsWithStore({
+        store,
+        userId: defaultUserId,
+        userProps: {
+          permissions: [FEATURED_THEMES_COLLECTION_EDIT],
+        },
+      });
+      renderWithCollection({
+        detailProps: {
+          authorId: mozillaUserId,
+          slug: FEATURED_THEMES_COLLECTION_SLUG,
+        },
+        slug: FEATURED_THEMES_COLLECTION_SLUG,
+        userId: mozillaUserId,
+      });
+
+      expect(
+        screen.getByRole('link', { name: 'Edit this collection' }),
+      ).toBeInTheDocument();
+    });
+
+    it('does not render an edit button for the Featured Themes collection when user does not have the `Collections:Contribute` permission', () => {
+      dispatchSignInActionsWithStore({ store, userId: defaultUserId });
+      renderWithCollection({
+        detail: createFakeCollectionDetail({
+          authorId: mozillaUserId,
+          slug: FEATURED_THEMES_COLLECTION_SLUG,
+        }),
+        userId: mozillaUserId,
+      });
+
+      expect(
+        screen.queryByRole('link', { name: 'Edit this collection' }),
+      ).not.toBeInTheDocument();
     });
   });
 });
