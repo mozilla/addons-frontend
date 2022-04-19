@@ -1301,4 +1301,30 @@ describe(__filename, () => {
       });
     });
   });
+
+  describe('Tests for CollectionSort', () => {
+    it.each([true, false])(
+      `calls history.push with expected pathname and query when a sort is selected and editing is %s`,
+      (editing) => {
+        const location = `${defaultLocation}${editing ? 'edit/' : ''}`;
+        const sort = COLLECTION_SORT_NAME;
+        const history = createHistory({
+          initialEntries: [location],
+        });
+        const pushSpy = jest.spyOn(history, 'push');
+
+        renderWithCollectionForSignedInUser({ history });
+
+        userEvent.selectOptions(
+          screen.getByRole('combobox', { name: 'Sort add-ons by' }),
+          'Name',
+        );
+
+        expect(pushSpy).toHaveBeenCalledWith({
+          pathname: location,
+          query: { collection_sort: sort, page: '1' },
+        });
+      },
+    );
+  });
 });
