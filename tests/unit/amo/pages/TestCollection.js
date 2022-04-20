@@ -832,7 +832,7 @@ describe(__filename, () => {
     const addonId = addonsResponse.results[0].addon.id;
     const page = '2';
     const history = createHistory({
-      initialEntries: [`${defaultLocation}edit/?page=${page}`],
+      initialEntries: [`${getLocation({ editing: true })}?page=${page}`],
     });
     const pushSpy = jest.spyOn(history, 'push');
     const dispatch = jest.spyOn(store, 'dispatch');
@@ -865,7 +865,7 @@ describe(__filename, () => {
     const addonId = addonsResponse.results[0].addon.id;
     const page = '1';
     const history = createHistory({
-      initialEntries: [`${defaultLocation}edit/?page=${page}`],
+      initialEntries: [`${getLocation({ editing: true })}?page=${page}`],
     });
     const pushSpy = jest.spyOn(history, 'push');
     const dispatch = jest.spyOn(store, 'dispatch');
@@ -900,7 +900,9 @@ describe(__filename, () => {
     const sort = COLLECTION_SORT_DATE_ADDED_DESCENDING;
     const history = createHistory({
       initialEntries: [
-        `${defaultLocation}edit/?page=${page}&collection_sort=${sort}`,
+        `${getLocation({
+          editing: true,
+        })}?page=${page}&collection_sort=${sort}`,
       ],
     });
     const pushSpy = jest.spyOn(history, 'push');
@@ -920,7 +922,7 @@ describe(__filename, () => {
       }),
     );
     expect(pushSpy).toHaveBeenCalledWith({
-      pathname: `${defaultLocation}edit/`,
+      pathname: getLocation({ editing: true }),
       query: {
         collection_sort: sort,
         page: '1',
@@ -1306,7 +1308,7 @@ describe(__filename, () => {
     it.each([true, false])(
       `calls history.push with expected pathname and query when a sort is selected and editing is %s`,
       (editing) => {
-        const location = `${defaultLocation}${editing ? 'edit/' : ''}`;
+        const location = getLocation({ editing });
         const sort = COLLECTION_SORT_NAME;
         const history = createHistory({
           initialEntries: [location],
