@@ -7,6 +7,7 @@ import {
   extractId as collectionAddAddonExtractId,
   MESSAGE_RESET_TIME,
 } from 'amo/components/CollectionAddAddon';
+import { extractId as editableCollectionAddonExtractId } from 'amo/components/EditableCollectionAddon';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
@@ -1328,5 +1329,214 @@ describe(__filename, () => {
         });
       },
     );
+  });
+
+  describe('Tests for EditableCollectionAddon', () => {
+    it('renders a class name with its type', () => {
+      const type = ADDON_TYPE_STATIC_THEME;
+      renderWithCollectionForSignedInUser({
+        addons: [
+          createFakeCollectionAddon({
+            addon: {
+              ...fakeAddon,
+              type,
+            },
+          }),
+        ],
+        editing: true,
+      });
+
+      expect(screen.getByClassName('EditableCollectionAddon')).toHaveClass(
+        `EditableCollectionAddon--${type}`,
+      );
+    });
+
+    it("renders the add-on's icon", () => {
+      const addonName = 'My add-on';
+      renderWithCollectionForSignedInUser({
+        addons: [
+          createFakeCollectionAddon({
+            addon: {
+              ...fakeAddon,
+              name: createLocalizedString(addonName),
+            },
+          }),
+        ],
+        editing: true,
+      });
+
+      expect(screen.getByAltText(addonName)).toHaveAttribute(
+        'src',
+        fakeAddon.icon_url,
+      );
+    });
+
+    it('displays the leave a note button when no notes exist', () => {
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      const button = screen.getByRole('button', { name: 'Leave a note' });
+      expect(button).toHaveClass('Button--action');
+      expect(button).toHaveClass('Button--micro');
+    });
+
+    it('hides the leave a note button when notes exist', () => {
+      renderWithNotes();
+
+      expect(
+        screen.getByClassName('EditableCollectionAddon-leaveNote--hidden'),
+      ).toBeInTheDocument();
+    });
+
+    it('renders the remove button', () => {
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      const button = screen.getByRole('button', { name: 'Remove' });
+      expect(button).toHaveClass('Button--alert');
+      expect(button).toHaveClass('Button--micro');
+    });
+
+    it('dispatches removeAddonFromCollection when the remove button is clicked', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      const button = screen.getByRole('button', { name: 'Remove' });
+      const clickEvent = createEvent.click(button);
+      const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
+      const stopPropagationWatcher = jest.spyOn(clickEvent, 'stopPropagation');
+      fireEvent(button, clickEvent);
+
+      expect(preventDefaultWatcher).toHaveBeenCalled();
+      expect(stopPropagationWatcher).toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledWith(
+        removeAddonFromCollection({
+          addonId: fakeAddon.id,
+          errorHandlerId: getCollectionPageErrorHandlerId(),
+          filters: defaultFilters,
+          slug: defaultSlug,
+          userId: defaultUserId,
+        }),
+      );
+    });
+
+    describe('notes area', () => {
+      it('hides the notes area by default', () => {
+        renderWithCollectionForSignedInUser({ editing: true });
+
+        expect(
+          screen.queryByRole('heading', { name: `Collector's note` }),
+        ).not.toBeInTheDocument();
+      });
+
+      it('shows the read-only version of the notes area if there are notes', () => {
+        const notes = 'Some notes.';
+        renderWithNotes(notes);
+
+        expect(
+          screen.getByRole('heading', { name: `Collector's note` }),
+        ).toBeInTheDocument();
+        expect(screen.getByText(notes)).toBeInTheDocument();
+        expect(screen.getByClassName('Icon-comments-blue')).toBeInTheDocument();
+
+        const button = screen.getByRole('button', { name: 'Edit' });
+        expect(button).toHaveClass('Button--action');
+        expect(button).toHaveClass('Button--micro');
+
+        // The form should not be shown.
+        expect(
+          screen.queryByPlaceholderText('Add a comment about this add-on.'),
+        ).not.toBeInTheDocument();
+      });
+    });
+
+    it('renders newlines in notes', () => {
+      const notes = 'Some\nnotes.';
+      renderWithNotes(notes);
+
+      const notesContent = screen.getByClassName(
+        'EditableCollectionAddon-notes-content',
+      );
+      expect(notesContent).toHaveTextContent('Somenotes.');
+      expect(within(notesContent).getByTagName('br')).toBeInTheDocument();
+    });
+
+    it('shows an empty notes form when the leave a note button is clicked', () => {
+      renderWithCollectionForSignedInUser({ editing: true });
+
+      userEvent.click(screen.getByRole('button', { name: 'Leave a note' }));
+
+      expect(
+        screen.getByRole('heading', { name: 'Leave a note' }),
+      ).toBeInTheDocument();
+      expect(screen.getByClassName('Icon-comments-blue')).toBeInTheDocument();
+      expect(
+        screen.getByPlaceholderText('Add a comment about this add-on.'),
+      ).toHaveValue('');
+
+      const cancelButton = screen.getByRole('button', { name: 'Cancel' });
+      expect(cancelButton).toHaveClass('Button--neutral');
+      expect(cancelButton).toHaveClass('Button--micro');
+      const saveButton = screen.getByRole('button', { name: 'Save' });
+      expect(saveButton).toHaveClass('Button--action');
+      expect(saveButton).toHaveClass('Button--micro');
+
+      // The read-only portion should not be shown.
+      expect(
+        screen.queryByRole('heading', { name: `Collector's note` }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders clickable URL in notes', () => {
+      const linkText = 'click here';
+      const linkHref = 'https://addons.mozilla.org';
+      const notes = `<a href="${linkHref}">${linkText}</a>`;
+      renderWithNotes(notes);
+
+      expect(screen.getByRole('link', { name: linkText })).toHaveAttribute(
+        'href',
+        linkHref,
+      );
+    });
+
+    it('does not show <a> tag in DismissibleTextForm when editing notes', () => {
+      const linkText = 'click here';
+      const linkHref = 'https://addons.mozilla.org';
+      const notes = `<a href="${linkHref}">${linkText}</a>`;
+      renderWithNotes(notes);
+
+      userEvent.click(screen.getByRole('button', { name: 'Edit' }));
+
+      expect(
+        screen.getByPlaceholderText('Add a comment about this add-on.'),
+      ).toHaveValue(linkText);
+
+      // The read-only portion should not be shown.
+      expect(
+        screen.queryByRole('heading', { name: `Collector's note` }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('hides the notes form when the cancel button is clicked', () => {
+      renderWithNotes();
+
+      userEvent.click(screen.getByRole('button', { name: 'Edit' }));
+
+      expect(
+        screen.getByPlaceholderText('Add a comment about this add-on.'),
+      ).toBeInTheDocument();
+
+      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+
+      expect(
+        screen.queryByPlaceholderText('Add a comment about this add-on.'),
+      ).not.toBeInTheDocument();
+    });
+
+    describe('errorHandler - extractId', () => {
+      it('returns a unique ID with an add-on', () => {
+        expect(editableCollectionAddonExtractId({ addon: fakeAddon })).toEqual(
+          `editable-collection-addon-${fakeAddon.id}`,
+        );
+      });
+    });
   });
 });
