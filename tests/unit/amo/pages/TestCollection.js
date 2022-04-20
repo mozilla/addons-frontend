@@ -7,6 +7,7 @@ import {
   extractId as collectionAddAddonExtractId,
   MESSAGE_RESET_TIME,
 } from 'amo/components/CollectionAddAddon';
+import { extractId as collectionManagerExtractId } from 'amo/components/CollectionManager';
 import { extractId as editableCollectionAddonExtractId } from 'amo/components/EditableCollectionAddon';
 import {
   ADDON_TYPE_STATIC_THEME,
@@ -20,13 +21,17 @@ import {
   addAddonToCollection,
   addonAddedToCollection,
   addonRemovedFromCollection,
+  beginCollectionModification,
   collectionName,
+  createCollection,
   deleteCollection,
   deleteCollectionAddonNotes,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
+  finishEditingCollectionDetails,
   loadCurrentCollection,
   removeAddonFromCollection,
+  updateCollection,
   updateCollectionAddon,
 } from 'amo/reducers/collections';
 import {
@@ -1535,6 +1540,595 @@ describe(__filename, () => {
       it('returns a unique ID with an add-on', () => {
         expect(editableCollectionAddonExtractId({ addon: fakeAddon })).toEqual(
           `editable-collection-addon-${fakeAddon.id}`,
+        );
+      });
+    });
+  });
+
+  describe('Tests for CollectionManager', () => {
+    const getErrorHandlerId = (slug = '') =>
+      `src/amo/components/CollectionManager/index.js-collection-${slug}`;
+
+    const accessEditDetailsScreen = () => {
+      clickEditButton();
+      userEvent.click(
+        screen.getByRole('link', { name: 'Edit collection details' }),
+      );
+    };
+
+    const typeName = (name) =>
+      userEvent.type(
+        screen.getByRole('textbox', { name: 'Collection name' }),
+        `{selectall}{del}${name}`,
+      );
+
+    const typeDescription = (description) =>
+      userEvent.type(
+        screen.getByRole('textbox', { name: 'Description' }),
+        `{selectall}{del}${description}`,
+      );
+
+    const typeSlug = (slug) =>
+      userEvent.type(
+        screen.getByRole('textbox', { name: 'Custom URL' }),
+        `{selectall}{del}${slug}`,
+      );
+
+    const fillInDetailsScreen = ({ description, name, slug }) => {
+      typeName(name);
+      typeDescription(description);
+      typeSlug(slug);
+    };
+
+    const expectCancelButtonToBeDisabled = (disabled) => {
+      expect(screen.getByRole('button', { name: 'Cancel' })).toHaveProperty(
+        'disabled',
+        disabled,
+      );
+      return true;
+    };
+
+    const expectSaveButtonToBeDisabled = (disabled) => {
+      expect(
+        screen.getByRole('button', { name: 'Save changes' }),
+      ).toHaveProperty('disabled', disabled);
+      return true;
+    };
+
+    const expectButtonDisabledStatus = ({
+      cancelIsDisabled,
+      saveIsDisabled,
+    }) => {
+      expectCancelButtonToBeDisabled(cancelIsDisabled);
+      expectSaveButtonToBeDisabled(saveIsDisabled);
+      return true;
+    };
+
+    it('populates the edit form with collection data', () => {
+      const description = 'OG description';
+      const name = 'OG name';
+      renderWithCollectionForSignedInUser({
+        detailProps: { description, name },
+      });
+
+      accessEditDetailsScreen();
+
+      const expectedUrlPrefix = `${config.get(
+        'apiHost',
+      )}/${lang}/${clientApp}/collections/${defaultUserId}/`;
+      expect(
+        screen.getByRole('textbox', { name: 'Collection name' }),
+      ).toHaveValue(name);
+      expect(screen.getByRole('textbox', { name: 'Description' })).toHaveValue(
+        description,
+      );
+      expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
+        defaultSlug,
+      );
+      expect(screen.getByTitle(expectedUrlPrefix)).toHaveTextContent(
+        expectedUrlPrefix,
+      );
+      expectSaveButtonToBeDisabled(true);
+    });
+
+    it('does not populate form when updating to the same collection', () => {
+      renderWithCollectionForSignedInUser({
+        detailProps: {
+          description: 'First description',
+          name: 'First name',
+        },
+      });
+
+      accessEditDetailsScreen();
+
+      const description = 'User typed description';
+      const name = 'User typed name';
+      const slug = 'user-typed-slug';
+
+      fillInDetailsScreen({ description, name, slug });
+
+      expect(
+        screen.getByRole('textbox', { name: 'Collection name' }),
+      ).toHaveValue(name);
+      expect(screen.getByRole('textbox', { name: 'Description' })).toHaveValue(
+        description,
+      );
+      expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
+        slug,
+      );
+
+      // Simulate how a mounted component will get updated with the same
+      // collection. E.G. This happens when pressing the submit button.
+      userEvent.click(screen.getByRole('button', { name: 'Save changes' }));
+
+      // Make sure the internal state is preserved.
+      expect(
+        screen.getByRole('textbox', { name: 'Collection name' }),
+      ).toHaveValue(name);
+      expect(screen.getByRole('textbox', { name: 'Description' })).toHaveValue(
+        description,
+      );
+    });
+
+    it('creates a collection on submit', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderInAddMode();
+
+      const name = 'A collection name';
+      const description = 'A collection description';
+      const slug = 'collection-slug';
+
+      fillInDetailsScreen({ description, name, slug });
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Create collection' }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        createCollection({
+          defaultLocale: lang,
+          description: { [lang]: description },
+          errorHandlerId: getErrorHandlerId(),
+          name: { [lang]: name },
+          slug,
+          userId: defaultUserId,
+        }),
+      );
+    });
+
+    it('creates a collection with an add-on on submit', () => {
+      const addonId = '123';
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderInAddMode({ withAddonId: addonId });
+
+      const name = 'A collection name';
+      const description = 'A collection description';
+      const slug = 'collection-slug';
+
+      fillInDetailsScreen({ description, name, slug });
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Create collection' }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        createCollection({
+          defaultLocale: lang,
+          description: { [lang]: description },
+          errorHandlerId: getErrorHandlerId(),
+          includeAddonId: addonId,
+          name: { [lang]: name },
+          slug,
+          userId: defaultUserId,
+        }),
+      );
+    });
+
+    it('updates the collection on submit', () => {
+      renderWithCollectionForSignedInUser({
+        location: `${defaultLocation}?page=1`,
+      });
+      const dispatch = jest.spyOn(store, 'dispatch');
+
+      accessEditDetailsScreen();
+
+      // Fill in the form with new values.
+      const name = 'A new name';
+      const description = 'A new description';
+      const slug = 'new-slug';
+
+      fillInDetailsScreen({ description, name, slug });
+
+      userEvent.click(screen.getByRole('button', { name: 'Save changes' }));
+
+      expect(dispatch).toHaveBeenCalledWith(
+        updateCollection({
+          collectionSlug: defaultSlug,
+          defaultLocale: lang,
+          description: { [lang]: description },
+          errorHandlerId: getErrorHandlerId(defaultSlug),
+          filters: {
+            page: '1',
+            collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
+          },
+          name: { [lang]: name },
+          slug,
+          userId: defaultUserId,
+        }),
+      );
+    });
+
+    it('renders an error', () => {
+      renderWithCollectionForSignedInUser();
+
+      accessEditDetailsScreen();
+
+      const message = 'Some error message';
+      createFailedErrorHandler({
+        id: getErrorHandlerId(defaultSlug),
+        message,
+        store,
+      });
+
+      expect(screen.getByText(message)).toBeInTheDocument();
+    });
+
+    it('disables submit button when the name is blank', () => {
+      renderWithCollectionForSignedInUser();
+
+      accessEditDetailsScreen();
+
+      userEvent.type(
+        screen.getByRole('textbox', { name: 'Collection name' }),
+        `{selectall}{del}`,
+      );
+
+      expect(
+        expectButtonDisabledStatus({
+          cancelIsDisabled: false,
+          saveIsDisabled: true,
+        }),
+      ).toBeTruthy();
+    });
+
+    it('disables submit button when the name is spaces', () => {
+      renderWithCollectionForSignedInUser();
+
+      accessEditDetailsScreen();
+
+      userEvent.type(
+        screen.getByRole('textbox', { name: 'Collection name' }),
+        `{selectall}{del}     `,
+      );
+
+      expect(
+        expectButtonDisabledStatus({
+          cancelIsDisabled: false,
+          saveIsDisabled: true,
+        }),
+      ).toBeTruthy();
+    });
+
+    it('disables submit button when the slug is blank', () => {
+      renderWithCollectionForSignedInUser();
+
+      accessEditDetailsScreen();
+
+      userEvent.type(
+        screen.getByRole('textbox', { name: 'Custom URL' }),
+        `{selectall}{del}`,
+      );
+
+      expect(
+        expectButtonDisabledStatus({
+          cancelIsDisabled: false,
+          saveIsDisabled: true,
+        }),
+      ).toBeTruthy();
+    });
+
+    it('disables submit button when the slug is spaces', () => {
+      renderWithCollectionForSignedInUser();
+
+      accessEditDetailsScreen();
+
+      userEvent.type(
+        screen.getByRole('textbox', { name: 'Custom URL' }),
+        `{selectall}{del}     `,
+      );
+
+      expect(
+        expectButtonDisabledStatus({
+          cancelIsDisabled: false,
+          saveIsDisabled: true,
+        }),
+      ).toBeTruthy();
+    });
+
+    it('disables and enables form buttons when modification status changes', () => {
+      renderWithCollectionForSignedInUser();
+
+      accessEditDetailsScreen();
+
+      // Cancel should default to enabled, and Save to disabled.
+      expect(
+        expectButtonDisabledStatus({
+          cancelIsDisabled: false,
+          saveIsDisabled: true,
+        }),
+      ).toBeTruthy();
+
+      // Enter a value for name in order to enable submit button.
+      userEvent.type(
+        screen.getByRole('textbox', { name: 'Collection name' }),
+        `{selectall}{del}${defaultCollectionName}-changed`,
+      );
+
+      // Buttons should be enabled now.
+      expectButtonDisabledStatus({
+        cancelIsDisabled: false,
+        saveIsDisabled: false,
+      });
+
+      // beginCollectionModification is dispatched by a saga, and by default
+      // sagas do not run during tests, so we are dispatching this manually to
+      // change the state.
+      store.dispatch(beginCollectionModification());
+
+      // Buttons should be disabled now.
+      expectButtonDisabledStatus({
+        cancelIsDisabled: true,
+        saveIsDisabled: true,
+      });
+    });
+
+    it('enables and disables the submit button when form data is modified', () => {
+      renderWithCollectionForSignedInUser();
+
+      accessEditDetailsScreen();
+
+      // Save should be disabled by default.
+      expect(expectSaveButtonToBeDisabled(true)).toBeTruthy();
+
+      typeName(`${defaultCollectionName}-changed`);
+      expectSaveButtonToBeDisabled(false);
+
+      typeName(defaultCollectionName);
+      expectSaveButtonToBeDisabled(true);
+
+      typeDescription(`${defaultCollectionDescription}-changed`);
+      expectSaveButtonToBeDisabled(false);
+
+      typeDescription(defaultCollectionDescription);
+      expectSaveButtonToBeDisabled(true);
+
+      typeSlug(`${defaultSlug}-changed`);
+      expectSaveButtonToBeDisabled(false);
+
+      typeSlug(defaultSlug);
+      expectSaveButtonToBeDisabled(true);
+    });
+
+    it('trims leading and trailing spaces from slug and name before submitting', () => {
+      const name = 'trishul';
+      const slug = 'trishul';
+      renderWithCollectionForSignedInUser({
+        detailProps: { name, slug },
+        slug,
+      });
+      const dispatch = jest.spyOn(store, 'dispatch');
+
+      accessEditDetailsScreen();
+
+      // Enter in collection name and slug with trailing and leading spaces.
+      typeName(`  ${name}   `);
+      typeSlug(`  ${slug}   `);
+
+      userEvent.click(screen.getByRole('button', { name: 'Save changes' }));
+
+      expect(dispatch).toHaveBeenCalledWith(
+        updateCollection({
+          collectionSlug: slug,
+          defaultLocale: lang,
+          description: { [lang]: defaultCollectionDescription },
+          errorHandlerId: getErrorHandlerId(slug),
+          filters: {
+            page: '1',
+            collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
+          },
+          name: { [lang]: name },
+          slug,
+          userId: defaultUserId,
+        }),
+      );
+    });
+
+    it('autofills slug when name is entered while creating collection', () => {
+      const name = "trishul's collection";
+      renderInAddMode();
+
+      typeName(name);
+
+      expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
+        'trishul-s-collection',
+      );
+    });
+
+    it('does not autofill slug when custom slug is entered while creating collection', () => {
+      const name = "trishul's collection";
+      const slug = 'trishul';
+      renderInAddMode();
+
+      typeSlug(slug);
+      typeName(name);
+
+      expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
+        slug,
+      );
+    });
+
+    it('autofills slug with trimmed collection name', () => {
+      const name = "trishul's collection";
+      renderInAddMode();
+
+      typeName(`  ${name}  `);
+
+      expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
+        'trishul-s-collection',
+      );
+    });
+
+    it('does not allow consecutive hyphen while autofilling slug', () => {
+      const name = "trishul's   collection";
+      renderInAddMode();
+
+      typeName(`  ${name}  `);
+
+      expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
+        'trishul-s-collection',
+      );
+    });
+
+    it('does not update slug if event value is undefined', () => {
+      const name = "trishul's collection";
+      renderInAddMode();
+
+      typeName(name);
+      fireEvent.change(screen.getByRole('textbox', { name: 'Custom URL' }), {
+        target: { value: undefined },
+      });
+
+      expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
+        'trishul-s-collection',
+      );
+    });
+
+    it('allows a blank description', () => {
+      const name = 'My collection';
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderInAddMode();
+
+      typeName(name);
+      typeDescription('');
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Create collection' }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        createCollection({
+          defaultLocale: lang,
+          description: { [lang]: '' },
+          errorHandlerId: getErrorHandlerId(),
+          filters: {
+            page: '1',
+            collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
+          },
+          name: { [lang]: name },
+          slug: 'My-collection',
+          userId: defaultUserId,
+        }),
+      );
+    });
+
+    it('dispatches finishEditingCollectionDetails on cancel when editing', () => {
+      renderWithCollectionForSignedInUser();
+      const dispatch = jest.spyOn(store, 'dispatch');
+
+      accessEditDetailsScreen();
+
+      const button = screen.getByRole('button', {
+        name: 'Cancel',
+      });
+      const clickEvent = createEvent.click(button);
+      const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
+      const stopPropagationWatcher = jest.spyOn(clickEvent, 'stopPropagation');
+
+      fireEvent(button, clickEvent);
+      expect(preventDefaultWatcher).toHaveBeenCalled();
+      expect(stopPropagationWatcher).toHaveBeenCalled();
+
+      expect(dispatch).toHaveBeenCalledWith(finishEditingCollectionDetails());
+    });
+
+    it('calls history.push() when creating', () => {
+      const history = createHistory({
+        initialEntries: [`/${lang}/${clientApp}/collections/add/`],
+      });
+      renderInAddMode({ history });
+      const pushSpy = jest.spyOn(history, 'push');
+
+      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+
+      expect(pushSpy).toHaveBeenCalledWith(
+        `/${lang}/${clientApp}/collections/`,
+      );
+    });
+
+    it('populates form state when updating to a new collection', () => {
+      renderInAddMode();
+
+      _loadCurrentCollection();
+
+      store.dispatch(
+        onLocationChanged({
+          pathname: defaultLocation,
+        }),
+      );
+
+      accessEditDetailsScreen();
+
+      expect(
+        screen.getByRole('textbox', { name: 'Collection name' }),
+      ).toHaveValue(defaultCollectionName);
+      expect(screen.getByRole('textbox', { name: 'Description' })).toHaveValue(
+        defaultCollectionDescription,
+      );
+    });
+
+    it('populates form state when switching collections', () => {
+      const secondDescription = 'second description';
+      const secondName = 'second name';
+      const slug = 'secondSlug';
+      renderWithCollectionForSignedInUser();
+
+      accessEditDetailsScreen();
+
+      // This simulates when a user moves from editing one collection to
+      // editing another collection.
+      store.dispatch(onLocationChanged({ pathname: getLocation({ slug }) }));
+      _loadCurrentCollection({
+        detail: createFakeCollectionDetail({
+          authorId: defaultUserId,
+          description: secondDescription,
+          name: secondName,
+          slug,
+        }),
+      });
+
+      expect(
+        screen.getByRole('textbox', { name: 'Collection name' }),
+      ).toHaveValue(secondName);
+      expect(screen.getByRole('textbox', { name: 'Description' })).toHaveValue(
+        secondDescription,
+      );
+    });
+
+    describe('extractId', () => {
+      it('generates an ID without a collection', () => {
+        expect(collectionManagerExtractId({ collection: null })).toEqual(
+          'collection-',
+        );
+      });
+
+      it('generates an ID with a collection', () => {
+        const collection = createInternalCollectionWithLang({
+          detail: createFakeCollectionDetail({
+            slug: 'some-slug',
+          }),
+        });
+        expect(collectionManagerExtractId({ collection })).toEqual(
+          'collection-some-slug',
         );
       });
     });
