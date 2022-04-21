@@ -23,19 +23,17 @@ type UIStateType = {|
   readMoreExpanded: boolean,
 |};
 
-type TruncateToMaxHeightProps = {|
-  contents: HTMLElement | null,
-  maxHeight: number,
-  setUIState: ($Shape<UIStateType>) => void,
-  uiState: UIStateType,
-|};
-
-export const truncateToMaxHeight: (TruncateToMaxHeightProps) => void = ({
+export const truncateToMaxHeight = ({
   contents,
   maxHeight,
   setUIState,
   uiState,
-}: TruncateToMaxHeightProps) => {
+}: {|
+  contents: HTMLElement | null,
+  maxHeight: number,
+  setUIState: ($Shape<UIStateType>) => void,
+  uiState: UIStateType,
+|}) => {
   if (contents) {
     // If the contents are short enough they don't need a "show more" link; the
     // contents are expanded by default.
