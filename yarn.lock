@@ -8820,10 +8820,10 @@ minimist-options@4.1.0:
     is-plain-obj "^1.1.0"
     kind-of "^6.0.3"
 
-minimist@1.2.5, minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+minimist@1.2.6, minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
+  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
 minipass-collect@^1.0.2:
   version "1.0.2"
@@ -9795,12 +9795,12 @@ pino-devtools@^2.1.0:
     through2 "^2.0.3"
     ws "^6.0.0"
 
-pino-mozlog@2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-2.9.0.tgz#60974cb80d3c3788cd9372623751b9eab7282d1e"
-  integrity sha512-026M8BUHvaKaY0iW+0tPEWfFj3r/+vUdQv86R2eH5ZqD1MSKWfQtICRKjm2b4XcNlSX2sL/5d/XlaU+ojeI6Cw==
+pino-mozlog@2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-2.10.0.tgz#deab1e4d63a8bc93f8b75faf34a89d5c9fe9a7f8"
+  integrity sha512-HDzTX6NhE5nvIF5uEkB5cufV2EnEQ6XRf34Qq/R1zOqk+yWa0uhsgSWGdQ/Aauxplt46oErIhTpeVzAcyQX9IQ==
   dependencies:
-    minimist "1.2.5"
+    minimist "1.2.6"
     pino-syslog "2.0.0"
     pump "3.0.0"
     readable-stream "3.6.0"
