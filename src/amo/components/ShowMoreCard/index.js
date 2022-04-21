@@ -23,20 +23,46 @@ type UIStateType = {|
   readMoreExpanded: boolean,
 |};
 
+export const truncateToMaxHeight = ({
+  contents,
+  maxHeight,
+  setUIState,
+  uiState,
+}: {|
+  contents: HTMLElement | null,
+  maxHeight: number,
+  setUIState: ($Shape<UIStateType>) => void,
+  uiState: UIStateType,
+|}) => {
+  if (contents) {
+    // If the contents are short enough they don't need a "show more" link; the
+    // contents are expanded by default.
+    if (uiState.showAllContent && contents.clientHeight >= maxHeight) {
+      setUIState({
+        ...uiState,
+        showAllContent: false,
+      });
+    }
+  }
+};
+
 type DefaultProps = {|
+  _truncateToMaxHeight: typeof truncateToMaxHeight,
   maxHeight?: number,
 |};
 
 type Props = {|
-  ...DefaultProps,
   contentId: number | string | null,
   children: React.Node,
   className?: string,
   header?: React.Node | string,
   id: string,
+  maxHeight?: number,
 |};
 
 type InternalProps = {|
+  _setUIState?: ($Shape<UIStateType>) => void,
+  _truncateToMaxHeight: typeof truncateToMaxHeight,
   ...Props,
   i18n: I18nType,
   maxHeight: number,
@@ -53,19 +79,38 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
 
   static defaultProps: DefaultProps = {
+    _truncateToMaxHeight: truncateToMaxHeight,
     maxHeight: DEFAULT_MAX_HEIGHT,
   };
 
   componentDidMount() {
-    const { uiState } = this.props;
+    const {
+      _setUIState,
+      _truncateToMaxHeight,
+      maxHeight,
+      setUIState,
+      uiState,
+    } = this.props;
     if (!uiState.readMoreExpanded) {
-      this.truncateToMaxHeight(this.contents);
+      _truncateToMaxHeight({
+        contents: this.contents,
+        maxHeight,
+        setUIState: _setUIState || setUIState,
+        uiState,
+      });
     }
   }
 
   componentDidUpdate(prevProps: InternalProps) {
     const { contentId: prevContentId } = prevProps;
-    const { contentId, uiState } = this.props;
+    const {
+      _setUIState,
+      _truncateToMaxHeight,
+      contentId,
+      maxHeight,
+      setUIState,
+      uiState,
+    } = this.props;
 
     // Reset UIState if component child has changed.
     // This is needed because if you return to an addon that you've already
@@ -81,7 +126,12 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     // after the initial set up but we need this here (vs componentDidMount) to
     // get an accurate clientHeight.
     if (!uiState.readMoreExpanded) {
-      this.truncateToMaxHeight(this.contents);
+      _truncateToMaxHeight({
+        contents: this.contents,
+        maxHeight,
+        setUIState: _setUIState || setUIState,
+        uiState,
+      });
     }
   }
 
@@ -90,22 +140,6 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
       ...initialUIState,
     });
   }
-
-  truncateToMaxHeight: (contents: HTMLElement | null) => void = (
-    contents: HTMLElement | null,
-  ) => {
-    const { maxHeight, uiState } = this.props;
-    if (contents) {
-      // If the contents are short enough they don't need a "show more" link; the
-      // contents are expanded by default.
-      if (uiState.showAllContent && contents.clientHeight >= maxHeight) {
-        this.props.setUIState({
-          ...uiState,
-          showAllContent: false,
-        });
-      }
-    }
-  };
 
   onClick: HTMLElementEventHandler = (event: ElementEvent) => {
     event.preventDefault();
