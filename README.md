@@ -42,8 +42,8 @@ Here are some commands you can run:
 | yarn amo:dev-https | Same as `amo:dev` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended) |
 | yarn amo:stage | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
 | yarn build | Build the app. |
-| yarn build-ci | Run the `build` and `bundlesize` npm scripts. |
-| yarn bundlesize | Run [bundlesize][] to check the generated AMO bundle sizes. [Building AMO is required first](#building-and-running-services). |
+| yarn build-ci | Run the `build` and `bundlewatch` npm scripts. |
+| yarn bundlewatch | Run [bundlewatch][] to check the generated AMO bundle sizes. [Building AMO is required first](#building-and-running-services). |
 | yarn flow | Run Flow. By default this checks for errors and exits |
 | yarn flow:check | Explicitly check for Flow errors and exit |
 | yarn flow:dev | Continuously check for Flow errors |
@@ -369,7 +369,7 @@ Issuing this command from the `master` branch will update the version in the `pa
 - Universal rendering via node
 - Unit tests with high coverage (aiming for 100%)
 
-[bundlesize]: https://github.com/siddharthkp/bundlesize
+[bundlewatch]: https://github.com/bundlewatch/bundlewatch
 [jest]: https://jestjs.io/docs/en/getting-started.html
 [prettier]: https://prettier.io/
 [addons-blog]: https://github.com/mozilla/addons-blog
