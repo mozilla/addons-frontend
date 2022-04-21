@@ -20,12 +20,16 @@ const packageJson = JSON.parse(
 
 // html-webpack-plugin and webpack-subresource-integrity: we're using unstable
 // versions.
+
+// po2json: we're using an unreleased git commit because there hasn't been a
+// release with the fixes to its dependencies.
 const skipDevDeps = [
   'prettier',
   'pretty-quick',
   'enzyme',
   'html-webpack-plugin',
   'webpack-subresource-integrity',
+  'po2json',
 ];
 
 describe(__filename, () => {
