@@ -3262,7 +3262,7 @@ bundle-loader@^0.5.5:
   dependencies:
     loader-utils "^1.1.0"
 
-bundlewatch@0.3.3:
+bundlewatch@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/bundlewatch/-/bundlewatch-0.3.3.tgz#6226f2317a8183cfccdd1ea016bdf10373c9498c"
   integrity sha512-qzSVWrZyyWXa546JpAPRPTFmnXms9YNVnfzB05DRJKmN6wRRa7SkxE4OgKQmbAY74Z6CM2mKAc6vwvd2R+1lUQ==
@@ -6078,18 +6078,6 @@ gettext-to-messageformat@0.3.1:
   dependencies:
     gettext-parser "^1.4.0"
 
-github-build@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/github-build/-/github-build-1.2.2.tgz#d5d5d989dc8cead0d46e2bb0864be7fddd50be15"
-  integrity sha512-xHVy8w+J09eD+uBqJ4CcRPr5HTa1BYaF6vPJ67yJekCWurPzimB/ExH1SGzW5iAFC2Uvw9TD1FpSIjh56hcB9Q==
-  dependencies:
-    axios "0.21.1"
-
-github-from-package@0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
-  integrity sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=
-
 glob-base@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/glob-base/-/glob-base-0.3.0.tgz#dbb164f6221b1c0b1ccf82aea328b497df0ea3c4"
@@ -6287,16 +6275,6 @@ has-bigints@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/has-bigints/-/has-bigints-1.0.1.tgz#64fe6acb020673e3b78db035a5af69aa9d07b113"
   integrity sha512-LSBS2LjbNBTf6287JEbEzvJgftkF5qFkmCo9hDRpAzKhUOlJ+hx8dd4USs00SgsUNwc4617J9ki5YtEClM2ffA==
-
-has-color@~0.1.0:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/has-color/-/has-color-0.1.7.tgz#67144a5260c34fc3cca677d041daf52fe7b78b2f"
-  integrity sha1-ZxRKUmDDT8PMpnfQQdr1L+e3iy8=
-  
-has-flag@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
-  integrity sha1-6CB68cx7MNRGzHC3NLXovhj4jVE=
 
 has-flag@^3.0.0:
   version "3.0.0"
@@ -9038,11 +9016,6 @@ node-sass@^7.0.0:
     sass-graph "2.2.5"
     stdout-stream "^1.4.0"
     "true-case-path" "^1.0.2"
-
-noop-logger@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/noop-logger/-/noop-logger-0.1.1.tgz#94a2b1633c4f1317553007d8966fd0e841b6a4c2"
-  integrity sha1-lKKxYzxPExdVMAfYlm/Q6EG2pMI=
 
 nopt@^5.0.0:
   version "5.0.0"
