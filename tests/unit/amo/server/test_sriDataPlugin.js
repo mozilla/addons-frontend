@@ -24,7 +24,8 @@ describe(__filename, () => {
     fs.mkdirSync(srcDir);
     fs.mkdirSync(distDir);
 
-    fs.writeFileSync(path.join(srcDir, 'app.js'), '// some JS code');
+    fs.writeFileSync(path.join(srcDir, 'app1.js'), 'document.foo = 41');
+    fs.writeFileSync(path.join(srcDir, 'app2.js'), 'document.foo = 42;');
   });
 
   afterEach(() => {
@@ -44,7 +45,6 @@ describe(__filename, () => {
 
     const compiler = webpack({
       entry: {
-        app: path.join(srcDir, 'app'),
         ...entry,
       },
       output: {
@@ -77,29 +77,40 @@ describe(__filename, () => {
   it('handles a single asset file', () => {
     return compile({
       entry: {
-        app: path.join(srcDir, 'app'),
+        app: path.join(srcDir, 'app1.js'),
       },
-    }).then(({ sriData }) => {
-      expect(sriData['app.js']).toMatch(/^sha512-.*/);
+    }).then(({ stats, sriData }) => {
+      // Ensure that compilation succeeded...
+      const { assets } = stats.toJson();
+      expect(assets.length).toEqual(1);
+      expect(assets[0].size).toBeGreaterThan(0);
+      // ... and that we have the hashes in sriData.
+      expect(sriData['app.js']).toMatch(/^sha512-/);
     });
   });
 
   it('handles multiple asset files', () => {
     return compile({
       entry: {
-        app: path.join(srcDir, 'app'),
-        app2: path.join(srcDir, 'app'),
+        app: path.join(srcDir, 'app1.js'),
+        second_app: path.join(srcDir, 'app2.js'),
       },
-    }).then(({ sriData }) => {
-      expect(sriData['app.js']).toMatch(/^sha512-.*/);
-      expect(sriData['app2.js']).toMatch(/^sha512-.*/);
+    }).then(({ stats, sriData }) => {
+      // Ensure that compilation succeeded...
+      const { assets } = stats.toJson();
+      expect(assets.length).toEqual(2);
+      expect(assets[0].size).toBeGreaterThan(0);
+      expect(assets[1].size).toBeGreaterThan(0);
+      // ... and that we have the hashes in sriData.
+      expect(sriData['app.js']).toMatch(/^sha512-/);
+      expect(sriData['second_app.js']).toMatch(/^sha512-/);
     });
   });
 
   it('requires the SriPlugin', () => {
     return compile({
       entry: {
-        app: path.join(srcDir, 'app'),
+        app: path.join(srcDir, 'app1.js'),
       },
       includeSriPlugin: false,
     }).then(
