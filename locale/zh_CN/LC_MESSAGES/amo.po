@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-04-12 16:22+0000\n"
-"PO-Revision-Date: 2022-04-14 11:28+0000\n"
+"PO-Revision-Date: 2022-04-22 14:02+0000\n"
 "Last-Translator: 你我皆凡人 <yuanbingyan@mail.ee>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -198,7 +198,7 @@ msgstr "前往统计面板"
 
 #: src/amo/components/AddonMoreInfo/index.js:167
 msgid "Custom License"
-msgstr "自定义许可协议"
+msgstr "自定义许可证"
 
 #: src/amo/components/AddonMoreInfo/index.js:212
 msgid "%(timeFromNow)s (%(date)s)"
@@ -238,7 +238,7 @@ msgstr "相关分类"
 
 #: src/amo/components/AddonMoreInfo/index.js:345
 msgid "License"
-msgstr "许可协议"
+msgstr "许可证"
 
 #: src/amo/components/AddonMoreInfo/index.js:353
 msgid "Privacy Policy"
@@ -526,15 +526,15 @@ msgstr "作者："
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "源代码遵循 %(linkStart)s%(licenseName)s%(linkEnd)s 许可协议发布"
+msgstr "源代码遵循 %(linkStart)s%(licenseName)s%(linkEnd)s 发布"
 
 #: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr "源代码遵循%(linkStart)s自定义许可协议%(linkEnd)s发布"
+msgstr "源代码遵循%(linkStart)s自定义许可证%(linkEnd)s发布"
 
 #: src/amo/components/AddonVersionCard/index.js:152
 msgid "Source code released under %(licenseName)s"
-msgstr "源代码遵循 %(licenseName)s 许可协议发布"
+msgstr "源代码遵循 %(licenseName)s 发布"
 
 #: src/amo/components/AddonVersionCard/index.js:62
 msgid "No version found"
@@ -1012,7 +1012,7 @@ msgstr "法律"
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
-msgstr "除非另有%(startNotedLink)s注明%(endNotedLink)s，否则本网站上的内容可按 %(startLicenseLink)s知识共享 署名-相同方式共享 3.0%(endLicenseLink)s 或更新版本使用。"
+msgstr "除非另有%(startNotedLink)s注明%(endNotedLink)s，否则本网站上的内容可按%(startLicenseLink)s知识共享 署名-相同方式共享 3.0%(endLicenseLink)s 或更新版本使用。"
 
 #: src/amo/components/Footer/index.js:37
 msgid "Go to Mozilla's homepage"
@@ -1970,7 +1970,7 @@ msgstr "屏幕截图"
 
 #: src/amo/pages/AddonInfo/index.js:152
 msgid "Custom License for %(addonName)s"
-msgstr "%(addonName)s 的自定义许可协议"
+msgstr "%(addonName)s 的自定义许可证"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
