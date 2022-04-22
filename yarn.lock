@@ -3267,7 +3267,7 @@ bundle-loader@^0.5.5:
   dependencies:
     loader-utils "^1.1.0"
 
-bundlewatch@0.3.3:
+bundlewatch@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/bundlewatch/-/bundlewatch-0.3.3.tgz#6226f2317a8183cfccdd1ea016bdf10373c9498c"
   integrity sha512-qzSVWrZyyWXa546JpAPRPTFmnXms9YNVnfzB05DRJKmN6wRRa7SkxE4OgKQmbAY74Z6CM2mKAc6vwvd2R+1lUQ==
