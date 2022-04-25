@@ -24,8 +24,8 @@ describe(__filename, () => {
     fs.mkdirSync(srcDir);
     fs.mkdirSync(distDir);
 
-    fs.writeFileSync(path.join(srcDir, 'app1.js'), 'document.foo = 41');
-    fs.writeFileSync(path.join(srcDir, 'app2.js'), 'document.foo = 42;');
+    fs.writeFileSync(path.join(srcDir, 'app1.js'), 'window.foo = 41;');
+    fs.writeFileSync(path.join(srcDir, 'app2.js'), 'window.foo = 42;');
   });
 
   afterEach(() => {
