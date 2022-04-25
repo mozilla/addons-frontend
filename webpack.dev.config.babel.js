@@ -71,7 +71,7 @@ export default {
     ),
     new webpack.NormalModuleReplacementPlugin(/^redux$/, 'redux/dist/redux.js'),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.IgnorePlugin(/webpack-stats\.json$/),
+    new webpack.IgnorePlugin({ resourceRegExp: /webpack-stats\.json$/ }),
     webpackIsomorphicToolsPlugin.development(),
   ],
 };

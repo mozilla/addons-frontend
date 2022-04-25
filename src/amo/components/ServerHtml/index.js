@@ -56,29 +56,32 @@ export default class ServerHtml extends Component {
     const leafName = filePath.split('/').pop();
 
     if (!JS_CHUNK_EXCLUDES.test(leafName)) {
-      const sriProps = this.getSriProps(leafName);
-
       switch (type) {
         case 'css':
           return (
             <link
               href={filePath}
-              {...sriProps}
+              {...this.getSriProps(leafName)}
               key={type + index}
               rel="stylesheet"
               type="text/css"
             />
           );
         case 'js':
-          return <script key={type + index} src={filePath} {...sriProps} />;
+          return (
+            <script
+              key={type + index}
+              src={filePath}
+              {...this.getSriProps(leafName)}
+            />
+          );
         case 'font':
-          // Always apply crossorigin for the font, even when we don't have
-          // SRI data.
-          sriProps.crossOrigin = 'anonymous';
           return (
             <link
               href={filePath}
-              {...sriProps}
+              // We don't generate integrity data for fonts, so avoid calling
+              // getSriProps() - it would fail.
+              crossOrigin="anonymous"
               key={type + index}
               rel="preload"
               as="font"

@@ -24,7 +24,10 @@ export default class SriDataPlugin {
         assets.forEach((asset) => {
           const { name } = asset;
 
-          if (!asset.integrity) {
+          if (
+            !asset.integrity &&
+            (name.endsWith('.css') || name.endsWith('.js'))
+          ) {
             throw new Error(
               oneLine`The integrity property is falsey for asset ${name}; Is
               the webpack-subresource-integrity plugin installed and enabled?`,
