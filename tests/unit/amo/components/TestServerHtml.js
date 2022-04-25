@@ -153,7 +153,7 @@ describe(__filename, () => {
     );
     expect(preloaded.at(0)).toHaveProp('as', 'font');
     expect(preloaded.at(0)).toHaveProp('type', 'font/woff2');
-    expect(preloaded.at(0)).toHaveProp('integrity', 'sha512-amo-woff2');
+    expect(preloaded.at(0)).not.toHaveProp('integrity');
     expect(preloaded.at(0)).toHaveProp('crossOrigin', 'anonymous');
   });
 
@@ -170,10 +170,10 @@ describe(__filename, () => {
     }).toThrowError('Unknown static type');
   });
 
-  it('throws for missing SRI data', () => {
+  it.each(['css', 'js'])('throws for missing SRI data', (type) => {
     expect(() => {
       const root = render();
-      root.instance().getStatic({ filePath: 'amo-blah' });
+      root.instance().getStatic({ filePath: 'amo-blah', type });
     }).toThrowError(/SRI Data is missing/);
   });
 
