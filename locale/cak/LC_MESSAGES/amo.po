@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-12 16:22+0000\n"
+"POT-Creation-Date: 2022-04-25 16:13+0000\n"
 "PO-Revision-Date: 2021-03-26 23:11+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -349,7 +349,7 @@ msgstr "Tiyuj"
 
 #: src/amo/components/AddonReviewCard/index.js:268
 #: src/amo/components/AddonReviewManager/index.js:153
-#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
 #: src/amo/pages/UserProfileEdit/index.js:894
@@ -605,7 +605,7 @@ msgid "Enable"
 msgstr "Titzij"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:144
+#: src/amo/components/EditableCollectionAddon/index.js:146
 msgid "Remove"
 msgstr "Tiyuj"
 
@@ -743,24 +743,24 @@ msgstr "Taq tz'aqat"
 msgid "Creator"
 msgstr "Q'inonel"
 
-#: src/amo/components/CollectionManager/index.js:248
+#: src/amo/components/CollectionManager/index.js:252
 #, fuzzy
 msgid "Create collection"
 msgstr "Titz'uk k'ak'a' mol"
 
-#: src/amo/components/CollectionManager/index.js:249
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Save changes"
 msgstr "Keyak taq jaloj"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:262
 msgid "Collection name"
 msgstr "Rub'i' mol"
 
-#: src/amo/components/CollectionManager/index.js:272
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Description"
 msgstr "Tzijoxkil"
 
-#: src/amo/components/CollectionManager/index.js:284
+#: src/amo/components/CollectionManager/index.js:288
 msgid "Custom URL"
 msgstr "Ichinan URL"
 
@@ -878,26 +878,26 @@ msgstr "Titaq"
 msgid "Submitting"
 msgstr "Nitaq"
 
-#: src/amo/components/EditableCollectionAddon/index.js:134
-#: src/amo/components/EditableCollectionAddon/index.js:152
+#: src/amo/components/EditableCollectionAddon/index.js:136
+#: src/amo/components/EditableCollectionAddon/index.js:154
 msgid "Leave a note"
 msgstr "Tiya' kan jun ch'utitzijol…"
 
-#: src/amo/components/EditableCollectionAddon/index.js:153
+#: src/amo/components/EditableCollectionAddon/index.js:155
 #, fuzzy
 msgid "Collector's note"
 msgstr "Rub'i' mol"
 
-#: src/amo/components/EditableCollectionAddon/index.js:168
+#: src/amo/components/EditableCollectionAddon/index.js:170
 #, fuzzy
 msgid "Add a comment about this add-on."
 msgstr "Chi rij re tz'aqat re'"
 
-#: src/amo/components/EditableCollectionAddon/index.js:169
+#: src/amo/components/EditableCollectionAddon/index.js:171
 msgid "Save"
 msgstr "Tiyak"
 
-#: src/amo/components/EditableCollectionAddon/index.js:190
+#: src/amo/components/EditableCollectionAddon/index.js:192
 msgid "Edit"
 msgstr "Tinuk'"
 
@@ -2157,11 +2157,11 @@ msgstr "Kitz'aqat Android"
 msgid "Extensions"
 msgstr "Taq k'amal"
 
-#: src/amo/components/ShowMoreCard/index.js:128
+#: src/amo/components/ShowMoreCard/index.js:162
 msgid "Expand to read more"
 msgstr ""
 
-#: src/amo/components/ShowMoreCard/index.js:133
+#: src/amo/components/ShowMoreCard/index.js:167
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Tinimirisäx richin </span> Tisik'ïx ch'aqa' "

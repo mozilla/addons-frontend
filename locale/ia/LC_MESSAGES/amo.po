@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-12 16:22+0000\n"
+"POT-Creation-Date: 2022-04-25 16:13+0000\n"
 "PO-Revision-Date: 2022-04-07 07:56+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -351,7 +351,7 @@ msgstr "Deler"
 
 #: src/amo/components/AddonReviewCard/index.js:268
 #: src/amo/components/AddonReviewManager/index.js:153
-#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
 #: src/amo/pages/UserProfileEdit/index.js:894
@@ -596,7 +596,7 @@ msgid "Enable"
 msgstr "Activar"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:144
+#: src/amo/components/EditableCollectionAddon/index.js:146
 msgid "Remove"
 msgstr "Remover"
 
@@ -723,23 +723,23 @@ msgstr "Additivos"
 msgid "Creator"
 msgstr "Creator"
 
-#: src/amo/components/CollectionManager/index.js:248
+#: src/amo/components/CollectionManager/index.js:252
 msgid "Create collection"
 msgstr "Crear un collection"
 
-#: src/amo/components/CollectionManager/index.js:249
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Save changes"
 msgstr "Salvar le cambiamentos"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:262
 msgid "Collection name"
 msgstr "Nomine del collection"
 
-#: src/amo/components/CollectionManager/index.js:272
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Description"
 msgstr "Description"
 
-#: src/amo/components/CollectionManager/index.js:284
+#: src/amo/components/CollectionManager/index.js:288
 msgid "Custom URL"
 msgstr "URL personalisate"
 
@@ -855,24 +855,24 @@ msgstr "Submitter"
 msgid "Submitting"
 msgstr "Invio"
 
-#: src/amo/components/EditableCollectionAddon/index.js:134
-#: src/amo/components/EditableCollectionAddon/index.js:152
+#: src/amo/components/EditableCollectionAddon/index.js:136
+#: src/amo/components/EditableCollectionAddon/index.js:154
 msgid "Leave a note"
 msgstr "Lassar un nota"
 
-#: src/amo/components/EditableCollectionAddon/index.js:153
+#: src/amo/components/EditableCollectionAddon/index.js:155
 msgid "Collector's note"
 msgstr "Nomine de autor del collection"
 
-#: src/amo/components/EditableCollectionAddon/index.js:168
+#: src/amo/components/EditableCollectionAddon/index.js:170
 msgid "Add a comment about this add-on."
 msgstr "Adde un commento circa iste additivo."
 
-#: src/amo/components/EditableCollectionAddon/index.js:169
+#: src/amo/components/EditableCollectionAddon/index.js:171
 msgid "Save"
 msgstr "Salvar"
 
-#: src/amo/components/EditableCollectionAddon/index.js:190
+#: src/amo/components/EditableCollectionAddon/index.js:192
 msgid "Edit"
 msgstr "Modificar"
 
@@ -2084,11 +2084,11 @@ msgstr "Additivos pro Android"
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: src/amo/components/ShowMoreCard/index.js:128
+#: src/amo/components/ShowMoreCard/index.js:162
 msgid "Expand to read more"
 msgstr "Expander pro leger plus"
 
-#: src/amo/components/ShowMoreCard/index.js:133
+#: src/amo/components/ShowMoreCard/index.js:167
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Expander a</span> Leger plus"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-12 16:22+0000\n"
+"POT-Creation-Date: 2022-04-25 16:13+0000\n"
 "PO-Revision-Date: 2022-04-06 09:45+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -346,7 +346,7 @@ msgstr "Διαγραφή"
 
 #: src/amo/components/AddonReviewCard/index.js:268
 #: src/amo/components/AddonReviewManager/index.js:153
-#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
 #: src/amo/pages/UserProfileEdit/index.js:894
@@ -593,7 +593,7 @@ msgid "Enable"
 msgstr "Ενεργοποίηση"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:144
+#: src/amo/components/EditableCollectionAddon/index.js:146
 msgid "Remove"
 msgstr "Αφαίρεση"
 
@@ -720,23 +720,23 @@ msgstr "Πρόσθετα"
 msgid "Creator"
 msgstr "Δημιουργός"
 
-#: src/amo/components/CollectionManager/index.js:248
+#: src/amo/components/CollectionManager/index.js:252
 msgid "Create collection"
 msgstr "Δημιουργία συλλογής"
 
-#: src/amo/components/CollectionManager/index.js:249
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Save changes"
 msgstr "Αποθήκευση αλλαγών"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:262
 msgid "Collection name"
 msgstr "Όνομα συλλογής"
 
-#: src/amo/components/CollectionManager/index.js:272
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: src/amo/components/CollectionManager/index.js:284
+#: src/amo/components/CollectionManager/index.js:288
 msgid "Custom URL"
 msgstr "Προσαρμοσμένο URL"
 
@@ -852,24 +852,24 @@ msgstr "Υποβολή"
 msgid "Submitting"
 msgstr "Υποβολή"
 
-#: src/amo/components/EditableCollectionAddon/index.js:134
-#: src/amo/components/EditableCollectionAddon/index.js:152
+#: src/amo/components/EditableCollectionAddon/index.js:136
+#: src/amo/components/EditableCollectionAddon/index.js:154
 msgid "Leave a note"
 msgstr "Αφήστε σημείωση"
 
-#: src/amo/components/EditableCollectionAddon/index.js:153
+#: src/amo/components/EditableCollectionAddon/index.js:155
 msgid "Collector's note"
 msgstr "Σημείωση συλλέκτη"
 
-#: src/amo/components/EditableCollectionAddon/index.js:168
+#: src/amo/components/EditableCollectionAddon/index.js:170
 msgid "Add a comment about this add-on."
 msgstr "Προσθέστε ένα σχόλιο για αυτό το πρόσθετο."
 
-#: src/amo/components/EditableCollectionAddon/index.js:169
+#: src/amo/components/EditableCollectionAddon/index.js:171
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: src/amo/components/EditableCollectionAddon/index.js:190
+#: src/amo/components/EditableCollectionAddon/index.js:192
 msgid "Edit"
 msgstr "Επεξεργασία"
 
@@ -2094,11 +2094,11 @@ msgstr "Πρόσθετα για Android"
 msgid "Extensions"
 msgstr "Επεκτάσεις"
 
-#: src/amo/components/ShowMoreCard/index.js:128
+#: src/amo/components/ShowMoreCard/index.js:162
 msgid "Expand to read more"
 msgstr "Επεκτείνετε για να διαβάσετε περισσότερα"
 
-#: src/amo/components/ShowMoreCard/index.js:133
+#: src/amo/components/ShowMoreCard/index.js:167
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Επέκταση για</span> ανάγνωση περισσότερων"

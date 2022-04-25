@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-12 16:22+0000\n"
+"POT-Creation-Date: 2022-04-25 16:13+0000\n"
 "PO-Revision-Date: 2021-01-30 18:44+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -342,7 +342,7 @@ msgstr "ਹਟਾਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:268
 #: src/amo/components/AddonReviewManager/index.js:153
-#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
 #: src/amo/pages/UserProfileEdit/index.js:894
@@ -588,7 +588,7 @@ msgid "Enable"
 msgstr "ਸਮਰੱਥ"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:144
+#: src/amo/components/EditableCollectionAddon/index.js:146
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
@@ -714,23 +714,23 @@ msgstr "ਐਡ-ਆਨ"
 msgid "Creator"
 msgstr "ਨਿਰਮਾਤਾ"
 
-#: src/amo/components/CollectionManager/index.js:248
+#: src/amo/components/CollectionManager/index.js:252
 msgid "Create collection"
 msgstr "ਸੰਗ੍ਰਹਿ ਰਚੋ"
 
-#: src/amo/components/CollectionManager/index.js:249
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Save changes"
 msgstr "ਤਬਦੀਲੀਆਂ ਨੂੰ ਸੰਭਾਲੋ"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:262
 msgid "Collection name"
 msgstr "ਸੰਗ੍ਰਹਿ ਦਾ ਨਾਂ"
 
-#: src/amo/components/CollectionManager/index.js:272
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Description"
 msgstr "ਵੇਰਵਾ"
 
-#: src/amo/components/CollectionManager/index.js:284
+#: src/amo/components/CollectionManager/index.js:288
 msgid "Custom URL"
 msgstr "ਪਸੰਦੀਦਾ URL"
 
@@ -846,24 +846,24 @@ msgstr "ਭੇਜੋ"
 msgid "Submitting"
 msgstr "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/EditableCollectionAddon/index.js:134
-#: src/amo/components/EditableCollectionAddon/index.js:152
+#: src/amo/components/EditableCollectionAddon/index.js:136
+#: src/amo/components/EditableCollectionAddon/index.js:154
 msgid "Leave a note"
 msgstr "ਨੋਟ ਛੱਡੋ"
 
-#: src/amo/components/EditableCollectionAddon/index.js:153
+#: src/amo/components/EditableCollectionAddon/index.js:155
 msgid "Collector's note"
 msgstr "ਕੁਲੈਕਟਰ ਦੇ ਨੋਟ"
 
-#: src/amo/components/EditableCollectionAddon/index.js:168
+#: src/amo/components/EditableCollectionAddon/index.js:170
 msgid "Add a comment about this add-on."
 msgstr "ਇਸ ਐਡ-ਆਨ ਬਾਰੇ ਟਿੱਪਣੀ ਜੋੜੋ।"
 
-#: src/amo/components/EditableCollectionAddon/index.js:169
+#: src/amo/components/EditableCollectionAddon/index.js:171
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: src/amo/components/EditableCollectionAddon/index.js:190
+#: src/amo/components/EditableCollectionAddon/index.js:192
 msgid "Edit"
 msgstr "ਸੋਧ"
 
@@ -2089,11 +2089,11 @@ msgstr "ਐਂਡਰਾਇਡ ਲਈ ਐਡ-ਆਨ"
 msgid "Extensions"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
-#: src/amo/components/ShowMoreCard/index.js:128
+#: src/amo/components/ShowMoreCard/index.js:162
 msgid "Expand to read more"
 msgstr "ਹੋਰ ਪੜ੍ਹਨ ਲਈ ਫੈਲਾਓ"
 
-#: src/amo/components/ShowMoreCard/index.js:133
+#: src/amo/components/ShowMoreCard/index.js:167
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">ਫੈਲਾਓ</span> ਹੋਰ ਪੜ੍ਹੋ"
 

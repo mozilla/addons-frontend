@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-12 16:22+0000\n"
+"POT-Creation-Date: 2022-04-25 16:13+0000\n"
 "PO-Revision-Date: 2022-04-09 10:32+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -356,7 +356,7 @@ msgstr "Usuń"
 
 #: src/amo/components/AddonReviewCard/index.js:268
 #: src/amo/components/AddonReviewManager/index.js:153
-#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
 #: src/amo/pages/UserProfileEdit/index.js:894
@@ -601,7 +601,7 @@ msgid "Enable"
 msgstr "Włącz"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:144
+#: src/amo/components/EditableCollectionAddon/index.js:146
 msgid "Remove"
 msgstr "Usuń"
 
@@ -727,23 +727,23 @@ msgstr "Dodatki"
 msgid "Creator"
 msgstr "Autor"
 
-#: src/amo/components/CollectionManager/index.js:248
+#: src/amo/components/CollectionManager/index.js:252
 msgid "Create collection"
 msgstr "Utwórz kolekcję"
 
-#: src/amo/components/CollectionManager/index.js:249
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Save changes"
 msgstr "Zapisz zmiany"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:262
 msgid "Collection name"
 msgstr "Nazwa kolekcji"
 
-#: src/amo/components/CollectionManager/index.js:272
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Description"
 msgstr "Opis"
 
-#: src/amo/components/CollectionManager/index.js:284
+#: src/amo/components/CollectionManager/index.js:288
 msgid "Custom URL"
 msgstr "Niestandardowy adres"
 
@@ -859,24 +859,24 @@ msgstr "Wyślij"
 msgid "Submitting"
 msgstr "Wysyłanie"
 
-#: src/amo/components/EditableCollectionAddon/index.js:134
-#: src/amo/components/EditableCollectionAddon/index.js:152
+#: src/amo/components/EditableCollectionAddon/index.js:136
+#: src/amo/components/EditableCollectionAddon/index.js:154
 msgid "Leave a note"
 msgstr "Napisz notkę"
 
-#: src/amo/components/EditableCollectionAddon/index.js:153
+#: src/amo/components/EditableCollectionAddon/index.js:155
 msgid "Collector's note"
 msgstr "Informacje twórcy kolekcji"
 
-#: src/amo/components/EditableCollectionAddon/index.js:168
+#: src/amo/components/EditableCollectionAddon/index.js:170
 msgid "Add a comment about this add-on."
 msgstr "Dodaj komentarz o tym dodatku."
 
-#: src/amo/components/EditableCollectionAddon/index.js:169
+#: src/amo/components/EditableCollectionAddon/index.js:171
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/amo/components/EditableCollectionAddon/index.js:190
+#: src/amo/components/EditableCollectionAddon/index.js:192
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -2140,11 +2140,11 @@ msgstr "Dodatki na Androida"
 msgid "Extensions"
 msgstr "Rozszerzenia"
 
-#: src/amo/components/ShowMoreCard/index.js:128
+#: src/amo/components/ShowMoreCard/index.js:162
 msgid "Expand to read more"
 msgstr "Rozwiń, aby wyświetlić więcej informacji"
 
-#: src/amo/components/ShowMoreCard/index.js:133
+#: src/amo/components/ShowMoreCard/index.js:167
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">↓</span> Rozwiń"
 
