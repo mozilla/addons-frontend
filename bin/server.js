@@ -10,13 +10,6 @@ const config = require('config');
 const touch = require('touch');
 
 if (process.env.NODE_ENV === 'development') {
-  if (!require('piping')({
-    hook: true,
-    ignore: /(\/\.|~$|\.json|\.scss$)/i,
-  })) {
-    return;
-  }
-
   if (process.env.USE_HTTPS_FOR_DEV) {
     // Skip SSL check to avoid the 'self signed certificate in certificate
     // chain' error.
