@@ -144,12 +144,4 @@ describe(__filename, () => {
 
     expect(root.find('.UserReview-reply-header')).toHaveLength(0);
   });
-
-  it('accepts a class name', () => {
-    const className = 'custom-css-class';
-    const root = render({ className });
-
-    expect(root).toHaveClassName('UserReview');
-    expect(root).toHaveClassName(className);
-  });
 });

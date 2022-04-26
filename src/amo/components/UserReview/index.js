@@ -20,7 +20,6 @@ export const loadingId = 'loading-text';
 type Props = {|
   byLine: React.Node | null,
   children?: React.Node,
-  className?: string,
   controls?: React.Node | null,
   isReply?: boolean,
   review: ?UserReviewType,
@@ -71,7 +70,6 @@ export const UserReviewBase = (props: InternalProps): React.Node => {
   const {
     byLine,
     children,
-    className,
     controls,
     i18n,
     isReply = false,
@@ -97,7 +95,7 @@ export const UserReviewBase = (props: InternalProps): React.Node => {
   }
 
   return (
-    <div className={makeClassName('UserReview', className)}>
+    <div className="UserReview">
       <div className="UserReview-byLine">
         {review && showRating ? (
           <UserRating styleSize="small" review={review} readOnly />
