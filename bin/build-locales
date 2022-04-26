@@ -48,7 +48,7 @@ poFiles.forEach((pofile) => {
   const json = po2json.parseFileSync(pofile, {
     stringify: true,
     pretty: true,
-    format: 'jed1.x',
+    format: 'jed',
     fuzzy: config.get('po2jsonFuzzyOutput'),
   });
   const localeObject = JSON.parse(json);
