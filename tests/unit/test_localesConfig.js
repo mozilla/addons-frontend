@@ -45,11 +45,24 @@ describe(__filename, () => {
         });
       });
 
-      it(`${localeJSFile} should not have incorrect placeholders (Hint: Fix in po file and rebuild locale JS)`, () => {
+      it(`${localeJSFile} should not have incorrect data (Hint: Fix in po file and rebuild locale JS)`, () => {
         // eslint-disable-next-line
         const localeFile = require(path.join('../../', localeJSFile));
         // eslint-disable guard-for-in
         Object.keys(localeFile.locale_data.messages).forEach((key) => {
+          if (key === '') {
+            // '' is a special key, it doesn't hold translations but rather
+            // some info about the locale file.
+            return;
+          }
+          const translations = localeFile.locale_data.messages[key];
+
+          // Translations should not have a null as the first value - if this
+          // happens we probably generated with old jed format, which used to
+          // do that for singulars, that is not the format we should be using.
+          expect(translations[0]).toBeDefined();
+          expect(translations[0]).not.toBeNull();
+
           let placeholderCount = 0;
           const placeholderMatches = key.match(placeholderRX);
           if (placeholderMatches) {
@@ -58,7 +71,7 @@ describe(__filename, () => {
           if (placeholderCount > 0) {
             const numberTranslationMatches =
               localeFile.locale_data.messages[key].length;
-            for (const translation of localeFile.locale_data.messages[key]) {
+            for (const translation of translations) {
               // Only check for non plural forms. This is because sometimes placeholders
               // are skipped in plural forms.
               if (translation && numberTranslationMatches === 1) {
