@@ -313,7 +313,7 @@ export const RatingManagerWithI18n: React.ComponentType<Props> =
   translate()(RatingManagerBase);
 
 const RatingManager: React.ComponentType<Props> = compose(
-  withRenderedErrorHandler({ name: 'RatingManager' }),
+  withRenderedErrorHandler({ id: 'RatingManager' }),
   connect(mapStateToProps),
 )(RatingManagerWithI18n);
 

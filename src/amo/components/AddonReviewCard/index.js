@@ -634,10 +634,14 @@ function mapStateToProps(state: AppState, ownProps: Props): PropsFromState {
   };
 }
 
+export const extractId = (ownProps: InternalProps): string => {
+  return ownProps.review ? String(ownProps.review.id) : '';
+};
+
 const AddonReviewCard: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
-  withErrorHandler({ name: 'AddonReviewCard' }),
+  withErrorHandler({ name: 'AddonReviewCard', extractId }),
   translate(),
 )(AddonReviewCardBase);
 
