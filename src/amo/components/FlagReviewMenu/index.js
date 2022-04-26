@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -57,6 +58,11 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
       wasFlagged,
     } = this.props;
 
+    invariant(
+      !siteUser || siteUser.id !== review.userId,
+      'A user cannot flag their own review.',
+    );
+
     let items;
     if (!siteUser) {
       items = [
@@ -69,14 +75,6 @@ export class FlagReviewMenuBase extends React.Component<InternalProps> {
                 : i18n.gettext('Log in to flag this review')
             }
           />
-        </ListItem>,
-      ];
-    } else if (siteUser.id === review.userId) {
-      items = [
-        <ListItem key="flagging-not-allowed">
-          {isDeveloperReply
-            ? i18n.gettext('You cannot flag your own response')
-            : i18n.gettext('You cannot flag your own review')}
         </ListItem>,
       ];
     } else {

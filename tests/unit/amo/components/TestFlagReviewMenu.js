@@ -30,7 +30,7 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
-    store = dispatchSignInActions().store;
+    store = dispatchSignInActions({ userId: fakeReview.user.id + 1 }).store;
   });
 
   const render = (customProps = {}) => {
@@ -97,26 +97,6 @@ describe(__filename, () => {
       expect(authButton.prop('logInText')).toEqual(
         'Log in to flag this response',
       );
-    });
-
-    it('does not let you flag your own review', () => {
-      const review = createInternalReview({ ...fakeReview });
-      dispatchSignInActions({ store, userId: review.userId });
-      const { menu } = renderMenu({ review });
-
-      const items = menu.find(ListItem);
-      expect(items).toHaveLength(1);
-      expect(items.at(0).html()).toContain('You cannot flag your own review');
-    });
-
-    it('does not let you flag your own response', () => {
-      const review = createInternalReview({ ...fakeReview });
-      dispatchSignInActions({ store, userId: review.userId });
-      const { menu } = renderMenu({ review, isDeveloperReply: true });
-
-      const items = menu.find(ListItem);
-      expect(items).toHaveLength(1);
-      expect(items.at(0).html()).toContain('You cannot flag your own response');
     });
   });
 

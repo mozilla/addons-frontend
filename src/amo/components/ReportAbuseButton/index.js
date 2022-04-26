@@ -1,6 +1,7 @@
 /* @flow */
 import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -116,9 +117,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
   render(): null | React.Node {
     const { abuseReport, addon, errorHandler, i18n, loading } = this.props;
 
-    if (!addon) {
-      return null;
-    }
+    invariant(addon, 'An add-on is required');
 
     if (abuseReport && abuseReport.message !== undefined) {
       return (

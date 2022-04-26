@@ -136,10 +136,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     if (isReplyToReviewId !== undefined) {
       dispatch(showReplyToReviewForm({ reviewId: isReplyToReviewId }));
     } else {
-      if (!review) {
-        log.debug('Cannot edit a review because no review has been loaded.');
-        return;
-      }
+      invariant(review, 'A review must be loaded.');
       dispatch(showEditReviewForm({ reviewId: review.id }));
     }
   };
@@ -156,19 +153,21 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
   ) => {
     event.preventDefault();
     const { dispatch, review } = this.props;
-    if (!review) {
-      log.debug('Cannot show review form because no review has been loaded.');
-      return;
-    }
+    invariant(
+      review,
+      'Cannot show review form because no review has been loaded.',
+    );
+
     dispatch(showReplyToReviewForm({ reviewId: review.id }));
   };
 
   onDismissReviewReply: () => void = () => {
     const { dispatch, review } = this.props;
-    if (!review) {
-      log.debug('Cannot hide review form because no review has been loaded.');
-      return;
-    }
+    invariant(
+      review,
+      'Cannot hide review form because no review has been loaded.',
+    );
+
     dispatch(hideReplyToReviewForm({ reviewId: review.id }));
   };
 
@@ -176,11 +175,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     reviewData: OnSubmitParams,
   ) => {
     const { dispatch, errorHandler, review } = this.props;
-    if (!review) {
-      throw new Error(
-        'The review property cannot be empty when replying to a review',
-      );
-    }
+    invariant(
+      review,
+      'The review property cannot be empty when replying to a review.',
+    );
 
     dispatch(
       sendReplyToReview({
@@ -475,7 +473,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     const controls = controlsAreVisible ? (
       <div className="AddonReviewCard-allControls">
-        {review && showEditControls ? (
+        {showEditControls ? (
           <>
             {!this.isRatingOnly() && (
               <a

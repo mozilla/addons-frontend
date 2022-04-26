@@ -47,12 +47,6 @@ describe(__filename, () => {
     );
   }
 
-  it('renders nothing if no add-on exists', () => {
-    const root = renderShallow({ addon: null });
-
-    expect(root.find('.ReportAbuseButton')).toHaveLength(0);
-  });
-
   it('renders a DismissibleTextForm to report an add-on', () => {
     const root = renderShallow();
 
