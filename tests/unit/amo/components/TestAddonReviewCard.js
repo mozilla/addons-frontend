@@ -277,15 +277,6 @@ describe(__filename, () => {
     expect(rating.find(Notice)).toHaveLength(1);
   });
 
-  it('does not let you edit without a review', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ review: null });
-
-    root.instance().onClickToEditReview(createFakeEvent());
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
   it('lets you begin editing your review', () => {
     const review = signInAndDispatchSavedReview();
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -653,13 +644,6 @@ describe(__filename, () => {
     ).toHaveLength(0);
   });
 
-  // eslint-disable-next-line jest/expect-expect
-  it('cannot begin a review reply without a review', () => {
-    const root = render({ review: null });
-
-    root.instance().onClickToBeginReviewReply(createFakeEvent());
-  });
-
   it('hides reply button when already replying to a review', () => {
     const { addon } = signInAsAddonDeveloper();
     const review = _setReview(fakeReview);
@@ -686,15 +670,6 @@ describe(__filename, () => {
     expect(
       renderControls(root).find('.AddonReviewCard-begin-reply'),
     ).toHaveLength(0);
-  });
-
-  it('cannot dismiss a review reply without a review', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ review: null });
-
-    root.instance().onDismissReviewReply();
-
-    sinon.assert.notCalled(fakeDispatch);
   });
 
   it('configures a reply-to-review text form', () => {
