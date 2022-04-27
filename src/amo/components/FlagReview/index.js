@@ -81,6 +81,10 @@ export class FlagReviewBase extends React.Component<InternalProps> {
   }
 }
 
+export const extractId = (ownProps: InternalProps): string => {
+  return String(ownProps.review.id);
+};
+
 const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   let flagState = {};
 
@@ -98,7 +102,7 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
 
 const FlagReview: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
-  withErrorHandler({ name: 'FlagReview' }),
+  withErrorHandler({ name: 'FlagReview', extractId }),
 )(FlagReviewBase);
 
 export default FlagReview;

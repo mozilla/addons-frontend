@@ -234,7 +234,7 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
 const ReportAbuseButton: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'ReportAbuseButton' }),
+  withErrorHandler({ id: 'ReportAbuseButton' }),
 )(ReportAbuseButtonBase);
 
 export default ReportAbuseButton;
