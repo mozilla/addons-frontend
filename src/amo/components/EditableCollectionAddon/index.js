@@ -27,9 +27,6 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | CollectionAddonType,
-  // TODO: Remove this as it isn't used and therefore cannot be tested.
-  // See https://github.com/mozilla/addons-frontend/issues/11392.
-  className?: string,
   deleteNote: DeleteAddonNoteFunc,
   removeAddon: RemoveCollectionAddonFunc,
   saveNote: SaveAddonNoteFunc,
@@ -101,7 +98,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
   };
 
   render(): React.Node {
-    const { addon, className, errorHandler, i18n } = this.props;
+    const { addon, errorHandler, i18n } = this.props;
     const showNotes = addon.notes || this.props.uiState.editingNote;
     const iconURL = getAddonIconUrl(addon);
 
@@ -110,7 +107,6 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
         className={makeClassName(
           'EditableCollectionAddon',
           `EditableCollectionAddon--${addon.type}`,
-          className,
         )}
       >
         <div className="EditableCollectionAddon-details">
