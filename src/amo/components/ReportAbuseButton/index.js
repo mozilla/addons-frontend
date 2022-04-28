@@ -1,6 +1,5 @@
 /* @flow */
 import makeClassName from 'classnames';
-import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -11,7 +10,6 @@ import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
 import type { ErrorHandlerType } from 'amo/types/errorHandler';
 import translate from 'amo/i18n/translate';
-import log from 'amo/logger';
 import {
   hideAddonAbuseReportUI,
   initiateAddonAbuseReportViaFirefox,
@@ -59,14 +57,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
   };
 
   dismissReportUI: () => void = () => {
-    const { addon, dispatch, loading } = this.props;
-
-    if (loading) {
-      log.debug(
-        "Ignoring dismiss click because we're submitting the abuse report",
-      );
-      return;
-    }
+    const { addon, dispatch } = this.props;
 
     dispatch(hideAddonAbuseReportUI({ addon }));
   };
@@ -74,11 +65,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
   sendReport: (OnSubmitParams) => void = ({ text }: OnSubmitParams) => {
     // The button isn't clickable if there is no content, but just in case:
     // we verify there's a message to send.
-    if (!text.trim().length) {
-      log.debug(oneLine`User managed to click submit button while textarea
-        was empty. Ignoring this onClick/sendReport event.`);
-      return;
-    }
+    invariant(text.trim().length, 'A report cannot be sent with no content.');
 
     const { addon, dispatch, errorHandler } = this.props;
 
