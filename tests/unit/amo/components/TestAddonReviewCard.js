@@ -1500,4 +1500,86 @@ describe(__filename, () => {
       });
     });
   });
+
+  describe('Tests for UserReview', () => {
+    it('renders LoadingText without a review', () => {
+      render();
+
+      // Expect two loading indicators, one for the byLine and one for the body
+      // of the review.
+      expect(screen.getAllByRole('alert')).toHaveLength(2);
+    });
+
+    it('renders newlines in review bodies', () => {
+      render({
+        review: _setReview({ body: "It's awesome \n isn't it?" }),
+      });
+
+      expect(
+        screen.getByTextAcrossTags(`It's awesome  isn't it?`),
+      ).toBeInTheDocument();
+      expect(
+        within(screen.getByClassName('UserReview-body')).getByTagName('br'),
+      ).toBeInTheDocument();
+    });
+
+    it('does not render an empty review body, but adds the expected class name', () => {
+      render({
+        review: _setReview({ body: undefined }),
+      });
+
+      const reviewBody = screen.getByClassName('UserReview-body');
+      expect(reviewBody).toHaveTextContent('');
+      expect(reviewBody).toHaveClass('UserReview-emptyBody');
+    });
+
+    // These will need to be tested in the context of a page, so we can
+    // navigate to a different review, which should cause the contentId
+    // to change.
+    // See also https://github.com/mozilla/addons-frontend/issues/11409.
+    // eslint-disable-next-line jest/no-commented-out-tests
+    /*
+    it('passes the expected contentId to ShowMoreCard', () => {
+      const id = 12345;
+      const review = _setReview({ ...fakeReview, id });
+      render({ review });
+
+      expect(root.find('.UserReview-body')).toHaveProp('contentId', String(id));
+    });
+
+    it('passes the expected contentId to ShowMoreCard without a review', () => {
+      render({ review: undefined });
+
+      expect(root.find('.UserReview-body')).toHaveProp('contentId', loadingId);
+    });
+    */
+
+    it('does not add UserReview-emptyBody when there is a body', () => {
+      render({
+        review: _setReview({
+          body: 'This add-on is fantastic',
+        }),
+      });
+
+      expect(screen.getByClassName('UserReview-body')).not.toHaveClass(
+        'UserReview-emptyBody',
+      );
+    });
+
+    it('does not show a developer response header by default', () => {
+      render();
+
+      expect(
+        screen.queryByRole('heading', { name: 'Developer response' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not show a developer response header for non-replies', () => {
+      render({ review: _setReview() });
+
+      expect(
+        screen.queryByRole('heading', { name: 'Developer response' }),
+      ).not.toBeInTheDocument();
+    });
+  });
 });
