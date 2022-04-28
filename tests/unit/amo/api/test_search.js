@@ -195,7 +195,7 @@ describe(__filename, () => {
 
   it('removes sort=random when the promoted and query filters are set', () => {
     const promoted = RECOMMENDED;
-    const q = 'some query';
+    const q = 'some_query';
 
     mockWindow
       .expects('fetch')

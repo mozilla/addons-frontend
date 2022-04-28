@@ -3,7 +3,6 @@ import querystring from 'querystring';
 
 import FormData from '@willdurand/isomorphic-formdata';
 import config from 'config';
-import utf8 from 'utf8';
 
 import * as api from 'amo/api';
 import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'amo/constants';
@@ -107,29 +106,14 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
-    it('does not encode non-ascii URLs in UTF8 on the client', async () => {
+    it('encodes URLs with encodeURI', async () => {
       const endpoint = 'project-ă-ă-â-â-日本語';
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match(`/api/${apiVersion}/${endpoint}/`))
+        .withArgs(sinon.match(encodeURI(`/api/${apiVersion}/${endpoint}/`)))
         .returns(createApiResponse());
 
-      const clientConfig = getFakeConfig({ client: true, server: false });
-
-      await api.callApi({ _config: clientConfig, endpoint });
-      mockWindow.verify();
-    });
-
-    it('encodes non-ascii URLs in UTF8 on the server', async () => {
-      const endpoint = 'diccionario-español-venezuela';
-      mockWindow
-        .expects('fetch')
-        .withArgs(sinon.match(utf8.encode(`/api/${apiVersion}/${endpoint}/`)))
-        .returns(createApiResponse());
-
-      const serverConfig = getFakeConfig({ server: true });
-
-      await api.callApi({ _config: serverConfig, endpoint });
+      await api.callApi({ endpoint });
       mockWindow.verify();
     });
 
