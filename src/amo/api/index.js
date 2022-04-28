@@ -3,7 +3,6 @@
 import url from 'url';
 
 import FormData from '@willdurand/isomorphic-formdata';
-import utf8 from 'utf8';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
@@ -166,12 +165,9 @@ export function callApi({
   adjustedEndpoint = adjustedEndpoint.endsWith('/')
     ? adjustedEndpoint
     : `${adjustedEndpoint}/`;
-  let apiURL = `${config.get('apiHost')}${adjustedEndpoint}${queryString}`;
-  if (_config.get('server')) {
-    _log.debug('Encoding `apiURL` in UTF8 before fetch().');
-    // Workaround for https://github.com/bitinn/node-fetch/issues/245
-    apiURL = utf8.encode(apiURL);
-  }
+  const apiURL = encodeURI(
+    `${config.get('apiHost')}${adjustedEndpoint}${queryString}`,
+  );
 
   // Flow expects headers['Content-type'] to be a string, but we sometimes
   // delete it at line 148, above.
