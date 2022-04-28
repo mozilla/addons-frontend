@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import userEvent from '@testing-library/user-event';
 
 import {
   ADDON_TYPE_DICT,
@@ -7,75 +7,94 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
 } from 'amo/constants';
-import { selectReview } from 'amo/reducers/reviews';
 import {
+  FETCH_LATEST_USER_REVIEW,
   SAVED_RATING,
   STARTED_SAVE_RATING,
-  beginDeleteAddonReview,
   createAddonReview,
-  createInternalReview,
-  deleteAddonReview,
   fetchLatestUserReview,
   flashReviewMessage,
-  hideEditReviewForm,
   hideFlashedReviewMessage,
   setLatestReview,
   setReview,
-  showEditReviewForm,
   updateAddonReview,
 } from 'amo/actions/reviews';
-import AddonReviewCard from 'amo/components/AddonReviewCard';
-import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
-import RatingManager, {
-  RatingManagerBase,
-  mapStateToProps,
-} from 'amo/components/RatingManager';
-import RatingManagerNotice from 'amo/components/RatingManagerNotice';
-import ReportAbuseButton from 'amo/components/ReportAbuseButton';
-import AuthenticateButton from 'amo/components/AuthenticateButton';
-import { genericType, successType } from 'amo/components/Notice';
-import UserRating from 'amo/components/UserRating';
+import RatingManager from 'amo/components/RatingManager';
 import {
+  createFailedErrorHandler,
   createInternalAddonWithLang,
+  createInternalVersionWithLang,
   createLocalizedString,
-  createStubErrorHandler,
   dispatchClientMetadata,
-  dispatchSignInActions,
+  dispatchSignInActionsWithStore,
   fakeAddon,
-  fakeI18n,
   fakeReview,
-  shallowUntilTarget,
+  fakeVersion,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
+// We need to mock validAddonTypes in a test.
+const mockValidAddonTypesGetter = jest.fn();
+jest.mock('amo/constants', () => ({
+  ...jest.requireActual('amo/constants'),
+  get validAddonTypes() {
+    return mockValidAddonTypesGetter();
+  },
+}));
+
 describe(__filename, () => {
-  function getRenderProps(customProps = {}) {
-    return {
-      addon: createInternalAddonWithLang(fakeAddon),
-      errorHandler: createStubErrorHandler(),
-      i18n: fakeI18n(),
-      store: dispatchSignInActions().store,
-      userId: 91234,
-      version: fakeAddon.current_version,
-      ...customProps,
-    };
-  }
+  let store;
+  const defaultAddonName = 'My Add-On';
+  const defaultAddonId = 123;
+  const defaultUserId = 456;
+  const errorHandlerId = 'RatingManager';
 
-  function render(customProps) {
-    const props = getRenderProps(customProps);
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
 
-    return shallowUntilTarget(<RatingManager {...props} />, RatingManagerBase);
-  }
+  afterEach(() => {
+    jest.clearAllMocks().resetModules();
+  });
 
-  const createStoreWithLatestReview = ({
-    addon = createInternalAddonWithLang({ ...fakeAddon, id: 7663 }),
-    review = fakeReview,
-    userId = 92345,
+  const render = ({
+    addonId = defaultAddonId,
+    addonName = defaultAddonName,
+    addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      id: addonId,
+      name: createLocalizedString(addonName),
+    }),
+    location,
+    version = createInternalVersionWithLang(fakeVersion),
+    ...props
   } = {}) => {
-    const { store } = dispatchSignInActions({ userId });
+    return defaultRender(
+      <RatingManager addon={addon} version={version} {...props} />,
+      { store },
+    );
+  };
+
+  const renderWithReview = ({
+    addonName = defaultAddonName,
+    addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      id: defaultAddonId,
+      name: createLocalizedString(addonName),
+    }),
+    userId = defaultUserId,
+    review = { ...fakeReview, user: { ...fakeReview.user, id: userId } },
+    signIn = true,
+  } = {}) => {
+    if (signIn) {
+      dispatchSignInActionsWithStore({ store, userId });
+    }
 
     if (review) {
       store.dispatch(setReview(review));
     }
+
     store.dispatch(
       setLatestReview({
         addonId: addon.id,
@@ -84,471 +103,321 @@ describe(__filename, () => {
       }),
     );
 
-    return { addon, review, userId, store };
+    render({ addon });
+    return { addon, review };
   };
 
   it('prompts you to rate the add-on by name', () => {
     const name = 'Some Add-on';
-    const root = render({
+    render({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
         name: createLocalizedString(name),
       }),
     });
 
-    const prompt = root.find('.RatingManager-legend').html();
-    expect(prompt).toContain('How are you enjoying');
-    expect(prompt).toContain(name);
+    expect(
+      screen.getByTextAcrossTags(`How are you enjoying ${name}?`),
+    ).toBeInTheDocument();
   });
 
   it('dispatches fetchLatestUserReview on construction', () => {
+    const addonId = 123;
     const userId = 12889;
-    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 3344 });
+    const addon = createInternalAddonWithLang({ ...fakeAddon, id: addonId });
+    dispatchSignInActionsWithStore({ store, userId });
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    const { store } = dispatchSignInActions({ userId });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    render({ addon });
 
-    const root = render({ addon, store });
-
-    sinon.assert.calledWith(
-      dispatchSpy,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchLatestUserReview({
         addonId: addon.id,
         addonSlug: addon.slug,
-        errorHandlerId: root.instance().props.errorHandler.id,
+        errorHandlerId,
         userId,
       }),
     );
   });
 
   it('does not fetchLatestUserReview when a null one was already fetched', () => {
-    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 3344 });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithReview({ review: null });
 
-    const { store } = createStoreWithLatestReview({
-      addon,
-      // The latest review was already fetched but the result was null.
-      review: null,
-      userId: 12889,
-    });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
-    render({ addon, store });
-
-    sinon.assert.notCalled(dispatchSpy);
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_LATEST_USER_REVIEW }),
+    );
   });
 
   it('does not fetchLatestUserReview if there is an error', () => {
-    const addon = createInternalAddonWithLang({ ...fakeAddon, id: 3344 });
-    const { store } = dispatchSignInActions();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
-    const errorHandler = createStubErrorHandler(new Error('unexpected error'));
-
-    const props = getRenderProps({
-      addon,
-      dispatch: store.dispatch,
-      errorHandler,
+    const addon = createInternalAddonWithLang(fakeAddon);
+    dispatchSignInActionsWithStore({ store, userId: defaultUserId });
+    createFailedErrorHandler({
+      id: errorHandlerId,
       store,
     });
-    const mapped = mapStateToProps(store.getState(), props);
 
-    // This uses shallow() because shallowUntilTarget() cannot handle
-    // the <div /> returned from withRenderedErrorHandler().
-    // It throws:
-    // ShallowWrapper::dive() can not be called on Host Components
-    shallow(<RatingManagerBase {...props} {...mapped} />);
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ addon });
 
-    sinon.assert.notCalled(dispatchSpy);
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_LATEST_USER_REVIEW }),
+    );
   });
 
   it('passes review=undefined before the saved review has loaded', () => {
-    const addon = createInternalAddonWithLang({ ...fakeAddon });
-    const { store } = dispatchSignInActions();
+    dispatchSignInActionsWithStore({ store, userId: defaultUserId });
+    render();
 
-    const root = render({ addon, store });
-
-    expect(root.find(UserRating)).toHaveProp('review', undefined);
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+    expect(
+      screen.queryByTitle('There are no ratings yet'),
+    ).not.toBeInTheDocument();
   });
 
   it('passes review=null if no user is signed in', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
+    render();
 
+    expect(screen.getAllByTitle('There are no ratings yet')).toHaveLength(6);
     // This does not trigger a loading state.
-    expect(root.find(UserRating)).toHaveProp('review', null);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
   it('passes the review once it has loaded', () => {
-    const externalReview = { ...fakeReview, id: 432 };
-    const { addon, store } = createStoreWithLatestReview({
-      review: externalReview,
-    });
-    const root = render({ addon, store });
+    renderWithReview({ review: { ...fakeReview, score: 1 } });
 
-    const rating = root.find(UserRating);
-    expect(rating).toHaveProp('review', createInternalReview(externalReview));
+    expect(screen.getByTitle('Rated 1 out of 5')).toBeInTheDocument();
   });
 
   it('passes review=null when no saved review exists', () => {
-    const { addon, store } = createStoreWithLatestReview({ review: null });
-    const root = render({ addon, store });
+    renderWithReview({ review: null });
 
     // This exits the loading state.
-    expect(root.find(UserRating)).toHaveProp('review', null);
-  });
-
-  it('configures a rating component', () => {
-    const { addon, review, store } = createStoreWithLatestReview();
-
-    const root = render({ addon, store });
-
-    expect(root.find(UserRating)).toHaveLength(1);
-    expect(root.find(UserRating)).toHaveProp(
-      'onSelectRating',
-      root.instance().onSelectRating,
-    );
-    expect(root.find(UserRating)).toHaveProp(
-      'review',
-      selectReview(store.getState().reviews, review.id),
-    );
-  });
-
-  it('passes an add-on to the report abuse button', () => {
-    const addon = createInternalAddonWithLang({ ...fakeAddon });
-
-    const root = render({ addon });
-
-    expect(root.find(ReportAbuseButton)).toHaveLength(1);
-    expect(root.find(ReportAbuseButton)).toHaveProp('addon', addon);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
   it('flashes a saving rating message', () => {
-    const { store } = dispatchClientMetadata();
+    // This is dispatched via a saga, so we need to dispatch it manually.
     store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
+    renderWithReview();
 
-    const root = render({ store });
+    const flashMessage = screen.getByClassName(
+      'RatingManagerNotice-savedRating',
+    );
+    expect(flashMessage).toHaveTextContent('Saving star rating');
+    expect(flashMessage).toHaveClass('Notice-generic');
+    expect(flashMessage).toHaveClass('RatingManager-savedRating-withReview');
+    expect(flashMessage).not.toHaveClass(
+      'RatingManagerNotice-savedRating-hidden',
+    );
 
-    const message = root.find(RatingManagerNotice);
-    expect(message).toHaveProp('message', 'Saving star rating');
-    expect(message).toHaveProp('type', genericType);
-    expect(message).toHaveProp('hideMessage', false);
+    // Hides controls.
+    expect(
+      screen.queryByRole('button', { name: 'Delete review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('flashes a saved rating message', () => {
-    const { store } = dispatchClientMetadata();
+    // This is dispatched via a saga, so we need to dispatch it manually.
     store.dispatch(flashReviewMessage(SAVED_RATING));
+    renderWithReview();
 
-    const root = render({ store });
+    const flashMessage = screen.getByClassName(
+      'RatingManagerNotice-savedRating',
+    );
+    expect(flashMessage).toHaveTextContent('Star rating saved');
+    expect(flashMessage).toHaveClass('Notice-success');
+    expect(flashMessage).not.toHaveClass(
+      'RatingManagerNotice-savedRating-hidden',
+    );
 
-    const message = root.find(RatingManagerNotice);
-    expect(message).toHaveProp('message', 'Star rating saved');
-    expect(message).toHaveProp('type', successType);
-    expect(message).toHaveProp('hideMessage', false);
+    // Hides controls.
+    expect(
+      screen.queryByRole('button', { name: 'Delete review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('hides a flashed rating message', () => {
-    const { store } = dispatchClientMetadata();
+    // This is dispatched via a saga, so we need to dispatch it manually.
     // Set a message then hide it.
     store.dispatch(flashReviewMessage(SAVED_RATING));
     store.dispatch(hideFlashedReviewMessage());
 
-    const root = render({ store });
+    renderWithReview();
 
-    const message = root.find(RatingManagerNotice);
-    expect(message).toHaveProp('hideMessage', true);
+    expect(
+      screen.getByClassName('RatingManagerNotice-savedRating'),
+    ).toHaveClass('RatingManagerNotice-savedRating-hidden');
+
+    // Shows controls.
+    expect(
+      screen.getByRole('button', { name: 'Delete review' }),
+    ).toBeInTheDocument();
   });
 
   it('sets a custom className for RatingManagerNotice when a review exists', () => {
-    const { addon, store } = createStoreWithLatestReview();
-    const root = render({ addon, store });
-    const message = root.find(RatingManagerNotice);
-    expect(message).toHaveProp(
-      'className',
-      'RatingManager-savedRating-withReview',
-    );
+    renderWithReview();
+
+    expect(
+      screen.getByClassName('RatingManagerNotice-savedRating'),
+    ).toHaveClass('RatingManager-savedRating-withReview');
   });
 
   it('does not set a custom className for RatingManagerNotice when no review exists', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
-    const message = root.find(RatingManagerNotice);
-    expect(message).not.toHaveProp(
-      'className',
-      'RatingManager-savedRating-withReview',
-    );
+    render();
+
+    expect(
+      screen.getByClassName('RatingManagerNotice-savedRating'),
+    ).not.toHaveClass('RatingManager-savedRating-withReview');
   });
 
   describe('when user is signed out', () => {
-    function renderWithoutUser(customProps = {}) {
-      const { store } = dispatchClientMetadata();
-
-      return render({ store, ...customProps });
-    }
-
-    function getAuthPromptForType(addonType) {
-      const root = renderWithoutUser({
-        addon: createInternalAddonWithLang({ ...fakeAddon, type: addonType }),
-      });
-
-      expect(root.find(AuthenticateButton)).toHaveLength(1);
-
-      return root.find(AuthenticateButton).prop('logInText');
-    }
-
-    it('configures UserRating when signed out', async () => {
-      const root = renderWithoutUser();
-
-      const rating = root.find(UserRating);
-      expect(rating).toHaveLength(1);
-      expect(rating).toHaveProp('readOnly', true);
-      expect(rating).toHaveProp('review', null);
-    });
-
     it('does not fetchLatestUserReview without a user', () => {
-      const { store } = dispatchClientMetadata();
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      renderWithoutUser({ store });
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithReview({ signIn: false });
 
-      sinon.assert.notCalled(dispatchSpy);
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_LATEST_USER_REVIEW }),
+      );
     });
 
-    it('renders an AuthenticateButton', () => {
-      const root = renderWithoutUser();
-
-      expect(root.find(AuthenticateButton)).toHaveLength(1);
-    });
-
-    it('renders a login prompt for the dictionary', () => {
-      const prompt = getAuthPromptForType(ADDON_TYPE_DICT);
-      expect(prompt).toContain('dictionary');
-    });
-
-    it('renders a login prompt for the extension', () => {
-      const prompt = getAuthPromptForType(ADDON_TYPE_EXTENSION);
-      expect(prompt).toContain('extension');
-    });
-
-    it('renders a login prompt for the language pack', () => {
-      const prompt = getAuthPromptForType(ADDON_TYPE_LANG);
-      expect(prompt).toContain('language pack');
-    });
-
-    it('renders a login prompt for static themes', () => {
-      const prompt = getAuthPromptForType(ADDON_TYPE_STATIC_THEME);
-      expect(prompt).toContain('theme');
-    });
-
-    // Since you can view this page if you're logged in -
-    // to be consistent - we'll do the same if you're logged out.
-    // See: https://github.com/mozilla/addons-frontend/issues/3601.
-    it('renders a login prompt for unknown extension types', () => {
-      const prompt = getAuthPromptForType('xul');
-      expect(prompt).toContain('add-on');
-    });
-
-    it('renders a random valid extension type', () => {
-      const root = renderWithoutUser();
+    it.each([
+      [ADDON_TYPE_DICT, 'dictionary'],
+      [ADDON_TYPE_EXTENSION, 'extension'],
+      [ADDON_TYPE_LANG, 'language pack'],
+      [ADDON_TYPE_STATIC_THEME, 'theme'],
+      // See: https://github.com/mozilla/addons-frontend/issues/3601.
+      ['xul', 'add-on'],
       // This simulates a future code change where a valid type is added
       // but we haven't given it a custom prompt yet.
-      const prompt = root
-        .instance()
-        .getLogInPrompt(
-          { addonType: 'banana' },
-          { validAddonTypes: ['banana'] },
-        );
-      // The prompt should just call it an add-on:
-      expect(prompt).toContain('add-on');
+      ['banana', 'add-on'],
+    ])('renders a login prompt for a %s', (type, prompt) => {
+      mockValidAddonTypesGetter.mockReturnValue(['banana']);
+      const addon = createInternalAddonWithLang({ ...fakeAddon, type });
+      renderWithReview({ addon, signIn: false });
+
+      expect(
+        screen.getByRole('link', { name: `Log in to rate this ${prompt}` }),
+      ).toBeInTheDocument();
     });
   });
 
   describe('inline features', () => {
-    it('configures AddonReviewManagerRating when beginningToDeleteReview', () => {
-      const review = { ...fakeReview, score: 4 };
-      const { addon, userId, store } = createStoreWithLatestReview({ review });
-      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
+    it('allows a user to delete a review', () => {
+      renderWithReview();
 
-      const root = render({ store, addon, userId });
+      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
 
-      expect(root.find(UserRating)).toHaveLength(0);
+      expect(
+        screen.getByTextAcrossTags(
+          `Are you sure you want to delete your review of ${defaultAddonName}?`,
+        ),
+      ).toBeInTheDocument();
 
-      const managerRating = root.find(AddonReviewManagerRating);
-      expect(managerRating).toHaveLength(1);
-      expect(managerRating).toHaveProp('rating', review.score);
-    });
+      // This verifies that AddonReviewManagerRating receives the expected
+      // rating from RatingManager.
+      expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6);
 
-    it('also configures AddonReviewManagerRating while deletingReview', () => {
-      const { addon, review, userId, store } = createStoreWithLatestReview();
-      store.dispatch(
-        deleteAddonReview({
-          addonId: addon.id,
-          errorHandlerId: 'some-error-handler',
-          reviewId: review.id,
-        }),
-      );
+      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
 
-      const root = render({ store, addon, userId });
-
-      expect(root.find(UserRating)).toHaveLength(0);
-      expect(root.find(AddonReviewManagerRating)).toHaveLength(1);
-    });
-
-    it('prompts to delete a review when beginningToDeleteReview', () => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        name: createLocalizedString('uBlock Origin'),
-      });
-      const review = { ...fakeReview, body: 'This add-on is nice' };
-      const { userId, store } = createStoreWithLatestReview({ addon, review });
-      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-
-      const root = render({ store, addon, userId });
-
-      const prompt = root.find('.RatingManager-legend').html();
-      expect(prompt).toContain('Are you sure you want to delete your review');
-      expect(prompt).toContain(addon.name);
+      // This verifies that AddonReviewManagerRating receives the expected
+      // rating from RatingManager while a deletion is happening.
+      expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6);
     });
 
     it('prompts to delete a rating when beginningToDeleteReview', () => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        name: createLocalizedString('uBlock Origin'),
+      renderWithReview({
+        review: {
+          ...fakeReview,
+          body: undefined,
+          user: { ...fakeReview.user, id: defaultUserId },
+        },
       });
-      const review = { ...fakeReview, body: undefined, score: 4 };
-      const { userId, store } = createStoreWithLatestReview({ addon, review });
-      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
 
-      const root = render({ store, addon, userId });
+      userEvent.click(screen.getByRole('button', { name: 'Delete rating' }));
 
-      const prompt = root.find('.RatingManager-legend').html();
-      expect(prompt).toContain('Are you sure you want to delete your rating');
-      expect(prompt).toContain(addon.name);
+      expect(
+        screen.getByTextAcrossTags(
+          `Are you sure you want to delete your rating of ${defaultAddonName}?`,
+        ),
+      ).toBeInTheDocument();
     });
 
     it('still prompts to delete a review while deletingReview', () => {
-      const { addon, review, userId, store } = createStoreWithLatestReview();
-      store.dispatch(
-        deleteAddonReview({
-          addonId: addon.id,
-          errorHandlerId: 'some-error-handler',
-          reviewId: review.id,
-        }),
-      );
+      renderWithReview();
 
-      const root = render({ store, addon, userId });
+      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
 
-      const prompt = root.find('.RatingManager-legend').html();
-      expect(prompt).toContain('Are you sure you want to delete your review');
+      expect(
+        screen.getByTextAcrossTags(
+          `Are you sure you want to delete your review of ${defaultAddonName}?`,
+        ),
+      ).toBeInTheDocument();
     });
 
     it('shows AddonReviewCard with a saved review', () => {
-      const review = {
-        ...fakeReview,
-        body: 'This is hands down the best ad blocker',
-      };
-      const { addon, store } = createStoreWithLatestReview({ review });
-      const root = render({ addon, store });
+      const body = 'This is some review copy';
+      renderWithReview({ review: { ...fakeReview, body } });
 
-      const reviewCard = root.find(AddonReviewCard);
-      expect(reviewCard).toHaveProp('review', createInternalReview(review));
+      expect(screen.getByText(body)).toBeInTheDocument();
     });
 
-    it('shows controls by default', () => {
-      const { addon, store } = createStoreWithLatestReview();
-      const root = render({ addon, store });
+    it('shows and hides UserRating and prompt based on editing status', () => {
+      renderWithReview();
 
-      expect(root.find(AddonReviewCard)).toHaveProp('showControls', true);
-    });
+      expect(screen.getByClassName('RatingManager-legend')).toBeInTheDocument();
+      expect(
+        screen.getByClassName('RatingManager-UserRating'),
+      ).toBeInTheDocument();
 
-    it('hides controls while showing a saving notification', () => {
-      const { addon, store } = createStoreWithLatestReview();
+      userEvent.click(screen.getByRole('link', { name: 'Edit review' }));
 
-      store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
-      const root = render({ addon, store });
+      expect(
+        screen.queryByClassName('RatingManager-legend'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByClassName('RatingManager-UserRating'),
+      ).not.toBeInTheDocument();
 
-      expect(root.find(AddonReviewCard)).toHaveProp('showControls', false);
-    });
+      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    it('hides controls while showing a saved notification', () => {
-      const { addon, store } = createStoreWithLatestReview();
-
-      store.dispatch(flashReviewMessage(SAVED_RATING));
-      const root = render({ addon, store });
-
-      expect(root.find(AddonReviewCard)).toHaveProp('showControls', false);
-    });
-
-    it('shows controls when a notification is hidden', () => {
-      const { addon, store } = createStoreWithLatestReview();
-      // Set a message then hide it.
-      store.dispatch(flashReviewMessage(SAVED_RATING));
-      store.dispatch(hideFlashedReviewMessage());
-      const root = render({ addon, store });
-
-      expect(root.find(AddonReviewCard)).toHaveProp('showControls', true);
-    });
-
-    it('hides UserRating and prompt when editing', () => {
-      const { addon, review, store } = createStoreWithLatestReview();
-      store.dispatch(showEditReviewForm({ reviewId: review.id }));
-      const root = render({ addon, store });
-
-      expect(root.find('.RatingManager-legend')).toHaveLength(0);
-      expect(root.find(UserRating)).toHaveLength(0);
-    });
-
-    it('shows UserRating and prompt when not editing', () => {
-      const { review, store } = createStoreWithLatestReview();
-
-      store.dispatch(showEditReviewForm({ reviewId: review.id }));
-      store.dispatch(hideEditReviewForm({ reviewId: review.id }));
-
-      const root = render({ store });
-
-      expect(root.find('.RatingManager-legend')).toHaveLength(1);
-      expect(root.find(UserRating)).toHaveLength(1);
+      expect(screen.getByClassName('RatingManager-legend')).toBeInTheDocument();
+      expect(
+        screen.getByClassName('RatingManager-UserRating'),
+      ).toBeInTheDocument();
     });
 
     it('submits a new rating', () => {
-      const { store } = dispatchSignInActions();
-      const addon = createInternalAddonWithLang(fakeAddon);
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
-      const score = 5;
-      const version = fakeAddon.current_version;
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const { addon } = renderWithReview({ review: null });
 
-      const root = render({ addon, errorHandler, store, version });
+      userEvent.click(screen.getByTitle('Rate this add-on 1 out of 5'));
 
-      // This emulates clicking on a rating star.
-      root.find(UserRating).prop('onSelectRating')(score);
-
-      sinon.assert.calledWith(
-        dispatchSpy,
+      expect(dispatch).toHaveBeenCalledWith(
         createAddonReview({
           addonId: addon.id,
-          errorHandlerId: errorHandler.id,
-          score,
-          versionId: version.id,
+          errorHandlerId,
+          score: 1,
+          versionId: fakeVersion.id,
         }),
       );
     });
 
     it('updates an existing rating', () => {
-      const { addon, store } = createStoreWithLatestReview();
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
-      const score = 5;
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const { review } = renderWithReview();
 
-      const root = render({ addon, errorHandler, store });
+      userEvent.click(
+        screen.getByRole('button', {
+          name: 'Update your rating to 1 out of 5',
+        }),
+      );
 
-      // This emulates clicking on a rating star.
-      root.find(UserRating).prop('onSelectRating')(score);
-
-      sinon.assert.calledWith(
-        dispatchSpy,
+      expect(dispatch).toHaveBeenCalledWith(
         updateAddonReview({
-          errorHandlerId: errorHandler.id,
-          score,
-          reviewId: fakeReview.id,
+          errorHandlerId,
+          score: 1,
+          reviewId: review.id,
         }),
       );
     });
