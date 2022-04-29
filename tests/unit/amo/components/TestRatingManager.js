@@ -422,4 +422,51 @@ describe(__filename, () => {
       );
     });
   });
+  describe('Tests for UserRating', () => {
+    it('renders a Rating', () => {
+      renderWithReview({
+        review: { ...fakeReview, score: 2 },
+      });
+
+      const rating = screen.getByClassName('Rating');
+      expect(rating).toHaveClass('RatingManager-UserRating');
+      expect(rating).toHaveClass('Rating--large');
+      expect(rating).toHaveClass('Rating--editable');
+      expect(screen.getByTitle('Rated 2 out of 5')).toBeInTheDocument();
+    });
+
+    it('passes a null review to Rating', () => {
+      dispatchSignInActionsWithStore({ store, userId: defaultUserId });
+      // This ensures that we are rendering UserRating with a null review.
+      store.dispatch(
+        setLatestReview({
+          addonId: defaultAddonId,
+          review: null,
+          userId: defaultUserId,
+        }),
+      );
+      render();
+
+      // We expect this prompt in Rating when review is null.
+      expect(
+        screen.getByTextAcrossTags('Rate this add-on 1 out of 5'),
+      ).toBeInTheDocument();
+      // With a null review we should not be in a loading state.
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    });
+
+    it('passes an undefined review to Rating', () => {
+      dispatchSignInActionsWithStore({ store, userId: defaultUserId });
+      // Rendering without dispatching setLatestReview gives us a review of
+      // undefined.
+      render();
+
+      // We expect this prompt in Rating when review is undefined.
+      expect(
+        screen.getByTextAcrossTags('Rate this add-on 1 out of 5'),
+      ).toBeInTheDocument();
+      // With a null review we should not be in a loading state.
+      expect(screen.getByRole('alert')).toBeInTheDocument();
+    });
+  });
 });

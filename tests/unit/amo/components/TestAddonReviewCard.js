@@ -1,3 +1,4 @@
+import photon from 'photon-colors';
 import * as React from 'react';
 import { createEvent, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -1281,6 +1282,45 @@ describe(__filename, () => {
       expect(screen.getByText(reply.body)).toBeInTheDocument();
       expect(screen.queryByClassName('Rating')).not.toBeInTheDocument();
       expect(screen.queryByText(review.body)).not.toBeInTheDocument();
+    });
+  });
+  describe('Tests for UserRating', () => {
+    it('renders a Rating', () => {
+      render({ review: _setReview({ score: 2 }) });
+
+      const rating = screen.getByClassName('Rating');
+      expect(rating).toHaveClass('Rating--small');
+      expect(rating).not.toHaveClass('Rating--editable');
+      expect(screen.getAllByTitle('Rated 2 out of 5')).toHaveLength(6);
+    });
+
+    it('passes yellowStars: true to Rating if you wrote the review', () => {
+      const review = signInAndDispatchSavedReview();
+      render({ review });
+
+      expect(screen.getAllByTagName('g')[0]).toHaveAttribute(
+        'fill',
+        photon.YELLOW_50,
+      );
+    });
+
+    it('passes yellowStars: false to Rating if you did not write the review', () => {
+      const review = createReviewAndSignInAsUnrelatedUser();
+      render({ review });
+
+      expect(screen.getAllByTagName('g')[0]).toHaveAttribute(
+        'fill',
+        photon.GREY_50,
+      );
+    });
+
+    it('passes yellowStars: false to Rating if no user is logged in', () => {
+      render({ review: _setReview() });
+
+      expect(screen.getAllByTagName('g')[0]).toHaveAttribute(
+        'fill',
+        photon.GREY_50,
+      );
     });
   });
 });
