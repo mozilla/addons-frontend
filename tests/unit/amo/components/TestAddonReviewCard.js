@@ -1,5 +1,6 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
+import { createEvent, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import {
   beginDeleteAddonReview,
@@ -9,39 +10,27 @@ import {
   hideReplyToReviewForm,
   sendReplyToReview,
   setReview,
-  setReviewReply,
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
-import AddonReviewManager from 'amo/components/AddonReviewManager';
-import AddonReviewCard, {
-  AddonReviewCardBase,
-} from 'amo/components/AddonReviewCard';
-import FlagReviewMenu from 'amo/components/FlagReviewMenu';
-import Link from 'amo/components/Link';
+import AddonReviewCard from 'amo/components/AddonReviewCard';
+import { ALL_SUPER_POWERS } from 'amo/constants';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
-import { ALL_SUPER_POWERS } from 'amo/constants';
-import { ErrorHandler } from 'amo/errorHandler';
 import {
-  createContextWithFakeRouter,
-  createFakeEvent,
+  createFailedErrorHandler,
   createInternalAddonWithLang,
-  createStubErrorHandler,
   dispatchClientMetadata,
-  dispatchSignInActions,
+  dispatchSignInActionsWithStore,
   fakeAddon,
   fakeI18n,
   fakeReview,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
-import DismissibleTextForm from 'amo/components/DismissibleTextForm';
-import ErrorList from 'amo/components/ErrorList';
-import LoadingText from 'amo/components/LoadingText';
-import UserReview from 'amo/components/UserReview';
-import Notice from 'amo/components/Notice';
 
 describe(__filename, () => {
+  let i18n;
   let store;
 
   // This is a review with only a rating, no text.
@@ -52,28 +41,24 @@ describe(__filename, () => {
   });
 
   beforeEach(() => {
+    i18n = fakeI18n();
     store = dispatchClientMetadata().store;
   });
 
-  const render = ({ location, ...customProps } = {}) => {
-    const props = {
-      addon: createInternalAddonWithLang(fakeAddon),
-      i18n: fakeI18n(),
-      siteUserCanReply: false,
-      store,
-      ...customProps,
-    };
-    return shallowUntilTarget(
-      <AddonReviewCard {...props} />,
-      AddonReviewCardBase,
-      {
-        shallowOptions: createContextWithFakeRouter({ location }),
-      },
+  const render = ({
+    addon = createInternalAddonWithLang(fakeAddon),
+    location,
+    siteUserCanReply = false,
+    ...props
+  } = {}) => {
+    return defaultRender(
+      <AddonReviewCard
+        addon={addon}
+        siteUserCanReply={siteUserCanReply}
+        {...props}
+      />,
+      { store },
     );
-  };
-
-  const renderControls = (root) => {
-    return shallow(root.find(UserReview).prop('controls'));
   };
 
   const getReviewFromState = (reviewId) => {
@@ -82,35 +67,61 @@ describe(__filename, () => {
     return review;
   };
 
-  const _setReview = (externalReview) => {
-    store.dispatch(setReview(externalReview));
-    return getReviewFromState(externalReview.id);
+  const _setReview = ({ id = fakeReview.id, ...props } = {}) => {
+    store.dispatch(setReview({ ...fakeReview, id, ...props }));
+    return getReviewFromState(id);
   };
 
   const _setReviewReply = ({
     addon = fakeAddon,
-    replyBody = 'Reply to the review',
+    replyBody = 'This is the reply to the review',
+    replyId = 2,
+    replyUserId = 987,
+    replyUserName = 'Bob',
+    reviewBody = 'This is the review',
+    reviewId = 1,
+    reviewUserId = 123,
+    reviewUserName = 'Daniel',
   } = {}) => {
+    const reply = _setReview({
+      ...fakeReview,
+      addon: {
+        id: addon.id,
+        slug: addon.slug,
+      },
+      body: replyBody,
+      id: replyId,
+      is_developer_reply: true,
+      user: { id: replyUserId, name: replyUserName },
+    });
+
     const review = _setReview({
       ...fakeReview,
       addon: {
         id: addon.id,
         slug: addon.slug,
       },
-      id: 1,
-      body: 'The original review',
+      id: reviewId,
+      body: reviewBody,
       reply: {
         ...fakeReview,
-        id: 2,
+        addon: {
+          id: addon.id,
+          slug: addon.slug,
+        },
         body: replyBody,
+        id: replyId,
+        is_developer_reply: true,
+        user: { id: replyUserId, name: replyUserName },
       },
+      user: { id: reviewUserId, name: reviewUserName },
     });
 
-    return { review, reply: review.reply };
+    return { review, reply };
   };
 
   const renderReply = ({
-    addon = createInternalAddonWithLang(fakeAddon),
+    addon,
     originalReviewId = 44321,
     reply = _setReviewReply({ addon }).reply,
     ...props
@@ -130,7 +141,11 @@ describe(__filename, () => {
     reviewUserProps = {},
     clientMetadata = {},
   } = {}) => {
-    dispatchSignInActions({ store, userId: siteUserId, ...clientMetadata });
+    dispatchSignInActionsWithStore({
+      store,
+      userId: siteUserId,
+      ...clientMetadata,
+    });
     return _setReview({
       ...externalReview,
       user: {
@@ -155,7 +170,7 @@ describe(__filename, () => {
   }
 
   const signInAsAddonDeveloper = ({ developerUserId = 51123 } = {}) => {
-    dispatchSignInActions({ store, userId: developerUserId });
+    dispatchSignInActionsWithStore({ store, userId: developerUserId });
 
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
@@ -178,118 +193,166 @@ describe(__filename, () => {
     });
   }
 
-  it('renders a review', () => {
-    const review = _setReview({
-      ...fakeReview,
-      id: 1,
-      rating: 2,
+  const renderNestedReply = ({
+    addon = fakeAddon,
+    replyUserId = 2,
+    replyUserName = 'Bob',
+    reviewUserId = 1,
+    reviewUserName = 'Daniel',
+    siteUserCanReply = true,
+    slim = false,
+  } = {}) => {
+    const { reply, review } = _setReviewReply({
+      addon,
+      replyUserId,
+      replyUserName,
+      reviewUserId,
+      reviewUserName,
     });
-    const root = render({ review });
 
-    const rating = root.find(UserReview);
-    expect(rating).toHaveProp('review', review);
-    expect(rating).toHaveProp('showRating', true);
-    expect(rating).toHaveProp('byLine');
-    expect(rating).toHaveProp('isReply', false);
+    render({ addon, review, siteUserCanReply, slim });
+    return { reply, review };
+  };
+
+  const renderNestedReplyForSignedInDeveloper = ({
+    replyUserName = 'Bob',
+    reviewUserName = 'Daniel',
+    slim = false,
+  } = {}) => {
+    const originalReviewUserId = 123;
+    const developerUserId = 321;
+    const { addon } = signInAsAddonDeveloper({ developerUserId });
+    return renderNestedReply({
+      addon,
+      replyUserId: developerUserId,
+      replyUserName,
+      reviewUserId: originalReviewUserId,
+      reviewUserName,
+      slim,
+    });
+  };
+
+  const clickDeleteRating = () =>
+    userEvent.click(screen.getByRole('button', { name: 'Delete rating' }));
+
+  const clickDeleteReview = () =>
+    userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
+
+  const clickEditReply = () =>
+    userEvent.click(screen.getByRole('link', { name: 'Edit reply' }));
+
+  const clickEditReview = () =>
+    userEvent.click(screen.getByRole('link', { name: 'Edit review' }));
+
+  const clickReplyToReview = () =>
+    userEvent.click(screen.getByRole('link', { name: 'Reply to this review' }));
+
+  const getDefaultErrorHandlerId = (reviewId) => `AddonReviewCard-${reviewId}`;
+
+  it('renders a review', () => {
+    const body = 'Some review body text';
+    render({ review: _setReview({ body, score: 2 }) });
+
+    expect(screen.getByText(body)).toBeInTheDocument();
+    expect(screen.getAllByTitle('Rated 2 out of 5')).toHaveLength(6);
   });
 
   it('renders a custom className', () => {
     const className = 'ExampleClassName';
-    const root = render({ className });
+    render({ className });
 
-    expect(root).toHaveClassName(className);
+    expect(screen.getByClassName('AddonReviewCard')).toHaveClass(className);
   });
 
   it('can hide a rating explicitly', () => {
-    const root = render({ showRating: false, review: _setReview(fakeReview) });
+    render({ showRating: false, review: _setReview() });
 
-    const rating = root.find(UserReview);
-    expect(rating).toHaveProp('showRating', false);
+    expect(screen.queryByClassName('Rating')).not.toBeInTheDocument();
   });
 
   it('can hide controls', () => {
-    const root = render({
-      review: _setReview(fakeReview),
+    render({
+      review: _setReview(),
       showControls: false,
     });
 
-    expect(root.find(UserReview)).toHaveProp('controls', null);
-  });
-
-  it('renders loading text for falsy reviews', () => {
-    const root = render({ review: null });
-
-    expect(root.find(UserReview)).toHaveProp('review', null);
-    expect(root.find(UserReview)).toHaveProp('byLine', <LoadingText />);
-  });
-
-  it('does not render an edit link when no review exists', () => {
-    dispatchSignInActions({ store });
-    const root = render({ review: null });
-
-    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
+    expect(
+      screen.queryByRole('button', { name: 'Flag this review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('does not render edit link even when siteUserCanReply is true', () => {
     const review = createReviewAndSignInAsUnrelatedUser();
-    const root = render({
+    render({
       review,
       siteUserCanReply: true,
     });
 
-    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
+    expect(
+      screen.queryByRole('link', { name: 'Edit review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('does not render an edit link for ratings', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
-    const root = render({ review });
+    render({ review });
 
-    const editButton = renderControls(root).find('.AddonReviewCard-edit');
-    expect(editButton).toHaveLength(0);
+    expect(
+      screen.queryByRole('link', { name: 'Edit review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('does not render edit link when the review belongs to another user', () => {
     const review = createReviewAndSignInAsUnrelatedUser();
-    const root = render({ review });
+    render({ review });
 
-    expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
+    expect(
+      screen.queryByRole('link', { name: 'Edit review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('does not render any controls when beginningToDeleteReview', () => {
     const review = signInAndDispatchSavedReview();
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review });
+    render({ review });
 
-    expect(root.find(UserReview)).toHaveProp('controls', null);
+    clickDeleteReview();
+
+    expect(
+      screen.queryByRole('link', { name: 'Edit review' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'Delete review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('renders a privileged notice for deleted review', () => {
-    const review = _setReview({
-      ...fakeReview,
-      id: 1,
-      is_deleted: true,
-    });
-    const root = render({ review });
+    const review = _setReview({ is_deleted: true });
+    render({ review });
 
-    const rating = root.find('.AddonReviewCard');
-    expect(rating.find(Notice)).toHaveLength(1);
+    expect(
+      screen.getByText(
+        'This rating or review has been deleted. You are only seeing it because of elevated permissions.',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('lets you begin editing your review', () => {
     const review = signInAndDispatchSavedReview();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ review });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ review });
 
-    const editButton = renderControls(root).find('.AddonReviewCard-edit');
-    expect(editButton.text()).toContain('Edit review');
-    const clickEvent = createFakeEvent();
-    editButton.simulate('click', clickEvent);
+    const button = screen.getByRole('link', {
+      name: 'Edit review',
+    });
+    const clickEvent = createEvent.click(button);
+    const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    sinon.assert.called(clickEvent.preventDefault);
-    sinon.assert.calledWith(
-      dispatchSpy,
+    fireEvent(button, clickEvent);
+
+    expect(preventDefaultWatcher).toHaveBeenCalled();
+    expect(dispatch).toHaveBeenCalledWith(
       showEditReviewForm({
         reviewId: review.id,
       }),
@@ -300,228 +363,215 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
-    const root = render({ review });
+    render({ review });
 
-    const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
-    expect(deleteLink).toHaveLength(1);
-    expect(deleteLink.children()).toHaveText('Delete rating');
+    expect(
+      screen.getByRole('button', { name: 'Delete rating' }),
+    ).toBeInTheDocument();
   });
 
   it('renders a delete link for a user review', () => {
     const review = signInAndDispatchSavedReview();
-    const root = render({ review });
+    render({ review });
 
-    const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
-    expect(deleteLink).toHaveLength(1);
-    expect(deleteLink.children()).toHaveText('Delete review');
+    expect(
+      screen.getByRole('button', { name: 'Delete review' }),
+    ).toBeInTheDocument();
   });
 
   it('does not render delete link when the review belongs to another user', () => {
     const review = createReviewAndSignInAsUnrelatedUser();
-    const root = render({ review });
+    render({ review });
 
-    expect(renderControls(root).find('.AddonReviewCard-delete')).toHaveLength(
-      0,
-    );
+    expect(
+      screen.queryByRole('button', { name: 'Delete review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('does not render a delete link even when siteUserCanReply is true', () => {
     const review = createReviewAndSignInAsUnrelatedUser();
-    const root = render({
+    render({
       review,
       siteUserCanReply: true,
     });
 
-    expect(renderControls(root).find('.AddonReviewCard-delete')).toHaveLength(
-      0,
-    );
+    expect(
+      screen.queryByRole('button', { name: 'Delete review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('begins deleting when clicking a delete link for a review', () => {
     const review = signInAndDispatchSavedReview();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ review });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ review });
 
-    const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
-    expect(deleteLink).toHaveLength(1);
+    const button = screen.getByRole('button', {
+      name: 'Delete review',
+    });
+    const clickEvent = createEvent.click(button);
+    const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    const fakeEvent = createFakeEvent();
-    deleteLink.simulate('click', fakeEvent);
+    fireEvent(button, clickEvent);
 
-    sinon.assert.calledWith(
-      dispatchSpy,
-      beginDeleteAddonReview({ reviewId: review.id }),
+    expect(preventDefaultWatcher).toHaveBeenCalled();
+    expect(dispatch).toHaveBeenCalledWith(
+      beginDeleteAddonReview({
+        reviewId: review.id,
+      }),
     );
-    sinon.assert.called(fakeEvent.preventDefault);
   });
 
   it('renders generic delete confirmation buttons', () => {
-    const review = signInAndDispatchSavedReview({
-      externalReview: fakeRatingOnly,
-    });
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review });
+    const review = signInAndDispatchSavedReview();
+    render({ review });
 
-    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-    expect(dialog).toHaveProp('cancelButtonText', 'Cancel');
-    expect(dialog).toHaveProp('confirmButtonText', 'Delete');
+    clickDeleteReview();
+
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Delete' })).toBeInTheDocument();
   });
 
   it('renders delete confirmation buttons for a rating with slim=true', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, slim: true });
+    render({ review, slim: true });
 
-    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-    expect(dialog).toHaveProp('cancelButtonText', 'Keep rating');
-    expect(dialog).toHaveProp('confirmButtonText', 'Delete rating');
+    clickDeleteRating();
+
+    expect(
+      screen.getByRole('button', { name: 'Keep rating' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Delete rating' }),
+    ).toBeInTheDocument();
   });
 
   it('renders delete confirmation buttons for a review with slim=true', () => {
-    const review = signInAndDispatchSavedReview({
-      externalReview: fakeReview,
-    });
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, slim: true });
+    const review = signInAndDispatchSavedReview();
+    render({ review, slim: true });
 
-    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-    expect(dialog).toHaveProp('cancelButtonText', 'Keep review');
-    expect(dialog).toHaveProp('confirmButtonText', 'Delete review');
+    clickDeleteReview();
+
+    expect(
+      screen.getByRole('button', { name: 'Keep review' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Delete review' }),
+    ).toBeInTheDocument();
   });
 
   it('does not render a confirmation message for slim=true', () => {
-    const review = signInAndDispatchSavedReview({
-      externalReview: fakeReview,
-    });
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review, slim: true });
+    const review = signInAndDispatchSavedReview();
+    render({ review, slim: true });
 
-    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-    expect(dialog).toHaveProp('message', undefined);
+    clickDeleteReview();
+
+    expect(
+      screen.queryByText('Do you really want to delete this review?'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders a confirmation prompt for deleting a review', () => {
-    const review = signInAndDispatchSavedReview({
-      externalReview: fakeReview,
-    });
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review });
+    const review = signInAndDispatchSavedReview();
+    render({ review });
 
-    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-    expect(dialog).toHaveProp(
-      'message',
-      'Do you really want to delete this review?',
-    );
+    clickDeleteReview();
+
+    expect(
+      screen.getByText('Do you really want to delete this review?'),
+    ).toBeInTheDocument();
   });
 
   it('renders a confirmation prompt for deleting a rating', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const root = render({ review });
+    render({ review });
 
-    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-    expect(dialog).toHaveProp(
-      'message',
-      'Do you really want to delete this rating?',
-    );
+    clickDeleteRating();
+
+    expect(
+      screen.getByText('Do you really want to delete this rating?'),
+    ).toBeInTheDocument();
   });
 
   it('lets you cancel deleting a review', () => {
     const review = signInAndDispatchSavedReview();
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ review });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ review });
 
-    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
+    clickDeleteReview();
 
-    // This emulates a user clicking the cancel button.
-    const onCancel = dialog.prop('onCancel');
-    const fakeEvent = createFakeEvent();
-    onCancel(fakeEvent);
+    const button = screen.getByRole('button', { name: 'Cancel' });
+    const clickEvent = createEvent.click(button);
+    const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    sinon.assert.calledWith(
-      dispatchSpy,
-      cancelDeleteAddonReview({ reviewId: review.id }),
+    fireEvent(button, clickEvent);
+
+    expect(preventDefaultWatcher).toHaveBeenCalled();
+    expect(dispatch).toHaveBeenCalledWith(
+      cancelDeleteAddonReview({
+        reviewId: review.id,
+      }),
     );
-    sinon.assert.called(fakeEvent.preventDefault);
   });
 
-  it('dispatches deleteReview when a user deletes a review', () => {
+  it('dispatches deleteReview and displayes a deleting message when a user deletes a review', () => {
     const review = signInAndDispatchSavedReview();
-    store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ review });
-    const { errorHandler } = root.instance().props;
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ review });
 
-    const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-    const deleteEvent = createFakeEvent();
+    clickDeleteReview();
 
-    // This emulates a user clicking the delete button and confirming.
-    const onDelete = dialog.prop('onConfirm');
-    onDelete(deleteEvent);
+    const button = screen.getByRole('button', { name: 'Delete' });
+    const clickEvent = createEvent.click(button);
+    const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    sinon.assert.calledOnce(deleteEvent.preventDefault);
-    sinon.assert.calledWith(
-      dispatchSpy,
+    fireEvent(button, clickEvent);
+
+    expect(preventDefaultWatcher).toHaveBeenCalled();
+    expect(dispatch).toHaveBeenCalledWith(
       deleteAddonReview({
         addonId: review.reviewAddon.id,
-        errorHandlerId: errorHandler.id,
-        reviewId: review.id,
-      }),
-    );
-  });
-
-  it('renders a deleting message when a user deletes a review', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(
-      deleteAddonReview({
-        addonId: fakeAddon.id,
-        errorHandlerId: createStubErrorHandler().id,
+        errorHandlerId: getDefaultErrorHandlerId(review.id),
         reviewId: review.id,
       }),
     );
 
-    const root = render({ review });
-
-    const controls = renderControls(root);
-    expect(controls.find('.AddonReviewCard-deleting')).toHaveLength(1);
-    expect(controls.find('.AddonReviewCard-delete')).toHaveLength(0);
+    expect(
+      screen.queryByRole('button', { name: 'Delete review' }),
+    ).not.toBeInTheDocument();
+    expect(screen.getByText('Deleting…')).toBeInTheDocument();
   });
 
   it('renders a delete link when an error occurs when deleting a review', () => {
     const review = signInAndDispatchSavedReview();
-    store.dispatch(
-      deleteAddonReview({
-        addonId: fakeAddon.id,
-        errorHandlerId: createStubErrorHandler().id,
-        reviewId: review.id,
-      }),
-    );
+    render({ review });
 
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
+    clickDeleteReview();
+    userEvent.click(screen.getByRole('button', { name: 'Delete' }));
+
+    createFailedErrorHandler({
+      id: getDefaultErrorHandlerId(review.id),
+      store,
     });
-    errorHandler.handle(new Error('some unexpected error'));
 
-    const root = render({ errorHandler, review });
-
-    const controls = renderControls(root);
-    expect(controls.find('.AddonReviewCard-deleting')).toHaveLength(0);
-    expect(controls.find('.AddonReviewCard-delete')).toHaveLength(1);
+    expect(
+      screen.getByRole('button', { name: 'Delete review' }),
+    ).toBeInTheDocument();
+    expect(screen.queryByText('Deleting…')).not.toBeInTheDocument();
   });
 
   it('adds AddonReviewCard-ratingOnly to rating-only reviews', () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
-    const root = render({ review });
+    render({ review });
 
-    expect(root).toHaveClassName('.AddonReviewCard-ratingOnly');
+    expect(screen.getByClassName('AddonReviewCard')).toHaveClass(
+      'AddonReviewCard-ratingOnly',
+    );
   });
 
   it('does not add AddonReviewCard-ratingOnly to reviews with a body', () => {
@@ -531,49 +581,54 @@ describe(__filename, () => {
         body: 'This is a written review',
       },
     });
-    const root = render({ review });
+    render({ review });
 
-    expect(root).not.toHaveClassName('.AddonReviewCard-ratingOnly');
+    expect(screen.getByClassName('AddonReviewCard')).not.toHaveClass(
+      'AddonReviewCard-ratingOnly',
+    );
   });
 
   it('shows FlagReviewMenu when signed out', () => {
-    const review = _setReview(fakeReview);
-    const root = render({ review });
+    render({ review: _setReview() });
 
-    const flag = renderControls(root).find(FlagReviewMenu);
-    expect(flag).toHaveProp('review', review);
-    expect(flag).toHaveProp('isDeveloperReply', false);
+    expect(
+      screen.getByRole('button', { name: 'Flag this review' }),
+    ).toBeInTheDocument();
   });
 
   it('does not let you flag when declared as non-flaggable', () => {
-    const root = render({ flaggable: false, review: _setReview(fakeReview) });
+    render({ flaggable: false, review: _setReview() });
 
-    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
+    expect(
+      screen.queryByRole('button', { name: 'Flag this review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('does not let you flag rating-only reviews', () => {
-    const root = render({
-      review: _setReview(fakeRatingOnly),
-      // This will be ignored since it's a rating-only review.
-      flaggable: true,
-    });
+    render({ review: _setReview(fakeRatingOnly) });
 
-    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
+    expect(
+      screen.queryByRole('button', { name: 'Flag this review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('lets you flag a developer reply', () => {
-    const { reply } = _setReviewReply();
-    const root = renderReply({ reply });
+    renderNestedReply();
 
-    const flag = renderControls(root).find(FlagReviewMenu);
-    expect(flag).toHaveProp('review', reply);
-    expect(flag).toHaveProp('isDeveloperReply', true);
+    expect(
+      screen.getByRole('button', { name: 'Flag this developer response' }),
+    ).toBeInTheDocument();
   });
 
   it('does not let you flag a review before one has loaded', () => {
-    const root = render({ review: null });
+    render({ review: null });
 
-    expect(root.find(FlagReviewMenu)).toHaveLength(0);
+    expect(
+      screen.queryByRole('button', { name: 'Flag this review' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'Flag this developer response' }),
+    ).not.toBeInTheDocument();
   });
 
   it('hides the flag button if you wrote the review', () => {
@@ -582,33 +637,32 @@ describe(__filename, () => {
       siteUserId,
       reviewUserId: siteUserId,
     });
-    const root = render({ review });
+    render({ review });
 
-    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
+    expect(
+      screen.queryByRole('button', { name: 'Flag this review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('allows review replies when siteUserCanReply is true', () => {
-    dispatchSignInActions({ store });
+    dispatchSignInActionsWithStore({ store });
     const { addon, review } = createAddonAndReview();
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({
       addon,
       review,
       siteUserCanReply: true,
     });
 
-    const editButton = renderControls(root).find(
-      '.AddonReviewCard-begin-reply',
-    );
-    expect(editButton).toHaveLength(1);
+    const button = screen.getByRole('link', { name: 'Reply to this review' });
+    const clickEvent = createEvent.click(button);
+    const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    const clickEvent = createFakeEvent();
-    editButton.simulate('click', clickEvent);
+    fireEvent(button, clickEvent);
 
-    sinon.assert.called(clickEvent.preventDefault);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(preventDefaultWatcher).toHaveBeenCalled();
+    expect(dispatch).toHaveBeenCalledWith(
       showReplyToReviewForm({
         reviewId: review.id,
       }),
@@ -616,23 +670,46 @@ describe(__filename, () => {
   });
 
   it('disallows review replies when siteUserCanReply is false', () => {
-    dispatchSignInActions({ store });
+    dispatchSignInActionsWithStore({ store });
     const { addon, review } = createAddonAndReview();
 
-    const root = render({ addon, review, siteUserCanReply: false });
+    render({
+      addon,
+      review,
+      siteUserCanReply: false,
+    });
 
     expect(
-      renderControls(root).find('.AddonReviewCard-begin-reply'),
-    ).toHaveLength(0);
+      screen.queryByRole('link', { name: 'Reply to this review' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('allows review replies for admins', () => {
+    dispatchSignInActionsWithStore({
+      store,
+      userProps: { permissions: [ALL_SUPER_POWERS] },
+    });
+    const { addon, review } = createAddonAndReview();
+
+    // Admin super powers should override siteUserCanReply.
+    render({
+      addon,
+      review,
+      siteUserCanReply: false,
+    });
+
+    expect(
+      screen.getByRole('link', { name: 'Reply to this review' }),
+    ).toBeInTheDocument();
   });
 
   it('disallows replies for rating-only reviews', () => {
-    dispatchSignInActions({ store });
+    dispatchSignInActionsWithStore({ store });
     const { addon, review } = createAddonAndReview({
       externalReview: fakeRatingOnly,
     });
 
-    const root = render({
+    render({
       addon,
       review,
       // This will be ignored since the review is rating-only.
@@ -640,360 +717,274 @@ describe(__filename, () => {
     });
 
     expect(
-      renderControls(root).find('.AddonReviewCard-begin-reply'),
-    ).toHaveLength(0);
+      screen.queryByRole('link', { name: 'Reply to this review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('hides reply button when already replying to a review', () => {
     const { addon } = signInAsAddonDeveloper();
-    const review = _setReview(fakeReview);
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-    const root = render({ addon, review });
+    render({ addon, review: _setReview(), siteUserCanReply: true });
+
+    clickReplyToReview();
 
     expect(
-      renderControls(root).find('.AddonReviewCard-begin-reply'),
-    ).toHaveLength(0);
+      screen.queryByRole('link', { name: 'Reply to this review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('hides reply button if you wrote the review', () => {
     const developerUserId = 3321;
     const { addon } = signInAsAddonDeveloper({ developerUserId });
     const review = _setReview({
-      ...fakeReview,
       user: {
         ...fakeReview.user,
         id: developerUserId,
       },
     });
-    const root = render({ addon, review });
+    render({ addon, review, siteUserCanReply: true });
 
     expect(
-      renderControls(root).find('.AddonReviewCard-begin-reply'),
-    ).toHaveLength(0);
-  });
-
-  it('configures a reply-to-review text form', () => {
-    const review = _setReview(fakeReview);
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-
-    const root = render({ review });
-
-    const textForm = root.find('.AddonReviewCard-reply-form');
-    expect(textForm).toHaveLength(1);
-    expect(textForm).toHaveProp('placeholder', 'Write a reply to this review.');
-    expect(textForm).toHaveProp('submitButtonText', 'Publish reply');
-    expect(textForm).toHaveProp(
-      'submitButtonInProgressText',
-      'Publishing reply',
-    );
+      screen.queryByRole('link', { name: 'Reply to this review' }),
+    ).not.toBeInTheDocument();
   });
 
   it('configures a reply-to-review text form when editing', () => {
-    const replyBody = 'This is a developer reply';
-    const { review } = _setReviewReply({ replyBody });
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    const { reply } = renderNestedReplyForSignedInDeveloper();
 
-    const root = render({ review });
+    userEvent.click(screen.getByRole('link', { name: 'Edit reply' }));
 
-    const textForm = root.find('.AddonReviewCard-reply-form');
-    expect(textForm).toHaveLength(1);
-    expect(textForm).toHaveProp('text', replyBody);
-    expect(textForm).toHaveProp('submitButtonText', 'Update reply');
-    expect(textForm).toHaveProp('submitButtonInProgressText', 'Updating reply');
-  });
+    const textArea = screen.getByPlaceholderText(
+      'Write a reply to this review.',
+    );
+    expect(textArea).toHaveValue(reply.body);
 
-  it('configures reply form with null text when no reply exists', () => {
-    const review = _setReview({ ...fakeReview, reply: null });
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    userEvent.type(textArea, 'Updated reply');
 
-    const root = render({ review });
+    userEvent.click(screen.getByRole('button', { name: 'Update reply' }));
 
-    const textForm = root.find('.AddonReviewCard-reply-form');
-    expect(textForm).toHaveProp('text', null);
+    expect(screen.getByRole('button', { name: 'Updating reply' })).toHaveClass(
+      'Button--disabled',
+    );
   });
 
   it('dispatches a finish action when dismissing a reply-to-review text form', () => {
-    const review = _setReview(fakeReview);
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    const { addon } = signInAsAddonDeveloper();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const review = _setReview();
+    render({ addon, review, siteUserCanReply: true });
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ review });
+    clickReplyToReview();
+    userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    const textForm = root.find('.AddonReviewCard-reply-form');
-    expect(textForm).toHaveProp('onDismiss');
-
-    const onDismiss = textForm.prop('onDismiss');
-    onDismiss();
-
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       hideReplyToReviewForm({
         reviewId: review.id,
       }),
     );
   });
 
-  it('submits the reply-to-review form', () => {
-    const review = _setReview(fakeReview);
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ review });
-    const { errorHandler } = root.instance().props;
-
-    const textForm = root.find('.AddonReviewCard-reply-form');
-    expect(textForm).toHaveProp('onSubmit');
-
-    const onSubmit = textForm.prop('onSubmit');
+  it('allows a user to reply to a review', () => {
+    const { addon } = signInAsAddonDeveloper();
+    const dispatch = jest.spyOn(store, 'dispatch');
     const replyBody = 'Body of the review';
-    onSubmit({ text: replyBody });
+    const review = _setReview();
+    render({ addon, review, siteUserCanReply: true });
 
-    sinon.assert.calledWith(
-      fakeDispatch,
+    clickReplyToReview();
+    expect(
+      screen.queryByRole('link', { name: 'Reply to this review' }),
+    ).not.toBeInTheDocument();
+
+    const textArea = screen.getByPlaceholderText(
+      'Write a reply to this review.',
+    );
+    expect(textArea).toHaveValue('');
+
+    userEvent.type(textArea, replyBody);
+    userEvent.click(screen.getByRole('button', { name: 'Publish reply' }));
+
+    expect(dispatch).toHaveBeenCalledWith(
       sendReplyToReview({
-        errorHandlerId: errorHandler.id,
+        errorHandlerId: getDefaultErrorHandlerId(review.id),
         originalReviewId: review.id,
         body: replyBody,
       }),
     );
-  });
 
-  it('sets the reply form state when submitting', () => {
-    const review = _setReview(fakeReview);
+    expect(
+      screen.getByRole('button', { name: 'Publishing reply' }),
+    ).toHaveClass('Button--disabled');
+    expect(
+      screen.queryByRole('button', { name: 'Publish reply' }),
+    ).not.toBeInTheDocument();
 
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-    store.dispatch(
-      sendReplyToReview({
-        body: 'A developer reply',
-        errorHandlerId: 'some-id',
-        originalReviewId: review.id,
-      }),
-    );
+    // The saga would dispatch this to hide the form.
+    store.dispatch(hideReplyToReviewForm({ reviewId: review.id }));
 
-    const root = render({ review });
-
-    const textForm = root.find('.AddonReviewCard-reply-form');
-    expect(textForm).toHaveProp('isSubmitting', true);
-  });
-
-  it('sets the reply form state when not submitting', () => {
-    const review = _setReview(fakeReview);
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-
-    const root = render({ review });
-
-    const textForm = root.find('.AddonReviewCard-reply-form');
-    expect(textForm).toHaveProp('isSubmitting', false);
+    expect(
+      screen.queryByPlaceholderText('Write a reply to this review.'),
+    ).not.toBeInTheDocument();
   });
 
   it('resets the reply form state when there is an error', () => {
-    // Simulate submitting a reply that will result in an error.
-    const review = _setReview(fakeReview);
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-    store.dispatch(
-      sendReplyToReview({
-        body: 'A developer reply',
-        errorHandlerId: 'some-id',
-        originalReviewId: review.id,
-      }),
-    );
-
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(new Error('some unexpected error'));
-
-    const root = render({ errorHandler, review });
-
-    const textForm = root.find('.AddonReviewCard-reply-form');
-    expect(textForm).toHaveProp('isSubmitting', false);
-  });
-
-  it('cannot submit a reply without a review', () => {
-    const root = render({ review: null });
-
-    expect(() => {
-      root.instance().onSubmitReviewReply({ text: 'some review' });
-    }).toThrow(/review property cannot be empty/);
-  });
-
-  it('hides the reply-to-review form according to view state', () => {
-    const review = _setReview(fakeReview);
-    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-    store.dispatch(hideReplyToReviewForm({ reviewId: review.id }));
-
-    const root = render({ review });
-
-    expect(
-      renderControls(root).find('.AddonReviewCard-reply-form'),
-    ).toHaveLength(0);
-  });
-
-  it('hides the reply-to-review link after a reply has been sent', () => {
     const { addon } = signInAsAddonDeveloper();
-    const reviewId = 331;
-    _setReview({
-      ...fakeReview,
-      id: reviewId,
-      addon: {
-        id: addon.id,
-        slug: addon.slug,
-      },
+    const review = _setReview();
+    render({ addon, review, siteUserCanReply: true });
+
+    clickReplyToReview();
+    userEvent.type(
+      screen.getByPlaceholderText('Write a reply to this review.'),
+      '{selectall}{del}Body of the review',
+    );
+    userEvent.click(screen.getByRole('button', { name: 'Publish reply' }));
+
+    createFailedErrorHandler({
+      id: getDefaultErrorHandlerId(review.id),
+      store,
     });
 
-    store.dispatch(
-      setReviewReply({
-        originalReviewId: reviewId,
-        reply: {
-          ...fakeReview,
-          id: 431,
-          body: 'Some reply to the review',
-        },
-      }),
-    );
-    const review = getReviewFromState(reviewId);
-
-    const root = render({ addon, review });
-
-    // This link should be hidden now that a reply has been sent.
     expect(
-      renderControls(root).find('.AddonReviewCard-begin-reply'),
-    ).toHaveLength(0);
+      screen.getByRole('button', { name: 'Publish reply' }),
+    ).not.toHaveClass('Button--disabled');
+    expect(
+      screen.queryByRole('button', { name: 'Publishing reply' }),
+    ).not.toBeInTheDocument();
   });
 
-  it('ignores other review related view actions', () => {
+  it('configures DismissibleTextForm with an ID', () => {
+    const { addon } = signInAsAddonDeveloper();
     const thisReview = _setReview({ ...fakeReview, id: 1 });
     const anotherReview = _setReview({ ...fakeReview, id: 2 });
+    render({ addon, review: thisReview, siteUserCanReply: true });
 
+    // Dispatch an action to show the form for a review in a different card.
     store.dispatch(showReplyToReviewForm({ reviewId: anotherReview.id }));
 
-    const root = render({ review: thisReview });
+    expect(
+      screen.queryByPlaceholderText('Write a reply to this review.'),
+    ).not.toBeInTheDocument();
+
+    // Dispatch an action to show the form for a review in this card.
+    store.dispatch(showReplyToReviewForm({ reviewId: thisReview.id }));
 
     expect(
-      renderControls(root).find('.AddonReviewCard-reply-form'),
-    ).toHaveLength(0);
+      screen.getByPlaceholderText('Write a reply to this review.'),
+    ).toBeInTheDocument();
   });
 
   it('renders errors', () => {
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
+    const message = 'Some error message';
+    const review = _setReview();
+    createFailedErrorHandler({
+      id: getDefaultErrorHandlerId(review.id),
+      message,
+      store,
     });
-    errorHandler.handle(new Error('unexpected error'));
-    const root = render({ errorHandler });
+    render({ review });
 
-    expect(root.find(ErrorList)).toHaveLength(1);
+    expect(screen.getByText(message)).toBeInTheDocument();
   });
 
   describe('AddonReviewManager integration', () => {
-    it('shows UserReview by default', () => {
-      const review = signInAndDispatchSavedReview();
-      const root = render({ review });
+    it('shows UserReview when not editng', () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: {
+          ...fakeReview,
+          score: 2,
+        },
+      });
+      render({ review });
 
-      expect(root.find(AddonReviewManager)).toHaveLength(0);
-      expect(root.find(UserReview)).toHaveLength(1);
+      expect(screen.getAllByTitle('Rated 2 out of 5')).toHaveLength(6);
+      expect(screen.queryByText('Your star rating:')).not.toBeInTheDocument();
     });
 
     it('renders AddonReviewManager when editing', () => {
-      const review = signInAndDispatchSavedReview();
-      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      const review = signInAndDispatchSavedReview({
+        externalReview: {
+          ...fakeReview,
+          score: 2,
+        },
+      });
+      render({ review });
 
-      const root = render({ review });
+      clickEditReview();
 
-      expect(root.find(UserReview)).toHaveLength(0);
-      const manager = root.find(AddonReviewManager);
-      expect(manager).toHaveLength(1);
-      expect(manager).toHaveProp('review', review);
-      expect(manager).toHaveProp('puffyButtons', false);
+      expect(screen.getByText('Your star rating:')).toBeInTheDocument();
+      expect(screen.getAllByTitle('Rated 2 out of 5')).toHaveLength(1);
     });
 
     it('configures AddonReviewManager with puffyButtons when slim=true', () => {
       const review = signInAndDispatchSavedReview();
-      store.dispatch(showEditReviewForm({ reviewId: review.id }));
+      render({ review, slim: true });
 
-      const root = render({ review, slim: true });
+      clickEditReview();
 
-      const manager = root.find(AddonReviewManager);
-      expect(manager).toHaveProp('puffyButtons', true);
+      expect(screen.getByRole('button', { name: 'Update review' })).toHaveClass(
+        'Button--puffy',
+      );
+      expect(screen.getByRole('button', { name: 'Cancel' })).toHaveClass(
+        'Button--puffy',
+      );
+    });
+
+    it('configures AddonReviewManager without puffyButtons when slim=false', () => {
+      const review = signInAndDispatchSavedReview();
+      render({ review, slim: false });
+
+      clickEditReview();
+
+      expect(
+        screen.getByRole('button', { name: 'Update review' }),
+      ).not.toHaveClass('Button--puffy');
+      expect(screen.getByRole('button', { name: 'Cancel' })).not.toHaveClass(
+        'Button--puffy',
+      );
     });
 
     it('hides the review form on cancel', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
       const review = signInAndDispatchSavedReview();
-      store.dispatch(showEditReviewForm({ reviewId: review.id }));
-      const dispatchSpy = sinon.spy(store, 'dispatch');
+      render({ review });
 
-      const root = render({ review });
+      clickEditReview();
+      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-      const manager = root.find(AddonReviewManager);
-      expect(manager).toHaveProp('onCancel');
-
-      dispatchSpy.resetHistory();
-      const onCancel = manager.prop('onCancel');
-      onCancel();
-
-      sinon.assert.calledWith(
-        dispatchSpy,
+      expect(dispatch).toHaveBeenCalledWith(
         hideEditReviewForm({
           reviewId: review.id,
         }),
       );
     });
 
-    it('provides a write review button for ratings', () => {
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const review = signInAndDispatchSavedReview({
-        externalReview: fakeRatingOnly,
-      });
-      const root = render({ review });
-
-      const writeReview = root.find('.AddonReviewCard-writeReviewButton');
-      expect(writeReview).toHaveLength(1);
-      expect(writeReview).toHaveProp('puffy', false);
-
-      dispatchSpy.resetHistory();
-      writeReview.simulate('click', createFakeEvent());
-
-      sinon.assert.calledWith(
-        dispatchSpy,
-        showEditReviewForm({ reviewId: review.id }),
-      );
-    });
-
-    it('hides the write review button while editing', () => {
-      const review = signInAndDispatchSavedReview({
-        externalReview: fakeRatingOnly,
-      });
-      store.dispatch(showEditReviewForm({ reviewId: review.id }));
-      const root = render({ review });
-
-      const writeReview = root.find('.AddonReviewCard-writeReviewButton');
-      expect(writeReview).toHaveLength(0);
-    });
-
     it('hides the write review button when beginning to delete a rating', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-      const root = render({ review });
+      render({ review });
 
-      const writeReview = root.find('.AddonReviewCard-writeReviewButton');
-      expect(writeReview).toHaveLength(0);
+      clickDeleteRating();
+
+      expect(
+        screen.queryByRole('button', { name: 'Write a review' }),
+      ).not.toBeInTheDocument();
     });
 
     it('hides the write review button for ratings when not logged in', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      let root = render({ review });
+      render({ review });
 
-      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(1);
+      expect(
+        screen.getByRole('button', { name: 'Write a review' }),
+      ).toBeInTheDocument();
 
       store.dispatch(logOutUser());
 
-      root = render({ review });
-      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
+      expect(
+        screen.queryByRole('button', { name: 'Write a review' }),
+      ).not.toBeInTheDocument();
     });
 
     it('hides the write review button if the rating is not by the current user', () => {
@@ -1006,85 +997,89 @@ describe(__filename, () => {
           id: reviewUserId,
         },
       });
-      dispatchSignInActions({ store, userId: loggedInUserId });
+      dispatchSignInActionsWithStore({ store, userId: loggedInUserId });
 
-      const root = render({ review });
+      render({ review });
 
-      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveLength(0);
+      expect(
+        screen.queryByRole('button', { name: 'Write a review' }),
+      ).not.toBeInTheDocument();
     });
 
     it('will render a larger write review button for slim=true', () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
-      const root = render({ review, slim: true });
+      render({ review, slim: true });
 
-      expect(root.find('.AddonReviewCard-writeReviewButton')).toHaveProp(
-        'puffy',
-        true,
-      );
+      expect(
+        screen.queryByRole('button', { name: 'Write a review' }),
+      ).toHaveClass('Button--puffy');
     });
   });
 
   describe('byLine', () => {
-    const renderByLine = (root) => {
-      return shallow(root.find(UserReview).prop('byLine'));
-    };
-
     it('renders a byLine with a permalink to the review', () => {
       const slug = 'some-slug';
-      const i18n = fakeI18n();
+
       const review = signInAndDispatchSavedReview({
         externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
       });
-      const root = render({ review, store });
+      render({ review });
 
-      expect(renderByLine(root).find(Link)).toHaveProp({
-        to: reviewListURL({ addonSlug: slug, id: review.id }),
-        title: i18n.moment(review.created).format('lll'),
-      });
+      expect(
+        screen.getByTitle(i18n.moment(review.created).format('lll')),
+      ).toHaveAttribute(
+        'href',
+        `/en-US/android${reviewListURL({ addonSlug: slug, id: review.id })}`,
+      );
     });
 
     it('uses the addonId for the byLine link when the reviewAddon has an empty slug', () => {
       // See https://github.com/mozilla/addons-frontend/issues/7322 for
       // the reason this test was added.
       const addonId = 999;
+
       const review = signInAndDispatchSavedReview({
         externalReview: {
           ...fakeReview,
           addon: { ...fakeReview.addon, id: addonId, slug: '' },
         },
       });
-      const root = render({ review, store });
+      render({ review });
 
-      expect(renderByLine(root).find(Link)).toHaveProp(
-        'to',
-        reviewListURL({ addonSlug: addonId, id: review.id }),
+      expect(
+        screen.getByTitle(i18n.moment(review.created).format('lll')),
+      ).toHaveAttribute(
+        'href',
+        `/en-US/android${reviewListURL({ addonSlug: addonId, id: review.id })}`,
       );
     });
 
     it('renders a byLine without a link when the reviewAddon has an empty slug and a falsey id', () => {
       // See https://github.com/mozilla/addons-frontend/issues/7322 for
       // the reason this test was added.
+
       const review = signInAndDispatchSavedReview({
         externalReview: {
           ...fakeReview,
           addon: { ...fakeReview.addon, id: 0, slug: '' },
         },
       });
-      const root = render({ review, store });
+      render({ review, store });
 
-      expect(renderByLine(root).find(Link)).toHaveLength(0);
+      expect(
+        screen.queryByTitle(i18n.moment(review.created).format('lll')),
+      ).not.toBeInTheDocument();
     });
 
     it('renders a byLine with a relative date', () => {
-      const i18n = fakeI18n();
       const review = signInAndDispatchSavedReview();
-      const root = render({ i18n, review });
+      render({ i18n, review });
 
-      expect(renderByLine(root).find(Link).children()).toHaveText(
-        i18n.moment(review.created).fromNow(),
-      );
+      expect(
+        screen.getByTitle(i18n.moment(review.created).format('lll')),
+      ).toHaveTextContent(i18n.moment(review.created).fromNow());
     });
 
     it('renders a byLine with an author by default', () => {
@@ -1092,323 +1087,200 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview({
         reviewUserProps: { name },
       });
-      const root = render({ review });
+      render({ review });
 
-      expect(
-        renderByLine(root).find('.AddonReviewCard-authorByLine').text(),
-      ).toContain(`by ${name},`);
+      expect(screen.getByText(`by ${name},`)).toBeInTheDocument();
     });
 
     it('renders a short byLine for replies by default', () => {
-      const i18n = fakeI18n();
-      const addon = createInternalAddonWithLang(fakeAddon);
-      const { reply } = _setReviewReply({ addon });
+      const { reply } = renderNestedReply();
 
-      const root = renderReply({ i18n, reply });
-
-      expect(renderByLine(root).text()).toContain('posted ');
+      expect(
+        screen.getByTextAcrossTags(
+          `posted ${i18n.moment(reply.created).fromNow()}`,
+        ),
+      ).toBeInTheDocument();
     });
 
     it('renders a short byLine explicitly', () => {
       const review = _setReview(fakeReview);
-      const root = render({ shortByLine: true, review });
+      render({ shortByLine: true, review });
 
-      expect(renderByLine(root).text()).toContain('posted ');
-    });
-
-    it('builds a byLine string by extracting the timestamp and inserting a link', () => {
-      const firstPart = 'this is the first part';
-      const lastPart = 'this is the last part';
-      const byLineString = `${firstPart} %(linkStart)s%(timestamp)s%(linkEnd)s ${lastPart}`;
-
-      const i18n = {
-        ...fakeI18n(),
-        gettext: sinon.stub().returns(byLineString),
-      };
-
-      const review = _setReview(fakeReview);
-
-      const root = render({
-        i18n,
-        shortByLine: true,
-        review,
-      });
-
-      const authorByLine = renderByLine(root);
-      expect(authorByLine.text()).toContain(firstPart);
-      expect(authorByLine.text()).toContain(lastPart);
-
-      const authorTimestampLink = authorByLine.find(Link);
-      expect(authorTimestampLink).toHaveLength(1);
-      expect(authorTimestampLink).toHaveProp(
-        'children',
-        i18n.moment(review.created).fromNow(),
-      );
+      expect(
+        screen.getByTextAcrossTags(
+          `posted ${i18n.moment(review.created).fromNow()}`,
+        ),
+      ).toBeInTheDocument();
     });
 
     it('linkifies username if current user is an admin', () => {
-      dispatchSignInActions({
+      dispatchSignInActionsWithStore({
         store,
         userProps: { permissions: [ALL_SUPER_POWERS] },
       });
 
       const review = _setReview(fakeReview);
-      const root = render({ review });
+      render({ review });
 
-      const authorLinks = renderByLine(root).find(Link);
-      expect(authorLinks).toHaveLength(2);
-      expect(authorLinks.at(0)).toHaveProp('to', `/user/${review.userId}/`);
+      expect(
+        screen.getByRole('link', { name: review.userName }),
+      ).toHaveAttribute('href', `/en-US/android/user/${review.userId}/`);
     });
 
     it('does not linkify username if current user is not an admin', () => {
       const review = _setReview(fakeReview);
-      const root = render({ review });
+      render({ review });
 
-      const authorLink = renderByLine(root).find(Link);
-      expect(authorLink).toHaveLength(1);
+      expect(
+        screen.queryByRole('link', { name: review.userName }),
+      ).not.toBeInTheDocument();
     });
   });
 
   describe('Developer reply to a review', () => {
     it('renders a nested reply', () => {
-      const addon = createInternalAddonWithLang(fakeAddon);
-      const { review, reply } = _setReviewReply({ addon });
-      const root = render({ addon, review });
+      const { review, reply } = renderNestedReply();
 
-      const replyComponent = root.find(AddonReviewCard);
-      expect(replyComponent).toHaveLength(1);
-      expect(replyComponent).toHaveProp('review', reply);
-      expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
+      expect(screen.getByText(review.body)).toBeInTheDocument();
+      expect(screen.getByText(reply.body)).toBeInTheDocument();
     });
 
     it('hides rating stars', () => {
-      const root = renderReply();
+      renderReply();
 
-      const rating = root.find(UserReview);
-      expect(rating).toHaveProp('showRating', false);
+      expect(screen.queryByClassName('Rating')).not.toBeInTheDocument();
     });
 
     it('passes isReply to the UserReview', () => {
-      const root = renderReply();
+      renderNestedReply();
 
-      expect(root.find(UserReview)).toHaveProp('isReply', true);
+      expect(
+        screen.getByRole('heading', { name: 'Developer response' }),
+      ).toBeInTheDocument();
+      expect(screen.getByClassName('Icon-reply-arrow')).toBeInTheDocument();
     });
 
     it('hides rating stars even with showRating=true', () => {
-      const root = renderReply({ showRating: true });
+      renderReply({ showRating: true });
 
-      const rating = root.find(UserReview);
-      expect(rating).toHaveProp('showRating', false);
+      expect(screen.queryByClassName('Rating')).not.toBeInTheDocument();
     });
 
     it('hides the reply-to-review link on the developer reply', () => {
-      const developerUserId = 3321;
-      const { addon } = signInAsAddonDeveloper({ developerUserId });
-      const root = renderReply({ addon });
+      renderNestedReplyForSignedInDeveloper({ siteUserCanReply: true });
+
       expect(
-        renderControls(root).find('.AddonReviewCard-begin-reply'),
-      ).toHaveLength(0);
+        screen.queryByRole('link', { name: 'Reply to this review' }),
+      ).not.toBeInTheDocument();
     });
 
-    it('hides a nested reply when editing it', () => {
-      const { review } = _setReviewReply();
-      store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    it('Allows a developer to edit a reply and hides the reply while editing it', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const { review } = renderNestedReplyForSignedInDeveloper();
 
-      const root = render({ review });
+      expect(
+        screen.getByRole('heading', { name: 'Developer response' }),
+      ).toBeInTheDocument();
 
-      const replyComponent = root.find(AddonReviewCard);
-      expect(replyComponent).toHaveLength(0);
+      clickEditReply();
+
+      expect(dispatch).toHaveBeenCalledWith(
+        showReplyToReviewForm({
+          reviewId: review.id,
+        }),
+      );
+
+      expect(
+        screen.queryByRole('heading', { name: 'Developer response' }),
+      ).not.toBeInTheDocument();
     });
 
     it('does not include a user name in the byline', () => {
-      const { reply } = _setReviewReply();
-      const root = renderReply({ reply });
+      const replyUserName = 'Bob';
+      const reviewUserName = 'Daniel';
 
-      expect(root.find('.AddonReviewCard-byline')).not.toIncludeText(
-        reply.userName,
-      );
-    });
+      renderNestedReply({ replyUserName, reviewUserName });
 
-    it('shows a form to edit your reply', () => {
-      const originalReviewId = 543;
-      const developerUserId = 321;
-      const review = signInAndDispatchSavedReview({
-        siteUserId: developerUserId,
-        reviewUserId: developerUserId,
-      });
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const root = renderReply({ originalReviewId, reply: review });
-
-      const editButton = renderControls(root).find('.AddonReviewCard-edit');
-      expect(editButton.text()).toContain('Edit reply');
-      expect(editButton).toHaveLength(1);
-
-      editButton.simulate('click', createFakeEvent());
-
-      sinon.assert.calledWith(
-        dispatchSpy,
-        showReplyToReviewForm({
-          reviewId: originalReviewId,
-        }),
-      );
+      expect(screen.getByText(`by ${reviewUserName},`)).toBeInTheDocument();
+      expect(screen.queryByText(replyUserName)).not.toBeInTheDocument();
     });
 
     it('lets you edit a reply if siteUserCanReply is true', () => {
-      const review = createReviewAndSignInAsUnrelatedUser();
-      const root = renderReply({
-        reply: review,
-        siteUserCanReply: true,
-      });
+      const replyUserId = 123;
+      dispatchSignInActionsWithStore({ store, userId: 999 });
+      renderNestedReply({ replyUserId, siteUserCanReply: true });
 
-      const editButton = renderControls(root).find('.AddonReviewCard-edit');
-      expect(editButton).toHaveLength(1);
+      expect(
+        screen.getByRole('link', { name: 'Edit reply' }),
+      ).toBeInTheDocument();
     });
 
-    it('renders a delete link for a developer reply', () => {
-      const originalReviewId = 543;
-      const developerUserId = 321;
-      const review = signInAndDispatchSavedReview({
-        siteUserId: developerUserId,
-        reviewUserId: developerUserId,
+    it('allows a developer to delete a reply', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const { reply, review } = renderNestedReplyForSignedInDeveloper();
+
+      expect(
+        screen.getByRole('heading', { name: 'Developer response' }),
+      ).toBeInTheDocument();
+
+      userEvent.click(screen.getByRole('button', { name: 'Delete reply' }));
+
+      expect(
+        screen.getByText('Do you really want to delete this reply?'),
+      ).toBeInTheDocument();
+
+      const button = screen.getByRole('button', {
+        name: 'Delete',
       });
-      const root = renderReply({ originalReviewId, reply: review });
+      const clickEvent = createEvent.click(button);
+      const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-      const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
-      expect(deleteLink).toHaveLength(1);
-      expect(deleteLink.children()).toHaveText('Delete reply');
-    });
+      fireEvent(button, clickEvent);
 
-    it('renders a delete link when siteUserCanReply is true', () => {
-      const review = createReviewAndSignInAsUnrelatedUser();
-      const root = renderReply({
-        reply: review,
-        siteUserCanReply: true,
-      });
+      expect(
+        screen.queryByRole('button', { name: 'Delete reply' }),
+      ).not.toBeInTheDocument();
+      expect(screen.getByText('Deleting…')).toBeInTheDocument();
 
-      const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
-      expect(deleteLink).toHaveLength(1);
-    });
-
-    it('renders a confirmation prompt for deleting a reply', () => {
-      const originalReviewId = 543;
-      const developerUserId = 321;
-      const review = signInAndDispatchSavedReview({
-        siteUserId: developerUserId,
-        reviewUserId: developerUserId,
-      });
-      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-      const root = renderReply({ originalReviewId, reply: review });
-
-      const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-      expect(dialog).toHaveProp(
-        'message',
-        'Do you really want to delete this reply?',
-      );
-    });
-
-    it('renders a confirm button for deleting a reply when slim=true', () => {
-      const originalReviewId = 543;
-      const developerUserId = 321;
-      const review = signInAndDispatchSavedReview({
-        siteUserId: developerUserId,
-        reviewUserId: developerUserId,
-      });
-      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-      const root = renderReply({
-        originalReviewId,
-        reply: review,
-        slim: true,
-      });
-
-      const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-      expect(dialog).toHaveProp('confirmButtonText', 'Delete reply');
-    });
-
-    it('dispatches deleteReview when a user deletes a developer reply', () => {
-      const originalReviewId = 543;
-      const developerUserId = 321;
-      const review = signInAndDispatchSavedReview({
-        siteUserId: developerUserId,
-        reviewUserId: developerUserId,
-      });
-      store.dispatch(beginDeleteAddonReview({ reviewId: review.id }));
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const root = renderReply({ originalReviewId, reply: review });
-      const { errorHandler } = root.instance().props;
-
-      const deleteEvent = createFakeEvent();
-      const dialog = root.find('.AddonReviewCard-confirmDeleteDialog');
-      // This emulates a user clicking the delete button and confirming.
-      const onDelete = dialog.prop('onConfirm');
-      onDelete(deleteEvent);
-
-      sinon.assert.calledOnce(deleteEvent.preventDefault);
-      sinon.assert.calledWith(
-        dispatchSpy,
+      expect(preventDefaultWatcher).toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledWith(
         deleteAddonReview({
           addonId: review.reviewAddon.id,
-          errorHandlerId: errorHandler.id,
-          reviewId: review.id,
-          isReplyToReviewId: originalReviewId,
+          errorHandlerId: getDefaultErrorHandlerId(reply.id),
+          isReplyToReviewId: review.id,
+          reviewId: reply.id,
         }),
       );
     });
 
+    it('renders a delete link when siteUserCanReply is true', () => {
+      const replyUserId = 123;
+      dispatchSignInActionsWithStore({ store, userId: 999 });
+      renderNestedReply({ replyUserId, siteUserCanReply: true });
+
+      expect(
+        screen.getByRole('button', { name: 'Delete reply' }),
+      ).toBeInTheDocument();
+    });
+
+    it('renders the expected delete confirm button text when slim=true', () => {
+      renderNestedReplyForSignedInDeveloper({ slim: true });
+
+      userEvent.click(screen.getByRole('button', { name: 'Delete reply' }));
+
+      expect(
+        screen.getByRole('button', { name: 'Delete reply' }),
+      ).toBeInTheDocument();
+    });
+
     it('renders a non-nested reply', () => {
-      const review = _setReview({
-        ...fakeReview,
-        is_developer_reply: true,
-      });
+      const { review, reply } = _setReviewReply();
       // Set showRating to true to prove that we will not show a rating for a reply.
-      const root = render({ review, showRating: true });
+      render({ review: reply, showRating: true });
 
-      const reviewComponent = root.find(UserReview);
-      expect(reviewComponent).toHaveProp('showRating', false);
-    });
-
-    it('configures DismissibleTextForm with an ID', () => {
-      const { review } = _setReviewReply();
-      store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
-
-      const root = render({ review });
-
-      const form = root.find(DismissibleTextForm);
-
-      expect(form).toHaveProp('id');
-      const formId = form.prop('id');
-
-      expect(formId).toContain('AddonReviewCard');
-      expect(formId).toContain(`addon-${review.reviewAddon.id}`);
-      expect(formId).toContain(`review-${review.id}`);
-    });
-  });
-
-  describe('siteUserCanManageReplies', () => {
-    it('does not let you reply when siteUserCanReply is false', () => {
-      dispatchSignInActions({ store });
-      const root = render({ siteUserCanReply: false });
-
-      expect(root.instance().props.siteUserCanManageReplies).toEqual(false);
-    });
-
-    it('lets any admin reply', () => {
-      dispatchSignInActions({
-        store,
-        userProps: { permissions: [ALL_SUPER_POWERS] },
-      });
-
-      // Admin super powers should override siteUserCanReply.
-      const root = render({ siteUserCanReply: false });
-
-      expect(root.instance().props.siteUserCanManageReplies).toEqual(true);
-    });
-
-    it('lets you reply when siteUserCanReply is true', () => {
-      dispatchSignInActions({ store });
-      const root = render({ siteUserCanReply: true });
-
-      expect(root.instance().props.siteUserCanManageReplies).toEqual(true);
+      expect(screen.getByText(reply.body)).toBeInTheDocument();
+      expect(screen.queryByClassName('Rating')).not.toBeInTheDocument();
+      expect(screen.queryByText(review.body)).not.toBeInTheDocument();
     });
   });
 });
