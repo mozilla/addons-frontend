@@ -106,14 +106,32 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
-    it('encodes URLs with encodeURI', async () => {
+    it('encodes URL paths with encodeURI', async () => {
       const endpoint = 'project-ă-ă-â-â-日本語';
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match(encodeURI(`/api/${apiVersion}/${endpoint}/`)))
+        .withArgs(sinon.match(`/api/${apiVersion}/${encodeURI(endpoint)}/`))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    // See https://github.com/mozilla/addons-frontend/issues/11447.
+    it('does not double-encode URL querystrings', async () => {
+      const endpoint = 'project-ă-ă-â-â-日本語';
+      const params = { sort: 'users,recommended', category: 'bookmarks' };
+      const expectedQueryString = api.makeQueryString(params);
+      mockWindow
+        .expects('fetch')
+        .withArgs(
+          sinon.match(
+            `/api/${apiVersion}/${encodeURI(endpoint)}/${expectedQueryString}`,
+          ),
+        )
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint, params });
       mockWindow.verify();
     });
 
@@ -508,6 +526,16 @@ describe(__filename, () => {
     it('handles true values', () => {
       const query = api.makeQueryString({ some_flag: true });
       expect(query).toEqual('?some_flag=true');
+    });
+
+    it('encodes the queryString', () => {
+      const query = api.makeQueryString({
+        sort: 'recommended,popular',
+        category: 'a category',
+      });
+      expect(query).toEqual(
+        '?sort=recommended%2Cpopular&category=a%20category',
+      );
     });
   });
 
