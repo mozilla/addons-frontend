@@ -527,6 +527,16 @@ describe(__filename, () => {
       const query = api.makeQueryString({ some_flag: true });
       expect(query).toEqual('?some_flag=true');
     });
+
+    it('encodes the queryString', () => {
+      const query = api.makeQueryString({
+        sort: 'recommended,popular',
+        category: 'a category',
+      });
+      expect(query).toEqual(
+        '?sort=recommended%2Cpopular&category=a%20category',
+      );
+    });
   });
 
   describe('fetchAddon', () => {
