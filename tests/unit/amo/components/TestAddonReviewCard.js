@@ -1437,9 +1437,13 @@ describe(__filename, () => {
 
         // AddonReviewCard passes 'AddonReviewCard-control' as the openerClass to
         // FlagReviewMenu.
-        expect(
-          screen.getByRole('button', { name: 'Flag this review' }),
-        ).toHaveClass('AddonReviewCard-control');
+        const flagButton = screen.getByRole('button', {
+          name: 'Flag this review',
+        });
+        expect(flagButton).toHaveClass('AddonReviewCard-control');
+
+        // This tests the `className` prop of TooltipMenu.
+        expect(flagButton).toHaveClass('FlagReviewMenu-menu');
       });
 
       it('requires you to be signed in', () => {
