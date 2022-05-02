@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { createEvent, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {
@@ -19,9 +20,17 @@ import {
   setReview,
   updateAddonReview,
 } from 'amo/actions/reviews';
+import { hasAbuseReportPanelEnabled } from 'amo/addonManager';
 import RatingManager from 'amo/components/RatingManager';
 import {
+  SEND_ADDON_ABUSE_REPORT,
+  initiateAddonAbuseReportViaFirefox,
+  loadAddonAbuseReport,
+  sendAddonAbuseReport,
+} from 'amo/reducers/abuse';
+import {
   createFailedErrorHandler,
+  createFakeAddonAbuseReport,
   createInternalAddonWithLang,
   createInternalVersionWithLang,
   createLocalizedString,
@@ -33,6 +42,11 @@ import {
   render as defaultRender,
   screen,
 } from 'tests/unit/helpers';
+
+// Default the availability of the Firefox Report Abuse API to false.
+jest.mock('amo/addonManager', () => ({
+  hasAbuseReportPanelEnabled: jest.fn().mockReturnValue(false),
+}));
 
 // We need to mock validAddonTypes in a test.
 const mockValidAddonTypesGetter = jest.fn();
@@ -422,6 +436,7 @@ describe(__filename, () => {
       );
     });
   });
+
   describe('Tests for UserRating', () => {
     it('renders a Rating', () => {
       renderWithReview({
@@ -467,6 +482,252 @@ describe(__filename, () => {
       ).toBeInTheDocument();
       // With a null review we should not be in a loading state.
       expect(screen.getByRole('alert')).toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for ReportAbuseButton', () => {
+    it('allows a user to report an add-on for abuse', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const message = 'This add-on is abusive.';
+      render();
+
+      // Renders with just the Report Abuse button visible.
+      expect(screen.getByClassName('ReportAbuseButton')).not.toHaveClass(
+        'ReportAbuseButton--is-expanded',
+      );
+
+      const button = screen.getByRole('button', {
+        name: 'Report this add-on for abuse',
+      });
+      const clickEvent = createEvent.click(button);
+      const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
+
+      fireEvent(button, clickEvent);
+
+      expect(preventDefaultWatcher).toHaveBeenCalled();
+
+      userEvent.type(
+        screen.getByPlaceholderText(
+          'Explain how this add-on is violating our policies.',
+        ),
+        message,
+      );
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Send abuse report' }),
+      );
+
+      expect(
+        screen.getByRole('button', { name: 'Sending abuse report' }),
+      ).toHaveClass('Button--disabled');
+
+      expect(dispatch).toHaveBeenCalledWith(
+        sendAddonAbuseReport({
+          addonSlug: fakeAddon.slug,
+          errorHandlerId: 'ReportAbuseButton',
+          message,
+        }),
+      );
+
+      userEvent.click(screen.getByRole('button', { name: 'Dismiss' }));
+
+      // Dismiss should have been ignored.
+      expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
+        'ReportAbuseButton--is-expanded',
+      );
+    });
+
+    it('hides the form when Dismiss is clicked', () => {
+      render();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Report this add-on for abuse' }),
+      );
+
+      expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
+        'ReportAbuseButton--is-expanded',
+      );
+
+      userEvent.click(screen.getByRole('button', { name: 'Dismiss' }));
+
+      expect(screen.getByClassName('ReportAbuseButton')).not.toHaveClass(
+        'ReportAbuseButton--is-expanded',
+      );
+    });
+
+    it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME])(
+      'initiates an abuse report via Firefox when the "report" button is clicked if supported and add-on type is %s',
+      (addonType) => {
+        hasAbuseReportPanelEnabled.mockImplementation(() => {
+          return true;
+        });
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          type: addonType,
+        });
+        const dispatch = jest.spyOn(store, 'dispatch');
+        render({ addon });
+
+        const button = screen.getByRole('button', {
+          name: 'Report this add-on for abuse',
+        });
+        const clickEvent = createEvent.click(button);
+        const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
+
+        fireEvent(button, clickEvent);
+        expect(preventDefaultWatcher).toHaveBeenCalled();
+
+        expect(screen.getByClassName('ReportAbuseButton')).not.toHaveClass(
+          'ReportAbuseButton--is-expanded',
+        );
+        expect(dispatch).toHaveBeenCalledWith(
+          initiateAddonAbuseReportViaFirefox({ addon }),
+        );
+      },
+    );
+
+    it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
+      'does not initiate an abuse report via Firefox when add-on type is %s',
+      (addonType) => {
+        hasAbuseReportPanelEnabled.mockImplementation(() => {
+          return true;
+        });
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          type: addonType,
+        });
+        const dispatch = jest.spyOn(store, 'dispatch');
+        render({ addon });
+
+        userEvent.click(
+          screen.getByRole('button', {
+            name: 'Report this add-on for abuse',
+          }),
+        );
+
+        expect(dispatch).not.toHaveBeenCalledWith(
+          initiateAddonAbuseReportViaFirefox({ addon }),
+        );
+        expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
+          'ReportAbuseButton--is-expanded',
+        );
+      },
+    );
+
+    it('shows a success message and hides the button if report was sent', () => {
+      const addon = fakeAddon;
+      const abuseResponse = createFakeAddonAbuseReport({
+        addon,
+        message: 'Seriously, where is my money?!',
+      });
+
+      store.dispatch(loadAddonAbuseReport(abuseResponse));
+      render({ addon });
+
+      expect(
+        screen.getByRole('heading', {
+          name: 'You reported this add-on for abuse',
+        }),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', {
+          name: 'Report this add-on for abuse',
+        }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('shows a success message and hides the button if report via Firefox was dispatched', () => {
+      const addon = fakeAddon;
+      store.dispatch(
+        loadAddonAbuseReport({
+          addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
+          message: null,
+          reporter: null,
+        }),
+      );
+      render({ addon });
+
+      expect(
+        screen.getByRole('heading', {
+          name: 'You reported this add-on for abuse',
+        }),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', {
+          name: 'Report this add-on for abuse',
+        }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not disable the "Report this add-on for abuse" button if a report is in progress', () => {
+      // See https://github.com/mozilla/addons-frontend/issues/9086.
+      store.dispatch(initiateAddonAbuseReportViaFirefox({ addon: fakeAddon }));
+      render();
+
+      expect(
+        screen.queryByRole('button', {
+          name: 'Report this add-on for abuse',
+        }),
+      ).not.toHaveClass('Button--disabled');
+    });
+
+    it('does not allow dispatch if there is no content in the textarea', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Report this add-on for abuse' }),
+      );
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Send abuse report' }),
+      );
+
+      expect(
+        screen.queryByRole('button', { name: 'Sending abuse report' }),
+      ).not.toBeInTheDocument();
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: SEND_ADDON_ABUSE_REPORT }),
+      );
+    });
+
+    it('does not allow dispatch if textarea is whitespace', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Report this add-on for abuse' }),
+      );
+
+      userEvent.type(
+        screen.getByPlaceholderText(
+          'Explain how this add-on is violating our policies.',
+        ),
+        '     ',
+      );
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Send abuse report' }),
+      );
+
+      expect(
+        screen.queryByRole('button', { name: 'Sending abuse report' }),
+      ).not.toBeInTheDocument();
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: SEND_ADDON_ABUSE_REPORT }),
+      );
+    });
+
+    it('renders an error if one exists', () => {
+      const message = 'Some error message';
+      createFailedErrorHandler({
+        id: 'ReportAbuseButton',
+        message,
+        store,
+      });
+
+      render();
+      expect(screen.getByText(message)).toBeInTheDocument();
     });
   });
 });
