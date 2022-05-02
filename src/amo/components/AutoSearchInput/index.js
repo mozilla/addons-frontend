@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types, react/no-unused-prop-types */
 import { oneLine } from 'common-tags';
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import defaultDebounce from 'lodash.debounce';
 import * as React from 'react';
 import Autosuggest from 'react-autosuggest';
@@ -166,23 +167,15 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
   handleSuggestionsFetchRequested: (OnSuggestionsFetchRequestedParams) => void =
     ({ value }: OnSuggestionsFetchRequestedParams) => {
-      if (!value) {
-        log.debug(oneLine`Ignoring suggestions fetch requested because
-        value is not supplied: ${value}`);
-        return;
-      }
+      invariant(value, 'It should not be possible to have a falsey value');
+      invariant(
+        value.length <= SEARCH_TERM_MAX_LENGTH,
+        `It should not be possible to have a value > ${SEARCH_TERM_MAX_LENGTH}`,
+      );
 
       if (value.length < SEARCH_TERM_MIN_LENGTH) {
         log.debug(oneLine`Ignoring suggestions fetch because query
       does not meet the required length (${SEARCH_TERM_MIN_LENGTH})`);
-
-        this.props.dispatch(autocompleteCancel());
-        return;
-      }
-
-      if (value.length > SEARCH_TERM_MAX_LENGTH) {
-        log.debug(oneLine`Ignoring suggestions fetch because query
-        exceeds max length (${SEARCH_TERM_MAX_LENGTH})`);
 
         this.props.dispatch(autocompleteCancel());
         return;
