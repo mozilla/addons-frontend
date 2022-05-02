@@ -1,13 +1,37 @@
-import { shallow } from 'enzyme';
-import * as React from 'react';
-
-import UnavailableForLegalReasons from 'amo/components/Errors/UnavailableForLegalReasons';
-import UnavailableForLegalReasonsPage from 'amo/pages/ErrorPages/UnavailableForLegalReasonsPage';
+import {
+  createHistory,
+  renderPage as defaultRender,
+  screen,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  it('renders a NotFound component', () => {
-    const root = shallow(<UnavailableForLegalReasonsPage />);
+  it('renders an UnavailableForLegalReasons Page', () => {
+    defaultRender({
+      history: createHistory({
+        initialEntries: ['/en-US/firefox/451/'],
+      }),
+    });
 
-    expect(root.find(UnavailableForLegalReasons)).toHaveLength(1);
+    expect(
+      screen.getByText('That page is not available in your region'),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByTextAcrossTags(
+        'You may be able to find what you’re looking for in one of the available extensions or themes, or by asking for help on our community forums.',
+      ),
+    ).toBeInTheDocument();
+
+    expect(screen.getByRole('link', { name: 'extensions' })).toHaveAttribute(
+      'href',
+      '/en-US/firefox/extensions/',
+    );
+    expect(screen.getByRole('link', { name: 'themes' })).toHaveAttribute(
+      'href',
+      '/en-US/firefox/themes/',
+    );
+    expect(
+      screen.getByRole('link', { name: 'community forums' }),
+    ).toHaveAttribute('href', expect.stringContaining('discourse'));
   });
 });
