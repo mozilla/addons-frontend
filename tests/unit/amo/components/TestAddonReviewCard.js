@@ -1582,4 +1582,17 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
   });
+
+  describe('Tests for AddonReviewManagerRating', () => {
+    it('sets readOnly correctly when onSelectRating is defined', () => {
+      render({ review: signInAndDispatchSavedReview() });
+
+      // AddonReviewManagerRating is rendered in edit mode.
+      clickEditReview();
+
+      expect(
+        screen.getByTitle('Update your rating to 1 out of 5'),
+      ).toBeInTheDocument();
+    });
+  });
 });
