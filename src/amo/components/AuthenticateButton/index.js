@@ -125,7 +125,7 @@ export const mapStateToProps = (
 ): PropsFromState => {
   const defaultHandleLogIn = (location, { _window = window } = {}) => {
     // eslint-disable-next-line no-param-reassign
-    _window.location = startLoginUrl({ location });
+    _window.location.assign(startLoginUrl({ location }));
   };
 
   return {
