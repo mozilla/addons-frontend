@@ -730,4 +730,28 @@ describe(__filename, () => {
       expect(screen.getByText(message)).toBeInTheDocument();
     });
   });
+
+  describe('Tests for AddonReviewManagerRating', () => {
+    it('lets you specify className', () => {
+      renderWithReview();
+
+      // The AddonReviewManagerRating is only rendered when the "Delete review"
+      // dialog is open, and it is assigned a custom className by
+      // RatingManager.
+      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
+
+      expect(screen.getByClassName('AddonReviewManagerRating')).toHaveClass(
+        'RatingManager-AddonReviewManagerRating',
+      );
+    });
+
+    it('sets readOnly correctly when onSelectRating is undefined', () => {
+      renderWithReview();
+
+      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
+
+      // When Rating is in readOnly mode, the title for all stars is as below.
+      expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6);
+    });
+  });
 });
