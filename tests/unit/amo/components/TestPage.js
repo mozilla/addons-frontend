@@ -1,7 +1,7 @@
 /* global window */
 import config from 'config';
 import * as React from 'react';
-import { createEvent, fireEvent } from '@testing-library/react';
+import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
@@ -31,9 +31,12 @@ import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   createCapturedErrorHandler,
+  createFakeAutocompleteResult,
   createHistory,
+  dispatchAutocompleteResults,
   dispatchClientMetadata,
   dispatchSignInActions,
+  getElement,
   getFakeLoggerWithJest as getFakeLogger,
   getMockConfig,
   mockMatchMedia,
@@ -709,6 +712,153 @@ describe(__filename, () => {
         expect(clickEvent.defaultPrevented).toBeTruthy();
         expect(pushSpy).toHaveBeenCalledWith(`/en-US/${CLIENT_APP_ANDROID}/`);
       });
+    });
+  });
+
+  describe('Tests for SearchForm', () => {
+    it('sets the form action URL', () => {
+      dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+        lang: 'en-GB',
+        store,
+      });
+      render();
+
+      // Header passes a pathname of `/search/` to SearchForm.
+      expect(screen.getByRole('search')).toHaveAttribute(
+        'action',
+        `/en-GB/${CLIENT_APP_FIREFOX}/search/`,
+      );
+    });
+
+    it('changes the URL on search', () => {
+      dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+        lang: 'en-GB',
+        store,
+      });
+      const history = createHistory();
+      const query = 'panda themes';
+      render({ history });
+
+      const pushSpy = jest.spyOn(history, 'push');
+
+      userEvent.type(screen.getByRole('searchbox'), `{selectall}{del}${query}`);
+      userEvent.click(screen.getByRole('button', { name: 'Search' }));
+
+      expect(pushSpy).toHaveBeenCalledWith({
+        pathname: `/en-GB/${CLIENT_APP_FIREFOX}/search/`,
+        query: { q: query },
+      });
+    });
+
+    it('pushes a new route when a suggestion is selected', () => {
+      const url = '/url/to/extension/detail/page';
+      const fakeResult = createFakeAutocompleteResult({ url });
+      const history = createHistory();
+      render({ history });
+
+      const pushSpy = jest.spyOn(history, 'push');
+
+      userEvent.type(screen.getByRole('searchbox'), 'test');
+      dispatchAutocompleteResults({ results: [fakeResult], store });
+      userEvent.click(
+        screen.getByRole('option', {
+          // This is the accessible name for the suggestion.
+          name: 'suggestion-result suggestion-result Go to the add-on page',
+        }),
+      );
+
+      expect(pushSpy).toHaveBeenCalledWith(url);
+    });
+
+    it('parses the URL of a suggestion to push the pathname', () => {
+      const pathname = '/url/to/extension/detail/page';
+      const fakeResult = createFakeAutocompleteResult({
+        url: `https://example.org${pathname}`,
+      });
+      const history = createHistory();
+      render({ history });
+
+      const pushSpy = jest.spyOn(history, 'push');
+
+      userEvent.type(screen.getByRole('searchbox'), 'test');
+      dispatchAutocompleteResults({ results: [fakeResult], store });
+      userEvent.click(
+        screen.getByRole('option', {
+          name: 'suggestion-result suggestion-result Go to the add-on page',
+        }),
+      );
+
+      expect(pushSpy).toHaveBeenCalledWith(pathname);
+    });
+
+    it('does not push anything if the URL is empty', () => {
+      const fakeResult = createFakeAutocompleteResult({ url: '' });
+      const history = createHistory();
+      render({ history });
+
+      const pushSpy = jest.spyOn(history, 'push');
+
+      userEvent.type(screen.getByRole('searchbox'), 'test');
+      dispatchAutocompleteResults({ results: [fakeResult], store });
+      userEvent.click(
+        screen.getByRole('option', {
+          name: 'suggestion-result suggestion-result Go to the add-on page',
+        }),
+      );
+
+      expect(pushSpy).not.toHaveBeenCalled();
+    });
+
+    it('renders an opensearch link for Android', async () => {
+      const clientApp = CLIENT_APP_ANDROID;
+      const lang = 'en-CA';
+
+      dispatchClientMetadata({ clientApp, lang, store });
+
+      render();
+
+      // Without the waitFor, the link tags have not rendered into the head yet.
+      await waitFor(() =>
+        expect(getElement('link[rel="search"]')).toBeInTheDocument(),
+      );
+
+      const link = getElement('link[rel="search"]');
+      expect(link).toHaveAttribute(
+        'type',
+        'application/opensearchdescription+xml',
+      );
+      expect(link).toHaveAttribute(
+        'href',
+        `/${lang}/${clientApp}/opensearch.xml`,
+      );
+      expect(link).toHaveAttribute('title', 'Firefox Add-ons for Android');
+    });
+
+    it('renders an opensearch link for Firefox', async () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      const lang = 'fr';
+
+      dispatchClientMetadata({ clientApp, lang, store });
+
+      render();
+
+      // Without the waitFor, the link tags have not rendered into the head yet.
+      await waitFor(() =>
+        expect(getElement('link[rel="search"]')).toBeInTheDocument(),
+      );
+
+      const link = getElement('link[rel="search"]');
+      expect(link).toHaveAttribute(
+        'type',
+        'application/opensearchdescription+xml',
+      );
+      expect(link).toHaveAttribute(
+        'href',
+        `/${lang}/${clientApp}/opensearch.xml`,
+      );
+      expect(link).toHaveAttribute('title', 'Firefox Add-ons');
     });
   });
 });
