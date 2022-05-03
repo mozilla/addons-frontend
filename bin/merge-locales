@@ -17,6 +17,8 @@ poFiles.forEach((poFile) => {
   const dir = path.dirname(poFile);
   const stem = path.basename(poFile, '.po');
   const tempFile = path.join(dir, `${stem}.po.tmp`);
-  shell.exec(`msgmerge -q -o ${tempFile} ${poFile} ${template}`);
+  shell.exec(
+    `msgmerge --no-fuzzy-matching -q -o ${tempFile} ${poFile} ${template}`
+  );
   shell.mv(tempFile, poFile);
 });
