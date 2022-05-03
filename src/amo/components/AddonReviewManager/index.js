@@ -52,6 +52,7 @@ export const extractId = (props: Props | InternalProps): string => {
   return props.review.id.toString();
 };
 
+// Note: This is only ever used for editing a review, but not a reply.
 export class AddonReviewManagerBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     puffyButtons: false,
@@ -85,8 +86,6 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     const { errorHandler, i18n, onCancel, review, flashMessage, puffyButtons } =
       this.props;
 
-    const isReply = review.isDeveloperReply;
-
     const formFoterLink = replaceStringsWithJSX({
       text: i18n.gettext(
         'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
@@ -108,7 +107,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
       ],
     });
 
-    const formFooter = !isReply ? <div>{formFoterLink}</div> : undefined;
+    const formFooter = <div>{formFoterLink}</div>;
 
     const placeholder = i18n.gettext(
       'Write about your experience with this add-on.',
@@ -117,38 +116,32 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     let submitButtonText = i18n.gettext('Submit review');
     let submitButtonInProgressText = i18n.gettext('Submitting review');
     if (review.body) {
-      submitButtonText = isReply
-        ? i18n.gettext('Update reply')
-        : i18n.gettext('Update review');
-      submitButtonInProgressText = isReply
-        ? i18n.gettext('Updating reply')
-        : i18n.gettext('Updating review');
+      submitButtonText = i18n.gettext('Update review');
+      submitButtonInProgressText = i18n.gettext('Updating review');
     }
 
     return (
       <div className="AddonReviewManager">
         {errorHandler.renderErrorIfPresent()}
-        {!isReply && (
-          <AddonReviewManagerRating
-            onSelectRating={this.onSubmitRating}
-            rating={
-              flashMessage === STARTED_SAVE_RATING ? undefined : review.score
+        <AddonReviewManagerRating
+          onSelectRating={this.onSubmitRating}
+          rating={
+            flashMessage === STARTED_SAVE_RATING ? undefined : review.score
+          }
+        >
+          <RatingManagerNotice
+            className="AddonReviewManager-savedRating"
+            hideMessage={
+              flashMessage !== STARTED_SAVE_RATING &&
+              flashMessage !== SAVED_RATING
             }
-          >
-            <RatingManagerNotice
-              className="AddonReviewManager-savedRating"
-              hideMessage={
-                flashMessage !== STARTED_SAVE_RATING &&
-                flashMessage !== SAVED_RATING
-              }
-              message={
-                flashMessage === STARTED_SAVE_RATING
-                  ? i18n.gettext('Saving')
-                  : i18n.gettext('Saved')
-              }
-            />
-          </AddonReviewManagerRating>
-        )}
+            message={
+              flashMessage === STARTED_SAVE_RATING
+                ? i18n.gettext('Saving')
+                : i18n.gettext('Saved')
+            }
+          />
+        </AddonReviewManagerRating>
         <DismissibleTextForm
           dismissButtonText={i18n.gettext('Cancel')}
           formFooter={formFooter}
