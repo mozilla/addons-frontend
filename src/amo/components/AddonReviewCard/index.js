@@ -563,7 +563,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
               controls={controls}
               review={review}
               byLine={byLine}
-              showRating={!this.isReply() && showRating}
+              showRating={Boolean(!this.isReply() && showRating)}
               isReply={this.isReply()}
             />
           )}

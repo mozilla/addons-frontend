@@ -21,9 +21,9 @@ type Props = {|
   byLine: React.Node | null,
   children?: React.Node,
   controls?: React.Node | null,
-  isReply?: boolean,
+  isReply: boolean,
   review: ?UserReviewType,
-  showRating?: boolean,
+  showRating: boolean,
 |};
 
 type InternalProps = {|
@@ -67,15 +67,8 @@ function reviewBody({
 }
 
 export const UserReviewBase = (props: InternalProps): React.Node => {
-  const {
-    byLine,
-    children,
-    controls,
-    i18n,
-    isReply = false,
-    review,
-    showRating = false,
-  } = props;
+  const { byLine, children, controls, i18n, isReply, review, showRating } =
+    props;
 
   const showMoreCardId = review && review.id ? String(review.id) : loadingId;
   let body = reviewBody({ content: <LoadingText />, id: showMoreCardId });
