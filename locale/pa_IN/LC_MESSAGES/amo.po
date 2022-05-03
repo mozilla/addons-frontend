@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-25 16:13+0000\n"
+"POT-Creation-Date: 2022-05-03 19:24+0000\n"
 "PO-Revision-Date: 2021-01-30 18:44+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -300,47 +300,47 @@ msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਵਾਲੇ ਹੋਰ ਵਰਤੋ�
 msgid "Other popular extensions"
 msgstr "ਹੋਰ ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:210
 msgid "Edit reply"
 msgstr "ਜਵਾਬ ਸੋਧੋ"
 
-#: src/amo/components/AddonReviewCard/index.js:215
+#: src/amo/components/AddonReviewCard/index.js:213
 msgid "Edit review"
 msgstr "ਪੜਤਾਲ ਸੋਧੋ"
 
-#: src/amo/components/AddonReviewCard/index.js:222
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:220
+#: src/amo/components/AddonReviewCard/index.js:252
 msgid "Delete reply"
 msgstr "ਜਵਾਬ ਹਟਾਓ"
 
-#: src/amo/components/AddonReviewCard/index.js:226
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:224
+#: src/amo/components/AddonReviewCard/index.js:256
 msgid "Delete rating"
 msgstr "ਦਰਜਾ ਹਟਾਓ"
 
-#: src/amo/components/AddonReviewCard/index.js:229
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Delete review"
 msgstr "ਪੜਤਾਲ ਹਟਾਓ"
 
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:234
 msgid "Do you really want to delete this reply?"
 msgstr "ਕੀ ਤੁਸੀਂ ਇਹ ਜਵਾਬ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:238
 msgid "Do you really want to delete this rating?"
 msgstr "ਕੀ ਤੁਸੀਂ ਇਸ ਦਰਜੇ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Do you really want to delete this review?"
 msgstr "ਕੀ ਤੁਸੀਂ ਇਸ ਪੜਤਾਲ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:248
 #: src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
 msgstr "ਹਟਾਓ"
 
-#: src/amo/components/AddonReviewCard/index.js:268
+#: src/amo/components/AddonReviewCard/index.js:266
 #: src/amo/components/AddonReviewManager/index.js:153
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
@@ -349,47 +349,47 @@ msgstr "ਹਟਾਓ"
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/amo/components/AddonReviewCard/index.js:272
+#: src/amo/components/AddonReviewCard/index.js:270
 msgid "Keep reply"
 msgstr "ਜਵਾਬ ਰੱਖੋ"
 
-#: src/amo/components/AddonReviewCard/index.js:276
+#: src/amo/components/AddonReviewCard/index.js:274
 msgid "Keep rating"
 msgstr "ਦਰਜਾ ਰੱਖੋ"
 
-#: src/amo/components/AddonReviewCard/index.js:279
+#: src/amo/components/AddonReviewCard/index.js:277
 msgid "Keep review"
 msgstr "ਪੜਤਾਲ ਰੱਖੋ"
 
-#: src/amo/components/AddonReviewCard/index.js:315
+#: src/amo/components/AddonReviewCard/index.js:313
 msgid "Write a reply to this review."
 msgstr "ਇਸ ਪੜਤਾਲ ਲਈ ਜਵਾਬ ਲਿਖੋ।"
 
-#: src/amo/components/AddonReviewCard/index.js:318
+#: src/amo/components/AddonReviewCard/index.js:316
 #: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "ਜਵਾਬ ਅੱਪਡੇਟ ਕਰੋ"
 
-#: src/amo/components/AddonReviewCard/index.js:319
+#: src/amo/components/AddonReviewCard/index.js:317
 msgid "Publish reply"
 msgstr "ਜਵਾਬ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ"
 
-#: src/amo/components/AddonReviewCard/index.js:323
+#: src/amo/components/AddonReviewCard/index.js:321
 #: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "ਜਵਾਬ ਨੂੰ ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/AddonReviewCard/index.js:324
+#: src/amo/components/AddonReviewCard/index.js:322
 msgid "Publishing reply"
 msgstr "ਜਵਾਬ ਪਰਕਾਸ਼ਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 # Example in English: "posted last week"
-#: src/amo/components/AddonReviewCard/index.js:370
+#: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s ਨੂੰ ਪੋਸਟ ਕੀਤਾ"
 
 # Example in English: "by UserName123, last week"
-#: src/amo/components/AddonReviewCard/index.js:373
+#: src/amo/components/AddonReviewCard/index.js:371
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -398,26 +398,26 @@ msgstr ""
 "%(timestamp)s%(linkEnd)s ਵਲੋਂ"
 
 # Example in English: "by UserName123, last week"
-#: src/amo/components/AddonReviewCard/index.js:376
+#: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s ਵਲੋਂ"
 
-#: src/amo/components/AddonReviewCard/index.js:491
+#: src/amo/components/AddonReviewCard/index.js:489
 msgid "Deleting…"
 msgstr "…ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/AddonReviewCard/index.js:522
+#: src/amo/components/AddonReviewCard/index.js:520
 msgid "Reply to this review"
 msgstr "ਇਸ ਪੜਤਾਲ ਦਾ ਜਵਾਬ ਦਿਓ"
 
-#: src/amo/components/AddonReviewCard/index.js:552
+#: src/amo/components/AddonReviewCard/index.js:550
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr ""
 "ਇਹ ਰੇਟਿੰਗ ਜਾਂ ਸਮੀਖਿਆ ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ। ਉੱਚੇ ਅਧਿਕਾਰਾਂ ਦੇ ਕਾਰਨ ਤੁਸੀਂ ਇਸ ਨੂੰ ਕੇਵਲ ਦੇਖ ਰਹੇ ਹੋ।"
 
-#: src/amo/components/AddonReviewCard/index.js:598
+#: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
 msgstr "ਪੜਤਾਲ ਲਿਖੋ"
 
@@ -588,7 +588,7 @@ msgid "Enable"
 msgstr "ਸਮਰੱਥ"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:146
+#: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
@@ -846,24 +846,24 @@ msgstr "ਭੇਜੋ"
 msgid "Submitting"
 msgstr "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/EditableCollectionAddon/index.js:136
-#: src/amo/components/EditableCollectionAddon/index.js:154
+#: src/amo/components/EditableCollectionAddon/index.js:132
+#: src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
 msgstr "ਨੋਟ ਛੱਡੋ"
 
-#: src/amo/components/EditableCollectionAddon/index.js:155
+#: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
 msgstr "ਕੁਲੈਕਟਰ ਦੇ ਨੋਟ"
 
-#: src/amo/components/EditableCollectionAddon/index.js:170
+#: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
 msgstr "ਇਸ ਐਡ-ਆਨ ਬਾਰੇ ਟਿੱਪਣੀ ਜੋੜੋ।"
 
-#: src/amo/components/EditableCollectionAddon/index.js:171
+#: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: src/amo/components/EditableCollectionAddon/index.js:192
+#: src/amo/components/EditableCollectionAddon/index.js:188
 msgid "Edit"
 msgstr "ਸੋਧ"
 
@@ -1044,61 +1044,53 @@ msgstr "%(userName)s ਵਲੋਂ ਪੜਤਾਲ"
 msgid "The review was not found."
 msgstr "ਪੜਤਾਲ ਨਹੀਂ ਮਿਲੀ ਸੀ।"
 
-#: src/amo/components/FlagReviewMenu/index.js:100
-msgid "Flagged for inappropriate language"
-msgstr "ਅਣਉਚਿਤ ਭਾਸ਼ਾ ਲਈ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤਾ"
-
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
 msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
 msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
 msgstr "ਇਸ ਡਿਵੈਲਪਰ ਜਵਾਬ ਨੂੰ ਫਲੈਗ ਕਰੋ"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
 msgstr "ਇਸ ਪੜਤਾਲ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰੋ"
 
-#: src/amo/components/FlagReviewMenu/index.js:68
+#: src/amo/components/FlagReviewMenu/index.js:74
 msgid "Log in to flag this response"
 msgstr "ਇਸ ਜਵਾਬ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰਨ ਲਈ ਲਾਗ ਇਨ ਕਰੋ"
 
-#: src/amo/components/FlagReviewMenu/index.js:69
+#: src/amo/components/FlagReviewMenu/index.js:75
 msgid "Log in to flag this review"
 msgstr "ਇਸ ਪੜਤਾਲ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰਨ ਲਈ ਲਾਗ ਇਨ ਕਰੋ"
 
-#: src/amo/components/FlagReviewMenu/index.js:78
-msgid "You cannot flag your own response"
-msgstr "ਤੁਸੀਂ ਆਪਣਾ ਜਵਾਬ ਨਹੀਂ ਦਿਖਾ ਸਕਦੇ"
-
-#: src/amo/components/FlagReviewMenu/index.js:79
-msgid "You cannot flag your own review"
-msgstr "ਤੁਸੀਂ ਆਪਣੀ ਖੁਦ ਦੀ ਸਮੀਖਿਆ ਨਿਸ਼ਾਨਬੱਧ ਨਹੀਂ ਕਰ ਸਕਦੇ"
-
-#: src/amo/components/FlagReviewMenu/index.js:88
+#: src/amo/components/FlagReviewMenu/index.js:86
 msgid "This is spam"
 msgstr "ਇਹ ਸਪੈਮ"
 
-#: src/amo/components/FlagReviewMenu/index.js:89
+#: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
 msgstr "ਸਪੈਮ ਦੇ ਰੂਪ ਵਿੱਚ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤਾ"
 
-#: src/amo/components/FlagReviewMenu/index.js:99
+#: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
 msgstr "ਇਸ ਵਿੱਚ ਅਣਉਚਿਤ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਹੈ"
+
+#: src/amo/components/FlagReviewMenu/index.js:98
+msgid "Flagged for inappropriate language"
+msgstr "ਅਣਉਚਿਤ ਭਾਸ਼ਾ ਲਈ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤਾ"
 
 #: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
@@ -1620,23 +1612,23 @@ msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "ਸਾਰੇ ਤਾਰੇ ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 msgstr[1] "ਸਾਰੇ ਤਾਰੇ ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 
-#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportAbuseButton/index.js:113
 msgid "You reported this add-on for abuse"
 msgstr "ਤੁਸੀਂ ਦੁਰਵਿਵਹਾਰ ਲਈ ਇਸ ਐਡ-ਆਨ ਦੀ ਰਿਪੋਰਟ ਕੀਤੀ ਹੈ"
 
-#: src/amo/components/ReportAbuseButton/index.js:131
+#: src/amo/components/ReportAbuseButton/index.js:117
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr ""
 "ਸਾਨੂੰ ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਮਿਲੀ ਹੈ। ਇਸ ਐਡ-ਆਨ ਨਾਲ ਸਾਨੂੰ ਆਪਣੀਆਂ ਚਿੰਤਾਵਾਂ ਬਾਰੇ ਦੱਸਣ ਲਈ ਧੰਨਵਾਦ।"
 
-#: src/amo/components/ReportAbuseButton/index.js:138
+#: src/amo/components/ReportAbuseButton/index.js:124
 #: src/amo/components/ReportUserAbuse/index.js:170
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "ਅਸੀਂ ਹਰੇਕ ਬਦਸਲੂਕੀ ਦੀ ਰਿਪੋਰਟ ਦਾ ਜਵਾਬ ਨਹੀਂ ਦੇ ਸਕਦੇ, ਪਰ ਅਸੀਂ ਇਸ ਮੁੱਦੇ ਤੇ ਵਿਚਾਰ ਕਰਾਂਗੇ।"
 
-#: src/amo/components/ReportAbuseButton/index.js:148
+#: src/amo/components/ReportAbuseButton/index.js:134
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1646,11 +1638,11 @@ msgstr ""
 "ਦੀ ਜਾਂ ਸੁਰੱਖਿਆ ਜਾਂ ਗੁਪਤਤਾ ਦੀਆਂ ਸਮੱਸਿਆਵਾਂ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਫਾਰਮ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਮੋਜ਼ੀਲਾ ਨੂੰ "
 "ਇਨ੍ਹਾਂ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ ਕਰੋ।"
 
-#: src/amo/components/ReportAbuseButton/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
 msgstr "ਦੁਰਵਿਵਹਾਰ ਲਈ ਇਸ ਐਡ-ਆਨ ਦੀ ਰਿਪੋਰਟ ਕਰੋ"
 
-#: src/amo/components/ReportAbuseButton/index.js:195
+#: src/amo/components/ReportAbuseButton/index.js:181
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1658,21 +1650,21 @@ msgstr ""
 "ਕਿਰਪਾ ਕਰਕੇ ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰਨ ਲਈ ਜਾਂ ਐਡ-ਆਨ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਬੇਨਤੀ ਕਰਨ ਲਈ ਇਸ ਫਾਰਮ ਦੀ ਵਰਤੋਂ "
 "ਨਾ ਕਰੋ; ਇਹ ਰਿਪੋਰਟ ਮੋਜ਼ੀਲਾ ਨੂੰ ਭੇਜੀ ਜਾਵੇਗੀ ਨਾ ਐਡ-ਆਨ ਡਿਵੈਲਪਰ ਨੂੰ।"
 
-#: src/amo/components/ReportAbuseButton/index.js:208
+#: src/amo/components/ReportAbuseButton/index.js:194
 #: src/amo/components/ReportUserAbuse/index.js:150
 msgid "Send abuse report"
 msgstr "ਦੁਰਵਿਵਹਾਰ ਰਿਪੋਰਟ ਭੇਜੋ"
 
-#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportAbuseButton/index.js:195
 #: src/amo/components/ReportUserAbuse/index.js:151
 msgid "Sending abuse report"
 msgstr "ਸ਼ੋਸ਼ਣ ਦੀ ਰਿਪੋਰਟ ਭੇਜਣਾ"
 
-#: src/amo/components/ReportAbuseButton/index.js:211
+#: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
 msgstr "ਖਾਰਜ ਕਰੋ"
 
-#: src/amo/components/ReportAbuseButton/index.js:212
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Explain how this add-on is violating our policies."
 msgstr "ਇਹ ਸਮਝਾਓ ਕਿ ਇਹ ਐਡ-ਆਨ ਸਾਡੇ ਨੀਤੀਆਂ ਦੀ ਕਿਵੇਂ ਉਲੰਘਣਾ ਕਰ ਰਿਹਾ ਹੈ।"
 
@@ -2155,7 +2147,7 @@ msgstr "ਪ੍ਰੋਫ਼ਾਈਲ ਫ਼ੋਟੋ"
 msgid "Choose Photo…"
 msgstr "ਫੋਟੋ ਚੁਣੋ…"
 
-#: src/amo/components/UserReview/index.js:108
+#: src/amo/components/UserReview/index.js:99
 msgid "Developer response"
 msgstr "ਵਿਕਾਸਕਾਰ ਜਵਾਬ"
 
@@ -3400,6 +3392,12 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਸਫ਼ਲਤਾਪੂਰਨ ਅੱਪਗਰੇਡ ਹੋਈ"
+
+#~ msgid "You cannot flag your own response"
+#~ msgstr "ਤੁਸੀਂ ਆਪਣਾ ਜਵਾਬ ਨਹੀਂ ਦਿਖਾ ਸਕਦੇ"
+
+#~ msgid "You cannot flag your own review"
+#~ msgstr "ਤੁਸੀਂ ਆਪਣੀ ਖੁਦ ਦੀ ਸਮੀਖਿਆ ਨਿਸ਼ਾਨਬੱਧ ਨਹੀਂ ਕਰ ਸਕਦੇ"
 
 #~ msgid "Add-ons for Firefox"
 #~ msgstr "ਫਾਇਰਫਾਕਸ ਲਈ ਐਡ-ਆਨ"
