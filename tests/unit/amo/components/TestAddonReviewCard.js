@@ -7,15 +7,22 @@ import {
   beginDeleteAddonReview,
   cancelDeleteAddonReview,
   deleteAddonReview,
+  flagReview,
   hideEditReviewForm,
   hideReplyToReviewForm,
   sendReplyToReview,
   setReview,
+  setReviewWasFlagged,
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
-import { ALL_SUPER_POWERS } from 'amo/constants';
+import {
+  ALL_SUPER_POWERS,
+  REVIEW_FLAG_REASON_BUG_SUPPORT,
+  REVIEW_FLAG_REASON_LANGUAGE,
+  REVIEW_FLAG_REASON_SPAM,
+} from 'amo/constants';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
 import {
@@ -28,6 +35,7 @@ import {
   fakeReview,
   render as defaultRender,
   screen,
+  within,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -232,6 +240,13 @@ describe(__filename, () => {
       slim,
     });
   };
+
+  const openFlagMenu = ({ isReply = false } = {}) =>
+    userEvent.click(
+      screen.getByRole('button', {
+        name: isReply ? 'Flag this developer response' : 'Flag this review',
+      }),
+    );
 
   const clickDeleteRating = () =>
     userEvent.click(screen.getByRole('button', { name: 'Delete rating' }));
@@ -1284,6 +1299,7 @@ describe(__filename, () => {
       expect(screen.queryByText(review.body)).not.toBeInTheDocument();
     });
   });
+
   describe('Tests for UserRating', () => {
     it('renders a Rating', () => {
       render({ review: _setReview({ score: 2 }) });
@@ -1321,6 +1337,167 @@ describe(__filename, () => {
         'fill',
         photon.GREY_50,
       );
+    });
+  });
+
+  describe('Tests for FlagReview and FlagReviewMenu', () => {
+    const getErrorHandlerId = (reviewId) => `FlagReview-${reviewId}`;
+
+    it.each([
+      [
+        REVIEW_FLAG_REASON_BUG_SUPPORT,
+        'This is a bug report or support request',
+        'Flagged as a bug report or support request',
+      ],
+      [
+        REVIEW_FLAG_REASON_LANGUAGE,
+        'This contains inappropriate language',
+        'Flagged for inappropriate language',
+      ],
+      [REVIEW_FLAG_REASON_SPAM, 'This is spam', 'Flagged as spam'],
+    ])('can flag a review for %s', (reason, prompt, postText) => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const review = createReviewAndSignInAsUnrelatedUser();
+      render({ review });
+
+      openFlagMenu();
+
+      const button = screen.getByRole('button', {
+        name: prompt,
+      });
+      const clickEvent = createEvent.click(button);
+      const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
+
+      fireEvent(button, clickEvent);
+
+      expect(preventDefaultWatcher).toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledWith(
+        flagReview({
+          errorHandlerId: getErrorHandlerId(review.id),
+          reason,
+          reviewId: review.id,
+        }),
+      );
+
+      store.dispatch(setReviewWasFlagged({ reason, reviewId: review.id }));
+
+      expect(screen.getByText(postText)).toBeInTheDocument();
+
+      expect(
+        screen.getByRole('button', { name: 'Flag this review' }),
+      ).toHaveTextContent('Flagged');
+    });
+
+    it('renders loading text while in progress', () => {
+      const review = createReviewAndSignInAsUnrelatedUser();
+      render({ review });
+
+      openFlagMenu();
+      userEvent.click(
+        screen.getByRole('button', {
+          name: 'This is a bug report or support request',
+        }),
+        undefined,
+        { skipPointerEventsCheck: true },
+      );
+
+      expect(
+        within(screen.getByRole('tooltip')).getByRole('alert'),
+      ).toBeInTheDocument();
+    });
+
+    it('renders an error', () => {
+      const message = 'Some error message';
+      const review = createReviewAndSignInAsUnrelatedUser();
+      render({ review });
+
+      openFlagMenu();
+
+      createFailedErrorHandler({
+        id: getErrorHandlerId(review.id),
+        message,
+        store,
+      });
+
+      // A message is displayed for each instance of FlagReview.
+      expect(screen.getAllByText(message)).toHaveLength(3);
+
+      // It should still display a button so they can try again.
+      expect(
+        screen.getByRole('button', {
+          name: 'This is a bug report or support request',
+        }),
+      ).toBeInTheDocument();
+    });
+
+    describe('Tests for FlagReviewMenu', () => {
+      it('can be configured with an openerClass', () => {
+        const review = createReviewAndSignInAsUnrelatedUser();
+        render({ review });
+
+        // AddonReviewCard passes 'AddonReviewCard-control' as the openerClass to
+        // FlagReviewMenu.
+        const flagButton = screen.getByRole('button', {
+          name: 'Flag this review',
+        });
+        expect(flagButton).toHaveClass('AddonReviewCard-control');
+
+        // This tests the `className` prop of TooltipMenu.
+        expect(flagButton).toHaveClass('FlagReviewMenu-menu');
+      });
+
+      it('requires you to be signed in', () => {
+        render({ review: _setReview() });
+
+        openFlagMenu();
+
+        // Only the button item should be rendered.
+        expect(
+          screen.queryByRole('button', {
+            name: 'This is a bug report or support request',
+          }),
+        ).not.toBeInTheDocument();
+        expect(
+          screen.getByRole('link', { name: 'Log in to flag this review' }),
+        ).toBeInTheDocument();
+      });
+
+      it('prompts you to flag a developer response after login', () => {
+        renderNestedReply();
+
+        openFlagMenu({ isReply: true });
+
+        expect(
+          screen.getByRole('link', { name: 'Log in to flag this response' }),
+        ).toBeInTheDocument();
+      });
+
+      it('does not prompt you to flag a response as a bug/support', () => {
+        dispatchSignInActionsWithStore({ store, userId: 999 });
+        renderNestedReply();
+
+        openFlagMenu({ isReply: true });
+
+        expect(
+          screen.getByRole('button', { name: 'This is spam' }),
+        ).toBeInTheDocument();
+        expect(
+          screen.queryByRole('button', {
+            name: 'This is a bug report or support request',
+          }),
+        ).not.toBeInTheDocument();
+      });
+
+      it('does not change Flag prompt for other view state changes', () => {
+        const review = createReviewAndSignInAsUnrelatedUser();
+        // This initializes the flag view state which was triggering a bug.
+        store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+        render({ review });
+
+        expect(
+          screen.getByRole('button', { name: 'Flag this review' }),
+        ).toHaveTextContent('Flag');
+      });
     });
   });
 });
