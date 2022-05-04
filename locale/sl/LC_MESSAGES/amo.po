@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-25 16:13+0000\n"
+"POT-Creation-Date: 2022-05-03 19:24+0000\n"
 "PO-Revision-Date: 2022-04-06 13:11+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
@@ -311,47 +311,47 @@ msgstr "Ostali uporabniki te razširitve so namestili tudi"
 msgid "Other popular extensions"
 msgstr "Ostale priljubljene razširitve"
 
-#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:210
 msgid "Edit reply"
 msgstr "Uredi odgovor"
 
-#: src/amo/components/AddonReviewCard/index.js:215
+#: src/amo/components/AddonReviewCard/index.js:213
 msgid "Edit review"
 msgstr "Uredi oceno"
 
-#: src/amo/components/AddonReviewCard/index.js:222
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:220
+#: src/amo/components/AddonReviewCard/index.js:252
 msgid "Delete reply"
 msgstr "Izbriši odgovor"
 
-#: src/amo/components/AddonReviewCard/index.js:226
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:224
+#: src/amo/components/AddonReviewCard/index.js:256
 msgid "Delete rating"
 msgstr "Izbriši oceno"
 
-#: src/amo/components/AddonReviewCard/index.js:229
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Delete review"
 msgstr "Izbriši oceno"
 
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:234
 msgid "Do you really want to delete this reply?"
 msgstr "Ali res želite izbrisati ta odgovor?"
 
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:238
 msgid "Do you really want to delete this rating?"
 msgstr "Ali res želite izbrisati to oceno?"
 
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Do you really want to delete this review?"
 msgstr "Ali res želite izbrisati to oceno?"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:248
 #: src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
 msgstr "Izbriši"
 
-#: src/amo/components/AddonReviewCard/index.js:268
+#: src/amo/components/AddonReviewCard/index.js:266
 #: src/amo/components/AddonReviewManager/index.js:153
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
@@ -360,45 +360,45 @@ msgstr "Izbriši"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/amo/components/AddonReviewCard/index.js:272
+#: src/amo/components/AddonReviewCard/index.js:270
 msgid "Keep reply"
 msgstr "Obdrži odgovor"
 
-#: src/amo/components/AddonReviewCard/index.js:276
+#: src/amo/components/AddonReviewCard/index.js:274
 msgid "Keep rating"
 msgstr "Obdrži oceno"
 
-#: src/amo/components/AddonReviewCard/index.js:279
+#: src/amo/components/AddonReviewCard/index.js:277
 msgid "Keep review"
 msgstr "Obdrži oceno"
 
-#: src/amo/components/AddonReviewCard/index.js:315
+#: src/amo/components/AddonReviewCard/index.js:313
 msgid "Write a reply to this review."
 msgstr "Napišite odgovor na to oceno."
 
-#: src/amo/components/AddonReviewCard/index.js:318
+#: src/amo/components/AddonReviewCard/index.js:316
 #: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "Posodobi odgovor"
 
-#: src/amo/components/AddonReviewCard/index.js:319
+#: src/amo/components/AddonReviewCard/index.js:317
 msgid "Publish reply"
 msgstr "Objavi odgovor"
 
-#: src/amo/components/AddonReviewCard/index.js:323
+#: src/amo/components/AddonReviewCard/index.js:321
 #: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "Posodabljanje odgovora"
 
-#: src/amo/components/AddonReviewCard/index.js:324
+#: src/amo/components/AddonReviewCard/index.js:322
 msgid "Publishing reply"
 msgstr "Objavljanje odgovora"
 
-#: src/amo/components/AddonReviewCard/index.js:370
+#: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "objavljeno ob %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:373
+#: src/amo/components/AddonReviewCard/index.js:371
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -406,25 +406,25 @@ msgstr ""
 "— %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s"
 "%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:376
+#: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "— %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:491
+#: src/amo/components/AddonReviewCard/index.js:489
 msgid "Deleting…"
 msgstr "Brisanje …"
 
-#: src/amo/components/AddonReviewCard/index.js:522
+#: src/amo/components/AddonReviewCard/index.js:520
 msgid "Reply to this review"
 msgstr "Odgovori na to oceno"
 
-#: src/amo/components/AddonReviewCard/index.js:552
+#: src/amo/components/AddonReviewCard/index.js:550
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr "Ta ocena je bila izbrisana. Vidite jo samo zaradi povišanih dovoljenj."
 
-#: src/amo/components/AddonReviewCard/index.js:598
+#: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
 msgstr "Napišite oceno"
 
@@ -596,7 +596,7 @@ msgid "Enable"
 msgstr "Omogoči"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:146
+#: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "Odstrani"
 
@@ -854,24 +854,24 @@ msgstr "Predloži"
 msgid "Submitting"
 msgstr "Pošiljanje"
 
-#: src/amo/components/EditableCollectionAddon/index.js:136
-#: src/amo/components/EditableCollectionAddon/index.js:154
+#: src/amo/components/EditableCollectionAddon/index.js:132
+#: src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
 msgstr "Pustite pripombo"
 
-#: src/amo/components/EditableCollectionAddon/index.js:155
+#: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
 msgstr "Zbirateljeva opomba"
 
-#: src/amo/components/EditableCollectionAddon/index.js:170
+#: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
 msgstr "Dodaj komentar o tem dodatku."
 
-#: src/amo/components/EditableCollectionAddon/index.js:171
+#: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
 msgstr "Shrani"
 
-#: src/amo/components/EditableCollectionAddon/index.js:192
+#: src/amo/components/EditableCollectionAddon/index.js:188
 msgid "Edit"
 msgstr "Uredi"
 
@@ -1051,61 +1051,53 @@ msgstr "Ocena uporabnika %(userName)s"
 msgid "The review was not found."
 msgstr "Ocena ni najdena."
 
-#: src/amo/components/FlagReviewMenu/index.js:100
-msgid "Flagged for inappropriate language"
-msgstr "Označeno zaradi neprimernega jezika"
-
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
 msgstr "To je poročilo o napaki ali zahteva za podporo"
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
 msgstr "Označeno kot poročilo o napaki ali zahteva za podporo"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "Prijavljeno"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Prijavi"
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
 msgstr "Prijavi ta razvijalčev odgovor"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
 msgstr "Prijavi to oceno"
 
-#: src/amo/components/FlagReviewMenu/index.js:68
+#: src/amo/components/FlagReviewMenu/index.js:74
 msgid "Log in to flag this response"
 msgstr "Prijavite se, da prijavite ta odgovor"
 
-#: src/amo/components/FlagReviewMenu/index.js:69
+#: src/amo/components/FlagReviewMenu/index.js:75
 msgid "Log in to flag this review"
 msgstr "Prijavite se, da prijavite to oceno"
 
-#: src/amo/components/FlagReviewMenu/index.js:78
-msgid "You cannot flag your own response"
-msgstr "Svojega lastnega odgovora ne morete prijaviti"
-
-#: src/amo/components/FlagReviewMenu/index.js:79
-msgid "You cannot flag your own review"
-msgstr "Svoje lastne ocene ne morete prijaviti"
-
-#: src/amo/components/FlagReviewMenu/index.js:88
+#: src/amo/components/FlagReviewMenu/index.js:86
 msgid "This is spam"
 msgstr "To je nepovezana ali reklamna vsebina"
 
-#: src/amo/components/FlagReviewMenu/index.js:89
+#: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
 msgstr "Označeno kot nepovezana vsebina"
 
-#: src/amo/components/FlagReviewMenu/index.js:99
+#: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
 msgstr "To vsebuje neprimeren jezik"
+
+#: src/amo/components/FlagReviewMenu/index.js:98
+msgid "Flagged for inappropriate language"
+msgstr "Označeno zaradi neprimernega jezika"
 
 #: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
@@ -1613,11 +1605,11 @@ msgstr[1] "Preberi %(total)s oceni s tremi zvezdicami"
 msgstr[2] "Preberi vse %(total)s ocene s tremi zvezdicami"
 msgstr[3] "Preberi vseh %(total)s ocen s tremi zvezdicami"
 
-#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportAbuseButton/index.js:113
 msgid "You reported this add-on for abuse"
 msgstr "Ta dodatek ste prijavili kot zlorabo"
 
-#: src/amo/components/ReportAbuseButton/index.js:131
+#: src/amo/components/ReportAbuseButton/index.js:117
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
@@ -1625,14 +1617,14 @@ msgstr ""
 "Prejeli smo vaše poročilo. Hvala, ker ste nas obvestili o svojih pomislekih "
 "glede tega dodatka."
 
-#: src/amo/components/ReportAbuseButton/index.js:138
+#: src/amo/components/ReportAbuseButton/index.js:124
 #: src/amo/components/ReportUserAbuse/index.js:170
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "Na vsako poročilo o zlorabi se ne moremo odzvati, vendar bomo vašo prijavo "
 "preverili."
 
-#: src/amo/components/ReportAbuseButton/index.js:148
+#: src/amo/components/ReportAbuseButton/index.js:134
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1642,11 +1634,11 @@ msgstr ""
 "%(linkTagEnd)s ali da ima težave z zasebnostjo ali varnostjo, prijavite te "
 "težave Mozilli prek tega obrazca."
 
-#: src/amo/components/ReportAbuseButton/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
 msgstr "Prijavi ta dodatek kot zlorabo"
 
-#: src/amo/components/ReportAbuseButton/index.js:195
+#: src/amo/components/ReportAbuseButton/index.js:181
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1654,21 +1646,21 @@ msgstr ""
 "Ne uporabljajte tega obrazca za poročanje o napakah ali zahtevanje novih "
 "funkcij; poročilo bo poslano Mozilli in ne razvijalcu dodatka."
 
-#: src/amo/components/ReportAbuseButton/index.js:208
+#: src/amo/components/ReportAbuseButton/index.js:194
 #: src/amo/components/ReportUserAbuse/index.js:150
 msgid "Send abuse report"
 msgstr "Pošlji poročilo o zlorabi"
 
-#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportAbuseButton/index.js:195
 #: src/amo/components/ReportUserAbuse/index.js:151
 msgid "Sending abuse report"
 msgstr "Pošiljanje poročila o zlorabi"
 
-#: src/amo/components/ReportAbuseButton/index.js:211
+#: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
 msgstr "Prekliči"
 
-#: src/amo/components/ReportAbuseButton/index.js:212
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Explain how this add-on is violating our policies."
 msgstr "Opišite, kako ta dodatek krši naše pravilnike."
 
@@ -2190,7 +2182,7 @@ msgstr "Slika profila"
 msgid "Choose Photo…"
 msgstr "Izberi sliko ..."
 
-#: src/amo/components/UserReview/index.js:108
+#: src/amo/components/UserReview/index.js:99
 msgid "Developer response"
 msgstr "Odgovor razvijalca"
 
@@ -3479,6 +3471,12 @@ msgstr "združljivosti mojega dodatka ni mogoče nadgraditi"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "združljivost mojega dodatka je uspešno nadgrajena"
+
+#~ msgid "You cannot flag your own response"
+#~ msgstr "Svojega lastnega odgovora ne morete prijaviti"
+
+#~ msgid "You cannot flag your own review"
+#~ msgstr "Svoje lastne ocene ne morete prijaviti"
 
 #~ msgid "Add-ons for Firefox"
 #~ msgstr "Dodatki za Firefox"

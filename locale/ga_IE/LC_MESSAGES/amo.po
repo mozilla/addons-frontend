@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-25 16:13+0000\n"
+"POT-Creation-Date: 2022-05-03 19:24+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -336,55 +336,55 @@ msgstr ""
 msgid "Other popular extensions"
 msgstr "Tuilleadh eisínteachtaí a bhfuil tóir orthu"
 
-#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:210
 #, fuzzy
 msgid "Edit reply"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:215
+#: src/amo/components/AddonReviewCard/index.js:213
 #, fuzzy
 msgid "Edit review"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:222
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:220
+#: src/amo/components/AddonReviewCard/index.js:252
 #, fuzzy
 msgid "Delete reply"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:226
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:224
+#: src/amo/components/AddonReviewCard/index.js:256
 #, fuzzy
 msgid "Delete rating"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:229
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:259
 #, fuzzy
 msgid "Delete review"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:234
 #, fuzzy
 msgid "Do you really want to delete this reply?"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:238
 #, fuzzy
 msgid "Do you really want to delete this rating?"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:241
 #, fuzzy
 msgid "Do you really want to delete this review?"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:248
 #: src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:268
+#: src/amo/components/AddonReviewCard/index.js:266
 #: src/amo/components/AddonReviewManager/index.js:153
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
@@ -394,78 +394,78 @@ msgstr ""
 msgid "Cancel"
 msgstr "Cealaigh an réamhamharc"
 
-#: src/amo/components/AddonReviewCard/index.js:272
+#: src/amo/components/AddonReviewCard/index.js:270
 #, fuzzy
 msgid "Keep reply"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:276
+#: src/amo/components/AddonReviewCard/index.js:274
 #, fuzzy
 msgid "Keep rating"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:279
+#: src/amo/components/AddonReviewCard/index.js:277
 #, fuzzy
 msgid "Keep review"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:315
+#: src/amo/components/AddonReviewCard/index.js:313
 #, fuzzy
 msgid "Write a reply to this review."
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:318
+#: src/amo/components/AddonReviewCard/index.js:316
 #: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:319
+#: src/amo/components/AddonReviewCard/index.js:317
 msgid "Publish reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:323
+#: src/amo/components/AddonReviewCard/index.js:321
 #: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:324
+#: src/amo/components/AddonReviewCard/index.js:322
 msgid "Publishing reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:370
+#: src/amo/components/AddonReviewCard/index.js:368
 #, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "ó %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:373
+#: src/amo/components/AddonReviewCard/index.js:371
 #, fuzzy
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "ó %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:376
+#: src/amo/components/AddonReviewCard/index.js:374
 #, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "ó %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:491
+#: src/amo/components/AddonReviewCard/index.js:489
 #, fuzzy
 msgid "Deleting…"
 msgstr "Ag cuardach…"
 
-#: src/amo/components/AddonReviewCard/index.js:522
+#: src/amo/components/AddonReviewCard/index.js:520
 #, fuzzy
 msgid "Reply to this review"
 msgstr "Tapáil le haghaidh réamhamhairc"
 
-#: src/amo/components/AddonReviewCard/index.js:552
+#: src/amo/components/AddonReviewCard/index.js:550
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:598
+#: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
 msgstr "Scríobh léirmheas"
 
@@ -660,7 +660,7 @@ msgid "Enable"
 msgstr ""
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:146
+#: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr ""
 
@@ -933,27 +933,27 @@ msgstr "Seol"
 msgid "Submitting"
 msgstr "Seol"
 
-#: src/amo/components/EditableCollectionAddon/index.js:136
-#: src/amo/components/EditableCollectionAddon/index.js:154
+#: src/amo/components/EditableCollectionAddon/index.js:132
+#: src/amo/components/EditableCollectionAddon/index.js:150
 #, fuzzy
 msgid "Leave a note"
 msgstr "Fógraí dlí"
 
-#: src/amo/components/EditableCollectionAddon/index.js:155
+#: src/amo/components/EditableCollectionAddon/index.js:151
 #, fuzzy
 msgid "Collector's note"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/EditableCollectionAddon/index.js:170
+#: src/amo/components/EditableCollectionAddon/index.js:166
 #, fuzzy
 msgid "Add a comment about this add-on."
 msgstr "Maidir leis an %(addonType)s seo"
 
-#: src/amo/components/EditableCollectionAddon/index.js:171
+#: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
 msgstr ""
 
-#: src/amo/components/EditableCollectionAddon/index.js:192
+#: src/amo/components/EditableCollectionAddon/index.js:188
 msgid "Edit"
 msgstr ""
 
@@ -1123,64 +1123,56 @@ msgstr "Léirmheasanna ar %(addonName)s"
 msgid "The review was not found."
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:100
-msgid "Flagged for inappropriate language"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 #, fuzzy
 msgid "Flag this developer response"
 msgstr "Lárionad na bhForbróirí"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 #, fuzzy
 msgid "Flag this review"
 msgstr "Tapáil le haghaidh réamhamhairc"
 
-#: src/amo/components/FlagReviewMenu/index.js:68
+#: src/amo/components/FlagReviewMenu/index.js:74
 #, fuzzy
 msgid "Log in to flag this response"
 msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
 
-#: src/amo/components/FlagReviewMenu/index.js:69
+#: src/amo/components/FlagReviewMenu/index.js:75
 #, fuzzy
 msgid "Log in to flag this review"
 msgstr "Logáil isteach chun an téama seo a rátáil"
 
-#: src/amo/components/FlagReviewMenu/index.js:78
-msgid "You cannot flag your own response"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:79
-msgid "You cannot flag your own review"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:88
+#: src/amo/components/FlagReviewMenu/index.js:86
 msgid "This is spam"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:89
+#: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:99
+#: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:98
+msgid "Flagged for inappropriate language"
 msgstr ""
 
 #: src/amo/components/Footer/index.js:101
@@ -1726,54 +1718,54 @@ msgstr[2] "Léigh %(count)s léirmheas"
 msgstr[3] "Léigh %(count)s léirmheas"
 msgstr[4] "Léigh %(count)s léirmheas"
 
-#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportAbuseButton/index.js:113
 #, fuzzy
 msgid "You reported this add-on for abuse"
 msgstr "Logáil isteach chun an breiseán seo a rátáil"
 
-#: src/amo/components/ReportAbuseButton/index.js:131
+#: src/amo/components/ReportAbuseButton/index.js:117
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:138
+#: src/amo/components/ReportAbuseButton/index.js:124
 #: src/amo/components/ReportUserAbuse/index.js:170
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:148
+#: src/amo/components/ReportAbuseButton/index.js:134
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
 "to Mozilla using this form."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:195
+#: src/amo/components/ReportAbuseButton/index.js:181
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:208
+#: src/amo/components/ReportAbuseButton/index.js:194
 #: src/amo/components/ReportUserAbuse/index.js:150
 msgid "Send abuse report"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportAbuseButton/index.js:195
 #: src/amo/components/ReportUserAbuse/index.js:151
 msgid "Sending abuse report"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:211
+#: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:212
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Explain how this add-on is violating our policies."
 msgstr ""
 
@@ -2357,7 +2349,7 @@ msgstr ""
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/amo/components/UserReview/index.js:108
+#: src/amo/components/UserReview/index.js:99
 #, fuzzy
 msgid "Developer response"
 msgstr "Lárionad na bhForbróirí"

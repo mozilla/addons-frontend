@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-25 16:13+0000\n"
+"POT-Creation-Date: 2022-05-03 19:24+0000\n"
 "PO-Revision-Date: 2021-12-07 12:54+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -298,47 +298,47 @@ msgstr "ఈ పొడగింత ఉన్న వాడుకరులు వ�
 msgid "Other popular extensions"
 msgstr "ఇతర ప్రాచుర్య పొడిగింతలు"
 
-#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:210
 msgid "Edit reply"
 msgstr "స్పందనను సవరించు"
 
-#: src/amo/components/AddonReviewCard/index.js:215
+#: src/amo/components/AddonReviewCard/index.js:213
 msgid "Edit review"
 msgstr "సమీక్షను సవరించు"
 
-#: src/amo/components/AddonReviewCard/index.js:222
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:220
+#: src/amo/components/AddonReviewCard/index.js:252
 msgid "Delete reply"
 msgstr "స్పందనను తొలగించు"
 
-#: src/amo/components/AddonReviewCard/index.js:226
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:224
+#: src/amo/components/AddonReviewCard/index.js:256
 msgid "Delete rating"
 msgstr "రేటింగును తొలగించు"
 
-#: src/amo/components/AddonReviewCard/index.js:229
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Delete review"
 msgstr "సమీక్షను తొలగించు"
 
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:234
 msgid "Do you really want to delete this reply?"
 msgstr "మీరు నిజంగానే ఈ స్పందనను తొలగించాలని అనుకుంటున్నారా?"
 
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:238
 msgid "Do you really want to delete this rating?"
 msgstr "మీరు నిజంగానే ఈ రేటింగును తొలగించాలని అనుకుంటున్నారా?"
 
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Do you really want to delete this review?"
 msgstr "మీరు నిజంగానే ఈ సమీక్షను తొలగించాలని అనుకుంటున్నారా?"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:248
 #: src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
 msgstr "తొలగించు"
 
-#: src/amo/components/AddonReviewCard/index.js:268
+#: src/amo/components/AddonReviewCard/index.js:266
 #: src/amo/components/AddonReviewManager/index.js:153
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
@@ -347,69 +347,69 @@ msgstr "తొలగించు"
 msgid "Cancel"
 msgstr "రద్దుచేయి"
 
-#: src/amo/components/AddonReviewCard/index.js:272
+#: src/amo/components/AddonReviewCard/index.js:270
 msgid "Keep reply"
 msgstr "స్పందనను ఉంచు"
 
-#: src/amo/components/AddonReviewCard/index.js:276
+#: src/amo/components/AddonReviewCard/index.js:274
 msgid "Keep rating"
 msgstr "రేటింగ్ చేయండి"
 
-#: src/amo/components/AddonReviewCard/index.js:279
+#: src/amo/components/AddonReviewCard/index.js:277
 msgid "Keep review"
 msgstr "సమీక్షను ఉంచు"
 
-#: src/amo/components/AddonReviewCard/index.js:315
+#: src/amo/components/AddonReviewCard/index.js:313
 msgid "Write a reply to this review."
 msgstr "ఈ సమీక్షకి స్పందించండి."
 
-#: src/amo/components/AddonReviewCard/index.js:318
+#: src/amo/components/AddonReviewCard/index.js:316
 #: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "ప్రత్యుత్తరం నవీకరణ"
 
-#: src/amo/components/AddonReviewCard/index.js:319
+#: src/amo/components/AddonReviewCard/index.js:317
 msgid "Publish reply"
 msgstr "ప్రత్యుత్తరం ప్రచురించండి"
 
-#: src/amo/components/AddonReviewCard/index.js:323
+#: src/amo/components/AddonReviewCard/index.js:321
 #: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "ప్రత్యుత్తరం నవీకరిస్తోంది"
 
-#: src/amo/components/AddonReviewCard/index.js:324
+#: src/amo/components/AddonReviewCard/index.js:322
 msgid "Publishing reply"
 msgstr "ప్రత్యుత్తరం ప్రచురించబడుతొంధి"
 
-#: src/amo/components/AddonReviewCard/index.js:370
+#: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:373
+#: src/amo/components/AddonReviewCard/index.js:371
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:376
+#: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(authorName)s చే, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:491
+#: src/amo/components/AddonReviewCard/index.js:489
 msgid "Deleting…"
 msgstr "తొలగిస్తోంది…"
 
-#: src/amo/components/AddonReviewCard/index.js:522
+#: src/amo/components/AddonReviewCard/index.js:520
 msgid "Reply to this review"
 msgstr "ఈ సమీక్షకి స్పందించు"
 
-#: src/amo/components/AddonReviewCard/index.js:552
+#: src/amo/components/AddonReviewCard/index.js:550
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:598
+#: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
 msgstr "సమీక్షను వ్రాయండి"
 
@@ -580,7 +580,7 @@ msgid "Enable"
 msgstr "చేతనించు"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:146
+#: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "తొలగించు"
 
@@ -830,24 +830,24 @@ msgstr "సమర్పించు"
 msgid "Submitting"
 msgstr "సమర్పిస్తోంది"
 
-#: src/amo/components/EditableCollectionAddon/index.js:136
-#: src/amo/components/EditableCollectionAddon/index.js:154
+#: src/amo/components/EditableCollectionAddon/index.js:132
+#: src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
 msgstr "ఒక సందేశం వదలండి"
 
-#: src/amo/components/EditableCollectionAddon/index.js:155
+#: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
 msgstr "సేకర్త గమనిక"
 
-#: src/amo/components/EditableCollectionAddon/index.js:170
+#: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
 msgstr "ఈ యాడ్-ఆన్ గురించి ఒక వ్యాఖ్య చేర్చండి."
 
-#: src/amo/components/EditableCollectionAddon/index.js:171
+#: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
 msgstr "భద్రపరచు"
 
-#: src/amo/components/EditableCollectionAddon/index.js:192
+#: src/amo/components/EditableCollectionAddon/index.js:188
 msgid "Edit"
 msgstr "సరిదిద్దు"
 
@@ -1007,61 +1007,53 @@ msgstr "%(userName)s ద్వారా సమీక్షించండి"
 msgid "The review was not found."
 msgstr "సమీక్ష కనపడలేదు."
 
-#: src/amo/components/FlagReviewMenu/index.js:100
-msgid "Flagged for inappropriate language"
-msgstr "అనౌచిత్యమైన భాషకి గుర్తించబడింది"
-
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
 msgstr "ఇది బగ్ నివేదిక లేదా మద్దతు అభ్యర్థన"
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
 msgstr "దోష నివేదికగా లేదా తోడ్పాటు అభ్యర్థనగా గుర్తించబడింది"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "పతాకం"
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
 msgstr "ఈ డెవలపరు స్పందనను ఫ్లాగ్ చెయ్యి"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
 msgstr "ఈ సమీక్షను ఫ్లాగ్ చేయి"
 
-#: src/amo/components/FlagReviewMenu/index.js:68
+#: src/amo/components/FlagReviewMenu/index.js:74
 msgid "Log in to flag this response"
 msgstr "ఈ ప్రతిస్పందనను ఫ్లాగ్ చేయడానికి లాగిన్ అవ్వండి"
 
-#: src/amo/components/FlagReviewMenu/index.js:69
+#: src/amo/components/FlagReviewMenu/index.js:75
 msgid "Log in to flag this review"
 msgstr "ఈ సమస్యను ఫ్లాగు చెయ్యడానికి ప్రవేశించండి"
 
-#: src/amo/components/FlagReviewMenu/index.js:78
-msgid "You cannot flag your own response"
-msgstr "మీ స్వంత ప్రతిస్పందనను ఫ్లాగ్ చేయలేరు"
-
-#: src/amo/components/FlagReviewMenu/index.js:79
-msgid "You cannot flag your own review"
-msgstr "మీ స్వంత సమీక్షను ఫ్లాగ్ చేయలేరు"
-
-#: src/amo/components/FlagReviewMenu/index.js:88
+#: src/amo/components/FlagReviewMenu/index.js:86
 msgid "This is spam"
 msgstr "ఇది స్పామ్"
 
-#: src/amo/components/FlagReviewMenu/index.js:89
+#: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
 msgstr "స్పాముగా గుర్తించబడింది"
 
-#: src/amo/components/FlagReviewMenu/index.js:99
+#: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
 msgstr "దీనిలో అనుచితమైన భాష ఉంది"
+
+#: src/amo/components/FlagReviewMenu/index.js:98
+msgid "Flagged for inappropriate language"
+msgstr "అనౌచిత్యమైన భాషకి గుర్తించబడింది"
 
 #: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
@@ -1556,33 +1548,33 @@ msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "మూడు నక్షత్రాల సమీక్షలన్నీ చదవండి"
 msgstr[1] "మూడు నక్షత్రాల సమీక్షలన్నీ చదవండి"
 
-#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportAbuseButton/index.js:113
 msgid "You reported this add-on for abuse"
 msgstr "దుర్వినియోగం కింద ఈ పొడగింతను మీరు నివేదించారు"
 
-#: src/amo/components/ReportAbuseButton/index.js:131
+#: src/amo/components/ReportAbuseButton/index.js:117
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr "మీ నివేదికను అందుకున్నాము. ఈ పొడగింతతో మీ ఆందోళన గురించి మాకు తెలియజేసినందుకు ధన్యవాదాలు."
 
-#: src/amo/components/ReportAbuseButton/index.js:138
+#: src/amo/components/ReportAbuseButton/index.js:124
 #: src/amo/components/ReportUserAbuse/index.js:170
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "ప్రతి దుర్వినియోగ నివేదికకు మేము స్పందించలేము కాని మేము ఈ సమస్యను పరిశీలిస్తాము."
 
-#: src/amo/components/ReportAbuseButton/index.js:148
+#: src/amo/components/ReportAbuseButton/index.js:134
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
 "to Mozilla using this form."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
 msgstr "దుర్వినియోగం క్రింద ఈ పొడగింతను నివేదించండి"
 
-#: src/amo/components/ReportAbuseButton/index.js:195
+#: src/amo/components/ReportAbuseButton/index.js:181
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1590,21 +1582,21 @@ msgstr ""
 "దోషాలను నివేదించడానికి లేదా ఈ వాడుకరిని సంప్రదించడానికి ఈ ఫారం వాడకండి; మీ నివేదిక కేవలం Mozillaకు "
 "మాత్రమే పంపబడుతుంది, ఈ పొడగింత డెవలపరుకి కాదు."
 
-#: src/amo/components/ReportAbuseButton/index.js:208
+#: src/amo/components/ReportAbuseButton/index.js:194
 #: src/amo/components/ReportUserAbuse/index.js:150
 msgid "Send abuse report"
 msgstr "దుర్వినియోగ నివేదికను పంపించు"
 
-#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportAbuseButton/index.js:195
 #: src/amo/components/ReportUserAbuse/index.js:151
 msgid "Sending abuse report"
 msgstr "దుర్వినియోగ నివేదికను పంపుతోంది"
 
-#: src/amo/components/ReportAbuseButton/index.js:211
+#: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
 msgstr "రద్దుచేయి"
 
-#: src/amo/components/ReportAbuseButton/index.js:212
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Explain how this add-on is violating our policies."
 msgstr "ఈ పొడగింత మా విధానాలను ఎలా ఉల్లంఘిస్తున్నదో వివరించండి."
 
@@ -2076,7 +2068,7 @@ msgstr "ప్రొఫైలు చిత్రం"
 msgid "Choose Photo…"
 msgstr "ఫొటోని ఎంచుకోండి…"
 
-#: src/amo/components/UserReview/index.js:108
+#: src/amo/components/UserReview/index.js:99
 msgid "Developer response"
 msgstr "డెవలపర్ స్పందన"
 
@@ -3187,6 +3179,12 @@ msgstr ""
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
+
+#~ msgid "You cannot flag your own response"
+#~ msgstr "మీ స్వంత ప్రతిస్పందనను ఫ్లాగ్ చేయలేరు"
+
+#~ msgid "You cannot flag your own review"
+#~ msgstr "మీ స్వంత సమీక్షను ఫ్లాగ్ చేయలేరు"
 
 #~ msgid "Add-ons for Firefox"
 #~ msgstr "Firefox యొక్క పొడిగింతలు"

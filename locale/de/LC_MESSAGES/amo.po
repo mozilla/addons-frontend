@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-25 16:13+0000\n"
+"POT-Creation-Date: 2022-05-03 19:24+0000\n"
 "PO-Revision-Date: 2022-04-05 18:50+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -317,47 +317,47 @@ msgstr "Andere Nutzer dieser Erweiterungen verwenden auch"
 msgid "Other popular extensions"
 msgstr "Weitere beliebte Erweiterungen"
 
-#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:210
 msgid "Edit reply"
 msgstr "Antwort bearbeiten"
 
-#: src/amo/components/AddonReviewCard/index.js:215
+#: src/amo/components/AddonReviewCard/index.js:213
 msgid "Edit review"
 msgstr "Bewertung bearbeiten"
 
-#: src/amo/components/AddonReviewCard/index.js:222
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:220
+#: src/amo/components/AddonReviewCard/index.js:252
 msgid "Delete reply"
 msgstr "Antwort löschen"
 
-#: src/amo/components/AddonReviewCard/index.js:226
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:224
+#: src/amo/components/AddonReviewCard/index.js:256
 msgid "Delete rating"
 msgstr "Bewertung löschen"
 
-#: src/amo/components/AddonReviewCard/index.js:229
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Delete review"
 msgstr "Bewertung löschen"
 
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:234
 msgid "Do you really want to delete this reply?"
 msgstr "Soll diese Antwort wirklich gelöscht werden?"
 
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:238
 msgid "Do you really want to delete this rating?"
 msgstr "Soll diese Bewertung wirklich gelöscht werden?"
 
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Do you really want to delete this review?"
 msgstr "Soll diese Bewertung wirklich gelöscht werden?"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:248
 #: src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
 msgstr "Löschen"
 
-#: src/amo/components/AddonReviewCard/index.js:268
+#: src/amo/components/AddonReviewCard/index.js:266
 #: src/amo/components/AddonReviewManager/index.js:153
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
@@ -366,45 +366,45 @@ msgstr "Löschen"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: src/amo/components/AddonReviewCard/index.js:272
+#: src/amo/components/AddonReviewCard/index.js:270
 msgid "Keep reply"
 msgstr "Antwort behalten"
 
-#: src/amo/components/AddonReviewCard/index.js:276
+#: src/amo/components/AddonReviewCard/index.js:274
 msgid "Keep rating"
 msgstr "Bewertung behalten"
 
-#: src/amo/components/AddonReviewCard/index.js:279
+#: src/amo/components/AddonReviewCard/index.js:277
 msgid "Keep review"
 msgstr "Bewertung behalten"
 
-#: src/amo/components/AddonReviewCard/index.js:315
+#: src/amo/components/AddonReviewCard/index.js:313
 msgid "Write a reply to this review."
 msgstr "Schreiben Sie eine Antwort auf diese Bewertung."
 
-#: src/amo/components/AddonReviewCard/index.js:318
+#: src/amo/components/AddonReviewCard/index.js:316
 #: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "Antwort aktualisieren"
 
-#: src/amo/components/AddonReviewCard/index.js:319
+#: src/amo/components/AddonReviewCard/index.js:317
 msgid "Publish reply"
 msgstr "Antwort veröffentlichen"
 
-#: src/amo/components/AddonReviewCard/index.js:323
+#: src/amo/components/AddonReviewCard/index.js:321
 #: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "Antwort wird aktualisiert"
 
-#: src/amo/components/AddonReviewCard/index.js:324
+#: src/amo/components/AddonReviewCard/index.js:322
 msgid "Publishing reply"
 msgstr "Antwort wird veröffentlicht"
 
-#: src/amo/components/AddonReviewCard/index.js:370
+#: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "geschrieben am %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:373
+#: src/amo/components/AddonReviewCard/index.js:371
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -412,19 +412,19 @@ msgstr ""
 "von %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:376
+#: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "von %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:491
+#: src/amo/components/AddonReviewCard/index.js:489
 msgid "Deleting…"
 msgstr "Wird gelöscht…"
 
-#: src/amo/components/AddonReviewCard/index.js:522
+#: src/amo/components/AddonReviewCard/index.js:520
 msgid "Reply to this review"
 msgstr "Auf diese Bewertung antworten"
 
-#: src/amo/components/AddonReviewCard/index.js:552
+#: src/amo/components/AddonReviewCard/index.js:550
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
@@ -432,7 +432,7 @@ msgstr ""
 "Diese Bewertung wurde gelöscht. Sie sehen ihn nur wegen der höheren "
 "Berechtigung."
 
-#: src/amo/components/AddonReviewCard/index.js:598
+#: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
 msgstr "Schreiben Sie eine Bewertung"
 
@@ -606,7 +606,7 @@ msgid "Enable"
 msgstr "Aktivieren"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:146
+#: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "Entfernen"
 
@@ -865,24 +865,24 @@ msgstr "Absenden"
 msgid "Submitting"
 msgstr "Wird übermittelt..."
 
-#: src/amo/components/EditableCollectionAddon/index.js:136
-#: src/amo/components/EditableCollectionAddon/index.js:154
+#: src/amo/components/EditableCollectionAddon/index.js:132
+#: src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
 msgstr "Einen Hinweis hinterlassen"
 
-#: src/amo/components/EditableCollectionAddon/index.js:155
+#: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
 msgstr "Hinweis des Sammlers"
 
-#: src/amo/components/EditableCollectionAddon/index.js:170
+#: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
 msgstr "Einen Kommentar zu diesem Add-on verfassen."
 
-#: src/amo/components/EditableCollectionAddon/index.js:171
+#: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
 msgstr "Speichern"
 
-#: src/amo/components/EditableCollectionAddon/index.js:192
+#: src/amo/components/EditableCollectionAddon/index.js:188
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -1070,61 +1070,53 @@ msgstr "Bewertungen von %(userName)s"
 msgid "The review was not found."
 msgstr "Die Bewertung wurde nicht gefunden."
 
-#: src/amo/components/FlagReviewMenu/index.js:100
-msgid "Flagged for inappropriate language"
-msgstr "Wegen unangemessener Sprache gemeldet"
-
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
 msgstr "Dies ist ein Fehlerbericht oder eine Unterstützungs-Anfrage"
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
 msgstr "Als Fehlerbericht oder Unterstützungs-Anfrage gemeldet"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "Gemeldet"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Melden"
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
 msgstr "Diese Antwort des Entwicklers melden"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
 msgstr "Diese Bewertung melden"
 
-#: src/amo/components/FlagReviewMenu/index.js:68
+#: src/amo/components/FlagReviewMenu/index.js:74
 msgid "Log in to flag this response"
 msgstr "Melden Sie sich an, um diese Antwort zu melden"
 
-#: src/amo/components/FlagReviewMenu/index.js:69
+#: src/amo/components/FlagReviewMenu/index.js:75
 msgid "Log in to flag this review"
 msgstr "Melden Sie sich an, um diese Bewertung zu melden"
 
-#: src/amo/components/FlagReviewMenu/index.js:78
-msgid "You cannot flag your own response"
-msgstr "Sie können Ihre eigene Antwort nicht melden"
-
-#: src/amo/components/FlagReviewMenu/index.js:79
-msgid "You cannot flag your own review"
-msgstr "Sie können Ihre eigene Bewertung nicht melden"
-
-#: src/amo/components/FlagReviewMenu/index.js:88
+#: src/amo/components/FlagReviewMenu/index.js:86
 msgid "This is spam"
 msgstr "Dies ist Werbung"
 
-#: src/amo/components/FlagReviewMenu/index.js:89
+#: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
 msgstr "Als Werbung gemeldet"
 
-#: src/amo/components/FlagReviewMenu/index.js:99
+#: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
 msgstr "Dies enthält unangemessene Sprache"
+
+#: src/amo/components/FlagReviewMenu/index.js:98
+msgid "Flagged for inappropriate language"
+msgstr "Wegen unangemessener Sprache gemeldet"
 
 #: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
@@ -1624,11 +1616,11 @@ msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "Lesen Sie die einzige Drei-Sterne-Bewertung"
 msgstr[1] "Lesen Sie alle %(total)s Drei-Sterne-Bewertungen"
 
-#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportAbuseButton/index.js:113
 msgid "You reported this add-on for abuse"
 msgstr "Sie haben dieses Add-on wegen Richtlinienverstoß gemeldet"
 
-#: src/amo/components/ReportAbuseButton/index.js:131
+#: src/amo/components/ReportAbuseButton/index.js:117
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
@@ -1636,14 +1628,14 @@ msgstr ""
 "Wir haben Ihre Meldung erhalten. Danke, dass Sie uns Ihre Bedenken zu diesem "
 "Add-on mitgeteilt haben."
 
-#: src/amo/components/ReportAbuseButton/index.js:138
+#: src/amo/components/ReportAbuseButton/index.js:124
 #: src/amo/components/ReportUserAbuse/index.js:170
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "Wir können nicht jede Meldung über einen Richtlinienverstoß beantworten, "
 "aber wir befassen uns mit dem Thema."
 
-#: src/amo/components/ReportAbuseButton/index.js:148
+#: src/amo/components/ReportAbuseButton/index.js:134
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1654,11 +1646,11 @@ msgstr ""
 "Sicherheitsprobleme aufweist, melden Sie diese Probleme bitte über dieses "
 "Formular an Mozilla."
 
-#: src/amo/components/ReportAbuseButton/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
 msgstr "Dieses Add-on wegen Richtlinienverstoß melden"
 
-#: src/amo/components/ReportAbuseButton/index.js:195
+#: src/amo/components/ReportAbuseButton/index.js:181
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1667,21 +1659,21 @@ msgstr ""
 "Funktionen vorzuschlagen; die Meldung geht an Mozilla und nicht an den "
 "Entwickler des Add-ons."
 
-#: src/amo/components/ReportAbuseButton/index.js:208
+#: src/amo/components/ReportAbuseButton/index.js:194
 #: src/amo/components/ReportUserAbuse/index.js:150
 msgid "Send abuse report"
 msgstr "Meldung über Richtlinienverstoß senden"
 
-#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportAbuseButton/index.js:195
 #: src/amo/components/ReportUserAbuse/index.js:151
 msgid "Sending abuse report"
 msgstr "Meldung über Richtlinienverstoß wird gesendet"
 
-#: src/amo/components/ReportAbuseButton/index.js:211
+#: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
 msgstr "Verwerfen"
 
-#: src/amo/components/ReportAbuseButton/index.js:212
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Explain how this add-on is violating our policies."
 msgstr "Erläutern Sie, inwiefern dieses Add-on unsere Regeln verletzt."
 
@@ -2165,7 +2157,7 @@ msgstr "Profilfoto"
 msgid "Choose Photo…"
 msgstr "Foto auswählen…"
 
-#: src/amo/components/UserReview/index.js:108
+#: src/amo/components/UserReview/index.js:99
 msgid "Developer response"
 msgstr "Antwort des Entwicklers"
 
@@ -3487,6 +3479,12 @@ msgstr "Die Komatibilität meines Add-ons kann nicht erhöht werden"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "Die Kompatibilität meiner Add-ons wurde erfolgreich erhöht"
+
+#~ msgid "You cannot flag your own response"
+#~ msgstr "Sie können Ihre eigene Antwort nicht melden"
+
+#~ msgid "You cannot flag your own review"
+#~ msgstr "Sie können Ihre eigene Bewertung nicht melden"
 
 #~ msgid "Add-ons for Firefox"
 #~ msgstr "Add-ons für Firefox"

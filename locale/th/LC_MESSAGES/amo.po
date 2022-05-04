@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-25 16:13+0000\n"
+"POT-Creation-Date: 2022-05-03 19:24+0000\n"
 "PO-Revision-Date: 2021-09-18 09:27+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -294,47 +294,47 @@ msgstr "ผู้ใช้อื่น ๆ ที่มีส่วนขยา�
 msgid "Other popular extensions"
 msgstr "ส่วนขยายยอดนิยมอื่น ๆ"
 
-#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:210
 msgid "Edit reply"
 msgstr "แก้ไขการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:215
+#: src/amo/components/AddonReviewCard/index.js:213
 msgid "Edit review"
 msgstr "แก้ไขบทวิจารณ์"
 
-#: src/amo/components/AddonReviewCard/index.js:222
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:220
+#: src/amo/components/AddonReviewCard/index.js:252
 msgid "Delete reply"
 msgstr "ลบการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:226
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:224
+#: src/amo/components/AddonReviewCard/index.js:256
 msgid "Delete rating"
 msgstr "ลบการจัดอันดับ"
 
-#: src/amo/components/AddonReviewCard/index.js:229
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:227
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Delete review"
 msgstr "ลบบทวิจารณ์"
 
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:234
 msgid "Do you really want to delete this reply?"
 msgstr "คุณต้องการลบการตอบกลับนี้หรือไม่?"
 
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:238
 msgid "Do you really want to delete this rating?"
 msgstr "คุณต้องการลบการจัดอันดับนี้หรือไม่?"
 
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Do you really want to delete this review?"
 msgstr "คุณต้องการลบบทวิจารณ์นี้หรือไม่?"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:248
 #: src/amo/components/DismissibleTextForm/index.js:236
 msgid "Delete"
 msgstr "ลบ"
 
-#: src/amo/components/AddonReviewCard/index.js:268
+#: src/amo/components/AddonReviewCard/index.js:266
 #: src/amo/components/AddonReviewManager/index.js:153
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
@@ -343,45 +343,45 @@ msgstr "ลบ"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/amo/components/AddonReviewCard/index.js:272
+#: src/amo/components/AddonReviewCard/index.js:270
 msgid "Keep reply"
 msgstr "เก็บการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:276
+#: src/amo/components/AddonReviewCard/index.js:274
 msgid "Keep rating"
 msgstr "เก็บการจัดอันดับ"
 
-#: src/amo/components/AddonReviewCard/index.js:279
+#: src/amo/components/AddonReviewCard/index.js:277
 msgid "Keep review"
 msgstr "เก็บบทวิจารณ์"
 
-#: src/amo/components/AddonReviewCard/index.js:315
+#: src/amo/components/AddonReviewCard/index.js:313
 msgid "Write a reply to this review."
 msgstr "เขียนการตอบกลับบทวิจารณ์นี้"
 
-#: src/amo/components/AddonReviewCard/index.js:318
+#: src/amo/components/AddonReviewCard/index.js:316
 #: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "อัปเดตการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:319
+#: src/amo/components/AddonReviewCard/index.js:317
 msgid "Publish reply"
 msgstr "เผยแพร่การตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:323
+#: src/amo/components/AddonReviewCard/index.js:321
 #: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "กำลังอัปเดตการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:324
+#: src/amo/components/AddonReviewCard/index.js:322
 msgid "Publishing reply"
 msgstr "กำลังเผยแพร่การตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:370
+#: src/amo/components/AddonReviewCard/index.js:368
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "โพสต์เมื่อ %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:373
+#: src/amo/components/AddonReviewCard/index.js:371
 msgid ""
 "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -389,25 +389,25 @@ msgstr ""
 "โดย %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
 "%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:376
+#: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "โดย %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:491
+#: src/amo/components/AddonReviewCard/index.js:489
 msgid "Deleting…"
 msgstr "กำลังลบ…"
 
-#: src/amo/components/AddonReviewCard/index.js:522
+#: src/amo/components/AddonReviewCard/index.js:520
 msgid "Reply to this review"
 msgstr "ตอบกลับบทวิจารณ์นี้"
 
-#: src/amo/components/AddonReviewCard/index.js:552
+#: src/amo/components/AddonReviewCard/index.js:550
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr "ลบการจัดอันดับหรือบทวิจารณ์นี้แล้ว คุณเห็นได้เนื่องจากมีสิทธิอนุญาตระดับสูง"
 
-#: src/amo/components/AddonReviewCard/index.js:598
+#: src/amo/components/AddonReviewCard/index.js:596
 msgid "Write a review"
 msgstr "เขียนบทวิจารณ์"
 
@@ -576,7 +576,7 @@ msgid "Enable"
 msgstr "เปิดใช้งาน"
 
 #: src/amo/components/AMInstallButton/index.js:203
-#: src/amo/components/EditableCollectionAddon/index.js:146
+#: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "เอาออก"
 
@@ -822,24 +822,24 @@ msgstr "ส่ง"
 msgid "Submitting"
 msgstr "กำลังส่ง"
 
-#: src/amo/components/EditableCollectionAddon/index.js:136
-#: src/amo/components/EditableCollectionAddon/index.js:154
+#: src/amo/components/EditableCollectionAddon/index.js:132
+#: src/amo/components/EditableCollectionAddon/index.js:150
 msgid "Leave a note"
 msgstr "ฝากบันทึกย่อ"
 
-#: src/amo/components/EditableCollectionAddon/index.js:155
+#: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Collector's note"
 msgstr "หมายเหตุของตัวสะสม"
 
-#: src/amo/components/EditableCollectionAddon/index.js:170
+#: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Add a comment about this add-on."
 msgstr "เพิ่มความคิดเห็นเกี่ยวกับส่วนเสริมนี้"
 
-#: src/amo/components/EditableCollectionAddon/index.js:171
+#: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/amo/components/EditableCollectionAddon/index.js:192
+#: src/amo/components/EditableCollectionAddon/index.js:188
 msgid "Edit"
 msgstr "แก้ไข"
 
@@ -1003,61 +1003,53 @@ msgstr "บทวิจารณ์โดย %(userName)s"
 msgid "The review was not found."
 msgstr "ไม่พบบทวิจารณ์"
 
-#: src/amo/components/FlagReviewMenu/index.js:100
-msgid "Flagged for inappropriate language"
-msgstr "ตั้งค่าสถานะว่ามีภาษาที่ไม่เหมาะสมแล้ว"
-
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
 msgstr "นี่คือการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
 msgstr "ตั้งค่าสถานะว่าเป็นการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "ตั้งค่าสถานะแล้ว"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "ตั้งค่าสถานะ"
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
 msgstr "ตั้งค่าสถานะการตอบกลับของนักพัฒนา"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
 msgstr "ตั้งค่าสถานะบทวิจารณ์นี้"
 
-#: src/amo/components/FlagReviewMenu/index.js:68
+#: src/amo/components/FlagReviewMenu/index.js:74
 msgid "Log in to flag this response"
 msgstr "เข้าสู่ระบบเพื่อตั้งค่าสถานะการตอบกลับนี้"
 
-#: src/amo/components/FlagReviewMenu/index.js:69
+#: src/amo/components/FlagReviewMenu/index.js:75
 msgid "Log in to flag this review"
 msgstr "เข้าสู่ระบบเพื่อตั้งค่าสถานะบทวิจารณ์นี้"
 
-#: src/amo/components/FlagReviewMenu/index.js:78
-msgid "You cannot flag your own response"
-msgstr "คุณไม่สามารถตั้งค่าสถานะการตอบกลับของคุณเองได้"
-
-#: src/amo/components/FlagReviewMenu/index.js:79
-msgid "You cannot flag your own review"
-msgstr "คุณไม่สามารถตั้งค่าสถานะบทวิจารณ์ของคุณเองได้"
-
-#: src/amo/components/FlagReviewMenu/index.js:88
+#: src/amo/components/FlagReviewMenu/index.js:86
 msgid "This is spam"
 msgstr "นี่เป็นสแปม"
 
-#: src/amo/components/FlagReviewMenu/index.js:89
+#: src/amo/components/FlagReviewMenu/index.js:87
 msgid "Flagged as spam"
 msgstr "ตั้งค่าสถานะเป็นสแปมแล้ว"
 
-#: src/amo/components/FlagReviewMenu/index.js:99
+#: src/amo/components/FlagReviewMenu/index.js:97
 msgid "This contains inappropriate language"
 msgstr "นี่ประกอบด้วยภาษาที่ไม่เหมาะสม"
+
+#: src/amo/components/FlagReviewMenu/index.js:98
+msgid "Flagged for inappropriate language"
+msgstr "ตั้งค่าสถานะว่ามีภาษาที่ไม่เหมาะสมแล้ว"
 
 #: src/amo/components/Footer/index.js:101
 msgid "Developer Policies"
@@ -1563,22 +1555,22 @@ msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
 msgstr[0] "อ่านบทวิจารณ์สามดาวทั้งหมด"
 
-#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportAbuseButton/index.js:113
 msgid "You reported this add-on for abuse"
 msgstr "คุณรายงานส่วนเสริมนี้ว่ามีการละเมิด"
 
-#: src/amo/components/ReportAbuseButton/index.js:131
+#: src/amo/components/ReportAbuseButton/index.js:117
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr "เราได้รับรายงานของคุณแล้ว ขอบคุณที่ทำให้เรารู้เกี่ยวกับความกังวลของคุณเกี่ยวกับส่วนเสริมนี้"
 
-#: src/amo/components/ReportAbuseButton/index.js:138
+#: src/amo/components/ReportAbuseButton/index.js:124
 #: src/amo/components/ReportUserAbuse/index.js:170
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "เราไม่สามารถตอบสนองต่อรายงานการละเมิดทั้งหมด แต่เราจะตรวจสอบปัญหานี้"
 
-#: src/amo/components/ReportAbuseButton/index.js:148
+#: src/amo/components/ReportAbuseButton/index.js:134
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1588,11 +1580,11 @@ msgstr ""
 "หรือมีปัญหาด้านความปลอดภัยหรือความเป็นส่วนตัว โปรดรายงานปัญหาเหล่านี้กับ Mozilla "
 "โดยใช้แบบฟอร์มนี้"
 
-#: src/amo/components/ReportAbuseButton/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:150
 msgid "Report this add-on for abuse"
 msgstr "รายงานส่วนเสริมนี้ว่ามีการละเมิด"
 
-#: src/amo/components/ReportAbuseButton/index.js:195
+#: src/amo/components/ReportAbuseButton/index.js:181
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1600,21 +1592,21 @@ msgstr ""
 "โปรดอย่าใช้แบบฟอร์มนี้เพื่อรายงานบั๊กหรือขอคุณลักษณะของส่วนเสริม รายงานนี้จะถูกส่งไปยัง Mozilla "
 "และไม่ใช่ไปยังผู้พัฒนาส่วนเสริม"
 
-#: src/amo/components/ReportAbuseButton/index.js:208
+#: src/amo/components/ReportAbuseButton/index.js:194
 #: src/amo/components/ReportUserAbuse/index.js:150
 msgid "Send abuse report"
 msgstr "ส่งรายงานการละเมิด"
 
-#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportAbuseButton/index.js:195
 #: src/amo/components/ReportUserAbuse/index.js:151
 msgid "Sending abuse report"
 msgstr "กำลังส่งรายงานการละเมิด"
 
-#: src/amo/components/ReportAbuseButton/index.js:211
+#: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Dismiss"
 msgstr "ยกเลิก"
 
-#: src/amo/components/ReportAbuseButton/index.js:212
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Explain how this add-on is violating our policies."
 msgstr "อธิบายทำไมส่วนเสริมนี้ละเมิดนโยบายของเรา"
 
@@ -2074,7 +2066,7 @@ msgstr "รูปโปรไฟล์"
 msgid "Choose Photo…"
 msgstr "เลือกรูปถ่าย…"
 
-#: src/amo/components/UserReview/index.js:108
+#: src/amo/components/UserReview/index.js:99
 msgid "Developer response"
 msgstr "การตอบกลับของนักพัฒนา"
 
@@ -3213,6 +3205,12 @@ msgstr "ไม่สามารถอัปเกรดความเข้า
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "อัปเกรดความเข้ากันได้ของส่วนเสริมของฉันสำเร็จ"
+
+#~ msgid "You cannot flag your own response"
+#~ msgstr "คุณไม่สามารถตั้งค่าสถานะการตอบกลับของคุณเองได้"
+
+#~ msgid "You cannot flag your own review"
+#~ msgstr "คุณไม่สามารถตั้งค่าสถานะบทวิจารณ์ของคุณเองได้"
 
 #~ msgid "Add-ons for Firefox"
 #~ msgstr "ส่วนเสริมสำหรับ Firefox"
