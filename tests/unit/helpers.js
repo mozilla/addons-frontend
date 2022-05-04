@@ -1445,7 +1445,7 @@ export const getFakeLoggerWithJest = (params = {}) => {
 
 // This simulates debounce() without any debouncing.
 export function createFakeDebounce() {
-  return sinon.spy(
+  return jest.fn(
     (callback) =>
       (...args) =>
         callback(...args),
