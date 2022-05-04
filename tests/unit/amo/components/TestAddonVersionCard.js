@@ -1,15 +1,11 @@
 import * as React from 'react';
 
-import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
-import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonVersionCard, {
   AddonVersionCardBase,
 } from 'amo/components/AddonVersionCard';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import Link from 'amo/components/Link';
-import { setInstallError, setInstallState } from 'amo/reducers/installations';
-import { FATAL_ERROR, INSTALLING } from 'amo/constants';
 import { formatFilesize } from 'amo/i18n/utils';
 import { loadVersions } from 'amo/reducers/versions';
 import {
@@ -292,68 +288,6 @@ describe(__filename, () => {
 
     expect(root.find('.AddonVersionCard-license').find(Link)).toHaveLength(0);
     expect(root.find('.AddonVersionCard-license')).toIncludeText(licenseName);
-  });
-
-  it('passes an install error to AddonInstallError', () => {
-    const guid = 'some-guid';
-    const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
-    store.dispatch(
-      setInstallState({
-        guid,
-        status: INSTALLING,
-      }),
-    );
-    const error = FATAL_ERROR;
-    store.dispatch(setInstallError({ error, guid }));
-
-    const root = render({ addon, isCurrentVersion: true });
-
-    expect(root.find(AddonInstallError)).toHaveProp('error', error);
-  });
-
-  it('does not render an AddonInstallError if there is no version', () => {
-    const root = render({ isCurrentVersion: true, version: null });
-
-    expect(root.find(AddonInstallError)).toHaveLength(0);
-  });
-
-  it('does not render an AddonInstallError if it is not the current version', () => {
-    const guid = 'some-guid';
-    const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
-    store.dispatch(
-      setInstallState({
-        guid,
-        status: INSTALLING,
-      }),
-    );
-    const error = FATAL_ERROR;
-    store.dispatch(setInstallError({ error, guid }));
-
-    const root = render({ addon, isCurrentVersion: false });
-
-    expect(root.find(AddonInstallError)).toHaveLength(0);
-  });
-
-  it('passes an add-on to AddonCompatibilityError', () => {
-    const addon = createInternalAddonWithLang(fakeAddon);
-
-    const root = render({ addon, isCurrentVersion: true });
-
-    expect(root.find(AddonCompatibilityError)).toHaveProp('addon', addon);
-  });
-
-  it('does not render an AddonCompatibilityError if there is no version', () => {
-    const root = render({ version: null });
-
-    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
-  });
-
-  it('does not render an AddonCompatibilityError if it is not the current version', () => {
-    const addon = createInternalAddonWithLang(fakeAddon);
-
-    const root = render({ addon, isCurrentVersion: false });
-
-    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
   });
 
   it('passes an add-on to InstallButtonWrapper', () => {

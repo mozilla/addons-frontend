@@ -1,18 +1,33 @@
 import { waitFor } from '@testing-library/react';
 
-import { CLIENT_APP_FIREFOX } from 'amo/constants';
-import { formatFilesize } from 'amo/i18n/utils';
-import { extractId } from 'amo/pages/AddonVersions';
-import { FETCH_ADDON, fetchAddon, loadAddon } from 'amo/reducers/addons';
 import {
   FETCH_VERSIONS,
   loadVersions,
   fetchVersions,
 } from 'amo/reducers/versions';
 import {
+  CLIENT_APP_FIREFOX,
+  FATAL_ERROR,
+  INCOMPATIBLE_ANDROID_UNSUPPORTED,
+  INCOMPATIBLE_FIREFOX_FOR_IOS,
+  INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OVER_MAX_VERSION,
+  INCOMPATIBLE_UNDER_MIN_VERSION,
+  INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+  INSTALLING,
+} from 'amo/constants';
+import { extractId } from 'amo/pages/AddonVersions';
+import { formatFilesize } from 'amo/i18n/utils';
+import { FETCH_ADDON, fetchAddon, loadAddon } from 'amo/reducers/addons';
+import { setInstallError, setInstallState } from 'amo/reducers/installations';
+import { getClientCompatibility } from 'amo/utils/compatibility';
+import {
   createFailedErrorHandler,
+  createFakeClientCompatibility,
   createFakeErrorHandler,
   createHistory,
+  createInternalAddonWithLang,
+  createInternalVersionWithLang,
   createLocalizedString,
   dispatchClientMetadata,
   fakeAddon,
@@ -26,6 +41,14 @@ import {
   userAgents,
   within,
 } from 'tests/unit/helpers';
+
+jest.mock('amo/utils/compatibility', () => ({
+  ...jest.requireActual('amo/utils/compatibility'),
+  getClientCompatibility: jest.fn().mockReturnValue({
+    compatible: true,
+    reason: null,
+  }),
+}));
 
 describe(__filename, () => {
   let store;
@@ -43,6 +66,10 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks().resetModules();
   });
 
   const render = ({ history, location, slug = defaultSlug } = {}) => {
@@ -68,6 +95,16 @@ describe(__filename, () => {
     versions = [fakeVersion],
   } = {}) => {
     store.dispatch(loadVersions({ slug, versions }));
+  };
+
+  const renderWithAddonAndVersions = ({
+    addon = { ...fakeAddon, slug: defaultSlug },
+    versions = [fakeVersion],
+    ...props
+  } = {}) => {
+    _loadAddon(addon);
+    _loadVersions({ versions });
+    return render({ ...props });
   };
 
   const allVersionCards = () => screen.getAllByClassName('AddonVersionCard');
@@ -501,6 +538,191 @@ describe(__filename, () => {
           match: { params: { slug } },
         }),
       ).toEqual(`${slug}-`);
+    });
+  });
+
+  describe('Tests for AddonVersionCard', () => {
+    const setupInstallError = () => {
+      const guid = 'some-guid';
+      const addon = { ...fakeAddon, guid, slug: defaultSlug };
+      store.dispatch(setInstallState({ guid, status: INSTALLING }));
+      store.dispatch(setInstallError({ error: FATAL_ERROR, guid }));
+      _loadAddon(addon);
+    };
+
+    it('passes an install error to AddonInstallError', () => {
+      setupInstallError();
+      _loadVersions();
+      render();
+
+      expect(
+        within(screen.getByClassName('AddonInstallError')).getByText(
+          'An unexpected error occurred.',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('does not render an install error if there is no error', () => {
+      renderWithAddonAndVersions();
+      render();
+
+      expect(
+        screen.queryByClassName('AddonInstallError'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not render an AddonInstallError if there is no version', () => {
+      setupInstallError();
+      _loadVersions({ versions: [] });
+      render();
+
+      expect(
+        screen.queryByClassName('AddonInstallError'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not render an AddonInstallError if it is not the current version', () => {
+      setupInstallError();
+      _loadVersions({
+        versions: [fakeVersion, { ...fakeVersion, id: 2 }],
+      });
+      render();
+
+      const versionCards = allVersionCards();
+      expect(
+        within(versionCards[0]).getByText('An unexpected error occurred.'),
+      ).toBeInTheDocument();
+      expect(
+        within(versionCards[1]).queryByText('An unexpected error occurred.'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not render an AddonCompatibilityError if there is no version', () => {
+      getClientCompatibility.mockReturnValue(
+        createFakeClientCompatibility({
+          compatible: false,
+          reason: INCOMPATIBLE_OVER_MAX_VERSION,
+        }),
+      );
+      renderWithAddonAndVersions({ versions: [] });
+
+      expect(
+        screen.queryByClassName('AddonCompatibilityError'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not render an AddonCompatibilityError if it is not the current version', () => {
+      getClientCompatibility.mockReturnValue(
+        createFakeClientCompatibility({
+          compatible: false,
+          reason: INCOMPATIBLE_OVER_MAX_VERSION,
+        }),
+      );
+      renderWithAddonAndVersions({
+        versions: [fakeVersion, { ...fakeVersion, id: 2 }],
+      });
+
+      const versionCards = allVersionCards();
+      expect(
+        within(versionCards[0]).getByText(
+          'This add-on is not compatible with your version of Firefox.',
+        ),
+      ).toBeInTheDocument();
+      expect(
+        within(versionCards[1]).queryByText(
+          'This add-on is not compatible with your version of Firefox.',
+        ),
+      ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for AddonCompatibilityError', () => {
+    it('renders nothing if there is no addon', () => {
+      render();
+
+      expect(
+        screen.queryByClassName('AddonCompatibilityError'),
+      ).not.toBeInTheDocument();
+    });
+
+    it(`calls getClientCompatibility with the add-on's current version`, () => {
+      const addon = { ...fakeAddon, slug: defaultSlug };
+      dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
+      renderWithAddonAndVersions({ addon });
+
+      expect(getClientCompatibility).toHaveBeenCalledWith({
+        addon: createInternalAddonWithLang(addon),
+        clientApp: CLIENT_APP_FIREFOX,
+        currentVersion: createInternalVersionWithLang(addon.current_version),
+        userAgentInfo: store.getState().api.userAgentInfo,
+      });
+    });
+
+    it('renders nothing if the add-on is compatible', () => {
+      getClientCompatibility.mockReturnValue(
+        createFakeClientCompatibility({
+          compatible: true,
+          reason: null,
+        }),
+      );
+      renderWithAddonAndVersions();
+
+      expect(
+        screen.queryByClassName('AddonCompatibilityError'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders a notice if add-on is over maxVersion/compat is strict', () => {
+      getClientCompatibility.mockReturnValue(
+        createFakeClientCompatibility({
+          compatible: false,
+          reason: INCOMPATIBLE_OVER_MAX_VERSION,
+        }),
+      );
+      renderWithAddonAndVersions();
+
+      expect(
+        screen.getByClassName('AddonCompatibilityError'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'This add-on is not compatible with your version of Firefox.',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('renders a notice if add-on is incompatible with the platform', () => {
+      getClientCompatibility.mockReturnValue(
+        createFakeClientCompatibility({
+          compatible: false,
+          reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+        }),
+      );
+      renderWithAddonAndVersions();
+
+      expect(
+        screen.getByText('This add-on is not available on your platform.'),
+      ).toBeInTheDocument();
+    });
+
+    it.each([
+      INCOMPATIBLE_ANDROID_UNSUPPORTED,
+      INCOMPATIBLE_FIREFOX_FOR_IOS,
+      INCOMPATIBLE_NOT_FIREFOX,
+      INCOMPATIBLE_UNDER_MIN_VERSION,
+      'unknown reason',
+    ])('renders nothing if the incompatibility reason is %s', (reason) => {
+      getClientCompatibility.mockReturnValue(
+        createFakeClientCompatibility({
+          compatible: false,
+          reason,
+        }),
+      );
+      renderWithAddonAndVersions();
+
+      expect(
+        screen.queryByClassName('AddonCompatibilityError'),
+      ).not.toBeInTheDocument();
     });
   });
 });
