@@ -752,46 +752,34 @@ describe(__filename, () => {
       });
     });
 
-    it('pushes a new route when a suggestion is selected', () => {
-      const url = '/url/to/extension/detail/page';
-      const fakeResult = createFakeAutocompleteResult({ url });
-      const history = createHistory();
-      render({ history });
+    it.each([
+      ['/url/to/extension/detail/page', '/url/to/extension/detail/page'],
+      // It should parse the pathname from the second one.
+      [
+        'https://example.org/url/to/extension/detail/page',
+        '/url/to/extension/detail/page',
+      ],
+    ])(
+      'pushes a new route to %s when a suggestion is selected',
+      (url, expected) => {
+        const fakeResult = createFakeAutocompleteResult({ url });
+        const history = createHistory();
+        render({ history });
 
-      const pushSpy = jest.spyOn(history, 'push');
+        const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.type(screen.getByRole('searchbox'), 'test');
-      dispatchAutocompleteResults({ results: [fakeResult], store });
-      userEvent.click(
-        screen.getByRole('option', {
-          // This is the accessible name for the suggestion.
-          name: 'suggestion-result suggestion-result Go to the add-on page',
-        }),
-      );
+        userEvent.type(screen.getByRole('searchbox'), 'test');
+        dispatchAutocompleteResults({ results: [fakeResult], store });
+        userEvent.click(
+          screen.getByRole('option', {
+            // This is the accessible name for the suggestion.
+            name: 'suggestion-result suggestion-result Go to the add-on page',
+          }),
+        );
 
-      expect(pushSpy).toHaveBeenCalledWith(url);
-    });
-
-    it('parses the URL of a suggestion to push the pathname', () => {
-      const pathname = '/url/to/extension/detail/page';
-      const fakeResult = createFakeAutocompleteResult({
-        url: `https://example.org${pathname}`,
-      });
-      const history = createHistory();
-      render({ history });
-
-      const pushSpy = jest.spyOn(history, 'push');
-
-      userEvent.type(screen.getByRole('searchbox'), 'test');
-      dispatchAutocompleteResults({ results: [fakeResult], store });
-      userEvent.click(
-        screen.getByRole('option', {
-          name: 'suggestion-result suggestion-result Go to the add-on page',
-        }),
-      );
-
-      expect(pushSpy).toHaveBeenCalledWith(pathname);
-    });
+        expect(pushSpy).toHaveBeenCalledWith(expected);
+      },
+    );
 
     it('does not push anything if the URL is empty', () => {
       const fakeResult = createFakeAutocompleteResult({ url: '' });
@@ -811,12 +799,12 @@ describe(__filename, () => {
       expect(pushSpy).not.toHaveBeenCalled();
     });
 
-    it('renders an opensearch link for Android', async () => {
-      const clientApp = CLIENT_APP_ANDROID;
+    it.each([
+      [CLIENT_APP_ANDROID, 'Firefox Add-ons for Android'],
+      [CLIENT_APP_FIREFOX, 'Firefox Add-ons'],
+    ])('renders an opensearch link for %s', async (clientApp, title) => {
       const lang = 'en-CA';
-
       dispatchClientMetadata({ clientApp, lang, store });
-
       render();
 
       // Without the waitFor, the link tags have not rendered into the head yet.
@@ -833,32 +821,7 @@ describe(__filename, () => {
         'href',
         `/${lang}/${clientApp}/opensearch.xml`,
       );
-      expect(link).toHaveAttribute('title', 'Firefox Add-ons for Android');
-    });
-
-    it('renders an opensearch link for Firefox', async () => {
-      const clientApp = CLIENT_APP_FIREFOX;
-      const lang = 'fr';
-
-      dispatchClientMetadata({ clientApp, lang, store });
-
-      render();
-
-      // Without the waitFor, the link tags have not rendered into the head yet.
-      await waitFor(() =>
-        expect(getElement('link[rel="search"]')).toBeInTheDocument(),
-      );
-
-      const link = getElement('link[rel="search"]');
-      expect(link).toHaveAttribute(
-        'type',
-        'application/opensearchdescription+xml',
-      );
-      expect(link).toHaveAttribute(
-        'href',
-        `/${lang}/${clientApp}/opensearch.xml`,
-      );
-      expect(link).toHaveAttribute('title', 'Firefox Add-ons');
+      expect(link).toHaveAttribute('title', title);
     });
   });
 });
