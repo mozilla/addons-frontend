@@ -534,6 +534,17 @@ export function createUserAccountResponse({
   };
 }
 
+export function createFakeErrorHandler({
+  capturedError = null,
+  id = 'create-fake-error-handler-id',
+} = {}) {
+  return new ErrorHandler({
+    id,
+    dispatch: jest.fn(),
+    capturedError,
+  });
+}
+
 export function createStubErrorHandler(capturedError = null) {
   return new ErrorHandler({
     id: 'create-stub-error-handler-id',
@@ -1652,13 +1663,6 @@ export const screen = {
   ...customQueries(document.body),
 };
 
-export const within = (element) => {
-  return {
-    ...libraryWithin(element),
-    ...customQueries(element),
-  };
-};
-
 const getByTextAcrossTags = (text) => {
   return screen.getByText(
     (content, element) => {
@@ -1675,6 +1679,14 @@ const getByTextAcrossTags = (text) => {
   );
 };
 screen.getByTextAcrossTags = getByTextAcrossTags;
+
+export const within = (element) => {
+  return {
+    ...libraryWithin(element),
+    ...customQueries(element),
+    getByTextAcrossTags,
+  };
+};
 
 export const getElements = (selector) => {
   return document.querySelectorAll(selector);
