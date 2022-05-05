@@ -4,19 +4,27 @@ import { createEvent, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {
+  SAVED_RATING,
+  STARTED_SAVE_RATING,
+  STARTED_SAVE_REVIEW,
   beginDeleteAddonReview,
   cancelDeleteAddonReview,
+  createInternalReview,
   deleteAddonReview,
   flagReview,
+  flashReviewMessage,
   hideEditReviewForm,
+  hideFlashedReviewMessage,
   hideReplyToReviewForm,
   sendReplyToReview,
   setReview,
   setReviewWasFlagged,
   showEditReviewForm,
   showReplyToReviewForm,
+  updateAddonReview,
 } from 'amo/actions/reviews';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
+import { extractId as addonReviewManagerExtractId } from 'amo/components/AddonReviewManager';
 import {
   ALL_SUPER_POWERS,
   REVIEW_FLAG_REASON_BUG_SUPPORT,
@@ -1593,6 +1601,230 @@ describe(__filename, () => {
       expect(
         screen.getByTitle('Update your rating to 1 out of 5'),
       ).toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for AddonReviewManager', () => {
+    const getErrorHandlerId = (reviewId) =>
+      `src/amo/components/AddonReviewManager/index.js-${reviewId}`;
+
+    it('renders DismissibleTextForm text', () => {
+      const body = 'This ad blocker add-on is easy on CPU';
+      const review = signInAndDispatchSavedReview({
+        externalReview: { ...fakeReview, body },
+      });
+      render({ review });
+
+      // AddonReviewManager is rendered in edit mode.
+      clickEditReview();
+
+      expect(
+        screen.getByPlaceholderText(
+          'Write about your experience with this add-on.',
+        ),
+      ).toHaveValue(body);
+    });
+
+    it('renders a DismissibleTextForm formFooter', () => {
+      render({ review: signInAndDispatchSavedReview() });
+
+      clickEditReview();
+
+      expect(
+        screen.getByRole('link', { name: 'review guidelines' }),
+      ).toHaveAttribute('href', '/en-US/review_guide');
+      expect(
+        screen.getByTextAcrossTags('Please follow our review guidelines.'),
+      ).toBeInTheDocument();
+    });
+
+    it('updates the rating when you select a star', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const newScore = 4;
+      const review = signInAndDispatchSavedReview({ score: 2 });
+      render({ review });
+
+      clickEditReview();
+
+      userEvent.click(
+        screen.getByRole('button', {
+          name: `Update your rating to ${newScore} out of 5`,
+        }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        updateAddonReview({
+          score: newScore,
+          errorHandlerId: getErrorHandlerId(review.id),
+          reviewId: review.id,
+        }),
+      );
+    });
+
+    it('updates the review body when you submit the form', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const newBody = 'I really like the colors of this add-on';
+      const review = signInAndDispatchSavedReview({
+        body: 'I dislike the colors',
+      });
+      render({ review });
+
+      clickEditReview();
+
+      userEvent.type(
+        screen.getByPlaceholderText(
+          'Write about your experience with this add-on.',
+        ),
+        `{selectall}{del}${newBody}`,
+      );
+      userEvent.click(screen.getByRole('button', { name: 'Update review' }));
+
+      expect(dispatch).toHaveBeenCalledWith(
+        updateAddonReview({
+          body: newBody,
+          errorHandlerId: getErrorHandlerId(review.id),
+          reviewId: review.id,
+        }),
+      );
+    });
+
+    it('renders errors', () => {
+      const message = 'Some error message';
+      const review = signInAndDispatchSavedReview();
+      createFailedErrorHandler({
+        id: getErrorHandlerId(review.id),
+        message,
+        store,
+      });
+      render({ review });
+
+      clickEditReview();
+
+      expect(screen.getByText(message)).toBeInTheDocument();
+    });
+
+    it('flashes a saving rating message', () => {
+      // This is dispatched via a saga, so we need to dispatch it manually.
+      store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
+      render({ review: signInAndDispatchSavedReview() });
+
+      clickEditReview();
+
+      const flashMessage = screen.getByClassName(
+        'AddonReviewManager-savedRating',
+      );
+      expect(flashMessage).toHaveTextContent('Saving');
+      expect(flashMessage).not.toHaveClass(
+        'RatingManagerNotice-savedRating-hidden',
+      );
+      // In this case a span is rendered, rather than a Notice component.
+      expect(flashMessage).not.toHaveClass('Notice');
+    });
+
+    it('flashes a saved rating message', () => {
+      // This is dispatched via a saga, so we need to dispatch it manually.
+      store.dispatch(flashReviewMessage(SAVED_RATING));
+      render({ review: signInAndDispatchSavedReview() });
+
+      clickEditReview();
+
+      const flashMessage = screen.getByClassName(
+        'AddonReviewManager-savedRating',
+      );
+      expect(flashMessage).toHaveTextContent('Saved');
+      expect(flashMessage).not.toHaveClass(
+        'RatingManagerNotice-savedRating-hidden',
+      );
+    });
+
+    it('hides a flashed rating message', () => {
+      // This is dispatched via a saga, so we need to dispatch it manually.
+      // Set a message then hide it.
+      store.dispatch(flashReviewMessage(SAVED_RATING));
+      store.dispatch(hideFlashedReviewMessage());
+      render({ review: signInAndDispatchSavedReview() });
+
+      clickEditReview();
+
+      expect(
+        screen.getByClassName('AddonReviewManager-savedRating'),
+      ).toHaveClass('RatingManagerNotice-savedRating-hidden');
+    });
+
+    it('enters a submitting review state', () => {
+      store.dispatch(flashReviewMessage(STARTED_SAVE_REVIEW));
+      render({ review: signInAndDispatchSavedReview() });
+
+      clickEditReview();
+
+      expect(
+        screen.getByRole('button', { name: 'Updating review' }),
+      ).toHaveClass('Button--disabled');
+    });
+
+    it('does not enter a submitting state by default', () => {
+      render({ review: signInAndDispatchSavedReview() });
+
+      clickEditReview();
+
+      expect(
+        screen.getByRole('button', { name: 'Update review' }),
+      ).toBeInTheDocument();
+    });
+
+    it('passes a null review while saving a rating', () => {
+      store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
+      render({ review: signInAndDispatchSavedReview() });
+
+      clickEditReview();
+
+      // A null rating will render Rating in a loading state.
+      expect(screen.getByRole('alert')).toBeInTheDocument();
+    });
+
+    it('allows one to submit a review when no review text exists yet', () => {
+      const body = 'My review';
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const review = signInAndDispatchSavedReview({
+        externalReview: fakeRatingOnly,
+      });
+      render({ review });
+
+      userEvent.click(screen.getByRole('button', { name: 'Write a review' }));
+      expect(
+        screen.queryByRole('button', { name: 'Write a review' }),
+      ).not.toBeInTheDocument();
+
+      userEvent.type(
+        screen.getByPlaceholderText(
+          'Write about your experience with this add-on.',
+        ),
+        body,
+      );
+      userEvent.click(screen.getByRole('button', { name: 'Submit review' }));
+
+      expect(dispatch).toHaveBeenCalledWith(
+        showEditReviewForm({ reviewId: review.id }),
+      );
+
+      // This is called by a saga when saving starts, so we need to dispatch it
+      // manually.
+      store.dispatch(flashReviewMessage(STARTED_SAVE_REVIEW));
+
+      expect(
+        screen.getByRole('button', { name: 'Submitting review' }),
+      ).toHaveClass('Button--disabled');
+    });
+
+    describe('extractId', () => {
+      it('extracts an ID from the review', () => {
+        const id = 551224;
+        expect(
+          addonReviewManagerExtractId({
+            review: createInternalReview({ ...fakeReview, id }),
+          }),
+        ).toEqual(id.toString());
+      });
     });
   });
 });
