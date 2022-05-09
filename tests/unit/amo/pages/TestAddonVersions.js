@@ -1,150 +1,126 @@
-import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 
-import AddonSummaryCard from 'amo/components/AddonSummaryCard';
-import AddonVersionCard from 'amo/components/AddonVersionCard';
-import Page from 'amo/components/Page';
-import AddonVersions, {
-  AddonVersionsBase,
-  extractId,
-} from 'amo/pages/AddonVersions';
-import { fetchAddon, loadAddon } from 'amo/reducers/addons';
-import { loadVersions, fetchVersions } from 'amo/reducers/versions';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import { formatFilesize } from 'amo/i18n/utils';
+import { extractId } from 'amo/pages/AddonVersions';
+import { FETCH_ADDON, fetchAddon, loadAddon } from 'amo/reducers/addons';
 import {
-  createCapturedErrorHandler,
-  createFakeHistory,
-  createFakeLocation,
-  createInternalAddonWithLang,
-  createInternalVersionWithLang,
+  FETCH_VERSIONS,
+  loadVersions,
+  fetchVersions,
+} from 'amo/reducers/versions';
+import {
+  createFailedErrorHandler,
+  createFakeErrorHandler,
+  createHistory,
   createLocalizedString,
-  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
+  fakeFile,
   fakeI18n,
   fakeVersion,
-  shallowUntilTarget,
+  getElement,
+  onLocationChanged,
+  renderPage as defaultRender,
+  screen,
+  userAgents,
+  within,
 } from 'tests/unit/helpers';
-import CardList from 'amo/components/CardList';
-import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   let store;
+  const clientApp = CLIENT_APP_FIREFOX;
+  const defaultSlug = 'some-add-on-slug';
+  const lang = 'en-US';
+
+  const getLocation = (slug = defaultSlug) =>
+    `/${lang}/${clientApp}/addon/${slug}/versions/`;
+
+  const getErrorHandlerId = ({ page = '', slug = defaultSlug } = {}) =>
+    `src/amo/pages/AddonVersions/index.js-${slug}-${page}`;
+  const getFakeErrorHandler = ({ page = '', slug = defaultSlug } = {}) =>
+    createFakeErrorHandler({ id: getErrorHandlerId({ page, slug }) });
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
   });
 
-  const getProps = ({
-    location = createFakeLocation(),
-    params,
-    ...customProps
-  } = {}) => {
-    return {
-      dispatch: sinon.stub(),
-      history: createFakeHistory(),
-      i18n: fakeI18n(),
-      location,
-      match: {
-        params: {
-          slug: fakeAddon.slug,
-          ...params,
-        },
-      },
+  const render = ({ history, location, slug = defaultSlug } = {}) => {
+    const initialEntry = location || getLocation(slug);
+
+    const renderOptions = {
+      history:
+        history ||
+        createHistory({
+          initialEntries: [initialEntry],
+        }),
       store,
-      ...customProps,
     };
+    return defaultRender(renderOptions);
   };
 
-  const render = ({ ...customProps } = {}) => {
-    const props = getProps(customProps);
-
-    return shallowUntilTarget(<AddonVersions {...props} />, AddonVersionsBase);
-  };
-
-  const _loadAddon = (addon = fakeAddon) => {
+  const _loadAddon = (addon = { ...fakeAddon, slug: defaultSlug }) => {
     store.dispatch(loadAddon({ addon, slug: addon.slug }));
   };
 
   const _loadVersions = ({
-    slug = fakeAddon.slug,
+    slug = defaultSlug,
     versions = [fakeVersion],
-  }) => {
+  } = {}) => {
     store.dispatch(loadVersions({ slug, versions }));
   };
 
+  const allVersionCards = () => screen.getAllByClassName('AddonVersionCard');
+
   it('does not fetch anything if there is an error', () => {
-    const slug = 'some-addon-slug';
-    const dispatch = sinon.stub(store, 'dispatch');
-    const errorHandler = createStubErrorHandler(new Error('some error'));
+    createFailedErrorHandler({ id: getErrorHandlerId(), store });
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    render({
-      errorHandler,
-      params: { slug },
-    });
+    render();
 
-    sinon.assert.notCalled(dispatch);
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_ADDON }),
+    );
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_VERSIONS }),
+    );
   });
 
   it('fetches an addon when requested by slug', () => {
-    const slug = 'some-addon-slug';
-    const dispatch = sinon.stub(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    render({ errorHandler, params: { slug } });
-
-    sinon.assert.calledWith(
-      dispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchAddon({
-        errorHandler,
+        errorHandler: getFakeErrorHandler(),
         showGroupedRatings: true,
-        slug,
+        slug: defaultSlug,
       }),
+    );
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_ADDON }),
     );
   });
 
   it('does not fetch an addon if one is already loaded', () => {
-    const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, slug };
-    const errorHandler = createStubErrorHandler();
+    _loadAddon();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    _loadAddon(addon);
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchAddon({
-        errorHandler,
-        showGroupedRatings: true,
-        slug,
-      }),
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_ADDON }),
     );
   });
 
   it('does not fetch an addon if one is already loading', () => {
-    const slug = 'some-addon-slug';
-    const errorHandler = createStubErrorHandler();
+    store.dispatch(
+      fetchAddon({ errorHandler: getFakeErrorHandler(), slug: defaultSlug }),
+    );
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    store.dispatch(fetchAddon({ errorHandler, slug }));
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchAddon({
-        errorHandler,
-        showGroupedRatings: true,
-        slug,
-      }),
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_ADDON }),
     );
   });
 
@@ -152,25 +128,17 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const newSlug = 'some-other-slug';
     const addon = { ...fakeAddon, slug };
-    const errorHandler = createStubErrorHandler();
 
     _loadAddon(addon);
 
-    const dispatch = sinon.stub(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ location: getLocation(slug) });
 
-    const root = render({
-      errorHandler,
-      params: { slug },
-    });
+    store.dispatch(onLocationChanged({ pathname: getLocation(newSlug) }));
 
-    dispatch.resetHistory();
-
-    root.setProps({ match: { params: { slug: newSlug } } });
-
-    sinon.assert.calledWith(
-      dispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchAddon({
-        errorHandler,
+        errorHandler: getFakeErrorHandler({ slug: newSlug }),
         showGroupedRatings: true,
         slug: newSlug,
       }),
@@ -178,70 +146,41 @@ describe(__filename, () => {
   });
 
   it('fetches versions when versions are not loaded', () => {
-    const slug = 'some-addon-slug';
-    const errorHandler = createStubErrorHandler();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchVersions({
-        errorHandlerId: errorHandler.id,
-        slug,
+        errorHandlerId: getErrorHandlerId(),
+        slug: defaultSlug,
       }),
+    );
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_VERSIONS }),
     );
   });
 
   it('does not fetch versions if they are already loading', () => {
-    const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, slug };
-    const errorHandler = createStubErrorHandler();
+    _loadAddon();
+    store.dispatch(
+      fetchVersions({ errorHandlerId: getErrorHandlerId(), slug: defaultSlug }),
+    );
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    _loadAddon(addon);
-    store.dispatch(fetchVersions({ errorHandlerId: errorHandler.id, slug }));
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchVersions({
-        errorHandlerId: errorHandler.id,
-        slug,
-      }),
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_VERSIONS }),
     );
   });
 
   it('does not fetch versions if they are already loaded', () => {
-    const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, slug };
-    const errorHandler = createStubErrorHandler();
+    _loadAddon();
+    _loadVersions();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    _loadAddon(addon);
-    _loadVersions({ slug });
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchVersions({
-        errorHandlerId: errorHandler.id,
-        slug,
-      }),
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_VERSIONS }),
     );
   });
 
@@ -249,250 +188,297 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const newSlug = 'some-other-slug';
     const addon = { ...fakeAddon, slug };
-    const errorHandler = createStubErrorHandler();
 
     _loadAddon(addon);
 
-    const dispatch = sinon.stub(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ location: getLocation(slug) });
 
-    const root = render({
-      errorHandler,
-      params: { slug },
-    });
+    store.dispatch(onLocationChanged({ pathname: getLocation(newSlug) }));
 
-    dispatch.resetHistory();
-
-    root.setProps({ match: { params: { slug: newSlug } } });
-
-    sinon.assert.calledWith(
-      dispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchVersions({
-        errorHandlerId: errorHandler.id,
+        errorHandlerId: getErrorHandlerId({ slug: newSlug }),
         slug: newSlug,
       }),
     );
   });
 
-  it('generates an empty header when no add-on is loaded', () => {
-    const root = render();
+  it('generates an empty header when no add-on is loaded', async () => {
+    render();
 
-    expect(root.find(AddonSummaryCard)).toHaveProp('headerText', '');
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(
+      screen.getByClassName('AddonSummaryCard-header-text'),
+    ).toHaveTextContent('');
+    expect(getElement('title')).toHaveTextContent(
+      'Add-ons for Firefox (en-US)',
+    );
   });
 
-  it('generates an empty header when no versions have loaded', () => {
-    const slug = 'some-slug';
-    const addon = { ...fakeAddon, slug };
+  it('generates an empty header when no versions have loaded', async () => {
+    _loadAddon();
+    render();
 
-    _loadAddon(addon);
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
 
-    const root = render({
-      params: { slug },
-    });
-
-    expect(root.find('title')).toHaveText('');
-    expect(root.find(AddonSummaryCard)).toHaveProp('headerText', '');
+    expect(
+      within(
+        screen.getByClassName('AddonSummaryCard-header-text'),
+      ).getByClassName('visually-hidden'),
+    ).toHaveTextContent('');
+    expect(getElement('title')).toHaveTextContent(
+      'Add-ons for Firefox (en-US)',
+    );
   });
 
-  it('generates a header with add-on name and version count when versions have loaded', () => {
+  it('generates a header with add-on name and version count when versions have loaded', async () => {
     const name = 'My addon';
-    const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
+    const addon = {
+      ...fakeAddon,
+      name: createLocalizedString(name),
+      slug: defaultSlug,
+    };
     const versions = [fakeVersion];
     const expectedHeader = `${name} version history - ${versions.length} version`;
 
     _loadAddon(addon);
-    _loadVersions({ slug, versions });
+    _loadVersions({ versions });
 
-    const root = render({
-      params: { slug },
-    });
+    render();
 
-    expect(root.find('title')).toHaveText(expectedHeader);
-    expect(root.find(AddonSummaryCard)).toHaveProp(
-      'headerText',
-      expectedHeader,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(expectedHeader),
     );
+    expect(
+      screen.getByRole('heading', { name: expectedHeader }),
+    ).toBeInTheDocument();
   });
 
-  it('generates a header for multiple versions', () => {
+  it('generates a header for multiple versions', async () => {
     const name = 'My addon';
-    const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
+    const addon = {
+      ...fakeAddon,
+      name: createLocalizedString(name),
+      slug: defaultSlug,
+    };
     const versions = [fakeVersion, fakeVersion];
     const expectedHeader = `${name} version history - ${versions.length} versions`;
 
     _loadAddon(addon);
-    _loadVersions({ slug, versions });
+    _loadVersions({ versions });
 
-    const root = render({
-      params: { slug },
-    });
+    render();
 
-    expect(root.find('title')).toHaveText(expectedHeader);
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(expectedHeader),
+    );
   });
 
   it('passes an add-on to the AddonSummaryCard', () => {
-    const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, slug };
+    _loadAddon();
+    render();
 
-    _loadAddon(addon);
-
-    const root = render({
-      params: { slug },
-    });
-
-    expect(root.find(AddonSummaryCard)).toHaveProp(
-      'addon',
-      createInternalAddonWithLang(addon),
+    expect(screen.getByAltText('Add-on icon')).toHaveAttribute(
+      'src',
+      fakeAddon.icon_url,
     );
   });
 
   it('passes a LoadingText component to the CardList header if the header is blank', () => {
-    const root = render();
+    render();
 
-    expect(root.find(CardList)).toHaveProp('header', <LoadingText />);
+    expect(
+      within(
+        within(screen.getByClassName('CardList')).getByClassName(
+          'Card-header-text',
+        ),
+      ).getByRole('alert'),
+    ).toBeInTheDocument();
   });
 
   it('passes the errorHandler and isAddonInstallPage to the Page component', () => {
-    const errorHandler = createCapturedErrorHandler({ status: 404 });
+    dispatchClientMetadata({ store, userAgent: userAgents.chrome[0] });
+    const message = 'Some error message';
+    createFailedErrorHandler({
+      id: getErrorHandlerId(),
+      message,
+      store,
+    });
 
-    const root = render({ errorHandler });
-    expect(root.find(Page)).toHaveProp('errorHandler', errorHandler);
-    expect(root.find(Page)).toHaveProp('isAddonInstallPage', true);
+    render();
+
+    expect(screen.getByText(message)).toBeInTheDocument();
+    expect(screen.queryByText('download Firefox')).not.toBeInTheDocument();
   });
 
-  describe('latest version', () => {
-    it('passes the first found version into the AddonVersionCard', () => {
-      const slug = 'some-addon-slug';
-      const version1 = { ...fakeVersion, id: 1 };
-      const addon = { ...fakeAddon, slug, current_version: version1 };
-      const version2 = { ...fakeVersion, id: 2 };
+  // This also tests a lot of the functionality in AddonVersionCard
+  it('passes the first found version into the AddonVersionCard', () => {
+    const app = 'testApp';
+    const created = '1967-02-19T10:09:01Z';
+    const i18n = fakeI18n();
+    const licenseName = 'some license name';
+    const licenseURL = 'http://example.com/';
+    const max = '2.0';
+    const min = '1.0';
+    const releaseNotes = 'Some release notes';
+    const size = 12345;
+    const versionNumber = '1.0';
+    const version1 = {
+      ...fakeVersion,
+      compatibility: {
+        [app]: {
+          min,
+          max,
+        },
+      },
+      file: { ...fakeFile, created, size },
+      id: 1,
+      license: {
+        ...fakeVersion.license,
+        name: createLocalizedString(licenseName),
+        url: licenseURL,
+      },
+      release_notes: createLocalizedString(releaseNotes),
+      version: versionNumber,
+    };
+    const addon = {
+      ...fakeAddon,
+      slug: defaultSlug,
+      current_version: version1,
+    };
+    const version2 = { ...fakeVersion, id: 2 };
 
-      _loadAddon(addon);
-      _loadVersions({ slug, versions: [version1, version2] });
+    _loadAddon(addon);
+    _loadVersions({ versions: [version1, version2] });
 
-      const root = render({
-        params: { slug },
-      });
+    render();
 
-      const latestVersionCard = root.find(AddonVersionCard).at(0);
-      expect(latestVersionCard).toHaveProp(
-        'addon',
-        createInternalAddonWithLang(addon),
-      );
-      expect(latestVersionCard).toHaveProp(
-        'version',
-        createInternalVersionWithLang(version1),
-      );
-    });
-
-    it('passes undefined for the version when versions have not been loaded', () => {
-      const root = render();
-
-      expect(root.find(AddonVersionCard)).toHaveProp('version', undefined);
-    });
-
-    it('passes null for the version when versions have been loaded, but there are no versions', () => {
-      const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug };
-
-      _loadAddon(addon);
-      _loadVersions({ slug, versions: [] });
-
-      const root = render({
-        params: { slug },
-      });
-
-      expect(root.find(AddonVersionCard)).toHaveProp('version', null);
-    });
+    const latestVersionCard = allVersionCards()[0];
+    expect(
+      within(latestVersionCard).getByRole('heading', {
+        name: `Version ${versionNumber}`,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      within(latestVersionCard).getByText(`Works with ${app} ${min} to ${max}`),
+    ).toBeInTheDocument();
+    expect(
+      within(latestVersionCard).getByText(
+        `Released ${i18n.moment(created).format('ll')} - ${formatFilesize({
+          i18n,
+          size,
+        })}`,
+      ),
+    ).toBeInTheDocument();
+    expect(
+      within(latestVersionCard).getByText(releaseNotes),
+    ).toBeInTheDocument();
+    expect(
+      within(latestVersionCard).getByTextAcrossTags(
+        `Source code released under ${licenseName}`,
+      ),
+    ).toBeInTheDocument();
+    expect(
+      within(latestVersionCard).getByRole('link', { name: licenseName }),
+    ).toHaveAttribute('href', licenseURL);
   });
 
-  describe('older versions', () => {
-    it('renders multiple AddonVersionCards for multiple versions', () => {
-      const slug = 'some-addon-slug';
-      const version1 = { ...fakeVersion, id: 1 };
-      const addon = { ...fakeAddon, slug, current_version: version1 };
-      const version2 = { ...fakeVersion, id: 2 };
-      const version3 = { ...fakeVersion, id: 3 };
+  // TODO: Note to remove this test when tests for AddonVersionCard are added,
+  // as it will be redundant.
+  it('passes null for the version when versions have been loaded, but there are no versions', () => {
+    _loadAddon();
+    _loadVersions({ versions: [] });
 
-      _loadAddon(addon);
-      _loadVersions({ slug, versions: [version1, version2, version3] });
+    render();
 
-      const root = render({
-        params: { slug },
-      });
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+      'No version found',
+    );
+  });
 
-      const versionCards = root.find(AddonVersionCard);
-      expect(versionCards).toHaveLength(3);
-    });
+  it('passes the correct versions into multiple AddonVersionCards', () => {
+    const version1 = { ...fakeVersion, id: 1, version: '1.0' };
+    const addon = {
+      ...fakeAddon,
+      slug: defaultSlug,
+      current_version: version1,
+    };
+    const version2 = { ...fakeVersion, id: 2, version: '2.0' };
+    const version3 = { ...fakeVersion, id: 3, version: '3.0' };
 
-    it('passes the correct versions into multiple AddonVersionCards', () => {
-      const slug = 'some-addon-slug';
-      const version1 = { ...fakeVersion, id: 1 };
-      const addon = { ...fakeAddon, slug, current_version: version1 };
-      const version2 = { ...fakeVersion, id: 2 };
-      const version3 = { ...fakeVersion, id: 3 };
+    _loadAddon(addon);
+    _loadVersions({ versions: [version1, version2, version3] });
 
-      _loadAddon(addon);
-      _loadVersions({ slug, versions: [version1, version2, version3] });
+    render();
 
-      const root = render({
-        params: { slug },
-      });
+    const versionCards = allVersionCards();
+    expect(versionCards).toHaveLength(3);
+    expect(
+      within(versionCards[0]).getByText('Version 1.0'),
+    ).toBeInTheDocument();
+    expect(
+      within(versionCards[1]).getByText('Version 2.0'),
+    ).toBeInTheDocument();
+    expect(
+      within(versionCards[2]).getByText('Version 3.0'),
+    ).toBeInTheDocument();
+  });
 
-      const versionCards = root.find(AddonVersionCard);
-      expect(versionCards.at(0)).toHaveProp(
-        'version',
-        createInternalVersionWithLang(version1),
-      );
-      expect(versionCards.at(1)).toHaveProp(
-        'version',
-        createInternalVersionWithLang(version2),
-      );
-      expect(versionCards.at(2)).toHaveProp(
-        'version',
-        createInternalVersionWithLang(version3),
-      );
-    });
+  it('displays expected headings for latest and older versions', () => {
+    const version1 = { ...fakeVersion, id: 1 };
+    const addon = {
+      ...fakeAddon,
+      slug: defaultSlug,
+      current_version: version1,
+    };
+    const version2 = { ...fakeVersion, id: 2 };
+    const version3 = { ...fakeVersion, id: 3 };
+    const version4 = { ...fakeVersion, id: 4 };
 
-    it('passes a header for just the first older version', () => {
-      const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug };
-      const version1 = { ...fakeVersion, id: 1 };
-      const version2 = { ...fakeVersion, id: 2 };
-      const version3 = { ...fakeVersion, id: 3 };
+    _loadAddon(addon);
+    _loadVersions({ versions: [version1, version2, version3, version4] });
 
-      _loadAddon(addon);
-      _loadVersions({ slug, versions: [version1, version2, version3] });
+    render();
 
-      const root = render({
-        params: { slug },
-      });
+    const versionCards = allVersionCards();
 
-      const versionCards = root.find(AddonVersionCard);
-      expect(versionCards.at(1)).toHaveProp('headerText', 'Older versions');
-      expect(versionCards.at(2)).toHaveProp('headerText', null);
-    });
-
-    it('passes isCurrentVersion for just the current version', () => {
-      const slug = 'some-addon-slug';
-      const version1 = { ...fakeVersion, id: 1 };
-      const addon = { ...fakeAddon, slug, current_version: version1 };
-      const version2 = { ...fakeVersion, id: 2 };
-      const version3 = { ...fakeVersion, id: 3 };
-
-      _loadAddon(addon);
-      _loadVersions({ slug, versions: [version1, version2, version3] });
-
-      const root = render({
-        params: { slug },
-      });
-
-      const versionCards = root.find(AddonVersionCard);
-      expect(versionCards.at(0)).toHaveProp('isCurrentVersion');
-      expect(versionCards.at(1)).not.toHaveProp('isCurrentVersion');
-      expect(versionCards.at(2)).not.toHaveProp('isCurrentVersion');
-    });
+    expect(
+      within(versionCards[0]).getByRole('heading', {
+        name: 'Latest version',
+      }),
+    ).toBeInTheDocument();
+    expect(
+      within(versionCards[1]).getByRole('heading', {
+        name: 'Older versions',
+      }),
+    ).toBeInTheDocument();
+    expect(
+      within(versionCards[1]).queryByRole('heading', {
+        name: 'Latest version',
+      }),
+    ).not.toBeInTheDocument();
+    expect(
+      within(versionCards[2]).queryByRole('heading', {
+        name: 'Older versions',
+      }),
+    ).not.toBeInTheDocument();
+    expect(
+      within(versionCards[2]).queryByRole('heading', {
+        name: 'Latest version',
+      }),
+    ).not.toBeInTheDocument();
+    expect(
+      within(versionCards[3]).queryByRole('heading', {
+        name: 'Older versions',
+      }),
+    ).not.toBeInTheDocument();
+    expect(
+      within(versionCards[3]).queryByRole('heading', {
+        name: 'Latest version',
+      }),
+    ).not.toBeInTheDocument();
   });
 
   describe('extractId', () => {
@@ -500,23 +486,20 @@ describe(__filename, () => {
       const page = 19;
       const slug = 'some-addon-slug';
       expect(
-        extractId(
-          getProps({
-            location: createFakeLocation({ query: { page } }),
-            params: { slug },
-          }),
-        ),
+        extractId({
+          location: { query: { page } },
+          match: { params: { slug } },
+        }),
       ).toEqual(`${slug}-${page}`);
     });
 
     it('returns a unique ID provided by just the slug if there is no page query param', () => {
       const slug = 'some-addon-slug';
       expect(
-        extractId(
-          getProps({
-            params: { slug },
-          }),
-        ),
+        extractId({
+          location: { query: {} },
+          match: { params: { slug } },
+        }),
       ).toEqual(`${slug}-`);
     });
   });
