@@ -1599,7 +1599,7 @@ const getAllByFeature = (container, queryFunction, value) => {
   if (elements.length) {
     return elements;
   }
-  throw new Error('getAllByFeature returned more than one element.');
+  throw new Error('getAllByFeature returned no elements.');
 };
 
 const queryByFeature = (container, queryFunction, value) => {
