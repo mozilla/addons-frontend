@@ -1,5 +1,5 @@
 import serialize from 'serialize-javascript';
-import { waitFor } from '@testing-library/react';
+import { cleanup, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {
@@ -30,10 +30,13 @@ import {
   dispatchSignInActionsWithStore,
   fakeAddon,
   fakeAuthor,
+  fakeFile,
   fakePreview,
+  fakeVersion,
   getElement,
   renderPage as defaultRender,
   screen,
+  within,
 } from 'tests/unit/helpers';
 
 jest.mock('amo/tracking', () => ({
@@ -94,6 +97,29 @@ describe(__filename, () => {
     });
     return render(props);
   };
+
+  const createVersionWithPermissions = ({
+    optional = [],
+    required = [],
+    versionProps = {},
+  } = {}) => {
+    return {
+      ...fakeVersion,
+      file: {
+        ...fakeFile,
+        optional_permissions: optional,
+        permissions: required,
+      },
+
+      ...versionProps,
+    };
+  };
+
+  const mockClientHeight = (height) =>
+    Object.defineProperty(HTMLElement.prototype, 'clientHeight', {
+      configurable: true,
+      value: height,
+    });
 
   describe('Tests for ThemeImage', () => {
     it('renders a theme image when add-on is a static theme', () => {
@@ -600,6 +626,358 @@ describe(__filename, () => {
         category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,
         label: addon.guid,
       });
+    });
+  });
+
+  describe('Tests for PermissionsCard', () => {
+    const getPermissionsCard = () => screen.getByClassName('PermissionsCard');
+
+    describe('no permissions', () => {
+      it('renders nothing without a version', () => {
+        addon.current_version = null;
+        _loadAddon();
+        render();
+
+        expect(screen.queryByText('Permissions')).not.toBeInTheDocument();
+      });
+
+      it('renders nothing for a version with no permissions', () => {
+        addon.current_version = createVersionWithPermissions();
+        _loadAddon();
+        render();
+
+        expect(screen.queryByText('Permissions')).not.toBeInTheDocument();
+      });
+
+      it('renders nothing for a version with no displayable permissions', () => {
+        addon.current_version = createVersionWithPermissions({
+          optional: ['activeTab'],
+          required: ['activeTab'],
+        });
+        _loadAddon();
+        render();
+
+        expect(screen.queryByText('Permissions')).not.toBeInTheDocument();
+      });
+    });
+
+    describe('with permissions', () => {
+      it('passes the expected contentId to ShowMoreCard', () => {
+        // Mock the clientHeight so the "read more" link will be present.
+        mockClientHeight(301);
+
+        const versionId = 12345;
+        addon.current_version = createVersionWithPermissions({
+          required: ['bookmarks'],
+          versionProps: { id: versionId },
+        });
+        _loadAddon();
+        render();
+
+        const permissionsCard = screen.getByClassName('PermissionsCard');
+        expect(permissionsCard).not.toHaveClass('ShowMoreCard--expanded');
+
+        // Click the link to expand the ShowMoreCard.
+        userEvent.click(
+          within(permissionsCard).getByRole('link', {
+            name: 'Expand to read more',
+          }),
+        );
+
+        // It should be expanded now.
+        expect(permissionsCard).toHaveClass('ShowMoreCard--expanded');
+
+        // Update with the same version id, which should change nothing.
+        _loadAddon();
+
+        // It should still be expanded.
+        expect(permissionsCard).toHaveClass('ShowMoreCard--expanded');
+
+        // Update to a different version id.
+        addon.current_version = createVersionWithPermissions({
+          required: ['bookmarks'],
+          versionProps: { id: versionId + 1 },
+        });
+        _loadAddon();
+
+        // It should revert to not being expanded.
+        expect(permissionsCard).not.toHaveClass('ShowMoreCard--expanded');
+      });
+
+      it('renders learn more link in header', () => {
+        addon.current_version = createVersionWithPermissions({
+          required: ['bookmarks'],
+        });
+        _loadAddon();
+        render();
+
+        expect(screen.getByText('Permissions')).toBeInTheDocument();
+        const learnMoreLink = within(getPermissionsCard()).getByText(
+          'Learn more',
+        );
+        expect(learnMoreLink).toHaveAttribute(
+          'href',
+          'https://support.mozilla.org/kb/permission-request-messages-firefox-extensions',
+        );
+        expect(
+          within(learnMoreLink).getByClassName('Icon-external-dark'),
+        ).toBeInTheDocument();
+      });
+
+      it('renders required permissions only', () => {
+        addon.current_version = createVersionWithPermissions({
+          required: ['bookmarks'],
+        });
+        _loadAddon();
+        render();
+
+        expect(screen.getByText('This add-on needs to:')).toHaveClass(
+          'PermissionsCard-subhead--required',
+        );
+        expect(within(getPermissionsCard()).getByTagName('ul')).toHaveClass(
+          'PermissionsCard-list--required',
+        );
+        expect(
+          screen.getByClassName('Icon-permission-bookmarks'),
+        ).toBeInTheDocument();
+        expect(
+          screen.queryByClassName('PermissionsCard-subhead--optional'),
+        ).not.toBeInTheDocument();
+        expect(
+          screen.queryByClassName('PermissionsCard-list--optional'),
+        ).not.toBeInTheDocument();
+      });
+
+      it('renders optional permissions only', () => {
+        addon.current_version = createVersionWithPermissions({
+          optional: ['bookmarks'],
+        });
+        _loadAddon();
+        render();
+
+        expect(screen.getByText('This add-on may also ask to:')).toHaveClass(
+          'PermissionsCard-subhead--optional',
+        );
+        expect(within(getPermissionsCard()).getByTagName('ul')).toHaveClass(
+          'PermissionsCard-list--optional',
+        );
+        expect(
+          screen.getByClassName('Icon-permission-bookmarks'),
+        ).toBeInTheDocument();
+        expect(
+          screen.queryByClassName('PermissionsCard-subhead--required'),
+        ).not.toBeInTheDocument();
+        expect(
+          screen.queryByClassName('PermissionsCard-list--required'),
+        ).not.toBeInTheDocument();
+      });
+
+      it('renders both optional and required permissions', () => {
+        addon.current_version = createVersionWithPermissions({
+          optional: ['bookmarks'],
+          required: ['history'],
+        });
+        _loadAddon();
+        render();
+
+        expect(screen.getByText('This add-on needs to:')).toHaveClass(
+          'PermissionsCard-subhead--required',
+        );
+        expect(screen.getByText('This add-on may also ask to:')).toHaveClass(
+          'PermissionsCard-subhead--optional',
+        );
+        expect(
+          screen.getByClassName('Icon-permission-bookmarks'),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByClassName('Icon-permission-history'),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByClassName('PermissionsCard-list--required'),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByClassName('PermissionsCard-list--optional'),
+        ).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe('Tests for HostPermissions', () => {
+    it('formats domain permissions', () => {
+      addon.current_version = createVersionWithPermissions({
+        required: [
+          '*://*.mozilla.org/*',
+          '*://*.mozilla.com/*',
+          '*://*.mozilla.ca/*',
+          '*://*.mozilla.us/*',
+          '*://*.mozilla.co.nz/*',
+          '*://*.mozilla.co.uk/*',
+        ],
+      });
+      _loadAddon();
+      render();
+
+      expect(
+        screen.getAllByClassName('Icon-permission-hostPermission'),
+      ).toHaveLength(6);
+      expect(
+        screen.getByText(
+          'Access your data for sites in the mozilla.org domain',
+        ),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'Access your data for sites in the mozilla.com domain',
+        ),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Access your data for sites in the mozilla.ca domain'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Access your data for sites in the mozilla.us domain'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'Access your data for sites in the mozilla.co.nz domain',
+        ),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'Access your data for sites in the mozilla.co.uk domain',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('formats site permissions', () => {
+      addon.current_version = createVersionWithPermissions({
+        required: [
+          '*://developer.mozilla.org/*',
+          '*://addons.mozilla.org/*',
+          '*://www.mozilla.org/*',
+          '*://testing.mozilla.org/*',
+          '*://awesome.mozilla.org/*',
+        ],
+      });
+      _loadAddon();
+      render();
+
+      expect(
+        screen.getAllByClassName('Icon-permission-hostPermission'),
+      ).toHaveLength(5);
+      expect(
+        screen.getByText('Access your data for developer.mozilla.org'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Access your data for addons.mozilla.org'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Access your data for www.mozilla.org'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Access your data for testing.mozilla.org'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Access your data for awesome.mozilla.org'),
+      ).toBeInTheDocument();
+    });
+
+    it('returns a single host permission for all urls', () => {
+      const permissions = [
+        '*://*.mozilla.com/*',
+        '*://developer.mozilla.org/*',
+      ];
+      for (const allUrlsPermission of ['<all_urls>', '*://*/']) {
+        addon.current_version = createVersionWithPermissions({
+          required: [...permissions, allUrlsPermission],
+        });
+        _loadAddon();
+        render();
+
+        expect(
+          screen.getAllByClassName('Icon-permission-hostPermission'),
+        ).toHaveLength(1);
+        expect(
+          screen.getByText('Access your data for all websites'),
+        ).toBeInTheDocument();
+        cleanup();
+      }
+    });
+
+    it('does not return a host permission for moz-extension: urls', () => {
+      addon.current_version = createVersionWithPermissions({
+        required: ['moz-extension://should/not/generate/a/permission/'],
+      });
+      _loadAddon();
+      render();
+
+      expect(screen.queryByClassName('Permission')).not.toBeInTheDocument();
+    });
+
+    it('does not return a host permission for an invalid pattern', () => {
+      addon.current_version = createVersionWithPermissions({
+        required: ['*'],
+      });
+      _loadAddon();
+      render();
+
+      expect(screen.queryByClassName('Permission')).not.toBeInTheDocument();
+    });
+
+    it('deduplicates domain and site permissions', () => {
+      addon.current_version = createVersionWithPermissions({
+        required: [
+          'https://*.okta.com/',
+          'https://*.okta.com/login/login.htm*',
+          'https://*.okta.com/signin/verify/okta/push',
+          'https://*.okta.com/signin/verify/okta/sms',
+          'https://trishulgoel.com/about',
+          'https://trishulgoel.com/speaker',
+          '*://*.mozilla.org/*',
+          '*://*.mozilla.com/*',
+          '*://*.mozilla.ca/*',
+          '*://*.mozilla.us/*',
+          '*://*.mozilla.co.nz/*',
+          '*://*.mozilla.co.uk/*',
+        ],
+      });
+      _loadAddon();
+      render();
+
+      expect(
+        screen.getAllByClassName('Icon-permission-hostPermission'),
+      ).toHaveLength(8);
+      expect(
+        screen.getByText('Access your data for sites in the okta.com domain'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'Access your data for sites in the mozilla.org domain',
+        ),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'Access your data for sites in the mozilla.com domain',
+        ),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Access your data for sites in the mozilla.ca domain'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Access your data for sites in the mozilla.us domain'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'Access your data for sites in the mozilla.co.nz domain',
+        ),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'Access your data for sites in the mozilla.co.uk domain',
+        ),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Access your data for trishulgoel.com'),
+      ).toBeInTheDocument();
     });
   });
 });
