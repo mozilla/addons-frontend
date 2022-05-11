@@ -17,23 +17,17 @@ import {
   INACTIVE,
   INSTALLED,
   INSTALLING,
-  INSTALL_ACTION,
-  INSTALL_STARTED_ACTION,
   UNINSTALLING,
   UNKNOWN,
 } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import log from 'amo/logger';
-import tracking, {
-  getAddonTypeForTracking,
-  getAddonEventCategory,
-} from 'amo/tracking';
 import Button from 'amo/components/Button';
 import type { WithInstallHelpersInjectedProps } from 'amo/installAddon';
 import type { ButtonType } from 'amo/components/Button';
 import type { AddonVersionType } from 'amo/reducers/versions';
 import type { AddonType } from 'amo/types/addons';
-import type { AnchorEvent, ElementEvent } from 'amo/types/dom';
+import type { ElementEvent } from 'amo/types/dom';
 import type { I18nType } from 'amo/types/i18n';
 
 import './styles.scss';
@@ -53,7 +47,6 @@ type Props = {|
 type DefaultProps = {|
   _config: typeof config,
   _log: typeof log,
-  _tracking: typeof tracking,
   _window: typeof window,
   puffy?: boolean,
 |};
@@ -62,11 +55,6 @@ type InternalProps = {|
   ...Props,
   ...DefaultProps,
   i18n: I18nType,
-|};
-
-type TrackParams = {|
-  guid: string,
-  type: string,
 |};
 
 type ButtonProps = {|
@@ -87,29 +75,8 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     _config: config,
     _log: log,
-    _tracking: tracking,
     _window: typeof window !== 'undefined' ? window : {},
     puffy: true,
-  };
-
-  installOpenSearch: (event: AnchorEvent) => boolean = (event: AnchorEvent) => {
-    const { _log, _window, addon } = this.props;
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    const installURL = event.currentTarget.href;
-
-    // eslint-disable-next-line amo/only-log-strings
-    _log.info('Adding OpenSearch Provider', { addon });
-    _window.external.AddSearchProvider(installURL);
-
-    const { guid, type } = addon;
-
-    this.trackInstallStarted({ guid, type });
-    this.trackInstallSucceeded({ guid, type });
-
-    return false;
   };
 
   installExtension: AsyncEventHandler = async (event: ElementEvent) => {
@@ -153,26 +120,6 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
     return false;
   };
-
-  trackInstallStarted({ guid, type }: TrackParams) {
-    const { _tracking } = this.props;
-
-    _tracking.sendEvent({
-      action: getAddonTypeForTracking(type),
-      category: getAddonEventCategory(type, INSTALL_STARTED_ACTION),
-      label: guid,
-    });
-  }
-
-  trackInstallSucceeded({ guid, type }: TrackParams) {
-    const { _tracking } = this.props;
-
-    _tracking.sendEvent({
-      action: getAddonTypeForTracking(type),
-      category: getAddonEventCategory(type, INSTALL_ACTION),
-      label: guid,
-    });
-  }
 
   showLoadingAnimation(): boolean {
     const { addon, status } = this.props;
