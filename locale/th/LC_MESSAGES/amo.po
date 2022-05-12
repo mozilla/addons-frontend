@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-05-03 19:24+0000\n"
-"PO-Revision-Date: 2022-05-12 13:22+0000\n"
+"PO-Revision-Date: 2022-05-12 13:31+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -1888,14 +1888,12 @@ msgid "Get Mozilla VPN"
 msgstr "รับ Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
-#, fuzzy
 msgid "To find add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "ส่วนเสริมนี้เข้ากันไม่ได้กับ Firefox รุ่นของคุณ"
+msgstr "เพื่อค้นหาส่วนเสริมที่เข้ากันได้กับ Firefox สำหรับ Android ให้<a href=\"%(newLocation)s\">คลิกที่นี่</a>"
 
 #: src/amo/components/WrongPlatformWarning/index.js:91
-#, fuzzy
 msgid "Add-ons are not compatible with Firefox for iOS. Try installing them on Firefox for desktop."
-msgstr "ส่วนเสริมนี้เข้ากันไม่ได้กับเบราว์เซอร์นี้ โปรดลองติดตั้งบน Firefox สำหรับเดสก์ท็อป"
+msgstr "ส่วนเสริมนี้เข้ากันไม่ได้กับ iOS โปรดลองติดตั้งบน Firefox สำหรับเดสก์ท็อป"
 
 #: src/amo/i18n/utils.js:263
 msgid "%(localizedSize)s B"
@@ -1988,7 +1986,7 @@ msgstr "นโยบายความเป็นส่วนตัวสำห
 
 #: src/amo/pages/AddonReviewList/index.js:207
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "บทวิจารณ์และการให้คะแนนสำหรับ %(addonName)s ค้นหาว่าผู้ใช้คนอื่นคิดอย่างไรเกี่ยวกับ %(addonName)s และเพิ่มไปยังเบราว์เซอร์ Firefox ของคุณ"
 
 #: src/amo/pages/AddonReviewList/index.js:242
 msgid "Show all reviews"
@@ -2046,7 +2044,7 @@ msgstr "รุ่นเก่ากว่า"
 
 #: src/amo/pages/Block/index.js:102
 msgid "View block request"
-msgstr ""
+msgstr "ดูคำขอปิดกั้น"
 
 #: src/amo/pages/Block/index.js:119
 msgid "Versions blocked: all versions."
@@ -2054,11 +2052,11 @@ msgstr "รุ่นที่ถูกปิดกั้น: รุ่นทั�
 
 #: src/amo/pages/Block/index.js:122
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "รุ่นที่ปิดกั้น: %(min)s ถึง %(max)s"
 
 #: src/amo/pages/Block/index.js:144
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s ถูกปิดกั้นเพื่อปกป้องคุณ"
 
 #: src/amo/pages/Block/index.js:149
 msgid "This add-on has been blocked for your protection."
@@ -2066,7 +2064,7 @@ msgstr "ส่วนเสริมนี้ถูกปิดกั้นเพ
 
 #: src/amo/pages/Block/index.js:160
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "ทำไมจึงถูกปิดกั้น?"
 
 #: src/amo/pages/Block/index.js:165
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
@@ -2074,7 +2072,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:177
 msgid "What does this mean?"
-msgstr ""
+msgstr "สิ่งนี้หมายถึงอะไร?"
 
 #: src/amo/pages/Block/index.js:179
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
@@ -2088,7 +2086,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:93
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "ถูกปิดกั้นเมื่อ %(date)s"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -2134,11 +2132,11 @@ msgstr "ค้นหาส่วนขยายและชุดตกแต่
 
 #: src/amo/pages/Collection/index.js:517
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "ดาวน์โหลดและสร้างคอลเลกชัน Firefox เพื่อติดตามส่วนขยายและชุดตกแต่งที่ชื่นชอบ สำรวจ %(collectionName)s—%(collectionDescription)s"
 
 #: src/amo/pages/Collection/index.js:520
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "ดาวน์โหลดและสร้างคอลเลกชัน Firefox เพื่อติดตามส่วนขยายและชุดตกแต่งที่ชื่นชอบ สำรวจ %(collectionName)s"
 
 #: src/amo/pages/CollectionList/index.js:105
 msgid "My collections"
@@ -2178,7 +2176,7 @@ msgstr "เปลี่ยนรูปลักษณ์ของ Firefox ด้
 
 #: src/amo/pages/Home/index.js:167
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "ดาวน์โหลดส่วนขยายและชุดตกแต่ง Firefox ซึ่งเปรียบเสมือนแอปสำหรับเบราว์เซอร์ของคุณที่สามารถปิดกั้นโฆษณาที่น่ารำคาญ ปกป้องรหัสผ่าน เปลี่ยนลักษณะที่ปรากฏของเบราว์เซอร์ และอื่น ๆ ได้"
 
 #: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
 msgid "See more recommended extensions"
@@ -2222,11 +2220,11 @@ msgstr "ดูชุดตกแต่งที่ได้รับการจ
 
 #: src/amo/pages/LandingPage/index.js:207
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "ดาวน์โหลดชุดตกแต่งเพื่อเปลี่ยนรูปลักษณ์ของ Firefox ปรับแต่งประสบการณ์ของคุณให้เข้ากับรสนิยมของคุณด้วยตัวเลือกต่าง ๆ มากมาย เช่น สัตว์ร้ายแสนน่ารัก หุ่นยนต์วายร้าย ภาพทิวทัศน์อันงดงาม"
 
 #: src/amo/pages/LandingPage/index.js:212
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr ""
+msgstr "ดาวน์โหลดส่วนขยาย Firefox เพื่อเพิ่มคุณลักษณะที่ปรับแต่งการท่องเว็บ ปกป้องรหัสผ่าน ค้นหาข้อเสนอ ปรับปรุงวิดีโอ และปิดกั้นโฆษณาที่น่ารำคาญด้วยแอปบนเบราว์เซอร์"
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2250,7 +2248,7 @@ msgstr "พจนานุกรมและชุดภาษา"
 
 #: src/amo/pages/LanguageTools/index.js:167
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "ดาวน์โหลดพจนานุกรม Firefox และส่วนขยายชุดภาษา เพิ่มตัวเลือกภาษาใหม่ให้กับตัวตรวจตัวสะกดบนเบราว์เซอร์ของคุณ หรือเปลี่ยนภาษาส่วนติดต่อของเบราว์เซอร์"
 
 #: src/amo/pages/LanguageTools/index.js:178
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2303,9 +2301,8 @@ msgid "To see more ways you can contribute to the add-on community, please visit
 msgstr "หากต้องการดูวิธีอื่น ๆ ที่คุณสามารถมีส่วนร่วมกับชุมชนส่วนเสริม โปรดเยี่ยมชม%(startLink)sวิกิ%(endLink)sของเรา"
 
 #: src/amo/pages/StaticPages/About/index.js:189
-#, fuzzy
 msgid "Report an issue"
-msgstr "รายงานข้อบกพร่อง"
+msgstr "รายงานปัญหา"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2317,7 +2314,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "เว็บไซต์อย่างเป็นทางการของ Mozilla สำหรับดาวน์โหลดส่วนขยายและชุดตกแต่ง Firefox เพิ่มคุณลักษณะใหม่และเปลี่ยนรูปลักษณ์ของเบราว์เซอร์เพื่อปรับแต่งประสบการณ์การท่องเว็บของคุณ"
 
 #: src/amo/pages/StaticPages/About/index.js:210
 msgid ""
@@ -2339,7 +2336,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:258
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sข้อมูลเกี่ยวกับวิธีการติดต่อทีมงานส่วนเสริมของ Mozilla สามารถพบได้ที่นี่%(endLink)s"
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
