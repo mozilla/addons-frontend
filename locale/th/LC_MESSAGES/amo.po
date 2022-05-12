@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-05-03 19:24+0000\n"
-"PO-Revision-Date: 2022-05-12 13:31+0000\n"
+"PO-Revision-Date: 2022-05-12 13:42+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -2343,10 +2343,13 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO) เป็นไซต์อย่างเป็นทางการของ Mozilla สำหรับค้นพบและติดตั้งส่วนเสริมสำหรับเบราว์เซอร์ Firefox "
+"ส่วนเสริมช่วยคุณดัดแปลงและปรับแต่งประสบการณ์การท่องเว็บของคุณด้วยการเพิ่มคุณลักษณะใหม่ ๆ ให้กับ Firefox เพื่อปรับปรุงการโต้ตอบกับเนื้อหาเว็บของคุณให้ดีขึ้น "
+"รวมทั้งเปลี่ยนรูปลักษณ์ของเบราว์เซอร์ของคุณ"
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
+msgstr "หากคุณกำลังมองหาส่วนเสริมสำหรับ Thunderbird หรือ SeaMonkey โปรดไปที่ %(startTBLink)saddons.thunderbird.net%(endTBLink)s หรือ %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s"
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
@@ -2357,6 +2360,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
+"ส่วนเสริมที่แสดงในที่นี้ถูกสร้างขึ้นโดยนักพัฒนาและนักออกแบบชุดตกแต่งนับพันจากทั่วทุกมุมโลก ตั้งแต่ผู้ที่ชอบทำงานอดิเรกไปจนถึงองค์กรขนาดใหญ่ บางส่วนเสริมที่มีใน AMO "
+"ได้ถูกเผยแพร่โดยอัตโนมัติและอาจต้องตรวจทานโดยทีมบรรณาธิการเมื่อเปิดเผยต่อสาธารณะแล้ว"
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
@@ -2367,16 +2372,21 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla เป็นแชมเปี้ยนที่ไม่หวังผลกำไรด้านอินเทอร์เน็ต เราสร้าง Firefox เพื่อช่วยให้อินเทอร์เน็ตแข็งแกร่ง เปิดกว้าง และเข้าถึงได้ทุกคน ส่วนเสริมสนับสนุนตัวเลือกของผู้ใช้และการปรับแต่งใน Firefox "
+"และคุณสามารถมีส่วนร่วมด้วยวิธีต่อไปนี้:"
 
 #: src/amo/pages/StaticPages/About/index.js:77
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sสร้างส่วนเสริมของคุณเอง%(endLink)s เราให้บริการโฮสต์และอัปเดตโดยไม่เสียค่าใช้จ่าย เพื่อช่วยให้คุณสามารถเข้าถึงผู้ใช้ที่เป็นกลุ่มเป้าหมายขนาดใหญ่ได้"
 
 #: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"ช่วยปรับปรุงเว็บไซต์นี้ให้ดีขึ้น เว็บไซต์นี้เป็นเว็บไซต์แบบเปิดต้นฉบับ (open source) ซึ่งคุณสามารถรายงานข้อบกพร่องและส่งแพตช์ต่าง ๆ ได้ "
+"คุณสามารถเริ่มจาก%(startGoodFirstBugLink)sรายงานข้อบกพร่องแรก%(endGoodFirstBugLink)s หรือดูปัญหาที่เปิดอยู่ทั้งหมดสำหรับ%(startAddonsServerRepoLink)sเซิร์ฟเวอร์%(endAddonsServerRepoLink)sและ "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s ของ AMO บน GitHub"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
@@ -2384,13 +2394,15 @@ msgstr "รวมอีเมล หมายเลขโทรศัพท์ �
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "เขียนบทวิจารณ์ให้กับส่วนเสริมที่คุณหรือองค์กรของคุณสร้างขึ้นหรือเป็นตัวแทนเผยแพร่"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"วิจารณ์ส่วนเสริมเกี่ยวกับจุดประสงค์บางอย่างที่ตั้งใจไว้ เช่น เขียนบทวิจารณ์เชิงลบเกี่ยวกับส่วนเสริมที่แสดงโฆษณาหรือต้องมีการรวบรวมข้อมูล หากนั่นเป็นจุดประสงค์ที่ตั้งใจไว้ของส่วนเสริม "
+"หรือส่วนเสริมนั้นต้องมีการรวบรวมข้อมูลจึงจะสามารถทำงานได้"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
