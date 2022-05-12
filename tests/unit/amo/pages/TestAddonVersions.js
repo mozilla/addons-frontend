@@ -606,6 +606,12 @@ describe(__filename, () => {
           screen.getByClassName('AddonVersionCard-releaseNotes'),
         ).getByTagName('b'),
       ).toBeInTheDocument();
+      expect(
+        within(
+          // eslint-disable-next-line testing-library/prefer-presence-queries
+          screen.getByClassName('AddonVersionCard-releaseNotes'),
+        ).queryByTagName('script'),
+      ).not.toBeInTheDocument();
     });
 
     it('displays a license without a name', () => {
