@@ -1,5 +1,6 @@
 /* @flow */
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 
 import translate from 'amo/i18n/translate';
@@ -12,7 +13,7 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
-  roundedCorners?: boolean,
+  roundedCorners: boolean,
 |};
 
 type InternalProps = {|
@@ -23,30 +24,30 @@ type InternalProps = {|
 export const ThemeImageBase = ({
   addon,
   i18n,
-  roundedCorners = false,
+  roundedCorners,
 }: InternalProps): null | React.Node => {
-  if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
-    const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
-      title: addon.name,
-    });
+  invariant(
+    addon && ADDON_TYPE_STATIC_THEME === addon.type,
+    'A ThemeImage can only be rendered for a static theme',
+  );
+  const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+    title: addon.name,
+  });
 
-    return (
-      <div
-        className={makeClassName('ThemeImage', {
-          'ThemeImage--rounded-corners': roundedCorners,
-        })}
-        role="presentation"
-      >
-        <img
-          alt={label}
-          className="ThemeImage-image"
-          src={getPreviewImage(addon)}
-        />
-      </div>
-    );
-  }
-
-  return null;
+  return (
+    <div
+      className={makeClassName('ThemeImage', {
+        'ThemeImage--rounded-corners': roundedCorners,
+      })}
+      role="presentation"
+    >
+      <img
+        alt={label}
+        className="ThemeImage-image"
+        src={getPreviewImage(addon)}
+      />
+    </div>
+  );
 };
 
 const ThemeImage: React.ComponentType<Props> = translate()(ThemeImageBase);
