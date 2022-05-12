@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-05-03 19:24+0000\n"
-"PO-Revision-Date: 2022-05-12 13:42+0000\n"
+"PO-Revision-Date: 2022-05-12 13:50+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -2417,6 +2417,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"โปรดรายงานหรือติดธงบทวิจารณ์ที่น่าสงสัยใด ๆ โดยการคลิก \"รายงานบทวิจารณ์นี้\" และบทวิจารณ์ดังกล่าวจะถูกส่งไปที่ไซต์เพื่อทำการตรวจสอบ "
+"ทีมตรวจสอบของเราจะใช้หลักเกณฑ์บทวิจารณ์เพื่อประเมินว่าจะลบบทวิจารณ์ดังกล่าว หรือนำบทวิจารณ์กลับคืนสู่ไซต์"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -2444,13 +2446,15 @@ msgstr "หลักเกณฑ์บทวิจารณ์"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "หลักเกณฑ์ เคล็ดลับ และคำถามที่พบบ่อยเกี่ยวกับการเขียนบทวิจารณ์สำหรับส่วนขยายและชุดตกแต่งที่คุณได้ด้าวน์โหลดและใช้บน Firefox"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"บทวิจารณ์ส่วนเสริมเป็นวิธีหนึ่งที่คุณสามารถแบ่งปันความคิดเห็นของคุณเกี่ยวกับส่วนเสริมที่คุณได้ติดตั้งและใช้ โดยทีมงานตรวจสอบของเราขอสงวนสิทธิ์ในการปฏิเสธหรือลบบทวิจารณ์ใด ๆ "
+"ที่ไม่สอดคล้องกับหลักเกณฑ์เหล่านี้"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
@@ -2509,6 +2513,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"เขียนเกี่ยวกับปัญหาทางเทคนิค การขอความช่วยเหลือ หรือการเสนอแนะคุณลักษณะต่าง ๆ ใช้ตัวเลือกสนับสนุนสำหรับแต่ละส่วนเสริมหากมี คุณสามารถพบได้ในส่วน \"ข้อมูลเพิ่มเติม\" "
+"ในแถบด้านข้างบนหน้ารายละเอียดของส่วนเสริม"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
@@ -2673,7 +2679,7 @@ msgstr "ไม่สามารถเปลี่ยนที่อยู่อ
 
 #: src/amo/pages/UserProfileEdit/index.js:612
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "คุณสามารถเปลี่ยนที่อยู่อีเมลของคุณบน Firefox Accounts ได้ %(startLink)sต้องการความช่วยเหลือใช่หรือไม่?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:629
 msgid "Manage Firefox Accounts…"
@@ -2705,11 +2711,11 @@ msgstr "การแจ้งเตือน"
 
 #: src/amo/pages/UserProfileEdit/index.js:768
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "บางครั้ง Mozilla อาจส่งอีเมลถึงคุณเกี่ยวกับการออกรุ่นถัดไปและกิจกรรมต่าง ๆ เกี่ยวกับส่วนเสริม โปรดเลือกหัวข้อที่คุณสนใจ"
 
 #: src/amo/pages/UserProfileEdit/index.js:773
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "บางครั้ง Mozilla อาจส่งอีเมลถึงผู้ใช้นี้เกี่ยวกับการออกรุ่นถัดไปและกิจกรรมต่าง ๆ เกี่ยวกับส่วนเสริม โปรดเลือกหัวข้อที่ผู้ใช้นี้อาจสนใจ"
 
 #: src/amo/pages/UserProfileEdit/index.js:788
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
@@ -2734,13 +2740,13 @@ msgstr "สำคัญ: การลบโปรไฟล์ส่วนเส�
 #: src/amo/pages/UserProfileEdit/index.js:839
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and collections."
-msgstr ""
+msgstr "ข้อมูลของคุณจะถูกลบออกอย่างถาวร รวมถึงรายละเอียดโปรไฟล์ (รูปภาพ ชื่อผู้ใช้ ชื่อที่แสดง ตำแหน่งที่ตั้ง หน้าแรก ชีวประวัติ อาชีพ) การกำหนดลักษณะการแจ้งเตือน บทวิจารณ์ และคอลเลกชัน"
 
 #: src/amo/pages/UserProfileEdit/index.js:845
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation), notification preferences, reviews, and "
 "collections."
-msgstr ""
+msgstr "ข้อมูลของผู้ใช้นี้จะถูกลบออกอย่างถาวร รวมถึงรายละเอียดโปรไฟล์ (รูปภาพ ชื่อผู้ใช้ ชื่อที่แสดง ตำแหน่งที่ตั้ง หน้าแรก ชีวประวัติ อาชีพ) การกำหนดลักษณะการแจ้งเตือน บทวิจารณ์ และคอลเลกชัน"
 
 #: src/amo/pages/UserProfileEdit/index.js:854
 msgid ""
@@ -2769,15 +2775,15 @@ msgstr "คุณยกเลิกการสมัครสำเร็จแ
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:125
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "ที่อยู่อีเมล %(strongStart)s%(email)s%(strongEnd)s จะไม่ได้รับข้อความอีกเมื่อ:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:83
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "คุณสามารถแก้ไขการตั้งค่าการแจ้งเตือนได้โดย%(linkStart)sแก้ไขโปรไฟล์ของคุณ%(linkEnd)s"
 
 #: src/amo/reducers/collections.js:1022
 msgid "(no name)"
-msgstr ""
+msgstr "(ไม่มีชื่อ)"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/amo/reducers/versions.js:304
@@ -2796,7 +2802,7 @@ msgstr "ใช้งานได้กับ %(listOfApplicatonsAndVersions)s"
 
 #: src/amo/utils/addons.js:36
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "การติดตังถูกระงับเพราะส่วนเสริมดูเหมือนจะชำรุด"
 
 #: src/amo/utils/addons.js:40
 msgid "Installation failed. Please try again."
