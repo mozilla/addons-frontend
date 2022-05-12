@@ -1,5 +1,4 @@
 /* @flow */
-import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -45,8 +44,6 @@ type InternalProps = {|
   ...Props,
   ...PropsFromState,
   ...DefaultProps,
-  _couldShowWarning: () => boolean,
-  className?: string,
   i18n: I18nType,
   location: ReactRouterLocationType,
 |};
@@ -65,7 +62,6 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   couldShowWarning: () => boolean = () => {
     const {
       _correctedLocationForPlatform,
-      _couldShowWarning,
       _getPromotedCategory,
       addon,
       clientApp,
@@ -87,18 +83,18 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       clientApp,
     });
 
-    return _couldShowWarning
-      ? _couldShowWarning()
-      : !correctedLocation &&
-          isFirefox({ userAgentInfo }) &&
-          clientApp === CLIENT_APP_FIREFOX &&
-          addon.type === ADDON_TYPE_EXTENSION &&
-          (!promotedCategory ||
-            !EXCLUDE_WARNING_CATEGORIES.includes(promotedCategory));
+    return (
+      !correctedLocation &&
+      isFirefox({ userAgentInfo }) &&
+      clientApp === CLIENT_APP_FIREFOX &&
+      addon.type === ADDON_TYPE_EXTENSION &&
+      (!promotedCategory ||
+        !EXCLUDE_WARNING_CATEGORIES.includes(promotedCategory))
+    );
   };
 
   render(): null | React.Node {
-    const { className, i18n } = this.props;
+    const { i18n } = this.props;
 
     if (this.couldShowWarning()) {
       return (
@@ -106,7 +102,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           actionHref={WARNING_LINK_DESTINATION}
           actionTarget="_blank"
           actionText={i18n.gettext('Learn more')}
-          className={makeClassName('InstallWarning', className)}
+          className="InstallWarning"
           type={genericWarningType}
         >
           {i18n.gettext(

@@ -1,4 +1,5 @@
 import { waitFor } from '@testing-library/react';
+import UAParser from 'ua-parser-js';
 
 import {
   FETCH_VERSIONS,
@@ -6,6 +7,8 @@ import {
   fetchVersions,
 } from 'amo/reducers/versions';
 import {
+  ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   FATAL_ERROR,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
@@ -15,12 +18,18 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   INSTALLING,
+  STRATEGIC,
+  VERIFIED,
 } from 'amo/constants';
 import { extractId } from 'amo/pages/AddonVersions';
 import { formatFilesize } from 'amo/i18n/utils';
 import { FETCH_ADDON, fetchAddon, loadAddon } from 'amo/reducers/addons';
 import { setInstallError, setInstallState } from 'amo/reducers/installations';
-import { getClientCompatibility } from 'amo/utils/compatibility';
+import { getPromotedBadgesLinkUrl } from 'amo/utils';
+import {
+  correctedLocationForPlatform,
+  getClientCompatibility,
+} from 'amo/utils/compatibility';
 import {
   createFailedErrorHandler,
   createFakeClientCompatibility,
@@ -39,11 +48,13 @@ import {
   renderPage as defaultRender,
   screen,
   userAgents,
+  userAgentsByPlatform,
   within,
 } from 'tests/unit/helpers';
 
 jest.mock('amo/utils/compatibility', () => ({
   ...jest.requireActual('amo/utils/compatibility'),
+  correctedLocationForPlatform: jest.fn().mockReturnValue(''),
   getClientCompatibility: jest.fn().mockReturnValue({
     compatible: true,
     reason: null,
@@ -422,17 +433,21 @@ describe(__filename, () => {
     ).toHaveAttribute('href', licenseURL);
   });
 
-  // TODO: Note to remove this test when tests for AddonVersionCard are added,
-  // as it will be redundant.
-  it('passes null for the version when versions have been loaded, but there are no versions', () => {
-    _loadAddon();
-    _loadVersions({ versions: [] });
+  it('does not render file info when created date is missing', () => {
+    const version = {
+      ...fakeVersion,
+      file: { ...fakeFile, created: null },
+    };
+    const addon = {
+      ...fakeAddon,
+      slug: defaultSlug,
+      current_version: version,
+    };
+    renderWithAddonAndVersions({ addon, versions: [version] });
 
-    render();
-
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
-      'No version found',
-    );
+    expect(
+      screen.queryByClassName('AddonVersionCard-fileInfo'),
+    ).not.toBeInTheDocument();
   });
 
   it('passes the correct versions into multiple AddonVersionCards', () => {
@@ -542,6 +557,139 @@ describe(__filename, () => {
   });
 
   describe('Tests for AddonVersionCard', () => {
+    it('returns a card with a message if version is null', () => {
+      _loadAddon();
+      _loadVersions({ versions: [] });
+      render();
+
+      expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+        'No version found',
+      );
+    });
+
+    it('returns a card with LoadingText if version is undefined', () => {
+      _loadAddon();
+      render();
+
+      expect(
+        within(screen.getByClassName('AddonVersionCard')).getAllByRole('alert'),
+      ).toHaveLength(3);
+    });
+
+    it('renders nothing for compatibility when no version is loaded', () => {
+      _loadAddon();
+      render();
+
+      expect(
+        screen.queryByClassName('AddonVersionCard-compatibility'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('strips illegal HTML from release notes', () => {
+      const releaseNotesText = 'Some release notes';
+      const releaseNotes = `<b>${releaseNotesText}</b>`;
+      const badReleaseNotes = `<script>alert()</script>${releaseNotes}`;
+      _loadAddon();
+      _loadVersions({
+        versions: [
+          {
+            ...fakeVersion,
+            release_notes: createLocalizedString(badReleaseNotes),
+          },
+        ],
+      });
+      render();
+
+      expect(screen.getByText(releaseNotesText)).toBeInTheDocument();
+      expect(
+        within(
+          screen.getByClassName('AddonVersionCard-releaseNotes'),
+        ).getByTagName('b'),
+      ).toBeInTheDocument();
+      expect(
+        within(
+          // eslint-disable-next-line testing-library/prefer-presence-queries
+          screen.getByClassName('AddonVersionCard-releaseNotes'),
+        ).queryByTagName('script'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('displays a license without a name', () => {
+      const licenseName = null;
+      _loadAddon();
+      _loadVersions({
+        versions: [
+          {
+            ...fakeVersion,
+            license: {
+              ...fakeVersion.license,
+              name: createLocalizedString(licenseName),
+            },
+          },
+        ],
+      });
+      render();
+
+      expect(screen.getByText('Custom License')).toBeInTheDocument();
+    });
+
+    it('renders a link to a custom license', () => {
+      const licenseName = 'custom licence';
+      _loadAddon();
+      _loadVersions({
+        versions: [
+          {
+            ...fakeVersion,
+            license: {
+              ...fakeVersion.license,
+              is_custom: true,
+              name: createLocalizedString(licenseName),
+            },
+          },
+        ],
+      });
+      render();
+
+      expect(screen.getByRole('link', { name: licenseName })).toHaveAttribute(
+        'href',
+        `/en-US/firefox/addon/${defaultSlug}/license/`,
+      );
+    });
+
+    it('does not render license info if there is no license', () => {
+      _loadAddon();
+      _loadVersions({
+        versions: [{ ...fakeVersion, license: null }],
+      });
+      render();
+
+      expect(
+        screen.queryByClassName('AddonVersionCard-license'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders plain text when license has no URL', () => {
+      const licenseName = 'some license without URL';
+      _loadAddon();
+      _loadVersions({
+        versions: [
+          {
+            ...fakeVersion,
+            license: {
+              ...fakeVersion.license,
+              name: createLocalizedString(licenseName),
+              url: null,
+            },
+          },
+        ],
+      });
+      render();
+
+      expect(
+        screen.getByText(`Source code released under ${licenseName}`),
+      ).toBeInTheDocument();
+    });
+
     const setupInstallError = () => {
       const guid = 'some-guid';
       const addon = { ...fakeAddon, guid, slug: defaultSlug };
@@ -634,6 +782,80 @@ describe(__filename, () => {
         ),
       ).not.toBeInTheDocument();
     });
+
+    it('passes an add-on to InstallButtonWrapper', () => {
+      renderWithAddonAndVersions();
+
+      expect(
+        screen.getByRole('link', { name: 'Add to Firefox' }),
+      ).toHaveAttribute('href', fakeVersion.file.url);
+    });
+
+    it('passes showLinkInsteadOfButton to InstallButtonWrapper for a non-current version', () => {
+      const version1 = { ...fakeVersion, id: 1, version: '1.0' };
+      const addon = {
+        ...fakeAddon,
+        slug: defaultSlug,
+        current_version: version1,
+      };
+      const version2 = { ...fakeVersion, id: 2, version: '2.0' };
+
+      _loadAddon(addon);
+      _loadVersions({ versions: [version1, version2] });
+
+      render();
+
+      const versionCards = allVersionCards();
+      expect(versionCards).toHaveLength(2);
+      expect(
+        within(versionCards[0]).getByRole('link', { name: 'Add to Firefox' }),
+      ).toBeInTheDocument();
+      expect(
+        within(versionCards[1]).getByRole('link', { name: 'Download file' }),
+      ).toBeInTheDocument();
+    });
+
+    describe('InstallWarning', () => {
+      it('renders the InstallWarning if an add-on exists', () => {
+        renderWithAddonAndVersions();
+
+        expect(
+          screen.getByText(
+            `This add-on is not actively monitored for security by Mozilla. ` +
+              `Make sure you trust it before installing.`,
+          ),
+        ).toBeInTheDocument();
+      });
+
+      it('does not render the InstallWarning if an add-on does not exist', () => {
+        render();
+
+        expect(
+          screen.queryByText(
+            `This add-on is not actively monitored for security by Mozilla. ` +
+              `Make sure you trust it before installing.`,
+          ),
+        ).not.toBeInTheDocument();
+      });
+
+      it('passes the addon to the InstallWarning', () => {
+        // Rendering with a static theme will cause the InstallWarning to not be shown.
+        renderWithAddonAndVersions({
+          addon: {
+            ...fakeAddon,
+            slug: defaultSlug,
+            type: ADDON_TYPE_STATIC_THEME,
+          },
+        });
+
+        expect(
+          screen.queryByText(
+            `This add-on is not actively monitored for security by Mozilla. ` +
+              `Make sure you trust it before installing.`,
+          ),
+        ).not.toBeInTheDocument();
+      });
+    });
   });
 
   describe('Tests for AddonCompatibilityError', () => {
@@ -723,6 +945,144 @@ describe(__filename, () => {
       expect(
         screen.queryByClassName('AddonCompatibilityError'),
       ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for InstallWarning', () => {
+    const getInstallWarning = () =>
+      screen.getByText(
+        `This add-on is not actively monitored for security by Mozilla. ` +
+          `Make sure you trust it before installing.`,
+      );
+
+    it('contains a correct link', () => {
+      renderWithAddonAndVersions();
+
+      expect(screen.getByRole('link', { name: 'Learn more' })).toHaveAttribute(
+        'href',
+        getPromotedBadgesLinkUrl({
+          utm_content: 'install-warning',
+        }),
+      );
+    });
+
+    describe('couldShowWarning', () => {
+      // This is a test for the happy path, but also serves as a sanity test for
+      // renderWithAddonAndVersions returning the happy path.
+      it('returns true if the userAgent and clientApp are both Firefox, and the add-on is an extension and is not promoted', () => {
+        renderWithAddonAndVersions();
+
+        expect(getInstallWarning()).toBeInTheDocument();
+      });
+
+      it('returns false if the add-on is not an extension', () => {
+        renderWithAddonAndVersions({
+          addon: {
+            ...fakeAddon,
+            slug: defaultSlug,
+            type: ADDON_TYPE_STATIC_THEME,
+          },
+        });
+
+        expect(
+          screen.queryByText(
+            `This add-on is not actively monitored for security by Mozilla. ` +
+              `Make sure you trust it before installing.`,
+          ),
+        ).not.toBeInTheDocument();
+      });
+
+      it('returns false if the add-on is promoted (but not STRATEGIC)', () => {
+        renderWithAddonAndVersions({
+          addon: {
+            ...fakeAddon,
+            slug: defaultSlug,
+            promoted: { category: VERIFIED, apps: [CLIENT_APP_FIREFOX] },
+          },
+        });
+
+        expect(
+          screen.queryByText(
+            `This add-on is not actively monitored for security by Mozilla. ` +
+              `Make sure you trust it before installing.`,
+          ),
+        ).not.toBeInTheDocument();
+      });
+
+      it('returns true if the add-on is promoted in the STRATEGIC category', () => {
+        renderWithAddonAndVersions({
+          addon: {
+            ...fakeAddon,
+            slug: defaultSlug,
+            promoted: { category: STRATEGIC, apps: [CLIENT_APP_FIREFOX] },
+          },
+        });
+
+        expect(getInstallWarning()).toBeInTheDocument();
+      });
+
+      it('returns false if the userAgent is not Firefox', () => {
+        dispatchClientMetadata({
+          store,
+          userAgent: userAgentsByPlatform.mac.chrome41,
+        });
+        renderWithAddonAndVersions();
+
+        expect(
+          screen.queryByText(
+            `This add-on is not actively monitored for security by Mozilla. ` +
+              `Make sure you trust it before installing.`,
+          ),
+        ).not.toBeInTheDocument();
+      });
+
+      it('returns false if the clientApp is Android', () => {
+        dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
+        renderWithAddonAndVersions({
+          location: `/${lang}/${CLIENT_APP_ANDROID}/addon/${defaultSlug}/versions/`,
+        });
+
+        expect(
+          screen.queryByText(
+            `This add-on is not actively monitored for security by Mozilla. ` +
+              `Make sure you trust it before installing.`,
+          ),
+        ).not.toBeInTheDocument();
+      });
+
+      it('returns false if the WrongPlatformWarning would be shown', () => {
+        correctedLocationForPlatform.mockReturnValue('/some/path/');
+        renderWithAddonAndVersions();
+
+        expect(
+          screen.queryByText(
+            `This add-on is not actively monitored for security by Mozilla. ` +
+              `Make sure you trust it before installing.`,
+          ),
+        ).not.toBeInTheDocument();
+      });
+
+      it('calls correctedLocationForPlatform with clientApp, location and userAgentInfo', () => {
+        const userAgent = userAgentsByPlatform.mac.firefox57;
+        const parsedUserAgent = UAParser(userAgent);
+        dispatchClientMetadata({
+          clientApp: CLIENT_APP_ANDROID,
+          lang: 'fr',
+          store,
+          userAgent,
+        });
+        renderWithAddonAndVersions();
+
+        expect(correctedLocationForPlatform).toHaveBeenCalledWith({
+          clientApp: CLIENT_APP_ANDROID,
+          lang: 'fr',
+          location: expect.objectContaining({ pathname: getLocation() }),
+          userAgentInfo: expect.objectContaining({
+            browser: parsedUserAgent.browser,
+            os: parsedUserAgent.os,
+          }),
+        });
+      });
     });
   });
 });
