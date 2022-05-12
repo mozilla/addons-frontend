@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import NestedStatus from 'react-nested-status';
 import { connect } from 'react-redux';
@@ -116,16 +117,15 @@ function mapStateToProps(
   ownProps: InternalProps,
 ): PropsFromState {
   const { reviewId } = ownProps;
-  const featuredReview = reviewId
-    ? selectReview(state.reviews, reviewId)
-    : null;
+  invariant(reviewId, 'Cannot render a FeaturedAddonReview without a reviewId');
+
+  const featuredReview = selectReview(state.reviews, reviewId);
 
   return {
     featuredReview,
-    loadingReview: reviewId
-      ? state.reviews.view[reviewId] &&
-        state.reviews.view[reviewId].loadingReview
-      : false,
+    loadingReview:
+      state.reviews.view[reviewId] &&
+      state.reviews.view[reviewId].loadingReview,
   };
 }
 

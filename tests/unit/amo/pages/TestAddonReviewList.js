@@ -1,93 +1,94 @@
-import { shallow } from 'enzyme';
-import * as React from 'react';
+import { waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import {
+  fetchReview,
   fetchReviews,
   fetchReviewPermissions,
   setAddonReviews,
+  setReview,
   setReviewPermissions,
 } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
-import AddonReviewList, {
-  AddonReviewListBase,
-  extractId,
-  SHOW_ALL_REVIEWS,
-} from 'amo/pages/AddonReviewList';
-import AddonReviewCard from 'amo/components/AddonReviewCard';
-import AddonSummaryCard from 'amo/components/AddonSummaryCard';
-import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
-import Page from 'amo/components/Page';
-import { getAddonURL } from 'amo/utils';
-import { ErrorHandler } from 'amo/errorHandler';
-import Link from 'amo/components/Link';
-import { reviewListURL } from 'amo/reducers/reviews';
+import { extractId, SHOW_ALL_REVIEWS } from 'amo/pages/AddonReviewList';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
-import Paginate from 'amo/components/Paginate';
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   SET_VIEW_CONTEXT,
 } from 'amo/constants';
 import { fetchAddon, loadAddon } from 'amo/reducers/addons';
-import Card from 'amo/components/Card';
-import ErrorList from 'amo/components/ErrorList';
-import LoadingText from 'amo/components/LoadingText';
 import {
-  createCapturedErrorHandler,
-  createFakeEvent,
-  createFakeHistory,
-  createFakeLocation,
-  createInternalAddonWithLang,
+  createFailedErrorHandler,
+  createFakeErrorHandler,
+  createHistory,
   createLocalizedString,
-  createStubErrorHandler,
   dispatchClientMetadata,
-  dispatchSignInActions,
+  dispatchSignInActionsWithStore,
   fakeAddon,
-  fakeI18n,
   fakeReview,
-  shallowUntilTarget,
+  getElement,
+  getElements,
+  onLocationChanged,
+  renderPage as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
+  const defaultSlug = 'reviewed-add-on';
+  const defaultUserId = 123;
   const lang = 'en-US';
   let store;
+  let addon;
+
+  const getLocation = ({ page, reviewId, score, slug = defaultSlug } = {}) => {
+    let queryString = '?';
+    if (page) {
+      queryString = `${queryString}&page=${page}`;
+    }
+    if (score) {
+      queryString = `${queryString}&score=${score}`;
+    }
+    return `/${lang}/${clientApp}/addon/${slug}/reviews/${
+      reviewId ? `${reviewId}/` : ''
+    }${queryString}`;
+  };
+
+  const getErrorHandlerId = ({ page = '', slug = defaultSlug } = {}) =>
+    `src/amo/pages/AddonReviewList/index.js-${slug}-${page}`;
+  const getFakeErrorHandler = ({ page = '', slug = defaultSlug } = {}) =>
+    createFakeErrorHandler({ id: getErrorHandlerId({ page, slug }) });
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
+    addon = { ...fakeAddon, slug: defaultSlug };
   });
 
-  const getProps = ({
-    location = createFakeLocation(),
-    params,
-    ...customProps
+  const render = ({
+    history,
+    location,
+    page,
+    reviewId,
+    score,
+    slug = defaultSlug,
   } = {}) => {
-    return {
-      i18n: fakeI18n(),
-      location,
-      match: {
-        params: {
-          addonSlug: fakeAddon.slug,
-          ...params,
-        },
-      },
+    const initialEntry =
+      location || getLocation({ page, reviewId, score, slug });
+    const renderOptions = {
+      history:
+        history ||
+        createHistory({
+          initialEntries: [initialEntry],
+        }),
       store,
-      ...customProps,
     };
+    return defaultRender(renderOptions);
   };
 
-  const render = ({ ...customProps } = {}) => {
-    const props = getProps(customProps);
-
-    return shallowUntilTarget(
-      <AddonReviewList {...props} />,
-      AddonReviewListBase,
-    );
-  };
-
-  const _loadAddon = (addon = fakeAddon) => {
-    store.dispatch(loadAddon({ addon, slug: addon.slug }));
+  const _loadAddon = (addonToLoad = addon) => {
+    store.dispatch(loadAddon({ addon: addonToLoad, slug: addonToLoad.slug }));
   };
 
   const _fetchReviews = (params = {}) => {
@@ -99,45 +100,59 @@ describe(__filename, () => {
   };
 
   const _setAddonReviews = ({
-    addon = fakeAddon,
+    page = '1',
     reviews = [{ ...fakeReview, id: 1 }],
+    score = null,
     ...params
   } = {}) => {
     const action = setAddonReviews({
       addonSlug: addon.slug,
-      page: '1',
+      page,
       pageSize: DEFAULT_API_PAGE_SIZE,
       reviewCount: reviews.length,
       reviews,
-      score: null,
+      score,
       ...params,
     });
     store.dispatch(action);
   };
 
+  const renderWithAddon = ({
+    history,
+    location,
+    page,
+    reviewId,
+    score,
+    slug = defaultSlug,
+  } = {}) => {
+    _loadAddon();
+
+    return render({ history, location, page, reviewId, score, slug });
+  };
+
   const renderWithAddonAndReviews = ({
-    params = {},
+    history,
+    location,
+    page,
+    reviewId,
     reviews = [
       { ...fakeReview, id: 1, score: 1 },
       { ...fakeReview, id: 2, score: 2 },
     ],
-    ...props
+    score,
+    slug = defaultSlug,
   } = {}) => {
-    const addonSlug = 'example-slug';
-    const addon = { ...fakeAddon, slug: addonSlug };
-    _loadAddon(addon);
+    _setAddonReviews({ page, reviews, score });
 
-    _setAddonReviews({ reviews });
-
-    return render({ params: { addonSlug, ...params }, ...props });
+    return renderWithAddon({ history, location, page, reviewId, score, slug });
   };
 
   const signInAndSetReviewPermissions = ({
-    addonId = fakeAddon.id,
-    userId = 12345,
+    addonId = addon.id,
+    userId = defaultUserId,
     ...permissions
   } = {}) => {
-    dispatchSignInActions({ store, userId });
+    dispatchSignInActionsWithStore({ store, userId });
     store.dispatch(
       setReviewPermissions({
         addonId,
@@ -149,139 +164,99 @@ describe(__filename, () => {
 
   describe('<AddonReviewList/>', () => {
     it('shows placeholders for reviews without an addon', () => {
-      const root = render({ addon: null });
+      render();
 
+      const cards = screen.getAllByClassName('AddonReviewCard');
       // Make sure four review placeholders were rendered.
-      expect(root.find(AddonReviewCard)).toHaveLength(4);
-      // Do a sanity check on the first placeholder;
-      expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
-      expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
+      expect(cards).toHaveLength(4);
+      cards.forEach((card) =>
+        expect(within(card).getAllByRole('alert')).toHaveLength(2),
+      );
     });
 
     it('displays 4 placeholders while loading for an addon with no reviews', () => {
-      const externalAddon = {
-        ...fakeAddon,
-        ratings: {
-          ...fakeAddon.ratings,
-          count: 0,
-        },
-      };
-      const addon = createInternalAddonWithLang(externalAddon);
+      addon.ratings = { ...addon.ratings, count: 0 };
+      renderWithAddon();
 
-      _loadAddon(externalAddon);
-
-      const root = render();
-
-      expect(root.find(AddonReviewCard)).toHaveLength(4);
-      root.find(AddonReviewCard).forEach((card) => {
-        expect(card).toHaveProp('review', null);
-        expect(card).toHaveProp('addon', addon);
-      });
+      const cards = screen.getAllByClassName('AddonReviewCard');
+      expect(cards).toHaveLength(4);
+      cards.forEach((card) =>
+        expect(within(card).getAllByRole('alert')).toHaveLength(2),
+      );
     });
 
     it('displays the same number of placeholders as there are reviews for an addon', () => {
       const reviewCount = 6;
-      const externalAddon = {
-        ...fakeAddon,
-        ratings: {
-          ...fakeAddon.ratings,
-          count: reviewCount,
-        },
-      };
-      const addon = createInternalAddonWithLang(externalAddon);
+      addon.ratings = { ...addon.ratings, count: reviewCount };
+      renderWithAddon();
 
-      _loadAddon(externalAddon);
-
-      const root = render();
-
-      expect(root.find(AddonReviewCard)).toHaveLength(reviewCount);
-      root.find(AddonReviewCard).forEach((card) => {
-        expect(card).toHaveProp('review', null);
-        expect(card).toHaveProp('addon', addon);
-      });
+      const cards = screen.getAllByClassName('AddonReviewCard');
+      expect(cards).toHaveLength(reviewCount);
+      cards.forEach((card) =>
+        expect(within(card).getAllByRole('alert')).toHaveLength(2),
+      );
     });
 
     it('displays 25 placeholders for more than 25 reviews for an addon', () => {
-      const externalAddon = {
-        ...fakeAddon,
-        ratings: {
-          ...fakeAddon.ratings,
-          count: DEFAULT_API_PAGE_SIZE + 1,
-        },
+      addon.ratings = {
+        ...fakeAddon.ratings,
+        count: DEFAULT_API_PAGE_SIZE + 1,
       };
+      renderWithAddon();
 
-      _loadAddon(externalAddon);
-
-      const root = render();
-
-      expect(root.find(AddonReviewCard)).toHaveLength(DEFAULT_API_PAGE_SIZE);
+      expect(screen.getAllByClassName('AddonReviewCard')).toHaveLength(
+        DEFAULT_API_PAGE_SIZE,
+      );
     });
 
     it('renders an AddonSummaryCard with an addon', () => {
       const name = 'My addon';
-      const addon = { ...fakeAddon, name: createLocalizedString(name) };
-      _loadAddon(addon);
-      const root = render();
+      addon.name = createLocalizedString(name);
+      renderWithAddon();
 
-      const summary = root.find(AddonSummaryCard);
-      expect(summary).toHaveProp('addon', createInternalAddonWithLang(addon));
-      expect(summary).toHaveProp('headerText', `Reviews for ${name}`);
+      expect(screen.getByAltText('Add-on icon')).toHaveAttribute(
+        'src',
+        addon.icon_url,
+      );
+      expect(
+        screen.getByRole('heading', { name: `Reviews for ${name}` }),
+      ).toBeInTheDocument();
     });
 
     it('renders an AddonSummaryCard without an addon', () => {
-      const root = render();
+      render();
 
-      const summary = root.find(AddonSummaryCard);
-      expect(summary).toHaveProp('addon', null);
-      expect(summary).toHaveProp('headerText', '');
+      expect(screen.getAllByTitle('There are no ratings yet')).toHaveLength(6);
     });
 
     it('does not paginate before reviews have loaded', () => {
-      _loadAddon(fakeAddon);
-      const root = render({ reviews: null });
+      renderWithAddon();
 
-      expect(root.find(Paginate)).toHaveLength(0);
+      expect(screen.queryByClassName('Paginate')).not.toBeInTheDocument();
     });
 
     it('fetches an addon if requested by slug', () => {
-      const addonSlug = 'some-addon-slug';
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
 
-      render({
-        addon: null,
-        errorHandler,
-        params: { addonSlug },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchAddon({
-          slug: addonSlug,
+          slug: defaultSlug,
           showGroupedRatings: true,
-          errorHandler,
+          errorHandler: getFakeErrorHandler(),
         }),
       );
     });
 
     it('does not fetch an addon if it is already loading', () => {
-      const addonSlug = 'some-addon-slug';
-      const errorHandler = createStubErrorHandler();
+      const errorHandler = getFakeErrorHandler();
+      store.dispatch(fetchAddon({ errorHandler, slug: defaultSlug }));
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
 
-      store.dispatch(fetchAddon({ errorHandler, slug: addonSlug }));
-
-      const fakeDispatch = sinon.stub(store, 'dispatch');
-
-      render({
-        addon: null,
-        errorHandler,
-        params: { addonSlug },
-      });
-
-      sinon.assert.neverCalledWith(
-        fakeDispatch,
+      expect(dispatch).not.toHaveBeenCalledWith(
         fetchAddon({
-          slug: addonSlug,
+          slug: defaultSlug,
           showGroupedRatings: true,
           errorHandler,
         }),
@@ -290,370 +265,302 @@ describe(__filename, () => {
 
     it('ignores other add-ons', () => {
       _loadAddon();
-      const root = render({
-        params: { addonSlug: 'other-slug' },
-      });
-      expect(root.instance().props.addon).toEqual(null);
+      render({ slug: `${defaultSlug}-other` });
+
+      const cards = screen.getAllByClassName('AddonReviewCard');
+      expect(cards).toHaveLength(4);
+      expect(within(cards[0]).getAllByRole('alert')).toHaveLength(2);
     });
 
     it('fetches reviews if needed', () => {
-      const addon = { ...fakeAddon, slug: 'some-other-slug' };
-      _loadAddon(addon);
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      render({
-        reviews: null,
-        errorHandler,
-        params: { addonSlug: addon.slug },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
-          addonSlug: addon.slug,
-          errorHandlerId: errorHandler.id,
+          addonSlug: defaultSlug,
+          errorHandlerId: getErrorHandlerId(),
         }),
       );
     });
 
     it('does not fetch reviews if they are already loading', () => {
-      const addon = { ...fakeAddon, slug: 'some-other-slug' };
-      const errorHandler = createStubErrorHandler();
-      _loadAddon(addon);
       store.dispatch(
         _fetchReviews({
-          addonSlug: addon.slug,
-          errorHandlerId: errorHandler.id,
+          addonSlug: defaultSlug,
+          errorHandlerId: getErrorHandlerId(),
         }),
       );
-      const dispatch = sinon.stub(store, 'dispatch');
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      render({
-        reviews: null,
-        errorHandler,
-        params: { addonSlug: addon.slug },
-      });
-
-      sinon.assert.neverCalledWith(
-        dispatch,
+      expect(dispatch).not.toHaveBeenCalledWith(
         _fetchReviews({
-          addonSlug: addon.slug,
-          errorHandlerId: errorHandler.id,
+          addonSlug: defaultSlug,
+          errorHandlerId: getErrorHandlerId(),
         }),
       );
     });
 
     it('fetches reviews if needed during an update', () => {
-      const addon = createInternalAddonWithLang({
-        ...fakeAddon,
-        slug: 'some-other-slug',
-      });
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
+      const newSlug = `${defaultSlug}-other`;
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      const root = render({
-        addon: null,
-        reviews: null,
-        errorHandler,
-        params: { addonSlug: addon.slug },
+      _loadAddon({
+        ...addon,
+        guid: `${addon.id + 1}@my-addons.firefox`,
+        id: addon.id + 1,
+        slug: newSlug,
       });
 
-      dispatch.resetHistory();
-      // Simulate how a redux state change will introduce an addon.
-      root.setProps({ addon });
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: newSlug }),
+        }),
+      );
 
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
-          addonSlug: addon.slug,
-          errorHandlerId: errorHandler.id,
+          addonSlug: newSlug,
+          errorHandlerId: getErrorHandlerId({ slug: newSlug }),
         }),
       );
     });
 
     it('fetches reviews by page', () => {
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
-      const addonSlug = fakeAddon.slug;
+      const dispatch = jest.spyOn(store, 'dispatch');
       const page = '2';
+      renderWithAddon({ page });
 
-      render({
-        errorHandler,
-        location: createFakeLocation({ query: { page } }),
-        params: { addonSlug },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
-          addonSlug,
-          errorHandlerId: errorHandler.id,
+          addonSlug: defaultSlug,
+          errorHandlerId: getErrorHandlerId({ page }),
           page,
         }),
       );
     });
 
     it('fetches reviews when the page changes', () => {
-      const addonSlug = fakeAddon.slug;
-      _loadAddon(fakeAddon);
-      // Set up loaded data for a different page.
-      _setAddonReviews({
-        addonSlug,
-        page: '3',
-        reviews: [fakeReview],
-      });
-      const dispatch = sinon.spy(store, 'dispatch');
-
       const page = '2';
-      const root = render({
-        location: createFakeLocation({ query: { page } }),
-        params: { addonSlug },
-      });
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddonAndReviews();
 
-      sinon.assert.calledWith(
-        dispatch,
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ page }),
+        }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
-          addonSlug,
+          addonSlug: defaultSlug,
+          errorHandlerId: getErrorHandlerId({ page }),
           page,
-          errorHandlerId: root.instance().props.errorHandler.id,
         }),
       );
     });
 
     it('fetches reviews by score', () => {
-      const addon = { ...fakeAddon, slug: 'some-other-slug' };
-      _loadAddon(addon);
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const score = '5';
+      renderWithAddon({ score });
 
-      const score = 5;
-      render({
-        location: createFakeLocation({ query: { score } }),
-        errorHandler,
-        params: { addonSlug: addon.slug },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
-        fetchReviews({
-          addonSlug: addon.slug,
-          errorHandlerId: errorHandler.id,
-          score,
-        }),
-      );
-    });
-
-    it('fetches with a null score when score is not in URL', () => {
-      const addon = { ...fakeAddon };
-      _loadAddon(addon);
-      const dispatch = sinon.stub(store, 'dispatch');
-
-      const root = render({
-        // Set up a location where ?score= is not present in the URL.
-        location: createFakeLocation({ query: {} }),
-        params: { addonSlug: addon.slug },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
-          addonSlug: addon.slug,
-          errorHandlerId: root.instance().props.errorHandler.id,
-          score: null,
+          addonSlug: defaultSlug,
+          errorHandlerId: getErrorHandlerId(),
+          score,
         }),
       );
     });
 
     it('dispatches fetchReviews with an invalid page variable', () => {
       // We intentionally pass invalid pages to the API to get a 404 response.
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
-      const addonSlug = fakeAddon.slug;
+      const dispatch = jest.spyOn(store, 'dispatch');
       const page = 'x';
+      renderWithAddon({ page });
 
-      render({
-        errorHandler,
-        location: createFakeLocation({ query: { page } }),
-        params: { addonSlug },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
-          addonSlug,
-          errorHandlerId: errorHandler.id,
+          addonSlug: defaultSlug,
+          errorHandlerId: getErrorHandlerId({ page }),
           page,
         }),
       );
     });
 
     it('fetches reviews when the score changes', () => {
-      const addonSlug = fakeAddon.slug;
-      _loadAddon(fakeAddon);
-      _setAddonReviews({
-        addonSlug,
-        reviews: [fakeReview],
-        score: '4',
-      });
-      const dispatch = sinon.spy(store, 'dispatch');
+      const score = '4';
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddonAndReviews();
 
-      const root = render({
-        location: createFakeLocation({ query: { score: '5' } }),
-        params: { addonSlug },
-      });
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ score }),
+        }),
+      );
 
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
-          addonSlug,
-          errorHandlerId: root.instance().props.errorHandler.id,
-          score: '5',
+          addonSlug: defaultSlug,
+          errorHandlerId: getErrorHandlerId(),
+          score,
         }),
       );
     });
 
     it('does not fetch an addon if there is an error', () => {
-      const addon = { ...fakeAddon, slug: 'some-other-slug' };
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler(new Error('some error'));
-
-      render({
-        addon: null,
-        errorHandler,
-        params: { addonSlug: addon.slug },
+      const dispatch = jest.spyOn(store, 'dispatch');
+      createFailedErrorHandler({
+        id: getErrorHandlerId(),
+        store,
       });
+      render();
 
-      sinon.assert.notCalled(dispatch);
+      expect(dispatch).not.toHaveBeenCalledWith(
+        fetchAddon({
+          slug: defaultSlug,
+          showGroupedRatings: true,
+          errorHandler: getFakeErrorHandler(),
+        }),
+      );
     });
 
     it('does not fetch reviews if there is an error', () => {
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler(new Error('some error'));
-
-      render({
-        reviews: null,
-        errorHandler,
+      createFailedErrorHandler({
+        id: getErrorHandlerId(),
+        store,
       });
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      sinon.assert.notCalled(dispatch);
+      expect(dispatch).not.toHaveBeenCalledWith(
+        _fetchReviews({
+          addonSlug: defaultSlug,
+          errorHandlerId: getErrorHandlerId(),
+        }),
+      );
     });
 
     it('dispatches a view context for the add-on', () => {
-      const addon = fakeAddon;
-      _loadAddon(addon);
-      const dispatch = sinon.stub(store, 'dispatch');
-      render();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      sinon.assert.calledWith(dispatch, setViewContext(addon.type));
+      expect(dispatch).toHaveBeenCalledWith(setViewContext(addon.type));
     });
 
     it('does not dispatch a view context if there is no add-on', () => {
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
-      render({ errorHandler });
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
 
-      sinon.assert.neverCalledWithMatch(
-        dispatch,
-        sinon.match({ type: SET_VIEW_CONTEXT }),
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: SET_VIEW_CONTEXT }),
       );
     });
 
     it('does not dispatch a view context for similar add-ons', () => {
-      const addon1 = fakeAddon;
-      _loadAddon(addon1);
-      _setAddonReviews();
-      const dispatch = sinon.stub(store, 'dispatch');
-      const root = render();
+      const newSlug = `${defaultSlug}-other`;
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      dispatch.resetHistory();
-      // Update the component with a different addon having the same type.
-      root.setProps({
-        addon: createInternalAddonWithLang({ ...addon1, id: 345 }),
+      _loadAddon({
+        ...addon,
+        guid: `${addon.id + 1}@my-addons.firefox`,
+        id: addon.id + 1,
+        slug: newSlug,
       });
 
-      sinon.assert.notCalled(dispatch);
+      dispatch.mockClear();
+
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: newSlug }),
+        }),
+      );
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: SET_VIEW_CONTEXT }),
+      );
     });
 
     it('dispatches a view context for new add-on types', () => {
-      const addon1 = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
-      const addon2 = { ...addon1, type: ADDON_TYPE_STATIC_THEME };
+      const newSlug = `${defaultSlug}-other`;
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      _loadAddon(addon1);
-      const dispatch = sinon.stub(store, 'dispatch');
-      const root = render();
+      _loadAddon({
+        ...addon,
+        guid: `${addon.id + 1}@my-addons.firefox`,
+        id: addon.id + 1,
+        slug: newSlug,
+        type: ADDON_TYPE_STATIC_THEME,
+      });
 
-      dispatch.resetHistory();
-      root.setProps({ addon: createInternalAddonWithLang(addon2) });
+      dispatch.mockClear();
 
-      sinon.assert.calledWith(dispatch, setViewContext(addon2.type));
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: newSlug }),
+        }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        setViewContext(ADDON_TYPE_STATIC_THEME),
+      );
     });
 
     it('renders an error', () => {
-      const errorHandler = createStubErrorHandler(new Error('some error'));
+      const message = 'Some error message';
+      createFailedErrorHandler({
+        id: getErrorHandlerId(),
+        message,
+        store,
+      });
+      renderWithAddon();
 
-      const root = render({ errorHandler });
-      expect(root.find(ErrorList)).toHaveLength(1);
+      expect(screen.getByText(message)).toBeInTheDocument();
     });
 
     it('passes the errorHandler to the Page component', () => {
-      const errorHandler = createCapturedErrorHandler({ status: 404 });
+      createFailedErrorHandler({
+        error: createApiError({
+          response: { status: 404 },
+        }),
+        id: getErrorHandlerId(),
+        store,
+      });
+      renderWithAddon();
 
-      const root = render({ errorHandler });
-      expect(root.find(Page)).toHaveProp('errorHandler', errorHandler);
+      expect(
+        screen.getByText('Oops! We can’t find that page'),
+      ).toBeInTheDocument();
     });
 
     it('renders a list of reviews with ratings', () => {
-      const addon = { ...fakeAddon };
-      const internalAddon = createInternalAddonWithLang(addon);
       const reviews = [
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
-      _loadAddon(addon);
-      _setAddonReviews({ addon, reviews });
-
-      const tree = render();
-
-      const items = tree.find(AddonReviewCard);
-      expect(items).toHaveLength(2);
+      renderWithAddonAndReviews({ reviews });
 
       // First review.
-      expect(items.at(0)).toHaveProp('addon');
-      expect(items.at(0).prop('addon')).toMatchObject(internalAddon);
-
-      expect(items.at(0)).toHaveProp('review');
-      expect(items.at(0).prop('review')).toMatchObject({
-        score: reviews[0].score,
-      });
-
+      expect(screen.getAllByTitle('Rated 1 out of 5')).toHaveLength(6);
       // Second review.
-      expect(items.at(1)).toHaveProp('addon');
-      expect(items.at(1).prop('addon')).toMatchObject(internalAddon);
-
-      expect(items.at(1)).toHaveProp('review');
-      expect(items.at(1).prop('review')).toMatchObject({
-        score: reviews[1].score,
-      });
+      expect(screen.getAllByTitle('Rated 2 out of 5')).toHaveLength(6);
     });
 
     it('renders content when no reviews exist', () => {
-      const addon = { ...fakeAddon };
-      _loadAddon(addon);
-      _setAddonReviews({ addon, reviews: [] });
+      renderWithAddonAndReviews({ reviews: [] });
 
-      const root = render();
+      expect(screen.getByText('There are no reviews')).toBeInTheDocument();
+      expect(screen.getByText('Show all reviews')).toBeInTheDocument();
 
-      expect(root.find(AddonReviewCard)).toHaveLength(0);
-      expect(root.find('.AddonReviewList-noReviews')).toHaveLength(1);
-
-      const header = shallow(root.find(Card).prop('header'));
-      expect(header).toHaveLength(1);
-      expect(
-        header.find('.AddonReviewList-filterByScoreSelector'),
-      ).toHaveLength(1);
       // We do not want to display "0 review" in the header.
-      expect(header.find('.AddonReviewList-reviewCount')).toHaveText('');
+      expect(
+        screen.getByClassName('AddonReviewList-reviewCount'),
+      ).toHaveTextContent('');
     });
 
     it('does not include a review in the listing if the review is also featured', () => {
@@ -661,516 +568,490 @@ describe(__filename, () => {
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
-      _setAddonReviews({ reviews });
+      renderWithAddonAndReviews({ reviewId: reviews[0].id, reviews });
 
-      const root = render({
-        params: { reviewId: reviews[0].id.toString() },
-      });
-
-      const items = root
-        .find('.AddonReviewList-reviews-listing')
-        .find(AddonReviewCard);
-
-      expect(items).toHaveLength(1);
-      expect(items.at(0).prop('review')).toMatchObject({
-        id: reviews[1].id,
-      });
+      // Featured review.
+      expect(
+        within(screen.getByClassName('FeaturedAddonReview')).getAllByTitle(
+          'Rated 1 out of 5',
+        ),
+      ).toHaveLength(6);
+      // Review listing.
+      expect(
+        within(
+          screen.getByClassName('AddonReviewList-reviews-listing'),
+        ).getAllByTitle('Rated 2 out of 5'),
+      ).toHaveLength(6);
+      expect(
+        within(
+          // eslint-disable-next-line testing-library/prefer-presence-queries
+          screen.getByClassName('AddonReviewList-reviews-listing'),
+        ).queryByTitle('Rated 1 out of 5'),
+      ).not.toBeInTheDocument();
     });
 
     it('does not display a listing if the only review is also featured', () => {
       const reviewId = 1;
       const reviews = [{ ...fakeReview, id: reviewId }];
-      _setAddonReviews({ reviews });
+      renderWithAddonAndReviews({ reviewId: reviews[0].id, reviews });
 
-      const root = render({
-        params: { reviewId: reviewId.toString() },
-      });
-
-      expect(root.find('.AddonReviewList-reviews-listing')).toHaveLength(0);
+      expect(
+        screen.queryByClassName('AddonReviewList-reviews-listing'),
+      ).not.toBeInTheDocument();
     });
 
     it('renders a class name with its type', () => {
-      _loadAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_STATIC_THEME,
-      });
-      const root = render();
+      addon.type = ADDON_TYPE_STATIC_THEME;
+      renderWithAddon();
 
-      expect(root.find('.AddonReviewList')).toHaveClassName(
+      expect(screen.getByClassName('AddonReviewList')).toHaveClass(
         `AddonReviewList--${ADDON_TYPE_STATIC_THEME}`,
       );
     });
 
-    it('produces an addon URL', () => {
-      const addon = fakeAddon;
-      _loadAddon(addon);
-      expect(render().instance().addonURL()).toEqual(getAddonURL(addon.slug));
-    });
-
-    it('requires an addon prop to produce a URL', () => {
-      expect(() => render({ addon: null }).instance().addonURL()).toThrowError(
-        /cannot access addonURL/,
-      );
-    });
-
     it('configures CardList with a count of review results', () => {
-      const addon = {
-        ...fakeAddon,
-        ratings: {
-          ...fakeAddon.ratings,
-          // This is the total of all ratings and reviews.
-          count: 200,
-        },
+      addon.ratings = {
+        ...fakeAddon.ratings,
+        // This is the total of all ratings and reviews.
+        count: 200,
       };
-      _loadAddon(addon);
       // These are the actual review results returned by the API.
       const reviewCount = 5;
-      _setAddonReviews({ addon, reviews: Array(reviewCount).fill(fakeReview) });
+      renderWithAddonAndReviews({
+        reviews: Array(reviewCount).fill(fakeReview),
+      });
 
-      const root = render();
-
-      const cardList = root.find('.AddonReviewList-reviews-listing');
-
-      expect(cardList).toHaveProp('header');
-
-      const header = shallow(cardList.prop('header'));
-      expect(header.find('.AddonReviewList-reviewCount')).toHaveText(
-        `${reviewCount} reviews`,
-      );
+      expect(screen.getByText(`${reviewCount} reviews`)).toBeInTheDocument();
     });
 
     it('configures CardList header with LoadingText', () => {
-      const addonSlug = 'example-slug';
-      const addon = { ...fakeAddon, slug: addonSlug };
-      _loadAddon(addon);
-      // Set up a state where reviews have not yet been loaded.
-      const root = render({ params: { addonSlug } });
+      addon.ratings = { ...addon.ratings, count: 0 };
+      renderWithAddon();
 
-      const cardList = root.find('.AddonReviewList-reviews-listing');
-
-      expect(cardList).toHaveProp('header');
-
-      const header = shallow(cardList.prop('header'));
-      expect(header.find(LoadingText)).toHaveLength(1);
+      // Expect 2 per placeholder review (of which there should be 4), plus
+      // 1 in the header.
+      expect(
+        within(screen.getByClassName('AddonReviewList-reviews')).getAllByRole(
+          'alert',
+        ),
+      ).toHaveLength(9);
     });
 
     describe('with pagination', () => {
       const renderWithPagination = ({
-        addon = fakeAddon,
         page = '1',
         reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview),
         ...otherProps
       } = {}) => {
-        _loadAddon(addon);
-        _setAddonReviews({ addon, page, reviews });
-
-        return render({
-          location: createFakeLocation({ query: { page } }),
-          ...otherProps,
-        });
-      };
-
-      const renderFooter = (root) => {
-        return shallow(
-          root.find('.AddonReviewList-reviews-listing').prop('footer'),
-        );
+        return renderWithAddonAndReviews({ page, reviews, ...otherProps });
       };
 
       it('configures a paginator with the right URL', () => {
-        const addonSlug = 'adblock-plus';
-        const addon = { ...fakeAddon, id: 8765, slug: addonSlug };
-        _loadAddon(addon);
-        const root = renderWithPagination({ addon, params: { addonSlug } });
+        renderWithPagination();
 
-        const paginator = renderFooter(root);
-
-        expect(paginator.instance()).toBeInstanceOf(Paginate);
-        expect(paginator).toHaveProp('pathname', reviewListURL({ addonSlug }));
-      });
-
-      it('adds UTM query parameters to the reviews URL when there are some', () => {
-        const utm_campaign = 'some-utm-campaign';
-        const location = createFakeLocation({ query: { utm_campaign } });
-        const addonSlug = 'adblock-plus';
-        const addon = { ...fakeAddon, id: 8765, slug: addonSlug };
-        _loadAddon(addon);
-
-        const root = renderWithPagination({
-          addon,
-          params: { addonSlug },
-          location,
-        });
-
-        expect(renderFooter(root)).toHaveProp(
-          'pathname',
-          `${getAddonURL(addonSlug)}reviews/?utm_campaign=${utm_campaign}`,
+        expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+          'href',
+          `/en-US/firefox/addon/${defaultSlug}/reviews/?page=2`,
         );
       });
 
-      it('configures a paginator with the right Link', () => {
-        const root = renderWithPagination();
+      it('adds UTM query parameters to the reviews URL when there are some', () => {
+        const utmCampaign = 'some-utm-campaign';
+        renderWithPagination({
+          location: `${getLocation()}&utm_campaign=${utmCampaign}`,
+        });
 
-        expect(renderFooter(root)).toHaveProp('LinkComponent', Link);
+        expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+          'href',
+          `/en-US/firefox/addon/${defaultSlug}/reviews/?utm_campaign=${utmCampaign}&page=2`,
+        );
       });
 
       it('configures a paginator with the right review count', () => {
         const reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview);
+        renderWithPagination({ reviews });
 
-        const root = renderWithPagination({ reviews });
-
-        expect(renderFooter(root)).toHaveProp('count', reviews.length);
-      });
-
-      it('sets the paginator to page 1 without a query', () => {
-        // Render with an empty query string.
-        const root = renderWithPagination({ location: createFakeLocation() });
-
-        expect(renderFooter(root)).toHaveProp('currentPage', '1');
+        expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
       });
 
       it('sets the paginator to the query string page', () => {
-        const page = '3';
+        const reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview);
+        renderWithPagination({ page: '2', reviews });
 
-        const root = renderWithPagination({ page });
-
-        expect(renderFooter(root)).toHaveProp('currentPage', page);
+        expect(screen.getByText('Page 2 of 2')).toBeInTheDocument();
       });
     });
 
-    it('renders an HTML title', () => {
+    it('renders an HTML title', async () => {
       const name = 'My addon';
-      _loadAddon({ ...fakeAddon, name: createLocalizedString(name) });
-      const root = render();
-      expect(root.find('title')).toHaveText(`Reviews for ${name}`);
+      addon.name = createLocalizedString(name);
+      renderWithAddon();
+
+      await waitFor(() =>
+        expect(getElement('title')).toHaveTextContent(`Reviews for ${name}`),
+      );
     });
 
-    it('does not render an HTML title when there is no add-on', () => {
-      const root = render();
-      expect(root.find('title')).toHaveLength(0);
+    it('does not render an HTML title when there is no add-on', async () => {
+      render();
+
+      await waitFor(() =>
+        expect(getElement('title')).toHaveTextContent(
+          'Add-ons for Firefox (en-US)',
+        ),
+      );
     });
 
-    it('does not render a robots meta tag', () => {
-      const root = renderWithAddonAndReviews();
+    it('does not render a robots meta tag', async () => {
+      renderWithAddonAndReviews();
 
-      expect(root.find('meta[name="robots"]')).toHaveLength(0);
+      await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+      expect(getElements('meta[name="robots"]')).toHaveLength(0);
     });
 
-    it('renders a robots meta tag when there is a featured review', () => {
+    it('renders a robots meta tag when there is a featured review', async () => {
       const reviews = [
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
-
-      const root = renderWithAddonAndReviews({
+      renderWithAddonAndReviews({
+        reviewId: reviews[0].id,
         reviews,
-        params: { reviewId: reviews[0].id.toString() },
       });
 
-      expect(root.find('meta[name="robots"]')).toHaveLength(1);
-      expect(root.find('meta[name="robots"]')).toHaveProp(
-        'content',
-        'noindex, follow',
+      await waitFor(() =>
+        expect(getElement('meta[name="robots"]')).toHaveAttribute(
+          'content',
+          'noindex, follow',
+        ),
       );
     });
 
-    it('renders FeaturedAddonReview', () => {
-      const reviewId = 8765;
-      const addon = { ...fakeAddon };
-      _loadAddon(addon);
-      _setAddonReviews({ reviews: [{ ...fakeReview }] });
-
-      const root = render({ params: { reviewId } });
-
-      const featured = root.find(FeaturedAddonReview);
-      expect(featured).toHaveProp('addon', createInternalAddonWithLang(addon));
-      expect(featured).toHaveProp('reviewId', reviewId);
-    });
-
     it('dispatches fetchReviewPermissions on mount', () => {
-      const addon = { ...fakeAddon };
       const userId = 66432;
+      dispatchSignInActionsWithStore({ store, userId });
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      _loadAddon(addon);
-      dispatchSignInActions({ store, userId });
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const root = render();
-
-      sinon.assert.calledWith(
-        dispatchSpy,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchReviewPermissions({
           addonId: addon.id,
-          errorHandlerId: root.instance().props.errorHandler.id,
+          errorHandlerId: getErrorHandlerId(),
           userId,
         }),
       );
     });
 
     it('dispatches fetchReviewPermissions on update', () => {
-      const addon = { ...fakeAddon };
       const userId = 66432;
+      dispatchSignInActionsWithStore({ store, userId });
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      _loadAddon(addon);
-      dispatchSignInActions({ store, userId });
-      const dispatchSpy = sinon.spy(store, 'dispatch');
+      dispatch.mockClear();
 
-      const root = render();
-      dispatchSpy.resetHistory();
+      dispatchSignInActionsWithStore({ store, userId: userId + 1 });
 
-      root.setProps({ addon });
-
-      sinon.assert.calledWith(
-        dispatchSpy,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchReviewPermissions({
           addonId: addon.id,
-          errorHandlerId: root.instance().props.errorHandler.id,
-          userId,
+          errorHandlerId: getErrorHandlerId(),
+          userId: userId + 1,
         }),
       );
     });
 
     it('does not dispatch fetchReviewPermissions() when an error has occurred', () => {
-      const addon = { ...fakeAddon };
       const userId = 66432;
-
-      _loadAddon(addon);
-      dispatchSignInActions({ store, userId });
-
-      const error = createApiError({
-        response: { status: 401 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'Authentication Failed.' },
+      dispatchSignInActionsWithStore({ store, userId });
+      createFailedErrorHandler({
+        id: getErrorHandlerId(),
+        store,
       });
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      const errorHandler = new ErrorHandler({
-        id: 'error-handler-id',
-        dispatch: store.dispatch,
-      });
-      errorHandler.handle(error);
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      render({ errorHandler });
-
-      sinon.assert.notCalled(dispatchSpy);
+      expect(dispatch).not.toHaveBeenCalledWith(
+        fetchReviewPermissions({
+          addonId: addon.id,
+          errorHandlerId: getErrorHandlerId(),
+          userId,
+        }),
+      );
     });
 
     it('does not dispatch fetchReviewPermissions() if they are already loading', () => {
-      const addon = { ...fakeAddon };
       const userId = 66432;
-
-      _loadAddon(addon);
-      dispatchSignInActions({ store, userId });
-
+      dispatchSignInActionsWithStore({ store, userId });
+      createFailedErrorHandler({
+        id: getErrorHandlerId(),
+        store,
+      });
       const fetchAction = fetchReviewPermissions({
         addonId: addon.id,
-        errorHandlerId: 'any-error-handler',
+        errorHandlerId: getErrorHandlerId(),
         userId,
       });
       store.dispatch(fetchAction);
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      render();
-
-      sinon.assert.neverCalledWithMatch(dispatchSpy, {
-        type: fetchAction.type,
-      });
+      expect(dispatch).not.toHaveBeenCalledWith(
+        fetchReviewPermissions({
+          addonId: addon.id,
+          errorHandlerId: getErrorHandlerId(),
+          userId,
+        }),
+      );
     });
 
     it('does not dispatch fetchReviewPermissions() if they are already loaded', () => {
-      const addon = { ...fakeAddon };
       const userId = 66432;
-
-      _loadAddon(addon);
       signInAndSetReviewPermissions({
-        addonId: addon.id,
         userId,
         canReplyToReviews: true,
       });
 
-      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon();
 
-      render();
-
-      const fetchAction = fetchReviewPermissions({
-        addonId: addon.id,
-        errorHandlerId: 'any-error-handler',
-        userId,
-      });
-      sinon.assert.neverCalledWithMatch(dispatchSpy, {
-        type: fetchAction.type,
-      });
+      expect(dispatch).not.toHaveBeenCalledWith(
+        fetchReviewPermissions({
+          addonId: addon.id,
+          errorHandlerId: getErrorHandlerId(),
+          userId,
+        }),
+      );
     });
 
     it('sets siteUserCanReply when siteUser has permissions', () => {
-      const addon = { ...fakeAddon };
       const reviews = [
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
       const userId = 99654;
-
-      _loadAddon(addon);
-      _setAddonReviews({ reviews });
       signInAndSetReviewPermissions({
-        addonId: addon.id,
         userId,
         canReplyToReviews: true,
       });
+      renderWithAddonAndReviews({ reviews });
 
-      const root = render();
-
-      const items = root.find(AddonReviewCard);
-      expect(items).toHaveLength(2);
-
-      expect(items.at(0)).toHaveProp('siteUserCanReply', true);
-      expect(items.at(1)).toHaveProp('siteUserCanReply', true);
+      expect(
+        screen.getAllByRole('link', { name: 'Reply to this review' }),
+      ).toHaveLength(2);
     });
 
     it('passes siteUserCanReply to FeaturedAddonReview', () => {
       const reviewId = 8765;
-      const addon = { ...fakeAddon };
-      _loadAddon(addon);
-      _setAddonReviews({ addon, reviews: [{ ...fakeReview }] });
       signInAndSetReviewPermissions({
-        addonId: addon.id,
-        userId: 6745,
         canReplyToReviews: true,
       });
+      renderWithAddonAndReviews({
+        reviewId,
+        reviews: [{ ...fakeReview, id: reviewId }],
+      });
 
-      const root = render({ params: { reviewId } });
-
-      const featured = root.find(FeaturedAddonReview);
-      expect(featured).toHaveProp('siteUserCanReply', true);
+      expect(
+        within(screen.getByClassName('FeaturedAddonReview')).getByRole('link', {
+          name: 'Reply to this review',
+        }),
+      ).toBeInTheDocument();
     });
   });
 
-  it('renders a "description" meta tag', () => {
+  it('renders a "description" meta tag', async () => {
     const name = 'My addon';
-    const addonSlug = 'example-slug';
-    const addon = {
-      ...fakeAddon,
-      name: createLocalizedString(name),
-      slug: addonSlug,
-    };
-    _loadAddon(addon);
+    addon.name = createLocalizedString(name);
+    renderWithAddon();
 
-    const root = render({ params: { addonSlug } });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      new RegExp(
-        `Reviews and ratings for ${name}. Find out what other users think about ${name}`,
+    await waitFor(() =>
+      expect(getElement('meta[name="description"]')).toHaveAttribute(
+        'content',
+        `Reviews and ratings for ${name}. Find out what other users think ` +
+          `about ${name} and add it to your Firefox Browser.`,
       ),
     );
   });
 
   describe('filterByScoreSelector', () => {
-    function renderSelector({ preloadAddon = true, ...props } = {}) {
-      let addon;
-      const addonSlug = 'example-slug';
-      if (preloadAddon) {
-        addon = { ...fakeAddon, slug: addonSlug };
-        _loadAddon(addon);
-      }
-
-      const root = render({ params: { addonSlug }, ...props });
-      const header = shallow(
-        root.find('.AddonReviewList-reviews-listing').prop('header'),
+    const getSelector = () =>
+      within(screen.getByClassName('AddonReviewList-filterByScore')).getByRole(
+        'combobox',
       );
 
-      return {
-        addon,
-        selector: header.find('.AddonReviewList-filterByScoreSelector'),
-      };
-    }
-
     it('disables the selector before the add-on loads', () => {
-      const { selector } = renderSelector({ preloadAddon: false });
+      render();
 
-      expect(selector).toHaveProp('disabled', true);
+      expect(getSelector()).toHaveProperty('disabled', true);
     });
 
     it('enables the selector once the add-on loads', () => {
-      const { selector } = renderSelector();
+      renderWithAddon();
 
-      expect(selector).toHaveProp('disabled', false);
+      expect(getSelector()).toHaveProperty('disabled', false);
     });
 
     it('lets you select all reviews', () => {
-      const history = createFakeHistory();
-      const { addon, selector } = renderSelector({ history });
+      const history = createHistory({
+        initialEntries: [getLocation()],
+      });
+      renderWithAddonAndReviews({ history });
 
-      selector.simulate(
-        'change',
-        createFakeEvent({
-          target: { value: SHOW_ALL_REVIEWS },
-        }),
+      const pushSpy = jest.spyOn(history, 'push');
+      userEvent.selectOptions(getSelector(), SHOW_ALL_REVIEWS);
+
+      expect(pushSpy).toHaveBeenCalledWith(
+        `/en-US/firefox/addon/${defaultSlug}/reviews/`,
       );
-
-      const listURL = reviewListURL({ addonSlug: addon.slug });
-
-      sinon.assert.calledWith(history.push, `/${lang}/${clientApp}${listURL}`);
     });
 
-    it.each([5, 4, 3, 2, 1])(
-      'lets you select only %s star reviews',
-      (score) => {
-        const history = createFakeHistory();
-        const { addon, selector } = renderSelector({ history });
+    it.each([
+      [5, 'Show only five-star reviews'],
+      [4, 'Show only four-star reviews'],
+      [3, 'Show only three-star reviews'],
+      [2, 'Show only two-star reviews'],
+      [1, 'Show only one-star reviews'],
+    ])('lets you select only %s star reviews', (score, option) => {
+      const history = createHistory({
+        initialEntries: [getLocation()],
+      });
+      renderWithAddonAndReviews({ history });
 
-        selector.simulate(
-          'change',
-          createFakeEvent({
-            target: { value: score },
-          }),
-        );
+      const pushSpy = jest.spyOn(history, 'push');
+      userEvent.selectOptions(getSelector(), option);
 
-        const listURL = reviewListURL({ addonSlug: addon.slug, score });
-
-        sinon.assert.calledWith(
-          history.push,
-          `/${lang}/${clientApp}${listURL}`,
-        );
-      },
-    );
+      expect(pushSpy).toHaveBeenCalledWith(
+        `/en-US/firefox/addon/${defaultSlug}/reviews/?score=${score}`,
+      );
+    });
 
     it('sets the selector to the current score', () => {
-      const score = 3;
-      const { selector } = renderSelector({
-        location: createFakeLocation({ query: { score } }),
-      });
+      const score = '3';
+      renderWithAddonAndReviews({ score });
 
-      expect(selector).toHaveProp('value', score);
+      expect(getSelector()).toHaveValue(score);
     });
 
     it('defaults the selector to showing all reviews', () => {
-      const { selector } = renderSelector({
-        location: createFakeLocation({ query: {} }),
-      });
+      renderWithAddonAndReviews();
 
-      expect(selector).toHaveProp('value', SHOW_ALL_REVIEWS);
+      expect(getSelector()).toHaveValue(SHOW_ALL_REVIEWS);
     });
   });
 
   describe('extractId', () => {
     it('returns a unique ID based on the addon slug and page', () => {
-      const ownProps = getProps({
-        params: { addonSlug: 'foobar' },
-        location: createFakeLocation({ query: { page: 22 } }),
-      });
-
-      expect(extractId(ownProps)).toEqual(`foobar-22`);
+      expect(
+        extractId({
+          match: { params: { addonSlug: 'foobar' } },
+          location: { query: { page: 22 } },
+        }),
+      ).toEqual('foobar-22');
     });
 
     it('returns a unique ID even when there is no page', () => {
-      const ownProps = getProps({
-        params: { addonSlug: 'foobar' },
-        location: createFakeLocation(),
-      });
+      expect(
+        extractId({
+          match: { params: { addonSlug: 'foobar' } },
+          location: { query: {} },
+        }),
+      ).toEqual('foobar-');
+    });
+  });
 
-      expect(extractId(ownProps)).toEqual(`foobar-`);
+  describe('Tests for FeaturedAddonReview', () => {
+    const getThisErrorHandlerId = (reviewId) =>
+      `src/amo/components/FeaturedAddonReview/index.js-${reviewId}`;
+
+    it('fetches a review at construction', () => {
+      const reviewId = '1';
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon({ reviewId });
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchReview({
+          reviewId,
+          errorHandlerId: getThisErrorHandlerId(reviewId),
+        }),
+      );
+    });
+
+    it('fetches a review when the reviewId changes', () => {
+      const firstReviewId = '1';
+      const secondReviewId = '2';
+      store.dispatch(
+        fetchReview({
+          errorHandlerId: getThisErrorHandlerId(firstReviewId),
+          reviewId: firstReviewId,
+        }),
+      );
+      store.dispatch(setReview({ ...fakeReview, id: firstReviewId }));
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon({ reviewId: firstReviewId });
+
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ reviewId: secondReviewId }),
+        }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchReview({
+          reviewId: secondReviewId,
+          errorHandlerId: getThisErrorHandlerId(secondReviewId),
+        }),
+      );
+    });
+
+    it('does not fetch a review if one is already loaded', () => {
+      const reviewId = '1';
+      store.dispatch(setReview({ ...fakeReview, id: reviewId }));
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderWithAddon({ reviewId });
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        fetchReview({
+          reviewId,
+          errorHandlerId: getThisErrorHandlerId(reviewId),
+        }),
+      );
+    });
+
+    it('displays a message if the review is not found', () => {
+      const reviewId = '1';
+      createFailedErrorHandler({
+        error: createApiError({
+          response: { status: 404 },
+        }),
+        id: getThisErrorHandlerId(reviewId),
+        store,
+      });
+      renderWithAddon({ reviewId });
+
+      expect(screen.getByText('The review was not found.')).toBeInTheDocument();
+    });
+
+    it('displays the correct header for a review', () => {
+      const reviewId = 123;
+      store.dispatch(setReview({ ...fakeReview, id: reviewId }));
+      renderWithAddon({ reviewId });
+
+      expect(
+        screen.getByText(`Review by ${fakeReview.user.name}`),
+      ).toBeInTheDocument();
+    });
+
+    it('displays the correct header for a reply', () => {
+      const reviewId = 123;
+      store.dispatch(
+        setReview({ ...fakeReview, id: reviewId, is_developer_reply: true }),
+      );
+      renderWithAddon({ reviewId });
+
+      expect(
+        screen.getByText(`Response by ${fakeReview.user.name}`),
+      ).toBeInTheDocument();
     });
   });
 });
