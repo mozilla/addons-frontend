@@ -1,12 +1,10 @@
 import * as React from 'react';
+import { encode } from 'universal-base64url';
 
-import GetFirefoxButton from 'amo/components/GetFirefoxButton';
-import InstallButtonWrapper, {
-  InstallButtonWrapperBase,
-} from 'amo/components/InstallButtonWrapper';
+import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import { setInstallState } from 'amo/reducers/installations';
-import AMInstallButton from 'amo/components/AMInstallButton';
 import {
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
@@ -15,26 +13,20 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   INSTALLED,
-  UNKNOWN,
 } from 'amo/constants';
 import { loadVersions } from 'amo/reducers/versions';
 import {
-  createContextWithFakeRouter,
-  createFakeLocation,
   createInternalAddonWithLang,
   createInternalVersionWithLang,
   dispatchClientMetadata,
   fakeAddon,
   fakeFile,
-  fakeI18n,
   fakeInstalledAddon,
   fakeVersion,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
-
-// We need this to avoid firing sendEvent during tests, which will throw.
-jest.mock('amo/tracking');
 
 describe(__filename, () => {
   let store;
@@ -44,18 +36,12 @@ describe(__filename, () => {
   });
 
   const render = (props = {}) => {
-    return shallowUntilTarget(
+    return defaultRender(
       <InstallButtonWrapper
         addon={createInternalAddonWithLang(fakeAddon)}
-        i18n={fakeI18n()}
-        location={createFakeLocation()}
-        store={store}
         {...props}
       />,
-      InstallButtonWrapperBase,
-      {
-        shallowOptions: createContextWithFakeRouter(),
-      },
+      { store },
     );
   };
 
@@ -82,7 +68,7 @@ describe(__filename, () => {
     _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
     const clientApp = CLIENT_APP_FIREFOX;
-    const _getClientCompatibility = sinon.mock().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: true,
     });
 
@@ -93,10 +79,9 @@ describe(__filename, () => {
     render({
       _getClientCompatibility,
       addon: createInternalAddonWithLang(addon),
-      store,
     });
 
-    sinon.assert.calledWith(_getClientCompatibility, {
+    expect(_getClientCompatibility).toHaveBeenCalledWith({
       addon: createInternalAddonWithLang(addon),
       clientApp,
       currentVersion: createInternalVersionWithLang(addon.current_version),
@@ -112,7 +97,7 @@ describe(__filename, () => {
     _loadVersions({ slug, versions: [version] });
 
     const clientApp = CLIENT_APP_FIREFOX;
-    const _getClientCompatibility = sinon.mock().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: true,
     });
 
@@ -123,11 +108,10 @@ describe(__filename, () => {
     render({
       _getClientCompatibility,
       addon: createInternalAddonWithLang(addon),
-      store,
       version: createInternalVersionWithLang(version),
     });
 
-    sinon.assert.calledWith(_getClientCompatibility, {
+    expect(_getClientCompatibility).toHaveBeenCalledWith({
       addon: createInternalAddonWithLang(addon),
       clientApp,
       currentVersion: createInternalVersionWithLang(version),
@@ -139,7 +123,7 @@ describe(__filename, () => {
     const addon = fakeAddon;
 
     const clientApp = CLIENT_APP_FIREFOX;
-    const _getClientCompatibility = sinon.spy();
+    const _getClientCompatibility = jest.fn();
 
     _dispatchClientMetadata({
       clientApp,
@@ -149,15 +133,9 @@ describe(__filename, () => {
     render({
       _getClientCompatibility,
       addon: createInternalAddonWithLang(addon),
-      store,
     });
 
-    sinon.assert.neverCalledWith(_getClientCompatibility, {
-      addon: createInternalAddonWithLang(addon),
-      clientApp,
-      currentVersion: createInternalVersionWithLang(addon.current_version),
-      userAgentInfo: store.getState().api.userAgentInfo,
-    });
+    expect(_getClientCompatibility).not.toHaveBeenCalled();
   });
 
   it.each(['unknown reason', INCOMPATIBLE_UNDER_MIN_VERSION])(
@@ -170,7 +148,7 @@ describe(__filename, () => {
       _loadVersions({ slug, versions: [version] });
 
       const clientApp = CLIENT_APP_FIREFOX;
-      const _getClientCompatibility = sinon.mock().returns({
+      const _getClientCompatibility = jest.fn().mockReturnValue({
         compatible: false,
         reason,
       });
@@ -179,15 +157,16 @@ describe(__filename, () => {
         clientApp,
       });
 
-      const root = render({
+      render({
         _getClientCompatibility,
         addon: createInternalAddonWithLang(addon),
-        store,
         version: createInternalVersionWithLang(version),
       });
 
-      expect(root.find(AMInstallButton)).toHaveLength(0);
-      expect(root.find(GetFirefoxButton)).toHaveLength(1);
+      expect(
+        screen.getByRole('link', { name: 'Download Firefox' }),
+      ).toBeInTheDocument();
+      expect(screen.queryByText('Add to Firefox')).not.toBeInTheDocument();
     },
   );
 
@@ -207,7 +186,7 @@ describe(__filename, () => {
       _loadVersions({ slug, versions: [version] });
 
       const clientApp = CLIENT_APP_FIREFOX;
-      const _getClientCompatibility = sinon.mock().returns({
+      const _getClientCompatibility = jest.fn().mockReturnValue({
         compatible: false,
         reason,
       });
@@ -216,15 +195,16 @@ describe(__filename, () => {
         clientApp,
       });
 
-      const root = render({
+      render({
         _getClientCompatibility,
         addon: createInternalAddonWithLang(addon),
-        store,
         version: createInternalVersionWithLang(version),
       });
 
-      expect(root.find(AMInstallButton)).toHaveLength(1);
-      expect(root.find(GetFirefoxButton)).toHaveLength(0);
+      expect(
+        screen.getByRole('link', { name: 'Add to Firefox' }),
+      ).toBeInTheDocument();
+      expect(screen.queryByText('Download Firefox')).not.toBeInTheDocument();
     },
   );
 
@@ -233,86 +213,97 @@ describe(__filename, () => {
       userAgent: userAgentsByPlatform.mac.chrome41,
     });
 
-    const root = render({
-      store,
-    });
+    render();
 
-    expect(root.find(AMInstallButton)).toHaveLength(0);
+    expect(screen.queryByText('Add to Firefox')).not.toBeInTheDocument();
   });
 
   it('passes an add-on to AMInstallButton', () => {
-    const addon = createInternalAddonWithLang(fakeAddon);
-
-    const root = render({
-      addon,
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      type: ADDON_TYPE_STATIC_THEME,
     });
 
-    expect(root.find(AMInstallButton)).toHaveProp('addon', addon);
+    render({ addon });
+
+    expect(
+      screen.getByRole('button', { name: 'Install Theme' }),
+    ).toBeInTheDocument();
   });
 
   it('passes a null currentVersion to AMInstallButton when no version is loaded', () => {
     const addon = createInternalAddonWithLang(fakeAddon);
 
-    const root = render({
-      addon,
-    });
+    render({ addon });
 
-    expect(root.find(AMInstallButton)).toHaveProp('currentVersion', null);
+    const button = screen.getByRole('button', { name: 'Add to Firefox' });
+    expect(button).toHaveAttribute('disabled');
+    expect(button).not.toHaveAttribute('href');
   });
 
   it('passes a currentVersion to AMInstallButton when one is loaded', () => {
-    const _getClientCompatibility = sinon.mock().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: true,
     });
     const addon = fakeAddon;
 
     _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       addon: createInternalAddonWithLang(addon),
     });
 
-    expect(root.find(AMInstallButton)).toHaveProp(
-      'currentVersion',
-      createInternalVersionWithLang(addon.current_version),
-    );
+    expect(
+      screen.getByRole('link', { name: 'Add to Firefox' }),
+    ).toHaveAttribute('href', addon.current_version.url);
   });
 
   it('passes a currentVersion to AMInstallButton when one is specified', () => {
-    const _getClientCompatibility = sinon.mock().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: true,
     });
+    const url = 'https://some/url';
     const version = createInternalVersionWithLang({
       ...fakeVersion,
+      file: { ...fakeFile, url },
       id: fakeAddon.current_version.id + 1,
     });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       addon: createInternalAddonWithLang(fakeAddon),
       version,
     });
 
-    expect(root.find(AMInstallButton)).toHaveProp('currentVersion', version);
+    expect(
+      screen.getByRole('link', { name: 'Add to Firefox' }),
+    ).toHaveAttribute('href', url);
   });
 
   it('passes disabled to AMInstallButton based on what is returned from _getClientCompatibility', () => {
     const addon = fakeAddon;
 
-    const _getClientCompatibility = sinon.stub().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: true,
     });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       addon: createInternalAddonWithLang(addon),
+      version: createInternalVersionWithLang(fakeVersion),
     });
 
-    expect(root.find(AMInstallButton)).toHaveProp('disabled', false);
+    expect(
+      screen.getByRole('link', { name: 'Add to Firefox' }),
+    ).not.toHaveAttribute('disabled');
   });
 
   it('passes the expected status to AMInstallButton when the add-on is installed', () => {
+    const _getClientCompatibility = jest.fn().mockReturnValue({
+      compatible: true,
+    });
+
     const addon = fakeAddon;
 
     store.dispatch(
@@ -323,14 +314,22 @@ describe(__filename, () => {
       }),
     );
 
-    const root = render({
+    render({
+      _getClientCompatibility,
       addon: createInternalAddonWithLang(addon),
+      version: createInternalVersionWithLang(fakeVersion),
     });
 
-    expect(root.find(AMInstallButton)).toHaveProp('status', INSTALLED);
+    expect(screen.getByRole('link', { name: 'Remove' })).not.toHaveAttribute(
+      'disabled',
+    );
   });
 
   it('passes the canUninstall prop from the installation state to AMInstallButton', () => {
+    const _getClientCompatibility = jest.fn().mockReturnValue({
+      compatible: true,
+    });
+
     const addon = fakeAddon;
     const canUninstall = true;
 
@@ -342,17 +341,23 @@ describe(__filename, () => {
       }),
     );
 
-    const root = render({
+    render({
+      _getClientCompatibility,
       addon: createInternalAddonWithLang(addon),
+      version: createInternalVersionWithLang(fakeVersion),
     });
 
-    expect(root.find(AMInstallButton)).toHaveProp('canUninstall', canUninstall);
+    expect(screen.getByRole('link', { name: 'Remove' })).not.toHaveAttribute(
+      'disabled',
+    );
   });
 
   it('passes the expected status to AMInstallButton when the add-on is not installed', () => {
-    const root = render();
+    render();
 
-    expect(root.find(AMInstallButton)).toHaveProp('status', UNKNOWN);
+    expect(
+      screen.getByRole('button', { name: 'Add to Firefox' }),
+    ).toHaveAttribute('disabled');
   });
 
   it('passes an add-on to GetFirefoxButton', () => {
@@ -360,19 +365,27 @@ describe(__filename, () => {
       userAgent: userAgentsByPlatform.mac.chrome41,
     });
     const addon = createInternalAddonWithLang(fakeAddon);
+    const encodedGUID = encode(addon.guid);
+    const expectedHref = [
+      'https://www.mozilla.org/firefox/download/thanks/?s=direct',
+      'utm_campaign=amo-fx-cta-1234',
+      `utm_content=rta%3A${encodedGUID}`,
+      'utm_medium=referral',
+      'utm_source=addons.mozilla.org',
+    ].join('&');
 
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
+    expect(
+      screen.getByRole('link', { name: 'Download Firefox' }),
+    ).toHaveAttribute('href', expectedHref);
   });
 
   it('passes a custom className to AMInstallButton', () => {
     const className = 'some-class';
-    const root = render({
-      className,
-    });
+    render({ className });
 
-    expect(root.find(AMInstallButton)).toHaveClassName(
+    expect(screen.getByClassName('AMInstallButton')).toHaveClass(
       `AMInstallButton--${className}`,
     );
   });
@@ -382,107 +395,112 @@ describe(__filename, () => {
       userAgent: userAgentsByPlatform.mac.chrome41,
     });
     const className = 'some-class';
-    const root = render({
-      className,
-    });
+    render({ className });
 
-    expect(root.find(GetFirefoxButton)).toHaveClassName(
+    expect(screen.getByClassName('GetFirefoxButton')).toHaveClass(
       `GetFirefoxButton--${className}`,
     );
   });
 
   it('displays a download link when the browser is not compatible', () => {
-    const _getClientCompatibility = sinon.stub().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: false,
     });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
-    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(1);
+    expect(
+      screen.getByRole('link', { name: 'Download file' }),
+    ).toBeInTheDocument();
   });
 
   it('does not display a download link when the browser is compatible and showLinkInsteadOfButton is false', () => {
-    const _getClientCompatibility = sinon.stub().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: true,
     });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
       showLinkInsteadOfButton: false,
     });
 
-    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
+    expect(
+      screen.queryByRole('link', { name: 'Download file' }),
+    ).not.toBeInTheDocument();
   });
 
   it('displays a download link when the browser is compatible and showLinkInsteadOfButton is true', () => {
-    const _getClientCompatibility = sinon.stub().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: true,
     });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
       showLinkInsteadOfButton: true,
     });
 
-    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(1);
+    expect(
+      screen.getByRole('link', { name: 'Download file' }),
+    ).toBeInTheDocument();
   });
 
   it('does not display a button when the browser is compatible and showLinkInsteadOfButton is true', () => {
-    const _getClientCompatibility = sinon.stub().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: true,
     });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
       showLinkInsteadOfButton: true,
     });
 
-    expect(root.find(AMInstallButton)).toHaveLength(0);
+    expect(screen.queryByText('Add to Firefox')).not.toBeInTheDocument();
   });
 
   it('adds a special classname when no download link is displayed', () => {
-    const _getClientCompatibility = sinon.stub().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: true,
     });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
-    expect(root.find(AMInstallButton)).toHaveClassName(
+    expect(screen.getByClassName('AMInstallButton')).toHaveClass(
       'AMInstallButton--noDownloadLink',
     );
   });
 
   it('does not add a special classname when a download link is displayed', () => {
-    const _getClientCompatibility = sinon.stub().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: false,
+      reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
     });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
-    expect(root.find(AMInstallButton)).not.toHaveClassName(
+    expect(screen.getByClassName('AMInstallButton')).not.toHaveClass(
       'AMInstallButton--noDownloadLink',
     );
   });
 
   it('uses the file url in the download link', () => {
-    const _getClientCompatibility = sinon.stub().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: false,
     });
     const fileURL = 'https://addons.mozilla.org/files/addon.xpi';
 
-    const root = render({
+    render({
       _getClientCompatibility,
       version: createInternalVersionWithLang({
         ...fakeAddon.current_version,
@@ -490,18 +508,20 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find('.InstallButtonWrapper-download-link')).toHaveProp(
+    expect(screen.getByRole('link', { name: 'Download file' })).toHaveAttribute(
       'href',
       fileURL,
     );
   });
 
   it('does not display a download link when there is no currentVersion', () => {
-    const _getClientCompatibility = sinon.stub().returns({
+    const _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: false,
     });
-    const root = render({ _getClientCompatibility, version: null });
+    render({ _getClientCompatibility, version: null });
 
-    expect(root.find('.InstallButtonWrapper-download')).toHaveLength(0);
+    expect(
+      screen.queryByRole('link', { name: 'Download file' }),
+    ).not.toBeInTheDocument();
   });
 });
