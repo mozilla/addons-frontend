@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-05-03 19:24+0000\n"
-"PO-Revision-Date: 2022-05-12 13:12+0000\n"
+"PO-Revision-Date: 2022-05-12 13:22+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -260,14 +260,12 @@ msgid "More information"
 msgstr "ข้อมูลเพิ่มเติม"
 
 #: src/amo/components/AddonQRCode/index.js:101
-#, fuzzy
 msgid "Get %(addonName)s for Android"
-msgstr "ส่วนเสริมสำหรับ Android"
+msgstr "รับ %(addonName)s สำหรับ Android"
 
 #: src/amo/components/AddonQRCode/index.js:134
-#, fuzzy
 msgid "Dismiss this message"
-msgstr "เพิกเฉยประกาศนี้"
+msgstr "เพิกเฉยข้อความนี้"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
@@ -602,9 +600,8 @@ msgid "Log out"
 msgstr "ออกจากระบบ"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Log in"
-msgstr "ออกจากระบบ"
+msgstr "เข้าสู่ระบบ"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:143
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -833,7 +830,7 @@ msgstr "ขออภัย คุณไม่ได้รับอนุญา�
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
-msgstr ""
+msgstr "การเข้าสู่ระบบหมดอายุแล้ว"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -1063,14 +1060,12 @@ msgid "You'll need Firefox to use this extension"
 msgstr "คุณต้องมี Firefox เพื่อใช้ส่วนขยายนี้"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดตกแต่งนี้"
+msgstr "คุณต้องมี Firefox รุ่นที่ปรับปรุงแล้วเพื่อใช้ชุดตกแต่งนี้"
 
 #: src/amo/components/GetFirefoxButton/index.js:152
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนขยายนี้"
+msgstr "คุณต้องมี Firefox รุ่นที่ปรับปรุงแล้วเพื่อใช้ส่วนขยายนี้"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
@@ -1131,21 +1126,20 @@ msgstr "แนะนำ"
 
 #: src/amo/components/HeroRecommendation/index.js:237
 msgid "BY FIREFOX"
-msgstr ""
+msgstr "โดย FIREFOX"
 
 # If uppercase does not work in your locale,
 #: src/amo/components/HeroRecommendation/index.js:239
 msgid "SPONSORED"
-msgstr ""
+msgstr "สปอนเซอร์"
 
 #: src/amo/components/HeroRecommendation/index.js:256
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox แนะนำเฉพาะส่วนขยายที่ตรงตามมาตรฐานของเราเท่านั้นเพื่อความปลอดภัยและประสิทธิภาพ"
 
 #: src/amo/components/HomepageShelves/index.js:75
-#, fuzzy
 msgid "See more %(categoryName)s"
-msgstr "%(categoryName)s"
+msgstr "ดู %(categoryName)s เพิ่มเติม"
 
 #: src/amo/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
@@ -1160,9 +1154,8 @@ msgid "Access your data for %(param)s"
 msgstr "เข้าถึงข้อมูลของคุณสำหรับ %(param)s"
 
 #: src/amo/components/IconPromotedBadge/index.js:46 src/amo/components/PromotedBadge/index.js:41 src/amo/components/SearchFilters/index.js:182
-#, fuzzy
 msgid "By Firefox"
-msgstr "สำหรับ Firefox"
+msgstr "โดย Firefox"
 
 #: src/amo/components/IconPromotedBadge/index.js:47 src/amo/components/PromotedBadge/index.js:48 src/amo/components/SearchFilters/index.js:180
 msgid "Recommended"
@@ -1170,7 +1163,7 @@ msgstr "แนะนำ"
 
 #: src/amo/components/IconPromotedBadge/index.js:48 src/amo/components/PromotedBadge/index.js:56 src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
-msgstr ""
+msgstr "ผ่านการตรวจสอบ"
 
 #: src/amo/components/InstallButtonWrapper/index.js:127
 msgid "Download file"
@@ -1181,9 +1174,8 @@ msgid "Learn more"
 msgstr "เรียนรู้เพิ่มเติม"
 
 #: src/amo/components/InstallWarning/index.js:112
-#, fuzzy
 msgid "This add-on is not actively monitored for security by Mozilla. Make sure you trust it before installing."
-msgstr "ส่วนขยายนี้ไม่ได้รับการตรวจสอบโดย Mozilla ตรวจสอบให้แน่ใจว่าคุณเชื่อถือส่วนขยายก่อนที่คุณจะติดตั้ง"
+msgstr "ส่วนเสริมนี้ยังไม่ผ่านการตรวจสอบความปลอดภัยโดย Mozilla ตรวจสอบให้แน่ใจว่าคุณเชื่อถือส่วนเสริมก่อนที่คุณจะติดตั้ง"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1210,14 +1202,12 @@ msgid "Permissions"
 msgstr "สิทธิอนุญาต"
 
 #: src/amo/components/PermissionsCard/index.js:84
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "ส่วนเสริมนี้สามารถ:"
+msgstr "ส่วนเสริมนี้ต้องการ:"
 
 #: src/amo/components/PermissionsCard/index.js:94
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "ส่วนเสริมนี้สามารถ:"
+msgstr "ส่วนเสริมนี้อาจขอให้:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
@@ -1313,11 +1303,11 @@ msgstr ""
 
 #: src/amo/components/PromotedBadge/index.js:49
 msgid "Firefox only recommends add-ons that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox แนะนำเฉพาะส่วนเสริมที่ตรงตามมาตรฐานของเราเท่านั้นเพื่อความปลอดภัยและประสิทธิภาพ"
 
 #: src/amo/components/PromotedBadge/index.js:57
 msgid "This add-on has been reviewed to meet our standards for security and performance."
-msgstr ""
+msgstr "ส่วนเสริมนี้ได้รับการตรวจสอบว่าเป็นไปตามมาตรฐานด้านความปลอดภัยและประสิทธิภาพของเรา"
 
 #: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
@@ -1376,63 +1366,53 @@ msgid "Star rating saved"
 msgstr "บันทึกการจัดอันดับดาวแล้ว"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
-msgstr "ไม่มีบทวิจารณ์"
+msgstr "ไม่มีบทวิจารณ์สามดาว"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "อ่านบทวิจารณ์สองดาวทั้งหมด"
+msgstr[0] "อ่าน %(total)s บทวิจารณ์สองดาวทั้งหมด"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "ไม่มีบทวิจารณ์"
+msgstr "ไม่มีบทวิจารณ์สองดาว"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "อ่านบทวิจารณ์หนึ่งดาวทั้งหมด"
+msgstr[0] "อ่าน %(total)s บทวิจารณ์หนึ่งดาวทั้งหมด"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "ไม่มีบทวิจารณ์"
+msgstr "ไม่มีบทวิจารณ์หนึ่งดาว"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:380
 msgid "There are no reviews"
 msgstr "ไม่มีบทวิจารณ์"
 
 #: src/amo/components/RatingsByStar/index.js:63
-#, fuzzy
 msgid "Read the 1 five-star review"
 msgid_plural "Read all %(total)s five-star reviews"
-msgstr[0] "อ่านบทวิจารณ์ห้าดาวทั้งหมด"
+msgstr[0] "อ่าน %(total)s บทวิจารณ์หนึ่งดาวทั้งหมด"
 
 #: src/amo/components/RatingsByStar/index.js:73
-#, fuzzy
 msgid "There are no five-star reviews"
-msgstr "ไม่มีบทวิจารณ์"
+msgstr "ไม่มีบทวิจารณ์ห้าดาว"
 
 #: src/amo/components/RatingsByStar/index.js:78
-#, fuzzy
 msgid "Read the 1 four-star review"
 msgid_plural "Read all %(total)s four-star reviews"
-msgstr[0] "อ่านบทวิจารณ์สี่ดาวทั้งหมด"
+msgstr[0] "อ่าน %(total)s บทวิจารณ์สี่ดาวทั้งหมด"
 
 #: src/amo/components/RatingsByStar/index.js:88
-#, fuzzy
 msgid "There are no four-star reviews"
-msgstr "ไม่มีบทวิจารณ์"
+msgstr "ไม่มีบทวิจารณ์สี่ดาว"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read the 1 three-star review"
 msgid_plural "Read all %(total)s three-star reviews"
-msgstr[0] "อ่านบทวิจารณ์สามดาวทั้งหมด"
+msgstr[0] "อ่าน %(total)s บทวิจารณ์สามดาวทั้งหมด"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
 msgid "You reported this add-on for abuse"
@@ -1515,49 +1495,40 @@ msgid "Recommended add-ons"
 msgstr "ส่วนเสริมที่แนะนำ"
 
 #: src/amo/components/Search/index.js:155
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "ส่วนขยายโดย %(author)s"
+msgstr "ส่วนขยายโดย Firefox"
 
 #: src/amo/components/Search/index.js:158
-#, fuzzy
 msgid "Themes by Firefox"
-msgstr "สำหรับ Firefox"
+msgstr "ชุดตกแต่งโดย Firefox"
 
 #: src/amo/components/Search/index.js:161
-#, fuzzy
 msgid "Add-ons by Firefox"
-msgstr "ส่วนเสริมสำหรับ Firefox"
+msgstr "ส่วนเสริมโดย Firefox"
 
 #: src/amo/components/Search/index.js:166
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "ส่วนขยายที่แนะนำ"
+msgstr "ส่วนขยายที่ตรวจทานแล้ว"
 
 #: src/amo/components/Search/index.js:169
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "ตรวจทานชุดตกแต่ง"
+msgstr "ชุดตกแต่งที่ตรวจทานแล้ว"
 
 #: src/amo/components/Search/index.js:172
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "ตรวจทานโค้ดส่วนเสริม"
+msgstr "ส่วนเสริมที่ตรวจทานแล้ว"
 
 #: src/amo/components/Search/index.js:177
-#, fuzzy
 msgid "Verified extensions"
-msgstr "ส่วนขยายที่แนะนำ"
+msgstr "ส่วนขยายที่ตรวจสอบแล้ว"
 
 #: src/amo/components/Search/index.js:180
-#, fuzzy
 msgid "Verified themes"
-msgstr "ชุดตกแต่งที่แนะนำ"
+msgstr "ชุดตกแต่งที่ตรวจสอบแล้ว"
 
 #: src/amo/components/Search/index.js:183
-#, fuzzy
 msgid "Verified add-ons"
-msgstr "ส่วนเสริมที่แนะนำ"
+msgstr "ส่วนเสริมที่ตรวจสอบแล้ว"
 
 #: src/amo/components/Search/index.js:191 src/amo/pages/LandingPage/index.js:134
 msgid "Trending extensions"
@@ -1751,7 +1722,7 @@ msgstr "กำลังนิยม"
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
-msgstr ""
+msgstr "ใด ๆ"
 
 #: src/amo/components/SearchFilters/index.js:190
 #, fuzzy
@@ -1849,7 +1820,7 @@ msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ�
 
 #: src/amo/components/SiteNotices/index.js:68
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "บางคุณลักษณะถูกปิดใช้งานชั่วคราวในขณะที่เรากำลังทำการบำรุงรักษาเว็บไซต์ เราจะกลับมาเปิดให้ใช้เต็มรูปแบบอีกครั้งในไม่ช้า"
 
 #: src/amo/components/SiteNotices/index.js:83
 msgid "You have been logged out."
@@ -1914,7 +1885,7 @@ msgstr ""
 
 #: src/amo/components/VPNPromoBanner/index.js:204
 msgid "Get Mozilla VPN"
-msgstr ""
+msgstr "รับ Mozilla VPN"
 
 #: src/amo/components/WrongPlatformWarning/index.js:104
 #, fuzzy
