@@ -1,6 +1,11 @@
 import serialize from 'serialize-javascript';
 import { waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
+import {
+  CONTRIBUTE_BUTTON_CLICK_ACTION,
+  CONTRIBUTE_BUTTON_CLICK_CATEGORY,
+} from 'amo/components/ContributeCard';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -15,6 +20,7 @@ import {
 } from 'amo/constants';
 import { getAddonByIdInURL, loadAddon } from 'amo/reducers/addons';
 import { getVersionById } from 'amo/reducers/versions';
+import tracking from 'amo/tracking';
 import { getCanonicalURL } from 'amo/utils';
 import { getAddonJsonLinkedData } from 'amo/utils/addons';
 import {
@@ -29,6 +35,12 @@ import {
   renderPage as defaultRender,
   screen,
 } from 'tests/unit/helpers';
+
+jest.mock('amo/tracking', () => ({
+  ...jest.requireActual('amo/tracking'),
+  sendEvent: jest.fn(),
+  setDimension: jest.fn(),
+}));
 
 describe(__filename, () => {
   const authorUserId = 987;
@@ -53,6 +65,10 @@ describe(__filename, () => {
       slug: defaultSlug,
     };
     store = dispatchClientMetadata({ clientApp, lang }).store;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks().resetModules();
   });
 
   const render = ({ location, slug = defaultSlug } = {}) => {
@@ -447,6 +463,143 @@ describe(__filename, () => {
       expect(
         getElement('script[type="application/ld+json"]'),
       ).toHaveTextContent(/\\u003Cscript\\u003E/);
+    });
+  });
+
+  describe('Tests for ContributeCard', () => {
+    const url = 'https://paypal.me/babar';
+    const outgoing = 'https://outgoing.mozilla.org/qqq';
+    const contributionsURL = { url, outgoing };
+
+    it('does not render anything if no add-on supplied', () => {
+      render();
+
+      expect(screen.queryByText('Contribute now')).not.toBeInTheDocument();
+    });
+
+    it('does not render anything if add-on has no contributions URL', () => {
+      addon.contributions_url = null;
+      _loadAddon();
+
+      expect(screen.queryByText('Contribute now')).not.toBeInTheDocument();
+    });
+
+    it('renders a Button with a contributions URL', () => {
+      addon.contributions_url = contributionsURL;
+      _loadAddon();
+      render();
+
+      expect(screen.getByText('Contribute now')).toBeInTheDocument();
+      const link = screen.getByTitle(url);
+      expect(link).toHaveAttribute('href', outgoing);
+      expect(link).toHaveAttribute('target', '_blank');
+      expect(link).toHaveTextContent('Contribute now');
+    });
+
+    it('displays content for an extension developer', () => {
+      addon.contributions_url = contributionsURL;
+      _loadAddon();
+      render();
+
+      expect(screen.getByText('Support this developer')).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          `The developer of this extension asks that you help support its ` +
+            `continued development by making a small contribution.`,
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('displays content for multiple extension developers', () => {
+      addon.authors = Array(3).fill(fakeAddon.authors[0]);
+      addon.contributions_url = contributionsURL;
+      _loadAddon();
+      render();
+
+      expect(screen.getByText('Support these developers')).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          `The developers of this extension ask that you help support its ` +
+            `continued development by making a small contribution.`,
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('displays content for a theme artist', () => {
+      addon.contributions_url = contributionsURL;
+      addon.type = ADDON_TYPE_STATIC_THEME;
+      _loadAddon();
+      render();
+
+      expect(screen.getByText('Support this artist')).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          `The artist of this theme asks that you help support its continued ` +
+            `creation by making a small contribution.`,
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('displays content for multiple theme artists', () => {
+      addon.authors = Array(3).fill(fakeAddon.authors[0]);
+      addon.contributions_url = contributionsURL;
+      addon.type = ADDON_TYPE_STATIC_THEME;
+      _loadAddon();
+      render();
+
+      expect(screen.getByText('Support these artists')).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          `The artists of this theme ask that you help support its continued ` +
+            `creation by making a small contribution.`,
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('displays content for a add-on author', () => {
+      addon.contributions_url = contributionsURL;
+      addon.type = ADDON_TYPE_LANG;
+      _loadAddon();
+      render();
+
+      expect(screen.getByText('Support this author')).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          `The author of this add-on asks that you help support its ` +
+            `continued work by making a small contribution.`,
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('displays content for multiple add-on authors', () => {
+      addon.authors = Array(3).fill(fakeAddon.authors[0]);
+      addon.contributions_url = contributionsURL;
+      addon.type = ADDON_TYPE_LANG;
+      _loadAddon();
+      render();
+
+      expect(screen.getByText('Support these authors')).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          `The authors of this add-on ask that you help support its ` +
+            `continued work by making a small contribution.`,
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('sends a tracking event when the button is clicked', () => {
+      addon.contributions_url = contributionsURL;
+      _loadAddon();
+      render();
+
+      userEvent.click(screen.getByTitle(url));
+
+      expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+      expect(tracking.sendEvent).toHaveBeenCalledWith({
+        action: CONTRIBUTE_BUTTON_CLICK_ACTION,
+        category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,
+        label: addon.guid,
+      });
     });
   });
 });
