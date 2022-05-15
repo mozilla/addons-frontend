@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-05-03 19:24+0000\n"
-"PO-Revision-Date: 2022-05-15 11:41+0000\n"
+"PO-Revision-Date: 2022-05-15 11:46+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1623,8 +1623,8 @@ msgstr[1] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:152
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s tema funne med etikett %(tag)s i %(categoryName)s"
-msgstr[1] ""
+msgstr[0] "%(count)s tema funne med etiketten %(tag)s i %(categoryName)s"
+msgstr[1] "%(count)s tema funne med etiketten %(tag)s i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
@@ -1633,11 +1633,10 @@ msgstr[0] "%(count)s tema funne i «%(categoryName)s»"
 msgstr[1] "%(count)s tema funne i «%(categoryName)s»"
 
 #: src/amo/components/SearchContextCard/index.js:170
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s"
-msgstr[0] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
-msgstr[1] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
+msgstr[0] ""
+msgstr[1] "%(count)s tema funne for \"%(query)s\" med etiketten %(tag)s"
 
 #: src/amo/components/SearchContextCard/index.js:179
 msgid "%(count)s theme found for \"%(query)s\""
