@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-05-03 19:24+0000\n"
-"PO-Revision-Date: 2022-05-15 11:33+0000\n"
+"PO-Revision-Date: 2022-05-15 11:41+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -831,9 +831,8 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn."
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
-#, fuzzy
 msgid "Login authentication has expired. %(startLink)sReload the page%(endLink)s to continue without authentication, or login again using the Log In link at the top of the page."
-msgstr "Beklagar, men du har ikkje tilgangsløyve til denne sida. Dersom du ikkje er innlogga, kan du prøve å logge inn med lenka øvst på sida."
+msgstr "Innloggingsautentisering har gått ut. %(startLink)sLast inn sida%(endLink)s på nytt for å fortsetje utan autentisering, eller logg inn igjen ved å bruke lenka Logg inn øvst på sida."
 
 #: src/amo/components/Errors/AuthExpired/index.js:68
 msgid "Login Expired"
@@ -1613,7 +1612,7 @@ msgstr[1] "Fann %(count)s tillegg"
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgstr[0] "%(count)s tema funne for \"%(query)s\" med etiketten %(tag)s in %(categoryName)s"
-msgstr[1] ""
+msgstr[1] "%(count)s tema funne for \"%(query)s\" med etiketten %(tag)s i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -1622,11 +1621,10 @@ msgstr[0] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
 msgstr[1] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:152
-#, fuzzy
 msgid "%(count)s theme found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s tema funne i «%(categoryName)s»"
-msgstr[1] "%(count)s tema funne i «%(categoryName)s»"
+msgstr[0] "%(count)s tema funne med etikett %(tag)s i %(categoryName)s"
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s theme found in %(categoryName)s"
