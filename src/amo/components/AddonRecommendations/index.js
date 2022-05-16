@@ -179,7 +179,7 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
 const AddonRecommendations: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'AddonRecommendations' }),
+  withErrorHandler({ id: 'AddonRecommendations' }),
 )(AddonRecommendationsBase);
 
 export default AddonRecommendations;

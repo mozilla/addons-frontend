@@ -3,6 +3,13 @@ import { cleanup, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {
+  TAAR_IMPRESSION_CATEGORY,
+  TAAR_COHORT_DIMENSION,
+  TAAR_COHORT_INCLUDED,
+  TAAR_EXPERIMENT_PARTICIPANT,
+  TAAR_EXPERIMENT_PARTICIPANT_DIMENSION,
+} from 'amo/components/AddonRecommendations';
+import {
   CONTRIBUTE_BUTTON_CLICK_ACTION,
   CONTRIBUTE_BUTTON_CLICK_CATEGORY,
 } from 'amo/components/ContributeCard';
@@ -17,14 +24,24 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   STATIC_THEMES_REVIEW,
+  DEFAULT_UTM_SOURCE,
 } from 'amo/constants';
 import { getAddonByIdInURL, loadAddon } from 'amo/reducers/addons';
+import {
+  FETCH_RECOMMENDATIONS,
+  OUTCOME_CURATED,
+  OUTCOME_RECOMMENDED,
+  OUTCOME_RECOMMENDED_FALLBACK,
+  fetchRecommendations,
+  loadRecommendations,
+} from 'amo/reducers/recommendations';
 import { getVersionById } from 'amo/reducers/versions';
 import tracking from 'amo/tracking';
 import { getCanonicalURL } from 'amo/utils';
 import { getAddonJsonLinkedData } from 'amo/utils/addons';
 import {
   createHistory,
+  createFailedErrorHandler,
   createLocalizedString,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
@@ -32,8 +49,10 @@ import {
   fakeAuthor,
   fakeFile,
   fakePreview,
+  fakeRecommendations,
   fakeVersion,
   getElement,
+  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -978,6 +997,334 @@ describe(__filename, () => {
       expect(
         screen.getByText('Access your data for trishulgoel.com'),
       ).toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for AddonRecommendations', () => {
+    const thisErrorHandlerId = 'AddonRecommendations';
+
+    function doFetchRecommendations(guid = addon.guid) {
+      store.dispatch(
+        fetchRecommendations({
+          errorHandlerId: thisErrorHandlerId,
+          guid,
+        }),
+      );
+    }
+
+    function doLoadRecommendations(props = {}) {
+      store.dispatch(
+        loadRecommendations({
+          guid: addon.guid,
+          ...fakeRecommendations,
+          ...props,
+        }),
+      );
+    }
+
+    it('renders nothing without an addon', () => {
+      render();
+
+      expect(
+        screen.queryByText('Other users with this extension also installed'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders nothing if there is an error', () => {
+      createFailedErrorHandler({ id: thisErrorHandlerId, store });
+      doLoadRecommendations({
+        addons: [fakeAddon],
+        outcome: OUTCOME_RECOMMENDED,
+      });
+      _loadAddon();
+      render();
+
+      expect(
+        screen.queryByText('Other users with this extension also installed'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders an AddonCard when recommendations are loaded', () => {
+      const authorName = 'An add-on author';
+      const name = 'Some add-on name';
+      const slug = 'some-add-on-slug';
+      const summary = 'Some add-on summary';
+      const apiAddons = [
+        {
+          ...fakeAddon,
+          authors: [{ ...fakeAuthor, name: authorName }],
+          name: createLocalizedString(name),
+          slug,
+          summary,
+        },
+      ];
+      const outcome = OUTCOME_RECOMMENDED;
+      doLoadRecommendations({
+        addons: apiAddons,
+        outcome,
+      });
+      _loadAddon();
+      render();
+
+      const expectedLink = [
+        `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+        'utm_medium=referral',
+        `utm_content=${outcome}`,
+      ].join('&');
+
+      // This shows that the add-on was passed to AddonsCard, along
+      // with a correct addonInstallSource.
+      expect(screen.getByRole('link', { name })).toHaveAttribute(
+        'href',
+        expectedLink,
+      );
+      // This shows that the header was passed.
+      expect(
+        screen.getByText('Other users with this extension also installed'),
+      ).toBeInTheDocument();
+      // This shows that showMetadata is true.
+      expect(
+        screen.getByRole('heading', { name: authorName }),
+      ).toBeInTheDocument();
+      // This shows that showSummary is false.
+      expect(screen.queryByText(summary)).not.toBeInTheDocument();
+    });
+
+    it('renders an AddonCard when recommendations are loading', () => {
+      doFetchRecommendations();
+      _loadAddon();
+      render();
+
+      expect(
+        within(
+          within(screen.getByClassName('AddonRecommendations')).getByClassName(
+            'Card-header',
+          ),
+        ).getByRole('alert'),
+      ).toBeInTheDocument();
+      expect(
+        within(screen.getByClassName('AddonRecommendations')).getAllByAltText(
+          '',
+        ),
+      ).toHaveLength(4);
+    });
+
+    it('renders the expected header and source for the curated outcome', () => {
+      const name = 'Some add-on name';
+      const slug = 'some-add-on-slug';
+      const apiAddons = [
+        {
+          ...fakeAddon,
+          name: createLocalizedString(name),
+          slug,
+        },
+      ];
+      const outcome = OUTCOME_CURATED;
+      doLoadRecommendations({
+        addons: apiAddons,
+        outcome,
+      });
+      _loadAddon();
+      render();
+
+      const expectedLink = [
+        `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+        'utm_medium=referral',
+        `utm_content=${outcome}`,
+      ].join('&');
+      expect(screen.getByRole('link', { name })).toHaveAttribute(
+        'href',
+        expectedLink,
+      );
+      expect(screen.getByText('Other popular extensions')).toBeInTheDocument();
+    });
+
+    it('renders the expected header and source for the recommended_fallback outcome', () => {
+      const name = 'Some add-on name';
+      const slug = 'some-add-on-slug';
+      const apiAddons = [
+        {
+          ...fakeAddon,
+          name: createLocalizedString(name),
+          slug,
+        },
+      ];
+      const outcome = OUTCOME_RECOMMENDED_FALLBACK;
+      doLoadRecommendations({
+        addons: apiAddons,
+        outcome,
+      });
+      _loadAddon();
+      render();
+
+      const expectedLink = [
+        `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+        'utm_medium=referral',
+        `utm_content=${outcome}`,
+      ].join('&');
+      expect(screen.getByRole('link', { name })).toHaveAttribute(
+        'href',
+        expectedLink,
+      );
+      expect(screen.getByText('Other popular extensions')).toBeInTheDocument();
+    });
+
+    it('should dispatch a fetch action if no recommendations exist', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      _loadAddon();
+      render();
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchRecommendations({
+          errorHandlerId: thisErrorHandlerId,
+          guid: addon.guid,
+        }),
+      );
+    });
+
+    it('should not dispatch a fetch action if addon is null', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_RECOMMENDATIONS }),
+      );
+    });
+
+    it('should dispatch a fetch action if the addon is updated', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const newGuid = `${addon.guid}-new`;
+      const newSlug = `${defaultSlug}-new`;
+      _loadAddon();
+      render();
+
+      dispatch.mockClear();
+
+      store.dispatch(
+        loadAddon({
+          addon: { ...fakeAddon, guid: newGuid, slug: newSlug },
+          slug: newSlug,
+        }),
+      );
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: newSlug }),
+        }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchRecommendations({
+          errorHandlerId: thisErrorHandlerId,
+          guid: newGuid,
+        }),
+      );
+    });
+
+    it('should not dispatch a fetch if the addon is updated but not changed', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      _loadAddon();
+      render();
+
+      dispatch.mockClear();
+
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation(),
+        }),
+      );
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_RECOMMENDATIONS }),
+      );
+    });
+
+    it('should not dispatch a fetch if the addon is updated to null', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const newSlug = `${defaultSlug}-new`;
+      _loadAddon();
+      render();
+
+      dispatch.mockClear();
+
+      // Switch to a different add-on, that has not been loaded.
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: newSlug }),
+        }),
+      );
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_RECOMMENDATIONS }),
+      );
+    });
+
+    it('should send a GA ping when recommendations are loaded', () => {
+      const fallbackReason = 'timeout';
+      const outcome = OUTCOME_RECOMMENDED_FALLBACK;
+      _loadAddon();
+      render();
+
+      doLoadRecommendations({
+        outcome,
+        fallbackReason,
+      });
+
+      expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+      expect(tracking.sendEvent).toHaveBeenCalledWith({
+        action: `${outcome}-${fallbackReason}`,
+        category: TAAR_IMPRESSION_CATEGORY,
+        label: addon.guid,
+      });
+    });
+
+    it('should set GA custom dimensions', () => {
+      _loadAddon();
+      render();
+
+      expect(tracking.setDimension).toHaveBeenCalledTimes(2);
+      expect(tracking.setDimension).toHaveBeenCalledWith({
+        dimension: TAAR_COHORT_DIMENSION,
+        value: TAAR_COHORT_INCLUDED,
+      });
+      expect(tracking.setDimension).toHaveBeenCalledWith({
+        dimension: TAAR_EXPERIMENT_PARTICIPANT_DIMENSION,
+        value: TAAR_EXPERIMENT_PARTICIPANT,
+      });
+    });
+
+    it('should send a GA ping without a fallback', () => {
+      const fallbackReason = null;
+      const outcome = OUTCOME_RECOMMENDED;
+      _loadAddon();
+      render();
+
+      doLoadRecommendations({
+        outcome,
+        fallbackReason,
+      });
+
+      expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+      expect(tracking.sendEvent).toHaveBeenCalledWith({
+        action: outcome,
+        category: TAAR_IMPRESSION_CATEGORY,
+        label: addon.guid,
+      });
+    });
+
+    it('should not send a GA ping when recommendations are loading', () => {
+      doFetchRecommendations();
+      _loadAddon();
+      render();
+
+      expect(tracking.sendEvent).not.toHaveBeenCalled();
+    });
+
+    it('should not send a GA ping when there an error', () => {
+      createFailedErrorHandler({ id: thisErrorHandlerId, store });
+      _loadAddon();
+      render();
+
+      expect(tracking.sendEvent).not.toHaveBeenCalled();
     });
   });
 });
