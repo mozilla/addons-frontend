@@ -103,33 +103,6 @@ describe(__filename, () => {
     expect(screen.getByText(children)).toBeInTheDocument();
   });
 
-  // These two tests need to be executed in the context of a parent, as there
-  // is no way for us to directly change the contentId prop of a loaded
-  // instance.
-  // See https://github.com/mozilla/addons-frontend/issues/11409
-  // eslint-disable-next-line jest/no-commented-out-tests
-  /*
-  it('calls resetUIState if the contentId has changed', () => {
-    render({ contentId: 1 });
-
-    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
-
-    root.setProps({ contentId: 2 });
-
-    sinon.assert.called(resetUIStateSpy);
-  });
-
-  it('does not call resetUIState if the contentId is the same', () => {
-    render({ contentId: 1 });
-
-    const resetUIStateSpy = sinon.spy(root.instance(), 'resetUIState');
-
-    root.setProps({ contentId: 1 });
-
-    sinon.assert.notCalled(resetUIStateSpy);
-  });
-  */
-
   it('executes truncateToMaxHeight when it receives props changes', () => {
     const _truncateToMaxHeight = jest.fn();
     const id = 'id-for-card';
