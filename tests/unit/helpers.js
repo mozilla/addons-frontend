@@ -31,6 +31,11 @@ import {
   OS_ALL,
 } from 'amo/constants';
 import I18nProvider from 'amo/i18n/Provider';
+import {
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
+  loadAddonsByAuthors as defaultLoadAddonsByAuthors,
+} from 'amo/reducers/addonsByAuthors';
 import { createInternalCollection } from 'amo/reducers/collections';
 import { createInternalHomeShelves } from 'amo/reducers/home';
 import createStore from 'amo/store';
@@ -1741,3 +1746,49 @@ export const renderPage = (options = {}) => {
 
 export const getSearchErrorHandlerId = (page) =>
   `src/amo/components/Search/index.js-${page}`;
+
+export const fakeAuthors = [
+  { ...fakeAuthor, name: 'Bob', username: 'bsilverberg', id: 1 },
+  { ...fakeAuthor, name: 'Matt', username: 'tofumatt', id: 2 },
+];
+
+export const loadAddonsByAuthors = ({
+  addonName = 'Some add-on name',
+  addonType = ADDON_TYPE_EXTENSION,
+  count = null,
+  forAddonSlug = 'some-slug',
+  multipleAuthors = false,
+  store,
+}) => {
+  const pageSize =
+    addonType === ADDON_TYPE_STATIC_THEME
+      ? THEMES_BY_AUTHORS_PAGE_SIZE
+      : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
+
+  const addons = [];
+  const totalAddons = typeof count === 'number' ? count : pageSize;
+
+  for (let i = 0; i < totalAddons; i++) {
+    addons.push({
+      ...fakeAddon,
+      id: i + 1,
+      name: createLocalizedString(`${addonName}-${i}`),
+      slug: `foo${i}`,
+      type: addonType,
+      authors: [fakeAuthors[0]],
+    });
+  }
+
+  store.dispatch(
+    defaultLoadAddonsByAuthors({
+      addons,
+      addonType,
+      authorIds: multipleAuthors
+        ? [fakeAuthors[0].id, fakeAuthors[1].id]
+        : [fakeAuthors[0].id],
+      count: addons.length,
+      forAddonSlug,
+      pageSize,
+    }),
+  );
+};
