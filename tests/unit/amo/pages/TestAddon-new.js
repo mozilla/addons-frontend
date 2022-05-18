@@ -1,7 +1,14 @@
+import config from 'config';
 import serialize from 'serialize-javascript';
 import { cleanup, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import {
+  ADDON_QRCODE_CAMPAIGN,
+  ADDON_QRCODE_CATEGORY,
+  ADDON_QRCODE_CLICK_ACTION,
+  ADDON_QRCODE_IMPRESSION_ACTION,
+} from 'amo/components/AddonQRCode';
 import {
   TAAR_IMPRESSION_CATEGORY,
   TAAR_COHORT_DIMENSION,
@@ -23,9 +30,10 @@ import {
   ADDONS_REVIEW,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  DEFAULT_UTM_MEDIUM,
   DEFAULT_UTM_SOURCE,
-  STATIC_THEMES_REVIEW,
   RECOMMENDED,
+  STATIC_THEMES_REVIEW,
 } from 'amo/constants';
 import { ADDONS_BY_AUTHORS_COUNT } from 'amo/pages/Addon';
 import { getAddonByIdInURL, loadAddon } from 'amo/reducers/addons';
@@ -60,6 +68,7 @@ import {
   fakeRecommendations,
   fakeVersion,
   getElement,
+  getMockConfig,
   loadAddonsByAuthors,
   onLocationChanged,
   renderPage as defaultRender,
@@ -72,6 +81,8 @@ jest.mock('amo/tracking', () => ({
   sendEvent: jest.fn(),
   setDimension: jest.fn(),
 }));
+
+jest.mock('config');
 
 describe(__filename, () => {
   const defaultAddonName = 'My Add-On';
@@ -1917,6 +1928,214 @@ describe(__filename, () => {
       expect(screen.getByClassName('Badge-requires-payment')).toHaveTextContent(
         'Some features may require payment',
       );
+    });
+  });
+
+  describe('Tests for AddonQRCode', () => {
+    const goodAddonId = 12345;
+    const baseConfigOverride = {
+      addonIdsWithQRCodes: [goodAddonId],
+      enableFeatureAddonQRCode: true,
+    };
+    let fakeConfig = getMockConfig(baseConfigOverride);
+    config.get.mockImplementation((key) => {
+      return fakeConfig[key];
+    });
+
+    beforeEach(() => {
+      addon.id = goodAddonId;
+    });
+
+    const openQRCodeOverlay = () =>
+      userEvent.click(
+        screen.getByRole('button', {
+          name: 'Also available on Firefox for Android',
+        }),
+      );
+
+    const clickLink = () =>
+      userEvent.click(screen.getByRole('link', { name: 'this link' }));
+
+    it('renders a link with the expected destination', () => {
+      _loadAddon();
+      render();
+
+      openQRCodeOverlay();
+
+      const queryString = [
+        `utm_source=${DEFAULT_UTM_SOURCE}`,
+        `utm_medium=${DEFAULT_UTM_MEDIUM}`,
+        `utm_campaign=${ADDON_QRCODE_CAMPAIGN}`,
+        `utm_content=${addon.id}`,
+      ].join('&');
+      const destination = `/${lang}/${CLIENT_APP_ANDROID}/addon/${defaultSlug}/?${queryString}`;
+
+      expect(screen.getByRole('link', { name: 'this link' })).toHaveAttribute(
+        'href',
+        destination,
+      );
+    });
+
+    it('renders a label with the expected text', () => {
+      _loadAddon();
+      render();
+
+      openQRCodeOverlay();
+
+      expect(screen.getByClassName('AddonQRCode-label')).toHaveTextContent(
+        `To get ${defaultAddonName} on Firefox for Android, point your device camera to the code above or copy this link`,
+      );
+      expect(
+        screen.getByTextAcrossTags(
+          `To get ${defaultAddonName} on Firefox for Android, point your ` +
+            `device camera to the code above or copy this link`,
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('renders an img with the expected src and alt text', () => {
+      const staticPath = '/some-static/path/';
+      fakeConfig = getMockConfig({ ...baseConfigOverride, staticPath });
+      config.get.mockImplementation((key) => {
+        return fakeConfig[key];
+      });
+      _loadAddon();
+      render();
+
+      openQRCodeOverlay();
+
+      expect(
+        screen.getByAltText(`Get ${defaultAddonName} for Android`),
+      ).toHaveAttribute('src', `${staticPath}${goodAddonId}.png?v=2`);
+    });
+
+    it('closes the overlay when the dismiss button is clicked', () => {
+      _loadAddon();
+      render();
+
+      openQRCodeOverlay();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Dismiss this message' }),
+      );
+
+      expect(
+        screen.queryByRole('link', { name: 'this link' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('closes the overlay when the link is clicked', () => {
+      _loadAddon();
+      render();
+
+      openQRCodeOverlay();
+      clickLink();
+
+      expect(
+        screen.queryByRole('link', { name: 'this link' }),
+      ).not.toBeInTheDocument();
+    });
+
+    describe('tracking', () => {
+      it('sends a tracking event for the impression on mount', () => {
+        _loadAddon();
+        render();
+
+        openQRCodeOverlay();
+
+        expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          action: ADDON_QRCODE_IMPRESSION_ACTION,
+          category: ADDON_QRCODE_CATEGORY,
+          label: String(goodAddonId),
+        });
+      });
+
+      it('sends a tracking event when the link is clicked', () => {
+        _loadAddon();
+        render();
+
+        openQRCodeOverlay();
+
+        tracking.sendEvent.mockClear();
+        clickLink();
+
+        expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          action: ADDON_QRCODE_CLICK_ACTION,
+          category: ADDON_QRCODE_CATEGORY,
+          label: String(goodAddonId),
+        });
+      });
+    });
+
+    describe('Tests for AddonQRCodeLink', () => {
+      describe('flag enabled', () => {
+        it('displays a link for a QR code on desktop, for an applicable add-on', () => {
+          _loadAddon();
+          render();
+
+          expect(
+            screen.getByRole('button', {
+              name: 'Also available on Firefox for Android',
+            }),
+          ).toBeInTheDocument();
+        });
+
+        it('does not display a link for a QR code on desktop, with no add-on', () => {
+          render();
+
+          expect(
+            screen.queryByRole('button', {
+              name: 'Also available on Firefox for Android',
+            }),
+          ).not.toBeInTheDocument();
+        });
+
+        it('does not display a link for a QR code on desktop, for an invalid add-on', () => {
+          addon.id = goodAddonId + 1;
+          _loadAddon();
+          render();
+
+          expect(
+            screen.queryByRole('button', {
+              name: 'Also available on Firefox for Android',
+            }),
+          ).not.toBeInTheDocument();
+        });
+
+        it('does not display a link for a QR code on mobile, for an applicable add-on', () => {
+          dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
+          _loadAddon();
+          render({
+            location: `/${lang}/${CLIENT_APP_ANDROID}/addon/${defaultSlug}/`,
+          });
+
+          expect(
+            screen.queryByRole('button', {
+              name: 'Also available on Firefox for Android',
+            }),
+          ).not.toBeInTheDocument();
+        });
+      });
+
+      it('does not display a link for a QR code on desktop, for an applicable add-on, with the flag disabled', () => {
+        fakeConfig = getMockConfig({
+          ...baseConfigOverride,
+          enableFeatureAddonQRCode: false,
+        });
+        config.get.mockImplementation((key) => {
+          return fakeConfig[key];
+        });
+        _loadAddon();
+        render();
+
+        expect(
+          screen.queryByRole('button', {
+            name: 'Also available on Firefox for Android',
+          }),
+        ).not.toBeInTheDocument();
+      });
     });
   });
 });
