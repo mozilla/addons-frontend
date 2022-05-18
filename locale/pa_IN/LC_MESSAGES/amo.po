@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-03 19:24+0000\n"
+"POT-Creation-Date: 2022-05-18 08:05+0000\n"
 "PO-Revision-Date: 2021-01-30 18:44+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -341,7 +341,7 @@ msgid "Delete"
 msgstr "ਹਟਾਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:266
-#: src/amo/components/AddonReviewManager/index.js:153
+#: src/amo/components/AddonReviewManager/index.js:146
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
@@ -366,7 +366,6 @@ msgid "Write a reply to this review."
 msgstr "ਇਸ ਪੜਤਾਲ ਲਈ ਜਵਾਬ ਲਿਖੋ।"
 
 #: src/amo/components/AddonReviewCard/index.js:316
-#: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "ਜਵਾਬ ਅੱਪਡੇਟ ਕਰੋ"
 
@@ -375,7 +374,6 @@ msgid "Publish reply"
 msgstr "ਜਵਾਬ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ"
 
 #: src/amo/components/AddonReviewCard/index.js:321
-#: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "ਜਵਾਬ ਨੂੰ ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
@@ -421,35 +419,35 @@ msgstr ""
 msgid "Write a review"
 msgstr "ਪੜਤਾਲ ਲਿਖੋ"
 
-#: src/amo/components/AddonReviewManager/index.js:113
+#: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
 msgstr "ਇਸ ਐਡ-ਆਨ ਨਾਲ ਆਪਣਾ ਅਨੁਭਵ ਲਿਖੋ।"
 
-#: src/amo/components/AddonReviewManager/index.js:117
+#: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
 msgstr "ਪੜਤਾਲ ਭੇਜੋ"
 
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
 msgstr "ਪੜਤਾਲ ਭੇਜੀ ਜਾ ਰਹੀ ਹੈ"
 
-#: src/amo/components/AddonReviewManager/index.js:122
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
 msgstr "ਪੜਤਾਲ ਅੱਪਡੇਟ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
 
-#: src/amo/components/AddonReviewManager/index.js:125
+#: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
 msgstr "ਪੜਤਾਲ ਅੱਪਡੇਟ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
 
-#: src/amo/components/AddonReviewManager/index.js:146
+#: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
 msgstr "ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
 msgstr "ਸੰਭਾਲੀ ਗਈ"
 
-#: src/amo/components/AddonReviewManager/index.js:91
+#: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "ਸਾਡੀਆਂ %(linkStart)sਪੜਤਾਲ ਸੇਧਾਂ%(linkEnd)s ਦੀ ਪਾਲਣਾ ਕਰੋ।"
 
@@ -583,40 +581,40 @@ msgstr "ਵਰਜ਼ਨ %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s - %(fileSize)s ਜਾਰੀ ਕੀਤਾ"
 
-#: src/amo/components/AMInstallButton/index.js:200
+#: src/amo/components/AMInstallButton/index.js:147
 msgid "Enable"
 msgstr "ਸਮਰੱਥ"
 
-#: src/amo/components/AMInstallButton/index.js:203
+#: src/amo/components/AMInstallButton/index.js:150
 #: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
-#: src/amo/components/AMInstallButton/index.js:205
+#: src/amo/components/AMInstallButton/index.js:152
 msgid "Enabling"
 msgstr "ਸਮਰੱਥ ਬਣਾਉਣਾ"
 
-#: src/amo/components/AMInstallButton/index.js:207
+#: src/amo/components/AMInstallButton/index.js:154
 msgid "Disabling"
 msgstr "ਅਯੋਗ ਕਰ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/AMInstallButton/index.js:209
+#: src/amo/components/AMInstallButton/index.js:156
 msgid "Downloading"
 msgstr "ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/AMInstallButton/index.js:211
+#: src/amo/components/AMInstallButton/index.js:158
 msgid "Installing"
 msgstr "ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:160
 msgid "Uninstalling"
 msgstr "ਅਣ-ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:168
 msgid "Install Theme"
 msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:169
 msgid "Add to Firefox"
 msgstr "ਫ਼ਾਇਰਫ਼ਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
@@ -656,16 +654,16 @@ msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr "ਇਹ ਕਾਰਵਾਈ ਇਸ ਸਮੇਂ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਪਲ ਵਿੱਚ ਪੇਜ ਨੂੰ ਮੁੜ ਲੋਡ ਕਰੋ।"
 
-#: src/amo/components/AutoSearchInput/index.js:205
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/AutoSearchInput/index.js:305
+#: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
 msgstr "ਐਡ-ਆਨ ਲੱਭੋ"
 
-#: src/amo/components/AutoSearchInput/index.js:330
-#: src/amo/components/AutoSearchInput/index.js:358
+#: src/amo/components/AutoSearchInput/index.js:323
+#: src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
 msgstr "ਖੋਜ"
 
@@ -1032,15 +1030,15 @@ msgstr ""
 msgid "Toggle contents"
 msgstr "ਸਮਗਰੀ ਬਦਲੋ"
 
-#: src/amo/components/FeaturedAddonReview/index.js:77
+#: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Response by %(userName)s"
 msgstr "%(userName)s ਵਲੋਂ ਜਵਾਬ"
 
-#: src/amo/components/FeaturedAddonReview/index.js:78
+#: src/amo/components/FeaturedAddonReview/index.js:79
 msgid "Review by %(userName)s"
 msgstr "%(userName)s ਵਲੋਂ ਪੜਤਾਲ"
 
-#: src/amo/components/FeaturedAddonReview/index.js:90
+#: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
 msgstr "ਪੜਤਾਲ ਨਹੀਂ ਮਿਲੀ ਸੀ।"
 
@@ -1328,12 +1326,12 @@ msgstr "ਤਸਦੀਕ ਕੀਤਾ"
 msgid "Download file"
 msgstr "ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "ਹੋਰ ਜਾਣੋ"
 
-#: src/amo/components/InstallWarning/index.js:112
+#: src/amo/components/InstallWarning/index.js:108
 #, fuzzy
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
@@ -1577,7 +1575,7 @@ msgid "There are no one-star reviews"
 msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:380
+#: src/amo/pages/AddonReviewList/index.js:371
 msgid "There are no reviews"
 msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
@@ -2117,7 +2115,7 @@ msgstr "ਸਾਰੇ ਥੀਮਾਂ ਦੀ ਝਲਕ ਵੇਖੋ"
 msgid "Add-ons Home Page"
 msgstr "ਐਡ-ਆਨ ਮੁੱਖ ਸਫ਼ਾ"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "%(title)s ਦੀ ਝਲਕ"
 
@@ -2275,7 +2273,7 @@ msgstr "%(addonName)s ਲਈ ਐਂਡ-ਯੂਜ਼ਰ ਲਸੰਸ ਸਮਝੌ
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਪਰਦੇਦਾਰੀ ਨੀਤੀ"
 
-#: src/amo/pages/AddonReviewList/index.js:207
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2283,35 +2281,35 @@ msgstr ""
 "%(addonName)s ਲਈ ਸਮੀਖਿਆ ਅਤੇ ਰੇਟਿੰਗ। ਪਤਾ ਕਰੋ ਕਿ ਹੋਰ ਵਰਤੋਂਕਾਰ %(addonName)s ਬਾਰੇ ਕੀ "
 "ਸੋਚਦੇ ਹਨ ਅਤੇ ਇਸ ਨੂੰ ਆਪਣੇ ਫਾਇਰਫਾਕਸ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਜੋੜੋ।"
 
-#: src/amo/pages/AddonReviewList/index.js:242
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show all reviews"
 msgstr "ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:244
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only five-star reviews"
 msgstr "ਕੇਵਲ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:245
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only four-star reviews"
 msgstr "ਸਿਰਫ ਚਾਰ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:247
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only three-star reviews"
 msgstr "ਸਿਰਫ ਤਿੰਨ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:249
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only two-star reviews"
 msgstr "ਸਿਰਫ ਦੋ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:250
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only one-star reviews"
 msgstr "ਸਿਰਫ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:262
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਸਮੀਖਿਆ"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:272
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s ਸਮੀਖਿਆ"

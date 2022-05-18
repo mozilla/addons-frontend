@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-03 19:24+0000\n"
+"POT-Creation-Date: 2022-05-18 08:05+0000\n"
 "PO-Revision-Date: 2021-08-30 05:21+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -339,7 +339,7 @@ msgid "Delete"
 msgstr "حذف کریں"
 
 #: src/amo/components/AddonReviewCard/index.js:266
-#: src/amo/components/AddonReviewManager/index.js:153
+#: src/amo/components/AddonReviewManager/index.js:146
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
@@ -364,7 +364,6 @@ msgid "Write a reply to this review."
 msgstr "اس جائزے کا حواب دیں۔"
 
 #: src/amo/components/AddonReviewCard/index.js:316
-#: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "جواب اپ ڈیٹ کریں"
 
@@ -373,7 +372,6 @@ msgid "Publish reply"
 msgstr "جواب شائع کریں"
 
 #: src/amo/components/AddonReviewCard/index.js:321
-#: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "جواب اپ ڈیٹ ہو رہا ہے"
 
@@ -413,36 +411,36 @@ msgstr ""
 msgid "Write a review"
 msgstr "ایک جائزہ لکھیں"
 
-#: src/amo/components/AddonReviewManager/index.js:113
+#: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
 msgstr "اس ایڈ اون کے ساتھ اپنے تجربے کے بارے میں لکھیں۔"
 
-#: src/amo/components/AddonReviewManager/index.js:117
+#: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
 msgstr "جائزہ داخل کریں"
 
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
 msgstr "جائزہ پیش کرنا"
 
-#: src/amo/components/AddonReviewManager/index.js:122
+#: src/amo/components/AddonReviewManager/index.js:119
 #, fuzzy
 msgid "Update review"
 msgstr "ایک جائزہ لکھیں"
 
-#: src/amo/components/AddonReviewManager/index.js:125
+#: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
 msgstr "تجزیہ کی تازہ کاری"
 
-#: src/amo/components/AddonReviewManager/index.js:146
+#: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
 msgstr "محفوظ ہو رہا ہے"
 
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
 msgstr "محفوظ شدہ"
 
-#: src/amo/components/AddonReviewManager/index.js:91
+#: src/amo/components/AddonReviewManager/index.js:90
 #, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr ""
@@ -586,41 +584,41 @@ msgstr "ورژن  %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:200
+#: src/amo/components/AMInstallButton/index.js:147
 msgid "Enable"
 msgstr "اہل بنائیں"
 
-#: src/amo/components/AMInstallButton/index.js:203
+#: src/amo/components/AMInstallButton/index.js:150
 #: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "ہٹائیں"
 
-#: src/amo/components/AMInstallButton/index.js:205
+#: src/amo/components/AMInstallButton/index.js:152
 msgid "Enabling"
 msgstr "فعال بنا رہے ہیں "
 
-#: src/amo/components/AMInstallButton/index.js:207
+#: src/amo/components/AMInstallButton/index.js:154
 #, fuzzy
 msgid "Disabling"
 msgstr "ناتنصیب کر رہا ہے"
 
-#: src/amo/components/AMInstallButton/index.js:209
+#: src/amo/components/AMInstallButton/index.js:156
 msgid "Downloading"
 msgstr "ڈاؤن لوڈ ہو رہا ہے"
 
-#: src/amo/components/AMInstallButton/index.js:211
+#: src/amo/components/AMInstallButton/index.js:158
 msgid "Installing"
 msgstr "تنصیب کر رہا ہے"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:160
 msgid "Uninstalling"
 msgstr "ناتنصیب کر رہا ہے"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:168
 msgid "Install Theme"
 msgstr "خیالیہ کی تنصیب کریں"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:169
 msgid "Add to Firefox"
 msgstr "Firefox میں شامل کریں"
 
@@ -664,16 +662,16 @@ msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
 
-#: src/amo/components/AutoSearchInput/index.js:205
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "لوڈ ہو رہا ہے"
 
-#: src/amo/components/AutoSearchInput/index.js:305
+#: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
 msgstr "اضافہ جات تلاش کری٘ں"
 
-#: src/amo/components/AutoSearchInput/index.js:330
-#: src/amo/components/AutoSearchInput/index.js:358
+#: src/amo/components/AutoSearchInput/index.js:323
+#: src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
 msgstr "تلاش"
 
@@ -1023,17 +1021,17 @@ msgstr "یہ ایڈاون آپ کے پلیٹ فارم پر دستیاب نہیں
 msgid "Toggle contents"
 msgstr "مواد ٹوگل کریں"
 
-#: src/amo/components/FeaturedAddonReview/index.js:77
+#: src/amo/components/FeaturedAddonReview/index.js:78
 #, fuzzy
 msgid "Response by %(userName)s"
 msgstr "%(addonName)s کے لئے جائزے"
 
-#: src/amo/components/FeaturedAddonReview/index.js:78
+#: src/amo/components/FeaturedAddonReview/index.js:79
 #, fuzzy
 msgid "Review by %(userName)s"
 msgstr "%(addonName)s کے لئے جائزے"
 
-#: src/amo/components/FeaturedAddonReview/index.js:90
+#: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
 msgstr "جائزہ نہیں مل سکا۔"
 
@@ -1317,12 +1315,12 @@ msgstr "تصدیق شدہ"
 msgid "Download file"
 msgstr "فائل ڈائونلوڈ کریں"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "مزید سیکھیں"
 
-#: src/amo/components/InstallWarning/index.js:112
+#: src/amo/components/InstallWarning/index.js:108
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -1560,7 +1558,7 @@ msgid "There are no one-star reviews"
 msgstr "ایک جائزہ لکھیں"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:380
+#: src/amo/pages/AddonReviewList/index.js:371
 #, fuzzy
 msgid "There are no reviews"
 msgstr "ایک جائزہ لکھیں"
@@ -2110,7 +2108,7 @@ msgstr "تمام خیالیے براؤز کریں"
 msgid "Add-ons Home Page"
 msgstr "ایڈ-اونز ابتدائی صفحہ"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "%(title)s کا پیش نظارہ"
 
@@ -2275,46 +2273,46 @@ msgstr "اختتامی صارف لائسنس معاہدہ"
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s کے لئے جائزے"
 
-#: src/amo/pages/AddonReviewList/index.js:207
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:242
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show all reviews"
 msgstr "میرے تمام جائزے دکھائیں"
 
-#: src/amo/pages/AddonReviewList/index.js:244
+#: src/amo/pages/AddonReviewList/index.js:235
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "%(count)s جائزے پڑھیں"
 
-#: src/amo/pages/AddonReviewList/index.js:245
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "%(count)s جائزے پڑھیں"
 
-#: src/amo/pages/AddonReviewList/index.js:247
+#: src/amo/pages/AddonReviewList/index.js:238
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "%(count)s جائزے پڑھیں"
 
-#: src/amo/pages/AddonReviewList/index.js:249
+#: src/amo/pages/AddonReviewList/index.js:240
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
 
-#: src/amo/pages/AddonReviewList/index.js:250
+#: src/amo/pages/AddonReviewList/index.js:241
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "%(count)s جائزے پڑھیں"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:262
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s کے لئے جائزے"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:272
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
