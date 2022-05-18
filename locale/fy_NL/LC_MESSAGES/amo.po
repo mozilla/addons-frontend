@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-03 19:24+0000\n"
+"POT-Creation-Date: 2022-05-18 08:05+0000\n"
 "PO-Revision-Date: 2022-04-07 11:02+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
@@ -349,7 +349,7 @@ msgid "Delete"
 msgstr "Fuortsmite"
 
 #: src/amo/components/AddonReviewCard/index.js:266
-#: src/amo/components/AddonReviewManager/index.js:153
+#: src/amo/components/AddonReviewManager/index.js:146
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
@@ -374,7 +374,6 @@ msgid "Write a reply to this review."
 msgstr "Skriuw in antwurd op dizze beoardieling."
 
 #: src/amo/components/AddonReviewCard/index.js:316
-#: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "Antwurd wurdt fernijd"
 
@@ -383,7 +382,6 @@ msgid "Publish reply"
 msgstr "Antwurd publisearje"
 
 #: src/amo/components/AddonReviewCard/index.js:321
-#: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "Antwurd wurdt fernijd"
 
@@ -427,35 +425,35 @@ msgstr ""
 msgid "Write a review"
 msgstr "In beoardieling skriuwe"
 
-#: src/amo/components/AddonReviewManager/index.js:113
+#: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
 msgstr "Skriuw oer jo ûnderfining mei dizze add-on."
 
-#: src/amo/components/AddonReviewManager/index.js:117
+#: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
 msgstr "Beoardieling yntsjinje"
 
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
 msgstr "Beoardieling yntsjinje"
 
-#: src/amo/components/AddonReviewManager/index.js:122
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
 msgstr "Wurdearring bywurkje"
 
-#: src/amo/components/AddonReviewManager/index.js:125
+#: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
 msgstr "Wurdearring wurdt bywurke"
 
-#: src/amo/components/AddonReviewManager/index.js:146
+#: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
 msgstr "Bewarje"
 
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
 msgstr "Bewarre"
 
-#: src/amo/components/AddonReviewManager/index.js:91
+#: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "Hâld jo oan ús %(linkStart)sbeoardielingsrjochtlinen%(linkEnd)s."
 
@@ -588,40 +586,40 @@ msgstr "Ferzje %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Utjûn op %(dateReleased)s - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:200
+#: src/amo/components/AMInstallButton/index.js:147
 msgid "Enable"
 msgstr "Ynskeakelje"
 
-#: src/amo/components/AMInstallButton/index.js:203
+#: src/amo/components/AMInstallButton/index.js:150
 #: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "Fuortsmite"
 
-#: src/amo/components/AMInstallButton/index.js:205
+#: src/amo/components/AMInstallButton/index.js:152
 msgid "Enabling"
 msgstr "Ynskeakelje"
 
-#: src/amo/components/AMInstallButton/index.js:207
+#: src/amo/components/AMInstallButton/index.js:154
 msgid "Disabling"
 msgstr "Utskeakelje"
 
-#: src/amo/components/AMInstallButton/index.js:209
+#: src/amo/components/AMInstallButton/index.js:156
 msgid "Downloading"
 msgstr "Downloade"
 
-#: src/amo/components/AMInstallButton/index.js:211
+#: src/amo/components/AMInstallButton/index.js:158
 msgid "Installing"
 msgstr "Ynstallearje"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:160
 msgid "Uninstalling"
 msgstr "De-ynstallearje"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:168
 msgid "Install Theme"
 msgstr "Tema ynstallearje"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:169
 msgid "Add to Firefox"
 msgstr "Tafoegje oan Firefox"
 
@@ -661,16 +659,16 @@ msgid ""
 msgstr ""
 "Dizze aksje is op dit stuit net beskikber. Laad de side sa daliks opnij."
 
-#: src/amo/components/AutoSearchInput/index.js:205
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "Lade"
 
-#: src/amo/components/AutoSearchInput/index.js:305
+#: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
 msgstr "Add-ons sykje"
 
-#: src/amo/components/AutoSearchInput/index.js:330
-#: src/amo/components/AutoSearchInput/index.js:358
+#: src/amo/components/AutoSearchInput/index.js:323
+#: src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
 msgstr "Sykje"
 
@@ -1038,15 +1036,15 @@ msgstr "De side dy’t jo probearje te berikken is net beskikber yn jo regio."
 msgid "Toggle contents"
 msgstr "Ynhâld wikselje"
 
-#: src/amo/components/FeaturedAddonReview/index.js:77
+#: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Response by %(userName)s"
 msgstr "Antwurd fan %(userName)s"
 
-#: src/amo/components/FeaturedAddonReview/index.js:78
+#: src/amo/components/FeaturedAddonReview/index.js:79
 msgid "Review by %(userName)s"
 msgstr "Wurdearringen foar %(userName)s"
 
-#: src/amo/components/FeaturedAddonReview/index.js:90
+#: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
 msgstr "De wurdearring waard net fûn."
 
@@ -1326,12 +1324,12 @@ msgstr "Ferifiearre"
 msgid "Download file"
 msgstr "Bestân downloade"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "Mear ynfo"
 
-#: src/amo/components/InstallWarning/index.js:112
+#: src/amo/components/InstallWarning/index.js:108
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -1569,7 +1567,7 @@ msgid "There are no one-star reviews"
 msgstr "Der binne gjin ienstjerbeoardielingen"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:380
+#: src/amo/pages/AddonReviewList/index.js:371
 msgid "There are no reviews"
 msgstr "Der binne gjin beoardielingen"
 
@@ -2098,7 +2096,7 @@ msgstr "Alle tema’s besjen"
 msgid "Add-ons Home Page"
 msgstr "Add-ons-startside"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "Foarbyld fan %(title)s"
 
@@ -2259,7 +2257,7 @@ msgstr "Einbrûikerslisinsjeoerienkomst foar %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Privacybelied foar %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:207
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2267,35 +2265,35 @@ msgstr ""
 "Beoardielingen en wurdearringen foar %(addonName)s. Untdek wat oare brûkers "
 "fine fan %(addonName)s en foegje it oan jo Firefox-browser ta."
 
-#: src/amo/pages/AddonReviewList/index.js:242
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show all reviews"
 msgstr "Alle beoardielingen werjaan"
 
-#: src/amo/pages/AddonReviewList/index.js:244
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only five-star reviews"
 msgstr "Allinnich fiifstjerrenbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:245
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only four-star reviews"
 msgstr "Allinnich fjouwerstjerrenbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:247
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only three-star reviews"
 msgstr "Allinnich trijestjerrenbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:249
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only two-star reviews"
 msgstr "Allinnich twastjerrenbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:250
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only one-star reviews"
 msgstr "Allinnich ienstjerbeoardielingen toane"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:262
 msgid "Reviews for %(addonName)s"
 msgstr "Beoardielingen foar %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:272
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s beoardieling"

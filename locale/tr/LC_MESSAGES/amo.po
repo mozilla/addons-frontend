@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-03 19:24+0000\n"
+"POT-Creation-Date: 2022-05-18 08:05+0000\n"
 "PO-Revision-Date: 2022-04-07 15:02+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -340,7 +340,7 @@ msgid "Delete"
 msgstr "Sil"
 
 #: src/amo/components/AddonReviewCard/index.js:266
-#: src/amo/components/AddonReviewManager/index.js:153
+#: src/amo/components/AddonReviewManager/index.js:146
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
@@ -365,7 +365,6 @@ msgid "Write a reply to this review."
 msgstr "Bu incelemeye yanıt yazın."
 
 #: src/amo/components/AddonReviewCard/index.js:316
-#: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "Yanıtı güncelle"
 
@@ -374,7 +373,6 @@ msgid "Publish reply"
 msgstr "Yanıtı yayımla"
 
 #: src/amo/components/AddonReviewCard/index.js:321
-#: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "Yanıt güncelleniyor"
 
@@ -418,35 +416,35 @@ msgstr ""
 msgid "Write a review"
 msgstr "İnceleme yazın"
 
-#: src/amo/components/AddonReviewManager/index.js:113
+#: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
 msgstr "Bu eklentiyle ilgili deneyimlerinizi yazın."
 
-#: src/amo/components/AddonReviewManager/index.js:117
+#: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
 msgstr "İncelemeyi gönder"
 
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
 msgstr "İnceleme gönderiliyor"
 
-#: src/amo/components/AddonReviewManager/index.js:122
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
 msgstr "İncelemeyi güncelle"
 
-#: src/amo/components/AddonReviewManager/index.js:125
+#: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
 msgstr "İnceleme güncelleniyor"
 
-#: src/amo/components/AddonReviewManager/index.js:146
+#: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
 msgstr "Kaydediliyor"
 
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
 msgstr "Kaydedildi"
 
-#: src/amo/components/AddonReviewManager/index.js:91
+#: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "Lütfen %(linkStart)sinceleme yönergelerimize%(linkEnd)s uyun."
 
@@ -580,40 +578,40 @@ msgstr "Sürüm %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s tarihinde çıktı - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:200
+#: src/amo/components/AMInstallButton/index.js:147
 msgid "Enable"
 msgstr "Etkinleştir"
 
-#: src/amo/components/AMInstallButton/index.js:203
+#: src/amo/components/AMInstallButton/index.js:150
 #: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/amo/components/AMInstallButton/index.js:205
+#: src/amo/components/AMInstallButton/index.js:152
 msgid "Enabling"
 msgstr "Etkinleştiriliyor"
 
-#: src/amo/components/AMInstallButton/index.js:207
+#: src/amo/components/AMInstallButton/index.js:154
 msgid "Disabling"
 msgstr "Devre dışı bırakılıyor"
 
-#: src/amo/components/AMInstallButton/index.js:209
+#: src/amo/components/AMInstallButton/index.js:156
 msgid "Downloading"
 msgstr "İndiriliyor"
 
-#: src/amo/components/AMInstallButton/index.js:211
+#: src/amo/components/AMInstallButton/index.js:158
 msgid "Installing"
 msgstr "Yükleniyor"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:160
 msgid "Uninstalling"
 msgstr "Kaldırılıyor"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:168
 msgid "Install Theme"
 msgstr "Temayı yükle"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:169
 msgid "Add to Firefox"
 msgstr "Firefox’a ekle"
 
@@ -653,16 +651,16 @@ msgid ""
 msgstr ""
 "Bu işlem şu anda kullanılamıyor. Lütfen bir süre sonra sayfayı tazeleyin."
 
-#: src/amo/components/AutoSearchInput/index.js:205
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "Yükleniyor"
 
-#: src/amo/components/AutoSearchInput/index.js:305
+#: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
 msgstr "Eklenti ara"
 
-#: src/amo/components/AutoSearchInput/index.js:330
-#: src/amo/components/AutoSearchInput/index.js:358
+#: src/amo/components/AutoSearchInput/index.js:323
+#: src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
 msgstr "Ara"
 
@@ -1029,15 +1027,15 @@ msgstr "Erişmeye çalıştığınız sayfa bölgenizde kullanılamıyor."
 msgid "Toggle contents"
 msgstr "İçerikleri aç/kapat"
 
-#: src/amo/components/FeaturedAddonReview/index.js:77
+#: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Response by %(userName)s"
 msgstr "%(userName)s adlı kullanıcının yanıtı"
 
-#: src/amo/components/FeaturedAddonReview/index.js:78
+#: src/amo/components/FeaturedAddonReview/index.js:79
 msgid "Review by %(userName)s"
 msgstr "%(userName)s adlı kullanıcının incelemesi"
 
-#: src/amo/components/FeaturedAddonReview/index.js:90
+#: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
 msgstr "İnceleme bulunamadı."
 
@@ -1316,12 +1314,12 @@ msgstr "Doğrulandı"
 msgid "Download file"
 msgstr "Dosyayı indir"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "Daha fazla bilgi al"
 
-#: src/amo/components/InstallWarning/index.js:112
+#: src/amo/components/InstallWarning/index.js:108
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -1559,7 +1557,7 @@ msgid "There are no one-star reviews"
 msgstr "Hiç bir yıldızlı inceleme yok"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:380
+#: src/amo/pages/AddonReviewList/index.js:371
 msgid "There are no reviews"
 msgstr "Hiç inceleme yok"
 
@@ -2097,7 +2095,7 @@ msgstr "Tüm temalara göz atın"
 msgid "Add-ons Home Page"
 msgstr "Eklentiler Ana Sayfası"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "%(title)s ön izlemesi"
 
@@ -2256,7 +2254,7 @@ msgstr "%(addonName)s Son Kullanıcı Lisans Anlaşması"
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s gizlilik ilkeleri"
 
-#: src/amo/pages/AddonReviewList/index.js:207
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2264,35 +2262,35 @@ msgstr ""
 "%(addonName)s incelemeleri ve puanları. Diğer kullanıcıların %(addonName)s "
 "hakkında ne düşündüklerini öğrenin ve eklentiyi Firefox tarayıcınıza ekleyin."
 
-#: src/amo/pages/AddonReviewList/index.js:242
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show all reviews"
 msgstr "Tüm incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:244
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only five-star reviews"
 msgstr "Yalnızca beş yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:245
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only four-star reviews"
 msgstr "Yalnızca dört yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:247
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only three-star reviews"
 msgstr "Yalnızca üç yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:249
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only two-star reviews"
 msgstr "Yalnızca iki yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:250
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only one-star reviews"
 msgstr "Yalnızca bir yıldızlı incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:262
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s incelemeleri"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:272
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s inceleme"

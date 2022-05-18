@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-03 19:24+0000\n"
+"POT-Creation-Date: 2022-05-18 08:05+0000\n"
 "PO-Revision-Date: 2022-04-05 18:26+0000\n"
 "Last-Translator: Francesco Lodolo [:flod] <flod+pontoon@mozilla.com>\n"
 "Language-Team: none\n"
@@ -354,7 +354,7 @@ msgid "Delete"
 msgstr "Elimina"
 
 #: src/amo/components/AddonReviewCard/index.js:266
-#: src/amo/components/AddonReviewManager/index.js:153
+#: src/amo/components/AddonReviewManager/index.js:146
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
@@ -379,7 +379,6 @@ msgid "Write a reply to this review."
 msgstr "Scrivi una risposta a questa recensione."
 
 #: src/amo/components/AddonReviewCard/index.js:316
-#: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "Modifica risposta"
 
@@ -388,7 +387,6 @@ msgid "Publish reply"
 msgstr "Pubblica la risposta"
 
 #: src/amo/components/AddonReviewCard/index.js:321
-#: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "Modifica della risposta in corso…"
 
@@ -432,35 +430,35 @@ msgstr ""
 msgid "Write a review"
 msgstr "Scrivi una recensione"
 
-#: src/amo/components/AddonReviewManager/index.js:113
+#: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
 msgstr "Descrivi la tua esperienza con il componente aggiuntivo."
 
-#: src/amo/components/AddonReviewManager/index.js:117
+#: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
 msgstr "Invia recensione"
 
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
 msgstr "Invio recensione in corso…"
 
-#: src/amo/components/AddonReviewManager/index.js:122
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
 msgstr "Aggiorna recensione"
 
-#: src/amo/components/AddonReviewManager/index.js:125
+#: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
 msgstr "Modifica della recensione in corso…"
 
-#: src/amo/components/AddonReviewManager/index.js:146
+#: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
 msgstr "Salvataggio in corso…"
 
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
 msgstr "Salvato"
 
-#: src/amo/components/AddonReviewManager/index.js:91
+#: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "Segui le %(linkStart)slinee guida per le recensioni%(linkEnd)s."
 
@@ -597,40 +595,40 @@ msgstr "Versione %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Rilasciato %(dateReleased)s - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:200
+#: src/amo/components/AMInstallButton/index.js:147
 msgid "Enable"
 msgstr "Attiva"
 
-#: src/amo/components/AMInstallButton/index.js:203
+#: src/amo/components/AMInstallButton/index.js:150
 #: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/amo/components/AMInstallButton/index.js:205
+#: src/amo/components/AMInstallButton/index.js:152
 msgid "Enabling"
 msgstr "Attivazione in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:207
+#: src/amo/components/AMInstallButton/index.js:154
 msgid "Disabling"
 msgstr "Disattivazione in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:209
+#: src/amo/components/AMInstallButton/index.js:156
 msgid "Downloading"
 msgstr "Download in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:211
+#: src/amo/components/AMInstallButton/index.js:158
 msgid "Installing"
 msgstr "Installazione in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:160
 msgid "Uninstalling"
 msgstr "Disinstallazione in corso…"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:168
 msgid "Install Theme"
 msgstr "Installa tema"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:169
 msgid "Add to Firefox"
 msgstr "Aggiungi a Firefox"
 
@@ -671,16 +669,16 @@ msgstr ""
 "Questa operazione non è al momento disponibile. Attendere alcuni secondi e "
 "ricaricare la pagina."
 
-#: src/amo/components/AutoSearchInput/index.js:205
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "Caricamento in corso…"
 
-#: src/amo/components/AutoSearchInput/index.js:305
+#: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
 msgstr "Trova componenti aggiuntivi"
 
-#: src/amo/components/AutoSearchInput/index.js:330
-#: src/amo/components/AutoSearchInput/index.js:358
+#: src/amo/components/AutoSearchInput/index.js:323
+#: src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
 msgstr "Cerca"
 
@@ -1052,15 +1050,15 @@ msgstr ""
 msgid "Toggle contents"
 msgstr "Attiva o disattiva i contenuti"
 
-#: src/amo/components/FeaturedAddonReview/index.js:77
+#: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Response by %(userName)s"
 msgstr "Risposta di %(userName)s"
 
-#: src/amo/components/FeaturedAddonReview/index.js:78
+#: src/amo/components/FeaturedAddonReview/index.js:79
 msgid "Review by %(userName)s"
 msgstr "Recensione di %(userName)s"
 
-#: src/amo/components/FeaturedAddonReview/index.js:90
+#: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
 msgstr "Non è stato possibile trovare la recensione."
 
@@ -1344,12 +1342,12 @@ msgstr "Verificato"
 msgid "Download file"
 msgstr "Scarica file"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "Ulteriori informazioni"
 
-#: src/amo/components/InstallWarning/index.js:112
+#: src/amo/components/InstallWarning/index.js:108
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -1585,7 +1583,7 @@ msgid "There are no one-star reviews"
 msgstr "Non ci sono ancora recensioni a una stella"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:380
+#: src/amo/pages/AddonReviewList/index.js:371
 msgid "There are no reviews"
 msgstr "Non ci sono ancora recensioni"
 
@@ -2125,7 +2123,7 @@ msgstr "Esplora tutti i temi"
 msgid "Add-ons Home Page"
 msgstr "Pagina iniziale componenti aggiuntivi"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "Anteprima di %(title)s"
 
@@ -2287,7 +2285,7 @@ msgstr "Contratto di licenza con l’utente finale per %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Informativa sulla privacy per %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:207
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2295,35 +2293,35 @@ msgstr ""
 "Recensioni e valutazioni per %(addonName)s. Scopri cosa pensano gli altri "
 "utenti riguardo %(addonName)s e installalo sul tuo Firefox."
 
-#: src/amo/pages/AddonReviewList/index.js:242
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show all reviews"
 msgstr "Mostra tutte le recensioni"
 
-#: src/amo/pages/AddonReviewList/index.js:244
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only five-star reviews"
 msgstr "Mostra solo recensioni a cinque stelle"
 
-#: src/amo/pages/AddonReviewList/index.js:245
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only four-star reviews"
 msgstr "Mostra solo recensioni a quattro stelle"
 
-#: src/amo/pages/AddonReviewList/index.js:247
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only three-star reviews"
 msgstr "Mostra solo recensioni a tre stelle"
 
-#: src/amo/pages/AddonReviewList/index.js:249
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only two-star reviews"
 msgstr "Mostra solo recensioni a due stelle"
 
-#: src/amo/pages/AddonReviewList/index.js:250
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only one-star reviews"
 msgstr "Mostra solo recensioni a una stella"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:262
 msgid "Reviews for %(addonName)s"
 msgstr "Recensioni per %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:272
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s recensione"

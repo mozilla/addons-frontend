@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-03 19:24+0000\n"
+"POT-Creation-Date: 2022-05-18 08:05+0000\n"
 "PO-Revision-Date: 2018-11-21 10:22+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -348,7 +348,7 @@ msgid "Delete"
 msgstr "Buang"
 
 #: src/amo/components/AddonReviewCard/index.js:266
-#: src/amo/components/AddonReviewManager/index.js:153
+#: src/amo/components/AddonReviewManager/index.js:146
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
@@ -373,7 +373,6 @@ msgid "Write a reply to this review."
 msgstr "Tulis balasan untuk ulasan ini."
 
 #: src/amo/components/AddonReviewCard/index.js:316
-#: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "Kemaskini balasan"
 
@@ -382,7 +381,6 @@ msgid "Publish reply"
 msgstr "Terbitkan balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:321
-#: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "Mengemaskini balasan"
 
@@ -428,35 +426,35 @@ msgstr ""
 msgid "Write a review"
 msgstr "Tulis ulasan"
 
-#: src/amo/components/AddonReviewManager/index.js:113
+#: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
 msgstr "Tulis pengalaman anda menggunakan add-on ini."
 
-#: src/amo/components/AddonReviewManager/index.js:117
+#: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
 msgstr "Hantar ulasan"
 
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
 msgstr "Menghantar ulasan"
 
-#: src/amo/components/AddonReviewManager/index.js:122
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
 msgstr "Kemas kini ulasan"
 
-#: src/amo/components/AddonReviewManager/index.js:125
+#: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
 msgstr "Mengemaskini ulasan"
 
-#: src/amo/components/AddonReviewManager/index.js:146
+#: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
 msgstr "Menyimpan"
 
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
 msgstr "Disimpan"
 
-#: src/amo/components/AddonReviewManager/index.js:91
+#: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "Sila ikuti %(linkStart)sgaris panduan ulasan%(linkEnd)s."
 
@@ -593,41 +591,41 @@ msgstr ""
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:200
+#: src/amo/components/AMInstallButton/index.js:147
 msgid "Enable"
 msgstr "Dayakan"
 
-#: src/amo/components/AMInstallButton/index.js:203
+#: src/amo/components/AMInstallButton/index.js:150
 #: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "Buang"
 
-#: src/amo/components/AMInstallButton/index.js:205
+#: src/amo/components/AMInstallButton/index.js:152
 msgid "Enabling"
 msgstr "Mendayakan"
 
-#: src/amo/components/AMInstallButton/index.js:207
+#: src/amo/components/AMInstallButton/index.js:154
 #, fuzzy
 msgid "Disabling"
 msgstr "Mendayakan"
 
-#: src/amo/components/AMInstallButton/index.js:209
+#: src/amo/components/AMInstallButton/index.js:156
 msgid "Downloading"
 msgstr "Memuat turun"
 
-#: src/amo/components/AMInstallButton/index.js:211
+#: src/amo/components/AMInstallButton/index.js:158
 msgid "Installing"
 msgstr "Memasang"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:160
 msgid "Uninstalling"
 msgstr "Menyahpasang"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:168
 msgid "Install Theme"
 msgstr "Pasang Tema"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:169
 msgid "Add to Firefox"
 msgstr "Tambah ke Firefox"
 
@@ -667,16 +665,16 @@ msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
 
-#: src/amo/components/AutoSearchInput/index.js:205
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "Memuatkan"
 
-#: src/amo/components/AutoSearchInput/index.js:305
+#: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
 msgstr "Cari add-ons"
 
-#: src/amo/components/AutoSearchInput/index.js:330
-#: src/amo/components/AutoSearchInput/index.js:358
+#: src/amo/components/AutoSearchInput/index.js:323
+#: src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
 msgstr "Carian"
 
@@ -1030,15 +1028,15 @@ msgstr "Add-on ini tidak tersedia untuk platform anda."
 msgid "Toggle contents"
 msgstr "Togol kandungan"
 
-#: src/amo/components/FeaturedAddonReview/index.js:77
+#: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Response by %(userName)s"
 msgstr "Respons oleh %(userName)s"
 
-#: src/amo/components/FeaturedAddonReview/index.js:78
+#: src/amo/components/FeaturedAddonReview/index.js:79
 msgid "Review by %(userName)s"
 msgstr "Ulasan oleh %(userName)s"
 
-#: src/amo/components/FeaturedAddonReview/index.js:90
+#: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
 msgstr "Ulasan tidak ditemukan."
 
@@ -1335,12 +1333,12 @@ msgstr ""
 msgid "Download file"
 msgstr "Memuat turun"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:112
+#: src/amo/components/InstallWarning/index.js:108
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -1571,7 +1569,7 @@ msgid "There are no one-star reviews"
 msgstr "Tiada penarafan lagi"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:380
+#: src/amo/pages/AddonReviewList/index.js:371
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Tiada penarafan lagi"
@@ -2109,7 +2107,7 @@ msgstr "Lihat semua tema"
 msgid "Add-ons Home Page"
 msgstr "Halaman Utama Add-on"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "Previu %(title)s"
 
@@ -2266,7 +2264,7 @@ msgstr "Perjanjian Lesen Pengguna-Akhir %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Polisi privasi %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:207
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2274,41 +2272,41 @@ msgstr ""
 "Ulasan dan penilaian untuk %(addonName)s. Ketahui pendapat pengguna lain "
 "mengenai %(addonName)s dan tambahkannya ke Pelayar Firefox anda."
 
-#: src/amo/pages/AddonReviewList/index.js:242
+#: src/amo/pages/AddonReviewList/index.js:233
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Ulasan saya"
 
-#: src/amo/pages/AddonReviewList/index.js:244
+#: src/amo/pages/AddonReviewList/index.js:235
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/AddonReviewList/index.js:245
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/AddonReviewList/index.js:247
+#: src/amo/pages/AddonReviewList/index.js:238
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/AddonReviewList/index.js:249
+#: src/amo/pages/AddonReviewList/index.js:240
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Balas untuk ulasan ini"
 
-#: src/amo/pages/AddonReviewList/index.js:250
+#: src/amo/pages/AddonReviewList/index.js:241
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "Baca semua %(count)s ulasan"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:262
 msgid "Reviews for %(addonName)s"
 msgstr "Ulasan untuk %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:272
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"

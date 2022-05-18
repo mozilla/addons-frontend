@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-03 19:24+0000\n"
+"POT-Creation-Date: 2022-05-18 08:05+0000\n"
 "PO-Revision-Date: 2022-03-10 03:43+0000\n"
 "Last-Translator: mari.kim <marikim36@gmail.com>\n"
 "Language-Team: none\n"
@@ -333,7 +333,7 @@ msgid "Delete"
 msgstr "삭제"
 
 #: src/amo/components/AddonReviewCard/index.js:266
-#: src/amo/components/AddonReviewManager/index.js:153
+#: src/amo/components/AddonReviewManager/index.js:146
 #: src/amo/components/CollectionManager/index.js:328
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
@@ -358,7 +358,6 @@ msgid "Write a reply to this review."
 msgstr "이 리뷰에 댓글을 작성해 주세요."
 
 #: src/amo/components/AddonReviewCard/index.js:316
-#: src/amo/components/AddonReviewManager/index.js:121
 msgid "Update reply"
 msgstr "댓글 수정"
 
@@ -367,7 +366,6 @@ msgid "Publish reply"
 msgstr "댓글 게시"
 
 #: src/amo/components/AddonReviewCard/index.js:321
-#: src/amo/components/AddonReviewManager/index.js:124
 msgid "Updating reply"
 msgstr "댓글 갱신 중"
 
@@ -411,35 +409,35 @@ msgstr ""
 msgid "Write a review"
 msgstr "리뷰 작성"
 
-#: src/amo/components/AddonReviewManager/index.js:113
+#: src/amo/components/AddonReviewManager/index.js:112
 msgid "Write about your experience with this add-on."
 msgstr "이 부가 기능에 대한 여러분의 경험을 말해주세요."
 
-#: src/amo/components/AddonReviewManager/index.js:117
+#: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submit review"
 msgstr "리뷰 제출"
 
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:117
 msgid "Submitting review"
 msgstr "리뷰 제출 중"
 
-#: src/amo/components/AddonReviewManager/index.js:122
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update review"
 msgstr "리뷰 수정"
 
-#: src/amo/components/AddonReviewManager/index.js:125
+#: src/amo/components/AddonReviewManager/index.js:120
 msgid "Updating review"
 msgstr "리뷰 업데이트 중"
 
-#: src/amo/components/AddonReviewManager/index.js:146
+#: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
 msgstr "저장 중"
 
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:141
 msgid "Saved"
 msgstr "저장됨"
 
-#: src/amo/components/AddonReviewManager/index.js:91
+#: src/amo/components/AddonReviewManager/index.js:90
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "%(linkStart)s리뷰 지침%(linkEnd)s을 따라 주세요."
 
@@ -571,40 +569,40 @@ msgstr "버전 %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s에 출시 - %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:200
+#: src/amo/components/AMInstallButton/index.js:147
 msgid "Enable"
 msgstr "활성화"
 
-#: src/amo/components/AMInstallButton/index.js:203
+#: src/amo/components/AMInstallButton/index.js:150
 #: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "삭제"
 
-#: src/amo/components/AMInstallButton/index.js:205
+#: src/amo/components/AMInstallButton/index.js:152
 msgid "Enabling"
 msgstr "활성화하는 중"
 
-#: src/amo/components/AMInstallButton/index.js:207
+#: src/amo/components/AMInstallButton/index.js:154
 msgid "Disabling"
 msgstr "사용 안함"
 
-#: src/amo/components/AMInstallButton/index.js:209
+#: src/amo/components/AMInstallButton/index.js:156
 msgid "Downloading"
 msgstr "다운로드 중"
 
-#: src/amo/components/AMInstallButton/index.js:211
+#: src/amo/components/AMInstallButton/index.js:158
 msgid "Installing"
 msgstr "설치 중"
 
-#: src/amo/components/AMInstallButton/index.js:213
+#: src/amo/components/AMInstallButton/index.js:160
 msgid "Uninstalling"
 msgstr "제거 중"
 
-#: src/amo/components/AMInstallButton/index.js:221
+#: src/amo/components/AMInstallButton/index.js:168
 msgid "Install Theme"
 msgstr "테마 설치하기"
 
-#: src/amo/components/AMInstallButton/index.js:222
+#: src/amo/components/AMInstallButton/index.js:169
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
@@ -643,16 +641,16 @@ msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr "이 작업은 현재 사용할 수 없습니다. 잠시 후 페이지를 다시 로드해주세요."
 
-#: src/amo/components/AutoSearchInput/index.js:205
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "로드 중"
 
-#: src/amo/components/AutoSearchInput/index.js:305
+#: src/amo/components/AutoSearchInput/index.js:298
 msgid "Find add-ons"
 msgstr "부가 기능 찾기"
 
-#: src/amo/components/AutoSearchInput/index.js:330
-#: src/amo/components/AutoSearchInput/index.js:358
+#: src/amo/components/AutoSearchInput/index.js:323
+#: src/amo/components/AutoSearchInput/index.js:351
 msgid "Search"
 msgstr "검색"
 
@@ -1012,15 +1010,15 @@ msgstr "현재 페이지는 해당 지역에서 사용할 수 없습니다."
 msgid "Toggle contents"
 msgstr "콘텐츠 전환"
 
-#: src/amo/components/FeaturedAddonReview/index.js:77
+#: src/amo/components/FeaturedAddonReview/index.js:78
 msgid "Response by %(userName)s"
 msgstr "%(userName)s 님의 답글"
 
-#: src/amo/components/FeaturedAddonReview/index.js:78
+#: src/amo/components/FeaturedAddonReview/index.js:79
 msgid "Review by %(userName)s"
 msgstr "%(userName)s 님의 리뷰"
 
-#: src/amo/components/FeaturedAddonReview/index.js:90
+#: src/amo/components/FeaturedAddonReview/index.js:91
 msgid "The review was not found."
 msgstr "리뷰를 찾을 수 없습니다."
 
@@ -1297,12 +1295,12 @@ msgstr "확인됨"
 msgid "Download file"
 msgstr "파일 다운로드"
 
-#: src/amo/components/InstallWarning/index.js:108
+#: src/amo/components/InstallWarning/index.js:104
 #: src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
 msgstr "더 알아보기"
 
-#: src/amo/components/InstallWarning/index.js:112
+#: src/amo/components/InstallWarning/index.js:108
 msgid ""
 "This add-on is not actively monitored for security by Mozilla. Make sure you "
 "trust it before installing."
@@ -1533,7 +1531,7 @@ msgid "There are no one-star reviews"
 msgstr "별 1개 리뷰가 없습니다"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:380
+#: src/amo/pages/AddonReviewList/index.js:371
 msgid "There are no reviews"
 msgstr "리뷰가 없습니다"
 
@@ -2049,7 +2047,7 @@ msgstr "모든 테마 탐색하기"
 msgid "Add-ons Home Page"
 msgstr "부가 기능 홈 페이지"
 
-#: src/amo/components/ThemeImage/index.js:29 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "%(title)s 미리보기"
 
@@ -2203,7 +2201,7 @@ msgstr "%(addonName)s에 대한 최종 사용자 라이선스 계약"
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s에 대한 개인정보처리방침"
 
-#: src/amo/pages/AddonReviewList/index.js:207
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2211,35 +2209,35 @@ msgstr ""
 "%(addonName)s에 대한 리뷰와 평점입니다. 다른 사용자가 %(addonName)s에 대해 어"
 "떻게 생각하는지 알아보시고 Firefox 브라우저에 추가하세요."
 
-#: src/amo/pages/AddonReviewList/index.js:242
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show all reviews"
 msgstr "리뷰 모두 보기"
 
-#: src/amo/pages/AddonReviewList/index.js:244
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only five-star reviews"
 msgstr "5 별점 리뷰만 보기"
 
-#: src/amo/pages/AddonReviewList/index.js:245
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only four-star reviews"
 msgstr "4 별점 리뷰만 보기"
 
-#: src/amo/pages/AddonReviewList/index.js:247
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only three-star reviews"
 msgstr "3 별점 리뷰만 보기"
 
-#: src/amo/pages/AddonReviewList/index.js:249
+#: src/amo/pages/AddonReviewList/index.js:240
 msgid "Show only two-star reviews"
 msgstr "2 별점 리뷰만 보기"
 
-#: src/amo/pages/AddonReviewList/index.js:250
+#: src/amo/pages/AddonReviewList/index.js:241
 msgid "Show only one-star reviews"
 msgstr "1 별점 리뷰만 보기"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:262
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s에 대한 리뷰"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:272
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "리뷰 %(total)s개"
