@@ -23,8 +23,9 @@ import {
   ADDONS_REVIEW,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  STATIC_THEMES_REVIEW,
   DEFAULT_UTM_SOURCE,
+  STATIC_THEMES_REVIEW,
+  RECOMMENDED,
 } from 'amo/constants';
 import { ADDONS_BY_AUTHORS_COUNT } from 'amo/pages/Addon';
 import { getAddonByIdInURL, loadAddon } from 'amo/reducers/addons';
@@ -43,7 +44,7 @@ import {
 } from 'amo/reducers/recommendations';
 import { getVersionById } from 'amo/reducers/versions';
 import tracking from 'amo/tracking';
-import { getCanonicalURL } from 'amo/utils';
+import { getCanonicalURL, getPromotedBadgesLinkUrl } from 'amo/utils';
 import { getAddonJsonLinkedData } from 'amo/utils/addons';
 import {
   createHistory,
@@ -1800,6 +1801,122 @@ describe(__filename, () => {
       render();
 
       expect(screen.getByText(message)).toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for PromotedBadge', () => {
+    const renderWithPromotedCategory = (category = RECOMMENDED) => {
+      addon.promoted = { category, apps: [clientApp] };
+      _loadAddon();
+      render();
+    };
+
+    it('can be rendered as large', () => {
+      renderWithPromotedCategory();
+
+      expect(screen.getByClassName('PromotedBadge')).toHaveClass(
+        'PromotedBadge-large',
+      );
+      expect(screen.getByClassName('IconPromotedBadge')).toHaveClass(
+        'IconPromotedBadge-large',
+      );
+    });
+
+    it.each([
+      [
+        'line',
+        'Official add-on built by Mozilla Firefox. Meets security and performance standards.',
+        'By Firefox',
+      ],
+      [
+        'recommended',
+        'Firefox only recommends add-ons that meet our standards for security and performance.',
+        'Recommended',
+      ],
+      [
+        'verified',
+        'This add-on has been reviewed to meet our standards for security and performance.',
+        'Verified',
+      ],
+    ])(
+      'renders the category "%s" as expected',
+      (category, linkTitle, label) => {
+        renderWithPromotedCategory(category);
+
+        expect(screen.getByClassName('PromotedBadge')).toHaveClass(
+          `PromotedBadge--${category}`,
+        );
+
+        const link = screen.getByTitle(linkTitle);
+        expect(link).toHaveAttribute(
+          'href',
+          getPromotedBadgesLinkUrl({
+            utm_content: 'promoted-addon-badge',
+          }),
+        );
+        expect(link).toHaveClass(`PromotedBadge-link--${category}`);
+
+        expect(screen.getByText(label)).toHaveClass(
+          `PromotedBadge-label--${category}`,
+        );
+
+        if (category !== 'line') {
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect(
+            screen.getByClassName('IconPromotedBadge-iconPath'),
+          ).toHaveClass(`IconPromotedBadge-iconPath--${category}`);
+        }
+      },
+    );
+
+    // See https://github.com/mozilla/addons-frontend/issues/8285.
+    it('does not pass an alt property to IconPromotedBadge', () => {
+      renderWithPromotedCategory();
+
+      expect(
+        // eslint-disable-next-line testing-library/prefer-presence-queries
+        within(screen.getByClassName('PromotedBadge')).queryByClassName(
+          'visually-hidden',
+        ),
+      ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for AddonBadges', () => {
+    it('returns null when there is no add-on', () => {
+      render();
+
+      expect(screen.queryByClassName('AddonBadges')).not.toBeInTheDocument();
+    });
+
+    it('displays no badges when none are called for', () => {
+      _loadAddon();
+      render();
+
+      expect(
+        // eslint-disable-next-line testing-library/prefer-presence-queries
+        within(screen.getByClassName('AddonBadges')).queryByTagName('div'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('displays a badge when the addon is experimental', () => {
+      addon.is_experimental = true;
+      _loadAddon();
+      render();
+
+      expect(screen.getByClassName('Badge-experimental')).toHaveTextContent(
+        'Experimental',
+      );
+    });
+
+    it('displays a badge when the addon requires payment', () => {
+      addon.requires_payment = true;
+      _loadAddon();
+      render();
+
+      expect(screen.getByClassName('Badge-requires-payment')).toHaveTextContent(
+        'Some features may require payment',
+      );
     });
   });
 });
