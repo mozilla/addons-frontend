@@ -1,11 +1,8 @@
-/* eslint-disable react/no-multi-comp */
-import { createMemoryHistory } from 'history';
+/* global window */
 import * as React from 'react';
-import NestedStatus from 'react-nested-status';
-import { Helmet } from 'react-helmet';
+import { waitFor } from '@testing-library/react';
 
 import App, {
-  AppBase,
   getErrorPage,
   mapDispatchToProps,
   mapStateToProps,
@@ -13,8 +10,9 @@ import App, {
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
-import createStore from 'amo/store';
 import {
+  SET_CLIENT_APP,
+  SET_USER_AGENT,
   setClientApp as setClientAppAction,
   setUserAgent as setUserAgentAction,
 } from 'amo/reducers/api';
@@ -24,89 +22,71 @@ import {
   INSTALL_STATE,
 } from 'amo/constants';
 import {
-  createContextWithFakeRouter,
-  createFakeLocation,
   dispatchClientMetadata,
-  fakeI18n,
-  shallowUntilTarget,
+  getElement,
+  onLocationChanged,
+  render as defaultRender,
 } from 'tests/unit/helpers';
 
-// Skip `withCookies` HOC since Enzyme does not support the React Context API.
-// See: https://github.com/mozilla/addons-frontend/issues/6839
-jest.mock('react-cookie', () => ({
-  withCookies: (component) => component,
-}));
-
 describe(__filename, () => {
-  function renderProps(customProps = {}) {
-    return {
-      history: createMemoryHistory(),
-      i18n: fakeI18n(),
-      store: createStore().store,
-      ...customProps,
-    };
-  }
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+
+    // window.scrollTo isn't provided by jsdom, so we need to mock it.
+    window.scrollTo = jest.fn();
+  });
 
   const render = (props = {}) => {
-    const allProps = {
-      ...renderProps(),
-      ...props,
-    };
-
-    return shallowUntilTarget(<App {...allProps} />, AppBase, {
-      shallowOptions: createContextWithFakeRouter(),
-    });
+    return defaultRender(<App {...props} />, { store });
   };
 
   it('sets up a callback for setting add-on status', () => {
-    const dispatch = sinon.spy();
+    const dispatch = jest.fn();
     const { handleGlobalEvent } = mapDispatchToProps(dispatch);
     const payload = { guid: '@my-addon', status: 'some-status' };
 
     handleGlobalEvent(payload);
 
-    sinon.assert.calledWith(dispatch, { type: INSTALL_STATE, payload });
+    expect(dispatch).toHaveBeenCalledWith({ type: INSTALL_STATE, payload });
   });
 
   it('sets up a callback for setting the userAgentInfo', () => {
-    const dispatch = sinon.spy();
+    const dispatch = jest.fn();
     const { setUserAgent } = mapDispatchToProps(dispatch);
     const userAgent = 'tofubrowser';
 
     setUserAgent(userAgent);
 
-    sinon.assert.calledWith(dispatch, setUserAgentAction(userAgent));
+    expect(dispatch).toHaveBeenCalledWith(setUserAgentAction(userAgent));
   });
 
   it('sets up a callback for setting the clientApp', () => {
-    const dispatch = sinon.spy();
+    const dispatch = jest.fn();
     const { setClientApp } = mapDispatchToProps(dispatch);
     const clientApp = CLIENT_APP_FIREFOX;
 
     setClientApp(clientApp);
 
-    sinon.assert.calledWith(dispatch, setClientAppAction(clientApp));
+    expect(dispatch).toHaveBeenCalledWith(setClientAppAction(clientApp));
   });
 
   it('sets the userAgent as props', () => {
-    const { store } = createStore();
     store.dispatch(setUserAgentAction('tofubrowser'));
     const { userAgent } = mapStateToProps(store.getState());
     expect(userAgent).toEqual('tofubrowser');
   });
 
   it('uses navigator.userAgent if userAgent prop is empty', () => {
-    const { store } = dispatchClientMetadata({
-      userAgent: '',
-    });
+    dispatchClientMetadata({ store, userAgent: '' });
     const _navigator = { userAgent: 'Firefox 10000000.0' };
 
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    render({ _navigator, store });
+    render({ _navigator });
 
-    sinon.assert.calledWith(
-      dispatchSpy,
+    expect(dispatch).toHaveBeenCalledWith(
       setUserAgentAction(_navigator.userAgent),
     );
   });
@@ -114,124 +94,102 @@ describe(__filename, () => {
   it('resets the clientApp if it does not match the URL', () => {
     const currentClientApp = CLIENT_APP_FIREFOX;
     const clientAppInURL = CLIENT_APP_ANDROID;
-    const { store } = dispatchClientMetadata({
-      clientApp: currentClientApp,
-    });
+    dispatchClientMetadata({ clientApp: currentClientApp, store });
 
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    const root = render({ store });
+    render();
 
-    const location = createFakeLocation({
-      pathname: `/en-US/${clientAppInURL}/`,
-    });
-    root.setProps({ location });
+    store.dispatch(
+      onLocationChanged({
+        pathname: `/en-US/${clientAppInURL}/`,
+      }),
+    );
 
-    sinon.assert.calledWith(dispatchSpy, setClientAppAction(clientAppInURL));
+    expect(dispatch).toHaveBeenCalledWith(setClientAppAction(clientAppInURL));
   });
 
   it('does not reset the clientApp if matches the URL', () => {
     const clientApp = CLIENT_APP_FIREFOX;
-    const { store } = dispatchClientMetadata({ clientApp });
+    dispatchClientMetadata({ clientApp, store });
 
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    const root = render({ store });
+    render();
 
-    const location = createFakeLocation({
-      pathname: `/en-US/${clientApp}/`,
-    });
-    root.setProps({ location });
+    store.dispatch(
+      onLocationChanged({
+        pathname: `/en-US/${clientApp}/`,
+      }),
+    );
 
-    sinon.assert.notCalled(dispatchSpy);
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: SET_CLIENT_APP }),
+    );
   });
 
   it('does not reset the clientApp if the one on the URL is invalid', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
 
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    const root = render({ store });
+    render();
 
-    const location = createFakeLocation({
-      pathname: `/en-US/invalid-app/`,
-    });
-    root.setProps({ location });
+    store.dispatch(
+      onLocationChanged({
+        pathname: '/en-US/invalid-app/',
+      }),
+    );
 
-    sinon.assert.notCalled(dispatchSpy);
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: SET_CLIENT_APP }),
+    );
   });
 
   it('ignores a falsey navigator', () => {
-    const { store } = dispatchClientMetadata({
-      userAgent: '',
-    });
+    dispatchClientMetadata({ store, userAgent: '' });
     const _navigator = null;
 
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    render({ _navigator, store });
+    render({ _navigator });
 
     // This simulates a server side scenario where we do not have a user
     // agent and do not have a global navigator.
-    sinon.assert.neverCalledWithMatch(dispatchSpy, {
-      type: 'SET_USER_AGENT',
-    });
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: SET_USER_AGENT }),
+    );
   });
 
-  it('renders a response with a 200 status', () => {
-    const root = render();
-    expect(root.find(NestedStatus)).toHaveProp('code', 200);
-  });
-
-  it('configures a default HTML title for Firefox', () => {
+  it('configures a default HTML title for Firefox', async () => {
     const lang = 'fr';
-    const { store } = dispatchClientMetadata({
+    dispatchClientMetadata({
       clientApp: CLIENT_APP_FIREFOX,
       lang,
+      store,
     });
-    const root = render({ store });
-    expect(root.find(Helmet)).toHaveProp(
-      'defaultTitle',
+    render();
+
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(getElement('title')).toHaveTextContent(
       `Add-ons for Firefox (${lang})`,
     );
   });
 
-  it('configures a default HTML title for Android', () => {
+  it('configures a default HTML title for Android', async () => {
     const lang = 'fr';
-    const { store } = dispatchClientMetadata({
+    dispatchClientMetadata({
       clientApp: CLIENT_APP_ANDROID,
       lang,
+      store,
     });
-    const root = render({ store });
-    expect(root.find(Helmet)).toHaveProp(
-      'defaultTitle',
+    render();
+
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(getElement('title')).toHaveTextContent(
       `Add-ons for Firefox Android (${lang})`,
-    );
-  });
-
-  it('defines a HTML title template for Firefox', () => {
-    const lang = 'fr';
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-      lang,
-    });
-    const root = render({ store });
-    expect(root.find(Helmet)).toHaveProp(
-      'titleTemplate',
-      `%s – Add-ons for Firefox (${lang})`,
-    );
-  });
-
-  it('defines a HTML title template for Android', () => {
-    const lang = 'fr';
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_ANDROID,
-      lang,
-    });
-    const root = render({ store });
-    expect(root.find(Helmet)).toHaveProp(
-      'titleTemplate',
-      `%s – Add-ons for Firefox Android (${lang})`,
     );
   });
 
