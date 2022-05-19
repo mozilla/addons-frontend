@@ -249,21 +249,13 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     if (authorIds) {
       switch (addonType) {
         case ADDON_TYPE_DICT:
-          header = showMore
-            ? i18n.ngettext(
-                i18n.sprintf(i18n.gettext('More dictionaries by %(author)s'), {
-                  author: authorDisplayName,
-                }),
-                i18n.gettext('More dictionaries by these translators'),
-                authorIds.length,
-              )
-            : i18n.ngettext(
-                i18n.sprintf(i18n.gettext('Dictionaries by %(author)s'), {
-                  author: authorDisplayName,
-                }),
-                i18n.gettext('Dictionaries by these translators'),
-                authorIds.length,
-              );
+          header = i18n.ngettext(
+            i18n.sprintf(i18n.gettext('More dictionaries by %(author)s'), {
+              author: authorDisplayName,
+            }),
+            i18n.gettext('More dictionaries by these translators'),
+            authorIds.length,
+          );
           break;
         case ADDON_TYPE_EXTENSION:
           header = showMore
@@ -283,24 +275,13 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
               );
           break;
         case ADDON_TYPE_LANG:
-          header = showMore
-            ? i18n.ngettext(
-                i18n.sprintf(
-                  i18n.gettext('More language packs by %(author)s'),
-                  {
-                    author: authorDisplayName,
-                  },
-                ),
-                i18n.gettext('More language packs by these translators'),
-                authorIds.length,
-              )
-            : i18n.ngettext(
-                i18n.sprintf(i18n.gettext('Language packs by %(author)s'), {
-                  author: authorDisplayName,
-                }),
-                i18n.gettext('Language packs by these translators'),
-                authorIds.length,
-              );
+          header = i18n.ngettext(
+            i18n.sprintf(i18n.gettext('More language packs by %(author)s'), {
+              author: authorDisplayName,
+            }),
+            i18n.gettext('More language packs by these translators'),
+            authorIds.length,
+          );
           break;
         case ADDON_TYPE_STATIC_THEME:
           header = showMore
@@ -320,21 +301,13 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
               );
           break;
         default:
-          header = showMore
-            ? i18n.ngettext(
-                i18n.sprintf(i18n.gettext('More add-ons by %(author)s'), {
-                  author: authorDisplayName,
-                }),
-                i18n.gettext('More add-ons by these developers'),
-                authorIds.length,
-              )
-            : i18n.ngettext(
-                i18n.sprintf(i18n.gettext('Add-ons by %(author)s'), {
-                  author: authorDisplayName,
-                }),
-                i18n.gettext('Add-ons by these developers'),
-                authorIds.length,
-              );
+          header = i18n.ngettext(
+            i18n.sprintf(i18n.gettext('More add-ons by %(author)s'), {
+              author: authorDisplayName,
+            }),
+            i18n.gettext('More add-ons by these developers'),
+            authorIds.length,
+          );
       }
     }
 
@@ -418,11 +391,13 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
   };
 };
 
+export const extractId = (ownProps: Props): string => ownProps.addonType || '';
+
 const AddonsByAuthorsCard: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'AddonsByAuthorsCard' }),
+  withErrorHandler({ extractId, name: 'AddonsByAuthorsCard' }),
 )(AddonsByAuthorsCardBase);
 
 export default AddonsByAuthorsCard;

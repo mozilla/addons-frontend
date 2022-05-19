@@ -26,7 +26,13 @@ import {
   STATIC_THEMES_REVIEW,
   DEFAULT_UTM_SOURCE,
 } from 'amo/constants';
+import { ADDONS_BY_AUTHORS_COUNT } from 'amo/pages/Addon';
 import { getAddonByIdInURL, loadAddon } from 'amo/reducers/addons';
+import {
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  FETCH_ADDONS_BY_AUTHORS,
+  fetchAddonsByAuthors,
+} from 'amo/reducers/addonsByAuthors';
 import {
   FETCH_RECOMMENDATIONS,
   OUTCOME_CURATED,
@@ -47,11 +53,13 @@ import {
   dispatchSignInActionsWithStore,
   fakeAddon,
   fakeAuthor,
+  fakeAuthors,
   fakeFile,
   fakePreview,
   fakeRecommendations,
   fakeVersion,
   getElement,
+  loadAddonsByAuthors,
   onLocationChanged,
   renderPage as defaultRender,
   screen,
@@ -65,7 +73,9 @@ jest.mock('amo/tracking', () => ({
 }));
 
 describe(__filename, () => {
-  const authorUserId = 987;
+  const defaultAddonName = 'My Add-On';
+  const authorName = fakeAuthors[0].name;
+  const authorUserId = fakeAuthors[0].id;
   const clientApp = CLIENT_APP_FIREFOX;
   const defaultAddonId = 555;
   const defaultSlug = 'reviewed-add-on';
@@ -82,8 +92,9 @@ describe(__filename, () => {
   beforeEach(() => {
     addon = {
       ...fakeAddon, // By default loads an add-on with an expected author.
-      authors: [{ ...fakeAuthor, id: authorUserId }],
+      authors: [fakeAuthors[0]],
       id: defaultAddonId,
+      name: createLocalizedString(defaultAddonName),
       slug: defaultSlug,
     };
     store = dispatchClientMetadata({ clientApp, lang }).store;
@@ -1045,7 +1056,6 @@ describe(__filename, () => {
     });
 
     it('renders an AddonCard when recommendations are loaded', () => {
-      const authorName = 'An add-on author';
       const name = 'Some add-on name';
       const slug = 'some-add-on-slug';
       const summary = 'Some add-on summary';
@@ -1325,6 +1335,471 @@ describe(__filename, () => {
       render();
 
       expect(tracking.sendEvent).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('more add-ons by authors', () => {
+    it('puts "add-ons by author" in main content if type is theme', () => {
+      addon.type = ADDON_TYPE_STATIC_THEME;
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonType: ADDON_TYPE_STATIC_THEME,
+        count: 1,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      // Verifying that Addon passes a className to AddonsByAuthorsCard.
+      expect(screen.getByClassName('AddonsByAuthorsCard')).toHaveClass(
+        'Addon-MoreAddonsCard',
+      );
+
+      expect(screen.getAllByClassName('AddonsByAuthorsCard')).toHaveLength(1);
+      expect(
+        within(screen.getByClassName('Addon-main-content')).getByText(
+          `More themes by ${authorName}`,
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('puts "add-ons by author" outside main if type is not theme', () => {
+      addon.type = ADDON_TYPE_EXTENSION;
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonType: ADDON_TYPE_EXTENSION,
+        count: 1,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      expect(screen.getAllByClassName('AddonsByAuthorsCard')).toHaveLength(1);
+      expect(
+        // eslint-disable-next-line testing-library/prefer-presence-queries
+        within(screen.getByClassName('Addon-main-content')).queryByText(
+          `More themes by ${authorName}`,
+        ),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByText(`More extensions by ${authorName}`),
+      ).toBeInTheDocument();
+    });
+
+    it('is hidden when an add-on has not loaded yet', () => {
+      render();
+
+      expect(
+        screen.queryByClassName('AddonsByAuthorsCard'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('is hidden when add-on has no authors', () => {
+      addon.authors = [];
+      _loadAddon();
+      render();
+
+      expect(
+        screen.queryByClassName('AddonsByAuthorsCard'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('displays more add-ons by authors for an extension', () => {
+      const moreAddonName = 'Name of more add-on';
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonName: moreAddonName,
+        addonType: ADDON_TYPE_EXTENSION,
+        count: 2,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      const addonsByAuthorsCard = screen.getByClassName('AddonsByAuthorsCard');
+      expect(
+        within(addonsByAuthorsCard).getByText(
+          `More extensions by ${authorName}`,
+        ),
+      ).toBeInTheDocument();
+      expect(
+        within(addonsByAuthorsCard).getByRole('link', {
+          name: `${moreAddonName}-0`,
+        }),
+      ).toBeInTheDocument();
+      expect(
+        within(addonsByAuthorsCard).getByRole('link', {
+          name: `${moreAddonName}-1`,
+        }),
+      ).toBeInTheDocument();
+      // Checking that it passes showSummary: false to AddonsCard.
+      expect(
+        within(addonsByAuthorsCard).queryByClassName('SearchResult-summary'),
+      ).not.toBeInTheDocument();
+      expect(addonsByAuthorsCard).toHaveClass('AddonsCard--horizontal');
+    });
+
+    it('displays more add-ons by authors for a theme', () => {
+      const moreAddonName = 'Name of more add-on';
+      addon.type = ADDON_TYPE_STATIC_THEME;
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonName: moreAddonName,
+        addonType: ADDON_TYPE_STATIC_THEME,
+        count: 2,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      const addonsByAuthorsCard = screen.getByClassName('AddonsByAuthorsCard');
+      expect(
+        within(addonsByAuthorsCard).getByText(`More themes by ${authorName}`),
+      ).toBeInTheDocument();
+      expect(
+        within(addonsByAuthorsCard).getByRole('link', {
+          name: `${moreAddonName}-0`,
+        }),
+      ).toBeInTheDocument();
+      expect(
+        within(addonsByAuthorsCard).getByRole('link', {
+          name: `${moreAddonName}-1`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('adds a CSS class to the main component when there are add-ons', () => {
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonType: ADDON_TYPE_EXTENSION,
+        count: 1,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      const addonComponent = screen.getByClassName('Addon');
+
+      expect(addonComponent).toHaveClass('Addon--has-more-than-0-addons');
+      expect(addonComponent).not.toHaveClass('Addon--has-more-than-3-addons');
+    });
+
+    it('adds a CSS class when there are more than 3 other add-ons', () => {
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonType: ADDON_TYPE_EXTENSION,
+        count: 4,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      const addonComponent = screen.getByClassName('Addon');
+
+      expect(addonComponent).toHaveClass('Addon--has-more-than-0-addons');
+      expect(addonComponent).toHaveClass('Addon--has-more-than-3-addons');
+    });
+  });
+
+  describe('Tests for AddonsByAuthorsCard', () => {
+    const getThisErrorHandlerId = (type) => `AddonsByAuthorsCard-${type}`;
+
+    it('should render nothing if there are no add-ons', () => {
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonType: ADDON_TYPE_EXTENSION,
+        count: 0,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      expect(
+        screen.queryByClassName('AddonsByAuthorsCard'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('should render a loading state on first instantiation', () => {
+      _loadAddon();
+      render();
+
+      // Expect 6 placeholders with 4 LoadingText each.
+      expect(
+        within(screen.getByClassName('AddonsByAuthorsCard')).getAllByRole(
+          'alert',
+        ),
+      ).toHaveLength(24);
+    });
+
+    it('should render a card with loading state if loading', () => {
+      _loadAddon();
+      store.dispatch(
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          authorIds: [authorUserId],
+          errorHandlerId: getThisErrorHandlerId(ADDON_TYPE_EXTENSION),
+          pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+        }),
+      );
+      render();
+
+      expect(
+        within(screen.getByClassName('AddonsByAuthorsCard')).getAllByRole(
+          'alert',
+        ),
+      ).toHaveLength(24);
+    });
+
+    // We want to always make sure to do a fetch to make sure
+    // we have the latest addons list.
+    // See: https://github.com/mozilla/addons-frontend/issues/4852
+    it('should always fetch addons by authors', () => {
+      _loadAddon();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          authorIds: [authorUserId],
+          errorHandlerId: getThisErrorHandlerId(ADDON_TYPE_EXTENSION),
+          forAddonSlug: defaultSlug,
+          pageSize: '6',
+        }),
+      );
+    });
+
+    it('should dispatch a fetch action if authorIds are updated', () => {
+      _loadAddon();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      loadAddonsByAuthors({
+        addonType: ADDON_TYPE_EXTENSION,
+        count: 1,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      dispatch.mockClear();
+
+      // Render the page for a different add-on with a different author.
+      const newAuthorId = authorUserId + 1;
+      const newSlug = `${defaultSlug}-new`;
+      addon.authors = [{ ...addon.author, id: newAuthorId }];
+      addon.slug = newSlug;
+      addon.type = ADDON_TYPE_STATIC_THEME;
+      _loadAddon();
+
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: newSlug }),
+        }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_STATIC_THEME,
+          authorIds: [newAuthorId],
+          errorHandlerId: getThisErrorHandlerId(ADDON_TYPE_STATIC_THEME),
+          forAddonSlug: newSlug,
+          pageSize: '6',
+        }),
+      );
+
+      // Make sure an authorIds update even with the same addonType
+      // dispatches a fetch action.
+      const anotherAuthorId = newAuthorId + 1;
+      const anotherSlug = `${newSlug}-new`;
+      addon.authors = [{ ...addon.author, id: anotherAuthorId }];
+      addon.slug = anotherSlug;
+      addon.type = ADDON_TYPE_STATIC_THEME;
+      _loadAddon();
+
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: anotherSlug }),
+        }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_STATIC_THEME,
+          authorIds: [anotherAuthorId],
+          errorHandlerId: getThisErrorHandlerId(ADDON_TYPE_STATIC_THEME),
+          forAddonSlug: anotherSlug,
+          pageSize: '6',
+        }),
+      );
+    });
+
+    it('should dispatch a fetch action if addonType is updated', () => {
+      _loadAddon();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      loadAddonsByAuthors({
+        addonType: ADDON_TYPE_EXTENSION,
+        count: 1,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      dispatch.mockClear();
+
+      // Render the page for a different add-on with a different type.
+      const newSlug = `${defaultSlug}-new`;
+      addon.slug = newSlug;
+      addon.type = ADDON_TYPE_STATIC_THEME;
+      _loadAddon();
+
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: newSlug }),
+        }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchAddonsByAuthors({
+          addonType: ADDON_TYPE_STATIC_THEME,
+          authorIds: [authorUserId],
+          errorHandlerId: getThisErrorHandlerId(ADDON_TYPE_STATIC_THEME),
+          forAddonSlug: newSlug,
+          pageSize: '6',
+        }),
+      );
+    });
+
+    it('should not dispatch a fetch action if props are not changed', () => {
+      _loadAddon();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      loadAddonsByAuthors({
+        addonType: ADDON_TYPE_EXTENSION,
+        count: 1,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      dispatch.mockClear();
+
+      // Render the page for the same add-on, with an unrelated prop change..
+      addon.name = createLocalizedString('Some other name');
+      _loadAddon();
+
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: defaultSlug }),
+        }),
+      );
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_ADDONS_BY_AUTHORS }),
+      );
+    });
+
+    it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME])(
+      'should display at most numberOfAddons for %s',
+      (type) => {
+        addon.type = type;
+        _loadAddon();
+        render();
+
+        loadAddonsByAuthors({
+          addonType: ADDON_TYPE_EXTENSION,
+          count: 10,
+          forAddonSlug: defaultSlug,
+          store,
+        });
+
+        expect(
+          within(screen.getByClassName('AddonsByAuthorsCard')).getAllByRole(
+            'listitem',
+          ),
+        ).toHaveLength(ADDONS_BY_AUTHORS_COUNT);
+      },
+    );
+
+    it('should add a theme class if it is a static theme', () => {
+      addon.type = ADDON_TYPE_STATIC_THEME;
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonType: ADDON_TYPE_STATIC_THEME,
+        count: 10,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      expect(screen.getByClassName('AddonsByAuthorsCard')).toHaveClass(
+        'AddonsByAuthorsCard--theme',
+      );
+    });
+
+    it.each([
+      [ADDON_TYPE_DICT, `More dictionaries by ${authorName}`],
+      [ADDON_TYPE_EXTENSION, `More extensions by ${authorName}`],
+      [ADDON_TYPE_LANG, `More language packs by ${authorName}`],
+      [ADDON_TYPE_STATIC_THEME, `More themes by ${authorName}`],
+      ['unknown-type', `More add-ons by ${authorName}`],
+    ])('shows expected header for %s', (type, header) => {
+      addon.type = type;
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonType: type,
+        count: 1,
+        forAddonSlug: defaultSlug,
+        store,
+      });
+
+      expect(screen.getByText(header)).toBeInTheDocument();
+    });
+
+    it.each([
+      [ADDON_TYPE_DICT, 'More dictionaries by these translators'],
+      [ADDON_TYPE_EXTENSION, 'More extensions by these developers'],
+      [ADDON_TYPE_LANG, 'More language packs by these translators'],
+      [ADDON_TYPE_STATIC_THEME, 'More themes by these artists'],
+      ['unknown-type', 'More add-ons by these developers'],
+    ])('shows expected header for %s with multiple authors', (type, header) => {
+      addon.type = type;
+      addon.authors = fakeAuthors;
+      _loadAddon();
+      render();
+
+      loadAddonsByAuthors({
+        addonType: type,
+        count: 1,
+        forAddonSlug: defaultSlug,
+        multipleAuthors: true,
+        store,
+      });
+
+      expect(screen.getByText(header)).toBeInTheDocument();
+    });
+
+    it('renders an error when an API error is thrown', () => {
+      const message = 'Some error message';
+      _loadAddon();
+      createFailedErrorHandler({
+        id: getThisErrorHandlerId(ADDON_TYPE_EXTENSION),
+        message,
+        store,
+      });
+      render();
+
+      expect(screen.getByText(message)).toBeInTheDocument();
     });
   });
 });

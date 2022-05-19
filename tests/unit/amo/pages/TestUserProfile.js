@@ -1,4 +1,5 @@
 import { waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import {
   fetchUserReviews,
@@ -7,6 +8,12 @@ import {
 } from 'amo/actions/reviews';
 import { extractId } from 'amo/pages/UserProfile';
 import {
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  FETCH_ADDONS_BY_AUTHORS,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
+  fetchAddonsByAuthors,
+} from 'amo/reducers/addonsByAuthors';
+import {
   fetchUserAccount,
   getCurrentUser,
   loadUserAccount,
@@ -14,7 +21,10 @@ import {
 } from 'amo/reducers/users';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'amo/api';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
+  SEARCH_SORT_POPULAR,
   USERS_EDIT,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
@@ -25,9 +35,11 @@ import {
   createUserAccountResponse,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
+  fakeAuthors,
   fakeReview,
   getElement,
   getElements,
+  loadAddonsByAuthors,
   onLocationChanged,
   renderPage as defaultRender,
   screen,
@@ -39,7 +51,7 @@ describe(__filename, () => {
   const lang = 'fr';
   const clientApp = CLIENT_APP_FIREFOX;
   let store;
-  const defaultUserId = 100;
+  const defaultUserId = fakeAuthors[0].id;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
@@ -884,5 +896,210 @@ describe(__filename, () => {
     renderUserProfile();
 
     expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
+  });
+
+  describe('Tests for AddonsByAuthorsCard', () => {
+    // Rending a UserProfile without a loaded user will result in authorIds
+    // being null.
+    it('renders a LoadingText header when authorIds is null', () => {
+      renderUserProfile();
+
+      expect(
+        within(
+          within(
+            screen.getAllByClassName('AddonsByAuthorsCard')[0],
+          ).getByClassName('Card-header-text'),
+        ).getByRole('alert'),
+      ).toBeInTheDocument();
+    });
+
+    it('does not dispatch an action if authorIds is null', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      renderUserProfile();
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_ADDONS_BY_AUTHORS }),
+      );
+    });
+
+    it('does not dispatch an action if authorIds is null on update', () => {
+      const userId = signInUserWithProps();
+      const dispatch = jest.spyOn(store, 'dispatch');
+
+      renderUserProfile({ userId });
+
+      dispatch.mockClear();
+
+      const secondUserId = userId + 1;
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ userId: secondUserId }),
+        }),
+      );
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_ADDONS_BY_AUTHORS }),
+      );
+    });
+
+    describe('with pagination', () => {
+      it('shows a paginator when `count` is greater than the number of add-ons to display', () => {
+        signInUserAndRenderUserProfile();
+        loadAddonsByAuthors({
+          count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 1,
+          store,
+        });
+
+        expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+          'href',
+          getLocation({ search: '?page_e=2' }),
+        );
+        expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
+      });
+
+      it('does not show a paginator when `count` is less than the number of add-ons to display', () => {
+        signInUserAndRenderUserProfile();
+        loadAddonsByAuthors({
+          count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE - 1,
+          store,
+        });
+
+        expect(screen.queryByText('Next')).not.toBeInTheDocument();
+      });
+
+      it('passes all the query parameters to the Paginate component', () => {
+        renderUserProfile({
+          location: getLocation({ search: '?other=param' }),
+          userId: signInUserWithProps(),
+        });
+
+        loadAddonsByAuthors({
+          count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 1,
+          store,
+        });
+
+        expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+          'href',
+          getLocation({ search: '?other=param&page_e=2' }),
+        );
+      });
+
+      it('sets the current page based on the `pageParam`', () => {
+        renderUserProfile({
+          location: getLocation({ search: '?page_e=2' }),
+          userId: signInUserWithProps(),
+        });
+
+        loadAddonsByAuthors({
+          count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 1,
+          store,
+        });
+
+        expect(screen.getByText('Page 2 of 2')).toBeInTheDocument();
+      });
+
+      it('sets the current page to 1 when query parameter has an incorrect value', () => {
+        renderUserProfile({
+          location: getLocation({ search: '?page_e=invalid' }),
+          userId: signInUserWithProps(),
+        });
+
+        loadAddonsByAuthors({
+          count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 1,
+          store,
+        });
+
+        expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
+      });
+
+      it('sets the current page to 1 when query parameter has a negative value', () => {
+        renderUserProfile({
+          location: getLocation({ search: '?page_e=-11' }),
+          userId: signInUserWithProps(),
+        });
+
+        loadAddonsByAuthors({
+          count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 1,
+          store,
+        });
+
+        expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
+      });
+
+      it('sets the current page to 1 when query parameter is 0', () => {
+        renderUserProfile({
+          location: getLocation({ search: '?page_e=0' }),
+          userId: signInUserWithProps(),
+        });
+
+        loadAddonsByAuthors({
+          count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 1,
+          store,
+        });
+
+        expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
+      });
+
+      it('should dispatch a fetch action with `page` and `sort` parameters', () => {
+        const dispatch = jest.spyOn(store, 'dispatch');
+        signInUserAndRenderUserProfile();
+
+        expect(dispatch).toHaveBeenCalledWith(
+          fetchAddonsByAuthors({
+            addonType: ADDON_TYPE_EXTENSION,
+            authorIds: [defaultUserId],
+            errorHandlerId: createErrorHandlerId(),
+            page: '1',
+            pageSize: String(EXTENSIONS_BY_AUTHORS_PAGE_SIZE),
+            sort: SEARCH_SORT_POPULAR,
+          }),
+        );
+
+        expect(dispatch).toHaveBeenCalledWith(
+          fetchAddonsByAuthors({
+            addonType: ADDON_TYPE_STATIC_THEME,
+            authorIds: [defaultUserId],
+            errorHandlerId: createErrorHandlerId(),
+            page: '1',
+            pageSize: String(THEMES_BY_AUTHORS_PAGE_SIZE),
+            sort: SEARCH_SORT_POPULAR,
+          }),
+        );
+      });
+
+      it('should dispatch a fetch action if page changes', () => {
+        const dispatch = jest.spyOn(store, 'dispatch');
+        signInUserAndRenderUserProfile();
+        loadAddonsByAuthors({
+          count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 1,
+          store,
+        });
+
+        userEvent.click(screen.getByRole('link', { name: 'Next' }));
+
+        expect(dispatch).toHaveBeenCalledWith(
+          fetchAddonsByAuthors({
+            addonType: ADDON_TYPE_EXTENSION,
+            authorIds: [defaultUserId],
+            errorHandlerId: createErrorHandlerId(),
+            page: '2',
+            pageSize: String(EXTENSIONS_BY_AUTHORS_PAGE_SIZE),
+            sort: SEARCH_SORT_POPULAR,
+          }),
+        );
+
+        // Verify that the AddonsByAuthors card for Themes did not dispatch.
+        expect(dispatch).not.toHaveBeenCalledWith(
+          fetchAddonsByAuthors({
+            addonType: ADDON_TYPE_STATIC_THEME,
+            authorIds: [defaultUserId],
+            errorHandlerId: createErrorHandlerId(),
+            page: '2',
+            pageSize: String(EXTENSIONS_BY_AUTHORS_PAGE_SIZE),
+            sort: SEARCH_SORT_POPULAR,
+          }),
+        );
+      });
+    });
   });
 });
