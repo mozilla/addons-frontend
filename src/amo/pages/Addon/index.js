@@ -54,6 +54,7 @@ import Notice from 'amo/components/Notice';
 import './styles.scss';
 
 export const STATUS_PUBLIC = 'public';
+export const ADDONS_BY_AUTHORS_COUNT = 6;
 
 export class AddonBase extends React.Component {
   static propTypes = {
@@ -392,7 +393,7 @@ export class AddonBase extends React.Component {
           authorIds={addon.authors.map((author) => author.id)}
           className="Addon-MoreAddonsCard"
           forAddonSlug={addon.slug}
-          numberOfAddons={6}
+          numberOfAddons={ADDONS_BY_AUTHORS_COUNT}
         />
       </div>
     );

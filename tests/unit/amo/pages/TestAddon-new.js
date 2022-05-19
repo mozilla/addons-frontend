@@ -26,6 +26,7 @@ import {
   STATIC_THEMES_REVIEW,
   DEFAULT_UTM_SOURCE,
 } from 'amo/constants';
+import { ADDONS_BY_AUTHORS_COUNT } from 'amo/pages/Addon';
 import { getAddonByIdInURL, loadAddon } from 'amo/reducers/addons';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -1719,12 +1720,11 @@ describe(__filename, () => {
           store,
         });
 
-        // numberOfAddons is hardcoded as 6 in pages/Addon.
         expect(
           within(screen.getByClassName('AddonsByAuthorsCard')).getAllByRole(
             'listitem',
           ),
-        ).toHaveLength(6);
+        ).toHaveLength(ADDONS_BY_AUTHORS_COUNT);
       },
     );
 

@@ -1026,6 +1026,20 @@ describe(__filename, () => {
         expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
       });
 
+      it('sets the current page to 1 when query parameter is 0', () => {
+        renderUserProfile({
+          location: getLocation({ search: '?page_e=0' }),
+          userId: signInUserWithProps(),
+        });
+
+        loadAddonsByAuthors({
+          count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 1,
+          store,
+        });
+
+        expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
+      });
+
       it('should dispatch a fetch action with `page` and `sort` parameters', () => {
         const dispatch = jest.spyOn(store, 'dispatch');
         signInUserAndRenderUserProfile();
