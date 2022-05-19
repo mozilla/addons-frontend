@@ -28,7 +28,7 @@ type InternalProps = {|
   _tracking: typeof tracking,
 |};
 
-const makeCallToActionURL = (urlString: string) => {
+export const makeCallToActionURL = (urlString: string): string => {
   return addQueryParams(urlString, {
     utm_source: DEFAULT_UTM_SOURCE,
     utm_medium: DEFAULT_UTM_MEDIUM,
