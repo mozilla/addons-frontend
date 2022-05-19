@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-05-18 08:05+0000\n"
-"PO-Revision-Date: 2022-05-19 19:52+0000\n"
+"PO-Revision-Date: 2022-05-19 19:54+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1272,7 +1272,7 @@ msgstr "მდებარეობის მონაცემებთან �
 
 #: src/amo/components/PermissionsCard/permissions.js:42 src/amo/components/PermissionsCard/permissions.js:56
 msgid "Access browsing history"
-msgstr "მონახულებული გვერდების ისტორიაზე წვდომა"
+msgstr "მონახულებული გვერდების ისტორიასთან წვდომა"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Monitor extension usage and manage themes"
