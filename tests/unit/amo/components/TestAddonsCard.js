@@ -641,6 +641,12 @@ describe(__filename, () => {
         },
       });
 
+      expect(screen.getByClassName('PromotedBadge')).toHaveClass(
+        'PromotedBadge-small',
+      );
+      expect(screen.getByClassName('IconPromotedBadge')).toHaveClass(
+        'IconPromotedBadge-small',
+      );
       expect(
         screen.getByRole('link', {
           name: 'Firefox only recommends add-ons that meet our standards for security and performance.',
