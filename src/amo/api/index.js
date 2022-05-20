@@ -165,9 +165,7 @@ export function callApi({
   adjustedEndpoint = adjustedEndpoint.endsWith('/')
     ? adjustedEndpoint
     : `${adjustedEndpoint}/`;
-  const apiURL = `${config.get('apiHost')}${encodeURI(
-    adjustedEndpoint,
-  )}${queryString}`;
+  const apiURL = `${config.get('apiHost')}${adjustedEndpoint}${queryString}`;
 
   // Flow expects headers['Content-type'] to be a string, but we sometimes
   // delete it at line 148, above.

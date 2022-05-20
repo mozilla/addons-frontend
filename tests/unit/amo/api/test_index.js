@@ -106,11 +106,12 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
-    it('encodes URL paths with encodeURI', async () => {
+    // See https://github.com/mozilla/addons-frontend/issues/11485.
+    it('does not encode URL paths', async () => {
       const endpoint = 'project-ă-ă-â-â-日本語';
       mockWindow
         .expects('fetch')
-        .withArgs(sinon.match(`/api/${apiVersion}/${encodeURI(endpoint)}/`))
+        .withArgs(sinon.match(`/api/${apiVersion}/${endpoint}/`))
         .returns(createApiResponse());
 
       await api.callApi({ endpoint });
@@ -125,9 +126,7 @@ describe(__filename, () => {
       mockWindow
         .expects('fetch')
         .withArgs(
-          sinon.match(
-            `/api/${apiVersion}/${encodeURI(endpoint)}/${expectedQueryString}`,
-          ),
+          sinon.match(`/api/${apiVersion}/${endpoint}/${expectedQueryString}`),
         )
         .returns(createApiResponse());
 
