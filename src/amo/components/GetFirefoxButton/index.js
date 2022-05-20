@@ -1,9 +1,10 @@
 /* @flow */
-import { encode } from 'universal-base64url';
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { encode } from 'universal-base64url';
 
 import Button from 'amo/components/Button';
 import {
@@ -106,9 +107,11 @@ export const GetFirefoxButtonBase = ({
   overrideQueryParams = {},
   userAgentInfo,
 }: InternalProps): null | React.Node => {
-  if (isFirefox({ userAgentInfo }) && !forIncompatibleAddon) {
-    return null;
-  }
+  invariant(
+    !isFirefox({ userAgentInfo }) || forIncompatibleAddon,
+    `The download button should not be rendered on Firefox unless the add-on
+     is incompatible.`,
+  );
 
   const onButtonClick = () => {
     _tracking.sendEvent({

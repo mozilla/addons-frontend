@@ -1,11 +1,19 @@
 import * as React from 'react';
+import userEvent from '@testing-library/user-event';
 import { encode } from 'universal-base64url';
 
+import {
+  GET_FIREFOX_BUTTON_CLICK_ACTION,
+  GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+  getDownloadLink,
+  getDownloadCampaign,
+} from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
-import { setInstallState } from 'amo/reducers/installations';
 import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
+  DOWNLOAD_FIREFOX_BASE_URL,
+  DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -13,8 +21,17 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   INSTALLED,
+  LINE,
+  RECOMMENDED,
+  SPONSORED,
+  SPOTLIGHT,
+  STRATEGIC,
+  VERIFIED,
 } from 'amo/constants';
+import { setInstallState } from 'amo/reducers/installations';
 import { loadVersions } from 'amo/reducers/versions';
+import tracking from 'amo/tracking';
+import * as amoUtilsAddons from 'amo/utils/addons';
 import {
   createInternalAddonWithLang,
   createInternalVersionWithLang,
@@ -22,17 +39,27 @@ import {
   fakeAddon,
   fakeFile,
   fakeInstalledAddon,
+  fakeTheme,
   fakeVersion,
   render as defaultRender,
   screen,
+  userAgents,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
+
+jest.mock('amo/tracking', () => ({
+  sendEvent: jest.fn(),
+}));
 
 describe(__filename, () => {
   let store;
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks().resetModules();
   });
 
   const render = (props = {}) => {
@@ -523,5 +550,350 @@ describe(__filename, () => {
     expect(
       screen.queryByRole('link', { name: 'Download file' }),
     ).not.toBeInTheDocument();
+  });
+
+  describe('Tests for GetFirefoxButton', () => {
+    const getFirefoxButton = () =>
+      screen.getByRole('link', { name: 'Download Firefox' });
+
+    const renderAsIncompatible = (props = {}) => {
+      const _getClientCompatibility = jest.fn().mockReturnValue({
+        compatible: false,
+        reason: INCOMPATIBLE_UNDER_MIN_VERSION,
+      });
+      _dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+        userAgent: userAgents.firefox[0],
+      });
+      return render({ _getClientCompatibility, ...props });
+    };
+
+    describe('On firefox', () => {
+      it('renders nothing if the browser is Firefox Desktop', () => {
+        _dispatchClientMetadata({ userAgent: userAgents.firefox[0] });
+        render();
+
+        expect(
+          screen.queryByRole('link', { name: 'Download Firefox' }),
+        ).not.toBeInTheDocument();
+      });
+
+      it('renders nothing if the browser is Firefox for Android', () => {
+        _dispatchClientMetadata({ userAgent: userAgents.firefoxAndroid[0] });
+        render();
+
+        expect(
+          screen.queryByRole('link', { name: 'Download Firefox' }),
+        ).not.toBeInTheDocument();
+      });
+
+      it('renders nothing if the browser is Firefox for iOS', () => {
+        _dispatchClientMetadata({ userAgent: userAgents.firefoxIOS[0] });
+        render();
+
+        expect(
+          screen.queryByRole('link', { name: 'Download Firefox' }),
+        ).not.toBeInTheDocument();
+      });
+
+      it('renders a GetFirefoxButton if forIncompatibleAddon is true', () => {
+        renderAsIncompatible();
+
+        expect(getFirefoxButton()).toBeInTheDocument();
+      });
+    });
+
+    describe('Not firefox', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      beforeEach(() => {
+        _dispatchClientMetadata({
+          clientApp,
+          userAgent: userAgents.chrome[0],
+        });
+      });
+
+      it('renders a GetFirefoxButton if the browser is not Firefox', () => {
+        render();
+
+        expect(getFirefoxButton()).toBeInTheDocument();
+      });
+
+      it('calls _getPromotedCategory to determine if an add-on is recommended', () => {
+        const getPromotedCategorySpy = jest.spyOn(
+          amoUtilsAddons,
+          'getPromotedCategory',
+        );
+
+        const addon = createInternalAddonWithLang(fakeAddon);
+        render({ addon });
+
+        expect(getPromotedCategorySpy).toHaveBeenCalledWith({
+          addon,
+          clientApp,
+          forBadging: true,
+        });
+      });
+
+      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
+        'has the expected button text for an RTAMO supported extension',
+        (category) => {
+          render({
+            addon: createInternalAddonWithLang({
+              ...fakeAddon,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+          });
+
+          expect(
+            screen.getByRole('link', {
+              name: 'Download Firefox and get the extension',
+            }),
+          ).toBeInTheDocument();
+        },
+      );
+
+      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
+        'has the expected button text for an RTAMO supported extension, which is incompatible',
+        (category) => {
+          renderAsIncompatible({
+            addon: createInternalAddonWithLang({
+              ...fakeAddon,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+          });
+
+          expect(
+            screen.getByRole('link', {
+              name: 'Download the new Firefox and get the extension',
+            }),
+          ).toBeInTheDocument();
+        },
+      );
+
+      it.each([SPOTLIGHT, STRATEGIC])(
+        'has the expected button text for an RTAMO unsupported extension',
+        (category) => {
+          render({
+            addon: createInternalAddonWithLang({
+              ...fakeAddon,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+          });
+
+          expect(
+            screen.getByRole('link', {
+              name: 'Download Firefox',
+            }),
+          ).toBeInTheDocument();
+        },
+      );
+
+      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
+        'has the expected button text for an RTAMO supported theme',
+        (category) => {
+          render({
+            addon: createInternalAddonWithLang({
+              ...fakeTheme,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+          });
+
+          expect(
+            screen.getByRole('link', {
+              name: 'Download Firefox and get the theme',
+            }),
+          ).toBeInTheDocument();
+        },
+      );
+
+      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
+        'has the expected button text for an RTAMO supported theme, which is incompatible',
+        (category) => {
+          renderAsIncompatible({
+            addon: createInternalAddonWithLang({
+              ...fakeTheme,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+          });
+
+          expect(
+            screen.getByRole('link', {
+              name: 'Download the new Firefox and get the theme',
+            }),
+          ).toBeInTheDocument();
+        },
+      );
+
+      it.each([SPOTLIGHT, STRATEGIC])(
+        'has the expected button text for an RTAMO supported theme',
+        (category) => {
+          render({
+            addon: createInternalAddonWithLang({
+              ...fakeTheme,
+              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
+            }),
+          });
+
+          expect(
+            screen.getByRole('link', {
+              name: 'Download Firefox',
+            }),
+          ).toBeInTheDocument();
+        },
+      );
+
+      it('has the expected callout text for an extension', () => {
+        render({
+          addon: createInternalAddonWithLang(fakeAddon),
+        });
+
+        expect(
+          screen.getByText(`You'll need Firefox to use this extension`),
+        ).toBeInTheDocument();
+      });
+
+      it('has the expected callout text for an extension, which is incompatible', () => {
+        renderAsIncompatible({
+          addon: createInternalAddonWithLang(fakeAddon),
+        });
+
+        expect(
+          screen.getByText(
+            'You need an updated version of Firefox for this extension',
+          ),
+        ).toBeInTheDocument();
+      });
+
+      it('has the expected callout text for a theme', () => {
+        render({
+          addon: createInternalAddonWithLang(fakeTheme),
+        });
+
+        expect(
+          screen.getByText(`You'll need Firefox to use this theme`),
+        ).toBeInTheDocument();
+      });
+
+      it('has the expected callout text for a theme, which is incompatible', () => {
+        renderAsIncompatible({
+          addon: createInternalAddonWithLang(fakeTheme),
+        });
+
+        expect(
+          screen.getByText(
+            'You need an updated version of Firefox for this theme',
+          ),
+        ).toBeInTheDocument();
+      });
+
+      it('sends a tracking event when the button is clicked', () => {
+        const guid = 'some-guid';
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
+        render({ addon });
+
+        userEvent.click(getFirefoxButton());
+
+        expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+        expect(tracking.sendEvent).toHaveBeenCalledWith({
+          action: GET_FIREFOX_BUTTON_CLICK_ACTION,
+          category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
+          label: guid,
+        });
+      });
+    });
+
+    describe('getDownloadCampaign', () => {
+      it('returns a campaign without an addonId', () => {
+        expect(getDownloadCampaign()).toEqual(DOWNLOAD_FIREFOX_UTM_CAMPAIGN);
+      });
+
+      it('returns a campaign with an addonId', () => {
+        const addonId = 12345;
+        expect(getDownloadCampaign({ addonId })).toEqual(
+          `${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
+        );
+      });
+    });
+
+    describe('getDownloadLink', () => {
+      const guid = 'some-guid';
+
+      it('includes and overrides params via overrideQueryParams', () => {
+        const param1 = 'test';
+        const utm_campaign = 'overridden_utm_campaign';
+        const link = getDownloadLink({
+          overrideQueryParams: { param1, utm_campaign },
+        });
+        expect(link.includes(`param1=${param1}`)).toEqual(true);
+        expect(link.includes(`utm_campaign=${utm_campaign}`)).toEqual(true);
+      });
+
+      it('calls universal-base64url.encode to encode the guid of the add-on for utm_content', () => {
+        const encodedGuid = encode(guid);
+        const _encode = sinon.stub().returns(encodedGuid);
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
+
+        const link = getDownloadLink({ _encode, addon });
+
+        sinon.assert.calledWith(_encode, addon.guid);
+        expect(link.includes(`utm_content=rta%3A${encodedGuid}`)).toEqual(true);
+      });
+
+      // See: https://github.com/mozilla/addons-frontend/issues/7255
+      it('does not call universal-base64url.encode when add-on has a `null` GUID', () => {
+        const _encode = sinon.spy();
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid: null });
+
+        const link = getDownloadLink({ _encode, addon });
+
+        sinon.assert.notCalled(_encode);
+        expect(link.includes('utm_content')).toEqual(false);
+      });
+
+      it('calls getDownloadCampaign with an add-on to populate utm_campaign', () => {
+        const addonId = 123;
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          id: addonId,
+        });
+        const campaign = 'some_campaign';
+        const _getDownloadCampaign = sinon.stub().returns(campaign);
+
+        const link = getDownloadLink({ _getDownloadCampaign, addon });
+
+        sinon.assert.calledWith(_getDownloadCampaign, { addonId });
+        expect(link.includes(`utm_campaign=${campaign}`)).toEqual(true);
+      });
+
+      it('calls getDownloadCampaign without an add-on to populate utm_campaign', () => {
+        const addon = undefined;
+        const campaign = 'some_campaign';
+        const _getDownloadCampaign = sinon.stub().returns(campaign);
+
+        const link = getDownloadLink({ _getDownloadCampaign, addon });
+
+        sinon.assert.calledWith(_getDownloadCampaign, { addonId: undefined });
+        expect(link.includes(`utm_campaign=${campaign}`)).toEqual(true);
+      });
+
+      // Note: This is a sanity test for the entire URL string. Each of the
+      // individual tests above test separate pieces of logic.
+      it('returns the expected URL for an add-on', () => {
+        const addonId = 123;
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          id: addonId,
+        });
+
+        const expectedLink = [
+          `${DOWNLOAD_FIREFOX_BASE_URL}?s=direct`,
+          `utm_campaign=${DOWNLOAD_FIREFOX_UTM_CAMPAIGN}-${addonId}`,
+          `utm_content=rta%3A${encode(addon.guid)}`,
+          `utm_medium=referral&utm_source=addons.mozilla.org`,
+        ].join('&');
+
+        expect(getDownloadLink({ addon })).toEqual(expectedLink);
+      });
+    });
   });
 });
