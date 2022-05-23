@@ -179,7 +179,7 @@ describe(__filename, () => {
     ).getAllByTagName('li');
 
     expect(dictionaryList).toHaveLength(1);
-    expect(languagePackList).toHaveLength(2); // FIXME: investigate why this changed.
+    expect(languagePackList).toHaveLength(2);
   });
 
   it('does not render languages we know of but do not have languages for', () => {
