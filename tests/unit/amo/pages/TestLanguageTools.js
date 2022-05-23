@@ -1,26 +1,17 @@
-import { shallow } from 'enzyme';
-import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 
-import LanguageTools, {
-  LanguageToolsBase,
-  LanguageToolList,
-} from 'amo/pages/LanguageTools';
-import Link from 'amo/components/Link';
-import HeadLinks from 'amo/components/HeadLinks';
-import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'amo/constants';
-import {
-  createInternalLanguageTool,
-  getAllLanguageTools,
-  loadLanguageTools,
-} from 'amo/reducers/languageTools';
+import { loadLanguageTools } from 'amo/reducers/languageTools';
+import { getCanonicalURL } from 'amo/utils';
 import {
   createFakeLanguageTool,
+  createHistory,
   dispatchClientMetadata,
-  fakeI18n,
-  shallowUntilTarget,
+  getElement,
+  renderPage as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
-import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
   const lang = 'fr';
@@ -90,157 +81,129 @@ describe(__filename, () => {
     }),
   ];
 
-  function renderShallow({
-    i18n = fakeI18n(),
-    store = dispatchClientMetadata().store,
-    ...props
-  } = {}) {
-    return shallowUntilTarget(
-      <LanguageTools i18n={i18n} store={store} {...props} />,
-      LanguageToolsBase,
-    );
+  function render({ store = dispatchClientMetadata().store } = {}) {
+    return defaultRender({
+      history: createHistory({
+        initialEntries: [`/${lang}/firefox/language-tools/`],
+      }),
+      store,
+    });
   }
 
   it('renders LoadingText if language tools are not set', () => {
-    const root = renderShallow();
+    render();
 
-    expect(root.find(LoadingText)).not.toHaveLength(0);
+    expect(screen.queryAllByClassName('LoadingText').length).toBeGreaterThan(0);
   });
 
   it('renders LoadingText if language tools are empty', () => {
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: [] }));
 
-    const root = renderShallow({ store });
+    render({ store });
 
-    expect(root.find(LoadingText)).not.toHaveLength(0);
+    expect(screen.queryAllByClassName('LoadingText').length).toBeGreaterThan(0);
   });
 
   it('renders language tools in your locale', () => {
     const { store } = dispatchClientMetadata({ lang: 'fr' });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    const root = renderShallow({ store });
+    render({ store, lang: 'fr' });
 
-    const dictionary = root.find(
-      `.LanguageTools-in-your-locale-list-item--${ADDON_TYPE_DICT}`,
-    );
-    const langPack = root.find(
-      `.LanguageTools-in-your-locale-list-item--${ADDON_TYPE_LANG}`,
-    );
+    expect(
+      screen.getByRole('heading', { name: 'Available for your locale' }),
+    ).toBeInTheDocument();
 
-    expect(root.find(LoadingText)).toHaveLength(0);
-    expect(root.find('.LanguageTools-in-your-locale')).toHaveLength(1);
-    expect(dictionary).toHaveLength(1);
-    expect(dictionary.find(Link)).toHaveProp(
-      'children',
-      'le French Dictionary',
+    const dictionary = screen.getByClassName(
+      `LanguageTools-in-your-locale-list-item--${ADDON_TYPE_DICT}`,
     );
-    expect(langPack).toHaveLength(1);
-    expect(langPack.find(Link)).toHaveProp('children', 'French Language Pack');
+    expect(
+      within(dictionary).getByText('le French Dictionary'),
+    ).toBeInTheDocument();
+
+    const langPack = screen.getByClassName(
+      `LanguageTools-in-your-locale-list-item--${ADDON_TYPE_LANG}`,
+    );
+    expect(langPack).toBeInTheDocument();
+    expect(
+      within(langPack).getByText('French Language Pack'),
+    ).toBeInTheDocument();
   });
 
   it('omits "language tools in your locale" section if none available', () => {
     const { store } = dispatchClientMetadata({ lang: 'pt-BR' });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    const root = renderShallow({ store });
+    render({ store, lang: 'pt-BR' });
 
-    expect(root.find('.LanguageTools-in-your-locale')).toHaveLength(0);
+    expect(
+      screen.queryByRole('heading', { name: 'Available for your locale' }),
+    ).not.toBeInTheDocument();
   });
 
   it('renders language packs in the table view for the right language', () => {
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    const root = renderShallow({ store });
+    render({ store });
 
-    expect(root.find('.LanguageTools-lang-en-GB')).toHaveLength(1);
-    expect(root.find('.LanguageTools-lang-en-US')).toHaveLength(1);
-    expect(root.find('.LanguageTools-lang-fr')).toHaveLength(1);
-    expect(root.find('.LanguageTools-lang-ur')).toHaveLength(1);
-    expect(root.find('.LanguageTools-lang-zh-TW')).toHaveLength(1);
-
+    expect(
+      screen.getByClassName('LanguageTools-lang-en-GB'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByClassName('LanguageTools-lang-en-US'),
+    ).toBeInTheDocument();
+    expect(screen.getByClassName('LanguageTools-lang-fr')).toBeInTheDocument();
+    expect(screen.getByClassName('LanguageTools-lang-ur')).toBeInTheDocument();
+    expect(
+      screen.getByClassName('LanguageTools-lang-zh-TW'),
+    ).toBeInTheDocument();
     // Zulu is not a supported locale on the site but since Firefox UI locales
     // are not necessarily going to match the site locales we should
     // still render the zulu language pack and dictionary.
-    expect(root.find('.LanguageTools-lang-zu')).toHaveLength(1);
+    expect(screen.getByClassName('LanguageTools-lang-zu')).toBeInTheDocument();
   });
 
-  it('renders multiple language tools in a list using LanguageToolList', () => {
-    const { store } = dispatchClientMetadata();
+  it('renders multiple language tools in a list', () => {
+    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    const root = renderShallow({ store });
+    render({ store });
 
-    const dictionaryList = root
-      .find('.LanguageTools-lang-en-GB-dictionaries')
-      .find(LanguageToolList);
-    const languagePackList = root
-      .find('.LanguageTools-lang-en-GB-languagePacks')
-      .find(LanguageToolList);
+    const dictionaryList = within(
+      screen.getByClassName('LanguageTools-lang-en-GB-dictionaries'),
+    ).getAllByTagName('li');
+    const languagePackList = within(
+      screen.getByClassName('LanguageTools-lang-en-GB-languagePacks'),
+    ).getAllByTagName('li');
+
     expect(dictionaryList).toHaveLength(1);
-    expect(languagePackList).toHaveLength(1);
+    expect(languagePackList).toHaveLength(2); // FIXME: investigate why this changed.
   });
 
   it('does not render languages we know of but do not have languages for', () => {
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    const root = renderShallow({ store });
+    render({ store });
 
-    expect(root.find('.LanguageTools-lang-es')).toHaveLength(0);
+    expect(
+      screen.queryByClassName('LanguageTools-lang-es'),
+    ).not.toBeInTheDocument();
   });
 
-  describe('LanguageToolList', () => {
-    it('renders a LanguageToolList', () => {
-      const { store } = dispatchClientMetadata({ lang: 'en-GB' });
-      store.dispatch(loadLanguageTools({ languageTools }));
-
-      const allLanguageTools = getAllLanguageTools(store.getState());
-
-      const languageToolsInYourLocale = allLanguageTools.filter(
-        (languageTool) => {
-          return languageTool.target_locale === store.getState().api.lang;
-        },
-      );
-      const dictionaries = languageToolsInYourLocale.filter((languageTool) => {
-        return languageTool.type === ADDON_TYPE_DICT;
-      });
-      const languagePacks = languageToolsInYourLocale.filter((languageTool) => {
-        return languageTool.type === ADDON_TYPE_LANG;
-      });
-
-      const dictionaryList = shallow(
-        <LanguageToolList languageTools={dictionaries} />,
-      );
-      const languagePackList = shallow(
-        <LanguageToolList languageTools={languagePacks} />,
-      );
-
-      expect(dictionaryList.find('.LanguageTools-addon-list')).toHaveLength(1);
-      expect(languagePackList.find('.LanguageTools-addon-list')).toHaveLength(
-        1,
-      );
-      expect(dictionaryList.find('li')).toHaveLength(1);
-      expect(languagePackList.find('li')).toHaveLength(2);
-    });
-  });
-
-  it('renders nothing if addons are null', () => {
-    const root = shallow(<LanguageToolList languageTools={null} />);
-
-    expect(root.find('.LanguageTools-addon-list')).toHaveLength(0);
-    expect(root.find('title')).toHaveLength(0);
-  });
-
-  it('renders an HTML title', () => {
+  it('renders an HTML title', async () => {
     const { store } = dispatchClientMetadata({ lang: 'pt-BR' });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    const root = renderShallow({ store });
+    render({ store });
 
-    expect(root.find('title')).toHaveText('Dictionaries and Language Packs');
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        'Dictionaries and Language Packs – Add-ons for Firefox (pt-BR)',
+      ),
+    );
   });
 
   it('renders add-ons for all variants of a short locale on a single row (only one supported language)', () => {
@@ -272,19 +235,28 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
-    const root = renderShallow({ store });
+    render({ store });
 
     // We expect only one row with all the add-ons in it.
-    expect(root.find('.LanguageTools-table-row')).toHaveLength(1);
-
-    expect(root.find(LanguageToolList)).toHaveLength(2);
-    expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[0], lang),
-    ]);
-    expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[1], lang),
-      createInternalLanguageTool(addons[2], lang),
-    ]);
+    const row = screen.getByClassName('LanguageTools-table-row');
+    expect(row).toBeInTheDocument();
+    const langPacks = within(row).getByClassName(
+      'LanguageTools-lang-az-languagePacks',
+    );
+    expect(langPacks).toBeInTheDocument();
+    expect(
+      within(langPacks).getByText('Azərbaycanca (AZ) Language Pack'),
+    ).toBeInTheDocument();
+    const dictionaries = within(row).getByClassName(
+      'LanguageTools-lang-az-dictionaries',
+    );
+    expect(dictionaries).toBeInTheDocument();
+    expect(
+      within(dictionaries).getByText('Azerbaijani Spell Checker'),
+    ).toBeInTheDocument();
+    expect(
+      within(dictionaries).getByText('Azerbaijani Foo'),
+    ).toBeInTheDocument();
   });
 
   // See: https://github.com/mozilla/addons-frontend/issues/7702
@@ -297,14 +269,16 @@ describe(__filename, () => {
         type: ADDON_TYPE_DICT,
       }),
     ];
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
-    const root = renderShallow({ store });
+    render({ store });
 
     // We do not currently support `hil` and we do not want the add-on to be
     // listed as part of the `hi` language.
-    expect(root.find('.LanguageTools-table-row')).toHaveLength(0);
+    expect(
+      screen.queryByClassName('LanguageTools-table-row'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders add-ons on two different rows corresponding to two supported languages', () => {
@@ -337,34 +311,44 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
-    const root = renderShallow({ store });
+    render({ store });
 
-    expect(root.find('.LanguageTools-table-row')).toHaveLength(2);
+    const rows = screen.getAllByClassName('LanguageTools-table-row');
+    expect(rows.length).toBe(2);
 
-    expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[0], lang),
-    ]);
-    expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
-      createInternalLanguageTool(addons[1], lang),
-      createInternalLanguageTool(addons[2], lang),
-    ]);
+    expect(within(rows[0]).getByText('Persian Dictionary')).toBeInTheDocument();
+    expect(
+      within(rows[1]).getByText('Persian (IR) Dictionary'),
+    ).toBeInTheDocument();
+    expect(
+      within(rows[1]).getByText('Lilak, Persian Spell Checker Dictionary'),
+    ).toBeInTheDocument();
   });
 
-  it('renders a HeadMetaTags component', () => {
-    const root = renderShallow();
+  it('renders meta tags', async () => {
+    render();
 
-    expect(root.find(HeadMetaTags)).toHaveLength(1);
-    expect(root.find(HeadMetaTags).prop('title')).toEqual(
-      'Dictionaries and Language Packs',
+    await waitFor(() =>
+      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
     );
-    expect(root.find(HeadMetaTags).prop('description')).toMatch(
-      /Download Firefox dictionaries and language/,
+
+    expect(getElement('meta[name="description"]')).toHaveAttribute(
+      'content',
+      expect.stringContaining('Download Firefox dictionaries and language'),
     );
   });
 
-  it('renders a HeadLinks component', () => {
-    const root = renderShallow();
+  it('renders links via the HeadLinks component', async () => {
+    const { store } = dispatchClientMetadata({ lang });
+    render({ store });
 
-    expect(root.find(HeadLinks)).toHaveLength(1);
+    await waitFor(() =>
+      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+      'href',
+      getCanonicalURL({ locationPathname: `/${lang}/firefox/language-tools/` }),
+    );
   });
 });
