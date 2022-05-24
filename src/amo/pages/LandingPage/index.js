@@ -1,5 +1,5 @@
 import makeClassName from 'classnames';
-import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -25,7 +25,6 @@ import {
   SEARCH_SORT_TRENDING,
 } from 'amo/constants';
 import { withErrorHandler } from 'amo/errorHandler';
-import log from 'amo/logger';
 import {
   apiAddonType,
   apiAddonTypeIsValid,
@@ -67,11 +66,10 @@ export class LandingPageBase extends React.Component {
   componentDidUpdate() {
     const { params } = this.props.match;
 
-    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping componentDidUpdate() because visibleAddonType
-        is invalid: ${params.visibleAddonType}`);
-      return;
-    }
+    invariant(
+      apiAddonTypeIsValid(params.visibleAddonType),
+      'LandingPage should not be accessible with an invalid addonType',
+    );
 
     this.getLandingDataIfNeeded();
     this.setViewContextType();
@@ -338,5 +336,5 @@ function mapStateToProps(state) {
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'LandingPage' }),
+  withErrorHandler({ id: 'LandingPage' }),
 )(LandingPageBase);
