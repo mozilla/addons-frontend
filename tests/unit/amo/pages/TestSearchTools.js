@@ -7,7 +7,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ store = dispatchClientMetadata().store } = {}) => {
+  const render = ({ store } = {}) => {
     defaultRender({
       history: createHistory({
         initialEntries: ['/en-US/android/search-tools/'],
