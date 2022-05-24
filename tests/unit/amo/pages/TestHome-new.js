@@ -1,5 +1,7 @@
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { setViewContext } from 'amo/actions/viewContext';
 import {
   PRIMARY_HERO_CLICK_ACTION,
   PRIMARY_HERO_CLICK_CATEGORY,
@@ -22,6 +24,7 @@ import {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DEFAULT_UTM_MEDIUM,
   DEFAULT_UTM_SOURCE,
@@ -33,14 +36,21 @@ import {
   LINE,
   RECOMMENDED,
   SPONSORED,
+  VIEW_CONTEXT_HOME,
   VERIFIED,
 } from 'amo/constants';
-import { loadHomeData } from 'amo/reducers/home';
+import {
+  FETCH_HOME_DATA,
+  fetchHomeData,
+  loadHomeData,
+} from 'amo/reducers/home';
 import { loadSiteStatus } from 'amo/reducers/site';
 import tracking from 'amo/tracking';
 import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
+import { getCategoryResultsPathname } from 'amo/utils/categories';
 import { addQueryParams } from 'amo/utils/url';
 import {
+  createAddonsApiResult,
   createFailedErrorHandler,
   createHistory,
   createHomeShelves,
@@ -50,6 +60,8 @@ import {
   fakeAddon,
   fakeExternalShelf,
   fakePrimaryHeroShelfExternalAddon,
+  getElement,
+  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -67,21 +79,28 @@ jest.mock('amo/tracking', () => ({
 }));
 
 describe(__filename, () => {
-  const clientApp = CLIENT_APP_FIREFOX;
-  const lang = 'en-US';
-  const defaultLocation = `/${lang}/${clientApp}/`;
+  const defaultClientApp = CLIENT_APP_FIREFOX;
+  const defaultLang = 'en-US';
   const errorHandlerId = 'Home';
   let store;
 
+  const getLocation = ({
+    clientApp = defaultClientApp,
+    lang = defaultLang,
+  } = {}) => `/${lang}/${clientApp}/`;
+
   beforeEach(() => {
-    store = dispatchClientMetadata({ clientApp, lang }).store;
+    store = dispatchClientMetadata({
+      clientApp: defaultClientApp,
+      lang: defaultLang,
+    }).store;
   });
 
   afterEach(() => {
     jest.clearAllMocks().resetModules();
   });
 
-  const render = ({ location = defaultLocation } = {}) => {
+  const render = ({ location = getLocation() } = {}) => {
     const renderOptions = {
       history: createHistory({
         initialEntries: [location],
@@ -127,6 +146,7 @@ describe(__filename, () => {
     resultsProps = [fakeExternalShelf],
     secondaryProps = {},
     shelves = {},
+    location,
   } = {}) => {
     _loadHomeData({
       homeShelves,
@@ -135,11 +155,11 @@ describe(__filename, () => {
       secondaryProps,
       shelves,
     });
-    render();
+    render({ location });
   };
 
   const addonForPromotedCategory = (category = RECOMMENDED) => {
-    return { ...fakeAddon, promoted: { category, apps: [clientApp] } };
+    return { ...fakeAddon, promoted: { category, apps: [defaultClientApp] } };
   };
 
   describe('Tests for SecondaryHero', () => {
@@ -162,7 +182,7 @@ describe(__filename, () => {
       const link = screen.getByRole('link', { name: cta.text });
       expect(link).toHaveAttribute(
         'href',
-        `/${lang}/${clientApp}${addQueryParams(cta.url, {
+        `/${defaultLang}/${defaultClientApp}${addQueryParams(cta.url, {
           utm_source: DEFAULT_UTM_SOURCE,
           utm_medium: DEFAULT_UTM_MEDIUM,
           utm_content: SECONDARY_HERO_SRC,
@@ -315,11 +335,14 @@ describe(__filename, () => {
               // eslint-disable-next-line jest/no-conditional-expect
               expect(link).toHaveAttribute(
                 'href',
-                `/${lang}/${clientApp}${addQueryParams(moduleData.cta.url, {
-                  utm_source: DEFAULT_UTM_SOURCE,
-                  utm_medium: DEFAULT_UTM_MEDIUM,
-                  utm_content: SECONDARY_HERO_SRC,
-                })}`,
+                `/${defaultLang}/${defaultClientApp}${addQueryParams(
+                  moduleData.cta.url,
+                  {
+                    utm_source: DEFAULT_UTM_SOURCE,
+                    utm_medium: DEFAULT_UTM_MEDIUM,
+                    utm_content: SECONDARY_HERO_SRC,
+                  },
+                )}`,
               );
               // eslint-disable-next-line jest/no-conditional-expect
               expect(link).not.toHaveAttribute('target');
@@ -478,7 +501,7 @@ describe(__filename, () => {
         expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
           'href',
           [
-            `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+            `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
             `utm_medium=${DEFAULT_UTM_MEDIUM}`,
             `utm_content=${addonInstallSource}`,
           ].join('&'),
@@ -507,7 +530,7 @@ describe(__filename, () => {
       expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
         'href',
         [
-          `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+          `/${defaultLang}/${defaultClientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
           `utm_medium=${DEFAULT_UTM_MEDIUM}`,
           `utm_content=${INSTALL_SOURCE_TAG_SHELF_PREFIX}${tagName}`,
         ].join('&'),
@@ -586,7 +609,7 @@ describe(__filename, () => {
 
       expect(screen.getAllByRole('link', { name: text })[0]).toHaveAttribute(
         'href',
-        `/${lang}/${clientApp}${fixedURL}`,
+        `/${defaultLang}/${defaultClientApp}${fixedURL}`,
       );
       expect(checkInternalURL).toHaveBeenCalledWith({ urlString: url });
     });
@@ -617,7 +640,7 @@ describe(__filename, () => {
           screen.getByRole('link', { name: 'Get the extension' }),
         ).toHaveAttribute(
           'href',
-          addQueryParams(`/${lang}/${clientApp}/addon/${slug}/`, {
+          addQueryParams(`/${defaultLang}/${defaultClientApp}/addon/${slug}/`, {
             utm_source: DEFAULT_UTM_SOURCE,
             utm_medium: DEFAULT_UTM_MEDIUM,
             utm_content: PRIMARY_HERO_SRC,
@@ -1082,5 +1105,281 @@ describe(__filename, () => {
         expect(tracking.sendEvent).not.toHaveBeenCalled();
       });
     });
+  });
+
+  it('renders a Page component passing `true` for `isHomePage`', () => {
+    render();
+
+    expect(screen.getByClassName('Page')).not.toHaveClass('Page-not-homepage');
+    expect(
+      screen.getByRole('heading', { name: 'Firefox Browser Add-ons' }),
+    ).toBeInTheDocument();
+  });
+
+  it('renders a shelf with curated themes on desktop', () => {
+    const expectedThemes = [
+      'abstract',
+      'nature',
+      'film-and-tv',
+      'scenery',
+      'music',
+      'seasonal',
+    ];
+    render();
+
+    expect(
+      screen.getByRole('heading', {
+        name: 'Change the way Firefox looks with themes.',
+      }),
+    ).toBeInTheDocument();
+
+    const themeLinks = screen.getAllByClassName('Home-SubjectShelf-link');
+    expect(themeLinks).toHaveLength(expectedThemes.length);
+
+    expectedThemes.forEach((slug, index) => {
+      expect(themeLinks[index]).toHaveAttribute(
+        'href',
+        `/${defaultLang}/${defaultClientApp}${getCategoryResultsPathname({
+          addonType: ADDON_TYPE_STATIC_THEME,
+          slug,
+        })}`,
+      );
+    });
+  });
+
+  it('does not render a shelf with curated themes on mobile', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    dispatchClientMetadata({ clientApp, store });
+    render({ location: getLocation({ clientApp }) });
+
+    expect(
+      screen.queryByRole('heading', {
+        name: 'Change the way Firefox looks with themes.',
+      }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('renders only the Recommended extensions shelf on android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    dispatchClientMetadata({ clientApp, store });
+    render({ location: getLocation({ clientApp }) });
+
+    expect(screen.getAllByClassName('LandingAddonsCard')).toHaveLength(1);
+    expect(screen.getByText('Recommended extensions')).toBeInTheDocument();
+
+    // Expect the shelf to be in a loading state.
+    expect(
+      within(screen.getByClassName('Home-RecommendedExtensions')).getAllByRole(
+        'alert',
+      ),
+    ).toHaveLength(40);
+  });
+
+  it('renders the Recommended extensions shelf with data loaded on android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    dispatchClientMetadata({ clientApp, store });
+    const addonName = 'My Add-On';
+    const addon = { ...fakeAddon, name: createLocalizedString(addonName) };
+    const recommendedExtensions = createAddonsApiResult([addon]);
+    renderWithHomeData({
+      location: getLocation({ clientApp }),
+      shelves: { recommendedExtensions },
+    });
+
+    expect(
+      // eslint-disable-next-line testing-library/prefer-presence-queries
+      within(screen.getByClassName('Home-RecommendedExtensions')).queryByRole(
+        'alert',
+      ),
+    ).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
+      'href',
+      `/${defaultLang}/${clientApp}${addQueryParams(`/addon/${addon.slug}/`, {
+        utm_source: DEFAULT_UTM_SOURCE,
+        utm_medium: DEFAULT_UTM_MEDIUM,
+        utm_content: INSTALL_SOURCE_FEATURED,
+      })}`,
+    );
+  });
+
+  it('renders a comment for monitoring', () => {
+    render();
+
+    expect(screen.getByClassName('do-not-remove')).toBeInTheDocument();
+  });
+
+  it('dispatches an action to fetch the add-ons to display', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
+
+    expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
+    expect(dispatch).toHaveBeenCalledWith(
+      fetchHomeData({
+        errorHandlerId,
+        isDesktopSite: true,
+      }),
+    );
+  });
+
+  it('passes isDesktopSite: false to fetchHomeData on Android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    dispatchClientMetadata({ clientApp, store });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ location: getLocation({ clientApp }) });
+
+    expect(dispatch).toHaveBeenCalledWith(
+      fetchHomeData({
+        errorHandlerId,
+        isDesktopSite: false,
+      }),
+    );
+  });
+
+  it('does not dispatch any actions when there is an error', () => {
+    createFailedErrorHandler({
+      id: errorHandlerId,
+      store,
+    });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
+
+    // Expect only the LOCATION_CHANGE action which happens on every mount.
+    expect(dispatch).toHaveBeenCalledTimes(1);
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: '@@router/LOCATION_CHANGE' }),
+    );
+  });
+
+  it('does not fetch data when isLoading is true', () => {
+    store.dispatch(fetchHomeData({ errorHandlerId }));
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
+
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_HOME_DATA }),
+    );
+  });
+
+  it('dispatches an action to fetch the add-ons to display on update', () => {
+    const dispatch = jest.spyOn(store, 'dispatch');
+    renderWithHomeData();
+
+    dispatch.mockClear();
+
+    expect(dispatch).toHaveBeenCalledTimes(0);
+
+    store.dispatch(
+      onLocationChanged({
+        pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
+      }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
+    expect(dispatch).toHaveBeenCalledWith(
+      fetchHomeData({
+        errorHandlerId,
+        isDesktopSite: false,
+      }),
+    );
+  });
+
+  it('displays an error in the expected place on Android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    const message = 'Some error message';
+    dispatchClientMetadata({ clientApp, store });
+    createFailedErrorHandler({
+      id: errorHandlerId,
+      message,
+      store,
+    });
+    render({ location: getLocation({ clientApp }) });
+
+    expect(screen.getByClassName('Home-noHeroError')).toHaveTextContent(
+      message,
+    );
+  });
+
+  it('displays an error in the expected place on desktop', () => {
+    const message = 'Some error message';
+    createFailedErrorHandler({
+      id: errorHandlerId,
+      message,
+      store,
+    });
+    render();
+
+    expect(screen.queryByClassName('Home-noHeroError')).not.toBeInTheDocument();
+    expect(screen.getByClassName('HeroRecommendation')).toHaveTextContent(
+      message,
+    );
+  });
+
+  it('renders a HeadMetaTags component', async () => {
+    render();
+
+    // Without the waitFor, the meta tags have not rendered into the head yet.
+    await waitFor(() =>
+      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement('meta[name="description"]')).toHaveAttribute(
+      'content',
+      `Download Firefox extensions and themes. They’re like apps for your ` +
+        `browser. They can block annoying ads, protect passwords, change ` +
+        `browser appearance, and more.`,
+    );
+  });
+
+  it('renders the heroHeader for Android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    const description = 'A description';
+    const headline = 'A Headline';
+    dispatchClientMetadata({ clientApp, store });
+    renderWithHomeData({
+      location: getLocation({ clientApp }),
+      secondaryProps: { description, headline },
+    });
+
+    expect(screen.getByRole('heading', { name: headline })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: description }),
+    ).toBeInTheDocument();
+  });
+
+  it('renders the heroHeader for Android in a loading state if shelves are not loaded', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    dispatchClientMetadata({ clientApp, store });
+    render({ location: getLocation({ clientApp }) });
+
+    expect(
+      within(screen.getByClassName('Home-heroHeader')).getAllByRole('alert'),
+    ).toHaveLength(2);
+  });
+
+  it('does not render the heroHeader for Desktop', () => {
+    renderWithHomeData({
+      secondaryProps: { description: 'A description', headline: 'A Headline' },
+    });
+
+    expect(screen.queryByClassName('Home-heroHeader')).not.toBeInTheDocument();
+  });
+
+  it('renders a HeadLinks component', async () => {
+    render();
+
+    await waitFor(() =>
+      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
+    );
+  });
+
+  it('does not render hero shelves on Android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    dispatchClientMetadata({ clientApp, store });
+    renderWithHomeData({ location: getLocation({ clientApp }) });
+
+    expect(
+      screen.queryByClassName('HeroRecommendation'),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByClassName('SecondaryHero')).not.toBeInTheDocument();
   });
 });
