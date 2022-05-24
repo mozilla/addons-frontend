@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { getLanding, loadLanding } from 'amo/reducers/landing';
+import { GET_LANDING, getLanding, loadLanding } from 'amo/reducers/landing';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LandingPage, { LandingPageBase } from 'amo/pages/LandingPage';
 import HeadLinks from 'amo/components/HeadLinks';
@@ -9,55 +9,61 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_FIREFOX,
+  LANDING_PAGE_EXTENSION_COUNT,
+  LANDING_PAGE_THEME_COUNT,
   RECOMMENDED,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'amo/constants';
 import { ErrorHandler } from 'amo/errorHandler';
-import { visibleAddonType as getVisibleAddonType } from 'amo/utils';
+import { visibleAddonType } from 'amo/utils';
 import {
   createAddonsApiResult,
+  createFailedErrorHandler,
+  createHistory,
   createLocalizedString,
-  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
-  fakeI18n,
-  shallowUntilTarget,
+  fakeCategory,
+  getElement,
+  onLocationChanged,
+  renderPage as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
 import ErrorList from 'amo/components/ErrorList';
 
 describe(__filename, () => {
+  const clientApp = CLIENT_APP_FIREFOX;
+  const lang = 'en-US';
+  const errorHandlerId = 'LandingPage';
+  const getLocation = (addonType = ADDON_TYPE_EXTENSION) =>
+    `/${lang}/${clientApp}/${visibleAddonType(addonType)}/`;
   let store;
 
-  function renderProps({ _store = store, ...otherProps } = {}) {
-    return {
-      errorHandler: createStubErrorHandler(),
-      i18n: fakeI18n(),
-      match: {
-        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
-      },
-      store: _store,
-      ...otherProps,
-    };
-  }
+  beforeEach(() => {
+    store = dispatchClientMetadata({ clientApp, lang }).store;
+  });
 
-  function render(props = {}) {
-    return shallowUntilTarget(
-      <LandingPage {...renderProps(props)} />,
-      LandingPageBase,
-    );
-  }
+  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) => {
+    return defaultRender({
+      history: createHistory({
+        initialEntries: [getLocation(addonType)],
+      }),
+      store,
+    });
+  };
 
   const _getAndLoadLandingAddons = ({
     addonType = ADDON_TYPE_EXTENSION,
-    errorHandler = createStubErrorHandler(),
     ...otherParams
   } = {}) => {
     store.dispatch(
       getLanding({
         addonType,
-        errorHandlerId: errorHandler.id,
+        errorHandlerId,
       }),
     );
     store.dispatch(
@@ -85,421 +91,343 @@ describe(__filename, () => {
     );
   };
 
-  beforeEach(() => {
-    store = dispatchClientMetadata().store;
-  });
-
   it('dispatches setViewContext on load and update', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    expect(dispatch).toHaveBeenCalledWith(setViewContext(ADDON_TYPE_EXTENSION));
 
-    fakeDispatch.resetHistory();
-    root.setProps({
-      match: {
-        params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
-        },
-      },
-    });
+    dispatch.mockClear();
 
-    sinon.assert.calledWith(
-      fakeDispatch,
+    store.dispatch(
+      onLocationChanged({
+        pathname: getLocation(ADDON_TYPE_STATIC_THEME),
+      }),
+    );
+
+    expect(dispatch).toHaveBeenCalledWith(
       setViewContext(ADDON_TYPE_STATIC_THEME),
     );
   });
 
   it('dispatches getLanding when results are not loaded', () => {
-    const errorHandler = createStubErrorHandler();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
-
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       getLanding({
         addonType: ADDON_TYPE_EXTENSION,
-        errorHandlerId: errorHandler.id,
+        errorHandlerId,
       }),
     );
   });
 
   it('dispatches getLanding when addon type changes', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const errorHandler = createStubErrorHandler();
-
     // We load theme add-ons.
-    _getAndLoadLandingAddons({
-      addonType: ADDON_TYPE_STATIC_THEME,
-      errorHandler,
-    });
+    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_STATIC_THEME });
     store.dispatch(setViewContext(ADDON_TYPE_STATIC_THEME));
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ addonType: ADDON_TYPE_STATIC_THEME });
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    const root = render({
-      errorHandler,
-      match: {
-        params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
-        },
-      },
-      store,
-    });
-    fakeDispatch.resetHistory();
+    dispatch.mockClear();
 
     // Now we request extension add-ons.
-    root.setProps({
-      match: {
-        params: { visibleAddonType: getVisibleAddonType(addonType) },
-      },
-    });
-
-    sinon.assert.calledWith(
-      fakeDispatch,
-      getLanding({
-        addonType,
-        errorHandlerId: errorHandler.id,
+    store.dispatch(
+      onLocationChanged({
+        pathname: getLocation(ADDON_TYPE_EXTENSION),
       }),
     );
-    sinon.assert.calledWith(fakeDispatch, setViewContext(addonType));
-    sinon.assert.callCount(fakeDispatch, 2);
+
+    expect(dispatch).toHaveBeenCalledWith(
+      getLanding({
+        addonType: ADDON_TYPE_EXTENSION,
+        errorHandlerId,
+      }),
+    );
+    expect(dispatch).toHaveBeenCalledWith(setViewContext(ADDON_TYPE_EXTENSION));
   });
 
   it('does not dispatch getLanding when addon type does not change', () => {
     const addonType = ADDON_TYPE_EXTENSION;
-    const params = { visibleAddonType: getVisibleAddonType(addonType) };
-    const match = { params };
-    const errorHandler = createStubErrorHandler();
 
     // We load extension add-ons.
-    _getAndLoadLandingAddons({ addonType, errorHandler });
+    _getAndLoadLandingAddons({ addonType });
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ errorHandler, match, store });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    fakeDispatch.resetHistory();
+    dispatch.mockClear();
 
     // We request extension add-ons again.
-    root.setProps({ match });
-
-    // Make sure only setViewContext is dispatched, not getLanding
-    sinon.assert.calledWith(fakeDispatch, setViewContext(addonType));
-    sinon.assert.callCount(fakeDispatch, 1);
-  });
-
-  it('does not dispatch getLanding while loading', () => {
-    const errorHandler = createStubErrorHandler();
-
     store.dispatch(
-      getLanding({
-        addonType: ADDON_TYPE_EXTENSION,
-        errorHandlerId: errorHandler.id,
+      onLocationChanged({
+        pathname: getLocation(addonType),
       }),
     );
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: GET_LANDING }),
+    );
+  });
 
-    // Make sure only setViewContext is dispatched, not getLanding
-    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.callCount(fakeDispatch, 1);
+  it('does not dispatch getLanding while loading', () => {
+    store.dispatch(
+      getLanding({
+        addonType: ADDON_TYPE_EXTENSION,
+        errorHandlerId,
+      }),
+    );
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
+
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: GET_LANDING }),
+    );
   });
 
   it('does not dispatch getLanding when there is an error', () => {
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
+    createFailedErrorHandler({
+      id: errorHandlerId,
+      store,
     });
-    errorHandler.handle(new Error('some error'));
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
-
-    // Make sure only setViewContext is dispatched, not getLanding
-    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.callCount(fakeDispatch, 1);
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: GET_LANDING }),
+    );
   });
 
   it('renders an error', () => {
-    const errorHandler = createStubErrorHandler(new Error('some error'));
-    const root = render({ errorHandler });
+    const message = 'Some error message';
+    createFailedErrorHandler({
+      id: errorHandlerId,
+      message,
+      store,
+    });
+    render();
 
-    expect(root.find(ErrorList)).toHaveLength(1);
+    expect(screen.getByText(message)).toBeInTheDocument();
   });
 
   it('renders a LandingPage with no addons set', () => {
-    const root = render({
-      match: {
-        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
-      },
-    });
-    expect(root.find('.LandingPage-heading-content')).toIncludeText(
-      'Explore powerful tools and features',
-    );
+    render();
+
+    expect(
+      screen.getByText(
+        `Explore powerful tools and features to customize Firefox and make ` +
+          `the browser all your own.`,
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders a link to all categories', () => {
-    const fakeParams = {
-      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
-    };
-    const match = { params: fakeParams };
+    render();
 
-    const root = render({ match });
-
-    expect(root.find('.LandingPage-button')).toHaveProp(
-      'children',
-      'Explore all categories',
-    );
+    expect(
+      screen.getByRole('link', { name: 'Explore all categories' }),
+    ).toBeInTheDocument();
   });
 
   it('does not render a theme class name when page type is extensions', () => {
-    const root = render({
-      params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
-    });
-    expect(root.find('.LandingPage')).not.toHaveClassName(
-      '.LandingPage--theme',
+    render();
+
+    expect(screen.getByClassName('LandingPage')).not.toHaveClass(
+      'LandingPage--theme',
     );
   });
 
   it('renders a theme class name when page type is themes', () => {
-    const root = render({
-      match: {
-        params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
-        },
-      },
-    });
-    expect(root.find('.LandingPage')).toHaveClassName('.LandingPage--theme');
-  });
+    render({ addonType: ADDON_TYPE_STATIC_THEME });
 
-  it('sets the links in each footer for extensions', () => {
-    store.dispatch(
-      loadLanding({
-        addonType: ADDON_TYPE_EXTENSION,
-        recommended: createAddonsApiResult([
-          {
-            ...fakeAddon,
-            name: createLocalizedString('Featured'),
-            slug: 'recommended',
-          },
-        ]),
-        highlyRated: createAddonsApiResult([
-          { ...fakeAddon, name: createLocalizedString('High'), slug: 'high' },
-        ]),
-        trending: createAddonsApiResult([
-          {
-            ...fakeAddon,
-            name: createLocalizedString('Trending'),
-            slug: 'trending',
-          },
-        ]),
-      }),
+    expect(screen.getByClassName('LandingPage')).toHaveClass(
+      'LandingPage--theme',
     );
-
-    const fakeParams = {
-      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
-    };
-    const match = { params: fakeParams };
-
-    const root = render({ match });
-
-    const addonCards = root.find(LandingAddonsCard);
-    expect(addonCards.at(0)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_EXTENSION,
-        promoted: RECOMMENDED,
-        sort: SEARCH_SORT_RANDOM,
-      },
-    });
-    expect(addonCards.at(1)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_EXTENSION,
-        promoted: RECOMMENDED,
-        sort: SEARCH_SORT_TOP_RATED,
-      },
-    });
-    expect(addonCards.at(2)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_EXTENSION,
-        promoted: RECOMMENDED,
-        sort: SEARCH_SORT_TRENDING,
-      },
-    });
   });
 
-  it('sets the links in each footer for themes', () => {
-    const addonType = ADDON_TYPE_STATIC_THEME;
+  it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME])(
+    'sets the links in each footer for %s',
+    (addonType) => {
+      const count =
+        addonType === ADDON_TYPE_EXTENSION
+          ? LANDING_PAGE_EXTENSION_COUNT
+          : LANDING_PAGE_THEME_COUNT;
+      const typeName =
+        addonType === ADDON_TYPE_EXTENSION ? 'extensions' : 'themes';
+      render({ addonType });
+      store.dispatch(
+        loadLanding({
+          addonType,
+          recommended: createAddonsApiResult(
+            Array(count + 1).fill({
+              ...fakeAddon,
+              name: createLocalizedString('Featured'),
+              slug: 'recommended',
+              type: addonType,
+            }),
+          ),
+          highlyRated: createAddonsApiResult(
+            Array(count + 1).fill({
+              ...fakeAddon,
+              name: createLocalizedString('High'),
+              slug: 'high',
+              type: addonType,
+            }),
+          ),
+          trending: createAddonsApiResult(
+            Array(count + 1).fill({
+              ...fakeAddon,
+              name: createLocalizedString('Trending'),
+              slug: 'trending',
+              type: addonType,
+            }),
+          ),
+        }),
+      );
 
-    _getAndLoadLandingAddons({ addonType });
+      expect(
+        screen.getByRole('link', { name: `See more recommended ${typeName}` }),
+      ).toHaveAttribute(
+        'href',
+        [
+          `/${lang}/${clientApp}/search/?promoted=${RECOMMENDED}`,
+          `sort=${SEARCH_SORT_RANDOM}`,
+          `type=${addonType}`,
+        ].join('&'),
+      );
 
-    const fakeParams = {
-      visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
-    };
+      const expectedHref = (sort) =>
+        addonType === ADDON_TYPE_EXTENSION
+          ? [
+              `/${lang}/${clientApp}/search/?promoted=${RECOMMENDED}`,
+              `sort=${sort}`,
+              `type=${addonType}`,
+            ].join('&')
+          : [
+              `/${lang}/${clientApp}/search/?sort=${sort}`,
+              `type=${addonType}`,
+            ].join('&');
 
-    const match = { params: fakeParams };
+      expect(
+        screen.getByRole('link', { name: `See more top rated ${typeName}` }),
+      ).toHaveAttribute('href', expectedHref(SEARCH_SORT_TOP_RATED));
 
-    const root = render({ match });
-
-    const addonCards = root.find(LandingAddonsCard);
-    expect(addonCards.at(0)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType,
-        promoted: RECOMMENDED,
-        sort: SEARCH_SORT_RANDOM,
-      },
-    });
-    expect(addonCards.at(1)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: { addonType, sort: SEARCH_SORT_TOP_RATED },
-    });
-    expect(addonCards.at(2)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: { addonType, sort: SEARCH_SORT_TRENDING },
-    });
-  });
+      expect(
+        screen.getByRole('link', { name: `See more trending ${typeName}` }),
+      ).toHaveAttribute('href', expectedHref(SEARCH_SORT_TRENDING));
+    },
+  );
 
   it('passes an isTheme prop as true if type is a theme', () => {
+    render({ addonType: ADDON_TYPE_STATIC_THEME });
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_STATIC_THEME });
 
-    const root = render({
-      match: {
-        params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
-        },
-      },
-    });
-
-    root.find(LandingAddonsCard).forEach((card) => {
-      expect(card).toHaveProp('isTheme', true);
-    });
+    expect(screen.getAllByClassName('LandingAddonsCard-Themes')).toHaveLength(
+      3,
+    );
   });
 
   it('passes an isTheme prop as false if type is an extension', () => {
+    render({ addonType: ADDON_TYPE_EXTENSION });
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_EXTENSION });
 
-    const root = render({
-      match: {
-        params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
-        },
-      },
-    });
-
-    root.find(LandingAddonsCard).forEach((card) => {
-      expect(card).toHaveProp('isTheme', false);
-    });
+    expect(
+      screen.queryByClassName('LandingAddonsCard-Themes'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders a LandingPage with themes HTML', () => {
-    const root = render({
-      match: {
-        params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
-        },
-      },
-    });
+    render({ addonType: ADDON_TYPE_STATIC_THEME });
 
-    expect(root.find('.LandingPage-heading-content')).toIncludeText(
-      "Change your browser's appearance",
-    );
+    expect(
+      screen.getByText(
+        `Change your browser's appearance. Choose from ` +
+          `thousands of themes to give Firefox the look you want.`,
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders each add-on when set', () => {
+    const addonType = ADDON_TYPE_STATIC_THEME;
+    render({ addonType });
     store.dispatch(
       loadLanding({
-        addonType: ADDON_TYPE_STATIC_THEME,
+        addonType,
         recommended: createAddonsApiResult([
           { ...fakeAddon, name: createLocalizedString('Howdy'), slug: 'howdy' },
           {
             ...fakeAddon,
             name: createLocalizedString('Howdy again'),
             slug: 'howdy-again',
+            type: addonType,
           },
           {
             ...fakeAddon,
             name: createLocalizedString('Howdy 2'),
             slug: 'howdy-2',
+            type: addonType,
           },
           {
             ...fakeAddon,
             name: createLocalizedString('Howdy again 2'),
             slug: 'howdy-again-2',
+            type: addonType,
           },
         ]),
         highlyRated: createAddonsApiResult([
-          { ...fakeAddon, name: createLocalizedString('High'), slug: 'high' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('High'),
+            slug: 'high',
+            type: addonType,
+          },
+
           {
             ...fakeAddon,
             name: createLocalizedString('High again'),
             slug: 'high-again',
+            type: addonType,
           },
         ]),
         trending: createAddonsApiResult([
-          { ...fakeAddon, name: createLocalizedString('Pop'), slug: 'pop' },
+          {
+            ...fakeAddon,
+            name: createLocalizedString('Pop'),
+            slug: 'pop',
+            type: addonType,
+          },
           {
             ...fakeAddon,
             name: createLocalizedString('Pop again'),
             slug: 'pop-again',
+            type: addonType,
           },
         ]),
       }),
     );
 
-    const root = render({
-      match: {
-        params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
-        },
-      },
-    });
-
-    const landingShelves = root.find(LandingAddonsCard);
+    const expectNameLink = (name) =>
+      expect(screen.getByRole('link', { name })).toBeInTheDocument();
 
     // recommended
-    expect(
-      landingShelves
-        .at(0)
-        .prop('addons')
-        .map((addon) => addon.name),
-    ).toEqual(['Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2']);
-    // highly rated
-    expect(
-      landingShelves
-        .at(1)
-        .prop('addons')
-        .map((addon) => addon.name),
-    ).toEqual(['High', 'High again']);
-    // trending
-    expect(
-      landingShelves
-        .at(2)
-        .prop('addons')
-        .map((addon) => addon.name),
-    ).toEqual(['Pop', 'Pop again']);
-
-    expect(landingShelves.at(0)).toHaveProp(
-      'footerText',
-      'See more recommended themes',
+    ['Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2'].forEach(
+      expectNameLink,
     );
+    // highly rated
+    ['High', 'High again'].forEach(expectNameLink);
+    // trending
+    ['Pop', 'Pop again'].forEach(expectNameLink);
   });
 
   it('dispatches getLanding when category filter is set', () => {
     const addonType = ADDON_TYPE_EXTENSION;
-
-    const errorHandler = createStubErrorHandler();
 
     // This loads a set of add-ons for a category.
     store.dispatch(
       getLanding({
         addonType,
         category: 'some-category',
-        errorHandlerId: errorHandler.id,
+        errorHandlerId,
       }),
     );
     store.dispatch(
@@ -511,86 +439,47 @@ describe(__filename, () => {
       }),
     );
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ addonType });
 
-    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.calledWith(
-      fakeDispatch,
-      getLanding({
-        addonType,
-        errorHandlerId: errorHandler.id,
-      }),
+    expect(dispatch).toHaveBeenCalledWith(setViewContext(ADDON_TYPE_EXTENSION));
+    expect(dispatch).toHaveBeenCalledWith(
+      getLanding({ addonType, errorHandlerId }),
     );
-    sinon.assert.callCount(fakeDispatch, 2);
   });
 
   it('does not dispatch setViewContext when addonType does not change', () => {
     const addonType = ADDON_TYPE_EXTENSION;
-    const errorHandler = createStubErrorHandler();
-    const params = { visibleAddonType: getVisibleAddonType(addonType) };
-    const match = { params };
+    store.dispatch(getLanding({ addonType, errorHandlerId }));
+    store.dispatch(setViewContext(addonType));
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render({ addonType });
+
+    dispatch.mockClear();
 
     store.dispatch(
-      getLanding({
-        addonType,
-        errorHandlerId: errorHandler.id,
+      onLocationChanged({
+        pathname: getLocation(addonType),
       }),
     );
-    store.dispatch(setViewContext(addonType));
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ errorHandler, match, store });
-
-    fakeDispatch.resetHistory();
-    root.setProps({ match });
-
-    sinon.assert.notCalled(fakeDispatch);
+    expect(dispatch).not.toHaveBeenCalledWith(setViewContext(addonType));
   });
 
-  it('does not dispatch setViewContext when context does not change', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const errorHandler = createStubErrorHandler();
-    const params = { visibleAddonType: getVisibleAddonType(addonType) };
-    const match = { params };
+  it('renders an HTML title for themes', async () => {
+    render({ addonType: ADDON_TYPE_STATIC_THEME });
 
-    store.dispatch(
-      getLanding({
-        addonType,
-        errorHandlerId: errorHandler.id,
-      }),
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent('Themes'),
     );
-    store.dispatch(setViewContext(addonType));
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ errorHandler, match, store });
-
-    const { context } = store.getState().viewContext;
-
-    fakeDispatch.resetHistory();
-    root.setProps({ context });
-
-    sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('renders an HTML title for themes', () => {
-    const fakeParams = {
-      visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
-    };
-    const match = { params: fakeParams };
+  it('renders an HTML title for extensions', async () => {
+    render();
 
-    const wrapper = render({ match });
-    expect(wrapper.find('title')).toHaveText('Themes');
-  });
-
-  it('renders an HTML title for extensions', () => {
-    const fakeParams = {
-      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
-    };
-    const match = { params: fakeParams };
-
-    const wrapper = render({ match });
-    expect(wrapper.find('title')).toHaveText('Extensions');
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent('Extensions'),
+    );
   });
 
   it('hides the trending shelf when there are no add-ons for it', () => {
@@ -626,7 +515,7 @@ describe(__filename, () => {
       }),
     );
 
-    const root = render();
+    render();
     const landingShelves = root.find(LandingAddonsCard);
 
     expect(root.find(LandingAddonsCard)).toHaveLength(2);
@@ -658,7 +547,7 @@ describe(__filename, () => {
       }),
     );
 
-    const root = render();
+    render();
     const landingShelves = root.find(LandingAddonsCard);
 
     expect(root.find(LandingAddonsCard)).toHaveLength(2);
@@ -699,7 +588,7 @@ describe(__filename, () => {
       }),
     );
 
-    const root = render();
+    render();
     const landingShelves = root.find(LandingAddonsCard);
 
     expect(root.find(LandingAddonsCard)).toHaveLength(2);
@@ -717,7 +606,7 @@ describe(__filename, () => {
   ])(
     'renders a HeadMetaTags component for %s',
     (addonType, expectedTitle, expectedDescriptionMatch) => {
-      const root = render({
+      render({
         match: {
           params: { visibleAddonType: getVisibleAddonType(addonType) },
         },
@@ -732,7 +621,7 @@ describe(__filename, () => {
   );
 
   it('renders a HeadLinks component', () => {
-    const root = render();
+    render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
   });

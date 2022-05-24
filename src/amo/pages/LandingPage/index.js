@@ -324,6 +324,7 @@ export class LandingPageBase extends React.Component {
 function mapStateToProps(state) {
   const { landing, viewContext } = state;
 
+  console.log(landing);
   return {
     addonTypeOfResults: landing.addonType,
     context: viewContext.context,
@@ -338,5 +339,5 @@ function mapStateToProps(state) {
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'LandingPage' }),
+  withErrorHandler({ id: 'LandingPage' }),
 )(LandingPageBase);
