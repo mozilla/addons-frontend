@@ -1,6 +1,14 @@
 import userEvent from '@testing-library/user-event';
 
 import {
+  PRIMARY_HERO_CLICK_ACTION,
+  PRIMARY_HERO_CLICK_CATEGORY,
+  PRIMARY_HERO_EXTERNAL_LABEL,
+  PRIMARY_HERO_IMPRESSION_ACTION,
+  PRIMARY_HERO_IMPRESSION_CATEGORY,
+  PRIMARY_HERO_SRC,
+} from 'amo/components/HeroRecommendation';
+import {
   HOMESHELVES_ENDPOINT_COLLECTIONS,
   HOMESHELVES_ENDPOINT_SEARCH,
   HOMESHELVES_ENDPOINT_RANDOM_TAG,
@@ -22,12 +30,18 @@ import {
   INSTALL_SOURCE_TAG_SHELF_PREFIX,
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
+  LINE,
+  RECOMMENDED,
+  SPONSORED,
+  VERIFIED,
 } from 'amo/constants';
 import { loadHomeData } from 'amo/reducers/home';
+import { loadSiteStatus } from 'amo/reducers/site';
 import tracking from 'amo/tracking';
 import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
 import { addQueryParams } from 'amo/utils/url';
 import {
+  createFailedErrorHandler,
   createHistory,
   createHomeShelves,
   createLocalizedString,
@@ -35,6 +49,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeExternalShelf,
+  fakePrimaryHeroShelfExternalAddon,
   renderPage as defaultRender,
   screen,
   within,
@@ -55,6 +70,7 @@ describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
   const lang = 'en-US';
   const defaultLocation = `/${lang}/${clientApp}/`;
+  const errorHandlerId = 'Home';
   let store;
 
   beforeEach(() => {
@@ -120,6 +136,10 @@ describe(__filename, () => {
       shelves,
     });
     render();
+  };
+
+  const addonForPromotedCategory = (category = RECOMMENDED) => {
+    return { ...fakeAddon, promoted: { category, apps: [clientApp] } };
   };
 
   describe('Tests for SecondaryHero', () => {
@@ -569,6 +589,498 @@ describe(__filename, () => {
         `/${lang}/${clientApp}${fixedURL}`,
       );
       expect(checkInternalURL).toHaveBeenCalledWith({ urlString: url });
+    });
+  });
+
+  describe('Tests for HeroRecommendation', () => {
+    describe('for an addon', () => {
+      it('renders a heading', () => {
+        const name = 'Addon name';
+        renderWithHomeData({
+          primaryProps: {
+            addon: { ...fakeAddon, name: createLocalizedString(name) },
+          },
+        });
+
+        expect(screen.getByRole('heading', { name })).toBeInTheDocument();
+      });
+
+      it('renders a link', () => {
+        const slug = 'some-addon-slug';
+        renderWithHomeData({
+          primaryProps: {
+            addon: { ...fakeAddon, slug },
+          },
+        });
+
+        expect(
+          screen.getByRole('link', { name: 'Get the extension' }),
+        ).toHaveAttribute(
+          'href',
+          addQueryParams(`/${lang}/${clientApp}/addon/${slug}/`, {
+            utm_source: DEFAULT_UTM_SOURCE,
+            utm_medium: DEFAULT_UTM_MEDIUM,
+            utm_content: PRIMARY_HERO_SRC,
+          }),
+        );
+      });
+
+      it.each([
+        [LINE, 'BY FIREFOX'],
+        [RECOMMENDED, 'RECOMMENDED'],
+        [SPONSORED, 'SPONSORED'],
+        [VERIFIED, 'SPONSORED'],
+        ['unknown category', 'SPONSORED'],
+      ])('displays the expected title for %s add-ons', (category, title) => {
+        renderWithHomeData({
+          primaryProps: {
+            addon: addonForPromotedCategory(category),
+          },
+        });
+
+        expect(screen.getByText(title)).toHaveClass(
+          'HeroRecommendation-title-text',
+        );
+      });
+
+      it.each([SPONSORED, VERIFIED, 'unknown category'])(
+        'displays an additional link for %s add-ons',
+        (category) => {
+          renderWithHomeData({
+            primaryProps: {
+              addon: addonForPromotedCategory(category),
+            },
+          });
+
+          expect(
+            screen.getByRole('link', {
+              name:
+                `Firefox only recommends extensions that meet our ` +
+                `standards for security and performance.`,
+            }),
+          ).toBeInTheDocument();
+        },
+      );
+
+      it('does not display an additional link when loading', () => {
+        render();
+
+        expect(
+          screen.queryByRole('link', {
+            name:
+              `Firefox only recommends extensions that meet our ` +
+              `standards for security and performance.`,
+          }),
+        ).not.toBeInTheDocument();
+      });
+
+      it.each([LINE, RECOMMENDED])(
+        'does not display an additional link for %s add-ons',
+        (category) => {
+          renderWithHomeData({
+            primaryProps: {
+              addon: addonForPromotedCategory(category),
+            },
+          });
+
+          expect(
+            screen.queryByRole('link', {
+              name:
+                `Firefox only recommends extensions that meet our ` +
+                `standards for security and performance.`,
+            }),
+          ).not.toBeInTheDocument();
+        },
+      );
+    });
+
+    describe('for an external item', () => {
+      it('renders a heading', () => {
+        const name = 'External Name';
+        renderWithHomeData({
+          primaryProps: {
+            external: {
+              ...fakePrimaryHeroShelfExternalAddon,
+              name: createLocalizedString(name),
+            },
+          },
+        });
+
+        expect(screen.getByRole('heading', { name })).toBeInTheDocument();
+      });
+
+      it('renders a link', () => {
+        const url = 'http://hamsterdance.com/';
+        const homepage = {
+          'url': createLocalizedString(url),
+          'outgoing': createLocalizedString(
+            'https://outgoing.mozilla.org/hamster',
+          ),
+        };
+        renderWithHomeData({
+          primaryProps: {
+            external: {
+              ...fakePrimaryHeroShelfExternalAddon,
+              homepage,
+            },
+          },
+        });
+
+        expect(
+          screen.getByRole('link', { name: 'Get the extension' }),
+        ).toHaveAttribute(
+          'href',
+          addQueryParams(url, {
+            utm_source: DEFAULT_UTM_SOURCE,
+            utm_medium: DEFAULT_UTM_MEDIUM,
+            utm_content: PRIMARY_HERO_SRC,
+          }),
+        );
+      });
+
+      it('configures an external link to open in a new tab', () => {
+        checkInternalURL.mockReturnValue({ isInternal: false });
+        const url = 'http://hamsterdance.com/';
+        const homepage = {
+          'url': createLocalizedString(url),
+          'outgoing': createLocalizedString(
+            'https://outgoing.mozilla.org/hamster',
+          ),
+        };
+        renderWithHomeData({
+          primaryProps: {
+            external: {
+              ...fakePrimaryHeroShelfExternalAddon,
+              homepage,
+            },
+          },
+        });
+
+        const link = screen.getByRole('link', { name: 'Get the extension' });
+        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+        expect(link).toHaveAttribute('target', '_blank');
+        expect(checkInternalURL).toHaveBeenCalledWith({
+          urlString: addQueryParams(url, {
+            utm_source: DEFAULT_UTM_SOURCE,
+            utm_medium: DEFAULT_UTM_MEDIUM,
+            utm_content: PRIMARY_HERO_SRC,
+          }),
+        });
+      });
+
+      it('does not configure an internal link to open in a new tab', () => {
+        const url = '/some/path/';
+        const homepage = {
+          'url': createLocalizedString(url),
+          'outgoing': createLocalizedString(
+            'https://outgoing.mozilla.org/hamster',
+          ),
+        };
+        checkInternalURL.mockReturnValue({
+          isInternal: true,
+          relativeURL: url,
+        });
+        renderWithHomeData({
+          primaryProps: {
+            external: {
+              ...fakePrimaryHeroShelfExternalAddon,
+              homepage,
+            },
+          },
+        });
+
+        const link = screen.getByRole('link', { name: 'Get the extension' });
+        expect(link).not.toHaveAttribute('rel');
+        expect(link).not.toHaveAttribute('target');
+        expect(checkInternalURL).toHaveBeenCalledWith({
+          urlString: addQueryParams(url, {
+            utm_source: DEFAULT_UTM_SOURCE,
+            utm_medium: DEFAULT_UTM_MEDIUM,
+            utm_content: PRIMARY_HERO_SRC,
+          }),
+        });
+      });
+    });
+
+    it('renders with an image', () => {
+      const featuredImage = 'https://mozilla.org/featured.png';
+      renderWithHomeData({
+        primaryProps: {
+          addon: fakeAddon,
+          featuredImage,
+        },
+      });
+
+      expect(screen.getByClassName('HeroRecommendation')).not.toHaveClass(
+        'HeroRecommendation--no-image',
+      );
+      expect(screen.getByClassName('HeroRecommendation-image')).toHaveAttribute(
+        'src',
+        featuredImage,
+      );
+    });
+
+    it('renders without an image', () => {
+      renderWithHomeData({
+        primaryProps: {
+          addon: fakeAddon,
+          featuredImage: null,
+        },
+      });
+
+      expect(screen.getByClassName('HeroRecommendation')).toHaveClass(
+        'HeroRecommendation--no-image',
+      );
+      expect(
+        screen.queryByClassName('HeroRecommendation-image'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('assigns a className based on the gradient', () => {
+      const gradient = { start: 'start-color', end: 'stop-color' };
+      renderWithHomeData({
+        primaryProps: {
+          addon: fakeAddon,
+          gradient,
+        },
+      });
+
+      expect(screen.getByClassName('HeroRecommendation')).toHaveClass(
+        `HeroRecommendation-${gradient.start}-${gradient.end}`,
+      );
+    });
+
+    it('renders a body', () => {
+      const description = 'some body text';
+      renderWithHomeData({
+        primaryProps: {
+          addon: fakeAddon,
+          description,
+        },
+      });
+
+      expect(screen.getByText(description)).toBeInTheDocument();
+    });
+
+    // See https://github.com/mozilla/addons-frontend/issues/9557
+    it('can render an empty description', () => {
+      renderWithHomeData({
+        primaryProps: {
+          addon: fakeAddon,
+          description: '',
+        },
+      });
+
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    });
+
+    it('allows some html tags in the body', () => {
+      const descriptionText = 'Some body text';
+      const description = `<blockquote><b>${descriptionText}</b></blockquote>`;
+      renderWithHomeData({
+        primaryProps: {
+          addon: fakeAddon,
+          description,
+        },
+      });
+
+      expect(screen.getByText(descriptionText)).toBeInTheDocument();
+      expect(
+        within(screen.getByClassName('HeroRecommendation-body')).getByTagName(
+          'b',
+        ),
+      ).toBeInTheDocument();
+      expect(
+        within(screen.getByClassName('HeroRecommendation-body')).getByTagName(
+          'blockquote',
+        ),
+      ).toBeInTheDocument();
+    });
+
+    it('sanitizes html tags in the body', () => {
+      const descriptionText = 'Some body text';
+      const description = `<b>${descriptionText}</b>`;
+      const scriptHtml = '<script>alert(document.cookie);</script>';
+      renderWithHomeData({
+        primaryProps: {
+          addon: fakeAddon,
+          description: `${description}${scriptHtml}`,
+        },
+      });
+
+      expect(screen.getByText(descriptionText)).toBeInTheDocument();
+      expect(
+        within(screen.getByClassName('HeroRecommendation-body')).getByTagName(
+          'b',
+        ),
+      ).toBeInTheDocument();
+      expect(screen.queryByTagName('script')).not.toBeInTheDocument();
+    });
+
+    it('renders an AppBanner', () => {
+      const notice = 'site is kaput';
+      store.dispatch(loadSiteStatus({ readOnly: false, notice }));
+      render();
+
+      expect(screen.getByText(notice)).toBeInTheDocument();
+    });
+
+    it('renders an error if present', () => {
+      const message = 'Some error message';
+      createFailedErrorHandler({
+        id: errorHandlerId,
+        message,
+        store,
+      });
+      render();
+
+      expect(screen.getByText(message)).toBeInTheDocument();
+    });
+
+    it.each([
+      { readOnly: true, notice: null },
+      { readOnly: false, notice: 'some notice' },
+      { readOnly: true, notice: 'some notice' },
+    ])(
+      'assigns the expected class when an AppBanner is present, status: %s',
+      (status) => {
+        store.dispatch(loadSiteStatus(status));
+        render();
+
+        expect(screen.getByClassName('HeroRecommendation')).toHaveClass(
+          'HeroRecommendation--height-with-notice',
+        );
+      },
+    );
+
+    it('assigns the expected class when an AppBanner is not present', () => {
+      store.dispatch(loadSiteStatus({ readOnly: false, notice: null }));
+      render();
+
+      expect(screen.getByClassName('HeroRecommendation')).toHaveClass(
+        'HeroRecommendation--height-without-notice',
+      );
+    });
+
+    it('renders in a loading state', () => {
+      render();
+
+      expect(
+        within(screen.getByClassName('HeroRecommendation')).getAllByRole(
+          'alert',
+        ),
+      ).toHaveLength(5);
+    });
+
+    it('renders nothing if shelfData is null', () => {
+      renderWithHomeData({
+        homeShelves: {
+          results: [fakeExternalShelf],
+          primary: null,
+          secondary: null,
+        },
+      });
+
+      expect(
+        screen.queryByClassName('HeroRecommendation'),
+      ).not.toBeInTheDocument();
+    });
+
+    describe('tracking', () => {
+      const withAddonShelfData = {
+        primaryProps: {
+          addon: fakeAddon,
+        },
+      };
+      const withExternalShelfData = {
+        primaryProps: {
+          external: fakePrimaryHeroShelfExternalAddon,
+        },
+      };
+      it.each([
+        ['addon', withAddonShelfData],
+        ['external', withExternalShelfData],
+      ])(
+        'sends a tracking event when the cta is clicked for %s',
+        (feature, shelfData) => {
+          renderWithHomeData(shelfData);
+          tracking.sendEvent.mockClear();
+
+          userEvent.click(
+            screen.getByRole('link', { name: 'Get the extension' }),
+          );
+
+          expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+          expect(tracking.sendEvent).toHaveBeenCalledWith({
+            action: PRIMARY_HERO_CLICK_ACTION,
+            category: PRIMARY_HERO_CLICK_CATEGORY,
+            label:
+              feature === 'addon'
+                ? shelfData.primaryProps.addon.guid
+                : PRIMARY_HERO_EXTERNAL_LABEL,
+          });
+        },
+      );
+
+      it.each([
+        ['addon', withAddonShelfData],
+        ['external', withExternalShelfData],
+      ])(
+        'sends a tracking event for the impression on mount for %s',
+        (feature, shelfData) => {
+          renderWithHomeData(shelfData);
+
+          expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+          expect(tracking.sendEvent).toHaveBeenCalledWith({
+            action: PRIMARY_HERO_IMPRESSION_ACTION,
+            category: PRIMARY_HERO_IMPRESSION_CATEGORY,
+            label:
+              feature === 'addon'
+                ? shelfData.primaryProps.addon.guid
+                : PRIMARY_HERO_EXTERNAL_LABEL,
+          });
+        },
+      );
+
+      it.each([
+        ['addon', withAddonShelfData],
+        ['external', withExternalShelfData],
+      ])(
+        'sends a tracking event for the impression on update for %s',
+        (feature, shelfData) => {
+          render();
+
+          expect(tracking.sendEvent).not.toHaveBeenCalled();
+
+          _loadHomeData(shelfData);
+
+          expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+          expect(tracking.sendEvent).toHaveBeenCalledWith({
+            action: PRIMARY_HERO_IMPRESSION_ACTION,
+            category: PRIMARY_HERO_IMPRESSION_CATEGORY,
+            label:
+              feature === 'addon'
+                ? shelfData.primaryProps.addon.guid
+                : PRIMARY_HERO_EXTERNAL_LABEL,
+          });
+        },
+      );
+
+      it('does not send a tracking event for the impression on mount or update if shelfData is missing', () => {
+        render();
+
+        expect(tracking.sendEvent).not.toHaveBeenCalled();
+
+        _loadHomeData({
+          homeShelves: {
+            results: [fakeExternalShelf],
+            primary: null,
+            secondary: null,
+          },
+        });
+
+        expect(tracking.sendEvent).not.toHaveBeenCalled();
+      });
     });
   });
 });

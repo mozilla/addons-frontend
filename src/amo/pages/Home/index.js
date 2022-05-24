@@ -261,5 +261,5 @@ function mapStateToProps(state) {
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'Home' }),
+  withErrorHandler({ id: 'Home' }),
 )(HomeBase);
