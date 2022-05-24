@@ -1,23 +1,23 @@
-import * as React from 'react';
-
-import About, { AboutBase } from 'amo/pages/StaticPages/About';
-import StaticPage from 'amo/components/StaticPage';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createHistory,
+  getElements,
+  renderPage as defaultRender,
+  screen,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function render({ i18n = fakeI18n(), ...props } = {}) {
-    return shallowUntilTarget(<About i18n={i18n} {...props} />, AboutBase);
+  function render() {
+    return defaultRender({
+      history: createHistory({
+        initialEntries: ['/en-US/about'],
+      }),
+    });
   }
 
   it('outputs an about page', () => {
-    const root = render();
+    render();
 
-    expect(root.find('#about')).toExist();
-  });
-
-  it('renders a StaticPage component', () => {
-    const root = render();
-
-    expect(root.find(StaticPage)).toHaveLength(1);
+    expect(screen.getByText('About Firefox Add-ons')).toBeInTheDocument();
+    expect(getElements('section h2').length).toBeGreaterThan(0);
   });
 });

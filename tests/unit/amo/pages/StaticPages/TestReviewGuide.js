@@ -1,5 +1,6 @@
 import {
   createHistory,
+  getElements,
   renderPage as defaultRender,
   screen,
 } from 'tests/unit/helpers';
@@ -17,8 +18,6 @@ describe(__filename, () => {
     render();
 
     expect(screen.getByText('Review Guidelines')).toBeInTheDocument();
-    expect(
-      screen.queryAllByRole('heading', { selector: 'h3' }).length,
-    ).toBeGreaterThan(0);
+    expect(getElements('section h2').length).toBeGreaterThan(0);
   });
 });
