@@ -1,28 +1,24 @@
-import * as React from 'react';
-
-import ReviewGuide, {
-  ReviewGuideBase,
-} from 'amo/pages/StaticPages/ReviewGuide';
-import StaticPage from 'amo/components/StaticPage';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createHistory,
+  renderPage as defaultRender,
+  screen,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function render({ i18n = fakeI18n(), ...props } = {}) {
-    return shallowUntilTarget(
-      <ReviewGuide i18n={i18n} {...props} />,
-      ReviewGuideBase,
-    );
+  function render() {
+    return defaultRender({
+      history: createHistory({
+        initialEntries: ['/en-US/review_guide'],
+      }),
+    });
   }
 
-  it('outputs an review guide page', () => {
-    const root = render();
+  it('outputs a review guide page', () => {
+    render();
 
-    expect(root.find('#review-guide')).toExist();
-  });
-
-  it('renders a StaticPage component', () => {
-    const root = render();
-
-    expect(root.find(StaticPage)).toHaveLength(1);
+    expect(screen.getByText('Review Guidelines')).toBeInTheDocument();
+    expect(
+      screen.queryAllByRole('heading', { selector: 'h3' }).length,
+    ).toBeGreaterThan(0);
   });
 });
