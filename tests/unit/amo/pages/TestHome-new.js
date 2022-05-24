@@ -1,15 +1,27 @@
 import userEvent from '@testing-library/user-event';
 
 import {
+  HOMESHELVES_ENDPOINT_COLLECTIONS,
+  HOMESHELVES_ENDPOINT_SEARCH,
+  HOMESHELVES_ENDPOINT_RANDOM_TAG,
+} from 'amo/components/HomepageShelves';
+import {
   SECONDARY_HERO_CLICK_ACTION,
   SECONDARY_HERO_CLICK_CATEGORY,
   SECONDARY_HERO_SRC,
   makeCallToActionURL,
 } from 'amo/components/SecondaryHero';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   DEFAULT_UTM_MEDIUM,
   DEFAULT_UTM_SOURCE,
+  INSTALL_SOURCE_FEATURED_COLLECTION,
+  INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_TAG_SHELF_PREFIX,
+  LANDING_PAGE_EXTENSION_COUNT,
+  LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
 import { loadHomeData } from 'amo/reducers/home';
 import tracking from 'amo/tracking';
@@ -18,6 +30,7 @@ import { addQueryParams } from 'amo/utils/url';
 import {
   createHistory,
   createHomeShelves,
+  createLocalizedString,
   createPrimaryHeroShelf,
   dispatchClientMetadata,
   fakeAddon,
@@ -315,6 +328,247 @@ describe(__filename, () => {
           label: strippedUrl,
         });
       });
+    });
+  });
+
+  describe('Tests for HomepageShelves', () => {
+    it('renders shelves in a loading state', () => {
+      render();
+
+      const loadingShelves = screen.getAllByClassName(
+        'HomepageShelves-loading-card',
+      );
+      expect(loadingShelves).toHaveLength(3);
+      loadingShelves.forEach((shelf) => {
+        expect(within(shelf).getAllByRole('alert')).toHaveLength(17);
+      });
+    });
+
+    it('renders shelves in a loaded state', () => {
+      const shelf1AddonName = 'Addon for Shelf 1';
+      const shelf2AddonName = 'Addon for Shelf 2';
+      const shelf1FooterText = 'Footer Text 1';
+      const shelf2FooterText = 'Footer Text 2';
+      const shelf1Title = 'First Shelf';
+      const shelf2Title = 'Second Shelf';
+      const shelf1Data = {
+        ...fakeExternalShelf,
+        addons: new Array(LANDING_PAGE_EXTENSION_COUNT).fill({
+          ...fakeAddon,
+          name: createLocalizedString(shelf1AddonName),
+          slug: 'slug1',
+        }),
+        endpoint: HOMESHELVES_ENDPOINT_SEARCH,
+        addon_type: ADDON_TYPE_EXTENSION,
+        footer: {
+          url: '/1',
+          outgoing: '/1',
+          text: createLocalizedString(shelf1FooterText),
+        },
+        title: createLocalizedString(shelf1Title),
+        url: 'https://addons.mozilla.org/1',
+      };
+
+      const shelf2Data = {
+        ...fakeExternalShelf,
+        addons: new Array(LANDING_PAGE_THEME_COUNT).fill({
+          ...fakeAddon,
+          name: createLocalizedString(shelf2AddonName),
+          slug: 'slug2',
+          type: ADDON_TYPE_STATIC_THEME,
+        }),
+        endpoint: HOMESHELVES_ENDPOINT_SEARCH,
+        addon_type: ADDON_TYPE_STATIC_THEME,
+        footer: {
+          url: '/2',
+          outgoing: '/2',
+          text: createLocalizedString(shelf2FooterText),
+        },
+        title: createLocalizedString(shelf2Title),
+        url: 'https://addons.mozilla.org/2',
+      };
+
+      renderWithHomeData({ resultsProps: [shelf1Data, shelf2Data] });
+
+      const shelves = screen.getAllByClassName('LandingAddonsCard');
+      expect(shelves).toHaveLength(2);
+
+      const shelf1 = shelves[0];
+      expect(
+        within(shelf1).getAllByRole('link', { name: shelf1AddonName }),
+      ).toHaveLength(LANDING_PAGE_EXTENSION_COUNT);
+      let footerLinks = within(shelf1).getAllByRole('link', {
+        name: shelf1FooterText,
+      });
+      expect(footerLinks).toHaveLength(2);
+      expect(footerLinks[0]).toHaveAttribute('href', shelf1Data.footer.url);
+      expect(within(shelf1).getByText(shelf1Title)).toBeInTheDocument();
+      expect(within(shelf1).queryByRole('alert')).not.toBeInTheDocument();
+      expect(shelf1).toHaveClass('Home-First-Shelf');
+      expect(shelf1).not.toHaveClass('LandingAddonsCard-Themes');
+      // Verifying that isHomePage is passed to Card.
+      expect(
+        within(shelf1).getByClassName('Card-shelf-header'),
+      ).toBeInTheDocument();
+      expect(
+        within(shelf1).getByClassName('Card-shelf-footer-in-header'),
+      ).toBeInTheDocument();
+
+      const shelf2 = shelves[1];
+      expect(
+        within(shelf2).getAllByRole('link', { name: shelf2AddonName }),
+      ).toHaveLength(LANDING_PAGE_THEME_COUNT);
+      footerLinks = within(shelf2).getAllByRole('link', {
+        name: shelf2FooterText,
+      });
+      expect(footerLinks).toHaveLength(2);
+      expect(footerLinks[0]).toHaveAttribute('href', shelf2Data.footer.url);
+      expect(within(shelf2).getByText(shelf2Title)).toBeInTheDocument();
+      expect(within(shelf2).queryByRole('alert')).not.toBeInTheDocument();
+      expect(shelf2).toHaveClass('Home-Second-Shelf');
+      expect(shelf2).toHaveClass('LandingAddonsCard-Themes');
+      expect(
+        within(shelf1).getByClassName('Card-shelf-header'),
+      ).toBeInTheDocument();
+      expect(
+        within(shelf1).getByClassName('Card-shelf-footer-in-header'),
+      ).toBeInTheDocument();
+    });
+
+    it.each([
+      [INSTALL_SOURCE_FEATURED_COLLECTION, HOMESHELVES_ENDPOINT_COLLECTIONS],
+      [INSTALL_SOURCE_FEATURED, HOMESHELVES_ENDPOINT_SEARCH],
+    ])(
+      'passes addonInstallSource as %s when endpoint is %s',
+      (addonInstallSource, endpoint) => {
+        const addonName = 'Some add-on name';
+        const slug = 'some-slug';
+        renderWithHomeData({
+          resultsProps: [
+            {
+              ...fakeExternalShelf,
+              addons: [
+                { ...fakeAddon, name: createLocalizedString(addonName), slug },
+              ],
+              endpoint,
+            },
+          ],
+        });
+
+        expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
+          'href',
+          [
+            `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+            `utm_medium=${DEFAULT_UTM_MEDIUM}`,
+            `utm_content=${addonInstallSource}`,
+          ].join('&'),
+        );
+      },
+    );
+
+    it('passes addonInstallSource as tag-shelf-{tag} when endpoint is random-tag', () => {
+      const tagName = 'foo';
+      const url = `https://addons-dev.allizom.org/api/v5/addons/search/?sort=rating&tag=${tagName}`;
+      const addonName = 'Some add-on name';
+      const slug = 'some-slug';
+      renderWithHomeData({
+        resultsProps: [
+          {
+            ...fakeExternalShelf,
+            addons: [
+              { ...fakeAddon, name: createLocalizedString(addonName), slug },
+            ],
+            endpoint: HOMESHELVES_ENDPOINT_RANDOM_TAG,
+            url,
+          },
+        ],
+      });
+
+      expect(screen.getByRole('link', { name: addonName })).toHaveAttribute(
+        'href',
+        [
+          `/${lang}/${clientApp}/addon/${slug}/?utm_source=${DEFAULT_UTM_SOURCE}`,
+          `utm_medium=${DEFAULT_UTM_MEDIUM}`,
+          `utm_content=${INSTALL_SOURCE_TAG_SHELF_PREFIX}${tagName}`,
+        ].join('&'),
+      );
+    });
+
+    it('generates a default footerText', () => {
+      const title = 'Shelf Title';
+      renderWithHomeData({
+        resultsProps: [
+          {
+            ...fakeExternalShelf,
+            addons: new Array(LANDING_PAGE_EXTENSION_COUNT).fill(fakeAddon),
+            addon_type: ADDON_TYPE_EXTENSION,
+            footer: { ...fakeExternalShelf.footer, text: '' },
+            title: createLocalizedString(title),
+          },
+        ],
+      });
+
+      expect(
+        screen.getAllByRole('link', {
+          name: `See more ${title.toLowerCase()}`,
+        }),
+      ).toHaveLength(2);
+    });
+
+    it('passes an object with an href for an external link', () => {
+      checkInternalURL.mockReturnValue({ isInternal: false });
+      const text = 'Some footer text';
+      const url = '/some/link';
+      renderWithHomeData({
+        resultsProps: [
+          {
+            ...fakeExternalShelf,
+            addons: new Array(LANDING_PAGE_EXTENSION_COUNT).fill(fakeAddon),
+            addon_type: ADDON_TYPE_EXTENSION,
+            footer: {
+              ...fakeExternalShelf.footer,
+              text: createLocalizedString(text),
+              url,
+            },
+          },
+        ],
+      });
+
+      expect(screen.getAllByRole('link', { name: text })[0]).toHaveAttribute(
+        'href',
+        url,
+      );
+      expect(checkInternalURL).toHaveBeenCalledWith({ urlString: url });
+    });
+
+    it('passes a relative URL for an internal link', () => {
+      const fixedURL = '/some/url';
+      checkInternalURL.mockReturnValue({
+        isInternal: true,
+        relativeURL: fixedURL,
+      });
+      const text = 'Some footer text';
+      const url = 'https://some.internal/url';
+      renderWithHomeData({
+        resultsProps: [
+          {
+            ...fakeExternalShelf,
+            addons: new Array(LANDING_PAGE_EXTENSION_COUNT).fill(fakeAddon),
+            addon_type: ADDON_TYPE_EXTENSION,
+            footer: {
+              ...fakeExternalShelf.footer,
+              text: createLocalizedString(text),
+              url,
+            },
+          },
+        ],
+      });
+
+      expect(screen.getAllByRole('link', { name: text })[0]).toHaveAttribute(
+        'href',
+        `/${lang}/${clientApp}${fixedURL}`,
+      );
+      expect(checkInternalURL).toHaveBeenCalledWith({ urlString: url });
     });
   });
 });
