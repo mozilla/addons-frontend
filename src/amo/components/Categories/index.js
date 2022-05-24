@@ -167,8 +167,12 @@ function mapStateToProps(state: AppState): PropsFromState {
   };
 }
 
+export const extractId = (props: Props): string => {
+  return props.addonType;
+};
+
 const Categories: React.ComponentType<Props> = compose(
-  withErrorHandler({ name: 'Categories' }),
+  withErrorHandler({ extractId, name: 'Categories' }),
   connect(mapStateToProps),
   translate(),
 )(CategoriesBase);
