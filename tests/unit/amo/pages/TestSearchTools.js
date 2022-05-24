@@ -1,40 +1,43 @@
-import * as React from 'react';
-
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
-import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
-import { dispatchClientMetadata, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createHistory,
+  dispatchClientMetadata,
+  renderPage as defaultRender,
+  screen,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({
-    store = dispatchClientMetadata().store,
-    ...props
-  } = {}) => {
-    return shallowUntilTarget(
-      <SearchTools store={store} {...props} />,
-      SearchToolsBase,
-    );
+  const render = ({ store } = {}) => {
+    defaultRender({
+      history: createHistory({
+        initialEntries: ['/en-US/android/search-tools/'],
+      }),
+      store,
+    });
   };
 
   it('sends a server redirect to support old search tool URLs', () => {
     const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const fakeDispatch = jest.spyOn(store, 'dispatch');
 
     render({ store });
 
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(fakeDispatch).toHaveBeenCalledWith(
       sendServerRedirect({
         status: 301,
-        url: sinon.match('/en-US/android/extensions/category/search-tools/'),
+        url: '/en-US/android/extensions/category/search-tools/',
       }),
     );
-    sinon.assert.callCount(fakeDispatch, 1);
+    // Once for the initial LOCATION_CHANGE.
+    // Once for the redirect.
+    expect(fakeDispatch).toHaveBeenCalledTimes(2);
   });
 
   it('renders a NotFoundPage', () => {
-    const root = render();
+    render();
 
-    expect(root.find(NotFoundPage)).toHaveLength(1);
+    expect(
+      screen.getByText('Oops! We can’t find that page'),
+    ).toBeInTheDocument();
   });
 });
