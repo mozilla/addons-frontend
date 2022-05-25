@@ -1,6 +1,10 @@
 import { waitFor } from '@testing-library/react';
 
-import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'amo/constants';
+import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_LANG,
+  CLIENT_APP_FIREFOX,
+} from 'amo/constants';
 import { loadLanguageTools } from 'amo/reducers/languageTools';
 import { getCanonicalURL } from 'amo/utils';
 import {
@@ -14,77 +18,85 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const lang = 'fr';
+  let store;
+  let lang;
+  const defaultTestLang = 'fr';
+  const clientApp = CLIENT_APP_FIREFOX;
   const languageTools = [
     createFakeLanguageTool({
       id: 1,
-      lang,
+      lang: defaultTestLang,
       name: 'Scottish Language Pack (with Irn-Bru)',
       target_locale: 'en-GB',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 2,
-      lang,
+      lang: defaultTestLang,
       name: 'Old stuffy English',
       target_locale: 'en-GB',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 3,
-      lang,
+      lang: defaultTestLang,
       name: 'English Language Pack with Extra Us',
       target_locale: 'en-GB',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 4,
-      lang,
+      lang: defaultTestLang,
       name: 'Cool new English',
       target_locale: 'en-US',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 5,
-      lang,
+      lang: defaultTestLang,
       name: 'le French Dictionary',
       target_locale: 'fr',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 6,
-      lang,
+      lang: defaultTestLang,
       name: 'French Language Pack',
       target_locale: 'fr',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 7,
-      lang,
+      lang: defaultTestLang,
       name: 'اُردو',
       target_locale: 'ur',
       type: ADDON_TYPE_DICT,
     }),
     createFakeLanguageTool({
       id: 8,
-      lang,
+      lang: defaultTestLang,
       name: '正體中文 (繁體)',
       target_locale: 'zh-TW',
       type: ADDON_TYPE_LANG,
     }),
     createFakeLanguageTool({
       id: 9,
-      lang,
+      lang: defaultTestLang,
       name: 'isiZulu',
       target_locale: 'zu',
       type: ADDON_TYPE_LANG,
     }),
   ];
 
-  function render({ store = dispatchClientMetadata().store } = {}) {
+  beforeEach(() => {
+    lang = defaultTestLang;
+    store = dispatchClientMetadata({ clientApp, lang }).store;
+  });
+
+  function render() {
     return defaultRender({
       history: createHistory({
-        initialEntries: [`/${lang}/firefox/language-tools/`],
+        initialEntries: [`/${lang}/${clientApp}/language-tools/`],
       }),
       store,
     });
@@ -97,19 +109,17 @@ describe(__filename, () => {
   });
 
   it('renders LoadingText if language tools are empty', () => {
-    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: [] }));
 
-    render({ store });
+    render();
 
     expect(screen.queryAllByClassName('LoadingText').length).toBeGreaterThan(0);
   });
 
   it('renders language tools in your locale', () => {
-    const { store } = dispatchClientMetadata({ lang: 'fr' });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    render({ store, lang: 'fr' });
+    render();
 
     expect(
       screen.getByRole('heading', { name: 'Available for your locale' }),
@@ -132,10 +142,11 @@ describe(__filename, () => {
   });
 
   it('omits "language tools in your locale" section if none available', () => {
-    const { store } = dispatchClientMetadata({ lang: 'pt-BR' });
+    lang = 'pt-BR';
+    store = dispatchClientMetadata({ clientApp, lang }).store;
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    render({ store, lang: 'pt-BR' });
+    render();
 
     expect(
       screen.queryByRole('heading', { name: 'Available for your locale' }),
@@ -143,10 +154,9 @@ describe(__filename, () => {
   });
 
   it('renders language packs in the table view for the right language', () => {
-    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    render({ store });
+    render();
 
     expect(
       screen.getByClassName('LanguageTools-lang-en-GB'),
@@ -166,10 +176,9 @@ describe(__filename, () => {
   });
 
   it('renders multiple language tools in a list', () => {
-    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    render({ store });
+    render();
 
     const dictionaryList = within(
       screen.getByClassName('LanguageTools-lang-en-GB-dictionaries'),
@@ -183,10 +192,9 @@ describe(__filename, () => {
   });
 
   it('does not render languages we know of but do not have languages for', () => {
-    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    render({ store });
+    render();
 
     expect(
       screen.queryByClassName('LanguageTools-lang-es'),
@@ -194,10 +202,11 @@ describe(__filename, () => {
   });
 
   it('renders an HTML title', async () => {
-    const { store } = dispatchClientMetadata({ lang: 'pt-BR' });
+    lang = 'pt-BR';
+    store = dispatchClientMetadata({ clientApp, lang }).store;
     store.dispatch(loadLanguageTools({ languageTools }));
 
-    render({ store });
+    render();
 
     await waitFor(() =>
       expect(getElement('title')).toHaveTextContent(
@@ -232,10 +241,9 @@ describe(__filename, () => {
       }),
     ];
 
-    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
-    render({ store });
+    render();
 
     // We expect only one row with all the add-ons in it.
     const row = screen.getByClassName('LanguageTools-table-row');
@@ -269,10 +277,9 @@ describe(__filename, () => {
         type: ADDON_TYPE_DICT,
       }),
     ];
-    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
-    render({ store });
+    render();
 
     // We do not currently support `hil` and we do not want the add-on to be
     // listed as part of the `hi` language.
@@ -308,10 +315,9 @@ describe(__filename, () => {
       }),
     ];
 
-    const { store } = dispatchClientMetadata({ lang });
     store.dispatch(loadLanguageTools({ languageTools: addons }));
 
-    render({ store });
+    render();
 
     const rows = screen.getAllByClassName('LanguageTools-table-row');
     expect(rows.length).toBe(2);
@@ -339,8 +345,7 @@ describe(__filename, () => {
   });
 
   it('renders links via the HeadLinks component', async () => {
-    const { store } = dispatchClientMetadata({ lang });
-    render({ store });
+    render();
 
     await waitFor(() =>
       expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
