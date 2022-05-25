@@ -18,6 +18,7 @@ import {
   ADDONS_REVIEW,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  API_ERROR_AUTHENTICATION_EXPIRED,
   API_ERRORS_SESSION_EXPIRY,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -27,6 +28,7 @@ import {
 } from 'amo/constants';
 import { setClientApp } from 'amo/reducers/api';
 import { loadSiteStatus, loadedPageIsAnonymous } from 'amo/reducers/site';
+import { logOutUser } from 'amo/reducers/users';
 import tracking from 'amo/tracking';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
@@ -66,12 +68,19 @@ jest.mock('amo/api', () => ({
 describe(__filename, () => {
   let store;
 
+  const savedLocation = window.location;
+
   afterEach(() => {
     jest.clearAllMocks().resetModules();
+    window.location = savedLocation;
   });
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
+    delete window.location;
+    window.location = Object.assign(new URL('https://example.org'), {
+      reload: jest.fn(),
+    });
   });
 
   // We need to mock window.matchMedia or the code for the dropdown menu
@@ -822,6 +831,31 @@ describe(__filename, () => {
         `/${lang}/${clientApp}/opensearch.xml`,
       );
       expect(link).toHaveAttribute('title', title);
+    });
+  });
+
+  describe('Tests for AuthExpired', () => {
+    const expiredAuthErrorHandler = () =>
+      createCapturedErrorHandler({
+        code: API_ERROR_AUTHENTICATION_EXPIRED,
+        detail: 'something',
+        status: 401,
+        store,
+      });
+
+    it('logs out the user', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ errorHandler: expiredAuthErrorHandler() });
+
+      expect(dispatch).toHaveBeenCalledWith(logOutUser());
+    });
+
+    it('renders a reload link', () => {
+      render({ errorHandler: expiredAuthErrorHandler() });
+
+      userEvent.click(screen.getByRole('link', { name: 'Reload the page' }));
+
+      expect(window.location.reload).toHaveBeenCalled();
     });
   });
 });
