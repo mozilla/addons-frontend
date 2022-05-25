@@ -158,20 +158,17 @@ describe(__filename, () => {
     render();
 
     expect(
-      screen.getByClassName('LanguageTools-lang-en-GB'),
+      screen.getByText('Scottish Language Pack (with Irn-Bru)'),
     ).toBeInTheDocument();
     expect(
-      screen.getByClassName('LanguageTools-lang-en-US'),
+      screen.getByText('English Language Pack with Extra Us'),
     ).toBeInTheDocument();
-    expect(screen.getByClassName('LanguageTools-lang-fr')).toBeInTheDocument();
-    expect(screen.getByClassName('LanguageTools-lang-ur')).toBeInTheDocument();
-    expect(
-      screen.getByClassName('LanguageTools-lang-zh-TW'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Old stuffy English')).toBeInTheDocument();
+    expect(screen.getByText('Cool new English')).toBeInTheDocument();
     // Zulu is not a supported locale on the site but since Firefox UI locales
     // are not necessarily going to match the site locales we should
     // still render the zulu language pack and dictionary.
-    expect(screen.getByClassName('LanguageTools-lang-zu')).toBeInTheDocument();
+    expect(screen.getAllByText('isiZulu')).toHaveLength(2);
   });
 
   it('renders multiple language tools in a list', () => {
@@ -181,10 +178,10 @@ describe(__filename, () => {
 
     const dictionaryList = within(
       screen.getByClassName('LanguageTools-lang-en-GB-dictionaries'),
-    ).getAllByTagName('li');
+    ).getAllByRole('listitem');
     const languagePackList = within(
       screen.getByClassName('LanguageTools-lang-en-GB-languagePacks'),
-    ).getAllByTagName('li');
+    ).getAllByRole('listitem');
 
     expect(dictionaryList).toHaveLength(1);
     expect(languagePackList).toHaveLength(2);
