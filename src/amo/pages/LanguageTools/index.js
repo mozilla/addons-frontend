@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -55,9 +56,7 @@ const sortedLocales = sortedLanguages.map((language) => language.locale);
 export const LanguageToolList = ({
   languageTools,
 }: LanguageToolListProps): null | React.Node => {
-  if (!languageTools || !languageTools.length) {
-    return null;
-  }
+  invariant(languageTools, 'languageTools is required');
 
   return (
     <ul className="LanguageTools-addon-list">
@@ -119,34 +118,23 @@ export class LanguageToolsBase extends React.Component<InternalProps> {
           {i18n.gettext('Available for your locale')}
         </h2>
 
-        {languageToolsInYourLocale ? (
-          <ul className="LanguageTools-in-your-locale-list">
-            {languageToolsInYourLocale.map((languageTool) => {
-              return (
-                <li
-                  className="LanguageTools-in-your-locale-list-item"
-                  key={languageTool.slug}
+        <ul className="LanguageTools-in-your-locale-list">
+          {languageToolsInYourLocale.map((languageTool) => {
+            return (
+              <li
+                className="LanguageTools-in-your-locale-list-item"
+                key={languageTool.slug}
+              >
+                <Link
+                  className={`LanguageTools-in-your-locale-list-item--${languageTool.type}`}
+                  to={getAddonURL(languageTool.slug)}
                 >
-                  <Link
-                    className={`LanguageTools-in-your-locale-list-item--${languageTool.type}`}
-                    to={getAddonURL(languageTool.slug)}
-                  >
-                    {languageTool.name}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        ) : (
-          <ul>
-            <li>
-              <LoadingText width={20} />
-            </li>
-            <li>
-              <LoadingText width={20} />
-            </li>
-          </ul>
-        )}
+                  {languageTool.name}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
