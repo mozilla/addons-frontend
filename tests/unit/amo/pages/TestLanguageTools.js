@@ -105,7 +105,7 @@ describe(__filename, () => {
   it('renders LoadingText if language tools are not set', () => {
     render();
 
-    expect(screen.queryAllByClassName('LoadingText').length).toBeGreaterThan(0);
+    expect(screen.getAllByRole('alert').length).toBeGreaterThan(0);
   });
 
   it('renders LoadingText if language tools are empty', () => {
@@ -113,7 +113,7 @@ describe(__filename, () => {
 
     render();
 
-    expect(screen.queryAllByClassName('LoadingText').length).toBeGreaterThan(0);
+    expect(screen.getAllByRole('alert').length).toBeGreaterThan(0);
   });
 
   it('renders language tools in your locale', () => {
@@ -251,14 +251,12 @@ describe(__filename, () => {
     const langPacks = within(row).getByClassName(
       'LanguageTools-lang-az-languagePacks',
     );
-    expect(langPacks).toBeInTheDocument();
     expect(
       within(langPacks).getByText('Azərbaycanca (AZ) Language Pack'),
     ).toBeInTheDocument();
     const dictionaries = within(row).getByClassName(
       'LanguageTools-lang-az-dictionaries',
     );
-    expect(dictionaries).toBeInTheDocument();
     expect(
       within(dictionaries).getByText('Azerbaijani Spell Checker'),
     ).toBeInTheDocument();
@@ -320,7 +318,7 @@ describe(__filename, () => {
     render();
 
     const rows = screen.getAllByClassName('LanguageTools-table-row');
-    expect(rows.length).toBe(2);
+    expect(rows).toHaveLength(2);
 
     expect(within(rows[0]).getByText('Persian Dictionary')).toBeInTheDocument();
     expect(
