@@ -56,7 +56,7 @@ const sortedLocales = sortedLanguages.map((language) => language.locale);
 export const LanguageToolList = ({
   languageTools,
 }: LanguageToolListProps): null | React.Node => {
-  invariant(languageTools, 'languageTools is required');
+  invariant(languageTools.length, 'languageTools should not be empty');
 
   return (
     <ul className="LanguageTools-addon-list">
