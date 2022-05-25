@@ -1,258 +1,212 @@
-import { oneLine } from 'common-tags';
-import * as React from 'react';
-
-import CollectionList, {
-  CollectionListBase,
-  extractId,
-} from 'amo/pages/CollectionList';
+import { setViewContext } from 'amo/actions/viewContext';
+import { CLIENT_APP_FIREFOX, VIEW_CONTEXT_HOME } from 'amo/constants';
+import { extractId } from 'amo/pages/CollectionList';
 import {
+  collectionName,
   fetchUserCollections,
   loadUserCollections,
   FETCH_USER_COLLECTIONS,
 } from 'amo/reducers/collections';
-import AuthenticateButton from 'amo/components/AuthenticateButton';
 import {
+  createHistory,
   createFakeCollectionDetail,
-  createInternalCollectionWithLang,
-  createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeI18n,
-  shallowUntilTarget,
+  renderPage as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
-import UserCollection from 'amo/components/UserCollection';
-import { VIEW_CONTEXT_HOME } from 'amo/constants';
-import { setViewContext } from 'amo/actions/viewContext';
 
 describe(__filename, () => {
-  const getProps = () => ({
-    i18n: fakeI18n(),
-    store: dispatchClientMetadata().store,
+  const clientApp = CLIENT_APP_FIREFOX;
+  const userId = 123;
+  const lang = 'en-US';
+  const location = `/${lang}/${clientApp}/collections/`;
+  const errorHandlerId = `src/amo/pages/CollectionList/index.js-${userId}`;
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const renderComponent = ({ ...props } = {}) => {
-    const allProps = {
-      ...getProps(),
-      ...props,
-    };
-
-    return shallowUntilTarget(
-      <CollectionList {...allProps} />,
-      CollectionListBase,
-    );
+  const render = () => {
+    return defaultRender({
+      history: createHistory({
+        initialEntries: [location],
+      }),
+      store,
+    });
   };
 
+  const signInUser = () => dispatchSignInActions({ store, userId });
+
   it('dispatches fetchUserCollections for a logged in user with no collections loaded yet', () => {
-    const userId = 1234;
-    const { store } = dispatchSignInActions({ userId });
-    const fakeDispatch = sinon.spy(store, 'dispatch');
+    signInUser();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const errorHandler = createStubErrorHandler();
-
-    renderComponent({ errorHandler, store });
-
-    // This should be called with fetchUserCollections and with setViewContext.
-    sinon.assert.callCount(fakeDispatch, 2);
-    sinon.assert.calledWith(
-      fakeDispatch,
+    expect(dispatch).toHaveBeenCalledWith(
       fetchUserCollections({
-        errorHandlerId: errorHandler.id,
+        errorHandlerId,
         userId,
       }),
     );
   });
 
   it('does not dispatch fetchUserCollections if there is no user', () => {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    renderComponent({ store });
-
-    sinon.assert.neverCalledWithMatch(fakeDispatch, {
-      type: FETCH_USER_COLLECTIONS,
-    });
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: FETCH_USER_COLLECTIONS,
+      }),
+    );
   });
 
   it('does not dispatch fetchUserCollections if collections are loading', () => {
-    const userId = 1234;
-    const { store } = dispatchSignInActions({ userId });
-    const fakeDispatch = sinon.spy(store, 'dispatch');
+    signInUser();
+    store.dispatch(fetchUserCollections({ errorHandlerId, userId }));
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const errorHandler = createStubErrorHandler();
-
-    store.dispatch(
-      fetchUserCollections({
-        errorHandlerId: errorHandler.id,
-        userId,
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: FETCH_USER_COLLECTIONS,
       }),
     );
-
-    fakeDispatch.resetHistory();
-
-    renderComponent({ store });
-
-    sinon.assert.neverCalledWithMatch(fakeDispatch, {
-      type: FETCH_USER_COLLECTIONS,
-    });
   });
 
   it('does not dispatch fetchUserCollections if collections are loaded', () => {
-    const userId = 1234;
-    const { store } = dispatchSignInActions({ userId });
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
+    signInUser();
     store.dispatch(
       loadUserCollections({
         collections: [createFakeCollectionDetail()],
         userId,
       }),
     );
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    fakeDispatch.resetHistory();
-    renderComponent({ store });
-
-    sinon.assert.neverCalledWithMatch(fakeDispatch, {
-      type: FETCH_USER_COLLECTIONS,
-    });
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: FETCH_USER_COLLECTIONS,
+      }),
+    );
   });
 
   it('renders an AuthenticateButton without a logged in user', () => {
-    const root = renderComponent();
+    render();
 
-    const button = root.find(AuthenticateButton);
-    expect(button).toHaveLength(1);
-    expect(button).toHaveProp('logInText', 'Log in to view your collections');
+    expect(
+      screen.getByRole('link', { name: 'Log in to view your collections' }),
+    ).toBeInTheDocument();
   });
 
   it('does not render an AuthenticateButton with a logged in user', () => {
-    const { store } = dispatchSignInActions();
-    const root = renderComponent({ store });
+    signInUser();
+    render();
 
-    expect(root.find(AuthenticateButton)).toHaveLength(0);
+    expect(
+      screen.queryByRole('link', { name: 'Log in to view your collections' }),
+    ).not.toBeInTheDocument();
   });
 
   it('renders the collection listing info card', () => {
-    const { store } = dispatchSignInActions();
-    const root = renderComponent({ store });
+    signInUser();
+    render();
 
-    expect(root.find('.CollectionList-info')).toHaveLength(1);
-    expect(root.find('.CollectionList-info')).toHaveProp(
-      'header',
-      'Collections',
-    );
-    expect(root.find('.CollectionList-info-text'))
-      .toHaveText(oneLine`Collections make it easy to keep track of favorite
-      add-ons and share your perfectly customized browser with others.`);
-
-    const button = root.find('.CollectionList-create');
-    expect(button).toHaveProp('buttonType', 'action');
-    expect(button).toHaveProp('puffy', true);
-    expect(button).toHaveProp('to', '/collections/add/');
-    expect(button.childAt(0)).toHaveText('Create a collection');
+    expect(screen.getByText('Collections')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        `Collections make it easy to keep track of favorite add-ons and ` +
+          `share your perfectly customized browser with others.`,
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Create a collection' }),
+    ).toHaveAttribute('href', `/${lang}/${clientApp}/collections/add/`);
   });
 
   it('renders placeholder text if the user has no collections', () => {
-    const userId = 1234;
-    const { store } = dispatchSignInActions({ userId });
+    signInUser();
+    store.dispatch(loadUserCollections({ collections: [], userId }));
+    render();
 
-    store.dispatch(
-      loadUserCollections({
-        collections: [],
-        userId,
-      }),
-    );
-
-    const root = renderComponent({ store });
-
-    expect(root.find('.CollectionList-list')).toHaveLength(1);
-    expect(root.find('.CollectionList-list')).toHaveProp(
-      'header',
-      'My collections',
-    );
-    expect(root.find('.CollectionList-list')).toHaveProp(
-      'footer',
-      'You do not have any collections.',
-    );
-    expect(root.find('.CollectionList-listing')).toHaveLength(0);
+    expect(screen.getByText('My collections')).toBeInTheDocument();
+    expect(
+      screen.getByText('You do not have any collections.'),
+    ).toBeInTheDocument();
+    // TODO: Assert that no items are displayed.
   });
 
   it('renders loading UserCollection objects if collections are loading', () => {
-    const userId = 1234;
-    const { store } = dispatchSignInActions({ userId });
+    signInUser();
+    store.dispatch(fetchUserCollections({ errorHandlerId, userId }));
+    render();
 
-    store.dispatch(
-      fetchUserCollections({
-        errorHandlerId: createStubErrorHandler().id,
-        userId,
-      }),
-    );
+    expect(
+      screen.queryByText('You do not have any collections.'),
+    ).not.toBeInTheDocument();
 
-    const root = renderComponent({ store });
-
-    expect(root.find('.CollectionList-list')).toHaveLength(1);
-    expect(root.find('.CollectionList-list')).toHaveProp('footer', null);
-    expect(root.find('.CollectionList-listing')).toHaveLength(1);
-
-    const userCollections = root.find(UserCollection);
-    expect(userCollections).toHaveLength(4);
-    for (let count = 0; count < 4; count++) {
-      expect(userCollections.at(count)).toHaveProp('id', count);
-      expect(userCollections.at(count)).toHaveProp('numberOfAddons', null);
-    }
+    // Expect four placeholder collections with two LoadingText each.
+    expect(
+      within(screen.getByClassName('CollectionList-listing')).getAllByRole(
+        'alert',
+      ),
+    ).toHaveLength(8);
   });
 
   it('renders a list of collections', () => {
-    const userId = 1234;
+    const name1 = 'collection1';
+    const name2 = 'collection2';
+    const slug1 = 'collection-1';
+    const slug2 = 'collection-2';
     const collections = [
       createFakeCollectionDetail({
         addon_count: 1,
         authorId: userId,
         id: 1,
-        name: 'collection1',
-        slug: 'collection-1',
+        name: name1,
+        slug: slug1,
       }),
       createFakeCollectionDetail({
         addon_count: 2,
         authorId: userId,
         id: 2,
-        name: 'collection2',
-        slug: 'collection-2',
+        name: name2,
+        slug: slug2,
       }),
     ];
-    const { store } = dispatchSignInActions({ userId });
+    signInUser();
+    store.dispatch(loadUserCollections({ collections, userId }));
+    render();
 
-    store.dispatch(
-      loadUserCollections({
-        collections,
-        userId,
-      }),
+    // The accessible name for the link is the collection name plus the number
+    // of add-ons.
+    expect(
+      screen.getByRole('link', { name: `${name1} 1 add-on` }),
+    ).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}/collections/${userId}/${slug1}/`,
     );
+    expect(screen.getByRole('heading', { name: name1 })).toBeInTheDocument();
+    expect(screen.getByText('1 add-on')).toBeInTheDocument();
 
-    const root = renderComponent({ store });
-
-    expect(root.find('.CollectionList-listing')).toHaveLength(1);
-
-    const userCollections = root.find(UserCollection);
-    expect(userCollections).toHaveLength(2);
-
-    userCollections.forEach((collection, index) => {
-      const expected = createInternalCollectionWithLang({
-        detail: collections[index],
-      });
-
-      expect(collection).toHaveProp('authorId', expected.authorId);
-      expect(collection).toHaveProp('id', expected.id);
-      expect(collection).toHaveProp('name', expected.name);
-      expect(collection).toHaveProp('numberOfAddons', expected.numberOfAddons);
-      expect(collection).toHaveProp('slug', expected.slug);
-    });
+    expect(
+      screen.getByRole('link', { name: `${name2} 2 add-ons` }),
+    ).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}/collections/${userId}/${slug2}/`,
+    );
+    expect(screen.getByRole('heading', { name: name2 })).toBeInTheDocument();
+    expect(screen.getByText('2 add-ons')).toBeInTheDocument();
   });
 
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on currentUserId', () => {
-      const currentUserId = 456;
-
-      expect(extractId({ currentUserId })).toEqual(currentUserId);
+      expect(extractId({ currentUserId: userId })).toEqual(userId);
     });
 
     it('returns a blank ID with no currentUserId', () => {
@@ -261,9 +215,48 @@ describe(__filename, () => {
   });
 
   it('dispatches setViewContext when component mounts', () => {
-    const { store } = dispatchSignInActions();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    renderComponent({ store });
-    sinon.assert.calledWith(dispatchSpy, setViewContext(VIEW_CONTEXT_HOME));
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
+
+    expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
+  });
+
+  describe('Tests for UserCollection', () => {
+    it('can render a collection with a null for a name', () => {
+      const collections = [
+        createFakeCollectionDetail({ authorId: userId, name: null }),
+      ];
+      signInUser();
+      store.dispatch(loadUserCollections({ collections, userId }));
+      render();
+
+      expect(
+        screen.getByRole('heading', {
+          name: collectionName({ name: null, i18n: fakeI18n() }),
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('can render a collection that is loading', () => {
+      const collections = [
+        createFakeCollectionDetail({
+          authorId: userId,
+          // When a collection is in a loading state, numberOfAddons is null.
+          addon_count: null,
+        }),
+      ];
+      signInUser();
+      store.dispatch(loadUserCollections({ collections, userId }));
+      render();
+
+      expect(
+        within(screen.getByClassName('UserCollection-name')).getByRole('alert'),
+      ).toBeInTheDocument();
+      expect(
+        within(screen.getByClassName('UserCollection-number')).getByRole(
+          'alert',
+        ),
+      ).toBeInTheDocument();
+    });
   });
 });
