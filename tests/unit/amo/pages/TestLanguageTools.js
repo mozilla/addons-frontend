@@ -135,7 +135,6 @@ describe(__filename, () => {
     const langPack = screen.getByClassName(
       `LanguageTools-in-your-locale-list-item--${ADDON_TYPE_LANG}`,
     );
-    expect(langPack).toBeInTheDocument();
     expect(
       within(langPack).getByText('French Language Pack'),
     ).toBeInTheDocument();
