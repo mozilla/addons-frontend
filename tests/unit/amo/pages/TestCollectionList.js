@@ -138,7 +138,9 @@ describe(__filename, () => {
     expect(
       screen.getByText('You do not have any collections.'),
     ).toBeInTheDocument();
-    // TODO: Assert that no items are displayed.
+    expect(
+      screen.queryByClassName('CollectionList-listing'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders loading UserCollection objects if collections are loading', () => {
