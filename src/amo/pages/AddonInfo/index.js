@@ -178,7 +178,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
 
     if (
       infoContent ||
-      (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE && infoContent !== undefined)
+      (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE && infoContent)
     ) {
       infoHtml = sanitizeUserHTML(infoContent);
     }

@@ -1,15 +1,17 @@
-import * as React from 'react';
+import { LOCATION_CHANGE } from 'connected-react-router';
+import { waitFor } from '@testing-library/react';
 
-import AddonSummaryCard from 'amo/components/AddonSummaryCard';
-import Page from 'amo/components/Page';
-import AddonInfo, {
+import { createApiError } from 'amo/api/index';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import {
   ADDON_INFO_TYPE_CUSTOM_LICENSE,
   ADDON_INFO_TYPE_EULA,
   ADDON_INFO_TYPE_PRIVACY_POLICY,
-  AddonInfoBase,
   extractId,
 } from 'amo/pages/AddonInfo';
 import {
+  FETCH_ADDON,
+  FETCH_ADDON_INFO,
   fetchAddon,
   fetchAddonInfo,
   loadAddonInfo,
@@ -21,99 +23,89 @@ import {
   loadVersions,
 } from 'amo/reducers/versions';
 import {
-  createCapturedErrorHandler,
-  createFakeLocation,
-  createInternalAddonWithLang,
+  createFailedErrorHandler,
+  createFakeAddonInfo,
+  createFakeErrorHandler,
   createLocalizedString,
-  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
-  createFakeAddonInfo,
-  fakeI18n,
   fakeVersion,
-  shallowUntilTarget,
+  getElement,
+  onLocationChanged,
+  renderPage as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
-import ErrorList from 'amo/components/ErrorList';
-import LoadingText from 'amo/components/LoadingText';
 
 describe(__filename, () => {
+  const clientApp = CLIENT_APP_FIREFOX;
+  const defaultInfoType = ADDON_INFO_TYPE_CUSTOM_LICENSE;
+  const defaultSlug = 'some-slug';
+  const lang = 'en-US';
+  const getErrorHandlerId = ({
+    infoType = defaultInfoType,
+    slug = defaultSlug,
+  } = {}) => `src/amo/pages/AddonInfo/index.js-${slug}-${infoType}`;
+  const getFakeErrorHandler = ({
+    infoType = defaultInfoType,
+    slug = defaultSlug,
+  } = {}) =>
+    createFakeErrorHandler({ id: getErrorHandlerId({ infoType, slug }) });
+
+  const getLocation = ({
+    infoType = defaultInfoType,
+    slug = defaultSlug,
+  } = {}) => `/${lang}/${clientApp}/addon/${slug}/${infoType}/`;
+  let addon;
   let store;
 
   beforeEach(() => {
-    store = dispatchClientMetadata().store;
+    addon = { ...fakeAddon, slug: defaultSlug };
+    store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const getProps = ({
-    location = createFakeLocation(),
-    params,
-    ...customProps
-  } = {}) => {
-    return {
-      i18n: fakeI18n(),
-      infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
-      location,
-      match: {
-        params: {
-          slug: fakeAddon.slug,
-          ...params,
-        },
-      },
+  const render = ({ infoType = defaultInfoType, slug = defaultSlug } = {}) =>
+    defaultRender({
+      initialEntries: [getLocation({ infoType, slug })],
       store,
-      ...customProps,
-    };
-  };
+    });
 
-  const render = ({ ...customProps } = {}) => {
-    const props = getProps(customProps);
-
-    return shallowUntilTarget(<AddonInfo {...props} />, AddonInfoBase);
-  };
-
-  const _loadAddon = (addon = fakeAddon) => {
-    store.dispatch(loadAddon({ addon, slug: addon.slug }));
+  const _loadAddon = (theAddon = addon) => {
+    store.dispatch(loadAddon({ addon: theAddon, slug: theAddon.slug }));
   };
 
   const _loadAddonInfo = ({
     addonInfo = createFakeAddonInfo(),
-    slug = fakeAddon.slug,
-  }) => {
+    slug = defaultSlug,
+  } = {}) => {
     store.dispatch(loadAddonInfo({ info: addonInfo, slug }));
   };
 
   const _loadVersions = ({
-    slug = fakeAddon.slug,
+    slug = defaultSlug,
     versions = [fakeVersion],
-  }) => {
+  } = {}) => {
     store.dispatch(loadVersions({ slug, versions }));
   };
 
   it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
-    `fetches an addon and addonInfo for %s when requested by slug`,
+    'fetches an addon and addonInfo for %s when requested by slug',
     (infoType) => {
-      const slug = 'some-addon-slug';
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      render({
-        errorHandler,
-        infoType,
-        params: { slug },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchAddon({
-          errorHandler,
+          errorHandler: getFakeErrorHandler({ infoType }),
           showGroupedRatings: true,
-          slug,
+          slug: defaultSlug,
         }),
       );
 
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchAddonInfo({
-          errorHandlerId: errorHandler.id,
-          slug,
+          errorHandlerId: getErrorHandlerId({ infoType }),
+          slug: defaultSlug,
         }),
       );
     },
@@ -122,37 +114,29 @@ describe(__filename, () => {
   it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
     `fetches an addon and addonInfo for %s when the slug changes`,
     (infoType) => {
-      const slug = 'some-slug';
-      const newSlug = 'some-other-slug';
-      const addon = { ...fakeAddon, slug };
-      _loadAddon(addon);
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
-      render({
-        errorHandler,
-        params: { slug },
-      });
+      const newSlug = `${defaultSlug}-new`;
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      dispatch.resetHistory();
-      render({
-        errorHandler,
-        infoType,
-        params: { slug: newSlug },
-      });
+      dispatch.mockClear();
 
-      sinon.assert.calledWith(
-        dispatch,
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ infoType, slug: newSlug }),
+        }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
         fetchAddon({
-          errorHandler,
+          errorHandler: getFakeErrorHandler({ infoType, slug: newSlug }),
           showGroupedRatings: true,
           slug: newSlug,
         }),
       );
 
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchAddonInfo({
-          errorHandlerId: errorHandler.id,
+          errorHandlerId: getErrorHandlerId({ infoType, slug: newSlug }),
           slug: newSlug,
         }),
       );
@@ -162,24 +146,12 @@ describe(__filename, () => {
   it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
     `does not fetch addonInfo for %s if it is already loaded`,
     (infoType) => {
-      const slug = 'some-addon-slug';
-      _loadAddonInfo({ slug });
-      const errorHandler = createStubErrorHandler();
+      _loadAddonInfo();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      const fakeDispatch = sinon.stub(store, 'dispatch');
-
-      render({
-        errorHandler,
-        infoType,
-        params: { slug },
-      });
-
-      sinon.assert.neverCalledWith(
-        fakeDispatch,
-        fetchAddonInfo({
-          errorHandlerId: errorHandler.id,
-          slug,
-        }),
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_ADDON_INFO }),
       );
     },
   );
@@ -187,97 +159,76 @@ describe(__filename, () => {
   it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
     `does not fetch addonInfo for %s if it is already loading`,
     (infoType) => {
-      const slug = 'some-addon-slug';
-      const errorHandler = createStubErrorHandler();
-
-      store.dispatch(fetchAddonInfo({ errorHandlerId: errorHandler.id, slug }));
-
-      const fakeDispatch = sinon.stub(store, 'dispatch');
-
-      render({
-        errorHandler,
-        infoType,
-        params: { slug },
-      });
-
-      sinon.assert.neverCalledWith(
-        fakeDispatch,
+      store.dispatch(
         fetchAddonInfo({
-          errorHandlerId: errorHandler.id,
-          slug,
+          errorHandlerId: getErrorHandlerId(),
+          slug: defaultSlug,
         }),
+      );
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_ADDON_INFO }),
       );
     },
   );
 
   it('passes the errorHandler to the Page component', () => {
-    const errorHandler = createCapturedErrorHandler({ status: 404 });
+    // We can test this by generating a 403 and checking for the not found page.
+    createFailedErrorHandler({
+      error: createApiError({
+        response: { status: 403 },
+      }),
+      id: getErrorHandlerId(),
+      store,
+    });
+    render();
 
-    const root = render({ errorHandler });
-    expect(root.find(Page)).toHaveProp('errorHandler', errorHandler);
+    expect(
+      screen.getByText('Oops! We can’t find that page'),
+    ).toBeInTheDocument();
   });
 
   describe('ADDON_INFO_TYPE_CUSTOM_LICENSE', () => {
-    const renderLicenseType = ({
-      errorHandler = createStubErrorHandler(),
-      slug = fakeAddon.slug,
-    } = {}) => {
-      return render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-        params: { slug },
-      });
-    };
+    const infoType = ADDON_INFO_TYPE_CUSTOM_LICENSE;
 
     it('fetches an addon when requested by slug', () => {
-      const slug = 'some-addon-slug';
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      renderLicenseType({ errorHandler, slug });
-
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchAddon({
-          errorHandler,
+          errorHandler: getFakeErrorHandler({ infoType }),
           showGroupedRatings: true,
-          slug,
+          slug: defaultSlug,
         }),
       );
     });
 
     it('does not fetch an addonVersion when there is no addon', () => {
-      const dispatch = sinon.stub(store, 'dispatch');
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      renderLicenseType();
-
-      sinon.assert.neverCalledWithMatch(
-        dispatch,
-        sinon.match({ type: FETCH_VERSION }),
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_VERSION }),
       );
     });
 
     it('does not fetch an addonVersion when the addon has no current version', () => {
-      const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug, current_version: null };
-      _loadAddon(addon);
+      addon.current_version = null;
+      _loadAddon();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      const dispatch = sinon.stub(store, 'dispatch');
-
-      renderLicenseType({ slug });
-
-      sinon.assert.neverCalledWithMatch(
-        dispatch,
-        sinon.match({ type: FETCH_VERSION }),
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_VERSION }),
       );
     });
 
     it('fetches an addonVersion when the loaded version has no license text', () => {
-      const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug };
-      _loadAddon(addon);
+      _loadAddon();
       _loadVersions({
-        slug,
         versions: [
           {
             ...fakeVersion,
@@ -285,28 +236,21 @@ describe(__filename, () => {
           },
         ],
       });
-      const errorHandler = createStubErrorHandler();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      const dispatch = sinon.stub(store, 'dispatch');
-
-      renderLicenseType({ errorHandler, slug });
-
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchVersion({
-          errorHandlerId: errorHandler.id,
-          slug,
+          errorHandlerId: getErrorHandlerId({ infoType }),
+          slug: defaultSlug,
           versionId: addon.current_version.id,
         }),
       );
     });
 
     it('does not fetch an addonVersion when the loaded version has license text', () => {
-      const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug };
-      _loadAddon(addon);
+      _loadAddon();
       _loadVersions({
-        slug,
         versions: [
           {
             ...fakeVersion,
@@ -317,247 +261,208 @@ describe(__filename, () => {
           },
         ],
       });
-      const errorHandler = createStubErrorHandler();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      const dispatch = sinon.stub(store, 'dispatch');
-
-      renderLicenseType({ errorHandler, slug });
-
-      sinon.assert.neverCalledWith(
-        dispatch,
-        fetchVersion({
-          errorHandlerId: errorHandler.id,
-          slug,
-          versionId: addon.current_version.id,
-        }),
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_VERSION }),
       );
     });
 
     it('does not fetch an addonVersion if one is already loading', () => {
-      const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug };
-      _loadAddon(addon);
-      const errorHandler = createStubErrorHandler();
-
+      _loadAddon();
       store.dispatch(
         fetchVersion({
-          errorHandlerId: errorHandler.id,
-          slug,
+          errorHandlerId: getErrorHandlerId({ infoType }),
+          slug: defaultSlug,
           versionId: addon.current_version.id,
         }),
       );
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      const dispatch = sinon.stub(store, 'dispatch');
-
-      renderLicenseType({ errorHandler, slug });
-
-      sinon.assert.neverCalledWith(
-        dispatch,
-        fetchVersion({
-          errorHandlerId: errorHandler.id,
-          slug,
-          versionId: addon.current_version.id,
-        }),
+      expect(dispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({ type: FETCH_VERSION }),
       );
     });
 
     it('fetches an addonVersion when the slug changes', () => {
-      const slug = 'some-slug';
-      const newSlug = 'some-other-slug';
-      const addon = { ...fakeAddon, slug };
+      const newSlug = `${defaultSlug}-new`;
       const newAddon = { ...fakeAddon, slug: newSlug };
-      _loadAddon(addon);
+      _loadAddon();
       _loadAddon(newAddon);
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ infoType });
 
-      renderLicenseType({ errorHandler, slug });
+      dispatch.mockClear();
 
-      dispatch.resetHistory();
-      renderLicenseType({ errorHandler, slug: newSlug });
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ infoType, slug: newSlug }),
+        }),
+      );
 
-      sinon.assert.calledWith(
-        dispatch,
+      expect(dispatch).toHaveBeenCalledWith(
         fetchVersion({
-          errorHandlerId: errorHandler.id,
+          errorHandlerId: getErrorHandlerId({ infoType, slug: newSlug }),
           slug: newSlug,
-          versionId: addon.current_version.id,
+          versionId: newAddon.current_version.id,
         }),
       );
     });
   });
 
   it('does not fetch an addon if one is already loaded', () => {
-    const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, slug };
-    _loadAddon(addon);
-    const errorHandler = createStubErrorHandler();
+    _loadAddon();
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchAddon({
-        errorHandler,
-        showGroupedRatings: true,
-        slug,
-      }),
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_ADDON }),
     );
   });
 
   it('does not fetch an addon if one is already loading', () => {
-    const slug = 'some-addon-slug';
-    const errorHandler = createStubErrorHandler();
+    store.dispatch(
+      fetchAddon({ errorHandler: getFakeErrorHandler(), slug: defaultSlug }),
+    );
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    store.dispatch(fetchAddon({ errorHandler, slug }));
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchAddon({
-        errorHandler,
-        showGroupedRatings: true,
-        slug,
-      }),
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_ADDON }),
     );
   });
 
   it('does not fetch anything if there is an error', () => {
-    const slug = 'some-slug';
-    const dispatch = sinon.stub(store, 'dispatch');
-    const errorHandler = createStubErrorHandler(new Error('some error'));
-
-    render({
-      errorHandler,
-      params: { slug },
+    createFailedErrorHandler({
+      id: getErrorHandlerId(),
+      store,
     });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    sinon.assert.notCalled(dispatch);
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: LOCATION_CHANGE }),
+    );
+    expect(dispatch).toHaveBeenCalledTimes(1);
   });
 
   it('renders LoadingText without content', () => {
-    const root = render();
+    render();
 
-    expect(root.find(LoadingText)).toHaveLength(1);
+    expect(
+      within(screen.getByClassName('AddonInfo-info')).getByRole('alert'),
+    ).toBeInTheDocument();
   });
 
   it('renders an AddonSummaryCard with an addon', () => {
     const name = 'My addon';
-    const addon = { ...fakeAddon, name: createLocalizedString(name) };
-    _loadAddon(addon);
-    const root = render({ infoType: ADDON_INFO_TYPE_PRIVACY_POLICY });
+    addon.name = createLocalizedString(name);
+    _loadAddon();
+    render({ infoType: ADDON_INFO_TYPE_PRIVACY_POLICY });
 
-    const summary = root.find(AddonSummaryCard);
-    expect(summary).toHaveProp('addon', createInternalAddonWithLang(addon));
-    expect(summary).toHaveProp('headerText', `Privacy policy for ${name}`);
+    expect(
+      screen.getByRole('heading', { name: `Privacy policy for ${name}` }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name })).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}/addon/${defaultSlug}/`,
+    );
   });
 
   it('renders an AddonSummaryCard without an addon', () => {
-    const root = render();
+    render();
 
-    const summary = root.find(AddonSummaryCard);
-    expect(summary).toHaveProp('addon', null);
-    expect(summary).toHaveProp('headerText', '');
+    expect(
+      within(screen.getByClassName('AddonSummaryCard')).getAllByRole('alert'),
+    ).toHaveLength(12);
   });
 
-  it('renders an HTML title', () => {
+  it('renders an HTML title', async () => {
     const name = 'My addon';
-    const slug = 'some-slug';
-    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
-
-    _loadAddon(addon);
-
-    const root = render({
+    addon.name = createLocalizedString(name);
+    _loadAddon();
+    render({
       infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
-      params: { slug },
     });
 
-    expect(root.find('title')).toHaveText(`Privacy policy for ${name}`);
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(getElement('title')).toHaveTextContent(`Privacy policy for ${name}`);
   });
 
-  it('does not render an HTML title when there is no add-on', () => {
-    const root = render();
-    expect(root.find('title')).toHaveLength(0);
+  it('does not render an HTML title when there is no add-on', async () => {
+    render();
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(getElement('title')).toHaveTextContent(
+      `Add-ons for Firefox (${lang})`,
+    );
   });
 
-  it('renders a robots meta tag', () => {
+  it('renders a robots meta tag', async () => {
     _loadAddon();
-    const root = render();
+    render();
 
-    expect(root.find('meta[name="robots"]')).toHaveLength(1);
-    expect(root.find('meta[name="robots"]')).toHaveProp(
+    await waitFor(() =>
+      expect(getElement('meta[name="robots"]')).toBeInTheDocument(),
+    );
+
+    expect(getElement('meta[name="robots"]')).toHaveAttribute(
       'content',
       'noindex, follow',
     );
   });
 
   it('renders an error', () => {
-    const errorHandler = createStubErrorHandler(new Error('some error'));
+    const message = 'Some error message.';
+    createFailedErrorHandler({
+      id: getErrorHandlerId(),
+      message,
+      store,
+    });
+    render();
 
-    const root = render({ errorHandler });
-    expect(root.find(ErrorList)).toHaveLength(1);
+    expect(screen.getByText(message)).toBeInTheDocument();
   });
 
   it('renders a privacy policy page', () => {
     const name = 'My addon';
-    const slug = 'some-slug';
-    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
+    addon.name = createLocalizedString(name);
     const privacyPolicy = 'This is the privacy policy text';
     const addonInfo = createFakeAddonInfo({ privacyPolicy });
 
-    _loadAddon(addon);
-    _loadAddonInfo({ addonInfo, slug });
+    _loadAddon();
+    _loadAddonInfo({ addonInfo });
 
-    const root = render({
-      infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
-      params: { slug },
-    });
+    render({ infoType: ADDON_INFO_TYPE_PRIVACY_POLICY });
 
-    expect(root.find('.AddonInfo-info')).toHaveProp(
-      'header',
-      `Privacy policy for ${name}`,
-    );
-    expect(root.find('.AddonInfo-info-html').html()).toContain(privacyPolicy);
+    expect(screen.getAllByText(`Privacy policy for ${name}`)).toHaveLength(2);
+    expect(screen.getByText(privacyPolicy)).toBeInTheDocument();
   });
 
   it('renders a EULA page', () => {
     const name = 'My addon';
-    const slug = 'some-slug';
-    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
+    addon.name = createLocalizedString(name);
     const eula = 'This is the eula text';
     const addonInfo = createFakeAddonInfo({ eula });
 
-    _loadAddon(addon);
-    _loadAddonInfo({ addonInfo, slug });
+    _loadAddon();
+    _loadAddonInfo({ addonInfo });
 
-    const root = render({
-      infoType: ADDON_INFO_TYPE_EULA,
-      params: { slug },
-    });
+    render({ infoType: ADDON_INFO_TYPE_EULA });
 
-    expect(root.find('.AddonInfo-info')).toHaveProp(
-      'header',
-      `End-User License Agreement for ${name}`,
-    );
-    expect(root.find('.AddonInfo-info-html').html()).toContain(eula);
+    expect(
+      screen.getAllByText(`End-User License Agreement for ${name}`),
+    ).toHaveLength(2);
+    expect(screen.getByText(eula)).toBeInTheDocument();
   });
 
   it('renders a License page', () => {
     const licenseText = 'This is the license text';
     const name = 'My addon';
-    const slug = 'some-slug';
-    const addon = { ...fakeAddon, name: createLocalizedString(name), slug };
+    addon.name = createLocalizedString(name);
     const addonVersion = {
       ...fakeVersion,
       license: {
@@ -566,24 +471,16 @@ describe(__filename, () => {
       },
     };
 
-    _loadAddon(addon);
-    _loadVersions({ slug, versions: [addonVersion] });
+    _loadAddon();
+    _loadVersions({ versions: [addonVersion] });
 
-    const root = render({
-      infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-      params: { slug },
-    });
+    render({ infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE });
 
-    expect(root.find('.AddonInfo-info')).toHaveProp(
-      'header',
-      `Custom License for ${name}`,
-    );
-    expect(root.find('.AddonInfo-info-html').html()).toContain(licenseText);
+    expect(screen.getAllByText(`Custom License for ${name}`)).toHaveLength(2);
+    expect(screen.getByText(licenseText)).toBeInTheDocument();
   });
 
   it('renders an empty licence when license.text is null', () => {
-    const slug = 'some-slug';
-    const addon = { ...fakeAddon, slug };
     const addonVersion = {
       ...fakeVersion,
       license: {
@@ -592,82 +489,78 @@ describe(__filename, () => {
       },
     };
 
-    _loadAddon(addon);
-    _loadVersions({ slug, versions: [addonVersion] });
+    _loadAddon();
+    _loadVersions({ versions: [addonVersion] });
 
-    const root = render({
-      infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-      params: { slug },
-    });
+    render({ infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE });
 
-    expect(root.find('.AddonInfo-info-html').html()).toContain('');
+    expect(
+      screen.queryByClassName('AddonInfo-info-html'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders licence in a loading state when the version has not been loaded', () => {
-    const slug = 'some-slug';
-    const addon = { ...fakeAddon, slug };
+    _loadAddon();
+    render({ infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE });
 
-    _loadAddon(addon);
-
-    const root = render({
-      infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-      params: { slug },
-    });
-
-    expect(root.find('.AddonInfo').find(LoadingText)).toHaveLength(1);
+    expect(
+      within(screen.getByClassName('AddonInfo')).getByRole('alert'),
+    ).toBeInTheDocument();
   });
 
   it('sanitizes the html content', () => {
-    const slug = 'some-slug';
-    const privacyPolicy = '<script>alert(document.cookie);</script>';
-    const addon = { ...fakeAddon, slug };
+    const privacyPolicy =
+      'Some privacy <script>alert(document.cookie);</script> policy text';
     const addonInfo = createFakeAddonInfo({ privacyPolicy });
 
-    _loadAddon(addon);
-    _loadAddonInfo({ addonInfo, slug });
+    _loadAddon();
+    _loadAddonInfo({ addonInfo });
 
-    const root = render({
-      infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
-      params: { slug },
-    });
+    render({ infoType: ADDON_INFO_TYPE_PRIVACY_POLICY });
 
-    expect(root.find('.AddonInfo-info-html').html()).not.toContain('<script>');
+    expect(screen.getByText('Some privacy policy text')).toBeInTheDocument();
+    expect(
+      // eslint-disable-next-line testing-library/prefer-presence-queries
+      within(screen.getByClassName('AddonInfo-info-html')).queryByTagName(
+        'script',
+      ),
+    ).not.toBeInTheDocument();
   });
 
   it('adds <br> tags for newlines in the html content', () => {
-    const slug = 'some-slug';
     const privacyPolicy = 'This is the privacy\npolicy';
-    const addon = { ...fakeAddon, slug };
     const addonInfo = createFakeAddonInfo({ privacyPolicy });
 
-    _loadAddon(addon);
-    _loadAddonInfo({ addonInfo, slug });
+    _loadAddon();
+    _loadAddonInfo({ addonInfo });
 
-    const root = render({
-      infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
-      params: { slug },
-    });
+    render({ infoType: ADDON_INFO_TYPE_PRIVACY_POLICY });
 
-    expect(root.find('.AddonInfo-info-html').render().find('br')).toHaveLength(
-      1,
-    );
+    expect(
+      within(screen.getByClassName('AddonInfo-info-html')).getAllByTagName(
+        'br',
+      ),
+    ).toHaveLength(1);
   });
 
   it('allows some HTML tags', () => {
-    const slug = 'some-slug';
     const privacyPolicy = '<b>lots</b> <i>of</i> <a href="#">bug fixes</a>';
-    const addon = { ...fakeAddon, slug };
     const addonInfo = createFakeAddonInfo({ privacyPolicy });
 
-    _loadAddon(addon);
-    _loadAddonInfo({ addonInfo, slug });
+    _loadAddon();
+    _loadAddonInfo({ addonInfo });
 
-    const root = render({
-      infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
-      params: { slug },
-    });
-    expect(root.find('.AddonInfo-info-html').html()).toContain(
-      '<b>lots</b> <i>of</i> <a href="#">bug fixes</a>',
+    render({ infoType: ADDON_INFO_TYPE_PRIVACY_POLICY });
+
+    expect(
+      within(screen.getByClassName('AddonInfo-info-html')).getByTagName('b'),
+    ).toBeInTheDocument();
+    expect(
+      within(screen.getByClassName('AddonInfo-info-html')).getByTagName('i'),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'bug fixes' })).toBeInTheDocument();
+    expect(screen.getByClassName('AddonInfo-info-html')).toHaveTextContent(
+      'lots of bug fixes',
     );
   });
 
@@ -675,10 +568,7 @@ describe(__filename, () => {
     it('returns a unique id based on the addon slug and infoType', () => {
       const slug = 'some-slug';
       const infoType = ADDON_INFO_TYPE_EULA;
-      const ownProps = getProps({
-        params: { slug },
-        infoType,
-      });
+      const ownProps = { match: { params: { slug } }, infoType };
 
       expect(extractId(ownProps)).toEqual(`${slug}-${infoType}`);
     });
