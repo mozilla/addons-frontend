@@ -17,7 +17,6 @@ import { getCanonicalURL, visibleAddonType } from 'amo/utils';
 import {
   createAddonsApiResult,
   createFailedErrorHandler,
-  createHistory,
   createLocalizedString,
   dispatchClientMetadata,
   fakeAddon,
@@ -39,14 +38,11 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) => {
-    return defaultRender({
-      history: createHistory({
-        initialEntries: [getLocation(addonType)],
-      }),
+  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) =>
+    defaultRender({
+      initialEntries: [getLocation(addonType)],
       store,
     });
-  };
 
   const _getAndLoadLandingAddons = ({
     addonType = ADDON_TYPE_EXTENSION,

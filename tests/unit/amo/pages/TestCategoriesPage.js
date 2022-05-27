@@ -15,7 +15,6 @@ import { getCanonicalURL, visibleAddonType } from 'amo/utils';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import {
   createFailedErrorHandler,
-  createHistory,
   dispatchClientMetadata,
   fakeCategory,
   getElement,
@@ -38,14 +37,11 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) => {
-    return defaultRender({
-      history: createHistory({
-        initialEntries: [getLocation(addonType)],
-      }),
+  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) =>
+    defaultRender({
+      initialEntries: [getLocation(addonType)],
       store,
     });
-  };
 
   it.each([
     [ADDON_TYPE_EXTENSION, 'extension'],

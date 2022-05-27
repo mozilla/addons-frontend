@@ -8,7 +8,6 @@ import {
   FETCH_USER_COLLECTIONS,
 } from 'amo/reducers/collections';
 import {
-  createHistory,
   createFakeCollectionDetail,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -30,14 +29,11 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const render = () => {
-    return defaultRender({
-      history: createHistory({
-        initialEntries: [location],
-      }),
+  const render = () =>
+    defaultRender({
+      initialEntries: [location],
       store,
     });
-  };
 
   const signInUser = () => dispatchSignInActions({ store, userId });
 

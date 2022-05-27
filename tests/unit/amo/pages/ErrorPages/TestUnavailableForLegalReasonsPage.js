@@ -1,16 +1,8 @@
-import {
-  createHistory,
-  renderPage as defaultRender,
-  screen,
-} from 'tests/unit/helpers';
+import { renderPage as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('renders an UnavailableForLegalReasons Page', () => {
-    defaultRender({
-      history: createHistory({
-        initialEntries: ['/en-US/firefox/451/'],
-      }),
-    });
+    defaultRender({ initialEntries: ['/en-US/firefox/451/'] });
 
     expect(
       screen.getByText('That page is not available in your region'),
