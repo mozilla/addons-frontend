@@ -38,8 +38,10 @@ import {
 import {
   fakeTrackingEvent,
   getFakeConfig,
-  getFakeLogger,
+  getFakeLoggerWithJest as getFakeLogger,
 } from 'tests/unit/helpers';
+
+const trackingId = 'sample-tracking-id';
 
 function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
   return new Tracking({
@@ -47,7 +49,7 @@ function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
     _config: getFakeConfig({
       server: false,
       trackingEnabled: true,
-      trackingId: 'sample-tracking-id',
+      trackingId,
       ...configOverrides,
     }),
     ...paramOverrides,
@@ -57,14 +59,14 @@ function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
 describe(__filename, () => {
   describe('Tracking', () => {
     beforeEach(() => {
-      window.ga = sinon.stub();
+      window.ga = jest.fn();
     });
 
     it('should not enable GA when configured off', () => {
       createTracking({
         configOverrides: { trackingEnabled: false },
       });
-      sinon.assert.notCalled(window.ga);
+      expect(window.ga).not.toHaveBeenCalled();
     });
 
     it('should disable GA due to missing id', () => {
@@ -74,7 +76,7 @@ describe(__filename, () => {
           _isDoNotTrackEnabled: () => false,
         },
       });
-      sinon.assert.notCalled(window.ga);
+      expect(window.ga).not.toHaveBeenCalled();
     });
 
     it('should disable GA due to Do Not Track', () => {
@@ -83,7 +85,7 @@ describe(__filename, () => {
           _isDoNotTrackEnabled: () => true,
         },
       });
-      sinon.assert.notCalled(window.ga);
+      expect(window.ga).not.toHaveBeenCalled();
     });
 
     it('should send initial page view when enabled', () => {
@@ -92,18 +94,17 @@ describe(__filename, () => {
           trackingSendInitPageView: true,
         },
       });
-      sinon.assert.calledWith(window.ga, 'send', 'pageview');
+      expect(window.ga).toHaveBeenCalledWith('send', 'pageview');
     });
 
     it('should set the transport mechanism to beacon', () => {
       createTracking();
-      sinon.assert.calledWith(window.ga, 'set', 'transport', 'beacon');
+      expect(window.ga).toHaveBeenCalledWith('set', 'transport', 'beacon');
     });
 
     it('should set dimension3', () => {
       createTracking();
-      sinon.assert.calledWith(
-        window.ga,
+      expect(window.ga).toHaveBeenCalledWith(
         'set',
         'dimension3',
         'addons-frontend',
@@ -116,16 +117,16 @@ describe(__filename, () => {
           trackingSendInitPageView: false,
         },
       });
+
       // Make sure only 'create' and 'set' were called, not 'send'.
-      sinon.assert.calledWith(window.ga, 'create');
-      sinon.assert.calledWith(window.ga, 'set', 'transport', 'beacon');
-      sinon.assert.calledWith(
-        window.ga,
+      expect(window.ga).toHaveBeenCalledWith('create', trackingId, 'auto');
+      expect(window.ga).toHaveBeenCalledWith('set', 'transport', 'beacon');
+      expect(window.ga).toHaveBeenCalledWith(
         'set',
         'dimension3',
         'addons-frontend',
       );
-      sinon.assert.callCount(window.ga, 3);
+      expect(window.ga).toHaveBeenCalledTimes(3);
     });
 
     it('should throw if page not set', () => {
@@ -139,7 +140,7 @@ describe(__filename, () => {
       const tracking = createTracking();
       const page = 'some/page/';
       tracking.setPage(page);
-      sinon.assert.calledWith(window.ga, 'set', 'page', page);
+      expect(window.ga).toHaveBeenCalledWith('set', 'page', page);
     });
 
     it('should call _ga when pageView is called', () => {
@@ -151,7 +152,7 @@ describe(__filename, () => {
 
       tracking.pageView(data);
 
-      sinon.assert.calledWith(window.ga, 'send', {
+      expect(window.ga).toHaveBeenCalledWith('send', {
         hitType: 'pageview',
         ...data,
       });
@@ -162,13 +163,13 @@ describe(__filename, () => {
       const dimension = 'dimension1';
       const value = 'a value';
       tracking.setDimension({ dimension, value });
-      sinon.assert.calledWith(window.ga, 'set', dimension, value);
+      expect(window.ga).toHaveBeenCalledWith('set', dimension, value);
     });
 
     it('should not send the web vitals when trackingSendWebVitals is false', () => {
-      const _getCLS = sinon.stub();
-      const _getFID = sinon.stub();
-      const _getLCP = sinon.stub();
+      const _getCLS = jest.fn();
+      const _getFID = jest.fn();
+      const _getLCP = jest.fn();
 
       createTracking({
         configOverrides: { trackingSendWebVitals: false },
@@ -179,15 +180,15 @@ describe(__filename, () => {
         },
       });
 
-      sinon.assert.notCalled(_getCLS);
-      sinon.assert.notCalled(_getFID);
-      sinon.assert.notCalled(_getLCP);
+      expect(_getCLS).not.toHaveBeenCalled();
+      expect(_getFID).not.toHaveBeenCalled();
+      expect(_getLCP).not.toHaveBeenCalled();
     });
 
     it('should send the web vitals when trackingSendWebVitals is true', () => {
-      const _getCLS = sinon.stub();
-      const _getFID = sinon.stub();
-      const _getLCP = sinon.stub();
+      const _getCLS = jest.fn();
+      const _getFID = jest.fn();
+      const _getLCP = jest.fn();
 
       createTracking({
         configOverrides: { trackingSendWebVitals: true },
@@ -198,9 +199,9 @@ describe(__filename, () => {
         },
       });
 
-      sinon.assert.calledOnce(_getCLS);
-      sinon.assert.calledOnce(_getFID);
-      sinon.assert.calledOnce(_getLCP);
+      expect(_getCLS).toHaveBeenCalledTimes(1);
+      expect(_getFID).toHaveBeenCalledTimes(1);
+      expect(_getLCP).toHaveBeenCalledTimes(1);
     });
 
     describe('sendEvent', () => {
@@ -214,7 +215,7 @@ describe(__filename, () => {
           category: 'whatever',
           action: 'some-action',
         });
-        sinon.assert.notCalled(window.ga);
+        expect(window.ga).not.toHaveBeenCalled();
       });
 
       it('should throw if category not set', () => {
@@ -236,17 +237,12 @@ describe(__filename, () => {
       // This is a way to check how many times window.ga was called with the
       // arguments that signify that it was sending an event.
       const countSendEventCalls = (spy) => {
-        return spy
-          .getCalls()
-          .filter(
-            (callObj) =>
-              callObj.firstArg === 'send' &&
-              Object.prototype.hasOwnProperty.call(
-                callObj.lastArg,
-                'hitType',
-              ) &&
-              callObj.lastArg.hitType === 'event',
-          ).length;
+        return spy.mock.calls.filter(
+          (callArray) =>
+            callArray[0] === 'send' &&
+            Object.prototype.hasOwnProperty.call(callArray[1], 'hitType') &&
+            callArray[1].hitType === 'event',
+        ).length;
       };
 
       it('should call _ga with sendEvent on the client', () => {
@@ -257,12 +253,15 @@ describe(__filename, () => {
           _config,
           ...event,
         });
-        sinon.assert.calledWithMatch(window.ga, 'send', {
-          eventAction: event.action,
-          eventCategory: event.category,
-          eventLabel: event.label,
-          eventValue: event.value,
-        });
+        expect(window.ga).toHaveBeenCalledWith(
+          'send',
+          expect.objectContaining({
+            eventAction: event.action,
+            eventCategory: event.category,
+            eventLabel: event.label,
+            eventValue: event.value,
+          }),
+        );
         expect(countSendEventCalls(window.ga)).toEqual(1);
       });
 
@@ -277,18 +276,24 @@ describe(__filename, () => {
           sendSecondEventWithOverrides,
           ...event,
         });
-        sinon.assert.calledWithMatch(window.ga, 'send', {
-          eventAction: event.action,
-          eventCategory: event.category,
-          eventLabel: event.label,
-          eventValue: event.value,
-        });
-        sinon.assert.calledWithMatch(window.ga, 'send', {
-          eventAction: event.action,
-          eventCategory: secondCategory,
-          eventLabel: event.label,
-          eventValue: event.value,
-        });
+        expect(window.ga).toHaveBeenCalledWith(
+          'send',
+          expect.objectContaining({
+            eventAction: event.action,
+            eventCategory: event.category,
+            eventLabel: event.label,
+            eventValue: event.value,
+          }),
+        );
+        expect(window.ga).toHaveBeenCalledWith(
+          'send',
+          expect.objectContaining({
+            eventAction: event.action,
+            eventCategory: secondCategory,
+            eventLabel: event.label,
+            eventValue: event.value,
+          }),
+        );
         expect(countSendEventCalls(window.ga)).toEqual(2);
       });
 
@@ -316,7 +321,7 @@ describe(__filename, () => {
 
       tracking.sendWebVitalStats(fakeCLS);
 
-      sinon.assert.calledWith(window.ga, 'send', 'event', {
+      expect(window.ga).toHaveBeenCalledWith('send', 'event', {
         eventCategory: 'Web Vitals',
         eventAction: fakeCLS.name,
         eventLabel: fakeCLS.id,
@@ -501,17 +506,17 @@ describe(__filename, () => {
         _window: {},
       });
 
-      sinon.assert.calledWith(fakeLog.info, 'Do Not Track is enabled');
+      expect(fakeLog.info).toHaveBeenCalledWith('Do Not Track is enabled');
 
       // Check with `window.doNotTrack` as well, just for completeness.
-      fakeLog.info.resetHistory();
+      fakeLog.info.mockClear();
       isDoNotTrackEnabled({
         _log: fakeLog,
         _navigator: {},
         _window: { doNotTrack: '1' },
       });
 
-      sinon.assert.calledWith(fakeLog.info, 'Do Not Track is enabled');
+      expect(fakeLog.info).toHaveBeenCalledWith('Do Not Track is enabled');
     });
   });
 
@@ -565,27 +570,27 @@ describe(__filename, () => {
     it('should send a beacon if navigator.sendBeacon exists', () => {
       const urlString = 'https://www.mozilla.org';
       const _log = getFakeLogger();
-      const _navigator = { sendBeacon: sinon.spy() };
+      const _navigator = { sendBeacon: jest.fn() };
 
       sendBeacon({ _log, _navigator, urlString });
-      sinon.assert.calledWith(_log.debug, `Sending beacon to ${urlString}`);
-      sinon.assert.calledWith(_navigator.sendBeacon, urlString);
+      expect(_log.debug).toHaveBeenCalledWith(`Sending beacon to ${urlString}`);
+      expect(_navigator.sendBeacon).toHaveBeenCalledWith(urlString, undefined);
     });
 
     it('can include data in a beacon', () => {
       const urlString = 'https://www.mozilla.org';
       const data = 'some-data';
       const _log = getFakeLogger();
-      const _navigator = { sendBeacon: sinon.spy() };
+      const _navigator = { sendBeacon: jest.fn() };
 
       sendBeacon({ _log, _navigator, urlString, data });
-      sinon.assert.calledWith(_navigator.sendBeacon, urlString, data);
+      expect(_navigator.sendBeacon).toHaveBeenCalledWith(urlString, data);
     });
 
     it('does not send a beacon if DNT is enabled', () => {
-      const _isDoNotTrackEnabled = sinon.stub().returns(true);
+      const _isDoNotTrackEnabled = jest.fn().mockReturnValue(true);
       const _log = getFakeLogger();
-      const _navigator = { sendBeacon: sinon.spy() };
+      const _navigator = { sendBeacon: jest.fn() };
 
       sendBeacon({
         _isDoNotTrackEnabled,
@@ -593,18 +598,17 @@ describe(__filename, () => {
         _navigator,
         urlString: 'https://www.mozilla.org',
       });
-      sinon.assert.calledWith(
-        _log.debug,
+      expect(_log.debug).toHaveBeenCalledWith(
         'Do Not Track Enabled; Not sending a beacon.',
       );
-      sinon.assert.called(_isDoNotTrackEnabled);
-      sinon.assert.notCalled(_navigator.sendBeacon);
+      expect(_isDoNotTrackEnabled).toHaveBeenCalled();
+      expect(_navigator.sendBeacon).not.toHaveBeenCalled();
     });
 
     it('sends a beacon if DNT is disabled', () => {
-      const _isDoNotTrackEnabled = sinon.stub().returns(false);
+      const _isDoNotTrackEnabled = jest.fn().mockReturnValue(false);
       const _log = getFakeLogger();
-      const _navigator = { sendBeacon: sinon.spy() };
+      const _navigator = { sendBeacon: jest.fn() };
 
       sendBeacon({
         _isDoNotTrackEnabled,
@@ -612,8 +616,8 @@ describe(__filename, () => {
         _navigator,
         urlString: 'https://www.mozilla.org',
       });
-      sinon.assert.called(_isDoNotTrackEnabled);
-      sinon.assert.called(_navigator.sendBeacon);
+      expect(_isDoNotTrackEnabled).toHaveBeenCalled();
+      expect(_navigator.sendBeacon).toHaveBeenCalled();
     });
 
     it('should not send a beacon if navigator does not exist', () => {
@@ -621,8 +625,7 @@ describe(__filename, () => {
       const _log = getFakeLogger();
 
       sendBeacon({ _log, _navigator: null, urlString });
-      sinon.assert.calledWith(
-        _log.warn,
+      expect(_log.warn).toHaveBeenCalledWith(
         'navigator does not exist. Not sending a beacon.',
       );
     });
@@ -632,8 +635,7 @@ describe(__filename, () => {
       const _log = getFakeLogger();
 
       sendBeacon({ _log, _navigator: { sendBeacon: null }, urlString });
-      sinon.assert.calledWith(
-        _log.warn,
+      expect(_log.warn).toHaveBeenCalledWith(
         'navigator does not exist. Not sending a beacon.',
       );
     });
