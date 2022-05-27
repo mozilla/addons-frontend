@@ -1,14 +1,9 @@
-import { shallow } from 'enzyme';
-import * as React from 'react';
-
-import { SimulateSyncErrorBase } from 'amo/pages/error-simulation/SimulateSyncError';
+import { renderPage, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function render(props = {}) {
-    return shallow(<SimulateSyncErrorBase {...props} />);
-  }
-
   it('throws a simulated error', () => {
-    expect(() => render()).toThrowError(/simulated synchronous error/);
+    renderPage({ initialEntries: ['/en-US/firefox/simulate-sync-error/'] });
+
+    expect(screen.getByText('Server Error')).toBeInTheDocument();
   });
 });
