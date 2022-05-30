@@ -21,17 +21,10 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
   INSTALLED,
-  LINE,
-  RECOMMENDED,
-  SPONSORED,
-  SPOTLIGHT,
-  STRATEGIC,
-  VERIFIED,
 } from 'amo/constants';
 import { setInstallState } from 'amo/reducers/installations';
 import { loadVersions } from 'amo/reducers/versions';
 import tracking from 'amo/tracking';
-import * as amoUtilsAddons from 'amo/utils/addons';
 import {
   createInternalAddonWithLang,
   createInternalVersionWithLang,
@@ -191,7 +184,9 @@ describe(__filename, () => {
       });
 
       expect(
-        screen.getByRole('link', { name: 'Download Firefox' }),
+        screen.getByRole('link', {
+          name: 'Download the new Firefox and get the extension',
+        }),
       ).toBeInTheDocument();
       expect(screen.queryByText('Add to Firefox')).not.toBeInTheDocument();
     },
@@ -218,9 +213,7 @@ describe(__filename, () => {
         reason,
       });
 
-      _dispatchClientMetadata({
-        clientApp,
-      });
+      _dispatchClientMetadata({ clientApp });
 
       render({
         _getClientCompatibility,
@@ -231,7 +224,9 @@ describe(__filename, () => {
       expect(
         screen.getByRole('link', { name: 'Add to Firefox' }),
       ).toBeInTheDocument();
-      expect(screen.queryByText('Download Firefox')).not.toBeInTheDocument();
+      expect(
+        screen.queryByText('Download the new Firefox and get the extension'),
+      ).not.toBeInTheDocument();
     },
   );
 
@@ -554,7 +549,9 @@ describe(__filename, () => {
 
   describe('Tests for GetFirefoxButton', () => {
     const getFirefoxButton = () =>
-      screen.getByRole('link', { name: 'Download Firefox' });
+      screen.getByRole('link', {
+        name: 'Download Firefox and get the extension',
+      });
 
     const renderAsIncompatible = (props = {}) => {
       const _getClientCompatibility = jest.fn().mockReturnValue({
@@ -574,7 +571,9 @@ describe(__filename, () => {
         render();
 
         expect(
-          screen.queryByRole('link', { name: 'Download Firefox' }),
+          screen.queryByRole('link', {
+            name: 'Download Firefox and get the extension',
+          }),
         ).not.toBeInTheDocument();
       });
 
@@ -599,12 +598,17 @@ describe(__filename, () => {
       it('renders a GetFirefoxButton if forIncompatibleAddon is true', () => {
         renderAsIncompatible();
 
-        expect(getFirefoxButton()).toBeInTheDocument();
+        expect(
+          screen.getByRole('link', {
+            name: 'Download the new Firefox and get the extension',
+          }),
+        ).toBeInTheDocument();
       });
     });
 
     describe('Not firefox', () => {
       const clientApp = CLIENT_APP_FIREFOX;
+
       beforeEach(() => {
         _dispatchClientMetadata({
           clientApp,
@@ -618,129 +622,65 @@ describe(__filename, () => {
         expect(getFirefoxButton()).toBeInTheDocument();
       });
 
-      it('calls _getPromotedCategory to determine if an add-on is recommended', () => {
-        const getPromotedCategorySpy = jest.spyOn(
-          amoUtilsAddons,
-          'getPromotedCategory',
-        );
-
-        const addon = createInternalAddonWithLang(fakeAddon);
-        render({ addon });
-
-        expect(getPromotedCategorySpy).toHaveBeenCalledWith({
-          addon,
-          clientApp,
-          forBadging: true,
+      it('has the expected button text when client is Android', () => {
+        // The default clientApp is `CLIENT_APP_ANDROID`.
+        _dispatchClientMetadata({ userAgent: userAgents.chrome[0] });
+        render({
+          addon: createInternalAddonWithLang(fakeAddon),
         });
+
+        expect(
+          screen.getByRole('link', { name: 'Download Firefox' }),
+        ).toBeInTheDocument();
       });
 
-      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
-        'has the expected button text for an RTAMO supported extension',
-        (category) => {
-          render({
-            addon: createInternalAddonWithLang({
-              ...fakeAddon,
-              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
-            }),
-          });
+      it('has the expected button text for an extension', () => {
+        render({
+          addon: createInternalAddonWithLang(fakeAddon),
+        });
 
-          expect(
-            screen.getByRole('link', {
-              name: 'Download Firefox and get the extension',
-            }),
-          ).toBeInTheDocument();
-        },
-      );
+        expect(
+          screen.getByRole('link', {
+            name: 'Download Firefox and get the extension',
+          }),
+        ).toBeInTheDocument();
+      });
 
-      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
-        'has the expected button text for an RTAMO supported extension, which is incompatible',
-        (category) => {
-          renderAsIncompatible({
-            addon: createInternalAddonWithLang({
-              ...fakeAddon,
-              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
-            }),
-          });
+      it('has the expected button text for a theme', () => {
+        render({
+          addon: createInternalAddonWithLang(fakeTheme),
+        });
 
-          expect(
-            screen.getByRole('link', {
-              name: 'Download the new Firefox and get the extension',
-            }),
-          ).toBeInTheDocument();
-        },
-      );
+        expect(
+          screen.getByRole('link', {
+            name: 'Download Firefox and get the theme',
+          }),
+        ).toBeInTheDocument();
+      });
 
-      it.each([SPOTLIGHT, STRATEGIC])(
-        'has the expected button text for an RTAMO unsupported extension',
-        (category) => {
-          render({
-            addon: createInternalAddonWithLang({
-              ...fakeAddon,
-              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
-            }),
-          });
+      it('has the expected button text for an extension, which is incompatible', () => {
+        renderAsIncompatible({
+          addon: createInternalAddonWithLang(fakeAddon),
+        });
 
-          expect(
-            screen.getByRole('link', {
-              name: 'Download Firefox',
-            }),
-          ).toBeInTheDocument();
-        },
-      );
+        expect(
+          screen.getByRole('link', {
+            name: 'Download the new Firefox and get the extension',
+          }),
+        ).toBeInTheDocument();
+      });
 
-      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
-        'has the expected button text for an RTAMO supported theme',
-        (category) => {
-          render({
-            addon: createInternalAddonWithLang({
-              ...fakeTheme,
-              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
-            }),
-          });
+      it('has the expected button text for a theme, which is incompatible', () => {
+        renderAsIncompatible({
+          addon: createInternalAddonWithLang(fakeTheme),
+        });
 
-          expect(
-            screen.getByRole('link', {
-              name: 'Download Firefox and get the theme',
-            }),
-          ).toBeInTheDocument();
-        },
-      );
-
-      it.each([LINE, RECOMMENDED, SPONSORED, VERIFIED])(
-        'has the expected button text for an RTAMO supported theme, which is incompatible',
-        (category) => {
-          renderAsIncompatible({
-            addon: createInternalAddonWithLang({
-              ...fakeTheme,
-              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
-            }),
-          });
-
-          expect(
-            screen.getByRole('link', {
-              name: 'Download the new Firefox and get the theme',
-            }),
-          ).toBeInTheDocument();
-        },
-      );
-
-      it.each([SPOTLIGHT, STRATEGIC])(
-        'has the expected button text for an RTAMO supported theme',
-        (category) => {
-          render({
-            addon: createInternalAddonWithLang({
-              ...fakeTheme,
-              promoted: { category, apps: [CLIENT_APP_FIREFOX] },
-            }),
-          });
-
-          expect(
-            screen.getByRole('link', {
-              name: 'Download Firefox',
-            }),
-          ).toBeInTheDocument();
-        },
-      );
+        expect(
+          screen.getByRole('link', {
+            name: 'Download the new Firefox and get the theme',
+          }),
+        ).toBeInTheDocument();
+      });
 
       it('has the expected callout text for an extension', () => {
         render({
