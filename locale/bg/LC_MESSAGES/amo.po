@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-05-18 08:05+0000\n"
-"PO-Revision-Date: 2022-06-02 06:42+0000\n"
+"PO-Revision-Date: 2022-06-02 06:48+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -1373,33 +1373,28 @@ msgid "Star rating saved"
 msgstr "Оценката е запазена"
 
 #: src/amo/components/RatingsByStar/index.js:103
-#, fuzzy
 msgid "There are no three-star reviews"
-msgstr "Няма отзиви"
+msgstr "Няма отзиви с три звезди"
 
 #: src/amo/components/RatingsByStar/index.js:108
-#, fuzzy
 msgid "Read the 1 two-star review"
 msgid_plural "Read all %(total)s two-star reviews"
-msgstr[0] "Прочетете всички отзиви с две звезди"
-msgstr[1] "Прочетете всички отзиви с две звезди"
+msgstr[0] "Прочетете отзива с две звезди"
+msgstr[1] "Прочетете всички %(total)s отзива с две звезди"
 
 #: src/amo/components/RatingsByStar/index.js:118
-#, fuzzy
 msgid "There are no two-star reviews"
-msgstr "Няма отзиви"
+msgstr "Няма отзиви с две звезди"
 
 #: src/amo/components/RatingsByStar/index.js:123
-#, fuzzy
 msgid "Read the 1 one-star review"
 msgid_plural "Read all %(total)s one-star reviews"
-msgstr[0] "Прочетете всички отзиви с една звезда"
-msgstr[1] "Прочетете всички отзиви с една звезда"
+msgstr[0] "Прочетете отзива с една звезда"
+msgstr[1] "Прочетете всички %(total)s отзива с една звезда"
 
 #: src/amo/components/RatingsByStar/index.js:133
-#, fuzzy
 msgid "There are no one-star reviews"
-msgstr "Няма отзиви"
+msgstr "Няма отзиви с една звезда"
 
 #: src/amo/components/RatingsByStar/index.js:136 src/amo/pages/AddonReviewList/index.js:371
 msgid "There are no reviews"
@@ -1622,11 +1617,10 @@ msgstr[0] "Намерена е %(count)s добавка"
 msgstr[1] "Намерени са %(count)s добавки"
 
 #: src/amo/components/SearchContextCard/index.js:134
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "Намерена е %(count)s тема при търсене на „%(query)s“ в %(categoryName)s"
-msgstr[1] "Намерени са %(count)s теми при търсене на „%(query)s“ в %(categoryName)s"
+msgstr[0] "Намерена е %(count)s тема при търсене на „%(query)s“ с етикет %(tag)s в %(categoryName)s"
+msgstr[1] "Намерени са %(count)s теми при търсене на „%(query)s“ с етикет %(tag)s в %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:143
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -1774,12 +1768,11 @@ msgstr "Популярност"
 
 #: src/amo/components/SearchFilters/index.js:179
 msgid "Any"
-msgstr ""
+msgstr "Всички"
 
 #: src/amo/components/SearchFilters/index.js:190
-#, fuzzy
 msgid "All Reviewed"
-msgstr "Отзив"
+msgstr "Всички прегледани"
 
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Filter results"
@@ -1795,7 +1788,7 @@ msgstr "Вид на добавката"
 
 #: src/amo/components/SearchFilters/index.js:260
 msgid "Badging"
-msgstr ""
+msgstr "Значка"
 
 #: src/amo/components/SearchForm/index.js:65
 msgid "Firefox Add-ons for Android"
