@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-05-18 08:05+0000\n"
-"PO-Revision-Date: 2022-06-02 06:30+0000\n"
+"PO-Revision-Date: 2022-06-02 06:42+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -112,9 +112,8 @@ msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "Изтеглете %(addonName)s за Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:69
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Добавки за Firefox"
+msgstr "%(addonName)s – Вземете речника за 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:74
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
@@ -129,14 +128,13 @@ msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Вземете тема за 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:90
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Добавки за Firefox"
+msgstr "%(addonName)s – Вземете добавката за 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:97
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Вземете разширението за 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
@@ -258,21 +256,19 @@ msgstr "Статистика на използване"
 
 #: src/amo/components/AddonMoreInfo/index.js:387
 msgid "Tags"
-msgstr ""
+msgstr "Етикети"
 
 #: src/amo/components/AddonMoreInfo/index.js:403
 msgid "More information"
-msgstr "Повече сведения"
+msgstr "Повече информация"
 
 #: src/amo/components/AddonQRCode/index.js:101
-#, fuzzy
 msgid "Get %(addonName)s for Android"
-msgstr "Добавки за Android"
+msgstr "Вземете %(addonName)s за Android"
 
 #: src/amo/components/AddonQRCode/index.js:134
-#, fuzzy
 msgid "Dismiss this message"
-msgstr "Скриване на известието"
+msgstr "Скриване на съобщението"
 
 #: src/amo/components/AddonQRCode/index.js:89
 msgid "To get %(addonName)s on Firefox for Android, point your device camera to the code above or copy %(linkStart)sthis link%(linkEnd)s"
@@ -280,7 +276,7 @@ msgstr ""
 
 #: src/amo/components/AddonQRCodeLink/index.js:87
 msgid "Also available on Firefox for Android"
-msgstr ""
+msgstr "Предлага се и за Firefox за Android"
 
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
@@ -368,9 +364,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "публикувано на %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:371
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "от %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "от %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:374
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -554,7 +549,7 @@ msgstr "От %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/AMInstallButton/index.js:147
 msgid "Enable"
-msgstr ""
+msgstr "Включване"
 
 #: src/amo/components/AMInstallButton/index.js:150 src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
@@ -562,12 +557,11 @@ msgstr "Премахване"
 
 #: src/amo/components/AMInstallButton/index.js:152
 msgid "Enabling"
-msgstr ""
+msgstr "Включване"
 
 #: src/amo/components/AMInstallButton/index.js:154
-#, fuzzy
 msgid "Disabling"
-msgstr "Премахване"
+msgstr "Изключване"
 
 #: src/amo/components/AMInstallButton/index.js:156
 msgid "Downloading"
@@ -610,13 +604,12 @@ msgid "Log out"
 msgstr "Изход"
 
 #: src/amo/components/AuthenticateButton/index.js:93
-#, fuzzy
 msgid "Log in"
-msgstr "Изход"
+msgstr "Влизане"
 
 #: src/amo/components/AuthenticateButton/index.js:96 src/amo/components/Header/index.js:143
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Това действие в момента е недостъпно. Презаредете страницата."
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
@@ -978,7 +971,7 @@ msgstr "Политика за разработчици"
 
 #: src/amo/components/Footer/index.js:115
 msgid "Community Blog"
-msgstr ""
+msgstr "Блог на общността"
 
 #: src/amo/components/Footer/index.js:120
 msgid "Forum"
@@ -1029,9 +1022,8 @@ msgid "About"
 msgstr "Относно"
 
 #: src/amo/components/Footer/index.js:68 src/amo/components/Header/index.js:197
-#, fuzzy
 msgid "Firefox Add-ons Blog"
-msgstr "Добавки за Firefox"
+msgstr "Блог на Добавки за Firefox"
 
 #: src/amo/components/Footer/index.js:81 src/amo/components/Header/index.js:213
 msgid "Extension Workshop"
@@ -1051,7 +1043,7 @@ msgstr "Изтеглете Firefox и вземете темата"
 
 #: src/amo/components/GetFirefoxButton/index.js:134
 msgid "Download Firefox and get the extension"
-msgstr ""
+msgstr "Изтеглете Firefox и вземете разширението"
 
 #: src/amo/components/GetFirefoxButton/index.js:138
 msgid "Download the new Firefox and get the theme"
@@ -1070,19 +1062,16 @@ msgid "You'll need Firefox to use this theme"
 msgstr "За да използвате тази тема, ще ви е необходим Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:147
-#, fuzzy
 msgid "You'll need Firefox to use this extension"
-msgstr "За да оцените разширението се впишете"
+msgstr "За да използвате това разширение, ще ви е необходим Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:151
-#, fuzzy
 msgid "You need an updated version of Firefox for this theme"
-msgstr "За да оцените тази тема се впишете"
+msgstr "За да използвате тази тема, ще ви е необходимо по-ново издание Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:152
-#, fuzzy
 msgid "You need an updated version of Firefox for this extension"
-msgstr "За да оцените разширението се впишете"
+msgstr "За да използвате това разширение, ще ви е необходимо по-ново издание Firefox"
 
 #: src/amo/components/Header/index.js:101
 msgid "Tools"
@@ -1180,7 +1169,7 @@ msgstr "Препоръчани"
 
 #: src/amo/components/IconPromotedBadge/index.js:48 src/amo/components/PromotedBadge/index.js:56 src/amo/components/SearchFilters/index.js:186
 msgid "Verified"
-msgstr ""
+msgstr "Проверено"
 
 #: src/amo/components/InstallButtonWrapper/index.js:127
 msgid "Download file"
@@ -1219,14 +1208,12 @@ msgid "Permissions"
 msgstr "Права"
 
 #: src/amo/components/PermissionsCard/index.js:84
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "Добавката може да:"
+msgstr "Добавката иска:"
 
 #: src/amo/components/PermissionsCard/index.js:94
-#, fuzzy
 msgid "This add-on may also ask to:"
-msgstr "Добавката може да:"
+msgstr "Добавката също може да иска:"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify bookmarks"
