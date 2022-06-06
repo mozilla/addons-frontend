@@ -1,17 +1,18 @@
-/* eslint-disable react/no-multi-comp, react/prop-types, max-classes-per-file */
-import { shallow } from 'enzyme';
+/* eslint-disable  react/prop-types, max-classes-per-file */
 import * as React from 'react';
+import userEvent from '@testing-library/user-event';
 
 import withUIState, { generateId } from 'amo/withUIState';
 import { setUIState } from 'amo/reducers/uiState';
 import {
-  applyUIStateChanges,
   dispatchClientMetadata,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('withUIState', () => {
+    const buttonText = 'Close overlay';
     let store;
 
     class OverlayBase extends React.Component {
@@ -33,7 +34,7 @@ describe(__filename, () => {
               onClick={this.closeOverlay}
               type="button"
             >
-              Close overlay
+              {buttonText}
             </button>
           </div>
         );
@@ -47,11 +48,7 @@ describe(__filename, () => {
     })(OverlayBase);
 
     const render = ({ id = 'some-id', ...props } = {}) => {
-      const root = shallowUntilTarget(
-        <Overlay id={id} store={store} {...props} />,
-        OverlayBase,
-      );
-      return root;
+      defaultRender(<Overlay id={id} {...props} />, { store });
     };
 
     beforeEach(() => {
@@ -63,23 +60,29 @@ describe(__filename, () => {
     });
 
     it('lets you manage UI state', () => {
-      const root = render();
-      expect(root.find('.overlay')).toHaveLength(1);
+      render();
 
       // Test that closing the overlay is hooked up to uiState.
-      root.find('.close-button').simulate('click');
-      applyUIStateChanges({ root, store });
+      userEvent.click(screen.getByRole('button', { name: buttonText }));
 
-      expect(root.find('.overlay')).toHaveLength(0);
+      expect(
+        screen.queryByRole('button', { name: buttonText }),
+      ).not.toBeInTheDocument();
     });
 
-    it('begins with an initial state', () => {
-      class ThingBase extends React.Component {
-        render() {
-          return <div />;
-        }
+    const propValue = 'Some prop from state';
+    const newValue = 'New prop value';
+
+    class ThingBase extends React.Component {
+      render() {
+        const { propFromState } = this.props.uiState;
+
+        return <div>{propFromState}</div>;
       }
-      const initialState = { visible: true };
+    }
+
+    it('begins with an initial state', () => {
+      const initialState = { propFromState: propValue };
 
       const Thing = withUIState({
         fileName: __filename,
@@ -87,18 +90,13 @@ describe(__filename, () => {
         initialState,
       })(ThingBase);
 
-      const root = shallowUntilTarget(<Thing store={store} />, ThingBase);
+      defaultRender(<Thing />, { store });
 
-      expect(root.instance().props.uiState).toEqual(initialState);
+      expect(screen.getByText(propValue)).toBeInTheDocument();
     });
 
     it('shares state across instances', () => {
-      class ThingBase extends React.Component {
-        render() {
-          return <div />;
-        }
-      }
-      const initialState = { visible: true };
+      const initialState = { propFromState: propValue };
 
       const Thing = withUIState({
         fileName: __filename,
@@ -108,16 +106,23 @@ describe(__filename, () => {
       })(ThingBase);
 
       // Create an instance and change its state.
-      const root1 = shallowUntilTarget(<Thing store={store} />, ThingBase);
-      root1.instance().props.setUIState({ visible: false });
-      applyUIStateChanges({ root: root1, store });
-      expect(root1.instance().props.uiState.visible).toEqual(false);
+      defaultRender(<Thing />, { store });
+      expect(screen.getByText(propValue)).toBeInTheDocument();
+
+      store.dispatch(
+        setUIState({
+          id: `${__filename}-shared-ID`,
+          change: { propFromState: newValue },
+        }),
+      );
+
+      expect(screen.getByText(newValue)).toBeInTheDocument();
 
       // Create a second instance.
-      const root2 = shallowUntilTarget(<Thing store={store} />, ThingBase);
-      applyUIStateChanges({ root: root2, store });
-      // Make sure the state is shared between the two instances.
-      expect(root2.instance().props.uiState.visible).toEqual(false);
+      defaultRender(<Thing />, { store });
+
+      // Expect both instances to have the same state.
+      expect(screen.getAllByText(newValue)).toHaveLength(2);
     });
 
     it('does not reset state when unmounting', () => {
@@ -127,16 +132,16 @@ describe(__filename, () => {
         initialState: { isOpen: true },
       })(OverlayBase);
 
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const root = shallow(
-        <NonResettingOverlay store={store} id="some-component-id" />,
-      )
-        .find('WithUIState(OverlayBase)')
-        .dive();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const { unmount } = defaultRender(
+        <NonResettingOverlay id="some-component-id" />,
+        { store },
+      );
 
-      root.unmount();
+      dispatch.mockClear();
+      unmount();
 
-      sinon.assert.notCalled(dispatchSpy);
+      expect(dispatch).not.toHaveBeenCalled();
     });
 
     it('can reset state when unmounting', () => {
@@ -149,40 +154,38 @@ describe(__filename, () => {
         resetOnUnmount: true,
       })(OverlayBase);
 
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const root = shallow(
-        <AutoResettingOverlay store={store} id="some-component-id" />,
-      )
-        .find('WithUIState(OverlayBase)')
-        .dive();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const { unmount } = defaultRender(
+        <AutoResettingOverlay id="some-component-id" />,
+        { store },
+      );
 
-      const { uiStateID } = root.instance().props;
-      root.unmount();
+      unmount();
 
-      sinon.assert.calledWith(
-        dispatchSpy,
+      expect(dispatch).toHaveBeenCalledWith(
         setUIState({
-          id: uiStateID,
+          id: `${__filename}-some-component-id`,
           change: initialState,
         }),
       );
     });
 
     it('lets you set a custom uiStateID', () => {
-      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const dispatch = jest.spyOn(store, 'dispatch');
       const uiStateID = 'my-custom-id';
-      const root = render({ uiStateID });
+      render({ uiStateID });
 
-      root.find('.close-button').simulate('click');
+      dispatch.mockClear();
 
-      sinon.assert.calledWith(
-        dispatchSpy,
+      userEvent.click(screen.getByRole('button', { name: buttonText }));
+
+      expect(dispatch).toHaveBeenCalledWith(
         setUIState({
           id: uiStateID,
           change: { isOpen: false },
         }),
       );
-      sinon.assert.callCount(dispatchSpy, 1);
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
   });
 
