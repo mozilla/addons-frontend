@@ -34,7 +34,6 @@ import {
   createFailedErrorHandler,
   createFakeClientCompatibility,
   createFakeErrorHandler,
-  createHistory,
   createInternalAddonWithLang,
   createInternalVersionWithLang,
   createLocalizedString,
@@ -83,17 +82,10 @@ describe(__filename, () => {
     jest.clearAllMocks().resetModules();
   });
 
-  const render = ({ history, location, slug = defaultSlug } = {}) => {
+  const render = ({ location, slug = defaultSlug } = {}) => {
     const initialEntry = location || getLocation(slug);
+    const renderOptions = { initialEntries: [initialEntry], store };
 
-    const renderOptions = {
-      history:
-        history ||
-        createHistory({
-          initialEntries: [initialEntry],
-        }),
-      store,
-    };
     return defaultRender(renderOptions);
   };
 

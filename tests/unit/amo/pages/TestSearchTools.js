@@ -1,20 +1,16 @@
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
-  createHistory,
   dispatchClientMetadata,
   renderPage as defaultRender,
   screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ store } = {}) => {
+  const render = ({ store } = {}) =>
     defaultRender({
-      history: createHistory({
-        initialEntries: ['/en-US/android/search-tools/'],
-      }),
+      initialEntries: ['/en-US/android/search-tools/'],
       store,
     });
-  };
 
   it('sends a server redirect to support old search tool URLs', () => {
     const { store } = dispatchClientMetadata();

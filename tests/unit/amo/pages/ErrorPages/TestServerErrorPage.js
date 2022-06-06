@@ -1,7 +1,6 @@
 import config from 'config';
 
 import {
-  createHistory,
   getMockConfig,
   renderPage as defaultRender,
   screen,
@@ -15,11 +14,7 @@ describe(__filename, () => {
   });
 
   const render = () =>
-    defaultRender({
-      history: createHistory({
-        initialEntries: ['/en-US/firefox/500/'],
-      }),
-    });
+    defaultRender({ initialEntries: ['/en-US/firefox/500/'] });
 
   it('renders a ServerError page in development', () => {
     const fakeConfig = getMockConfig({ isDevelopment: true });

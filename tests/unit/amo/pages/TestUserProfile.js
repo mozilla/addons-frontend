@@ -31,7 +31,6 @@ import {
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   createFailedErrorHandler,
-  createHistory,
   createUserAccountResponse,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
@@ -80,9 +79,7 @@ describe(__filename, () => {
 
   function renderUserProfile({ userId = defaultUserId, location } = {}) {
     const renderOptions = {
-      history: createHistory({
-        initialEntries: [location || getLocation({ userId })],
-      }),
+      initialEntries: [location || getLocation({ userId })],
       store,
     };
     return defaultRender(renderOptions);

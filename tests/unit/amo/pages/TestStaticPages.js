@@ -1,16 +1,8 @@
-import {
-  createHistory,
-  renderPage as defaultRender,
-  screen,
-} from 'tests/unit/helpers';
+import { renderPage as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render({ location }) {
-    return defaultRender({
-      history: createHistory({
-        initialEntries: [location],
-      }),
-    });
+    return defaultRender({ initialEntries: [location] });
   }
 
   it('outputs the about page', () => {

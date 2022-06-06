@@ -1,7 +1,6 @@
 import config from 'config';
 
 import {
-  createHistory,
   getMockConfig,
   renderPage as defaultRender,
   screen,
@@ -15,11 +14,7 @@ describe(__filename, () => {
   });
 
   const render = () =>
-    defaultRender({
-      history: createHistory({
-        initialEntries: ['/en-US/firefox/401/'],
-      }),
-    });
+    defaultRender({ initialEntries: ['/en-US/firefox/401/'] });
 
   it('renders a NotAuthorized page in development', () => {
     const fakeConfig = getMockConfig({ isDevelopment: true });

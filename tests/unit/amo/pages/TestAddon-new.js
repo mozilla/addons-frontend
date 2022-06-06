@@ -55,7 +55,6 @@ import tracking from 'amo/tracking';
 import { getCanonicalURL, getPromotedBadgesLinkUrl } from 'amo/utils';
 import { getAddonJsonLinkedData } from 'amo/utils/addons';
 import {
-  createHistory,
   createFailedErrorHandler,
   createLocalizedString,
   dispatchClientMetadata,
@@ -118,9 +117,7 @@ describe(__filename, () => {
 
   const render = ({ location, slug = defaultSlug } = {}) => {
     const renderOptions = {
-      history: createHistory({
-        initialEntries: [location || getLocation(slug)],
-      }),
+      initialEntries: [location || getLocation(slug)],
       store,
     };
 

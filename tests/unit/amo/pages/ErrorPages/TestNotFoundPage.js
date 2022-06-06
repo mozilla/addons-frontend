@@ -1,7 +1,6 @@
 import { oneLine } from 'common-tags';
 
 import {
-  createHistory,
   fakeI18n,
   renderPage as defaultRender,
   screen,
@@ -10,9 +9,7 @@ import {
 describe(__filename, () => {
   const render = (i18n = fakeI18n()) =>
     defaultRender({
-      history: createHistory({
-        initialEntries: ['/en-US/firefox/404/'],
-      }),
+      initialEntries: ['/en-US/firefox/404/'],
       i18n,
     });
 

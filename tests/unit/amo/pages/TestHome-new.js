@@ -52,7 +52,6 @@ import { addQueryParams } from 'amo/utils/url';
 import {
   createAddonsApiResult,
   createFailedErrorHandler,
-  createHistory,
   createHomeShelves,
   createLocalizedString,
   createPrimaryHeroShelf,
@@ -100,16 +99,11 @@ describe(__filename, () => {
     jest.clearAllMocks().resetModules();
   });
 
-  const render = ({ location = getLocation() } = {}) => {
-    const renderOptions = {
-      history: createHistory({
-        initialEntries: [location],
-      }),
+  const render = ({ location = getLocation() } = {}) =>
+    defaultRender({
+      initialEntries: [location],
       store,
-    };
-
-    return defaultRender(renderOptions);
-  };
+    });
 
   const _createHomeShelves = ({
     primaryProps = { addon: fakeAddon },

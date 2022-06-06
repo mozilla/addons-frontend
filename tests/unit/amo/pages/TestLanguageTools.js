@@ -9,7 +9,6 @@ import { loadLanguageTools } from 'amo/reducers/languageTools';
 import { getCanonicalURL } from 'amo/utils';
 import {
   createFakeLanguageTool,
-  createHistory,
   dispatchClientMetadata,
   getElement,
   renderPage as defaultRender,
@@ -95,9 +94,7 @@ describe(__filename, () => {
 
   function render() {
     return defaultRender({
-      history: createHistory({
-        initialEntries: [`/${lang}/${clientApp}/language-tools/`],
-      }),
+      initialEntries: [`/${lang}/${clientApp}/language-tools/`],
       store,
     });
   }
