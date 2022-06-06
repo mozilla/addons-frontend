@@ -12,6 +12,68 @@ const JS_CHUNK_EXCLUDES = new RegExp(
   `(?:${config.get('jsChunkExclusions').join('|')})`,
 );
 
+function getSriProps(assetName, includeSri, sriData) {
+  let sriProps = {};
+  if (!includeSri) {
+    return sriProps;
+  }
+
+  sriProps = {
+    integrity: sriData[assetName],
+    crossOrigin: 'anonymous',
+  };
+
+  if (!sriProps.integrity) {
+    throw new Error(`SRI Data is missing for "${assetName}"`);
+  }
+
+  return sriProps;
+}
+
+export function getStatic({ filePath, type, index, includeSri, sriData }) {
+  const leafName = filePath.split('/').pop();
+
+  if (!JS_CHUNK_EXCLUDES.test(leafName)) {
+    switch (type) {
+      case 'css':
+        return (
+          <link
+            href={filePath}
+            {...getSriProps(leafName, includeSri, sriData)}
+            key={type + index}
+            rel="stylesheet"
+            type="text/css"
+          />
+        );
+      case 'js':
+        return (
+          <script
+            key={type + index}
+            src={filePath}
+            {...getSriProps(leafName, includeSri, sriData)}
+          />
+        );
+      case 'font':
+        return (
+          <link
+            href={filePath}
+            // We don't generate integrity data for fonts, so avoid calling
+            // getSriProps() - it would fail.
+            crossOrigin="anonymous"
+            key={type + index}
+            rel="preload"
+            as="font"
+            type="font/woff2"
+          />
+        );
+      default:
+        throw new Error('Unknown static type');
+    }
+  } else {
+    return null;
+  }
+}
+
 export default class ServerHtml extends Component {
   static propTypes = {
     appState: PropTypes.object.isRequired,
@@ -32,70 +94,6 @@ export default class ServerHtml extends Component {
     _config: config,
   };
 
-  getSriProps(assetName) {
-    const { includeSri, sriData } = this.props;
-
-    let sriProps = {};
-    if (!includeSri) {
-      return sriProps;
-    }
-
-    sriProps = {
-      integrity: sriData[assetName],
-      crossOrigin: 'anonymous',
-    };
-
-    if (!sriProps.integrity) {
-      throw new Error(`SRI Data is missing for "${assetName}"`);
-    }
-
-    return sriProps;
-  }
-
-  getStatic({ filePath, type, index }) {
-    const leafName = filePath.split('/').pop();
-
-    if (!JS_CHUNK_EXCLUDES.test(leafName)) {
-      switch (type) {
-        case 'css':
-          return (
-            <link
-              href={filePath}
-              {...this.getSriProps(leafName)}
-              key={type + index}
-              rel="stylesheet"
-              type="text/css"
-            />
-          );
-        case 'js':
-          return (
-            <script
-              key={type + index}
-              src={filePath}
-              {...this.getSriProps(leafName)}
-            />
-          );
-        case 'font':
-          return (
-            <link
-              href={filePath}
-              // We don't generate integrity data for fonts, so avoid calling
-              // getSriProps() - it would fail.
-              crossOrigin="anonymous"
-              key={type + index}
-              rel="preload"
-              as="font"
-              type="font/woff2"
-            />
-          );
-        default:
-          throw new Error('Unknown static type');
-      }
-    } else {
-      return null;
-    }
-  }
-
   getAnalytics() {
     if (this.props.trackingEnabled) {
       return (
@@ -106,16 +104,28 @@ export default class ServerHtml extends Component {
   }
 
   getStyle() {
-    const { assets } = this.props;
+    const { assets, includeSri, sriData } = this.props;
     return Object.keys(assets.styles).map((style, index) =>
-      this.getStatic({ filePath: assets.styles[style], type: 'css', index }),
+      getStatic({
+        filePath: assets.styles[style],
+        type: 'css',
+        index,
+        includeSri,
+        sriData,
+      }),
     );
   }
 
   getScript() {
-    const { assets } = this.props;
+    const { assets, includeSri, sriData } = this.props;
     return Object.keys(assets.javascript).map((js, index) =>
-      this.getStatic({ filePath: assets.javascript[js], type: 'js', index }),
+      getStatic({
+        filePath: assets.javascript[js],
+        type: 'js',
+        index,
+        includeSri,
+        sriData,
+      }),
     );
   }
 
@@ -127,7 +137,7 @@ export default class ServerHtml extends Component {
   }
 
   getFontPreload() {
-    const { assets } = this.props;
+    const { assets, includeSri, sriData } = this.props;
     // Preload variable font(s) with `subset` in their name.
     // Note the .* after '.var': this is for the contenthash that is added in
     // production builds.
@@ -136,10 +146,12 @@ export default class ServerHtml extends Component {
     return Object.keys(assets.assets)
       .filter((asset) => subsetFontPattern.test(asset))
       .map((asset, index) =>
-        this.getStatic({
+        getStatic({
           filePath: assets.assets[asset],
           type: 'font',
           index,
+          includeSri,
+          sriData,
         }),
       );
   }
