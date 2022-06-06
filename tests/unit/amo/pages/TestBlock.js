@@ -1,322 +1,270 @@
-/* eslint camelcase: 0 */
-import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 
-import Block, { extractId, BlockBase } from 'amo/pages/Block';
-import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
-import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
-import Page from 'amo/components/Page';
-import Card from 'amo/components/Card';
-import LoadingText from 'amo/components/LoadingText';
-import { abortFetchBlock, fetchBlock, loadBlock } from 'amo/reducers/blocks';
-import { ErrorHandler } from 'amo/errorHandler';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import { extractId } from 'amo/pages/Block';
+import {
+  FETCH_BLOCK,
+  abortFetchBlock,
+  fetchBlock,
+  loadBlock,
+} from 'amo/reducers/blocks';
 import { createApiError } from 'amo/api';
 import {
+  createFailedErrorHandler,
   createFakeBlockResult,
   createLocalizedString,
-  createStubErrorHandler,
   dispatchClientMetadata,
   fakeI18n,
-  shallowUntilTarget,
+  getElement,
+  renderPage as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ guid = 'some-guid', ...props } = {}) => {
-    const allProps = {
-      store: dispatchClientMetadata().store,
-      i18n: fakeI18n(),
-      match: {
-        params: {
-          guid,
-        },
-      },
-      ...props,
-    };
+  const clientApp = CLIENT_APP_FIREFOX;
+  const defaultGuid = 'someGuid';
+  const lang = 'en-US';
+  const getErrorHandlerId = (guid = defaultGuid) =>
+    `src/amo/pages/Block/index.js-${guid}`;
+  const getLocation = (guid = defaultGuid) =>
+    `/${lang}/${clientApp}/blocked-addon/${guid}/`;
+  let store;
 
-    return shallowUntilTarget(<Block {...allProps} />, BlockBase);
-  };
+  beforeEach(() => {
+    store = dispatchClientMetadata({ clientApp, lang }).store;
+  });
+
+  const render = ({ guid = defaultGuid } = {}) =>
+    defaultRender({
+      initialEntries: [getLocation(guid)],
+      store,
+    });
+
+  const _createFakeBlockResult = ({ guid = defaultGuid, ...props } = {}) =>
+    createFakeBlockResult({ guid, ...props });
 
   it('dispatches fetchBlock when block is undefined', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
-    const guid = 'some-guid';
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    render({ errorHandler, store, guid });
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      fetchBlock({ guid, errorHandlerId: errorHandler.id }),
+    expect(dispatch).toHaveBeenCalledWith(
+      fetchBlock({ guid: defaultGuid, errorHandlerId: getErrorHandlerId() }),
     );
-
-    sinon.assert.calledOnce(dispatchSpy);
+    // dispatch is always called with LOCATION_CHANGE on render.
+    expect(dispatch).toHaveBeenCalledTimes(2);
   });
 
   it('does not fetch a block if it has already been loaded', () => {
-    const guid = 'some-guid';
-    const block = createFakeBlockResult({ guid });
-    const { store } = dispatchClientMetadata();
+    const block = _createFakeBlockResult();
     store.dispatch(loadBlock({ block }));
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
+    render();
 
-    render({ store, guid });
-
-    sinon.assert.notCalled(dispatchSpy);
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_BLOCK }),
+    );
   });
 
   it('does not fetch a block if fetch was aborted', () => {
-    const guid = 'some-guid';
-    const { store } = dispatchClientMetadata();
-    store.dispatch(abortFetchBlock({ guid }));
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    store.dispatch(abortFetchBlock({ guid: defaultGuid }));
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    render({ store, guid });
-
-    sinon.assert.notCalled(dispatchSpy);
+    render();
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_BLOCK }),
+    );
   });
 
   it('fetches a block if it has not already been loaded', () => {
     const guid1 = 'some-guid-already-loaded';
     const guid2 = 'some-guid-not-loaded-yet';
-    const block1 = createFakeBlockResult({ guid: guid1 });
-    const errorHandler = createStubErrorHandler();
-    const { store } = dispatchClientMetadata();
+    const block1 = _createFakeBlockResult({ guid: guid1 });
     // We load the block with `guid-1`.
     store.dispatch(loadBlock({ block: block1 }));
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
     // We want to render the page with `guid-2`.
-    render({ errorHandler, store, guid: guid2 });
+    render({ guid: guid2 });
 
-    sinon.assert.calledWith(
-      dispatchSpy,
-      fetchBlock({ guid: guid2, errorHandlerId: errorHandler.id }),
+    expect(dispatch).toHaveBeenCalledWith(
+      fetchBlock({ guid: guid2, errorHandlerId: getErrorHandlerId(guid2) }),
     );
-
-    sinon.assert.calledOnce(dispatchSpy);
   });
 
   it('renders a NotFoundPage when the block was not found', () => {
-    const guid = 'some-guid';
-    const { store } = dispatchClientMetadata();
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(
-      createApiError({
+    createFailedErrorHandler({
+      error: createApiError({
         response: { status: 404 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'not found' },
       }),
-    );
-    store.dispatch(abortFetchBlock({ guid }));
+      id: getErrorHandlerId(),
+      store,
+    });
+    render();
 
-    const root = render({ errorHandler, store, guid });
-
-    expect(root.find(NotFoundPage)).toHaveLength(1);
+    expect(
+      screen.getByText('Oops! We can’t find that page'),
+    ).toBeInTheDocument();
   });
 
   it('renders a ServerErrorPage when there is a non-404 error', () => {
-    const guid = 'some-guid';
-    const { store } = dispatchClientMetadata();
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(
-      createApiError({
+    createFailedErrorHandler({
+      error: createApiError({
         response: { status: 500 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'not found' },
       }),
-    );
-    store.dispatch(abortFetchBlock({ guid }));
+      id: getErrorHandlerId(),
+      store,
+    });
+    render();
 
-    const root = render({ errorHandler, store, guid });
-
-    expect(root.find(ServerErrorPage)).toHaveLength(1);
+    expect(screen.getByText('Server Error')).toBeInTheDocument();
   });
 
   it('renders a page with loading indicators when a block has not been loaded yet', () => {
-    const partialTitle = 'This add-on has been';
+    render();
 
-    const root = render();
-
-    expect(root.find(Page)).toHaveLength(1);
-    expect(root.find('title')).toIncludeText(partialTitle);
-    expect(root.find(Card)).toHaveLength(1);
-    expect(root.find(Card)).toHaveProp(
-      'header',
-      expect.stringMatching(partialTitle),
-    );
-    expect(root.find(LoadingText)).toHaveLength(3);
-    expect(root.find('.Block-reason').find(LoadingText)).toHaveLength(1);
+    expect(
+      within(screen.getByClassName('Block-reason')).getAllByRole('alert'),
+    ).toHaveLength(1);
     // 1. versions blocked
     // 2. date and URL
-    expect(root.find('.Block-metadata').find(LoadingText)).toHaveLength(2);
+    expect(
+      within(screen.getByClassName('Block-metadata')).getAllByRole('alert'),
+    ).toHaveLength(2);
   });
 
-  it('renders a generic header/title when the block has no add-on name', () => {
-    const guid = 'some-guid';
-    const addonName = null;
-    const block = createFakeBlockResult({ guid, addonName });
-    const partialTitle = `This add-on has been`;
-    const { store } = dispatchClientMetadata();
+  it('renders a generic header/title when the block has no add-on name', async () => {
+    const block = _createFakeBlockResult({ addonName: null });
+    const title = 'This add-on has been blocked for your protection.';
     store.dispatch(loadBlock({ block }));
+    render();
 
-    const root = render({ store, guid });
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
 
-    expect(root.find('title')).toIncludeText(partialTitle);
-    expect(root.find(Card)).toHaveProp(
-      'header',
-      expect.stringMatching(partialTitle),
+    expect(getElement('title')).toHaveTextContent(
+      `${title} – Add-ons for Firefox (${lang})`,
     );
+    expect(screen.getByText(title)).toBeInTheDocument();
   });
 
-  it('renders the name of the add-on in the title/header when the block has one', () => {
-    const guid = 'some-guid';
+  it('renders the name of the add-on in the title/header when the block has one', async () => {
     const name = 'some-addon-name';
-    const block = createFakeBlockResult({
-      guid,
+    const block = _createFakeBlockResult({
       addonName: createLocalizedString(name),
     });
-
-    const { store } = dispatchClientMetadata();
+    const title = `${name} has been blocked for your protection.`;
     store.dispatch(loadBlock({ block }));
+    render();
 
-    const root = render({ store, guid });
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
 
-    expect(root.find(Card)).toHaveProp(
-      'header',
-      expect.stringMatching(`${name} has been`),
+    expect(getElement('title')).toHaveTextContent(
+      `${title} – Add-ons for Firefox (${lang})`,
     );
+    expect(screen.getByText(title)).toBeInTheDocument();
   });
 
   it('renders a paragraph with the reason when the block has one', () => {
-    const guid = 'some-guid';
     const reason = 'this is a reason for a block';
-    const block = createFakeBlockResult({ guid, reason });
-    const { store } = dispatchClientMetadata();
+    const block = _createFakeBlockResult({ reason });
     store.dispatch(loadBlock({ block }));
+    render();
 
-    const root = render({ store, guid });
-
-    expect(root.find('.Block-reason')).toHaveLength(1);
-    expect(root.find('.Block-reason')).toHaveText(reason);
+    expect(screen.getByText(reason)).toBeInTheDocument();
   });
 
   it('does not render a reason if the block does not have one', () => {
-    const guid = 'some-guid';
-    const reason = null;
-    const block = createFakeBlockResult({ guid, reason });
-    const { store } = dispatchClientMetadata();
+    const block = _createFakeBlockResult({ reason: null });
     store.dispatch(loadBlock({ block }));
+    render();
 
-    const root = render({ store, guid });
-
-    expect(root.find('.Block-reason')).toHaveLength(0);
+    expect(screen.queryByClassName('Block-reason')).not.toBeInTheDocument();
   });
 
   it('renders "all versions" when min is 0 and max is *', () => {
-    const guid = 'some-guid';
-    const min_version = '0';
-    const max_version = '*';
-    const block = createFakeBlockResult({ guid, min_version, max_version });
-    const { store } = dispatchClientMetadata();
+    const block = _createFakeBlockResult({
+      min_version: '0',
+      max_version: '*',
+    });
+    const i18n = fakeI18n();
     store.dispatch(loadBlock({ block }));
+    render();
 
-    const root = render({ store, guid });
-
-    expect(root.find('.Block-metadata')).toIncludeText(
-      `Versions blocked: all versions.`,
-    );
+    // The version info and the block date are inside the same tag, separated
+    // by a </br>.
+    expect(
+      screen.getByTextAcrossTags(
+        `Versions blocked: all versions.Blocked on ${i18n
+          .moment(block.created)
+          .format('ll')}.`,
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders the min/max versions if min is not 0 and max is not *', () => {
-    const guid = 'some-guid';
-    const min_version = '12';
-    const max_version = '34';
-    const block = createFakeBlockResult({ guid, min_version, max_version });
-    const { store } = dispatchClientMetadata();
+    const min = '12';
+    const max = '34';
+    const block = _createFakeBlockResult({
+      min_version: min,
+      max_version: max,
+    });
+    const i18n = fakeI18n();
     store.dispatch(loadBlock({ block }));
+    render();
 
-    const root = render({ store, guid });
-
-    expect(root.find('.Block-metadata')).toIncludeText(
-      `Versions blocked: ${min_version} to ${max_version}`,
-    );
+    // The version info and the block date are inside the same tag, separated
+    // by a </br>.
+    expect(
+      screen.getByTextAcrossTags(
+        `Versions blocked: ${min} to ${max}.Blocked on ${i18n
+          .moment(block.created)
+          .format('ll')}.`,
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders the reason with HTML tags removed', () => {
-    const guid = 'some-guid';
-    const reason = '<a>this is a reason for a block</a>';
-    const block = createFakeBlockResult({ guid, reason });
-    const { store } = dispatchClientMetadata();
+    const reason = 'this is a <a>reason for a block</a>';
+    const block = _createFakeBlockResult({ reason });
     store.dispatch(loadBlock({ block }));
+    render();
 
-    const root = render({ store, guid });
-
-    expect(root.find('.Block-reason')).toHaveText(
-      'this is a reason for a block',
-    );
-  });
-
-  it('renders the block date', () => {
-    const guid = 'some-guid';
-    const created = '2020-01-29T11:10:02Z';
-    const block = createFakeBlockResult({ guid, created });
-    const { store } = dispatchClientMetadata();
-    store.dispatch(loadBlock({ block }));
-    const i18n = fakeI18n();
-
-    const root = render({ store, guid });
-
-    expect(root.find('.Block-metadata')).toIncludeText(
-      `Blocked on ${i18n.moment(created).format('ll')}`,
-    );
+    expect(
+      screen.getByText('this is a reason for a block'),
+    ).toBeInTheDocument();
   });
 
   it('renders the block URL if there is one', () => {
-    const guid = 'some-guid';
     const url = {
       url: 'http://example.org/block/reason/maybe',
       outgoing: 'https://outgoing.mozilla.org/bbb',
     };
-    const block = createFakeBlockResult({ guid, url });
-    const { store } = dispatchClientMetadata();
+    const block = _createFakeBlockResult({ url });
     store.dispatch(loadBlock({ block }));
+    render();
 
-    const root = render({ store, guid });
-
-    expect(root.find('.Block-metadata').html()).toContain(
-      `<a href="${url.outgoing}" title="${url.url}">View block request</a>.`,
-    );
+    expect(screen.getByTitle(url.url)).toHaveAttribute('href', url.outgoing);
   });
 
   it('does not render any link when there is no block URL', () => {
-    const guid = 'some-guid';
-    const url = null;
-    const block = createFakeBlockResult({ guid, url });
-    const { store } = dispatchClientMetadata();
+    const block = _createFakeBlockResult({ url: null });
     store.dispatch(loadBlock({ block }));
+    render();
 
-    const root = render({ store, guid });
-
-    expect(root.find('.Block-metadata')).not.toIncludeText(
-      'View block request',
-    );
+    expect(
+      // eslint-disable-next-line testing-library/prefer-presence-queries
+      within(screen.getByClassName('Block-metadata')).queryByRole('link'),
+    ).not.toBeInTheDocument();
   });
 
-  it('renders a robots meta tag', () => {
-    const guid = 'some-guid';
-    const block = createFakeBlockResult({ guid });
-    const { store } = dispatchClientMetadata();
-    store.dispatch(loadBlock({ block }));
+  it('renders a robots meta tag', async () => {
+    render();
 
-    const root = render({ store, guid });
+    await waitFor(() =>
+      expect(getElement('meta[name="robots"]')).toBeInTheDocument(),
+    );
 
-    expect(root.find('meta[name="robots"]')).toHaveLength(1);
-    expect(root.find('meta[name="robots"]')).toHaveProp(
+    expect(getElement('meta[name="robots"]')).toHaveAttribute(
       'content',
       'noindex, follow',
     );
