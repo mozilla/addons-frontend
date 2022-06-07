@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
-import { shallow } from 'enzyme';
+import userEvent from '@testing-library/user-event';
 
 import { createFakeApiError } from 'tests/unit/amo/reducers/test_errors';
 import { createApiError } from 'amo/api/index';
-import { ERROR_UNKNOWN } from 'amo/constants';
 import translate from 'amo/i18n/translate';
 import { clearError, setError, setErrorMessage } from 'amo/actions/errors';
 import {
@@ -15,69 +14,79 @@ import {
   withRenderedErrorHandler,
 } from 'amo/errorHandler';
 import {
+  createCapturedErrorHandler,
   dispatchClientMetadata,
-  fakeI18n,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
-import ErrorList from 'amo/components/ErrorList';
 
 class SomeComponentBase extends React.Component {
   static propTypes = {
+    color: PropTypes.string,
     // eslint-disable-next-line react/no-unused-prop-types
     errorHandler: PropTypes.object,
   };
 
+  handleError: () => void = () => {
+    this.props.errorHandler.handle(new Error());
+  };
+
   render() {
-    return <div className="SomeComponent">Component text</div>;
+    return (
+      <div className="SomeComponent">
+        <input
+          name="inputName"
+          onClick={this.handleError}
+          readOnly
+          value={this.props.errorHandler.id}
+        />
+        <div>color: {this.props.color}</div>
+      </div>
+    );
   }
 }
 
-function createErrorStore() {
-  return dispatchClientMetadata().store;
-}
+describe(__filename, () => {
+  let store;
 
-function renderWithStore({
-  id,
-  store = createErrorStore(),
-  decorator = withErrorHandler,
-  customProps = {},
-  ShallowTarget = SomeComponentBase,
-  ...options
-} = {}) {
-  const ComponentWithErrorHandling = compose(
-    translate(),
-    decorator({
-      id,
-      name: 'SomeComponent',
-      ...options,
-    }),
-  )(SomeComponentBase);
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
 
-  const props = {
-    i18n: fakeI18n(),
-    store,
-    ...customProps,
+  const render = ({
+    id,
+    decorator = withErrorHandler,
+    customProps = {},
+    ...options
+  } = {}) => {
+    const ComponentWithErrorHandling = compose(
+      translate(),
+      decorator({
+        id,
+        name: 'SomeComponent',
+        ...options,
+      }),
+    )(SomeComponentBase);
+
+    return defaultRender(<ComponentWithErrorHandling {...customProps} />, {
+      store,
+    });
   };
 
-  return shallowUntilTarget(
-    <ComponentWithErrorHandling {...props} />,
-    ShallowTarget,
-  );
-}
+  const getInput = () => screen.getByRole('textbox');
 
-describe(__filename, () => {
   describe('withErrorHandler', () => {
     it('provides a unique errorHandler property', () => {
-      const root = renderWithStore();
+      const id = 'Some-unique-id';
+      render({ id });
 
-      const { errorHandler } = root.instance().props;
-      expect(errorHandler).toBeInstanceOf(ErrorHandler);
-      expect(errorHandler.id).toMatch(/^SomeComponent-/);
+      // The id assigned to the errorHandler is the value of the input.
+      expect(getInput()).toHaveValue(id);
     });
 
     it('throws an error if both `id` and `extractId` parameters are given', () => {
       expect(() => {
-        renderWithStore({
+        render({
           id: 'error-handler-id',
           extractId: () => 'unique-id',
         });
@@ -86,7 +95,7 @@ describe(__filename, () => {
 
     it('throws an error if `extractId` is not a function', () => {
       expect(() => {
-        renderWithStore({
+        render({
           extractId: 'invalid type',
         });
       }).toThrow(
@@ -95,7 +104,7 @@ describe(__filename, () => {
     });
 
     it('creates an error handler ID with `extractId`', () => {
-      const root = renderWithStore({
+      render({
         // Passed to the wrapped component.
         customProps: {
           propWithUniqueValue: '1234',
@@ -104,18 +113,15 @@ describe(__filename, () => {
         extractId: (ownProps) => ownProps.propWithUniqueValue,
       });
 
-      expect(root.instance().props.errorHandler.id).toEqual(
-        'SomeComponent-1234',
-      );
+      expect(getInput()).toHaveValue('SomeComponent-1234');
     });
 
     it('creates a unique handler ID per wrapped component', () => {
-      const component1 = renderWithStore();
-      const component2 = renderWithStore();
+      render();
+      render();
 
-      expect(component1.instance().props.errorHandler.id).not.toEqual(
-        component2.instance().props.errorHandler.id,
-      );
+      const inputs = screen.getAllByRole('textbox');
+      expect(inputs[0].value).not.toEqual(inputs[1].value);
     });
 
     it('creates a unique handler ID per component instance', () => {
@@ -125,42 +131,32 @@ describe(__filename, () => {
       })(SomeComponent);
 
       const getRenderedComponent = () => {
-        return shallowUntilTarget(
-          <ComponentWithErrorHandling store={createErrorStore()} />,
-          SomeComponent,
-        );
+        render(<ComponentWithErrorHandling />);
       };
 
-      const component1 = getRenderedComponent();
-      const component2 = getRenderedComponent();
+      getRenderedComponent();
+      getRenderedComponent();
 
-      expect(component1.instance().props.errorHandler.id).not.toEqual(
-        component2.instance().props.errorHandler.id,
-      );
+      const inputs = screen.getAllByRole('textbox');
+      expect(inputs[0].value).not.toEqual(inputs[1].value);
     });
 
     it('allows you to set a custom error handler', () => {
-      const errorHandler = new ErrorHandler({
-        id: 'my-custom-id',
-      });
-      const root = renderWithStore({
-        customProps: { errorHandler },
-      });
+      const id = 'my-custom-id';
+      const errorHandler = new ErrorHandler({ id });
+      render({ customProps: { errorHandler } });
 
-      expect(root.instance().props.errorHandler).toBe(errorHandler);
-      expect(root.instance().props.errorHandler.id).toEqual('my-custom-id');
+      expect(getInput()).toHaveValue(id);
     });
 
     it('adjusts the dispatch property of a custom error handler', () => {
-      const store = createErrorStore();
-      const dispatch = sinon.stub(store, 'dispatch');
+      const dispatch = jest.spyOn(store, 'dispatch');
       const errorHandler = new ErrorHandler({
         id: 'my-custom-id',
       });
 
       // This should configure the errorHandler's dispatch function.
-      renderWithStore({
-        store,
+      render({
         decorator: withErrorHandler,
         customProps: { errorHandler },
       });
@@ -169,36 +165,34 @@ describe(__filename, () => {
       errorHandler.handle(error);
 
       const expectedAction = errorHandler.createErrorAction(error);
-      sinon.assert.calledWith(dispatch, expectedAction);
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
 
     it('configures an error handler for action dispatching', () => {
-      const store = createErrorStore();
-      sinon.spy(store, 'dispatch');
-      const root = renderWithStore({ store });
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
 
-      const { errorHandler } = root.instance().props;
-      const error = new Error();
-      errorHandler.handle(error);
+      userEvent.click(getInput());
 
-      sinon.assert.calledWith(
-        store.dispatch,
-        setError({ id: errorHandler.id, error }),
+      expect(dispatch).toHaveBeenCalledWith(
+        setError({
+          id: expect.stringContaining('SomeComponent-'),
+          error: new Error(),
+        }),
       );
     });
 
     it('passes through wrapped component properties', () => {
-      const root = renderWithStore({
-        customProps: { color: 'red' },
-      });
+      const color = 'red';
+      render({ customProps: { color } });
 
-      expect(root.instance().props.color).toEqual('red');
+      expect(screen.getByText(`color: ${color}`)).toBeInTheDocument();
     });
   });
 
   describe('withRenderedErrorHandler', () => {
     const renderWithRenderedErrorHandler = (props = {}) => {
-      return renderWithStore({
+      return render({
         ShallowTarget: 'ErrorBanner',
         decorator: withRenderedErrorHandler,
         ...props,
@@ -207,18 +201,18 @@ describe(__filename, () => {
 
     it('renders a generic error above component content', () => {
       const id = 'some-handler-id';
-
-      const store = createErrorStore();
       store.dispatch(setError({ id, error: new Error() }));
 
-      const root = renderWithRenderedErrorHandler({ store, id });
+      renderWithRenderedErrorHandler({ id });
 
-      const errorList = root.find(ErrorList);
-      expect(errorList).toHaveProp('code', ERROR_UNKNOWN);
-      expect(errorList).toHaveProp('messages', []);
+      // The rendered ErrorList will be in a `list`.
+      expect(screen.getByRole('list')).toBeInTheDocument();
+      expect(
+        screen.getByText('An unexpected error occurred'),
+      ).toBeInTheDocument();
 
       // It also renders the wrapped component.
-      expect(root.find(SomeComponentBase)).toHaveLength(1);
+      expect(getInput()).toHaveValue(id);
     });
 
     it('passes a nested API response object', () => {
@@ -227,7 +221,6 @@ describe(__filename, () => {
       // This is a possible but unlikely API response. Make sure
       // it gets passed to ErrorList correctly.
       const nestedMessage = { nested: { message: 'end' } };
-      const store = createErrorStore();
       const error = createApiError({
         response: { status: 401 },
         apiURL: 'https://some/api/endpoint',
@@ -235,51 +228,49 @@ describe(__filename, () => {
       });
       store.dispatch(setError({ id, error }));
 
-      const root = renderWithRenderedErrorHandler({ store, id });
+      renderWithRenderedErrorHandler({ id });
 
-      const errorList = root.find(ErrorList);
-      expect(errorList).toHaveProp('messages', [nestedMessage]);
+      expect(screen.getByRole('list')).toBeInTheDocument();
+      expect(
+        screen.getByText('{"nested":{"message":"end"}}'),
+      ).toBeInTheDocument();
     });
 
     it('renders component content when there is no error', () => {
-      const root = renderWithRenderedErrorHandler();
+      renderWithRenderedErrorHandler();
 
-      expect(root.find(ErrorList)).toHaveLength(0);
-      expect(root.find(SomeComponentBase)).toHaveLength(1);
+      expect(screen.queryByRole('list')).not.toBeInTheDocument();
+      expect(getInput()).toBeInTheDocument();
     });
 
     it('renders multiple error messages', () => {
       const id = 'some-handler-id';
+      const firstError = 'first error';
+      const secondError = 'second error';
 
-      const store = createErrorStore();
       const error = createFakeApiError({
-        nonFieldErrors: ['first error', 'second error'],
+        nonFieldErrors: [firstError, secondError],
       });
       store.dispatch(setError({ id, error }));
 
-      const root = renderWithRenderedErrorHandler({ store, id });
+      renderWithRenderedErrorHandler({ id });
 
-      expect(root.find(ErrorList)).toHaveLength(1);
-      expect(root.find(ErrorList)).toHaveProp('messages', [
-        'first error',
-        'second error',
-      ]);
+      expect(screen.getByText(firstError)).toBeInTheDocument();
+      expect(screen.getByText(secondError)).toBeInTheDocument();
     });
 
     it('erases cleared errors', () => {
       const id = 'some-handler-id';
 
-      const store = createErrorStore();
       store.dispatch(setError({ id, error: new Error() }));
       store.dispatch(clearError(id));
 
-      const root = renderWithRenderedErrorHandler({ store, id });
+      renderWithRenderedErrorHandler({ id });
 
-      expect(root.find(ErrorList)).toHaveLength(0);
+      expect(screen.queryByRole('list')).not.toBeInTheDocument();
     });
 
     it('ignores errors sent by other error handlers', () => {
-      const store = createErrorStore();
       store.dispatch(
         setError({
           id: 'another-handler-id',
@@ -287,31 +278,26 @@ describe(__filename, () => {
         }),
       );
 
-      const root = renderWithStore({ store, id: 'this-handler-id' });
+      render({ id: 'this-handler-id' });
 
-      expect(root.find(ErrorList)).toHaveLength(0);
+      expect(screen.queryByRole('list')).not.toBeInTheDocument();
     });
 
     it('passes through wrapped component properties without an error', () => {
-      const root = renderWithRenderedErrorHandler({
-        customProps: { color: 'red' },
-      });
+      const color = 'red';
+      renderWithRenderedErrorHandler({ customProps: { color } });
 
-      expect(root.find(SomeComponentBase)).toHaveProp('color', 'red');
+      expect(screen.getByText(`color: ${color}`)).toBeInTheDocument();
     });
 
     it('passes through wrapped component properties with an error', () => {
+      const color = 'red';
       const id = 'some-id';
-      const store = createErrorStore();
       store.dispatch(setError({ id, error: new Error() }));
 
-      const root = renderWithRenderedErrorHandler({
-        id,
-        store,
-        customProps: { color: 'red' },
-      });
+      renderWithRenderedErrorHandler({ customProps: { color } });
 
-      expect(root.find(SomeComponentBase)).toHaveProp('color', 'red');
+      expect(screen.getByText(`color: ${color}`)).toBeInTheDocument();
     });
 
     it('will capture and render errors in a custom error handler', () => {
@@ -320,18 +306,15 @@ describe(__filename, () => {
       });
 
       // Put an error in state attached to the custom handler.
-      const store = createErrorStore();
+      const errorMessage = 'Some error message';
       const error = createFakeApiError({
-        nonFieldErrors: ['some error'],
+        nonFieldErrors: [errorMessage],
       });
       store.dispatch(setError({ id: errorHandler.id, error }));
 
-      const root = renderWithRenderedErrorHandler({
-        store,
-        customProps: { errorHandler },
-      });
+      renderWithRenderedErrorHandler({ customProps: { errorHandler } });
 
-      expect(root.find(ErrorList)).toHaveProp('messages', ['some error']);
+      expect(screen.getByText(errorMessage)).toBeInTheDocument();
     });
   });
 
@@ -341,15 +324,14 @@ describe(__filename, () => {
     beforeEach(() => {
       errorHandler = new ErrorHandler({
         id: 'some-handler',
-        dispatch: sinon.stub(),
+        dispatch: jest.fn(),
       });
     });
 
     it('dispatches an error', () => {
       const error = new Error();
       errorHandler.handle(error);
-      sinon.assert.calledWith(
-        errorHandler.dispatch,
+      expect(errorHandler.dispatch).toHaveBeenCalledWith(
         setError({ id: errorHandler.id, error }),
       );
     });
@@ -372,8 +354,7 @@ describe(__filename, () => {
     it('dispatches a message', () => {
       const message = 'Name field cannot be blank';
       errorHandler.addMessage(message);
-      sinon.assert.calledWith(
-        errorHandler.dispatch,
+      expect(errorHandler.dispatch).toHaveBeenCalledWith(
         setErrorMessage({ id: errorHandler.id, message }),
       );
     });
@@ -387,8 +368,7 @@ describe(__filename, () => {
 
     it('clears an error', () => {
       errorHandler.clear();
-      sinon.assert.calledWith(
-        errorHandler.dispatch,
+      expect(errorHandler.dispatch).toHaveBeenCalledWith(
         clearError(errorHandler.id),
       );
     });
@@ -433,18 +413,16 @@ describe(__filename, () => {
     });
 
     it('returns a component if it has an error', () => {
-      const handler = new ErrorHandler({
-        capturedError: new Error('error message'),
-      });
-      const wrapper = shallow(<div>{handler.renderErrorIfPresent()}</div>);
+      const handler = createCapturedErrorHandler({ store });
+      defaultRender(<div>{handler.renderErrorIfPresent()}</div>);
       expect(handler.renderErrorIfPresent()).not.toBe(null);
-      expect(wrapper.find(ErrorList)).toHaveLength(1);
+      expect(screen.getByRole('list')).toBeInTheDocument();
     });
   });
 
   describe('withFixedErrorHandler', () => {
     const renderWithFixedErrorHandler = (params = {}) => {
-      return renderWithStore({
+      return render({
         decorator: withFixedErrorHandler,
         fileName: '/path/to/src/SomeComponent/index.js',
         ...params,
@@ -477,14 +455,12 @@ describe(__filename, () => {
     });
 
     it('creates an error handler with a fixed ID', () => {
-      const root = renderWithFixedErrorHandler({
+      renderWithFixedErrorHandler({
         fileName: '/path/to/src/SomeComponent/index.js',
         extractId: () => 'unique-id-based-on-props',
       });
 
-      const { errorHandler } = root.instance().props;
-      expect(errorHandler).toBeInstanceOf(ErrorHandler);
-      expect(errorHandler.id).toEqual(
+      expect(getInput()).toHaveValue(
         'src/SomeComponent/index.js-unique-id-based-on-props',
       );
     });
