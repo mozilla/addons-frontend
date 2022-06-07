@@ -24,6 +24,7 @@ import {
   VERIFIED_FILTER,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
+import { fetchCategories, loadCategories } from 'amo/reducers/categories';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { SEARCH_STARTED, searchStart } from 'amo/reducers/search';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
@@ -33,6 +34,7 @@ import {
   dispatchClientMetadata,
   dispatchSearchResults,
   fakeAddon,
+  fakeCategory,
   getElement,
   getElements,
   getSearchErrorHandlerId,
@@ -50,17 +52,58 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  function render({ history, location = defaultLocation, term } = {}) {
+  const getLocation = ({ category, query, tag, type }) => {
+    let location = `${defaultLocation}?`;
+    if (category) {
+      location = `${location}&category=${category}`;
+    }
+    if (query) {
+      location = `${location}&q=${query}`;
+    }
+    if (tag) {
+      location = `${location}&tag=${tag}`;
+    }
+    if (type) {
+      location = `${location}&type=${type}`;
+    }
+    return location;
+  };
+
+  function render({ category, history, location, query, tag, type } = {}) {
     const renderOptions = {
       history:
         history ||
         createHistory({
-          initialEntries: [term ? `${defaultLocation}?q=${term}` : location],
+          initialEntries: [
+            location || getLocation({ category, query, tag, type }),
+          ],
         }),
       store,
     };
     return defaultRender(renderOptions);
   }
+
+  const _searchStart = ({ filters = {} } = {}) => {
+    store.dispatch(
+      searchStart({ errorHandlerId: getSearchErrorHandlerId(), filters }),
+    );
+  };
+
+  const _dispatchSearchResults = (args = {}) =>
+    dispatchSearchResults({ store, ...args });
+
+  const _loadCategories = ({
+    results = [
+      {
+        ...fakeCategory,
+        type: ADDON_TYPE_STATIC_THEME,
+        name: 'Causes',
+        slug: 'causes',
+      },
+    ],
+  } = {}) => {
+    store.dispatch(loadCategories({ results }));
+  };
 
   const renderWithResults = ({
     count = 5,
@@ -68,17 +111,17 @@ describe(__filename, () => {
     history,
     page = '1',
     pageSize = 2,
-    term,
+    query,
   } = {}) => {
     const addons = Array(pageSize).fill(fakeAddon);
     const filters = { page, ...filterProps };
-    if (term) {
-      filters.query = term;
+    if (query) {
+      filters.query = query;
     }
-    dispatchSearchResults({ addons, count, filters, pageSize, store });
+    _dispatchSearchResults({ addons, count, filters, pageSize });
     let location = `${defaultLocation}?page=${page}`;
-    if (term) {
-      location = `${location}&q=${term}`;
+    if (query) {
+      location = `${location}&q=${query}`;
     }
     for (const key of Object.keys(filterProps)) {
       location = `${location}&${key}=${filterProps[key]}`;
@@ -89,12 +132,12 @@ describe(__filename, () => {
   it('preserves category in paginationQueryParams', () => {
     const category = 'some-category';
     const page = '2';
-    const term = 'fries';
-    renderWithResults({ filterProps: { category }, page, term });
+    const query = 'fries';
+    renderWithResults({ filterProps: { category }, page, query });
 
     expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
       'href',
-      `${defaultLocation}?category=${category}&page=1&q=${term}`,
+      `${defaultLocation}?category=${category}&page=1&q=${query}`,
     );
   });
 
@@ -325,39 +368,36 @@ describe(__filename, () => {
 
     it('passes a Paginate component to the SearchResults component', () => {
       const page = '2';
-      const term = 'foo';
-      renderWithResults({ page, term });
+      const query = 'foo';
+      renderWithResults({ page, query });
 
       expect(screen.getByText('Page 2 of 3')).toBeInTheDocument();
       expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
         'href',
-        `${defaultLocation}?page=1&q=${term}`,
+        `${defaultLocation}?page=1&q=${query}`,
       );
     });
 
     it('dispatches the search on mount', () => {
       const dispatch = jest.spyOn(store, 'dispatch');
-      const term = 'foo';
-      render({ term });
+      const query = 'foo';
+      render({ query });
 
       expect(dispatch).toHaveBeenCalledWith(
         searchStart({
           errorHandlerId: getSearchErrorHandlerId(),
-          filters: { query: term },
+          filters: { query },
         }),
       );
     });
 
     it('does not dispatch on mount if filters exist and have not changed', () => {
-      const term = 'foo';
-      store.dispatch(
-        searchStart({
-          errorHandlerId: getSearchErrorHandlerId(),
-          filters: { query: term },
-        }),
-      );
+      const query = 'foo';
+      _searchStart({
+        filters: { query },
+      });
       const dispatch = jest.spyOn(store, 'dispatch');
-      render({ term });
+      render({ query });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: SEARCH_STARTED }),
@@ -366,9 +406,9 @@ describe(__filename, () => {
 
     it('dispatches a search when a sort option is selected', () => {
       const page = '1';
-      const term = 'foo';
+      const query = 'foo';
       const dispatch = jest.spyOn(store, 'dispatch');
-      renderWithResults({ page, term });
+      renderWithResults({ page, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),
@@ -377,16 +417,16 @@ describe(__filename, () => {
       expect(dispatch).toHaveBeenCalledWith(
         searchStart({
           errorHandlerId: getSearchErrorHandlerId(page),
-          filters: { page, query: term, sort: 'relevance' },
+          filters: { page, query, sort: 'relevance' },
         }),
       );
     });
 
     it('dispatches a search when filters become empty', () => {
       const page = '1';
-      const term = 'foo';
+      const query = 'foo';
       const dispatch = jest.spyOn(store, 'dispatch');
-      renderWithResults({ page, term });
+      renderWithResults({ page, query });
 
       userEvent.type(screen.getByRole('searchbox'), '{selectall}{del}');
       userEvent.click(screen.getByRole('button', { name: 'Search' }));
@@ -592,13 +632,13 @@ describe(__filename, () => {
 
   describe('Tests for SearchFilters', () => {
     it('changes the URL when a new addonType filter is selected', () => {
-      const term = 'foo';
+      const query = 'foo';
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}`],
+        initialEntries: [`${defaultLocation}?q=${query}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, term });
+      renderWithResults({ history, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
@@ -609,19 +649,19 @@ describe(__filename, () => {
         pathname: defaultLocation,
         query: convertFiltersToQueryParams({
           addonType: ADDON_TYPE_EXTENSION,
-          query: term,
+          query,
         }),
       });
     });
 
     it('changes the URL when a new sort filter is selected', () => {
-      const term = 'foo';
+      const query = 'foo';
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}`],
+        initialEntries: [`${defaultLocation}?q=${query}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, term });
+      renderWithResults({ history, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),
@@ -631,20 +671,20 @@ describe(__filename, () => {
       expect(pushSpy).toHaveBeenCalledWith({
         pathname: defaultLocation,
         query: convertFiltersToQueryParams({
-          query: term,
+          query,
           sort: SEARCH_SORT_TRENDING,
         }),
       });
     });
 
     it('changes the URL when a new promoted filter is selected', () => {
-      const term = 'foo';
+      const query = 'foo';
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}`],
+        initialEntries: [`${defaultLocation}?q=${query}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, term });
+      renderWithResults({ history, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Badging' }),
@@ -655,7 +695,7 @@ describe(__filename, () => {
         pathname: defaultLocation,
         query: convertFiltersToQueryParams({
           promoted: RECOMMENDED,
-          query: term,
+          query,
         }),
       });
     });
@@ -711,14 +751,14 @@ describe(__filename, () => {
     });
 
     it('deletes the filter if it is empty', () => {
-      const term = 'foo';
+      const query = 'foo';
       const type = ADDON_TYPE_EXTENSION;
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}&type=${type}`],
+        initialEntries: [`${defaultLocation}?q=${query}&type=${type}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, filterProps: { type }, term });
+      renderWithResults({ history, filterProps: { type }, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
@@ -728,20 +768,20 @@ describe(__filename, () => {
       expect(pushSpy).toHaveBeenCalledWith({
         pathname: defaultLocation,
         query: convertFiltersToQueryParams({
-          query: term,
+          query,
         }),
       });
     });
 
     it('does not change the URL when the same filter is selected', () => {
-      const term = 'foo';
+      const query = 'foo';
       const type = ADDON_TYPE_EXTENSION;
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}&type=${type}`],
+        initialEntries: [`${defaultLocation}?q=${query}&type=${type}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, filterProps: { type }, term });
+      renderWithResults({ history, filterProps: { type }, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
@@ -775,14 +815,14 @@ describe(__filename, () => {
     });
 
     it('resets the page filter when a select is updated', () => {
-      const term = 'foo';
+      const query = 'foo';
       const page = '2';
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}&page=${page}`],
+        initialEntries: [`${defaultLocation}?q=${query}&page=${page}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, page, term });
+      renderWithResults({ history, page, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
@@ -794,7 +834,7 @@ describe(__filename, () => {
         query: convertFiltersToQueryParams({
           addonType: ADDON_TYPE_EXTENSION,
           page: '1',
-          query: term,
+          query,
         }),
       });
     });
@@ -808,6 +848,909 @@ describe(__filename, () => {
       expect(
         screen.queryByRole('combobox', { name: 'Badging' }),
       ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for SearchContextCard', () => {
+    const thisErrorHandlerId = 'SearchContextCard';
+
+    it('should render "Searching" text while search loading without query', () => {
+      _searchStart();
+      render();
+
+      expect(
+        screen.getByRole('heading', { name: 'Searching for add-ons' }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render during a search that is search loading', () => {
+      const query = 'test';
+      _searchStart({ filters: { query } });
+      render({ query });
+
+      expect(
+        screen.getByRole('heading', { name: `Searching for "${query}"` }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render search results', () => {
+      const query = 'test';
+      _dispatchSearchResults();
+      render({ query });
+
+      expect(
+        screen.getByRole('heading', { name: `2 results found for "${query}"` }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results that lack a query', () => {
+      _dispatchSearchResults({ filters: {} });
+      render();
+
+      expect(
+        screen.getByRole('heading', { name: '2 results found' }),
+      ).toBeInTheDocument();
+    });
+
+    it('should use singular form when only one result is found', () => {
+      const query = 'test';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+      });
+      render({ query });
+
+      expect(
+        screen.getByRole('heading', { name: `1 result found for "${query}"` }),
+      ).toBeInTheDocument();
+    });
+
+    it('should use singular form without query when only one result', () => {
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {},
+      });
+      render();
+
+      expect(
+        screen.getByRole('heading', { name: '1 result found' }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render empty results', () => {
+      _dispatchSearchResults({ addons: [], filters: {} });
+      render();
+
+      expect(
+        screen.getByRole('heading', { name: '0 results found' }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render singular form when only one result is found with addonType ADDON_TYPE_STATIC_THEME', () => {
+      const query = 'test';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          query,
+        },
+      });
+
+      render({ query, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', { name: `1 theme found for "${query}"` }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render plural form when multiple results are found with addonType ADDON_TYPE_STATIC_THEME', () => {
+      const query = 'test';
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          query,
+        },
+      });
+
+      render({ query, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', { name: `2 themes found for "${query}"` }),
+      ).toBeInTheDocument();
+    });
+
+    it('should fetch categories if there is a category filter', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ category: 'causes' });
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchCategories({ errorHandlerId: thisErrorHandlerId }),
+      );
+    });
+
+    it('should not fetch categories if there is no category filter', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        fetchCategories({ errorHandlerId: thisErrorHandlerId }),
+      );
+    });
+
+    it('should not fetch categories if there is a category filter and there is a categoryName', () => {
+      _loadCategories();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ category: 'causes', type: ADDON_TYPE_STATIC_THEME });
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        fetchCategories({ errorHandlerId: thisErrorHandlerId }),
+      );
+    });
+
+    it('should render results with categoryName and query for addonType ADDON_TYPE_STATIC_THEME when search is loaded', () => {
+      const category = 'causes';
+      const categoryName = 'Causes';
+      const query = 'test';
+
+      _loadCategories();
+
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          category,
+          query,
+        },
+      });
+
+      render({ category, query, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 themes found for "${query}" in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results with categoryName and no query for addonType ADDON_TYPE_STATIC_THEME when search is loaded', () => {
+      const category = 'causes';
+      const categoryName = 'Causes';
+
+      _loadCategories();
+
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          category,
+        },
+      });
+
+      render({ category, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 themes found in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results without categoryName or query when neither are present for addonType ADDON_TYPE_STATIC_THEME', () => {
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+        },
+      });
+
+      render({ type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', {
+          name: '2 themes found',
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render singular form when only one result is found with addonType ADDON_TYPE_EXTENSION', () => {
+      const query = 'test';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          query,
+        },
+      });
+
+      render({ query, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 extension found for "${query}"`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render plural form when multiple results are found with addonType ADDON_TYPE_EXTENSION', () => {
+      const query = 'test';
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          query,
+        },
+      });
+
+      render({ query, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 extensions found for "${query}"`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results with categoryName and query for addonType ADDON_TYPE_EXTENSION when search is loaded', () => {
+      const query = 'test';
+      const category = 'bookmarks';
+      const categoryName = 'Bookmarks';
+
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_EXTENSION,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category,
+          query,
+        },
+      });
+
+      render({ category, query, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 extensions found for "${query}" in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results with categoryName and no query for addonType ADDON_TYPE_EXTENSION when there is no query and when search is loaded', () => {
+      const category = 'bookmarks';
+      const categoryName = 'Bookmarks';
+
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_EXTENSION,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category,
+        },
+      });
+
+      render({ category, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 extensions found in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results with categoryName for addonType ADDON_TYPE_EXTENSION for android', () => {
+      dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
+
+      const category = 'experimental';
+      const categoryName = 'Experimental';
+
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            application: CLIENT_APP_ANDROID,
+            type: ADDON_TYPE_EXTENSION,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category,
+        },
+      });
+
+      render({
+        location: `/${lang}/${CLIENT_APP_ANDROID}/search/?category=${category}&type=${ADDON_TYPE_EXTENSION}`,
+      });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 extensions found in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results without categoryName or query when neither are present for addonType ADDON_TYPE_EXTENSION', () => {
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+        },
+      });
+
+      render({ type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: '2 extensions found',
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render singular form when only one result is found for an addonType that is not an extension nor theme', () => {
+      const query = 'test';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_LANG,
+          query,
+        },
+      });
+
+      render({ query, type: ADDON_TYPE_LANG });
+
+      expect(
+        screen.getByRole('heading', { name: `1 result found for "${query}"` }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render plural form when multiple results are found for an addonType that is not an extension nor theme', () => {
+      const query = 'test';
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_LANG,
+          query,
+        },
+      });
+
+      render({ query, type: ADDON_TYPE_LANG });
+
+      expect(
+        screen.getByRole('heading', { name: `2 results found for "${query}"` }),
+      ).toBeInTheDocument();
+    });
+
+    it("should render results without a query when it's present for an addonType that is not an extension nor theme", () => {
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_LANG,
+        },
+      });
+
+      render({ type: ADDON_TYPE_LANG });
+
+      expect(
+        screen.getByRole('heading', {
+          name: '2 results found',
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results with the tag, and the query string for tag query with a text query', () => {
+      const tag = 'foo';
+      const query = 'test';
+      _dispatchSearchResults({
+        filters: {
+          tag,
+          query,
+        },
+      });
+
+      render({ query, tag });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 results found for "${query}" with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result with the tag, and the query string for tag query with a text query', () => {
+      const tag = 'foo';
+      const query = 'test';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          tag,
+          query,
+        },
+      });
+
+      render({ query, tag });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 result found for "${query}" with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results with the tag for tag query', () => {
+      const tag = 'foo';
+      _dispatchSearchResults({
+        filters: {
+          tag,
+        },
+      });
+
+      render({ tag });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 results found with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result with the tag for tag query', () => {
+      const tag = 'foo';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          tag,
+        },
+      });
+
+      render({ tag });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 result found with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results for addonType ADDON_TYPE_EXTENSION in a category with a query string and tag for tag query', () => {
+      const category = 'bookmarks';
+      const categoryName = 'Bookmarks';
+      const query = 'test';
+      const tag = 'foo';
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_EXTENSION,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category,
+          query,
+          tag,
+        },
+      });
+
+      render({ category, query, tag, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 extensions found for "${query}" with tag ${tag} in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result for addonType ADDON_TYPE_EXTENSION in a category with a query string and tag for tag query', () => {
+      const category = 'bookmarks';
+      const categoryName = 'Bookmarks';
+      const query = 'test';
+      const tag = 'foo';
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_EXTENSION,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category,
+          query,
+          tag,
+        },
+      });
+
+      render({ category, query, tag, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 extension found for "${query}" with tag ${tag} in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results for addonType ADDON_TYPE_EXTENSION in a category and tag for tag query', () => {
+      const category = 'bookmarks';
+      const categoryName = 'Bookmarks';
+      const tag = 'foo';
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_EXTENSION,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category,
+          tag,
+        },
+      });
+
+      render({ category, tag, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 extensions found with tag ${tag} in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result for addonType ADDON_TYPE_EXTENSION in a category and tag for tag query', () => {
+      const category = 'bookmarks';
+      const categoryName = 'Bookmarks';
+      const tag = 'foo';
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_EXTENSION,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category,
+          tag,
+        },
+      });
+
+      render({ category, tag, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 extension found with tag ${tag} in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results for addonType ADDON_TYPE_EXTENSION and tag and query string for tag query', () => {
+      const query = 'test';
+      const tag = 'foo';
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          query,
+          tag,
+        },
+      });
+
+      render({ query, tag, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 extensions found for "${query}" with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result for addonType ADDON_TYPE_EXTENSION and query string tag for tag query', () => {
+      const query = 'test';
+      const tag = 'foo';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          query,
+          tag,
+        },
+      });
+
+      render({ query, tag, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 extension found for "${query}" with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results for addonType ADDON_TYPE_EXTENSION and tag for tag query', () => {
+      const tag = 'foo';
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          tag,
+        },
+      });
+
+      render({ tag, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 extensions found with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result for addonType ADDON_TYPE_EXTENSION and tag for tag query', () => {
+      const tag = 'foo';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          tag,
+        },
+      });
+
+      render({ tag, type: ADDON_TYPE_EXTENSION });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 extension found with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results for addonType ADDON_TYPE_STATIC_THEME in a category with a query string and tag for tag query', () => {
+      const category = 'causes';
+      const categoryName = 'Causes';
+      const query = 'test';
+      const tag = 'foo';
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_STATIC_THEME,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          category,
+          query,
+          tag,
+        },
+      });
+
+      render({ category, query, tag, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 themes found for "${query}" with tag ${tag} in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result for addonType ADDON_TYPE_STATIC_THEME in a category with a query string and tag for tag query', () => {
+      const category = 'causes';
+      const categoryName = 'Causes';
+      const query = 'test';
+      const tag = 'foo';
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_STATIC_THEME,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          category,
+          query,
+          tag,
+        },
+      });
+
+      render({ category, query, tag, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 theme found for "${query}" with tag ${tag} in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results for addonType ADDON_TYPE_STATIC_THEME in a category and tag for tag query', () => {
+      const category = 'causes';
+      const categoryName = 'Causes';
+      const tag = 'foo';
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_STATIC_THEME,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          category,
+          tag,
+        },
+      });
+
+      render({ category, tag, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 themes found with tag ${tag} in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result for addonType ADDON_TYPE_STATIC_THEME in a category and tag for tag query', () => {
+      const category = 'causes';
+      const categoryName = 'Causes';
+      const tag = 'foo';
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            type: ADDON_TYPE_STATIC_THEME,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          category,
+          tag,
+        },
+      });
+
+      render({ category, tag, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 theme found with tag ${tag} in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results for addonType ADDON_TYPE_STATIC_THEME and tag and query string for tag query', () => {
+      const query = 'test';
+      const tag = 'foo';
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          query,
+          tag,
+        },
+      });
+
+      render({ query, tag, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 themes found for "${query}" with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result for addonType ADDON_TYPE_STATIC_THEME and query string tag for tag query', () => {
+      const query = 'test';
+      const tag = 'foo';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          query,
+          tag,
+        },
+      });
+
+      render({ query, tag, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `1 theme found for "${query}" with tag ${tag}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render results for addonType ADDON_TYPE_STATIC_THEME and tag for tag query', () => {
+      const tag = 'foo';
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          tag,
+        },
+      });
+
+      render({ tag, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', { name: `2 themes found with tag ${tag}` }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render a singular result for addonType ADDON_TYPE_STATIC_THEME and tag for tag query', () => {
+      const tag = 'foo';
+      _dispatchSearchResults({
+        addons: [fakeAddon],
+        filters: {
+          addonType: ADDON_TYPE_STATIC_THEME,
+          tag,
+        },
+      });
+
+      render({ tag, type: ADDON_TYPE_STATIC_THEME });
+
+      expect(
+        screen.getByRole('heading', { name: `1 theme found with tag ${tag}` }),
+      ).toBeInTheDocument();
+    });
+
+    it('does not render a categoryName when the category is invalid', () => {
+      const category = 'bad-category';
+      _dispatchSearchResults({
+        // The API does not return addon results if the category is invalid.
+        addons: [],
+        filters: {
+          category,
+        },
+      });
+
+      render({ category });
+
+      expect(
+        screen.getByRole('heading', { name: '0 results found' }),
+      ).toBeInTheDocument();
     });
   });
 });
