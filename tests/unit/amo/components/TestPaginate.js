@@ -1,89 +1,53 @@
 import * as React from 'react';
 
 import { DEFAULT_API_PAGE_SIZE } from 'amo/api';
-import Paginate, { PaginateBase } from 'amo/components/Paginate';
-import PaginatorLink from 'amo/components/PaginatorLink';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import Paginate, {
+  getCurrentPage,
+  getPageCount,
+  getVisiblePages,
+} from 'amo/components/Paginate';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const getRenderProps = () => ({
-    i18n: fakeI18n(),
     count: 20,
     currentPage: 1,
     pathname: '/some/path',
     perPage: DEFAULT_API_PAGE_SIZE,
   });
 
-  function renderPaginate(extra = {}) {
+  function render(extra = {}) {
     const props = {
       ...getRenderProps(),
       ...extra,
     };
 
-    return shallowUntilTarget(<Paginate {...props} />, PaginateBase);
+    return defaultRender(<Paginate {...props} />);
   }
 
   describe('methods', () => {
-    describe('validation', () => {
-      it('does not allow an undefined count', () => {
-        expect(() => renderPaginate({ count: undefined })).toThrowError(
-          /count property cannot be undefined/,
-        );
-      });
-
-      it('does not allow an undefined pathname', () => {
-        expect(() => renderPaginate({ pathname: undefined })).toThrowError(
-          /pathname property cannot be undefined/,
-        );
-      });
-    });
-
-    describe('pageCount()', () => {
+    describe('getPageCount()', () => {
       it('is count / perPage', () => {
-        const root = renderPaginate({ count: 100, perPage: 5 });
-        expect(root.instance().pageCount()).toEqual(20);
+        expect(getPageCount({ count: 100, perPage: 5 })).toEqual(20);
       });
 
       it('uses the ceiling of the result', () => {
-        const root = renderPaginate({ count: 101, perPage: 5 });
-        expect(root.instance().pageCount()).toEqual(21);
+        expect(getPageCount({ count: 101, perPage: 5 })).toEqual(21);
       });
 
       it('can handle a count of zero', () => {
-        const root = renderPaginate({ count: 0 });
-        expect(root.instance().pageCount()).toEqual(0);
-      });
-
-      it('does not allow a per page value of zero', () => {
-        expect(() => renderPaginate({ count: 5, perPage: 0 })).toThrowError(
-          /0 is not allowed/,
-        );
-      });
-
-      it('does not allow a negative per page value', () => {
-        expect(() => renderPaginate({ count: 5, perPage: -1 })).toThrowError(
-          /-1 is not allowed/,
-        );
+        expect(
+          getPageCount({ count: 0, perPage: DEFAULT_API_PAGE_SIZE }),
+        ).toEqual(0);
       });
     });
 
     describe('visiblePages()', () => {
-      function getVisiblePages(customProps = {}) {
-        const root = renderPaginate(customProps);
-
-        return root.instance().visiblePages({
-          pageCount: root.instance().pageCount(),
-        });
-      }
-
       describe('with lots of pages', () => {
-        const commonParams = { count: 30, perPage: 3, showPages: 5 };
-
-        it('will be 7 by default', () => {
-          expect(
-            getVisiblePages({ count: 30, perPage: 3, currentPage: 1 }),
-          ).toEqual([1, 2, 3, 4, 5, 6, 7]);
-        });
+        const commonParams = {
+          pageCount: getPageCount({ count: 30, perPage: 3 }),
+          showPages: 5,
+        };
 
         it('will not be less than 0', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 1 });
@@ -112,7 +76,10 @@ describe(__filename, () => {
       });
 
       describe('with few pages', () => {
-        const commonParams = { count: 30, perPage: 10, showPages: 5 };
+        const commonParams = {
+          pageCount: getPageCount({ count: 30, perPage: 10 }),
+          showPages: 5,
+        };
 
         it('will not be less than 0', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 1 });
@@ -126,8 +93,10 @@ describe(__filename, () => {
 
         it('will not offset near the end', () => {
           const pages = getVisiblePages({
-            count: 128,
-            perPage: DEFAULT_API_PAGE_SIZE,
+            pageCount: getPageCount({
+              count: 128,
+              perPage: DEFAULT_API_PAGE_SIZE,
+            }),
             showPages: 9,
             currentPage: 6,
           });
@@ -163,51 +132,45 @@ describe(__filename, () => {
       const commonParams = { count: 3, perPage: 10, showPages: 5 };
 
       it('will not render if there is only one page', () => {
-        const root = renderPaginate({ ...commonParams });
+        render({ ...commonParams });
 
-        expect(root.find('.Paginate')).toHaveLength(0);
+        expect(screen.queryByText('Next')).not.toBeInTheDocument();
       });
 
       it('will render with more than one page', () => {
-        const root = renderPaginate({ ...commonParams, count: 30 });
+        render({ ...commonParams, count: 30 });
 
-        expect(root.find('.Paginate')).toHaveLength(1);
+        expect(screen.getByText('Next')).toBeInTheDocument();
       });
     });
 
     describe('getCurrentPage', () => {
-      const getCurrentPage = (customProps = {}) => {
-        const root = renderPaginate(customProps);
-
-        return root.instance().getCurrentPage();
-      };
-
       it('returns the current page', () => {
-        expect(getCurrentPage({ currentPage: 123 })).toEqual(123);
+        expect(getCurrentPage(123)).toEqual(123);
       });
 
       // This happens when passing the value of a query string parameter
       // directly to the component (highly probable).
       it('converts current page as string to number', () => {
-        expect(getCurrentPage({ currentPage: 123 })).toEqual(123);
+        expect(getCurrentPage(123)).toEqual(123);
       });
 
       it('returns 1 when current page is invalid', () => {
-        expect(getCurrentPage({ currentPage: 'abc' })).toEqual(1);
-        expect(getCurrentPage({ currentPage: 0 })).toEqual(1);
-        expect(getCurrentPage({ currentPage: null })).toEqual(1);
-        expect(getCurrentPage({ currentPage: undefined })).toEqual(1);
+        expect(getCurrentPage('abc')).toEqual(1);
+        expect(getCurrentPage(0)).toEqual(1);
+        expect(getCurrentPage(null)).toEqual(1);
+        expect(getCurrentPage(undefined)).toEqual(1);
       });
     });
   });
 
   it('passes props to paginator links', () => {
-    const currentPage = 1;
+    const currentPage = 2;
     const pageCount = 3;
     const queryParams = { color: 'red' };
     const pathname = '/some/path';
 
-    const root = renderPaginate({
+    render({
       count: 3,
       currentPage,
       pathname,
@@ -216,48 +179,118 @@ describe(__filename, () => {
       queryParams,
     });
 
-    const firstLink = root.find(PaginatorLink).first();
-    // Just do a quick sanity check on the first link.
-    expect(firstLink).toHaveProp('currentPage', currentPage);
-    expect(firstLink).toHaveProp('pageCount', pageCount);
-    expect(firstLink).toHaveProp('pageParam', 'page');
-    expect(firstLink).toHaveProp('pathname', pathname);
-    expect(firstLink).toHaveProp('queryParams', queryParams);
+    expect(screen.getByText('Page 2 of 3')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+      'href',
+      `/en-US/android${pathname}?color=red&page=3`,
+    );
   });
 
   it('defaults currentPage to 1', () => {
-    const root = renderPaginate({ currentPage: undefined, count: 30 });
+    render({ currentPage: undefined, count: 30 });
 
-    const firstLink = root.find(PaginatorLink).first();
-    expect(firstLink).toHaveProp('currentPage', 1);
+    expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
   });
 
   it('converts a null currentPage to 1', () => {
-    const root = renderPaginate({ currentPage: null, count: 30 });
+    render({ currentPage: null, count: 30 });
 
-    const firstLink = root.find(PaginatorLink).first();
-    expect(firstLink).toHaveProp('currentPage', 1);
+    expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
   });
 
   it('converts a non-numeric currentPage to 1', () => {
-    const root = renderPaginate({ currentPage: 'abc', count: 30 });
+    render({ currentPage: 'abc', count: 30 });
 
-    const firstLink = root.find(PaginatorLink).first();
-    expect(firstLink).toHaveProp('currentPage', 1);
+    expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
   });
 
   it('converts a negative currentPage to 1', () => {
-    const root = renderPaginate({ currentPage: -5, count: 30 });
+    render({ currentPage: -5, count: 30 });
 
-    const firstLink = root.find(PaginatorLink).first();
-    expect(firstLink).toHaveProp('currentPage', 1);
+    expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
   });
 
   it('passes `pageParam` to paginator links if supplied', () => {
     const pageParam = 'my-page-filter';
-    const root = renderPaginate({ count: 50, pageParam });
+    render({ count: 50, pageParam });
 
-    const firstLink = root.find(PaginatorLink).first();
-    expect(firstLink).toHaveProp('pageParam', pageParam);
+    expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+      'href',
+      `/en-US/android/some/path?${pageParam}=2`,
+    );
+  });
+
+  describe('Tests for PaginatorLink', () => {
+    it('passes className to Button', () => {
+      render({ count: 30 });
+
+      expect(screen.getByRole('link', { name: 'Next' })).toHaveClass(
+        'Paginate-item--next',
+      );
+    });
+
+    it('handles `pathname` with a search string at the end', () => {
+      const pathnameBase = '/somewhere/';
+      const color = 'purple';
+      const pathname = `${pathnameBase}?color=${color}`;
+
+      render({ count: 30, pathname });
+
+      expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+        'href',
+        `/en-US/android${pathname}&page=2`,
+      );
+    });
+
+    describe('when the link is to the current page', () => {
+      it('does not contain a link and is disabled', () => {
+        render({ count: 30, currentPage: 2 });
+
+        const link = screen.getByRole('button', { name: '2' });
+        expect(link).toHaveClass('Paginate-item--current-page');
+        expect(link).toBeDisabled();
+      });
+    });
+
+    describe('when the link is to a different page', () => {
+      it('renders a button with a to prop (creates a link)', () => {
+        render({ count: 30, currentPage: 1 });
+
+        const link = screen.getByRole('link', { name: '2' });
+        expect(link).not.toHaveClass('Paginate-item--current-page');
+        expect(link).toHaveAttribute('href', '/en-US/android/some/path?page=2');
+      });
+    });
+
+    it('assigns a `rel` attribute as expected', () => {
+      render({ count: 120, currentPage: 3 });
+
+      // It adds a rel="prev" attribute when it is the immediate preceding page.
+      expect(screen.getByRole('link', { name: '2' })).toHaveAttribute(
+        'rel',
+        'prev',
+      );
+
+      // It adds a rel="next" attribute when it is the immediate next page.
+      expect(screen.getByRole('link', { name: '4' })).toHaveAttribute(
+        'rel',
+        'next',
+      );
+
+      // It does not add a rel attribute when the page is the current page.
+      expect(screen.getByRole('button', { name: '3' })).not.toHaveAttribute(
+        'rel',
+      );
+
+      // It does not add a rel attribute when the page is not the immediate preceding page.
+      expect(screen.getByRole('link', { name: '1' })).not.toHaveAttribute(
+        'rel',
+      );
+
+      // It does not add a rel attribute when the page is not the immediate next page.
+      expect(screen.getByRole('link', { name: '5' })).not.toHaveAttribute(
+        'rel',
+      );
+    });
   });
 });

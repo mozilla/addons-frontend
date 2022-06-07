@@ -43,81 +43,97 @@ function makePageNumbers({
   return pages;
 }
 
+export const getPageCount = ({
+  count,
+  perPage,
+}: {|
+  count: number,
+  perPage: number,
+|}): number => {
+  invariant(typeof perPage === 'number', 'perPage is required');
+  invariant(perPage > 0, `A perPage value of ${perPage} is not allowed`);
+
+  return Math.ceil(count / perPage);
+};
+
+export const getCurrentPage = (currentPage?: string): number => {
+  const thePage = parseInt(currentPage, 10);
+
+  return Number.isNaN(thePage) || thePage < 1 ? 1 : thePage;
+};
+
+export const getVisiblePages = ({
+  currentPage,
+  pageCount,
+  showPages,
+}: {|
+  currentPage?: string,
+  pageCount: number,
+  showPages?: number,
+|}): Array<number> => {
+  if (!showPages) {
+    return [];
+  }
+
+  const thisPage = getCurrentPage(currentPage);
+  const showExtra = Math.floor(showPages / 2);
+  const start = Math.max(1, thisPage - showExtra);
+  const end = Math.min(pageCount, thisPage + showExtra);
+
+  // If we can show all of the pages, show them all.
+  if (pageCount <= showPages) {
+    return makePageNumbers({ start: 1, end: pageCount });
+    // If we are showing less on the right than we should, define the start by
+    // the end.
+  }
+  if (end - thisPage < showExtra) {
+    return makePageNumbers({ start: end - showPages + 1, end });
+    // If we are showing less on the left than we should, define the end by the
+    // start.
+  }
+  if (thisPage - start < showExtra) {
+    return makePageNumbers({ start, end: start + showPages - 1 });
+  }
+
+  // We're showing the maximum number of pages on each side, start and end
+  // are correct.
+  return makePageNumbers({ start, end });
+};
+
 export class PaginateBase extends React.Component<InternalProps> {
   static defaultProps: DefaultProps = {
     pageParam: 'page',
     showPages: 7,
   };
 
-  getCurrentPage(): number {
-    const currentPage = parseInt(this.props.currentPage, 10);
-
-    return Number.isNaN(currentPage) || currentPage < 1 ? 1 : currentPage;
-  }
-
-  pageCount(): number {
-    const { count, perPage } = this.props;
-
-    invariant(typeof perPage === 'number', 'perPage is required');
-
-    if (perPage <= 0) {
-      throw new TypeError(`A perPage value of ${perPage} is not allowed`);
-    }
-
-    return Math.ceil(count / perPage);
-  }
-
-  visiblePages({ pageCount }: {| pageCount: number |}): Array<number> {
-    const { showPages } = this.props;
-    if (!showPages) {
-      return [];
-    }
-
-    const currentPage = this.getCurrentPage();
-    const showExtra = Math.floor(showPages / 2);
-    const start = Math.max(1, currentPage - showExtra);
-    const end = Math.min(pageCount, currentPage + showExtra);
-
-    // If we can show all of the pages, show them all.
-    if (pageCount <= showPages) {
-      return makePageNumbers({ start: 1, end: pageCount });
-      // If we are showing less on the right than we should, define the start by
-      // the end.
-    }
-    if (end - currentPage < showExtra) {
-      return makePageNumbers({ start: end - showPages + 1, end });
-      // If we are showing less on the left than we should, define the end by the
-      // start.
-    }
-    if (currentPage - start < showExtra) {
-      return makePageNumbers({ start, end: start + showPages - 1 });
-    }
-
-    // We're showing the maximum number of pages on each side, start and end
-    // are correct.
-    return makePageNumbers({ start, end });
-  }
-
   render(): null | React.Node {
-    const { LinkComponent, count, i18n, pageParam, pathname, queryParams } =
-      this.props;
+    const {
+      LinkComponent,
+      count,
+      currentPage,
+      i18n,
+      pageParam,
+      pathname,
+      perPage,
+      queryParams,
+      showPages,
+    } = this.props;
 
-    const pageCount = this.pageCount();
-    const currentPage = this.getCurrentPage();
+    const pageCount = getPageCount({ count, perPage });
+    const thisPage = getCurrentPage(currentPage);
 
-    if (count === undefined) {
-      throw new Error('The count property cannot be undefined');
-    }
-    if (pathname === undefined) {
-      throw new Error('The pathname property cannot be undefined');
-    }
-    if (this.pageCount() === 1) {
+    invariant(count !== undefined, 'The count property cannot be undefined');
+    invariant(
+      pathname !== undefined,
+      'The pathname property cannot be undefined',
+    );
+    if (pageCount === 1) {
       return null;
     }
 
     const linkParams = {
       LinkComponent,
-      currentPage,
+      currentPage: thisPage,
       pageCount,
       pathname,
       queryParams,
@@ -130,34 +146,36 @@ export class PaginateBase extends React.Component<InternalProps> {
           <PaginatorLink
             {...linkParams}
             className="Paginate-item--previous"
-            page={currentPage - 1}
+            page={thisPage - 1}
             pageParam={pageParam}
             text={i18n.gettext('Previous')}
           />
 
-          {this.visiblePages({ pageCount }).map((page) => (
-            <PaginatorLink
-              {...linkParams}
-              key={`page-${page}`}
-              page={page}
-              pageParam={pageParam}
-            />
-          ))}
+          {getVisiblePages({ currentPage, pageCount, showPages }).map(
+            (page) => (
+              <PaginatorLink
+                {...linkParams}
+                key={`page-${page}`}
+                page={page}
+                pageParam={pageParam}
+              />
+            ),
+          )}
 
           <PaginatorLink
             {...linkParams}
             className="Paginate-item--next"
-            page={currentPage + 1}
+            page={thisPage + 1}
             pageParam={pageParam}
             text={i18n.gettext('Next')}
           />
         </div>
 
         <div className="Paginate-page-number">
-          {i18n.sprintf(
-            i18n.gettext('Page %(currentPage)s of %(totalPages)s'),
-            { currentPage, totalPages: this.pageCount() },
-          )}
+          {i18n.sprintf(i18n.gettext('Page %(thisPage)s of %(totalPages)s'), {
+            thisPage,
+            totalPages: getPageCount({ count, perPage }),
+          })}
         </div>
       </div>
     );
