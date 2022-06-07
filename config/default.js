@@ -322,6 +322,7 @@ module.exports = {
     'sitemap.xml',
     'static-frontend',
     'static-server',
+    'update',
     'user-media',
   ],
 
@@ -356,6 +357,7 @@ module.exports = {
     'static-frontend',
     'static-server',
     'statistics',
+    'update',
     'user-media',
   ],
 
