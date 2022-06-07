@@ -1,3 +1,4 @@
+import config from 'config';
 import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -1097,6 +1098,85 @@ describe(__filename, () => {
           }),
         );
       });
+    });
+  });
+
+  describe('Tests for UserProfileHead', () => {
+    it.each([
+      ['no query parameters', {}, ''],
+      ['other query parameters', { foo: '123' }, ''],
+      ['only page_e provided', { page_e: '123' }, '?page_e=123'],
+      ['only page_t provided', { page_t: '123' }, '?page_t=123'],
+      [
+        'page_t and another param',
+        { page_t: '123', foo: 'bar' },
+        '?page_t=123',
+      ],
+      ['page_e = 1', { page_e: '1' }, ''],
+      ['page_t = 1', { page_t: '1' }, ''],
+      ['page_e = 1 and page_t = 1', { page_e: '1', page_t: '1' }, ''],
+      ['page_t = 1 and page_e = 1', { page_t: '1', page_e: '1' }, ''],
+      ['page_e = 1 and page_t = 2', { page_e: '1', page_t: '2' }, '?page_t=2'],
+      ['page_t = 1 and page_e = 2', { page_t: '1', page_e: '2' }, '?page_e=2'],
+      ['page_e = 2 and page_t = 1', { page_e: '2', page_t: '1' }, '?page_e=2'],
+      ['page_t = 2 and page_e = 1', { page_t: '2', page_e: '1' }, '?page_t=2'],
+      ['page_e = 2 and page_t = 2', { page_e: '2', page_t: '2' }, '?page_e=2'],
+      ['page_t = 2 and page_e = 2', { page_t: '2', page_e: '2' }, '?page_t=2'],
+      ['page_e = 3 and page_t = 4', { page_e: '3', page_t: '4' }, '?page_t=4'],
+      ['page_e = 4 and page_t = 3', { page_e: '4', page_t: '3' }, '?page_e=4'],
+    ])(
+      'passes the expected queryString to HeadMetaTags and HeadLinks with %s',
+      async (feature, query, expectedQueryString) => {
+        const search = `?${Object.keys(query)
+          .map((k) => `${k}=${query[k]}`)
+          .join('&')}`;
+        renderUserProfile({ location: getLocation({ search }) });
+
+        await waitFor(() =>
+          expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
+        );
+
+        expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+          'href',
+          `${config.get('baseURL')}${getLocation({
+            search: expectedQueryString,
+          })}`,
+        );
+
+        expect(getElement('meta[property="og:url"]')).toHaveAttribute(
+          'content',
+          `${config.get('baseURL')}${getLocation({
+            search: expectedQueryString,
+          })}`,
+        );
+      },
+    );
+
+    it('passes the expected title to HeadMetaTags when not logged in', async () => {
+      renderUserProfile();
+
+      await waitFor(() =>
+        expect(getElement('meta[property="og:title"]')).toBeInTheDocument(),
+      );
+
+      expect(getElement('meta[property="og:title"]')).toHaveAttribute(
+        'content',
+        `User Profile – Add-ons for Firefox (${lang})`,
+      );
+    });
+
+    it('passes the expected title to HeadMetaTags when logged in', async () => {
+      const displayName = 'Bob';
+      signInUserAndRenderUserProfile({ display_name: displayName });
+
+      await waitFor(() =>
+        expect(getElement('meta[property="og:title"]')).toBeInTheDocument(),
+      );
+
+      expect(getElement('meta[property="og:title"]')).toHaveAttribute(
+        'content',
+        `User Profile for ${displayName} – Add-ons for Firefox (${lang})`,
+      );
     });
   });
 });
