@@ -6,8 +6,8 @@ We want to maintain a project with a high coverage (aiming for 100%). Our main [
 
 - Imports should be alphabetized, even in test files.
 - Comments should be full sentences to ease readability.
-- There are a lot of helpers in the `tests/unit/helpers` and `tests/unit/amo/helpers` modules–please use them.
-- Use action creators in `amo/actions/` and `core/actions/` instead of hard-coding `dispatch()` arguments or state data for tests. This applies to both UI components and reducers/sagas.
+- There are a lot of helpers in the `tests/unit/helpers` module–please use them.
+- Use action creators in `/actions/` and `/reducers/` instead of hard-coding `dispatch()` arguments or state data for tests. This applies to both UI components and reducers/sagas.
 - Use constants (see `core/constants`) when using the same value across files. This avoids hard-coding values and [magic constants](https://en.wikipedia.org/wiki/Magic_constant).
 
 ## Jest
@@ -23,26 +23,13 @@ When creating a new test file, start with a `describe()` block that takes the cu
 describe(__filename, () => {});
 ```
 
-## Spies/Stubs/Mocks and Sinon.JS
+## Spies/Stubs/Mocks and Sinon.JS/Jest
 
-We use [sinon](http://sinonjs.org/) for spies, stubs and mocks. In addition, we use [sinon assertions](http://sinonjs.org/releases/v3.2.1/assertions/) over Jest expectations because failure messages are more descriptive.
-
-```js
-const spy = sinon.spy();
-// ...
-
-// NOT GOOD
-expect(spy.called).toEqual(true);
-
-// GOOD
-sinon.assert.called(spy);
-```
-
-There is no need to import sinon, it is already in the global scope for all test files.
+We are in the process of moving all of our mocking from [sinon](http://sinonjs.org/) to Jest. Any new tests, or tests that are being updated, should use `Jest` for mocking in place of `sinon`.
 
 ## Testing reducers and sagas
 
-For sagas/reducers, there are two useful helpers: `dispatchClientMetadata()` and `dispatchSignInActions()` (`tests/unit/amo/helpers`) that should be used to initialize state in a realistic manner. The former is used to obtain a non-authenticated state while the latter returns an authenticated state.
+For sagas/reducers, there are two useful helpers: `dispatchClientMetadata()` and `dispatchSignInActions()` (`tests/unit/helpers`) that should be used to initialize state in a realistic manner. The former is used to obtain a non-authenticated state while the latter returns an authenticated state.
 
 When you need a `errorHandler` or a `errorHandlerId`, use the `createStubErrorHandler()` helper from `tests/unit/helpers`.
 
@@ -68,13 +55,9 @@ expect(loadAction).toEqual(expectedLoadAction);
 
 ## Testing UI components
 
-We use [Enzyme](http://airbnb.io/enzyme/docs/api/index.html) for testing UI components (React components). You should test the final component ideally. Below are a few rules regarding Enzyme:
+We are in the process of migrating our test suite from [Enzyme](http://airbnb.io/enzyme/docs/api/index.html) to [React Testing Library](https://github.com/testing-library/react-testing-library) for testing UI components (React components). Any new or updated tests should use React Testing Library in place of Enzyme. Below are a few rules regarding our use of React Testing Library:
 
-- Prefer `shallow()` over `mount()` when it makes sense.
-- Assert components on public properties (props), _e.g._:
-
-  ```js
-  expect(root.find(Badge)).toHaveProp('type', 'experimental');
-  ```
-
-- You can use `shallowUntilTarget()` (`tests/unit/helpers`) for testing a component wrapped in one or more HOCs (higher order components). See `tests/unit/core/components/TestInstallButton.js` for an example of a test case with this helper.
+- When locating an element, prefer methods that mirror how a user might find an element, such as `getByRole`, `getByText`, `getByTitle` and `getByAltText`. If available, prefer `getByRole`, which can accept additional options such as `name`. Along the same lines, avoid the use of `getElement`, `getByClassName` and `getByTagName` unless absolutely necessary.
+- If a component is only used by a single parent, add tests for the component into the test suite for the parent, and render the component in the context of the parent.
+- For page components, use `renderPage` from `tests/unit/helpers`, otherwise use `render`.
+- `render` and `renderPage` will provide an instance of `history`, `i18n` and `store` to your component. Unless you need to interact with and/or assert about one of these in your test, you do not need to provide one to you call to `render`.
