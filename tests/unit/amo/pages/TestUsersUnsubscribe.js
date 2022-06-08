@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 import { encode } from 'universal-base64url';
 
 import {
@@ -7,19 +8,15 @@ import {
   getUnsubscribeKey,
   unsubscribeNotification,
 } from 'amo/reducers/users';
-import UsersUnsubscribe, {
-  UsersUnsubscribeBase,
-  extractId,
-} from 'amo/pages/UsersUnsubscribe';
-import Card from 'amo/components/Card';
-import LoadingText from 'amo/components/LoadingText';
+import UsersUnsubscribe, { extractId } from 'amo/pages/UsersUnsubscribe';
 import { getNotificationDescription } from 'amo/utils/notifications';
 import { ErrorHandler } from 'amo/errorHandler';
-import ErrorList from 'amo/components/ErrorList';
 import {
   dispatchClientMetadata,
   fakeI18n,
-  shallowUntilTarget,
+  getElement,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -33,19 +30,12 @@ describe(__filename, () => {
   };
 
   const render = ({
-    i18n = fakeI18n(),
     params = getParams(),
     store = dispatchClientMetadata().store,
     ...props
   } = {}) => {
-    return shallowUntilTarget(
-      <UsersUnsubscribe
-        i18n={i18n}
-        match={{ params }}
-        store={store}
-        {...props}
-      />,
-      UsersUnsubscribeBase,
+    return defaultRender(
+      <UsersUnsubscribe match={{ params }} store={store} {...props} />,
     );
   };
 
@@ -61,43 +51,36 @@ describe(__filename, () => {
     );
   };
 
+  const createErrorHandlerId = ({ params }) => {
+    return `src/amo/pages/UsersUnsubscribe/index.js-${extractId({
+      match: { params },
+    })}`;
+  };
+
   it('renders loading indicators when the user is not unsubscribed yet', () => {
-    const root = render();
+    render();
 
-    expect(root.find(Card)).toHaveLength(1);
-    expect(root.find(Card)).toHaveProp('header', <LoadingText />);
-
-    expect(
-      root.find('.UsersUnsubscribe-content-explanation').find(LoadingText),
-    ).toHaveLength(1);
-
-    expect(
-      root.find('.UsersUnsubscribe-content-notification').find(LoadingText),
-    ).toHaveLength(1);
-
-    expect(
-      root.find('.UsersUnsubscribe-content-edit-profile').find(LoadingText),
-    ).toHaveLength(1);
+    expect(screen.getAllByRole('alert')).toHaveLength(4);
   });
 
-  it('renders an HTML title', () => {
-    const root = render();
+  it('renders an HTML title', async () => {
+    render();
 
-    expect(root.find('title')).toHaveLength(1);
-    expect(root.find('title')).toHaveText('Unsubscribe');
+    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+
+    expect(getElement('title')).toHaveTextContent('Unsubscribe');
   });
 
   it('dispatches unsubscribeNotification on mount', () => {
     const params = getParams();
     const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
-    const root = render({ params, store });
+    render({ params, store });
 
-    sinon.assert.calledWith(
-      dispatchSpy,
+    expect(dispatch).toHaveBeenCalledWith(
       unsubscribeNotification({
-        errorHandlerId: root.instance().props.errorHandler.id,
+        errorHandlerId: createErrorHandlerId({ params }),
         hash: params.hash,
         notification: params.notificationName,
         token: params.token,
@@ -115,22 +98,22 @@ describe(__filename, () => {
         token: params.token,
       }),
     );
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
     render({ params, store });
 
-    sinon.assert.notCalled(dispatchSpy);
+    expect(dispatch).not.toHaveBeenCalled();
   });
 
   it('does not dispatch unsubscribeNotification if already dispatched', () => {
     const params = getParams();
     const { store } = dispatchClientMetadata();
     _finishUnsubscribeNotification(store, params);
-    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const dispatch = jest.spyOn(store, 'dispatch');
 
     render({ params, store });
 
-    sinon.assert.notCalled(dispatchSpy);
+    expect(dispatch).not.toHaveBeenCalled();
   });
 
   it('renders errors', () => {
@@ -141,9 +124,11 @@ describe(__filename, () => {
     });
     errorHandler.handle(new Error('unexpected error'));
 
-    const root = render({ errorHandler, store });
+    render({ errorHandler, store });
 
-    expect(root.find(ErrorList)).toHaveLength(1);
+    expect(
+      screen.getByText('An unexpected error occurred'),
+    ).toBeInTheDocument();
   });
 
   describe('when user is successfully unsubscribed', () => {
@@ -153,11 +138,9 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
       _finishUnsubscribeNotification(store, params);
 
-      const root = render({ params, store });
+      render({ params, store });
 
-      expect(
-        root.find('.UsersUnsubscribe-content-explanation').html(),
-      ).toContain(`The email address <strong>${email}</strong> will`);
+      expect(screen.getByText(email)).toBeInTheDocument();
     });
 
     it('renders a description of the unsubscribed notification', () => {
@@ -166,32 +149,24 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
       _finishUnsubscribeNotification(store, params);
 
-      const root = render({ params, store });
+      render({ params, store });
 
-      expect(root.find('.UsersUnsubscribe-content-notification')).toHaveText(
-        getNotificationDescription(fakeI18n(), notificationName),
-      );
+      expect(
+        screen.getByText(
+          getNotificationDescription(fakeI18n(), notificationName),
+        ),
+      ).toBeInTheDocument();
     });
 
     it('renders a link to edit the user profile', () => {
       const { store } = dispatchClientMetadata();
       _finishUnsubscribeNotification(store);
 
-      const root = render({ store });
+      render({ store });
 
-      expect(
-        root.find('.UsersUnsubscribe-content-edit-profile').childAt(0),
-      ).toHaveText('You can edit your notification settings by ');
-      // The second child is a `Link`.
-      expect(
-        root.find('.UsersUnsubscribe-content-edit-profile').childAt(1),
-      ).toHaveProp('to', '/users/edit');
-      expect(
-        root.find('.UsersUnsubscribe-content-edit-profile').childAt(1),
-      ).toHaveProp('children', 'editing your profile');
-      expect(
-        root.find('.UsersUnsubscribe-content-edit-profile').childAt(2),
-      ).toHaveText('.');
+      const link = screen.getByRole('link', { name: 'editing your profile' });
+      expect(link).toBeInTheDocument();
+      expect(link).toHaveAttribute('href', '/en-US/android/users/edit');
     });
   });
 
