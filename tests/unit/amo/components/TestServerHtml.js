@@ -1,13 +1,18 @@
-import { shallow } from 'enzyme';
 import { Helmet } from 'react-helmet';
 import * as React from 'react';
 
-import ServerHtml from 'amo/components/ServerHtml';
+import ServerHtml, { getStatic } from 'amo/components/ServerHtml';
 import FakeApp, {
   fakeAssets,
   fakeSRIData,
 } from 'tests/unit/amo/server/fakeApp';
-import { getFakeConfig } from 'tests/unit/helpers';
+import {
+  getFakeConfig,
+  getElement,
+  getElements,
+  render as defaultRender,
+  screen,
+} from 'tests/unit/helpers';
 import { RTL } from 'amo/constants';
 
 describe(__filename, () => {
@@ -31,161 +36,158 @@ describe(__filename, () => {
       trackingEnabled: false,
       ...opts,
     };
-    return shallow(<ServerHtml {...pageProps} />);
+    return defaultRender(<ServerHtml {...pageProps} />);
   }
 
   it('renders html attrs provided', () => {
-    const root = render({ htmlLang: 'ar', htmlDir: RTL });
-    const html = root.find('html');
+    render({ htmlLang: 'ar', htmlDir: RTL });
 
-    expect(html).toHaveProp('lang', 'ar');
-    expect(html).toHaveProp('dir', RTL);
+    const html = screen.getByTagName('html');
+
+    expect(html).toHaveAttribute('lang', 'ar');
+    expect(html).toHaveAttribute('dir', RTL);
   });
 
-  it('renders meta attrs inside helmet', () => {
-    const root = render();
-    const meta = root.find({ name: 'description' });
+  it('renders meta attrs inside helmet', async () => {
+    render();
 
-    expect(meta).toHaveProp('content', 'test meta');
+    expect(getElement('meta[name="description"]')).toHaveAttribute(
+      'content',
+      'test meta',
+    );
   });
 
   it('renders script[type="application/ld+json"] inside helmet', () => {
-    const root = render();
-    // This is defined in the `FakeApp` component.
-    const script = root.find('script[type="application/ld+json"]');
+    render();
 
-    expect(script).toHaveLength(1);
+    // This is defined in the `FakeApp` component.
+    expect(
+      getElement('script[type="application/ld+json"]'),
+    ).toBeInTheDocument();
   });
 
   it('renders GA script when trackingEnabled is true', () => {
-    const root = render({ trackingEnabled: true });
-    const ga = root.find({
-      src: 'https://www.google-analytics.com/analytics.js',
-    });
+    render({ trackingEnabled: true });
 
-    expect(ga).toHaveLength(1);
-    expect(ga).toHaveProp('async', true);
+    const ga = getElement(
+      'script[src="https://www.google-analytics.com/analytics.js"]',
+    );
+    expect(ga).toHaveAttribute('async');
   });
 
   it("doesn't render GA script when trackingEnabled is false", () => {
-    const root = render({ trackingEnabled: false });
-    const ga = root.find({
-      src: 'https://www.google-analytics.com/analytics.js',
-    });
+    render({ trackingEnabled: false });
 
-    expect(ga).toHaveLength(0);
+    expect(
+      getElements(
+        'script[src="https://www.google-analytics.com/analytics.js"]',
+      ),
+    ).toHaveLength(0);
   });
 
   it('renders css provided', () => {
-    const root = render();
-    const styleSheets = root.find({ rel: 'stylesheet' });
+    render();
+    const styleSheets = getElements('link[rel="stylesheet"]');
 
-    expect(styleSheets.at(0)).toHaveProp('href', '/bar/amo-blah.css');
-    expect(styleSheets.at(1)).toHaveProp('href', '/search-blah.css');
+    expect(styleSheets[0]).toHaveAttribute('href', '/bar/amo-blah.css');
+    expect(styleSheets[1]).toHaveAttribute('href', '/search-blah.css');
   });
 
   it('renders js provided', () => {
-    const root = render();
-    const js = root.find('script');
+    render();
 
-    expect(js.at(2)).toHaveProp('src', '/foo/amo-blah.js');
+    expect(getElements('script')[2]).toHaveAttribute('src', '/foo/amo-blah.js');
   });
 
   it('does not render i18n js in the assets list', () => {
-    const root = render();
-    const js = root.find('script[integrity="sha512-amo-i18n-js"]');
-    expect(js.exists()).toEqual(false);
+    render();
+
+    expect(getElements('script[integrity="sha512-amo-i18n-js"]')).toHaveLength(
+      0,
+    );
   });
 
   it('renders css with SRI when present', () => {
-    const root = render();
-    const styleSheets = root.find({ rel: 'stylesheet' });
+    render();
+    const styleSheet = getElements('link[rel="stylesheet"]')[0];
 
-    expect(styleSheets.at(0)).toHaveProp('integrity', 'sha512-amo-css');
-    expect(styleSheets.at(0)).toHaveProp('crossOrigin', 'anonymous');
+    expect(styleSheet).toHaveAttribute('integrity', 'sha512-amo-css');
+    expect(styleSheet).toHaveAttribute('crossOrigin', 'anonymous');
   });
 
   it('renders js with SRI when present', () => {
-    const root = render();
-    const js = root.find('script');
+    render();
+    const js = getElements('script')[2];
 
-    expect(js.at(2)).toHaveProp('integrity', 'sha512-amo-js');
-    expect(js.at(2)).toHaveProp('crossOrigin', 'anonymous');
+    expect(js).toHaveAttribute('integrity', 'sha512-amo-js');
+    expect(js).toHaveAttribute('crossOrigin', 'anonymous');
   });
 
   it('renders state as JSON', () => {
     const appState = { usersExample: ['first-user', 'second-user'] };
-    const root = render({ appState });
-    const json = root.find('#redux-store-state');
+    render({ appState });
+    const json = getElement('#redux-store-state');
 
-    expect(json).toHaveLength(1);
-    expect(JSON.parse(json.prop('dangerouslySetInnerHTML').__html)).toEqual(
-      appState,
-    );
+    expect(JSON.parse(json.innerHTML)).toEqual(appState);
   });
 
   it('renders meta with utf8 charset', () => {
-    const root = render();
-    const meta = root.find({ charSet: 'utf-8' });
+    render();
 
-    expect(meta).toHaveLength(1);
+    expect(getElement('meta[charset="utf-8"]')).toBeInTheDocument();
   });
 
   it('renders favicon', () => {
     const _config = getFakeConfig();
+    render({ _config });
 
-    const root = render({ _config });
-    const favicon = root.find('link[rel="shortcut icon"]');
-
-    expect(favicon).toHaveProp(
+    expect(getElement('link[rel="shortcut icon"]')).toHaveAttribute(
       'href',
       `/favicon.ico?v=${_config.get('faviconVersion')}`,
     );
   });
 
   it('renders font link preload with SRI', () => {
-    const root = render();
-    const preloaded = root.find({ rel: 'preload' });
+    render();
+    const preloaded = getElements('link[rel="preload"]')[0];
 
-    expect(preloaded.at(0)).toHaveProp(
+    expect(preloaded).toHaveAttribute(
       'href',
       'Inter-roman-subset-en_de_fr_ru_es_pt_pl_it.var.woff2',
     );
-    expect(preloaded.at(0)).toHaveProp('as', 'font');
-    expect(preloaded.at(0)).toHaveProp('type', 'font/woff2');
-    expect(preloaded.at(0)).not.toHaveProp('integrity');
-    expect(preloaded.at(0)).toHaveProp('crossOrigin', 'anonymous');
+    expect(preloaded).toHaveAttribute('as', 'font');
+    expect(preloaded).toHaveAttribute('type', 'font/woff2');
+    expect(preloaded).not.toHaveAttribute('integrity');
+    expect(preloaded).toHaveAttribute('crossOrigin', 'anonymous');
   });
 
   it('renders title', () => {
-    const root = render();
+    render();
 
-    expect(root.find('title')).toHaveText('test title');
+    expect(screen.getByText('test title')).toBeInTheDocument();
   });
 
   it('throws for unknown static type', () => {
     expect(() => {
-      const root = render({ includeSri: false });
-      root.instance().getStatic({ filePath: 'amo-foo', type: 'whatever' });
+      getStatic({ filePath: 'amo-foo', type: 'whatever', includeSri: false });
     }).toThrowError('Unknown static type');
   });
 
   it.each(['css', 'js'])('throws for missing SRI data', (type) => {
     expect(() => {
-      const root = render();
-      root.instance().getStatic({ filePath: 'amo-blah', type });
+      getStatic({ filePath: 'amo-blah', type, includeSri: true, sriData: {} });
     }).toThrowError(/SRI Data is missing/);
   });
 
   it('does not render empty noscript styles', () => {
-    const root = render();
+    render();
 
-    expect(root.find('noscript')).toHaveLength(0);
+    expect(screen.queryByTagName('noscript')).not.toBeInTheDocument();
   });
 
   it('renders link[rel="canonical"] inside helmet', () => {
-    const root = render();
+    render();
     // This is defined in the `FakeApp` component.
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+    expect(getElement('link[rel="canonical"]')).toBeInTheDocument();
   });
 });
