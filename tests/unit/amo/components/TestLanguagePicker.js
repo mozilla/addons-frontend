@@ -1,71 +1,64 @@
+/* global window */
 import * as React from 'react';
+import userEvent from '@testing-library/user-event';
 
-import LanguagePicker, {
-  LanguagePickerBase,
-  changeLocaleURL,
-} from 'amo/components/LanguagePicker';
+import LanguagePicker, { changeLocaleURL } from 'amo/components/LanguagePicker';
 import {
   dispatchClientMetadata,
-  fakeI18n,
   createFakeLocation,
-  createFakeEvent,
-  shallowUntilTarget,
-  createContextWithFakeRouter,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('LanguagePicker', () => {
-    function renderLanguagePicker({
-      currentLocale = 'en-US',
-      ...otherProps
-    } = {}) {
-      const props = {
-        i18n: fakeI18n(),
-        location: createFakeLocation(),
-        store: dispatchClientMetadata({ lang: currentLocale }).store,
-        ...otherProps,
-      };
+    const savedLocation = window.location;
 
-      return shallowUntilTarget(
-        <LanguagePicker {...props} />,
-        LanguagePickerBase,
-        {
-          shallowOptions: createContextWithFakeRouter(),
-        },
-      );
+    afterEach(() => {
+      window.location = savedLocation;
+    });
+
+    beforeEach(() => {
+      delete window.location;
+    });
+
+    function renderLanguagePicker({ lang = 'en-US', ...props } = {}) {
+      const path = `/${lang}/firefox/`;
+      window.location = new URL(`https://example.org${path}`);
+      const { store } = dispatchClientMetadata({ lang });
+      return defaultRender(<LanguagePicker {...props} />, {
+        store,
+        initialEntries: [path],
+      });
     }
 
     it('renders a LanguagePicker', () => {
-      const root = renderLanguagePicker();
+      renderLanguagePicker();
 
-      expect(root.find('.LanguagePicker')).toHaveLength(1);
+      expect(
+        screen.getByRole('combobox', { name: 'Change language' }),
+      ).toBeInTheDocument();
     });
 
     it('selects the current locale', () => {
-      const currentLocale = 'fr';
-      const root = renderLanguagePicker({ currentLocale });
+      renderLanguagePicker({ lang: 'fr' });
 
-      expect(root.find('select')).toHaveProp('defaultValue', currentLocale);
+      expect(screen.getByRole('option', { name: 'Français' }).selected).toBe(
+        true,
+      );
+      expect(screen.getByRole('option', { name: 'Français' }).value).toBe('fr');
     });
 
     it('changes the language on change', () => {
-      const _window = { location: '/fr/firefox/' };
+      renderLanguagePicker({ lang: 'fr' });
+      expect(window.location.pathname).toEqual('/fr/firefox/');
 
-      const root = renderLanguagePicker({
-        currentLocale: 'fr',
-        _window,
-      });
+      userEvent.selectOptions(
+        screen.getByRole('combobox', { name: 'Change language' }),
+        screen.getByRole('option', { name: 'Español' }),
+      );
 
-      root.setProps({
-        location: createFakeLocation({ pathname: _window.location }),
-      });
-
-      const fakeEvent = createFakeEvent({ target: { value: 'es' } });
-
-      root.find('select').simulate('change', fakeEvent);
-
-      sinon.assert.calledOnce(fakeEvent.preventDefault);
-      expect(_window.location).toEqual('/es/firefox/');
+      expect(window.location).toEqual('/es/firefox/');
     });
   });
 
