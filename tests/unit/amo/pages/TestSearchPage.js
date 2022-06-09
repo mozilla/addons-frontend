@@ -1,4 +1,4 @@
-import { waitFor } from '@testing-library/react';
+import { cleanup, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
@@ -24,6 +24,7 @@ import {
   VERIFIED_FILTER,
   VIEW_CONTEXT_HOME,
 } from 'amo/constants';
+import { fetchCategories, loadCategories } from 'amo/reducers/categories';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { SEARCH_STARTED, searchStart } from 'amo/reducers/search';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
@@ -33,6 +34,7 @@ import {
   dispatchClientMetadata,
   dispatchSearchResults,
   fakeAddon,
+  fakeCategory,
   getElement,
   getElements,
   getSearchErrorHandlerId,
@@ -50,17 +52,64 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  function render({ history, location = defaultLocation, term } = {}) {
+  const getLocation = ({ category, query, tag, type }) => {
+    let location = `${defaultLocation}?`;
+    if (category) {
+      location = `${location}&category=${category}`;
+    }
+    if (query) {
+      location = `${location}&q=${query}`;
+    }
+    if (tag) {
+      location = `${location}&tag=${tag}`;
+    }
+    if (type) {
+      location = `${location}&type=${type}`;
+    }
+    return location;
+  };
+
+  function render({ category, history, location, query, tag, type } = {}) {
     const renderOptions = {
       history:
         history ||
         createHistory({
-          initialEntries: [term ? `${defaultLocation}?q=${term}` : location],
+          initialEntries: [
+            location || getLocation({ category, query, tag, type }),
+          ],
         }),
       store,
     };
     return defaultRender(renderOptions);
   }
+
+  const _searchStart = ({ filters = {} } = {}) => {
+    store.dispatch(
+      searchStart({ errorHandlerId: getSearchErrorHandlerId(), filters }),
+    );
+  };
+
+  const _dispatchSearchResults = (args = {}) =>
+    dispatchSearchResults({ store, ...args });
+
+  const _loadCategories = ({
+    results = [
+      {
+        ...fakeCategory,
+        type: ADDON_TYPE_STATIC_THEME,
+        name: 'Causes',
+        slug: 'causes',
+      },
+      {
+        ...fakeCategory,
+        type: ADDON_TYPE_EXTENSION,
+        name: 'Causes',
+        slug: 'causes',
+      },
+    ],
+  } = {}) => {
+    store.dispatch(loadCategories({ results }));
+  };
 
   const renderWithResults = ({
     count = 5,
@@ -68,17 +117,17 @@ describe(__filename, () => {
     history,
     page = '1',
     pageSize = 2,
-    term,
+    query,
   } = {}) => {
     const addons = Array(pageSize).fill(fakeAddon);
     const filters = { page, ...filterProps };
-    if (term) {
-      filters.query = term;
+    if (query) {
+      filters.query = query;
     }
-    dispatchSearchResults({ addons, count, filters, pageSize, store });
+    _dispatchSearchResults({ addons, count, filters, pageSize });
     let location = `${defaultLocation}?page=${page}`;
-    if (term) {
-      location = `${location}&q=${term}`;
+    if (query) {
+      location = `${location}&q=${query}`;
     }
     for (const key of Object.keys(filterProps)) {
       location = `${location}&${key}=${filterProps[key]}`;
@@ -89,12 +138,12 @@ describe(__filename, () => {
   it('preserves category in paginationQueryParams', () => {
     const category = 'some-category';
     const page = '2';
-    const term = 'fries';
-    renderWithResults({ filterProps: { category }, page, term });
+    const query = 'fries';
+    renderWithResults({ filterProps: { category }, page, query });
 
     expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
       'href',
-      `${defaultLocation}?category=${category}&page=1&q=${term}`,
+      `${defaultLocation}?category=${category}&page=1&q=${query}`,
     );
   });
 
@@ -325,39 +374,36 @@ describe(__filename, () => {
 
     it('passes a Paginate component to the SearchResults component', () => {
       const page = '2';
-      const term = 'foo';
-      renderWithResults({ page, term });
+      const query = 'foo';
+      renderWithResults({ page, query });
 
       expect(screen.getByText('Page 2 of 3')).toBeInTheDocument();
       expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
         'href',
-        `${defaultLocation}?page=1&q=${term}`,
+        `${defaultLocation}?page=1&q=${query}`,
       );
     });
 
     it('dispatches the search on mount', () => {
       const dispatch = jest.spyOn(store, 'dispatch');
-      const term = 'foo';
-      render({ term });
+      const query = 'foo';
+      render({ query });
 
       expect(dispatch).toHaveBeenCalledWith(
         searchStart({
           errorHandlerId: getSearchErrorHandlerId(),
-          filters: { query: term },
+          filters: { query },
         }),
       );
     });
 
     it('does not dispatch on mount if filters exist and have not changed', () => {
-      const term = 'foo';
-      store.dispatch(
-        searchStart({
-          errorHandlerId: getSearchErrorHandlerId(),
-          filters: { query: term },
-        }),
-      );
+      const query = 'foo';
+      _searchStart({
+        filters: { query },
+      });
       const dispatch = jest.spyOn(store, 'dispatch');
-      render({ term });
+      render({ query });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: SEARCH_STARTED }),
@@ -366,9 +412,9 @@ describe(__filename, () => {
 
     it('dispatches a search when a sort option is selected', () => {
       const page = '1';
-      const term = 'foo';
+      const query = 'foo';
       const dispatch = jest.spyOn(store, 'dispatch');
-      renderWithResults({ page, term });
+      renderWithResults({ page, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),
@@ -377,16 +423,16 @@ describe(__filename, () => {
       expect(dispatch).toHaveBeenCalledWith(
         searchStart({
           errorHandlerId: getSearchErrorHandlerId(page),
-          filters: { page, query: term, sort: 'relevance' },
+          filters: { page, query, sort: 'relevance' },
         }),
       );
     });
 
     it('dispatches a search when filters become empty', () => {
       const page = '1';
-      const term = 'foo';
+      const query = 'foo';
       const dispatch = jest.spyOn(store, 'dispatch');
-      renderWithResults({ page, term });
+      renderWithResults({ page, query });
 
       userEvent.type(screen.getByRole('searchbox'), '{selectall}{del}');
       userEvent.click(screen.getByRole('button', { name: 'Search' }));
@@ -592,13 +638,13 @@ describe(__filename, () => {
 
   describe('Tests for SearchFilters', () => {
     it('changes the URL when a new addonType filter is selected', () => {
-      const term = 'foo';
+      const query = 'foo';
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}`],
+        initialEntries: [`${defaultLocation}?q=${query}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, term });
+      renderWithResults({ history, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
@@ -609,19 +655,19 @@ describe(__filename, () => {
         pathname: defaultLocation,
         query: convertFiltersToQueryParams({
           addonType: ADDON_TYPE_EXTENSION,
-          query: term,
+          query,
         }),
       });
     });
 
     it('changes the URL when a new sort filter is selected', () => {
-      const term = 'foo';
+      const query = 'foo';
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}`],
+        initialEntries: [`${defaultLocation}?q=${query}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, term });
+      renderWithResults({ history, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),
@@ -631,20 +677,20 @@ describe(__filename, () => {
       expect(pushSpy).toHaveBeenCalledWith({
         pathname: defaultLocation,
         query: convertFiltersToQueryParams({
-          query: term,
+          query,
           sort: SEARCH_SORT_TRENDING,
         }),
       });
     });
 
     it('changes the URL when a new promoted filter is selected', () => {
-      const term = 'foo';
+      const query = 'foo';
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}`],
+        initialEntries: [`${defaultLocation}?q=${query}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, term });
+      renderWithResults({ history, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Badging' }),
@@ -655,7 +701,7 @@ describe(__filename, () => {
         pathname: defaultLocation,
         query: convertFiltersToQueryParams({
           promoted: RECOMMENDED,
-          query: term,
+          query,
         }),
       });
     });
@@ -711,14 +757,14 @@ describe(__filename, () => {
     });
 
     it('deletes the filter if it is empty', () => {
-      const term = 'foo';
+      const query = 'foo';
       const type = ADDON_TYPE_EXTENSION;
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}&type=${type}`],
+        initialEntries: [`${defaultLocation}?q=${query}&type=${type}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, filterProps: { type }, term });
+      renderWithResults({ history, filterProps: { type }, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
@@ -728,20 +774,20 @@ describe(__filename, () => {
       expect(pushSpy).toHaveBeenCalledWith({
         pathname: defaultLocation,
         query: convertFiltersToQueryParams({
-          query: term,
+          query,
         }),
       });
     });
 
     it('does not change the URL when the same filter is selected', () => {
-      const term = 'foo';
+      const query = 'foo';
       const type = ADDON_TYPE_EXTENSION;
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}&type=${type}`],
+        initialEntries: [`${defaultLocation}?q=${query}&type=${type}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, filterProps: { type }, term });
+      renderWithResults({ history, filterProps: { type }, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
@@ -775,14 +821,14 @@ describe(__filename, () => {
     });
 
     it('resets the page filter when a select is updated', () => {
-      const term = 'foo';
+      const query = 'foo';
       const page = '2';
       const history = createHistory({
-        initialEntries: [`${defaultLocation}?q=${term}&page=${page}`],
+        initialEntries: [`${defaultLocation}?q=${query}&page=${page}`],
       });
       const pushSpy = jest.spyOn(history, 'push');
 
-      renderWithResults({ history, page, term });
+      renderWithResults({ history, page, query });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Add-on Type' }),
@@ -794,7 +840,7 @@ describe(__filename, () => {
         query: convertFiltersToQueryParams({
           addonType: ADDON_TYPE_EXTENSION,
           page: '1',
-          query: term,
+          query,
         }),
       });
     });
@@ -808,6 +854,257 @@ describe(__filename, () => {
       expect(
         screen.queryByRole('combobox', { name: 'Badging' }),
       ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for SearchContextCard', () => {
+    const thisErrorHandlerId = 'SearchContextCard';
+
+    it('should render "Searching" text while search loading without query', () => {
+      _searchStart();
+      render();
+
+      expect(
+        screen.getByRole('heading', { name: 'Searching for add-ons' }),
+      ).toBeInTheDocument();
+    });
+
+    it('should render during a search that is search loading', () => {
+      const query = 'test';
+      _searchStart({ filters: { query } });
+      render({ query });
+
+      expect(
+        screen.getByRole('heading', { name: `Searching for "${query}"` }),
+      ).toBeInTheDocument();
+    });
+
+    it('should fetch categories if there is a category filter', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ category: 'causes' });
+
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchCategories({ errorHandlerId: thisErrorHandlerId }),
+      );
+    });
+
+    it('should not fetch categories if there is no category filter', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        fetchCategories({ errorHandlerId: thisErrorHandlerId }),
+      );
+    });
+
+    it('should not fetch categories if there is a category filter and there is a categoryName', () => {
+      _loadCategories();
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render({ category: 'causes', type: ADDON_TYPE_STATIC_THEME });
+
+      expect(dispatch).not.toHaveBeenCalledWith(
+        fetchCategories({ errorHandlerId: thisErrorHandlerId }),
+      );
+    });
+
+    // Tests without any type filter.
+    it.each([
+      // No results, no filters.
+      [{ count: 0, expected: '0 results found' }],
+      // One result, no filters.
+      [{ count: 1, expected: '1 result found' }],
+      // Multiple results, no filters.
+      [{ count: 2, expected: '2 results found' }],
+      // One result, just a query.
+      [{ count: 1, query: 'test', expected: '1 result found for "test"' }],
+      // Multiple results, just a query.
+      [{ count: 2, query: 'test', expected: '2 results found for "test"' }],
+    ])(
+      'should (old) render the expected header for %s results, category: %s, query: %s, tag: %s',
+      ({ count, query, expected }) => {
+        _loadCategories();
+
+        const filters = {};
+        if (query) {
+          filters.query = query;
+        }
+        _dispatchSearchResults({
+          addons: Array(count).fill(fakeAddon),
+          filters,
+        });
+
+        render({ query });
+
+        expect(
+          screen.getByRole('heading', { name: expected }),
+        ).toBeInTheDocument();
+      },
+    );
+
+    // Tests with specific type filters.
+    it.each([
+      [ADDON_TYPE_EXTENSION, 'extension', 'extensions'],
+      [ADDON_TYPE_STATIC_THEME, 'theme', 'themes'],
+      [ADDON_TYPE_LANG, 'result', 'results'],
+    ])('should render the expected header for %s', (type, singular, plural) => {
+      _loadCategories();
+
+      const dispatchOneResult = (filters) =>
+        _dispatchSearchResults({
+          addons: [fakeAddon],
+          filters,
+        });
+
+      const dispatchTwoResults = (filters) =>
+        _dispatchSearchResults({
+          addons: [fakeAddon, fakeAddon],
+          filters,
+        });
+
+      const testWithFilters = (filters, expectedSingular, expectedPlural) => {
+        // Category is only displayed for extensions and themes, so skip if not
+        // one of those.
+        if (
+          ![ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME].includes(
+            filters.addonType,
+          ) &&
+          filters.category
+        ) {
+          return;
+        }
+
+        const params = { ...filters, type: filters.addonType };
+        delete params.addonType;
+
+        render(params);
+        dispatchOneResult(filters);
+
+        expect(
+          screen.getByRole('heading', { name: expectedSingular }),
+        ).toBeInTheDocument();
+
+        cleanup();
+
+        render(params);
+        dispatchTwoResults(filters);
+
+        expect(
+          screen.getByRole('heading', { name: expectedPlural }),
+        ).toBeInTheDocument();
+
+        cleanup();
+      };
+
+      [
+        // Only type filter.
+        {
+          filters: { addonType: type },
+          expectedSingular: `1 ${singular} found`,
+          expectedPlural: `2 ${plural} found`,
+        },
+        // Just query.
+        {
+          filters: { addonType: type, query: 'test' },
+          expectedSingular: `1 ${singular} found for "test"`,
+          expectedPlural: `2 ${plural} found for "test"`,
+        },
+        // Just category.
+        {
+          filters: { addonType: type, category: 'causes' },
+          expectedSingular: `1 ${singular} found in Causes`,
+          expectedPlural: `2 ${plural} found in Causes`,
+        },
+        // Just tag.
+        {
+          filters: { addonType: type, tag: 'someTag' },
+          expectedSingular: `1 ${singular} found with tag someTag`,
+          expectedPlural: `2 ${plural} found with tag someTag`,
+        },
+        // Query and category.
+        {
+          filters: { addonType: type, category: 'causes', query: 'test' },
+          expectedSingular: `1 ${singular} found for "test" in Causes`,
+          expectedPlural: `2 ${plural} found for "test" in Causes`,
+        },
+        // Query and tag.
+        {
+          filters: { addonType: type, query: 'test', tag: 'someTag' },
+          expectedSingular: `1 ${singular} found for "test" with tag someTag`,
+          expectedPlural: `2 ${plural} found for "test" with tag someTag`,
+        },
+        // Category and tag.
+        {
+          filters: { addonType: type, category: 'causes', tag: 'someTag' },
+          expectedSingular: `1 ${singular} found with tag someTag in Causes`,
+          expectedPlural: `2 ${plural} found with tag someTag in Causes`,
+        },
+        // Query, category and tag.
+        {
+          filters: {
+            addonType: type,
+            category: 'causes',
+            query: 'test',
+            tag: 'someTag',
+          },
+          expectedSingular: `1 ${singular} found for "test" with tag someTag in Causes`,
+          expectedPlural: `2 ${plural} found for "test" with tag someTag in Causes`,
+        },
+      ].forEach(({ filters, expectedSingular, expectedPlural }) =>
+        testWithFilters(filters, expectedSingular, expectedPlural),
+      );
+    });
+
+    it('should render results with categoryName for addonType ADDON_TYPE_EXTENSION for android', () => {
+      dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
+
+      const category = 'experimental';
+      const categoryName = 'Experimental';
+
+      _loadCategories({
+        results: [
+          {
+            ...fakeCategory,
+            application: CLIENT_APP_ANDROID,
+            type: ADDON_TYPE_EXTENSION,
+            name: categoryName,
+            slug: category,
+          },
+        ],
+      });
+
+      _dispatchSearchResults({
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          category,
+        },
+      });
+
+      render({
+        location: `/${lang}/${CLIENT_APP_ANDROID}/search/?category=${category}&type=${ADDON_TYPE_EXTENSION}`,
+      });
+
+      expect(
+        screen.getByRole('heading', {
+          name: `2 extensions found in ${categoryName}`,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('does not render a categoryName when the category is invalid', () => {
+      const category = 'bad-category';
+      _dispatchSearchResults({
+        // The API does not return addon results if the category is invalid.
+        addons: [],
+        filters: {
+          category,
+        },
+      });
+
+      render({ category });
+
+      expect(
+        screen.getByRole('heading', { name: '0 results found' }),
+      ).toBeInTheDocument();
     });
   });
 });

@@ -309,7 +309,7 @@ function mapStateToProps(state: AppState): PropsFromState {
 const SearchContextCard: React.ComponentType<Props> = compose(
   translate(),
   connect(mapStateToProps),
-  withErrorHandler({ name: 'SearchContextCard' }),
+  withErrorHandler({ id: 'SearchContextCard' }),
 )(SearchContextCardBase);
 
 export default SearchContextCard;
