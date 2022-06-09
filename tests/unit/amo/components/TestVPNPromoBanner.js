@@ -36,7 +36,7 @@ import {
   createHistory,
   dispatchClientMetadata,
   fakeAddon,
-  fakeCookiesWithJest,
+  fakeCookies,
   onLocationChanged,
   render as defaultRender,
   screen,
@@ -52,7 +52,7 @@ describe(__filename, () => {
   });
 
   const createCookies = () => {
-    return fakeCookiesWithJest({
+    return fakeCookies({
       get: jest.fn().mockReturnValue(
         createExperimentData({
           id: EXPERIMENT_CONFIG.id,

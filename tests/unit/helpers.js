@@ -1342,17 +1342,6 @@ export function setUIState({ root, change, store }) {
 
 export function fakeCookies(overrides = {}) {
   return {
-    addChangeListener: sinon.stub(),
-    get: sinon.stub(),
-    getAll: sinon.stub(),
-    removeChangeListener: sinon.stub(),
-    set: sinon.stub(),
-    ...overrides,
-  };
-}
-
-export function fakeCookiesWithJest(overrides = {}) {
-  return {
     addChangeListener: jest.fn(),
     get: jest.fn(),
     getAll: jest.fn(),

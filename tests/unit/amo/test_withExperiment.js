@@ -16,7 +16,7 @@ import {
   createExperimentData,
   createFakeTrackingWithJest,
   dispatchClientMetadata,
-  fakeCookiesWithJest,
+  fakeCookies,
   getFakeConfig,
   makeExperimentId,
   render as defaultRender,
@@ -45,7 +45,7 @@ describe(__filename, () => {
   const render = ({
     _tracking = createFakeTrackingWithJest(),
     configOverrides = {},
-    cookies = fakeCookiesWithJest(),
+    cookies = fakeCookies(),
     experimentProps,
     props,
     store = dispatchClientMetadata().store,
@@ -98,7 +98,7 @@ describe(__filename, () => {
       const shouldExcludeUser = jest.fn().mockReturnValue(isExcluded);
       const id = makeExperimentId('test-id');
       const variantId = 'some-variant-id';
-      const cookies = fakeCookiesWithJest({
+      const cookies = fakeCookies({
         get: jest.fn().mockReturnValue(createExperimentData({ id, variantId })),
       });
 
@@ -118,7 +118,7 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
       const id = makeExperimentId('test-id');
       const variantId = 'some-variant-id';
-      const cookies = fakeCookiesWithJest({
+      const cookies = fakeCookies({
         get: jest.fn().mockReturnValue(undefined),
       });
 
@@ -141,7 +141,7 @@ describe(__filename, () => {
     const id = makeExperimentId('test-id');
     const cookieVariant = 'cookie-variant';
     const storeVariant = 'store-variant';
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest
         .fn()
         .mockReturnValue(
@@ -160,7 +160,7 @@ describe(__filename, () => {
     const id = makeExperimentId('test-id');
     const originalCookieVariant = 'cookie-variant';
     const updatedCookieVariant = 'cookie-variant-updated';
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest
         .fn()
         .mockReturnValue(
@@ -175,7 +175,7 @@ describe(__filename, () => {
     ).toBeInTheDocument();
 
     render({
-      cookies: fakeCookiesWithJest({
+      cookies: fakeCookies({
         get: sinon
           .stub()
           .returns(
@@ -194,7 +194,7 @@ describe(__filename, () => {
   it('injects a newly created variant prop', () => {
     const id = makeExperimentId('hero');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(undefined),
     });
     const _getVariant = jest.fn().mockReturnValue(variantId);
@@ -211,7 +211,7 @@ describe(__filename, () => {
   it('injects a variant prop when shouldExcludeUser is undefined', () => {
     const id = makeExperimentId('hero');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(undefined),
     });
     const _getVariant = jest.fn().mockReturnValue(variantId);
@@ -249,7 +249,7 @@ describe(__filename, () => {
 
   it('injects an isUserInExperiment prop', () => {
     const id = makeExperimentId('test-id');
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(createExperimentData({ id })),
     });
 
@@ -259,7 +259,7 @@ describe(__filename, () => {
   });
 
   it('reads the experiment cookie upon render', () => {
-    const cookies = fakeCookiesWithJest();
+    const cookies = fakeCookies();
 
     render({ cookies });
 
@@ -269,7 +269,7 @@ describe(__filename, () => {
   it('deletes the data for an experiment from the cookie if the experiment is disabled', () => {
     const experimentId = makeExperimentId('thisExperiment');
     const anotherExperimentId = makeExperimentId('anotherExperiment');
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue({
         ...createExperimentData({ id: experimentId }),
         ...createExperimentData({ id: anotherExperimentId }),
@@ -298,7 +298,7 @@ describe(__filename, () => {
 
   it('calls getVariant to set a value for a cookie upon construction if needed', () => {
     const id = makeExperimentId('hero');
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(undefined),
     });
     const variants = [
@@ -328,7 +328,7 @@ describe(__filename, () => {
     const otherExperimentVariant = 'variant-for-another-experiment';
     const thisExperimentVariant = 'variant-for-this-experiment';
     const id = makeExperimentId('hero');
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(undefined),
     });
     const _getVariant = jest.fn().mockReturnValue(thisExperimentVariant);
@@ -359,7 +359,7 @@ describe(__filename, () => {
     const otherExperimentVariant = 'variant-for-another-experiment';
     const thisExperimentVariant = 'variant-for-this-experiment';
     const id = makeExperimentId('hero');
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(undefined),
     });
     const { store } = dispatchClientMetadata();
@@ -394,7 +394,7 @@ describe(__filename, () => {
 
   it('does not call getVariant if the user is to be excluded', () => {
     const _getVariant = jest.fn();
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(undefined),
     });
     const shouldExcludeUser = jest.fn().mockReturnValue(true);
@@ -421,7 +421,7 @@ describe(__filename, () => {
       },
     };
     const variantId = 'some-variant-id';
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue({
         ...createExperimentData({ id: anotherExperimentId, variantId }),
       }),
@@ -448,7 +448,7 @@ describe(__filename, () => {
   it('dispatches storeExperimentVariant to store the variant', () => {
     const id = makeExperimentId('hero');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(undefined),
     });
     const _getVariant = jest.fn().mockReturnValue(variantId);
@@ -479,7 +479,7 @@ describe(__filename, () => {
       },
     };
     const variantId = 'some-variant-id';
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue({
         ...createExperimentData({ id: anotherExperimentId, variantId }),
       }),
@@ -503,7 +503,7 @@ describe(__filename, () => {
 
   it('does not update the cookie if the current experiment is already in the cookie', () => {
     const id = makeExperimentId('test-id');
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(createExperimentData({ id })),
     });
 
@@ -519,7 +519,7 @@ describe(__filename, () => {
     const experimentId = makeExperimentId('thisExperiment');
     const anotherExperimentId = makeExperimentId('anotherExperiment');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: sinon
         .stub()
         .returns(createExperimentData({ id: anotherExperimentId })),
@@ -545,7 +545,7 @@ describe(__filename, () => {
 
   it('does not send an enrollment event if the user is in the experiment', () => {
     const id = makeExperimentId('hero');
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(createExperimentData({ id })),
     });
     const _tracking = createFakeTrackingWithJest();
@@ -561,7 +561,7 @@ describe(__filename, () => {
 
   it('does not send an enrollment event if the experiment is disabled', () => {
     const id = makeExperimentId('hero');
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(undefined),
     });
     const configOverrides = {
@@ -584,7 +584,7 @@ describe(__filename, () => {
   it('allows a custom cookie configuration', () => {
     const id = makeExperimentId('custom_cookie_config');
     const variantId = 'some-variant-id';
-    const cookies = fakeCookiesWithJest();
+    const cookies = fakeCookies();
     const cookieConfig = { path: '/test' };
     const _getVariant = jest.fn().mockReturnValue(variantId);
 
@@ -617,7 +617,7 @@ describe(__filename, () => {
 
   it('sets isUserInExperiment prop to false when the user is not in the experiment', () => {
     const id = makeExperimentId('test-id');
-    const cookies = fakeCookiesWithJest({
+    const cookies = fakeCookies({
       get: jest
         .fn()
         .mockReturnValue(

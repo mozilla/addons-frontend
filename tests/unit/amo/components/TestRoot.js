@@ -1,17 +1,17 @@
-import { mount } from 'enzyme';
 import * as React from 'react';
 import { withCookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
 
 import Root from 'amo/components/Root';
 import translate from 'amo/i18n/translate';
 import {
-  createFakeHistory,
-  createFakeLocation,
+  createHistory,
   dispatchClientMetadata,
   fakeCookies,
   fakeI18n,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -19,12 +19,12 @@ describe(__filename, () => {
 
   const mountApp = ({
     Child = App,
-    history = createFakeHistory(),
+    history = createHistory(),
     i18n = fakeI18n(),
     store = dispatchClientMetadata().store,
     ...props
   } = {}) => {
-    return mount(
+    return render(
       <Root i18n={i18n} history={history} store={store} {...props}>
         <Child />
       </Root>,
@@ -32,8 +32,9 @@ describe(__filename, () => {
   };
 
   it('renders children', () => {
-    const root = mountApp();
-    expect(root.find('.App')).toHaveLength(1);
+    mountApp();
+
+    expect(screen.getByClassName('App')).toBeInTheDocument();
   });
 
   it('provides i18n capability', () => {
@@ -43,15 +44,14 @@ describe(__filename, () => {
       </App>
     ));
 
-    const root = mountApp({ Child: AppWithI18n });
-    expect(root.find('.App')).toHaveText('hello');
+    mountApp({ Child: AppWithI18n });
+
+    expect(screen.getByText('hello')).toBeInTheDocument();
   });
 
   it('provides routing capability', () => {
     const pathname = '/some/random/url';
-    const history = createFakeHistory({
-      location: createFakeLocation({ pathname }),
-    });
+    const history = createHistory({ initialEntries: [pathname] });
 
     const AppWithRouter = withRouter(({ location }) => (
       <App>
@@ -59,8 +59,9 @@ describe(__filename, () => {
       </App>
     ));
 
-    const root = mountApp({ Child: AppWithRouter, history });
-    expect(root.find('.App')).toHaveText(pathname);
+    mountApp({ Child: AppWithRouter, history });
+
+    expect(screen.getByText(pathname)).toBeInTheDocument();
   });
 
   it('provides redux capability', () => {
@@ -75,8 +76,9 @@ describe(__filename, () => {
       ),
     );
 
-    const root = mountApp({ Child: AppWithRedux, store });
-    expect(root.find('.App')).toHaveText(lang);
+    mountApp({ Child: AppWithRedux, store });
+
+    expect(screen.getByText(lang)).toBeInTheDocument();
   });
 
   it('provides cookies capability', () => {
@@ -91,7 +93,7 @@ describe(__filename, () => {
       </App>
     ));
 
-    const root = mountApp({ Child: AppWithCookies, cookies: _cookies });
-    expect(root.find('.App')).toHaveText(cookieValue);
+    mountApp({ Child: AppWithCookies, cookies: _cookies });
+    expect(screen.getByText(cookieValue)).toBeInTheDocument();
   });
 });
