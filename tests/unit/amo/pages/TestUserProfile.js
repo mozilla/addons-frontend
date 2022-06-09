@@ -15,6 +15,12 @@ import {
   fetchAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import {
+  hideUserAbuseReportUI,
+  loadUserAbuseReport,
+  sendUserAbuseReport,
+  showUserAbuseReportUI,
+} from 'amo/reducers/userAbuseReports';
+import {
   fetchUserAccount,
   getCurrentUser,
   loadUserAccount,
@@ -32,6 +38,7 @@ import {
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
   createFailedErrorHandler,
+  createFakeUserAbuseReport,
   createUserAccountResponse,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
@@ -108,6 +115,22 @@ describe(__filename, () => {
         userId,
       }),
     );
+  }
+
+  function renderForOtherThanSignedInUser() {
+    const userId = signInUserWithProps();
+
+    // Create a user with another userId.
+    const anotherUserId = userId + 1;
+    store.dispatch(
+      loadUserAccount({
+        user: createUserAccountResponse({ id: anotherUserId }),
+      }),
+    );
+
+    // See this other user profile page.
+    renderUserProfile({ userId: anotherUserId });
+    return anotherUserId;
   }
 
   const createErrorHandlerId = ({ userId = defaultUserId } = {}) => {
@@ -356,18 +379,7 @@ describe(__filename, () => {
   });
 
   it('renders a report abuse button if user is not the current logged-in user', () => {
-    const userId = signInUserWithProps();
-
-    // Create a user with another userId.
-    const anotherUserId = userId + 1;
-    store.dispatch(
-      loadUserAccount({
-        user: createUserAccountResponse({ id: anotherUserId }),
-      }),
-    );
-
-    // See this other user profile page.
-    renderUserProfile({ userId: anotherUserId });
+    renderForOtherThanSignedInUser();
 
     expect(
       screen.getByRole('button', { name: 'Report this user for abuse' }),
@@ -663,39 +675,14 @@ describe(__filename, () => {
   });
 
   it(`does not display the user's reviews when current user is not the owner`, () => {
-    const userId = signInUserWithProps();
-
-    // Create a user with another userId.
-    const anotherUserId = userId + 1;
-    store.dispatch(
-      loadUserAccount({
-        user: createUserAccountResponse({ id: anotherUserId }),
-      }),
-    );
-
-    _setUserReviews({ userId: anotherUserId });
-
-    // See this other user profile page.
-    renderUserProfile({ userId: anotherUserId });
+    renderForOtherThanSignedInUser();
 
     expect(screen.queryByText('My reviews')).not.toBeInTheDocument();
   });
 
   it('does not fetch the reviews when user is loaded but current user is not the owner', () => {
-    const userId = signInUserWithProps();
-
-    // Create a user with another userId.
-    const anotherUserId = userId + 1;
-    store.dispatch(
-      loadUserAccount({
-        user: createUserAccountResponse({ id: anotherUserId }),
-      }),
-    );
-
     const dispatch = jest.spyOn(store, 'dispatch');
-
-    // See this other user profile page.
-    renderUserProfile({ userId: anotherUserId });
+    renderForOtherThanSignedInUser();
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ 'type': FETCH_USER_REVIEWS }),
@@ -1177,6 +1164,178 @@ describe(__filename, () => {
         'content',
         `User Profile for ${displayName} – Add-ons for Firefox (${lang})`,
       );
+    });
+  });
+
+  describe('Tests for ReportUserAbuse', () => {
+    const errorHandlerId = 'ReportUserAbuse';
+
+    it('renders a disabled button if no user exists', () => {
+      renderUserProfile();
+
+      expect(
+        screen.getByRole('button', { name: 'Report this user for abuse' }),
+      ).toBeDisabled();
+    });
+
+    it('shows the preview content when first rendered', () => {
+      renderUserProfile();
+
+      expect(screen.getByClassName('ReportUserAbuse')).not.toHaveClass(
+        'ReportUserAbuse--is-expanded',
+      );
+      expect(
+        screen.getByRole('button', { name: 'Report this user for abuse' }),
+      ).toBeInTheDocument();
+    });
+
+    it('shows more content when the button is clicked', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const userId = renderForOtherThanSignedInUser();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Report this user for abuse' }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        showUserAbuseReportUI({
+          userId,
+        }),
+      );
+
+      expect(screen.getByClassName('ReportUserAbuse')).toHaveClass(
+        'ReportUserAbuse--is-expanded',
+      );
+
+      // The initial button should no longer be visible.
+      expect(
+        screen.queryByRole('button', { name: 'Report this user for abuse' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders the form in a pre-submitted state', () => {
+      renderForOtherThanSignedInUser();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Report this user for abuse' }),
+      );
+
+      expect(
+        screen.getByRole('heading', { name: 'Report this user for abuse' }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: 'Send abuse report' }),
+      ).toBeInTheDocument();
+    });
+
+    it('hides more content when the cancel button is clicked', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const userId = renderForOtherThanSignedInUser();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Report this user for abuse' }),
+      );
+
+      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+
+      expect(dispatch).toHaveBeenCalledWith(
+        hideUserAbuseReportUI({
+          userId,
+        }),
+      );
+      expect(screen.getByClassName('ReportUserAbuse')).not.toHaveClass(
+        'ReportUserAbuse--is-expanded',
+      );
+    });
+
+    it('dispatches the send abuse report action', () => {
+      const dispatch = jest.spyOn(store, 'dispatch');
+      const message = 'This user is funny';
+      const userId = renderForOtherThanSignedInUser();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Report this user for abuse' }),
+      );
+
+      userEvent.type(
+        screen.getByPlaceholderText(
+          'Explain how this user is violating our policies.',
+        ),
+        message,
+      );
+      userEvent.click(
+        screen.getByRole('button', { name: 'Send abuse report' }),
+      );
+
+      expect(dispatch).toHaveBeenCalledWith(
+        sendUserAbuseReport({
+          errorHandlerId,
+          message,
+          userId,
+        }),
+      );
+
+      expect(
+        screen.getByRole('button', { name: 'Sending abuse report' }),
+      ).toBeDisabled();
+    });
+
+    it('shows a success message and hides the button if report was sent', () => {
+      const userId = signInUserWithProps();
+
+      // Create a user with another userId.
+      const anotherUserId = userId + 1;
+      const user = createUserAccountResponse({ id: anotherUserId });
+      store.dispatch(loadUserAccount({ user }));
+
+      const abuseResponse = createFakeUserAbuseReport({
+        message: 'Seriously, where is my money?!',
+        user,
+      });
+      store.dispatch(
+        loadUserAbuseReport({
+          message: abuseResponse.message,
+          reporter: abuseResponse.reporter,
+          userId: user.id,
+        }),
+      );
+
+      renderUserProfile({ userId: anotherUserId });
+
+      expect(
+        screen.getByRole('heading', {
+          name: 'You reported this user for abuse',
+        }),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByRole('button', { name: 'Report this user for abuse' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders an error if one exists', () => {
+      const message = 'Some error message';
+      createFailedErrorHandler({
+        id: errorHandlerId,
+        message,
+        store,
+      });
+
+      renderForOtherThanSignedInUser();
+
+      expect(screen.getByText(message)).toBeInTheDocument();
+    });
+
+    it('allows user to submit again if an error occurred', () => {
+      createFailedErrorHandler({
+        id: errorHandlerId,
+        store,
+      });
+
+      renderForOtherThanSignedInUser();
+
+      expect(
+        screen.getByRole('button', { name: 'Report this user for abuse' }),
+      ).not.toBeDisabled();
     });
   });
 });

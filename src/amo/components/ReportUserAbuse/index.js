@@ -195,7 +195,7 @@ const mapStateToProps = (state: AppState, ownProps: Props): PropsFromState => {
 const ReportUserAbuse: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'ReportUserAbuse' }),
+  withErrorHandler({ id: 'ReportUserAbuse' }),
 )(ReportUserAbuseBase);
 
 export default ReportUserAbuse;
