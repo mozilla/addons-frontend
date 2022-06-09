@@ -270,6 +270,23 @@ describe(__filename, () => {
     );
   });
 
+  it('renders a block page when a versionId is present in the URL', () => {
+    const name = 'some-addon-name';
+    const block = _createFakeBlockResult({
+      addonName: createLocalizedString(name),
+    });
+    store.dispatch(loadBlock({ block }));
+
+    defaultRender({
+      initialEntries: [`${getLocation()}someVersionId/`],
+      store,
+    });
+
+    expect(
+      screen.getByText(`${name} has been blocked for your protection.`),
+    ).toBeInTheDocument();
+  });
+
   describe('extractId', () => {
     it('returns a unique ID based on the GUID', () => {
       const guid = 'this-is-not-a-guid';
