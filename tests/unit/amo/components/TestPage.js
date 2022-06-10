@@ -14,6 +14,7 @@ import {
   GET_FIREFOX_BANNER_UTM_CONTENT,
 } from 'amo/components/GetFirefoxBanner';
 import { GET_FIREFOX_BUTTON_CLICK_CATEGORY } from 'amo/components/GetFirefoxButton';
+import { changeLocaleURL } from 'amo/components/LanguagePicker';
 import {
   ADDONS_REVIEW,
   ADDON_TYPE_EXTENSION,
@@ -34,6 +35,7 @@ import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   createCapturedErrorHandler,
   createFakeAutocompleteResult,
+  createFakeLocation,
   createHistory,
   dispatchAutocompleteResults,
   dispatchClientMetadata,
@@ -78,9 +80,6 @@ describe(__filename, () => {
   beforeEach(() => {
     store = dispatchClientMetadata().store;
     delete window.location;
-    window.location = Object.assign(new URL('https://example.org'), {
-      reload: jest.fn(),
-    });
   });
 
   // We need to mock window.matchMedia or the code for the dropdown menu
@@ -89,15 +88,18 @@ describe(__filename, () => {
     Object.defineProperty(window, 'matchMedia', mockMatchMedia);
   });
 
-  const render = ({ history, location, children, ...props } = {}) => {
+  const render = ({ history, location = '/', children, ...props } = {}) => {
     const renderOptions = {
       history:
         history ||
         createHistory({
-          initialEntries: [location || '/'],
+          initialEntries: [location],
         }),
       store,
     };
+    window.location = Object.assign(new URL(`https://example.org${location}`), {
+      reload: jest.fn(),
+    });
 
     return defaultRender(
       <Page {...props}>{children || <div>Some content</div>}</Page>,
@@ -720,6 +722,209 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(setClientApp(CLIENT_APP_ANDROID));
         expect(clickEvent.defaultPrevented).toBeTruthy();
         expect(pushSpy).toHaveBeenCalledWith(`/en-US/${CLIENT_APP_ANDROID}/`);
+      });
+    });
+  });
+
+  describe('Tests for Footer', () => {
+    it('renders a footer', () => {
+      const extensionWorkshopUrl = 'http://extensionworkshop.fr';
+      const fakeConfig = getMockConfig({ extensionWorkshopUrl });
+      config.get.mockImplementation((key) => {
+        return fakeConfig[key];
+      });
+
+      render();
+
+      // Note: links that are present in both header and footer (Developer Hub,
+      // Extension Workshop, Firefox Add-ons Blog are tested in a separate test
+      // above).
+
+      // None of these links are localised because an unsupported locale will
+      // cause a 404 error.
+      // See:
+      // github.com/mozilla/addons-frontend/pull/2524#pullrequestreview-42911624
+      expect(screen.getByRole('link', { name: 'Privacy' })).toHaveAttribute(
+        'href',
+        'https://www.mozilla.org/privacy/websites/',
+      );
+      expect(screen.getByRole('link', { name: 'Cookies' })).toHaveAttribute(
+        'href',
+        'https://www.mozilla.org/privacy/websites/',
+      );
+      expect(screen.getByRole('link', { name: 'Legal' })).toHaveAttribute(
+        'href',
+        'https://www.mozilla.org/about/legal/terms/mozilla/',
+      );
+
+      // This link isn't localized because MDN will 404 on some
+      // locales and not others.
+      // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
+      expect(
+        screen.getByRole('link', { name: 'Report a bug' }),
+      ).toHaveAttribute(
+        'href',
+        'https://developer.mozilla.org/docs/Mozilla/Add-ons/Contact_us',
+      );
+
+      expect(screen.getByRole('link', { name: 'VPN' })).toHaveAttribute(
+        'href',
+        `https://www.mozilla.org/products/vpn/${makeQueryStringWithUTM({
+          utm_content: 'footer-link',
+          utm_campaign: null,
+        })}#pricing`,
+      );
+
+      expect(screen.getByRole('link', { name: 'Relay' })).toHaveAttribute(
+        'href',
+        `https://relay.firefox.com/${makeQueryStringWithUTM({
+          utm_content: 'footer-link',
+          utm_campaign: null,
+        })}`,
+      );
+
+      expect(screen.getByRole('link', { name: 'Monitor' })).toHaveAttribute(
+        'href',
+        `https://monitor.firefox.com/${makeQueryStringWithUTM({
+          utm_content: 'footer-link',
+          utm_campaign: null,
+        })}`,
+      );
+
+      expect(screen.getByRole('link', { name: 'Browsers' })).toHaveAttribute(
+        'href',
+        `https://www.mozilla.org/firefox/browsers/${makeQueryStringWithUTM({
+          utm_content: 'footer-link',
+          utm_campaign: null,
+        })}`,
+      );
+
+      expect(screen.getByRole('link', { name: 'Pocket' })).toHaveAttribute(
+        'href',
+        `https://getpocket.com${makeQueryStringWithUTM({
+          utm_content: 'footer-link',
+          utm_campaign: null,
+        })}`,
+      );
+
+      expect(screen.getByRole('link', { name: 'Desktop' })).toHaveAttribute(
+        'href',
+        `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM({
+          utm_content: 'footer-link',
+          utm_campaign: null,
+        })}`,
+      );
+
+      expect(screen.getByRole('link', { name: 'Mobile' })).toHaveAttribute(
+        'href',
+        `https://www.mozilla.org/firefox/mobile/${makeQueryStringWithUTM({
+          utm_content: 'footer-link',
+          utm_campaign: null,
+        })}`,
+      );
+
+      expect(screen.getByRole('link', { name: 'Enterprise' })).toHaveAttribute(
+        'href',
+        `https://www.mozilla.org/firefox/enterprise/${makeQueryStringWithUTM({
+          utm_content: 'footer-link',
+          utm_campaign: null,
+        })}`,
+      );
+
+      expect(
+        screen.getByRole('link', { name: 'Developer Policies' }),
+      ).toHaveAttribute(
+        'href',
+        `${extensionWorkshopUrl}/documentation/publish/add-on-policies/${makeQueryStringWithUTM(
+          {
+            utm_medium: 'photon-footer',
+            utm_campaign: null,
+          },
+        )}`,
+      );
+
+      expect(
+        screen.getByRole('link', { name: 'Community Blog' }),
+      ).toHaveAttribute(
+        'href',
+        `https://blog.mozilla.com/addons${makeQueryStringWithUTM({
+          utm_campaign: null,
+          utm_content: 'footer-link',
+          utm_medium: 'referral',
+        })}`,
+      );
+    });
+  });
+
+  describe('Tests for LanguagePicker', () => {
+    it('renders a LanguagePicker', () => {
+      render();
+
+      expect(
+        screen.getByRole('combobox', { name: 'Change language' }),
+      ).toBeInTheDocument();
+    });
+
+    it('selects the current locale', () => {
+      store = dispatchClientMetadata({ lang: 'fr' }).store;
+      render({ location: '/fr/firefox/' });
+
+      expect(screen.getByRole('option', { name: 'Français' }).selected).toEqual(
+        true,
+      );
+      expect(screen.getByRole('option', { name: 'Français' }).value).toEqual(
+        'fr',
+      );
+    });
+
+    it('changes the language on change', () => {
+      store = dispatchClientMetadata({ lang: 'fr' }).store;
+      render({ location: '/fr/firefox/' });
+      expect(window.location.pathname).toEqual('/fr/firefox/');
+
+      userEvent.selectOptions(
+        screen.getByRole('combobox', { name: 'Change language' }),
+        screen.getByRole('option', { name: 'Español' }),
+      );
+
+      expect(window.location).toEqual('/es/firefox/');
+    });
+
+    describe('changeLocaleURL', () => {
+      it('changes the URL', () => {
+        const newURL = changeLocaleURL({
+          currentLocale: 'en-US',
+          location: createFakeLocation({
+            pathname: '/en-US/firefox/nowhere/',
+            query: { page: '1', q: 'search' },
+          }),
+          newLocale: 'en-GB',
+        });
+
+        expect(newURL).toEqual('/en-GB/firefox/nowhere/?page=1&q=search');
+      });
+
+      it('handles URLs without query params', () => {
+        const newURL = changeLocaleURL({
+          currentLocale: 'en-US',
+          location: createFakeLocation({ pathname: '/en-US/firefox/nowhere/' }),
+          newLocale: 'ar',
+        });
+
+        expect(newURL).toEqual('/ar/firefox/nowhere/');
+      });
+
+      it('only changes the locale section of the URL', () => {
+        const newURL = changeLocaleURL({
+          currentLocale: 'en-US',
+          location: createFakeLocation({
+            pathname: '/en-US/firefox/en-US-to-en-GB-guide/',
+            query: { foo: 'en-US' },
+          }),
+          newLocale: 'ar',
+        });
+
+        expect(newURL).toEqual('/ar/firefox/en-US-to-en-GB-guide/?foo=en-US');
       });
     });
   });
