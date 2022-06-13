@@ -1,8 +1,9 @@
 import userEvent from '@testing-library/user-event';
-import { createEvent, fireEvent } from '@testing-library/react';
+import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
+  deleteUserPicture,
   getCurrentUser,
   loadUserNotifications,
   updateUserAccount,
@@ -21,6 +22,7 @@ import {
 
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
+  const defaultDisplayName = 'Display McDisplayNamey';
   const lang = 'en-US';
   const defaultUserId = fakeAuthors[0].id;
   let store;
@@ -31,7 +33,7 @@ describe(__filename, () => {
 
   function defaultUserProps(props = {}) {
     return {
-      display_name: 'Display McDisplayNamey',
+      display_name: defaultDisplayName,
       username: 'mcdisplayname',
       ...props,
     };
@@ -216,6 +218,154 @@ describe(__filename, () => {
       expect(
         screen.queryByClassName('UserProfileEditNotification'),
       ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Tests for UserProfileEditPicture', () => {
+    it('renders without a user', () => {
+      const userId = signInUserWithProps();
+      render({ userId: userId + 1 });
+
+      expect(screen.getByText('Profile photo')).toBeInTheDocument();
+      const fileInput = screen.getByClassName(
+        'UserProfileEditPicture-file-input',
+      );
+      expect(fileInput).toBeDisabled();
+      expect(fileInput).toHaveAttribute('accept', 'image/png, image/jpeg');
+      expect(screen.getByText('Choose Photo…')).toHaveClass('Button--disabled');
+      expect(
+        screen.queryByRole('button', { name: 'Delete This Picture' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('renders a UserAvatar component without a user', () => {
+      const userId = signInUserWithProps();
+      render({ userId: userId + 1 });
+
+      expect(screen.getByClassName('Icon-anonymous-user')).toBeInTheDocument();
+    });
+
+    it('specifies the alt text of the UserAvatar component when a user is passed', () => {
+      const pictureUrl = '/some/url/';
+      signInUserWithProps({ picture_url: pictureUrl });
+      render();
+
+      expect(
+        screen.getByAltText(`Profile picture for ${defaultDisplayName}`),
+      ).toHaveAttribute('src', pictureUrl);
+    });
+
+    it('enables the input file and select button when a user is supplied', () => {
+      signInUserWithProps();
+      render();
+
+      expect(
+        screen.getByClassName('UserProfileEditPicture-file-input'),
+      ).not.toBeDisabled();
+      expect(screen.getByText('Choose Photo…')).not.toHaveClass(
+        'Button--disabled',
+      );
+    });
+
+    it('calls the onSelect() prop when a user selects a picture file', async () => {
+      signInUserWithProps();
+      render();
+
+      const file = new File(['dummy content'], 'example.png', {
+        type: 'image/png',
+      });
+      const fileInput = screen.getByClassName(
+        'UserProfileEditPicture-file-input',
+      );
+
+      userEvent.upload(fileInput, file);
+
+      await waitFor(() => expect(fileInput.files['0']).toEqual(file));
+    });
+
+    it('renders a "delete" ConfirmButton when user has a picture URL', () => {
+      signInUserWithProps({ picture_url: 'https://example.org/pp.png' });
+      render();
+
+      const button = screen.getByRole('button', {
+        name: 'Delete This Picture',
+      });
+
+      // By default, a `ConfirmButton` (or even a `Button`) has type "submit" but
+      // we don't want that for this button as the `UserProfileEditPicture`
+      // component is meant to be rendered within the `UserProfileEdit` form.
+      // The first button with type "submit" in the form is triggered when we
+      // submit the form by pressing `enter`, and if this component had a button
+      // with type "submit", it would be the first one in the form, which is not
+      // what we want!
+      // See: https://github.com/mozilla/addons-frontend/issues/9493
+      expect(button).toHaveAttribute('type', 'button');
+      userEvent.click(button);
+
+      expect(
+        screen.getByText('Do you really want to delete this picture?'),
+      ).toBeInTheDocument();
+    });
+
+    it('does not render a "delete" ConfirmButton when user has no picture URL', () => {
+      signInUserWithProps({ picture_url: null });
+      render();
+
+      expect(
+        screen.queryByRole('button', {
+          name: 'Delete This Picture',
+        }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('calls the onDelete() prop when a user deletes the picture', () => {
+      const userId = signInUserWithProps({
+        picture_url: 'https://example.org/pp.png',
+      });
+      const dispatch = jest.spyOn(store, 'dispatch');
+      render();
+
+      userEvent.click(
+        screen.getByRole('button', { name: 'Delete This Picture' }),
+      );
+
+      const button = screen.getByRole('button', { name: 'Confirm' });
+      const clickEvent = createEvent.click(button);
+      const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
+
+      fireEvent(button, clickEvent);
+
+      expect(preventDefaultWatcher).toHaveBeenCalled();
+
+      expect(dispatch).toHaveBeenCalledWith(
+        deleteUserPicture({
+          errorHandlerId: getErrorHandlerId(),
+          userId,
+        }),
+      );
+    });
+
+    it('adds and removes a CSS class when file input has/looses focus', () => {
+      signInUserWithProps();
+      render();
+
+      expect(
+        screen.getByClassName('UserProfileEditPicture-file'),
+      ).not.toHaveClass('UserProfileEditPicture-file--has-focus');
+
+      userEvent.click(
+        screen.getByClassName('UserProfileEditPicture-file-input'),
+      );
+
+      expect(screen.getByClassName('UserProfileEditPicture-file')).toHaveClass(
+        'UserProfileEditPicture-file--has-focus',
+      );
+
+      userEvent.tab();
+
+      expect(
+        screen.getByClassName('UserProfileEditPicture-file'),
+      ).not.toHaveClass('UserProfileEditPicture-file--has-focus');
     });
   });
 });
