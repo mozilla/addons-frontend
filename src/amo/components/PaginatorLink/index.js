@@ -1,6 +1,7 @@
 import url from 'url';
 
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
@@ -34,18 +35,19 @@ export default class PaginatorLink extends React.Component {
       text,
     } = this.props;
 
-    if (currentPage === undefined) {
-      throw new Error('The currentPage property cannot be undefined');
-    }
-    if (pathname === undefined) {
-      throw new Error('The pathname property cannot be undefined');
-    }
-    if (page === undefined) {
-      throw new Error('The page property cannot be undefined');
-    }
-    if (pageCount === undefined) {
-      throw new Error('The pageCount property cannot be undefined');
-    }
+    invariant(
+      currentPage !== undefined,
+      'The currentPage property cannot be undefined',
+    );
+    invariant(
+      pathname !== undefined,
+      'The pathname property cannot be undefined',
+    );
+    invariant(page !== undefined, 'The page property cannot be undefined');
+    invariant(
+      pageCount !== undefined,
+      'The pageCount property cannot be undefined',
+    );
 
     let rel = null;
     if (page + 1 === currentPage) {
