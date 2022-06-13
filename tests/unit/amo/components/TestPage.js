@@ -14,7 +14,6 @@ import {
   GET_FIREFOX_BANNER_UTM_CONTENT,
 } from 'amo/components/GetFirefoxBanner';
 import { GET_FIREFOX_BUTTON_CLICK_CATEGORY } from 'amo/components/GetFirefoxButton';
-import { changeLocaleURL } from 'amo/components/LanguagePicker';
 import {
   ADDONS_REVIEW,
   ADDON_TYPE_EXTENSION,
@@ -35,7 +34,6 @@ import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   createCapturedErrorHandler,
   createFakeAutocompleteResult,
-  createFakeLocation,
   createHistory,
   dispatchAutocompleteResults,
   dispatchClientMetadata,
@@ -869,15 +867,12 @@ describe(__filename, () => {
       store = dispatchClientMetadata({ lang: 'fr' }).store;
       render({ location: '/fr/firefox/' });
 
-      expect(screen.getByRole('option', { name: 'Français' }).selected).toEqual(
-        true,
-      );
-      expect(screen.getByRole('option', { name: 'Français' }).value).toEqual(
-        'fr',
-      );
+      expect(
+        screen.getByRole('combobox', { name: 'Change language' }),
+      ).toHaveValue('fr');
     });
 
-    it('changes the language on change', () => {
+    it('changes the language in the URL on change', () => {
       store = dispatchClientMetadata({ lang: 'fr' }).store;
       render({ location: '/fr/firefox/' });
       expect(window.location.pathname).toEqual('/fr/firefox/');
@@ -890,42 +885,34 @@ describe(__filename, () => {
       expect(window.location).toEqual('/es/firefox/');
     });
 
-    describe('changeLocaleURL', () => {
-      it('changes the URL', () => {
-        const newURL = changeLocaleURL({
-          currentLocale: 'en-US',
-          location: createFakeLocation({
-            pathname: '/en-US/firefox/nowhere/',
-            query: { page: '1', q: 'search' },
-          }),
-          newLocale: 'en-GB',
-        });
+    it('changes the language in the URL on change with a query', () => {
+      store = dispatchClientMetadata({ lang: 'fr' }).store;
+      render({ location: '/fr/firefox/?page=1&q=something' });
+      expect(window.location.pathname).toEqual('/fr/firefox/');
 
-        expect(newURL).toEqual('/en-GB/firefox/nowhere/?page=1&q=search');
-      });
+      userEvent.selectOptions(
+        screen.getByRole('combobox', { name: 'Change language' }),
+        screen.getByRole('option', { name: 'Español' }),
+      );
 
-      it('handles URLs without query params', () => {
-        const newURL = changeLocaleURL({
-          currentLocale: 'en-US',
-          location: createFakeLocation({ pathname: '/en-US/firefox/nowhere/' }),
-          newLocale: 'ar',
-        });
+      expect(window.location).toEqual('/es/firefox/?page=1&q=something');
+    });
 
-        expect(newURL).toEqual('/ar/firefox/nowhere/');
-      });
+    it('only changes the locale section of the URL', () => {
+      store = dispatchClientMetadata({ lang: 'en-US' }).store;
+      render({ location: '/en-US/firefox/en-US-to-en-GB-guide/?foo=en-US' });
+      expect(window.location.pathname).toEqual(
+        '/en-US/firefox/en-US-to-en-GB-guide/',
+      );
 
-      it('only changes the locale section of the URL', () => {
-        const newURL = changeLocaleURL({
-          currentLocale: 'en-US',
-          location: createFakeLocation({
-            pathname: '/en-US/firefox/en-US-to-en-GB-guide/',
-            query: { foo: 'en-US' },
-          }),
-          newLocale: 'ar',
-        });
+      userEvent.selectOptions(
+        screen.getByRole('combobox', { name: 'Change language' }),
+        screen.getByRole('option', { name: 'عربي' }),
+      );
 
-        expect(newURL).toEqual('/ar/firefox/en-US-to-en-GB-guide/?foo=en-US');
-      });
+      expect(window.location).toEqual(
+        '/ar/firefox/en-US-to-en-GB-guide/?foo=en-US',
+      );
     });
   });
 
