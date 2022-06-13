@@ -1,23 +1,27 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import LoadingText from 'amo/components/LoadingText';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = (props = {}) => shallow(<LoadingText {...props} />);
+  const render = (props = {}) => defaultRender(<LoadingText {...props} />);
 
   it('renders LoadingText element with className', () => {
-    const root = render();
-    expect(root).toHaveClassName('LoadingText');
+    render();
+
+    expect(screen.getByRole('alert')).toHaveClass('LoadingText');
   });
 
   it('lets you set a fixed width', () => {
-    const root = render({ width: 40 });
-    expect(root).toHaveClassName('LoadingText--width-40');
+    render({ width: 40 });
+
+    expect(screen.getByRole('alert')).toHaveClass('LoadingText--width-40');
   });
 
   it('lets you set a custom class name', () => {
-    const root = render({ className: 'MyLoadingClass' });
-    expect(root).toHaveClassName('MyLoadingClass');
+    const className = 'MyLoadingClass';
+    render({ className });
+
+    expect(screen.getByRole('alert')).toHaveClass(className);
   });
 });
