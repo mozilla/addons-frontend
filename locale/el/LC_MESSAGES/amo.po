@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-18 08:05+0000\n"
+"POT-Creation-Date: 2022-06-14 17:25+0000\n"
 "PO-Revision-Date: 2022-04-06 09:45+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -346,7 +346,7 @@ msgstr "Διαγραφή"
 
 #: src/amo/components/AddonReviewCard/index.js:266
 #: src/amo/components/AddonReviewManager/index.js:146
-#: src/amo/components/CollectionManager/index.js:328
+#: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
 #: src/amo/pages/UserProfileEdit/index.js:894
@@ -458,85 +458,61 @@ msgstr ""
 msgid "Your star rating:"
 msgstr "Η βαθμολογία αστεριών σας:"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:254
+#: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "More dictionaries by %(author)s"
 msgstr "Περισσότερα λεξικά από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:257
+#: src/amo/components/AddonsByAuthorsCard/index.js:256
 msgid "More dictionaries by these translators"
 msgstr "Περισσότερα λεξικά από αυτούς τους μεταφραστές"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:261
-msgid "Dictionaries by %(author)s"
-msgstr "Λεξικά από %(author)s"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:264
-msgid "Dictionaries by these translators"
-msgstr "Λεξικά από αυτούς τους μεταφραστές"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:271
+#: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More extensions by %(author)s"
 msgstr "Περισσότερες επεκτάσεις από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:274
+#: src/amo/components/AddonsByAuthorsCard/index.js:266
 msgid "More extensions by these developers"
 msgstr "Περισσότερες επεκτάσεις από αυτούς τους προγραμματιστές"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:278
+#: src/amo/components/AddonsByAuthorsCard/index.js:270
 msgid "Extensions by %(author)s"
 msgstr "Επεκτάσεις από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:281
+#: src/amo/components/AddonsByAuthorsCard/index.js:273
 msgid "Extensions by these developers"
 msgstr "Επεκτάσεις από αυτούς τους προγραμματιστές"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:289
+#: src/amo/components/AddonsByAuthorsCard/index.js:279
 msgid "More language packs by %(author)s"
 msgstr "Περισσότερα πακέτα γλωσσών από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:294
+#: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by these translators"
 msgstr "Περισσότερα πακέτα γλωσσών από αυτούς τους μεταφραστές"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:298
-msgid "Language packs by %(author)s"
-msgstr "Πακέτα γλωσσών από %(author)s"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:301
-msgid "Language packs by these translators"
-msgstr "Πακέτα γλωσσών από αυτούς τους μεταφραστές"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:308
+#: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More themes by %(author)s"
 msgstr "Περισσότερα θέματα από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:311
+#: src/amo/components/AddonsByAuthorsCard/index.js:292
 msgid "More themes by these artists"
 msgstr "Περισσότερα θέματα από αυτούς τους καλλιτέχνες"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:315
+#: src/amo/components/AddonsByAuthorsCard/index.js:296
 msgid "Themes by %(author)s"
 msgstr "Θέματα από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:318
+#: src/amo/components/AddonsByAuthorsCard/index.js:299
 msgid "Themes by these artists"
 msgstr "Θέματα από αυτούς τους καλλιτέχνες"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:325
+#: src/amo/components/AddonsByAuthorsCard/index.js:305
 msgid "More add-ons by %(author)s"
 msgstr "Περισσότερα πρόσθετα από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:328
+#: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "More add-ons by these developers"
 msgstr "Περισσότερα πρόσθετα από αυτούς τους προγραμματιστές"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:332
-msgid "Add-ons by %(author)s"
-msgstr "Πρόσθετα από %(author)s"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:335
-msgid "Add-ons by these developers"
-msgstr "Πρόσθετα από αυτούς τους προγραμματιστές"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -718,23 +694,23 @@ msgstr "Πρόσθετα"
 msgid "Creator"
 msgstr "Δημιουργός"
 
-#: src/amo/components/CollectionManager/index.js:252
+#: src/amo/components/CollectionManager/index.js:248
 msgid "Create collection"
 msgstr "Δημιουργία συλλογής"
 
-#: src/amo/components/CollectionManager/index.js:253
+#: src/amo/components/CollectionManager/index.js:249
 msgid "Save changes"
 msgstr "Αποθήκευση αλλαγών"
 
-#: src/amo/components/CollectionManager/index.js:262
+#: src/amo/components/CollectionManager/index.js:258
 msgid "Collection name"
 msgstr "Όνομα συλλογής"
 
-#: src/amo/components/CollectionManager/index.js:276
+#: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: src/amo/components/CollectionManager/index.js:288
+#: src/amo/components/CollectionManager/index.js:284
 msgid "Custom URL"
 msgstr "Προσαρμοσμένο URL"
 
@@ -1126,23 +1102,23 @@ msgstr "Οδηγίες κριτικής"
 msgid "Browsers"
 msgstr "Προγράμματα περιήγησης"
 
-#: src/amo/components/Footer/index.js:198
+#: src/amo/components/Footer/index.js:185
 msgid "Products"
 msgstr "Προϊόντα"
 
-#: src/amo/components/Footer/index.js:285
+#: src/amo/components/Footer/index.js:272
 msgid "Privacy"
 msgstr "Απόρρητο"
 
-#: src/amo/components/Footer/index.js:293
+#: src/amo/components/Footer/index.js:280
 msgid "Cookies"
 msgstr "Cookie"
 
-#: src/amo/components/Footer/index.js:301
+#: src/amo/components/Footer/index.js:288
 msgid "Legal"
 msgstr "Νομικά"
 
-#: src/amo/components/Footer/index.js:311
+#: src/amo/components/Footer/index.js:298
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1180,39 +1156,39 @@ msgstr ""
 "Για να χρησιμοποιήσετε αυτά τα πρόσθετα, θα πρέπει να %(linkStart)sκάνετε "
 "λήψη του Firefox%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:133
+#: src/amo/components/GetFirefoxButton/index.js:121
 msgid "Download Firefox and get the theme"
 msgstr "Λήψη Firefox και απόκτηση θέματος"
 
-#: src/amo/components/GetFirefoxButton/index.js:134
+#: src/amo/components/GetFirefoxButton/index.js:122
 msgid "Download Firefox and get the extension"
 msgstr "Λήψη Firefox και απόκτηση επέκτασης"
 
-#: src/amo/components/GetFirefoxButton/index.js:138
+#: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download the new Firefox and get the theme"
 msgstr "Λήψη του νέου Firefox και απόκτηση θέματος"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download the new Firefox and get the extension"
 msgstr "Λήψη του νέου Firefox και απόκτηση επέκτασης"
 
-#: src/amo/components/GetFirefoxButton/index.js:143
+#: src/amo/components/GetFirefoxButton/index.js:131
 msgid "Download Firefox"
 msgstr "Λήψη του Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:146
+#: src/amo/components/GetFirefoxButton/index.js:134
 msgid "You'll need Firefox to use this theme"
 msgstr "Θα χρειαστείτε το Firefox για να χρησιμοποιήσετε αυτό το θέμα"
 
-#: src/amo/components/GetFirefoxButton/index.js:147
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "You'll need Firefox to use this extension"
 msgstr "Θα χρειαστείτε το Firefox για να χρησιμοποιήσετε αυτήν την επέκταση"
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Χρειάζεστε μια ενημερωμένη έκδοση του Firefox για αυτό το θέμα"
 
-#: src/amo/components/GetFirefoxButton/index.js:152
+#: src/amo/components/GetFirefoxButton/index.js:140
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Χρειάζεστε μια ενημερωμένη έκδοση του Firefox για αυτήν την επέκταση"
 
@@ -1351,17 +1327,17 @@ msgstr "Αλλαγή γλώσσας"
 msgid "Dismiss this notice"
 msgstr "Απόρριψη σημείωσης"
 
-#: src/amo/components/Paginate/index.js:135
+#: src/amo/components/Paginate/index.js:151
 msgid "Previous"
 msgstr "Προηγούμενη"
 
-#: src/amo/components/Paginate/index.js:152
+#: src/amo/components/Paginate/index.js:170
 msgid "Next"
 msgstr "Επόμενη"
 
-#: src/amo/components/Paginate/index.js:158
-msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Σελίδα %(currentPage)s από %(totalPages)s"
+#: src/amo/components/Paginate/index.js:175
+msgid "Page %(thisPage)s of %(totalPages)s"
+msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
@@ -1710,12 +1686,12 @@ msgid "Search results"
 msgstr "Αποτελέσματα αναζήτησης"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:124
+#: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Προτεινόμενες επεκτάσεις"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:156
+#: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "Προτεινόμενα θέματα"
 
@@ -1760,12 +1736,12 @@ msgid "Verified add-ons"
 msgstr "Επαληθευμένα πρόσθετα"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:134
+#: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Δημοφιλείς επεκτάσεις"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:166
+#: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "Δημοφιλή θέματα"
 
@@ -1774,12 +1750,12 @@ msgid "Trending add-ons"
 msgstr "Δημοφιλή πρόσθετα"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:144
+#: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Κορυφαίες επεκτάσεις"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:175
+#: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Πιο υψηλά βαθμολογημένα θέματα"
 
@@ -2054,7 +2030,7 @@ msgstr "Δεν βρέθηκαν αποτελέσματα."
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:230
+#: src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "Θέματα"
 
@@ -2080,7 +2056,7 @@ msgstr "Πρόσθετα για Android"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
+#: src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "Επεκτάσεις"
 
@@ -2121,7 +2097,7 @@ msgstr "Περιήγηση σε όλα τα θέματα"
 msgid "Add-ons Home Page"
 msgstr "Αρχική σελίδα προσθέτων"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:173
 msgid "Preview of %(title)s"
 msgstr "Προεπισκόπηση του %(title)s"
 
@@ -2207,55 +2183,55 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:208
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Αυτό το πρόσθετο δεν μπορεί να αξιολογηθεί, επειδή δεν έχει εκδοθεί καμία "
 "έκδοση."
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:219
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Ανάγνωση %(count)s κριτικής"
 msgstr[1] "Ανάγνωση και των %(count)s κριτικών"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:240
 msgid "No reviews yet"
 msgstr "Καμία κριτική ακόμα"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:250
 msgid "Rate your experience"
 msgstr "Βαθμολόγηση εμπειρίας"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:269
 msgid "About this dictionary"
 msgstr "Σχετικά με το λεξικό"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:272
 msgid "About this extension"
 msgstr "Σχετικά με την επέκταση"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:275
 msgid "About this language pack"
 msgstr "Σχετικά με το πακέτο γλώσσας"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:278
 msgid "About this theme"
 msgstr "Σχετικά με το θέμα"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:281
 msgid "About this add-on"
 msgstr "Σχετικά με το πρόσθετο"
 
-#: src/amo/pages/Addon/index.js:324
+#: src/amo/pages/Addon/index.js:325
 msgid "Developer comments"
 msgstr "Σχόλια προγραμματιστών"
 
-#: src/amo/pages/Addon/index.js:347
+#: src/amo/pages/Addon/index.js:348
 msgid "Release notes for %(addonVersion)s"
 msgstr "Σημειώσεις έκδοσης του %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:467
+#: src/amo/pages/Addon/index.js:468
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2263,11 +2239,11 @@ msgstr ""
 "Αυτή δεν είναι δημόσια καταχώρηση. Τη βλέπετε μόνο επειδή έχετε αυξημένα "
 "δικαιώματα."
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:494
 msgid "Extension Metadata"
 msgstr "Μεταδεδομένα επέκτασης"
 
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/pages/Addon/index.js:517
 msgid "Screenshots"
 msgstr "Στιγμιότυπα"
 
@@ -2526,7 +2502,7 @@ msgstr ""
 "προστατεύουν κωδικούς πρόσβασης, να αλλάξουν την εμφάνιση του προγράμματος "
 "περιήγησης και πολλά άλλα."
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
 msgstr "Περισσότερες προτεινόμενες επεκτάσεις"
 
@@ -2546,27 +2522,27 @@ msgstr "Ταινίες & τηλεόραση"
 msgid "Scenery"
 msgstr "Σκηνικά"
 
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
 msgstr "Περισσότερες δημοφιλείς επεκτάσεις"
 
-#: src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
 msgstr "Περισσότερες κορυφαίες επεκτάσεις"
 
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/LandingPage/index.js:163
 msgid "See more recommended themes"
 msgstr "Δείτε περισσότερα προτεινόμενα θέματα"
 
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/pages/LandingPage/index.js:172
 msgid "See more trending themes"
 msgstr "Δείτε περισσότερα δημοφιλή θέματα"
 
-#: src/amo/pages/LandingPage/index.js:183
+#: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
 msgstr "Δείτε περισσότερα υψηλά βαθμολογημένα θέματα"
 
-#: src/amo/pages/LandingPage/index.js:207
+#: src/amo/pages/LandingPage/index.js:205
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2576,7 +2552,7 @@ msgstr ""
 "Παραμετροποιήστε την εμπειρία σας στα γούστα σας. Χαριτωμένα ζώα, κακά "
 "ρομπότ, όμορφα τοπία—χιλιάδες επιλογές."
 
-#: src/amo/pages/LandingPage/index.js:212
+#: src/amo/pages/LandingPage/index.js:210
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2587,7 +2563,7 @@ msgstr ""
 "προσφορές, βελτιώστε τα βίντεο και αποκλείστε ενοχλητικές διαφημίσεις με "
 "εφαρμογές προγράμματος περιήγησης."
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:232
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2595,7 +2571,7 @@ msgstr ""
 "Αλλάξτε την εμφάνιση του προγράμματος περιήγησής σας. Επιλέξτε ανάμεσα σε "
 "χιλιάδες θέματα για να δώσετε στο Firefox το στυλ που προτιμάτε."
 
-#: src/amo/pages/LandingPage/index.js:236
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2603,19 +2579,19 @@ msgstr ""
 "Εξερευνήστε ισχυρά εργαλεία και δυνατότητες για να προσαρμόσετε το Firefox "
 "και να το κάνετε ολοκληρωτικά δικό σας."
 
-#: src/amo/pages/LandingPage/index.js:276
+#: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
 msgstr "Εξερεύνηση όλων των κατηγοριών"
 
-#: src/amo/pages/LanguageTools/index.js:119
+#: src/amo/pages/LanguageTools/index.js:118
 msgid "Available for your locale"
 msgstr "Διαθέσιμο για τη γλώσσα σας"
 
-#: src/amo/pages/LanguageTools/index.js:157
+#: src/amo/pages/LanguageTools/index.js:145
 msgid "Dictionaries and Language Packs"
 msgstr "Λεξικά και πακέτα γλωσσών"
 
-#: src/amo/pages/LanguageTools/index.js:167
+#: src/amo/pages/LanguageTools/index.js:155
 msgid ""
 "Download Firefox dictionaries and language pack extensions. Add a new "
 "language option to your browser spell-checker, or change the browser's "
@@ -2625,7 +2601,7 @@ msgstr ""
 "επιλογή γλώσσας στον ορθογραφικό έλεγχο του προγράμματος περιήγησης, ή "
 "αλλάξτε τη γλώσσα διεπαφής του προγράμματος περιήγησής σας."
 
-#: src/amo/pages/LanguageTools/index.js:178
+#: src/amo/pages/LanguageTools/index.js:166
 msgid ""
 "Installing a dictionary add-on will add a new language option to your spell-"
 "checker, which checks your spelling as you type in Firefox."
@@ -2634,7 +2610,7 @@ msgstr ""
 "ορθογραφικό έλεγχο, ο οποίος ελέγχει την ορθογραφία σας όσο πληκτρολογείτε "
 "στο Firefox."
 
-#: src/amo/pages/LanguageTools/index.js:183
+#: src/amo/pages/LanguageTools/index.js:171
 msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
@@ -2643,19 +2619,19 @@ msgstr ""
 "προγράμματος περιήγησης, συμπεριλαμβανομένων των επιλογών και των ρυθμίσεων "
 "του μενού."
 
-#: src/amo/pages/LanguageTools/index.js:190
+#: src/amo/pages/LanguageTools/index.js:178
 msgid "All Locales"
 msgstr "Όλες οι γλώσσες"
 
-#: src/amo/pages/LanguageTools/index.js:197
+#: src/amo/pages/LanguageTools/index.js:185
 msgid "Locale Name"
 msgstr "Όνομα γλώσσας"
 
-#: src/amo/pages/LanguageTools/index.js:200
+#: src/amo/pages/LanguageTools/index.js:188
 msgid "Language Packs"
 msgstr "Πακέτα γλώσσας"
 
-#: src/amo/pages/LanguageTools/index.js:203
+#: src/amo/pages/LanguageTools/index.js:191
 msgid "Dictionaries"
 msgstr "Λεξικά"
 
@@ -3476,6 +3452,27 @@ msgstr "η συμβατότητα του προσθέτου μου δεν μπο
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "η συμβατότητα του προσθέτου μου αναβαθμίζεται επιτυχώς"
+
+#~ msgid "Dictionaries by %(author)s"
+#~ msgstr "Λεξικά από %(author)s"
+
+#~ msgid "Dictionaries by these translators"
+#~ msgstr "Λεξικά από αυτούς τους μεταφραστές"
+
+#~ msgid "Language packs by %(author)s"
+#~ msgstr "Πακέτα γλωσσών από %(author)s"
+
+#~ msgid "Language packs by these translators"
+#~ msgstr "Πακέτα γλωσσών από αυτούς τους μεταφραστές"
+
+#~ msgid "Add-ons by %(author)s"
+#~ msgstr "Πρόσθετα από %(author)s"
+
+#~ msgid "Add-ons by these developers"
+#~ msgstr "Πρόσθετα από αυτούς τους προγραμματιστές"
+
+#~ msgid "Page %(currentPage)s of %(totalPages)s"
+#~ msgstr "Σελίδα %(currentPage)s από %(totalPages)s"
 
 #~ msgid "You cannot flag your own response"
 #~ msgstr "Δεν μπορείτε να αναφέρετε τη δική σας απάντηση"
