@@ -1,4 +1,8 @@
 module.exports = {
+  // https://babeljs.io/docs/en/assumptions
+  'assumptions': {
+    'setPublicClassFields': true,
+  },
   'presets': [
     [
       // https://babeljs.io/docs/en/babel-preset-env
@@ -7,7 +11,7 @@ module.exports = {
         // Allow `@babel/preset-env` to import polyfills from core-js as needed.
         'useBuiltIns': 'usage',
         // Help `@babel/preset-env` make use of the correct core-js polyfills.
-        'corejs': '3.22',
+        'corejs': '3.23',
         // Perform transforms closest to targets defined in `.browserslistrc`.
         'bugfixes': true,
       },
@@ -28,18 +32,7 @@ module.exports = {
       }
     ]
   ],
-  'plugins': [
-    [
-      // Though `@babel/plugin-proposal-class-properties` is already included
-      // in `@babel/preset-env`, we include it specifically to be able to set
-      // `loose` mode on it, without enabling it for all the plugins included
-      // in `@babel/preset-env`.
-      '@babel/plugin-proposal-class-properties',
-      // Without `loose`, the transformation uses `Object.defineProperty` which
-      // obeys the spec more, but makes the bundle unnecessarily larger.
-      { 'loose': true },
-    ],
-  ],
+  'plugins': [],
   'env': {
     'test': {
       'plugins': ['dynamic-import-node'],
