@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-18 08:05+0000\n"
+"POT-Creation-Date: 2022-06-14 17:25+0000\n"
 "PO-Revision-Date: 2022-04-06 05:28+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
@@ -346,7 +346,7 @@ msgstr "Ta bort"
 
 #: src/amo/components/AddonReviewCard/index.js:266
 #: src/amo/components/AddonReviewManager/index.js:146
-#: src/amo/components/CollectionManager/index.js:328
+#: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
 #: src/amo/pages/UserProfileEdit/index.js:894
@@ -457,85 +457,61 @@ msgstr "Vänligen följ våra%(linkStart)sriktlinjer gör granskning%(linkEnd)s.
 msgid "Your star rating:"
 msgstr "Ditt betyg:"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:254
+#: src/amo/components/AddonsByAuthorsCard/index.js:253
 msgid "More dictionaries by %(author)s"
 msgstr "Fler ordböcker av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:257
+#: src/amo/components/AddonsByAuthorsCard/index.js:256
 msgid "More dictionaries by these translators"
 msgstr "Fler ordböcker av dessa översättare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:261
-msgid "Dictionaries by %(author)s"
-msgstr "Ordböcker av %(author)s"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:264
-msgid "Dictionaries by these translators"
-msgstr "Ordböcker av dessa översättare"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:271
+#: src/amo/components/AddonsByAuthorsCard/index.js:263
 msgid "More extensions by %(author)s"
 msgstr "Fler utökningar av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:274
+#: src/amo/components/AddonsByAuthorsCard/index.js:266
 msgid "More extensions by these developers"
 msgstr "Fler utökningar av dessa utvecklare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:278
+#: src/amo/components/AddonsByAuthorsCard/index.js:270
 msgid "Extensions by %(author)s"
 msgstr "Utökningar av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:281
+#: src/amo/components/AddonsByAuthorsCard/index.js:273
 msgid "Extensions by these developers"
 msgstr "Utökningar av dessa utvecklare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:289
+#: src/amo/components/AddonsByAuthorsCard/index.js:279
 msgid "More language packs by %(author)s"
 msgstr "Fler språkpaket av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:294
+#: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by these translators"
 msgstr "Fler språkpaket av dessa översättare"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:298
-msgid "Language packs by %(author)s"
-msgstr "Språkpaket av %(author)s"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:301
-msgid "Language packs by these translators"
-msgstr "Språkpaket av dessa översättare"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:308
+#: src/amo/components/AddonsByAuthorsCard/index.js:289
 msgid "More themes by %(author)s"
 msgstr "Fler teman av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:311
+#: src/amo/components/AddonsByAuthorsCard/index.js:292
 msgid "More themes by these artists"
 msgstr "Fler teman av dessa artister"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:315
+#: src/amo/components/AddonsByAuthorsCard/index.js:296
 msgid "Themes by %(author)s"
 msgstr "Teman av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:318
+#: src/amo/components/AddonsByAuthorsCard/index.js:299
 msgid "Themes by these artists"
 msgstr "Teman av dessa artister"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:325
+#: src/amo/components/AddonsByAuthorsCard/index.js:305
 msgid "More add-ons by %(author)s"
 msgstr "Fler tillägg av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:328
+#: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "More add-ons by these developers"
 msgstr "Fler tillägg av dessa utvecklare"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:332
-msgid "Add-ons by %(author)s"
-msgstr "Tillägg av %(author)s"
-
-#: src/amo/components/AddonsByAuthorsCard/index.js:335
-msgid "Add-ons by these developers"
-msgstr "Tillägg av dessa utvecklare"
 
 #: src/amo/components/AddonSummaryCard/index.js:52
 msgid "Add-on icon"
@@ -714,23 +690,23 @@ msgstr "Tillägg"
 msgid "Creator"
 msgstr "Skapare"
 
-#: src/amo/components/CollectionManager/index.js:252
+#: src/amo/components/CollectionManager/index.js:248
 msgid "Create collection"
 msgstr "Skapa samling"
 
-#: src/amo/components/CollectionManager/index.js:253
+#: src/amo/components/CollectionManager/index.js:249
 msgid "Save changes"
 msgstr "Spara ändringar"
 
-#: src/amo/components/CollectionManager/index.js:262
+#: src/amo/components/CollectionManager/index.js:258
 msgid "Collection name"
 msgstr "Samlingsnamn"
 
-#: src/amo/components/CollectionManager/index.js:276
+#: src/amo/components/CollectionManager/index.js:272
 msgid "Description"
 msgstr "Beskrivning"
 
-#: src/amo/components/CollectionManager/index.js:288
+#: src/amo/components/CollectionManager/index.js:284
 msgid "Custom URL"
 msgstr "Anpassad URL"
 
@@ -1115,23 +1091,23 @@ msgstr "Recensionsriktlinjer"
 msgid "Browsers"
 msgstr "Webbläsare"
 
-#: src/amo/components/Footer/index.js:198
+#: src/amo/components/Footer/index.js:185
 msgid "Products"
 msgstr "Produkter"
 
-#: src/amo/components/Footer/index.js:285
+#: src/amo/components/Footer/index.js:272
 msgid "Privacy"
 msgstr "Sekretess"
 
-#: src/amo/components/Footer/index.js:293
+#: src/amo/components/Footer/index.js:280
 msgid "Cookies"
 msgstr "Kakor"
 
-#: src/amo/components/Footer/index.js:301
+#: src/amo/components/Footer/index.js:288
 msgid "Legal"
 msgstr "Juridisk information"
 
-#: src/amo/components/Footer/index.js:311
+#: src/amo/components/Footer/index.js:298
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1168,39 +1144,39 @@ msgid ""
 msgstr ""
 "För att använda dessa tillägg måste du %(linkStart)shämta Firefox%(linkEnd)s"
 
-#: src/amo/components/GetFirefoxButton/index.js:133
+#: src/amo/components/GetFirefoxButton/index.js:121
 msgid "Download Firefox and get the theme"
 msgstr "Hämta Firefox och få temat"
 
-#: src/amo/components/GetFirefoxButton/index.js:134
+#: src/amo/components/GetFirefoxButton/index.js:122
 msgid "Download Firefox and get the extension"
 msgstr "Hämta Firefox och få tillägget"
 
-#: src/amo/components/GetFirefoxButton/index.js:138
+#: src/amo/components/GetFirefoxButton/index.js:126
 msgid "Download the new Firefox and get the theme"
 msgstr "Ladda ner nya Firefox och få temat"
 
-#: src/amo/components/GetFirefoxButton/index.js:139
+#: src/amo/components/GetFirefoxButton/index.js:127
 msgid "Download the new Firefox and get the extension"
 msgstr "Ladda ner nya Firefox och få tillägget"
 
-#: src/amo/components/GetFirefoxButton/index.js:143
+#: src/amo/components/GetFirefoxButton/index.js:131
 msgid "Download Firefox"
 msgstr "Hämta Firefox"
 
-#: src/amo/components/GetFirefoxButton/index.js:146
+#: src/amo/components/GetFirefoxButton/index.js:134
 msgid "You'll need Firefox to use this theme"
 msgstr "Du behöver Firefox för att använda detta tema"
 
-#: src/amo/components/GetFirefoxButton/index.js:147
+#: src/amo/components/GetFirefoxButton/index.js:135
 msgid "You'll need Firefox to use this extension"
 msgstr "Du behöver Firefox för att kunna använda den här tillägget"
 
-#: src/amo/components/GetFirefoxButton/index.js:151
+#: src/amo/components/GetFirefoxButton/index.js:139
 msgid "You need an updated version of Firefox for this theme"
 msgstr "Du behöver en uppdaterad version av Firefox för detta tema"
 
-#: src/amo/components/GetFirefoxButton/index.js:152
+#: src/amo/components/GetFirefoxButton/index.js:140
 msgid "You need an updated version of Firefox for this extension"
 msgstr "Du behöver en uppdaterad version av Firefox för den här tillägget"
 
@@ -1339,17 +1315,17 @@ msgstr "Ändra språk"
 msgid "Dismiss this notice"
 msgstr "Avvisa detta meddelande"
 
-#: src/amo/components/Paginate/index.js:135
+#: src/amo/components/Paginate/index.js:151
 msgid "Previous"
 msgstr "Föregående"
 
-#: src/amo/components/Paginate/index.js:152
+#: src/amo/components/Paginate/index.js:170
 msgid "Next"
 msgstr "Nästa"
 
-#: src/amo/components/Paginate/index.js:158
-msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Sida %(currentPage)s av %(totalPages)s"
+#: src/amo/components/Paginate/index.js:175
+msgid "Page %(thisPage)s of %(totalPages)s"
+msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
@@ -1692,12 +1668,12 @@ msgid "Search results"
 msgstr "Sökresultat"
 
 #: src/amo/components/Search/index.js:144 src/amo/pages/Home/index.js:213
-#: src/amo/pages/LandingPage/index.js:124
+#: src/amo/pages/LandingPage/index.js:122
 msgid "Recommended extensions"
 msgstr "Rekommenderade utökningar"
 
 #: src/amo/components/Search/index.js:147
-#: src/amo/pages/LandingPage/index.js:156
+#: src/amo/pages/LandingPage/index.js:154
 msgid "Recommended themes"
 msgstr "Rekommenderade teman"
 
@@ -1742,12 +1718,12 @@ msgid "Verified add-ons"
 msgstr "Verifierade tillägg"
 
 #: src/amo/components/Search/index.js:191
-#: src/amo/pages/LandingPage/index.js:134
+#: src/amo/pages/LandingPage/index.js:132
 msgid "Trending extensions"
 msgstr "Trendiga utökningar"
 
 #: src/amo/components/Search/index.js:194
-#: src/amo/pages/LandingPage/index.js:166
+#: src/amo/pages/LandingPage/index.js:164
 msgid "Trending themes"
 msgstr "Trendiga teman"
 
@@ -1756,12 +1732,12 @@ msgid "Trending add-ons"
 msgstr "Trendiga tillägg"
 
 #: src/amo/components/Search/index.js:203
-#: src/amo/pages/LandingPage/index.js:144
+#: src/amo/pages/LandingPage/index.js:142
 msgid "Top rated extensions"
 msgstr "Högst rankade utökning"
 
 #: src/amo/components/Search/index.js:206
-#: src/amo/pages/LandingPage/index.js:175
+#: src/amo/pages/LandingPage/index.js:173
 msgid "Top rated themes"
 msgstr "Högst rankade teman"
 
@@ -2022,7 +1998,7 @@ msgstr "Inga resultat hittades."
 
 #: src/amo/components/SectionLinks/index.js:112
 #: src/amo/pages/CategoryPage/index.js:60
-#: src/amo/pages/LandingPage/index.js:230
+#: src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "Teman"
 
@@ -2048,7 +2024,7 @@ msgstr "Tillägg för Android"
 
 #: src/amo/components/SectionLinks/index.js:96
 #: src/amo/pages/CategoryPage/index.js:66
-#: src/amo/pages/LandingPage/index.js:231
+#: src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "Utökningar"
 
@@ -2088,7 +2064,7 @@ msgstr "Bläddra bland alla teman"
 msgid "Add-ons Home Page"
 msgstr "Hemsida för tillägg"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:173
 msgid "Preview of %(title)s"
 msgstr "Förhandsvisning av %(title)s"
 
@@ -2174,54 +2150,54 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:207
+#: src/amo/pages/Addon/index.js:208
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Detta tillägg kan inte klassificeras eftersom inga versioner har publicerats."
 
-#: src/amo/pages/Addon/index.js:218
+#: src/amo/pages/Addon/index.js:219
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Läst %(count)s recension"
 msgstr[1] "Läst alla %(count)s recensioner"
 
-#: src/amo/pages/Addon/index.js:239
+#: src/amo/pages/Addon/index.js:240
 msgid "No reviews yet"
 msgstr "Inga recensioner ännu"
 
-#: src/amo/pages/Addon/index.js:249
+#: src/amo/pages/Addon/index.js:250
 msgid "Rate your experience"
 msgstr "Betygsätt din upplevelse"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:269
 msgid "About this dictionary"
 msgstr "Om denna ordbok"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:272
 msgid "About this extension"
 msgstr "Om denna utökning"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:275
 msgid "About this language pack"
 msgstr "Om detta språkpaket"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:278
 msgid "About this theme"
 msgstr "Om detta tema"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:281
 msgid "About this add-on"
 msgstr "Om detta tillägg"
 
-#: src/amo/pages/Addon/index.js:324
+#: src/amo/pages/Addon/index.js:325
 msgid "Developer comments"
 msgstr "Utvecklarens kommentarer"
 
-#: src/amo/pages/Addon/index.js:347
+#: src/amo/pages/Addon/index.js:348
 msgid "Release notes for %(addonVersion)s"
 msgstr "Versionsfakta för %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:467
+#: src/amo/pages/Addon/index.js:468
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -2229,11 +2205,11 @@ msgstr ""
 "Detta är inte en publik listning. Du ser endast det på grund av förhöjda "
 "behörigheter."
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:494
 msgid "Extension Metadata"
 msgstr "Metadata för utökning"
 
-#: src/amo/pages/Addon/index.js:516
+#: src/amo/pages/Addon/index.js:517
 msgid "Screenshots"
 msgstr "Skärmbilder"
 
@@ -2484,7 +2460,7 @@ msgstr ""
 "kan blockera irriterande annonser, skydda lösenord, ändra webbläsarens "
 "utseende och mer."
 
-#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:133
+#: src/amo/pages/Home/index.js:214 src/amo/pages/LandingPage/index.js:131
 msgid "See more recommended extensions"
 msgstr "Se fler rekommenderade utökningar"
 
@@ -2504,27 +2480,27 @@ msgstr "Film & TV"
 msgid "Scenery"
 msgstr "Landskap"
 
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/LandingPage/index.js:141
 msgid "See more trending extensions"
 msgstr "Se fler trendiga utökningar"
 
-#: src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/LandingPage/index.js:151
 msgid "See more top rated extensions"
 msgstr "Se fler topprankade utökningar"
 
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/pages/LandingPage/index.js:163
 msgid "See more recommended themes"
 msgstr "Se fler rekommenderade teman"
 
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/pages/LandingPage/index.js:172
 msgid "See more trending themes"
 msgstr "Se fler trendiga teman"
 
-#: src/amo/pages/LandingPage/index.js:183
+#: src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
 msgstr "Se fler topprankade teman"
 
-#: src/amo/pages/LandingPage/index.js:207
+#: src/amo/pages/LandingPage/index.js:205
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2534,7 +2510,7 @@ msgstr ""
 "efter din smak. Söta husdjur, onda robotar, vackra landskap - tusentals "
 "alternativ."
 
-#: src/amo/pages/LandingPage/index.js:212
+#: src/amo/pages/LandingPage/index.js:210
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2544,7 +2520,7 @@ msgstr ""
 "surfning. Skydda lösenord, hitta erbjudanden, förbättra video och blockera "
 "irriterande annonser med webbläsarprogram."
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:232
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2552,7 +2528,7 @@ msgstr ""
 "Ändra webbläsarens utseende. Välj från tusentals teman att ge Firefox det "
 "utseende du vill."
 
-#: src/amo/pages/LandingPage/index.js:236
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2560,19 +2536,19 @@ msgstr ""
 "Utforska kraftfulla verktyg och funktioner för att anpassa Firefox och göra "
 "webbläsaren till din egen."
 
-#: src/amo/pages/LandingPage/index.js:276
+#: src/amo/pages/LandingPage/index.js:274
 msgid "Explore all categories"
 msgstr "Utforska alla kategorier"
 
-#: src/amo/pages/LanguageTools/index.js:119
+#: src/amo/pages/LanguageTools/index.js:118
 msgid "Available for your locale"
 msgstr "Tillgänglig för ditt språk"
 
-#: src/amo/pages/LanguageTools/index.js:157
+#: src/amo/pages/LanguageTools/index.js:145
 msgid "Dictionaries and Language Packs"
 msgstr "Ordlistor och språkpaket"
 
-#: src/amo/pages/LanguageTools/index.js:167
+#: src/amo/pages/LanguageTools/index.js:155
 msgid ""
 "Download Firefox dictionaries and language pack extensions. Add a new "
 "language option to your browser spell-checker, or change the browser's "
@@ -2582,7 +2558,7 @@ msgstr ""
 "språkalternativ i din webbläsares stavningskontroll, eller ändra "
 "webbläsarens gränssnittsspråk."
 
-#: src/amo/pages/LanguageTools/index.js:178
+#: src/amo/pages/LanguageTools/index.js:166
 msgid ""
 "Installing a dictionary add-on will add a new language option to your spell-"
 "checker, which checks your spelling as you type in Firefox."
@@ -2590,7 +2566,7 @@ msgstr ""
 "Installera en ordlista lägger till ett nytt språkalternativ till din "
 "stavningskontroll, som kontrollerar stavningen när du skriver i Firefox."
 
-#: src/amo/pages/LanguageTools/index.js:183
+#: src/amo/pages/LanguageTools/index.js:171
 msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
@@ -2598,19 +2574,19 @@ msgstr ""
 "Språkpaket ändrar webbläsarens gränssnittspråk, inklusive menyalternativ och "
 "inställningar."
 
-#: src/amo/pages/LanguageTools/index.js:190
+#: src/amo/pages/LanguageTools/index.js:178
 msgid "All Locales"
 msgstr "Alla språk"
 
-#: src/amo/pages/LanguageTools/index.js:197
+#: src/amo/pages/LanguageTools/index.js:185
 msgid "Locale Name"
 msgstr "Språknamn"
 
-#: src/amo/pages/LanguageTools/index.js:200
+#: src/amo/pages/LanguageTools/index.js:188
 msgid "Language Packs"
 msgstr "Språkpaket"
 
-#: src/amo/pages/LanguageTools/index.js:203
+#: src/amo/pages/LanguageTools/index.js:191
 msgid "Dictionaries"
 msgstr "Ordlistor"
 
@@ -3413,6 +3389,27 @@ msgstr "mitt tilläggs kompatibilitet kan inte uppgraderas"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "mitt tilläggs kompatibilitet har uppgraderats"
+
+#~ msgid "Dictionaries by %(author)s"
+#~ msgstr "Ordböcker av %(author)s"
+
+#~ msgid "Dictionaries by these translators"
+#~ msgstr "Ordböcker av dessa översättare"
+
+#~ msgid "Language packs by %(author)s"
+#~ msgstr "Språkpaket av %(author)s"
+
+#~ msgid "Language packs by these translators"
+#~ msgstr "Språkpaket av dessa översättare"
+
+#~ msgid "Add-ons by %(author)s"
+#~ msgstr "Tillägg av %(author)s"
+
+#~ msgid "Add-ons by these developers"
+#~ msgstr "Tillägg av dessa utvecklare"
+
+#~ msgid "Page %(currentPage)s of %(totalPages)s"
+#~ msgstr "Sida %(currentPage)s av %(totalPages)s"
 
 #~ msgid "You cannot flag your own response"
 #~ msgstr "Du kan inte flagga ditt egna svar"
