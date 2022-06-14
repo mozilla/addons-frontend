@@ -167,19 +167,6 @@ export class FooterBase extends React.Component<InternalProps> {
               </li>
               <li>
                 <a
-                  className="Footer-reality-link"
-                  href={`https://mixedreality.mozilla.org/${makeQueryStringWithUTM(
-                    {
-                      utm_content: 'footer-link',
-                      utm_campaign: null,
-                    },
-                  )}`}
-                >
-                  Reality
-                </a>
-              </li>
-              <li>
-                <a
                   className="Footer-enterprise-link"
                   href={`https://www.mozilla.org/firefox/enterprise/${makeQueryStringWithUTM(
                     {
