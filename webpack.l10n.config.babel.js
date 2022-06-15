@@ -1,4 +1,6 @@
 /* eslint-disable no-console, import/no-extraneous-dependencies */
+import fs from 'fs';
+
 import chalk from 'chalk';
 import webpack from 'webpack';
 
@@ -11,8 +13,9 @@ if (process.env.NODE_ENV !== 'production') {
   process.exit(1);
 }
 
-const babelConfig = require('./babel.config.js');
-const babelPlugins = babelConfig.plugins || [];
+const babelrc = fs.readFileSync('./.babelrc');
+const babelrcObject = JSON.parse(babelrc);
+const babelPlugins = babelrcObject.plugins || [];
 
 // Create UTC creation date in the correct format.
 const potCreationDate = new Date()
@@ -54,7 +57,7 @@ const babelL10nPlugins = [
 ];
 
 const babelOptions = {
-  ...babelConfig,
+  ...babelrcObject,
   plugins: babelPlugins.concat(babelL10nPlugins),
 };
 

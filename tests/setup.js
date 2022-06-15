@@ -1,6 +1,7 @@
 import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
+import values from 'object.values';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -16,6 +17,10 @@ import '@testing-library/jest-dom/extend-expect';
 import 'amo/polyfill';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+if (!Object.values) {
+  values.shim();
+}
 
 class LocalStorageMock {
   constructor() {
