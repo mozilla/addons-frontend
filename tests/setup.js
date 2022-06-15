@@ -1,3 +1,5 @@
+import { setImmediate } from 'timers';
+
 import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
@@ -16,6 +18,11 @@ import '@testing-library/jest-dom/extend-expect';
 import 'amo/polyfill';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+// setImmediate is required by Express in server tests.
+// Being a Node.js API, it is not available for `testEnvironment: 'jsdom'`.
+// FIXME: Server tests should be be ran w/ `testEnvironment: 'node'`.
+global.setImmediate = setImmediate;
 
 class LocalStorageMock {
   constructor() {
