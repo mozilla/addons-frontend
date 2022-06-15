@@ -1,82 +1,99 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Card from 'amo/components/Card';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(props = {}) {
-    return shallow(<Card {...props} />);
+    return defaultRender(<Card {...props} />);
   }
 
+  const getCard = () => screen.getByTagName('section');
+
   it('renders a Card', () => {
-    const root = render({ className: 'TofuSection' });
+    render({ className: 'TofuSection' });
 
-    expect(root.find('section')).toHaveLength(1);
+    expect(screen.getByTagName('section')).toBeInTheDocument();
 
-    expect(root).toHaveClassName('Card');
-    expect(root).toHaveClassName('TofuSection');
+    const card = getCard();
+    expect(card).toHaveClass('TofuSection');
 
-    expect(root.find('.Card-header')).toHaveLength(0);
-    expect(root.find('.Card-contents')).toHaveLength(0);
-    expect(root.find('.Card-footer')).toHaveLength(0);
-  });
+    expect(screen.queryByTagName('header')).not.toBeInTheDocument();
+    expect(card).toHaveClass('Card--no-header');
+    expect(screen.queryByTagName('footer')).not.toBeInTheDocument();
+    expect(card).toHaveClass('Card--no-footer');
+    expect(screen.queryByClassName('Card-contents')).not.toBeInTheDocument();
+    expect(card).toHaveTextContent('');
 
-  it('does not use photon class by default', () => {
-    const root = render({ children: 'hello' });
-    expect(root).not.toHaveClassName('Card--photon');
+    expect(
+      screen.queryByClassName('Card-shelf-footer-in-header'),
+    ).not.toBeInTheDocument();
+
+    expect(card).not.toHaveClass('Card--photon');
   });
 
   it('uses photon class if marked', () => {
-    const root = render({ children: 'hello', photonStyle: true });
-    expect(root).toHaveClassName('Card--photon');
+    render({ photonStyle: true });
+    expect(getCard()).toHaveClass('Card--photon');
   });
 
   it('shows header if supplied', () => {
-    const root = render({ header: 'foo' });
-    expect(root.find('.Card-header')).toHaveLength(1);
-    expect(root.find('.Card-header')).toHaveText('foo');
-  });
+    const header = 'foo';
+    render({ header });
 
-  it('hides header if none supplied', () => {
-    const root = render({ children: 'hello' });
-    expect(root.find('.Card-header')).toHaveLength(0);
-    expect(root).toHaveClassName('Card--no-header');
+    expect(screen.getByTagName('header')).toHaveTextContent(header);
   });
 
   it('does not use HomepageShelf classes by default', () => {
-    const root = render({
+    render({
       children: 'hello',
+      footer: 'bar',
+      header: 'foo',
     });
-    expect(root.find('.Card-header')).not.toHaveClassName('Card-shelf-header');
-    expect(root.find('.Card-footer')).not.toHaveClassName('Card-shelf-footer');
-    expect(root).not.toHaveClassName('Card-shelf-footer-in-header');
+
+    expect(screen.getByTagName('header')).not.toHaveClass('Card-shelf-header');
+    expect(screen.getByTagName('footer')).not.toHaveClass('Card-shelf-footer');
+    expect(
+      screen.queryByClassName('Card-shelf-footer-in-header'),
+    ).not.toBeInTheDocument();
   });
 
   it('uses HomepageShelf classes if isHomepageShelf is true', () => {
-    const root = render({
+    render({
       children: 'hello',
       footer: 'bar',
       header: 'foo',
       isHomepageShelf: true,
     });
-    expect(root.find('.Card-header')).toHaveClassName('Card-shelf-header');
-    expect(root.find('.Card-footer')).toHaveClassName('Card-shelf-footer');
-    expect(root.find('.Card-shelf-footer-in-header')).toHaveLength(1);
-    expect(root.find('.Card-shelf-footer-in-header')).toHaveText('bar');
+
+    const footers = screen.getAllByTagName('footer');
+    expect(screen.getByTagName('header')).toHaveClass('Card-shelf-header');
+    expect(footers[0]).toHaveClass('Card-shelf-footer-in-header');
+    expect(footers[1]).toHaveClass('Card-shelf-footer');
+    for (const footer of footers) {
+      expect(footer).toHaveTextContent('bar');
+    }
   });
 
   it('shows footer text if supplied', () => {
-    const root = render({ footerText: 'foo' });
-    expect(root.find('.Card-footer')).toHaveLength(1);
-    expect(root.find('.Card-footer')).toHaveText('foo');
-    expect(root.find('.Card-footer')).toHaveClassName('Card-footer-text');
+    const footerText = 'foo';
+    render({ footerText });
+
+    const footer = screen.getByTagName('footer');
+    expect(footer).toHaveTextContent(footerText);
+    expect(footer).toHaveClass('Card-footer-text');
   });
 
   it('shows a footer link if supplied', () => {
-    const root = render({ footerLink: <a href="/some-link">Some link</a> });
-    expect(root.find('.Card-footer')).toHaveLength(1);
-    expect(root.find('.Card-footer')).toHaveText('Some link');
-    expect(root.find('.Card-footer')).toHaveClassName('Card-footer-link');
+    const linkText = 'Some link';
+    const linkUrl = '/some/link';
+    render({ footerLink: <a href={linkUrl}>{linkText}</a> });
+
+    expect(screen.getByRole('link', { name: linkText })).toHaveAttribute(
+      'href',
+      linkUrl,
+    );
+    expect(screen.getByTagName('footer')).toHaveClass('Card-footer-link');
   });
 
   it('throws an error if both footerLink and footerText props are passed', () => {
@@ -106,20 +123,10 @@ describe(__filename, () => {
     }).toThrowError(/can only specify exactly one of these props/);
   });
 
-  it('hides footer if none supplied', () => {
-    const root = render({ children: 'hello' });
-    expect(root.find('.Card-footer')).toHaveLength(0);
-    expect(root).toHaveClassName('Card--no-footer');
-  });
-
   it('renders children', () => {
-    const root = render({ children: 'hello' });
-    expect(root.find('.Card-contents')).toHaveLength(1);
-    expect(root.find('.Card-contents')).toHaveText('hello');
-  });
+    const text = 'hello';
+    render({ children: text });
 
-  it('omits the content div with no children', () => {
-    const root = render();
-    expect(root.find('.Card-contents')).toHaveLength(0);
+    expect(screen.getByText(text)).toHaveClass('Card-contents');
   });
 });

@@ -1,29 +1,33 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Select from 'amo/components/Select';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  it('renders a custom class name', () => {
-    const root = shallow(<Select className="my-select" />);
+  function render(props = {}) {
+    return defaultRender(<Select {...props} />);
+  }
 
-    expect(root).toHaveClassName('my-select');
-    expect(root).toHaveClassName('Select');
+  it('renders a custom class name', () => {
+    const className = 'MyClass';
+    render({ className });
+
+    const select = screen.getByRole('combobox');
+
+    expect(select).toHaveClass(className);
+    expect(select).toHaveClass('Select');
   });
 
   it('renders children', () => {
-    const root = shallow(
-      <Select>
-        <option>Some option</option>
-      </Select>,
-    );
+    const optionText = 'some option';
+    render({ children: <option>{optionText}</option> });
 
-    expect(root.find('option')).toHaveLength(1);
+    expect(screen.getByRole('option')).toHaveTextContent(optionText);
   });
 
   it('passes custom props to select', () => {
-    const root = shallow(<Select disabled />);
+    render({ disabled: true });
 
-    expect(root.prop('disabled')).toEqual(true);
+    expect(screen.getByRole('combobox')).toBeDisabled();
   });
 });
