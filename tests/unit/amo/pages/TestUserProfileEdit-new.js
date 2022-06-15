@@ -281,6 +281,13 @@ describe(__filename, () => {
       userEvent.upload(fileInput, file);
 
       await waitFor(() => expect(fileInput.files['0']).toEqual(file));
+
+      // We need this to avoid ending the test before an async function completes.
+      await waitFor(() =>
+        expect(
+          screen.getByAltText(`Profile picture for ${defaultDisplayName}`),
+        ).toHaveAttribute('src', expect.stringContaining('data:')),
+      );
     });
 
     it('renders a "delete" ConfirmButton when user has a picture URL', () => {
