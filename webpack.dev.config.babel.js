@@ -1,5 +1,4 @@
 /* eslint-disable max-len, no-console, import/no-extraneous-dependencies */
-import fs from 'fs';
 import path from 'path';
 
 import config from 'config';
@@ -17,14 +16,13 @@ const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(
   webpackIsomorphicToolsConfig,
 );
 
-const babelrc = fs.readFileSync('./.babelrc');
-const babelrcObject = JSON.parse(babelrc);
+const babelConfig = require('./babel.config.js');
 
-const babelPlugins = babelrcObject.plugins || [];
+const babelPlugins = babelConfig.plugins || [];
 const babelDevPlugins = ['react-hot-loader/babel'];
 
 export const babelOptions = {
-  ...babelrcObject,
+  ...babelConfig,
   plugins: localDevelopment
     ? babelPlugins.concat(babelDevPlugins)
     : babelPlugins,
