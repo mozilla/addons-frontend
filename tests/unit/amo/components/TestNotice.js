@@ -1,55 +1,61 @@
 import * as React from 'react';
+import userEvent from '@testing-library/user-event';
 
+import Notice from 'amo/components/Notice';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import { setUIState as setUIStateAction } from 'amo/reducers/uiState';
 import {
-  createFakeEvent,
   dispatchClientMetadata,
-  fakeI18n,
-  shallowUntilTarget,
-  setUIState,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
-import Notice, { NoticeBase } from 'amo/components/Notice';
-
-const render = ({
-  store = dispatchClientMetadata().store,
-  children,
-  ...customProps
-} = {}) => {
-  const props = {
-    id: 'example-id',
-    store,
-    i18n: fakeI18n(),
-    type: 'success',
-    ...customProps,
-  };
-  return shallowUntilTarget(<Notice {...props}>{children}</Notice>, NoticeBase);
-};
 
 describe(__filename, () => {
-  it('renders a custom class name', () => {
-    const root = render({ className: 'some-class' });
+  const clientApp = CLIENT_APP_FIREFOX;
+  const lang = 'en-US';
+  let store;
 
-    expect(root).toHaveClassName('some-class');
-    expect(root).toHaveClassName('Notice');
+  beforeEach(() => {
+    store = dispatchClientMetadata({ clientApp, lang }).store;
+  });
+
+  const render = ({ children, ...props } = {}) => {
+    return defaultRender(
+      <Notice id="some-id" type="success" {...props}>
+        {children}
+      </Notice>,
+      { store },
+    );
+  };
+
+  const getNotice = () => screen.getByClassName('Notice');
+  const getUIStateId = (id) => `src/amo/components/Notice/index.js-${id}`;
+
+  it('renders a custom class name', () => {
+    const className = 'some-class';
+    render({ className });
+
+    expect(getNotice()).toHaveClass(className);
   });
 
   it('renders a class for the type', () => {
-    const root = render({ type: 'error' });
+    render({ type: 'error' });
 
-    expect(root).toHaveClassName('Notice-error');
+    expect(getNotice()).toHaveClass('Notice-error');
   });
 
   it('renders a class for againstGrey20=true', () => {
-    const root = render({ againstGrey20: true });
+    render({ againstGrey20: true });
 
-    expect(root).toHaveClassName('Notice-againstGrey20');
+    expect(getNotice()).toHaveClass('Notice-againstGrey20');
   });
 
   it('renders children', () => {
-    const root = render({ children: <em>Some text</em> });
+    const text = 'some text';
+    render({ children: <em>{text}</em> });
 
-    expect(root.find('em')).toHaveLength(1);
-    expect(root.text()).toEqual('Some text');
+    expect(screen.getByTagName('em')).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
 
   it('requires a known type', () => {
@@ -57,94 +63,114 @@ describe(__filename, () => {
   });
 
   it('hides action buttons by default', () => {
-    const root = render();
+    render();
 
-    expect(root.find('.Notice-button')).toHaveLength(0);
+    expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
 
   it('renders an action button', () => {
-    const actionOnClick = sinon.stub();
-    const root = render({ actionOnClick, actionText: 'some text' });
+    const actionOnClick = jest.fn();
+    const actionText = 'some text';
+    render({ actionOnClick, actionText });
 
-    const button = root.find('.Notice-button');
-    expect(button).toHaveLength(1);
-    expect(button.html()).toContain('some text');
+    const button = screen.getByRole('button', { name: actionText });
+    userEvent.click(button);
 
-    button.simulate('click', createFakeEvent());
-    sinon.assert.called(actionOnClick);
+    expect(actionOnClick).toHaveBeenCalled();
   });
 
   it('requires actionText when specifying a button action', () => {
-    expect(() => render({ actionOnClick: sinon.stub() })).toThrow(
+    expect(() => render({ actionOnClick: jest.fn() })).toThrow(
       /actionText is required/,
     );
   });
 
   it('renders a button with a `to` property', () => {
     const actionTo = '/some-relative-link';
-    const root = render({ actionTo, actionText: 'a button link' });
+    const actionText = 'some text';
+    render({ actionTo, actionText });
 
-    const button = root.find('.Notice-button');
-    expect(button).toHaveProp('to', actionTo);
+    expect(screen.getByRole('link', { name: actionText })).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}${actionTo}`,
+    );
   });
 
   it('renders a button with an `href` property', () => {
     const actionHref = 'https://example.com';
-    const root = render({ actionHref, actionText: 'a button link' });
+    const actionText = 'some text';
+    render({ actionHref, actionText });
 
-    const button = root.find('.Notice-button');
-    expect(button).toHaveProp('href', actionHref);
+    expect(screen.getByRole('link', { name: actionText })).toHaveAttribute(
+      'href',
+      actionHref,
+    );
   });
 
   it('calls back when you dismiss a notice', () => {
-    const onDismiss = sinon.stub();
-    const root = render({ dismissible: true, onDismiss });
+    const onDismiss = jest.fn();
+    render({ dismissible: true, onDismiss });
 
-    const event = createFakeEvent();
-    root.find('.Notice-dismisser-button').simulate('click', event);
-    sinon.assert.calledWith(onDismiss, event);
+    userEvent.click(
+      screen.getByRole('button', { name: 'Dismiss this notice' }),
+    );
+
+    expect(onDismiss).toHaveBeenCalled();
   });
 
   // eslint-disable-next-line jest/expect-expect
   it('does not require a dismissal callback', () => {
-    const root = render({ dismissible: true, onDismiss: undefined });
+    render({ dismissible: true, onDismiss: undefined });
 
     // Make sure this doesn't throw.
-    root.find('.Notice-dismisser-button').simulate('click', createFakeEvent());
+    userEvent.click(
+      screen.getByRole('button', { name: 'Dismiss this notice' }),
+    );
   });
 
   it('changes UI state when dismissing a notice', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const uiStateID = 'example-id';
-    const root = render({ store, uiStateID, dismissible: true });
+    const dispatch = jest.spyOn(store, 'dispatch');
+    const id = 'example-id';
+    render({ id, dismissible: true });
 
-    dispatchSpy.resetHistory();
-    root.find('.Notice-dismisser-button').simulate('click', createFakeEvent());
+    userEvent.click(
+      screen.getByRole('button', { name: 'Dismiss this notice' }),
+    );
 
-    sinon.assert.calledWith(
-      dispatchSpy,
+    expect(dispatch).toHaveBeenCalledWith(
       setUIStateAction({
-        id: uiStateID,
+        id: getUIStateId(id),
         change: { wasDismissed: true },
       }),
     );
   });
 
   it('hides a dismissed notice', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store, dismissible: true });
-    setUIState({ root, store, change: { wasDismissed: true } });
+    const id = 'example-id';
+    render({ id, dismissible: true });
 
-    expect(root.find('.Notice')).toHaveLength(0);
+    store.dispatch(
+      setUIStateAction({
+        id: getUIStateId(id),
+        change: { wasDismissed: true },
+      }),
+    );
+
+    expect(screen.queryByClassName('Notice')).not.toBeInTheDocument();
   });
 
   it('only hides dismissible notices', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store, dismissible: false });
-    setUIState({ root, store, change: { wasDismissed: true } });
+    const id = 'example-id';
+    render({ id, dismissible: false });
 
-    expect(root.find('.Notice')).toHaveLength(1);
+    store.dispatch(
+      setUIStateAction({
+        id: getUIStateId(id),
+        change: { wasDismissed: true },
+      }),
+    );
+
+    expect(getNotice()).toBeInTheDocument();
   });
 
   it('requires an ID prop for dismissible notices', () => {
@@ -153,27 +179,24 @@ describe(__filename, () => {
     );
   });
 
-  it('sets a uiStateID based on ID prop', () => {
-    const id = 'notice-id';
-    const root = render({ dismissible: true, id });
-    expect(root.instance().props.uiStateID).toContain(id);
-  });
-
   it('passes an actionTarget to Button', () => {
     const actionTarget = '_blank';
-    const root = render({
-      actionText: 'some button',
+    const actionText = 'some text';
+    render({
       actionHref: 'https://example.com',
       actionTarget,
+      actionText,
     });
 
-    const button = root.find('.Notice-button');
-    expect(button).toHaveProp('target', actionTarget);
+    expect(screen.getByRole('link', { name: actionText })).toHaveAttribute(
+      'target',
+      actionTarget,
+    );
   });
 
   it('can render a light notice', () => {
-    const root = render({ light: true });
+    render({ light: true });
 
-    expect(root).toHaveClassName('Notice-light');
+    expect(getNotice()).toHaveClass('Notice-light');
   });
 });
