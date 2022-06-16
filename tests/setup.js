@@ -1,7 +1,8 @@
+import { setImmediate } from 'timers';
+
 import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
-import values from 'object.values';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -18,9 +19,10 @@ import 'amo/polyfill';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-if (!Object.values) {
-  values.shim();
-}
+// setImmediate is required by Express in server tests.
+// Being a Node.js API, it is not available for `testEnvironment: 'jsdom'`.
+// FIXME: Server tests should be be ran w/ `testEnvironment: 'node'`.
+global.setImmediate = setImmediate;
 
 class LocalStorageMock {
   constructor() {
