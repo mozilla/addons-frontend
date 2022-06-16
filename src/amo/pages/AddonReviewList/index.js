@@ -353,6 +353,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
               >
                 <ul>
                   {allReviews.map((review, index) => {
+                    /* eslint-disable react/no-array-index-key */
                     return (
                       <li key={String(index)}>
                         <AddonReviewCard
@@ -362,6 +363,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
                         />
                       </li>
                     );
+                    /* eslint-enable react/no-array-index-key */
                   })}
                 </ul>
               </CardList>

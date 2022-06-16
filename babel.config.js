@@ -29,8 +29,8 @@ module.exports = {
         // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
         // https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#motivation
         // 'runtime': 'automatic',
-      }
-    ]
+      },
+    ],
   ],
   'plugins': [],
   'env': {

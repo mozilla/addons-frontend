@@ -11,7 +11,8 @@ if (process.env.NODE_ENV !== 'production') {
   process.exit(1);
 }
 
-const babelConfig = require('./babel.config.js');
+const babelConfig = require('./babel.config');
+
 const babelPlugins = babelConfig.plugins || [];
 
 // Create UTC creation date in the correct format.

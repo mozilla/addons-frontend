@@ -16,7 +16,7 @@ const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(
   webpackIsomorphicToolsConfig,
 );
 
-const babelConfig = require('./babel.config.js');
+const babelConfig = require('./babel.config');
 
 const babelPlugins = babelConfig.plugins || [];
 const babelDevPlugins = ['react-hot-loader/babel'];
