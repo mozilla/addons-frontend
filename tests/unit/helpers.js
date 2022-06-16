@@ -1461,9 +1461,9 @@ export function createFakeDebounce() {
 // LocalState in amo/localState
 export function createFakeLocalState(overrides = {}) {
   return {
-    clear: sinon.spy(() => Promise.resolve()),
-    load: sinon.spy(() => Promise.resolve(null)),
-    save: sinon.spy(() => Promise.resolve()),
+    clear: jest.fn(() => Promise.resolve()),
+    load: jest.fn(() => Promise.resolve(null)),
+    save: jest.fn(() => Promise.resolve()),
     ...overrides,
   };
 }

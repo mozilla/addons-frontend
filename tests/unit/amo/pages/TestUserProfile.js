@@ -7,6 +7,7 @@ import {
   setUserReviews,
   FETCH_USER_REVIEWS,
 } from 'amo/actions/reviews';
+import createLocalState from 'amo/localState';
 import { extractId } from 'amo/pages/UserProfile';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -54,6 +55,19 @@ import {
 } from 'tests/unit/helpers';
 import { setViewContext } from 'amo/actions/viewContext';
 
+jest.mock('amo/localState', () =>
+  jest.fn(() => {
+    return {
+      clear: jest.fn(() => {
+        return Promise.resolve();
+      }),
+      load: jest.fn(() => {
+        return Promise.resolve(null);
+      }),
+    };
+  }),
+);
+
 describe(__filename, () => {
   const lang = 'fr';
   const clientApp = CLIENT_APP_FIREFOX;
@@ -62,6 +76,10 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks().resetModules();
   });
 
   function defaultUserProps(props = {}) {
@@ -1336,6 +1354,49 @@ describe(__filename, () => {
       expect(
         screen.getByRole('button', { name: 'Report this user for abuse' }),
       ).not.toBeDisabled();
+    });
+
+    describe('Tests for DismissibleTextForm', () => {
+      const getLocalStateId = (id) =>
+        `src/amo/components/ReportUserAbuse/index.js-${id}`;
+
+      it('recreates LocalState on update when the ID changes', () => {
+        const userId = renderForOtherThanSignedInUser();
+        const anotherUserId = userId + 1;
+
+        expect(createLocalState).toHaveBeenCalledWith(getLocalStateId(userId));
+
+        store.dispatch(
+          loadUserAccount({
+            user: createUserAccountResponse({ id: anotherUserId }),
+          }),
+        );
+
+        store.dispatch(
+          onLocationChanged({
+            pathname: getLocation({ userId: anotherUserId }),
+          }),
+        );
+
+        expect(createLocalState).toHaveBeenCalledTimes(2);
+        expect(createLocalState).toHaveBeenCalledWith(
+          getLocalStateId(anotherUserId),
+        );
+      });
+
+      it('does not recreate LocalState on update when ID does not change', () => {
+        const userId = renderForOtherThanSignedInUser();
+
+        expect(createLocalState).toHaveBeenCalledWith(getLocalStateId(userId));
+
+        store.dispatch(
+          onLocationChanged({
+            pathname: getLocation({ userId }),
+          }),
+        );
+
+        expect(createLocalState).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });

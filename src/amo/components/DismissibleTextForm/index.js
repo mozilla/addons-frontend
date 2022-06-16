@@ -96,11 +96,11 @@ export class DismissibleTextFormBase extends React.Component<
     this.localState = this.createLocalState();
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    await this.checkForStoredState();
     if (this.textarea) {
       this.textarea.focus();
     }
-    this.checkForStoredState();
   }
 
   componentDidUpdate(prevProps: InternalProps) {
