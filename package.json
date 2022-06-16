@@ -140,7 +140,7 @@
       }
     },
     "test-ci-next": {
-      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --color=false --coverage -i --silent",
+      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --color=false --coverage -i",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
