@@ -1,28 +1,27 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import ListItem from 'amo/components/ListItem';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ children = <span />, ...customProps } = {}) => {
-    const props = {
-      key: 'some-key',
-      ...customProps,
-    };
-    return shallow(<ListItem {...props}>{children}</ListItem>);
-  };
+  function render(props = {}) {
+    return defaultRender(<ListItem {...props} />);
+  }
 
   it('renders children', () => {
-    const children = <div className="MyItem" />;
-    const root = render({ children });
+    const text = 'Some text';
+    render({ children: <div>{text}</div> });
 
-    expect(root.childAt(0)).toHaveClassName('MyItem');
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
 
   it('lets you add a custom class name', () => {
-    const root = render({ className: 'MyClass' });
+    const className = 'MyClass';
+    render({ className });
 
-    expect(root).toHaveClassName('ListItem');
-    expect(root).toHaveClassName('MyClass');
+    const li = screen.getByRole('listitem');
+
+    expect(li).toHaveClass('ListItem');
+    expect(li).toHaveClass(className);
   });
 });
