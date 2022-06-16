@@ -1,32 +1,27 @@
 import * as React from 'react';
-import { Link as ReactRouterLink } from 'react-router-dom';
 
-import Link, { LinkBase } from 'amo/components/Link';
-import createStore from 'amo/store';
-import { setClientApp, setLang } from 'amo/reducers/api';
-import Icon from 'amo/components/Icon';
-import { shallowUntilTarget } from 'tests/unit/helpers';
+import Link from 'amo/components/Link';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import {
+  dispatchClientMetadata,
+  render as defaultRender,
+  screen,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const clientApp = CLIENT_APP_FIREFOX;
+  const lang = 'en-US';
   let store;
 
   function render(props) {
-    return shallowUntilTarget(<Link store={store} {...props} />, LinkBase);
+    return defaultRender(<Link {...props} />, { store });
   }
 
   beforeEach(() => {
-    store = createStore().store;
-    store.dispatch(setClientApp('android'));
-    store.dispatch(setLang('fr'));
+    store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  it('passes an object through as a to param', () => {
-    const root = render({ to: { pathname: '/categories' } });
-
-    expect(root.find(ReactRouterLink)).toHaveProp('to', {
-      pathname: '/fr/android/categories',
-    });
-  });
+  const getLink = () => screen.getByRole('link');
 
   it('passes `to` without leading slash without base', () => {
     expect(() => {
@@ -45,149 +40,135 @@ describe(__filename, () => {
   });
 
   it('prefixes the `to` prop', () => {
-    const root = render({ to: '/test' });
+    const to = '/test';
+    render({ to });
 
-    expect(root.find(ReactRouterLink)).toHaveProp('to', '/fr/android/test');
+    expect(getLink()).toHaveAttribute('href', `/${lang}/${clientApp}${to}`);
   });
 
   it('does not prefix the `to` prop if it already contains the prefix', () => {
-    const to = '/fr/android/test';
-    const root = render({ to });
+    const to = `/${lang}/${clientApp}/some/path/`;
+    render({ to });
 
-    expect(root.find(ReactRouterLink)).toHaveProp('to', to);
+    expect(getLink()).toHaveAttribute('href', to);
   });
 
   it('prefixes the `to.pathname` prop', () => {
-    const root = render({ to: { pathname: '/test' } });
+    const pathname = '/test';
+    render({ to: { pathname } });
 
-    expect(root.find(ReactRouterLink)).toHaveProp('to', {
-      pathname: '/fr/android/test',
-    });
+    expect(getLink()).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}${pathname}`,
+    );
   });
 
   it('does not prefix the `to.pathname` prop if it already contains the prefix', () => {
-    const pathname = '/fr/android/test';
-    const root = render({ to: { pathname } });
+    const pathname = `/${lang}/${clientApp}/some/path/`;
+    render({ to: { pathname } });
 
-    expect(root.find(ReactRouterLink)).toHaveProp('to', { pathname });
+    expect(getLink()).toHaveAttribute('href', pathname);
   });
 
   it('renders children when `to` is used', () => {
-    const root = render({ children: 'hello', to: '/test' });
+    const text = 'hello';
+    const to = '/test';
+    render({ children: text, to });
 
-    expect(root.children()).toHaveText('hello');
-  });
-
-  it('does not pass prepend props through to Link component', () => {
-    const root = render({
-      children: 'bonjour',
-      prependLang: false,
-      to: '/test',
-    });
-    const props = root.find(ReactRouterLink).props();
-
-    expect(props.clientApp).toEqual(undefined);
-    expect(props.lang).toEqual(undefined);
-    expect(props.prependClientApp).toEqual(undefined);
-    expect(props.prependLang).toEqual(undefined);
+    expect(screen.getByRole('link', { name: text })).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}${to}`,
+    );
   });
 
   it('ignores `href` if not a string type', () => {
-    const root = render({ base: null, href: null, to: '/' });
+    render({ base: null, href: null, to: '/' });
 
     // If no href attribute is supplied the component will render a Link
     // component instead of an <a> tag.
-    expect(root.find(ReactRouterLink)).toHaveLength(1);
+    expect(getLink()).toHaveAttribute('href', `/${lang}/${clientApp}/`);
   });
 
   it('normalizes the `href` path with a string', () => {
-    const root = render({ href: '/test' });
+    const href = '/test/';
+    render({ href });
 
-    expect(root.find('a')).toHaveProp('href', '/fr/android/test');
+    expect(getLink()).toHaveAttribute('href', `/${lang}/${clientApp}${href}`);
   });
 
   it('does not prefix the `href` prop if it already contains the prefix', () => {
-    const href = '/fr/android/test';
-    const root = render({ href });
+    const href = `/${lang}/${clientApp}/test/`;
+    render({ href });
 
-    expect(root.find('a')).toHaveProp('href', href);
+    expect(getLink()).toHaveAttribute('href', href);
   });
 
   it('does not prepend clientApp when `prependClientApp` is false', () => {
-    const root = render({ href: '/test', prependClientApp: false });
+    const href = '/test';
+    render({ href, prependClientApp: false });
 
-    expect(root.find('a')).toHaveProp('href', '/fr/test');
+    expect(getLink()).toHaveAttribute('href', `/${lang}${href}`);
   });
 
   it('does not prepend lang when `prependLang` is false', () => {
-    const root = render({ href: '/test', prependLang: false });
+    const href = '/test';
+    render({ href, prependLang: false });
 
-    expect(root.find('a')).toHaveProp('href', '/android/test');
+    expect(getLink()).toHaveAttribute('href', `/${clientApp}${href}`);
   });
 
   it('does not prepend `href` when `prepend` props are false', () => {
-    const root = render({
-      href: '/test',
-      prependClientApp: false,
-      prependLang: false,
-    });
+    const href = '/test';
+    render({ href, prependClientApp: false, prependLang: false });
 
-    const hrefProp = root.find('a').prop('href');
-
-    expect(hrefProp).toContain('/test');
-    expect(hrefProp).not.toContain('/fr/test');
-    expect(hrefProp).not.toContain('/android/test');
-    expect(hrefProp).not.toContain('/fr/android/test');
+    expect(getLink()).toHaveAttribute('href', href);
   });
 
   it('does not prepend `to` when `prepend` props are false', () => {
-    const root = render({
-      to: '/test',
+    const to = '/test';
+    render({
+      to,
       prependClientApp: false,
       prependLang: false,
     });
 
-    const toProp = root.find(ReactRouterLink).prop('to');
-
-    expect(toProp).toContain('/test');
-    expect(toProp).not.toContain('/fr/test');
-    expect(toProp).not.toContain('/android/test');
-    expect(toProp).not.toContain('/fr/android/test');
+    expect(getLink()).toHaveAttribute('href', to);
   });
 
   it('does not prepend `to.pathname` when `prepend` props are false', () => {
-    const root = render({
-      to: { pathname: '/test' },
+    const pathname = '/test';
+    render({
+      to: { pathname },
       prependClientApp: false,
       prependLang: false,
     });
 
-    const toProp = root.find(ReactRouterLink).prop('to');
-
-    expect(toProp.pathname).toContain('/test');
-    expect(toProp.pathname).not.toContain('/fr/test');
-    expect(toProp.pathname).not.toContain('/android/test');
-    expect(toProp.pathname).not.toContain('/fr/android/test');
+    expect(getLink()).toHaveAttribute('href', pathname);
   });
 
   it('renders children when `href` is used', () => {
-    const root = render({ children: 'bonjour', href: '/test' });
+    const text = 'hello';
+    const href = '/test';
+    render({ children: text, href });
 
-    expect(root.children()).toHaveText('bonjour');
+    expect(screen.getByRole('link', { name: text })).toHaveAttribute(
+      'href',
+      `/${lang}/${clientApp}${href}`,
+    );
   });
 
   it('does not add prepend props to <a> tag', () => {
-    const root = render({
+    render({
       children: 'bonjour',
       href: '/test',
       prependLang: false,
     });
 
-    expect(root.find('a')).toHaveLength(1);
-    expect(root.find('a')).not.toHaveProp('clientApp');
-    expect(root.find('a')).not.toHaveProp('lang');
-    expect(root.find('a')).not.toHaveProp('prependClientApp');
-    expect(root.find('a')).not.toHaveProp('prependLang');
+    const link = getLink();
+    expect(link).not.toHaveAttribute('clientApp');
+    expect(link).not.toHaveAttribute('lang');
+    expect(link).not.toHaveAttribute('prependClientApp');
+    expect(link).not.toHaveAttribute('prependLang');
   });
 
   it('throws an error if both `href` and `to` are supplied', () => {
@@ -199,73 +180,71 @@ describe(__filename, () => {
   });
 
   it('creates an Icon with the correct name for `external`', () => {
-    const root = render({ to: '/test', external: true });
-
-    expect(root.find(Icon)).toHaveProp('name', `external`);
+    render({ to: '/test', external: true });
+    expect(screen.getByClassName('Icon')).toHaveClass('Icon-external');
   });
 
   it('creates an Icon with the correct name for `externalDark`', () => {
-    const root = render({ to: '/test', externalDark: true });
-
-    expect(root.find(Icon)).toHaveProp('name', `external-dark`);
+    render({ to: '/test', externalDark: true });
+    expect(screen.getByClassName('Icon')).toHaveClass('Icon-external-dark');
   });
 
   it('creates an Icon with the correct name for `external` and `externalDark`', () => {
-    const root = render({
+    render({
       to: '/test',
       external: true,
       externalDark: true,
     });
 
-    expect(root.find(Icon)).toHaveProp('name', `external-dark`);
+    expect(screen.getByClassName('Icon')).toHaveClass('Icon-external-dark');
   });
 
   it('adds rel="noopener noreferrer" when target is "_blank"', () => {
-    const root = render({
+    render({
       href: '/test-target',
       target: '_blank',
     });
 
-    expect(root.find('a')).toHaveProp('target', '_blank');
-    expect(root.find('a')).toHaveProp('rel', 'noopener noreferrer');
+    expect(getLink()).toHaveAttribute('target', '_blank');
+    expect(getLink()).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
   it('overrides the `rel` value when target is "_blank"', () => {
-    const root = render({
+    render({
       href: '/test-target',
       rel: 'some-rel',
       target: '_blank',
     });
 
-    expect(root.find('a')).toHaveProp('rel', 'noopener noreferrer');
+    expect(getLink()).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
   it('accepts a `rel` prop when target is not "_blank"', () => {
-    const root = render({
+    render({
       href: '/test-target',
       rel: 'some-rel',
     });
 
-    expect(root.find('a')).toHaveProp('rel', 'some-rel');
+    expect(getLink()).toHaveAttribute('rel', 'some-rel');
   });
 
   it('adds rel="noopener noreferrer" when target is "_blank" an `to` is used', () => {
-    const root = render({
+    render({
       target: '_blank',
       to: '/test-target',
     });
 
-    expect(root.find(ReactRouterLink)).toHaveProp('target', '_blank');
-    expect(root.find(ReactRouterLink)).toHaveProp('rel', 'noopener noreferrer');
+    expect(getLink()).toHaveAttribute('target', '_blank');
+    expect(getLink()).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
   it('does not add a "rel" attribute when target is not "_blank"', () => {
-    const root = render({
+    render({
       href: '/test-target',
       target: 'some-target',
     });
 
-    expect(root.find('a')).toHaveProp('target', 'some-target');
-    expect(root.find('a')).toHaveProp('rel', undefined);
+    expect(getLink()).toHaveAttribute('target', 'some-target');
+    expect(getLink()).not.toHaveAttribute('rel');
   });
 });
