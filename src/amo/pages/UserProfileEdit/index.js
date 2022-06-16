@@ -595,6 +595,7 @@ export class UserProfileEditBase extends React.Component<InternalProps, State> {
                     </label>
                     <input
                       className="UserProfileEdit-email"
+                      id="email"
                       value={user && user.email}
                       disabled
                       onChange={this.onFieldChange}
