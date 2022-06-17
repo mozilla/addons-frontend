@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-06-14 17:25+0000\n"
-"PO-Revision-Date: 2022-06-17 18:47+0000\n"
+"PO-Revision-Date: 2022-06-17 22:05+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -844,7 +844,7 @@ msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:78
 msgid "Oops! We can’t find that page"
-msgstr "უკაცრავად! მოთხოვნილი გვერდი ვერ მოიძებნა"
+msgstr "ვწუხვართ! მოთხოვნილი გვერდი ვერ მოიძებნა"
 
 #: src/amo/components/Errors/NotFound/index.js:81
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
