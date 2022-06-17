@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { encode } from 'universal-base64url';
 
@@ -10,22 +11,53 @@ import {
 } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import {
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
+  DISABLED,
+  DOWNLOAD_FAILED,
   DOWNLOAD_FIREFOX_BASE_URL,
   DOWNLOAD_FIREFOX_UTM_CAMPAIGN,
+  DOWNLOAD_PROGRESS,
+  ENABLED,
+  ENABLE_ACTION,
+  ERROR,
+  ERROR_CORRUPT_FILE,
+  FATAL_ERROR,
+  FATAL_INSTALL_ERROR,
+  FATAL_UNINSTALL_ERROR,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+  INACTIVE,
   INSTALLED,
+  INSTALLING,
+  INSTALL_ACTION,
+  INSTALL_CANCELLED,
+  INSTALL_CANCELLED_ACTION,
+  INSTALL_DOWNLOAD_FAILED_ACTION,
+  INSTALL_ERROR,
+  INSTALL_FAILED,
+  INSTALL_STARTED_ACTION,
+  SET_ENABLE_NOT_AVAILABLE,
+  START_DOWNLOAD,
+  TRACKING_TYPE_INVALID,
+  UNINSTALLED,
+  UNINSTALLING,
+  UNINSTALL_ACTION,
 } from 'amo/constants';
-import { setInstallState } from 'amo/reducers/installations';
+import { makeProgressHandler } from 'amo/installAddon';
+import { setInstallError, setInstallState } from 'amo/reducers/installations';
 import { loadVersions } from 'amo/reducers/versions';
-import tracking from 'amo/tracking';
+import tracking, {
+  getAddonTypeForTracking,
+  getAddonEventCategory,
+} from 'amo/tracking';
 import {
+  createFakeTrackingWithJest,
   createInternalAddonWithLang,
   createInternalVersionWithLang,
   dispatchClientMetadata,
@@ -34,6 +66,8 @@ import {
   fakeInstalledAddon,
   fakeTheme,
   fakeVersion,
+  getFakeAddonManagerWrapperWithJest as getFakeAddonManagerWrapper,
+  getFakeLoggerWithJest as getFakeLogger,
   render as defaultRender,
   screen,
   userAgents,
@@ -41,8 +75,11 @@ import {
 } from 'tests/unit/helpers';
 
 jest.mock('amo/tracking', () => ({
+  ...jest.requireActual('amo/tracking'),
   sendEvent: jest.fn(),
 }));
+
+const INVALID_TYPE = 'not-a-real-type';
 
 describe(__filename, () => {
   let store;
@@ -55,14 +92,13 @@ describe(__filename, () => {
     jest.clearAllMocks().resetModules();
   });
 
-  const render = (props = {}) => {
-    return defaultRender(
-      <InstallButtonWrapper
-        addon={createInternalAddonWithLang(fakeAddon)}
-        {...props}
-      />,
-      { store },
-    );
+  const render = ({
+    addon = createInternalAddonWithLang(fakeAddon),
+    ...props
+  } = {}) => {
+    return defaultRender(<InstallButtonWrapper addon={addon} {...props} />, {
+      store,
+    });
   };
 
   const _loadVersions = ({ slug, versions } = {}) => {
@@ -833,6 +869,1147 @@ describe(__filename, () => {
         ].join('&');
 
         expect(getDownloadLink({ addon })).toEqual(expectedLink);
+      });
+    });
+  });
+
+  describe('Tests for withInstallHelpers', () => {
+    it('calls getAddon() when the component is rendered', () => {
+      const addon = fakeAddon;
+      _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+      const _addonManager = getFakeAddonManagerWrapper();
+
+      render({ _addonManager });
+
+      expect(_addonManager.getAddon).toHaveBeenCalledWith(addon.guid);
+    });
+
+    it('does not call getAddon() if we do not have an addonManager', () => {
+      const addon = fakeAddon;
+      _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+      const _addonManager = getFakeAddonManagerWrapper({
+        hasAddonManager: false,
+      });
+
+      render({ _addonManager });
+
+      expect(_addonManager.getAddon).not.toHaveBeenCalled();
+    });
+
+    it('does not call getAddon() if we do not have an addon', () => {
+      const _addonManager = getFakeAddonManagerWrapper();
+
+      render({ _addonManager, addon: null });
+
+      expect(_addonManager.getAddon).not.toHaveBeenCalled();
+
+      // Basic expectation proving rendering didn't fail
+      expect(screen.getByTagName('div')).toBeInTheDocument();
+
+      // We didn't render a proper install button wrapper though.
+      expect(
+        screen.queryByClassName('InstallButtonWrapper'),
+      ).not.toBeInTheDocument();
+    });
+
+    describe('setCurrentStatus', () => {
+      it('sets the status to ENABLED when an extension is enabled', async () => {
+        const addon = fakeAddon;
+        const installURL = addon.current_version.file.url;
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            canUninstall: undefined,
+            guid: addon.guid,
+            status: ENABLED,
+            url: installURL,
+          }),
+        );
+      });
+
+      it('sets the status to DISABLED when an extension is disabled', async () => {
+        const addon = fakeAddon;
+        const installURL = addon.current_version.file.url;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            isActive: true,
+            isEnabled: false,
+          }),
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            canUninstall: undefined,
+            guid: addon.guid,
+            status: DISABLED,
+            url: installURL,
+          }),
+        );
+      });
+
+      it('sets the status to DISABLED when an extension is disabled and inactive', async () => {
+        const addon = fakeAddon;
+        const installURL = addon.current_version.file.url;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            isActive: false,
+            isEnabled: false,
+          }),
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            canUninstall: undefined,
+            guid: addon.guid,
+            status: DISABLED,
+            url: installURL,
+          }),
+        );
+      });
+
+      it('sets the status to INACTIVE when an extension is enabled but inactive', async () => {
+        const addon = fakeAddon;
+        const installURL = addon.current_version.file.url;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            isActive: false,
+            isEnabled: true,
+          }),
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            canUninstall: undefined,
+            guid: addon.guid,
+            status: INACTIVE,
+            url: installURL,
+          }),
+        );
+      });
+
+      it('sets the status to ENABLED when a theme is enabled', async () => {
+        const addon = fakeTheme;
+        const installURL = addon.current_version.file.url;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            isActive: true,
+            isEnabled: true,
+          }),
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({
+          _addonManager: fakeAddonManager,
+          addon: createInternalAddonWithLang(addon),
+        });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            canUninstall: undefined,
+            guid: addon.guid,
+            status: ENABLED,
+            url: installURL,
+          }),
+        );
+      });
+
+      it('sets the status to DISABLED when a theme is enabled but inactive', async () => {
+        const addon = fakeTheme;
+        const installURL = addon.current_version.file.url;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            isActive: false,
+            isEnabled: true,
+          }),
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({
+          _addonManager: fakeAddonManager,
+          addon: createInternalAddonWithLang(addon),
+        });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            canUninstall: undefined,
+            guid: addon.guid,
+            status: DISABLED,
+            url: installURL,
+          }),
+        );
+      });
+
+      it('sets the status to DISABLED when a theme is disabled', async () => {
+        const addon = fakeTheme;
+        const installURL = addon.current_version.file.url;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            isActive: true,
+            isEnabled: false,
+          }),
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({
+          _addonManager: fakeAddonManager,
+          addon: createInternalAddonWithLang(addon),
+        });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            canUninstall: undefined,
+            guid: addon.guid,
+            status: DISABLED,
+            url: installURL,
+          }),
+        );
+      });
+
+      it('sets the status to UNINSTALLED when an extension is not found', async () => {
+        const addon = fakeAddon;
+        const installURL = addon.current_version.file.url;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.reject(),
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            canUninstall: undefined,
+            guid: addon.guid,
+            status: UNINSTALLED,
+            url: installURL,
+          }),
+        );
+      });
+
+      it('dispatches error when setCurrentStatus gets exception', async () => {
+        const addon = fakeAddon;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          // Resolve a null addon which will trigger an exception.
+          getAddon: Promise.resolve(null),
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            guid: addon.guid,
+            status: ERROR,
+            error: FATAL_ERROR,
+          }),
+        );
+      });
+
+      it('does nothing when addon is `null`', () => {
+        const _log = getFakeLogger();
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager, _log, addon: null });
+
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(_log.debug).toHaveBeenCalledWith(
+          'no addon, aborting setCurrentStatus()',
+        );
+      });
+
+      it('does nothing when currentVersion is `null`', () => {
+        const _log = getFakeLogger();
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager, _log });
+
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(_log.debug).toHaveBeenCalledWith(
+          'no currentVersion, aborting setCurrentStatus()',
+        );
+      });
+
+      it('sets the canUninstall prop', async () => {
+        const addon = fakeAddon;
+        const installURL = addon.current_version.file.url;
+        const canUninstall = false;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            canUninstall,
+            isActive: true,
+            isEnabled: true,
+          }),
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager });
+
+        await waitFor(() => {
+          expect(dispatch).toHaveBeenCalledTimes(2);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            canUninstall,
+            guid: addon.guid,
+            status: ENABLED,
+            url: installURL,
+          }),
+        );
+      });
+    });
+
+    describe('makeProgressHandler', () => {
+      const createProgressHandler = (props = {}) => {
+        return makeProgressHandler({
+          _tracking: createFakeTrackingWithJest(),
+          dispatch: jest.fn(),
+          guid: 'some-guid',
+          name: 'some-name',
+          type: ADDON_TYPE_EXTENSION,
+          ...props,
+        });
+      };
+
+      it('sets the download progress on STATE_DOWNLOADING', () => {
+        const dispatch = jest.fn();
+        const guid = 'foo@addon';
+        const handler = createProgressHandler({ dispatch, guid });
+
+        handler({
+          state: 'STATE_DOWNLOADING',
+          progress: 300,
+          maxProgress: 990,
+        });
+        expect(dispatch).toHaveBeenCalledWith({
+          type: DOWNLOAD_PROGRESS,
+          payload: { downloadProgress: 30, guid },
+        });
+      });
+
+      it('sets status to error on onDownloadFailed', () => {
+        const _tracking = createFakeTrackingWithJest();
+        const dispatch = jest.fn();
+        const guid = '{my-addon}';
+        const name = 'my-addon';
+        const type = ADDON_TYPE_EXTENSION;
+        const handler = createProgressHandler({
+          _tracking,
+          dispatch,
+          guid,
+          name,
+          type,
+        });
+
+        handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadFailed' });
+
+        expect(dispatch).toHaveBeenCalledWith({
+          type: INSTALL_ERROR,
+          payload: { guid, error: DOWNLOAD_FAILED },
+        });
+        expect(_tracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(type),
+          category: getAddonEventCategory(type, INSTALL_DOWNLOAD_FAILED_ACTION),
+          label: guid,
+        });
+      });
+
+      it('sets status to installing onDownloadEnded', () => {
+        const dispatch = jest.fn();
+        const guid = '{my-addon}';
+        const handler = createProgressHandler({ dispatch, guid });
+
+        handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadEnded' });
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            guid,
+            status: INSTALLING,
+          }),
+        );
+      });
+
+      it('resets status to uninstalled on onInstallCancelled', () => {
+        const _tracking = createFakeTrackingWithJest();
+        const dispatch = jest.fn();
+        const guid = '{my-addon}';
+        const name = 'my-addon';
+        const type = ADDON_TYPE_EXTENSION;
+        const handler = createProgressHandler({
+          _tracking,
+          dispatch,
+          guid,
+          name,
+          type,
+        });
+
+        handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallCancelled' });
+
+        expect(dispatch).toHaveBeenCalledWith({
+          type: INSTALL_CANCELLED,
+          payload: { guid },
+        });
+        expect(_tracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(type),
+          category: getAddonEventCategory(type, INSTALL_CANCELLED_ACTION),
+          label: guid,
+        });
+      });
+
+      it('sets status to error on onInstallFailed', () => {
+        const dispatch = jest.fn();
+        const guid = '{my-addon}';
+        const handler = createProgressHandler({ dispatch, guid });
+
+        handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
+        expect(dispatch).toHaveBeenCalledWith({
+          type: INSTALL_ERROR,
+          payload: { guid, error: INSTALL_FAILED },
+        });
+      });
+
+      it('does nothing on unknown events', () => {
+        const _tracking = createFakeTrackingWithJest();
+        const dispatch = jest.fn();
+        const guid = 'foo@addon';
+        const handler = createProgressHandler({ dispatch, guid });
+
+        handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
+        expect(_tracking.sendEvent).not.toHaveBeenCalled();
+      });
+
+      it('sets status to error when file appears to be corrupt', () => {
+        const _tracking = createFakeTrackingWithJest();
+        const dispatch = jest.fn();
+        const guid = '{my-addon}';
+        const name = 'my-addon';
+        const type = ADDON_TYPE_EXTENSION;
+        const handler = createProgressHandler({
+          _tracking,
+          dispatch,
+          guid,
+          name,
+          type,
+        });
+
+        handler(
+          { state: 'STATE_SOMETHING' },
+          { type: 'onDownloadFailed', target: { error: ERROR_CORRUPT_FILE } },
+        );
+
+        expect(dispatch).toHaveBeenCalledWith({
+          type: INSTALL_ERROR,
+          payload: { guid, error: ERROR_CORRUPT_FILE },
+        });
+        expect(_tracking.sendEvent).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('enable', () => {
+      it('calls addonManager.enable()', async () => {
+        const addon = fakeAddon;
+        const fakeTracking = createFakeTrackingWithJest();
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({
+            isActive: true,
+            isEnabled: false,
+          }),
+        });
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        render({
+          _addonManager: fakeAddonManager,
+          _tracking: fakeTracking,
+          _getClientCompatibility,
+        });
+
+        await waitFor(() => {
+          expect(screen.getByText('Enable')).toBeInTheDocument();
+        });
+
+        userEvent.click(screen.getByText('Enable'));
+
+        await waitFor(() => {
+          expect(fakeAddonManager.enable).toHaveBeenCalledWith(addon.guid);
+        });
+
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+          category: getAddonEventCategory(ADDON_TYPE_EXTENSION, ENABLE_ACTION),
+          label: addon.guid,
+        });
+      });
+
+      it('dispatches a FATAL_ERROR', async () => {
+        const addon = fakeAddon;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          enable: jest.fn().mockRejectedValue(new Error('hai')),
+          getAddon: Promise.resolve({
+            isActive: true,
+            isEnabled: false,
+          }),
+        });
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+        });
+
+        await waitFor(() => {
+          expect(screen.getByText('Enable')).toBeInTheDocument();
+        });
+
+        userEvent.click(screen.getByText('Enable'));
+
+        await waitFor(() => {
+          expect(fakeAddonManager.enable).toHaveBeenCalledWith(addon.guid);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({
+            guid: addon.guid,
+            status: ERROR,
+            error: FATAL_ERROR,
+          }),
+        );
+      });
+
+      it('does not dispatch a FATAL_ERROR when setEnabled is missing', async () => {
+        const addon = fakeAddon;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          enable: jest
+            .fn()
+            .mockRejectedValue(new Error(SET_ENABLE_NOT_AVAILABLE)),
+          getAddon: Promise.resolve({
+            isActive: true,
+            isEnabled: false,
+          }),
+        });
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+        });
+
+        await waitFor(() => {
+          expect(screen.getByText('Enable')).toBeInTheDocument();
+        });
+
+        userEvent.click(screen.getByText('Enable'));
+
+        await waitFor(() => {
+          expect(fakeAddonManager.enable).toHaveBeenCalledWith(addon.guid);
+        });
+
+        expect(dispatch).not.toHaveBeenCalledWith(
+          setInstallState({
+            guid: addon.guid,
+            status: ERROR,
+            error: FATAL_ERROR,
+          }),
+        );
+      });
+    });
+
+    describe('install', () => {
+      it('calls addonManager.install()', async () => {
+        const addon = fakeAddon;
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          // Simulate the add-on not being installed already.
+          getAddon: Promise.reject(),
+        });
+        render({
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+        });
+
+        const button = screen.getByText('Add to Firefox');
+
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+
+        userEvent.click(button);
+
+        await waitFor(() => {
+          expect(fakeAddonManager.install).toHaveBeenCalledWith(
+            addon.current_version.file.url,
+            expect.any(Function),
+            { hash: addon.current_version.file.hash },
+          );
+        });
+      });
+
+      it('uses a version instead of the currentVersion when one exists in props', async () => {
+        const addon = fakeAddon;
+        const versionHash = 'version-hash';
+        const versionInstallURL = 'https://mysite.com/download-version.xpi';
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          // Simulate the add-on not being installed already.
+          getAddon: Promise.reject(),
+        });
+        render({
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+          version: createInternalVersionWithLang({
+            ...fakeVersion,
+            file: {
+              ...fakeFile,
+              hash: versionHash,
+              url: versionInstallURL,
+            },
+          }),
+        });
+
+        const button = screen.getByText('Add to Firefox');
+
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+
+        userEvent.click(button);
+
+        await waitFor(() => {
+          expect(fakeAddonManager.install).toHaveBeenCalledWith(
+            versionInstallURL,
+            expect.any(Function),
+            { hash: versionHash },
+          );
+        });
+      });
+
+      it('tracks the start of an addon install', async () => {
+        const addon = fakeAddon;
+        const fakeTracking = createFakeTrackingWithJest();
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.reject(),
+          // Make the install fail so that we can be sure only
+          // the 'start' event gets tracked.
+          install: jest.fn().mockRejectedValue(new Error('install error')),
+        });
+        render({
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+          _tracking: fakeTracking,
+        });
+        const button = screen.getByText('Add to Firefox');
+
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+
+        userEvent.click(button);
+
+        await waitFor(() => {
+          expect(fakeAddonManager.install).toHaveBeenCalled();
+        });
+
+        expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(1);
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+          category: getAddonEventCategory(
+            ADDON_TYPE_EXTENSION,
+            INSTALL_STARTED_ACTION,
+          ),
+          label: addon.guid,
+        });
+      });
+
+      it('tracks an addon install', async () => {
+        const addon = fakeAddon;
+        const fakeTracking = createFakeTrackingWithJest();
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.reject(),
+        });
+        render({
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+          _tracking: fakeTracking,
+        });
+        const button = screen.getByText('Add to Firefox');
+
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+
+        userEvent.click(button);
+
+        await waitFor(() => {
+          expect(fakeAddonManager.install).toHaveBeenCalled();
+        });
+
+        expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2);
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+          category: getAddonEventCategory(
+            ADDON_TYPE_EXTENSION,
+            INSTALL_STARTED_ACTION,
+          ),
+          label: addon.guid,
+        });
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+          category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
+          label: addon.guid,
+        });
+      });
+
+      it('tracks the start of a static theme install', async () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+        });
+        const fakeTracking = createFakeTrackingWithJest();
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
+
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.reject(),
+          // Make the install fail so that we can be sure only
+          // the 'start' event gets tracked.
+          install: jest.fn().mockRejectedValue(new Error('install error')),
+        });
+        render({
+          addon,
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+          _tracking: fakeTracking,
+        });
+        const button = screen.getByText('Install Theme');
+
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+
+        userEvent.click(button);
+
+        await waitFor(() => {
+          expect(fakeAddonManager.install).toHaveBeenCalled();
+        });
+
+        expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(1);
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+          category: getAddonEventCategory(
+            ADDON_TYPE_STATIC_THEME,
+            INSTALL_STARTED_ACTION,
+          ),
+          label: addon.guid,
+        });
+      });
+
+      it('tracks a static theme install', async () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+        });
+        const fakeTracking = createFakeTrackingWithJest();
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
+
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.reject(),
+        });
+        render({
+          addon,
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+          _tracking: fakeTracking,
+        });
+        const button = screen.getByText('Install Theme');
+
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+
+        userEvent.click(button);
+
+        await waitFor(() => {
+          expect(fakeAddonManager.install).toHaveBeenCalled();
+        });
+
+        expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2);
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+          category: getAddonEventCategory(
+            ADDON_TYPE_STATIC_THEME,
+            INSTALL_STARTED_ACTION,
+          ),
+          label: addon.guid,
+        });
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+          category: getAddonEventCategory(
+            ADDON_TYPE_STATIC_THEME,
+            INSTALL_ACTION,
+          ),
+          label: addon.guid,
+        });
+      });
+
+      it('should dispatch START_DOWNLOAD', async () => {
+        const addon = fakeAddon;
+        const dispatch = jest.spyOn(store, 'dispatch');
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.reject(),
+        });
+        render({
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+        });
+        const button = screen.getByText('Add to Firefox');
+
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+
+        userEvent.click(button);
+
+        expect(dispatch).toHaveBeenCalledWith({
+          type: START_DOWNLOAD,
+          payload: { guid: addon.guid },
+        });
+      });
+
+      it('dispatches error when addonManager.install throws', async () => {
+        const addon = fakeAddon;
+        const dispatch = jest.spyOn(store, 'dispatch');
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          getAddon: Promise.reject(),
+          install: jest.fn().mockRejectedValue(new Error('install error')),
+        });
+        render({
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+        });
+        const button = screen.getByText('Add to Firefox');
+
+        await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
+
+        userEvent.click(button);
+
+        await waitFor(() => {
+          expect(fakeAddonManager.install).toHaveBeenCalled();
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallError({
+            error: FATAL_INSTALL_ERROR,
+            guid: addon.guid,
+          }),
+        );
+      });
+    });
+
+    describe('uninstall', () => {
+      it('calls addonManager.uninstall()', async () => {
+        const addon = fakeAddon;
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager, _getClientCompatibility });
+
+        await waitFor(() => {
+          expect(screen.getByText('Remove')).toBeInTheDocument();
+        });
+
+        userEvent.click(screen.getByText('Remove'));
+
+        await waitFor(() => {
+          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
+        );
+      });
+
+      it('dispatches error when addonManager.uninstall throws', async () => {
+        const addon = fakeAddon;
+        const fakeAddonManager = getFakeAddonManagerWrapper({
+          uninstall: jest
+            .fn()
+            .mockRejectedValue(new Error('Add-on Manager uninstall error')),
+        });
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        const dispatch = jest.spyOn(store, 'dispatch');
+
+        render({ _addonManager: fakeAddonManager, _getClientCompatibility });
+
+        await waitFor(() => {
+          expect(screen.getByText('Remove')).toBeInTheDocument();
+        });
+
+        userEvent.click(screen.getByText('Remove'));
+
+        await waitFor(() => {
+          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+        });
+
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
+        );
+        expect(dispatch).toHaveBeenCalledWith(
+          setInstallError({ guid: addon.guid, error: FATAL_UNINSTALL_ERROR }),
+        );
+      });
+
+      it('tracks an addon uninstall', async () => {
+        const addon = fakeAddon;
+        const fakeTracking = createFakeTrackingWithJest();
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+        render({
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+          _tracking: fakeTracking,
+        });
+
+        await waitFor(() => {
+          expect(screen.getByText('Remove')).toBeInTheDocument();
+        });
+
+        userEvent.click(screen.getByText('Remove'));
+
+        await waitFor(() => {
+          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+        });
+
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
+          category: getAddonEventCategory(
+            ADDON_TYPE_EXTENSION,
+            UNINSTALL_ACTION,
+          ),
+          label: addon.guid,
+        });
+      });
+
+      it('tracks a static theme uninstall', async () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          type: ADDON_TYPE_STATIC_THEME,
+        });
+        const fakeTracking = createFakeTrackingWithJest();
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
+
+        render({
+          addon,
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+          _tracking: fakeTracking,
+        });
+
+        await waitFor(() => {
+          expect(screen.getByText('Remove')).toBeInTheDocument();
+        });
+
+        userEvent.click(screen.getByText('Remove'));
+
+        await waitFor(() => {
+          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+        });
+
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
+          category: getAddonEventCategory(
+            ADDON_TYPE_STATIC_THEME,
+            UNINSTALL_ACTION,
+          ),
+          label: addon.guid,
+        });
+      });
+
+      it('tracks a unknown type uninstall', async () => {
+        const addon = createInternalAddonWithLang({
+          ...fakeAddon,
+          type: INVALID_TYPE,
+        });
+        const fakeTracking = createFakeTrackingWithJest();
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const _getClientCompatibility = jest.fn().mockReturnValue({
+          compatible: true,
+        });
+
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
+
+        render({
+          addon,
+          _addonManager: fakeAddonManager,
+          _getClientCompatibility,
+          _tracking: fakeTracking,
+        });
+
+        await waitFor(() => {
+          expect(screen.getByText('Remove')).toBeInTheDocument();
+        });
+
+        userEvent.click(screen.getByText('Remove'));
+
+        await waitFor(() => {
+          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+        });
+
+        expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
+          action: TRACKING_TYPE_INVALID,
+          category: getAddonEventCategory(INVALID_TYPE, UNINSTALL_ACTION),
+          label: addon.guid,
+        });
       });
     });
   });

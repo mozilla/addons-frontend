@@ -123,6 +123,7 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
+  // SKIP We don't care about that one
   it('wraps the component in WithInstallHelpers', () => {
     const Component = componentWithInstallHelpers();
 
@@ -130,6 +131,7 @@ describe(__filename, () => {
     expect(root.type()).toEqual(WithInstallHelpers);
   });
 
+  // MIGRATED
   it('sets status when the component is created', () => {
     _loadVersions({ store });
 
@@ -147,6 +149,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(_addonManager.getAddon, addon.guid);
   });
 
+  // FIXME
   it('sets status when getting updated', () => {
     _loadVersions({ store });
 
@@ -173,6 +176,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(_addonManager.getAddon, newAddon.guid);
   });
 
+  // FIXME
   it('sets status when add-on is loaded on update', () => {
     _loadVersions({ store });
 
@@ -199,6 +203,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(_addonManager.getAddon, newAddon.guid);
   });
 
+  // FIXME
   it('does not set status when an update is not necessary', () => {
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
@@ -220,6 +225,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(_addonManager.getAddon);
   });
 
+  // FIXME
   it('sets the current status in componentDidMount with an addonManager', () => {
     _loadVersions({ store });
 
@@ -235,6 +241,7 @@ describe(__filename, () => {
     sinon.assert.called(_addonManager.getAddon);
   });
 
+  // MIGRATED
   it('does not set the current status in componentDidMount without an addonManager', () => {
     const _addonManager = getFakeAddonManagerWrapper({
       hasAddonManager: false,
@@ -245,6 +252,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(_addonManager.getAddon);
   });
 
+  // MIGRATED
   it('does not set the current status in componentDidMount without an addon', () => {
     const _addonManager = getFakeAddonManagerWrapper();
 
@@ -254,12 +262,14 @@ describe(__filename, () => {
   });
 
   describe('withInstallHelpers', () => {
+    // MIGRATED
     it('accepts a `null` add-on', () => {
       const { root } = renderWithInstallHelpers({ addon: null });
 
       expect(root).toHaveLength(1);
     });
 
+    // MIGRATED
     describe('setCurrentStatus', () => {
       const getAddon = ({ type = ADDON_TYPE_EXTENSION } = {}) => {
         return createInternalAddonWithLang({ ...fakeAddon, type });
@@ -274,6 +284,7 @@ describe(__filename, () => {
         });
       };
 
+      // MIGRATED
       it('sets the status to ENABLED when an enabled add-on found', () => {
         const installURL = 'http://the.url/';
         const addon = getAddon();
@@ -298,6 +309,7 @@ describe(__filename, () => {
         });
       });
 
+      // SKIP (is that even used ?)
       it('lets you pass custom props to setCurrentStatus', () => {
         const installURL = 'http://the.url/';
         const addon = getAddon();
@@ -324,6 +336,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('sets the status to DISABLED when a disabled add-on found', () => {
         const installURL = 'http://the.url/';
         const addon = getAddon();
@@ -354,6 +367,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('sets the status to DISABLED when the extension is inactive and disabled', () => {
         const installURL = 'http://the.url/';
         const addon = getAddon();
@@ -384,6 +398,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('sets the status to INACTIVE when an inactive extension is found', () => {
         const installURL = 'http://the.url/';
         const addon = getAddon();
@@ -414,6 +429,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('sets the status to ENABLED when an enabled theme is found', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
@@ -445,6 +461,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('sets the status to DISABLED when an inactive theme is found', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
@@ -476,6 +493,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('sets the status to DISABLED when a disabled theme is found', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
@@ -507,6 +525,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('sets the status to UNINSTALLED when not found', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           getAddon: Promise.reject(),
@@ -534,6 +553,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('dispatches error when setCurrentStatus gets exception', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           // Resolve a null addon which will trigger an exception.
@@ -561,6 +581,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('does nothing when addon is `null`', () => {
         const _log = getFakeLogger();
 
@@ -573,6 +594,7 @@ describe(__filename, () => {
         );
       });
 
+      // MIGRATED
       it('does nothing when currentVersion is `null`', () => {
         const _log = getFakeLogger();
 
@@ -585,6 +607,7 @@ describe(__filename, () => {
         );
       });
 
+      // MIGRATED
       it('sets the canUninstall prop', () => {
         const installURL = 'http://the.url/';
         const addon = getAddon();
@@ -618,6 +641,7 @@ describe(__filename, () => {
       });
     });
 
+    // MIGRATED
     describe('makeProgressHandler', () => {
       const createProgressHandler = (props = {}) => {
         return makeProgressHandler({
@@ -763,6 +787,7 @@ describe(__filename, () => {
       });
     });
 
+    // MIGRATED
     describe('enable', () => {
       it('calls addonManager.enable()', () => {
         const fakeTracking = createFakeTracking();
@@ -863,9 +888,11 @@ describe(__filename, () => {
       });
     });
 
+    // MIGRATED
     describe('install', () => {
       const installURL = 'https://mysite.com/download.xpi';
 
+      // MIGRATED
       it('calls addonManager.install()', () => {
         const hash = 'some-sha-hash';
 
@@ -897,6 +924,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('uses a version instead of the currentVersion when one exists in props', () => {
         const currentHash = 'current-hash';
         const currentInstallURL = 'https://mysite.com/download-current.xpi';
@@ -940,6 +968,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('tracks the start of an addon install', () => {
         _loadVersions({ store });
 
@@ -974,6 +1003,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('tracks an addon install', () => {
         _loadVersions({ store });
 
@@ -998,6 +1028,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('tracks the start of a static theme install', () => {
         _loadVersions({ store });
 
@@ -1025,6 +1056,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('tracks a static theme addon install', () => {
         _loadVersions({ store });
 
@@ -1052,6 +1084,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('should dispatch START_DOWNLOAD', () => {
         _loadVersions({ store });
 
@@ -1067,6 +1100,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('dispatches error when addonManager.install throws', () => {
         _loadVersions({ store });
 
@@ -1092,6 +1126,7 @@ describe(__filename, () => {
         });
       });
 
+      // FIXME
       it('does nothing when install() is called with a `null` add-on', () => {
         const _log = getFakeLogger();
 
@@ -1110,6 +1145,7 @@ describe(__filename, () => {
         });
       });
 
+      // FIXME
       it('does nothing when install() is called with no currentVersion', () => {
         const _log = getFakeLogger();
 
@@ -1125,7 +1161,9 @@ describe(__filename, () => {
       });
     });
 
+    // MIGRATED
     describe('uninstall', () => {
+      // MIGRATED
       it('calls addonManager.uninstall()', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const addon = createInternalAddonWithLang(fakeAddon);
@@ -1144,6 +1182,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('dispatches error when addonManager.uninstall throws', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         fakeAddonManager.uninstall = sinon
@@ -1171,6 +1210,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('tracks an addon uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const fakeTracking = createFakeTracking();
@@ -1194,6 +1234,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('tracks a static theme addon uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const fakeTracking = createFakeTracking();
@@ -1220,6 +1261,7 @@ describe(__filename, () => {
         });
       });
 
+      // MIGRATED
       it('tracks a unknown type uninstall', () => {
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const fakeTracking = createFakeTracking();

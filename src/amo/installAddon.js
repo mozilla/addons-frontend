@@ -240,6 +240,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   enable(): Promise<void> {
     const { _addonManager, _log, _tracking, dispatch, addon } = this.props;
 
+    // FIXME: can this actually be reached ? Should it be an invariant instead ?
     if (!addon) {
       _log.debug('no addon found, aborting enable().');
       return Promise.resolve();
