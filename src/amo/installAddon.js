@@ -136,10 +136,6 @@ type WithInstallHelpersInternalProps = {|
   dispatch: DispatchFunc,
 |};
 
-type EnableParams = {|
-  sendTrackingEvent: boolean,
-|};
-
 type UninstallParams = {|
   guid: string,
   name: string,
@@ -148,10 +144,9 @@ type UninstallParams = {|
 
 // Props passed to the WrappedComponent.
 export type WithInstallHelpersInjectedProps = {|
-  enable: (EnableParams | void) => Promise<any>,
+  enable: () => Promise<any>,
   hasAddonManager: boolean,
   install: () => Promise<any>,
-  isAddonEnabled: () => Promise<boolean>,
   setCurrentStatus: () => Promise<any>,
   uninstall: (UninstallParams) => Promise<any>,
 |};
@@ -175,29 +170,6 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       this.props._log.info('Updating add-on status');
       this.setCurrentStatus();
     }
-  }
-
-  async isAddonEnabled(): Promise<boolean> {
-    const { _addonManager, _log, addon } = this.props;
-
-    if (!addon) {
-      _log.debug('no addon, assuming addon is not enabled');
-      return false;
-    }
-
-    try {
-      const clientAddon = await _addonManager.getAddon(addon.guid);
-
-      return clientAddon.isEnabled;
-    } catch (error) {
-      // eslint-disable-next-line amo/only-log-strings
-      _log.error(
-        'could not determine whether the add-on was enabled: %o',
-        error,
-      );
-    }
-
-    return false;
   }
 
   setCurrentStatus(): Promise<void> {
@@ -265,9 +237,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       });
   }
 
-  enable(
-    { sendTrackingEvent }: EnableParams = { sendTrackingEvent: true },
-  ): Promise<void> {
+  enable(): Promise<void> {
     const { _addonManager, _log, _tracking, dispatch, addon } = this.props;
 
     if (!addon) {
@@ -280,13 +250,11 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     return _addonManager
       .enable(guid)
       .then(() => {
-        if (sendTrackingEvent) {
-          _tracking.sendEvent({
-            action: getAddonTypeForTracking(type),
-            category: getAddonEventCategory(type, ENABLE_ACTION),
-            label: guid,
-          });
-        }
+        _tracking.sendEvent({
+          action: getAddonTypeForTracking(type),
+          category: getAddonEventCategory(type, ENABLE_ACTION),
+          label: guid,
+        });
       })
       .catch((err) => {
         if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
@@ -404,7 +372,6 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       // We pass a `boolean` value here, not the function.
       hasAddonManager: _addonManager.hasAddonManager(),
       install: (...args) => this.install(...args),
-      isAddonEnabled: (...args) => this.isAddonEnabled(...args),
       setCurrentStatus: (...args) => this.setCurrentStatus(...args),
       uninstall: (...args) => this.uninstall(...args),
     };

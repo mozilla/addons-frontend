@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 import AMInstallButton from 'amo/components/AMInstallButton';
 import {
@@ -36,7 +35,6 @@ describe(__filename, () => {
     enable: jest.fn(),
     hasAddonManager: true,
     install: jest.fn(),
-    isAddonEnabled: jest.fn(),
     status: UNINSTALLED,
     uninstall: jest.fn(),
     ...customProps,
@@ -142,7 +140,7 @@ describe(__filename, () => {
     expect(stopPropagationWatcher).toHaveBeenCalled();
   });
 
-  it('calls the `install` and `enable` helpers to install a static theme', async () => {
+  it('calls the `install` helper to install a static theme', async () => {
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
@@ -154,7 +152,6 @@ describe(__filename, () => {
       addon,
       enable,
       install,
-      isAddonEnabled: jest.fn().mockResolvedValue(false),
     });
 
     const button = getLink('Install Theme');
@@ -168,33 +165,9 @@ describe(__filename, () => {
     await waitFor(() => {
       expect(install).toHaveBeenCalledTimes(1);
     });
-    expect(enable).toHaveBeenCalledWith({ sendTrackingEvent: false });
-    expect(enable).toHaveBeenCalledTimes(1);
+    expect(enable).not.toHaveBeenCalled();
     expect(preventDefaultWatcher).toHaveBeenCalled();
     expect(stopPropagationWatcher).toHaveBeenCalled();
-  });
-
-  it("does not call the `enable` helper after the `install` helper for a static theme if it's already enabled", async () => {
-    const addon = createInternalAddonWithLang({
-      ...fakeAddon,
-      type: ADDON_TYPE_STATIC_THEME,
-    });
-    const enable = jest.fn();
-    const install = jest.fn();
-
-    render({
-      addon,
-      enable,
-      install,
-      isAddonEnabled: jest.fn().mockResolvedValue(true),
-    });
-
-    userEvent.click(getLink('Install Theme'));
-
-    await waitFor(() => {
-      expect(install).toHaveBeenCalledTimes(1);
-    });
-    expect(enable).not.toHaveBeenCalled();
   });
 
   it.each([ENABLED, INSTALLED])(
