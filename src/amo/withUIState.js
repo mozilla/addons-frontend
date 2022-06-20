@@ -26,33 +26,24 @@ export const createUIStateMapper = ({
   initialState,
   extractId,
   fileName,
-  uiStateID,
 }: {|
   initialState: Object,
   extractId?: ExtractIdFunc,
   fileName?: string,
-  uiStateID?: string,
 |}): ((
   state: AppState,
   props: Object,
 ) => {| uiState: Object, uiStateID: string |}) => {
   invariant(initialState, 'initialState is required');
   const mapStateToProps = (state: AppState, props: Object) => {
-    let computedUIStateID;
-    if (uiStateID) {
-      computedUIStateID = uiStateID;
-    } else {
-      invariant(extractId, 'extractId is required when uiStateID is undefined');
-      invariant(fileName, 'fileName is required when uiStateID is undefined');
-      computedUIStateID =
-        props.uiStateID || generateId({ fileName, id: extractId(props) });
-    }
+    invariant(extractId, 'extractId is required.');
+    invariant(fileName, 'fileName is required.');
+    const uiStateID = generateId({ fileName, id: extractId(props) });
     const uiState =
-      selectUIState({ uiState: state.uiState, uiStateID: computedUIStateID }) ||
-      initialState;
+      selectUIState({ uiState: state.uiState, uiStateID }) || initialState;
     return {
       uiState,
-      uiStateID: computedUIStateID,
+      uiStateID,
     };
   };
 

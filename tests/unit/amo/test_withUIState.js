@@ -169,24 +169,6 @@ describe(__filename, () => {
         }),
       );
     });
-
-    it('lets you set a custom uiStateID', () => {
-      const dispatch = jest.spyOn(store, 'dispatch');
-      const uiStateID = 'my-custom-id';
-      render({ uiStateID });
-
-      dispatch.mockClear();
-
-      userEvent.click(screen.getByRole('button', { name: buttonText }));
-
-      expect(dispatch).toHaveBeenCalledWith(
-        setUIState({
-          id: uiStateID,
-          change: { isOpen: false },
-        }),
-      );
-      expect(dispatch).toHaveBeenCalledTimes(1);
-    });
   });
 
   describe('generateId', () => {
