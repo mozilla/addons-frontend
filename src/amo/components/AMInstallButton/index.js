@@ -80,20 +80,12 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   };
 
   installExtension: AsyncEventHandler = async (event: ElementEvent) => {
-    const { addon, enable, install, isAddonEnabled } = this.props;
+    const { install } = this.props;
 
     event.preventDefault();
     event.stopPropagation();
 
     await install();
-
-    if (ADDON_TYPE_STATIC_THEME === addon.type) {
-      const isEnabled = await isAddonEnabled();
-
-      if (!isEnabled) {
-        await enable({ sendTrackingEvent: false });
-      }
-    }
 
     return false;
   };

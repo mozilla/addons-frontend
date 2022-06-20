@@ -260,68 +260,6 @@ describe(__filename, () => {
       expect(root).toHaveLength(1);
     });
 
-    describe('isAddonEnabled', () => {
-      it('returns true when the add-on is enabled', async () => {
-        const fakeAddonManager = getFakeAddonManagerWrapper();
-        const addon = createInternalAddonWithLang(fakeAddon);
-
-        const { root } = renderWithInstallHelpers({
-          addon,
-          _addonManager: fakeAddonManager,
-        });
-        const { isAddonEnabled } = root.instance().props;
-        const isEnabled = await isAddonEnabled();
-
-        sinon.assert.calledWith(fakeAddonManager.getAddon, addon.guid);
-        expect(isEnabled).toEqual(true);
-      });
-
-      it('returns false when there is an error', async () => {
-        const _log = getFakeLogger();
-        const fakeAddonManager = getFakeAddonManagerWrapper({
-          // Resolve a null addon which will trigger an exception.
-          getAddon: Promise.resolve(null),
-        });
-
-        const { root } = renderWithInstallHelpers({
-          addon: createInternalAddonWithLang(fakeAddon),
-          _addonManager: fakeAddonManager,
-          _log,
-        });
-
-        const { isAddonEnabled } = root.instance().props;
-        const isEnabled = await isAddonEnabled();
-
-        expect(isEnabled).toEqual(false);
-
-        sinon.assert.calledWith(
-          _log.error,
-          'could not determine whether the add-on was enabled: %o',
-        );
-      });
-
-      it('returns false when there is no add-on', async () => {
-        const _log = getFakeLogger();
-        const fakeAddonManager = getFakeAddonManagerWrapper();
-
-        const { root } = renderWithInstallHelpers({
-          addon: null,
-          _addonManager: fakeAddonManager,
-          _log,
-        });
-
-        const { isAddonEnabled } = root.instance().props;
-        const isEnabled = await isAddonEnabled();
-
-        expect(isEnabled).toEqual(false);
-
-        sinon.assert.calledWith(
-          _log.debug,
-          'no addon, assuming addon is not enabled',
-        );
-      });
-    });
-
     describe('setCurrentStatus', () => {
       const getAddon = ({ type = ADDON_TYPE_EXTENSION } = {}) => {
         return createInternalAddonWithLang({ ...fakeAddon, type });
@@ -854,29 +792,6 @@ describe(__filename, () => {
             ),
             label: addon.guid,
           });
-        });
-      });
-
-      it('does not send a tracking event when "sendTrackingEvent" is false', () => {
-        const fakeTracking = createFakeTracking();
-        const fakeAddonManager = getFakeAddonManagerWrapper();
-        const name = 'the-name';
-        const iconUrl = 'https://addons.mozilla.org/some-icon.png';
-        const addon = createInternalAddonWithLang({
-          ...fakeAddon,
-          name,
-          icon_url: iconUrl,
-        });
-        const { root } = renderWithInstallHelpers({
-          ...addon,
-          _addonManager: fakeAddonManager,
-          _tracking: fakeTracking,
-        });
-        const { enable } = root.instance().props;
-
-        return enable({ sendTrackingEvent: false }).then(() => {
-          sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.notCalled(fakeTracking.sendEvent);
         });
       });
 

@@ -71,7 +71,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
     i18n,
     install,
     installStatus,
-    isAddonEnabled,
     puffy,
     setCurrentStatus,
     showLinkInsteadOfButton,
@@ -151,7 +150,6 @@ export const InstallButtonWrapperBase = (props: InternalProps): React.Node => {
                 enable={enable}
                 hasAddonManager={hasAddonManager}
                 install={install}
-                isAddonEnabled={isAddonEnabled}
                 puffy={puffy}
                 setCurrentStatus={setCurrentStatus}
                 status={installStatus}
