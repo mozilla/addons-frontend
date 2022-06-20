@@ -140,7 +140,9 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
             </p>
 
             <DismissibleTextForm
-              id={normalizeFileNameId(__filename)}
+              id={`${normalizeFileNameId(__filename)}-${String(
+                user && user.id,
+              )}`}
               isSubmitting={isSubmitting}
               onDismiss={this.hideReportUI}
               onSubmit={this.sendReport}

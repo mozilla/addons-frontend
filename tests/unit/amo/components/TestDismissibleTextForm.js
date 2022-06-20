@@ -1,16 +1,16 @@
 import * as React from 'react';
+import { createEvent, fireEvent, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
+import DismissibleTextForm from 'amo/components/DismissibleTextForm';
 import {
   createFakeDebounce,
-  createFakeEvent,
   createFakeLocalState,
   dispatchClientMetadata,
-  fakeI18n,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
+  within,
 } from 'tests/unit/helpers';
-import DismissibleTextForm, {
-  DismissibleTextFormBase,
-} from 'amo/components/DismissibleTextForm';
 
 describe(__filename, () => {
   let store;
@@ -19,572 +19,451 @@ describe(__filename, () => {
     return {
       _createLocalState: createFakeLocalState,
       _debounce: createFakeDebounce(),
-      i18n: fakeI18n(),
       id: 'any-form-id',
       onDelete: null,
-      onDismiss: sinon.stub(),
-      onSubmit: sinon.stub(),
-      store,
+      onDismiss: jest.fn(),
+      onSubmit: jest.fn(),
       ...customProps,
     };
   };
 
-  const shallowRender = (customProps = {}) => {
+  const render = (customProps = {}) => {
     const props = renderProps(customProps);
-    return shallowUntilTarget(
-      <DismissibleTextForm {...props} />,
-      DismissibleTextFormBase,
-    );
+    return defaultRender(<DismissibleTextForm {...props} />, { store });
   };
 
-  const typeSomeText = ({ root, text }) => {
-    // Simulate typing in a textarea.
-    root.find('.DismissibleTextForm-textarea').simulate(
-      'change',
-      createFakeEvent({
-        target: { value: text },
-      }),
-    );
-  };
+  const getTextBox = () => screen.getByRole('textbox');
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
   });
 
   it('can be configured with a custom class', () => {
-    const root = shallowRender({ className: 'some-class' });
+    render({ className: 'some-class' });
 
-    expect(root).toHaveClassName('some-class');
+    expect(screen.getByTagName('form')).toHaveClass('some-class');
   });
 
   it('lets you configure the submit button class', () => {
-    const root = shallowRender({ submitButtonClassName: 'my-class' });
+    render({ submitButtonClassName: 'my-class' });
 
-    expect(root.find('.DismissibleTextForm-submit')).toHaveClassName(
+    expect(screen.getByRole('button', { name: 'Submit' })).toHaveClass(
       'my-class',
     );
   });
 
   it('renders a default cancel button', () => {
-    const root = shallowRender({ dismissButtonText: undefined });
+    render({ dismissButtonText: undefined });
 
-    expect(root.find('.DismissibleTextForm-dismiss').children()).toHaveText(
-      'Cancel',
-    );
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument();
   });
 
   it('lets you configure the cancel button text', () => {
     const dismissButtonText = 'Nevermind, cancel it';
-    const root = shallowRender({ dismissButtonText });
+    render({ dismissButtonText });
 
-    expect(root.find('.DismissibleTextForm-dismiss').children()).toHaveText(
-      dismissButtonText,
-    );
+    expect(
+      screen.getByRole('button', { name: dismissButtonText }),
+    ).toBeInTheDocument();
   });
 
   it('renders a placeholder', () => {
-    const root = shallowRender({
-      placeholder: 'Enter some text',
-    });
+    render({ placeholder: 'Enter some text' });
 
-    expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
-      'placeholder',
-      'Enter some text',
-    );
+    expect(screen.getByPlaceholderText('Enter some text')).toBeInTheDocument();
   });
 
   it('lets you render text', () => {
-    const root = shallowRender({
-      text: 'Some text to edit',
-    });
+    render({ text: 'Some text to edit' });
 
-    expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
-      'value',
-      'Some text to edit',
-    );
+    expect(getTextBox()).toHaveValue('Some text to edit');
   });
 
   it('calls back when dismissing the textarea', () => {
-    const onDismiss = sinon.stub();
-    const root = shallowRender({ onDismiss });
+    const onDismiss = jest.fn();
+    render({ onDismiss });
 
-    root
-      .find('.DismissibleTextForm-dismiss')
-      .simulate('click', createFakeEvent());
+    userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    sinon.assert.called(onDismiss);
+    expect(onDismiss).toHaveBeenCalled();
   });
 
   it('clears the form onDismiss', () => {
-    const root = shallowRender({ onDismiss: sinon.stub() });
+    render({ onDismiss: jest.fn() });
 
-    typeSomeText({ root, text: 'Example text' });
+    userEvent.type(getTextBox(), 'Example text');
+    userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    root
-      .find('.DismissibleTextForm-dismiss')
-      .simulate('click', createFakeEvent());
-
-    expect(root.find('.DismissibleTextForm-textarea')).toHaveProp('value', '');
+    expect(getTextBox()).toHaveValue('');
   });
 
   it('calls back when submitting the form', () => {
-    const onSubmit = sinon.stub();
-    const root = shallowRender({ onSubmit });
+    const onSubmit = jest.fn();
+    render({ onSubmit });
     const enteredText = 'Some review text';
 
-    typeSomeText({ root, text: enteredText });
+    userEvent.type(getTextBox(), enteredText);
+    userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-    // Submit the form.
-    const event = createFakeEvent();
-    root.find('.DismissibleTextForm-submit').simulate('click', event);
-
-    sinon.assert.calledWith(onSubmit, {
-      event,
-      text: enteredText,
-    });
-  });
-
-  it('lets you configure the submit button text', () => {
-    const root = shallowRender({
-      submitButtonText: 'Submit the form',
-    });
-
-    expect(root.find('.DismissibleTextForm-submit').childAt(0)).toHaveText(
-      'Submit the form',
+    expect(onSubmit).toHaveBeenCalledWith(
+      expect.objectContaining({
+        text: enteredText,
+      }),
     );
   });
 
+  it('lets you configure the submit button text', () => {
+    render({
+      submitButtonText: 'Submit the form',
+    });
+
+    expect(
+      screen.getByRole('button', { name: 'Submit the form' }),
+    ).toBeInTheDocument();
+  });
+
   it('lets you configure the in-progress submit button text', () => {
-    const root = shallowRender({
+    render({
       submitButtonInProgressText: 'Submitting the form',
       isSubmitting: true,
     });
 
-    expect(root.find('.DismissibleTextForm-submit').childAt(0)).toHaveText(
-      'Submitting the form',
-    );
+    expect(
+      screen.getByRole('button', { name: 'Submitting the form' }),
+    ).toBeInTheDocument();
   });
 
   it('disables the submit button while submitting the form', () => {
-    const root = shallowRender({ isSubmitting: true, text: 'Some text' });
+    render({ isSubmitting: true, text: 'Some text' });
 
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp(
-      'disabled',
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Submitting' })).toBeDisabled();
   });
 
   it('disables the submit button before text has been entered', () => {
-    const root = shallowRender({ text: '' });
+    render({ text: '' });
 
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp(
-      'disabled',
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Submit' })).toBeDisabled();
   });
 
   it('disables submit button before non-empty text has been entered', () => {
     // Enter only white space:
-    const root = shallowRender({ text: '    ' });
+    render({ text: '    ' });
 
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp(
-      'disabled',
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Submit' })).toBeDisabled();
   });
 
   it('disables submit button before the text has changed', () => {
-    const root = shallowRender({ text: 'Some text' });
+    render({ text: 'Some text' });
 
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp(
-      'disabled',
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Submit' })).toBeDisabled();
   });
 
   it('disables the dismiss button while submitting the form', () => {
-    const root = shallowRender({ isSubmitting: true });
+    render({ isSubmitting: true });
 
-    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp(
-      'disabled',
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeDisabled();
   });
 
   it('enables the dismiss button while not submitting the form', () => {
-    const root = shallowRender({ isSubmitting: false });
+    render({ isSubmitting: false });
 
-    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp(
-      'disabled',
-      false,
-    );
+    expect(screen.getByRole('button', { name: 'Cancel' })).not.toBeDisabled();
   });
 
   it('enables the submit button after text has been entered', () => {
-    const root = shallowRender({ text: '' });
+    render({ text: '' });
 
-    typeSomeText({ root, text: 'Typing some text...' });
+    userEvent.type(getTextBox(), 'Typing some text...');
 
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp(
-      'disabled',
-      false,
-    );
+    expect(screen.getByRole('button', { name: 'Submit' })).not.toBeDisabled();
   });
 
   it('disables the submit button when updating with whitespaces', () => {
-    const root = shallowRender({ text: 'Some Text' });
+    render({ text: 'Some Text' });
 
-    typeSomeText({ root, text: '   ' });
+    userEvent.type(getTextBox(), '   ');
 
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp(
-      'disabled',
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Submit' })).toBeDisabled();
   });
 
   it('disables the textarea when submitting the form', () => {
-    const root = shallowRender({ isSubmitting: true });
+    render({ isSubmitting: true });
 
-    expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
-      'disabled',
-      true,
-    );
+    expect(getTextBox()).toBeDisabled();
   });
 
   it('enables the textarea when not submitting the form', () => {
-    const root = shallowRender({ isSubmitting: false });
+    render({ isSubmitting: false });
 
-    expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
-      'disabled',
-      false,
-    );
+    expect(getTextBox()).not.toBeDisabled();
   });
 
   it('hides the delete button when onDelete is empty', () => {
-    const root = shallowRender({ onDelete: null });
+    render({ onDelete: null });
 
-    expect(root.find('.DismissibleTextForm-delete')).toHaveLength(0);
+    expect(
+      screen.queryByRole('button', { name: 'Delete' }),
+    ).not.toBeInTheDocument();
   });
 
   it('displays the delete button when onDelete is provided', () => {
-    const root = shallowRender({ onDelete: sinon.stub() });
+    render({ onDelete: jest.fn() });
 
-    const deleteButton = root.find('.DismissibleTextForm-delete');
-    expect(deleteButton).toHaveLength(1);
-    expect(deleteButton).toHaveProp('buttonType', 'alert');
-    expect(deleteButton.childAt(0)).toHaveText('Delete');
+    expect(screen.getByRole('button', { name: 'Delete' })).toHaveClass(
+      'Button--alert',
+    );
   });
 
   it('creates micro buttons when requested', () => {
-    const root = shallowRender({
+    render({
       microButtons: true,
-      onDelete: sinon.stub(),
-      onDismiss: sinon.stub(),
+      onDelete: jest.fn(),
+      onDismiss: jest.fn(),
     });
 
-    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('micro', true);
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', true);
-    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp('micro', true);
+    expect(screen.getByRole('button', { name: 'Delete' })).toHaveClass(
+      'Button--micro',
+    );
+    expect(screen.getByRole('button', { name: 'Submit' })).toHaveClass(
+      'Button--micro',
+    );
+    expect(screen.getByRole('button', { name: 'Cancel' })).toHaveClass(
+      'Button--micro',
+    );
   });
 
   it('creates puffy buttons when requested', () => {
-    const root = shallowRender({
-      onDelete: sinon.stub(),
-      onDismiss: sinon.stub(),
+    render({
+      onDelete: jest.fn(),
+      onDismiss: jest.fn(),
       puffyButtons: true,
     });
 
-    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', true);
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', true);
-    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp('puffy', true);
+    expect(screen.getByRole('button', { name: 'Delete' })).toHaveClass(
+      'Button--puffy',
+    );
+    expect(screen.getByRole('button', { name: 'Submit' })).toHaveClass(
+      'Button--puffy',
+    );
+    expect(screen.getByRole('button', { name: 'Cancel' })).toHaveClass(
+      'Button--puffy',
+    );
   });
 
   it('creates non-micro, non-puffy buttons by default', () => {
-    const root = shallowRender({
-      onDismiss: sinon.stub(),
-      onDelete: sinon.stub(),
+    render({
+      onDismiss: jest.fn(),
+      onDelete: jest.fn(),
     });
 
-    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('micro', false);
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', false);
-    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp(
-      'micro',
-      false,
+    expect(screen.getByRole('button', { name: 'Delete' })).not.toHaveClass(
+      'Button--micro',
     );
-
-    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('puffy', false);
-    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('puffy', false);
-    expect(root.find('.DismissibleTextForm-dismiss')).toHaveProp(
-      'puffy',
-      false,
+    expect(screen.getByRole('button', { name: 'Submit' })).not.toHaveClass(
+      'Button--micro',
+    );
+    expect(screen.getByRole('button', { name: 'Cancel' })).not.toHaveClass(
+      'Button--micro',
+    );
+    expect(screen.getByRole('button', { name: 'Delete' })).not.toHaveClass(
+      'Button--puffy',
+    );
+    expect(screen.getByRole('button', { name: 'Submit' })).not.toHaveClass(
+      'Button--puffy',
+    );
+    expect(screen.getByRole('button', { name: 'Cancel' })).not.toHaveClass(
+      'Button--puffy',
     );
   });
 
   it('cannot create conflicting button types', () => {
     expect(() => {
-      shallowRender({ puffyButtons: true, microButtons: true });
+      render({ puffyButtons: true, microButtons: true });
     }).toThrow(/microButtons and puffyButtons cannot both be true/);
   });
 
   it('disables the delete button when there is no text', () => {
-    const root = shallowRender({ onDelete: sinon.stub(), text: '' });
+    render({ onDelete: jest.fn(), text: '' });
 
-    expect(root.find('.DismissibleTextForm-delete')).toHaveProp(
-      'disabled',
-      true,
-    );
+    expect(screen.getByRole('button', { name: 'Delete' })).toBeDisabled();
   });
 
   it('enables the delete button after text has been entered', () => {
-    const root = shallowRender({ onDelete: sinon.stub(), text: '' });
+    render({ onDelete: jest.fn(), text: '' });
 
-    typeSomeText({ root, text: 'Typing some text...' });
+    userEvent.type(getTextBox(), 'Typing some text...');
 
-    expect(root.find('.DismissibleTextForm-delete')).toHaveProp(
-      'disabled',
-      false,
-    );
+    expect(screen.getByRole('button', { name: 'Delete' })).not.toBeDisabled();
   });
 
   it('calls back when clicking the delete button', () => {
-    const onDelete = sinon.stub();
-    const root = shallowRender({ onDelete });
-    const enteredText = 'Some review text';
+    const onDelete = jest.fn();
+    render({ onDelete });
 
-    typeSomeText({ root, text: enteredText });
+    userEvent.type(getTextBox(), 'Some review text');
 
     // Submit the form.
-    const event = createFakeEvent();
-    root.find('.DismissibleTextForm-delete').simulate('click', event);
+    const button = screen.getByRole('button', { name: 'Delete' });
+    const clickEvent = createEvent.click(button);
+    const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    sinon.assert.called(event.preventDefault);
-    sinon.assert.called(onDelete);
+    fireEvent(button, clickEvent);
+
+    expect(preventDefaultWatcher).toHaveBeenCalled();
+    expect(onDelete).toHaveBeenCalled();
   });
 
   it('can hide the cancel/dismiss button', () => {
-    const root = shallowRender({ onDismiss: undefined });
+    render({ onDismiss: undefined });
 
-    expect(root.find('.DismissibleTextForm-dismiss')).toHaveLength(0);
+    expect(
+      screen.queryByRole('button', { name: 'Cancel' }),
+    ).not.toBeInTheDocument();
   });
 
   it('hides a formFooter by default', () => {
-    const root = shallowRender();
+    render();
 
-    expect(root.find('.DismissibleTextForm-formFooter')).toHaveLength(0);
+    expect(
+      screen.queryByClassName('DismissibleTextForm-formFooter'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders a formFooter', () => {
-    const root = shallowRender({
-      formFooter: <div className="custom-formFooter" />,
-    });
+    const footerText = 'Some footer text';
+    render({ formFooter: <div>{footerText}</div> });
 
-    expect(root.find('.DismissibleTextForm-formFooter')).toHaveLength(1);
     expect(
-      root.find('.DismissibleTextForm-formFooter .custom-formFooter'),
-    ).toHaveLength(1);
+      within(screen.getByClassName('DismissibleTextForm-formFooter')).getByText(
+        footerText,
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders all buttons in a default order', () => {
-    const root = shallowRender({
-      onDelete: sinon.stub(),
-      onDismiss: sinon.stub(),
+    render({
+      onDelete: jest.fn(),
+      onDismiss: jest.fn(),
     });
 
-    const allButtons = root.find('.DismissibleTextForm-buttons');
-    expect(allButtons.childAt(0)).toHaveClassName(
-      'DismissibleTextForm-dismiss',
-    );
-    expect(allButtons.childAt(1)).toHaveClassName(
-      'DismissibleTextForm-delete-submit-buttons',
-    );
-
-    const submitButtons = root.find(
-      '.DismissibleTextForm-delete-submit-buttons',
-    );
-    expect(submitButtons.childAt(0)).toHaveClassName(
-      'DismissibleTextForm-delete',
-    );
-    expect(submitButtons.childAt(1)).toHaveClassName(
-      'DismissibleTextForm-submit',
-    );
+    const allButtons = screen.getAllByRole('button');
+    expect(allButtons[0]).toHaveTextContent('Cancel');
+    expect(allButtons[1]).toHaveTextContent('Delete');
+    expect(allButtons[2]).toHaveTextContent('Submit');
   });
 
   it('can reverse the button order', () => {
-    const root = shallowRender({
-      onDelete: sinon.stub(),
-      onDismiss: sinon.stub(),
+    render({
+      onDelete: jest.fn(),
+      onDismiss: jest.fn(),
       reverseButtonOrder: true,
     });
 
-    const allButtons = root.find('.DismissibleTextForm-buttons');
-    expect(allButtons.childAt(0)).toHaveClassName(
-      'DismissibleTextForm-delete-submit-buttons',
-    );
-    expect(allButtons.childAt(1)).toHaveClassName(
-      'DismissibleTextForm-dismiss',
-    );
-
-    const submitButtons = root.find(
-      '.DismissibleTextForm-delete-submit-buttons',
-    );
-    expect(submitButtons.childAt(0)).toHaveClassName(
-      'DismissibleTextForm-submit',
-    );
-    expect(submitButtons.childAt(1)).toHaveClassName(
-      'DismissibleTextForm-delete',
-    );
+    const allButtons = screen.getAllByRole('button');
+    expect(allButtons[0]).toHaveTextContent('Submit');
+    expect(allButtons[1]).toHaveTextContent('Delete');
+    expect(allButtons[2]).toHaveTextContent('Cancel');
   });
 
   describe('LocalState', () => {
+    // TODO: I don't think we want to be testing the internals of LocalState,
+    // but rather just if it works as expected.
+    // We might be able to do that by typing something and then unmounting and
+    // then rendering again.
     it('configures LocalState', () => {
-      const _createLocalState = sinon.spy(createFakeLocalState);
+      const _createLocalState = jest.fn(createFakeLocalState);
       const id = 'some-form-id';
 
-      shallowRender({ id, _createLocalState });
+      render({ id, _createLocalState });
 
-      sinon.assert.calledWith(_createLocalState, id);
+      expect(_createLocalState).toHaveBeenCalledWith(id);
     });
 
     it('loads LocalState on mount', () => {
-      const loadSpy = sinon.spy(() => Promise.resolve(null));
-      shallowRender({
+      const loadSpy = jest.fn(() => Promise.resolve(null));
+      render({
         _createLocalState: () => createFakeLocalState({ load: loadSpy }),
       });
 
-      sinon.assert.called(loadSpy);
+      expect(loadSpy).toHaveBeenCalled();
     });
 
     it('populates the form with text from LocalState', async () => {
       const text = 'Some text that was saved to LocalState';
-      const root = shallowRender({
+      render({
         _createLocalState: () =>
           createFakeLocalState({ load: () => Promise.resolve({ text }) }),
       });
 
-      await root.instance().checkForStoredState();
-
-      expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
-        'value',
-        text,
-      );
-    });
-
-    it('recreates LocalState on update when the ID changes', () => {
-      const loadSpy = sinon.spy(() => Promise.resolve(null));
-      const _createLocalState = sinon.spy(() =>
-        createFakeLocalState({ load: loadSpy }),
-      );
-
-      const root = shallowRender({
-        _createLocalState,
-        id: 'first-ID',
-      });
-
-      _createLocalState.resetHistory();
-      loadSpy.resetHistory();
-
-      const secondId = 'second-ID';
-      root.setProps({ id: secondId });
-
-      sinon.assert.calledWith(_createLocalState, secondId);
-      sinon.assert.called(loadSpy);
-    });
-
-    it('does not recreate LocalState on update when ID does not change', () => {
-      const loadSpy = sinon.spy(() => Promise.resolve(null));
-      const _createLocalState = sinon.spy(() =>
-        createFakeLocalState({ load: loadSpy }),
-      );
-
-      const id = 'example-ID';
-      const root = shallowRender({ id, _createLocalState });
-
-      _createLocalState.resetHistory();
-      loadSpy.resetHistory();
-
-      root.setProps({ id });
-
-      sinon.assert.notCalled(_createLocalState);
-      sinon.assert.notCalled(loadSpy);
+      await waitFor(() => expect(getTextBox()).toHaveValue(text));
     });
 
     it('does not populate the form with null data', async () => {
-      const root = shallowRender({
+      const text = 'Some initial text';
+      render({
         _createLocalState: () =>
           // Set up LocalState to load null data.
           createFakeLocalState({ load: () => Promise.resolve(null) }),
+        text,
       });
 
-      const text = 'Entered text';
-      typeSomeText({ root, text });
+      expect(getTextBox()).toHaveValue(text);
 
-      expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
-        'value',
-        text,
-      );
-
-      // Load the null data.
-      await root.instance().checkForStoredState();
+      // The text box is focussed after checkForStoredState has been called.
+      await waitFor(() => expect(getTextBox()).toHaveClass('focus-visible'));
 
       // Make sure the text was not erased.
-      expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
-        'value',
-        text,
-      );
+      expect(getTextBox()).toHaveValue(text);
     });
 
     it('saves to LocalState when typing', () => {
-      const saveSpy = sinon.spy(() => Promise.resolve());
-      const root = shallowRender({
+      const saveSpy = jest.fn(() => Promise.resolve());
+      render({
         _createLocalState: () => createFakeLocalState({ save: saveSpy }),
       });
 
       const text = 'Example text';
-      typeSomeText({ root, text });
+      userEvent.type(getTextBox(), text);
 
-      sinon.assert.calledWith(saveSpy, { text });
+      expect(saveSpy).toHaveBeenCalledWith({ text });
     });
 
     it('clears LocalState onDismiss', () => {
-      const clearSpy = sinon.spy(() => Promise.resolve());
-      const root = shallowRender({
+      const clearSpy = jest.fn(() => Promise.resolve());
+      render({
         _createLocalState: () => createFakeLocalState({ clear: clearSpy }),
-        onDismiss: sinon.stub(),
+        onDismiss: jest.fn(),
       });
 
-      root
-        .find('.DismissibleTextForm-dismiss')
-        .simulate('click', createFakeEvent());
+      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-      sinon.assert.called(clearSpy);
+      expect(clearSpy).toHaveBeenCalled();
     });
 
     it('clears LocalState onDelete', () => {
-      const clearSpy = sinon.spy(() => Promise.resolve());
-      const root = shallowRender({
+      const clearSpy = jest.fn(() => Promise.resolve());
+      render({
         _createLocalState: () => createFakeLocalState({ clear: clearSpy }),
-        onDelete: sinon.stub(),
+        onDelete: jest.fn(),
       });
 
-      root
-        .find('.DismissibleTextForm-delete')
-        .simulate('click', createFakeEvent());
+      userEvent.type(getTextBox(), 'something');
+      userEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
-      sinon.assert.called(clearSpy);
+      expect(clearSpy).toHaveBeenCalled();
     });
 
     it('clears LocalState onSubmit', () => {
-      const clearSpy = sinon.spy(() => Promise.resolve());
-      const root = shallowRender({
+      const clearSpy = jest.fn(() => Promise.resolve());
+      render({
         _createLocalState: () => createFakeLocalState({ clear: clearSpy }),
-        onSubmit: sinon.stub(),
+        onSubmit: jest.fn(),
       });
 
-      root
-        .find('.DismissibleTextForm-submit')
-        .simulate('click', createFakeEvent());
+      userEvent.type(getTextBox(), 'something');
+      userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-      sinon.assert.called(clearSpy);
+      expect(clearSpy).toHaveBeenCalled();
     });
   });
 });
