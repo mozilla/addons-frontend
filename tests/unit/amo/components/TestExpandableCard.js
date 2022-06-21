@@ -1,92 +1,67 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import userEvent from '@testing-library/user-event';
 
-import ExpandableCard, {
-  ExpandableCardBase,
-  extractId,
-} from 'amo/components/ExpandableCard';
+import ExpandableCard, { extractId } from 'amo/components/ExpandableCard';
 import {
-  applyUIStateChanges,
-  createFakeEvent,
   dispatchClientMetadata,
-  fakeI18n,
-  shallowUntilTarget,
+  render as defaultRender,
+  screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const getProps = ({ i18n = fakeI18n(), ...props } = {}) => {
-    return {
-      i18n,
-      id: 'expandableCard',
-      store: dispatchClientMetadata().store,
-      ...props,
-    };
-  };
+  let store;
 
-  function render({ children, ...otherProps } = {}) {
-    const props = getProps(otherProps);
-    return shallowUntilTarget(
-      <ExpandableCard {...props}>{children || 'some info'}</ExpandableCard>,
-      ExpandableCardBase,
-    );
-  }
-
-  it('renders a ExpandableCard', () => {
-    const root = render();
-
-    expect(root.find('.ExpandableCard')).toHaveLength(1);
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
   });
 
-  it('is unexpanded by default', () => {
-    const root = render();
-    const card = root.find('.ExpandableCard');
+  const render = ({ children, id = 'some-id', ...props } = {}) => {
+    return defaultRender(
+      <ExpandableCard id={id} {...props}>
+        {children || 'some info'}
+      </ExpandableCard>,
+      { store },
+    );
+  };
 
-    expect(card).not.toHaveClassName('ExpandableCard--expanded');
+  const getCard = () => screen.getByTagName('section');
+
+  it('is unexpanded by default', () => {
+    render();
+
+    expect(getCard()).not.toHaveClass('ExpandableCard--expanded');
   });
 
   it('toggles when clicked', () => {
-    const { store } = dispatchClientMetadata();
-
-    const root = render({ store });
-
-    expect(root).toHaveProp('header');
-    const cardHeader = root.prop('header');
-    const header = shallow(cardHeader);
-    const link = header.find('.ExpandableCard-ToggleLink');
+    render();
 
     // This toggles to make expanded true.
-    link.simulate('click', createFakeEvent());
-
-    applyUIStateChanges({ root, store });
-
-    expect(root.find('.ExpandableCard--expanded')).toHaveLength(1);
+    userEvent.click(screen.getByRole('switch'));
+    expect(getCard()).toHaveClass('ExpandableCard--expanded');
 
     // This toggles to make expanded false.
-    link.simulate('click', createFakeEvent());
-
-    applyUIStateChanges({ root, store });
-
-    expect(root.find('.ExpandableCard--expanded')).toHaveLength(0);
+    userEvent.click(screen.getByRole('switch'));
+    expect(getCard()).not.toHaveClass('ExpandableCard--expanded');
   });
 
-  it('renders className', () => {
-    const root = render({ className: 'test' });
+  it('renders with a className', () => {
+    const className = 'MyClass';
+    render({ className });
 
-    const card = root.find('.ExpandableCard');
-    expect(card).toHaveClassName('test');
+    expect(getCard()).toHaveClass(className);
   });
 
   it('renders children', () => {
-    const root = render({ children: 'Hello I am description' });
-    const contents = root.find('.ExpandableCard-contents');
+    const children = 'Hello I am description';
+    render({ children });
 
-    expect(contents).toHaveText('Hello I am description');
+    expect(screen.getByText(children)).toBeInTheDocument();
   });
 
   describe('extractId', () => {
     it('returns a unique ID provided by the ID prop', () => {
       const id = 'custom-card-id';
-      expect(extractId(getProps({ id }))).toEqual(id);
+      expect(extractId({ id })).toEqual(id);
     });
   });
 });
