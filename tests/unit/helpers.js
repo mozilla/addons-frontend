@@ -801,14 +801,14 @@ export function unexpectedSuccess() {
 
 export function JedSpy(data = {}) {
   const _Jed = new Jed(data);
-  _Jed.gettext = sinon.spy(_Jed.gettext);
-  _Jed.dgettext = sinon.spy(_Jed.gettext);
-  _Jed.ngettext = sinon.spy(_Jed.ngettext);
-  _Jed.dngettext = sinon.spy(_Jed.dngettext);
-  _Jed.dpgettext = sinon.spy(_Jed.dpgettext);
-  _Jed.npgettext = sinon.spy(_Jed.npgettext);
-  _Jed.dnpgettext = sinon.spy(_Jed.dnpgettext);
-  _Jed.sprintf = sinon.spy(_Jed.sprintf);
+  _Jed.gettext = jest.fn(_Jed.gettext);
+  _Jed.dgettext = jest.fn(_Jed.gettext);
+  _Jed.ngettext = jest.fn(_Jed.ngettext);
+  _Jed.dngettext = jest.fn(_Jed.dngettext);
+  _Jed.dpgettext = jest.fn(_Jed.dpgettext);
+  _Jed.npgettext = jest.fn(_Jed.npgettext);
+  _Jed.dnpgettext = jest.fn(_Jed.dnpgettext);
+  _Jed.sprintf = jest.fn(_Jed.sprintf);
   return _Jed;
 }
 
