@@ -84,7 +84,7 @@ describe(__filename, () => {
   it('provides cookies capability', () => {
     const cookieValue = 'some cookie value';
     const _cookies = fakeCookies({
-      get: sinon.stub().returns(cookieValue),
+      get: jest.fn().mockReturnValue(cookieValue),
     });
 
     const AppWithCookies = withCookies(({ cookies }) => (
