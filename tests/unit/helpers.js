@@ -61,10 +61,8 @@ import {
   createInternalSuggestion,
 } from 'amo/reducers/autocomplete';
 import { searchLoad, searchStart } from 'amo/reducers/search';
-import { selectUIState } from 'amo/reducers/uiState';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
 import { createInternalVersion } from 'amo/reducers/versions';
-import { createUIStateMapper, mergeUIStateProps } from 'amo/withUIState';
 import defaultSagas from 'amo/sagas';
 // eslint-disable-next-line import/default
 import prodConfig from 'config/default';
@@ -1290,55 +1288,6 @@ export const createUserNotificationsResponse = () => {
     },
   ];
 };
-
-/*
- * Call this in a test after any shallowUntilTarget() component might
- * have adjusted its uiState.
- *
- * This simulates how Redux will update component props after
- * an action dispatch.
- * It's necessary because shallow Enzyme wrapper updates do not
- * propagate to all HOCs.
- */
-export function applyUIStateChanges({ root, store }) {
-  const rootProps = root.instance().props;
-  const { uiStateID } = rootProps;
-  invariant(
-    uiStateID,
-    'uiStateID cannot be undefined; was the component wrapped in withUIState()?',
-  );
-
-  const state = store.getState();
-
-  if (selectUIState({ uiState: state.uiState, uiStateID }) === undefined) {
-    throw new Error(
-      'Cannot apply UI state changes because the component has not dispatched any setUIState() actions yet',
-    );
-  }
-
-  const mapStateToProps = createUIStateMapper({
-    // This value is never used. The state is always selected from the
-    // Redux store.
-    initialState: {},
-    uiStateID,
-  });
-  const stateProps = mapStateToProps(state, rootProps);
-  const mappedProps = mergeUIStateProps(
-    stateProps,
-    { dispatch: store.dispatch },
-    rootProps,
-  );
-
-  root.setProps(mappedProps);
-}
-
-/*
- * Change a component's uiState.
- */
-export function setUIState({ root, change, store }) {
-  root.instance().props.setUIState(change);
-  applyUIStateChanges({ root, store });
-}
 
 export function fakeCookies(overrides = {}) {
   return {
