@@ -34,7 +34,6 @@ import autocomplete from 'amo/reducers/autocomplete';
 import categories from 'amo/reducers/categories';
 import errors from 'amo/reducers/errors';
 import errorPage from 'amo/reducers/errorPage';
-import formOverlay from 'amo/reducers/formOverlay';
 import languageTools from 'amo/reducers/languageTools';
 import installations from 'amo/reducers/installations';
 import redirectTo from 'amo/reducers/redirectTo';
@@ -60,7 +59,6 @@ import type { ApiState } from 'amo/reducers/api';
 import type { AutocompleteState } from 'amo/reducers/autocomplete';
 import type { CategoriesState } from 'amo/reducers/categories';
 import type { ErrorPageState } from 'amo/reducers/errorPage';
-import type { FormOverlayState } from 'amo/reducers/formOverlay';
 import type { LanguageToolsState } from 'amo/reducers/languageTools';
 import type { InstallationsState } from 'amo/reducers/installations';
 import type { RedirectToState } from 'amo/reducers/redirectTo';
@@ -144,7 +142,6 @@ type InternalAppState = {|
   errorPage: ErrorPageState,
   errors: Object,
   experiments: ExperimentsState,
-  formOverlay: FormOverlayState,
   home: HomeState,
   installations: InstallationsState,
   landing: LandingState,
@@ -200,7 +197,6 @@ export const reducers: AppReducersType = {
   errors,
   errorPage,
   experiments,
-  formOverlay,
   home,
   installations,
   landing,
