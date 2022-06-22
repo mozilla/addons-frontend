@@ -48,6 +48,7 @@ import {
 import { ADDONS_BY_AUTHORS_COUNT, extractId } from 'amo/pages/Addon';
 import {
   FETCH_ADDON,
+  LOAD_ADDON,
   fetchAddon,
   getAddonByIdInURL,
   loadAddon,
@@ -58,6 +59,7 @@ import {
   fetchAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { setClientApp } from 'amo/reducers/api';
+import { FETCH_CATEGORIES } from 'amo/reducers/categories';
 import { setInstallError, setInstallState } from 'amo/reducers/installations';
 import {
   FETCH_RECOMMENDATIONS,
@@ -578,6 +580,24 @@ describe(__filename, () => {
     // 6. FETCH_RECOMMENDATIONS (initiated by AddonRecommendations)
 
     expect(dispatch).toHaveBeenCalledTimes(6);
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: LOAD_ADDON }),
+    );
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: '@@router/LOCATION_CHANGE' }),
+    );
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: SEND_SERVER_REDIRECT }),
+    );
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_CATEGORIES }),
+    );
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_ADDONS_BY_AUTHORS }),
+    );
+    expect(dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: FETCH_RECOMMENDATIONS }),
+    );
   });
 
   it('dispatches a server redirect when slug has trailing spaces', () => {
