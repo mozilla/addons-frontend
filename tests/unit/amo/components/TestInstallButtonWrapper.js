@@ -1237,6 +1237,7 @@ describe(__filename, () => {
         const handler = createProgressHandler({ dispatch, guid });
 
         handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
+        expect(dispatch).not.toHaveBeenCalled();
         expect(_tracking.sendEvent).not.toHaveBeenCalled();
       });
 
