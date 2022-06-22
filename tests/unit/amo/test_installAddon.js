@@ -1,4 +1,4 @@
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import * as React from 'react';
 import { compose } from 'redux';
 
@@ -46,11 +46,7 @@ import {
   getFakeLogger,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import {
-  WithInstallHelpers,
-  makeProgressHandler,
-  withInstallHelpers,
-} from 'amo/installAddon';
+import { makeProgressHandler, withInstallHelpers } from 'amo/installAddon';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'amo/tracking';
 
 const INVALID_TYPE = 'not-a-real-type';
@@ -123,14 +119,6 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  // SKIP We don't care about that one
-  it('wraps the component in WithInstallHelpers', () => {
-    const Component = componentWithInstallHelpers();
-
-    const root = shallow(<Component {...defaultProps()} />);
-    expect(root.type()).toEqual(WithInstallHelpers);
-  });
-
   // MIGRATED
   it('sets status when the component is created', () => {
     _loadVersions({ store });
@@ -149,7 +137,8 @@ describe(__filename, () => {
     sinon.assert.calledWith(_addonManager.getAddon, addon.guid);
   });
 
-  // FIXME
+  // FIXME - need to be in a page, or find a way to load a different
+  // addon/version after rendering, which might cause the component to update.
   it('sets status when getting updated', () => {
     _loadVersions({ store });
 
@@ -176,7 +165,8 @@ describe(__filename, () => {
     sinon.assert.calledWith(_addonManager.getAddon, newAddon.guid);
   });
 
-  // FIXME
+  // FIXME - need to be in a page, or find a way to load a different
+  // addon/version after rendering, which might cause the component to update.
   it('sets status when add-on is loaded on update', () => {
     _loadVersions({ store });
 
@@ -203,7 +193,8 @@ describe(__filename, () => {
     sinon.assert.calledWith(_addonManager.getAddon, newAddon.guid);
   });
 
-  // FIXME
+  // FIXME - need to be in a page, or find a way to load a different
+  // addon/version after rendering, which might cause the component to update.
   it('does not set status when an update is not necessary', () => {
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
@@ -223,22 +214,6 @@ describe(__filename, () => {
     // make sure the status is not set.
     root.setProps({ addon });
     sinon.assert.notCalled(_addonManager.getAddon);
-  });
-
-  // FIXME
-  it('sets the current status in componentDidMount with an addonManager', () => {
-    _loadVersions({ store });
-
-    const _addonManager = getFakeAddonManagerWrapper({
-      getAddon: Promise.resolve({
-        isActive: true,
-        isEnabled: true,
-      }),
-    });
-
-    renderWithInstallHelpers({ _addonManager, store });
-
-    sinon.assert.called(_addonManager.getAddon);
   });
 
   // MIGRATED
@@ -297,33 +272,6 @@ describe(__filename, () => {
         const { setCurrentStatus } = root.instance().props;
 
         return setCurrentStatus().then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              canUninstall: undefined,
-              guid: addon.guid,
-              status: ENABLED,
-              url: installURL,
-            }),
-          );
-        });
-      });
-
-      // SKIP (is that even used ?)
-      it('lets you pass custom props to setCurrentStatus', () => {
-        const installURL = 'http://the.url/';
-        const addon = getAddon();
-        loadVersionWithInstallUrl(installURL);
-
-        const { root, dispatch } = renderWithInstallHelpers({
-          addon,
-          store,
-        });
-
-        const { setCurrentStatus } = root.instance().props;
-        dispatch.resetHistory();
-
-        return setCurrentStatus({ addon }).then(() => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
@@ -868,24 +816,6 @@ describe(__filename, () => {
           );
         });
       });
-
-      it('does nothing when enable() is called with a `null` add-on', () => {
-        const _log = getFakeLogger();
-
-        const { root, dispatch } = renderWithInstallHelpers({
-          _log,
-          addon: null,
-        });
-        const { enable } = root.instance().props;
-
-        return enable().then(() => {
-          sinon.assert.calledWith(
-            _log.debug,
-            'no addon found, aborting enable().',
-          );
-          sinon.assert.notCalled(dispatch);
-        });
-      });
     });
 
     // MIGRATED
@@ -1122,40 +1052,6 @@ describe(__filename, () => {
               guid: addon.guid,
               error: FATAL_INSTALL_ERROR,
             }),
-          );
-        });
-      });
-
-      // FIXME
-      it('does nothing when install() is called with a `null` add-on', () => {
-        const _log = getFakeLogger();
-
-        const { root, dispatch } = renderWithInstallHelpers({
-          _log,
-          addon: null,
-        });
-        const { install } = root.instance().props;
-
-        return install().then(() => {
-          sinon.assert.calledWith(
-            _log.debug,
-            'no addon found, aborting install().',
-          );
-          sinon.assert.notCalled(dispatch);
-        });
-      });
-
-      // FIXME
-      it('does nothing when install() is called with no currentVersion', () => {
-        const _log = getFakeLogger();
-
-        const { root } = renderWithInstallHelpers({ _log });
-        const { install } = root.instance().props;
-
-        return install().then(() => {
-          sinon.assert.calledWith(
-            _log.debug,
-            'no currentVersion found, aborting install().',
           );
         });
       });
