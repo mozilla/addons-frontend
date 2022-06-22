@@ -1283,10 +1283,12 @@ describe(__filename, () => {
         });
 
         await waitFor(() => {
-          expect(screen.getByText('Enable')).toBeInTheDocument();
+          expect(
+            screen.getByRole('link', { name: 'Enable' }),
+          ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByText('Enable'));
+        userEvent.click(screen.getByRole('link', { name: 'Enable' }));
 
         await waitFor(() => {
           expect(_addonManager.enable).toHaveBeenCalledWith(fakeAddon.guid);
@@ -1315,10 +1317,12 @@ describe(__filename, () => {
         });
 
         await waitFor(() => {
-          expect(screen.getByText('Enable')).toBeInTheDocument();
+          expect(
+            screen.getByRole('link', { name: 'Enable' }),
+          ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByText('Enable'));
+        userEvent.click(screen.getByRole('link', { name: 'Enable' }));
 
         await waitFor(() => {
           expect(_addonManager.enable).toHaveBeenCalledWith(fakeAddon.guid);
@@ -1351,10 +1355,12 @@ describe(__filename, () => {
         });
 
         await waitFor(() => {
-          expect(screen.getByText('Enable')).toBeInTheDocument();
+          expect(
+            screen.getByRole('link', { name: 'Enable' }),
+          ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByText('Enable'));
+        userEvent.click(screen.getByRole('link', { name: 'Enable' }));
 
         await waitFor(() => {
           expect(_addonManager.enable).toHaveBeenCalledWith(fakeAddon.guid);
@@ -1380,7 +1386,7 @@ describe(__filename, () => {
           addonManagerOverrides,
         });
 
-        const button = screen.getByText('Add to Firefox');
+        const button = screen.getByRole('link', { name: 'Add to Firefox' });
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
@@ -1415,7 +1421,7 @@ describe(__filename, () => {
           }),
         });
 
-        const button = screen.getByText('Add to Firefox');
+        const button = screen.getByRole('link', { name: 'Add to Firefox' });
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
@@ -1443,7 +1449,7 @@ describe(__filename, () => {
           addonManagerOverrides,
           _tracking: fakeTracking,
         });
-        const button = screen.getByText('Add to Firefox');
+        const button = screen.getByRole('link', { name: 'Add to Firefox' });
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
@@ -1474,7 +1480,7 @@ describe(__filename, () => {
           addonManagerOverrides,
           _tracking: fakeTracking,
         });
-        const button = screen.getByText('Add to Firefox');
+        const button = screen.getByRole('link', { name: 'Add to Firefox' });
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
@@ -1518,7 +1524,7 @@ describe(__filename, () => {
           addonManagerOverrides,
           _tracking: fakeTracking,
         });
-        const button = screen.getByText('Install Theme');
+        const button = screen.getByRole('link', { name: 'Install Theme' });
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
@@ -1554,7 +1560,7 @@ describe(__filename, () => {
           addonManagerOverrides,
           _tracking: fakeTracking,
         });
-        const button = screen.getByText('Install Theme');
+        const button = screen.getByRole('link', { name: 'Install Theme' });
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
@@ -1592,7 +1598,7 @@ describe(__filename, () => {
         renderWithCurrentVersion({
           addonManagerOverrides,
         });
-        const button = screen.getByText('Add to Firefox');
+        const button = screen.getByRole('link', { name: 'Add to Firefox' });
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
@@ -1614,7 +1620,7 @@ describe(__filename, () => {
         renderWithCurrentVersion({
           addonManagerOverrides,
         });
-        const button = screen.getByText('Add to Firefox');
+        const button = screen.getByRole('link', { name: 'Add to Firefox' });
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
@@ -1640,10 +1646,12 @@ describe(__filename, () => {
         renderWithCurrentVersion();
 
         await waitFor(() => {
-          expect(screen.getByText('Remove')).toBeInTheDocument();
+          expect(
+            screen.getByRole('link', { name: 'Remove' }),
+          ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByText('Remove'));
+        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
         await waitFor(() => {
           expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
@@ -1666,10 +1674,12 @@ describe(__filename, () => {
         renderWithCurrentVersion({ addonManagerOverrides });
 
         await waitFor(() => {
-          expect(screen.getByText('Remove')).toBeInTheDocument();
+          expect(
+            screen.getByRole('link', { name: 'Remove' }),
+          ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByText('Remove'));
+        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
         await waitFor(() => {
           expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
@@ -1694,10 +1704,12 @@ describe(__filename, () => {
         });
 
         await waitFor(() => {
-          expect(screen.getByText('Remove')).toBeInTheDocument();
+          expect(
+            screen.getByRole('link', { name: 'Remove' }),
+          ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByText('Remove'));
+        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
         await waitFor(() => {
           expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
@@ -1727,10 +1739,12 @@ describe(__filename, () => {
         });
 
         await waitFor(() => {
-          expect(screen.getByText('Remove')).toBeInTheDocument();
+          expect(
+            screen.getByRole('link', { name: 'Remove' }),
+          ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByText('Remove'));
+        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
         await waitFor(() => {
           expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeTheme.guid);
@@ -1758,10 +1772,12 @@ describe(__filename, () => {
         });
 
         await waitFor(() => {
-          expect(screen.getByText('Remove')).toBeInTheDocument();
+          expect(
+            screen.getByRole('link', { name: 'Remove' }),
+          ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByText('Remove'));
+        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
         await waitFor(() => {
           expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
