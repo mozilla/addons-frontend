@@ -123,6 +123,14 @@ describe(__filename, () => {
     );
   };
 
+  const renderWithCurrentVersion = ({ ...props } = {}) => {
+    _loadVersions({
+      slug: fakeAddon.slug,
+      versions: [fakeAddon.current_version],
+    });
+    render({ ...props });
+  };
+
   const _dispatchClientMetadata = (params = {}) => {
     return dispatchClientMetadata({
       store,
@@ -132,18 +140,13 @@ describe(__filename, () => {
   };
 
   it(`calls getClientCompatibility with the add-on's current version if no version is supplied`, () => {
-    _loadVersions({
-      slug: fakeAddon.slug,
-      versions: [fakeAddon.current_version],
-    });
-
     const clientApp = CLIENT_APP_FIREFOX;
 
     _dispatchClientMetadata({
       clientApp,
     });
 
-    render();
+    renderWithCurrentVersion();
 
     expect(_getClientCompatibility).toHaveBeenCalledWith({
       addon: createInternalAddonWithLang(fakeAddon),
@@ -282,12 +285,7 @@ describe(__filename, () => {
   });
 
   it('passes a currentVersion to AMInstallButton when one is loaded', () => {
-    _loadVersions({
-      slug: fakeAddon.slug,
-      versions: [fakeAddon.current_version],
-    });
-
-    render();
+    renderWithCurrentVersion();
 
     expect(
       screen.getByRole('link', { name: 'Add to Firefox' }),
@@ -789,23 +787,15 @@ describe(__filename, () => {
 
   describe('Tests for withInstallHelpers', () => {
     it('calls getAddon() when the component is rendered', () => {
-      _loadVersions({
-        slug: fakeAddon.slug,
-        versions: [fakeAddon.current_version],
-      });
-
-      render();
+      renderWithCurrentVersion();
 
       expect(_addonManager.getAddon).toHaveBeenCalledWith(fakeAddon.guid);
     });
 
     it('does not call getAddon() if we do not have an addonManager', () => {
-      _loadVersions({
-        slug: fakeAddon.slug,
-        versions: [fakeAddon.current_version],
+      renderWithCurrentVersion({
+        addonManagerOverrides: { hasAddonManager: false },
       });
-
-      render({ addonManagerOverrides: { hasAddonManager: false } });
 
       expect(_addonManager.getAddon).not.toHaveBeenCalled();
     });
@@ -825,14 +815,9 @@ describe(__filename, () => {
       it('sets the status to ENABLED when an extension is enabled', async () => {
         const installURL = fakeAddon.current_version.file.url;
 
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render();
+        renderWithCurrentVersion();
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -857,14 +842,9 @@ describe(__filename, () => {
           }),
         };
 
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ addonManagerOverrides });
+        renderWithCurrentVersion({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -889,14 +869,9 @@ describe(__filename, () => {
           }),
         };
 
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ addonManagerOverrides });
+        renderWithCurrentVersion({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -921,14 +896,9 @@ describe(__filename, () => {
           }),
         };
 
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ addonManagerOverrides });
+        renderWithCurrentVersion({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -1055,14 +1025,9 @@ describe(__filename, () => {
           getAddon: Promise.reject(),
         };
 
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ addonManagerOverrides });
+        renderWithCurrentVersion({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -1084,14 +1049,9 @@ describe(__filename, () => {
           getAddon: Promise.resolve(null),
         };
 
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ addonManagerOverrides });
+        renderWithCurrentVersion({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -1143,14 +1103,9 @@ describe(__filename, () => {
           }),
         };
 
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ addonManagerOverrides });
+        renderWithCurrentVersion({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -1314,7 +1269,6 @@ describe(__filename, () => {
 
     describe('enable', () => {
       it('calls addonManager.enable()', async () => {
-        const addon = fakeAddon;
         const fakeTracking = createFakeTrackingWithJest();
         const addonManagerOverrides = {
           getAddon: Promise.resolve({
@@ -1323,8 +1277,7 @@ describe(__filename, () => {
           }),
         };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
-        render({
+        renderWithCurrentVersion({
           addonManagerOverrides,
           _tracking: fakeTracking,
         });
@@ -1336,18 +1289,17 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Enable'));
 
         await waitFor(() => {
-          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.enable).toHaveBeenCalledWith(fakeAddon.guid);
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(ADDON_TYPE_EXTENSION, ENABLE_ACTION),
-          label: addon.guid,
+          label: fakeAddon.guid,
         });
       });
 
       it('dispatches a FATAL_ERROR', async () => {
-        const addon = fakeAddon;
         const addonManagerOverrides = {
           enable: jest.fn().mockRejectedValue(new Error('hai')),
           getAddon: Promise.resolve({
@@ -1355,11 +1307,10 @@ describe(__filename, () => {
             isEnabled: false,
           }),
         };
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({
+        renderWithCurrentVersion({
           addonManagerOverrides,
         });
 
@@ -1370,12 +1321,12 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Enable'));
 
         await waitFor(() => {
-          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.enable).toHaveBeenCalledWith(fakeAddon.guid);
         });
 
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
-            guid: addon.guid,
+            guid: fakeAddon.guid,
             status: ERROR,
             error: FATAL_ERROR,
           }),
@@ -1383,7 +1334,6 @@ describe(__filename, () => {
       });
 
       it('does not dispatch a FATAL_ERROR when setEnabled is missing', async () => {
-        const addon = fakeAddon;
         const addonManagerOverrides = {
           enable: jest
             .fn()
@@ -1393,11 +1343,10 @@ describe(__filename, () => {
             isEnabled: false,
           }),
         };
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({
+        renderWithCurrentVersion({
           addonManagerOverrides,
         });
 
@@ -1408,12 +1357,12 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Enable'));
 
         await waitFor(() => {
-          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.enable).toHaveBeenCalledWith(fakeAddon.guid);
         });
 
         expect(dispatch).not.toHaveBeenCalledWith(
           setInstallState({
-            guid: addon.guid,
+            guid: fakeAddon.guid,
             status: ERROR,
             error: FATAL_ERROR,
           }),
@@ -1423,14 +1372,11 @@ describe(__filename, () => {
 
     describe('install', () => {
       it('calls addonManager.install()', async () => {
-        const addon = fakeAddon;
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
-
         const addonManagerOverrides = {
           // Simulate the add-on not being installed already.
           getAddon: Promise.reject(),
         };
-        render({
+        renderWithCurrentVersion({
           addonManagerOverrides,
         });
 
@@ -1442,24 +1388,22 @@ describe(__filename, () => {
 
         await waitFor(() => {
           expect(_addonManager.install).toHaveBeenCalledWith(
-            addon.current_version.file.url,
+            fakeAddon.current_version.file.url,
             expect.any(Function),
-            { hash: addon.current_version.file.hash },
+            { hash: fakeAddon.current_version.file.hash },
           );
         });
       });
 
       it('uses a version instead of the currentVersion when one exists in props', async () => {
-        const addon = fakeAddon;
         const versionHash = 'version-hash';
         const versionInstallURL = 'https://mysite.com/download-version.xpi';
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
         const addonManagerOverrides = {
           // Simulate the add-on not being installed already.
           getAddon: Promise.reject(),
         };
-        render({
+        renderWithCurrentVersion({
           addonManagerOverrides,
           version: createInternalVersionWithLang({
             ...fakeVersion,
@@ -1487,9 +1431,7 @@ describe(__filename, () => {
       });
 
       it('tracks the start of an addon install', async () => {
-        const addon = fakeAddon;
         const fakeTracking = createFakeTrackingWithJest();
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
         const addonManagerOverrides = {
           getAddon: Promise.reject(),
@@ -1497,7 +1439,7 @@ describe(__filename, () => {
           // the 'start' event gets tracked.
           install: jest.fn().mockRejectedValue(new Error('install error')),
         };
-        render({
+        renderWithCurrentVersion({
           addonManagerOverrides,
           _tracking: fakeTracking,
         });
@@ -1518,19 +1460,17 @@ describe(__filename, () => {
             ADDON_TYPE_EXTENSION,
             INSTALL_STARTED_ACTION,
           ),
-          label: addon.guid,
+          label: fakeAddon.guid,
         });
       });
 
       it('tracks an addon install', async () => {
-        const addon = fakeAddon;
         const fakeTracking = createFakeTrackingWithJest();
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
         const addonManagerOverrides = {
           getAddon: Promise.reject(),
         };
-        render({
+        renderWithCurrentVersion({
           addonManagerOverrides,
           _tracking: fakeTracking,
         });
@@ -1551,12 +1491,12 @@ describe(__filename, () => {
             ADDON_TYPE_EXTENSION,
             INSTALL_STARTED_ACTION,
           ),
-          label: addon.guid,
+          label: fakeAddon.guid,
         });
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
-          label: addon.guid,
+          label: fakeAddon.guid,
         });
       });
 
@@ -1645,15 +1585,11 @@ describe(__filename, () => {
 
       it('should dispatch START_DOWNLOAD', async () => {
         const dispatch = jest.spyOn(store, 'dispatch');
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
 
         const addonManagerOverrides = {
           getAddon: Promise.reject(),
         };
-        render({
+        renderWithCurrentVersion({
           addonManagerOverrides,
         });
         const button = screen.getByText('Add to Firefox');
@@ -1670,16 +1606,12 @@ describe(__filename, () => {
 
       it('dispatches error when addonManager.install throws', async () => {
         const dispatch = jest.spyOn(store, 'dispatch');
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
 
         const addonManagerOverrides = {
           getAddon: Promise.reject(),
           install: jest.fn().mockRejectedValue(new Error('install error')),
         };
-        render({
+        renderWithCurrentVersion({
           addonManagerOverrides,
         });
         const button = screen.getByText('Add to Firefox');
@@ -1703,14 +1635,9 @@ describe(__filename, () => {
 
     describe('uninstall', () => {
       it('calls addonManager.uninstall()', async () => {
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render();
+        renderWithCurrentVersion();
 
         await waitFor(() => {
           expect(screen.getByText('Remove')).toBeInTheDocument();
@@ -1734,14 +1661,9 @@ describe(__filename, () => {
             .mockRejectedValue(new Error('Add-on Manager uninstall error')),
         };
 
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ addonManagerOverrides });
+        renderWithCurrentVersion({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(screen.getByText('Remove')).toBeInTheDocument();
@@ -1766,12 +1688,8 @@ describe(__filename, () => {
 
       it('tracks an addon uninstall', async () => {
         const fakeTracking = createFakeTrackingWithJest();
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
 
-        render({
+        renderWithCurrentVersion({
           _tracking: fakeTracking,
         });
 
@@ -1831,12 +1749,7 @@ describe(__filename, () => {
       it('tracks a unknown type uninstall', async () => {
         const fakeTracking = createFakeTrackingWithJest();
 
-        _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
-        });
-
-        render({
+        renderWithCurrentVersion({
           addon: createInternalAddonWithLang({
             ...fakeAddon,
             type: INVALID_TYPE,
