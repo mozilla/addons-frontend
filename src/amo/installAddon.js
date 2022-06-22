@@ -276,11 +276,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       this.props;
 
     invariant(addon, 'need an addon to call install()');
-
-    if (!currentVersion) {
-      _log.debug('no currentVersion found, aborting install().');
-      return Promise.resolve();
-    }
+    invariant(currentVersion, 'need a currentVersion to call install()');
 
     const { guid, name, type } = addon;
     const { file } = currentVersion;
