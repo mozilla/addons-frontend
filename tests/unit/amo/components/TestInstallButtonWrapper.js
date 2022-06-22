@@ -57,7 +57,7 @@ import tracking, {
   getAddonEventCategory,
 } from 'amo/tracking';
 import {
-  createFakeTrackingWithJest,
+  createFakeTracking,
   createInternalAddonWithLang,
   createInternalVersionWithLang,
   dispatchClientMetadata,
@@ -991,7 +991,7 @@ describe(__filename, () => {
     describe('makeProgressHandler', () => {
       const createProgressHandler = (props = {}) => {
         return makeProgressHandler({
-          _tracking: createFakeTrackingWithJest(),
+          _tracking: createFakeTracking(),
           dispatch: jest.fn(),
           guid: 'some-guid',
           name: 'some-name',
@@ -1017,7 +1017,7 @@ describe(__filename, () => {
       });
 
       it('sets status to error on onDownloadFailed', () => {
-        const _tracking = createFakeTrackingWithJest();
+        const _tracking = createFakeTracking();
         const dispatch = jest.fn();
         const guid = '{my-addon}';
         const name = 'my-addon';
@@ -1058,7 +1058,7 @@ describe(__filename, () => {
       });
 
       it('resets status to uninstalled on onInstallCancelled', () => {
-        const _tracking = createFakeTrackingWithJest();
+        const _tracking = createFakeTracking();
         const dispatch = jest.fn();
         const guid = '{my-addon}';
         const name = 'my-addon';
@@ -1097,7 +1097,7 @@ describe(__filename, () => {
       });
 
       it('does nothing on unknown events', () => {
-        const _tracking = createFakeTrackingWithJest();
+        const _tracking = createFakeTracking();
         const dispatch = jest.fn();
         const guid = 'foo@addon';
         const handler = createProgressHandler({ dispatch, guid });
@@ -1108,7 +1108,7 @@ describe(__filename, () => {
       });
 
       it('sets status to error when file appears to be corrupt', () => {
-        const _tracking = createFakeTrackingWithJest();
+        const _tracking = createFakeTracking();
         const dispatch = jest.fn();
         const guid = '{my-addon}';
         const name = 'my-addon';
@@ -1136,7 +1136,7 @@ describe(__filename, () => {
 
     describe('enable', () => {
       it('calls addonManager.enable()', async () => {
-        const fakeTracking = createFakeTrackingWithJest();
+        const fakeTracking = createFakeTracking();
         const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: true,
@@ -1304,7 +1304,7 @@ describe(__filename, () => {
       });
 
       it('tracks the start of an addon install', async () => {
-        const fakeTracking = createFakeTrackingWithJest();
+        const fakeTracking = createFakeTracking();
 
         const addonManagerOverrides = {
           getAddon: Promise.reject(),
@@ -1338,7 +1338,7 @@ describe(__filename, () => {
       });
 
       it('tracks an addon install', async () => {
-        const fakeTracking = createFakeTrackingWithJest();
+        const fakeTracking = createFakeTracking();
 
         const addonManagerOverrides = {
           getAddon: Promise.reject(),
@@ -1374,7 +1374,7 @@ describe(__filename, () => {
       });
 
       it('tracks the start of a static theme install', async () => {
-        const fakeTracking = createFakeTrackingWithJest();
+        const fakeTracking = createFakeTracking();
         addon.type = ADDON_TYPE_STATIC_THEME;
 
         const addonManagerOverrides = {
@@ -1409,7 +1409,7 @@ describe(__filename, () => {
       });
 
       it('tracks a static theme install', async () => {
-        const fakeTracking = createFakeTrackingWithJest();
+        const fakeTracking = createFakeTracking();
         addon.type = ADDON_TYPE_STATIC_THEME;
 
         const addonManagerOverrides = {
@@ -1556,7 +1556,7 @@ describe(__filename, () => {
       });
 
       it('tracks an addon uninstall', async () => {
-        const fakeTracking = createFakeTrackingWithJest();
+        const fakeTracking = createFakeTracking();
 
         renderWithCurrentVersion({
           _tracking: fakeTracking,
@@ -1585,7 +1585,7 @@ describe(__filename, () => {
       });
 
       it('tracks a static theme uninstall', async () => {
-        const fakeTracking = createFakeTrackingWithJest();
+        const fakeTracking = createFakeTracking();
         addon.type = ADDON_TYPE_STATIC_THEME;
 
         renderWithCurrentVersion({
@@ -1615,7 +1615,7 @@ describe(__filename, () => {
       });
 
       it('tracks a unknown type uninstall', async () => {
-        const fakeTracking = createFakeTrackingWithJest();
+        const fakeTracking = createFakeTracking();
         addon.type = INVALID_TYPE;
 
         renderWithCurrentVersion({

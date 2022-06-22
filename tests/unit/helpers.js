@@ -5,7 +5,6 @@ import { LOCATION_CHANGE, ConnectedRouter } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import config from 'config';
 import invariant from 'invariant';
-import { shallow } from 'enzyme';
 import Jed from 'jed';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
@@ -955,52 +954,6 @@ export function apiResponsePage({
   };
 }
 
-/*
- * Repeatedly render a component tree using enzyme.shallow() until
- * finding and rendering TargetComponent.
- *
- * This is useful for testing a component wrapped in one or more
- * HOCs (higher order components).
- *
- * The `componentInstance` parameter is a React component instance.
- * Example: <MyComponent {...props} />
- *
- * The `TargetComponent` parameter is the React class (or function) that
- * you want to retrieve from the component tree.
- */
-export function shallowUntilTarget(
-  componentInstance,
-  TargetComponent,
-  { maxTries = 12, shallowOptions, _shallow = shallow } = {},
-) {
-  if (!componentInstance) {
-    throw new Error('componentInstance parameter is required');
-  }
-  if (!TargetComponent) {
-    throw new Error('TargetComponent parameter is required');
-  }
-
-  let root = _shallow(componentInstance, shallowOptions);
-
-  if (typeof root.type() === 'string') {
-    // If type() is a string then it's a DOM Node.
-    // If it were wrapped, it would be a React component.
-    throw new Error('Cannot unwrap this component because it is not wrapped');
-  }
-
-  for (let tries = 1; tries <= maxTries; tries++) {
-    if (root.is(TargetComponent)) {
-      // Now that we found the target component, render it.
-      return root.shallow(shallowOptions);
-    }
-    // Unwrap the next component in the hierarchy.
-    root = root.dive();
-  }
-
-  throw new Error(oneLine`Could not find ${TargetComponent} in rendered
-    instance: ${componentInstance}; gave up after ${maxTries} tries`);
-}
-
 export function createFakeEvent(extraProps = {}) {
   return {
     currentTarget: sinon.stub(),
@@ -1212,39 +1165,6 @@ export const createContextWithFakeRouter = ({
   };
 };
 
-/*
- * Simulate how a component you depend on will invoke a callback.
- *
- * The return value is an executable callback that you can call
- * with the necessary arguments.
- *
- * type SimulateComponentCallbackParams = {|
- *   // This is the root of your parent component (an enzyme wrapper object).
- *   root: Object,
- *   // This is the component class you want to simulate.
- *   Component: React.Node,
- *   // This is the property name for the callback.
- *   propName: string,
- * |};
- */
-export const simulateComponentCallback = ({ Component, root, propName }) => {
-  const component = root.find(Component);
-  expect(component).toHaveProp(propName);
-
-  const callback = component.prop(propName);
-  expect(typeof callback).toEqual('function');
-
-  return (...args) => {
-    const result = callback(...args);
-
-    // Since the component might call setState() and that would happen
-    // outside of a standard React lifestyle hook, we have to re-render.
-    root.update();
-
-    return result;
-  };
-};
-
 export const createUserNotificationsResponse = () => {
   return [
     {
@@ -1302,16 +1222,6 @@ export function fakeCookies(overrides = {}) {
 }
 
 export const createFakeTracking = (overrides = {}) => {
-  return {
-    pageView: sinon.stub(),
-    sendEvent: sinon.stub(),
-    setDimension: sinon.stub(),
-    setPage: sinon.stub(),
-    ...overrides,
-  };
-};
-
-export const createFakeTrackingWithJest = (overrides = {}) => {
   return {
     pageView: jest.fn(),
     sendEvent: jest.fn(),

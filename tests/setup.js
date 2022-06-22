@@ -3,21 +3,10 @@ import { setImmediate } from 'timers';
 import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 
-// Side-effects from imports are quite unfortunate but this is required
-// to get all of the cool jest + enzyme integration for calls like:
-// `expect(shallow(<Component />)).toIncludeText('Foo');`.
-// See: github.com/mozilla/addons-frontend/pull/2540#discussion_r120926107
-import 'jest-enzyme';
-
-// We need this to happen second to override enzymes matchers.
 import '@testing-library/jest-dom/extend-expect';
 
 import 'amo/polyfill';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 // setImmediate is required by Express in server tests.
 // Being a Node.js API, it is not available for `testEnvironment: 'jsdom'`.

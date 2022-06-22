@@ -32,7 +32,7 @@ import {
   DEFAULT_LANG_IN_TESTS,
   createExperimentData,
   createFakeLocalStorage,
-  createFakeTrackingWithJest,
+  createFakeTracking,
   createHistory,
   dispatchClientMetadata,
   fakeAddon,
@@ -85,7 +85,7 @@ describe(__filename, () => {
     return defaultRender(
       <Route path="/:lang/:application(firefox|android)/addon/:slug/">
         <VPNPromoBanner
-          _tracking={createFakeTrackingWithJest()}
+          _tracking={createFakeTracking()}
           _localStorage={createFakeLocalStorage()}
           cookies={createCookies()}
           variant={variant}
@@ -266,7 +266,7 @@ describe(__filename, () => {
       const _localStorage = createFakeLocalStorage({
         getItem: jest.fn().mockReturnValue(impressionCount),
       });
-      const _tracking = createFakeTrackingWithJest();
+      const _tracking = createFakeTracking();
       render({ _tracking, _localStorage });
       clickCta();
 
@@ -284,7 +284,7 @@ describe(__filename, () => {
       const _localStorage = createFakeLocalStorage({
         getItem: jest.fn().mockReturnValue(impressionCount),
       });
-      const _tracking = createFakeTrackingWithJest();
+      const _tracking = createFakeTracking();
       render({ _tracking, _localStorage });
       clickDismiss();
 
@@ -303,7 +303,7 @@ describe(__filename, () => {
       const _localStorage = createFakeLocalStorage({
         getItem: jest.fn().mockReturnValue(impressionCount),
       });
-      const _tracking = createFakeTrackingWithJest();
+      const _tracking = createFakeTracking();
       render({ _tracking, _localStorage });
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
@@ -321,7 +321,7 @@ describe(__filename, () => {
     it.each([VARIANT_HIDE, NOT_IN_EXPERIMENT, null])(
       'does not send a tracking event for the impression on mount when the variant is %s',
       (variant) => {
-        const _tracking = createFakeTrackingWithJest();
+        const _tracking = createFakeTracking();
         render({ _tracking, variant });
 
         expect(_tracking.sendEvent).not.toHaveBeenCalled();
@@ -329,14 +329,14 @@ describe(__filename, () => {
     );
 
     it('does not send a tracking event for the impression on mount when the region should not be included', () => {
-      const _tracking = createFakeTrackingWithJest();
+      const _tracking = createFakeTracking();
       render({ _tracking, regionCode: 'CN' });
 
       expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
 
     it('does not send a tracking event for the impression on mount on android', () => {
-      const _tracking = createFakeTrackingWithJest();
+      const _tracking = createFakeTracking();
       render({ _tracking, clientApp: CLIENT_APP_ANDROID });
 
       expect(_tracking.sendEvent).not.toHaveBeenCalled();
@@ -348,7 +348,7 @@ describe(__filename, () => {
       const _localStorage = createFakeLocalStorage({
         getItem: jest.fn().mockReturnValue(impressionCount),
       });
-      const _tracking = createFakeTrackingWithJest();
+      const _tracking = createFakeTracking();
       render({ _tracking, _localStorage });
 
       // Reset as the on mount impression would have been called.
@@ -376,7 +376,7 @@ describe(__filename, () => {
     it.each([VARIANT_HIDE, NOT_IN_EXPERIMENT, null])(
       'does not send a tracking event for the impression on update when the variant is %s',
       (variant) => {
-        const _tracking = createFakeTrackingWithJest();
+        const _tracking = createFakeTracking();
         render({ _tracking, variant });
 
         store.dispatch(
@@ -390,7 +390,7 @@ describe(__filename, () => {
     );
 
     it('does not send a tracking event for the impression on update when the region should not be included', () => {
-      const _tracking = createFakeTrackingWithJest();
+      const _tracking = createFakeTracking();
       render({ _tracking, regionCode: 'CN' });
 
       store.dispatch(
@@ -403,7 +403,7 @@ describe(__filename, () => {
     });
 
     it('does not send a tracking event for the impression on update on android', () => {
-      const _tracking = createFakeTrackingWithJest();
+      const _tracking = createFakeTracking();
       render({
         _tracking,
         clientApp: CLIENT_APP_ANDROID,
@@ -419,7 +419,7 @@ describe(__filename, () => {
     });
 
     it('does not send a tracking event for the impression on update if location has not changed', () => {
-      const _tracking = createFakeTrackingWithJest();
+      const _tracking = createFakeTracking();
       const location = `/en-US/firefox/addon/${slug}/`;
       render({ _tracking, location });
 

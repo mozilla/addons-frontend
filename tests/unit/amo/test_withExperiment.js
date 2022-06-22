@@ -14,7 +14,7 @@ import {
 import * as defaultConfig from 'config/default';
 import {
   createExperimentData,
-  createFakeTrackingWithJest,
+  createFakeTracking,
   dispatchClientMetadata,
   fakeCookies,
   getFakeConfig,
@@ -43,7 +43,7 @@ describe(__filename, () => {
   };
 
   const render = ({
-    _tracking = createFakeTrackingWithJest(),
+    _tracking = createFakeTracking(),
     configOverrides = {},
     cookies = fakeCookies(),
     experimentProps,
@@ -525,7 +525,7 @@ describe(__filename, () => {
         .mockReturnValue(createExperimentData({ id: anotherExperimentId })),
     });
     const _getVariant = jest.fn().mockReturnValue(variantId);
-    const _tracking = createFakeTrackingWithJest();
+    const _tracking = createFakeTracking();
 
     render({
       _tracking,
@@ -548,7 +548,7 @@ describe(__filename, () => {
     const cookies = fakeCookies({
       get: jest.fn().mockReturnValue(createExperimentData({ id })),
     });
-    const _tracking = createFakeTrackingWithJest();
+    const _tracking = createFakeTracking();
 
     render({
       _tracking,
@@ -569,7 +569,7 @@ describe(__filename, () => {
         [id]: false,
       },
     };
-    const _tracking = createFakeTrackingWithJest();
+    const _tracking = createFakeTracking();
 
     render({
       _tracking,
