@@ -114,13 +114,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   };
 
   showLoadingAnimation(): boolean {
-    const { addon, status } = this.props;
-
-    if (ADDON_TYPE_STATIC_THEME === addon.type && status === INSTALLED) {
-      // We have to enable a static theme after having installed it, so we keep
-      // the animation visible to avoid flickering.
-      return true;
-    }
+    const { status } = this.props;
 
     return [
       DISABLING,

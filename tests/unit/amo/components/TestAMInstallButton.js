@@ -257,27 +257,6 @@ describe(__filename, () => {
     },
   );
 
-  it('renders an Icon when add-on is a static theme and status is INSTALLED', () => {
-    render({
-      addon: createInternalAddonWithLang({
-        ...fakeTheme,
-        type: ADDON_TYPE_STATIC_THEME,
-      }),
-      status: INSTALLED,
-    });
-
-    expect(
-      screen.queryByClassName('AMInstallButton-button'),
-    ).not.toBeInTheDocument();
-    expect(
-      screen.getByClassName('AMInstallButton-loading-button'),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByClassName('AMInstallButton-loader-container'),
-    ).toBeInTheDocument();
-    expect(screen.getByText('Remove')).toHaveClass('visually-hidden');
-  });
-
   it.each([
     [DOWNLOADING, 'Downloading'],
     [ENABLING, 'Enabling'],
