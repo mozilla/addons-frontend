@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-06-14 17:25+0000\n"
-"PO-Revision-Date: 2022-06-22 07:10+0000\n"
+"PO-Revision-Date: 2022-06-22 07:11+0000\n"
 "Last-Translator: Bjørn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1667,7 +1667,7 @@ msgstr "Søkjer etter tillegg"
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s utvideingar funne for «%(query)s» med etiketten %(tag)s i %(categoryName)s"
+msgstr[0] "%(count)s utvidingar funne for «%(query)s» med etiketten %(tag)s i %(categoryName)s"
 msgstr[1] "%(count)s utvidingar funne for \"%(query)s\" med etiketten %(tag)s i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
@@ -1677,11 +1677,10 @@ msgstr[0] "%(count)s utviding funne for \"%(query)s\" i %(categoryName)s"
 msgstr[1] "%(count)s utvidingar funne for \"%(query)s\" i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "%(count)s extension found with tag %(tag)s in %(categoryName)s"
 msgid_plural "%(count)s extensions found with tag %(tag)s in %(categoryName)s"
-msgstr[0] "%(count)s tillegg funne i \"%(categoryName)s\""
-msgstr[1] "%(count)s tillegg funne i \"%(categoryName)s\""
+msgstr[0] "%(count)s utviding funne med etiketten %(tag)s i %(categoryName)s"
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:86
 msgid "%(count)s extension found in %(categoryName)s"
