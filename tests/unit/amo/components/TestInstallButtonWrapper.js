@@ -83,8 +83,11 @@ const INVALID_TYPE = 'not-a-real-type';
 
 describe(__filename, () => {
   let store;
+  let _addonManager;
+  let _getClientCompatibility;
 
   beforeEach(() => {
+    _getClientCompatibility = jest.fn().mockReturnValue({ compatible: true });
     store = dispatchClientMetadata().store;
   });
 
@@ -94,11 +97,21 @@ describe(__filename, () => {
 
   const render = ({
     addon = createInternalAddonWithLang(fakeAddon),
+    addonManagerOverrides = {},
     ...props
   } = {}) => {
-    return defaultRender(<InstallButtonWrapper addon={addon} {...props} />, {
-      store,
-    });
+    _addonManager = getFakeAddonManagerWrapper(addonManagerOverrides);
+    return defaultRender(
+      <InstallButtonWrapper
+        addon={addon}
+        _addonManager={_addonManager}
+        _getClientCompatibility={_getClientCompatibility}
+        {...props}
+      />,
+      {
+        store,
+      },
+    );
   };
 
   const _loadVersions = ({ slug, versions } = {}) => {
@@ -119,56 +132,44 @@ describe(__filename, () => {
   };
 
   it(`calls getClientCompatibility with the add-on's current version if no version is supplied`, () => {
-    const addon = fakeAddon;
-
-    _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+    _loadVersions({
+      slug: fakeAddon.slug,
+      versions: [fakeAddon.current_version],
+    });
 
     const clientApp = CLIENT_APP_FIREFOX;
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
 
     _dispatchClientMetadata({
       clientApp,
     });
 
-    render({
-      _getClientCompatibility,
-      addon: createInternalAddonWithLang(addon),
-    });
+    render();
 
     expect(_getClientCompatibility).toHaveBeenCalledWith({
-      addon: createInternalAddonWithLang(addon),
+      addon: createInternalAddonWithLang(fakeAddon),
       clientApp,
-      currentVersion: createInternalVersionWithLang(addon.current_version),
+      currentVersion: createInternalVersionWithLang(fakeAddon.current_version),
       userAgentInfo: store.getState().api.userAgentInfo,
     });
   });
 
   it(`calls getClientCompatibility with a specific version if supplied`, () => {
-    const slug = 'some-slug';
-    const addon = { ...fakeAddon, slug };
     const version = { ...fakeVersion, id: fakeVersion.id + 1 };
 
-    _loadVersions({ slug, versions: [version] });
+    _loadVersions({ slug: fakeAddon.slug, versions: [version] });
 
     const clientApp = CLIENT_APP_FIREFOX;
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
 
     _dispatchClientMetadata({
       clientApp,
     });
 
     render({
-      _getClientCompatibility,
-      addon: createInternalAddonWithLang(addon),
       version: createInternalVersionWithLang(version),
     });
 
     expect(_getClientCompatibility).toHaveBeenCalledWith({
-      addon: createInternalAddonWithLang(addon),
+      addon: createInternalAddonWithLang(fakeAddon),
       clientApp,
       currentVersion: createInternalVersionWithLang(version),
       userAgentInfo: store.getState().api.userAgentInfo,
@@ -176,20 +177,14 @@ describe(__filename, () => {
   });
 
   it('does not call getClientCompatibility when the browser is not Firefox', () => {
-    const addon = fakeAddon;
-
     const clientApp = CLIENT_APP_FIREFOX;
-    const _getClientCompatibility = jest.fn();
 
     _dispatchClientMetadata({
       clientApp,
       userAgent: userAgentsByPlatform.mac.chrome41,
     });
 
-    render({
-      _getClientCompatibility,
-      addon: createInternalAddonWithLang(addon),
-    });
+    render();
 
     expect(_getClientCompatibility).not.toHaveBeenCalled();
   });
@@ -197,14 +192,12 @@ describe(__filename, () => {
   it.each(['unknown reason', INCOMPATIBLE_UNDER_MIN_VERSION])(
     'hides the install button and shows the download button for an incompatible addon when the reason is %s',
     (reason) => {
-      const slug = 'some-slug';
-      const addon = { ...fakeAddon, slug };
       const version = { ...fakeVersion, id: fakeVersion.id + 1 };
 
-      _loadVersions({ slug, versions: [version] });
+      _loadVersions({ slug: fakeAddon.slug, versions: [version] });
 
       const clientApp = CLIENT_APP_FIREFOX;
-      const _getClientCompatibility = jest.fn().mockReturnValue({
+      _getClientCompatibility = jest.fn().mockReturnValue({
         compatible: false,
         reason,
       });
@@ -214,8 +207,6 @@ describe(__filename, () => {
       });
 
       render({
-        _getClientCompatibility,
-        addon: createInternalAddonWithLang(addon),
         version: createInternalVersionWithLang(version),
       });
 
@@ -237,14 +228,12 @@ describe(__filename, () => {
   ])(
     'hides the download button and shows the install button for an incompatible addon when the reason is %s',
     (reason) => {
-      const slug = 'some-slug';
-      const addon = { ...fakeAddon, slug };
       const version = { ...fakeVersion, id: fakeVersion.id + 1 };
 
-      _loadVersions({ slug, versions: [version] });
+      _loadVersions({ slug: fakeAddon.slug, versions: [version] });
 
       const clientApp = CLIENT_APP_FIREFOX;
-      const _getClientCompatibility = jest.fn().mockReturnValue({
+      _getClientCompatibility = jest.fn().mockReturnValue({
         compatible: false,
         reason,
       });
@@ -252,8 +241,6 @@ describe(__filename, () => {
       _dispatchClientMetadata({ clientApp });
 
       render({
-        _getClientCompatibility,
-        addon: createInternalAddonWithLang(addon),
         version: createInternalVersionWithLang(version),
       });
 
@@ -277,10 +264,7 @@ describe(__filename, () => {
   });
 
   it('passes an add-on to AMInstallButton', () => {
-    const addon = createInternalAddonWithLang({
-      ...fakeAddon,
-      type: ADDON_TYPE_STATIC_THEME,
-    });
+    const addon = createInternalAddonWithLang(fakeTheme);
 
     render({ addon });
 
@@ -290,9 +274,7 @@ describe(__filename, () => {
   });
 
   it('passes a null currentVersion to AMInstallButton when no version is loaded', () => {
-    const addon = createInternalAddonWithLang(fakeAddon);
-
-    render({ addon });
+    render();
 
     const button = screen.getByRole('button', { name: 'Add to Firefox' });
     expect(button).toHaveAttribute('disabled');
@@ -300,27 +282,19 @@ describe(__filename, () => {
   });
 
   it('passes a currentVersion to AMInstallButton when one is loaded', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
+    _loadVersions({
+      slug: fakeAddon.slug,
+      versions: [fakeAddon.current_version],
     });
-    const addon = fakeAddon;
 
-    _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
-
-    render({
-      _getClientCompatibility,
-      addon: createInternalAddonWithLang(addon),
-    });
+    render();
 
     expect(
       screen.getByRole('link', { name: 'Add to Firefox' }),
-    ).toHaveAttribute('href', addon.current_version.url);
+    ).toHaveAttribute('href', fakeAddon.current_version.url);
   });
 
   it('passes a currentVersion to AMInstallButton when one is specified', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
     const url = 'https://some/url';
     const version = createInternalVersionWithLang({
       ...fakeVersion,
@@ -329,8 +303,6 @@ describe(__filename, () => {
     });
 
     render({
-      _getClientCompatibility,
-      addon: createInternalAddonWithLang(fakeAddon),
       version,
     });
 
@@ -339,17 +311,10 @@ describe(__filename, () => {
     ).toHaveAttribute('href', url);
   });
 
-  it('passes disabled to AMInstallButton based on what is returned from _getClientCompatibility', () => {
-    const addon = fakeAddon;
-
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
-
+  it('passes disabled to AMInstallButton based on what is returned from _getClientCompatibility', async () => {
     render({
-      _getClientCompatibility,
-      addon: createInternalAddonWithLang(addon),
       version: createInternalVersionWithLang(fakeVersion),
+      addonManagerOverrides: { hasAddonManager: false },
     });
 
     expect(
@@ -358,24 +323,17 @@ describe(__filename, () => {
   });
 
   it('passes the expected status to AMInstallButton when the add-on is installed', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
-
-    const addon = fakeAddon;
-
     store.dispatch(
       setInstallState({
         ...fakeInstalledAddon,
-        guid: addon.guid,
+        guid: fakeAddon.guid,
         status: INSTALLED,
       }),
     );
 
     render({
-      _getClientCompatibility,
-      addon: createInternalAddonWithLang(addon),
       version: createInternalVersionWithLang(fakeVersion),
+      addonManagerOverrides: { hasAddonManager: false },
     });
 
     expect(screen.getByRole('link', { name: 'Remove' })).not.toHaveAttribute(
@@ -384,24 +342,17 @@ describe(__filename, () => {
   });
 
   it('passes the canUninstall prop from the installation state to AMInstallButton', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
-
-    const addon = fakeAddon;
     const canUninstall = true;
 
     store.dispatch(
       setInstallState({
         ...fakeInstalledAddon,
-        guid: addon.guid,
+        guid: fakeAddon.guid,
         canUninstall,
       }),
     );
 
     render({
-      _getClientCompatibility,
-      addon: createInternalAddonWithLang(addon),
       version: createInternalVersionWithLang(fakeVersion),
     });
 
@@ -422,8 +373,7 @@ describe(__filename, () => {
     _dispatchClientMetadata({
       userAgent: userAgentsByPlatform.mac.chrome41,
     });
-    const addon = createInternalAddonWithLang(fakeAddon);
-    const encodedGUID = encode(addon.guid);
+    const encodedGUID = encode(fakeAddon.guid);
     const expectedHref = [
       'https://www.mozilla.org/firefox/download/thanks/?s=direct',
       'utm_campaign=amo-fx-cta-1234',
@@ -432,7 +382,7 @@ describe(__filename, () => {
       'utm_source=addons.mozilla.org',
     ].join('&');
 
-    render({ addon });
+    render();
 
     expect(
       screen.getByRole('link', { name: 'Download Firefox' }),
@@ -461,12 +411,10 @@ describe(__filename, () => {
   });
 
   it('displays a download link when the browser is not compatible', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
+    _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: false,
     });
-
     render({
-      _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
@@ -476,12 +424,7 @@ describe(__filename, () => {
   });
 
   it('does not display a download link when the browser is compatible and showLinkInsteadOfButton is false', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
-
     render({
-      _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
       showLinkInsteadOfButton: false,
     });
@@ -492,12 +435,7 @@ describe(__filename, () => {
   });
 
   it('displays a download link when the browser is compatible and showLinkInsteadOfButton is true', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
-
     render({
-      _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
       showLinkInsteadOfButton: true,
     });
@@ -508,12 +446,7 @@ describe(__filename, () => {
   });
 
   it('does not display a button when the browser is compatible and showLinkInsteadOfButton is true', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
-
     render({
-      _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
       showLinkInsteadOfButton: true,
     });
@@ -522,12 +455,7 @@ describe(__filename, () => {
   });
 
   it('adds a special classname when no download link is displayed', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
-      compatible: true,
-    });
-
     render({
-      _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
@@ -537,13 +465,12 @@ describe(__filename, () => {
   });
 
   it('does not add a special classname when a download link is displayed', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
+    _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: false,
       reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
     });
 
     render({
-      _getClientCompatibility,
       version: createInternalVersionWithLang(fakeAddon.current_version),
     });
 
@@ -553,13 +480,12 @@ describe(__filename, () => {
   });
 
   it('uses the file url in the download link', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
+    _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: false,
     });
     const fileURL = 'https://addons.mozilla.org/files/addon.xpi';
 
     render({
-      _getClientCompatibility,
       version: createInternalVersionWithLang({
         ...fakeAddon.current_version,
         file: { ...fakeFile, url: fileURL },
@@ -573,10 +499,10 @@ describe(__filename, () => {
   });
 
   it('does not display a download link when there is no currentVersion', () => {
-    const _getClientCompatibility = jest.fn().mockReturnValue({
+    _getClientCompatibility = jest.fn().mockReturnValue({
       compatible: false,
     });
-    render({ _getClientCompatibility, version: null });
+    render({ version: null });
 
     expect(
       screen.queryByRole('link', { name: 'Download file' }),
@@ -590,7 +516,7 @@ describe(__filename, () => {
       });
 
     const renderAsIncompatible = (props = {}) => {
-      const _getClientCompatibility = jest.fn().mockReturnValue({
+      _getClientCompatibility = jest.fn().mockReturnValue({
         compatible: false,
         reason: INCOMPATIBLE_UNDER_MIN_VERSION,
       });
@@ -598,7 +524,7 @@ describe(__filename, () => {
         clientApp: CLIENT_APP_FIREFOX,
         userAgent: userAgents.firefox[0],
       });
-      return render({ _getClientCompatibility, ...props });
+      return render({ ...props });
     };
 
     describe('On firefox', () => {
@@ -661,9 +587,7 @@ describe(__filename, () => {
       it('has the expected button text when client is Android', () => {
         // The default clientApp is `CLIENT_APP_ANDROID`.
         _dispatchClientMetadata({ userAgent: userAgents.chrome[0] });
-        render({
-          addon: createInternalAddonWithLang(fakeAddon),
-        });
+        render();
 
         expect(
           screen.getByRole('link', { name: 'Download Firefox' }),
@@ -671,9 +595,7 @@ describe(__filename, () => {
       });
 
       it('has the expected button text for an extension', () => {
-        render({
-          addon: createInternalAddonWithLang(fakeAddon),
-        });
+        render();
 
         expect(
           screen.getByRole('link', {
@@ -695,9 +617,7 @@ describe(__filename, () => {
       });
 
       it('has the expected button text for an extension, which is incompatible', () => {
-        renderAsIncompatible({
-          addon: createInternalAddonWithLang(fakeAddon),
-        });
+        renderAsIncompatible();
 
         expect(
           screen.getByRole('link', {
@@ -719,9 +639,7 @@ describe(__filename, () => {
       });
 
       it('has the expected callout text for an extension', () => {
-        render({
-          addon: createInternalAddonWithLang(fakeAddon),
-        });
+        render();
 
         expect(
           screen.getByText(`You'll need Firefox to use this extension`),
@@ -729,9 +647,7 @@ describe(__filename, () => {
       });
 
       it('has the expected callout text for an extension, which is incompatible', () => {
-        renderAsIncompatible({
-          addon: createInternalAddonWithLang(fakeAddon),
-        });
+        renderAsIncompatible();
 
         expect(
           screen.getByText(
@@ -763,9 +679,7 @@ describe(__filename, () => {
       });
 
       it('sends a tracking event when the button is clicked', () => {
-        const guid = 'some-guid';
-        const addon = createInternalAddonWithLang({ ...fakeAddon, guid });
-        render({ addon });
+        render();
 
         userEvent.click(getFirefoxButton());
 
@@ -773,7 +687,7 @@ describe(__filename, () => {
         expect(tracking.sendEvent).toHaveBeenCalledWith({
           action: GET_FIREFOX_BUTTON_CLICK_ACTION,
           category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-          label: guid,
+          label: fakeAddon.guid,
         });
       });
     });
@@ -875,40 +789,33 @@ describe(__filename, () => {
 
   describe('Tests for withInstallHelpers', () => {
     it('calls getAddon() when the component is rendered', () => {
-      const addon = fakeAddon;
-      _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+      _loadVersions({
+        slug: fakeAddon.slug,
+        versions: [fakeAddon.current_version],
+      });
 
-      const _addonManager = getFakeAddonManagerWrapper();
+      render();
 
-      render({ _addonManager });
-
-      expect(_addonManager.getAddon).toHaveBeenCalledWith(addon.guid);
+      expect(_addonManager.getAddon).toHaveBeenCalledWith(fakeAddon.guid);
     });
 
     it('does not call getAddon() if we do not have an addonManager', () => {
-      const addon = fakeAddon;
-      _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
-
-      const _addonManager = getFakeAddonManagerWrapper({
-        hasAddonManager: false,
+      _loadVersions({
+        slug: fakeAddon.slug,
+        versions: [fakeAddon.current_version],
       });
 
-      render({ _addonManager });
+      render({ addonManagerOverrides: { hasAddonManager: false } });
 
       expect(_addonManager.getAddon).not.toHaveBeenCalled();
     });
 
     it('does not call getAddon() if we do not have an addon', () => {
-      const _addonManager = getFakeAddonManagerWrapper();
-
-      render({ _addonManager, addon: null });
+      render({ addon: null });
 
       expect(_addonManager.getAddon).not.toHaveBeenCalled();
 
-      // Basic expectation proving rendering didn't fail
-      expect(screen.getByTagName('div')).toBeInTheDocument();
-
-      // We didn't render a proper install button wrapper though.
+      // We didn't render a proper install button wrapper.
       expect(
         screen.queryByClassName('InstallButtonWrapper'),
       ).not.toBeInTheDocument();
@@ -916,15 +823,16 @@ describe(__filename, () => {
 
     describe('setCurrentStatus', () => {
       it('sets the status to ENABLED when an extension is enabled', async () => {
-        const addon = fakeAddon;
-        const installURL = addon.current_version.file.url;
-        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const installURL = fakeAddon.current_version.file.url;
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager });
+        render();
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -933,7 +841,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: addon.guid,
+            guid: fakeAddon.guid,
             status: ENABLED,
             url: installURL,
           }),
@@ -941,20 +849,22 @@ describe(__filename, () => {
       });
 
       it('sets the status to DISABLED when an extension is disabled', async () => {
-        const addon = fakeAddon;
-        const installURL = addon.current_version.file.url;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const installURL = fakeAddon.current_version.file.url;
+        const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: true,
             isEnabled: false,
           }),
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager });
+        render({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -963,7 +873,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: addon.guid,
+            guid: fakeAddon.guid,
             status: DISABLED,
             url: installURL,
           }),
@@ -971,20 +881,22 @@ describe(__filename, () => {
       });
 
       it('sets the status to DISABLED when an extension is disabled and inactive', async () => {
-        const addon = fakeAddon;
-        const installURL = addon.current_version.file.url;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const installURL = fakeAddon.current_version.file.url;
+        const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: false,
             isEnabled: false,
           }),
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager });
+        render({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -993,7 +905,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: addon.guid,
+            guid: fakeAddon.guid,
             status: DISABLED,
             url: installURL,
           }),
@@ -1001,20 +913,22 @@ describe(__filename, () => {
       });
 
       it('sets the status to INACTIVE when an extension is enabled but inactive', async () => {
-        const addon = fakeAddon;
-        const installURL = addon.current_version.file.url;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const installURL = fakeAddon.current_version.file.url;
+        const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: false,
             isEnabled: true,
           }),
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager });
+        render({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -1023,7 +937,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: addon.guid,
+            guid: fakeAddon.guid,
             status: INACTIVE,
             url: installURL,
           }),
@@ -1031,22 +945,24 @@ describe(__filename, () => {
       });
 
       it('sets the status to ENABLED when a theme is enabled', async () => {
-        const addon = fakeTheme;
-        const installURL = addon.current_version.file.url;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const installURL = fakeTheme.current_version.file.url;
+        const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: true,
             isEnabled: true,
           }),
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeTheme.slug,
+          versions: [fakeTheme.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
         render({
-          _addonManager: fakeAddonManager,
-          addon: createInternalAddonWithLang(addon),
+          addonManagerOverrides,
+          addon: createInternalAddonWithLang(fakeTheme),
         });
 
         await waitFor(() => {
@@ -1056,7 +972,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: addon.guid,
+            guid: fakeTheme.guid,
             status: ENABLED,
             url: installURL,
           }),
@@ -1064,22 +980,24 @@ describe(__filename, () => {
       });
 
       it('sets the status to DISABLED when a theme is enabled but inactive', async () => {
-        const addon = fakeTheme;
-        const installURL = addon.current_version.file.url;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const installURL = fakeTheme.current_version.file.url;
+        const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: false,
             isEnabled: true,
           }),
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeTheme.slug,
+          versions: [fakeTheme.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
         render({
-          _addonManager: fakeAddonManager,
-          addon: createInternalAddonWithLang(addon),
+          addonManagerOverrides,
+          addon: createInternalAddonWithLang(fakeTheme),
         });
 
         await waitFor(() => {
@@ -1089,7 +1007,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: addon.guid,
+            guid: fakeTheme.guid,
             status: DISABLED,
             url: installURL,
           }),
@@ -1097,22 +1015,24 @@ describe(__filename, () => {
       });
 
       it('sets the status to DISABLED when a theme is disabled', async () => {
-        const addon = fakeTheme;
-        const installURL = addon.current_version.file.url;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const installURL = fakeTheme.current_version.file.url;
+        const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: true,
             isEnabled: false,
           }),
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeTheme.slug,
+          versions: [fakeTheme.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
         render({
-          _addonManager: fakeAddonManager,
-          addon: createInternalAddonWithLang(addon),
+          addonManagerOverrides,
+          addon: createInternalAddonWithLang(fakeTheme),
         });
 
         await waitFor(() => {
@@ -1122,7 +1042,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: addon.guid,
+            guid: fakeTheme.guid,
             status: DISABLED,
             url: installURL,
           }),
@@ -1130,17 +1050,19 @@ describe(__filename, () => {
       });
 
       it('sets the status to UNINSTALLED when an extension is not found', async () => {
-        const addon = fakeAddon;
-        const installURL = addon.current_version.file.url;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const installURL = fakeAddon.current_version.file.url;
+        const addonManagerOverrides = {
           getAddon: Promise.reject(),
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager });
+        render({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -1149,7 +1071,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: addon.guid,
+            guid: fakeAddon.guid,
             status: UNINSTALLED,
             url: installURL,
           }),
@@ -1157,17 +1079,19 @@ describe(__filename, () => {
       });
 
       it('dispatches error when setCurrentStatus gets exception', async () => {
-        const addon = fakeAddon;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           // Resolve a null addon which will trigger an exception.
           getAddon: Promise.resolve(null),
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager });
+        render({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -1175,7 +1099,7 @@ describe(__filename, () => {
 
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
-            guid: addon.guid,
+            guid: fakeAddon.guid,
             status: ERROR,
             error: FATAL_ERROR,
           }),
@@ -1184,11 +1108,10 @@ describe(__filename, () => {
 
       it('does nothing when addon is `null`', () => {
         const _log = getFakeLogger();
-        const fakeAddonManager = getFakeAddonManagerWrapper();
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager, _log, addon: null });
+        render({ _log, addon: null });
 
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(_log.debug).toHaveBeenCalledWith(
@@ -1198,11 +1121,10 @@ describe(__filename, () => {
 
       it('does nothing when currentVersion is `null`', () => {
         const _log = getFakeLogger();
-        const fakeAddonManager = getFakeAddonManagerWrapper();
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager, _log });
+        render({ _log });
 
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(_log.debug).toHaveBeenCalledWith(
@@ -1211,22 +1133,24 @@ describe(__filename, () => {
       });
 
       it('sets the canUninstall prop', async () => {
-        const addon = fakeAddon;
-        const installURL = addon.current_version.file.url;
+        const installURL = fakeAddon.current_version.file.url;
         const canUninstall = false;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           getAddon: Promise.resolve({
             canUninstall,
             isActive: true,
             isEnabled: true,
           }),
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager });
+        render({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -1235,7 +1159,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall,
-            guid: addon.guid,
+            guid: fakeAddon.guid,
             status: ENABLED,
             url: installURL,
           }),
@@ -1392,21 +1316,17 @@ describe(__filename, () => {
       it('calls addonManager.enable()', async () => {
         const addon = fakeAddon;
         const fakeTracking = createFakeTrackingWithJest();
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: true,
             isEnabled: false,
           }),
-        });
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
+        };
 
         _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
         render({
-          _addonManager: fakeAddonManager,
+          addonManagerOverrides,
           _tracking: fakeTracking,
-          _getClientCompatibility,
         });
 
         await waitFor(() => {
@@ -1416,7 +1336,7 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Enable'));
 
         await waitFor(() => {
-          expect(fakeAddonManager.enable).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
@@ -1428,24 +1348,19 @@ describe(__filename, () => {
 
       it('dispatches a FATAL_ERROR', async () => {
         const addon = fakeAddon;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           enable: jest.fn().mockRejectedValue(new Error('hai')),
           getAddon: Promise.resolve({
             isActive: true,
             isEnabled: false,
           }),
-        });
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
-
+        };
         _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
         render({
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addonManagerOverrides,
         });
 
         await waitFor(() => {
@@ -1455,7 +1370,7 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Enable'));
 
         await waitFor(() => {
-          expect(fakeAddonManager.enable).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(dispatch).toHaveBeenCalledWith(
@@ -1469,7 +1384,7 @@ describe(__filename, () => {
 
       it('does not dispatch a FATAL_ERROR when setEnabled is missing', async () => {
         const addon = fakeAddon;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           enable: jest
             .fn()
             .mockRejectedValue(new Error(SET_ENABLE_NOT_AVAILABLE)),
@@ -1477,18 +1392,13 @@ describe(__filename, () => {
             isActive: true,
             isEnabled: false,
           }),
-        });
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
-
+        };
         _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
         render({
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addonManagerOverrides,
         });
 
         await waitFor(() => {
@@ -1498,7 +1408,7 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Enable'));
 
         await waitFor(() => {
-          expect(fakeAddonManager.enable).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(dispatch).not.toHaveBeenCalledWith(
@@ -1516,17 +1426,12 @@ describe(__filename, () => {
         const addon = fakeAddon;
         _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
-
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           // Simulate the add-on not being installed already.
           getAddon: Promise.reject(),
-        });
+        };
         render({
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addonManagerOverrides,
         });
 
         const button = screen.getByText('Add to Firefox');
@@ -1536,7 +1441,7 @@ describe(__filename, () => {
         userEvent.click(button);
 
         await waitFor(() => {
-          expect(fakeAddonManager.install).toHaveBeenCalledWith(
+          expect(_addonManager.install).toHaveBeenCalledWith(
             addon.current_version.file.url,
             expect.any(Function),
             { hash: addon.current_version.file.hash },
@@ -1550,17 +1455,12 @@ describe(__filename, () => {
         const versionInstallURL = 'https://mysite.com/download-version.xpi';
         _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
-
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           // Simulate the add-on not being installed already.
           getAddon: Promise.reject(),
-        });
+        };
         render({
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addonManagerOverrides,
           version: createInternalVersionWithLang({
             ...fakeVersion,
             file: {
@@ -1578,7 +1478,7 @@ describe(__filename, () => {
         userEvent.click(button);
 
         await waitFor(() => {
-          expect(fakeAddonManager.install).toHaveBeenCalledWith(
+          expect(_addonManager.install).toHaveBeenCalledWith(
             versionInstallURL,
             expect.any(Function),
             { hash: versionHash },
@@ -1591,18 +1491,14 @@ describe(__filename, () => {
         const fakeTracking = createFakeTrackingWithJest();
         _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           getAddon: Promise.reject(),
           // Make the install fail so that we can be sure only
           // the 'start' event gets tracked.
           install: jest.fn().mockRejectedValue(new Error('install error')),
-        });
+        };
         render({
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addonManagerOverrides,
           _tracking: fakeTracking,
         });
         const button = screen.getByText('Add to Firefox');
@@ -1612,7 +1508,7 @@ describe(__filename, () => {
         userEvent.click(button);
 
         await waitFor(() => {
-          expect(fakeAddonManager.install).toHaveBeenCalled();
+          expect(_addonManager.install).toHaveBeenCalled();
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(1);
@@ -1631,15 +1527,11 @@ describe(__filename, () => {
         const fakeTracking = createFakeTrackingWithJest();
         _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           getAddon: Promise.reject(),
-        });
+        };
         render({
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addonManagerOverrides,
           _tracking: fakeTracking,
         });
         const button = screen.getByText('Add to Firefox');
@@ -1649,7 +1541,7 @@ describe(__filename, () => {
         userEvent.click(button);
 
         await waitFor(() => {
-          expect(fakeAddonManager.install).toHaveBeenCalled();
+          expect(_addonManager.install).toHaveBeenCalled();
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2);
@@ -1669,29 +1561,21 @@ describe(__filename, () => {
       });
 
       it('tracks the start of a static theme install', async () => {
-        const addon = createInternalAddonWithLang({
-          ...fakeAddon,
-          type: ADDON_TYPE_STATIC_THEME,
-        });
         const fakeTracking = createFakeTrackingWithJest();
         _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
+          slug: fakeTheme.slug,
+          versions: [fakeTheme.current_version],
         });
 
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           getAddon: Promise.reject(),
           // Make the install fail so that we can be sure only
           // the 'start' event gets tracked.
           install: jest.fn().mockRejectedValue(new Error('install error')),
-        });
+        };
         render({
-          addon,
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addon: createInternalAddonWithLang(fakeTheme),
+          addonManagerOverrides,
           _tracking: fakeTracking,
         });
         const button = screen.getByText('Install Theme');
@@ -1701,7 +1585,7 @@ describe(__filename, () => {
         userEvent.click(button);
 
         await waitFor(() => {
-          expect(fakeAddonManager.install).toHaveBeenCalled();
+          expect(_addonManager.install).toHaveBeenCalled();
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(1);
@@ -1711,31 +1595,23 @@ describe(__filename, () => {
             ADDON_TYPE_STATIC_THEME,
             INSTALL_STARTED_ACTION,
           ),
-          label: addon.guid,
+          label: fakeTheme.guid,
         });
       });
 
       it('tracks a static theme install', async () => {
-        const addon = createInternalAddonWithLang({
-          ...fakeAddon,
-          type: ADDON_TYPE_STATIC_THEME,
-        });
         const fakeTracking = createFakeTrackingWithJest();
         _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
+          slug: fakeTheme.slug,
+          versions: [fakeTheme.current_version],
         });
 
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           getAddon: Promise.reject(),
-        });
+        };
         render({
-          addon,
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addon: createInternalAddonWithLang(fakeTheme),
+          addonManagerOverrides,
           _tracking: fakeTracking,
         });
         const button = screen.getByText('Install Theme');
@@ -1745,7 +1621,7 @@ describe(__filename, () => {
         userEvent.click(button);
 
         await waitFor(() => {
-          expect(fakeAddonManager.install).toHaveBeenCalled();
+          expect(_addonManager.install).toHaveBeenCalled();
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2);
@@ -1755,7 +1631,7 @@ describe(__filename, () => {
             ADDON_TYPE_STATIC_THEME,
             INSTALL_STARTED_ACTION,
           ),
-          label: addon.guid,
+          label: fakeTheme.guid,
         });
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
@@ -1763,24 +1639,22 @@ describe(__filename, () => {
             ADDON_TYPE_STATIC_THEME,
             INSTALL_ACTION,
           ),
-          label: addon.guid,
+          label: fakeTheme.guid,
         });
       });
 
       it('should dispatch START_DOWNLOAD', async () => {
-        const addon = fakeAddon;
         const dispatch = jest.spyOn(store, 'dispatch');
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
 
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           getAddon: Promise.reject(),
-        });
+        };
         render({
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addonManagerOverrides,
         });
         const button = screen.getByText('Add to Firefox');
 
@@ -1790,25 +1664,23 @@ describe(__filename, () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           type: START_DOWNLOAD,
-          payload: { guid: addon.guid },
+          payload: { guid: fakeAddon.guid },
         });
       });
 
       it('dispatches error when addonManager.install throws', async () => {
-        const addon = fakeAddon;
         const dispatch = jest.spyOn(store, 'dispatch');
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
-
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
         });
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+
+        const addonManagerOverrides = {
           getAddon: Promise.reject(),
           install: jest.fn().mockRejectedValue(new Error('install error')),
-        });
+        };
         render({
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addonManagerOverrides,
         });
         const button = screen.getByText('Add to Firefox');
 
@@ -1817,13 +1689,13 @@ describe(__filename, () => {
         userEvent.click(button);
 
         await waitFor(() => {
-          expect(fakeAddonManager.install).toHaveBeenCalled();
+          expect(_addonManager.install).toHaveBeenCalled();
         });
 
         expect(dispatch).toHaveBeenCalledWith(
           setInstallError({
             error: FATAL_INSTALL_ERROR,
-            guid: addon.guid,
+            guid: fakeAddon.guid,
           }),
         );
       });
@@ -1831,17 +1703,14 @@ describe(__filename, () => {
 
     describe('uninstall', () => {
       it('calls addonManager.uninstall()', async () => {
-        const addon = fakeAddon;
-        const fakeAddonManager = getFakeAddonManagerWrapper();
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
         });
-
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager, _getClientCompatibility });
+        render();
 
         await waitFor(() => {
           expect(screen.getByText('Remove')).toBeInTheDocument();
@@ -1850,30 +1719,29 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Remove'));
 
         await waitFor(() => {
-          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
         });
 
         expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
+          setInstallState({ guid: fakeAddon.guid, status: UNINSTALLING }),
         );
       });
 
       it('dispatches error when addonManager.uninstall throws', async () => {
-        const addon = fakeAddon;
-        const fakeAddonManager = getFakeAddonManagerWrapper({
+        const addonManagerOverrides = {
           uninstall: jest
             .fn()
             .mockRejectedValue(new Error('Add-on Manager uninstall error')),
-        });
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
+        };
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
+        });
 
         const dispatch = jest.spyOn(store, 'dispatch');
 
-        render({ _addonManager: fakeAddonManager, _getClientCompatibility });
+        render({ addonManagerOverrides });
 
         await waitFor(() => {
           expect(screen.getByText('Remove')).toBeInTheDocument();
@@ -1882,30 +1750,28 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Remove'));
 
         await waitFor(() => {
-          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
         });
 
         expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
+          setInstallState({ guid: fakeAddon.guid, status: UNINSTALLING }),
         );
         expect(dispatch).toHaveBeenCalledWith(
-          setInstallError({ guid: addon.guid, error: FATAL_UNINSTALL_ERROR }),
+          setInstallError({
+            guid: fakeAddon.guid,
+            error: FATAL_UNINSTALL_ERROR,
+          }),
         );
       });
 
       it('tracks an addon uninstall', async () => {
-        const addon = fakeAddon;
         const fakeTracking = createFakeTrackingWithJest();
-        const fakeAddonManager = getFakeAddonManagerWrapper();
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
+        _loadVersions({
+          slug: fakeAddon.slug,
+          versions: [fakeAddon.current_version],
         });
 
-        _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
-
         render({
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
           _tracking: fakeTracking,
         });
 
@@ -1916,7 +1782,7 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Remove'));
 
         await waitFor(() => {
-          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
@@ -1925,30 +1791,20 @@ describe(__filename, () => {
             ADDON_TYPE_EXTENSION,
             UNINSTALL_ACTION,
           ),
-          label: addon.guid,
+          label: fakeAddon.guid,
         });
       });
 
       it('tracks a static theme uninstall', async () => {
-        const addon = createInternalAddonWithLang({
-          ...fakeAddon,
-          type: ADDON_TYPE_STATIC_THEME,
-        });
         const fakeTracking = createFakeTrackingWithJest();
-        const fakeAddonManager = getFakeAddonManagerWrapper();
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
 
         _loadVersions({
-          slug: fakeAddon.slug,
-          versions: [fakeAddon.current_version],
+          slug: fakeTheme.slug,
+          versions: [fakeTheme.current_version],
         });
 
         render({
-          addon,
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addon: createInternalAddonWithLang(fakeTheme),
           _tracking: fakeTracking,
         });
 
@@ -1959,7 +1815,7 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Remove'));
 
         await waitFor(() => {
-          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeTheme.guid);
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
@@ -1968,20 +1824,12 @@ describe(__filename, () => {
             ADDON_TYPE_STATIC_THEME,
             UNINSTALL_ACTION,
           ),
-          label: addon.guid,
+          label: fakeTheme.guid,
         });
       });
 
       it('tracks a unknown type uninstall', async () => {
-        const addon = createInternalAddonWithLang({
-          ...fakeAddon,
-          type: INVALID_TYPE,
-        });
         const fakeTracking = createFakeTrackingWithJest();
-        const fakeAddonManager = getFakeAddonManagerWrapper();
-        const _getClientCompatibility = jest.fn().mockReturnValue({
-          compatible: true,
-        });
 
         _loadVersions({
           slug: fakeAddon.slug,
@@ -1989,9 +1837,10 @@ describe(__filename, () => {
         });
 
         render({
-          addon,
-          _addonManager: fakeAddonManager,
-          _getClientCompatibility,
+          addon: createInternalAddonWithLang({
+            ...fakeAddon,
+            type: INVALID_TYPE,
+          }),
           _tracking: fakeTracking,
         });
 
@@ -2002,13 +1851,13 @@ describe(__filename, () => {
         userEvent.click(screen.getByText('Remove'));
 
         await waitFor(() => {
-          expect(fakeAddonManager.uninstall).toHaveBeenCalledWith(addon.guid);
+          expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: TRACKING_TYPE_INVALID,
           category: getAddonEventCategory(INVALID_TYPE, UNINSTALL_ACTION),
-          label: addon.guid,
+          label: fakeAddon.guid,
         });
       });
     });
