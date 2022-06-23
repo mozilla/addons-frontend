@@ -2,7 +2,7 @@
 export default {
   sendEvent() {},
   pageView() {},
-  settPage() {},
+  setPage() {},
   setDimension() {},
   sendWebVitalStats() {},
 };
