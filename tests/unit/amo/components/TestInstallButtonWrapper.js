@@ -309,7 +309,7 @@ describe(__filename, () => {
     ).toHaveAttribute('href', url);
   });
 
-  it('passes disabled to AMInstallButton based on what is returned from _getClientCompatibility', async () => {
+  it('passes disabled to AMInstallButton based on what is returned from _getClientCompatibility', () => {
     render({
       version: createInternalVersionWithLang(fakeVersion),
       addonManagerOverrides: { hasAddonManager: false },
@@ -522,7 +522,7 @@ describe(__filename, () => {
         clientApp: CLIENT_APP_FIREFOX,
         userAgent: userAgents.firefox[0],
       });
-      return render({ ...props });
+      return render(props);
     };
 
     describe('On firefox', () => {
