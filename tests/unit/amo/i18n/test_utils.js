@@ -554,9 +554,12 @@ describe(__filename, () => {
       (sizeName, size, localizedSize) => {
         const i18n = fakeI18n();
         _formatFilesize({ size, i18n });
-        sinon.assert.calledWith(i18n.sprintf, `%(localizedSize)s ${sizeName}`, {
-          localizedSize,
-        });
+        expect(i18n.sprintf).toHaveBeenCalledWith(
+          `%(localizedSize)s ${sizeName}`,
+          {
+            localizedSize,
+          },
+        );
       },
     );
   });
