@@ -1,6 +1,6 @@
-import { mount } from 'enzyme';
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { render as libraryRender } from '@testing-library/react';
 
 import I18nProvider from 'amo/i18n/Provider';
 import { fakeI18n } from 'tests/unit/helpers';
@@ -17,7 +17,7 @@ describe(__filename, () => {
   }
 
   function render({ i18n }) {
-    return mount(
+    return libraryRender(
       <I18nProvider i18n={i18n}>
         <MyComponent />
       </I18nProvider>,
@@ -29,6 +29,6 @@ describe(__filename, () => {
 
     render({ i18n });
 
-    sinon.assert.calledWith(i18n.gettext, 'Howdy');
+    expect(i18n.gettext).toHaveBeenCalledWith('Howdy');
   });
 });

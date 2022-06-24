@@ -713,28 +713,27 @@ describe(__filename, () => {
       it('calls universal-base64url.encode to encode the guid of the add-on for utm_content', () => {
         addon.guid = guid;
         const encodedGuid = encode(guid);
-        const _encode = sinon.stub().returns(encodedGuid);
-
+        const _encode = jest.fn().mockReturnValue(encodedGuid);
         const link = getDownloadLink({
           _encode,
           addon: createInternalAddonWithLang(addon),
         });
 
-        sinon.assert.calledWith(_encode, guid);
+        expect(_encode).toHaveBeenCalledWith(guid);
         expect(link.includes(`utm_content=rta%3A${encodedGuid}`)).toEqual(true);
       });
 
       // See: https://github.com/mozilla/addons-frontend/issues/7255
       it('does not call universal-base64url.encode when add-on has a `null` GUID', () => {
         addon.guid = null;
-        const _encode = sinon.spy();
-
+        const _encode = jest.fn();
+        const addon = createInternalAddonWithLang({ ...fakeAddon, guid: null });
         const link = getDownloadLink({
           _encode,
           addon: createInternalAddonWithLang(addon),
         });
 
-        sinon.assert.notCalled(_encode);
+        expect(_encode).not.toHaveBeenCalled();
         expect(link.includes('utm_content')).toEqual(false);
       });
 
@@ -742,27 +741,29 @@ describe(__filename, () => {
         const addonId = 123;
         addon.id = addonId;
         const campaign = 'some_campaign';
-        const _getDownloadCampaign = sinon.stub().returns(campaign);
+        const _getDownloadCampaign = jest.fn().mockReturnValue(campaign);
 
         const link = getDownloadLink({
           _getDownloadCampaign,
           addon: createInternalAddonWithLang(addon),
         });
 
-        sinon.assert.calledWith(_getDownloadCampaign, { addonId });
+        expect(_getDownloadCampaign).toHaveBeenCalledWith({ addonId });
         expect(link.includes(`utm_campaign=${campaign}`)).toEqual(true);
       });
 
       it('calls getDownloadCampaign without an add-on to populate utm_campaign', () => {
         const campaign = 'some_campaign';
-        const _getDownloadCampaign = sinon.stub().returns(campaign);
+        const _getDownloadCampaign = jest.fn().mockReturnValue(campaign);
 
         const link = getDownloadLink({
           _getDownloadCampaign,
           addon: undefined,
         });
 
-        sinon.assert.calledWith(_getDownloadCampaign, { addonId: undefined });
+        expect(_getDownloadCampaign).toHaveBeenCalledWith({
+          addonId: undefined,
+        });
         expect(link.includes(`utm_campaign=${campaign}`)).toEqual(true);
       });
 

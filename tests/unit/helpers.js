@@ -53,6 +53,7 @@ import * as coreApi from 'amo/api';
 import { getAddonStatus } from 'amo/addonManager';
 import App from 'amo/components/App';
 import { ErrorHandler } from 'amo/errorHandler';
+import { EXPERIMENT_CONFIG } from 'amo/experiments/20210714_amo_vpn_promo';
 import { makeI18n } from 'amo/i18n/utils';
 import { createGroupedRatings, createInternalAddon } from 'amo/reducers/addons';
 import {
@@ -61,11 +62,10 @@ import {
   createInternalSuggestion,
 } from 'amo/reducers/autocomplete';
 import { searchLoad, searchStart } from 'amo/reducers/search';
-import { selectUIState } from 'amo/reducers/uiState';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
 import { createInternalVersion } from 'amo/reducers/versions';
-import { createUIStateMapper, mergeUIStateProps } from 'amo/withUIState';
 import defaultSagas from 'amo/sagas';
+import { EXPERIMENT_COOKIE_NAME } from 'amo/withExperiment';
 // eslint-disable-next-line import/default
 import prodConfig from 'config/default';
 import testConfig from 'config/test';
@@ -561,11 +561,10 @@ export function createStubErrorHandler(capturedError = null) {
 export function createCapturedErrorHandler({
   code,
   detail = 'Unknown error',
+  id = 'error-handler-id',
   status = 400,
   store = createStore().store,
 }) {
-  const id = 'error-handler-id';
-
   const error = createApiError({
     response: { status },
     apiURL: 'https://some/api/endpoint',
@@ -820,14 +819,14 @@ export function unexpectedSuccess() {
 
 export function JedSpy(data = {}) {
   const _Jed = new Jed(data);
-  _Jed.gettext = sinon.spy(_Jed.gettext);
-  _Jed.dgettext = sinon.spy(_Jed.gettext);
-  _Jed.ngettext = sinon.spy(_Jed.ngettext);
-  _Jed.dngettext = sinon.spy(_Jed.dngettext);
-  _Jed.dpgettext = sinon.spy(_Jed.dpgettext);
-  _Jed.npgettext = sinon.spy(_Jed.npgettext);
-  _Jed.dnpgettext = sinon.spy(_Jed.dnpgettext);
-  _Jed.sprintf = sinon.spy(_Jed.sprintf);
+  _Jed.gettext = jest.fn(_Jed.gettext);
+  _Jed.dgettext = jest.fn(_Jed.gettext);
+  _Jed.ngettext = jest.fn(_Jed.ngettext);
+  _Jed.dngettext = jest.fn(_Jed.dngettext);
+  _Jed.dpgettext = jest.fn(_Jed.dpgettext);
+  _Jed.npgettext = jest.fn(_Jed.npgettext);
+  _Jed.dnpgettext = jest.fn(_Jed.dnpgettext);
+  _Jed.sprintf = jest.fn(_Jed.sprintf);
   return _Jed;
 }
 
@@ -1308,55 +1307,6 @@ export const createUserNotificationsResponse = () => {
   ];
 };
 
-/*
- * Call this in a test after any shallowUntilTarget() component might
- * have adjusted its uiState.
- *
- * This simulates how Redux will update component props after
- * an action dispatch.
- * It's necessary because shallow Enzyme wrapper updates do not
- * propagate to all HOCs.
- */
-export function applyUIStateChanges({ root, store }) {
-  const rootProps = root.instance().props;
-  const { uiStateID } = rootProps;
-  invariant(
-    uiStateID,
-    'uiStateID cannot be undefined; was the component wrapped in withUIState()?',
-  );
-
-  const state = store.getState();
-
-  if (selectUIState({ uiState: state.uiState, uiStateID }) === undefined) {
-    throw new Error(
-      'Cannot apply UI state changes because the component has not dispatched any setUIState() actions yet',
-    );
-  }
-
-  const mapStateToProps = createUIStateMapper({
-    // This value is never used. The state is always selected from the
-    // Redux store.
-    initialState: {},
-    uiStateID,
-  });
-  const stateProps = mapStateToProps(state, rootProps);
-  const mappedProps = mergeUIStateProps(
-    stateProps,
-    { dispatch: store.dispatch },
-    rootProps,
-  );
-
-  root.setProps(mappedProps);
-}
-
-/*
- * Change a component's uiState.
- */
-export function setUIState({ root, change, store }) {
-  root.instance().props.setUIState(change);
-  applyUIStateChanges({ root, store });
-}
-
 export function fakeCookies(overrides = {}) {
   return {
     addChangeListener: jest.fn(),
@@ -1797,4 +1747,16 @@ export const loadAddonsByAuthors = ({
       pageSize,
     }),
   );
+};
+
+// Write a cookie that will be read by withExperiment to allow the banner to
+// appear on the page.
+export const createVPNExperimentCookie = (variant) => {
+  const cookieContent = JSON.stringify(
+    createExperimentData({
+      id: EXPERIMENT_CONFIG.id,
+      variantId: variant,
+    }),
+  );
+  document.cookie = `${EXPERIMENT_COOKIE_NAME}=${cookieContent}; path=/`;
 };

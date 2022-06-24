@@ -1,78 +1,106 @@
 import * as React from 'react';
 
-import { ADDON_TYPE_STATIC_THEME } from 'amo/constants';
-import AddonTitle from 'amo/components/AddonTitle';
-import AddonBadges from 'amo/components/AddonBadges';
-import StaticAddonCard, {
-  StaticAddonCardBase,
-} from 'blog-utils/StaticAddonCard';
-import GetFirefoxButton from 'amo/components/GetFirefoxButton';
-import Rating from 'amo/components/Rating';
-import ThemeImage from 'amo/components/ThemeImage';
+import {
+  ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_FIREFOX,
+  RECOMMENDED,
+} from 'amo/constants';
+import StaticAddonCard from 'blog-utils/StaticAddonCard';
 import {
   fakeAddon,
-  fakeI18n,
   createLocalizedString,
   createInternalAddonWithLang,
-  shallowUntilTarget,
+  dispatchClientMetadata,
+  render as defaultRender,
+  screen,
+  userAgents,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const clientApp = CLIENT_APP_FIREFOX;
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+      userAgent: userAgents.chrome[0],
+    }).store;
+  });
+
   const render = ({ addon }) => {
-    return shallowUntilTarget(
-      <StaticAddonCard addon={addon} i18n={fakeI18n()} />,
-      StaticAddonCardBase,
-    );
+    return defaultRender(<StaticAddonCard addon={addon} />, { store });
   };
 
   it('renders nothing when add-on is falsey', () => {
-    const root = render({ addon: null });
+    const { root } = render({ addon: null });
 
-    expect(root.find('.StaticAddonCard')).toHaveLength(0);
+    expect(root).toBeNull();
   });
 
   it('renders a static add-on card', () => {
-    const addon = createInternalAddonWithLang(fakeAddon);
+    const name = 'My Add-On';
+    const addon = createInternalAddonWithLang({
+      ...fakeAddon,
+      name: createLocalizedString(name),
+      promoted: { category: RECOMMENDED, apps: [CLIENT_APP_FIREFOX] },
+    });
 
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find('.StaticAddonCard')).toHaveLength(1);
-    expect(root).toHaveProp('data-addon-id', addon.id);
-
-    expect(root.find(AddonTitle)).toHaveLength(1);
-    expect(root.find(AddonTitle)).toHaveProp('addon', addon);
-    expect(root.find(AddonTitle)).toHaveProp('linkToAddon', true);
-
-    expect(root.find(AddonBadges)).toHaveLength(1);
-    expect(root.find(AddonBadges)).toHaveProp('addon', addon);
-
-    expect(root.find('.StaticAddonCard-summary').html()).toContain(
-      addon.summary,
+    expect(screen.getByClassName('StaticAddonCard')).toHaveAttribute(
+      'data-addon-id',
+      String(addon.id),
     );
 
-    expect(root.find(GetFirefoxButton)).toHaveLength(1);
-    expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
+    expect(screen.getByRole('heading')).toHaveTextContent(name);
+    expect(screen.getByRole('link', { name })).toHaveAttribute(
+      'href',
+      `/en-US/${clientApp}/addon/${addon.slug}/`,
+    );
+    expect(
+      screen.getByRole('link', { name: addon.authors[0].name }),
+    ).toHaveAttribute(
+      'href',
+      `/en-US/${clientApp}/user/${addon.authors[0].id}/`,
+    );
+
+    // Promoted badge
+    expect(
+      screen.getByRole('link', {
+        name: 'Firefox only recommends add-ons that meet our standards for security and performance.',
+      }),
+    ).toHaveTextContent('Recommended');
+
+    expect(screen.getByText(addon.summary)).toBeInTheDocument();
+
+    // GetFirefoxButton
+    expect(
+      screen.getByRole('link', {
+        name: 'Download Firefox and get the extension',
+      }),
+    ).toBeInTheDocument();
 
     // This is always rendered but hidden by default using CSS.
-    expect(root.find('.StaticAddonCard-error-overlay')).toHaveLength(1);
+    expect(
+      screen.getByText('This extension is not currently available.'),
+    ).toBeInTheDocument();
   });
 
   it('displays the description if there is no summary', () => {
     const addon = createInternalAddonWithLang({ ...fakeAddon, summary: null });
 
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find('.StaticAddonCard-summary').html()).toContain(
-      addon.description,
-    );
+    expect(screen.getByText(addon.description)).toBeInTheDocument();
   });
 
   it('sanitizes the summary', () => {
+    const plainText = 'Some safe text';
     const scriptHTML = createLocalizedString(
-      '<script>alert(document.cookie);</script>',
+      `${plainText}<script>alert(document.cookie);</script>`,
     );
 
-    const root = render({
+    render({
       addon: createInternalAddonWithLang({
         ...fakeAddon,
         summary: scriptHTML,
@@ -80,11 +108,12 @@ describe(__filename, () => {
     });
 
     // Make sure an actual script tag was not created.
-    expect(root.find('.StaticAddonCard-summary script')).toHaveLength(0);
+    expect(screen.queryByTagName('script')).not.toBeInTheDocument();
     // Make sure the script has been removed.
-    expect(root.find('.StaticAddonCard-summary').html()).not.toContain(
-      '<script>',
-    );
+    expect(screen.getByText(plainText)).toBeInTheDocument();
+    expect(
+      screen.getByClassName('StaticAddonCard-summary'),
+    ).not.toHaveTextContent('<script>');
   });
 
   it('displays the number of users', () => {
@@ -93,13 +122,9 @@ describe(__filename, () => {
       ...fakeAddon,
       average_daily_users,
     });
+    render({ addon });
 
-    const root = render({ addon });
-
-    expect(root.find('.StaticAddonCard-metadata-adu')).toHaveLength(1);
-    expect(root.find('.StaticAddonCard-metadata-adu').text()).toEqual(
-      'Users: 1,234,567',
-    );
+    expect(screen.getByText('Users: 1,234,567')).toBeInTheDocument();
   });
 
   it('shows 0 users', () => {
@@ -108,9 +133,8 @@ describe(__filename, () => {
       average_daily_users: 0,
     });
 
-    const root = render({ addon });
-
-    expect(root.find('.StaticAddonCard-metadata-adu')).toHaveLength(1);
+    render({ addon });
+    expect(screen.getByText('Users: 0')).toBeInTheDocument();
   });
 
   it('displays ratings', () => {
@@ -120,12 +144,11 @@ describe(__filename, () => {
       ratings: { average },
     });
 
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find(Rating)).toHaveLength(1);
-    expect(root.find(Rating)).toHaveProp('rating', average);
-    expect(root.find(Rating)).toHaveProp('readOnly', true);
-    expect(root.find(Rating)).toHaveProp('styleSize', 'small');
+    const ratings = screen.getAllByTitle(`Rated ${average} out of 5`);
+    expect(ratings[0]).toHaveClass('Rating--small');
+    expect(ratings).toHaveLength(6);
   });
 
   it('shows 0 ratings', () => {
@@ -136,34 +159,48 @@ describe(__filename, () => {
       },
     });
 
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root.find(Rating)).toHaveLength(1);
+    expect(screen.getByText('There are no ratings yet')).toBeInTheDocument();
   });
 
   it('renders a theme image preview when add-on is a theme', () => {
+    const name = 'My Add-On';
     const addon = createInternalAddonWithLang({
       ...fakeAddon,
+      name: createLocalizedString(name),
       type: ADDON_TYPE_STATIC_THEME,
     });
 
-    const root = render({ addon });
+    render({ addon });
 
-    expect(root).toHaveClassName('StaticAddonCard--is-theme');
-    expect(root.find(ThemeImage)).toHaveLength(1);
-    expect(root.find(ThemeImage)).toHaveProp('addon', addon);
-    expect(root.find('.StaticAddonCard-icon')).toHaveLength(0);
+    expect(screen.getByClassName('StaticAddonCard')).toHaveClass(
+      'StaticAddonCard--is-theme',
+    );
+    expect(screen.getByAltText(`Preview of ${name}`)).toHaveAttribute(
+      'src',
+      addon.previews[0].src,
+    );
+    expect(
+      screen.queryByClassName('StaticAddonCard-icon'),
+    ).not.toBeInTheDocument();
   });
 
   it('overrides some query parameters in the download FF link', () => {
     const addon = createInternalAddonWithLang(fakeAddon);
+    const expectedHref = [
+      'https://www.mozilla.org/firefox/download/thanks/?s=direct',
+      `utm_campaign=amo-blog-fx-cta-${addon.id}`,
+      'utm_content=rta%3AMTIzNEBteS1hZGRvbnMuZmlyZWZveA',
+      'utm_medium=referral',
+      'utm_source=addons.mozilla.org',
+    ].join('&');
+    render({ addon });
 
-    const root = render({ addon });
-
-    expect(root.find(GetFirefoxButton)).toHaveProp('overrideQueryParams', {
-      utm_campaign: `amo-blog-fx-cta-${addon.id}`,
-      experiment: null,
-      variation: null,
-    });
+    expect(
+      screen.getByRole('link', {
+        name: 'Download Firefox and get the extension',
+      }),
+    ).toHaveAttribute('href', expectedHref);
   });
 });

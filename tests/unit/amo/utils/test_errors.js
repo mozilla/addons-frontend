@@ -1,4 +1,3 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 import { compose } from 'redux';
 
@@ -8,6 +7,7 @@ import {
   getErrorComponent,
   render404IfConfigKeyIsFalse,
 } from 'amo/utils/errors';
+import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('getErrorComponent', () => {
@@ -33,7 +33,7 @@ describe(__filename, () => {
         render404IfConfigKeyIsFalse(configKey, { _config }),
       )(SomeComponent);
 
-      return shallow(<WrappedComponent {...props} />);
+      return defaultRender(<WrappedComponent {...props} />);
     };
 
     it('requires a config key', () => {
@@ -43,30 +43,33 @@ describe(__filename, () => {
     });
 
     it('returns a 404 when disabled by the config', () => {
+      const className = 'MyClass';
       const configKey = 'customConfigKey';
       const _config = {
-        get: sinon.spy(() => false),
+        get: jest.fn(() => false),
       };
-      const SomeComponent = sinon.spy(() => <div />);
+      const SomeComponent = jest.fn(() => <div className={className} />);
 
-      const root = render({ _config, SomeComponent, configKey });
+      render({ _config, SomeComponent, configKey });
 
-      expect(root.find(SomeComponent)).toHaveLength(0);
-      expect(root.find(NotFound)).toHaveLength(1);
-      sinon.assert.calledWith(_config.get, configKey);
+      expect(screen.queryByClassName(className)).not.toBeInTheDocument();
+      expect(
+        screen.getByRole('heading', { name: 'Page not found' }),
+      ).toBeInTheDocument();
+      expect(_config.get).toHaveBeenCalledWith(configKey);
     });
 
     it('passes through component and props when enabled', () => {
       const _config = { get: () => true };
-      const SomeComponent = sinon.spy(() => <div />);
+      const SomeComponent = jest.fn((props) => <div>{props.color}</div>);
       const props = { color: 'orange', size: 'large' };
 
-      const root = render({ _config, SomeComponent, props });
+      render({ _config, SomeComponent, props });
 
-      expect(root.find(NotFound)).toHaveLength(0);
-
-      expect(root.find(SomeComponent)).toHaveLength(1);
-      expect(root.find(SomeComponent)).toHaveProp(props);
+      expect(
+        screen.queryByRole('heading', { name: 'Page not found' }),
+      ).not.toBeInTheDocument();
+      expect(screen.getByText('orange')).toBeInTheDocument();
     });
   });
 });

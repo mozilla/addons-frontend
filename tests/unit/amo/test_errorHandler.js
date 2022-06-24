@@ -397,8 +397,8 @@ describe(__filename, () => {
     });
 
     it('lets you set a new dispatch function', () => {
-      const dispatch1 = sinon.stub();
-      const dispatch2 = sinon.stub();
+      const dispatch1 = jest.fn();
+      const dispatch2 = jest.fn();
       const handler = new ErrorHandler({
         dispatch: dispatch1,
       });

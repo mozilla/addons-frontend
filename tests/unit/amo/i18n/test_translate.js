@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp, max-classes-per-file */
-import { mount } from 'enzyme';
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { render as libraryRender } from '@testing-library/react';
 
 import I18nProvider from 'amo/i18n/Provider';
 import translate from 'amo/i18n/translate';
@@ -35,7 +35,7 @@ describe(__filename, () => {
     i18n = fakeI18n(),
     componentProps = {},
   } = {}) => {
-    return mount(
+    return libraryRender(
       <I18nProvider i18n={i18n}>
         <OuterComponent>
           <Component {...componentProps} />
@@ -48,14 +48,14 @@ describe(__filename, () => {
   it('pulls i18n from context', () => {
     const i18n = fakeI18n();
     render({ i18n });
-    sinon.assert.called(i18n.gettext);
+    expect(i18n.gettext).toHaveBeenCalled();
   });
 
   it('overrides the i18n from props', () => {
     const contextI18n = fakeI18n();
     const propsI18n = fakeI18n();
     render({ i18n: contextI18n, componentProps: { i18n: propsI18n } });
-    sinon.assert.notCalled(contextI18n.gettext);
-    sinon.assert.called(propsI18n.gettext);
+    expect(contextI18n.gettext).not.toHaveBeenCalled();
+    expect(propsI18n.gettext).toHaveBeenCalled();
   });
 });
