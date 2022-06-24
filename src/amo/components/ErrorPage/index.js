@@ -1,22 +1,18 @@
 /* @flow */
-import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import log from 'amo/logger';
-import { getErrorComponent as getErrorComponentDefault } from 'amo/utils/errors';
+import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
+import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { loadErrorPage } from 'amo/reducers/errorPage';
 import type { AppState } from 'amo/store';
 import type { ErrorPageState } from 'amo/reducers/errorPage';
 import type { DispatchFunc } from 'amo/types/redux';
 
-type DefaultProps = {|
-  getErrorComponent?: typeof getErrorComponentDefault,
-|};
-
 type Props = {|
-  ...DefaultProps,
   children: React.Node,
 |};
 
@@ -30,11 +26,21 @@ type InternalProps = {|
   dispatch: DispatchFunc,
 |};
 
-export class ErrorPageBase extends React.Component<InternalProps> {
-  static defaultProps: DefaultProps = {
-    getErrorComponent: getErrorComponentDefault,
-  };
+export const getErrorComponent = (
+  status: number | null,
+): (() => React.Node) => {
+  switch (status) {
+    case 401:
+      return NotAuthorizedPage;
+    case 404:
+      return NotFoundPage;
+    case 500:
+    default:
+      return ServerErrorPage;
+  }
+};
 
+export class ErrorPageBase extends React.Component<InternalProps> {
   componentDidCatch(error: Error, info: Object) {
     const { dispatch } = this.props;
 
@@ -44,14 +50,11 @@ export class ErrorPageBase extends React.Component<InternalProps> {
   }
 
   render(): React.Node {
-    const { children, errorPage, getErrorComponent } = this.props;
-    invariant(getErrorComponent, 'getErrorComponent() is undefined');
+    const { children, errorPage } = this.props;
 
     if (errorPage.hasError) {
       const ErrorComponent = getErrorComponent(errorPage.statusCode);
-      return (
-        <ErrorComponent error={errorPage.error} status={errorPage.statusCode} />
-      );
+      return <ErrorComponent />;
     }
 
     return children;

@@ -2,11 +2,8 @@
 import * as React from 'react';
 import { waitFor } from '@testing-library/react';
 
-import App, {
-  getErrorPage,
-  mapDispatchToProps,
-  mapStateToProps,
-} from 'amo/components/App';
+import App, { mapDispatchToProps, mapStateToProps } from 'amo/components/App';
+import { getErrorComponent } from 'amo/components/ErrorPage';
 import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
@@ -193,21 +190,23 @@ describe(__filename, () => {
     );
   });
 
-  describe('getErrorPage', () => {
-    it('returns a NotAuthorizedPage component for 401 errors', () => {
-      expect(getErrorPage(401)).toEqual(NotAuthorizedPage);
-    });
+  describe('Tests for ErrorPage', () => {
+    describe('getErrorComponent', () => {
+      it('returns a NotAuthorizedPage component for 401 errors', () => {
+        expect(getErrorComponent(401)).toEqual(NotAuthorizedPage);
+      });
 
-    it('returns a NotFoundPage component for 404 errors', () => {
-      expect(getErrorPage(404)).toEqual(NotFoundPage);
-    });
+      it('returns a NotFoundPage component for 404 errors', () => {
+        expect(getErrorComponent(404)).toEqual(NotFoundPage);
+      });
 
-    it('returns a ServerErrorPage component for 500 errors', () => {
-      expect(getErrorPage(500)).toEqual(ServerErrorPage);
-    });
+      it('returns a ServerErrorPage component for 500 errors', () => {
+        expect(getErrorComponent(500)).toEqual(ServerErrorPage);
+      });
 
-    it('returns a ServerErrorPage component by default', () => {
-      expect(getErrorPage(501)).toEqual(ServerErrorPage);
+      it('returns a ServerErrorPage component by default', () => {
+        expect(getErrorComponent(501)).toEqual(ServerErrorPage);
+      });
     });
   });
 });
