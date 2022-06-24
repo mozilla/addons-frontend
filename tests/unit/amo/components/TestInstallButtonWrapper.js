@@ -727,7 +727,6 @@ describe(__filename, () => {
       it('does not call universal-base64url.encode when add-on has a `null` GUID', () => {
         addon.guid = null;
         const _encode = jest.fn();
-        const addon = createInternalAddonWithLang({ ...fakeAddon, guid: null });
         const link = getDownloadLink({
           _encode,
           addon: createInternalAddonWithLang(addon),
