@@ -768,6 +768,22 @@ describe(__filename, () => {
       ).toEqual(`/en-US/${CLIENT_APP_FIREFOX}/addon/slug/${search}`);
     });
 
+    it('defaults isHomePage to `false`', () => {
+      // This is the same test as above, but without passing an explicit
+      // `isHomePage` (which is included in _correctedLocationForPlatform).
+      const pathname = `/en-US/${CLIENT_APP_ANDROID}/addon/slug/`;
+      const search = '?src=featured';
+
+      expect(
+        correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          lang: 'en-US',
+          location: createFakeLocation({ pathname, search }),
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+        }),
+      ).toEqual(`/en-US/${CLIENT_APP_FIREFOX}/addon/slug/${search}`);
+    });
+
     it('maintains the word `android` in a slug for an add-on when switching platforms', () => {
       const pathname = `/en-US/${CLIENT_APP_ANDROID}/addon/awesome-android-extension/`;
 
