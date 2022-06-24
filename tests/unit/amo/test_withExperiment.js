@@ -176,9 +176,9 @@ describe(__filename, () => {
 
     render({
       cookies: fakeCookies({
-        get: sinon
-          .stub()
-          .returns(
+        get: jest
+          .fn()
+          .mockReturnValue(
             createExperimentData({ id, variantId: updatedCookieVariant }),
           ),
       }),
@@ -520,9 +520,9 @@ describe(__filename, () => {
     const anotherExperimentId = makeExperimentId('anotherExperiment');
     const variantId = 'some-variant-id';
     const cookies = fakeCookies({
-      get: sinon
-        .stub()
-        .returns(createExperimentData({ id: anotherExperimentId })),
+      get: jest
+        .fn()
+        .mockReturnValue(createExperimentData({ id: anotherExperimentId })),
     });
     const _getVariant = jest.fn().mockReturnValue(variantId);
     const _tracking = createFakeTrackingWithJest();
