@@ -64,7 +64,6 @@ import {
   fakeAddon,
   fakeFile,
   fakeInstalledAddon,
-  fakeTheme,
   fakeVersion,
   getFakeAddonManagerWrapperWithJest as getFakeAddonManagerWrapper,
   getFakeLoggerWithJest as getFakeLogger,
@@ -89,9 +88,7 @@ describe(__filename, () => {
 
   beforeEach(() => {
     _getClientCompatibility = jest.fn().mockReturnValue({ compatible: true });
-    addon = {
-      ...fakeAddon,
-    };
+    addon = { ...fakeAddon };
     store = dispatchClientMetadata().store;
   });
 
@@ -146,9 +143,9 @@ describe(__filename, () => {
     renderWithCurrentVersion();
 
     expect(_getClientCompatibility).toHaveBeenCalledWith({
-      addon: createInternalAddonWithLang(fakeAddon),
+      addon: createInternalAddonWithLang(addon),
       clientApp,
-      currentVersion: createInternalVersionWithLang(fakeAddon.current_version),
+      currentVersion: createInternalVersionWithLang(addon.current_version),
       userAgentInfo: store.getState().api.userAgentInfo,
     });
   });
@@ -169,7 +166,7 @@ describe(__filename, () => {
     });
 
     expect(_getClientCompatibility).toHaveBeenCalledWith({
-      addon: createInternalAddonWithLang(fakeAddon),
+      addon: createInternalAddonWithLang(addon),
       clientApp,
       currentVersion: createInternalVersionWithLang(version),
       userAgentInfo: store.getState().api.userAgentInfo,
@@ -264,7 +261,7 @@ describe(__filename, () => {
   });
 
   it('passes an add-on to AMInstallButton', () => {
-    addon = { ...fakeTheme };
+    addon.type = ADDON_TYPE_STATIC_THEME;
 
     render();
 
@@ -286,7 +283,7 @@ describe(__filename, () => {
 
     expect(
       screen.getByRole('link', { name: 'Add to Firefox' }),
-    ).toHaveAttribute('href', fakeAddon.current_version.url);
+    ).toHaveAttribute('href', addon.current_version.url);
   });
 
   it('passes a currentVersion to AMInstallButton when one is specified', () => {
@@ -294,7 +291,7 @@ describe(__filename, () => {
     const version = createInternalVersionWithLang({
       ...fakeVersion,
       file: { ...fakeFile, url },
-      id: fakeAddon.current_version.id + 1,
+      id: addon.current_version.id + 1,
     });
 
     render({
@@ -321,7 +318,7 @@ describe(__filename, () => {
     store.dispatch(
       setInstallState({
         ...fakeInstalledAddon,
-        guid: fakeAddon.guid,
+        guid: addon.guid,
         status: INSTALLED,
       }),
     );
@@ -342,7 +339,7 @@ describe(__filename, () => {
     store.dispatch(
       setInstallState({
         ...fakeInstalledAddon,
-        guid: fakeAddon.guid,
+        guid: addon.guid,
         canUninstall,
       }),
     );
@@ -368,7 +365,7 @@ describe(__filename, () => {
     _dispatchClientMetadata({
       userAgent: userAgentsByPlatform.mac.chrome41,
     });
-    const encodedGUID = encode(fakeAddon.guid);
+    const encodedGUID = encode(addon.guid);
     const expectedHref = [
       'https://www.mozilla.org/firefox/download/thanks/?s=direct',
       'utm_campaign=amo-fx-cta-1234',
@@ -410,7 +407,7 @@ describe(__filename, () => {
       compatible: false,
     });
     render({
-      version: createInternalVersionWithLang(fakeAddon.current_version),
+      version: createInternalVersionWithLang(addon.current_version),
     });
 
     expect(
@@ -420,7 +417,7 @@ describe(__filename, () => {
 
   it('does not display a download link when the browser is compatible and showLinkInsteadOfButton is false', () => {
     render({
-      version: createInternalVersionWithLang(fakeAddon.current_version),
+      version: createInternalVersionWithLang(addon.current_version),
       showLinkInsteadOfButton: false,
     });
 
@@ -431,7 +428,7 @@ describe(__filename, () => {
 
   it('displays a download link when the browser is compatible and showLinkInsteadOfButton is true', () => {
     render({
-      version: createInternalVersionWithLang(fakeAddon.current_version),
+      version: createInternalVersionWithLang(addon.current_version),
       showLinkInsteadOfButton: true,
     });
 
@@ -442,7 +439,7 @@ describe(__filename, () => {
 
   it('does not display a button when the browser is compatible and showLinkInsteadOfButton is true', () => {
     render({
-      version: createInternalVersionWithLang(fakeAddon.current_version),
+      version: createInternalVersionWithLang(addon.current_version),
       showLinkInsteadOfButton: true,
     });
 
@@ -451,7 +448,7 @@ describe(__filename, () => {
 
   it('adds a special classname when no download link is displayed', () => {
     render({
-      version: createInternalVersionWithLang(fakeAddon.current_version),
+      version: createInternalVersionWithLang(addon.current_version),
     });
 
     expect(screen.getByClassName('AMInstallButton')).toHaveClass(
@@ -466,7 +463,7 @@ describe(__filename, () => {
     });
 
     render({
-      version: createInternalVersionWithLang(fakeAddon.current_version),
+      version: createInternalVersionWithLang(addon.current_version),
     });
 
     expect(screen.getByClassName('AMInstallButton')).not.toHaveClass(
@@ -482,7 +479,7 @@ describe(__filename, () => {
 
     render({
       version: createInternalVersionWithLang({
-        ...fakeAddon.current_version,
+        ...addon.current_version,
         file: { ...fakeFile, url: fileURL },
       }),
     });
@@ -600,7 +597,7 @@ describe(__filename, () => {
       });
 
       it('has the expected button text for a theme', () => {
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
 
         render();
 
@@ -622,7 +619,8 @@ describe(__filename, () => {
       });
 
       it('has the expected button text for a theme, which is incompatible', () => {
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
+
         renderAsIncompatible();
 
         expect(
@@ -651,7 +649,8 @@ describe(__filename, () => {
       });
 
       it('has the expected callout text for a theme', () => {
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
+
         render();
 
         expect(
@@ -660,7 +659,8 @@ describe(__filename, () => {
       });
 
       it('has the expected callout text for a theme, which is incompatible', () => {
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
+
         renderAsIncompatible();
 
         expect(
@@ -679,7 +679,7 @@ describe(__filename, () => {
         expect(tracking.sendEvent).toHaveBeenCalledWith({
           action: GET_FIREFOX_BUTTON_CLICK_ACTION,
           category: GET_FIREFOX_BUTTON_CLICK_CATEGORY,
-          label: fakeAddon.guid,
+          label: addon.guid,
         });
       });
     });
@@ -711,11 +711,14 @@ describe(__filename, () => {
       });
 
       it('calls universal-base64url.encode to encode the guid of the add-on for utm_content', () => {
+        addon.guid = guid;
         const encodedGuid = encode(guid);
         const _encode = sinon.stub().returns(encodedGuid);
-        const internalAddon = createInternalAddonWithLang({ ...addon, guid });
 
-        const link = getDownloadLink({ _encode, addon: internalAddon });
+        const link = getDownloadLink({
+          _encode,
+          addon: createInternalAddonWithLang(addon),
+        });
 
         sinon.assert.calledWith(_encode, guid);
         expect(link.includes(`utm_content=rta%3A${encodedGuid}`)).toEqual(true);
@@ -723,13 +726,13 @@ describe(__filename, () => {
 
       // See: https://github.com/mozilla/addons-frontend/issues/7255
       it('does not call universal-base64url.encode when add-on has a `null` GUID', () => {
+        addon.guid = null;
         const _encode = sinon.spy();
-        const internalAddon = createInternalAddonWithLang({
-          ...addon,
-          guid: null,
-        });
 
-        const link = getDownloadLink({ _encode, addon: internalAddon });
+        const link = getDownloadLink({
+          _encode,
+          addon: createInternalAddonWithLang(addon),
+        });
 
         sinon.assert.notCalled(_encode);
         expect(link.includes('utm_content')).toEqual(false);
@@ -737,16 +740,13 @@ describe(__filename, () => {
 
       it('calls getDownloadCampaign with an add-on to populate utm_campaign', () => {
         const addonId = 123;
-        const internalAddon = createInternalAddonWithLang({
-          ...addon,
-          id: addonId,
-        });
+        addon.id = addonId;
         const campaign = 'some_campaign';
         const _getDownloadCampaign = sinon.stub().returns(campaign);
 
         const link = getDownloadLink({
           _getDownloadCampaign,
-          addon: internalAddon,
+          addon: createInternalAddonWithLang(addon),
         });
 
         sinon.assert.calledWith(_getDownloadCampaign, { addonId });
@@ -770,11 +770,8 @@ describe(__filename, () => {
       // individual tests above test separate pieces of logic.
       it('returns the expected URL for an add-on', () => {
         const addonId = 123;
-        const internalAddon = createInternalAddonWithLang({
-          ...fakeAddon,
-          id: addonId,
-          guid,
-        });
+        addon.id = addonId;
+        addon.guid = guid;
 
         const expectedLink = [
           `${DOWNLOAD_FIREFOX_BASE_URL}?s=direct`,
@@ -783,7 +780,9 @@ describe(__filename, () => {
           `utm_medium=referral&utm_source=addons.mozilla.org`,
         ].join('&');
 
-        expect(getDownloadLink({ addon: internalAddon })).toEqual(expectedLink);
+        expect(
+          getDownloadLink({ addon: createInternalAddonWithLang(addon) }),
+        ).toEqual(expectedLink);
       });
     });
   });
@@ -792,7 +791,7 @@ describe(__filename, () => {
     it('calls getAddon() when the component is rendered', () => {
       renderWithCurrentVersion();
 
-      expect(_addonManager.getAddon).toHaveBeenCalledWith(fakeAddon.guid);
+      expect(_addonManager.getAddon).toHaveBeenCalledWith(addon.guid);
     });
 
     it('does not call getAddon() if we do not have an addonManager', () => {
@@ -816,7 +815,7 @@ describe(__filename, () => {
 
     describe('setCurrentStatus', () => {
       it('sets the status to ENABLED when an extension is enabled', async () => {
-        const installURL = fakeAddon.current_version.file.url;
+        const installURL = addon.current_version.file.url;
         const dispatch = jest.spyOn(store, 'dispatch');
 
         renderWithCurrentVersion();
@@ -828,7 +827,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             status: ENABLED,
             url: installURL,
           }),
@@ -836,7 +835,7 @@ describe(__filename, () => {
       });
 
       it('sets the status to DISABLED when an extension is disabled', async () => {
-        const installURL = fakeAddon.current_version.file.url;
+        const installURL = addon.current_version.file.url;
         const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: true,
@@ -854,7 +853,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             status: DISABLED,
             url: installURL,
           }),
@@ -862,7 +861,7 @@ describe(__filename, () => {
       });
 
       it('sets the status to DISABLED when an extension is disabled and inactive', async () => {
-        const installURL = fakeAddon.current_version.file.url;
+        const installURL = addon.current_version.file.url;
         const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: false,
@@ -880,7 +879,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             status: DISABLED,
             url: installURL,
           }),
@@ -888,7 +887,7 @@ describe(__filename, () => {
       });
 
       it('sets the status to INACTIVE when an extension is enabled but inactive', async () => {
-        const installURL = fakeAddon.current_version.file.url;
+        const installURL = addon.current_version.file.url;
         const addonManagerOverrides = {
           getAddon: Promise.resolve({
             isActive: false,
@@ -906,7 +905,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             status: INACTIVE,
             url: installURL,
           }),
@@ -914,7 +913,8 @@ describe(__filename, () => {
       });
 
       it('sets the status to ENABLED when a theme is enabled', async () => {
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
+
         const installURL = addon.current_version.file.url;
         const addonManagerOverrides = {
           getAddon: Promise.resolve({
@@ -935,7 +935,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: fakeTheme.guid,
+            guid: addon.guid,
             status: ENABLED,
             url: installURL,
           }),
@@ -943,7 +943,7 @@ describe(__filename, () => {
       });
 
       it('sets the status to DISABLED when a theme is enabled but inactive', async () => {
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
         const installURL = addon.current_version.file.url;
         const addonManagerOverrides = {
           getAddon: Promise.resolve({
@@ -972,7 +972,7 @@ describe(__filename, () => {
       });
 
       it('sets the status to DISABLED when a theme is disabled', async () => {
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
         const installURL = addon.current_version.file.url;
         const addonManagerOverrides = {
           getAddon: Promise.resolve({
@@ -1001,7 +1001,7 @@ describe(__filename, () => {
       });
 
       it('sets the status to UNINSTALLED when an extension is not found', async () => {
-        const installURL = fakeAddon.current_version.file.url;
+        const installURL = addon.current_version.file.url;
         const addonManagerOverrides = {
           getAddon: Promise.reject(),
         };
@@ -1017,7 +1017,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall: undefined,
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             status: UNINSTALLED,
             url: installURL,
           }),
@@ -1040,7 +1040,7 @@ describe(__filename, () => {
 
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             status: ERROR,
             error: FATAL_ERROR,
           }),
@@ -1074,7 +1074,7 @@ describe(__filename, () => {
       });
 
       it('sets the canUninstall prop', async () => {
-        const installURL = fakeAddon.current_version.file.url;
+        const installURL = addon.current_version.file.url;
         const canUninstall = false;
         const addonManagerOverrides = {
           getAddon: Promise.resolve({
@@ -1095,7 +1095,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
             canUninstall,
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             status: ENABLED,
             url: installURL,
           }),
@@ -1273,13 +1273,13 @@ describe(__filename, () => {
         userEvent.click(screen.getByRole('link', { name: 'Enable' }));
 
         await waitFor(() => {
-          expect(_addonManager.enable).toHaveBeenCalledWith(fakeAddon.guid);
+          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(ADDON_TYPE_EXTENSION, ENABLE_ACTION),
-          label: fakeAddon.guid,
+          label: addon.guid,
         });
       });
 
@@ -1307,12 +1307,12 @@ describe(__filename, () => {
         userEvent.click(screen.getByRole('link', { name: 'Enable' }));
 
         await waitFor(() => {
-          expect(_addonManager.enable).toHaveBeenCalledWith(fakeAddon.guid);
+          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             status: ERROR,
             error: FATAL_ERROR,
           }),
@@ -1345,12 +1345,12 @@ describe(__filename, () => {
         userEvent.click(screen.getByRole('link', { name: 'Enable' }));
 
         await waitFor(() => {
-          expect(_addonManager.enable).toHaveBeenCalledWith(fakeAddon.guid);
+          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(dispatch).not.toHaveBeenCalledWith(
           setInstallState({
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             status: ERROR,
             error: FATAL_ERROR,
           }),
@@ -1376,9 +1376,9 @@ describe(__filename, () => {
 
         await waitFor(() => {
           expect(_addonManager.install).toHaveBeenCalledWith(
-            fakeAddon.current_version.file.url,
+            addon.current_version.file.url,
             expect.any(Function),
-            { hash: fakeAddon.current_version.file.hash },
+            { hash: addon.current_version.file.hash },
           );
         });
       });
@@ -1448,7 +1448,7 @@ describe(__filename, () => {
             ADDON_TYPE_EXTENSION,
             INSTALL_STARTED_ACTION,
           ),
-          label: fakeAddon.guid,
+          label: addon.guid,
         });
       });
 
@@ -1479,18 +1479,18 @@ describe(__filename, () => {
             ADDON_TYPE_EXTENSION,
             INSTALL_STARTED_ACTION,
           ),
-          label: fakeAddon.guid,
+          label: addon.guid,
         });
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_ACTION),
-          label: fakeAddon.guid,
+          label: addon.guid,
         });
       });
 
       it('tracks the start of a static theme install', async () => {
         const fakeTracking = createFakeTrackingWithJest();
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
 
         const addonManagerOverrides = {
           getAddon: Promise.reject(),
@@ -1525,7 +1525,7 @@ describe(__filename, () => {
 
       it('tracks a static theme install', async () => {
         const fakeTracking = createFakeTrackingWithJest();
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
 
         const addonManagerOverrides = {
           getAddon: Promise.reject(),
@@ -1580,7 +1580,7 @@ describe(__filename, () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           type: START_DOWNLOAD,
-          payload: { guid: fakeAddon.guid },
+          payload: { guid: addon.guid },
         });
       });
 
@@ -1607,7 +1607,7 @@ describe(__filename, () => {
         expect(dispatch).toHaveBeenCalledWith(
           setInstallError({
             error: FATAL_INSTALL_ERROR,
-            guid: fakeAddon.guid,
+            guid: addon.guid,
           }),
         );
       });
@@ -1628,11 +1628,11 @@ describe(__filename, () => {
         userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
         await waitFor(() => {
-          expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
+          expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({ guid: fakeAddon.guid, status: UNINSTALLING }),
+          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
         );
       });
 
@@ -1656,15 +1656,15 @@ describe(__filename, () => {
         userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
         await waitFor(() => {
-          expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
+          expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({ guid: fakeAddon.guid, status: UNINSTALLING }),
+          setInstallState({ guid: addon.guid, status: UNINSTALLING }),
         );
         expect(dispatch).toHaveBeenCalledWith(
           setInstallError({
-            guid: fakeAddon.guid,
+            guid: addon.guid,
             error: FATAL_UNINSTALL_ERROR,
           }),
         );
@@ -1686,7 +1686,7 @@ describe(__filename, () => {
         userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
         await waitFor(() => {
-          expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
+          expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
@@ -1695,13 +1695,13 @@ describe(__filename, () => {
             ADDON_TYPE_EXTENSION,
             UNINSTALL_ACTION,
           ),
-          label: fakeAddon.guid,
+          label: addon.guid,
         });
       });
 
       it('tracks a static theme uninstall', async () => {
         const fakeTracking = createFakeTrackingWithJest();
-        addon = { ...fakeTheme };
+        addon.type = ADDON_TYPE_STATIC_THEME;
 
         renderWithCurrentVersion({
           _tracking: fakeTracking,
@@ -1746,13 +1746,13 @@ describe(__filename, () => {
         userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
         await waitFor(() => {
-          expect(_addonManager.uninstall).toHaveBeenCalledWith(fakeAddon.guid);
+          expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
         });
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: TRACKING_TYPE_INVALID,
           category: getAddonEventCategory(INVALID_TYPE, UNINSTALL_ACTION),
-          label: fakeAddon.guid,
+          label: addon.guid,
         });
       });
     });
