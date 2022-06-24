@@ -77,12 +77,10 @@ export default async function createClient(
   let i18nData = {};
   try {
     if (locale !== langToLocale(_config.get('defaultLang'))) {
-      i18nData = await new Promise((resolve) => {
-        // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-        require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/amo.js`)(
-          resolve,
-        );
-      });
+      i18nData = await import(
+        /* webpackChunkName: "amo-i18n-[request]" */
+        `../../locale/${locale}/amo.js`
+      );
     }
   } catch (e) {
     log.info(oneLine`Locale not found or required for locale: "${locale}".
