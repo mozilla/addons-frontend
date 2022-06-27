@@ -2,22 +2,10 @@
 import * as React from 'react';
 import config from 'config';
 
-import GenericError from 'amo/components/ErrorPage/GenericError';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import log from 'amo/logger';
 import { getDisplayName } from 'amo/utils';
 import type { ConfigType } from 'amo/types/config';
-
-export const getErrorComponent = (
-  status: number | null,
-): React.ComponentType<any> => {
-  switch (status) {
-    case 404:
-      return NotFound;
-    default:
-      return GenericError;
-  }
-};
 
 /*
  * A decorator to render a 404 when a config key is false.

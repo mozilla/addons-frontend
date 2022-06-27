@@ -1,27 +1,10 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import GenericError from 'amo/components/ErrorPage/GenericError';
-import NotFound from 'amo/components/ErrorPage/NotFound';
-import {
-  getErrorComponent,
-  render404IfConfigKeyIsFalse,
-} from 'amo/utils/errors';
+import { render404IfConfigKeyIsFalse } from 'amo/utils/errors';
 import { render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  describe('getErrorComponent', () => {
-    it('returns the NotFound component when status is 404', () => {
-      expect(getErrorComponent(404)).toEqual(NotFound);
-    });
-
-    it('returns the GenericError component when status is not 404', () => {
-      expect(getErrorComponent(400)).toEqual(GenericError);
-      expect(getErrorComponent(null)).toEqual(GenericError);
-      expect(getErrorComponent(undefined)).toEqual(GenericError);
-    });
-  });
-
   describe('render404IfConfigKeyIsFalse', () => {
     const render = ({
       SomeComponent = () => <div />,
