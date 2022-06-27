@@ -786,6 +786,23 @@ export function getFakeAddonManagerWrapper({
   };
 }
 
+export function getFakeAddonManagerWrapperWithJest({
+  getAddon = enabledExtension,
+  hasAddonManager = true,
+  ...overrides
+} = {}) {
+  return {
+    addChangeListeners: jest.fn(),
+    enable: jest.fn().mockReturnValue(Promise.resolve()),
+    getAddon: jest.fn().mockReturnValue(getAddon),
+    getAddonStatus,
+    hasAddonManager: jest.fn().mockReturnValue(hasAddonManager),
+    install: jest.fn().mockReturnValue(Promise.resolve()),
+    uninstall: jest.fn().mockReturnValue(Promise.resolve()),
+    ...overrides,
+  };
+}
+
 /*
  * A promise resolution callback for expecting rejected promises.
  *

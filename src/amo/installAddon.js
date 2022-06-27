@@ -240,10 +240,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   enable(): Promise<void> {
     const { _addonManager, _log, _tracking, dispatch, addon } = this.props;
 
-    if (!addon) {
-      _log.debug('no addon found, aborting enable().');
-      return Promise.resolve();
-    }
+    invariant(addon, 'need an addon to call enable()');
 
     const { guid, type } = addon;
 
@@ -278,15 +275,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     const { _addonManager, _log, _tracking, addon, currentVersion, dispatch } =
       this.props;
 
-    if (!addon) {
-      _log.debug('no addon found, aborting install().');
-      return Promise.resolve();
-    }
-
-    if (!currentVersion) {
-      _log.debug('no currentVersion found, aborting install().');
-      return Promise.resolve();
-    }
+    invariant(addon, 'need an addon to call install()');
+    invariant(currentVersion, 'need a currentVersion to call install()');
 
     const { guid, name, type } = addon;
     const { file } = currentVersion;
