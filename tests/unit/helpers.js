@@ -775,23 +775,6 @@ export function getFakeAddonManagerWrapper({
   ...overrides
 } = {}) {
   return {
-    addChangeListeners: sinon.stub(),
-    enable: sinon.stub().returns(Promise.resolve()),
-    getAddon: sinon.stub().returns(getAddon),
-    getAddonStatus,
-    hasAddonManager: sinon.stub().returns(hasAddonManager),
-    install: sinon.stub().returns(Promise.resolve()),
-    uninstall: sinon.stub().returns(Promise.resolve()),
-    ...overrides,
-  };
-}
-
-export function getFakeAddonManagerWrapperWithJest({
-  getAddon = enabledExtension,
-  hasAddonManager = true,
-  ...overrides
-} = {}) {
-  return {
     addChangeListeners: jest.fn(),
     enable: jest.fn().mockReturnValue(Promise.resolve()),
     getAddon: jest.fn().mockReturnValue(getAddon),

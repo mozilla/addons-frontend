@@ -121,7 +121,6 @@ jest.mock('amo/utils/compatibility', () => ({
   }),
 }));
 
-// Default the availability of the Firefox Report Abuse API to false.
 jest.mock('amo/addonManager', () => ({
   ...jest.requireActual('amo/addonManager'),
   getAddon: jest.fn().mockResolvedValue({
