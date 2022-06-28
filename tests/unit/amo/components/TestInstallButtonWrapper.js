@@ -65,7 +65,7 @@ import {
   fakeFile,
   fakeInstalledAddon,
   fakeVersion,
-  getFakeAddonManagerWrapperWithJest as getFakeAddonManagerWrapper,
+  getFakeAddonManagerWrapper,
   getFakeLoggerWithJest as getFakeLogger,
   render as defaultRender,
   screen,
@@ -813,192 +813,77 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
+    const successfulGetAddonMock = (getAddonOverrides = {}) =>
+      Promise.resolve({
+        isActive: true,
+        isEnabled: true,
+        ...getAddonOverrides,
+      });
+
     describe('setCurrentStatus', () => {
-      it('sets the status to ENABLED when an extension is enabled', async () => {
-        const installURL = addon.current_version.file.url;
-        const dispatch = jest.spyOn(store, 'dispatch');
+      it.each([
+        [ADDON_TYPE_EXTENSION, 'enabled', ENABLED, successfulGetAddonMock()],
+        [
+          ADDON_TYPE_EXTENSION,
+          'disabled',
+          DISABLED,
+          successfulGetAddonMock({ isEnabled: false }),
+        ],
+        [
+          ADDON_TYPE_EXTENSION,
+          'disabled and inactive',
+          DISABLED,
+          successfulGetAddonMock({ isActive: false, isEnabled: false }),
+        ],
+        [
+          ADDON_TYPE_EXTENSION,
+          'enabled but inactive',
+          INACTIVE,
+          successfulGetAddonMock({ isActive: false }),
+        ],
+        [ADDON_TYPE_STATIC_THEME, 'enabled', ENABLED, successfulGetAddonMock()],
+        [
+          ADDON_TYPE_STATIC_THEME,
+          'disabled',
+          DISABLED,
+          successfulGetAddonMock({ isEnabled: false }),
+        ],
+        [
+          ADDON_TYPE_STATIC_THEME,
+          'disabled and inactive',
+          DISABLED,
+          successfulGetAddonMock({ isActive: false, isEnabled: false }),
+        ],
+        [
+          ADDON_TYPE_STATIC_THEME,
+          'enabled but inactive',
+          DISABLED,
+          successfulGetAddonMock({ isActive: false }),
+        ],
+      ])(
+        'when a(n) %s is %s, sets the status to %s',
+        async (type, statusDesc, expectedStatus, getAddon) => {
+          addon.type = type;
+          const installURL = addon.current_version.file.url;
+          const addonManagerOverrides = { getAddon };
+          const dispatch = jest.spyOn(store, 'dispatch');
 
-        renderWithCurrentVersion();
+          renderWithCurrentVersion({ addonManagerOverrides });
 
-        await waitFor(() => {
-          expect(dispatch).toHaveBeenCalledTimes(2);
-        });
+          await waitFor(() => {
+            expect(dispatch).toHaveBeenCalledTimes(2);
+          });
 
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({
-            canUninstall: undefined,
-            guid: addon.guid,
-            status: ENABLED,
-            url: installURL,
-          }),
-        );
-      });
-
-      it('sets the status to DISABLED when an extension is disabled', async () => {
-        const installURL = addon.current_version.file.url;
-        const addonManagerOverrides = {
-          getAddon: Promise.resolve({
-            isActive: true,
-            isEnabled: false,
-          }),
-        };
-        const dispatch = jest.spyOn(store, 'dispatch');
-
-        renderWithCurrentVersion({ addonManagerOverrides });
-
-        await waitFor(() => {
-          expect(dispatch).toHaveBeenCalledTimes(2);
-        });
-
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({
-            canUninstall: undefined,
-            guid: addon.guid,
-            status: DISABLED,
-            url: installURL,
-          }),
-        );
-      });
-
-      it('sets the status to DISABLED when an extension is disabled and inactive', async () => {
-        const installURL = addon.current_version.file.url;
-        const addonManagerOverrides = {
-          getAddon: Promise.resolve({
-            isActive: false,
-            isEnabled: false,
-          }),
-        };
-        const dispatch = jest.spyOn(store, 'dispatch');
-
-        renderWithCurrentVersion({ addonManagerOverrides });
-
-        await waitFor(() => {
-          expect(dispatch).toHaveBeenCalledTimes(2);
-        });
-
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({
-            canUninstall: undefined,
-            guid: addon.guid,
-            status: DISABLED,
-            url: installURL,
-          }),
-        );
-      });
-
-      it('sets the status to INACTIVE when an extension is enabled but inactive', async () => {
-        const installURL = addon.current_version.file.url;
-        const addonManagerOverrides = {
-          getAddon: Promise.resolve({
-            isActive: false,
-            isEnabled: true,
-          }),
-        };
-        const dispatch = jest.spyOn(store, 'dispatch');
-
-        renderWithCurrentVersion({ addonManagerOverrides });
-
-        await waitFor(() => {
-          expect(dispatch).toHaveBeenCalledTimes(2);
-        });
-
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({
-            canUninstall: undefined,
-            guid: addon.guid,
-            status: INACTIVE,
-            url: installURL,
-          }),
-        );
-      });
-
-      it('sets the status to ENABLED when a theme is enabled', async () => {
-        addon.type = ADDON_TYPE_STATIC_THEME;
-
-        const installURL = addon.current_version.file.url;
-        const addonManagerOverrides = {
-          getAddon: Promise.resolve({
-            isActive: true,
-            isEnabled: true,
-          }),
-        };
-        const dispatch = jest.spyOn(store, 'dispatch');
-
-        renderWithCurrentVersion({
-          addonManagerOverrides,
-        });
-
-        await waitFor(() => {
-          expect(dispatch).toHaveBeenCalledTimes(2);
-        });
-
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({
-            canUninstall: undefined,
-            guid: addon.guid,
-            status: ENABLED,
-            url: installURL,
-          }),
-        );
-      });
-
-      it('sets the status to DISABLED when a theme is enabled but inactive', async () => {
-        addon.type = ADDON_TYPE_STATIC_THEME;
-        const installURL = addon.current_version.file.url;
-        const addonManagerOverrides = {
-          getAddon: Promise.resolve({
-            isActive: false,
-            isEnabled: true,
-          }),
-        };
-        const dispatch = jest.spyOn(store, 'dispatch');
-
-        renderWithCurrentVersion({
-          addonManagerOverrides,
-        });
-
-        await waitFor(() => {
-          expect(dispatch).toHaveBeenCalledTimes(2);
-        });
-
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({
-            canUninstall: undefined,
-            guid: addon.guid,
-            status: DISABLED,
-            url: installURL,
-          }),
-        );
-      });
-
-      it('sets the status to DISABLED when a theme is disabled', async () => {
-        addon.type = ADDON_TYPE_STATIC_THEME;
-        const installURL = addon.current_version.file.url;
-        const addonManagerOverrides = {
-          getAddon: Promise.resolve({
-            isActive: true,
-            isEnabled: false,
-          }),
-        };
-        const dispatch = jest.spyOn(store, 'dispatch');
-
-        renderWithCurrentVersion({
-          addonManagerOverrides,
-        });
-
-        await waitFor(() => {
-          expect(dispatch).toHaveBeenCalledTimes(2);
-        });
-
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({
-            canUninstall: undefined,
-            guid: addon.guid,
-            status: DISABLED,
-            url: installURL,
-          }),
-        );
-      });
+          expect(dispatch).toHaveBeenCalledWith(
+            setInstallState({
+              canUninstall: undefined,
+              guid: addon.guid,
+              status: expectedStatus,
+              url: installURL,
+            }),
+          );
+        },
+      );
 
       it('sets the status to UNINSTALLED when an extension is not found', async () => {
         const installURL = addon.current_version.file.url;

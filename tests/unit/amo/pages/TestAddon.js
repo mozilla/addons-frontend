@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 
 import { createAddonReview, setLatestReview } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
+import { getAddon } from 'amo/addonManager';
 import {
   ADDON_QRCODE_CAMPAIGN,
   ADDON_QRCODE_CATEGORY,
@@ -118,6 +119,16 @@ jest.mock('amo/utils/compatibility', () => ({
     compatible: true,
     reason: null,
   }),
+}));
+
+jest.mock('amo/addonManager', () => ({
+  ...jest.requireActual('amo/addonManager'),
+  getAddon: jest.fn().mockResolvedValue({
+    isActive: true,
+    isEnabled: true,
+    type: 'extension',
+  }),
+  hasAddonManager: jest.fn().mockReturnValue(true),
 }));
 
 jest.mock('amo/tracking', () => ({
@@ -3154,6 +3165,70 @@ describe(__filename, () => {
           }),
         ).not.toBeInTheDocument();
       });
+    });
+  });
+
+  describe('Tests for installAddon', () => {
+    it('sets status when getting updated', () => {
+      const newGuid = `${addon.guid}-new`;
+      const newSlug = `${defaultSlug}-new`;
+      renderWithAddon();
+
+      expect(getAddon).toHaveBeenCalledWith(addon.guid);
+
+      store.dispatch(
+        loadAddon({
+          addon: { ...fakeAddon, guid: newGuid, slug: newSlug },
+          slug: newSlug,
+        }),
+      );
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: newSlug }),
+        }),
+      );
+
+      expect(getAddon).toHaveBeenCalledWith(newGuid);
+    });
+
+    it('sets status when add-on is loaded on update', () => {
+      const newGuid = `${addon.guid}-new`;
+      const newSlug = `${defaultSlug}-new`;
+
+      render();
+
+      expect(getAddon).not.toHaveBeenCalled();
+
+      store.dispatch(
+        loadAddon({
+          addon: { ...fakeAddon, guid: newGuid, slug: newSlug },
+          slug: newSlug,
+        }),
+      );
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation({ slug: newSlug }),
+        }),
+      );
+
+      expect(getAddon).toHaveBeenCalledWith(newGuid);
+    });
+
+    it('does not set status when an update is not necessary', () => {
+      renderWithAddon();
+
+      expect(getAddon).toHaveBeenCalledWith(addon.guid);
+      getAddon.mockClear();
+
+      // Update the component with the same props (i.e. same add-on guid) and
+      // make sure the status is not set.
+      store.dispatch(
+        onLocationChanged({
+          pathname: getLocation(),
+        }),
+      );
+
+      expect(getAddon).not.toHaveBeenCalled();
     });
   });
 });
