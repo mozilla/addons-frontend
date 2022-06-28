@@ -744,12 +744,8 @@ describe(__filename, () => {
     });
 
     it('uses the API version from config', () => {
-      const version = 'v789';
-      const _config = getFakeConfig({ apiVersion: version });
-      const location = createFakeLocation();
-
-      expect(api.startLoginUrl({ _config, location })).toContain(
-        `/api/${version}/accounts/login/start/`,
+      expect(api.startLoginUrl({ location: createFakeLocation() })).toContain(
+        `/api/${config.get('apiVersion')}/accounts/login/start/`,
       );
     });
   });
