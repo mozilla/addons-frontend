@@ -44,8 +44,8 @@ describe(__filename, () => {
 
       history.push({ pathname });
 
-      sinon.assert.calledWith(_tracking.setPage, pathname);
-      sinon.assert.calledWith(_tracking.pageView, { title: '' });
+      expect(_tracking.setPage).toHaveBeenCalledWith(pathname);
+      expect(_tracking.pageView).toHaveBeenCalledWith({ title: '' });
     });
 
     it('creates a browser history', async () => {

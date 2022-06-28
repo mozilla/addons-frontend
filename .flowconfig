@@ -4,8 +4,6 @@
 
 # These modules opt into Flow but we don't need to check them.
 .*/node_modules/babel.*
-.*/node_modules/enzyme-matchers/.*
-.*/node_modules/jest-enzyme/.*
 .*/node_modules/eslint-plugin-jsx-a11y/.*
 .*/node_modules/react-nested-status/node_modules/.*
 .*/node_modules/stylelint

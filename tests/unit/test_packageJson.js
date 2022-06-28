@@ -13,11 +13,6 @@ const packageJson = JSON.parse(
 // prettier and pretty-quick: we pin these so that all developers format code
 // with the exact same version.
 
-// enzyme: there is an issue with Enzyme 3.9 (related to `setState()` and
-// `componentDidUpdate()` in `TestUserProfileEdit.js`). The failure has been
-// observed in: https://github.com/mozilla/addons-frontend/pull/7603 and it is
-// likely due to this Enzyme patch: https://github.com/airbnb/enzyme/pull/2007
-
 // html-webpack-plugin and webpack-subresource-integrity: we're using unstable
 // versions.
 
@@ -26,7 +21,6 @@ const packageJson = JSON.parse(
 const skipDevDeps = [
   'prettier',
   'pretty-quick',
-  'enzyme',
   'html-webpack-plugin',
   'webpack-subresource-integrity',
   'po2json',

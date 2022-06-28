@@ -55,9 +55,10 @@ expect(loadAction).toEqual(expectedLoadAction);
 
 ## Testing UI components
 
-We are in the process of migrating our test suite from [Enzyme](http://airbnb.io/enzyme/docs/api/index.html) to [React Testing Library](https://github.com/testing-library/react-testing-library) for testing UI components (React components). Any new or updated tests should use React Testing Library in place of Enzyme. Below are a few rules regarding our use of React Testing Library:
+We use [React Testing Library](https://github.com/testing-library/react-testing-library) for testing UI components (React components). Below are a few rules regarding our use of React Testing Library:
 
 - When locating an element, prefer methods that mirror how a user might find an element, such as `getByRole`, `getByText`, `getByTitle` and `getByAltText`. If available, prefer `getByRole`, which can accept additional options such as `name`. Along the same lines, avoid the use of `getElement`, `getByClassName` and `getByTagName` unless absolutely necessary.
 - If a component is only used by a single parent, add tests for the component into the test suite for the parent, and render the component in the context of the parent.
 - For page components, use `renderPage` from `tests/unit/helpers`, otherwise use `render`.
 - `render` and `renderPage` will provide an instance of `history`, `i18n` and `store` to your component. Unless you need to interact with and/or assert about one of these in your test, you do not need to provide one to you call to `render`.
+- when interacting with UI elements, prefer `userEvent` over `fireEvent`. The latter seems to be neccesary when needing to listen for calls to `stopPropagation` and `preventDefault`.
