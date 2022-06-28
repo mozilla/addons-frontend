@@ -19,14 +19,17 @@ import {
 import { COLLECTION_SORT_DATE_ADDED_ASCENDING } from 'amo/constants';
 import {
   apiResponsePage,
-  createApiResponse,
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
   dispatchClientMetadata,
 } from 'tests/unit/helpers';
 
+jest.mock('amo/api', () => ({
+  ...jest.requireActual('amo/api'),
+  callApi: jest.fn().mockResolvedValue(),
+}));
+
 describe(__filename, () => {
-  let mockApi;
   let apiState;
 
   const getParams = ({ ...otherParams } = {}) => {
@@ -39,26 +42,24 @@ describe(__filename, () => {
   };
 
   beforeEach(() => {
-    mockApi = sinon.mock(api);
     apiState = dispatchClientMetadata().store.getState().api;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks().resetModules();
   });
 
   describe('getCollectionDetail', () => {
     it('calls the collection detail API', async () => {
       const params = getParams();
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          endpoint: `accounts/account/${params.userId}/collections/${params.slug}`,
-          apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
       await getCollectionDetail(params);
-      mockApi.verify();
+
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        endpoint: `accounts/account/${params.userId}/collections/${params.slug}`,
+        apiState,
+      });
     });
   });
 
@@ -70,20 +71,15 @@ describe(__filename, () => {
       };
 
       const params = getParams({ filters });
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          endpoint: `accounts/account/${params.userId}/collections/${params.slug}/addons`,
-          params: { page: filters.page, sort: filters.collectionSort },
-          apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
       await getCollectionAddons(params);
-      mockApi.verify();
+
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        endpoint: `accounts/account/${params.userId}/collections/${params.slug}/addons`,
+        params: { page: filters.page, sort: filters.collectionSort },
+        apiState,
+      });
     });
   });
 
@@ -93,12 +89,12 @@ describe(__filename, () => {
       const slug = 'example-collection-slug';
       const addonResults = createFakeCollectionAddonsListResponse().results;
 
-      const _getCollectionAddons = sinon.spy(() =>
-        Promise.resolve(apiResponsePage({ results: addonResults })),
-      );
+      const _getCollectionAddons = jest
+        .fn()
+        .mockResolvedValue(apiResponsePage({ results: addonResults }));
 
       const nextURL = 'the-endpoint?page=2';
-      const _allPages = sinon.spy((nextPage) => nextPage(nextURL));
+      const _allPages = jest.fn((nextPage) => nextPage(nextURL));
 
       const addons = await getAllCollectionAddons({
         api: apiState,
@@ -109,12 +105,32 @@ describe(__filename, () => {
       });
 
       expect(addons).toEqual(addonResults);
-      sinon.assert.called(_getCollectionAddons);
-      expect(_getCollectionAddons.firstCall.args[0]).toEqual({
+      expect(_getCollectionAddons).toHaveBeenCalledWith({
         api: apiState,
         userId,
         slug,
         nextURL,
+      });
+    });
+
+    it('uses default values for _allPages and _getCollectionAddons', async () => {
+      const userId = 123;
+      const slug = 'example-collection-slug';
+      const addonResults = createFakeCollectionAddonsListResponse().results;
+      api.callApi.mockResolvedValue(apiResponsePage({ results: addonResults }));
+
+      const addons = await getAllCollectionAddons({
+        api: apiState,
+        userId,
+        slug,
+      });
+
+      expect(addons).toEqual(addonResults);
+      expect(api.callApi).toHaveBeenCalledWith({
+        apiState,
+        auth: true,
+        endpoint: `accounts/account/${userId}/collections/${slug}/addons`,
+        params: undefined,
       });
     });
   });
@@ -131,19 +147,15 @@ describe(__filename, () => {
     it('calls the list collections API', async () => {
       const userId = 345;
 
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          endpoint: `accounts/account/${userId}/collections`,
-          apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
       const params = getListParams({ userId });
       await listCollections(params);
-      mockApi.verify();
+
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        endpoint: `accounts/account/${userId}/collections`,
+        apiState,
+      });
     });
   });
 
@@ -153,12 +165,12 @@ describe(__filename, () => {
 
       const collectionResults = [createFakeCollectionDetail({ slug: 'first' })];
 
-      const _listCollections = sinon.spy(() =>
-        Promise.resolve(apiResponsePage({ results: collectionResults })),
-      );
+      const _listCollections = jest
+        .fn()
+        .mockResolvedValue(apiResponsePage({ results: collectionResults }));
 
       const nextURL = 'the-endpoint?page=2';
-      const _allPages = sinon.spy((nextPage) => nextPage(nextURL));
+      const _allPages = jest.fn((nextPage) => nextPage(nextURL));
 
       const collections = await getAllUserCollections({
         api: apiState,
@@ -168,8 +180,7 @@ describe(__filename, () => {
       });
 
       expect(collections).toEqual(collectionResults);
-      sinon.assert.called(_listCollections);
-      expect(_listCollections.firstCall.args[0]).toEqual({
+      expect(_listCollections).toHaveBeenCalledWith({
         api: apiState,
         userId,
         nextURL,
@@ -191,7 +202,7 @@ describe(__filename, () => {
     };
 
     it('validates description value', async () => {
-      const validator = sinon.stub();
+      const validator = jest.fn();
       const description = { fr: 'la description' };
       const params = defaultParams({
         description,
@@ -199,84 +210,74 @@ describe(__filename, () => {
         _validateLocalizedString: validator,
       });
 
-      mockApi.expects('callApi');
       await modifyCollection('create', params);
 
-      sinon.assert.calledWith(validator, description);
-      mockApi.verify();
+      expect(validator).toHaveBeenCalledWith(description);
+      expect(api.callApi).toHaveBeenCalled();
     });
 
     it('validates name value', async () => {
-      const validator = sinon.stub();
+      const validator = jest.fn();
       const params = defaultParams({
         slug,
         _validateLocalizedString: validator,
       });
 
-      mockApi.expects('callApi');
       await modifyCollection('create', params);
 
-      sinon.assert.calledWith(validator, name);
-      mockApi.verify();
+      expect(validator).toHaveBeenCalledWith(name);
+      expect(api.callApi).toHaveBeenCalled();
     });
 
     it('makes a POST request to the API for create', async () => {
       const params = defaultParams({ slug });
 
       const endpoint = `accounts/account/${params.userId}/collections/`;
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: {
-            default_locale: undefined,
-            description: undefined,
-            name,
-            slug,
-          },
-          endpoint,
-          method: 'POST',
-          apiState: params.api,
-        })
-        .once()
-        .returns(Promise.resolve());
 
       await modifyCollection('create', params);
 
-      mockApi.verify();
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        body: {
+          default_locale: undefined,
+          description: undefined,
+          name,
+          slug,
+        },
+        endpoint,
+        method: 'POST',
+        apiState: params.api,
+      });
     });
 
     it('makes a PATCH request to the API for update', async () => {
       const params = defaultParams({ collectionSlug: slug });
 
       const endpoint = `accounts/account/${params.userId}/collections/${slug}`;
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: {
-            default_locale: undefined,
-            description: undefined,
-            name,
-            slug: undefined,
-          },
-          endpoint,
-          method: 'PATCH',
-          apiState: params.api,
-        })
-        .once()
-        .returns(Promise.resolve());
 
       await modifyCollection('update', params);
 
-      mockApi.verify();
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        body: {
+          default_locale: undefined,
+          description: undefined,
+          name,
+          slug: undefined,
+        },
+        endpoint,
+        method: 'PATCH',
+        apiState: params.api,
+      });
     });
   });
 
   describe('updateCollection', () => {
     it('calls modifyCollection with the expected params', async () => {
-      const validator = sinon.stub();
-      const modifier = sinon.spy(() => Promise.resolve());
+      const validator = jest.fn();
+      const modifier = jest.fn().mockResolvedValue();
       const modifyParams = {
         api: apiState,
         collectionSlug: 'collection-slug',
@@ -294,14 +295,14 @@ describe(__filename, () => {
 
       await updateCollection(updateParams);
 
-      sinon.assert.calledWith(modifier, 'update', modifyParams);
+      expect(modifier).toHaveBeenCalledWith('update', modifyParams);
     });
   });
 
   describe('createCollection', () => {
     it('calls modifyCollection with the expected params', async () => {
-      const validator = sinon.stub();
-      const modifier = sinon.spy(() => Promise.resolve());
+      const validator = jest.fn();
+      const modifier = jest.fn().mockResolvedValue();
       const modifyParams = {
         api: apiState,
         defaultLocale: undefined,
@@ -318,7 +319,33 @@ describe(__filename, () => {
 
       await createCollection(createParams);
 
-      sinon.assert.calledWith(modifier, 'create', modifyParams);
+      expect(modifier).toHaveBeenCalledWith('create', modifyParams);
+    });
+
+    it('uses default params', async () => {
+      const createParams = {
+        api: apiState,
+        defaultLocale: undefined,
+        description: undefined,
+        name: undefined,
+        slug: 'collection-slug',
+        userId: 456,
+      };
+
+      await createCollection(createParams);
+
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        body: {
+          default_locale: undefined,
+          description: undefined,
+          name: undefined,
+          slug: createParams.slug,
+        },
+        endpoint: `accounts/account/${createParams.userId}/collections/`,
+        method: 'POST',
+        apiState: createParams.api,
+      });
     });
   });
 
@@ -346,21 +373,17 @@ describe(__filename, () => {
         accounts/account/${params.userId}/collections/
         ${params.slug}/addons
       `;
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: { addon: params.addonId, notes: undefined },
-          endpoint,
-          method: 'POST',
-          apiState: params.api,
-        })
-        .once()
-        .returns(Promise.resolve());
 
       await modifyCollectionAddon(params);
 
-      mockApi.verify();
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        body: { addon: params.addonId, notes: undefined },
+        endpoint,
+        method: 'POST',
+        apiState: params.api,
+      });
     });
 
     it('POSTs notes for a collection addon', async () => {
@@ -371,20 +394,17 @@ describe(__filename, () => {
         accounts/account/${params.userId}/collections/
         ${params.slug}/addons
       `;
-      mockApi
-        .expects('callApi')
-        .withArgs(
-          sinon.match({
-            body: { addon: params.addonId, notes },
-            endpoint,
-            method: 'POST',
-          }),
-        )
-        .returns(Promise.resolve());
 
       await modifyCollectionAddon(params);
 
-      mockApi.verify();
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        body: { addon: params.addonId, notes },
+        endpoint,
+        method: 'POST',
+        apiState: params.api,
+      });
     });
 
     it('PATCHes notes for a collection addon', async () => {
@@ -401,21 +421,17 @@ describe(__filename, () => {
         accounts/account/${params.userId}/collections/
         ${params.slug}/addons/${params.addonId}
       `;
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: { notes },
-          endpoint,
-          method: 'PATCH',
-          apiState: params.api,
-        })
-        .once()
-        .returns(Promise.resolve());
 
       await modifyCollectionAddon(params);
 
-      mockApi.verify();
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        body: { notes },
+        endpoint,
+        method: 'PATCH',
+        apiState: params.api,
+      });
     });
 
     it('allows you to nullify add-on notes', async () => {
@@ -426,20 +442,17 @@ describe(__filename, () => {
         accounts/account/${params.userId}/collections/
         ${params.slug}/addons/${params.addonId}
       `;
-      mockApi
-        .expects('callApi')
-        .withArgs(
-          sinon.match({
-            body: { notes },
-            endpoint,
-            method: 'PATCH',
-          }),
-        )
-        .returns(Promise.resolve());
 
       await modifyCollectionAddon(params);
 
-      mockApi.verify();
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        body: { notes },
+        endpoint,
+        method: 'PATCH',
+        apiState: params.api,
+      });
     });
   });
 
@@ -453,14 +466,14 @@ describe(__filename, () => {
         userId: 456,
       };
 
-      const modifier = sinon.spy(() => Promise.resolve());
+      const modifier = jest.fn().mockResolvedValue();
 
       await createCollectionAddon({
         _modifyCollectionAddon: modifier,
         ...params,
       });
 
-      sinon.assert.calledWith(modifier, { action: 'create', ...params });
+      expect(modifier).toHaveBeenCalledWith({ action: 'create', ...params });
     });
   });
 
@@ -474,14 +487,14 @@ describe(__filename, () => {
         userId: 789,
       };
 
-      const modifier = sinon.spy(() => Promise.resolve());
+      const modifier = jest.fn().mockResolvedValue();
 
       await updateCollectionAddon({
         _modifyCollectionAddon: modifier,
         ...params,
       });
 
-      sinon.assert.calledWith(modifier, { action: 'update', ...params });
+      expect(modifier).toHaveBeenCalledWith({ action: 'update', ...params });
     });
   });
 
@@ -493,17 +506,6 @@ describe(__filename, () => {
 
       const endpoint = `accounts/account/${userId}/collections/${slug}/addons/${addonId}`;
 
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          endpoint,
-          method: 'DELETE',
-          apiState: api,
-        })
-        .once()
-        .returns(Promise.resolve());
-
       await removeAddonFromCollection({
         addonId,
         api,
@@ -511,7 +513,13 @@ describe(__filename, () => {
         userId,
       });
 
-      mockApi.verify();
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        endpoint,
+        method: 'DELETE',
+        apiState: api,
+      });
     });
   });
 
@@ -522,24 +530,19 @@ describe(__filename, () => {
 
       const endpoint = `accounts/account/${userId}/collections/${slug}`;
 
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          endpoint,
-          method: 'DELETE',
-          apiState: api,
-        })
-        .once()
-        .returns(Promise.resolve());
-
       await deleteCollection({
         api,
         slug,
         userId,
       });
 
-      mockApi.verify();
+      expect(api.callApi).toHaveBeenCalledOnce();
+      expect(api.callApi).toHaveBeenCalledWith({
+        auth: true,
+        endpoint,
+        method: 'DELETE',
+        apiState: api,
+      });
     });
   });
 });
