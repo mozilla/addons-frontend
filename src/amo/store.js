@@ -3,11 +3,8 @@
 import config from 'config';
 import { createMemoryHistory } from 'history';
 import { combineReducers } from 'redux';
+import { createReduxHistoryContext } from 'redux-first-history';
 import createSagaMiddleware from 'redux-saga';
-import {
-  connectRouter,
-  routerMiddleware as defaultRouterMiddleware,
-} from 'connected-react-router';
 import { createLogger } from 'redux-logger';
 import { configureStore } from '@reduxjs/toolkit';
 
@@ -61,7 +58,7 @@ import type { SearchState } from 'amo/reducers/search';
 import type { SiteState } from 'amo/reducers/site';
 import type { UIStateState } from 'amo/reducers/uiState';
 import type { VersionsState } from 'amo/reducers/versions';
-import type { ReactRouterHistoryType, LocationType } from 'amo/types/router';
+import type { LocationType } from 'amo/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'amo/types/store';
 
 export const minimalReduxLogger =
@@ -155,18 +152,18 @@ export type AppState = {|
 // See https://flow.org/en/docs/types/utilities/#toc-objmap
 type AppReducersType = $ObjMap<InternalAppState, CreateReducerType>;
 
-type CreateRootReducerParams = {|
-  history: ReactRouterHistoryType,
-  reducers: AppReducersType,
-|};
+type CreateRootReducerParams = {| reducers: AppReducersType |};
 
 export const createRootReducer = ({
-  history,
   reducers,
 }: CreateRootReducerParams): AppState => {
+  const { routerReducer } = createReduxHistoryContext({
+    history: createMemoryHistory(),
+  });
+
   return combineReducers({
     ...reducers,
-    router: connectRouter(history),
+    router: routerReducer,
   });
 };
 
@@ -205,21 +202,28 @@ export const includeDevTools = ({
 export default function createStore({
   history = createMemoryHistory(),
   initialState = {},
-}: CreateStoreParams = {}): {| sagaMiddleware: Object, store: Object |} {
+}: CreateStoreParams = {}): {|
+  connectedHistory: Object,
+  sagaMiddleware: Object,
+  store: Object,
+|} {
   const sagaMiddleware = createSagaMiddleware();
+  const { createReduxHistory, routerMiddleware } = createReduxHistoryContext({
+    history,
+  });
 
   const store = configureStore({
-    reducer: createRootReducer({ history, reducers }),
+    reducer: createRootReducer({ reducers }),
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(
         middleware({
-          routerMiddleware: defaultRouterMiddleware(history),
+          routerMiddleware,
           sagaMiddleware,
         }),
       ),
     devTools: includeDevTools(),
   });
 
-  return { sagaMiddleware, store };
+  return { connectedHistory: createReduxHistory(store), sagaMiddleware, store };
 }

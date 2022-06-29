@@ -939,7 +939,7 @@ describe(__filename, () => {
 
         render({ _log, addon: null });
 
-        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).not.toHaveBeenCalled();
         expect(_log.debug).toHaveBeenCalledWith(
           'no addon, aborting setCurrentStatus()',
         );
@@ -952,7 +952,7 @@ describe(__filename, () => {
 
         render({ _log });
 
-        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).not.toHaveBeenCalled();
         expect(_log.debug).toHaveBeenCalledWith(
           'no currentVersion, aborting setCurrentStatus()',
         );

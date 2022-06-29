@@ -3,11 +3,10 @@
  */
 /* eslint-disable react/no-multi-comp, max-classes-per-file */
 import { all, fork } from 'redux-saga/effects';
-import { connectRouter, routerMiddleware } from 'connected-react-router';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { Route } from 'react-router-dom';
-import { combineReducers } from 'redux';
+import { createReduxHistoryContext } from 'redux-first-history';
 import createSagaMiddleware from 'redux-saga';
 import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
@@ -18,7 +17,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { REGION_CODE_HEADER, createApiError } from 'amo/api';
 import { AMO_REQUEST_ID_HEADER } from 'amo/constants';
 import baseServer, { createHistory } from 'amo/server/base';
-import { middleware } from 'amo/store';
+import { createRootReducer, middleware } from 'amo/store';
 import apiReducer, { setRegionCode, setRequestId } from 'amo/reducers/api';
 import redirectToReducer, { sendServerRedirect } from 'amo/reducers/redirectTo';
 import usersReducer, { getCurrentUser } from 'amo/reducers/users';
@@ -44,21 +43,24 @@ function createStoreAndSagas({
   },
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
+  const { createReduxHistory, routerMiddleware } = createReduxHistoryContext({
+    history,
+  });
+
   const store = configureStore({
-    reducer: combineReducers({ ...reducers, router: connectRouter(history) }),
+    reducer: createRootReducer({ reducers }),
     // Do not define an initial state.
     preloadedState: undefined,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(
         middleware({
-          routerMiddleware: routerMiddleware(history),
+          routerMiddleware,
           sagaMiddleware,
         }),
       ),
-    devTools: false,
   });
 
-  return { store, sagaMiddleware };
+  return { connectedHistory: createReduxHistory(store), sagaMiddleware, store };
 }
 
 const StubApp = () => (
@@ -117,6 +119,7 @@ export class ServerTestHelper {
 
   testClient({
     App = StubApp,
+    connectedHistory = null,
     store = null,
     sagaMiddleware = null,
     appSagas = null,
@@ -128,7 +131,7 @@ export class ServerTestHelper {
         return createStoreAndSagas({ history });
       }
 
-      return { store, sagaMiddleware };
+      return { connectedHistory, store, sagaMiddleware };
     }
 
     // eslint-disable-next-line no-empty-function
@@ -163,9 +166,13 @@ describe(__filename, () => {
 
   describe('app', () => {
     it('enables gzip compression if client sends accept-encoding', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
 
-      const response = await testClient({ store, sagaMiddleware })
+      const response = await testClient({
+        connectedHistory,
+        sagaMiddleware,
+        store,
+      })
         .get('/en-US/firefox/')
         .set('Accept-Encoding', 'gzip');
       expect(response.headers['content-encoding']).toEqual('gzip');
@@ -188,22 +195,26 @@ describe(__filename, () => {
     });
 
     it('sets a Cache-Control header', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
 
-      const response = await testClient({ store, sagaMiddleware }).get(
-        '/en-US/firefox/',
-      );
+      const response = await testClient({
+        connectedHistory,
+        sagaMiddleware,
+        store,
+      }).get('/en-US/firefox/');
       expect(response.headers['cache-control']).toEqual(
         'max-age=0, s-maxage=180',
       );
     });
 
     it('does not dispatch setAuthToken() if cookie is not found', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
 
-      const response = await testClient({ store, sagaMiddleware }).get(
-        '/en-US/firefox/',
-      );
+      const response = await testClient({
+        connectedHistory,
+        store,
+        sagaMiddleware,
+      }).get('/en-US/firefox/');
       const { api } = store.getState();
 
       expect(response.statusCode).toEqual(200);
@@ -212,8 +223,12 @@ describe(__filename, () => {
 
     it('dispatches setAuthToken() if cookie is present', async () => {
       const token = userAuthSessionId();
-      const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware })
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
+      const response = await testClient({
+        connectedHistory,
+        sagaMiddleware,
+        store,
+      })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`);
       const { api } = store.getState();
@@ -223,11 +238,12 @@ describe(__filename, () => {
     });
 
     it('dispatches setRequestId()', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const requestId = 'example-request-id';
 
       await testClient({
+        connectedHistory,
         store,
         sagaMiddleware,
         config: getFakeConfig({ enableRequestID: true }),
@@ -240,11 +256,12 @@ describe(__filename, () => {
     });
 
     it('dispatches setRegionCode() when the region code header is set on the request', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const regionCode = 'CA';
 
       await testClient({
+        connectedHistory,
         store,
         sagaMiddleware,
       })
@@ -254,10 +271,11 @@ describe(__filename, () => {
     });
 
     it('does not dispatch setRegionCode() when the region code header is not set on the request', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
       const dispatchSpy = sinon.spy(store, 'dispatch');
 
       await testClient({
+        connectedHistory,
         store,
         sagaMiddleware,
       }).get('/en-US/firefox/');
@@ -289,8 +307,9 @@ describe(__filename, () => {
       }
 
       const token = userAuthSessionId();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
       const response = await testClient({
+        connectedHistory,
         store,
         sagaMiddleware,
         appSagas,
@@ -323,8 +342,9 @@ describe(__filename, () => {
         yield all([fork(usersSaga), fork(siteSaga)]);
       }
 
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
       const response = await testClient({
+        connectedHistory,
         store,
         sagaMiddleware,
         appSagas,
@@ -360,8 +380,9 @@ describe(__filename, () => {
         .rejects(new Error('example of an API error'));
 
       const token = userAuthSessionId();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
       const response = await testClient({
+        connectedHistory,
         store,
         sagaMiddleware,
         appSagas: usersSaga,
@@ -381,10 +402,11 @@ describe(__filename, () => {
         .returns(Promise.resolve(user));
 
       const token = userAuthSessionId();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
       const config = getFakeConfig({ disableSSR: true });
 
       const client = testClient({
+        connectedHistory,
         store,
         sagaMiddleware,
         appSagas: usersSaga,
@@ -422,9 +444,10 @@ describe(__filename, () => {
         .returns(Promise.resolve(user));
 
       const token = userAuthSessionId();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
 
       const client = testClient({
+        connectedHistory,
         store,
         sagaMiddleware,
         appSagas: usersSaga,
@@ -445,7 +468,7 @@ describe(__filename, () => {
     });
 
     it('performs a server redirect when requested by the app', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas({
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas({
         reducers: {
           redirectTo: redirectToReducer,
         },
@@ -477,6 +500,7 @@ describe(__filename, () => {
 
       const client = testClient({
         App: RedirectApp,
+        connectedHistory,
         sagaMiddleware,
         store,
       });
@@ -536,10 +560,11 @@ describe(__filename, () => {
       const url = '/en-US/firefox/';
       const config = getFakeConfig({ anonymousPagePatterns: [url] });
       const token = userAuthSessionId();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
 
       const response = await testClient({
         config,
+        connectedHistory,
         store,
         sagaMiddleware,
       })
@@ -556,10 +581,11 @@ describe(__filename, () => {
     it('does not dispatch loadedPageIsAnonymous() when loaded page is not anoynmous', async () => {
       const config = getFakeConfig({ anonymousPagePatterns: [] });
       const token = userAuthSessionId();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
 
       await testClient({
         config,
+        connectedHistory,
         store,
         sagaMiddleware,
       })
@@ -571,11 +597,12 @@ describe(__filename, () => {
 
     it('removes the cookie when user has been logged out', async () => {
       const token = userAuthSessionId();
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
       const apiError = createApiError({ response: { status: 401 } });
       mockUsersApi.expects('currentUserAccount').once().rejects(apiError);
 
       const response = await testClient({
+        connectedHistory,
         store,
         sagaMiddleware,
         appSagas: usersSaga,
@@ -602,11 +629,13 @@ describe(__filename, () => {
     });
 
     it('sets correct Cache-Control header if request is safe & anonymous and response is sucessful', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
 
-      const response = await testClient({ store, sagaMiddleware }).get(
-        '/en-US/firefox/',
-      );
+      const response = await testClient({
+        connectedHistory,
+        sagaMiddleware,
+        store,
+      }).get('/en-US/firefox/');
       expect(response.headers[X_ACCEL_EXPIRES_HEADER]).toEqual('180');
       expect(response.headers['cache-control']).toEqual(
         'max-age=0, s-maxage=180',
@@ -614,9 +643,13 @@ describe(__filename, () => {
     });
 
     it('sets correct Cache-Control header if request contained authentication cookie', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
 
-      const response = await testClient({ store, sagaMiddleware })
+      const response = await testClient({
+        connectedHistory,
+        sagaMiddleware,
+        store,
+      })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="foo"`);
       expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
@@ -626,11 +659,13 @@ describe(__filename, () => {
     });
 
     it('sets correct Cache-Control header if request method is not safe', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas();
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas();
 
-      const response = await testClient({ store, sagaMiddleware }).post(
-        '/en-US/firefox/',
-      );
+      const response = await testClient({
+        connectedHistory,
+        sagaMiddleware,
+        store,
+      }).post('/en-US/firefox/');
       expect(response.headers).not.toContain(X_ACCEL_EXPIRES_HEADER);
       expect(response.headers['cache-control']).toEqual(
         'max-age=0, s-maxage=0',
@@ -662,7 +697,7 @@ describe(__filename, () => {
     });
 
     it('sets correct Cache-Control header if request is safe & anonymous and response is redirect', async () => {
-      const { store, sagaMiddleware } = createStoreAndSagas({
+      const { connectedHistory, sagaMiddleware, store } = createStoreAndSagas({
         reducers: {
           redirectTo: redirectToReducer,
         },
@@ -694,6 +729,7 @@ describe(__filename, () => {
 
       const client = testClient({
         App: RedirectApp,
+        connectedHistory,
         sagaMiddleware,
         store,
       });

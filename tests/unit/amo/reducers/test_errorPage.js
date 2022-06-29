@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'redux-first-history';
 
 import { createApiError } from 'amo/api';
 import errorPage, { initialState, loadErrorPage } from 'amo/reducers/errorPage';

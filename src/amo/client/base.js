@@ -66,7 +66,10 @@ export default async function createClient(
     _tracking.pageView({ title: '' });
   });
 
-  const { sagaMiddleware, store } = createStore({ history, initialState });
+  const { connectedHistory, sagaMiddleware, store } = createStore({
+    history,
+    initialState,
+  });
 
   if (sagas && sagaMiddleware) {
     sagaMiddleware.run(sagas);
@@ -90,12 +93,12 @@ export default async function createClient(
 
   const renderApp = (App) => {
     render(
-      <Root history={history} i18n={i18n} store={store}>
+      <Root history={connectedHistory} i18n={i18n} store={store}>
         <App />
       </Root>,
       document.getElementById('react-view'),
     );
   };
 
-  return { history, renderApp, store };
+  return { connectedHistory, renderApp, store };
 }

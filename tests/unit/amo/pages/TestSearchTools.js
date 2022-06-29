@@ -24,10 +24,9 @@ describe(__filename, () => {
         url: '/en-US/android/extensions/category/search-tools/',
       }),
     );
-    // Once for the initial LOCATION_CHANGE.
     // Once for the redirect.
     // Once for the post-render LOCATION_CHANGE from the render helper.
-    expect(fakeDispatch).toHaveBeenCalledTimes(3);
+    expect(fakeDispatch).toHaveBeenCalledTimes(2);
   });
 
   it('renders a NotFoundPage', () => {

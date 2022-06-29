@@ -3,8 +3,7 @@
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import { createMemoryHistory } from 'history';
+import { Router } from 'react-router-dom';
 import 'isomorphic-fetch';
 
 import I18nProvider from 'amo/i18n/Provider';
@@ -32,7 +31,7 @@ const render = ({ app, lang, component }: RenderParams) => {
   // object here because it's fine for en-US content.
   // $FlowIgnore: see comment above
   const i18n = makeI18n({}, lang);
-  const { store } = createStore();
+  const { connectedHistory, store } = createStore();
 
   store.dispatch(setClientApp(app));
   store.dispatch(setLang(lang));
@@ -40,9 +39,7 @@ const render = ({ app, lang, component }: RenderParams) => {
   return renderToStaticMarkup(
     <I18nProvider i18n={i18n}>
       <Provider store={store}>
-        <ConnectedRouter history={createMemoryHistory()}>
-          {component}
-        </ConnectedRouter>
+        <Router history={connectedHistory}>{component}</Router>
       </Provider>
     </I18nProvider>,
   );

@@ -1,6 +1,6 @@
 /* @flow */
 import invariant from 'invariant';
-import { push as pushLocation } from 'connected-react-router';
+import { push as pushLocation } from 'redux-first-history';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import {

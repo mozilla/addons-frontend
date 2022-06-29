@@ -1,4 +1,4 @@
-import { LOCATION_CHANGE } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'redux-first-history';
 import { waitFor } from '@testing-library/react';
 
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
@@ -49,18 +49,11 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render();
 
+    expect(dispatch).toHaveBeenCalledTimes(2);
     expect(dispatch).toHaveBeenCalledWith(
       fetchBlock({ guid: defaultGuid, errorHandlerId: getErrorHandlerId() }),
     );
-    // dispatch is always called twice with LOCATION_CHANGE on render, once for
-    // the actual render, and a second time before render in the test helper.
-    expect(dispatch).toHaveBeenCalledTimes(3);
-    expect(dispatch).toHaveBeenNthCalledWith(
-      1,
-      expect.objectContaining({ type: LOCATION_CHANGE }),
-    );
-    expect(dispatch).toHaveBeenNthCalledWith(
-      2,
+    expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: LOCATION_CHANGE }),
     );
   });

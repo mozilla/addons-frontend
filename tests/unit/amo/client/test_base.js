@@ -22,11 +22,11 @@ describe(__filename, () => {
       expect(typeof props.renderApp).toEqual('function');
     });
 
-    it('returns an object with a `history` object', async () => {
+    it('returns an object with a `connectedHistory` object', async () => {
       const props = await _createClient();
 
-      expect(props).toHaveProperty('history');
-      expect(props.history).not.toBeNull();
+      expect(props).toHaveProperty('connectedHistory');
+      expect(props.connectedHistory).not.toBeNull();
     });
 
     it('returns an object with the created store', async () => {
@@ -39,10 +39,10 @@ describe(__filename, () => {
 
     it('updates the tracking page on location change', async () => {
       const _tracking = createFakeTracking();
-      const { history } = await _createClient({ _tracking });
+      const { connectedHistory } = await _createClient({ _tracking });
       const pathname = '/foo';
 
-      history.push({ pathname });
+      connectedHistory.push({ pathname });
 
       expect(_tracking.setPage).toHaveBeenCalledWith(pathname);
       expect(_tracking.pageView).toHaveBeenCalledWith({ title: '' });
