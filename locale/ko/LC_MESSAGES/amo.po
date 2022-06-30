@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-06-14 17:25+0000\n"
-"PO-Revision-Date: 2022-06-18 00:17+0000\n"
+"PO-Revision-Date: 2022-06-30 09:53+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1168,7 +1168,7 @@ msgstr "다음"
 
 #: src/amo/components/Paginate/index.js:175
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "%(thisPage)s / %(totalPages)s 페이지"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
