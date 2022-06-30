@@ -10,6 +10,7 @@ import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 import { createMemoryHistory } from 'history';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { all, fork } from 'redux-saga/effects';
 import {
@@ -440,6 +441,16 @@ export const onLocationChanged = ({ pathname, search = '', ...others }) => {
       action: 'PUSH',
     },
   };
+};
+
+export const changeLocation = async ({
+  history,
+  pathname = '/',
+  search = '',
+} = {}) => {
+  await act(async () => {
+    history.push(`${pathname}${search}`);
+  });
 };
 
 export function dispatchClientMetadata({
@@ -1567,7 +1578,7 @@ export const render = (ui, options = {}) => {
   };
 
   const result = libraryRender(ui, { wrapper });
-  return { ...result, root: result.container.firstChild };
+  return { ...result, history, root: result.container.firstChild };
 };
 /* eslint-enable testing-library/no-node-access */
 

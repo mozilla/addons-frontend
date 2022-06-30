@@ -23,6 +23,7 @@ import {
   loadVersions,
 } from 'amo/reducers/versions';
 import {
+  changeLocation,
   createFailedErrorHandler,
   createFakeAddonInfo,
   createFakeErrorHandler,
@@ -31,7 +32,6 @@ import {
   fakeAddon,
   fakeVersion,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -113,18 +113,17 @@ describe(__filename, () => {
 
   it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
     `fetches an addon and addonInfo for %s when the slug changes`,
-    (infoType) => {
+    async (infoType) => {
       const newSlug = `${defaultSlug}-new`;
       const dispatch = jest.spyOn(store, 'dispatch');
-      render({ infoType });
+      const { history } = render({ infoType });
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ infoType, slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ infoType, slug: newSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchAddon({
@@ -286,21 +285,20 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches an addonVersion when the slug changes', () => {
+    it('fetches an addonVersion when the slug changes', async () => {
       const newSlug = `${defaultSlug}-new`;
       const newAddon = { ...fakeAddon, slug: newSlug };
       _loadAddon();
       _loadAddon(newAddon);
       const dispatch = jest.spyOn(store, 'dispatch');
-      render({ infoType });
+      const { history } = render({ infoType });
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ infoType, slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ infoType, slug: newSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchVersion({
@@ -387,9 +385,11 @@ describe(__filename, () => {
       infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
     });
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(`Privacy policy for ${name}`);
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `Privacy policy for ${name}`,
+      ),
+    );
   });
 
   it('does not render an HTML title when there is no add-on', async () => {
