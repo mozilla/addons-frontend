@@ -1,3 +1,4 @@
+import { act } from 'react-dom/test-utils';
 import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -149,7 +150,7 @@ describe(__filename, () => {
       secondaryProps,
       shelves,
     });
-    render({ location });
+    return render({ location });
   };
 
   const addonForPromotedCategory = (category = RECOMMENDED) => {
@@ -1254,19 +1255,38 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches an action to fetch the add-ons to display on update', () => {
+  it('dispatches an action to fetch the add-ons to display on update', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
-    renderWithHomeData();
+    console.log('---- initial render...');
+    const { history } = renderWithHomeData();
 
     dispatch.mockClear();
 
     expect(dispatch).toHaveBeenCalledTimes(0);
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
-      }),
-    );
+    console.log('---- about to dispatch onLocationChanged...');
+    console.log('---- store before onLocationChanged: ', store.getState());
+    // await act(async () => {
+    //   store.dispatch(
+    //     onLocationChanged({
+    //       pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
+    //     }),
+    //   );
+    // });
+
+    console.log('---- history: ', history);
+
+    await act(async () => {
+      history.push(`/en-US/${CLIENT_APP_ANDROID}/`);
+    });
+
+    console.log('---- about to sleep...');
+    await act(async () => {
+      await new Promise((resolve) => {
+        setTimeout(resolve, 2000);
+      });
+    });
+    console.log('---- store after sleep: ', store.getState());
 
     expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
     expect(dispatch).toHaveBeenCalledWith(

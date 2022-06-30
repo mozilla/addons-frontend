@@ -51,6 +51,7 @@ export class HomeBase extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log('----- in componentDidUpdate...');
     this.loadDataIfNeeded();
   }
 

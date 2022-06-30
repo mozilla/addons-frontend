@@ -1,7 +1,10 @@
 /* global Headers, window */
 import urllib from 'url';
 
-import { LOCATION_CHANGE, ConnectedRouter } from 'connected-react-router';
+import {
+  ConnectedRouter,
+  onLocationChanged as defaultOnLocationChanged,
+} from 'connected-react-router';
 import PropTypes from 'prop-types';
 import config from 'config';
 import invariant from 'invariant';
@@ -429,17 +432,9 @@ export const createHistory = ({ initialEntries } = {}) => {
 
 export const onLocationChanged = ({ pathname, search = '', ...others }) => {
   const history = createHistory({ initialEntries: [`${pathname}${search}`] });
-
-  return {
-    type: LOCATION_CHANGE,
-    payload: {
-      location: {
-        ...history.location,
-        ...others,
-      },
-      action: 'PUSH',
-    },
-  };
+  const location = { ...history.location, ...others };
+  const action = 'PUSH';
+  return defaultOnLocationChanged(location, action);
 };
 
 export function dispatchClientMetadata({
@@ -1567,7 +1562,7 @@ export const render = (ui, options = {}) => {
   };
 
   const result = libraryRender(ui, { wrapper });
-  return { ...result, root: result.container.firstChild };
+  return { ...result, history, root: result.container.firstChild };
 };
 /* eslint-enable testing-library/no-node-access */
 
