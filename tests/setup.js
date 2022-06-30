@@ -3,6 +3,7 @@ import { setImmediate } from 'timers';
 import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
+import * as matchers from 'jest-extended';
 
 import '@testing-library/jest-dom/extend-expect';
 
@@ -47,6 +48,8 @@ global.fetch = (input) => {
     `API calls MUST be mocked. URL fetched: ${input.url || input}`,
   );
 };
+
+expect.extend(matchers);
 
 afterEach(() => {
   global.sinon.restore();
