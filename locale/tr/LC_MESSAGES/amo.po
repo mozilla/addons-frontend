@@ -1181,7 +1181,7 @@ msgstr "Sonraki"
 
 #: src/amo/components/Paginate/index.js:175
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Sayfa %(thisPage)s/%(totalPages)s"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
