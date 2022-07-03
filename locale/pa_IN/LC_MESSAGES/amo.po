@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-06-14 17:25+0000\n"
-"PO-Revision-Date: 2022-07-03 14:42+0000\n"
+"PO-Revision-Date: 2022-07-03 14:47+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1169,9 +1169,8 @@ msgid "Verified"
 msgstr "ਤਸਦੀਕ ਕੀਤਾ"
 
 #: src/amo/components/InstallButtonWrapper/index.js:127
-#, fuzzy
 msgid "Download file"
-msgstr "ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+msgstr "ਫਾਈਲ ਡਾਊਨਲੋਡ ਕਰੋ"
 
 #: src/amo/components/InstallWarning/index.js:104 src/amo/components/PermissionsCard/index.js:68
 msgid "Learn more"
@@ -1200,16 +1199,15 @@ msgstr "ਅਗਲਾ"
 
 #: src/amo/components/Paginate/index.js:175
 msgid "Page %(thisPage)s of %(totalPages)s"
-msgstr ""
+msgstr "%(totalPages)s ਵਿੱਚੋਂ %(thisPage)s ਸਫਾ"
 
 #: src/amo/components/PermissionsCard/index.js:59
 msgid "Permissions"
-msgstr "ਪਰਵਾਨਗੀਆਂ"
+msgstr "ਇਜਾਜ਼ਤਾਂ"
 
 #: src/amo/components/PermissionsCard/index.js:84
-#, fuzzy
 msgid "This add-on needs to:"
-msgstr "ਇਹ ਐਡ-ਆਨ ਕਰ ਸਕਦਾ ਹੈ:"
+msgstr "ਇਹ ਐਡ-ਆਨ ਕਰ ਸਕਦੀ ਹੈ:"
 
 #: src/amo/components/PermissionsCard/index.js:94
 #, fuzzy
@@ -1523,34 +1521,30 @@ msgid "Recommended add-ons"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:155
-#, fuzzy
 msgid "Extensions by Firefox"
-msgstr "%(author)s ਵਲੋਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
+msgstr "Firefox ਵਲੋਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/Search/index.js:158
 msgid "Themes by Firefox"
-msgstr "ਫਾਇਰਫਾਕਸ ਵੱਲੋ ਥੀਮ"
+msgstr "Firefox ਵੱਲੋ ਥੀਮ"
 
 #: src/amo/components/Search/index.js:161
 msgid "Add-ons by Firefox"
-msgstr "ਫਾਇਰਫਾਕਸ ਵੱਲੋ ਐਡ-ਆਨ"
+msgstr "Firefox ਵੱਲੋ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:166
-#, fuzzy
 msgid "Reviewed extensions"
-msgstr "ਸਿਫਾਰਸ਼ੀ ਇਕਸਟੈਨਸ਼ਨਾਂ"
+msgstr "ਪੜਤਾਲੀਆ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 # This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/Search/index.js:169
-#, fuzzy
 msgid "Reviewed themes"
-msgstr "ਥੀਮ ਦੀ ਸਮੀਖਿਆ ਕਰੋ"
+msgstr "ਪੜਤਾਲ ਕੀਤੇ ਥੀਮ"
 
 # This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/Search/index.js:172
-#, fuzzy
 msgid "Reviewed add-ons"
-msgstr "ਐਡ-ਆਨ ਕੋਡ ਦੀ ਸਮੀਖਿਆ ਕਰੋ"
+msgstr "ਪੜਤਾਲ ਕੀਤੇ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:177
 msgid "Verified extensions"
@@ -1757,7 +1751,7 @@ msgstr "ਥੀਮ"
 
 #: src/amo/components/SearchFilters/index.js:164
 msgid "Relevance"
-msgstr "ਢੁੱਕਵਾਂਪਣ"
+msgstr "ਸਬੰਧਤ"
 
 #: src/amo/components/SearchFilters/index.js:166
 msgid "Recently Updated"
