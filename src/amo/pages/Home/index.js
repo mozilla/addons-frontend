@@ -59,13 +59,22 @@ export class HomeBase extends React.Component {
     const { dispatch, errorHandler, isDesktopSite, isLoading, resultsLoaded } =
       this.props;
 
+    console.log(
+      '----- in loadDataIfNeeded, errorHandler.hasError(): ',
+      errorHandler.hasError(),
+    );
     if (errorHandler.hasError()) {
       return;
     }
 
+    console.log('----- in loadDataIfNeeded, dispatching setViewContext...');
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
+    console.log('----- in loadDataIfNeeded, isDesktopSite :', isDesktopSite);
+    console.log('----- in loadDataIfNeeded, resultsLoaded :', resultsLoaded);
+    console.log('----- in loadDataIfNeeded, isLoading :', isLoading);
     if (!resultsLoaded && !isLoading) {
+      console.log('----- in loadDataIfNeeded, dispatching fetchHomeData...');
       dispatch(
         fetchHomeData({
           errorHandlerId: errorHandler.id,

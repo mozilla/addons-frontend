@@ -40,6 +40,7 @@ import {
   VIEW_CONTEXT_HOME,
   VERIFIED,
 } from 'amo/constants';
+import { setClientApp } from 'amo/reducers/api';
 import {
   FETCH_HOME_DATA,
   fetchHomeData,
@@ -1266,22 +1267,31 @@ describe(__filename, () => {
 
     expect(dispatch).toHaveBeenCalledTimes(0);
 
-    console.log('---- about to dispatch onLocationChanged...');
-    console.log('---- store before onLocationChanged: ', store.getState());
-    // await act(async () => {
-    //   store.dispatch(
-    //     onLocationChanged({
-    //       pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
-    //     }),
-    //   );
-    // });
+    console.log('---- about to dispatch setClientApp...');
+    console.log('---- store before setClientApp: ', store.getState());
 
-    console.log('---- history: ', history);
+    // console.log('---- history: ', history);
 
     await act(async () => {
-      history.push(`/en-US/${CLIENT_APP_ANDROID}/`);
+      store.dispatch(setClientApp(CLIENT_APP_ANDROID));
     });
 
+    console.log('---- store after setClientApp: ', store.getState());
+    console.log('---- store before history.push: ', store.getState());
+
+    await act(async () => {
+      store.dispatch(
+        onLocationChanged({
+          pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
+        }),
+      );
+    });
+
+    // await act(async () => {
+    //   history.push(`/en-US/${CLIENT_APP_ANDROID}/`);
+    // });
+
+    console.log('---- store after history.push: ', store.getState());
     // console.log('---- about to sleep...');
     // await act(async () => {
     //   await new Promise((resolve) => {
@@ -1289,6 +1299,9 @@ describe(__filename, () => {
     //   });
     // });
     // console.log('---- store after sleep: ', store.getState());
+
+    console.log(dispatch.mock.calls);
+    console.log(dispatch.mock.calls[dispatch.mock.calls.length - 1]);
 
     expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
     expect(dispatch).toHaveBeenCalledWith(
