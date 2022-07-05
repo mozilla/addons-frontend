@@ -28,7 +28,10 @@ RUN buildDeps=' \
     apt-get install -y --no-install-recommends $buildDeps && \
     yarn install --pure-lockfile && \
     # cleanup
-    # apt-get purge -y $buildDeps && \
+    yarn cache clean && \
+    # We need to keep yarn to run the container
+    apt-get purge -y git python build-essential && \
+    apt autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
 COPY . /srv/code/
