@@ -1280,13 +1280,13 @@ describe(__filename, () => {
       history.push(`/en-US/${CLIENT_APP_ANDROID}/`);
     });
 
-    console.log('---- about to sleep...');
-    await act(async () => {
-      await new Promise((resolve) => {
-        setTimeout(resolve, 2000);
-      });
-    });
-    console.log('---- store after sleep: ', store.getState());
+    // console.log('---- about to sleep...');
+    // await act(async () => {
+    //   await new Promise((resolve) => {
+    //     setTimeout(resolve, 2000);
+    //   });
+    // });
+    // console.log('---- store after sleep: ', store.getState());
 
     expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
     expect(dispatch).toHaveBeenCalledWith(
