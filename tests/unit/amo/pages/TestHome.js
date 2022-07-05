@@ -52,6 +52,7 @@ import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import { addQueryParams } from 'amo/utils/url';
 import {
+  changeLocation,
   createAddonsApiResult,
   createFailedErrorHandler,
   createHomeShelves,
@@ -1272,20 +1273,26 @@ describe(__filename, () => {
 
     // console.log('---- history: ', history);
 
-    await act(async () => {
-      store.dispatch(setClientApp(CLIENT_APP_ANDROID));
+    await changeLocation({
+      clientApp: CLIENT_APP_ANDROID,
+      pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
+      store,
     });
 
-    console.log('---- store after setClientApp: ', store.getState());
-    console.log('---- store before history.push: ', store.getState());
+    // await act(async () => {
+    //   store.dispatch(setClientApp(CLIENT_APP_ANDROID));
+    // });
 
-    await act(async () => {
-      store.dispatch(
-        onLocationChanged({
-          pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
-        }),
-      );
-    });
+    // console.log('---- store after setClientApp: ', store.getState());
+    // console.log('---- store before history.push: ', store.getState());
+
+    // await act(async () => {
+    //   store.dispatch(
+    //     onLocationChanged({
+    //       pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
+    //     }),
+    //   );
+    // });
 
     // await act(async () => {
     //   history.push(`/en-US/${CLIENT_APP_ANDROID}/`);

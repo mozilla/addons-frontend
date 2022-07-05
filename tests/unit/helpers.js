@@ -13,6 +13,7 @@ import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 import { createMemoryHistory } from 'history';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { all, fork } from 'redux-saga/effects';
 import {
@@ -435,6 +436,27 @@ export const onLocationChanged = ({ pathname, search = '', ...others }) => {
   const location = { ...history.location, ...others };
   const action = 'PUSH';
   return defaultOnLocationChanged(location, action);
+};
+
+export const changeLocation = async ({
+  store = createStore().store,
+  clientApp = CLIENT_APP_ANDROID,
+  lang = DEFAULT_LANG_IN_TESTS,
+  regionCode = null,
+  userAgent = sampleUserAgent,
+  pathname = `/${lang}/${clientApp}/`,
+  search = '',
+} = {}) => {
+  await act(async () => {
+    store.dispatch(setClientApp(clientApp));
+    store.dispatch(setLang(lang));
+    store.dispatch(setRegionCode(regionCode));
+    store.dispatch(setUserAgent(userAgent));
+  });
+
+  const history = createHistory({ initialEntries: [`${pathname}${search}`] });
+  const action = 'PUSH';
+  return defaultOnLocationChanged(history.location, action);
 };
 
 export function dispatchClientMetadata({
