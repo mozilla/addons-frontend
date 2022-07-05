@@ -82,7 +82,6 @@ module.exports = {
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
   clientConfigKeys: [
-    'addonIdsWithQRCodes',
     'allowErrorSimulation',
     'apiHost',
     'apiPath',
@@ -94,7 +93,6 @@ module.exports = {
     'defaultLang',
     'enableDevTools',
     'enableFeatureVPNPromo',
-    'enableFeatureAddonQRCode',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -410,7 +408,6 @@ module.exports = {
   // https://github.com/mozilla/addons-frontend/issues/6362.
 
   enableFeatureVPNPromo: true,
-  enableFeatureAddonQRCode: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
@@ -425,9 +422,4 @@ module.exports = {
     // e.g., 20210531_amo_download_funnel_experiment: true,
     '20210714_amo_vpn_promo': false,
   },
-
-  addonIdsWithQRCodes: [
-    229918, 328839, 506646, 520576, 521554, 607454, 627490, 722, 735894,
-    811592, 824288, 844320, 855413, 866226, 869140, 953945, 9609,
-  ],
 };

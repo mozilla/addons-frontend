@@ -81,6 +81,4 @@ module.exports = {
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
-
-  enableFeatureAddonQRCode: true,
 };
