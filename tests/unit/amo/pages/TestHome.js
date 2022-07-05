@@ -1065,14 +1065,16 @@ describe(__filename, () => {
         ['external', withExternalShelfData],
       ])(
         'sends a tracking event for the impression on update for %s',
-        (feature, shelfData) => {
+        async (feature, shelfData) => {
           render();
 
           expect(tracking.sendEvent).not.toHaveBeenCalled();
 
           _loadHomeData(shelfData);
 
-          expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+          await waitFor(() => {
+            expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+          });
           expect(tracking.sendEvent).toHaveBeenCalledWith({
             action: PRIMARY_HERO_IMPRESSION_ACTION,
             category: PRIMARY_HERO_IMPRESSION_CATEGORY,
