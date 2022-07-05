@@ -29,7 +29,8 @@ RUN buildDeps=' \
     yarn install --pure-lockfile && \
     # cleanup
     # apt-get purge -y $buildDeps && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    yarn cache clean
 
 COPY . /srv/code/
 WORKDIR /srv/code
