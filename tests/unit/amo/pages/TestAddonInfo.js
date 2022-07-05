@@ -1,4 +1,5 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
+import { act } from 'react-dom/test-utils';
 import { waitFor } from '@testing-library/react';
 
 import { createApiError } from 'amo/api/index';
@@ -23,6 +24,7 @@ import {
   loadVersions,
 } from 'amo/reducers/versions';
 import {
+  changeLocation,
   createFailedErrorHandler,
   createFakeAddonInfo,
   createFakeErrorHandler,
@@ -31,7 +33,6 @@ import {
   fakeAddon,
   fakeVersion,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -113,18 +114,21 @@ describe(__filename, () => {
 
   it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
     `fetches an addon and addonInfo for %s when the slug changes`,
-    (infoType) => {
+    async (infoType) => {
       const newSlug = `${defaultSlug}-new`;
       const dispatch = jest.spyOn(store, 'dispatch');
-      render({ infoType });
+      const { history } = render({ infoType });
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ infoType, slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ infoType, slug: newSlug }),
+      });
+
+      // await act(async () => {
+      //   history.push(getLocation({ infoType, slug: newSlug }));
+      // });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchAddon({
@@ -286,21 +290,19 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches an addonVersion when the slug changes', () => {
+    it('fetches an addonVersion when the slug changes', async () => {
       const newSlug = `${defaultSlug}-new`;
       const newAddon = { ...fakeAddon, slug: newSlug };
       _loadAddon();
       _loadAddon(newAddon);
       const dispatch = jest.spyOn(store, 'dispatch');
-      render({ infoType });
+      const { history } = render({ infoType });
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ infoType, slug: newSlug }),
-        }),
-      );
+      await act(async () => {
+        history.push(getLocation({ infoType, slug: newSlug }));
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchVersion({

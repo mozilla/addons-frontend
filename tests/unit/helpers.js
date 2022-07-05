@@ -439,24 +439,13 @@ export const onLocationChanged = ({ pathname, search = '', ...others }) => {
 };
 
 export const changeLocation = async ({
-  store = createStore().store,
-  clientApp = CLIENT_APP_ANDROID,
-  lang = DEFAULT_LANG_IN_TESTS,
-  regionCode = null,
-  userAgent = sampleUserAgent,
-  pathname = `/${lang}/${clientApp}/`,
+  history,
+  pathname = '/',
   search = '',
 } = {}) => {
   await act(async () => {
-    store.dispatch(setClientApp(clientApp));
-    store.dispatch(setLang(lang));
-    store.dispatch(setRegionCode(regionCode));
-    store.dispatch(setUserAgent(userAgent));
+    history.push(`${pathname}${search}`);
   });
-
-  const history = createHistory({ initialEntries: [`${pathname}${search}`] });
-  const action = 'PUSH';
-  return defaultOnLocationChanged(history.location, action);
 };
 
 export function dispatchClientMetadata({

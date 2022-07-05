@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils';
 import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -40,7 +39,6 @@ import {
   VIEW_CONTEXT_HOME,
   VERIFIED,
 } from 'amo/constants';
-import { setClientApp } from 'amo/reducers/api';
 import {
   FETCH_HOME_DATA,
   fetchHomeData,
@@ -63,7 +61,6 @@ import {
   fakeExternalShelf,
   fakePrimaryHeroShelfExternalAddon,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -1261,54 +1258,17 @@ describe(__filename, () => {
 
   it('dispatches an action to fetch the add-ons to display on update', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
-    console.log('---- initial render...');
     const { history } = renderWithHomeData();
 
     dispatch.mockClear();
 
     expect(dispatch).toHaveBeenCalledTimes(0);
 
-    console.log('---- about to dispatch setClientApp...');
-    console.log('---- store before setClientApp: ', store.getState());
-
-    // console.log('---- history: ', history);
-
     await changeLocation({
-      clientApp: CLIENT_APP_ANDROID,
+      history,
+      // clientApp: CLIENT_APP_ANDROID,
       pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
-      store,
     });
-
-    // await act(async () => {
-    //   store.dispatch(setClientApp(CLIENT_APP_ANDROID));
-    // });
-
-    // console.log('---- store after setClientApp: ', store.getState());
-    // console.log('---- store before history.push: ', store.getState());
-
-    // await act(async () => {
-    //   store.dispatch(
-    //     onLocationChanged({
-    //       pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
-    //     }),
-    //   );
-    // });
-
-    // await act(async () => {
-    //   history.push(`/en-US/${CLIENT_APP_ANDROID}/`);
-    // });
-
-    console.log('---- store after history.push: ', store.getState());
-    // console.log('---- about to sleep...');
-    // await act(async () => {
-    //   await new Promise((resolve) => {
-    //     setTimeout(resolve, 2000);
-    //   });
-    // });
-    // console.log('---- store after sleep: ', store.getState());
-
-    console.log(dispatch.mock.calls);
-    console.log(dispatch.mock.calls[dispatch.mock.calls.length - 1]);
 
     expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
     expect(dispatch).toHaveBeenCalledWith(
