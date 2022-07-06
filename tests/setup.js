@@ -1,5 +1,6 @@
 import { setImmediate } from 'timers';
 
+import { configure } from '@testing-library/react';
 import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
@@ -8,6 +9,25 @@ import * as matchers from 'jest-extended';
 import '@testing-library/jest-dom/extend-expect';
 
 import 'amo/polyfill';
+
+if (process.env.TEST_DEBUG !== 'FULL') {
+  configure({
+    getElementError: (message) => {
+      const error = new Error(message.split('\n')[0]);
+      error.name = 'TestingLibraryElementError';
+      return error;
+    },
+  });
+
+  global.console = {
+    ...console,
+    log: jest.fn(),
+    debug: jest.fn(),
+    info: jest.fn(),
+    warn: jest.fn,
+    error: jest.fn(),
+  };
+}
 
 // setImmediate is required by Express in server tests.
 // Being a Node.js API, it is not available for `testEnvironment: 'jsdom'`.

@@ -38,6 +38,7 @@
     "test-ci": "bin/config-check.js && npm run build-locales && better-npm-run test-ci",
     "test-ci-next": "bin/config-check.js && npm run build-locales && better-npm-run test-ci-next",
     "test": "bin/config-check.js && better-npm-run jest --watch",
+    "test-debug": "bin/config-check.js && better-npm-run jest-debug --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
     "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
@@ -127,6 +128,13 @@
       "command": "jest",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu"
+      }
+    },
+    "jest-debug": {
+      "command": "jest",
+      "env": {
+        "NODE_ICU_DATA": "./node_modules/full-icu",
+        "TEST_DEBUG": "FULL"
       }
     },
     "test-ci": {
