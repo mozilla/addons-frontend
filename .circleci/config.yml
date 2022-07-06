@@ -106,7 +106,6 @@ jobs:
       - run: yarn lint
       - run: yarn prettier-ci
       - run: pip install fonttools brotli && yarn check-fonts
-      - run: yarn build:qrcodes
 
   build-next:
     <<: *defaults-next
