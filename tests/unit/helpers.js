@@ -1578,6 +1578,10 @@ export const render = (ui, options = {}) => {
   };
 
   const result = libraryRender(ui, { wrapper });
+  if (options.initialEntries) {
+    // We need to update the router state with the initial entry.
+    history.push(options.initialEntries[0]);
+  }
   return { ...result, history, root: result.container.firstChild };
 };
 /* eslint-enable testing-library/no-node-access */
