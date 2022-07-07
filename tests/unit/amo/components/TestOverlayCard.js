@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { fireEvent } from '@testing-library/react';
+import { fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { extractId } from 'amo/components/Overlay';
@@ -77,7 +77,7 @@ describe(__filename, () => {
       expect(screen.getByClassName('Overlay')).toHaveClass('Overlay--visible');
     });
 
-    it('becomes visible when the UIState changes to visible: true', () => {
+    it('becomes visible when the UIState changes to visible: true', async () => {
       render();
 
       expect(screen.getByClassName('Overlay')).not.toHaveClass(
@@ -91,7 +91,11 @@ describe(__filename, () => {
         }),
       );
 
-      expect(screen.getByClassName('Overlay')).toHaveClass('Overlay--visible');
+      await waitFor(() =>
+        expect(screen.getByClassName('Overlay')).toHaveClass(
+          'Overlay--visible',
+        ),
+      );
     });
 
     it('renders extra className if provided', () => {
@@ -117,15 +121,17 @@ describe(__filename, () => {
       expect(onEscapeOverlay).toHaveBeenCalled();
     });
 
-    it('hides when you click the background', () => {
+    it('hides when you click the background', async () => {
       render({ visibleOnLoad: true });
 
       expect(screen.getByClassName('Overlay')).toHaveClass('Overlay--visible');
 
       userEvent.click(screen.getByRole('presentation'));
 
-      expect(screen.getByClassName('Overlay')).not.toHaveClass(
-        'Overlay--visible',
+      await waitFor(() =>
+        expect(screen.getByClassName('Overlay')).not.toHaveClass(
+          'Overlay--visible',
+        ),
       );
     });
 
