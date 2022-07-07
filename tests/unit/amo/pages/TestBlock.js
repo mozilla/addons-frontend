@@ -1,3 +1,4 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
 import { waitFor } from '@testing-library/react';
 
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
@@ -51,8 +52,16 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(
       fetchBlock({ guid: defaultGuid, errorHandlerId: getErrorHandlerId() }),
     );
-    // dispatch is always called with LOCATION_CHANGE on render.
-    expect(dispatch).toHaveBeenCalledTimes(2);
+    // dispatch is always called twice with LOCATION_CHANGE on render.
+    expect(dispatch).toHaveBeenCalledTimes(3);
+    expect(dispatch).toHaveBeenNthCalledWith(
+      1,
+      expect.objectContaining({ type: LOCATION_CHANGE }),
+    );
+    expect(dispatch).toHaveBeenNthCalledWith(
+      3,
+      expect.objectContaining({ type: LOCATION_CHANGE }),
+    );
   });
 
   it('does not fetch a block if it has already been loaded', () => {

@@ -1,3 +1,4 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
 import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -1243,10 +1244,15 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render();
 
-    // Expect only the LOCATION_CHANGE action which happens on every mount.
-    expect(dispatch).toHaveBeenCalledTimes(1);
-    expect(dispatch).toHaveBeenCalledWith(
-      expect.objectContaining({ type: '@@router/LOCATION_CHANGE' }),
+    // Expect only the LOCATION_CHANGE action which happens twice.
+    expect(dispatch).toHaveBeenCalledTimes(2);
+    expect(dispatch).toHaveBeenNthCalledWith(
+      1,
+      expect.objectContaining({ type: LOCATION_CHANGE }),
+    );
+    expect(dispatch).toHaveBeenNthCalledWith(
+      2,
+      expect.objectContaining({ type: LOCATION_CHANGE }),
     );
   });
 

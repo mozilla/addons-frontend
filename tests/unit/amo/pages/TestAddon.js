@@ -1,3 +1,4 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
 import config from 'config';
 import serialize from 'serialize-javascript';
 import { cleanup, waitFor } from '@testing-library/react';
@@ -593,7 +594,7 @@ describe(__filename, () => {
     );
     expect(dispatch).toHaveBeenNthCalledWith(
       2,
-      expect.objectContaining({ type: '@@router/LOCATION_CHANGE' }),
+      expect.objectContaining({ type: LOCATION_CHANGE }),
     );
     expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: SEND_SERVER_REDIRECT }),
@@ -609,7 +610,7 @@ describe(__filename, () => {
     );
     expect(dispatch).toHaveBeenNthCalledWith(
       7,
-      expect.objectContaining({ type: '@@router/LOCATION_CHANGE' }),
+      expect.objectContaining({ type: LOCATION_CHANGE }),
     );
   });
 
