@@ -1,6 +1,7 @@
 import { waitFor } from '@testing-library/react';
 import { encode } from 'universal-base64url';
 
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
   abortUnsubscribeNotification,
   finishUnsubscribeNotification,
@@ -59,7 +60,7 @@ describe(__filename, () => {
   };
 
   beforeEach(() => {
-    store = dispatchClientMetadata().store;
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
   });
 
   it('renders loading indicators when the user is not unsubscribed yet', () => {
