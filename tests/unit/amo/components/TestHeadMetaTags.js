@@ -145,7 +145,7 @@ describe(__filename, () => {
     dispatchClientMetadata({ lang, store });
     const location = pathname;
 
-    render({ _config, description, image, title, location, store });
+    render({ _config, description, image, title, location });
 
     await waitFor(() =>
       expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
