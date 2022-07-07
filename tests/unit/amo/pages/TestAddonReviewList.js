@@ -19,9 +19,9 @@ import {
 } from 'amo/constants';
 import { fetchAddon, loadAddon } from 'amo/reducers/addons';
 import {
+  changeLocation,
   createFailedErrorHandler,
   createFakeErrorHandler,
-  createHistory,
   createLocalizedString,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
@@ -29,7 +29,6 @@ import {
   fakeReview,
   getElement,
   getElements,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -42,6 +41,7 @@ describe(__filename, () => {
   const lang = 'en-US';
   let store;
   let addon;
+  let history;
 
   const getLocation = ({ page, reviewId, score, slug = defaultSlug } = {}) => {
     let queryString = '?';
@@ -67,7 +67,6 @@ describe(__filename, () => {
   });
 
   const render = ({
-    history,
     location,
     page,
     reviewId,
@@ -77,14 +76,12 @@ describe(__filename, () => {
     const initialEntry =
       location || getLocation({ page, reviewId, score, slug });
     const renderOptions = {
-      history:
-        history ||
-        createHistory({
-          initialEntries: [initialEntry],
-        }),
+      initialEntries: [initialEntry],
       store,
     };
-    return defaultRender(renderOptions);
+    const renderResults = defaultRender(renderOptions);
+    history = renderResults.history;
+    return renderResults;
   };
 
   const _loadAddon = (addonToLoad = addon) => {
@@ -118,7 +115,6 @@ describe(__filename, () => {
   };
 
   const renderWithAddon = ({
-    history,
     location,
     page,
     reviewId,
@@ -127,11 +123,10 @@ describe(__filename, () => {
   } = {}) => {
     _loadAddon();
 
-    return render({ history, location, page, reviewId, score, slug });
+    return render({ location, page, reviewId, score, slug });
   };
 
   const renderWithAddonAndReviews = ({
-    history,
     location,
     page,
     reviewId,
@@ -144,7 +139,7 @@ describe(__filename, () => {
   } = {}) => {
     _setAddonReviews({ page, reviews, score });
 
-    return renderWithAddon({ history, location, page, reviewId, score, slug });
+    return renderWithAddon({ location, page, reviewId, score, slug });
   };
 
   const signInAndSetReviewPermissions = ({
@@ -302,7 +297,7 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches reviews if needed during an update', () => {
+    it('fetches reviews if needed during an update', async () => {
       const newSlug = `${defaultSlug}-other`;
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddon();
@@ -314,11 +309,10 @@ describe(__filename, () => {
         slug: newSlug,
       });
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: newSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
@@ -342,16 +336,15 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches reviews when the page changes', () => {
+    it('fetches reviews when the page changes', async () => {
       const page = '2';
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddonAndReviews();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ page }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ page }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
@@ -391,16 +384,15 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches reviews when the score changes', () => {
+    it('fetches reviews when the score changes', async () => {
       const score = '4';
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddonAndReviews();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ score }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ score }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         _fetchReviews({
@@ -460,7 +452,7 @@ describe(__filename, () => {
       );
     });
 
-    it('does not dispatch a view context for similar add-ons', () => {
+    it('does not dispatch a view context for similar add-ons', async () => {
       const newSlug = `${defaultSlug}-other`;
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddon();
@@ -474,18 +466,17 @@ describe(__filename, () => {
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: newSlug }),
+      });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: SET_VIEW_CONTEXT }),
       );
     });
 
-    it('dispatches a view context for new add-on types', () => {
+    it('dispatches a view context for new add-on types', async () => {
       const newSlug = `${defaultSlug}-other`;
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddon();
@@ -500,11 +491,10 @@ describe(__filename, () => {
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: newSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         setViewContext(ADDON_TYPE_STATIC_THEME),
@@ -743,7 +733,7 @@ describe(__filename, () => {
       );
     });
 
-    it('dispatches fetchReviewPermissions on update', () => {
+    it('dispatches fetchReviewPermissions on update', async () => {
       const userId = 66432;
       dispatchSignInActionsWithStore({ store, userId });
       const dispatch = jest.spyOn(store, 'dispatch');
@@ -753,13 +743,15 @@ describe(__filename, () => {
 
       dispatchSignInActionsWithStore({ store, userId: userId + 1 });
 
-      expect(dispatch).toHaveBeenCalledWith(
-        fetchReviewPermissions({
-          addonId: addon.id,
-          errorHandlerId: getErrorHandlerId(),
-          userId: userId + 1,
-        }),
-      );
+      await waitFor(() => {
+        expect(dispatch).toHaveBeenCalledWith(
+          fetchReviewPermissions({
+            addonId: addon.id,
+            errorHandlerId: getErrorHandlerId(),
+            userId: userId + 1,
+          }),
+        );
+      });
     });
 
     it('does not dispatch fetchReviewPermissions() when an error has occurred', () => {
@@ -893,10 +885,7 @@ describe(__filename, () => {
     });
 
     it('lets you select all reviews', () => {
-      const history = createHistory({
-        initialEntries: [getLocation()],
-      });
-      renderWithAddonAndReviews({ history });
+      renderWithAddonAndReviews();
 
       const pushSpy = jest.spyOn(history, 'push');
       userEvent.selectOptions(getSelector(), SHOW_ALL_REVIEWS);
@@ -913,10 +902,7 @@ describe(__filename, () => {
       [2, 'Show only two-star reviews'],
       [1, 'Show only one-star reviews'],
     ])('lets you select only %s star reviews', (score, option) => {
-      const history = createHistory({
-        initialEntries: [getLocation()],
-      });
-      renderWithAddonAndReviews({ history });
+      renderWithAddonAndReviews();
 
       const pushSpy = jest.spyOn(history, 'push');
       userEvent.selectOptions(getSelector(), option);
@@ -977,7 +963,7 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches a review when the reviewId changes', () => {
+    it('fetches a review when the reviewId changes', async () => {
       const firstReviewId = '1';
       const secondReviewId = '2';
       store.dispatch(
@@ -990,11 +976,10 @@ describe(__filename, () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddon({ reviewId: firstReviewId });
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ reviewId: secondReviewId }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ reviewId: secondReviewId }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchReview({

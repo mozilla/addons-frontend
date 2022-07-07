@@ -77,6 +77,7 @@ import {
   getClientCompatibility,
 } from 'amo/utils/compatibility';
 import {
+  changeLocation,
   createCapturedErrorHandler,
   createFailedErrorHandler,
   createFakeClientCompatibility,
@@ -95,7 +96,6 @@ import {
   getElement,
   getMockConfig,
   loadAddonsByAuthors,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -142,6 +142,7 @@ describe(__filename, () => {
   const lang = 'en-US';
   let store;
   let addon;
+  let history;
 
   const getLocation = ({ page, slug = defaultSlug } = {}) => {
     return `/${lang}/${clientApp}/addon/${slug}/${
@@ -188,7 +189,9 @@ describe(__filename, () => {
       store,
     };
 
-    return defaultRender(renderOptions);
+    const renderResults = defaultRender(renderOptions);
+    history = renderResults.history;
+    return renderResults;
   };
 
   const _loadAddon = () => {
@@ -297,17 +300,16 @@ describe(__filename, () => {
     );
   });
 
-  it('does not dispatch any new actions if error handler has an error on update', () => {
+  it('does not dispatch any new actions if error handler has an error on update', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithAddon();
     dispatch.mockClear();
 
     // Requesting a new add-on will dispatch FETCH_ADDON.
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation({ slug: `${defaultSlug}-new` }),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation({ slug: `${defaultSlug}-new` }),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ 'type': FETCH_ADDON }),
@@ -321,11 +323,10 @@ describe(__filename, () => {
       store,
     });
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation({ slug: `${defaultSlug}-new-again` }),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation({ slug: `${defaultSlug}-new-again` }),
+    });
 
     // Because of the error, no fetch should have been dispatched.
     expect(dispatch).not.toHaveBeenCalledWith(
@@ -424,17 +425,16 @@ describe(__filename, () => {
     );
   });
 
-  it('fetches an add-on when updating to a new slug', () => {
+  it('fetches an add-on when updating to a new slug', async () => {
     const newSlug = 'some-new-slug';
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithAddon();
 
     // Update the slug used for the Addon component.
-    store.dispatch(
-      onLocationChanged({
-        pathname: `/${lang}/${clientApp}/addon/${newSlug}/`,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: `/${lang}/${clientApp}/addon/${newSlug}/`,
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -444,7 +444,7 @@ describe(__filename, () => {
     );
   });
 
-  it('does not fetch an add-on on update when already loading', () => {
+  it('does not fetch an add-on on update when already loading', async () => {
     const newSlug = 'some-new-slug';
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithAddon();
@@ -459,11 +459,10 @@ describe(__filename, () => {
     dispatch.mockClear();
 
     // Update the slug used for the Addon component.
-    store.dispatch(
-      onLocationChanged({
-        pathname: `/${lang}/${clientApp}/addon/${newSlug}/`,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: `/${lang}/${clientApp}/addon/${newSlug}/`,
+    });
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ 'type': FETCH_ADDON }),
@@ -690,7 +689,11 @@ describe(__filename, () => {
 
   // This is a test helper that can be used to test the integration between
   // a ShowMoreCard and contentId.
-  const testContentId = ({ addonProp, addonPropValue, cardClassName }) => {
+  const testContentId = async ({
+    addonProp,
+    addonPropValue,
+    cardClassName,
+  }) => {
     // Mock the clientHeight so the "read more" link will be present.
     mockClientHeight(301);
     renderWithAddon();
@@ -706,27 +709,27 @@ describe(__filename, () => {
     );
 
     // It should be expanded now.
-    expect(card).toHaveClass('ShowMoreCard--expanded');
+    await waitFor(() => expect(card).toHaveClass('ShowMoreCard--expanded'));
 
     // Update with the same version id, which should change nothing.
     _loadAddon();
 
     // It should still be expanded.
-    expect(card).toHaveClass('ShowMoreCard--expanded');
+    await waitFor(() => expect(card).toHaveClass('ShowMoreCard--expanded'));
 
     // Update the add-on to generate a different contentId.
     addon[addonProp] = addonPropValue;
     _loadAddon();
 
     // It should revert to not being expanded.
-    expect(card).not.toHaveClass('ShowMoreCard--expanded');
+    await waitFor(() => expect(card).not.toHaveClass('ShowMoreCard--expanded'));
 
     return true;
   };
 
-  it('passes the expected contentId to ShowMoreCard for description', () => {
+  it('passes the expected contentId to ShowMoreCard for description', async () => {
     expect(
-      testContentId({
+      await testContentId({
         addonProp: 'id',
         addonPropValue: addon.id + 1,
         cardClassName: 'AddonDescription',
@@ -847,12 +850,12 @@ describe(__filename, () => {
     expect(screen.getByText(developerComments)).toBeInTheDocument();
   });
 
-  it('passes the expected contentId to ShowMoreCard for developer comments', () => {
+  it('passes the expected contentId to ShowMoreCard for developer comments', async () => {
     addon.developer_comments = createLocalizedString(
       'some awesome developers comments',
     );
     expect(
-      testContentId({
+      await testContentId({
         addonProp: 'id',
         addonPropValue: addon.id + 1,
         cardClassName: 'Addon-developer-comments',
@@ -1099,9 +1102,9 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
-    it('passes the expected contentId to ShowMoreCard', () => {
+    it('passes the expected contentId to ShowMoreCard', async () => {
       expect(
-        testContentId({
+        await testContentId({
           addonProp: 'id',
           addonPropValue: addon.id + 1,
           cardClassName: 'AddonDescription-version-notes',
@@ -1498,16 +1501,15 @@ describe(__filename, () => {
   describe('Tests for AddonHead', () => {
     const addonName = 'Some add-on name';
 
+    // TODO: This one is still failing.
     it('renders links via the HeadLinks component', async () => {
       renderWithAddon();
 
       await waitFor(() =>
-        expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
-      );
-
-      expect(getElement('link[rel="canonical"]')).toHaveAttribute(
-        'href',
-        getCanonicalURL({ locationPathname: getLocation() }),
+        expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+          'href',
+          getCanonicalURL({ locationPathname: getLocation() }),
+        ),
       );
     });
 
@@ -1555,10 +1557,10 @@ describe(__filename, () => {
         addon.type = type;
         renderWithAddon();
 
-        await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-        expect(getElement('title')).toHaveTextContent(
-          `${addonName} – Get this ${name} for 🦊 Firefox (${lang})`,
+        await waitFor(() =>
+          expect(getElement('title')).toHaveTextContent(
+            `${addonName} – Get this ${name} for 🦊 Firefox (${lang})`,
+          ),
         );
       },
     );
@@ -1578,10 +1580,10 @@ describe(__filename, () => {
           location: `/${lang}/${CLIENT_APP_ANDROID}/addon/${defaultSlug}/`,
         });
 
-        await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-        expect(getElement('title')).toHaveTextContent(
-          `${addonName} – Get this ${name} for 🦊 Firefox Android (${lang})`,
+        await waitFor(() =>
+          expect(getElement('title')).toHaveTextContent(
+            `${addonName} – Get this ${name} for 🦊 Firefox Android (${lang})`,
+          ),
         );
       },
     );
@@ -1747,14 +1749,16 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
-    it('sends a tracking event when the button is clicked', () => {
+    it('sends a tracking event when the button is clicked', async () => {
       addon.contributions_url = contributionsURL;
       renderWithAddon();
       tracking.sendEvent.mockClear();
 
       userEvent.click(screen.getByTitle(url));
 
-      expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+      });
       expect(tracking.sendEvent).toHaveBeenCalledWith({
         action: CONTRIBUTE_BUTTON_CLICK_ACTION,
         category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,
@@ -1793,9 +1797,9 @@ describe(__filename, () => {
     });
 
     describe('with permissions', () => {
-      it('passes the expected contentId to ShowMoreCard', () => {
+      it('passes the expected contentId to ShowMoreCard', async () => {
         expect(
-          testContentId({
+          await testContentId({
             addonProp: 'current_version',
             addonPropValue: createVersionWithPermissions({
               required: ['bookmarks'],
@@ -2273,7 +2277,7 @@ describe(__filename, () => {
       );
     });
 
-    it('should dispatch a fetch action if the addon is updated', () => {
+    it('should dispatch a fetch action if the addon is updated', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const newGuid = `${addon.guid}-new`;
       const newSlug = `${defaultSlug}-new`;
@@ -2287,11 +2291,10 @@ describe(__filename, () => {
           slug: newSlug,
         }),
       );
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: newSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchRecommendations({
@@ -2301,24 +2304,23 @@ describe(__filename, () => {
       );
     });
 
-    it('should not dispatch a fetch if the addon is updated but not changed', () => {
+    it('should not dispatch a fetch if the addon is updated but not changed', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddon();
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation(),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation(),
+      });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: FETCH_RECOMMENDATIONS }),
       );
     });
 
-    it('should not dispatch a fetch if the addon is updated to null', () => {
+    it('should not dispatch a fetch if the addon is updated to null', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const newSlug = `${defaultSlug}-new`;
       renderWithAddon();
@@ -2326,18 +2328,17 @@ describe(__filename, () => {
       dispatch.mockClear();
 
       // Switch to a different add-on, that has not been loaded.
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: newSlug }),
+      });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: FETCH_RECOMMENDATIONS }),
       );
     });
 
-    it('should send a GA ping when recommendations are loaded', () => {
+    it('should send a GA ping when recommendations are loaded', async () => {
       const fallbackReason = 'timeout';
       const outcome = OUTCOME_RECOMMENDED_FALLBACK;
       renderWithAddon();
@@ -2349,7 +2350,9 @@ describe(__filename, () => {
         fallbackReason,
       });
 
-      expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+      });
       expect(tracking.sendEvent).toHaveBeenCalledWith({
         action: `${outcome}-${fallbackReason}`,
         category: TAAR_IMPRESSION_CATEGORY,
@@ -2371,7 +2374,7 @@ describe(__filename, () => {
       });
     });
 
-    it('should send a GA ping without a fallback', () => {
+    it('should send a GA ping without a fallback', async () => {
       const fallbackReason = null;
       const outcome = OUTCOME_RECOMMENDED;
       renderWithAddon();
@@ -2383,7 +2386,9 @@ describe(__filename, () => {
         fallbackReason,
       });
 
-      expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+      });
       expect(tracking.sendEvent).toHaveBeenCalledWith({
         action: outcome,
         category: TAAR_IMPRESSION_CATEGORY,
@@ -2471,7 +2476,7 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
-    it('displays more add-ons by authors for an extension', () => {
+    it('displays more add-ons by authors for an extension', async () => {
       const moreAddonName = 'Name of more add-on';
       renderWithAddon();
 
@@ -2485,7 +2490,7 @@ describe(__filename, () => {
 
       const addonsByAuthorsCard = screen.getByClassName('AddonsByAuthorsCard');
       expect(
-        within(addonsByAuthorsCard).getByText(
+        await within(addonsByAuthorsCard).findByText(
           `More extensions by ${authorName}`,
         ),
       ).toBeInTheDocument();
@@ -2506,7 +2511,7 @@ describe(__filename, () => {
       expect(addonsByAuthorsCard).toHaveClass('AddonsCard--horizontal');
     });
 
-    it('displays more add-ons by authors for a theme', () => {
+    it('displays more add-ons by authors for a theme', async () => {
       const moreAddonName = 'Name of more add-on';
       addon.type = ADDON_TYPE_STATIC_THEME;
       renderWithAddon();
@@ -2521,7 +2526,9 @@ describe(__filename, () => {
 
       const addonsByAuthorsCard = screen.getByClassName('AddonsByAuthorsCard');
       expect(
-        within(addonsByAuthorsCard).getByText(`More themes by ${authorName}`),
+        await within(addonsByAuthorsCard).findByText(
+          `More themes by ${authorName}`,
+        ),
       ).toBeInTheDocument();
       expect(
         within(addonsByAuthorsCard).getByRole('link', {
@@ -2535,7 +2542,7 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
-    it('adds a CSS class to the main component when there are add-ons', () => {
+    it('adds a CSS class to the main component when there are add-ons', async () => {
       renderWithAddon();
 
       loadAddonsByAuthors({
@@ -2547,11 +2554,13 @@ describe(__filename, () => {
 
       const addonComponent = screen.getByClassName('Addon');
 
-      expect(addonComponent).toHaveClass('Addon--has-more-than-0-addons');
+      await waitFor(() =>
+        expect(addonComponent).toHaveClass('Addon--has-more-than-0-addons'),
+      );
       expect(addonComponent).not.toHaveClass('Addon--has-more-than-3-addons');
     });
 
-    it('adds a CSS class when there are more than 3 other add-ons', () => {
+    it('adds a CSS class when there are more than 3 other add-ons', async () => {
       renderWithAddon();
 
       loadAddonsByAuthors({
@@ -2563,7 +2572,9 @@ describe(__filename, () => {
 
       const addonComponent = screen.getByClassName('Addon');
 
-      expect(addonComponent).toHaveClass('Addon--has-more-than-0-addons');
+      await waitFor(() =>
+        expect(addonComponent).toHaveClass('Addon--has-more-than-0-addons'),
+      );
       expect(addonComponent).toHaveClass('Addon--has-more-than-3-addons');
     });
   });
@@ -2571,7 +2582,7 @@ describe(__filename, () => {
   describe('Tests for AddonsByAuthorsCard', () => {
     const getThisErrorHandlerId = (type) => `AddonsByAuthorsCard-${type}`;
 
-    it('should render nothing if there are no add-ons', () => {
+    it('should render nothing if there are no add-ons', async () => {
       renderWithAddon();
 
       loadAddonsByAuthors({
@@ -2581,9 +2592,11 @@ describe(__filename, () => {
         store,
       });
 
-      expect(
-        screen.queryByClassName('AddonsByAuthorsCard'),
-      ).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(
+          screen.queryByClassName('AddonsByAuthorsCard'),
+        ).not.toBeInTheDocument(),
+      );
     });
 
     it('should render a loading state on first instantiation', () => {
@@ -2633,7 +2646,7 @@ describe(__filename, () => {
       );
     });
 
-    it('should dispatch a fetch action if authorIds are updated', () => {
+    it('should dispatch a fetch action if authorIds are updated', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddon();
 
@@ -2654,11 +2667,10 @@ describe(__filename, () => {
       addon.type = ADDON_TYPE_STATIC_THEME;
       _loadAddon();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: newSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchAddonsByAuthors({
@@ -2679,11 +2691,10 @@ describe(__filename, () => {
       addon.type = ADDON_TYPE_STATIC_THEME;
       _loadAddon();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: anotherSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: anotherSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchAddonsByAuthors({
@@ -2696,7 +2707,7 @@ describe(__filename, () => {
       );
     });
 
-    it('should dispatch a fetch action if addonType is updated', () => {
+    it('should dispatch a fetch action if addonType is updated', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddon();
 
@@ -2715,11 +2726,10 @@ describe(__filename, () => {
       addon.type = ADDON_TYPE_STATIC_THEME;
       _loadAddon();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: newSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchAddonsByAuthors({
@@ -2732,7 +2742,7 @@ describe(__filename, () => {
       );
     });
 
-    it('should not dispatch a fetch action if props are not changed', () => {
+    it('should not dispatch a fetch action if props are not changed', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithAddon();
 
@@ -2749,11 +2759,10 @@ describe(__filename, () => {
       addon.name = createLocalizedString('Some other name');
       _loadAddon();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: defaultSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: defaultSlug }),
+      });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: FETCH_ADDONS_BY_AUTHORS }),
@@ -2965,7 +2974,7 @@ describe(__filename, () => {
   });
 
   describe('Tests for installAddon', () => {
-    it('sets status when getting updated', () => {
+    it('sets status when getting updated', async () => {
       const newGuid = `${addon.guid}-new`;
       const newSlug = `${defaultSlug}-new`;
       renderWithAddon();
@@ -2978,16 +2987,15 @@ describe(__filename, () => {
           slug: newSlug,
         }),
       );
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: newSlug }),
+      });
 
       expect(getAddon).toHaveBeenCalledWith(newGuid);
     });
 
-    it('sets status when add-on is loaded on update', () => {
+    it('sets status when add-on is loaded on update', async () => {
       const newGuid = `${addon.guid}-new`;
       const newSlug = `${defaultSlug}-new`;
 
@@ -3001,16 +3009,15 @@ describe(__filename, () => {
           slug: newSlug,
         }),
       );
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug: newSlug }),
+      });
 
       expect(getAddon).toHaveBeenCalledWith(newGuid);
     });
 
-    it('does not set status when an update is not necessary', () => {
+    it('does not set status when an update is not necessary', async () => {
       renderWithAddon();
 
       expect(getAddon).toHaveBeenCalledWith(addon.guid);
@@ -3018,11 +3025,10 @@ describe(__filename, () => {
 
       // Update the component with the same props (i.e. same add-on guid) and
       // make sure the status is not set.
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation(),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation(),
+      });
 
       expect(getAddon).not.toHaveBeenCalled();
     });

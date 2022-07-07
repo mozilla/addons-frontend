@@ -50,6 +50,7 @@ import { checkInternalURL, stripLangFromAmoUrl } from 'amo/utils';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import { addQueryParams } from 'amo/utils/url';
 import {
+  changeLocation,
   createAddonsApiResult,
   createFailedErrorHandler,
   createHomeShelves,
@@ -60,7 +61,6 @@ import {
   fakeExternalShelf,
   fakePrimaryHeroShelfExternalAddon,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -82,6 +82,7 @@ describe(__filename, () => {
   const defaultLang = 'en-US';
   const errorHandlerId = 'Home';
   let store;
+  let history;
 
   const getLocation = ({
     clientApp = defaultClientApp,
@@ -99,11 +100,14 @@ describe(__filename, () => {
     jest.clearAllMocks().resetModules();
   });
 
-  const render = ({ location = getLocation() } = {}) =>
-    defaultRender({
+  const render = ({ location = getLocation() } = {}) => {
+    const renderResults = defaultRender({
       initialEntries: [location],
       store,
     });
+    history = renderResults.history;
+    return renderResults;
+  };
 
   const _createHomeShelves = ({
     primaryProps = { addon: fakeAddon },
@@ -149,7 +153,7 @@ describe(__filename, () => {
       secondaryProps,
       shelves,
     });
-    render({ location });
+    return render({ location });
   };
 
   const addonForPromotedCategory = (category = RECOMMENDED) => {
@@ -1064,14 +1068,16 @@ describe(__filename, () => {
         ['external', withExternalShelfData],
       ])(
         'sends a tracking event for the impression on update for %s',
-        (feature, shelfData) => {
+        async (feature, shelfData) => {
           render();
 
           expect(tracking.sendEvent).not.toHaveBeenCalled();
 
           _loadHomeData(shelfData);
 
-          expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+          await waitFor(() => {
+            expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
+          });
           expect(tracking.sendEvent).toHaveBeenCalledWith({
             action: PRIMARY_HERO_IMPRESSION_ACTION,
             category: PRIMARY_HERO_IMPRESSION_CATEGORY,
@@ -1254,7 +1260,7 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches an action to fetch the add-ons to display on update', () => {
+  it('dispatches an action to fetch the add-ons to display on update', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithHomeData();
 
@@ -1262,11 +1268,10 @@ describe(__filename, () => {
 
     expect(dispatch).toHaveBeenCalledTimes(0);
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: `/en-US/${CLIENT_APP_ANDROID}/`,
+    });
 
     expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
     expect(dispatch).toHaveBeenCalledWith(

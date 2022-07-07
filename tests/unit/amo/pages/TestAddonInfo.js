@@ -23,6 +23,7 @@ import {
   loadVersions,
 } from 'amo/reducers/versions';
 import {
+  changeLocation,
   createFailedErrorHandler,
   createFakeAddonInfo,
   createFakeErrorHandler,
@@ -31,7 +32,6 @@ import {
   fakeAddon,
   fakeVersion,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -58,17 +58,21 @@ describe(__filename, () => {
   } = {}) => `/${lang}/${clientApp}/addon/${slug}/${infoType}/`;
   let addon;
   let store;
+  let history;
 
   beforeEach(() => {
     addon = { ...fakeAddon, slug: defaultSlug };
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const render = ({ infoType = defaultInfoType, slug = defaultSlug } = {}) =>
-    defaultRender({
+  const render = ({ infoType = defaultInfoType, slug = defaultSlug } = {}) => {
+    const renderResults = defaultRender({
       initialEntries: [getLocation({ infoType, slug })],
       store,
     });
+    history = renderResults.history;
+    return renderResults;
+  };
 
   const _loadAddon = (theAddon = addon) => {
     store.dispatch(loadAddon({ addon: theAddon, slug: theAddon.slug }));
@@ -113,18 +117,17 @@ describe(__filename, () => {
 
   it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
     `fetches an addon and addonInfo for %s when the slug changes`,
-    (infoType) => {
+    async (infoType) => {
       const newSlug = `${defaultSlug}-new`;
       const dispatch = jest.spyOn(store, 'dispatch');
       render({ infoType });
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ infoType, slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ infoType, slug: newSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchAddon({
@@ -286,7 +289,7 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches an addonVersion when the slug changes', () => {
+    it('fetches an addonVersion when the slug changes', async () => {
       const newSlug = `${defaultSlug}-new`;
       const newAddon = { ...fakeAddon, slug: newSlug };
       _loadAddon();
@@ -296,11 +299,10 @@ describe(__filename, () => {
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ infoType, slug: newSlug }),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation({ infoType, slug: newSlug }),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         fetchVersion({
@@ -387,9 +389,11 @@ describe(__filename, () => {
       infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
     });
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(`Privacy policy for ${name}`);
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `Privacy policy for ${name}`,
+      ),
+    );
   });
 
   it('does not render an HTML title when there is no add-on', async () => {
