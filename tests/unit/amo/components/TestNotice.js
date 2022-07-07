@@ -1,5 +1,6 @@
 import * as React from 'react';
 import userEvent from '@testing-library/user-event';
+import { waitFor } from '@testing-library/react';
 
 import Notice from 'amo/components/Notice';
 import { CLIENT_APP_FIREFOX } from 'amo/constants';
@@ -145,7 +146,7 @@ describe(__filename, () => {
     );
   });
 
-  it('hides a dismissed notice', () => {
+  it('hides a dismissed notice', async () => {
     const id = 'example-id';
     render({ id, dismissible: true });
 
@@ -156,7 +157,9 @@ describe(__filename, () => {
       }),
     );
 
-    expect(screen.queryByClassName('Notice')).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.queryByClassName('Notice')).not.toBeInTheDocument();
+    });
   });
 
   it('only hides dismissible notices', () => {
