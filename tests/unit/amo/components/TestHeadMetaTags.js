@@ -4,7 +4,6 @@ import { waitFor } from '@testing-library/react';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
-  createHistory,
   dispatchClientMetadata,
   getFakeConfig,
   getElement,
@@ -21,12 +20,9 @@ describe(__filename, () => {
 
   const render = ({ location, ...props } = {}) => {
     const renderOptions = {
-      history: createHistory({
-        initialEntries: [location || '/'],
-      }),
+      initialEntries: [location || '/'],
       store,
     };
-
     return defaultRender(<HeadMetaTags {...props} />, renderOptions);
   };
 
@@ -149,7 +145,7 @@ describe(__filename, () => {
     dispatchClientMetadata({ lang, store });
     const location = pathname;
 
-    render({ _config, description, image, title, location });
+    render({ _config, description, image, title, location, store });
 
     await waitFor(() =>
       expect(getElement('meta[property="og:type"]')).toBeInTheDocument(),
