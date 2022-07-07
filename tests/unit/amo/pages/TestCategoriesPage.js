@@ -14,11 +14,11 @@ import {
 import { getCanonicalURL, visibleAddonType } from 'amo/utils';
 import { getCategoryResultsPathname } from 'amo/utils/categories';
 import {
+  changeLocation,
   createFailedErrorHandler,
   dispatchClientMetadata,
   fakeCategory,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -32,16 +32,20 @@ describe(__filename, () => {
   const getErrorHandlerId = (addonType = ADDON_TYPE_EXTENSION) =>
     `Categories-${addonType}`;
   let store;
+  let history;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) =>
-    defaultRender({
+  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) => {
+    const renderResults = defaultRender({
       initialEntries: [getLocation(addonType)],
       store,
     });
+    history = renderResults.history;
+    return renderResults;
+  };
 
   it.each([
     [ADDON_TYPE_EXTENSION, 'extension'],
@@ -134,22 +138,21 @@ describe(__filename, () => {
       );
     });
 
-    it('changes viewContext if addonType changes', () => {
+    it('changes viewContext if addonType changes', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation(ADDON_TYPE_STATIC_THEME),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation(ADDON_TYPE_STATIC_THEME),
+      });
 
       expect(dispatch).toHaveBeenCalledWith(
         setViewContext(ADDON_TYPE_STATIC_THEME),
       );
     });
 
-    it('does not dispatch setViewContext if addonType does not change', () => {
+    it('does not dispatch setViewContext if addonType does not change', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
@@ -159,11 +162,10 @@ describe(__filename, () => {
 
       dispatch.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation(ADDON_TYPE_EXTENSION),
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: getLocation(ADDON_TYPE_EXTENSION),
+      });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         setViewContext(ADDON_TYPE_EXTENSION),
