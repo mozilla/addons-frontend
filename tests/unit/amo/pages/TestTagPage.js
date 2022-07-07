@@ -10,7 +10,6 @@ import {
 import { searchStart } from 'amo/reducers/search';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import {
-  createHistory,
   dispatchClientMetadata,
   dispatchSearchResults,
   fakeAddon,
@@ -21,6 +20,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let history;
   let store;
   const lang = 'en-US';
   const clientApp = CLIENT_APP_FIREFOX;
@@ -31,29 +31,23 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  function render({ history, location = defaultLocation, tag } = {}) {
+  function render({ location = defaultLocation, tag } = {}) {
     const renderOptions = {
-      history:
-        history ||
-        createHistory({
-          initialEntries: [
-            tag ? `/${lang}/${clientApp}/tag/${tag}/` : location,
-          ],
-        }),
+      initialEntries: [tag ? `/${lang}/${clientApp}/tag/${tag}/` : location],
       store,
     };
-    return defaultRender(renderOptions);
+
+    const renderResult = defaultRender(renderOptions);
+    history = renderResult.history;
+    return renderResult;
   }
 
   it('removes tag from the query params if tag is in filters', () => {
     const tag = 'myTag';
     const location = `/${lang}/${clientApp}/tag/${tag}/`;
-    const history = createHistory({
-      initialEntries: [`${location}?tag=${tag}`],
-    });
-    const pushSpy = jest.spyOn(history, 'push');
 
-    render({ history });
+    render({ location: `${location}?tag=${tag}` });
+    const pushSpy = jest.spyOn(history, 'push');
 
     userEvent.selectOptions(
       screen.getByRole('combobox', { name: 'Sort by' }),
@@ -83,37 +77,40 @@ describe(__filename, () => {
     );
   });
 
-  it('does not override an existing sort filter', () => {
+  it('does not override an existing sort filter', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render({ location: `${defaultLocation}?sort=${SEARCH_SORT_POPULAR}` });
 
-    expect(dispatch).toHaveBeenCalledWith(
-      searchStart({
-        errorHandlerId: getSearchErrorHandlerId(),
-        filters: {
-          sort: SEARCH_SORT_POPULAR,
-          tag: defaultTag,
-        },
-      }),
+    await waitFor(() =>
+      expect(dispatch).toHaveBeenCalledWith(
+        searchStart({
+          errorHandlerId: getSearchErrorHandlerId(),
+          filters: {
+            sort: SEARCH_SORT_POPULAR,
+            tag: defaultTag,
+          },
+        }),
+      ),
     );
   });
 
-  it('configures pagination using filters and the tag', () => {
+  it('configures pagination using filters and the tag', async () => {
     const page = '2';
     const pageSize = 2;
     const sort = SEARCH_SORT_POPULAR;
     const tag = 'someTag';
     const addons = Array(pageSize).fill(fakeAddon);
-    dispatchSearchResults({
+
+    render({
+      location: `/${lang}/${clientApp}/tag/${tag}/?page=${page}&sort=${sort}`,
+    });
+
+    await dispatchSearchResults({
       addons,
       count: 5,
       filters: { page, sort, tag },
       pageSize,
       store,
-    });
-
-    render({
-      location: `/${lang}/${clientApp}/tag/${tag}/?page=${page}&sort=${sort}`,
     });
 
     expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
@@ -125,10 +122,10 @@ describe(__filename, () => {
   it('sets the expected title for the tag', async () => {
     render();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      `Add-ons tagged with ${defaultTag} – Add-ons for Firefox (en-US)`,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `Add-ons tagged with ${defaultTag} – Add-ons for Firefox (en-US)`,
+      ),
     );
   });
 });

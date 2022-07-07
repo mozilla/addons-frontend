@@ -18,7 +18,6 @@ import { searchStart } from 'amo/reducers/search';
 import { convertFiltersToQueryParams } from 'amo/searchUtils';
 import { visibleAddonType } from 'amo/utils';
 import {
-  createHistory,
   dispatchClientMetadata,
   dispatchSearchResults,
   fakeAddon,
@@ -30,6 +29,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let history;
   let store;
   const lang = 'en-US';
   const clientApp = CLIENT_APP_FIREFOX;
@@ -45,20 +45,18 @@ describe(__filename, () => {
   function render({
     addonType = defaultAddonTypeForURL,
     category = defaultCategory,
-    history,
     location,
   } = {}) {
     const initialEntry =
       location || `/${lang}/${clientApp}/${addonType}/category/${category}/`;
     const renderOptions = {
-      history:
-        history ||
-        createHistory({
-          initialEntries: [initialEntry],
-        }),
+      initialEntries: [initialEntry],
       store,
     };
-    return defaultRender(renderOptions);
+
+    const renderResult = defaultRender(renderOptions);
+    history = renderResult.history;
+    return renderResult;
   }
 
   const _loadCategories = ({
@@ -96,41 +94,44 @@ describe(__filename, () => {
     );
   });
 
-  it('does not override an existing sort filter', () => {
+  it('does not override an existing sort filter', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render({ location: `${defaultLocation}?sort=${SEARCH_SORT_POPULAR}` });
 
-    expect(dispatch).toHaveBeenCalledWith(
-      searchStart({
-        errorHandlerId: getSearchErrorHandlerId(),
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
-          category: defaultCategory,
-          sort: SEARCH_SORT_POPULAR,
-        },
-      }),
+    await waitFor(() =>
+      expect(dispatch).toHaveBeenCalledWith(
+        searchStart({
+          errorHandlerId: getSearchErrorHandlerId(),
+          filters: {
+            addonType: ADDON_TYPE_EXTENSION,
+            category: defaultCategory,
+            sort: SEARCH_SORT_POPULAR,
+          },
+        }),
+      ),
     );
   });
 
-  it('configures pagination using filters and the category/type', () => {
+  it('configures pagination using filters and the category/type', async () => {
     const addonType = ADDON_TYPE_STATIC_THEME;
     const category = 'privacy';
     const page = '2';
     const pageSize = 2;
     const sort = SEARCH_SORT_POPULAR;
     const addons = Array(pageSize).fill(fakeAddon);
-    dispatchSearchResults({
-      addons,
-      count: 5,
-      filters: { addonType, category, page, sort },
-      pageSize,
-      store,
-    });
 
     render({
       location: `/${lang}/${clientApp}/${visibleAddonType(
         addonType,
       )}/category/${category}/?page=${page}&sort=${sort}`,
+    });
+
+    await dispatchSearchResults({
+      addons,
+      count: 5,
+      filters: { addonType, category, page, sort },
+      pageSize,
+      store,
     });
 
     expect(screen.getByRole('link', { name: 'Previous' })).toHaveAttribute(
@@ -172,10 +173,10 @@ describe(__filename, () => {
 
     render({ addonType: visibleAddonType(type) });
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      `${expectedTitle} in ${name} – Add-ons for Firefox (en-US)`,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `${expectedTitle} in ${name} – Add-ons for Firefox (en-US)`,
+      ),
     );
   });
 
@@ -187,10 +188,10 @@ describe(__filename, () => {
     async (type, expectedTitle) => {
       render({ addonType: visibleAddonType(type) });
 
-      await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-      expect(getElement('title')).toHaveTextContent(
-        `${expectedTitle} – Add-ons for Firefox (en-US)`,
+      await waitFor(() =>
+        expect(getElement('title')).toHaveTextContent(
+          `${expectedTitle} – Add-ons for Firefox (en-US)`,
+        ),
       );
     },
   );
@@ -198,12 +199,9 @@ describe(__filename, () => {
   describe('Tests for Search', () => {
     it('forces recommended add-ons to the top when a category is specified and a new sort filter is selected', () => {
       const sort = SEARCH_SORT_POPULAR;
-      const history = createHistory({
-        initialEntries: [`${defaultLocation}?sort=${sort}`],
-      });
-      const pushSpy = jest.spyOn(history, 'push');
 
-      render({ history });
+      render({ location: `${defaultLocation}?sort=${sort}` });
+      const pushSpy = jest.spyOn(history, 'push');
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),
@@ -220,14 +218,11 @@ describe(__filename, () => {
 
     it('removes category and addonType from the URL if category is in filters', () => {
       const sort = SEARCH_SORT_POPULAR;
-      const history = createHistory({
-        initialEntries: [
-          `${defaultLocation}?sort=${sort}&category=${defaultCategory}&type=${defaultAddonType}`,
-        ],
+
+      render({
+        location: `${defaultLocation}?sort=${sort}&category=${defaultCategory}&type=${defaultAddonType}`,
       });
       const pushSpy = jest.spyOn(history, 'push');
-
-      render({ history });
 
       userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Sort by' }),

@@ -630,29 +630,34 @@ export function dispatchSignInActions({
   };
 }
 
-export function dispatchSearchResults({
+export const dispatchSearchResults = async ({
   addons = [fakeAddon, { ...fakeAddon, slug: 'some-other-slug' }],
   count,
   filters = { query: 'test' },
   pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
   store = dispatchClientMetadata().store,
-} = {}) {
-  store.dispatch(
-    searchStart({
-      errorHandlerId: createStubErrorHandler().id,
-      filters,
-    }),
+} = {}) => {
+  await act(async () =>
+    store.dispatch(
+      searchStart({
+        errorHandlerId: createStubErrorHandler().id,
+        filters,
+      }),
+    ),
   );
-  store.dispatch(
-    searchLoad({
-      count: count || Object.keys(addons).length,
-      results: addons,
-      pageSize,
-    }),
+
+  await act(async () =>
+    store.dispatch(
+      searchLoad({
+        count: count || Object.keys(addons).length,
+        results: addons,
+        pageSize,
+      }),
+    ),
   );
 
   return { store };
-}
+};
 
 export function createAddonsApiResult(results) {
   return {
