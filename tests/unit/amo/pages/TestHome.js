@@ -82,6 +82,7 @@ describe(__filename, () => {
   const defaultLang = 'en-US';
   const errorHandlerId = 'Home';
   let store;
+  let history;
 
   const getLocation = ({
     clientApp = defaultClientApp,
@@ -99,11 +100,14 @@ describe(__filename, () => {
     jest.clearAllMocks().resetModules();
   });
 
-  const render = ({ location = getLocation() } = {}) =>
-    defaultRender({
+  const render = ({ location = getLocation() } = {}) => {
+    const renderResults = defaultRender({
       initialEntries: [location],
       store,
     });
+    history = renderResults.history;
+    return renderResults;
+  };
 
   const _createHomeShelves = ({
     primaryProps = { addon: fakeAddon },
@@ -1258,7 +1262,7 @@ describe(__filename, () => {
 
   it('dispatches an action to fetch the add-ons to display on update', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
-    const { history } = renderWithHomeData();
+    renderWithHomeData();
 
     dispatch.mockClear();
 

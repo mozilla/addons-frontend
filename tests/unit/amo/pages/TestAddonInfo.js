@@ -58,17 +58,21 @@ describe(__filename, () => {
   } = {}) => `/${lang}/${clientApp}/addon/${slug}/${infoType}/`;
   let addon;
   let store;
+  let history;
 
   beforeEach(() => {
     addon = { ...fakeAddon, slug: defaultSlug };
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const render = ({ infoType = defaultInfoType, slug = defaultSlug } = {}) =>
-    defaultRender({
+  const render = ({ infoType = defaultInfoType, slug = defaultSlug } = {}) => {
+    const renderResults = defaultRender({
       initialEntries: [getLocation({ infoType, slug })],
       store,
     });
+    history = renderResults.history;
+    return renderResults;
+  };
 
   const _loadAddon = (theAddon = addon) => {
     store.dispatch(loadAddon({ addon: theAddon, slug: theAddon.slug }));
@@ -116,7 +120,7 @@ describe(__filename, () => {
     async (infoType) => {
       const newSlug = `${defaultSlug}-new`;
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = render({ infoType });
+      render({ infoType });
 
       dispatch.mockClear();
 
@@ -291,7 +295,7 @@ describe(__filename, () => {
       _loadAddon();
       _loadAddon(newAddon);
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = render({ infoType });
+      render({ infoType });
 
       dispatch.mockClear();
 

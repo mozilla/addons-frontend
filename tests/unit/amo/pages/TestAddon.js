@@ -142,6 +142,7 @@ describe(__filename, () => {
   const lang = 'en-US';
   let store;
   let addon;
+  let history;
 
   const getLocation = ({ page, slug = defaultSlug } = {}) => {
     return `/${lang}/${clientApp}/addon/${slug}/${
@@ -188,7 +189,9 @@ describe(__filename, () => {
       store,
     };
 
-    return defaultRender(renderOptions);
+    const renderResults = defaultRender(renderOptions);
+    history = renderResults.history;
+    return renderResults;
   };
 
   const _loadAddon = () => {
@@ -299,7 +302,7 @@ describe(__filename, () => {
 
   it('does not dispatch any new actions if error handler has an error on update', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
-    const { history } = renderWithAddon();
+    renderWithAddon();
     dispatch.mockClear();
 
     // Requesting a new add-on will dispatch FETCH_ADDON.
@@ -425,7 +428,7 @@ describe(__filename, () => {
   it('fetches an add-on when updating to a new slug', async () => {
     const newSlug = 'some-new-slug';
     const dispatch = jest.spyOn(store, 'dispatch');
-    const { history } = renderWithAddon();
+    renderWithAddon();
 
     // Update the slug used for the Addon component.
     await changeLocation({
@@ -444,7 +447,7 @@ describe(__filename, () => {
   it('does not fetch an add-on on update when already loading', async () => {
     const newSlug = 'some-new-slug';
     const dispatch = jest.spyOn(store, 'dispatch');
-    const { history } = renderWithAddon();
+    renderWithAddon();
 
     // Start fetching an add-on.
     store.dispatch(
@@ -2278,7 +2281,7 @@ describe(__filename, () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const newGuid = `${addon.guid}-new`;
       const newSlug = `${defaultSlug}-new`;
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       dispatch.mockClear();
 
@@ -2303,7 +2306,7 @@ describe(__filename, () => {
 
     it('should not dispatch a fetch if the addon is updated but not changed', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       dispatch.mockClear();
 
@@ -2320,7 +2323,7 @@ describe(__filename, () => {
     it('should not dispatch a fetch if the addon is updated to null', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const newSlug = `${defaultSlug}-new`;
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       dispatch.mockClear();
 
@@ -2645,7 +2648,7 @@ describe(__filename, () => {
 
     it('should dispatch a fetch action if authorIds are updated', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       loadAddonsByAuthors({
         addonType: ADDON_TYPE_EXTENSION,
@@ -2706,7 +2709,7 @@ describe(__filename, () => {
 
     it('should dispatch a fetch action if addonType is updated', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       loadAddonsByAuthors({
         addonType: ADDON_TYPE_EXTENSION,
@@ -2741,7 +2744,7 @@ describe(__filename, () => {
 
     it('should not dispatch a fetch action if props are not changed', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       loadAddonsByAuthors({
         addonType: ADDON_TYPE_EXTENSION,
@@ -2974,7 +2977,7 @@ describe(__filename, () => {
     it('sets status when getting updated', async () => {
       const newGuid = `${addon.guid}-new`;
       const newSlug = `${defaultSlug}-new`;
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       expect(getAddon).toHaveBeenCalledWith(addon.guid);
 
@@ -2996,7 +2999,7 @@ describe(__filename, () => {
       const newGuid = `${addon.guid}-new`;
       const newSlug = `${defaultSlug}-new`;
 
-      const { history } = render();
+      render();
 
       expect(getAddon).not.toHaveBeenCalled();
 
@@ -3015,7 +3018,7 @@ describe(__filename, () => {
     });
 
     it('does not set status when an update is not necessary', async () => {
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       expect(getAddon).toHaveBeenCalledWith(addon.guid);
       getAddon.mockClear();

@@ -22,7 +22,6 @@ import {
   changeLocation,
   createFailedErrorHandler,
   createFakeErrorHandler,
-  createHistory,
   createLocalizedString,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
@@ -42,6 +41,7 @@ describe(__filename, () => {
   const lang = 'en-US';
   let store;
   let addon;
+  let history;
 
   const getLocation = ({ page, reviewId, score, slug = defaultSlug } = {}) => {
     let queryString = '?';
@@ -67,7 +67,6 @@ describe(__filename, () => {
   });
 
   const render = ({
-    history,
     location,
     page,
     reviewId,
@@ -77,14 +76,12 @@ describe(__filename, () => {
     const initialEntry =
       location || getLocation({ page, reviewId, score, slug });
     const renderOptions = {
-      history:
-        history ||
-        createHistory({
-          initialEntries: [initialEntry],
-        }),
+      initialEntries: [initialEntry],
       store,
     };
-    return defaultRender(renderOptions);
+    const renderResults = defaultRender(renderOptions);
+    history = renderResults.history;
+    return renderResults;
   };
 
   const _loadAddon = (addonToLoad = addon) => {
@@ -118,7 +115,6 @@ describe(__filename, () => {
   };
 
   const renderWithAddon = ({
-    history,
     location,
     page,
     reviewId,
@@ -127,11 +123,10 @@ describe(__filename, () => {
   } = {}) => {
     _loadAddon();
 
-    return render({ history, location, page, reviewId, score, slug });
+    return render({ location, page, reviewId, score, slug });
   };
 
   const renderWithAddonAndReviews = ({
-    history,
     location,
     page,
     reviewId,
@@ -144,7 +139,7 @@ describe(__filename, () => {
   } = {}) => {
     _setAddonReviews({ page, reviews, score });
 
-    return renderWithAddon({ history, location, page, reviewId, score, slug });
+    return renderWithAddon({ location, page, reviewId, score, slug });
   };
 
   const signInAndSetReviewPermissions = ({
@@ -305,7 +300,7 @@ describe(__filename, () => {
     it('fetches reviews if needed during an update', async () => {
       const newSlug = `${defaultSlug}-other`;
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       _loadAddon({
         ...addon,
@@ -344,7 +339,7 @@ describe(__filename, () => {
     it('fetches reviews when the page changes', async () => {
       const page = '2';
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddonAndReviews();
+      renderWithAddonAndReviews();
 
       await changeLocation({
         history,
@@ -392,7 +387,7 @@ describe(__filename, () => {
     it('fetches reviews when the score changes', async () => {
       const score = '4';
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddonAndReviews();
+      renderWithAddonAndReviews();
 
       await changeLocation({
         history,
@@ -460,7 +455,7 @@ describe(__filename, () => {
     it('does not dispatch a view context for similar add-ons', async () => {
       const newSlug = `${defaultSlug}-other`;
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       _loadAddon({
         ...addon,
@@ -484,7 +479,7 @@ describe(__filename, () => {
     it('dispatches a view context for new add-on types', async () => {
       const newSlug = `${defaultSlug}-other`;
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddon();
+      renderWithAddon();
 
       _loadAddon({
         ...addon,
@@ -890,10 +885,7 @@ describe(__filename, () => {
     });
 
     it('lets you select all reviews', () => {
-      const history = createHistory({
-        initialEntries: [getLocation()],
-      });
-      renderWithAddonAndReviews({ history });
+      renderWithAddonAndReviews();
 
       const pushSpy = jest.spyOn(history, 'push');
       userEvent.selectOptions(getSelector(), SHOW_ALL_REVIEWS);
@@ -910,10 +902,7 @@ describe(__filename, () => {
       [2, 'Show only two-star reviews'],
       [1, 'Show only one-star reviews'],
     ])('lets you select only %s star reviews', (score, option) => {
-      const history = createHistory({
-        initialEntries: [getLocation()],
-      });
-      renderWithAddonAndReviews({ history });
+      renderWithAddonAndReviews();
 
       const pushSpy = jest.spyOn(history, 'push');
       userEvent.selectOptions(getSelector(), option);
@@ -985,7 +974,7 @@ describe(__filename, () => {
       );
       store.dispatch(setReview({ ...fakeReview, id: firstReviewId }));
       const dispatch = jest.spyOn(store, 'dispatch');
-      const { history } = renderWithAddon({ reviewId: firstReviewId });
+      renderWithAddon({ reviewId: firstReviewId });
 
       await changeLocation({
         history,
