@@ -119,6 +119,14 @@ describe(__filename, () => {
     expect(onDismiss).toHaveBeenCalled();
   });
 
+  it('does not have a dismiss button when dismissible is false', () => {
+    render({ dismissible: false });
+
+    expect(
+      screen.queryByRole('button', { name: 'Dismiss this notice' }),
+    ).not.toBeInTheDocument();
+  });
+
   // eslint-disable-next-line jest/expect-expect
   it('does not require a dismissal callback', () => {
     render({ dismissible: true, onDismiss: undefined });
@@ -160,20 +168,6 @@ describe(__filename, () => {
     await waitFor(() => {
       expect(screen.queryByClassName('Notice')).not.toBeInTheDocument();
     });
-  });
-
-  it('only hides dismissible notices', () => {
-    const id = 'example-id';
-    render({ id, dismissible: false });
-
-    store.dispatch(
-      setUIStateAction({
-        id: getUIStateId(id),
-        change: { wasDismissed: true },
-      }),
-    );
-
-    expect(getNotice()).toBeInTheDocument();
   });
 
   it('requires an ID prop for dismissible notices', () => {
