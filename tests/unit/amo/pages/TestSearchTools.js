@@ -26,7 +26,8 @@ describe(__filename, () => {
     );
     // Once for the initial LOCATION_CHANGE.
     // Once for the redirect.
-    expect(fakeDispatch).toHaveBeenCalledTimes(2);
+    // Once for the post-render LOCATION_CHANGE from the render helper.
+    expect(fakeDispatch).toHaveBeenCalledTimes(3);
   });
 
   it('renders a NotFoundPage', () => {

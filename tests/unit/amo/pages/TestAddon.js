@@ -1,3 +1,4 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
 import config from 'config';
 import serialize from 'serialize-javascript';
 import { cleanup, waitFor } from '@testing-library/react';
@@ -243,7 +244,7 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(setViewContext(addon.type));
   });
 
-  it('updates the ViewContext on update', () => {
+  it('updates the ViewContext on update', async () => {
     renderWithAddon();
     expect(screen.getByRole('link', { name: 'Extensions' })).toHaveClass(
       'SectionLinks-link--active',
@@ -251,8 +252,11 @@ describe(__filename, () => {
 
     addon.type = ADDON_TYPE_STATIC_THEME;
     _loadAddon();
-    expect(screen.getByRole('link', { name: 'Themes' })).toHaveClass(
-      'SectionLinks-link--active',
+
+    await waitFor(() =>
+      expect(screen.getByRole('link', { name: 'Themes' })).toHaveClass(
+        'SectionLinks-link--active',
+      ),
     );
   });
 
@@ -581,13 +585,16 @@ describe(__filename, () => {
     // 4. FETCH_CATEGORIES (initiated by AddonMoreInfo)
     // 5. FETCH_ADDONS_BY_AUTHORS (initiated by AddonsByAuthorsCard)
     // 6. FETCH_RECOMMENDATIONS (initiated by AddonRecommendations)
+    // 7. @@router/LOCATION_CHANGE, which happens after rendering in the
+    // test helper.
 
-    expect(dispatch).toHaveBeenCalledTimes(6);
+    expect(dispatch).toHaveBeenCalledTimes(7);
     expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: LOAD_ADDON }),
     );
-    expect(dispatch).toHaveBeenCalledWith(
-      expect.objectContaining({ type: '@@router/LOCATION_CHANGE' }),
+    expect(dispatch).toHaveBeenNthCalledWith(
+      2,
+      expect.objectContaining({ type: LOCATION_CHANGE }),
     );
     expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: SEND_SERVER_REDIRECT }),
@@ -600,6 +607,10 @@ describe(__filename, () => {
     );
     expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: FETCH_RECOMMENDATIONS }),
+    );
+    expect(dispatch).toHaveBeenNthCalledWith(
+      7,
+      expect.objectContaining({ type: LOCATION_CHANGE }),
     );
   });
 
@@ -1501,7 +1512,6 @@ describe(__filename, () => {
   describe('Tests for AddonHead', () => {
     const addonName = 'Some add-on name';
 
-    // TODO: This one is still failing.
     it('renders links via the HeadLinks component', async () => {
       renderWithAddon();
 
