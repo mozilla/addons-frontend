@@ -344,7 +344,8 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render();
 
-    // Expect only the LOCATION_CHANGE action which happens twice.
+    // Expect only the LOCATION_CHANGE action which happens twice, once for
+    // the actual render, and a second time after render in the test helper.
     expect(dispatch).toHaveBeenCalledTimes(2);
     expect(dispatch).toHaveBeenNthCalledWith(
       1,

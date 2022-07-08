@@ -52,7 +52,8 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(
       fetchBlock({ guid: defaultGuid, errorHandlerId: getErrorHandlerId() }),
     );
-    // dispatch is always called twice with LOCATION_CHANGE on render.
+    // dispatch is always called twice with LOCATION_CHANGE on render, once for
+    // the actual render, and a second time after render in the test helper.
     expect(dispatch).toHaveBeenCalledTimes(3);
     expect(dispatch).toHaveBeenNthCalledWith(
       1,
