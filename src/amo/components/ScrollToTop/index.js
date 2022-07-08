@@ -1,6 +1,5 @@
 /* @flow */
 /* global window */
-import deepEqual from 'deep-eql';
 import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -27,7 +26,11 @@ export class ScrollToTopBase extends React.Component<InternalProps> {
   componentDidUpdate(prevProps: InternalProps) {
     const { _window, location } = this.props;
 
-    if (_window && !deepEqual(location, prevProps.location)) {
+    if (
+      _window &&
+      (location.pathname !== prevProps.location.pathname ||
+        location.search !== prevProps.location.search)
+    ) {
       _window.scrollTo(0, 0);
     }
   }
