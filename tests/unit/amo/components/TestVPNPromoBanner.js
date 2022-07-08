@@ -275,6 +275,7 @@ describe(__filename, () => {
       });
       const _tracking = createFakeTracking();
       render({ _tracking, _localStorage });
+      _tracking.sendEvent.mockClear();
       clickCta();
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
@@ -282,8 +283,7 @@ describe(__filename, () => {
         category: VPN_PROMO_CATEGORY,
         label: impressionCount,
       });
-      // One event is the impression.
-      expect(_tracking.sendEvent).toHaveBeenCalledTimes(2);
+      expect(_tracking.sendEvent).toHaveBeenCalledTimes(1);
     });
 
     it('sends a tracking event when the dismiss button is clicked', () => {
@@ -293,6 +293,7 @@ describe(__filename, () => {
       });
       const _tracking = createFakeTracking();
       render({ _tracking, _localStorage });
+      _tracking.sendEvent.mockClear();
       clickDismiss();
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
@@ -300,8 +301,7 @@ describe(__filename, () => {
         category: VPN_PROMO_CATEGORY,
         label: impressionCount,
       });
-      // One event is the impression.
-      expect(_tracking.sendEvent).toHaveBeenCalledTimes(2);
+      expect(_tracking.sendEvent).toHaveBeenCalledTimes(1);
     });
 
     it('sends a tracking event and increases the count for the impression on mount', () => {
