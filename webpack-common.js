@@ -62,7 +62,7 @@ export function getStyleRules({
   return styleRules;
 }
 
-function getAssetRules({ fileLimit }) {
+function getAssetRules() {
   // Common options for URL loaders (i.e. derivatives of file-loader).
   const urlLoaderOptions = {
     encoding: 'base64',
@@ -70,9 +70,9 @@ function getAssetRules({ fileLimit }) {
     // default value (`true`) is a breaking change, so we have to set it to
     // `false`.
     esModule: false,
-    // If a media file is less than this size in bytes, it will be linked as a
-    // data: URL. Otherwise it will be linked as a separate file URL.
-    limit: fileLimit,
+    // Disable inlining of assets (It does more harm than good, we don't need
+    // it with HTTP/2).
+    limit: false,
     // This is the default value.
     fallback: 'file-loader',
     // We want to use predictable filenames for "subset" fonts.
@@ -87,24 +87,14 @@ function getAssetRules({ fileLimit }) {
 
   return [
     {
-      test: /\.svg$/,
-      use: [{ loader: 'svg-url-loader', options: urlLoaderOptions }],
-      type: 'javascript/auto',
-    },
-    {
-      test: /\.(jpg|png|gif|webm|mp4|otf|woff|woff2)$/,
+      test: /\.(svg|jpg|png|gif|webm|mp4|otf|woff|woff2)$/,
       use: [{ loader: 'url-loader', options: urlLoaderOptions }],
       type: 'javascript/auto',
     },
   ];
 }
 
-export function getRules({
-  babelOptions,
-  bundleStylesWithJs = false,
-  // Disable inlining (because most media files will have a size >= 1KB).
-  fileLimit = 1024,
-} = {}) {
+export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
   return [
     {
       test: /\.jsx?$/,
@@ -113,7 +103,7 @@ export function getRules({
       options: babelOptions,
     },
     ...getStyleRules({ bundleStylesWithJs }),
-    ...getAssetRules({ fileLimit }),
+    ...getAssetRules(),
   ];
 }
 
