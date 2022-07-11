@@ -1,4 +1,3 @@
-import photon from 'photon-colors';
 import * as React from 'react';
 import { createEvent, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -1322,29 +1321,24 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       render({ review });
 
-      expect(screen.getAllByTagName('g')[0]).toHaveAttribute(
-        'fill',
-        photon.YELLOW_50,
-      );
+      expect(screen.getByClassName('Rating--yellowStars')).toBeInTheDocument();
     });
 
     it('passes yellowStars: false to Rating if you did not write the review', () => {
       const review = createReviewAndSignInAsUnrelatedUser();
       render({ review });
 
-      expect(screen.getAllByTagName('g')[0]).toHaveAttribute(
-        'fill',
-        photon.GREY_50,
-      );
+      expect(
+        screen.queryByClassName('Rating--yellowStars'),
+      ).not.toBeInTheDocument();
     });
 
     it('passes yellowStars: false to Rating if no user is logged in', () => {
       render({ review: _setReview() });
 
-      expect(screen.getAllByTagName('g')[0]).toHaveAttribute(
-        'fill',
-        photon.GREY_50,
-      );
+      expect(
+        screen.queryByClassName('Rating--yellowStars'),
+      ).not.toBeInTheDocument();
     });
   });
 
