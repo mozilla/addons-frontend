@@ -166,11 +166,12 @@ describe(__filename, () => {
     store.dispatch(loadBlock({ block }));
     render();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      `${title} – Add-ons for Firefox (${lang})`,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `${title} – Add-ons for Firefox (${lang})`,
+      ),
     );
+
     expect(screen.getByText(title)).toBeInTheDocument();
   });
 
