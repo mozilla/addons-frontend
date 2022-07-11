@@ -179,7 +179,7 @@ describe(__filename, () => {
       });
 
       const { store } = createStore({ history });
-      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const dispatch = jest.spyOn(store, 'dispatch');
 
       render(
         <Provider store={store}>
@@ -189,16 +189,18 @@ describe(__filename, () => {
         </Provider>,
       );
 
-      dispatchSpy.resetHistory();
+      dispatch.mockClear();
 
       const pathname = '/foo';
       history.push(pathname);
 
-      sinon.assert.calledWith(
-        dispatchSpy,
-        onLocationChanged({ pathname, key: sinon.match.string }),
-      );
-      sinon.assert.calledOnce(dispatchSpy);
+      const expected = { ...onLocationChanged({ pathname }) };
+      expected.payload.location = {
+        ...expected.payload.location,
+        key: expect.any(String),
+      };
+      expect(dispatch).toHaveBeenCalledWith(expected);
+      expect(dispatch).toHaveBeenCalledOnce();
     });
   });
 
