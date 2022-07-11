@@ -1,7 +1,10 @@
 /* global Headers, window */
 import urllib from 'url';
 
-import { LOCATION_CHANGE, ConnectedRouter } from 'connected-react-router';
+import {
+  ConnectedRouter,
+  onLocationChanged as defaultOnLocationChanged,
+} from 'connected-react-router';
 import PropTypes from 'prop-types';
 import config from 'config';
 import invariant from 'invariant';
@@ -428,19 +431,10 @@ export const createHistory = ({ initialEntries } = {}) => {
   });
 };
 
-export const onLocationChanged = ({ pathname, search = '', ...others }) => {
+export const onLocationChanged = ({ pathname, search = '' }) => {
   const history = createHistory({ initialEntries: [`${pathname}${search}`] });
 
-  return {
-    type: LOCATION_CHANGE,
-    payload: {
-      location: {
-        ...history.location,
-        ...others,
-      },
-      action: 'PUSH',
-    },
-  };
+  return defaultOnLocationChanged(history.location, 'PUSH', false);
 };
 
 export const changeLocation = async ({
