@@ -1,36 +1,5 @@
-@import '~amo/css/styles';
-@import '~amo/components/Rating/styles';
-
 .AddonReviewManagerRating {
   align-items: center;
   display: flex;
   flex-flow: column wrap;
-
-  .Rating {
-    height: 36px;
-    margin: 12px 0;
-    width: 100%;
-
-    &.Rating--small .IconStar {
-      height: 75%;
-      width: 75%;
-    }
-  }
-
-  @include respond-to(large) {
-    flex-direction: row;
-
-    .Rating {
-      height: $font-size-l;
-      margin: 0;
-      width: auto;
-
-      @include margin-start(6px);
-
-      &.Rating--small .IconStar {
-        height: $icon-small;
-        width: $icon-small;
-      }
-    }
-  }
 }
