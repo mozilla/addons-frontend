@@ -697,21 +697,22 @@ export function createFakeAddon({
   };
 }
 
-export function dispatchAutocompleteResults({
+export const dispatchAutocompleteResults = async ({
   filters = { query: 'test' },
   store = dispatchClientMetadata({ lang: DEFAULT_LANG_IN_TESTS }).store,
   results = [],
-} = {}) {
-  store.dispatch(
-    autocompleteStart({
-      errorHandlerId: createStubErrorHandler().id,
-      filters,
-    }),
+} = {}) => {
+  await act(async () =>
+    store.dispatch(
+      autocompleteStart({
+        errorHandlerId: createStubErrorHandler().id,
+        filters,
+      }),
+    ),
   );
-  store.dispatch(autocompleteLoad({ results }));
-
+  await act(async () => store.dispatch(autocompleteLoad({ results })));
   return { store };
-}
+};
 
 export const createFakeCollectionDetail = ({
   name = 'My Addons',
