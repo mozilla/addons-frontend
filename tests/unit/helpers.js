@@ -630,29 +630,34 @@ export function dispatchSignInActions({
   };
 }
 
-export function dispatchSearchResults({
+export const dispatchSearchResults = async ({
   addons = [fakeAddon, { ...fakeAddon, slug: 'some-other-slug' }],
   count,
   filters = { query: 'test' },
   pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
   store = dispatchClientMetadata().store,
-} = {}) {
-  store.dispatch(
-    searchStart({
-      errorHandlerId: createStubErrorHandler().id,
-      filters,
-    }),
+} = {}) => {
+  await act(async () =>
+    store.dispatch(
+      searchStart({
+        errorHandlerId: createStubErrorHandler().id,
+        filters,
+      }),
+    ),
   );
-  store.dispatch(
-    searchLoad({
-      count: count || Object.keys(addons).length,
-      results: addons,
-      pageSize,
-    }),
+
+  await act(async () =>
+    store.dispatch(
+      searchLoad({
+        count: count || Object.keys(addons).length,
+        results: addons,
+        pageSize,
+      }),
+    ),
   );
 
   return { store };
-}
+};
 
 export function createAddonsApiResult(results) {
   return {
@@ -1566,6 +1571,16 @@ export const render = (ui, options = {}) => {
       initialEntries: options.initialEntries || ['/'],
     });
   const store = options.store || dispatchClientMetadata().store;
+  if (options.initialEntries) {
+    // We need to update the router state with the initial entry.
+    const parts = options.initialEntries[0].split('?');
+    store.dispatch(
+      onLocationChanged({
+        pathname: parts[0],
+        search: parts.length > 1 ? `?${parts[1]}` : '',
+      }),
+    );
+  }
 
   const wrapper = ({ children }) => {
     return (
@@ -1578,10 +1593,6 @@ export const render = (ui, options = {}) => {
   };
 
   const result = libraryRender(ui, { wrapper });
-  if (options.initialEntries) {
-    // We need to update the router state with the initial entry.
-    history.push(options.initialEntries[0]);
-  }
   return { ...result, history, root: result.container.firstChild };
 };
 /* eslint-enable testing-library/no-node-access */

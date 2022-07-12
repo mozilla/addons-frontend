@@ -2,13 +2,14 @@ import * as React from 'react';
 
 import ScrollToTop from 'amo/components/ScrollToTop';
 import {
+  changeLocation,
   dispatchClientMetadata,
-  onLocationChanged,
   render as defaultRender,
   screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let history;
   let store;
 
   beforeEach(() => {
@@ -16,7 +17,12 @@ describe(__filename, () => {
   });
 
   const render = ({ location, ...props } = {}) => {
-    return defaultRender(<ScrollToTop {...props} />, { location, store });
+    const renderResults = defaultRender(<ScrollToTop {...props} />, {
+      initialEntries: [location || '/'],
+      store,
+    });
+    history = renderResults.history;
+    return renderResults;
   };
 
   it('renders nothing if there are no children', () => {
@@ -32,7 +38,7 @@ describe(__filename, () => {
     expect(screen.getByText(childText)).toBeInTheDocument();
   });
 
-  it('calls window.scrollTo() when location changes', () => {
+  it('calls window.scrollTo() when location changes', async () => {
     const _window = {
       scrollTo: jest.fn(),
     };
@@ -40,11 +46,42 @@ describe(__filename, () => {
     render({ _window, location: '/' });
     expect(_window.scrollTo).not.toHaveBeenCalled();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: '/another/path/',
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: '/another/path/',
+    });
+
+    expect(_window.scrollTo).toHaveBeenCalledWith(0, 0);
+  });
+
+  it('calls window.scrollTo() when location query string is added', async () => {
+    const _window = {
+      scrollTo: jest.fn(),
+    };
+
+    render({ _window, location: '/some/path/' });
+    expect(_window.scrollTo).not.toHaveBeenCalled();
+
+    await changeLocation({
+      history,
+      pathname: '/some/path/?withquerystring=2',
+    });
+
+    expect(_window.scrollTo).toHaveBeenCalledWith(0, 0);
+  });
+
+  it('calls window.scrollTo() when location query string changes', async () => {
+    const _window = {
+      scrollTo: jest.fn(),
+    };
+
+    render({ _window, location: '/some/path/?withquerystring=1' });
+    expect(_window.scrollTo).not.toHaveBeenCalled();
+
+    await changeLocation({
+      history,
+      pathname: '/some/path/?withquerystring=2',
+    });
 
     expect(_window.scrollTo).toHaveBeenCalledWith(0, 0);
   });
@@ -57,7 +94,7 @@ describe(__filename, () => {
     render({ _window });
   });
 
-  it('does not call window.scrollTo() when location does not change', () => {
+  it('does not call window.scrollTo() when location does not change', async () => {
     const _window = {
       scrollTo: jest.fn(),
     };
@@ -65,11 +102,10 @@ describe(__filename, () => {
     render({ _window, location: '/' });
     expect(_window.scrollTo).not.toHaveBeenCalled();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: '/',
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: '/',
+    });
 
     expect(_window.scrollTo).not.toHaveBeenCalled();
   });

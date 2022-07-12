@@ -1,16 +1,25 @@
 import { oneLine } from 'common-tags';
 
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
+  dispatchClientMetadata,
   fakeI18n,
   renderPage as defaultRender,
   screen,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
+  });
+
   const render = (i18n = fakeI18n()) =>
     defaultRender({
       initialEntries: ['/en-US/firefox/404/'],
       i18n,
+      store,
     });
 
   it('renders a NotFound Page', () => {

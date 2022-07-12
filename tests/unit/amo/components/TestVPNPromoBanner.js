@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Route } from 'react-router-dom';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import VPNPromoBanner, {
@@ -30,10 +31,10 @@ import {
 } from 'amo/withExperiment';
 import {
   DEFAULT_LANG_IN_TESTS,
+  changeLocation,
   createExperimentData,
   createFakeLocalStorage,
   createFakeTracking,
-  createHistory,
   dispatchClientMetadata,
   fakeAddon,
   fakeCookies,
@@ -43,6 +44,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let history;
   let store;
   const addonId = 123;
   const slug = 'some-slug';
@@ -76,13 +78,11 @@ describe(__filename, () => {
     dispatchClientMetadata({ store, clientApp, lang, regionCode });
 
     const renderOptions = {
-      history: createHistory({
-        initialEntries: [location || addonPageLocation],
-      }),
+      initialEntries: [location || addonPageLocation],
       store,
     };
 
-    return defaultRender(
+    const renderResults = defaultRender(
       <Route path="/:lang/:application(firefox|android)/addon/:slug/">
         <VPNPromoBanner
           _tracking={createFakeTracking()}
@@ -94,6 +94,9 @@ describe(__filename, () => {
       </Route>,
       renderOptions,
     );
+
+    history = renderResults.history;
+    return renderResults;
   };
 
   // This validates that render configures the component to display by default.
@@ -198,7 +201,7 @@ describe(__filename, () => {
     );
   });
 
-  it('hides itself when the cta is clicked', () => {
+  it('hides itself when the cta is clicked', async () => {
     render();
 
     expect(
@@ -207,9 +210,11 @@ describe(__filename, () => {
 
     clickCta();
 
-    expect(
-      screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
-    ).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
+      ).not.toBeInTheDocument(),
+    );
   });
 
   it('clears the impression count when the dismiss button is clicked', () => {
@@ -236,7 +241,7 @@ describe(__filename, () => {
     );
   });
 
-  it('hides itself when the dismiss button is clicked', () => {
+  it('hides itself when the dismiss button is clicked', async () => {
     render();
 
     expect(
@@ -245,9 +250,11 @@ describe(__filename, () => {
 
     clickDismiss();
 
-    expect(
-      screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
-    ).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
+      ).not.toBeInTheDocument(),
+    );
   });
 
   it('throws an exception if something other than a number is stored', () => {
@@ -342,7 +349,7 @@ describe(__filename, () => {
       expect(_tracking.sendEvent).not.toHaveBeenCalled();
     });
 
-    it('sends a tracking event and increases the count for the impression on update', () => {
+    it('sends a tracking event and increases the count for the impression on update', async () => {
       const impressionCount = '5';
       const nextImpressionCount = 6;
       const _localStorage = createFakeLocalStorage({
@@ -354,11 +361,10 @@ describe(__filename, () => {
       // Reset as the on mount impression would have been called.
       _tracking.sendEvent.mockClear();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: `/en-US/firefox/addon/${slug}-new/`,
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: `/en-US/firefox/addon/${slug}-new/`,
+      });
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
         action: VPN_PROMO_IMPRESSION_ACTION,

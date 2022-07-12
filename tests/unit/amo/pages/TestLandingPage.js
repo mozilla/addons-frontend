@@ -15,13 +15,13 @@ import {
 } from 'amo/constants';
 import { getCanonicalURL, visibleAddonType } from 'amo/utils';
 import {
+  changeLocation,
   createAddonsApiResult,
   createFailedErrorHandler,
   createLocalizedString,
   dispatchClientMetadata,
   fakeAddon,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
 } from 'tests/unit/helpers';
@@ -32,17 +32,21 @@ describe(__filename, () => {
   const errorHandlerId = 'LandingPage';
   const getLocation = (addonType = ADDON_TYPE_EXTENSION) =>
     `/${lang}/${clientApp}/${visibleAddonType(addonType)}/`;
+  let history;
   let store;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) =>
-    defaultRender({
+  const render = ({ addonType = ADDON_TYPE_EXTENSION } = {}) => {
+    const renderResults = defaultRender({
       initialEntries: [getLocation(addonType)],
       store,
     });
+    history = renderResults.history;
+    return renderResults;
+  };
 
   const _getAndLoadLandingAddons = ({
     addonType = ADDON_TYPE_EXTENSION,
@@ -87,7 +91,7 @@ describe(__filename, () => {
     );
   };
 
-  it('dispatches setViewContext on load and update', () => {
+  it('dispatches setViewContext on load and update', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render();
 
@@ -95,11 +99,10 @@ describe(__filename, () => {
 
     dispatch.mockClear();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(ADDON_TYPE_STATIC_THEME),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(ADDON_TYPE_STATIC_THEME),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       setViewContext(ADDON_TYPE_STATIC_THEME),
@@ -118,7 +121,7 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches getLanding when addon type changes', () => {
+  it('dispatches getLanding when addon type changes', async () => {
     // We load theme add-ons.
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_STATIC_THEME });
     store.dispatch(setViewContext(ADDON_TYPE_STATIC_THEME));
@@ -128,11 +131,10 @@ describe(__filename, () => {
     dispatch.mockClear();
 
     // Now we request extension add-ons.
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(ADDON_TYPE_EXTENSION),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(ADDON_TYPE_EXTENSION),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       getLanding({
@@ -143,7 +145,7 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(setViewContext(ADDON_TYPE_EXTENSION));
   });
 
-  it('does not dispatch getLanding when addon type does not change', () => {
+  it('does not dispatch getLanding when addon type does not change', async () => {
     const addonType = ADDON_TYPE_EXTENSION;
 
     // We load extension add-ons.
@@ -155,11 +157,10 @@ describe(__filename, () => {
     dispatch.mockClear();
 
     // We request extension add-ons again.
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(addonType),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(addonType),
+    });
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ type: GET_LANDING }),
@@ -315,7 +316,7 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('renders each add-on when set', () => {
+  it('renders each add-on when set', async () => {
     const addonType = ADDON_TYPE_STATIC_THEME;
     render({ addonType });
     store.dispatch(
@@ -374,17 +375,21 @@ describe(__filename, () => {
       }),
     );
 
-    const expectNameLink = (name) =>
-      expect(screen.getByRole('link', { name })).toBeInTheDocument();
+    const expectNameLink = async (name) =>
+      expect(await screen.findByRole('link', { name })).toBeInTheDocument();
 
     // recommended
-    ['Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2'].forEach(
-      expectNameLink,
-    );
+    for (const name of ['Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2']) {
+      await expectNameLink(name);
+    }
     // highly rated
-    ['High', 'High again'].forEach(expectNameLink);
+    for (const name of ['High', 'High again']) {
+      await expectNameLink(name);
+    }
     // trending
-    ['Pop', 'Pop again'].forEach(expectNameLink);
+    for (const name of ['Pop', 'Pop again']) {
+      await expectNameLink(name);
+    }
   });
 
   it('dispatches getLanding when category filter is set', () => {
@@ -416,7 +421,7 @@ describe(__filename, () => {
     );
   });
 
-  it('does not dispatch setViewContext when addonType does not change', () => {
+  it('does not dispatch setViewContext when addonType does not change', async () => {
     const addonType = ADDON_TYPE_EXTENSION;
     store.dispatch(getLanding({ addonType, errorHandlerId }));
     store.dispatch(setViewContext(addonType));
@@ -425,11 +430,10 @@ describe(__filename, () => {
 
     dispatch.mockClear();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(addonType),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(addonType),
+    });
 
     expect(dispatch).not.toHaveBeenCalledWith(setViewContext(addonType));
   });

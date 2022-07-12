@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ExpandableCard, { extractId } from 'amo/components/ExpandableCard';
@@ -32,16 +33,20 @@ describe(__filename, () => {
     expect(getCard()).not.toHaveClass('ExpandableCard--expanded');
   });
 
-  it('toggles when clicked', () => {
+  it('toggles when clicked', async () => {
     render();
 
     // This toggles to make expanded true.
     userEvent.click(screen.getByRole('switch'));
-    expect(getCard()).toHaveClass('ExpandableCard--expanded');
+    await waitFor(() =>
+      expect(getCard()).toHaveClass('ExpandableCard--expanded'),
+    );
 
     // This toggles to make expanded false.
     userEvent.click(screen.getByRole('switch'));
-    expect(getCard()).not.toHaveClass('ExpandableCard--expanded');
+    await waitFor(() =>
+      expect(getCard()).not.toHaveClass('ExpandableCard--expanded'),
+    );
   });
 
   it('renders with a className', () => {

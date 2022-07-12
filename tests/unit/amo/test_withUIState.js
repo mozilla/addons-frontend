@@ -1,5 +1,6 @@
 /* eslint-disable  react/prop-types, max-classes-per-file */
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import withUIState, { generateId } from 'amo/withUIState';
@@ -59,15 +60,17 @@ describe(__filename, () => {
       expect(Overlay.displayName).toMatch(/WithUIState\(OverlayBase\)/);
     });
 
-    it('lets you manage UI state', () => {
+    it('lets you manage UI state', async () => {
       render();
 
       // Test that closing the overlay is hooked up to uiState.
       userEvent.click(screen.getByRole('button', { name: buttonText }));
 
-      expect(
-        screen.queryByRole('button', { name: buttonText }),
-      ).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(
+          screen.queryByRole('button', { name: buttonText }),
+        ).not.toBeInTheDocument(),
+      );
     });
 
     const propValue = 'Some prop from state';
@@ -95,7 +98,7 @@ describe(__filename, () => {
       expect(screen.getByText(propValue)).toBeInTheDocument();
     });
 
-    it('shares state across instances', () => {
+    it('shares state across instances', async () => {
       const initialState = { propFromState: propValue };
 
       const Thing = withUIState({
@@ -116,7 +119,7 @@ describe(__filename, () => {
         }),
       );
 
-      expect(screen.getByText(newValue)).toBeInTheDocument();
+      expect(await screen.findByText(newValue)).toBeInTheDocument();
 
       // Create a second instance.
       defaultRender(<Thing />, { store });
