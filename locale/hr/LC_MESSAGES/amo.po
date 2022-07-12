@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-06-14 17:25+0000\n"
+"POT-Creation-Date: 2022-07-12 16:12+0000\n"
 "PO-Revision-Date: 2022-02-06 19:08+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
@@ -194,7 +194,7 @@ msgstr "Korišteno od"
 #: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:671
+#: src/amo/pages/UserProfileEdit/index.js:672
 msgid "Homepage"
 msgstr "Početna web-stranica"
 
@@ -280,24 +280,6 @@ msgstr ""
 msgid "More information"
 msgstr "Daljnje informacije"
 
-#: src/amo/components/AddonQRCode/index.js:101
-msgid "Get %(addonName)s for Android"
-msgstr "Preuzmi %(addonName)s za Android"
-
-#: src/amo/components/AddonQRCode/index.js:134
-msgid "Dismiss this message"
-msgstr "Odbaci ovu obavijest"
-
-#: src/amo/components/AddonQRCode/index.js:89
-msgid ""
-"To get %(addonName)s on Firefox for Android, point your device camera to the "
-"code above or copy %(linkStart)sthis link%(linkEnd)s"
-msgstr ""
-
-#: src/amo/components/AddonQRCodeLink/index.js:87
-msgid "Also available on Firefox for Android"
-msgstr ""
-
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
 msgstr "Korisnici, koji su instalirali ovo proširenje, također su instalirali"
@@ -351,7 +333,7 @@ msgstr "Izbriši"
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:894
+#: src/amo/pages/UserProfileEdit/index.js:895
 msgid "Cancel"
 msgstr "Odustani"
 
@@ -567,59 +549,59 @@ msgstr "Verzija %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Objavljeno  %(dateReleased)s – %(fileSize)s"
 
-#: src/amo/components/AMInstallButton/index.js:147
+#: src/amo/components/AMInstallButton/index.js:133
 msgid "Enable"
 msgstr "Aktiviraj"
 
-#: src/amo/components/AMInstallButton/index.js:150
+#: src/amo/components/AMInstallButton/index.js:136
 #: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr "Ukloni"
 
-#: src/amo/components/AMInstallButton/index.js:152
+#: src/amo/components/AMInstallButton/index.js:138
 msgid "Enabling"
 msgstr "Aktiviranje"
 
-#: src/amo/components/AMInstallButton/index.js:154
+#: src/amo/components/AMInstallButton/index.js:140
 msgid "Disabling"
 msgstr "Deaktiviranje"
 
-#: src/amo/components/AMInstallButton/index.js:156
+#: src/amo/components/AMInstallButton/index.js:142
 msgid "Downloading"
 msgstr "Preuzimanje"
 
-#: src/amo/components/AMInstallButton/index.js:158
+#: src/amo/components/AMInstallButton/index.js:144
 msgid "Installing"
 msgstr "Instaliranje"
 
-#: src/amo/components/AMInstallButton/index.js:160
+#: src/amo/components/AMInstallButton/index.js:146
 msgid "Uninstalling"
 msgstr "Deinstaliranje"
 
-#: src/amo/components/AMInstallButton/index.js:168
+#: src/amo/components/AMInstallButton/index.js:154
 msgid "Install Theme"
 msgstr "Instaliraj temu"
 
-#: src/amo/components/AMInstallButton/index.js:169
+#: src/amo/components/AMInstallButton/index.js:155
 msgid "Add to Firefox"
 msgstr "Dodaj u Firefox"
 
-#: src/amo/components/App/index.js:138
+#: src/amo/components/App/index.js:124
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Dodaci za Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:142
+#: src/amo/components/App/index.js:128
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s  – dodaci za Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:150
+#: src/amo/components/App/index.js:136
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Dodaci za Firefox za Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:154
+#: src/amo/components/App/index.js:140
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – dodaci za Firefox za Android (%(locale)s)"
@@ -864,24 +846,6 @@ msgstr "Dogodila se neočekivana greška."
 msgid "Reload To Continue"
 msgstr "Učitaj ponovo za nastavljanje"
 
-#: src/amo/components/ErrorPage/GenericError/index.js:24
-#: src/amo/components/Errors/ServerError/index.js:30
-msgid "Server Error"
-msgstr "Greška poslužitelja"
-
-#: src/amo/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Nažalost, došlo je do greške i nismo uspjeli dovršiti tvoj zahtjev. "
-"Zabilježili smo ovu grešku i istražit ćemo je."
-
-#: src/amo/components/ErrorPage/GenericError/index.js:33
-#: src/amo/components/ErrorPage/NotFound/index.js:35
-msgid "Error code: %(status)s."
-msgstr "Kȏd greške: %(status)s"
-
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "Stranica nije pronađena"
@@ -889,6 +853,10 @@ msgstr "Stranica nije pronađena"
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Nažalost, za upisani URL ne možemo ništa pronaći."
+
+#: src/amo/components/ErrorPage/NotFound/index.js:35
+msgid "Error code: %(status)s."
+msgstr "Kȏd greške: %(status)s"
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
 msgid ""
@@ -984,6 +952,10 @@ msgstr ""
 "\"https://github.com/mozilla/addons-frontend/issues/new/\">otvoriti upit</"
 "a>. Recite nam koje ste korake poduzeli, a koji su doveli do greške i učinit "
 "ćemo sve u našoj moći da ispravimo grešku."
+
+#: src/amo/components/Errors/ServerError/index.js:30
+msgid "Server Error"
+msgstr "Greška poslužitelja"
 
 #: src/amo/components/Errors/ServerError/index.js:32
 msgid ""
@@ -1301,7 +1273,7 @@ msgstr "Preporučeno"
 msgid "Verified"
 msgstr "Provjereno"
 
-#: src/amo/components/InstallButtonWrapper/index.js:127
+#: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
 msgstr "Preuzmi datoteku"
 
@@ -1548,7 +1520,7 @@ msgid "There are no one-star reviews"
 msgstr "Nema recenzija s jednom zvjezdicom"
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:371
+#: src/amo/pages/AddonReviewList/index.js:373
 msgid "There are no reviews"
 msgstr "Nema recenzija"
 
@@ -1594,7 +1566,7 @@ msgstr ""
 "dodatku."
 
 #: src/amo/components/ReportAbuseButton/index.js:124
-#: src/amo/components/ReportUserAbuse/index.js:170
+#: src/amo/components/ReportUserAbuse/index.js:172
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "Ne možemo odgovoriti na svaku prijavu, ali ćemo istražiti ovaj problem."
@@ -1622,12 +1594,12 @@ msgstr ""
 "funkcija; ova će se prijava poslati Mozilli, a ne programeru dodatka."
 
 #: src/amo/components/ReportAbuseButton/index.js:194
-#: src/amo/components/ReportUserAbuse/index.js:150
+#: src/amo/components/ReportUserAbuse/index.js:152
 msgid "Send abuse report"
 msgstr "Pošalji prijavu zloupotrebe"
 
 #: src/amo/components/ReportAbuseButton/index.js:195
-#: src/amo/components/ReportUserAbuse/index.js:151
+#: src/amo/components/ReportUserAbuse/index.js:153
 msgid "Sending abuse report"
 msgstr "Slanje prijave zloupotrebe"
 
@@ -1660,15 +1632,15 @@ msgstr ""
 "Molimo te da ne koristiš ovaj obrazac za prijavu grešaka ili kontaktiran "
 "korisnika; tvoja će se prijava poslati Mozilli, a ne ovom korisniku."
 
-#: src/amo/components/ReportUserAbuse/index.js:147
+#: src/amo/components/ReportUserAbuse/index.js:149
 msgid "Explain how this user is violating our policies."
 msgstr "Objasni kako ovaj korisnik krši naša pravila."
 
-#: src/amo/components/ReportUserAbuse/index.js:159
+#: src/amo/components/ReportUserAbuse/index.js:161
 msgid "You reported this user for abuse"
 msgstr "Prijavio/la si ovog korisnika zbog zloupotrebe"
 
-#: src/amo/components/ReportUserAbuse/index.js:163
+#: src/amo/components/ReportUserAbuse/index.js:165
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this user."
@@ -2125,7 +2097,7 @@ msgstr "Pregledaj sve teme"
 msgid "Add-ons Home Page"
 msgstr "Početna stranica dodataka"
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:173
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr "Pregled za %(title)s"
 
@@ -2210,65 +2182,65 @@ msgstr "%(localizedSize)s GB"
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
-#: src/amo/pages/Addon/index.js:208
+#: src/amo/pages/Addon/index.js:201
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Ovaj se dodatak ne može ocijeniti, jer nije objavljena nijedna verzija."
 
-#: src/amo/pages/Addon/index.js:219
+#: src/amo/pages/Addon/index.js:212
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Pročitaj %(count)s recenziju"
 msgstr[1] "Pročitaj %(count)s recenzije"
 msgstr[2] "Pročitaj %(count)s recenzija"
 
-#: src/amo/pages/Addon/index.js:240
+#: src/amo/pages/Addon/index.js:233
 msgid "No reviews yet"
 msgstr "Još nema recenzija"
 
-#: src/amo/pages/Addon/index.js:250
+#: src/amo/pages/Addon/index.js:243
 msgid "Rate your experience"
 msgstr "Ocijeni svoje iskustvo"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:262
 msgid "About this dictionary"
 msgstr "Informacije o ovom rječniku"
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:265
 msgid "About this extension"
 msgstr "Informacije o ovom proširenju"
 
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:268
 msgid "About this language pack"
 msgstr "Informacije o ovom jezičnom paketu"
 
-#: src/amo/pages/Addon/index.js:278
+#: src/amo/pages/Addon/index.js:271
 msgid "About this theme"
 msgstr "Informacije o ovoj temi"
 
-#: src/amo/pages/Addon/index.js:281
+#: src/amo/pages/Addon/index.js:274
 msgid "About this add-on"
 msgstr "Informacije o ovom dodatku"
 
-#: src/amo/pages/Addon/index.js:325
+#: src/amo/pages/Addon/index.js:318
 msgid "Developer comments"
 msgstr "Komentari razvijatelja"
 
-#: src/amo/pages/Addon/index.js:348
+#: src/amo/pages/Addon/index.js:341
 msgid "Release notes for %(addonVersion)s"
 msgstr "Napomene o izdanju za %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:468
+#: src/amo/pages/Addon/index.js:461
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "Ovo nije javni popis. Vidiš ih samo zbog povlaštenih dozvola."
 
-#: src/amo/pages/Addon/index.js:494
+#: src/amo/pages/Addon/index.js:485
 msgid "Extension Metadata"
 msgstr "Metapodaci proširenja"
 
-#: src/amo/pages/Addon/index.js:517
+#: src/amo/pages/Addon/index.js:508
 msgid "Screenshots"
 msgstr "Snimke ekrana"
 
@@ -3024,12 +2996,12 @@ msgid "User Profile"
 msgstr "Korisnički profil"
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:688
+#: src/amo/pages/UserProfileEdit/index.js:689
 msgid "Location"
 msgstr "Mjesto"
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:703
+#: src/amo/pages/UserProfileEdit/index.js:704
 msgid "Occupation"
 msgstr "Zanimanje"
 
@@ -3046,7 +3018,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Prosječna ocjena dodataka programera"
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:725
+#: src/amo/pages/UserProfileEdit/index.js:726
 msgid "Biography"
 msgstr "Biografija"
 
@@ -3135,11 +3107,11 @@ msgstr "Račun za %(userName)s"
 msgid "Email Address"
 msgstr "Adresa e-pošte"
 
-#: src/amo/pages/UserProfileEdit/index.js:601
+#: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Email address cannot be changed here"
 msgstr "Ovdje se ne može promijeniti adresa e-pošte"
 
-#: src/amo/pages/UserProfileEdit/index.js:612
+#: src/amo/pages/UserProfileEdit/index.js:613
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3147,37 +3119,37 @@ msgstr ""
 "Adresu e-pošte možeš promijeniti na Firefox računima. %(startLink)sTrebaš "
 "pomoć?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:629
+#: src/amo/pages/UserProfileEdit/index.js:630
 msgid "Manage Firefox Accounts…"
 msgstr "Upravljanje Firefox računima …"
 
-#: src/amo/pages/UserProfileEdit/index.js:637
+#: src/amo/pages/UserProfileEdit/index.js:638
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:646
+#: src/amo/pages/UserProfileEdit/index.js:647
 msgid "This field is required"
 msgstr "Ovo je obavezno polje."
 
 # the star is used to indicate a required field
-#: src/amo/pages/UserProfileEdit/index.js:650
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "Display Name *"
 msgstr "Prikazano ime *"
 
-#: src/amo/pages/UserProfileEdit/index.js:683
+#: src/amo/pages/UserProfileEdit/index.js:684
 msgid "This URL will only be visible for users who are developers."
 msgstr "Ovaj će URL biti vidljiv samo korisnicima koji su programeri."
 
-#: src/amo/pages/UserProfileEdit/index.js:740
+#: src/amo/pages/UserProfileEdit/index.js:741
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 "Podržane su neke HTML oznake: %(htmlTags)s. Poveznice se ne smiju koristiti."
 
-#: src/amo/pages/UserProfileEdit/index.js:764
+#: src/amo/pages/UserProfileEdit/index.js:765
 msgid "Notifications"
 msgstr "Obavijesti"
 
-#: src/amo/pages/UserProfileEdit/index.js:768
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3185,7 +3157,7 @@ msgstr ""
 "Mozilla ti povremeno šalje mailove o nadolazećim izdanjima i dodacima. "
 "Odaberi teme, koje te zanimaju."
 
-#: src/amo/pages/UserProfileEdit/index.js:773
+#: src/amo/pages/UserProfileEdit/index.js:774
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3193,7 +3165,7 @@ msgstr ""
 "Mozilla povremeno šalje mailove o nadolazećim izdanjima i dodacima na ovu e-"
 "adresu. Odaberi teme, koje zanimaju ovog korisnika."
 
-#: src/amo/pages/UserProfileEdit/index.js:788
+#: src/amo/pages/UserProfileEdit/index.js:789
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3201,53 +3173,53 @@ msgstr ""
 "Mozilla si zadržava pravo da te kontaktira u vezi s određenim problemima s "
 "tvojim dodacima."
 
-#: src/amo/pages/UserProfileEdit/index.js:814
-#: src/amo/pages/UserProfileEdit/index.js:886
+#: src/amo/pages/UserProfileEdit/index.js:815
+#: src/amo/pages/UserProfileEdit/index.js:887
 msgid "Delete My Profile"
 msgstr "Izbriši moj profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:815
-#: src/amo/pages/UserProfileEdit/index.js:887
+#: src/amo/pages/UserProfileEdit/index.js:816
+#: src/amo/pages/UserProfileEdit/index.js:888
 msgid "Delete Profile"
 msgstr "Izbriši profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:827
+#: src/amo/pages/UserProfileEdit/index.js:828
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "VAŽNO: Brisanje tvog profila u Firefox dodacima je nepovratna radnja."
 
-#: src/amo/pages/UserProfileEdit/index.js:830
+#: src/amo/pages/UserProfileEdit/index.js:831
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "VAŽNO: Brisanje ovog profila u Firefox dodacima je nepovratna radnja."
 
-#: src/amo/pages/UserProfileEdit/index.js:839
+#: src/amo/pages/UserProfileEdit/index.js:840
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
 "notification preferences, reviews, and collections."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:845
+#: src/amo/pages/UserProfileEdit/index.js:846
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
 "occupation), notification preferences, reviews, and collections."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:854
+#: src/amo/pages/UserProfileEdit/index.js:855
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
 "and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:860
+#: src/amo/pages/UserProfileEdit/index.js:861
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
 "author and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:870
+#: src/amo/pages/UserProfileEdit/index.js:871
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
@@ -3357,6 +3329,19 @@ msgstr "kompatibilnost mog dodatka ne može se nadograditi"
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "kompatibilnost mog dodatka uspješno je nadograđena"
+
+#~ msgid "Get %(addonName)s for Android"
+#~ msgstr "Preuzmi %(addonName)s za Android"
+
+#~ msgid "Dismiss this message"
+#~ msgstr "Odbaci ovu obavijest"
+
+#~ msgid ""
+#~ "Sorry, but there was an error and we couldn't complete your request. We "
+#~ "have logged this error and will investigate it."
+#~ msgstr ""
+#~ "Nažalost, došlo je do greške i nismo uspjeli dovršiti tvoj zahtjev. "
+#~ "Zabilježili smo ovu grešku i istražit ćemo je."
 
 #~ msgid "Dictionaries by %(author)s"
 #~ msgstr "Rječnici od %(author)s"

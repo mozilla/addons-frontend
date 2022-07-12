@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-06-14 17:25+0000\n"
+"POT-Creation-Date: 2022-07-12 16:12+0000\n"
 "PO-Revision-Date: 2019-02-19 18:23+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -188,7 +188,7 @@ msgstr ""
 #: src/amo/components/AddonMoreInfo/index.js:101
 #: src/amo/pages/UserProfile/index.js:356
 #: src/amo/pages/UserProfile/index.js:358
-#: src/amo/pages/UserProfileEdit/index.js:671
+#: src/amo/pages/UserProfileEdit/index.js:672
 msgid "Homepage"
 msgstr ""
 
@@ -274,24 +274,6 @@ msgstr ""
 msgid "More information"
 msgstr ""
 
-#: src/amo/components/AddonQRCode/index.js:101
-msgid "Get %(addonName)s for Android"
-msgstr ""
-
-#: src/amo/components/AddonQRCode/index.js:134
-msgid "Dismiss this message"
-msgstr ""
-
-#: src/amo/components/AddonQRCode/index.js:89
-msgid ""
-"To get %(addonName)s on Firefox for Android, point your device camera to the "
-"code above or copy %(linkStart)sthis link%(linkEnd)s"
-msgstr ""
-
-#: src/amo/components/AddonQRCodeLink/index.js:87
-msgid "Also available on Firefox for Android"
-msgstr ""
-
 #: src/amo/components/AddonRecommendations/index.js:148
 msgid "Other users with this extension also installed"
 msgstr ""
@@ -345,7 +327,7 @@ msgstr ""
 #: src/amo/components/CollectionManager/index.js:324
 #: src/amo/components/ConfirmationDialog/index.js:61
 #: src/amo/components/DismissibleTextForm/index.js:221
-#: src/amo/pages/UserProfileEdit/index.js:894
+#: src/amo/pages/UserProfileEdit/index.js:895
 msgid "Cancel"
 msgstr ""
 
@@ -554,59 +536,59 @@ msgstr ""
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:147
+#: src/amo/components/AMInstallButton/index.js:133
 msgid "Enable"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:150
+#: src/amo/components/AMInstallButton/index.js:136
 #: src/amo/components/EditableCollectionAddon/index.js:142
 msgid "Remove"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:152
+#: src/amo/components/AMInstallButton/index.js:138
 msgid "Enabling"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:154
+#: src/amo/components/AMInstallButton/index.js:140
 msgid "Disabling"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:156
+#: src/amo/components/AMInstallButton/index.js:142
 msgid "Downloading"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:158
+#: src/amo/components/AMInstallButton/index.js:144
 msgid "Installing"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:160
+#: src/amo/components/AMInstallButton/index.js:146
 msgid "Uninstalling"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:168
+#: src/amo/components/AMInstallButton/index.js:154
 msgid "Install Theme"
 msgstr ""
 
-#: src/amo/components/AMInstallButton/index.js:169
+#: src/amo/components/AMInstallButton/index.js:155
 msgid "Add to Firefox"
 msgstr ""
 
-#: src/amo/components/App/index.js:138
+#: src/amo/components/App/index.js:124
 #: src/amo/components/HeadMetaTags/index.js:87
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/App/index.js:142
+#: src/amo/components/App/index.js:128
 #: src/amo/components/HeadMetaTags/index.js:81
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/App/index.js:150
+#: src/amo/components/App/index.js:136
 #: src/amo/components/HeadMetaTags/index.js:86
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/App/index.js:154
+#: src/amo/components/App/index.js:140
 #: src/amo/components/HeadMetaTags/index.js:80
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr ""
@@ -837,28 +819,16 @@ msgstr ""
 msgid "Reload To Continue"
 msgstr ""
 
-#: src/amo/components/ErrorPage/GenericError/index.js:24
-#: src/amo/components/Errors/ServerError/index.js:30
-msgid "Server Error"
-msgstr ""
-
-#: src/amo/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-
-#: src/amo/components/ErrorPage/GenericError/index.js:33
-#: src/amo/components/ErrorPage/NotFound/index.js:35
-msgid "Error code: %(status)s."
-msgstr ""
-
 #: src/amo/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotFound/index.js:35
+msgid "Error code: %(status)s."
 msgstr ""
 
 #: src/amo/components/Errors/AuthExpired/index.js:44
@@ -928,6 +898,10 @@ msgid ""
 "\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
 "a>. Tell us what steps you took that lead to the error and we'll do our best "
 "to fix it."
+msgstr ""
+
+#: src/amo/components/Errors/ServerError/index.js:30
+msgid "Server Error"
 msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:32
@@ -1233,7 +1207,7 @@ msgstr ""
 msgid "Verified"
 msgstr ""
 
-#: src/amo/components/InstallButtonWrapper/index.js:127
+#: src/amo/components/InstallButtonWrapper/index.js:126
 msgid "Download file"
 msgstr ""
 
@@ -1470,7 +1444,7 @@ msgid "There are no one-star reviews"
 msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:136
-#: src/amo/pages/AddonReviewList/index.js:371
+#: src/amo/pages/AddonReviewList/index.js:373
 msgid "There are no reviews"
 msgstr ""
 
@@ -1514,7 +1488,7 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:124
-#: src/amo/components/ReportUserAbuse/index.js:170
+#: src/amo/components/ReportUserAbuse/index.js:172
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
@@ -1536,12 +1510,12 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:194
-#: src/amo/components/ReportUserAbuse/index.js:150
+#: src/amo/components/ReportUserAbuse/index.js:152
 msgid "Send abuse report"
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:195
-#: src/amo/components/ReportUserAbuse/index.js:151
+#: src/amo/components/ReportUserAbuse/index.js:153
 msgid "Sending abuse report"
 msgstr ""
 
@@ -1570,15 +1544,15 @@ msgid ""
 "will only be sent to Mozilla and not to this user."
 msgstr ""
 
-#: src/amo/components/ReportUserAbuse/index.js:147
+#: src/amo/components/ReportUserAbuse/index.js:149
 msgid "Explain how this user is violating our policies."
 msgstr ""
 
-#: src/amo/components/ReportUserAbuse/index.js:159
+#: src/amo/components/ReportUserAbuse/index.js:161
 msgid "You reported this user for abuse"
 msgstr ""
 
-#: src/amo/components/ReportUserAbuse/index.js:163
+#: src/amo/components/ReportUserAbuse/index.js:165
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this user."
@@ -1998,7 +1972,7 @@ msgstr ""
 msgid "Add-ons Home Page"
 msgstr ""
 
-#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:173
+#: src/amo/components/ThemeImage/index.js:33 src/amo/pages/Addon/index.js:172
 msgid "Preview of %(title)s"
 msgstr ""
 
@@ -2079,64 +2053,64 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:208
+#: src/amo/pages/Addon/index.js:201
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:219
+#: src/amo/pages/Addon/index.js:212
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/amo/pages/Addon/index.js:240
+#: src/amo/pages/Addon/index.js:233
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:250
+#: src/amo/pages/Addon/index.js:243
 msgid "Rate your experience"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:262
 msgid "About this dictionary"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:265
 msgid "About this extension"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:268
 msgid "About this language pack"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:278
+#: src/amo/pages/Addon/index.js:271
 msgid "About this theme"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:281
+#: src/amo/pages/Addon/index.js:274
 msgid "About this add-on"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:325
+#: src/amo/pages/Addon/index.js:318
 msgid "Developer comments"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:348
+#: src/amo/pages/Addon/index.js:341
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:468
+#: src/amo/pages/Addon/index.js:461
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:494
+#: src/amo/pages/Addon/index.js:485
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:517
+#: src/amo/pages/Addon/index.js:508
 msgid "Screenshots"
 msgstr ""
 
@@ -2827,12 +2801,12 @@ msgid "User Profile"
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:364
-#: src/amo/pages/UserProfileEdit/index.js:688
+#: src/amo/pages/UserProfileEdit/index.js:689
 msgid "Location"
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:372
-#: src/amo/pages/UserProfileEdit/index.js:703
+#: src/amo/pages/UserProfileEdit/index.js:704
 msgid "Occupation"
 msgstr ""
 
@@ -2849,7 +2823,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:410
-#: src/amo/pages/UserProfileEdit/index.js:725
+#: src/amo/pages/UserProfileEdit/index.js:726
 msgid "Biography"
 msgstr ""
 
@@ -2934,110 +2908,110 @@ msgstr ""
 msgid "Email Address"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:601
+#: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Email address cannot be changed here"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:612
+#: src/amo/pages/UserProfileEdit/index.js:613
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:629
+#: src/amo/pages/UserProfileEdit/index.js:630
 msgid "Manage Firefox Accounts…"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:637
+#: src/amo/pages/UserProfileEdit/index.js:638
 msgid "Profile"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:646
+#: src/amo/pages/UserProfileEdit/index.js:647
 msgid "This field is required"
 msgstr ""
 
 # the star is used to indicate a required field
-#: src/amo/pages/UserProfileEdit/index.js:650
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "Display Name *"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:683
+#: src/amo/pages/UserProfileEdit/index.js:684
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:740
+#: src/amo/pages/UserProfileEdit/index.js:741
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:764
+#: src/amo/pages/UserProfileEdit/index.js:765
 msgid "Notifications"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:768
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:773
+#: src/amo/pages/UserProfileEdit/index.js:774
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:788
+#: src/amo/pages/UserProfileEdit/index.js:789
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:814
-#: src/amo/pages/UserProfileEdit/index.js:886
+#: src/amo/pages/UserProfileEdit/index.js:815
+#: src/amo/pages/UserProfileEdit/index.js:887
 msgid "Delete My Profile"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:815
-#: src/amo/pages/UserProfileEdit/index.js:887
+#: src/amo/pages/UserProfileEdit/index.js:816
+#: src/amo/pages/UserProfileEdit/index.js:888
 msgid "Delete Profile"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:827
+#: src/amo/pages/UserProfileEdit/index.js:828
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:830
+#: src/amo/pages/UserProfileEdit/index.js:831
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:839
+#: src/amo/pages/UserProfileEdit/index.js:840
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation), "
 "notification preferences, reviews, and collections."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:845
+#: src/amo/pages/UserProfileEdit/index.js:846
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
 "occupation), notification preferences, reviews, and collections."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:854
+#: src/amo/pages/UserProfileEdit/index.js:855
 msgid ""
 "If you authored any add-ons they will also be deleted, unless you share "
 "ownership with other authors. In that case, you will be removed as an author "
 "and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:860
+#: src/amo/pages/UserProfileEdit/index.js:861
 msgid ""
 "If the user authored any add-ons they will also be deleted, unless ownership "
 "is shared with other authors. In that case, the user will be removed as an "
 "author and the remaining authors will maintain ownership of the add-on."
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:870
+#: src/amo/pages/UserProfileEdit/index.js:871
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, your "
 "profile on Firefox Add-ons will not have access to any of its previous "
