@@ -282,6 +282,7 @@ describe(__filename, () => {
         category: VPN_PROMO_CATEGORY,
         label: impressionCount,
       });
+      // One event is the impression.
       expect(_tracking.sendEvent).toHaveBeenCalledTimes(2);
     });
 
@@ -299,6 +300,7 @@ describe(__filename, () => {
         category: VPN_PROMO_CATEGORY,
         label: impressionCount,
       });
+      // One event is the impression.
       expect(_tracking.sendEvent).toHaveBeenCalledTimes(2);
     });
 
