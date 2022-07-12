@@ -1,8 +1,14 @@
-import { renderPage as defaultRender, screen } from 'tests/unit/helpers';
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
+import {
+  dispatchClientMetadata,
+  renderPage as defaultRender,
+  screen,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('renders an UnavailableForLegalReasons Page', () => {
-    defaultRender({ initialEntries: ['/en-US/firefox/451/'] });
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+    defaultRender({ initialEntries: ['/en-US/firefox/451/'], store });
 
     expect(
       screen.getByText('That page is not available in your region'),

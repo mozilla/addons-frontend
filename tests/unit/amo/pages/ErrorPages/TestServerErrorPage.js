@@ -1,6 +1,8 @@
 import config from 'config';
 
+import { CLIENT_APP_FIREFOX } from 'amo/constants';
 import {
+  dispatchClientMetadata,
   getMockConfig,
   renderPage as defaultRender,
   screen,
@@ -9,12 +11,18 @@ import {
 jest.mock('config');
 
 describe(__filename, () => {
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
+  });
+
   afterEach(() => {
     jest.clearAllMocks().resetModules();
   });
 
   const render = () =>
-    defaultRender({ initialEntries: ['/en-US/firefox/500/'] });
+    defaultRender({ initialEntries: ['/en-US/firefox/500/'], store });
 
   it('renders a ServerError page in development', () => {
     const fakeConfig = getMockConfig({ isDevelopment: true });
