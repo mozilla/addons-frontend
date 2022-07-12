@@ -35,7 +35,8 @@ describe(__filename, () => {
       store,
     });
 
-  const signInUser = () => dispatchSignInActions({ store, userId });
+  const signInUser = () =>
+    dispatchSignInActions({ clientApp, lang, store, userId });
 
   it('dispatches fetchUserCollections for a logged in user with no collections loaded yet', () => {
     signInUser();
