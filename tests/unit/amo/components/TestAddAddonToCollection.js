@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import AddAddonToCollection, {
@@ -128,7 +129,7 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches user collections on update', () => {
+    it('fetches user collections on update', async () => {
       const addon = createInternalAddonWithLang(fakeAddon);
       dispatchSignInActions({ store, userId: 10 });
       const dispatch = jest.spyOn(store, 'dispatch');
@@ -138,11 +139,13 @@ describe(__filename, () => {
       const userId = 20;
       dispatchSignInActions({ store, userId });
 
-      expect(dispatch).toHaveBeenCalledWith(
-        fetchUserCollections({
-          errorHandlerId: createErrorHandlerId({ addon, userId }),
-          userId,
-        }),
+      await waitFor(() =>
+        expect(dispatch).toHaveBeenCalledWith(
+          fetchUserCollections({
+            errorHandlerId: createErrorHandlerId({ addon, userId }),
+            userId,
+          }),
+        ),
       );
     });
 
@@ -218,7 +221,7 @@ describe(__filename, () => {
       expect(screen.getByRole('option')).toHaveTextContent('Loading…');
     });
 
-    it('renders a disabled select when adding add-on to collection', () => {
+    it('renders a disabled select when adding add-on to collection', async () => {
       const addon = createInternalAddonWithLang(fakeAddon);
       const userId = 10;
       signInAndDispatchCollections({ userId });
@@ -235,7 +238,7 @@ describe(__filename, () => {
         }),
       );
 
-      expect(screen.getByRole('combobox')).toHaveAttribute('disabled');
+      expect(await screen.findByRole('combobox')).toHaveAttribute('disabled');
       expect(screen.getByRole('option')).toHaveTextContent('Adding…');
     });
 
