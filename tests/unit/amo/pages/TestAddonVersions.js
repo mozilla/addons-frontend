@@ -31,6 +31,7 @@ import {
   getClientCompatibility,
 } from 'amo/utils/compatibility';
 import {
+  changeLocation,
   createFailedErrorHandler,
   createFakeClientCompatibility,
   createFakeErrorHandler,
@@ -43,7 +44,6 @@ import {
   fakeI18n,
   fakeVersion,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   userAgents,
@@ -61,6 +61,7 @@ jest.mock('amo/utils/compatibility', () => ({
 }));
 
 describe(__filename, () => {
+  let history;
   let store;
   const clientApp = CLIENT_APP_FIREFOX;
   const defaultSlug = 'some-add-on-slug';
@@ -75,7 +76,7 @@ describe(__filename, () => {
     createFakeErrorHandler({ id: getErrorHandlerId({ page, slug }) });
 
   beforeEach(() => {
-    store = dispatchClientMetadata().store;
+    store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
   afterEach(() => {
@@ -86,7 +87,9 @@ describe(__filename, () => {
     const initialEntry = location || getLocation(slug);
     const renderOptions = { initialEntries: [initialEntry], store };
 
-    return defaultRender(renderOptions);
+    const renderResults = defaultRender(renderOptions);
+    history = renderResults.history;
+    return renderResults;
   };
 
   const _loadAddon = (addon = { ...fakeAddon, slug: defaultSlug }) => {
@@ -164,7 +167,7 @@ describe(__filename, () => {
     );
   });
 
-  it('fetches an addon when the slug changes', () => {
+  it('fetches an addon when the slug changes', async () => {
     const slug = 'some-slug';
     const newSlug = 'some-other-slug';
     const addon = { ...fakeAddon, slug };
@@ -174,7 +177,10 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render({ location: getLocation(slug) });
 
-    store.dispatch(onLocationChanged({ pathname: getLocation(newSlug) }));
+    await changeLocation({
+      history,
+      pathname: getLocation(newSlug),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchAddon({
@@ -224,7 +230,7 @@ describe(__filename, () => {
     );
   });
 
-  it('fetches versions when the slug changes', () => {
+  it('fetches versions when the slug changes', async () => {
     const slug = 'some-slug';
     const newSlug = 'some-other-slug';
     const addon = { ...fakeAddon, slug };
@@ -234,7 +240,10 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render({ location: getLocation(slug) });
 
-    store.dispatch(onLocationChanged({ pathname: getLocation(newSlug) }));
+    await changeLocation({
+      history,
+      pathname: getLocation(newSlug),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchVersions({
