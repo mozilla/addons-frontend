@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ShowMoreCard, {
@@ -48,16 +49,18 @@ describe(__filename, () => {
       value: height,
     });
 
-  it('reveals more text when clicking "read more" link', () => {
+  it('reveals more text when clicking "read more" link', async () => {
     // Mock the clientHeight to the "read more" link will be present.
     mockClientHeight(DEFAULT_MAX_HEIGHT + 1);
     render();
 
     userEvent.click(screen.getByRole('link', { name: 'Expand to read more' }));
 
-    expect(
-      screen.queryByRole('link', { name: 'Expand to read more' }),
-    ).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        screen.queryByRole('link', { name: 'Expand to read more' }),
+      ).not.toBeInTheDocument(),
+    );
     expect(screen.getByClassName('ShowMoreCard')).toHaveClass(
       'ShowMoreCard--expanded',
     );
@@ -103,7 +106,7 @@ describe(__filename, () => {
     expect(screen.getByText(children)).toBeInTheDocument();
   });
 
-  it('executes truncateToMaxHeight when it receives props changes', () => {
+  it('executes truncateToMaxHeight when it receives props changes', async () => {
     const _truncateToMaxHeight = jest.fn();
     const id = 'id-for-card';
     render({ _truncateToMaxHeight, id });
@@ -127,7 +130,7 @@ describe(__filename, () => {
       }),
     );
 
-    expect(_truncateToMaxHeight).toHaveBeenCalledTimes(2);
+    await waitFor(() => expect(_truncateToMaxHeight).toHaveBeenCalledTimes(2));
   });
 
   it('does not execute truncateToMaxHeight when "read more" has been expanded', () => {
