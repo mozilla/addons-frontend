@@ -580,13 +580,13 @@ describe(__filename, () => {
   it('dispatches a server redirect when slug is a numeric ID', () => {
     const dispatch = testServerRedirect({ slugInURL: addon.id });
     // 1. Initial LOAD_ADDON
-    // 2. @@router/LOCATION_CHANGE, which happens on every page load
-    // 3. SEND_SERVER_REDIRECT
-    // 4. FETCH_CATEGORIES (initiated by AddonMoreInfo)
-    // 5. FETCH_ADDONS_BY_AUTHORS (initiated by AddonsByAuthorsCard)
-    // 6. FETCH_RECOMMENDATIONS (initiated by AddonRecommendations)
-    // 7. @@router/LOCATION_CHANGE, which happens after rendering in the
+    // 2. @@router/LOCATION_CHANGE, which happens before rendering in the
     // test helper.
+    // 3. @@router/LOCATION_CHANGE, which happens on every page load
+    // 4. SEND_SERVER_REDIRECT
+    // 5. FETCH_CATEGORIES (initiated by AddonMoreInfo)
+    // 6. FETCH_ADDONS_BY_AUTHORS (initiated by AddonsByAuthorsCard)
+    // 7. FETCH_RECOMMENDATIONS (initiated by AddonRecommendations)
 
     expect(dispatch).toHaveBeenCalledTimes(7);
     expect(dispatch).toHaveBeenCalledWith(
@@ -594,6 +594,10 @@ describe(__filename, () => {
     );
     expect(dispatch).toHaveBeenNthCalledWith(
       2,
+      expect.objectContaining({ type: LOCATION_CHANGE }),
+    );
+    expect(dispatch).toHaveBeenNthCalledWith(
+      3,
       expect.objectContaining({ type: LOCATION_CHANGE }),
     );
     expect(dispatch).toHaveBeenCalledWith(
@@ -607,10 +611,6 @@ describe(__filename, () => {
     );
     expect(dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: FETCH_RECOMMENDATIONS }),
-    );
-    expect(dispatch).toHaveBeenNthCalledWith(
-      7,
-      expect.objectContaining({ type: LOCATION_CHANGE }),
     );
   });
 

@@ -1566,6 +1566,16 @@ export const render = (ui, options = {}) => {
       initialEntries: options.initialEntries || ['/'],
     });
   const store = options.store || dispatchClientMetadata().store;
+  if (options.initialEntries) {
+    // We need to update the router state with the initial entry.
+    const parts = options.initialEntries[0].split('?');
+    store.dispatch(
+      onLocationChanged({
+        pathname: parts[0],
+        search: parts.length > 1 ? `?${parts[1]}` : '',
+      }),
+    );
+  }
 
   const wrapper = ({ children }) => {
     return (
@@ -1578,10 +1588,6 @@ export const render = (ui, options = {}) => {
   };
 
   const result = libraryRender(ui, { wrapper });
-  if (options.initialEntries) {
-    // We need to update the router state with the initial entry.
-    history.push(options.initialEntries[0]);
-  }
   return { ...result, history, root: result.container.firstChild };
 };
 /* eslint-enable testing-library/no-node-access */
