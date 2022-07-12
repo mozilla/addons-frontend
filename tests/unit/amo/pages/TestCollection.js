@@ -1155,7 +1155,7 @@ describe(__filename, () => {
         name: addonName,
         id,
       });
-      dispatchAutocompleteResults({
+      await dispatchAutocompleteResults({
         results: [externalSuggestion],
         store,
       });

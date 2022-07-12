@@ -19,13 +19,14 @@ import {
   INSTALL_STATE,
 } from 'amo/constants';
 import {
+  changeLocation,
   dispatchClientMetadata,
   getElement,
-  onLocationChanged,
   render as defaultRender,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  let history;
   let store;
 
   beforeEach(() => {
@@ -36,7 +37,11 @@ describe(__filename, () => {
   });
 
   const render = (props = {}) => {
-    return defaultRender(<App {...props} />, { store });
+    const renderResults = defaultRender(<App {...props} />, {
+      store,
+    });
+    history = renderResults.history;
+    return renderResults;
   };
 
   it('sets up a callback for setting add-on status', () => {
@@ -88,7 +93,7 @@ describe(__filename, () => {
     );
   });
 
-  it('resets the clientApp if it does not match the URL', () => {
+  it('resets the clientApp if it does not match the URL', async () => {
     const currentClientApp = CLIENT_APP_FIREFOX;
     const clientAppInURL = CLIENT_APP_ANDROID;
     dispatchClientMetadata({ clientApp: currentClientApp, store });
@@ -97,16 +102,15 @@ describe(__filename, () => {
 
     render();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: `/en-US/${clientAppInURL}/`,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: `/en-US/${clientAppInURL}/`,
+    });
 
     expect(dispatch).toHaveBeenCalledWith(setClientAppAction(clientAppInURL));
   });
 
-  it('does not reset the clientApp if matches the URL', () => {
+  it('does not reset the clientApp if matches the URL', async () => {
     const clientApp = CLIENT_APP_FIREFOX;
     dispatchClientMetadata({ clientApp, store });
 
@@ -114,29 +118,27 @@ describe(__filename, () => {
 
     render();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: `/en-US/${clientApp}/`,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: `/en-US/${clientApp}/`,
+    });
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ type: SET_CLIENT_APP }),
     );
   });
 
-  it('does not reset the clientApp if the one on the URL is invalid', () => {
+  it('does not reset the clientApp if the one on the URL is invalid', async () => {
     dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
 
     const dispatch = jest.spyOn(store, 'dispatch');
 
     render();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: '/en-US/invalid-app/',
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: '/en-US/invalid-app/',
+    });
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ type: SET_CLIENT_APP }),
@@ -167,10 +169,10 @@ describe(__filename, () => {
     });
     render();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      `Add-ons for Firefox (${lang})`,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `Add-ons for Firefox (${lang})`,
+      ),
     );
   });
 
@@ -183,10 +185,10 @@ describe(__filename, () => {
     });
     render();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      `Add-ons for Firefox Android (${lang})`,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `Add-ons for Firefox Android (${lang})`,
+      ),
     );
   });
 
