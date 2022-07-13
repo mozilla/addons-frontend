@@ -1086,14 +1086,7 @@ describe(__filename, () => {
           store,
         });
 
-        let link;
-
-        await waitFor(() => {
-          link = screen.getByRole('link', { name: 'Next' });
-          expect(link).toBeInTheDocument();
-        });
-
-        userEvent.click(link);
+        userEvent.click(await screen.findByRole('link', { name: 'Next' }));
 
         await waitFor(() =>
           expect(dispatch).toHaveBeenCalledWith(
