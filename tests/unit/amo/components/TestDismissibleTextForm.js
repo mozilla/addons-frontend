@@ -88,13 +88,12 @@ describe(__filename, () => {
     expect(onDismiss).toHaveBeenCalled();
   });
 
-  it('clears the form onDismiss', () => {
+  it('clears the form onDismiss', async () => {
     render({ onDismiss: jest.fn() });
 
     userEvent.type(getTextBox(), 'Example text');
     userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
-
-    expect(getTextBox()).toHaveValue('');
+    await waitFor(() => expect(getTextBox()).toHaveValue(''));
   });
 
   it('calls back when submitting the form', () => {
