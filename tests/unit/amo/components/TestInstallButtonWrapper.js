@@ -1357,7 +1357,9 @@ describe(__filename, () => {
           expect(_addonManager.install).toHaveBeenCalled();
         });
 
-        expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2);
+        await waitFor(() =>
+          expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2),
+        );
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
           category: getAddonEventCategory(
@@ -1429,7 +1431,9 @@ describe(__filename, () => {
           expect(_addonManager.install).toHaveBeenCalled();
         });
 
-        expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2);
+        await waitFor(() =>
+          expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2),
+        );
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
           category: getAddonEventCategory(
@@ -1489,11 +1493,13 @@ describe(__filename, () => {
           expect(_addonManager.install).toHaveBeenCalled();
         });
 
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallError({
-            error: FATAL_INSTALL_ERROR,
-            guid: addon.guid,
-          }),
+        await waitFor(() =>
+          expect(dispatch).toHaveBeenCalledWith(
+            setInstallError({
+              error: FATAL_INSTALL_ERROR,
+              guid: addon.guid,
+            }),
+          ),
         );
       });
     });
