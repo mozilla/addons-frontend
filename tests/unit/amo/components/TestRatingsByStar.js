@@ -56,9 +56,9 @@ describe(__filename, () => {
   it('renders a loading state without an add-on', () => {
     render({ addon: null });
 
-    // There will be two loading indicators, and one IconStar per row.
+    // There will be two loading indicators, and one Icon per row.
     expect(screen.getAllByRole('alert')).toHaveLength(10);
-    expect(screen.getAllByTagName('path')).toHaveLength(5);
+    expect(screen.getAllByClassName('Icon-star-yellow')).toHaveLength(5);
   });
 
   it('renders star labels, counts and links', () => {
@@ -118,12 +118,6 @@ describe(__filename, () => {
     validateLink('3', 'Read all 543 three-star reviews');
     validateLink('2', 'Read the 1 two-star review');
     validateLink('1', 'There are no one-star reviews');
-  });
-
-  it('renders IconStars', () => {
-    render();
-
-    expect(screen.getAllByTagName('path')).toHaveLength(5);
   });
 
   it('renders bar value widths based on total ratings', () => {

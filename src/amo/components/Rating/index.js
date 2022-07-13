@@ -8,8 +8,6 @@ import { compose } from 'redux';
 import log from 'amo/logger';
 import translate from 'amo/i18n/translate';
 import { type I18nType } from 'amo/types/i18n';
-import IconStar from 'amo/components/IconStar';
-import type { Props as IconStarProps } from 'amo/components/IconStar';
 
 import './styles.scss';
 
@@ -134,7 +132,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   };
 
   renderRatings(): Array<React.Node> {
-    const { readOnly, yellowStars } = this.props;
+    const { readOnly } = this.props;
     const { hoveringOverStar } = this.state;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
@@ -162,16 +160,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       };
 
       if (readOnly) {
-        return (
-          <div {...props}>
-            {this.renderStar({
-              half: halfStar,
-              selected: isSelected,
-              readOnly,
-              yellow: yellowStars,
-            })}
-          </div>
-        );
+        return <div {...props} />;
       }
 
       if (!this.isLoading()) {
@@ -192,15 +181,10 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
             <span id={id} className="visually-hidden">
               {title}
             </span>
-            {this.renderStar({ selected: isSelected, yellow: true })}
           </button>
         </>
       );
     });
-  }
-
-  renderStar(props: IconStarProps): React.Node {
-    return <IconStar {...props} />;
   }
 
   isLoading(): boolean {
@@ -210,7 +194,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   }
 
   render(): React.Node {
-    const { className, rating, readOnly, styleSize } = this.props;
+    const { className, rating, readOnly, styleSize, yellowStars } = this.props;
     if (!styleSize || !RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
         oneLine`styleSize=${styleSize || '[empty string]'} is not a valid
@@ -231,6 +215,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       {
         'Rating--editable': !readOnly,
         'Rating--loading': this.isLoading(),
+        'Rating--yellowStars': yellowStars,
       },
     );
 

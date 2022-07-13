@@ -9,7 +9,7 @@ import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
 import translate from 'amo/i18n/translate';
 import LoadingText from 'amo/components/LoadingText';
-import IconStar from 'amo/components/IconStar';
+import Icon from 'amo/components/Icon';
 import type { AddonType } from 'amo/types/addons';
 import type { I18nType } from 'amo/types/i18n';
 import type { ReactRouterLocationType } from 'amo/types/router';
@@ -171,7 +171,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               <div key={star} className="RatingsByStar-row">
                 <div className="RatingsByStar-star">
                   <LoadingText width={100} />
-                  <IconStar selected />
+                  <Icon name="star-yellow" />
                 </div>
 
                 <div className="RatingsByStar-barContainer">
@@ -188,7 +188,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               <>
                 <div className="RatingsByStar-star">
                   {i18n.formatNumber(star)}
-                  <IconStar selected />
+                  <Icon name="star-yellow" />
                 </div>
 
                 <div className="RatingsByStar-barContainer">

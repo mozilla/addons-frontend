@@ -1,20 +1,9 @@
-import photon from 'photon-colors';
 import * as React from 'react';
 import userEvent from '@testing-library/user-event';
 import { cleanup, createEvent, fireEvent } from '@testing-library/react';
 
-import {
-  getSvgPath,
-  DIM_CLOSED_STYLE,
-  OPEN_STYLE,
-} from 'amo/components/IconStar';
 import Rating from 'amo/components/Rating';
-import {
-  fakeI18n,
-  render as defaultRender,
-  screen,
-  within,
-} from 'tests/unit/helpers';
+import { fakeI18n, render as defaultRender, screen } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = (props = {}) => {
@@ -65,21 +54,15 @@ describe(__filename, () => {
   it('can be classified as yellow stars', () => {
     render({ readOnly: true, yellowStars: true });
 
-    const firstRating = screen.getByClassName('Rating-rating-1');
-    expect(within(firstRating).getByTagName('g')).toHaveAttribute(
-      'fill',
-      photon.YELLOW_50,
-    );
+    expect(screen.getByClassName('Rating--yellowStars')).toBeInTheDocument();
   });
 
   it('classifies as yellowStars=false by default', () => {
     render({ readOnly: true });
 
-    const firstRating = screen.getByClassName('Rating-rating-1');
-    expect(within(firstRating).getByTagName('g')).toHaveAttribute(
-      'fill',
-      photon.GREY_50,
-    );
+    expect(
+      screen.queryByClassName('Rating--yellowStars'),
+    ).not.toBeInTheDocument();
   });
 
   it('throws an error for invalid styleSize', () => {
@@ -359,32 +342,6 @@ describe(__filename, () => {
       [4, 5].forEach((rating) => {
         expect(getStar({ rating })).not.toHaveClass('Rating-selected-star');
       });
-    });
-
-    it("only passes the selected and yellow prop to the IconStar component when it's not readOnly", () => {
-      render({ readOnly: false });
-      const firstRating = screen.getByClassName('Rating-rating-1');
-
-      // This is the result of "selected".
-      expect(within(firstRating).getByTagName('path')).toHaveAttribute(
-        'd',
-        getSvgPath(OPEN_STYLE),
-      );
-      expect(within(firstRating).getByTagName('g')).toHaveAttribute(
-        'fill',
-        photon.YELLOW_50,
-      );
-    });
-
-    it("passes expected props to the IconStar component when it's readOnly", () => {
-      render({ readOnly: true });
-      const firstRating = screen.getByClassName('Rating-rating-1');
-
-      // This is the result of the default props from readOnly.
-      expect(within(firstRating).getByTagName('path')).toHaveAttribute(
-        'd',
-        getSvgPath(DIM_CLOSED_STYLE),
-      );
     });
   });
 
