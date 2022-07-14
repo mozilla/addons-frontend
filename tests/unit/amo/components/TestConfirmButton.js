@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ConfirmButton, { extractId } from 'amo/components/ConfirmButton';
@@ -26,7 +27,7 @@ describe(__filename, () => {
     );
   };
 
-  const renderWithDialog = ({ ...otherProps } = {}) => {
+  const renderWithDialog = async ({ ...otherProps } = {}) => {
     render(otherProps);
 
     // Click to open ConfirmationDialog.
@@ -35,7 +36,7 @@ describe(__filename, () => {
         name: defaultChildText,
       }),
     );
-    expect(screen.getAllByRole('button')).toHaveLength(2);
+    await waitFor(() => expect(screen.getAllByRole('button')).toHaveLength(2));
   };
 
   it('renders a button', () => {
@@ -65,7 +66,7 @@ describe(__filename, () => {
     expect(screen.getByRole('button', { name: children })).toBeInTheDocument();
   });
 
-  it('shows ConfirmationDialog when button is clicked', () => {
+  it('shows ConfirmationDialog when button is clicked', async () => {
     render();
 
     expect(screen.queryByText('some warning message')).not.toBeInTheDocument();
@@ -76,15 +77,15 @@ describe(__filename, () => {
       }),
     );
 
-    expect(screen.getByText('some warning message')).toBeInTheDocument();
+    expect(await screen.findByText('some warning message')).toBeInTheDocument();
   });
 
-  it('configures ConfirmationDialog', () => {
+  it('configures ConfirmationDialog', async () => {
     const cancelButtonText = 'Nevermind, take me back';
     const confirmButtonText = 'Do it!';
     const message = 'Do you really want to cancel?';
 
-    renderWithDialog({
+    await renderWithDialog({
       cancelButtonText,
       cancelButtonType: 'alert',
       confirmButtonText,
@@ -108,33 +109,33 @@ describe(__filename, () => {
     expect(dialogConfirmButton).toHaveClass('Button--puffy');
   });
 
-  it('hides the default button after it is clicked', () => {
+  it('hides the default button after it is clicked', async () => {
     render();
 
     const button = screen.getByRole('button', {
       name: defaultChildText,
     });
     userEvent.click(button);
-    expect(button).not.toBeInTheDocument();
+    await waitFor(() => expect(button).not.toBeInTheDocument());
   });
 
-  it('hides ConfirmationDialog on cancel', () => {
-    renderWithDialog();
+  it('hides ConfirmationDialog on cancel', async () => {
+    await renderWithDialog();
 
     userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    expect(screen.getAllByRole('button')).toHaveLength(1);
+    await waitFor(() => expect(screen.getAllByRole('button')).toHaveLength(1));
   });
 
-  it('handles onConfirm callback and hides ConfirmationDialog on confirm', () => {
+  it('handles onConfirm callback and hides ConfirmationDialog on confirm', async () => {
     const onConfirm = jest.fn();
-    renderWithDialog({ onConfirm });
+    await renderWithDialog({ onConfirm });
 
     expect(screen.getAllByRole('button')).toHaveLength(2);
 
     userEvent.click(screen.getByRole('button', { name: 'Confirm' }));
 
-    expect(screen.getAllByRole('button')).toHaveLength(1);
+    await waitFor(() => expect(screen.getAllByRole('button')).toHaveLength(1));
     expect(onConfirm).toHaveBeenCalled();
   });
 
