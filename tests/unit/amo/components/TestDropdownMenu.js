@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import DropdownMenu from 'amo/components/DropdownMenu';
@@ -41,29 +42,31 @@ describe(__filename, () => {
     expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
   });
 
-  it('renders items passed as children', () => {
+  it('renders items passed as children', async () => {
     render({ children: <DropdownMenuItem>A section</DropdownMenuItem> });
 
     clickMenu();
 
-    expect(screen.getByRole('list')).toBeInTheDocument();
+    expect(await screen.findByRole('list')).toBeInTheDocument();
     expect(screen.getAllByRole('listitem')).toHaveLength(1);
   });
 
-  it('toggles the menu state when button is clicked', () => {
+  it('toggles the menu state when button is clicked', async () => {
     render();
     expect(getMenu()).not.toHaveClass('DropdownMenu--active');
 
     // User clicks the menu main button.
     clickMenu();
-    expect(getMenu()).toHaveClass('DropdownMenu--active');
+    await waitFor(() => expect(getMenu()).toHaveClass('DropdownMenu--active'));
 
     // User clicks the menu main button, again.
     clickMenu();
-    expect(getMenu()).not.toHaveClass('DropdownMenu--active');
+    await waitFor(() =>
+      expect(getMenu()).not.toHaveClass('DropdownMenu--active'),
+    );
   });
 
-  it('resets the menu state on blur', () => {
+  it('resets the menu state on blur', async () => {
     // Render the menu in a document with another element.
     defaultRender(
       <div>
@@ -74,14 +77,16 @@ describe(__filename, () => {
 
     // User clicks the menu main button.
     clickMenu();
-    expect(getMenu()).toHaveClass('DropdownMenu--active');
+    await waitFor(() => expect(getMenu()).toHaveClass('DropdownMenu--active'));
 
     // User clicks somewhere else.
     userEvent.click(screen.getByRole('heading'));
-    expect(getMenu()).not.toHaveClass('DropdownMenu--active');
+    await waitFor(() =>
+      expect(getMenu()).not.toHaveClass('DropdownMenu--active'),
+    );
   });
 
-  it('resets the menu state on click', () => {
+  it('resets the menu state on click', async () => {
     // See: https://github.com/mozilla/addons-frontend/issues/3452
     render({
       children: (
@@ -95,27 +100,31 @@ describe(__filename, () => {
 
     // User clicks the menu main button to open it.
     clickMenu();
-    expect(getMenu()).toHaveClass('DropdownMenu--active');
+    await waitFor(() => expect(getMenu()).toHaveClass('DropdownMenu--active'));
 
     // User clicks a link.
     userEvent.click(screen.getByRole('link'));
-    expect(getMenu()).not.toHaveClass('DropdownMenu--active');
+    await waitFor(() =>
+      expect(getMenu()).not.toHaveClass('DropdownMenu--active'),
+    );
   });
 
-  it('sets active on mouseEnter/clears on mouseLeave', () => {
+  it('sets active on mouseEnter/clears on mouseLeave', async () => {
     _window.matchMedia = jest.fn().mockReturnValue({ matches: true });
     render();
 
     // User hovers on the menu.
     userEvent.hover(getMenu());
-    expect(getMenu()).toHaveClass('DropdownMenu--active');
+    await waitFor(() => expect(getMenu()).toHaveClass('DropdownMenu--active'));
     expect(_window.matchMedia).toHaveBeenCalledWith('(hover)');
 
     _window.matchMedia.mockClear();
 
     // User's mouse leaves the menu.
     userEvent.unhover(getMenu());
-    expect(getMenu()).not.toHaveClass('DropdownMenu--active');
+    await waitFor(() =>
+      expect(getMenu()).not.toHaveClass('DropdownMenu--active'),
+    );
     expect(_window.matchMedia).toHaveBeenCalledWith('(hover)');
   });
 
@@ -155,14 +164,15 @@ describe(__filename, () => {
   });
 
   describe('Tests for DropdownMenuItem', () => {
-    const renderWithItems = (children) => {
+    const renderWithItems = async (children) => {
       render({ children });
       clickMenu();
+      expect(await screen.findByRole('listitem')).toBeInTheDocument();
     };
 
-    it('renders a section when only `children` prop is supplied', () => {
+    it('renders a section when only `children` prop is supplied', async () => {
       const text = 'A section';
-      renderWithItems(<DropdownMenuItem>{text}</DropdownMenuItem>);
+      await renderWithItems(<DropdownMenuItem>{text}</DropdownMenuItem>);
 
       const item = getItem();
       expect(item).toHaveClass('DropdownMenuItem');
@@ -170,10 +180,10 @@ describe(__filename, () => {
       expect(item).toHaveTextContent(text);
     });
 
-    it('renders a `Link` passed in children', () => {
+    it('renders a `Link` passed in children', async () => {
       const linkText = 'a link';
       const linkHref = '/some/path/';
-      renderWithItems(
+      await renderWithItems(
         <DropdownMenuItem>
           <Link to={linkHref}>{linkText}</Link>
         </DropdownMenuItem>,
@@ -188,8 +198,8 @@ describe(__filename, () => {
       );
     });
 
-    it('can visually detach a link item', () => {
-      renderWithItems(
+    it('can visually detach a link item', async () => {
+      await renderWithItems(
         <DropdownMenuItem detached>
           <Link to="/">a link detached from the rest of the menu</Link>
         </DropdownMenuItem>,
@@ -201,10 +211,10 @@ describe(__filename, () => {
       expect(item).toHaveClass('DropdownMenuItem--detached');
     });
 
-    it('renders a `button` when `onClick` prop is supplied', () => {
+    it('renders a `button` when `onClick` prop is supplied', async () => {
       const buttonText = 'A button';
       const onClick = jest.fn();
-      renderWithItems(
+      await renderWithItems(
         <DropdownMenuItem onClick={onClick}>{buttonText}</DropdownMenuItem>,
       );
 
@@ -216,9 +226,9 @@ describe(__filename, () => {
       expect(onClick).toHaveBeenCalled();
     });
 
-    it('can visually detach a button item', () => {
+    it('can visually detach a button item', async () => {
       const onClick = jest.fn();
-      renderWithItems(
+      await renderWithItems(
         <DropdownMenuItem onClick={onClick} detached>
           A button that is detached from the rest of the menu
         </DropdownMenuItem>,
@@ -230,9 +240,9 @@ describe(__filename, () => {
       expect(item).toHaveClass('DropdownMenuItem--detached');
     });
 
-    it('optionally takes a class name', () => {
+    it('optionally takes a class name', async () => {
       const className = 'MyClass';
-      renderWithItems(
+      await renderWithItems(
         <DropdownMenuItem className={className}>A section</DropdownMenuItem>,
       );
 
@@ -242,10 +252,10 @@ describe(__filename, () => {
       expect(item).toHaveClass(className);
     });
 
-    it('can render a disabled button', () => {
+    it('can render a disabled button', async () => {
       const buttonText = 'A button';
       const onClick = jest.fn();
-      renderWithItems(
+      await renderWithItems(
         <DropdownMenuItem onClick={onClick} disabled>
           {buttonText}
         </DropdownMenuItem>,
@@ -255,10 +265,10 @@ describe(__filename, () => {
       expect(screen.getByRole('button', { name: buttonText })).toBeDisabled();
     });
 
-    it('renders a button with a title', () => {
+    it('renders a button with a title', async () => {
       const onClick = jest.fn();
       const title = 'some title';
-      renderWithItems(
+      await renderWithItems(
         <DropdownMenuItem onClick={onClick} title={title}>
           A button with title
         </DropdownMenuItem>,
