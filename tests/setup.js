@@ -13,7 +13,7 @@ import 'amo/polyfill';
 if (process.env.TEST_DEBUG !== 'FULL') {
   configure({
     getElementError: (message) => {
-      const error = new Error(message.split('\n')[0]);
+      const error = new Error(message.split('\n', 5).join('\n'));
       error.name = 'TestingLibraryElementError';
       return error;
     },

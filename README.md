@@ -60,7 +60,7 @@ Here are some commands you can run:
 | yarn test-coverage | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
 | yarn test-coverage-once | Run all tests, generate code coverage report, then exit |
 | yarn test-once | Run all tests, run all JS + SCSS linters, then exit |
-| yarn test-ci | Run all continuous integration checks. This is only meant to run on TravisCI. |
+| yarn test-ci | Run all continuous integration checks. This is only meant to run on CI. |
 
 ### Running tests
 
