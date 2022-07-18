@@ -30,9 +30,9 @@ import {
 } from 'amo/reducers/users';
 import { getNotificationDescription } from 'amo/utils/notifications';
 import {
+  changeLocation,
   createFailedErrorHandler,
   createFakeLocation,
-  createHistory,
   createUserAccountResponse,
   createUserNotificationsResponse,
   dispatchClientMetadata,
@@ -40,7 +40,6 @@ import {
   fakeAuthors,
   fakeI18n,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -52,6 +51,7 @@ describe(__filename, () => {
   const defaultOtherUserEmail = 'otheruser@mozilla.com';
   const lang = 'en-US';
   const defaultUserId = fakeAuthors[0].id;
+  let history;
   let store;
 
   const savedLocation = window.location;
@@ -97,17 +97,14 @@ describe(__filename, () => {
   const getErrorHandlerId = (userId) =>
     `src/amo/pages/UserProfileEdit/index.js-${userId}`;
 
-  const render = ({ history, location, userId } = {}) => {
+  const render = ({ location, userId } = {}) => {
     const renderOptions = {
-      history:
-        history ||
-        createHistory({
-          initialEntries: [location || getLocation(userId)],
-        }),
+      initialEntries: [location || getLocation(userId)],
       store,
     };
-
-    return defaultRender(renderOptions);
+    const renderResults = defaultRender(renderOptions);
+    history = renderResults.history;
+    return renderResults;
   };
 
   const renderForCurrentUser = (userProps = {}) => {
@@ -226,16 +223,15 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches fetchUserAccount and fetchUserNotifications actions if userId changes', () => {
+  it('dispatches fetchUserAccount and fetchUserNotifications actions if userId changes', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     const userId = renderForCurrentUser();
     const newUserId = userId + 1;
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(newUserId),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(newUserId),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchUserAccount({
@@ -251,7 +247,7 @@ describe(__filename, () => {
     );
   });
 
-  it('does not fetchUserAccount action if user data are available', () => {
+  it('does not fetchUserAccount action if user data are available', async () => {
     const userId = signInUserWithProps();
     // We load user notifications here because the purpose of this test case is
     // not to check that part but to make sure `fetchUserAccount()` is not
@@ -266,11 +262,10 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     render({ userId });
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(userId),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(userId),
+    });
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ type: FETCH_USER_NOTIFICATIONS }),
@@ -459,17 +454,17 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('renders an update button with a different text when updating', () => {
+  it('renders an update button with a different text when updating', async () => {
     renderForCurrentUser();
 
     userEvent.click(screen.getByRole('button', { name: 'Update My Profile' }));
 
     expect(
-      screen.getByRole('button', { name: 'Updating your profile…' }),
+      await screen.findByRole('button', { name: 'Updating your profile…' }),
     ).toBeInTheDocument();
   });
 
-  it('renders a create button with a different text when updating', () => {
+  it('renders a create button with a different text when updating', async () => {
     renderForCurrentUser({ display_name: '' });
 
     userEvent.type(
@@ -479,11 +474,11 @@ describe(__filename, () => {
     userEvent.click(screen.getByRole('button', { name: 'Create My Profile' }));
 
     expect(
-      screen.getByRole('button', { name: 'Creating your profile…' }),
+      await screen.findByRole('button', { name: 'Creating your profile…' }),
     ).toBeInTheDocument();
   });
 
-  it('renders an update button with a different text when user is not the logged-in user and updating', () => {
+  it('renders an update button with a different text when user is not the logged-in user and updating', async () => {
     renderForOtherUser();
 
     userEvent.type(
@@ -493,7 +488,7 @@ describe(__filename, () => {
     userEvent.click(screen.getByRole('button', { name: 'Update Profile' }));
 
     expect(
-      screen.getByRole('button', { name: 'Updating profile…' }),
+      await screen.findByRole('button', { name: 'Updating profile…' }),
     ).toBeInTheDocument();
   });
 
@@ -541,10 +536,13 @@ describe(__filename, () => {
   });
 
   describe('redirect after profile update', () => {
-    const testRedirect = ({ expectedURL, history, to }) => {
-      const renderProps = { history };
+    const testRedirect = async ({ expectedURL, renderHistory, to }) => {
+      const renderProps = {};
       if (to) {
         renderProps.location = `${getLocation()}?to=${to}`;
+      }
+      if (renderHistory) {
+        renderProps.history = renderHistory;
       }
       signInUserWithProps();
       render(renderProps);
@@ -553,64 +551,68 @@ describe(__filename, () => {
         screen.getByRole('button', { name: 'Update My Profile' }),
       );
 
-      expect(
-        screen.getByRole('button', { name: 'Updating your profile…' }),
-      ).toBeDisabled();
+      await waitFor(() =>
+        expect(
+          screen.getByRole('button', { name: 'Updating your profile…' }),
+        ).toBeDisabled(),
+      );
 
       store.dispatch(finishUpdateUserAccount());
 
-      expect(
-        screen.getByRole('button', { name: 'Update My Profile' }),
-      ).not.toBeDisabled();
+      await waitFor(() =>
+        expect(
+          screen.getByRole('button', { name: 'Update My Profile' }),
+        ).not.toBeDisabled(),
+      );
 
       expect(window.location.assign).toHaveBeenCalledWith(expectedURL);
     };
 
     // eslint-disable-next-line jest/expect-expect
-    it('redirects to the user profile page when there is no `to` param', () => {
+    it('redirects to the user profile page when there is no `to` param', async () => {
       const to = null;
       const expectedURL = `/${lang}/${clientApp}/user/${defaultUserId}/`;
 
-      testRedirect({ expectedURL, to });
+      await testRedirect({ expectedURL, to });
     });
 
     // eslint-disable-next-line jest/expect-expect
-    it('redirects to the `to` URL param', () => {
+    it('redirects to the `to` URL param', async () => {
       const to = '/addon/some-slug/';
-      testRedirect({ expectedURL: to, to });
+      await testRedirect({ expectedURL: to, to });
     });
 
     // eslint-disable-next-line jest/expect-expect
-    it('converts an absolute `to` URL into a relative one', () => {
+    it('converts an absolute `to` URL into a relative one', async () => {
       const to = 'https://addons.mozilla.org/addon/some-slug/';
-      testRedirect({ expectedURL: `/${to}`, to });
+      await testRedirect({ expectedURL: `/${to}`, to });
     });
 
     // eslint-disable-next-line jest/expect-expect
-    it('redirects to user profile page when the `to` param is a protocol-less URL', () => {
+    it('redirects to user profile page when the `to` param is a protocol-less URL', async () => {
       const to = '//addon/some-slug/';
       const expectedURL = `/${lang}/${clientApp}/user/${defaultUserId}/`;
 
-      testRedirect({ expectedURL, to });
+      await testRedirect({ expectedURL, to });
     });
 
     // eslint-disable-next-line jest/expect-expect
-    it('redirects to user profile page when the `to` param is not a string', () => {
+    it('redirects to user profile page when the `to` param is not a string', async () => {
       const to = { url: '/addon/some-slug/' };
       const location = createFakeLocation({
         pathname: getLocation(),
         query: { to },
       });
-      const history = createMemoryHistory();
-      history.push(location);
+      const renderHistory = createMemoryHistory();
+      renderHistory.push(location);
 
       const expectedURL = `/${lang}/${clientApp}/user/${defaultUserId}/`;
 
-      testRedirect({ expectedURL, history });
+      await testRedirect({ expectedURL, renderHistory });
     });
 
     // eslint-disable-next-line jest/expect-expect
-    it('redirects to user profile page if the `to` URL throws an error', () => {
+    it('redirects to user profile page if the `to` URL throws an error', async () => {
       const to = '/addon/some-slug/';
       const expectedURL = `/${lang}/${clientApp}/user/${defaultUserId}/`;
 
@@ -619,7 +621,7 @@ describe(__filename, () => {
       });
       window.location.assign.mockImplementationOnce(() => null);
 
-      testRedirect({ expectedURL, to });
+      await testRedirect({ expectedURL, to });
 
       expect(window.location.assign).toHaveBeenCalledWith(to);
       expect(window.location.assign).toHaveBeenCalledWith(expectedURL);
@@ -722,7 +724,7 @@ describe(__filename, () => {
   });
 
   // See: https://github.com/mozilla/addons-frontend/issues/5034
-  it('does not dispatch fetchUserAccount() when user logs out', () => {
+  it('does not dispatch fetchUserAccount() when user logs out', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderForCurrentUser();
 
@@ -734,11 +736,11 @@ describe(__filename, () => {
 
     // We should also see an AuthenticateButton when this use case happens.
     expect(
-      screen.getByRole('link', { name: 'Log in to edit the profile' }),
+      await screen.findByRole('link', { name: 'Log in to edit the profile' }),
     ).toBeInTheDocument();
   });
 
-  it('does not dispatch fetchUserAccount() when user logs out on a user edit page', () => {
+  it('does not dispatch fetchUserAccount() when user logs out on a user edit page', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderForOtherUser();
 
@@ -750,7 +752,7 @@ describe(__filename, () => {
 
     // We should also see an AuthenticateButton when this use case happens.
     expect(
-      screen.getByRole('link', { name: 'Log in to edit the profile' }),
+      await screen.findByRole('link', { name: 'Log in to edit the profile' }),
     ).toBeInTheDocument();
   });
 
@@ -787,7 +789,7 @@ describe(__filename, () => {
     );
   });
 
-  it('displays a message when user has deleted their profile picture', () => {
+  it('displays a message when user has deleted their profile picture', async () => {
     const pictureUrl = 'https://example.org/pp.png';
     renderForCurrentUser({ picture_url: pictureUrl });
     const user = getCurrentUser(store.getState().users);
@@ -800,7 +802,7 @@ describe(__filename, () => {
     store.dispatch(loadUserAccount({ user: { ...user, picture_url: null } }));
 
     expect(
-      screen.getByText('Picture successfully deleted'),
+      await screen.findByText('Picture successfully deleted'),
     ).toBeInTheDocument();
     expect(screen.getByClassName('Notice-success')).toBeInTheDocument();
 
@@ -859,13 +861,13 @@ describe(__filename, () => {
     expect(screen.getByRole('button', { name: 'Cancel' })).not.toBeDisabled();
   });
 
-  it('renders different information in the modal when user to be deleted is not the current logged-in user', () => {
+  it('renders different information in the modal when user to be deleted is not the current logged-in user', async () => {
     renderForOtherUser();
 
     userEvent.click(screen.getByRole('button', { name: 'Delete Profile' }));
 
     expect(
-      screen.getByText(
+      await screen.findByText(
         'IMPORTANT: Deleting this Firefox Add-ons profile is irreversible.',
       ),
     ).toBeInTheDocument();
@@ -884,36 +886,49 @@ describe(__filename, () => {
     ).not.toBeDisabled();
   });
 
-  it('closes the modal when user clicks the cancel button', () => {
+  it('closes the modal when user clicks the cancel button', async () => {
     renderForCurrentUser();
 
     userEvent.click(screen.getByRole('button', { name: 'Delete My Profile' }));
 
-    const button = screen.getByRole('button', { name: 'Cancel' });
+    let button;
+    await waitFor(() => {
+      button = screen.getByRole('button', { name: 'Cancel' });
+      expect(button).toBeInTheDocument();
+    });
     const clickEvent = createEvent.click(button);
     const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
     fireEvent(button, clickEvent);
 
     expect(preventDefaultWatcher).toHaveBeenCalled();
-    expect(
-      screen.queryByText(
-        'IMPORTANT: Deleting your Firefox Add-ons profile is irreversible.',
-      ),
-    ).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        screen.queryByText(
+          'IMPORTANT: Deleting your Firefox Add-ons profile is irreversible.',
+        ),
+      ).not.toBeInTheDocument(),
+    );
   });
 
-  it('dispatches deleteUserAccount and logOutUser when current logged-in user confirms account deletion', () => {
+  it('dispatches deleteUserAccount and logOutUser when current logged-in user confirms account deletion', async () => {
     const userId = signInUserWithProps(userProps);
-    const history = createHistory({
-      initialEntries: [getLocation(userId)],
-    });
-    const pushSpy = jest.spyOn(history, 'push');
     const dispatch = jest.spyOn(store, 'dispatch');
-    render({ history });
+
+    render({ userId });
+
+    const pushSpy = jest.spyOn(history, 'push');
 
     userEvent.click(screen.getByRole('button', { name: 'Delete My Profile' }));
-    userEvent.click(
+
+    // Wait for confirmation button to be displayed.
+    await waitFor(() =>
+      expect(
+        screen.getAllByRole('button', { name: 'Delete My Profile' }),
+      ).toHaveLength(2),
+    );
+
+    await userEvent.click(
       screen.getAllByRole('button', { name: 'Delete My Profile' })[1],
     );
 
@@ -927,20 +942,30 @@ describe(__filename, () => {
     expect(pushSpy).toHaveBeenCalledWith(`/${lang}/${clientApp}`);
   });
 
-  it('does not dispatch logOutUser when current logged-in user confirms deletion of another user account', () => {
+  it('does not dispatch logOutUser when current logged-in user confirms deletion of another user account', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     const userId = renderForOtherUser();
 
     userEvent.click(screen.getByRole('button', { name: 'Delete Profile' }));
+
+    // Wait for confirmation button to be displayed.
+    await waitFor(() =>
+      expect(
+        screen.getAllByRole('button', { name: 'Delete Profile' }),
+      ).toHaveLength(2),
+    );
+
     userEvent.click(
       screen.getAllByRole('button', { name: 'Delete Profile' })[1],
     );
 
-    expect(dispatch).toHaveBeenCalledWith(
-      deleteUserAccount({
-        errorHandlerId: getErrorHandlerId(userId),
-        userId,
-      }),
+    await waitFor(() =>
+      expect(dispatch).toHaveBeenCalledWith(
+        deleteUserAccount({
+          errorHandlerId: getErrorHandlerId(userId),
+          userId,
+        }),
+      ),
     );
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ type: LOG_OUT_USER }),
@@ -955,32 +980,31 @@ describe(__filename, () => {
     });
   });
 
-  it('scrolls to the top of the page when an error is rendered', () => {
+  it('scrolls to the top of the page when an error is rendered', async () => {
     const userId = renderForCurrentUser();
 
     createFailedErrorHandler({ id: getErrorHandlerId(userId), store });
 
-    expect(window.scroll).toHaveBeenCalledWith(0, 0);
+    await waitFor(() => expect(window.scroll).toHaveBeenCalledWith(0, 0));
   });
 
-  it('does not scroll if we already scrolled because of an error', () => {
+  it('does not scroll if we already scrolled because of an error', async () => {
     const userId = renderForCurrentUser();
 
     createFailedErrorHandler({ id: getErrorHandlerId(userId), store });
 
-    expect(window.scroll).toHaveBeenCalledWith(0, 0);
+    await waitFor(() => expect(window.scroll).toHaveBeenCalledWith(0, 0));
     window.scroll.mockClear();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(userId),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(userId),
+    });
 
     expect(window.scroll).not.toHaveBeenCalled();
   });
 
-  it('does not scroll if we already scrolled because of a success message', () => {
+  it('does not scroll if we already scrolled because of a success message', async () => {
     renderForCurrentUser({ picture_url: 'https://example.org/pp.png' });
     const user = getCurrentUser(store.getState().users);
 
@@ -988,19 +1012,18 @@ describe(__filename, () => {
     // which displays a success message.
     store.dispatch(loadUserAccount({ user: { ...user, picture_url: null } }));
 
-    expect(window.scroll).toHaveBeenCalledWith(0, 0);
+    await waitFor(() => expect(window.scroll).toHaveBeenCalledWith(0, 0));
     window.scroll.mockClear();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(user.id),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(user.id),
+    });
 
     expect(window.scroll).not.toHaveBeenCalled();
   });
 
-  it('does not show any message when navigating to a new user profile', () => {
+  it('does not show any message when navigating to a new user profile', async () => {
     const userId = renderForCurrentUser({
       picture_url: 'https://example.org/pp.png',
     });
@@ -1013,11 +1036,10 @@ describe(__filename, () => {
     });
     store.dispatch(loadUserAccount({ user }));
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(newUserId),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(newUserId),
+    });
 
     expect(screen.queryByClassName('Notice-success')).not.toBeInTheDocument();
   });
@@ -1287,7 +1309,7 @@ describe(__filename, () => {
       );
     });
 
-    it('renders a "delete" ConfirmButton when user has a picture URL', () => {
+    it('renders a "delete" ConfirmButton when user has a picture URL', async () => {
       renderForCurrentUser({ picture_url: 'https://example.org/pp.png' });
 
       const button = screen.getByRole('button', {
@@ -1306,7 +1328,7 @@ describe(__filename, () => {
       userEvent.click(button);
 
       expect(
-        screen.getByText('Do you really want to delete this picture?'),
+        await screen.findByText('Do you really want to delete this picture?'),
       ).toBeInTheDocument();
     });
 
@@ -1320,7 +1342,7 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
-    it('calls the onDelete() prop when a user deletes the picture', () => {
+    it('calls the onDelete() prop when a user deletes the picture', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const userId = renderForCurrentUser({
         picture_url: 'https://example.org/pp.png',
@@ -1330,7 +1352,12 @@ describe(__filename, () => {
         screen.getByRole('button', { name: 'Delete This Picture' }),
       );
 
-      const button = screen.getByRole('button', { name: 'Confirm' });
+      let button;
+
+      await waitFor(() => {
+        button = screen.getByRole('button', { name: 'Confirm' });
+        expect(button).toBeInTheDocument();
+      });
       const clickEvent = createEvent.click(button);
       const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
@@ -1346,7 +1373,7 @@ describe(__filename, () => {
       );
     });
 
-    it('adds and removes a CSS class when file input has/looses focus', () => {
+    it('adds and removes a CSS class when file input has/looses focus', async () => {
       renderForCurrentUser();
 
       expect(
@@ -1357,15 +1384,19 @@ describe(__filename, () => {
         screen.getByClassName('UserProfileEditPicture-file-input'),
       );
 
-      expect(screen.getByClassName('UserProfileEditPicture-file')).toHaveClass(
-        'UserProfileEditPicture-file--has-focus',
+      await waitFor(() =>
+        expect(
+          screen.getByClassName('UserProfileEditPicture-file'),
+        ).toHaveClass('UserProfileEditPicture-file--has-focus'),
       );
 
       userEvent.tab();
 
-      expect(
-        screen.getByClassName('UserProfileEditPicture-file'),
-      ).not.toHaveClass('UserProfileEditPicture-file--has-focus');
+      await waitFor(() =>
+        expect(
+          screen.getByClassName('UserProfileEditPicture-file'),
+        ).not.toHaveClass('UserProfileEditPicture-file--has-focus'),
+      );
     });
   });
 });
