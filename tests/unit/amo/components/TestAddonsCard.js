@@ -109,7 +109,7 @@ describe(__filename, () => {
     );
   });
 
-  it('passes expected functions to editable add-ons', () => {
+  it('passes expected functions to editable add-ons', async () => {
     const deleteNote = jest.fn();
     const removeAddon = jest.fn();
     const saveNote = jest.fn();
@@ -124,7 +124,7 @@ describe(__filename, () => {
     });
 
     userEvent.click(screen.getByRole('button', { name: 'Edit' }));
-    userEvent.type(screen.getByRole('textbox'), 'Some new notes');
+    userEvent.type(await screen.findByRole('textbox'), 'Some new notes');
     userEvent.click(screen.getByRole('button', { name: 'Save' }));
     expect(saveNote).toHaveBeenCalled();
 

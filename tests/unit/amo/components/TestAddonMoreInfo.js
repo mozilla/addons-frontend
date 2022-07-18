@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { createMemoryHistory } from 'history';
 
 import { createApiError } from 'amo/api';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
@@ -19,7 +18,6 @@ import {
 } from 'amo/constants';
 import { formatFilesize } from 'amo/i18n/utils';
 import {
-  createFakeLocation,
   createInternalAddonWithLang,
   createLocalizedString,
   createStubErrorHandler,
@@ -51,8 +49,7 @@ describe(__filename, () => {
 
     const renderOptions = { store };
     if (location) {
-      renderOptions.history = createMemoryHistory();
-      renderOptions.history.push(location);
+      renderOptions.initialEntries = [location];
     }
 
     return defaultRender(<AddonMoreInfo {...allProps} />, renderOptions);
@@ -759,14 +756,14 @@ describe(__filename, () => {
     });
 
     it('renders links with UTM query params when there are some', () => {
-      const utm_medium = 'referral';
+      const utmMedium = 'referral';
 
       render({
         addon,
-        location: createFakeLocation({ query: { utm_medium } }),
+        location: `/some/path/?utm_medium=${utmMedium}`,
       });
 
-      const expectedQueryString = `utm_medium=${utm_medium}`;
+      const expectedQueryString = `utm_medium=${utmMedium}`;
       expect(screen.getByText('Visit stats dashboard')).toHaveAttribute(
         'href',
         `/en-US/android/addon/${addon.slug}/statistics/?${expectedQueryString}`,

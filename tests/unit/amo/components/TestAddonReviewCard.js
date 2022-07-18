@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createEvent, fireEvent } from '@testing-library/react';
+import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {
@@ -248,27 +248,65 @@ describe(__filename, () => {
     });
   };
 
-  const openFlagMenu = ({ isReply = false } = {}) =>
+  const openFlagMenu = async ({ isLoggedIn = true, isReply = false } = {}) => {
     userEvent.click(
       screen.getByRole('button', {
         name: isReply ? 'Flag this developer response' : 'Flag this review',
       }),
     );
+    if (isLoggedIn) {
+      expect(
+        await screen.findByRole('button', { name: 'This is spam' }),
+      ).toBeInTheDocument();
+    } else {
+      expect(
+        await screen.findByRole('link', { name: /Log in/ }),
+      ).toBeInTheDocument();
+    }
+  };
 
-  const clickDeleteRating = () =>
+  const clickDeleteRating = async ({ slim = false } = {}) => {
     userEvent.click(screen.getByRole('button', { name: 'Delete rating' }));
+    if (slim) {
+      expect(
+        await screen.findByRole('button', { name: 'Keep rating' }),
+      ).toBeInTheDocument();
+    } else {
+      expect(
+        await screen.findByText('Do you really want to delete this rating?'),
+      ).toBeInTheDocument();
+    }
+  };
 
-  const clickDeleteReview = () =>
+  const clickDeleteReview = async ({ slim = false } = {}) => {
     userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
+    if (slim) {
+      expect(
+        await screen.findByRole('button', { name: 'Keep review' }),
+      ).toBeInTheDocument();
+    } else {
+      expect(
+        await screen.findByRole('button', { name: 'Cancel' }),
+      ).toBeInTheDocument();
+    }
+  };
 
   const clickEditReply = () =>
     userEvent.click(screen.getByRole('link', { name: 'Edit reply' }));
 
-  const clickEditReview = () =>
+  const clickEditReview = async () => {
     userEvent.click(screen.getByRole('link', { name: 'Edit review' }));
+    expect(
+      await screen.findByRole('button', { name: 'Cancel' }),
+    ).toBeInTheDocument();
+  };
 
-  const clickReplyToReview = () =>
+  const clickReplyToReview = async () => {
     userEvent.click(screen.getByRole('link', { name: 'Reply to this review' }));
+    expect(
+      await screen.findByRole('button', { name: 'Cancel' }),
+    ).toBeInTheDocument();
+  };
 
   const getDefaultErrorHandlerId = (reviewId) => `AddonReviewCard-${reviewId}`;
 
@@ -336,11 +374,11 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it('does not render any controls when beginningToDeleteReview', () => {
+  it('does not render any controls when beginningToDeleteReview', async () => {
     const review = signInAndDispatchSavedReview();
     render({ review });
 
-    clickDeleteReview();
+    await clickDeleteReview();
 
     expect(
       screen.queryByRole('link', { name: 'Edit review' }),
@@ -444,23 +482,23 @@ describe(__filename, () => {
     );
   });
 
-  it('renders generic delete confirmation buttons', () => {
+  it('renders generic delete confirmation buttons', async () => {
     const review = signInAndDispatchSavedReview();
     render({ review });
 
-    clickDeleteReview();
+    await clickDeleteReview();
 
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Delete' })).toBeInTheDocument();
   });
 
-  it('renders delete confirmation buttons for a rating with slim=true', () => {
+  it('renders delete confirmation buttons for a rating with slim=true', async () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
     render({ review, slim: true });
 
-    clickDeleteRating();
+    await clickDeleteRating({ slim: true });
 
     expect(
       screen.getByRole('button', { name: 'Keep rating' }),
@@ -470,11 +508,11 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('renders delete confirmation buttons for a review with slim=true', () => {
+  it('renders delete confirmation buttons for a review with slim=true', async () => {
     const review = signInAndDispatchSavedReview();
     render({ review, slim: true });
 
-    clickDeleteReview();
+    await clickDeleteReview({ slim: true });
 
     expect(
       screen.getByRole('button', { name: 'Keep review' }),
@@ -484,47 +522,47 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('does not render a confirmation message for slim=true', () => {
+  it('does not render a confirmation message for slim=true', async () => {
     const review = signInAndDispatchSavedReview();
     render({ review, slim: true });
 
-    clickDeleteReview();
+    await clickDeleteReview({ slim: true });
 
     expect(
       screen.queryByText('Do you really want to delete this review?'),
     ).not.toBeInTheDocument();
   });
 
-  it('renders a confirmation prompt for deleting a review', () => {
+  it('renders a confirmation prompt for deleting a review', async () => {
     const review = signInAndDispatchSavedReview();
     render({ review });
 
-    clickDeleteReview();
+    await clickDeleteReview();
 
     expect(
       screen.getByText('Do you really want to delete this review?'),
     ).toBeInTheDocument();
   });
 
-  it('renders a confirmation prompt for deleting a rating', () => {
+  it('renders a confirmation prompt for deleting a rating', async () => {
     const review = signInAndDispatchSavedReview({
       externalReview: fakeRatingOnly,
     });
     render({ review });
 
-    clickDeleteRating();
+    await clickDeleteRating();
 
     expect(
       screen.getByText('Do you really want to delete this rating?'),
     ).toBeInTheDocument();
   });
 
-  it('lets you cancel deleting a review', () => {
+  it('lets you cancel deleting a review', async () => {
     const review = signInAndDispatchSavedReview();
     const dispatch = jest.spyOn(store, 'dispatch');
     render({ review });
 
-    clickDeleteReview();
+    await clickDeleteReview();
 
     const button = screen.getByRole('button', { name: 'Cancel' });
     const clickEvent = createEvent.click(button);
@@ -540,12 +578,12 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches deleteReview and displayes a deleting message when a user deletes a review', () => {
+  it('dispatches deleteReview and displayes a deleting message when a user deletes a review', async () => {
     const review = signInAndDispatchSavedReview();
     const dispatch = jest.spyOn(store, 'dispatch');
     render({ review });
 
-    clickDeleteReview();
+    await clickDeleteReview();
 
     const button = screen.getByRole('button', { name: 'Delete' });
     const clickEvent = createEvent.click(button);
@@ -568,11 +606,11 @@ describe(__filename, () => {
     expect(screen.getByText('Deleting…')).toBeInTheDocument();
   });
 
-  it('renders a delete link when an error occurs when deleting a review', () => {
+  it('renders a delete link when an error occurs when deleting a review', async () => {
     const review = signInAndDispatchSavedReview();
     render({ review });
 
-    clickDeleteReview();
+    await clickDeleteReview();
     userEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
     createFailedErrorHandler({
@@ -581,7 +619,7 @@ describe(__filename, () => {
     });
 
     expect(
-      screen.getByRole('button', { name: 'Delete review' }),
+      await screen.findByRole('button', { name: 'Delete review' }),
     ).toBeInTheDocument();
     expect(screen.queryByText('Deleting…')).not.toBeInTheDocument();
   });
@@ -744,11 +782,11 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it('hides reply button when already replying to a review', () => {
+  it('hides reply button when already replying to a review', async () => {
     const { addon } = signInAsAddonDeveloper();
     render({ addon, review: _setReview(), siteUserCanReply: true });
 
-    clickReplyToReview();
+    await clickReplyToReview();
 
     expect(
       screen.queryByRole('link', { name: 'Reply to this review' }),
@@ -771,12 +809,12 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it('configures a reply-to-review text form when editing', () => {
+  it('configures a reply-to-review text form when editing', async () => {
     const { reply } = renderNestedReplyForSignedInDeveloper();
 
     userEvent.click(screen.getByRole('link', { name: 'Edit reply' }));
 
-    const textArea = screen.getByPlaceholderText(
+    const textArea = await screen.findByPlaceholderText(
       'Write a reply to this review.',
     );
     expect(textArea).toHaveValue(reply.body);
@@ -785,18 +823,20 @@ describe(__filename, () => {
 
     userEvent.click(screen.getByRole('button', { name: 'Update reply' }));
 
-    expect(screen.getByRole('button', { name: 'Updating reply' })).toHaveClass(
-      'Button--disabled',
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Updating reply' }),
+      ).toHaveClass('Button--disabled'),
     );
   });
 
-  it('dispatches a finish action when dismissing a reply-to-review text form', () => {
+  it('dispatches a finish action when dismissing a reply-to-review text form', async () => {
     const { addon } = signInAsAddonDeveloper();
     const dispatch = jest.spyOn(store, 'dispatch');
     const review = _setReview();
     render({ addon, review, siteUserCanReply: true });
 
-    clickReplyToReview();
+    await clickReplyToReview();
     userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
     expect(dispatch).toHaveBeenCalledWith(
@@ -806,14 +846,14 @@ describe(__filename, () => {
     );
   });
 
-  it('allows a user to reply to a review', () => {
+  it('allows a user to reply to a review', async () => {
     const { addon } = signInAsAddonDeveloper();
     const dispatch = jest.spyOn(store, 'dispatch');
     const replyBody = 'Body of the review';
     const review = _setReview();
     render({ addon, review, siteUserCanReply: true });
 
-    clickReplyToReview();
+    await clickReplyToReview();
     expect(
       screen.queryByRole('link', { name: 'Reply to this review' }),
     ).not.toBeInTheDocument();
@@ -834,9 +874,11 @@ describe(__filename, () => {
       }),
     );
 
-    expect(
-      screen.getByRole('button', { name: 'Publishing reply' }),
-    ).toHaveClass('Button--disabled');
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Publishing reply' }),
+      ).toHaveClass('Button--disabled'),
+    );
     expect(
       screen.queryByRole('button', { name: 'Publish reply' }),
     ).not.toBeInTheDocument();
@@ -844,17 +886,19 @@ describe(__filename, () => {
     // The saga would dispatch this to hide the form.
     store.dispatch(hideReplyToReviewForm({ reviewId: review.id }));
 
-    expect(
-      screen.queryByPlaceholderText('Write a reply to this review.'),
-    ).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        screen.queryByPlaceholderText('Write a reply to this review.'),
+      ).not.toBeInTheDocument(),
+    );
   });
 
-  it('resets the reply form state when there is an error', () => {
+  it('resets the reply form state when there is an error', async () => {
     const { addon } = signInAsAddonDeveloper();
     const review = _setReview();
     render({ addon, review, siteUserCanReply: true });
 
-    clickReplyToReview();
+    await clickReplyToReview();
     userEvent.type(
       screen.getByPlaceholderText('Write a reply to this review.'),
       '{selectall}{del}Body of the review',
@@ -874,7 +918,7 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it('configures DismissibleTextForm with an ID', () => {
+  it('configures DismissibleTextForm with an ID', async () => {
     const { addon } = signInAsAddonDeveloper();
     const thisReview = _setReview({ ...fakeReview, id: 1 });
     const anotherReview = _setReview({ ...fakeReview, id: 2 });
@@ -891,7 +935,7 @@ describe(__filename, () => {
     store.dispatch(showReplyToReviewForm({ reviewId: thisReview.id }));
 
     expect(
-      screen.getByPlaceholderText('Write a reply to this review.'),
+      await screen.findByPlaceholderText('Write a reply to this review.'),
     ).toBeInTheDocument();
   });
 
@@ -922,7 +966,7 @@ describe(__filename, () => {
       expect(screen.queryByText('Your star rating:')).not.toBeInTheDocument();
     });
 
-    it('renders AddonReviewManager when editing', () => {
+    it('renders AddonReviewManager when editing', async () => {
       const review = signInAndDispatchSavedReview({
         externalReview: {
           ...fakeReview,
@@ -931,17 +975,17 @@ describe(__filename, () => {
       });
       render({ review });
 
-      clickEditReview();
+      await clickEditReview();
 
       expect(screen.getByText('Your star rating:')).toBeInTheDocument();
       expect(screen.getAllByTitle('Rated 2 out of 5')).toHaveLength(1);
     });
 
-    it('configures AddonReviewManager with puffyButtons when slim=true', () => {
+    it('configures AddonReviewManager with puffyButtons when slim=true', async () => {
       const review = signInAndDispatchSavedReview();
       render({ review, slim: true });
 
-      clickEditReview();
+      await clickEditReview();
 
       expect(screen.getByRole('button', { name: 'Update review' })).toHaveClass(
         'Button--puffy',
@@ -951,11 +995,11 @@ describe(__filename, () => {
       );
     });
 
-    it('configures AddonReviewManager without puffyButtons when slim=false', () => {
+    it('configures AddonReviewManager without puffyButtons when slim=false', async () => {
       const review = signInAndDispatchSavedReview();
       render({ review, slim: false });
 
-      clickEditReview();
+      await clickEditReview();
 
       expect(
         screen.getByRole('button', { name: 'Update review' }),
@@ -965,12 +1009,12 @@ describe(__filename, () => {
       );
     });
 
-    it('hides the review form on cancel', () => {
+    it('hides the review form on cancel', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const review = signInAndDispatchSavedReview();
       render({ review });
 
-      clickEditReview();
+      await clickEditReview();
       userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
       expect(dispatch).toHaveBeenCalledWith(
@@ -980,20 +1024,22 @@ describe(__filename, () => {
       );
     });
 
-    it('hides the write review button when beginning to delete a rating', () => {
+    it('hides the write review button when beginning to delete a rating', async () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
       render({ review });
 
-      clickDeleteRating();
+      await clickDeleteRating();
 
-      expect(
-        screen.queryByRole('button', { name: 'Write a review' }),
-      ).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(
+          screen.queryByRole('button', { name: 'Write a review' }),
+        ).not.toBeInTheDocument(),
+      );
     });
 
-    it('hides the write review button for ratings when not logged in', () => {
+    it('hides the write review button for ratings when not logged in', async () => {
       const review = signInAndDispatchSavedReview({
         externalReview: fakeRatingOnly,
       });
@@ -1005,9 +1051,11 @@ describe(__filename, () => {
 
       store.dispatch(logOutUser());
 
-      expect(
-        screen.queryByRole('button', { name: 'Write a review' }),
-      ).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(
+          screen.queryByRole('button', { name: 'Write a review' }),
+        ).not.toBeInTheDocument(),
+      );
     });
 
     it('hides the write review button if the rating is not by the current user', () => {
@@ -1197,7 +1245,7 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
-    it('Allows a developer to edit a reply and hides the reply while editing it', () => {
+    it('Allows a developer to edit a reply and hides the reply while editing it', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const { review } = renderNestedReplyForSignedInDeveloper();
 
@@ -1213,9 +1261,11 @@ describe(__filename, () => {
         }),
       );
 
-      expect(
-        screen.queryByRole('heading', { name: 'Developer response' }),
-      ).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(
+          screen.queryByRole('heading', { name: 'Developer response' }),
+        ).not.toBeInTheDocument(),
+      );
     });
 
     it('does not include a user name in the byline', () => {
@@ -1238,7 +1288,7 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
-    it('allows a developer to delete a reply', () => {
+    it('allows a developer to delete a reply', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const { reply, review } = renderNestedReplyForSignedInDeveloper();
 
@@ -1249,7 +1299,7 @@ describe(__filename, () => {
       userEvent.click(screen.getByRole('button', { name: 'Delete reply' }));
 
       expect(
-        screen.getByText('Do you really want to delete this reply?'),
+        await screen.findByText('Do you really want to delete this reply?'),
       ).toBeInTheDocument();
 
       const button = screen.getByRole('button', {
@@ -1357,12 +1407,12 @@ describe(__filename, () => {
         'Flagged for inappropriate language',
       ],
       [REVIEW_FLAG_REASON_SPAM, 'This is spam', 'Flagged as spam'],
-    ])('can flag a review for %s', (reason, prompt, postText) => {
+    ])('can flag a review for %s', async (reason, prompt, postText) => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const review = createReviewAndSignInAsUnrelatedUser();
       render({ review });
 
-      openFlagMenu();
+      await openFlagMenu();
 
       const button = screen.getByRole('button', {
         name: prompt,
@@ -1383,18 +1433,18 @@ describe(__filename, () => {
 
       store.dispatch(setReviewWasFlagged({ reason, reviewId: review.id }));
 
-      expect(screen.getByText(postText)).toBeInTheDocument();
+      expect(await screen.findByText(postText)).toBeInTheDocument();
 
       expect(
         screen.getByRole('button', { name: 'Flag this review' }),
       ).toHaveTextContent('Flagged');
     });
 
-    it('renders loading text while in progress', () => {
+    it('renders loading text while in progress', async () => {
       const review = createReviewAndSignInAsUnrelatedUser();
       render({ review });
 
-      openFlagMenu();
+      await openFlagMenu();
       userEvent.click(
         screen.getByRole('button', {
           name: 'This is a bug report or support request',
@@ -1404,16 +1454,16 @@ describe(__filename, () => {
       );
 
       expect(
-        within(screen.getByRole('tooltip')).getByRole('alert'),
+        await within(screen.getByRole('tooltip')).findByRole('alert'),
       ).toBeInTheDocument();
     });
 
-    it('renders an error', () => {
+    it('renders an error', async () => {
       const message = 'Some error message';
       const review = createReviewAndSignInAsUnrelatedUser();
       render({ review });
 
-      openFlagMenu();
+      await openFlagMenu();
 
       createFailedErrorHandler({
         id: getErrorHandlerId(review.id),
@@ -1422,7 +1472,7 @@ describe(__filename, () => {
       });
 
       // A message is displayed for each instance of FlagReview.
-      expect(screen.getAllByText(message)).toHaveLength(3);
+      await waitFor(() => expect(screen.getAllByText(message)).toHaveLength(3));
 
       // It should still display a button so they can try again.
       expect(
@@ -1448,10 +1498,10 @@ describe(__filename, () => {
         expect(flagButton).toHaveClass('FlagReviewMenu-menu');
       });
 
-      it('requires you to be signed in', () => {
+      it('requires you to be signed in', async () => {
         render({ review: _setReview() });
 
-        openFlagMenu();
+        await openFlagMenu({ isLoggedIn: false });
 
         // Only the button item should be rendered.
         expect(
@@ -1464,21 +1514,21 @@ describe(__filename, () => {
         ).toBeInTheDocument();
       });
 
-      it('prompts you to flag a developer response after login', () => {
+      it('prompts you to flag a developer response after login', async () => {
         renderNestedReply();
 
-        openFlagMenu({ isReply: true });
+        await openFlagMenu({ isLoggedIn: false, isReply: true });
 
         expect(
           screen.getByRole('link', { name: 'Log in to flag this response' }),
         ).toBeInTheDocument();
       });
 
-      it('does not prompt you to flag a response as a bug/support', () => {
+      it('does not prompt you to flag a response as a bug/support', async () => {
         dispatchSignInActionsWithStore({ store, userId: 999 });
         renderNestedReply();
 
-        openFlagMenu({ isReply: true });
+        await openFlagMenu({ isReply: true });
 
         expect(
           screen.getByRole('button', { name: 'This is spam' }),
@@ -1586,11 +1636,11 @@ describe(__filename, () => {
   });
 
   describe('Tests for AddonReviewManagerRating', () => {
-    it('sets readOnly correctly when onSelectRating is defined', () => {
+    it('sets readOnly correctly when onSelectRating is defined', async () => {
       render({ review: signInAndDispatchSavedReview() });
 
       // AddonReviewManagerRating is rendered in edit mode.
-      clickEditReview();
+      await clickEditReview();
 
       expect(
         screen.getByTitle('Update your rating to 1 out of 5'),
@@ -1602,7 +1652,7 @@ describe(__filename, () => {
     const getErrorHandlerId = (reviewId) =>
       `src/amo/components/AddonReviewManager/index.js-${reviewId}`;
 
-    it('renders DismissibleTextForm text', () => {
+    it('renders DismissibleTextForm text', async () => {
       const body = 'This ad blocker add-on is easy on CPU';
       const review = signInAndDispatchSavedReview({
         externalReview: { ...fakeReview, body },
@@ -1610,7 +1660,7 @@ describe(__filename, () => {
       render({ review });
 
       // AddonReviewManager is rendered in edit mode.
-      clickEditReview();
+      await clickEditReview();
 
       expect(
         screen.getByPlaceholderText(
@@ -1619,10 +1669,10 @@ describe(__filename, () => {
       ).toHaveValue(body);
     });
 
-    it('renders a DismissibleTextForm formFooter', () => {
+    it('renders a DismissibleTextForm formFooter', async () => {
       render({ review: signInAndDispatchSavedReview() });
 
-      clickEditReview();
+      await clickEditReview();
 
       expect(
         screen.getByRole('link', { name: 'review guidelines' }),
@@ -1632,13 +1682,13 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
-    it('updates the rating when you select a star', () => {
+    it('updates the rating when you select a star', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const newScore = 4;
       const review = signInAndDispatchSavedReview({ score: 2 });
       render({ review });
 
-      clickEditReview();
+      await clickEditReview();
 
       userEvent.click(
         screen.getByRole('button', {
@@ -1655,7 +1705,7 @@ describe(__filename, () => {
       );
     });
 
-    it('updates the review body when you submit the form', () => {
+    it('updates the review body when you submit the form', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const newBody = 'I really like the colors of this add-on';
       const review = signInAndDispatchSavedReview({
@@ -1663,7 +1713,7 @@ describe(__filename, () => {
       });
       render({ review });
 
-      clickEditReview();
+      await clickEditReview();
 
       userEvent.type(
         screen.getByPlaceholderText(
@@ -1682,7 +1732,7 @@ describe(__filename, () => {
       );
     });
 
-    it('renders errors', () => {
+    it('renders errors', async () => {
       const message = 'Some error message';
       const review = signInAndDispatchSavedReview();
       createFailedErrorHandler({
@@ -1692,17 +1742,17 @@ describe(__filename, () => {
       });
       render({ review });
 
-      clickEditReview();
+      await clickEditReview();
 
       expect(screen.getByText(message)).toBeInTheDocument();
     });
 
-    it('flashes a saving rating message', () => {
+    it('flashes a saving rating message', async () => {
       // This is dispatched via a saga, so we need to dispatch it manually.
       store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
       render({ review: signInAndDispatchSavedReview() });
 
-      clickEditReview();
+      await clickEditReview();
 
       const flashMessage = screen.getByClassName(
         'AddonReviewManager-savedRating',
@@ -1715,12 +1765,12 @@ describe(__filename, () => {
       expect(flashMessage).not.toHaveClass('Notice');
     });
 
-    it('flashes a saved rating message', () => {
+    it('flashes a saved rating message', async () => {
       // This is dispatched via a saga, so we need to dispatch it manually.
       store.dispatch(flashReviewMessage(SAVED_RATING));
       render({ review: signInAndDispatchSavedReview() });
 
-      clickEditReview();
+      await clickEditReview();
 
       const flashMessage = screen.getByClassName(
         'AddonReviewManager-savedRating',
@@ -1731,52 +1781,52 @@ describe(__filename, () => {
       );
     });
 
-    it('hides a flashed rating message', () => {
+    it('hides a flashed rating message', async () => {
       // This is dispatched via a saga, so we need to dispatch it manually.
       // Set a message then hide it.
       store.dispatch(flashReviewMessage(SAVED_RATING));
       store.dispatch(hideFlashedReviewMessage());
       render({ review: signInAndDispatchSavedReview() });
 
-      clickEditReview();
+      await clickEditReview();
 
       expect(
         screen.getByClassName('AddonReviewManager-savedRating'),
       ).toHaveClass('RatingManagerNotice-savedRating-hidden');
     });
 
-    it('enters a submitting review state', () => {
+    it('enters a submitting review state', async () => {
       store.dispatch(flashReviewMessage(STARTED_SAVE_REVIEW));
       render({ review: signInAndDispatchSavedReview() });
 
-      clickEditReview();
+      await clickEditReview();
 
       expect(
         screen.getByRole('button', { name: 'Updating review' }),
       ).toHaveClass('Button--disabled');
     });
 
-    it('does not enter a submitting state by default', () => {
+    it('does not enter a submitting state by default', async () => {
       render({ review: signInAndDispatchSavedReview() });
 
-      clickEditReview();
+      await clickEditReview();
 
       expect(
         screen.getByRole('button', { name: 'Update review' }),
       ).toBeInTheDocument();
     });
 
-    it('passes a null review while saving a rating', () => {
+    it('passes a null review while saving a rating', async () => {
       store.dispatch(flashReviewMessage(STARTED_SAVE_RATING));
       render({ review: signInAndDispatchSavedReview() });
 
-      clickEditReview();
+      await clickEditReview();
 
       // A null rating will render Rating in a loading state.
       expect(screen.getByRole('alert')).toBeInTheDocument();
     });
 
-    it('allows one to submit a review when no review text exists yet', () => {
+    it('allows one to submit a review when no review text exists yet', async () => {
       const body = 'My review';
       const dispatch = jest.spyOn(store, 'dispatch');
       const review = signInAndDispatchSavedReview({
@@ -1785,9 +1835,11 @@ describe(__filename, () => {
       render({ review });
 
       userEvent.click(screen.getByRole('button', { name: 'Write a review' }));
-      expect(
-        screen.queryByRole('button', { name: 'Write a review' }),
-      ).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(
+          screen.queryByRole('button', { name: 'Write a review' }),
+        ).not.toBeInTheDocument(),
+      );
 
       userEvent.type(
         screen.getByPlaceholderText(
@@ -1805,9 +1857,11 @@ describe(__filename, () => {
       // manually.
       store.dispatch(flashReviewMessage(STARTED_SAVE_REVIEW));
 
-      expect(
-        screen.getByRole('button', { name: 'Submitting review' }),
-      ).toHaveClass('Button--disabled');
+      await waitFor(() =>
+        expect(
+          screen.getByRole('button', { name: 'Submitting review' }),
+        ).toHaveClass('Button--disabled'),
+      );
     });
 
     describe('extractId', () => {
