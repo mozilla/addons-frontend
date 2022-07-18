@@ -670,10 +670,10 @@ describe(__filename, () => {
         ).toBeInTheDocument();
       });
 
-      it('sends a tracking event when the button is clicked', () => {
+      it('sends a tracking event when the button is clicked', async () => {
         render();
 
-        userEvent.click(getFirefoxButton());
+        await userEvent.click(getFirefoxButton());
 
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(tracking.sendEvent).toHaveBeenCalledWith({
@@ -1155,11 +1155,9 @@ describe(__filename, () => {
           ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByRole('link', { name: 'Enable' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Enable' }));
 
-        await waitFor(() => {
-          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
-        });
+        expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
@@ -1189,18 +1187,18 @@ describe(__filename, () => {
           ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByRole('link', { name: 'Enable' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Enable' }));
 
-        await waitFor(() => {
-          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
-        });
+        expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
 
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallState({
-            guid: addon.guid,
-            status: ERROR,
-            error: FATAL_ERROR,
-          }),
+        await waitFor(() =>
+          expect(dispatch).toHaveBeenCalledWith(
+            setInstallState({
+              guid: addon.guid,
+              status: ERROR,
+              error: FATAL_ERROR,
+            }),
+          ),
         );
       });
 
@@ -1227,11 +1225,9 @@ describe(__filename, () => {
           ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByRole('link', { name: 'Enable' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Enable' }));
 
-        await waitFor(() => {
-          expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
-        });
+        expect(_addonManager.enable).toHaveBeenCalledWith(addon.guid);
 
         expect(dispatch).not.toHaveBeenCalledWith(
           setInstallState({
@@ -1257,15 +1253,13 @@ describe(__filename, () => {
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
-        userEvent.click(button);
+        await userEvent.click(button);
 
-        await waitFor(() => {
-          expect(_addonManager.install).toHaveBeenCalledWith(
-            addon.current_version.file.url,
-            expect.any(Function),
-            { hash: addon.current_version.file.hash },
-          );
-        });
+        expect(_addonManager.install).toHaveBeenCalledWith(
+          addon.current_version.file.url,
+          expect.any(Function),
+          { hash: addon.current_version.file.hash },
+        );
       });
 
       it('uses a version instead of the currentVersion when one exists in props', async () => {
@@ -1292,15 +1286,13 @@ describe(__filename, () => {
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
-        userEvent.click(button);
+        await userEvent.click(button);
 
-        await waitFor(() => {
-          expect(_addonManager.install).toHaveBeenCalledWith(
-            versionInstallURL,
-            expect.any(Function),
-            { hash: versionHash },
-          );
-        });
+        expect(_addonManager.install).toHaveBeenCalledWith(
+          versionInstallURL,
+          expect.any(Function),
+          { hash: versionHash },
+        );
       });
 
       it('tracks the start of an addon install', async () => {
@@ -1320,11 +1312,9 @@ describe(__filename, () => {
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
-        userEvent.click(button);
+        await userEvent.click(button);
 
-        await waitFor(() => {
-          expect(_addonManager.install).toHaveBeenCalled();
-        });
+        expect(_addonManager.install).toHaveBeenCalled();
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
@@ -1351,11 +1341,9 @@ describe(__filename, () => {
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
-        userEvent.click(button);
+        await userEvent.click(button);
 
-        await waitFor(() => {
-          expect(_addonManager.install).toHaveBeenCalled();
-        });
+        expect(_addonManager.install).toHaveBeenCalled();
 
         await waitFor(() =>
           expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2),
@@ -1393,11 +1381,9 @@ describe(__filename, () => {
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
-        userEvent.click(button);
+        await userEvent.click(button);
 
-        await waitFor(() => {
-          expect(_addonManager.install).toHaveBeenCalled();
-        });
+        expect(_addonManager.install).toHaveBeenCalled();
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
@@ -1425,11 +1411,9 @@ describe(__filename, () => {
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
-        userEvent.click(button);
+        await userEvent.click(button);
 
-        await waitFor(() => {
-          expect(_addonManager.install).toHaveBeenCalled();
-        });
+        expect(_addonManager.install).toHaveBeenCalled();
 
         await waitFor(() =>
           expect(fakeTracking.sendEvent).toHaveBeenCalledTimes(2),
@@ -1465,7 +1449,7 @@ describe(__filename, () => {
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
-        userEvent.click(button);
+        await userEvent.click(button);
 
         expect(dispatch).toHaveBeenCalledWith({
           type: START_DOWNLOAD,
@@ -1487,11 +1471,9 @@ describe(__filename, () => {
 
         await waitFor(() => expect(button).not.toHaveAttribute('disabled'));
 
-        userEvent.click(button);
+        await userEvent.click(button);
 
-        await waitFor(() => {
-          expect(_addonManager.install).toHaveBeenCalled();
-        });
+        expect(_addonManager.install).toHaveBeenCalled();
 
         await waitFor(() =>
           expect(dispatch).toHaveBeenCalledWith(
@@ -1516,11 +1498,9 @@ describe(__filename, () => {
           ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
-        await waitFor(() => {
-          expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
-        });
+        expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
 
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({ guid: addon.guid, status: UNINSTALLING }),
@@ -1544,20 +1524,20 @@ describe(__filename, () => {
           ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
-        await waitFor(() => {
-          expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
-        });
+        expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
 
         expect(dispatch).toHaveBeenCalledWith(
           setInstallState({ guid: addon.guid, status: UNINSTALLING }),
         );
-        expect(dispatch).toHaveBeenCalledWith(
-          setInstallError({
-            guid: addon.guid,
-            error: FATAL_UNINSTALL_ERROR,
-          }),
+        await waitFor(() =>
+          expect(dispatch).toHaveBeenCalledWith(
+            setInstallError({
+              guid: addon.guid,
+              error: FATAL_UNINSTALL_ERROR,
+            }),
+          ),
         );
       });
 
@@ -1574,11 +1554,9 @@ describe(__filename, () => {
           ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
-        await waitFor(() => {
-          expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
-        });
+        expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_EXTENSION),
@@ -1604,11 +1582,9 @@ describe(__filename, () => {
           ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
-        await waitFor(() => {
-          expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
-        });
+        expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME),
@@ -1634,11 +1610,9 @@ describe(__filename, () => {
           ).toBeInTheDocument();
         });
 
-        userEvent.click(screen.getByRole('link', { name: 'Remove' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Remove' }));
 
-        await waitFor(() => {
-          expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
-        });
+        expect(_addonManager.uninstall).toHaveBeenCalledWith(addon.guid);
 
         expect(fakeTracking.sendEvent).toHaveBeenCalledWith({
           action: TRACKING_TYPE_INVALID,

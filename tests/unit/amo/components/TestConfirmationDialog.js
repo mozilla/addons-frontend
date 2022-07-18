@@ -52,17 +52,21 @@ describe(__filename, () => {
     expect(confirmButton).not.toHaveClass('Button--puffy');
   });
 
-  it('calls onConfirm() when user clicks Confirm', () => {
+  it('calls onConfirm() when user clicks Confirm', async () => {
     const onConfirm = jest.fn();
     render({ onConfirm });
-    userEvent.click(screen.getByClassName('ConfirmationDialog-confirm-button'));
+    await userEvent.click(
+      screen.getByClassName('ConfirmationDialog-confirm-button'),
+    );
     expect(onConfirm).toHaveBeenCalled();
   });
 
-  it('calls onCancel() when user clicks Cancel', () => {
+  it('calls onCancel() when user clicks Cancel', async () => {
     const onCancel = jest.fn();
     render({ onCancel });
-    userEvent.click(screen.getByClassName('ConfirmationDialog-cancel-button'));
+    await userEvent.click(
+      screen.getByClassName('ConfirmationDialog-cancel-button'),
+    );
     expect(onCancel).toHaveBeenCalled();
   });
 

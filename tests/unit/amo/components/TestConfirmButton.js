@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ConfirmButton, { extractId } from 'amo/components/ConfirmButton';
@@ -31,12 +30,11 @@ describe(__filename, () => {
     render(otherProps);
 
     // Click to open ConfirmationDialog.
-    userEvent.click(
+    await userEvent.click(
       screen.getByRole('button', {
         name: defaultChildText,
       }),
     );
-    await waitFor(() => expect(screen.getAllByRole('button')).toHaveLength(2));
   };
 
   it('renders a button', () => {
@@ -71,13 +69,13 @@ describe(__filename, () => {
 
     expect(screen.queryByText('some warning message')).not.toBeInTheDocument();
 
-    userEvent.click(
+    await userEvent.click(
       screen.getByRole('button', {
         name: defaultChildText,
       }),
     );
 
-    expect(await screen.findByText('some warning message')).toBeInTheDocument();
+    expect(screen.getByText('some warning message')).toBeInTheDocument();
   });
 
   it('configures ConfirmationDialog', async () => {
@@ -115,16 +113,16 @@ describe(__filename, () => {
     const button = screen.getByRole('button', {
       name: defaultChildText,
     });
-    userEvent.click(button);
-    await waitFor(() => expect(button).not.toBeInTheDocument());
+    await userEvent.click(button);
+    expect(button).not.toBeInTheDocument();
   });
 
   it('hides ConfirmationDialog on cancel', async () => {
     await renderWithDialog();
 
-    userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    await waitFor(() => expect(screen.getAllByRole('button')).toHaveLength(1));
+    expect(screen.getAllByRole('button')).toHaveLength(1);
   });
 
   it('handles onConfirm callback and hides ConfirmationDialog on confirm', async () => {
@@ -133,9 +131,9 @@ describe(__filename, () => {
 
     expect(screen.getAllByRole('button')).toHaveLength(2);
 
-    userEvent.click(screen.getByRole('button', { name: 'Confirm' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Confirm' }));
 
-    await waitFor(() => expect(screen.getAllByRole('button')).toHaveLength(1));
+    expect(screen.getAllByRole('button')).toHaveLength(1);
     expect(onConfirm).toHaveBeenCalled();
   });
 

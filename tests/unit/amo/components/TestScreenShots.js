@@ -32,7 +32,7 @@ describe(__filename, () => {
   const render = (previews = testPreviews) =>
     defaultRender(<ScreenShots previews={previews} />);
 
-  it('renders the previews', () => {
+  it('renders the previews', async () => {
     render();
 
     const imgs = Array.from(screen.getAllByTagName('img'));
@@ -51,7 +51,7 @@ describe(__filename, () => {
       expect(preview).toHaveAttribute('alt', testPreviews[index].title);
     });
 
-    userEvent.click(screen.getByAltText(testPreviews[0].title));
+    await userEvent.click(screen.getByAltText(testPreviews[0].title));
 
     // Verifying the output of PHOTO_SWIPE_OPTIONS.
     // closeEl: true,
@@ -96,19 +96,25 @@ describe(__filename, () => {
   Commenting this out for now.
   See https://github.com/mozilla/addons-frontend/issues/11482.
 
-  it('scrolls to the active item on close', () => {
+  it('scrolls to the active item on close', async () => {
     const { unmount } = render();
-
+    
     // eslint-disable-next-line testing-library/no-node-access
     const list = document.querySelector('.ScreenShots-list');
     const scrollLeft = jest.spyOn(list, 'scrollLeft', 'set');
-
-    userEvent.click(screen.getByAltText(testPreviews[0].title));
-    userEvent.keyboard('[Escape]');
-    userEvent.keyboard('{esc}');
+    
+    // This clicks the Escape key.
+    fireEvent.keyDown(screen.getByAltText(testPreviews[0].title), {
+      key: 'Escape',
+      keyCode: 27,
+      which: 27,
+    });
+    await userEvent.click(screen.getByAltText(testPreviews[0].title));
+    await userEvent.keyboard('[Escape]');
+    await userEvent.keyboard('{esc}');
     unmount();
-
-    expect(scrollLeft).toHaveBeenCalled();
+    
+    await waitFor(() => expect(scrollLeft).toHaveBeenCalled());
   });
   */
 });

@@ -713,14 +713,14 @@ describe(__filename, () => {
     expect(card).not.toHaveClass('ShowMoreCard--expanded');
 
     // Click the link to expand the ShowMoreCard.
-    userEvent.click(
+    await userEvent.click(
       within(card).getByRole('link', {
         name: 'Expand to read more',
       }),
     );
 
     // It should be expanded now.
-    await waitFor(() => expect(card).toHaveClass('ShowMoreCard--expanded'));
+    expect(card).toHaveClass('ShowMoreCard--expanded');
 
     // Update with the same version id, which should change nothing.
     _loadAddon();
@@ -891,7 +891,7 @@ describe(__filename, () => {
     ).toBeInTheDocument();
   });
 
-  it('configures the RatingManager', () => {
+  it('configures the RatingManager', async () => {
     dispatchSignInActionsWithStore({ store, userId: authorUserId });
     store.dispatch(
       setLatestReview({
@@ -903,7 +903,7 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithAddon();
 
-    userEvent.click(screen.getByTitle('Rate this add-on 1 out of 5'));
+    await userEvent.click(screen.getByTitle('Rate this add-on 1 out of 5'));
 
     expect(dispatch).toHaveBeenCalledWith(
       createAddonReview({
@@ -1764,11 +1764,9 @@ describe(__filename, () => {
       renderWithAddon();
       tracking.sendEvent.mockClear();
 
-      userEvent.click(screen.getByTitle(url));
+      await userEvent.click(screen.getByTitle(url));
 
-      await waitFor(() => {
-        expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
-      });
+      expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
       expect(tracking.sendEvent).toHaveBeenCalledWith({
         action: CONTRIBUTE_BUTTON_CLICK_ACTION,
         category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,

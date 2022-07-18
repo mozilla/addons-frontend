@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createEvent, fireEvent, waitFor } from '@testing-library/react';
+import { createEvent, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {
@@ -320,28 +320,27 @@ describe(__filename, () => {
     it('allows a user to delete a review', async () => {
       renderWithReview();
 
-      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
-
-      // eslint-disable-next-line testing-library/prefer-find-by
-      await waitFor(() =>
-        expect(
-          screen.getByTextAcrossTags(
-            `Are you sure you want to delete your review of ${defaultAddonName}?`,
-          ),
-        ).toBeInTheDocument(),
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Delete review' }),
       );
+
+      expect(
+        screen.getByTextAcrossTags(
+          `Are you sure you want to delete your review of ${defaultAddonName}?`,
+        ),
+      ).toBeInTheDocument();
 
       // This verifies that AddonReviewManagerRating receives the expected
       // rating from RatingManager.
       expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6);
 
-      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Delete review' }),
+      );
 
       // This verifies that AddonReviewManagerRating receives the expected
       // rating from RatingManager while a deletion is happening.
-      await waitFor(() =>
-        expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6),
-      );
+      expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6);
     });
 
     it('prompts to delete a rating when beginningToDeleteReview', async () => {
@@ -353,31 +352,29 @@ describe(__filename, () => {
         },
       });
 
-      userEvent.click(screen.getByRole('button', { name: 'Delete rating' }));
-
-      // eslint-disable-next-line testing-library/prefer-find-by
-      await waitFor(() =>
-        expect(
-          screen.getByTextAcrossTags(
-            `Are you sure you want to delete your rating of ${defaultAddonName}?`,
-          ),
-        ).toBeInTheDocument(),
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Delete rating' }),
       );
+
+      expect(
+        screen.getByTextAcrossTags(
+          `Are you sure you want to delete your rating of ${defaultAddonName}?`,
+        ),
+      ).toBeInTheDocument();
     });
 
     it('still prompts to delete a review while deletingReview', async () => {
       renderWithReview();
 
-      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
-
-      // eslint-disable-next-line testing-library/prefer-find-by
-      await waitFor(() =>
-        expect(
-          screen.getByTextAcrossTags(
-            `Are you sure you want to delete your review of ${defaultAddonName}?`,
-          ),
-        ).toBeInTheDocument(),
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Delete review' }),
       );
+
+      expect(
+        screen.getByTextAcrossTags(
+          `Are you sure you want to delete your review of ${defaultAddonName}?`,
+        ),
+      ).toBeInTheDocument();
     });
 
     it('shows AddonReviewCard with a saved review', () => {
@@ -395,40 +392,28 @@ describe(__filename, () => {
         screen.getByClassName('RatingManager-UserRating'),
       ).toBeInTheDocument();
 
-      userEvent.click(screen.getByRole('link', { name: 'Edit review' }));
+      await userEvent.click(screen.getByRole('link', { name: 'Edit review' }));
 
-      await waitFor(() =>
-        expect(
-          screen.queryByClassName('RatingManager-legend'),
-        ).not.toBeInTheDocument(),
-      );
-      await waitFor(() =>
-        expect(
-          screen.queryByClassName('RatingManager-UserRating'),
-        ).not.toBeInTheDocument(),
-      );
+      expect(
+        screen.queryByClassName('RatingManager-legend'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByClassName('RatingManager-UserRating'),
+      ).not.toBeInTheDocument();
 
-      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-      // eslint-disable-next-line testing-library/prefer-find-by
-      await waitFor(() =>
-        expect(
-          screen.getByClassName('RatingManager-legend'),
-        ).toBeInTheDocument(),
-      );
-      // eslint-disable-next-line testing-library/prefer-find-by
-      await waitFor(() =>
-        expect(
-          screen.getByClassName('RatingManager-UserRating'),
-        ).toBeInTheDocument(),
-      );
+      expect(screen.getByClassName('RatingManager-legend')).toBeInTheDocument();
+      expect(
+        screen.getByClassName('RatingManager-UserRating'),
+      ).toBeInTheDocument();
     });
 
-    it('submits a new rating', () => {
+    it('submits a new rating', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const { addon } = renderWithReview({ review: null });
 
-      userEvent.click(screen.getByTitle('Rate this add-on 1 out of 5'));
+      await userEvent.click(screen.getByTitle('Rate this add-on 1 out of 5'));
 
       expect(dispatch).toHaveBeenCalledWith(
         createAddonReview({
@@ -440,11 +425,11 @@ describe(__filename, () => {
       );
     });
 
-    it('updates an existing rating', () => {
+    it('updates an existing rating', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const { review } = renderWithReview();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', {
           name: 'Update your rating to 1 out of 5',
         }),
@@ -529,22 +514,20 @@ describe(__filename, () => {
 
       expect(preventDefaultWatcher).toHaveBeenCalled();
 
-      userEvent.type(
+      await userEvent.type(
         screen.getByPlaceholderText(
           'Explain how this add-on is violating our policies.',
         ),
         message,
       );
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Send abuse report' }),
       );
 
-      await waitFor(() =>
-        expect(
-          screen.getByRole('button', { name: 'Sending abuse report' }),
-        ).toHaveClass('Button--disabled'),
-      );
+      expect(
+        screen.getByRole('button', { name: 'Sending abuse report' }),
+      ).toHaveClass('Button--disabled');
 
       expect(dispatch).toHaveBeenCalledWith(
         sendAddonAbuseReport({
@@ -554,35 +537,29 @@ describe(__filename, () => {
         }),
       );
 
-      userEvent.click(screen.getByRole('button', { name: 'Dismiss' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Dismiss' }));
 
       // Dismiss should have been ignored.
-      await waitFor(() =>
-        expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
-          'ReportAbuseButton--is-expanded',
-        ),
+      expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
+        'ReportAbuseButton--is-expanded',
       );
     });
 
     it('hides the form when Dismiss is clicked', async () => {
       render();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Report this add-on for abuse' }),
       );
 
-      await waitFor(() =>
-        expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
-          'ReportAbuseButton--is-expanded',
-        ),
+      expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
+        'ReportAbuseButton--is-expanded',
       );
 
-      userEvent.click(screen.getByRole('button', { name: 'Dismiss' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Dismiss' }));
 
-      await waitFor(() =>
-        expect(screen.getByClassName('ReportAbuseButton')).not.toHaveClass(
-          'ReportAbuseButton--is-expanded',
-        ),
+      expect(screen.getByClassName('ReportAbuseButton')).not.toHaveClass(
+        'ReportAbuseButton--is-expanded',
       );
     });
 
@@ -630,16 +607,14 @@ describe(__filename, () => {
         const dispatch = jest.spyOn(store, 'dispatch');
         render({ addon });
 
-        userEvent.click(
+        await userEvent.click(
           screen.getByRole('button', {
             name: 'Report this add-on for abuse',
           }),
         );
 
-        await waitFor(() =>
-          expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
-            'ReportAbuseButton--is-expanded',
-          ),
+        expect(screen.getByClassName('ReportAbuseButton')).toHaveClass(
+          'ReportAbuseButton--is-expanded',
         );
 
         expect(dispatch).not.toHaveBeenCalledWith(
@@ -705,15 +680,15 @@ describe(__filename, () => {
       ).not.toHaveClass('Button--disabled');
     });
 
-    it('does not allow dispatch if there is no content in the textarea', () => {
+    it('does not allow dispatch if there is no content in the textarea', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Report this add-on for abuse' }),
       );
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Send abuse report' }),
       );
 
@@ -725,22 +700,22 @@ describe(__filename, () => {
       );
     });
 
-    it('does not allow dispatch if textarea is whitespace', () => {
+    it('does not allow dispatch if textarea is whitespace', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Report this add-on for abuse' }),
       );
 
-      userEvent.type(
+      await userEvent.type(
         screen.getByPlaceholderText(
           'Explain how this add-on is violating our policies.',
         ),
         '     ',
       );
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Send abuse report' }),
       );
 
@@ -772,24 +747,24 @@ describe(__filename, () => {
       // The AddonReviewManagerRating is only rendered when the "Delete review"
       // dialog is open, and it is assigned a custom className by
       // RatingManager.
-      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Delete review' }),
+      );
 
-      await waitFor(() =>
-        expect(screen.getByClassName('AddonReviewManagerRating')).toHaveClass(
-          'RatingManager-AddonReviewManagerRating',
-        ),
+      expect(screen.getByClassName('AddonReviewManagerRating')).toHaveClass(
+        'RatingManager-AddonReviewManagerRating',
       );
     });
 
     it('sets readOnly correctly when onSelectRating is undefined', async () => {
       renderWithReview();
 
-      userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Delete review' }),
+      );
 
       // When Rating is in readOnly mode, the title for all stars is as below.
-      await waitFor(() =>
-        expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6),
-      );
+      expect(screen.getAllByTitle('Rated 3 out of 5')).toHaveLength(6);
     });
   });
 });

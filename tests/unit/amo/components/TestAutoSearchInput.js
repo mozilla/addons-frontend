@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import AutoSearchInput, {
@@ -62,8 +61,11 @@ describe(__filename, () => {
     );
   };
 
-  const typeInSearch = (term = '') =>
-    userEvent.type(screen.getByRole('searchbox'), `{selectall}{del}${term}`);
+  const typeInSearch = async (term = '') => {
+    const input = screen.getByRole('searchbox');
+    await userEvent.clear(input);
+    await userEvent.type(input, term);
+  };
 
   describe('search input', () => {
     it('renders an initial query', () => {
@@ -93,7 +95,7 @@ describe(__filename, () => {
         location: `/?${defaultInputName}=${query}`,
       });
 
-      typeInSearch(typedQuery);
+      await typeInSearch(typedQuery);
 
       expect(screen.getByRole('searchbox')).toHaveValue(typedQuery);
 
@@ -121,50 +123,50 @@ describe(__filename, () => {
       expect(screen.getByRole('searchbox')).toHaveAttribute('name', inputName);
     });
 
-    it('handles submitting a search', () => {
+    it('handles submitting a search', async () => {
       const onSearch = jest.fn();
       render({ onSearch });
 
       const query = 'panda themes';
-      typeInSearch(query);
+      await typeInSearch(query);
 
-      userEvent.click(screen.getByRole('button', { name: 'Search' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Search' }));
       expect(onSearch).toHaveBeenCalledWith({
         query,
       });
     });
 
-    it('trims spaces from the input', () => {
+    it('trims spaces from the input', async () => {
       const onSearch = jest.fn();
       render({ onSearch });
 
       const query = 'panda themes';
-      typeInSearch('     ');
+      await typeInSearch('     ');
 
-      userEvent.click(screen.getByRole('button', { name: 'Search' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Search' }));
 
       expect(onSearch).toHaveBeenCalledWith({ query: '' });
 
       onSearch.mockClear();
 
-      typeInSearch(`   ${query}   `);
+      await typeInSearch(`   ${query}   `);
 
-      userEvent.click(screen.getByRole('button', { name: 'Search' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Search' }));
 
       expect(onSearch).toHaveBeenCalledWith({ query });
     });
 
-    it('blurs the input when submitting a search', () => {
+    it('blurs the input when submitting a search', async () => {
       render();
 
       const query = 'panda themes';
-      typeInSearch(query);
+      await typeInSearch(query);
 
       // eslint-disable-next-line testing-library/no-node-access
       const inputElement = document.getElementById('AutoSearchInput-query');
       const blur = jest.spyOn(inputElement, 'blur');
 
-      userEvent.click(screen.getByRole('button', { name: 'Search' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Search' }));
 
       expect(blur).toHaveBeenCalled();
     });
@@ -190,12 +192,12 @@ describe(__filename, () => {
   });
 
   describe('fetching search suggestions', () => {
-    it('fetches search suggestions', () => {
+    it('fetches search suggestions', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const query = 'ad blocker';
       render();
 
-      typeInSearch(query);
+      await typeInSearch(query);
 
       expect(dispatch).toHaveBeenCalledWith(
         autocompleteStart({
@@ -205,12 +207,12 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches suggestions without a page', () => {
+    it('fetches suggestions without a page', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const query = 'ad blocker';
       render({ location: '/?page=3' });
 
-      typeInSearch(query);
+      await typeInSearch(query);
 
       expect(dispatch).toHaveBeenCalledWith(
         autocompleteStart({
@@ -221,12 +223,12 @@ describe(__filename, () => {
       );
     });
 
-    it('does not pass a `random` sort filter', () => {
+    it('does not pass a `random` sort filter', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const query = 'ad blocker';
       render({ location: `/?sort=${SEARCH_SORT_RANDOM}` });
 
-      typeInSearch(query);
+      await typeInSearch(query);
 
       expect(dispatch).toHaveBeenCalledWith(
         autocompleteStart({
@@ -237,13 +239,13 @@ describe(__filename, () => {
       );
     });
 
-    it('does pass a sort filter that is not `random`', () => {
+    it('does pass a sort filter that is not `random`', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const query = 'ad blocker';
       const sort = SEARCH_SORT_POPULAR;
       render({ location: `/?sort=${sort}` });
 
-      typeInSearch(query);
+      await typeInSearch(query);
 
       expect(dispatch).toHaveBeenCalledWith(
         autocompleteStart({
@@ -253,13 +255,13 @@ describe(__filename, () => {
       );
     });
 
-    it('preserves existing search filters on the query string', () => {
+    it('preserves existing search filters on the query string', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const query = 'ad blocker';
       const type = ADDON_TYPE_EXTENSION;
       render({ location: `/?type=${type}` });
 
-      typeInSearch(query);
+      await typeInSearch(query);
 
       expect(dispatch).toHaveBeenCalledWith(
         autocompleteStart({
@@ -269,11 +271,11 @@ describe(__filename, () => {
       );
     });
 
-    it('does not fetch suggestions for a really short value', () => {
+    it('does not fetch suggestions for a really short value', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
-      typeInSearch('t'.repeat(SEARCH_TERM_MIN_LENGTH - 1));
+      await typeInSearch('t'.repeat(SEARCH_TERM_MIN_LENGTH - 1));
 
       expect(dispatch).toHaveBeenCalledWith(autocompleteCancel());
       expect(dispatch).not.toHaveBeenCalledWith(
@@ -288,7 +290,7 @@ describe(__filename, () => {
       });
       render();
 
-      typeInSearch('panda themes');
+      await typeInSearch('panda themes');
 
       expect(screen.getByClassName('AutoSearchInput')).toHaveClass(
         'AutoSearchInput--autocompleteIsOpen',
@@ -303,11 +305,11 @@ describe(__filename, () => {
       render();
 
       // We need to type in the search field to show results.
-      typeInSearch('something');
+      await typeInSearch('something');
       // Tab away from search field.
-      userEvent.tab();
+      await userEvent.tab();
       // Tab back to search field.
-      userEvent.tab({ shift: true });
+      await userEvent.tab({ shift: true });
 
       expect(screen.getByClassName('AutoSearchInput')).toHaveClass(
         'AutoSearchInput--autocompleteIsOpen',
@@ -324,26 +326,26 @@ describe(__filename, () => {
       render();
 
       // We need to type in the search field to show results.
-      typeInSearch('something');
+      await typeInSearch('something');
       expect(screen.getByClassName('AutoSearchInput')).toHaveClass(
         'AutoSearchInput--autocompleteIsOpen',
       );
 
       // Typing escape should close the menu.
-      typeInSearch('{esc}');
+      await typeInSearch('{esc}');
       expect(screen.getByClassName('AutoSearchInput')).not.toHaveClass(
         'AutoSearchInput--autocompleteIsOpen',
       );
     });
 
-    it('cancels pending requests on autosuggest cancel', () => {
+    it('cancels pending requests on autosuggest cancel', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
-      typeInSearch('something');
+      await typeInSearch('something');
       dispatch.mockClear();
 
-      typeInSearch('{esc}');
+      await typeInSearch('{esc}');
       expect(dispatch).toHaveBeenCalledWith(autocompleteCancel());
     });
   });
@@ -354,18 +356,18 @@ describe(__filename, () => {
       const onSuggestionSelected = jest.fn();
       render({ onSuggestionSelected });
 
-      typeInSearch('test');
+      await typeInSearch('test');
 
       await dispatchAutocompleteResults({ results: [fakeResult], store });
 
-      userEvent.click(screen.getByRole('option'));
+      await userEvent.click(screen.getByRole('option'));
 
       expect(onSuggestionSelected).toHaveBeenCalledWith(
         createInternalSuggestionWithLang(fakeResult),
       );
     });
 
-    it('does not execute callback when selecting a placeholder', () => {
+    it('does not execute callback when selecting a placeholder', async () => {
       const onSuggestionSelected = jest.fn();
       store.dispatch(
         autocompleteStart({
@@ -375,9 +377,9 @@ describe(__filename, () => {
       );
       render({ onSuggestionSelected });
 
-      typeInSearch('test');
+      await typeInSearch('test');
 
-      userEvent.click(screen.getAllByRole('option')[0]);
+      await userEvent.click(screen.getAllByRole('option')[0]);
 
       expect(onSuggestionSelected).not.toHaveBeenCalled();
     });
@@ -385,19 +387,17 @@ describe(__filename, () => {
     it('closes suggestion menu when selecting a suggestion', async () => {
       render();
 
-      typeInSearch('test');
+      await typeInSearch('test');
 
       await dispatchAutocompleteResults({
         results: [createFakeAutocompleteResult()],
         store,
       });
 
-      userEvent.click(screen.getByRole('option'));
+      await userEvent.click(screen.getByRole('option'));
 
-      await waitFor(() =>
-        expect(screen.getByClassName('AutoSearchInput')).not.toHaveClass(
-          'AutoSearchInput--autocompleteIsOpen',
-        ),
+      expect(screen.getByClassName('AutoSearchInput')).not.toHaveClass(
+        'AutoSearchInput--autocompleteIsOpen',
       );
     });
 
@@ -405,7 +405,7 @@ describe(__filename, () => {
       const query = 'test';
       render();
 
-      typeInSearch(query);
+      await typeInSearch(query);
       expect(screen.getByRole('searchbox')).toHaveValue(query);
 
       await dispatchAutocompleteResults({
@@ -413,11 +413,9 @@ describe(__filename, () => {
         store,
       });
 
-      userEvent.click(screen.getByRole('option'));
+      await userEvent.click(screen.getByRole('option'));
 
-      await waitFor(() =>
-        expect(screen.getByRole('searchbox')).toHaveValue(''),
-      );
+      expect(screen.getByRole('searchbox')).toHaveValue('');
     });
   });
 
@@ -432,7 +430,7 @@ describe(__filename, () => {
     });
     render({ selectSuggestionText });
 
-    typeInSearch('test');
+    await typeInSearch('test');
 
     await dispatchAutocompleteResults({ results: [fakeResult], store });
 
@@ -460,7 +458,7 @@ describe(__filename, () => {
       const secondResult = createFakeAutocompleteResult({ name: secondName });
       render();
 
-      typeInSearch('test');
+      await typeInSearch('test');
 
       await dispatchAutocompleteResults({
         results: [firstResult, secondResult],
@@ -473,7 +471,7 @@ describe(__filename, () => {
       expect(screen.getByAltText(secondName)).toBeInTheDocument();
     });
 
-    it('configures search suggestions in a loading state', () => {
+    it('configures search suggestions in a loading state', async () => {
       store.dispatch(
         autocompleteStart({
           errorHandlerId,
@@ -483,7 +481,7 @@ describe(__filename, () => {
 
       render();
 
-      typeInSearch('test');
+      await typeInSearch('test');
 
       // Exactly 10 placeholders are returned.
       expect(screen.getAllByRole('alert')).toHaveLength(10);
@@ -519,7 +517,7 @@ describe(__filename, () => {
       });
       render();
 
-      typeInSearch('test');
+      await typeInSearch('test');
 
       await dispatchAutocompleteResults({ results: [result], store });
 
@@ -530,7 +528,7 @@ describe(__filename, () => {
       const result = createFakeAutocompleteResult({ promoted: null });
       render();
 
-      typeInSearch('test');
+      await typeInSearch('test');
 
       await dispatchAutocompleteResults({ results: [result], store });
 

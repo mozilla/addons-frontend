@@ -115,14 +115,14 @@ describe(__filename, () => {
     expect(preventDefaultWatcher).toHaveBeenCalled();
   });
 
-  it('updates the location on handleLogIn', () => {
+  it('updates the location on handleLogIn', async () => {
     const location = '/some/location/';
     const mockLoginURL = '/some/login/';
     const startLoginUrl = jest.spyOn(api, 'startLoginUrl');
     startLoginUrl.mockReturnValue(mockLoginURL);
     render({ location });
 
-    userEvent.click(screen.getByRole('link', { name: 'Log in' }));
+    await userEvent.click(screen.getByRole('link', { name: 'Log in' }));
 
     expect(startLoginUrl).toHaveBeenCalledWith({
       location: expect.objectContaining({ pathname: location }),
@@ -130,16 +130,18 @@ describe(__filename, () => {
     expect(window.location.assign).toHaveBeenCalledWith(mockLoginURL);
   });
 
-  it('calls logOutFromServer on handleLogOut', () => {
+  it('calls logOutFromServer on handleLogOut', async () => {
     const logOutFromServer = jest.spyOn(api, 'logOutFromServer');
     logOutFromServer.mockResolvedValue(true);
     dispatchSignInActionsWithStore({ store });
     render();
 
-    userEvent.click(screen.getByRole('link', { name: 'Log out' }));
+    const apiStateBeforeLogout = store.getState().api;
+
+    await userEvent.click(screen.getByRole('link', { name: 'Log out' }));
 
     expect(logOutFromServer).toHaveBeenCalledWith({
-      api: store.getState().api,
+      api: apiStateBeforeLogout,
     });
   });
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createEvent, fireEvent, waitFor } from '@testing-library/react';
+import { createEvent, fireEvent } from '@testing-library/react';
 
 import AMInstallButton from 'amo/components/AMInstallButton';
 import {
@@ -162,9 +162,7 @@ describe(__filename, () => {
 
     await fireEvent(button, clickEvent);
 
-    await waitFor(() => {
-      expect(install).toHaveBeenCalledTimes(1);
-    });
+    expect(install).toHaveBeenCalledTimes(1);
     expect(enable).not.toHaveBeenCalled();
     expect(preventDefaultWatcher).toHaveBeenCalled();
     expect(stopPropagationWatcher).toHaveBeenCalled();

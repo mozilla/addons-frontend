@@ -1,11 +1,6 @@
 import * as React from 'react';
 import userEvent from '@testing-library/user-event';
-import {
-  cleanup,
-  createEvent,
-  fireEvent,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, createEvent, fireEvent } from '@testing-library/react';
 
 import Rating from 'amo/components/Rating';
 import { fakeI18n, render as defaultRender, screen } from 'tests/unit/helpers';
@@ -41,9 +36,9 @@ describe(__filename, () => {
     return screen.getByClassName(`Rating-rating-${rating}`);
   };
 
-  const selectRating = (ratingNumber) => {
+  const selectRating = async (ratingNumber) => {
     const star = getStarButton({ rating: ratingNumber });
-    userEvent.click(star);
+    await userEvent.click(star);
   };
 
   it('classifies as editable by default', () => {
@@ -76,17 +71,20 @@ describe(__filename, () => {
     );
   });
 
-  it.each([1, 2, 3, 4, 5])('lets you select a %s star rating', (rating) => {
-    const onSelectRating = jest.fn();
-    renderWithEmptyRating({ onSelectRating });
-    selectRating(rating);
-    expect(onSelectRating).toHaveBeenCalledWith(rating);
-  });
+  it.each([1, 2, 3, 4, 5])(
+    'lets you select a %s star rating',
+    async (rating) => {
+      const onSelectRating = jest.fn();
+      renderWithEmptyRating({ onSelectRating });
+      await selectRating(rating);
+      expect(onSelectRating).toHaveBeenCalledWith(rating);
+    },
+  );
 
-  it('does not let you select a star while loading', () => {
+  it('does not let you select a star while loading', async () => {
     const onSelectRating = jest.fn();
     render({ onSelectRating, rating: undefined });
-    selectRating(1);
+    await selectRating(1);
     expect(onSelectRating).not.toHaveBeenCalled();
   });
 
@@ -236,14 +234,12 @@ describe(__filename, () => {
     renderWithEmptyRating();
 
     const hoverStar = getStarButton({ rating: 4 });
-    userEvent.hover(hoverStar);
+    await userEvent.hover(hoverStar);
 
     // The first 4 should be selected:
     for (const star of [1, 2, 3, 4]) {
-      await waitFor(() =>
-        expect(getStarButton({ rating: star })).toHaveClass(
-          'Rating-selected-star',
-        ),
+      expect(getStarButton({ rating: star })).toHaveClass(
+        'Rating-selected-star',
       );
     }
 
@@ -258,53 +254,51 @@ describe(__filename, () => {
     render({ rating: currentRating });
 
     const hoverStar = getStarButton({ currentRating, rating: 1 });
-    userEvent.hover(hoverStar);
+    await userEvent.hover(hoverStar);
 
-    await waitFor(() =>
-      expect(
-        getStarButton({ currentRating, rating: currentRating }),
-      ).not.toHaveClass('Rating-selected-star'),
-    );
+    expect(
+      getStarButton({ currentRating, rating: currentRating }),
+    ).not.toHaveClass('Rating-selected-star');
   });
 
-  it('finishes hovering on mouseLeave', () => {
+  it('finishes hovering on mouseLeave', async () => {
     renderWithEmptyRating();
 
     const rating = 3;
     const hoverStar = getStarButton({ rating });
-    userEvent.hover(hoverStar);
-    userEvent.unhover(hoverStar);
+    await userEvent.hover(hoverStar);
+    await userEvent.unhover(hoverStar);
 
     expect(getStarButton({ rating })).not.toHaveClass('Rating-selected-star');
   });
 
   describe('readOnly=true', () => {
-    it('prevents you from selecting ratings', () => {
+    it('prevents you from selecting ratings', async () => {
       const onSelectRating = jest.fn();
       renderWithRating({ onSelectRating, readOnly: true });
       const star = getStar({ rating: 1 });
-      userEvent.click(star);
+      await userEvent.click(star);
       expect(onSelectRating).not.toHaveBeenCalled();
     });
 
-    it('does nothing when you hover over stars', () => {
+    it('does nothing when you hover over stars', async () => {
       const _setState = jest.fn();
       renderWithRating({ readOnly: true, _setState });
 
       const rating = 3;
       const hoverStar = getStar({ rating });
-      userEvent.hover(hoverStar);
+      await userEvent.hover(hoverStar);
       expect(_setState).not.toHaveBeenCalled();
     });
 
-    it('does nothing when finishing a hover action', () => {
+    it('does nothing when finishing a hover action', async () => {
       const _setState = jest.fn();
       renderWithRating({ readOnly: true, _setState });
 
       const rating = 3;
       const hoverStar = getStar({ rating });
-      userEvent.hover(hoverStar);
-      userEvent.unhover(hoverStar);
+      await userEvent.hover(hoverStar);
+      await userEvent.unhover(hoverStar);
       expect(_setState).not.toHaveBeenCalled();
     });
 
