@@ -1,6 +1,5 @@
 /* eslint-disable  react/prop-types, max-classes-per-file */
 import * as React from 'react';
-import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import withUIState, { generateId } from 'amo/withUIState';
@@ -64,13 +63,13 @@ describe(__filename, () => {
       render();
 
       // Test that closing the overlay is hooked up to uiState.
-      userEvent.click(screen.getByRole('button', { name: buttonText }));
+      await userEvent
+        .setup()
+        .click(screen.getByRole('button', { name: buttonText }));
 
-      await waitFor(() =>
-        expect(
-          screen.queryByRole('button', { name: buttonText }),
-        ).not.toBeInTheDocument(),
-      );
+      expect(
+        screen.queryByRole('button', { name: buttonText }),
+      ).not.toBeInTheDocument();
     });
 
     const propValue = 'Some prop from state';

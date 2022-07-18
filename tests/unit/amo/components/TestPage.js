@@ -2,7 +2,7 @@
 import config from 'config';
 import * as React from 'react';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import { logOutFromServer } from 'amo/api';
@@ -67,6 +67,7 @@ jest.mock('amo/api', () => ({
 
 describe(__filename, () => {
   let store;
+  let userEvent;
 
   const savedLocation = window.location;
 
@@ -78,6 +79,7 @@ describe(__filename, () => {
   beforeEach(() => {
     store = dispatchClientMetadata().store;
     delete window.location;
+    userEvent = defaultUserEvent.setup();
   });
 
   // We need to mock window.matchMedia or the code for the dropdown menu
@@ -328,10 +330,12 @@ describe(__filename, () => {
         ).toHaveAttribute('href', expectedHref);
       });
 
-      it('sends a tracking event when the button is clicked', () => {
+      it('sends a tracking event when the button is clicked', async () => {
         render(props);
 
-        userEvent.click(screen.getByRole('link', { name: 'download Firefox' }));
+        await userEvent.click(
+          screen.getByRole('link', { name: 'download Firefox' }),
+        );
 
         expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
         expect(tracking.sendEvent).toHaveBeenCalledWith({
@@ -340,10 +344,10 @@ describe(__filename, () => {
         });
       });
 
-      it('sends a tracking event when the banner is dismissed', () => {
+      it('sends a tracking event when the banner is dismissed', async () => {
         render(props);
 
-        userEvent.click(
+        await userEvent.click(
           screen.getByRole('button', { name: 'Dismiss this notice' }),
         );
 
@@ -472,14 +476,15 @@ describe(__filename, () => {
       );
     });
 
-    it('allows a signed-in user to log out', () => {
+    it('allows a signed-in user to log out', async () => {
       _dispatchSignInActions();
       render();
 
-      userEvent.click(screen.getByText('Log out'));
+      const apiStateBeforeLogout = store.getState().api;
+      await userEvent.click(screen.getByText('Log out'));
 
       expect(logOutFromServer).toHaveBeenCalledWith({
-        api: store.getState().api,
+        api: apiStateBeforeLogout,
       });
     });
 
@@ -872,12 +877,12 @@ describe(__filename, () => {
       ).toHaveValue('fr');
     });
 
-    it('changes the language in the URL on change', () => {
+    it('changes the language in the URL on change', async () => {
       store = dispatchClientMetadata({ lang: 'fr' }).store;
       render({ location: '/fr/firefox/' });
       expect(window.location.pathname).toEqual('/fr/firefox/');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
         screen.getByRole('option', { name: 'Español' }),
       );
@@ -885,12 +890,12 @@ describe(__filename, () => {
       expect(window.location).toEqual('/es/firefox/');
     });
 
-    it('changes the language in the URL on change with a query', () => {
+    it('changes the language in the URL on change with a query', async () => {
       store = dispatchClientMetadata({ lang: 'fr' }).store;
       render({ location: '/fr/firefox/?page=1&q=something' });
       expect(window.location.pathname).toEqual('/fr/firefox/');
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
         screen.getByRole('option', { name: 'Español' }),
       );
@@ -898,14 +903,14 @@ describe(__filename, () => {
       expect(window.location).toEqual('/es/firefox/?page=1&q=something');
     });
 
-    it('only changes the locale section of the URL', () => {
+    it('only changes the locale section of the URL', async () => {
       store = dispatchClientMetadata({ lang: 'en-US' }).store;
       render({ location: '/en-US/firefox/en-US-to-en-GB-guide/?foo=en-US' });
       expect(window.location.pathname).toEqual(
         '/en-US/firefox/en-US-to-en-GB-guide/',
       );
 
-      userEvent.selectOptions(
+      await userEvent.selectOptions(
         screen.getByRole('combobox', { name: 'Change language' }),
         screen.getByRole('option', { name: 'عربي' }),
       );
@@ -932,7 +937,7 @@ describe(__filename, () => {
       );
     });
 
-    it('changes the URL on search', () => {
+    it('changes the URL on search', async () => {
       dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
         lang: 'en-GB',
@@ -944,8 +949,8 @@ describe(__filename, () => {
 
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.type(screen.getByRole('searchbox'), `{selectall}{del}${query}`);
-      userEvent.click(screen.getByRole('button', { name: 'Search' }));
+      await userEvent.type(screen.getByRole('searchbox'), query);
+      await userEvent.click(screen.getByRole('button', { name: 'Search' }));
 
       expect(pushSpy).toHaveBeenCalledWith({
         pathname: `/en-GB/${CLIENT_APP_FIREFOX}/search/`,
@@ -969,9 +974,9 @@ describe(__filename, () => {
 
         const pushSpy = jest.spyOn(history, 'push');
 
-        userEvent.type(screen.getByRole('searchbox'), 'test');
+        await userEvent.type(screen.getByRole('searchbox'), 'test');
         await dispatchAutocompleteResults({ results: [fakeResult], store });
-        userEvent.click(
+        await userEvent.click(
           screen.getByRole('option', {
             // This is the accessible name for the suggestion.
             name: 'suggestion-result suggestion-result Go to the add-on page',
@@ -989,9 +994,9 @@ describe(__filename, () => {
 
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.type(screen.getByRole('searchbox'), 'test');
+      await userEvent.type(screen.getByRole('searchbox'), 'test');
       await dispatchAutocompleteResults({ results: [fakeResult], store });
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('option', {
           name: 'suggestion-result suggestion-result Go to the add-on page',
         }),
@@ -1042,10 +1047,12 @@ describe(__filename, () => {
       expect(dispatch).toHaveBeenCalledWith(logOutUser());
     });
 
-    it('renders a reload link', () => {
+    it('renders a reload link', async () => {
       render({ errorHandler: expiredAuthErrorHandler() });
 
-      userEvent.click(screen.getByRole('link', { name: 'Reload the page' }));
+      await userEvent.click(
+        screen.getByRole('link', { name: 'Reload the page' }),
+      );
 
       expect(window.location.reload).toHaveBeenCalled();
     });

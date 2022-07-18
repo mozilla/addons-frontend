@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent, {
+  PointerEventsCheckLevel,
+} from '@testing-library/user-event';
 
 import {
   SAVED_RATING,
@@ -48,6 +50,7 @@ import {
 describe(__filename, () => {
   let i18n;
   let store;
+  let userEvent;
 
   // This is a review with only a rating, no text.
   const fakeRatingOnly = Object.freeze({
@@ -59,6 +62,11 @@ describe(__filename, () => {
   beforeEach(() => {
     i18n = fakeI18n();
     store = dispatchClientMetadata().store;
+    userEvent = defaultUserEvent.setup({
+      // This is needed for one test which was triggering a library error about
+      // pointer events not being available.
+      pointerEventsCheck: PointerEventsCheckLevel.Never,
+    });
   });
 
   const render = ({
@@ -248,65 +256,27 @@ describe(__filename, () => {
     });
   };
 
-  const openFlagMenu = async ({ isLoggedIn = true, isReply = false } = {}) => {
+  const openFlagMenu = async ({ isReply = false } = {}) =>
     userEvent.click(
       screen.getByRole('button', {
         name: isReply ? 'Flag this developer response' : 'Flag this review',
       }),
     );
-    if (isLoggedIn) {
-      expect(
-        await screen.findByRole('button', { name: 'This is spam' }),
-      ).toBeInTheDocument();
-    } else {
-      expect(
-        await screen.findByRole('link', { name: /Log in/ }),
-      ).toBeInTheDocument();
-    }
-  };
 
-  const clickDeleteRating = async ({ slim = false } = {}) => {
+  const clickDeleteRating = async () =>
     userEvent.click(screen.getByRole('button', { name: 'Delete rating' }));
-    if (slim) {
-      expect(
-        await screen.findByRole('button', { name: 'Keep rating' }),
-      ).toBeInTheDocument();
-    } else {
-      expect(
-        await screen.findByText('Do you really want to delete this rating?'),
-      ).toBeInTheDocument();
-    }
-  };
 
-  const clickDeleteReview = async ({ slim = false } = {}) => {
+  const clickDeleteReview = async () =>
     userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
-    if (slim) {
-      expect(
-        await screen.findByRole('button', { name: 'Keep review' }),
-      ).toBeInTheDocument();
-    } else {
-      expect(
-        await screen.findByRole('button', { name: 'Cancel' }),
-      ).toBeInTheDocument();
-    }
-  };
 
-  const clickEditReply = () =>
+  const clickEditReply = async () =>
     userEvent.click(screen.getByRole('link', { name: 'Edit reply' }));
 
-  const clickEditReview = async () => {
+  const clickEditReview = async () =>
     userEvent.click(screen.getByRole('link', { name: 'Edit review' }));
-    expect(
-      await screen.findByRole('button', { name: 'Cancel' }),
-    ).toBeInTheDocument();
-  };
 
-  const clickReplyToReview = async () => {
+  const clickReplyToReview = async () =>
     userEvent.click(screen.getByRole('link', { name: 'Reply to this review' }));
-    expect(
-      await screen.findByRole('button', { name: 'Cancel' }),
-    ).toBeInTheDocument();
-  };
 
   const getDefaultErrorHandlerId = (reviewId) => `AddonReviewCard-${reviewId}`;
 
@@ -498,7 +468,7 @@ describe(__filename, () => {
     });
     render({ review, slim: true });
 
-    await clickDeleteRating({ slim: true });
+    await clickDeleteRating();
 
     expect(
       screen.getByRole('button', { name: 'Keep rating' }),
@@ -512,7 +482,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview();
     render({ review, slim: true });
 
-    await clickDeleteReview({ slim: true });
+    await clickDeleteReview();
 
     expect(
       screen.getByRole('button', { name: 'Keep review' }),
@@ -526,7 +496,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview();
     render({ review, slim: true });
 
-    await clickDeleteReview({ slim: true });
+    await clickDeleteReview();
 
     expect(
       screen.queryByText('Do you really want to delete this review?'),
@@ -611,7 +581,7 @@ describe(__filename, () => {
     render({ review });
 
     await clickDeleteReview();
-    userEvent.click(screen.getByRole('button', { name: 'Delete' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
     createFailedErrorHandler({
       id: getDefaultErrorHandlerId(review.id),
@@ -812,21 +782,19 @@ describe(__filename, () => {
   it('configures a reply-to-review text form when editing', async () => {
     const { reply } = renderNestedReplyForSignedInDeveloper();
 
-    userEvent.click(screen.getByRole('link', { name: 'Edit reply' }));
+    await userEvent.click(screen.getByRole('link', { name: 'Edit reply' }));
 
-    const textArea = await screen.findByPlaceholderText(
+    const textArea = screen.getByPlaceholderText(
       'Write a reply to this review.',
     );
     expect(textArea).toHaveValue(reply.body);
 
-    userEvent.type(textArea, 'Updated reply');
+    await userEvent.type(textArea, 'Updated reply');
 
-    userEvent.click(screen.getByRole('button', { name: 'Update reply' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Update reply' }));
 
-    await waitFor(() =>
-      expect(
-        screen.getByRole('button', { name: 'Updating reply' }),
-      ).toHaveClass('Button--disabled'),
+    expect(screen.getByRole('button', { name: 'Updating reply' })).toHaveClass(
+      'Button--disabled',
     );
   });
 
@@ -837,7 +805,7 @@ describe(__filename, () => {
     render({ addon, review, siteUserCanReply: true });
 
     await clickReplyToReview();
-    userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
     expect(dispatch).toHaveBeenCalledWith(
       hideReplyToReviewForm({
@@ -863,8 +831,10 @@ describe(__filename, () => {
     );
     expect(textArea).toHaveValue('');
 
-    userEvent.type(textArea, replyBody);
-    userEvent.click(screen.getByRole('button', { name: 'Publish reply' }));
+    await userEvent.type(textArea, replyBody);
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Publish reply' }),
+    );
 
     expect(dispatch).toHaveBeenCalledWith(
       sendReplyToReview({
@@ -874,11 +844,9 @@ describe(__filename, () => {
       }),
     );
 
-    await waitFor(() =>
-      expect(
-        screen.getByRole('button', { name: 'Publishing reply' }),
-      ).toHaveClass('Button--disabled'),
-    );
+    expect(
+      screen.getByRole('button', { name: 'Publishing reply' }),
+    ).toHaveClass('Button--disabled');
     expect(
       screen.queryByRole('button', { name: 'Publish reply' }),
     ).not.toBeInTheDocument();
@@ -899,11 +867,13 @@ describe(__filename, () => {
     render({ addon, review, siteUserCanReply: true });
 
     await clickReplyToReview();
-    userEvent.type(
+    await userEvent.type(
       screen.getByPlaceholderText('Write a reply to this review.'),
-      '{selectall}{del}Body of the review',
+      'Body of the review',
     );
-    userEvent.click(screen.getByRole('button', { name: 'Publish reply' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Publish reply' }),
+    );
 
     createFailedErrorHandler({
       id: getDefaultErrorHandlerId(review.id),
@@ -1017,7 +987,7 @@ describe(__filename, () => {
       render({ review });
 
       await clickEditReview();
-      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
       expect(dispatch).toHaveBeenCalledWith(
         hideEditReviewForm({
@@ -1034,11 +1004,9 @@ describe(__filename, () => {
 
       await clickDeleteRating();
 
-      await waitFor(() =>
-        expect(
-          screen.queryByRole('button', { name: 'Write a review' }),
-        ).not.toBeInTheDocument(),
-      );
+      expect(
+        screen.queryByRole('button', { name: 'Write a review' }),
+      ).not.toBeInTheDocument();
     });
 
     it('hides the write review button for ratings when not logged in', async () => {
@@ -1255,7 +1223,7 @@ describe(__filename, () => {
         screen.getByRole('heading', { name: 'Developer response' }),
       ).toBeInTheDocument();
 
-      clickEditReply();
+      await clickEditReply();
 
       expect(dispatch).toHaveBeenCalledWith(
         showReplyToReviewForm({
@@ -1263,11 +1231,9 @@ describe(__filename, () => {
         }),
       );
 
-      await waitFor(() =>
-        expect(
-          screen.queryByRole('heading', { name: 'Developer response' }),
-        ).not.toBeInTheDocument(),
-      );
+      expect(
+        screen.queryByRole('heading', { name: 'Developer response' }),
+      ).not.toBeInTheDocument();
     });
 
     it('does not include a user name in the byline', () => {
@@ -1298,10 +1264,12 @@ describe(__filename, () => {
         screen.getByRole('heading', { name: 'Developer response' }),
       ).toBeInTheDocument();
 
-      userEvent.click(screen.getByRole('button', { name: 'Delete reply' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Delete reply' }),
+      );
 
       expect(
-        await screen.findByText('Do you really want to delete this reply?'),
+        screen.getByText('Do you really want to delete this reply?'),
       ).toBeInTheDocument();
 
       const button = screen.getByRole('button', {
@@ -1338,10 +1306,12 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
-    it('renders the expected delete confirm button text when slim=true', () => {
+    it('renders the expected delete confirm button text when slim=true', async () => {
       renderNestedReplyForSignedInDeveloper({ slim: true });
 
-      userEvent.click(screen.getByRole('button', { name: 'Delete reply' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Delete reply' }),
+      );
 
       expect(
         screen.getByRole('button', { name: 'Delete reply' }),
@@ -1447,16 +1417,14 @@ describe(__filename, () => {
       render({ review });
 
       await openFlagMenu();
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', {
           name: 'This is a bug report or support request',
         }),
-        undefined,
-        { skipPointerEventsCheck: true },
       );
 
       expect(
-        await within(screen.getByRole('tooltip')).findByRole('alert'),
+        within(screen.getByRole('tooltip')).getByRole('alert'),
       ).toBeInTheDocument();
     });
 
@@ -1503,7 +1471,7 @@ describe(__filename, () => {
       it('requires you to be signed in', async () => {
         render({ review: _setReview() });
 
-        await openFlagMenu({ isLoggedIn: false });
+        await openFlagMenu();
 
         // Only the button item should be rendered.
         expect(
@@ -1519,7 +1487,7 @@ describe(__filename, () => {
       it('prompts you to flag a developer response after login', async () => {
         renderNestedReply();
 
-        await openFlagMenu({ isLoggedIn: false, isReply: true });
+        await openFlagMenu({ isReply: true });
 
         expect(
           screen.getByRole('link', { name: 'Log in to flag this response' }),
@@ -1692,7 +1660,7 @@ describe(__filename, () => {
 
       await clickEditReview();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', {
           name: `Update your rating to ${newScore} out of 5`,
         }),
@@ -1717,13 +1685,15 @@ describe(__filename, () => {
 
       await clickEditReview();
 
-      userEvent.type(
-        screen.getByPlaceholderText(
-          'Write about your experience with this add-on.',
-        ),
-        `{selectall}{del}${newBody}`,
+      const input = screen.getByPlaceholderText(
+        'Write about your experience with this add-on.',
       );
-      userEvent.click(screen.getByRole('button', { name: 'Update review' }));
+      await userEvent.clear(input);
+      await userEvent.type(input, newBody);
+
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Update review' }),
+      );
 
       expect(dispatch).toHaveBeenCalledWith(
         updateAddonReview({
@@ -1836,20 +1806,22 @@ describe(__filename, () => {
       });
       render({ review });
 
-      userEvent.click(screen.getByRole('button', { name: 'Write a review' }));
-      await waitFor(() =>
-        expect(
-          screen.queryByRole('button', { name: 'Write a review' }),
-        ).not.toBeInTheDocument(),
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Write a review' }),
       );
+      expect(
+        screen.queryByRole('button', { name: 'Write a review' }),
+      ).not.toBeInTheDocument();
 
-      userEvent.type(
+      await userEvent.type(
         screen.getByPlaceholderText(
           'Write about your experience with this add-on.',
         ),
         body,
       );
-      userEvent.click(screen.getByRole('button', { name: 'Submit review' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Submit review' }),
+      );
 
       expect(dispatch).toHaveBeenCalledWith(
         showEditReviewForm({ reviewId: review.id }),

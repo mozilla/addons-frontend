@@ -405,10 +405,10 @@ describe(__filename, () => {
 
   it('does not render an HTML title when there is no add-on', async () => {
     render();
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      `Add-ons for Firefox (${lang})`,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `Add-ons for Firefox (${lang})`,
+      ),
     );
   });
 
@@ -417,12 +417,10 @@ describe(__filename, () => {
     render();
 
     await waitFor(() =>
-      expect(getElement('meta[name="robots"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('meta[name="robots"]')).toHaveAttribute(
-      'content',
-      'noindex, follow',
+      expect(getElement('meta[name="robots"]')).toHaveAttribute(
+        'content',
+        'noindex, follow',
+      ),
     );
   });
 

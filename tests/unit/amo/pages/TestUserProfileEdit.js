@@ -1,6 +1,6 @@
 /* global window */
 import { createMemoryHistory } from 'history';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
 
 import { clearError } from 'amo/actions/errors';
@@ -53,6 +53,7 @@ describe(__filename, () => {
   const defaultUserId = fakeAuthors[0].id;
   let history;
   let store;
+  let userEvent;
 
   const savedLocation = window.location;
 
@@ -63,6 +64,7 @@ describe(__filename, () => {
       assign: jest.fn(),
     });
     window.scroll = jest.fn();
+    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {
@@ -387,21 +389,24 @@ describe(__filename, () => {
     ['homepage', () => screen.getByRole('textbox', { name: 'Homepage' })],
     ['location', () => screen.getByRole('textbox', { name: 'Location' })],
     ['occupation', () => screen.getByRole('textbox', { name: 'Occupation' })],
-  ])('captures input field changes: %s', (field, locator) => {
+  ])('captures input field changes: %s', async (field, locator) => {
     renderForCurrentUser();
 
     const newValue = `new-value-for-${field}`;
-    userEvent.type(locator(), `{selectall}{del}${newValue}`);
+    await userEvent.clear(locator());
+    await userEvent.type(locator(), newValue);
 
     expect(locator()).toHaveValue(newValue);
   });
 
-  it('dispatches updateUserAccount action with all fields on submit', () => {
+  it('dispatches updateUserAccount action with all fields on submit', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderForCurrentUser();
     const user = getCurrentUser(store.getState().users);
 
-    userEvent.click(screen.getByRole('button', { name: 'Update My Profile' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Update My Profile' }),
+    );
 
     expect(dispatch).toHaveBeenCalledWith(
       updateUserAccount({
@@ -457,52 +462,58 @@ describe(__filename, () => {
   it('renders an update button with a different text when updating', async () => {
     renderForCurrentUser();
 
-    userEvent.click(screen.getByRole('button', { name: 'Update My Profile' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Update My Profile' }),
+    );
 
     expect(
-      await screen.findByRole('button', { name: 'Updating your profile…' }),
+      screen.getByRole('button', { name: 'Updating your profile…' }),
     ).toBeInTheDocument();
   });
 
   it('renders a create button with a different text when updating', async () => {
     renderForCurrentUser({ display_name: '' });
 
-    userEvent.type(
+    await userEvent.type(
       screen.getByLabelText('Display Name *'),
       'Some display name',
     );
-    userEvent.click(screen.getByRole('button', { name: 'Create My Profile' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Create My Profile' }),
+    );
 
     expect(
-      await screen.findByRole('button', { name: 'Creating your profile…' }),
+      screen.getByRole('button', { name: 'Creating your profile…' }),
     ).toBeInTheDocument();
   });
 
   it('renders an update button with a different text when user is not the logged-in user and updating', async () => {
     renderForOtherUser();
 
-    userEvent.type(
+    await userEvent.type(
       screen.getByLabelText('Display Name *'),
       'Some display name',
     );
-    userEvent.click(screen.getByRole('button', { name: 'Update Profile' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Update Profile' }),
+    );
 
     expect(
-      await screen.findByRole('button', { name: 'Updating profile…' }),
+      screen.getByRole('button', { name: 'Updating profile…' }),
     ).toBeInTheDocument();
   });
 
-  it('disables the submit button when displayName is empty', () => {
+  it('disables the submit button when displayName is empty', async () => {
     renderForCurrentUser({ display_name: 'Some name' });
 
-    userEvent.type(screen.getByLabelText('Display Name *'), '{selectall}{del}');
+    await userEvent.clear(screen.getByLabelText('Display Name *'));
 
     expect(
       screen.getByRole('button', { name: 'Update My Profile' }),
     ).toBeDisabled();
   });
 
-  it('dispatches updateUserAccount action with new field values on submit', () => {
+  it('dispatches updateUserAccount action with new field values on submit', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     const userId = renderForCurrentUser();
 
@@ -511,11 +522,12 @@ describe(__filename, () => {
     // We want to make sure dispatched action uses the values updated by the
     // user.
     const location = 'new location';
-    userEvent.type(
-      screen.getByRole('textbox', { name: 'Location' }),
-      `{selectall}{del}${location}`,
+    const input = screen.getByRole('textbox', { name: 'Location' });
+    await userEvent.clear(input);
+    await userEvent.type(input, location);
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Update My Profile' }),
     );
-    userEvent.click(screen.getByRole('button', { name: 'Update My Profile' }));
 
     expect(dispatch).toHaveBeenCalledWith(
       updateUserAccount({
@@ -547,15 +559,13 @@ describe(__filename, () => {
       signInUserWithProps();
       render(renderProps);
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Update My Profile' }),
       );
 
-      await waitFor(() =>
-        expect(
-          screen.getByRole('button', { name: 'Updating your profile…' }),
-        ).toBeDisabled(),
-      );
+      expect(
+        screen.getByRole('button', { name: 'Updating your profile…' }),
+      ).toBeDisabled();
 
       store.dispatch(finishUpdateUserAccount());
 
@@ -864,10 +874,12 @@ describe(__filename, () => {
   it('renders different information in the modal when user to be deleted is not the current logged-in user', async () => {
     renderForOtherUser();
 
-    userEvent.click(screen.getByRole('button', { name: 'Delete Profile' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Delete Profile' }),
+    );
 
     expect(
-      await screen.findByText(
+      screen.getByText(
         'IMPORTANT: Deleting this Firefox Add-ons profile is irreversible.',
       ),
     ).toBeInTheDocument();
@@ -889,26 +901,22 @@ describe(__filename, () => {
   it('closes the modal when user clicks the cancel button', async () => {
     renderForCurrentUser();
 
-    userEvent.click(screen.getByRole('button', { name: 'Delete My Profile' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Delete My Profile' }),
+    );
 
-    let button;
-    await waitFor(() => {
-      button = screen.getByRole('button', { name: 'Cancel' });
-      expect(button).toBeInTheDocument();
-    });
+    const button = screen.getByRole('button', { name: 'Cancel' });
     const clickEvent = createEvent.click(button);
     const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
-    fireEvent(button, clickEvent);
+    await fireEvent(button, clickEvent);
 
     expect(preventDefaultWatcher).toHaveBeenCalled();
-    await waitFor(() =>
-      expect(
-        screen.queryByText(
-          'IMPORTANT: Deleting your Firefox Add-ons profile is irreversible.',
-        ),
-      ).not.toBeInTheDocument(),
-    );
+    expect(
+      screen.queryByText(
+        'IMPORTANT: Deleting your Firefox Add-ons profile is irreversible.',
+      ),
+    ).not.toBeInTheDocument();
   });
 
   it('dispatches deleteUserAccount and logOutUser when current logged-in user confirms account deletion', async () => {
@@ -919,14 +927,14 @@ describe(__filename, () => {
 
     const pushSpy = jest.spyOn(history, 'push');
 
-    userEvent.click(screen.getByRole('button', { name: 'Delete My Profile' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Delete My Profile' }),
+    );
 
     // Wait for confirmation button to be displayed.
-    await waitFor(() =>
-      expect(
-        screen.getAllByRole('button', { name: 'Delete My Profile' }),
-      ).toHaveLength(2),
-    );
+    expect(
+      screen.getAllByRole('button', { name: 'Delete My Profile' }),
+    ).toHaveLength(2);
 
     await userEvent.click(
       screen.getAllByRole('button', { name: 'Delete My Profile' })[1],
@@ -946,26 +954,24 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     const userId = renderForOtherUser();
 
-    userEvent.click(screen.getByRole('button', { name: 'Delete Profile' }));
-
-    // Wait for confirmation button to be displayed.
-    await waitFor(() =>
-      expect(
-        screen.getAllByRole('button', { name: 'Delete Profile' }),
-      ).toHaveLength(2),
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Delete Profile' }),
     );
 
-    userEvent.click(
+    // Wait for confirmation button to be displayed.
+    expect(
+      screen.getAllByRole('button', { name: 'Delete Profile' }),
+    ).toHaveLength(2);
+
+    await userEvent.click(
       screen.getAllByRole('button', { name: 'Delete Profile' })[1],
     );
 
-    await waitFor(() =>
-      expect(dispatch).toHaveBeenCalledWith(
-        deleteUserAccount({
-          errorHandlerId: getErrorHandlerId(userId),
-          userId,
-        }),
-      ),
+    expect(dispatch).toHaveBeenCalledWith(
+      deleteUserAccount({
+        errorHandlerId: getErrorHandlerId(userId),
+        userId,
+      }),
     );
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ type: LOG_OUT_USER }),
@@ -1093,7 +1099,7 @@ describe(__filename, () => {
     expect(dispatch).toHaveBeenCalledWith(setViewContext(VIEW_CONTEXT_HOME));
   });
 
-  it('dispatches updateUserAccount action with updated notifications on submit', () => {
+  it('dispatches updateUserAccount action with updated notifications on submit', async () => {
     const userId = signInUserWithProps();
     const userNotifications = createUserNotificationsResponse();
     store.dispatch(
@@ -1116,7 +1122,9 @@ describe(__filename, () => {
     expect(stopPropagationWatcher).toHaveBeenCalled();
 
     // Click the "update" button.
-    userEvent.click(screen.getByRole('button', { name: 'Update My Profile' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Update My Profile' }),
+    );
 
     expect(dispatch).toHaveBeenCalledWith(
       updateUserAccount({
@@ -1297,9 +1305,9 @@ describe(__filename, () => {
         'UserProfileEditPicture-file-input',
       );
 
-      userEvent.upload(fileInput, file);
+      await userEvent.upload(fileInput, file);
 
-      await waitFor(() => expect(fileInput.files['0']).toEqual(file));
+      expect(fileInput.files['0']).toEqual(file);
 
       // We need this to avoid ending the test before an async function completes.
       await waitFor(() =>
@@ -1325,10 +1333,10 @@ describe(__filename, () => {
       // what we want!
       // See: https://github.com/mozilla/addons-frontend/issues/9493
       expect(button).toHaveAttribute('type', 'button');
-      userEvent.click(button);
+      await userEvent.click(button);
 
       expect(
-        await screen.findByText('Do you really want to delete this picture?'),
+        screen.getByText('Do you really want to delete this picture?'),
       ).toBeInTheDocument();
     });
 
@@ -1348,16 +1356,11 @@ describe(__filename, () => {
         picture_url: 'https://example.org/pp.png',
       });
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Delete This Picture' }),
       );
 
-      let button;
-
-      await waitFor(() => {
-        button = screen.getByRole('button', { name: 'Confirm' });
-        expect(button).toBeInTheDocument();
-      });
+      const button = screen.getByRole('button', { name: 'Confirm' });
       const clickEvent = createEvent.click(button);
       const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
 
@@ -1380,23 +1383,19 @@ describe(__filename, () => {
         screen.getByClassName('UserProfileEditPicture-file'),
       ).not.toHaveClass('UserProfileEditPicture-file--has-focus');
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByClassName('UserProfileEditPicture-file-input'),
       );
 
-      await waitFor(() =>
-        expect(
-          screen.getByClassName('UserProfileEditPicture-file'),
-        ).toHaveClass('UserProfileEditPicture-file--has-focus'),
+      expect(screen.getByClassName('UserProfileEditPicture-file')).toHaveClass(
+        'UserProfileEditPicture-file--has-focus',
       );
 
-      userEvent.tab();
+      await userEvent.tab();
 
-      await waitFor(() =>
-        expect(
-          screen.getByClassName('UserProfileEditPicture-file'),
-        ).not.toHaveClass('UserProfileEditPicture-file--has-focus'),
-      );
+      expect(
+        screen.getByClassName('UserProfileEditPicture-file'),
+      ).not.toHaveClass('UserProfileEditPicture-file--has-focus');
     });
   });
 });

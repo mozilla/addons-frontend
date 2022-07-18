@@ -1,6 +1,6 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
 import { waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import {
@@ -84,6 +84,7 @@ describe(__filename, () => {
   const errorHandlerId = 'Home';
   let store;
   let history;
+  let userEvent;
 
   const getLocation = ({
     clientApp = defaultClientApp,
@@ -95,6 +96,7 @@ describe(__filename, () => {
       clientApp: defaultClientApp,
       lang: defaultLang,
     }).store;
+    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {
@@ -225,14 +227,14 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
-    it('sends a tracking event when the cta is clicked', () => {
+    it('sends a tracking event when the cta is clicked', async () => {
       const strippedUrl = '/a/different/url';
       stripLangFromAmoUrl.mockReturnValue(strippedUrl);
       const cta = { text: 'cta text', url: '/some/url', outgoing: '/out/url' };
       renderWithHomeData({ secondaryProps: { cta } });
 
       tracking.sendEvent.mockClear();
-      userEvent.click(screen.getByRole('link', { name: cta.text }));
+      await userEvent.click(screen.getByRole('link', { name: cta.text }));
 
       expect(tracking.sendEvent).toHaveBeenCalledTimes(1);
       expect(tracking.sendEvent).toHaveBeenCalledWith({
@@ -350,13 +352,15 @@ describe(__filename, () => {
         },
       );
 
-      it('sends a tracking event when the cta is clicked', () => {
+      it('sends a tracking event when the cta is clicked', async () => {
         const strippedUrl = '/a/different/url';
         stripLangFromAmoUrl.mockReturnValue(strippedUrl);
         renderWithHomeData({ secondaryProps: secondaryPropsWithModules });
 
         tracking.sendEvent.mockClear();
-        userEvent.click(screen.getByRole('link', { name: module1.cta.text }));
+        await userEvent.click(
+          screen.getByRole('link', { name: module1.cta.text }),
+        );
 
         expect(stripLangFromAmoUrl).toHaveBeenCalledWith({
           urlString: expect.stringContaining(
@@ -1024,11 +1028,11 @@ describe(__filename, () => {
         ['external', withExternalShelfData],
       ])(
         'sends a tracking event when the cta is clicked for %s',
-        (feature, shelfData) => {
+        async (feature, shelfData) => {
           renderWithHomeData(shelfData);
           tracking.sendEvent.mockClear();
 
-          userEvent.click(
+          await userEvent.click(
             screen.getByRole('link', { name: 'Get the extension' }),
           );
 
@@ -1325,14 +1329,12 @@ describe(__filename, () => {
 
     // Without the waitFor, the meta tags have not rendered into the head yet.
     await waitFor(() =>
-      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('meta[name="description"]')).toHaveAttribute(
-      'content',
-      `Download Firefox extensions and themes. They’re like apps for your ` +
-        `browser. They can block annoying ads, protect passwords, change ` +
-        `browser appearance, and more.`,
+      expect(getElement('meta[name="description"]')).toHaveAttribute(
+        'content',
+        `Download Firefox extensions and themes. They’re like apps for your ` +
+          `browser. They can block annoying ads, protect passwords, change ` +
+          `browser appearance, and more.`,
+      ),
     );
   });
 

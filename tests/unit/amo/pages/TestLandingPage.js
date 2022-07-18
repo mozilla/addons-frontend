@@ -492,12 +492,10 @@ describe(__filename, () => {
       render({ addonType });
 
       await waitFor(() =>
-        expect(getElement('meta[name="description"]')).toBeInTheDocument(),
-      );
-
-      expect(getElement('meta[name="description"]')).toHaveAttribute(
-        'content',
-        expect.stringContaining(description),
+        expect(getElement('meta[name="description"]')).toHaveAttribute(
+          'content',
+          expect.stringContaining(description),
+        ),
       );
     },
   );
@@ -506,12 +504,10 @@ describe(__filename, () => {
     render();
 
     await waitFor(() =>
-      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('link[rel="canonical"]')).toHaveAttribute(
-      'href',
-      getCanonicalURL({ locationPathname: getLocation() }),
+      expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+        'href',
+        getCanonicalURL({ locationPathname: getLocation() }),
+      ),
     );
   });
 });

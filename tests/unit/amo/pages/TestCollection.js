@@ -1,6 +1,6 @@
 import config from 'config';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import { createApiError } from 'amo/api';
 import {
@@ -79,6 +79,7 @@ jest.mock('amo/localState', () =>
 describe(__filename, () => {
   let history;
   let store;
+  let userEvent;
   const clientApp = CLIENT_APP_FIREFOX;
   const defaultCollectionDescription = 'Collection description';
   const defaultCollectionId = 987;
@@ -114,6 +115,7 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
+    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {
@@ -225,7 +227,7 @@ describe(__filename, () => {
     });
   };
 
-  const clickEditButton = () =>
+  const clickEditButton = async () =>
     userEvent.click(screen.getByRole('link', { name: 'Edit this collection' }));
 
   const assertNoLoadingActionsDispatched = (dispatch) => {
@@ -376,10 +378,10 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithCollectionForSignedInUser();
 
-    clickEditButton();
+    await clickEditButton();
 
     expect(
-      await screen.findByRole('link', { name: 'Back to collection' }),
+      screen.getByRole('link', { name: 'Back to collection' }),
     ).toBeInTheDocument();
     expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
   });
@@ -702,14 +704,12 @@ describe(__filename, () => {
       location: `${getLocation()}?page=1`,
     });
 
-    userEvent.click(screen.getByRole('link', { name: 'Next' }));
+    await userEvent.click(screen.getByRole('link', { name: 'Next' }));
 
     // Expect loading indicators for the add-ons.
-    await waitFor(() =>
-      expect(
-        within(screen.getByClassName('AddonsCard')).getAllByRole('alert'),
-      ).toHaveLength(numberOfAddons * 4),
-    );
+    expect(
+      within(screen.getByClassName('AddonsCard')).getAllByRole('alert'),
+    ).toHaveLength(numberOfAddons * 4);
     // Expect to retain the details of the collection.
     expect(screen.getByRole('heading', { name })).toBeInTheDocument();
   });
@@ -746,10 +746,10 @@ describe(__filename, () => {
   it('renders an HTML title', async () => {
     renderWithCollection();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      `${defaultCollectionName} – Add-ons for Firefox (en-US)`,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `${defaultCollectionName} – Add-ons for Firefox (en-US)`,
+      ),
     );
   });
 
@@ -769,10 +769,10 @@ describe(__filename, () => {
   it('renders the default HTML title when there is no collection loaded', async () => {
     render();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      'Add-ons for Firefox (en-US)',
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        'Add-ons for Firefox (en-US)',
+      ),
     );
   });
 
@@ -839,7 +839,7 @@ describe(__filename, () => {
     ).not.toBeInTheDocument();
   });
 
-  it('does not update the page when removeAddon is called and there are still addons to show on the current page', () => {
+  it('does not update the page when removeAddon is called and there are still addons to show on the current page', async () => {
     const numberOfAddons = 5;
     const addonsResponse = createFakeCollectionAddonsListResponse({
       count: 10,
@@ -856,7 +856,7 @@ describe(__filename, () => {
 
     const pushSpy = jest.spyOn(history, 'push');
 
-    userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
+    await userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
 
     expect(dispatch).toHaveBeenCalledWith(
       removeAddonFromCollection({
@@ -887,23 +887,21 @@ describe(__filename, () => {
 
     const pushSpy = jest.spyOn(history, 'push');
 
-    userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
+    await userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
 
-    await waitFor(() =>
-      expect(dispatch).toHaveBeenCalledWith(
-        removeAddonFromCollection({
-          addonId,
-          errorHandlerId: getCollectionPageErrorHandlerId({ page }),
-          filters: { ...defaultFilters, page },
-          slug: defaultSlug,
-          userId: defaultUserId,
-        }),
-      ),
+    expect(dispatch).toHaveBeenCalledWith(
+      removeAddonFromCollection({
+        addonId,
+        errorHandlerId: getCollectionPageErrorHandlerId({ page }),
+        filters: { ...defaultFilters, page },
+        slug: defaultSlug,
+        userId: defaultUserId,
+      }),
     );
     expect(pushSpy).not.toHaveBeenCalled();
   });
 
-  it('updates the page when removeAddon removes the last addon from the current page', () => {
+  it('updates the page when removeAddon removes the last addon from the current page', async () => {
     const numberOfAddons = 1;
     const addonsResponse = createFakeCollectionAddonsListResponse({
       count: 2,
@@ -923,7 +921,7 @@ describe(__filename, () => {
 
     const pushSpy = jest.spyOn(history, 'push');
 
-    userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
+    await userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
 
     expect(dispatch).toHaveBeenCalledWith(
       removeAddonFromCollection({
@@ -943,7 +941,7 @@ describe(__filename, () => {
     });
   });
 
-  it('dispatches deleteCollection when the Delete collection button is clicked and confirmed', () => {
+  it('dispatches deleteCollection when the Delete collection button is clicked and confirmed', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithCollectionForSignedInUser();
 
@@ -954,7 +952,7 @@ describe(__filename, () => {
     const preventDefaultWatcher = jest.spyOn(clickEvent, 'preventDefault');
     fireEvent(button, clickEvent);
 
-    userEvent.click(screen.getByRole('button', { name: 'Confirm' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Confirm' }));
 
     expect(preventDefaultWatcher).toHaveBeenCalledTimes(1);
     expect(dispatch).toHaveBeenCalledWith(
@@ -970,8 +968,8 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithNotes();
 
-    userEvent.click(screen.getByRole('button', { name: 'Edit' }));
-    userEvent.click(await screen.findByRole('button', { name: 'Delete' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Edit' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
     expect(dispatch).toHaveBeenCalledWith(
       deleteCollectionAddonNotes({
@@ -990,14 +988,15 @@ describe(__filename, () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithNotes();
 
-    userEvent.click(screen.getByRole('button', { name: 'Edit' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Edit' }));
 
-    userEvent.type(
-      await screen.findByPlaceholderText('Add a comment about this add-on.'),
-      `{selectall}{del}${newNotes}`,
+    const input = screen.getByPlaceholderText(
+      'Add a comment about this add-on.',
     );
+    await userEvent.clear(input);
+    await userEvent.type(input, newNotes);
 
-    userEvent.click(screen.getByRole('button', { name: 'Save' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Save' }));
     expect(dispatch).toHaveBeenCalledWith(
       updateCollectionAddon({
         addonId: fakeAddon.id,
@@ -1058,15 +1057,13 @@ describe(__filename, () => {
     renderWithCollection({ detailProps: { name, description } });
 
     await waitFor(() =>
-      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('meta[name="description"]')).toHaveAttribute(
-      'content',
-      [
-        'Download and create Firefox collections to keep track of favorite extensions and themes.',
-        `Explore the ${name}—${description}.`,
-      ].join(' '),
+      expect(getElement('meta[name="description"]')).toHaveAttribute(
+        'content',
+        [
+          'Download and create Firefox collections to keep track of favorite extensions and themes.',
+          `Explore the ${name}—${description}.`,
+        ].join(' '),
+      ),
     );
   });
 
@@ -1076,15 +1073,13 @@ describe(__filename, () => {
     renderWithCollection({ detailProps: { name, description } });
 
     await waitFor(() =>
-      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('meta[name="description"]')).toHaveAttribute(
-      'content',
-      [
-        'Download and create Firefox collections to keep track of favorite extensions and themes.',
-        `Explore the ${name}.`,
-      ].join(' '),
+      expect(getElement('meta[name="description"]')).toHaveAttribute(
+        'content',
+        [
+          'Download and create Firefox collections to keep track of favorite extensions and themes.',
+          `Explore the ${name}.`,
+        ].join(' '),
+      ),
     );
   });
 
@@ -1095,18 +1090,16 @@ describe(__filename, () => {
     renderWithCollection({ detailProps: { name, description } });
 
     await waitFor(() =>
-      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('meta[name="description"]')).toHaveAttribute(
-      'content',
-      [
-        'Download and create Firefox collections to keep track of favorite extensions and themes.',
-        `Explore the ${collectionName({
-          name,
-          i18n: fakeI18n(),
-        })}.`,
-      ].join(' '),
+      expect(getElement('meta[name="description"]')).toHaveAttribute(
+        'content',
+        [
+          'Download and create Firefox collections to keep track of favorite extensions and themes.',
+          `Explore the ${collectionName({
+            name,
+            i18n: fakeI18n(),
+          })}.`,
+        ].join(' '),
+      ),
     );
   });
 
@@ -1145,7 +1138,7 @@ describe(__filename, () => {
       `src/amo/components/CollectionAddAddon/index.js-collection${id}`;
 
     const selectAnAddon = async ({ addonName, id }) => {
-      userEvent.type(
+      await userEvent.type(
         screen.getByPlaceholderText(
           'Find an add-on to include in this collection',
         ),
@@ -1159,7 +1152,7 @@ describe(__filename, () => {
         results: [externalSuggestion],
         store,
       });
-      userEvent.click(await screen.findByText(addonName));
+      await userEvent.click(screen.getByText(addonName));
     };
 
     it('renders an error', async () => {
@@ -1340,7 +1333,7 @@ describe(__filename, () => {
         renderWithCollectionForSignedInUser({ location });
         const pushSpy = jest.spyOn(history, 'push');
 
-        userEvent.selectOptions(
+        await userEvent.selectOptions(
           screen.getByRole('combobox', { name: 'Sort add-ons by' }),
           'Name',
         );
@@ -1484,10 +1477,12 @@ describe(__filename, () => {
     it('shows an empty notes form when the leave a note button is clicked', async () => {
       renderWithCollectionForSignedInUser({ editing: true });
 
-      userEvent.click(screen.getByRole('button', { name: 'Leave a note' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Leave a note' }),
+      );
 
       expect(
-        await screen.findByRole('heading', { name: 'Leave a note' }),
+        screen.getByRole('heading', { name: 'Leave a note' }),
       ).toBeInTheDocument();
       expect(screen.getByClassName('Icon-comments-blue')).toBeInTheDocument();
       expect(
@@ -1525,13 +1520,11 @@ describe(__filename, () => {
       const notes = `<a href="${linkHref}">${linkText}</a>`;
       renderWithNotes(notes);
 
-      userEvent.click(screen.getByRole('button', { name: 'Edit' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Edit' }));
 
-      await waitFor(() =>
-        expect(
-          screen.getByPlaceholderText('Add a comment about this add-on.'),
-        ).toHaveValue(linkText),
-      );
+      expect(
+        screen.getByPlaceholderText('Add a comment about this add-on.'),
+      ).toHaveValue(linkText);
 
       // The read-only portion should not be shown.
       expect(
@@ -1542,19 +1535,17 @@ describe(__filename, () => {
     it('hides the notes form when the cancel button is clicked', async () => {
       renderWithNotes();
 
-      userEvent.click(screen.getByRole('button', { name: 'Edit' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Edit' }));
 
       expect(
-        await screen.findByPlaceholderText('Add a comment about this add-on.'),
+        screen.getByPlaceholderText('Add a comment about this add-on.'),
       ).toBeInTheDocument();
 
-      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-      await waitFor(() =>
-        expect(
-          screen.queryByPlaceholderText('Add a comment about this add-on.'),
-        ).not.toBeInTheDocument(),
-      );
+      expect(
+        screen.queryByPlaceholderText('Add a comment about this add-on.'),
+      ).not.toBeInTheDocument();
     });
 
     describe('errorHandler - extractId', () => {
@@ -1571,61 +1562,57 @@ describe(__filename, () => {
       `src/amo/components/CollectionManager/index.js-collection-${slug}`;
 
     const accessEditDetailsScreen = async () => {
-      clickEditButton();
-      userEvent.click(
-        await screen.findByRole('link', { name: 'Edit collection details' }),
+      await clickEditButton();
+      await userEvent.click(
+        screen.getByRole('link', { name: 'Edit collection details' }),
       );
     };
 
-    const typeName = (name) =>
-      userEvent.type(
-        screen.getByRole('textbox', { name: 'Collection name' }),
-        `{selectall}{del}${name}`,
-      );
-
-    const typeDescription = (description) =>
-      userEvent.type(
-        screen.getByRole('textbox', { name: 'Description' }),
-        `{selectall}{del}${description}`,
-      );
-
-    const typeSlug = (slug) =>
-      userEvent.type(
-        screen.getByRole('textbox', { name: 'Custom URL' }),
-        `{selectall}{del}${slug}`,
-      );
-
-    const fillInDetailsScreen = ({ description, name, slug }) => {
-      typeName(name);
-      typeDescription(description);
-      typeSlug(slug);
+    const typeName = async (name) => {
+      const input = screen.getByRole('textbox', { name: 'Collection name' });
+      await userEvent.clear(input);
+      await userEvent.type(input, name);
     };
 
-    const expectCancelButtonToBeDisabled = async (disabled) => {
-      await waitFor(() =>
-        expect(screen.getByRole('button', { name: 'Cancel' })).toHaveProperty(
-          'disabled',
-          disabled,
-        ),
+    const typeDescription = async (description) => {
+      const input = screen.getByRole('textbox', { name: 'Description' });
+      await userEvent.clear(input);
+      await userEvent.type(input, description);
+    };
+
+    const typeSlug = async (slug) => {
+      const input = screen.getByRole('textbox', { name: 'Custom URL' });
+      await userEvent.clear(input);
+      await userEvent.type(input, slug);
+    };
+
+    const fillInDetailsScreen = async ({ description, name, slug }) => {
+      await typeName(name);
+      await typeDescription(description);
+      await typeSlug(slug);
+    };
+
+    const expectCancelButtonToBeDisabled = (disabled) => {
+      expect(screen.getByRole('button', { name: 'Cancel' })).toHaveProperty(
+        'disabled',
+        disabled,
       );
       return true;
     };
 
-    const expectSaveButtonToBeDisabled = async (disabled) => {
-      await waitFor(() =>
-        expect(
-          screen.getByRole('button', { name: 'Save changes' }),
-        ).toHaveProperty('disabled', disabled),
-      );
+    const expectSaveButtonToBeDisabled = (disabled) => {
+      expect(
+        screen.getByRole('button', { name: 'Save changes' }),
+      ).toHaveProperty('disabled', disabled);
       return true;
     };
 
-    const expectButtonDisabledStatus = async ({
+    const expectButtonDisabledStatus = ({
       cancelIsDisabled,
       saveIsDisabled,
     }) => {
-      await expectCancelButtonToBeDisabled(cancelIsDisabled);
-      await expectSaveButtonToBeDisabled(saveIsDisabled);
+      expectCancelButtonToBeDisabled(cancelIsDisabled);
+      expectSaveButtonToBeDisabled(saveIsDisabled);
       return true;
     };
 
@@ -1653,7 +1640,7 @@ describe(__filename, () => {
       expect(screen.getByTitle(expectedUrlPrefix)).toHaveTextContent(
         expectedUrlPrefix,
       );
-      await expectSaveButtonToBeDisabled(true);
+      expectSaveButtonToBeDisabled(true);
     });
 
     it('does not populate form when updating to the same collection', async () => {
@@ -1670,7 +1657,7 @@ describe(__filename, () => {
       const name = 'User typed name';
       const slug = 'user-typed-slug';
 
-      fillInDetailsScreen({ description, name, slug });
+      await fillInDetailsScreen({ description, name, slug });
 
       expect(
         screen.getByRole('textbox', { name: 'Collection name' }),
@@ -1684,7 +1671,9 @@ describe(__filename, () => {
 
       // Simulate how a mounted component will get updated with the same
       // collection. E.G. This happens when pressing the submit button.
-      userEvent.click(screen.getByRole('button', { name: 'Save changes' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Save changes' }),
+      );
 
       // Make sure the internal state is preserved.
       expect(
@@ -1695,7 +1684,7 @@ describe(__filename, () => {
       );
     });
 
-    it('creates a collection on submit', () => {
+    it('creates a collection on submit', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       renderInAddMode();
 
@@ -1703,9 +1692,9 @@ describe(__filename, () => {
       const description = 'A collection description';
       const slug = 'collection-slug';
 
-      fillInDetailsScreen({ description, name, slug });
+      await fillInDetailsScreen({ description, name, slug });
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Create collection' }),
       );
 
@@ -1721,7 +1710,7 @@ describe(__filename, () => {
       );
     });
 
-    it('creates a collection with an add-on on submit', () => {
+    it('creates a collection with an add-on on submit', async () => {
       const addonId = '123';
       const dispatch = jest.spyOn(store, 'dispatch');
       renderInAddMode({ withAddonId: addonId });
@@ -1730,9 +1719,9 @@ describe(__filename, () => {
       const description = 'A collection description';
       const slug = 'collection-slug';
 
-      fillInDetailsScreen({ description, name, slug });
+      await fillInDetailsScreen({ description, name, slug });
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Create collection' }),
       );
 
@@ -1762,9 +1751,11 @@ describe(__filename, () => {
       const description = 'A new description';
       const slug = 'new-slug';
 
-      fillInDetailsScreen({ description, name, slug });
+      await fillInDetailsScreen({ description, name, slug });
 
-      userEvent.click(screen.getByRole('button', { name: 'Save changes' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Save changes' }),
+      );
 
       expect(dispatch).toHaveBeenCalledWith(
         updateCollection({
@@ -1803,13 +1794,12 @@ describe(__filename, () => {
 
       await accessEditDetailsScreen();
 
-      userEvent.type(
+      await userEvent.clear(
         screen.getByRole('textbox', { name: 'Collection name' }),
-        `{selectall}{del}`,
       );
 
       expect(
-        await expectButtonDisabledStatus({
+        expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
@@ -1821,13 +1811,10 @@ describe(__filename, () => {
 
       await accessEditDetailsScreen();
 
-      userEvent.type(
-        screen.getByRole('textbox', { name: 'Collection name' }),
-        `{selectall}{del}     `,
-      );
+      await typeName('     ');
 
       expect(
-        await expectButtonDisabledStatus({
+        expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
@@ -1839,13 +1826,12 @@ describe(__filename, () => {
 
       await accessEditDetailsScreen();
 
-      userEvent.type(
+      await userEvent.clear(
         screen.getByRole('textbox', { name: 'Custom URL' }),
-        `{selectall}{del}`,
       );
 
       expect(
-        await expectButtonDisabledStatus({
+        expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
@@ -1857,13 +1843,10 @@ describe(__filename, () => {
 
       await accessEditDetailsScreen();
 
-      userEvent.type(
-        screen.getByRole('textbox', { name: 'Custom URL' }),
-        `{selectall}{del}     `,
-      );
+      await typeSlug('     ');
 
       expect(
-        await expectButtonDisabledStatus({
+        expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
@@ -1877,20 +1860,17 @@ describe(__filename, () => {
 
       // Cancel should default to enabled, and Save to disabled.
       expect(
-        await expectButtonDisabledStatus({
+        expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
       ).toBeTruthy();
 
       // Enter a value for name in order to enable submit button.
-      userEvent.type(
-        screen.getByRole('textbox', { name: 'Collection name' }),
-        `{selectall}{del}${defaultCollectionName}-changed`,
-      );
+      await typeName(`${defaultCollectionName}-changed`);
 
       // Buttons should be enabled now.
-      await expectButtonDisabledStatus({
+      expectButtonDisabledStatus({
         cancelIsDisabled: false,
         saveIsDisabled: false,
       });
@@ -1900,8 +1880,15 @@ describe(__filename, () => {
       // change the state.
       store.dispatch(beginCollectionModification());
 
+      await waitFor(() =>
+        expect(screen.getByRole('button', { name: 'Cancel' })).toHaveProperty(
+          'disabled',
+          true,
+        ),
+      );
+
       // Buttons should be disabled now.
-      await expectButtonDisabledStatus({
+      expectButtonDisabledStatus({
         cancelIsDisabled: true,
         saveIsDisabled: true,
       });
@@ -1913,25 +1900,25 @@ describe(__filename, () => {
       await accessEditDetailsScreen();
 
       // Save should be disabled by default.
-      expect(await expectSaveButtonToBeDisabled(true)).toBeTruthy();
+      expect(expectSaveButtonToBeDisabled(true)).toBeTruthy();
 
-      typeName(`${defaultCollectionName}-changed`);
-      await expectSaveButtonToBeDisabled(false);
+      await typeName(`${defaultCollectionName}-changed`);
+      expectSaveButtonToBeDisabled(false);
 
-      typeName(defaultCollectionName);
-      await expectSaveButtonToBeDisabled(true);
+      await typeName(defaultCollectionName);
+      expectSaveButtonToBeDisabled(true);
 
-      typeDescription(`${defaultCollectionDescription}-changed`);
-      await expectSaveButtonToBeDisabled(false);
+      await typeDescription(`${defaultCollectionDescription}-changed`);
+      expectSaveButtonToBeDisabled(false);
 
-      typeDescription(defaultCollectionDescription);
-      await expectSaveButtonToBeDisabled(true);
+      await typeDescription(defaultCollectionDescription);
+      expectSaveButtonToBeDisabled(true);
 
-      typeSlug(`${defaultSlug}-changed`);
-      await expectSaveButtonToBeDisabled(false);
+      await typeSlug(`${defaultSlug}-changed`);
+      expectSaveButtonToBeDisabled(false);
 
-      typeSlug(defaultSlug);
-      await expectSaveButtonToBeDisabled(true);
+      await typeSlug(defaultSlug);
+      expectSaveButtonToBeDisabled(true);
     });
 
     it('trims leading and trailing spaces from slug and name before submitting', async () => {
@@ -1946,10 +1933,12 @@ describe(__filename, () => {
       await accessEditDetailsScreen();
 
       // Enter in collection name and slug with trailing and leading spaces.
-      typeName(`  ${name}   `);
-      typeSlug(`  ${slug}   `);
+      await typeName(`  ${name}   `);
+      await typeSlug(`  ${slug}   `);
 
-      userEvent.click(screen.getByRole('button', { name: 'Save changes' }));
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Save changes' }),
+      );
 
       expect(dispatch).toHaveBeenCalledWith(
         updateCollection({
@@ -1968,57 +1957,57 @@ describe(__filename, () => {
       );
     });
 
-    it('autofills slug when name is entered while creating collection', () => {
+    it('autofills slug when name is entered while creating collection', async () => {
       const name = "trishul's collection";
       renderInAddMode();
 
-      typeName(name);
+      await typeName(name);
 
       expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
         'trishul-s-collection',
       );
     });
 
-    it('does not autofill slug when custom slug is entered while creating collection', () => {
+    it('does not autofill slug when custom slug is entered while creating collection', async () => {
       const name = "trishul's collection";
       const slug = 'trishul';
       renderInAddMode();
 
-      typeSlug(slug);
-      typeName(name);
+      await typeSlug(slug);
+      await typeName(name);
 
       expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
         slug,
       );
     });
 
-    it('autofills slug with trimmed collection name', () => {
+    it('autofills slug with trimmed collection name', async () => {
       const name = "trishul's collection";
       renderInAddMode();
 
-      typeName(`  ${name}  `);
+      await typeName(`  ${name}  `);
 
       expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
         'trishul-s-collection',
       );
     });
 
-    it('does not allow consecutive hyphen while autofilling slug', () => {
+    it('does not allow consecutive hyphen while autofilling slug', async () => {
       const name = "trishul's   collection";
       renderInAddMode();
 
-      typeName(`  ${name}  `);
+      await typeName(`  ${name}  `);
 
       expect(screen.getByRole('textbox', { name: 'Custom URL' })).toHaveValue(
         'trishul-s-collection',
       );
     });
 
-    it('does not update slug if event value is undefined', () => {
+    it('does not update slug if event value is undefined', async () => {
       const name = "trishul's collection";
       renderInAddMode();
 
-      typeName(name);
+      await typeName(name);
       fireEvent.change(screen.getByRole('textbox', { name: 'Custom URL' }), {
         target: { value: undefined },
       });
@@ -2028,15 +2017,17 @@ describe(__filename, () => {
       );
     });
 
-    it('allows a blank description', () => {
+    it('allows a blank description', async () => {
       const name = 'My collection';
       const dispatch = jest.spyOn(store, 'dispatch');
       renderInAddMode();
 
-      typeName(name);
-      typeDescription('');
+      await typeName(name);
+      await userEvent.clear(
+        screen.getByRole('textbox', { name: 'Description' }),
+      );
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Create collection' }),
       );
 
@@ -2076,11 +2067,11 @@ describe(__filename, () => {
       expect(dispatch).toHaveBeenCalledWith(finishEditingCollectionDetails());
     });
 
-    it('calls history.push() when creating', () => {
+    it('calls history.push() when creating', async () => {
       renderInAddMode();
       const pushSpy = jest.spyOn(history, 'push');
 
-      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
       expect(pushSpy).toHaveBeenCalledWith(
         `/${lang}/${clientApp}/collections/`,
@@ -2232,13 +2223,11 @@ describe(__filename, () => {
     it('switches into collection edit mode when the edit button is clicked', async () => {
       renderWithCollectionForSignedInUser();
 
-      clickEditButton();
+      await clickEditButton();
 
-      await waitFor(() =>
-        expect(
-          screen.queryByRole('link', { name: 'Edit this collection' }),
-        ).not.toBeInTheDocument(),
-      );
+      expect(
+        screen.queryByRole('link', { name: 'Edit this collection' }),
+      ).not.toBeInTheDocument();
       expect(
         screen.getByRole('link', { name: 'Edit collection details' }),
       ).toBeInTheDocument();
@@ -2253,9 +2242,9 @@ describe(__filename, () => {
     it('switches into collection details edit mode when the edit details button is clicked', async () => {
       renderWithCollectionForSignedInUser();
 
-      clickEditButton();
+      await clickEditButton();
 
-      const link = await screen.findByRole('link', {
+      const link = screen.getByRole('link', {
         name: 'Edit collection details',
       });
       const clickEvent = createEvent.click(link);

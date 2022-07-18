@@ -256,30 +256,32 @@ describe(__filename, () => {
   it('generates an empty header when no add-on is loaded', async () => {
     render();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        'Add-ons for Firefox (en-US)',
+      ),
+    );
 
     expect(
       screen.getByClassName('AddonSummaryCard-header-text'),
     ).toHaveTextContent('');
-    expect(getElement('title')).toHaveTextContent(
-      'Add-ons for Firefox (en-US)',
-    );
   });
 
   it('generates an empty header when no versions have loaded', async () => {
     _loadAddon();
     render();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        'Add-ons for Firefox (en-US)',
+      ),
+    );
 
     expect(
       within(
         screen.getByClassName('AddonSummaryCard-header-text'),
       ).getByClassName('visually-hidden'),
     ).toHaveTextContent('');
-    expect(getElement('title')).toHaveTextContent(
-      'Add-ons for Firefox (en-US)',
-    );
   });
 
   it('generates a header with add-on name and version count when versions have loaded', async () => {

@@ -326,12 +326,10 @@ describe(__filename, () => {
     render();
 
     await waitFor(() =>
-      expect(getElement('meta[name="description"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('meta[name="description"]')).toHaveAttribute(
-      'content',
-      expect.stringContaining('Download Firefox dictionaries and language'),
+      expect(getElement('meta[name="description"]')).toHaveAttribute(
+        'content',
+        expect.stringContaining('Download Firefox dictionaries and language'),
+      ),
     );
   });
 
@@ -339,12 +337,12 @@ describe(__filename, () => {
     render();
 
     await waitFor(() =>
-      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('link[rel="canonical"]')).toHaveAttribute(
-      'href',
-      getCanonicalURL({ locationPathname: `/${lang}/firefox/language-tools/` }),
+      expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+        'href',
+        getCanonicalURL({
+          locationPathname: `/${lang}/firefox/language-tools/`,
+        }),
+      ),
     );
   });
 });
