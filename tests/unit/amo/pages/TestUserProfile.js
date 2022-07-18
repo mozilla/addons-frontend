@@ -38,6 +38,7 @@ import {
 } from 'amo/constants';
 import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import {
+  changeLocation,
   createFailedErrorHandler,
   createFakeUserAbuseReport,
   createUserAccountResponse,
@@ -48,7 +49,6 @@ import {
   getElement,
   getElements,
   loadAddonsByAuthors,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
@@ -58,6 +58,9 @@ import { setViewContext } from 'amo/actions/viewContext';
 jest.mock('amo/localState', () =>
   jest.fn(() => {
     return {
+      save: jest.fn(() => {
+        return Promise.resolve();
+      }),
       clear: jest.fn(() => {
         return Promise.resolve();
       }),
@@ -71,6 +74,7 @@ jest.mock('amo/localState', () =>
 describe(__filename, () => {
   const lang = 'fr';
   const clientApp = CLIENT_APP_FIREFOX;
+  let history;
   let store;
   const defaultUserId = fakeAuthors[0].id;
 
@@ -108,7 +112,9 @@ describe(__filename, () => {
       initialEntries: [location || getLocation({ userId })],
       store,
     };
-    return defaultRender(renderOptions);
+    const renderResults = defaultRender(renderOptions);
+    history = renderResults.history;
+    return renderResults;
   }
 
   function signInUserAndRenderUserProfile({
@@ -157,22 +163,24 @@ describe(__filename, () => {
     })}`;
   };
 
-  it('dispatches fetchUserAccount action if userId is not found', () => {
+  it('dispatches fetchUserAccount action if userId is not found', async () => {
     const userId = signInUserWithProps();
     const dispatch = jest.spyOn(store, 'dispatch');
     const notFoundUserId = userId + 1;
 
     renderUserProfile({ userId: notFoundUserId });
 
-    expect(dispatch).toHaveBeenCalledWith(
-      fetchUserAccount({
-        errorHandlerId: createErrorHandlerId({ userId: notFoundUserId }),
-        userId: String(notFoundUserId),
-      }),
+    await waitFor(() =>
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchUserAccount({
+          errorHandlerId: createErrorHandlerId({ userId: notFoundUserId }),
+          userId: String(notFoundUserId),
+        }),
+      ),
     );
   });
 
-  it('dispatches fetchUserAccount action if userId param changes', () => {
+  it('dispatches fetchUserAccount action if userId param changes', async () => {
     const userId = signInUserWithProps();
     const dispatch = jest.spyOn(store, 'dispatch');
 
@@ -181,11 +189,11 @@ describe(__filename, () => {
     dispatch.mockClear();
 
     const secondUserId = userId + 1;
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation({ userId: secondUserId }),
-      }),
-    );
+
+    await changeLocation({
+      history,
+      pathname: getLocation({ userId: secondUserId }),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchUserAccount({
@@ -195,7 +203,7 @@ describe(__filename, () => {
     );
   });
 
-  it('does not dispatch fetchUserAccount if userId does not change', () => {
+  it('does not dispatch fetchUserAccount if userId does not change', async () => {
     signInUserWithProps();
     const dispatch = jest.spyOn(store, 'dispatch');
 
@@ -203,11 +211,10 @@ describe(__filename, () => {
 
     dispatch.mockClear();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(),
+    });
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ 'type': FETCH_USER_ACCOUNT }),
@@ -568,7 +575,7 @@ describe(__filename, () => {
     );
   });
 
-  it('fetches reviews if not loaded and userId does not change', () => {
+  it('fetches reviews if not loaded and userId does not change', async () => {
     signInUserWithProps();
     const dispatch = jest.spyOn(store, 'dispatch');
 
@@ -576,11 +583,10 @@ describe(__filename, () => {
 
     dispatch.mockClear();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchUserReviews({
@@ -591,7 +597,7 @@ describe(__filename, () => {
     );
   });
 
-  it('fetches reviews if page has changed and username does not change', () => {
+  it('fetches reviews if page has changed and username does not change', async () => {
     signInUserWithProps();
 
     _setUserReviews();
@@ -605,12 +611,11 @@ describe(__filename, () => {
 
     const newPage = '2';
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation(),
-        search: `?page=${newPage}`,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation(),
+      search: `?page=${newPage}`,
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchUserReviews({
@@ -707,7 +712,7 @@ describe(__filename, () => {
     );
   });
 
-  it('does not fetch the reviews when page has changed and userId does not change but user is not the owner', () => {
+  it('does not fetch the reviews when page has changed and userId does not change but user is not the owner', async () => {
     const userId = signInUserWithProps();
 
     // Create a user with another userId.
@@ -726,12 +731,11 @@ describe(__filename, () => {
 
     dispatch.mockClear();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation({ userId: anotherUserId }),
-        search: `?page=2`,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation({ userId: anotherUserId }),
+      search: '?page=2',
+    });
 
     expect(dispatch).not.toHaveBeenCalledWith(
       expect.objectContaining({ 'type': FETCH_USER_REVIEWS }),
@@ -925,7 +929,7 @@ describe(__filename, () => {
       );
     });
 
-    it('does not dispatch an action if authorIds is null on update', () => {
+    it('does not dispatch an action if authorIds is null on update', async () => {
       const userId = signInUserWithProps();
       const dispatch = jest.spyOn(store, 'dispatch');
 
@@ -934,11 +938,11 @@ describe(__filename, () => {
       dispatch.mockClear();
 
       const secondUserId = userId + 1;
-      store.dispatch(
-        onLocationChanged({
-          pathname: getLocation({ userId: secondUserId }),
-        }),
-      );
+
+      await changeLocation({
+        history,
+        pathname: getLocation({ userId: secondUserId }),
+      });
 
       expect(dispatch).not.toHaveBeenCalledWith(
         expect.objectContaining({ type: FETCH_ADDONS_BY_AUTHORS }),
@@ -946,16 +950,18 @@ describe(__filename, () => {
     });
 
     describe('with pagination', () => {
-      it('shows a paginator when `count` is greater than the number of add-ons to display', () => {
+      it('shows a paginator when `count` is greater than the number of add-ons to display', async () => {
         signInUserAndRenderUserProfile();
         loadAddonsByAuthors({
           count: EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 1,
           store,
         });
 
-        expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
-          'href',
-          getLocation({ search: '?page_e=2' }),
+        await waitFor(() =>
+          expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+            'href',
+            getLocation({ search: '?page_e=2' }),
+          ),
         );
         expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
       });
@@ -970,7 +976,7 @@ describe(__filename, () => {
         expect(screen.queryByText('Next')).not.toBeInTheDocument();
       });
 
-      it('passes all the query parameters to the Paginate component', () => {
+      it('passes all the query parameters to the Paginate component', async () => {
         renderUserProfile({
           location: getLocation({ search: '?other=param' }),
           userId: signInUserWithProps(),
@@ -981,13 +987,15 @@ describe(__filename, () => {
           store,
         });
 
-        expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
-          'href',
-          getLocation({ search: '?other=param&page_e=2' }),
+        await waitFor(() =>
+          expect(screen.getByRole('link', { name: 'Next' })).toHaveAttribute(
+            'href',
+            getLocation({ search: '?other=param&page_e=2' }),
+          ),
         );
       });
 
-      it('sets the current page based on the `pageParam`', () => {
+      it('sets the current page based on the `pageParam`', async () => {
         renderUserProfile({
           location: getLocation({ search: '?page_e=2' }),
           userId: signInUserWithProps(),
@@ -998,10 +1006,10 @@ describe(__filename, () => {
           store,
         });
 
-        expect(screen.getByText('Page 2 of 2')).toBeInTheDocument();
+        expect(await screen.findByText('Page 2 of 2')).toBeInTheDocument();
       });
 
-      it('sets the current page to 1 when query parameter has an incorrect value', () => {
+      it('sets the current page to 1 when query parameter has an incorrect value', async () => {
         renderUserProfile({
           location: getLocation({ search: '?page_e=invalid' }),
           userId: signInUserWithProps(),
@@ -1012,10 +1020,10 @@ describe(__filename, () => {
           store,
         });
 
-        expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
+        expect(await screen.findByText('Page 1 of 2')).toBeInTheDocument();
       });
 
-      it('sets the current page to 1 when query parameter has a negative value', () => {
+      it('sets the current page to 1 when query parameter has a negative value', async () => {
         renderUserProfile({
           location: getLocation({ search: '?page_e=-11' }),
           userId: signInUserWithProps(),
@@ -1026,10 +1034,10 @@ describe(__filename, () => {
           store,
         });
 
-        expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
+        expect(await screen.findByText('Page 1 of 2')).toBeInTheDocument();
       });
 
-      it('sets the current page to 1 when query parameter is 0', () => {
+      it('sets the current page to 1 when query parameter is 0', async () => {
         renderUserProfile({
           location: getLocation({ search: '?page_e=0' }),
           userId: signInUserWithProps(),
@@ -1040,7 +1048,7 @@ describe(__filename, () => {
           store,
         });
 
-        expect(screen.getByText('Page 1 of 2')).toBeInTheDocument();
+        expect(await screen.findByText('Page 1 of 2')).toBeInTheDocument();
       });
 
       it('should dispatch a fetch action with `page` and `sort` parameters', () => {
@@ -1070,7 +1078,7 @@ describe(__filename, () => {
         );
       });
 
-      it('should dispatch a fetch action if page changes', () => {
+      it('should dispatch a fetch action if page changes', async () => {
         const dispatch = jest.spyOn(store, 'dispatch');
         signInUserAndRenderUserProfile();
         loadAddonsByAuthors({
@@ -1078,17 +1086,19 @@ describe(__filename, () => {
           store,
         });
 
-        userEvent.click(screen.getByRole('link', { name: 'Next' }));
+        userEvent.click(await screen.findByRole('link', { name: 'Next' }));
 
-        expect(dispatch).toHaveBeenCalledWith(
-          fetchAddonsByAuthors({
-            addonType: ADDON_TYPE_EXTENSION,
-            authorIds: [defaultUserId],
-            errorHandlerId: createErrorHandlerId(),
-            page: '2',
-            pageSize: String(EXTENSIONS_BY_AUTHORS_PAGE_SIZE),
-            sort: SEARCH_SORT_POPULAR,
-          }),
+        await waitFor(() =>
+          expect(dispatch).toHaveBeenCalledWith(
+            fetchAddonsByAuthors({
+              addonType: ADDON_TYPE_EXTENSION,
+              authorIds: [defaultUserId],
+              errorHandlerId: createErrorHandlerId(),
+              page: '2',
+              pageSize: String(EXTENSIONS_BY_AUTHORS_PAGE_SIZE),
+              sort: SEARCH_SORT_POPULAR,
+            }),
+          ),
         );
 
         // Verify that the AddonsByAuthors card for Themes did not dispatch.
@@ -1207,7 +1217,7 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
-    it('shows more content when the button is clicked', () => {
+    it('shows more content when the button is clicked', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const userId = renderForOtherThanSignedInUser();
 
@@ -1221,8 +1231,10 @@ describe(__filename, () => {
         }),
       );
 
-      expect(screen.getByClassName('ReportUserAbuse')).toHaveClass(
-        'ReportUserAbuse--is-expanded',
+      await waitFor(() =>
+        expect(screen.getByClassName('ReportUserAbuse')).toHaveClass(
+          'ReportUserAbuse--is-expanded',
+        ),
       );
 
       // The initial button should no longer be visible.
@@ -1266,7 +1278,7 @@ describe(__filename, () => {
       );
     });
 
-    it('dispatches the send abuse report action', () => {
+    it('dispatches the send abuse report action', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const message = 'This user is funny';
       const userId = renderForOtherThanSignedInUser();
@@ -1293,9 +1305,11 @@ describe(__filename, () => {
         }),
       );
 
-      expect(
-        screen.getByRole('button', { name: 'Sending abuse report' }),
-      ).toBeDisabled();
+      await waitFor(() =>
+        expect(
+          screen.getByRole('button', { name: 'Sending abuse report' }),
+        ).toBeDisabled(),
+      );
     });
 
     it('shows a success message and hides the button if report was sent', () => {
@@ -1360,7 +1374,7 @@ describe(__filename, () => {
       const getLocalStateId = (id) =>
         `src/amo/components/ReportUserAbuse/index.js-${id}`;
 
-      it('recreates LocalState on update when the ID changes', () => {
+      it('recreates LocalState on update when the ID changes', async () => {
         const userId = renderForOtherThanSignedInUser();
         const anotherUserId = userId + 1;
 
@@ -1372,11 +1386,10 @@ describe(__filename, () => {
           }),
         );
 
-        store.dispatch(
-          onLocationChanged({
-            pathname: getLocation({ userId: anotherUserId }),
-          }),
-        );
+        await changeLocation({
+          history,
+          pathname: getLocation({ userId: anotherUserId }),
+        });
 
         expect(createLocalState).toHaveBeenCalledTimes(2);
         expect(createLocalState).toHaveBeenCalledWith(
@@ -1384,16 +1397,15 @@ describe(__filename, () => {
         );
       });
 
-      it('does not recreate LocalState on update when ID does not change', () => {
+      it('does not recreate LocalState on update when ID does not change', async () => {
         const userId = renderForOtherThanSignedInUser();
 
         expect(createLocalState).toHaveBeenCalledWith(getLocalStateId(userId));
 
-        store.dispatch(
-          onLocationChanged({
-            pathname: getLocation({ userId }),
-          }),
-        );
+        await changeLocation({
+          history,
+          pathname: getLocation({ userId }),
+        });
 
         expect(createLocalState).toHaveBeenCalledTimes(1);
       });
