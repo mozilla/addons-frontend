@@ -2077,7 +2077,6 @@ describe(__filename, () => {
     });
 
     it('calls history.push() when creating', () => {
-      // renderInAddMode({ location: `/${lang}/${clientApp}/collections/add/` });
       renderInAddMode();
       const pushSpy = jest.spyOn(history, 'push');
 
