@@ -1,6 +1,11 @@
 import * as React from 'react';
 import userEvent from '@testing-library/user-event';
-import { cleanup, createEvent, fireEvent } from '@testing-library/react';
+import {
+  cleanup,
+  createEvent,
+  fireEvent,
+  waitFor,
+} from '@testing-library/react';
 
 import Rating from 'amo/components/Rating';
 import { fakeI18n, render as defaultRender, screen } from 'tests/unit/helpers';
@@ -227,7 +232,7 @@ describe(__filename, () => {
     expect(stopPropagationWatcher).toHaveBeenCalled();
   });
 
-  it('selects stars on hover', () => {
+  it('selects stars on hover', async () => {
     renderWithEmptyRating();
 
     const hoverStar = getStarButton({ rating: 4 });
@@ -235,8 +240,10 @@ describe(__filename, () => {
 
     // The first 4 should be selected:
     for (const star of [1, 2, 3, 4]) {
-      expect(getStarButton({ rating: star })).toHaveClass(
-        'Rating-selected-star',
+      await waitFor(() =>
+        expect(getStarButton({ rating: star })).toHaveClass(
+          'Rating-selected-star',
+        ),
       );
     }
 
@@ -246,16 +253,18 @@ describe(__filename, () => {
     );
   });
 
-  it('overrides the current rating when hovering over a star', () => {
+  it('overrides the current rating when hovering over a star', async () => {
     const currentRating = 2;
     render({ rating: currentRating });
 
     const hoverStar = getStarButton({ currentRating, rating: 1 });
     userEvent.hover(hoverStar);
 
-    expect(
-      getStarButton({ currentRating, rating: currentRating }),
-    ).not.toHaveClass('Rating-selected-star');
+    await waitFor(() =>
+      expect(
+        getStarButton({ currentRating, rating: currentRating }),
+      ).not.toHaveClass('Rating-selected-star'),
+    );
   });
 
   it('finishes hovering on mouseLeave', () => {
