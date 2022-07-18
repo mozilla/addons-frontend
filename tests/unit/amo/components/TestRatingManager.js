@@ -322,6 +322,7 @@ describe(__filename, () => {
 
       userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
 
+      // eslint-disable-next-line testing-library/prefer-find-by
       await waitFor(() =>
         expect(
           screen.getByTextAcrossTags(
@@ -354,6 +355,7 @@ describe(__filename, () => {
 
       userEvent.click(screen.getByRole('button', { name: 'Delete rating' }));
 
+      // eslint-disable-next-line testing-library/prefer-find-by
       await waitFor(() =>
         expect(
           screen.getByTextAcrossTags(
@@ -368,6 +370,7 @@ describe(__filename, () => {
 
       userEvent.click(screen.getByRole('button', { name: 'Delete review' }));
 
+      // eslint-disable-next-line testing-library/prefer-find-by
       await waitFor(() =>
         expect(
           screen.getByTextAcrossTags(
@@ -407,11 +410,13 @@ describe(__filename, () => {
 
       userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
+      // eslint-disable-next-line testing-library/prefer-find-by
       await waitFor(() =>
         expect(
           screen.getByClassName('RatingManager-legend'),
         ).toBeInTheDocument(),
       );
+      // eslint-disable-next-line testing-library/prefer-find-by
       await waitFor(() =>
         expect(
           screen.getByClassName('RatingManager-UserRating'),
