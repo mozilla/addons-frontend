@@ -56,17 +56,19 @@ Here are some commands you can run:
 | yarn prettier-ci | Run [Prettier][] and fail if some code has been changed without being formatted |
 | yarn version-check | Check you have the required dependencies |
 | yarn test | Run all tests (Enters [jest][] in `--watch` mode) |
+| yarn test-debug | Run all tests with full console output and full error messages (Enters [jest][] in `--watch` mode) |
 | yarn test-coverage | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
 | yarn test-coverage-once | Run all tests, generate code coverage report, then exit |
 | yarn test-once | Run all tests, run all JS + SCSS linters, then exit |
-| yarn test-ci | Run all continuous integration checks. This is only meant to run on TravisCI. |
+| yarn test-ci | Run all continuous integration checks. This is only meant to run on CI. |
 
 ### Running tests
 
-You can enter the interactive [jest][] mode by typing `yarn test`. This is the easiest way to develop new features.
+You can enter the interactive [jest][] mode by typing `yarn test` or `yarn test-debug`. This is the easiest way to develop new features.
 
 Here are a few tips:
 
+- `yarn test` will hide most console output and detailed test failure messages, so it is best when you are running a full suite of tests. When working on an individual test, you likely want to run `yarn test-debug`.
 - When you start `yarn test`, you can switch to your code editor and begin adding test files or changing existing code. As you save each file, [jest][] will only run tests related to the code you change.
 - If you had typed `a` when you first started then [jest][] will continue to run the full suite even when you change specific files. Type `o` to switch back to the mode of only running tests related to the files you are changing.
 - Sometimes running tests related to your file changes is slow. In these cases, you can type `p` or `t` to filter tests by name while you working fixing a specific test suite. [More info](https://github.com/jest-community/jest-watch-typeahead).
