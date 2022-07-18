@@ -1,5 +1,5 @@
 import { waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import {
   fetchReview,
@@ -42,6 +42,7 @@ describe(__filename, () => {
   let store;
   let addon;
   let history;
+  let userEvent;
 
   const getLocation = ({ page, reviewId, score, slug = defaultSlug } = {}) => {
     let queryString = '?';
@@ -64,6 +65,7 @@ describe(__filename, () => {
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
     addon = { ...fakeAddon, slug: defaultSlug };
+    userEvent = defaultUserEvent.setup();
   });
 
   const render = ({
@@ -884,11 +886,11 @@ describe(__filename, () => {
       expect(getSelector()).toHaveProperty('disabled', false);
     });
 
-    it('lets you select all reviews', () => {
+    it('lets you select all reviews', async () => {
       renderWithAddonAndReviews();
 
       const pushSpy = jest.spyOn(history, 'push');
-      userEvent.selectOptions(getSelector(), SHOW_ALL_REVIEWS);
+      await userEvent.selectOptions(getSelector(), SHOW_ALL_REVIEWS);
 
       expect(pushSpy).toHaveBeenCalledWith(
         `/en-US/firefox/addon/${defaultSlug}/reviews/`,
@@ -901,11 +903,11 @@ describe(__filename, () => {
       [3, 'Show only three-star reviews'],
       [2, 'Show only two-star reviews'],
       [1, 'Show only one-star reviews'],
-    ])('lets you select only %s star reviews', (score, option) => {
+    ])('lets you select only %s star reviews', async (score, option) => {
       renderWithAddonAndReviews();
 
       const pushSpy = jest.spyOn(history, 'push');
-      userEvent.selectOptions(getSelector(), option);
+      await userEvent.selectOptions(getSelector(), option);
 
       expect(pushSpy).toHaveBeenCalledWith(
         `/en-US/firefox/addon/${defaultSlug}/reviews/?score=${score}`,

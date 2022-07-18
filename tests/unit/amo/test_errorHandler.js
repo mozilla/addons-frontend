@@ -168,11 +168,11 @@ describe(__filename, () => {
       expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
 
-    it('configures an error handler for action dispatching', () => {
+    it('configures an error handler for action dispatching', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       render();
 
-      userEvent.click(getInput());
+      await userEvent.setup().click(getInput());
 
       expect(dispatch).toHaveBeenCalledWith(
         setError({

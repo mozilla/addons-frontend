@@ -54,13 +54,13 @@ describe(__filename, () => {
     mockClientHeight(DEFAULT_MAX_HEIGHT + 1);
     render();
 
-    userEvent.click(screen.getByRole('link', { name: 'Expand to read more' }));
+    await userEvent
+      .setup()
+      .click(screen.getByRole('link', { name: 'Expand to read more' }));
 
-    await waitFor(() =>
-      expect(
-        screen.queryByRole('link', { name: 'Expand to read more' }),
-      ).not.toBeInTheDocument(),
-    );
+    expect(
+      screen.queryByRole('link', { name: 'Expand to read more' }),
+    ).not.toBeInTheDocument();
     expect(screen.getByClassName('ShowMoreCard')).toHaveClass(
       'ShowMoreCard--expanded',
     );

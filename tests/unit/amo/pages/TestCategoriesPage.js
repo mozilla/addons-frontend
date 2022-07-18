@@ -64,12 +64,10 @@ describe(__filename, () => {
     render();
 
     await waitFor(() =>
-      expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('link[rel="canonical"]')).toHaveAttribute(
-      'href',
-      getCanonicalURL({ locationPathname: getLocation() }),
+      expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+        'href',
+        getCanonicalURL({ locationPathname: getLocation() }),
+      ),
     );
   });
 
@@ -82,12 +80,10 @@ describe(__filename, () => {
       render({ addonType });
 
       await waitFor(() =>
-        expect(getElement('meta[property="og:title"]')).toBeInTheDocument(),
-      );
-
-      expect(getElement(`meta[property="og:title"]`)).toHaveAttribute(
-        'content',
-        `All ${expectedMatch} categories – Add-ons for Firefox (en-US)`,
+        expect(getElement(`meta[property="og:title"]`)).toHaveAttribute(
+          'content',
+          `All ${expectedMatch} categories – Add-ons for Firefox (en-US)`,
+        ),
       );
     },
   );

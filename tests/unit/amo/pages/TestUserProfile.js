@@ -1,6 +1,6 @@
 import config from 'config';
 import { waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import {
   fetchUserReviews,
@@ -76,10 +76,12 @@ describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
   let history;
   let store;
+  let userEvent;
   const defaultUserId = fakeAuthors[0].id;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
+    userEvent = defaultUserEvent.setup();
   });
 
   afterEach(() => {
@@ -1086,19 +1088,19 @@ describe(__filename, () => {
           store,
         });
 
-        userEvent.click(await screen.findByRole('link', { name: 'Next' }));
+        await userEvent.click(
+          await screen.findByRole('link', { name: 'Next' }),
+        );
 
-        await waitFor(() =>
-          expect(dispatch).toHaveBeenCalledWith(
-            fetchAddonsByAuthors({
-              addonType: ADDON_TYPE_EXTENSION,
-              authorIds: [defaultUserId],
-              errorHandlerId: createErrorHandlerId(),
-              page: '2',
-              pageSize: String(EXTENSIONS_BY_AUTHORS_PAGE_SIZE),
-              sort: SEARCH_SORT_POPULAR,
-            }),
-          ),
+        expect(dispatch).toHaveBeenCalledWith(
+          fetchAddonsByAuthors({
+            addonType: ADDON_TYPE_EXTENSION,
+            authorIds: [defaultUserId],
+            errorHandlerId: createErrorHandlerId(),
+            page: '2',
+            pageSize: String(EXTENSIONS_BY_AUTHORS_PAGE_SIZE),
+            sort: SEARCH_SORT_POPULAR,
+          }),
         );
 
         // Verify that the AddonsByAuthors card for Themes did not dispatch.
@@ -1148,14 +1150,12 @@ describe(__filename, () => {
         renderUserProfile({ location: getLocation({ search }) });
 
         await waitFor(() =>
-          expect(getElement('link[rel="canonical"]')).toBeInTheDocument(),
-        );
-
-        expect(getElement('link[rel="canonical"]')).toHaveAttribute(
-          'href',
-          `${config.get('baseURL')}${getLocation({
-            search: expectedQueryString,
-          })}`,
+          expect(getElement('link[rel="canonical"]')).toHaveAttribute(
+            'href',
+            `${config.get('baseURL')}${getLocation({
+              search: expectedQueryString,
+            })}`,
+          ),
         );
 
         expect(getElement('meta[property="og:url"]')).toHaveAttribute(
@@ -1171,12 +1171,10 @@ describe(__filename, () => {
       renderUserProfile();
 
       await waitFor(() =>
-        expect(getElement('meta[property="og:title"]')).toBeInTheDocument(),
-      );
-
-      expect(getElement('meta[property="og:title"]')).toHaveAttribute(
-        'content',
-        `User Profile – Add-ons for Firefox (${lang})`,
+        expect(getElement('meta[property="og:title"]')).toHaveAttribute(
+          'content',
+          `User Profile – Add-ons for Firefox (${lang})`,
+        ),
       );
     });
 
@@ -1185,12 +1183,10 @@ describe(__filename, () => {
       signInUserAndRenderUserProfile({ display_name: displayName });
 
       await waitFor(() =>
-        expect(getElement('meta[property="og:title"]')).toBeInTheDocument(),
-      );
-
-      expect(getElement('meta[property="og:title"]')).toHaveAttribute(
-        'content',
-        `User Profile for ${displayName} – Add-ons for Firefox (${lang})`,
+        expect(getElement('meta[property="og:title"]')).toHaveAttribute(
+          'content',
+          `User Profile for ${displayName} – Add-ons for Firefox (${lang})`,
+        ),
       );
     });
   });
@@ -1221,7 +1217,7 @@ describe(__filename, () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const userId = renderForOtherThanSignedInUser();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Report this user for abuse' }),
       );
 
@@ -1231,10 +1227,8 @@ describe(__filename, () => {
         }),
       );
 
-      await waitFor(() =>
-        expect(screen.getByClassName('ReportUserAbuse')).toHaveClass(
-          'ReportUserAbuse--is-expanded',
-        ),
+      expect(screen.getByClassName('ReportUserAbuse')).toHaveClass(
+        'ReportUserAbuse--is-expanded',
       );
 
       // The initial button should no longer be visible.
@@ -1243,10 +1237,10 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
-    it('renders the form in a pre-submitted state', () => {
+    it('renders the form in a pre-submitted state', async () => {
       renderForOtherThanSignedInUser();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Report this user for abuse' }),
       );
 
@@ -1258,15 +1252,15 @@ describe(__filename, () => {
       ).toBeInTheDocument();
     });
 
-    it('hides more content when the cancel button is clicked', () => {
+    it('hides more content when the cancel button is clicked', async () => {
       const dispatch = jest.spyOn(store, 'dispatch');
       const userId = renderForOtherThanSignedInUser();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Report this user for abuse' }),
       );
 
-      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
       expect(dispatch).toHaveBeenCalledWith(
         hideUserAbuseReportUI({
@@ -1283,17 +1277,17 @@ describe(__filename, () => {
       const message = 'This user is funny';
       const userId = renderForOtherThanSignedInUser();
 
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Report this user for abuse' }),
       );
 
-      userEvent.type(
+      await userEvent.type(
         screen.getByPlaceholderText(
           'Explain how this user is violating our policies.',
         ),
         message,
       );
-      userEvent.click(
+      await userEvent.click(
         screen.getByRole('button', { name: 'Send abuse report' }),
       );
 
@@ -1305,11 +1299,9 @@ describe(__filename, () => {
         }),
       );
 
-      await waitFor(() =>
-        expect(
-          screen.getByRole('button', { name: 'Sending abuse report' }),
-        ).toBeDisabled(),
-      );
+      expect(
+        screen.getByRole('button', { name: 'Sending abuse report' }),
+      ).toBeDisabled();
     });
 
     it('shows a success message and hides the button if report was sent', () => {

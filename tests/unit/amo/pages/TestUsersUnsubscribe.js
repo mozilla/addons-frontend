@@ -72,9 +72,9 @@ describe(__filename, () => {
   it('renders an HTML title', async () => {
     render();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent('Unsubscribe');
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent('Unsubscribe'),
+    );
   });
 
   it('dispatches unsubscribeNotification on mount', () => {

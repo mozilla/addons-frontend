@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import { extractId } from 'amo/components/Overlay';
 import OverlayCard from 'amo/components/OverlayCard';
@@ -14,9 +14,11 @@ import {
 describe(__filename, () => {
   const id = 'OverlayCard';
   let store;
+  let userEvent;
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
+    userEvent = defaultUserEvent.setup();
   });
 
   function render({ overlayChildren, ...props } = {}) {
@@ -112,11 +114,11 @@ describe(__filename, () => {
       expect(screen.getByText(text)).toBeInTheDocument();
     });
 
-    it('calls onEscapeOverlay when clicking the background', () => {
+    it('calls onEscapeOverlay when clicking the background', async () => {
       const onEscapeOverlay = jest.fn();
       render({ onEscapeOverlay });
 
-      userEvent.click(screen.getByRole('presentation'));
+      await userEvent.click(screen.getByRole('presentation'));
 
       expect(onEscapeOverlay).toHaveBeenCalled();
     });
@@ -126,12 +128,10 @@ describe(__filename, () => {
 
       expect(screen.getByClassName('Overlay')).toHaveClass('Overlay--visible');
 
-      userEvent.click(screen.getByRole('presentation'));
+      await userEvent.click(screen.getByRole('presentation'));
 
-      await waitFor(() =>
-        expect(screen.getByClassName('Overlay')).not.toHaveClass(
-          'Overlay--visible',
-        ),
+      expect(screen.getByClassName('Overlay')).not.toHaveClass(
+        'Overlay--visible',
       );
     });
 

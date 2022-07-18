@@ -1,5 +1,5 @@
 import * as React from 'react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 import { waitFor } from '@testing-library/react';
 
 import Notice from 'amo/components/Notice';
@@ -15,9 +15,11 @@ describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
   const lang = 'en-US';
   let store;
+  let userEvent;
 
   beforeEach(() => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
+    userEvent = defaultUserEvent.setup();
   });
 
   const render = ({ children, ...props } = {}) => {
@@ -69,13 +71,13 @@ describe(__filename, () => {
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
 
-  it('renders an action button', () => {
+  it('renders an action button', async () => {
     const actionOnClick = jest.fn();
     const actionText = 'some text';
     render({ actionOnClick, actionText });
 
     const button = screen.getByRole('button', { name: actionText });
-    userEvent.click(button);
+    await userEvent.click(button);
 
     expect(actionOnClick).toHaveBeenCalled();
   });
@@ -108,11 +110,11 @@ describe(__filename, () => {
     );
   });
 
-  it('calls back when you dismiss a notice', () => {
+  it('calls back when you dismiss a notice', async () => {
     const onDismiss = jest.fn();
     render({ dismissible: true, onDismiss });
 
-    userEvent.click(
+    await userEvent.click(
       screen.getByRole('button', { name: 'Dismiss this notice' }),
     );
 
@@ -128,21 +130,21 @@ describe(__filename, () => {
   });
 
   // eslint-disable-next-line jest/expect-expect
-  it('does not require a dismissal callback', () => {
+  it('does not require a dismissal callback', async () => {
     render({ dismissible: true, onDismiss: undefined });
 
     // Make sure this doesn't throw.
-    userEvent.click(
+    await userEvent.click(
       screen.getByRole('button', { name: 'Dismiss this notice' }),
     );
   });
 
-  it('changes UI state when dismissing a notice', () => {
+  it('changes UI state when dismissing a notice', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     const id = 'example-id';
     render({ id, dismissible: true });
 
-    userEvent.click(
+    await userEvent.click(
       screen.getByRole('button', { name: 'Dismiss this notice' }),
     );
 

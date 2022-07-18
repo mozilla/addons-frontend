@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createEvent, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import DismissibleTextForm from 'amo/components/DismissibleTextForm';
 import {
@@ -14,6 +14,7 @@ import {
 
 describe(__filename, () => {
   let store;
+  let userEvent;
 
   const renderProps = (customProps = {}) => {
     return {
@@ -36,6 +37,7 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
+    userEvent = defaultUserEvent.setup();
   });
 
   it('can be configured with a custom class', () => {
@@ -79,11 +81,11 @@ describe(__filename, () => {
     expect(getTextBox()).toHaveValue('Some text to edit');
   });
 
-  it('calls back when dismissing the textarea', () => {
+  it('calls back when dismissing the textarea', async () => {
     const onDismiss = jest.fn();
     render({ onDismiss });
 
-    userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
     expect(onDismiss).toHaveBeenCalled();
   });
@@ -91,18 +93,18 @@ describe(__filename, () => {
   it('clears the form onDismiss', async () => {
     render({ onDismiss: jest.fn() });
 
-    userEvent.type(getTextBox(), 'Example text');
-    userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
-    await waitFor(() => expect(getTextBox()).toHaveValue(''));
+    await userEvent.type(getTextBox(), 'Example text');
+    await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+    expect(getTextBox()).toHaveValue('');
   });
 
-  it('calls back when submitting the form', () => {
+  it('calls back when submitting the form', async () => {
     const onSubmit = jest.fn();
     render({ onSubmit });
     const enteredText = 'Some review text';
 
-    userEvent.type(getTextBox(), enteredText);
-    userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+    await userEvent.type(getTextBox(), enteredText);
+    await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
     expect(onSubmit).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -169,18 +171,18 @@ describe(__filename, () => {
     expect(screen.getByRole('button', { name: 'Cancel' })).not.toBeDisabled();
   });
 
-  it('enables the submit button after text has been entered', () => {
+  it('enables the submit button after text has been entered', async () => {
     render({ text: '' });
 
-    userEvent.type(getTextBox(), 'Typing some text...');
+    await userEvent.type(getTextBox(), 'Typing some text...');
 
     expect(screen.getByRole('button', { name: 'Submit' })).not.toBeDisabled();
   });
 
-  it('disables the submit button when updating with whitespaces', () => {
+  it('disables the submit button when updating with whitespaces', async () => {
     render({ text: 'Some Text' });
 
-    userEvent.type(getTextBox(), '   ');
+    await userEvent.type(getTextBox(), '   ');
 
     expect(screen.getByRole('button', { name: 'Submit' })).toBeDisabled();
   });
@@ -287,19 +289,19 @@ describe(__filename, () => {
     expect(screen.getByRole('button', { name: 'Delete' })).toBeDisabled();
   });
 
-  it('enables the delete button after text has been entered', () => {
+  it('enables the delete button after text has been entered', async () => {
     render({ onDelete: jest.fn(), text: '' });
 
-    userEvent.type(getTextBox(), 'Typing some text...');
+    await userEvent.type(getTextBox(), 'Typing some text...');
 
     expect(screen.getByRole('button', { name: 'Delete' })).not.toBeDisabled();
   });
 
-  it('calls back when clicking the delete button', () => {
+  it('calls back when clicking the delete button', async () => {
     const onDelete = jest.fn();
     render({ onDelete });
 
-    userEvent.type(getTextBox(), 'Some review text');
+    await userEvent.type(getTextBox(), 'Some review text');
 
     // Submit the form.
     const button = screen.getByRole('button', { name: 'Delete' });
@@ -415,52 +417,52 @@ describe(__filename, () => {
       expect(getTextBox()).toHaveValue(text);
     });
 
-    it('saves to LocalState when typing', () => {
+    it('saves to LocalState when typing', async () => {
       const saveSpy = jest.fn(() => Promise.resolve());
       render({
         _createLocalState: () => createFakeLocalState({ save: saveSpy }),
       });
 
       const text = 'Example text';
-      userEvent.type(getTextBox(), text);
+      await userEvent.type(getTextBox(), text);
 
       expect(saveSpy).toHaveBeenCalledWith({ text });
     });
 
-    it('clears LocalState onDismiss', () => {
+    it('clears LocalState onDismiss', async () => {
       const clearSpy = jest.fn(() => Promise.resolve());
       render({
         _createLocalState: () => createFakeLocalState({ clear: clearSpy }),
         onDismiss: jest.fn(),
       });
 
-      userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
       expect(clearSpy).toHaveBeenCalled();
     });
 
-    it('clears LocalState onDelete', () => {
+    it('clears LocalState onDelete', async () => {
       const clearSpy = jest.fn(() => Promise.resolve());
       render({
         _createLocalState: () => createFakeLocalState({ clear: clearSpy }),
         onDelete: jest.fn(),
       });
 
-      userEvent.type(getTextBox(), 'something');
-      userEvent.click(screen.getByRole('button', { name: 'Delete' }));
+      await userEvent.type(getTextBox(), 'something');
+      await userEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
       expect(clearSpy).toHaveBeenCalled();
     });
 
-    it('clears LocalState onSubmit', () => {
+    it('clears LocalState onSubmit', async () => {
       const clearSpy = jest.fn(() => Promise.resolve());
       render({
         _createLocalState: () => createFakeLocalState({ clear: clearSpy }),
         onSubmit: jest.fn(),
       });
 
-      userEvent.type(getTextBox(), 'something');
-      userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+      await userEvent.type(getTextBox(), 'something');
+      await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
       expect(clearSpy).toHaveBeenCalled();
     });

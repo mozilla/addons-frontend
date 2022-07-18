@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Route } from 'react-router-dom';
-import { waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import defaultUserEvent from '@testing-library/user-event';
 
 import VPNPromoBanner, {
   IMPRESSION_COUNT_KEY,
@@ -46,11 +45,13 @@ import {
 describe(__filename, () => {
   let history;
   let store;
+  let userEvent;
   const addonId = 123;
   const slug = 'some-slug';
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
+    userEvent = defaultUserEvent.setup();
   });
 
   const createCookies = () => {
@@ -169,26 +170,23 @@ describe(__filename, () => {
     ).toHaveAttribute('href', href);
   });
 
-  const clickCta = () => {
+  const clickCta = async () =>
     userEvent.click(screen.getByRole('link', { name: 'Get Mozilla VPN' }));
-  };
 
-  const clickDismiss = () => {
-    userEvent.click(screen.getByRole('button'));
-  };
+  const clickDismiss = async () => userEvent.click(screen.getByRole('button'));
 
-  it('clears the impression count when the cta is clicked', () => {
+  it('clears the impression count when the cta is clicked', async () => {
     const _localStorage = createFakeLocalStorage();
     render({ _localStorage });
-    clickCta();
+    await clickCta();
 
     expect(_localStorage.removeItem).toHaveBeenCalledWith(IMPRESSION_COUNT_KEY);
   });
 
-  it('reads and updates the experiment cookie when the cta is clicked', () => {
+  it('reads and updates the experiment cookie when the cta is clicked', async () => {
     const cookies = createCookies();
     render({ cookies });
-    clickCta();
+    await clickCta();
 
     expect(cookies.get).toHaveBeenCalledWith(EXPERIMENT_COOKIE_NAME);
     expect(cookies.set).toHaveBeenCalledWith(
@@ -208,27 +206,25 @@ describe(__filename, () => {
       screen.getByRole('link', { name: 'Get Mozilla VPN' }),
     ).toBeInTheDocument();
 
-    clickCta();
+    await clickCta();
 
-    await waitFor(() =>
-      expect(
-        screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
-      ).not.toBeInTheDocument(),
-    );
+    expect(
+      screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
+    ).not.toBeInTheDocument();
   });
 
-  it('clears the impression count when the dismiss button is clicked', () => {
+  it('clears the impression count when the dismiss button is clicked', async () => {
     const _localStorage = createFakeLocalStorage();
     render({ _localStorage });
-    clickDismiss();
+    await clickDismiss();
 
     expect(_localStorage.removeItem).toHaveBeenCalledWith(IMPRESSION_COUNT_KEY);
   });
 
-  it('reads and updates the experiment cookie when the dismiss button is clicked', () => {
+  it('reads and updates the experiment cookie when the dismiss button is clicked', async () => {
     const cookies = createCookies();
     render({ cookies });
-    clickDismiss();
+    await clickDismiss();
 
     expect(cookies.get).toHaveBeenCalledWith(EXPERIMENT_COOKIE_NAME);
     expect(cookies.set).toHaveBeenCalledWith(
@@ -248,13 +244,11 @@ describe(__filename, () => {
       screen.getByRole('link', { name: 'Get Mozilla VPN' }),
     ).toBeInTheDocument();
 
-    clickDismiss();
+    await clickDismiss();
 
-    await waitFor(() =>
-      expect(
-        screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
-      ).not.toBeInTheDocument(),
-    );
+    expect(
+      screen.queryByRole('link', { name: 'Get Mozilla VPN' }),
+    ).not.toBeInTheDocument();
   });
 
   it('throws an exception if something other than a number is stored', () => {
@@ -268,14 +262,14 @@ describe(__filename, () => {
   });
 
   describe('tracking', () => {
-    it('sends a tracking event when the cta is clicked', () => {
+    it('sends a tracking event when the cta is clicked', async () => {
       const impressionCount = '5';
       const _localStorage = createFakeLocalStorage({
         getItem: jest.fn().mockReturnValue(impressionCount),
       });
       const _tracking = createFakeTracking();
       render({ _tracking, _localStorage });
-      clickCta();
+      await clickCta();
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
         action: VPN_PROMO_CLICK_ACTION,
@@ -286,14 +280,14 @@ describe(__filename, () => {
       expect(_tracking.sendEvent).toHaveBeenCalledTimes(2);
     });
 
-    it('sends a tracking event when the dismiss button is clicked', () => {
+    it('sends a tracking event when the dismiss button is clicked', async () => {
       const impressionCount = '5';
       const _localStorage = createFakeLocalStorage({
         getItem: jest.fn().mockReturnValue(impressionCount),
       });
       const _tracking = createFakeTracking();
       render({ _tracking, _localStorage });
-      clickDismiss();
+      await clickDismiss();
 
       expect(_tracking.sendEvent).toHaveBeenCalledWith({
         action: VPN_PROMO_DISMISS_ACTION,

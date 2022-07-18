@@ -149,10 +149,10 @@ describe(__filename, () => {
     store.dispatch(loadBlock({ block }));
     render();
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      `${title} – Add-ons for Firefox (${lang})`,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `${title} – Add-ons for Firefox (${lang})`,
+      ),
     );
     expect(screen.getByText(title)).toBeInTheDocument();
   });
@@ -272,12 +272,10 @@ describe(__filename, () => {
     render();
 
     await waitFor(() =>
-      expect(getElement('meta[name="robots"]')).toBeInTheDocument(),
-    );
-
-    expect(getElement('meta[name="robots"]')).toHaveAttribute(
-      'content',
-      'noindex, follow',
+      expect(getElement('meta[name="robots"]')).toHaveAttribute(
+        'content',
+        'noindex, follow',
+      ),
     );
   });
 
