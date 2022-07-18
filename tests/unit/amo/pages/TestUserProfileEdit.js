@@ -915,7 +915,7 @@ describe(__filename, () => {
     const userId = signInUserWithProps(userProps);
     const dispatch = jest.spyOn(store, 'dispatch');
 
-    render({ initialEntries: [getLocation(userId)] });
+    render({ userId });
 
     const pushSpy = jest.spyOn(history, 'push');
 
@@ -932,8 +932,6 @@ describe(__filename, () => {
       screen.getAllByRole('button', { name: 'Delete My Profile' })[1],
     );
 
-    // FIXME: the call is present, but its errorHandlerId is incorrect: it ends
-    // in -undefined instead of -1.
     expect(dispatch).toHaveBeenCalledWith(
       deleteUserAccount({
         errorHandlerId: getErrorHandlerId(userId),
