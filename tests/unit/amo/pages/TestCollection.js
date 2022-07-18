@@ -46,6 +46,7 @@ import {
   extractId,
 } from 'amo/pages/Collection';
 import {
+  changeLocation,
   createFakeAutocompleteResult,
   createFakeCollectionAddon,
   createFailedErrorHandler,
@@ -53,7 +54,6 @@ import {
   createInternalCollectionWithLang,
   createLocalizedString,
   createFakeCollectionAddonsListResponse,
-  createHistory,
   dispatchAutocompleteResults,
   dispatchClientMetadata,
   dispatchSignInActionsWithStore,
@@ -61,13 +61,23 @@ import {
   fakeI18n,
   fakePreview,
   getElement,
-  onLocationChanged,
   renderPage as defaultRender,
   screen,
   within,
 } from 'tests/unit/helpers';
 
+jest.mock('amo/localState', () =>
+  jest.fn(() => {
+    return {
+      clear: jest.fn(() => Promise.resolve()),
+      load: jest.fn(() => Promise.resolve(null)),
+      save: jest.fn(() => Promise.resolve()),
+    };
+  }),
+);
+
 describe(__filename, () => {
+  let history;
   let store;
   const clientApp = CLIENT_APP_FIREFOX;
   const defaultCollectionDescription = 'Collection description';
@@ -108,6 +118,7 @@ describe(__filename, () => {
 
   afterEach(() => {
     jest.useRealTimers();
+    jest.clearAllMocks().resetModules();
   });
 
   const _createFakeCollectionDetail = (props = {}) => {
@@ -123,7 +134,6 @@ describe(__filename, () => {
 
   const render = ({
     editing = false,
-    history,
     location,
     slug = defaultSlug,
     userId = defaultUserId,
@@ -131,14 +141,13 @@ describe(__filename, () => {
     const initialEntry = location || getLocation({ editing, slug, userId });
 
     const renderOptions = {
-      history:
-        history ||
-        createHistory({
-          initialEntries: [initialEntry],
-        }),
+      initialEntries: [initialEntry],
       store,
     };
-    return defaultRender(renderOptions);
+
+    const renderResult = defaultRender(renderOptions);
+    history = renderResult.history;
+    return renderResult;
   };
 
   const _loadCurrentCollection = ({
@@ -158,7 +167,6 @@ describe(__filename, () => {
     addonsResponse = createFakeCollectionAddonsListResponse({ addons }),
     detailProps = {},
     editing,
-    history,
     location,
     slug,
     userId,
@@ -171,7 +179,7 @@ describe(__filename, () => {
       },
     });
 
-    return render({ editing, history, location, slug, userId });
+    return render({ editing, location, slug, userId });
   };
 
   const renderWithCollectionForSignedInUser = ({
@@ -179,7 +187,6 @@ describe(__filename, () => {
     addonsResponse,
     detailProps = {},
     editing,
-    history,
     location,
     slug,
     userId = defaultUserId,
@@ -190,27 +197,20 @@ describe(__filename, () => {
       addonsResponse,
       detailProps: { ...detailProps, authorId: userId },
       editing,
-      history,
       location,
       slug,
       userId,
     });
   };
 
-  const renderInAddMode = ({ history, loggedIn = true, withAddonId } = {}) => {
+  const renderInAddMode = ({ loggedIn = true, withAddonId } = {}) => {
     if (loggedIn) {
       dispatchSignInActionsWithStore({ store, userId: defaultUserId });
     }
     return render({
-      history:
-        history ||
-        createHistory({
-          initialEntries: [
-            `/${lang}/${clientApp}/collections/add/${
-              withAddonId ? `?include_addon_id=${withAddonId}` : ''
-            }`,
-          ],
-        }),
+      location: `/${lang}/${clientApp}/collections/add/${
+        withAddonId ? `?include_addon_id=${withAddonId}` : ''
+      }`,
     });
   };
 
@@ -241,7 +241,7 @@ describe(__filename, () => {
     return true;
   };
 
-  const _addonAddedToCollection = () => {
+  const _addonAddedToCollection = async () => {
     store.dispatch(
       addonAddedToCollection({
         addonId: 123,
@@ -249,6 +249,7 @@ describe(__filename, () => {
         userId: defaultUserId,
       }),
     );
+    expect(await screen.findByText('Added to collection')).toBeInTheDocument();
   };
 
   const _addonRemovedFromCollection = () => {
@@ -371,14 +372,14 @@ describe(__filename, () => {
     );
   });
 
-  it('does not dispatch any loading actions when switching to edit mode', () => {
+  it('does not dispatch any loading actions when switching to edit mode', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithCollectionForSignedInUser();
 
     clickEditButton();
 
     expect(
-      screen.getByRole('link', { name: 'Back to collection' }),
+      await screen.findByRole('link', { name: 'Back to collection' }),
     ).toBeInTheDocument();
     expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
   });
@@ -408,15 +409,14 @@ describe(__filename, () => {
     );
   });
 
-  it('does not dispatch any loading actions when location has not changed', () => {
+  it('does not dispatch any loading actions when location has not changed', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithCollection();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: defaultLocation,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: '/another/path/',
+    });
 
     expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
   });
@@ -467,16 +467,15 @@ describe(__filename, () => {
     expect(assertNoLoadingActionsDispatched(dispatch)).toBeTruthy();
   });
 
-  it('dispatches fetchCurrentCollection when location pathname has changed', () => {
+  it('dispatches fetchCurrentCollection when location pathname has changed', async () => {
     const slug = `${defaultSlug}-new`;
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithCollection();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation({ slug }),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation({ slug }),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollection({
@@ -488,16 +487,15 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches fetchCurrentCollectionPage when page has changed', () => {
+  it('dispatches fetchCurrentCollectionPage when page has changed', async () => {
     const page = '2';
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithCollection({ location: `${defaultLocation}?page=1` });
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: `${defaultLocation}?page=${page}`,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: `${defaultLocation}?page=${page}`,
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollectionPage({
@@ -509,17 +507,16 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches fetchCurrentCollectionPage when sort has changed', () => {
+  it('dispatches fetchCurrentCollectionPage when sort has changed', async () => {
     const sort = COLLECTION_SORT_NAME;
     const dispatch = jest.spyOn(store, 'dispatch');
 
     renderWithCollection();
 
-    store.dispatch(
-      onLocationChanged({
-        pathname: `${defaultLocation}?collection_sort=${sort}`,
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: `${defaultLocation}?collection_sort=${sort}`,
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollectionPage({
@@ -531,13 +528,16 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches fetchCurrentCollection when user param has changed', () => {
+  it('dispatches fetchCurrentCollection when user param has changed', async () => {
     const userId = defaultUserId + 1;
     const dispatch = jest.spyOn(store, 'dispatch');
 
     renderWithCollection();
 
-    store.dispatch(onLocationChanged({ pathname: getLocation({ userId }) }));
+    await changeLocation({
+      history,
+      pathname: getLocation({ userId }),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollection({
@@ -549,13 +549,16 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches fetchCurrentCollection when slug param has changed', () => {
+  it('dispatches fetchCurrentCollection when slug param has changed', async () => {
     const slug = `${defaultSlug}-new`;
     const dispatch = jest.spyOn(store, 'dispatch');
 
     renderWithCollection();
 
-    store.dispatch(onLocationChanged({ pathname: getLocation({ slug }) }));
+    await changeLocation({
+      history,
+      pathname: getLocation({ slug }),
+    });
 
     expect(dispatch).toHaveBeenCalledWith(
       fetchCurrentCollection({
@@ -591,7 +594,7 @@ describe(__filename, () => {
     );
   });
 
-  it('sets placeholder counts for the AddonsCard as expected', () => {
+  it('sets placeholder counts for the AddonsCard as expected', async () => {
     render();
 
     // Each SearchResult will have 4 instances of LoadingText.
@@ -610,14 +613,15 @@ describe(__filename, () => {
     });
 
     // After loading no loading indicators will be present.
-    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument(),
+    );
 
     // Switch to a different slug, which will initiate a new loading state.
-    store.dispatch(
-      onLocationChanged({
-        pathname: getLocation({ slug: `${defaultSlug}-new` }),
-      }),
-    );
+    await changeLocation({
+      history,
+      pathname: getLocation({ slug: `${defaultSlug}-new` }),
+    });
 
     // Only expect one loading SearchResult as that matches the number of
     // add-ons in the previously loaded collection.
@@ -682,7 +686,7 @@ describe(__filename, () => {
     expect(screen.queryByText('Next')).not.toBeInTheDocument();
   });
 
-  it('renders loading indicator on add-ons when fetching next page', () => {
+  it('renders loading indicator on add-ons when fetching next page', async () => {
     const name = 'My Collection';
     const numberOfAddons = 5;
     const addonsResponse = createFakeCollectionAddonsListResponse({
@@ -701,9 +705,11 @@ describe(__filename, () => {
     userEvent.click(screen.getByRole('link', { name: 'Next' }));
 
     // Expect loading indicators for the add-ons.
-    expect(
-      within(screen.getByClassName('AddonsCard')).getAllByRole('alert'),
-    ).toHaveLength(numberOfAddons * 4);
+    await waitFor(() =>
+      expect(
+        within(screen.getByClassName('AddonsCard')).getAllByRole('alert'),
+      ).toHaveLength(numberOfAddons * 4),
+    );
     // Expect to retain the details of the collection.
     expect(screen.getByRole('heading', { name })).toBeInTheDocument();
   });
@@ -750,13 +756,13 @@ describe(__filename, () => {
   it('renders an HTML title for a collection with a missing name', async () => {
     renderWithCollection({ detailProps: { name: null } });
 
-    await waitFor(() => expect(getElement('title')).toBeInTheDocument());
-
-    expect(getElement('title')).toHaveTextContent(
-      `${collectionName({
-        name: null,
-        i18n: fakeI18n(),
-      })} – Add-ons for Firefox (en-US)`,
+    await waitFor(() =>
+      expect(getElement('title')).toHaveTextContent(
+        `${collectionName({
+          name: null,
+          i18n: fakeI18n(),
+        })} – Add-ons for Firefox (en-US)`,
+      ),
     );
   });
 
@@ -841,16 +847,14 @@ describe(__filename, () => {
     });
     const addonId = addonsResponse.results[0].addon.id;
     const page = '2';
-    const history = createHistory({
-      initialEntries: [`${getLocation({ editing: true })}?page=${page}`],
-    });
-    const pushSpy = jest.spyOn(history, 'push');
     const dispatch = jest.spyOn(store, 'dispatch');
 
     renderWithCollectionForSignedInUser({
       addonsResponse,
-      history,
+      location: `${getLocation({ editing: true })}?page=${page}`,
     });
+
+    const pushSpy = jest.spyOn(history, 'push');
 
     userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
 
@@ -866,7 +870,7 @@ describe(__filename, () => {
     expect(pushSpy).not.toHaveBeenCalled();
   });
 
-  it("does not update the page when removeAddon is called and the current page isn't the last page", () => {
+  it("does not update the page when removeAddon is called and the current page isn't the last page", async () => {
     const numberOfAddons = 5;
     const addonsResponse = createFakeCollectionAddonsListResponse({
       count: 10,
@@ -874,27 +878,27 @@ describe(__filename, () => {
     });
     const addonId = addonsResponse.results[0].addon.id;
     const page = '1';
-    const history = createHistory({
-      initialEntries: [`${getLocation({ editing: true })}?page=${page}`],
-    });
-    const pushSpy = jest.spyOn(history, 'push');
     const dispatch = jest.spyOn(store, 'dispatch');
 
     renderWithCollectionForSignedInUser({
       addonsResponse,
-      history,
+      location: `${getLocation({ editing: true })}?page=${page}`,
     });
+
+    const pushSpy = jest.spyOn(history, 'push');
 
     userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
 
-    expect(dispatch).toHaveBeenCalledWith(
-      removeAddonFromCollection({
-        addonId,
-        errorHandlerId: getCollectionPageErrorHandlerId({ page }),
-        filters: { ...defaultFilters, page },
-        slug: defaultSlug,
-        userId: defaultUserId,
-      }),
+    await waitFor(() =>
+      expect(dispatch).toHaveBeenCalledWith(
+        removeAddonFromCollection({
+          addonId,
+          errorHandlerId: getCollectionPageErrorHandlerId({ page }),
+          filters: { ...defaultFilters, page },
+          slug: defaultSlug,
+          userId: defaultUserId,
+        }),
+      ),
     );
     expect(pushSpy).not.toHaveBeenCalled();
   });
@@ -908,17 +912,16 @@ describe(__filename, () => {
     const addonId = addonsResponse.results[0].addon.id;
     const page = '2';
     const sort = COLLECTION_SORT_DATE_ADDED_DESCENDING;
-    const history = createHistory({
-      initialEntries: [
-        `${getLocation({
-          editing: true,
-        })}?page=${page}&collection_sort=${sort}`,
-      ],
-    });
-    const pushSpy = jest.spyOn(history, 'push');
     const dispatch = jest.spyOn(store, 'dispatch');
 
-    renderWithCollectionForSignedInUser({ addonsResponse, history });
+    renderWithCollectionForSignedInUser({
+      addonsResponse,
+      location: `${getLocation({
+        editing: true,
+      })}?page=${page}&collection_sort=${sort}`,
+    });
+
+    const pushSpy = jest.spyOn(history, 'push');
 
     userEvent.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
 
@@ -963,12 +966,12 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches deleteCollectionAddonNotes when clicking delete on DismissibleTextForm', () => {
+  it('dispatches deleteCollectionAddonNotes when clicking delete on DismissibleTextForm', async () => {
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithNotes();
 
     userEvent.click(screen.getByRole('button', { name: 'Edit' }));
-    userEvent.click(screen.getByRole('button', { name: 'Delete' }));
+    userEvent.click(await screen.findByRole('button', { name: 'Delete' }));
 
     expect(dispatch).toHaveBeenCalledWith(
       deleteCollectionAddonNotes({
@@ -982,7 +985,7 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches updateCollectionAddon when saving DismissibleTextForm', () => {
+  it('dispatches updateCollectionAddon when saving DismissibleTextForm', async () => {
     const newNotes = 'Some new notes';
     const dispatch = jest.spyOn(store, 'dispatch');
     renderWithNotes();
@@ -990,7 +993,7 @@ describe(__filename, () => {
     userEvent.click(screen.getByRole('button', { name: 'Edit' }));
 
     userEvent.type(
-      screen.getByPlaceholderText('Add a comment about this add-on.'),
+      await screen.findByPlaceholderText('Add a comment about this add-on.'),
       `{selectall}{del}${newNotes}`,
     );
 
@@ -1007,10 +1010,9 @@ describe(__filename, () => {
     );
   });
 
-  it('sends a server redirect when userId parameter is not a numeric ID', () => {
+  it('sends a server redirect when userId parameter is not a numeric ID', async () => {
     const authorId = 19;
     const authorUsername = 'john';
-    const dispatch = jest.spyOn(store, 'dispatch');
 
     _loadCurrentCollection({
       detail: _createFakeCollectionDetail({
@@ -1018,6 +1020,10 @@ describe(__filename, () => {
         authorUsername,
       }),
     });
+
+    const dispatch = jest
+      .spyOn(store, 'dispatch')
+      .mockImplementation(() => null);
 
     render({ userId: authorUsername });
 
@@ -1030,9 +1036,11 @@ describe(__filename, () => {
   });
 
   it('sends a server redirect when slug parameter case is not the same as the collection slug', () => {
-    const dispatch = jest.spyOn(store, 'dispatch');
-
     _loadCurrentCollection();
+
+    const dispatch = jest
+      .spyOn(store, 'dispatch')
+      .mockImplementation(() => null);
 
     render({ slug: defaultSlug.toUpperCase() });
 
@@ -1136,7 +1144,7 @@ describe(__filename, () => {
     const getErrorHandlerId = (id = '') =>
       `src/amo/components/CollectionAddAddon/index.js-collection${id}`;
 
-    const selectAnAddon = ({ addonName, id }) => {
+    const selectAnAddon = async ({ addonName, id }) => {
       userEvent.type(
         screen.getByPlaceholderText(
           'Find an add-on to include in this collection',
@@ -1151,10 +1159,10 @@ describe(__filename, () => {
         results: [externalSuggestion],
         store,
       });
-      userEvent.click(screen.getByText(addonName));
+      userEvent.click(await screen.findByText(addonName));
     };
 
-    it('renders an error', () => {
+    it('renders an error', async () => {
       renderWithCollectionForSignedInUser({ editing: true });
 
       const message = 'Some error message';
@@ -1164,16 +1172,16 @@ describe(__filename, () => {
         store,
       });
 
-      expect(screen.getByText(message)).toBeInTheDocument();
+      expect(await screen.findByText(message)).toBeInTheDocument();
     });
 
-    it('dispatches addAddonToCollection when selecting an add-on', () => {
+    it('dispatches addAddonToCollection when selecting an add-on', async () => {
       const addonName = 'uBlock Origin';
       const id = 123;
       const dispatch = jest.spyOn(store, 'dispatch');
       renderWithCollectionForSignedInUser({ editing: true });
 
-      selectAnAddon({ addonName, id });
+      await selectAnAddon({ addonName, id });
 
       expect(dispatch).toHaveBeenCalledWith(
         addAddonToCollection({
@@ -1194,7 +1202,7 @@ describe(__filename, () => {
 
       expect(screen.queryByText('Added to collection')).not.toBeInTheDocument();
 
-      _addonAddedToCollection();
+      await _addonAddedToCollection();
 
       expect(screen.getByText('Added to collection')).toBeInTheDocument();
       expect(screen.getByClassName('Notice-success')).toHaveClass(
@@ -1206,12 +1214,14 @@ describe(__filename, () => {
 
       // The Notice element will still be present, but the fade transition,
       // controlled by CSSTransition should have been started.
-      expect(screen.getByClassName('Notice-success')).toHaveClass(
-        'CollectionAddAddon-noticePlaceholder-transition-enter-done',
+      await waitFor(() =>
+        expect(screen.getByClassName('Notice-success')).toHaveClass(
+          'CollectionAddAddon-noticePlaceholder-transition-enter-done',
+        ),
       );
     });
 
-    it('displays a notification for 5 seconds after an add-on has been removed', () => {
+    it('displays a notification for 5 seconds after an add-on has been removed', async () => {
       jest.useFakeTimers();
       renderWithCollectionForSignedInUser({ editing: true });
 
@@ -1221,7 +1231,9 @@ describe(__filename, () => {
 
       _addonRemovedFromCollection();
 
-      expect(screen.getByText('Removed from collection')).toBeInTheDocument();
+      expect(
+        await screen.findByText('Removed from collection'),
+      ).toBeInTheDocument();
       expect(screen.getByClassName('Notice-generic')).toHaveClass(
         'CollectionAddAddon-noticePlaceholder-transition-enter',
       );
@@ -1231,12 +1243,14 @@ describe(__filename, () => {
 
       // The Notice element will still be present, but the fade transition,
       // controlled by CSSTransition should have been started.
-      expect(screen.getByClassName('Notice-generic')).toHaveClass(
-        'CollectionAddAddon-noticePlaceholder-transition-enter-done',
+      await waitFor(() =>
+        expect(screen.getByClassName('Notice-generic')).toHaveClass(
+          'CollectionAddAddon-noticePlaceholder-transition-enter-done',
+        ),
       );
     });
 
-    it('clears the errorHandler when an add-on is added', () => {
+    it('clears the errorHandler when an add-on is added', async () => {
       renderWithCollectionForSignedInUser({ editing: true });
 
       const message = 'Some error message';
@@ -1246,14 +1260,14 @@ describe(__filename, () => {
         store,
       });
 
-      expect(screen.getByText(message)).toBeInTheDocument();
+      expect(await screen.findByText(message)).toBeInTheDocument();
 
-      _addonAddedToCollection();
+      await _addonAddedToCollection();
 
       expect(screen.queryByText(message)).not.toBeInTheDocument();
     });
 
-    it('clears the errorHandler when an add-on is removed', () => {
+    it('clears the errorHandler when an add-on is removed', async () => {
       renderWithCollectionForSignedInUser({ editing: true });
 
       const message = 'Some error message';
@@ -1263,28 +1277,30 @@ describe(__filename, () => {
         store,
       });
 
-      expect(screen.getByText(message)).toBeInTheDocument();
+      expect(await screen.findByText(message)).toBeInTheDocument();
 
       _addonRemovedFromCollection();
 
-      expect(screen.queryByText(message)).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(screen.queryByText(message)).not.toBeInTheDocument(),
+      );
     });
 
-    it('removes the notification after a new add-on has been selected', () => {
+    it('removes the notification after a new add-on has been selected', async () => {
       const addonName = 'uBlock Origin';
       const id = 123;
       renderWithCollectionForSignedInUser({ editing: true });
 
       expect(screen.queryByText('Added to collection')).not.toBeInTheDocument();
 
-      _addonAddedToCollection();
+      await _addonAddedToCollection();
 
       expect(screen.getByText('Added to collection')).toBeInTheDocument();
       expect(screen.getByClassName('Notice-success')).toHaveClass(
         'CollectionAddAddon-noticePlaceholder-transition-enter',
       );
 
-      selectAnAddon({ addonName, id });
+      await selectAnAddon({ addonName, id });
 
       // The Notice element will still be present, but the fade transition,
       // controlled by CSSTransition should be exiting.
@@ -1317,15 +1333,12 @@ describe(__filename, () => {
   describe('Tests for CollectionSort', () => {
     it.each([true, false])(
       `calls history.push with expected pathname and query when a sort is selected and editing is %s`,
-      (editing) => {
+      async (editing) => {
         const location = getLocation({ editing });
         const sort = COLLECTION_SORT_NAME;
-        const history = createHistory({
-          initialEntries: [location],
-        });
-        const pushSpy = jest.spyOn(history, 'push');
 
-        renderWithCollectionForSignedInUser({ history });
+        renderWithCollectionForSignedInUser({ location });
+        const pushSpy = jest.spyOn(history, 'push');
 
         userEvent.selectOptions(
           screen.getByRole('combobox', { name: 'Sort add-ons by' }),
@@ -1468,13 +1481,13 @@ describe(__filename, () => {
       expect(within(notesContent).getByTagName('br')).toBeInTheDocument();
     });
 
-    it('shows an empty notes form when the leave a note button is clicked', () => {
+    it('shows an empty notes form when the leave a note button is clicked', async () => {
       renderWithCollectionForSignedInUser({ editing: true });
 
       userEvent.click(screen.getByRole('button', { name: 'Leave a note' }));
 
       expect(
-        screen.getByRole('heading', { name: 'Leave a note' }),
+        await screen.findByRole('heading', { name: 'Leave a note' }),
       ).toBeInTheDocument();
       expect(screen.getByClassName('Icon-comments-blue')).toBeInTheDocument();
       expect(
@@ -1506,7 +1519,7 @@ describe(__filename, () => {
       );
     });
 
-    it('does not show <a> tag in DismissibleTextForm when editing notes', () => {
+    it('does not show <a> tag in DismissibleTextForm when editing notes', async () => {
       const linkText = 'click here';
       const linkHref = 'https://addons.mozilla.org';
       const notes = `<a href="${linkHref}">${linkText}</a>`;
@@ -1514,9 +1527,11 @@ describe(__filename, () => {
 
       userEvent.click(screen.getByRole('button', { name: 'Edit' }));
 
-      expect(
-        screen.getByPlaceholderText('Add a comment about this add-on.'),
-      ).toHaveValue(linkText);
+      await waitFor(() =>
+        expect(
+          screen.getByPlaceholderText('Add a comment about this add-on.'),
+        ).toHaveValue(linkText),
+      );
 
       // The read-only portion should not be shown.
       expect(
@@ -1524,20 +1539,22 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
-    it('hides the notes form when the cancel button is clicked', () => {
+    it('hides the notes form when the cancel button is clicked', async () => {
       renderWithNotes();
 
       userEvent.click(screen.getByRole('button', { name: 'Edit' }));
 
       expect(
-        screen.getByPlaceholderText('Add a comment about this add-on.'),
+        await screen.findByPlaceholderText('Add a comment about this add-on.'),
       ).toBeInTheDocument();
 
       userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-      expect(
-        screen.queryByPlaceholderText('Add a comment about this add-on.'),
-      ).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(
+          screen.queryByPlaceholderText('Add a comment about this add-on.'),
+        ).not.toBeInTheDocument(),
+      );
     });
 
     describe('errorHandler - extractId', () => {
@@ -1553,10 +1570,10 @@ describe(__filename, () => {
     const getErrorHandlerId = (slug = '') =>
       `src/amo/components/CollectionManager/index.js-collection-${slug}`;
 
-    const accessEditDetailsScreen = () => {
+    const accessEditDetailsScreen = async () => {
       clickEditButton();
       userEvent.click(
-        screen.getByRole('link', { name: 'Edit collection details' }),
+        await screen.findByRole('link', { name: 'Edit collection details' }),
       );
     };
 
@@ -1584,38 +1601,42 @@ describe(__filename, () => {
       typeSlug(slug);
     };
 
-    const expectCancelButtonToBeDisabled = (disabled) => {
-      expect(screen.getByRole('button', { name: 'Cancel' })).toHaveProperty(
-        'disabled',
-        disabled,
+    const expectCancelButtonToBeDisabled = async (disabled) => {
+      await waitFor(() =>
+        expect(screen.getByRole('button', { name: 'Cancel' })).toHaveProperty(
+          'disabled',
+          disabled,
+        ),
       );
       return true;
     };
 
-    const expectSaveButtonToBeDisabled = (disabled) => {
-      expect(
-        screen.getByRole('button', { name: 'Save changes' }),
-      ).toHaveProperty('disabled', disabled);
+    const expectSaveButtonToBeDisabled = async (disabled) => {
+      await waitFor(() =>
+        expect(
+          screen.getByRole('button', { name: 'Save changes' }),
+        ).toHaveProperty('disabled', disabled),
+      );
       return true;
     };
 
-    const expectButtonDisabledStatus = ({
+    const expectButtonDisabledStatus = async ({
       cancelIsDisabled,
       saveIsDisabled,
     }) => {
-      expectCancelButtonToBeDisabled(cancelIsDisabled);
-      expectSaveButtonToBeDisabled(saveIsDisabled);
+      await expectCancelButtonToBeDisabled(cancelIsDisabled);
+      await expectSaveButtonToBeDisabled(saveIsDisabled);
       return true;
     };
 
-    it('populates the edit form with collection data', () => {
+    it('populates the edit form with collection data', async () => {
       const description = 'OG description';
       const name = 'OG name';
       renderWithCollectionForSignedInUser({
         detailProps: { description, name },
       });
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       const expectedUrlPrefix = `${config.get(
         'apiHost',
@@ -1632,10 +1653,10 @@ describe(__filename, () => {
       expect(screen.getByTitle(expectedUrlPrefix)).toHaveTextContent(
         expectedUrlPrefix,
       );
-      expectSaveButtonToBeDisabled(true);
+      await expectSaveButtonToBeDisabled(true);
     });
 
-    it('does not populate form when updating to the same collection', () => {
+    it('does not populate form when updating to the same collection', async () => {
       renderWithCollectionForSignedInUser({
         detailProps: {
           description: 'First description',
@@ -1643,7 +1664,7 @@ describe(__filename, () => {
         },
       });
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       const description = 'User typed description';
       const name = 'User typed name';
@@ -1728,13 +1749,13 @@ describe(__filename, () => {
       );
     });
 
-    it('updates the collection on submit', () => {
+    it('updates the collection on submit', async () => {
       renderWithCollectionForSignedInUser({
         location: `${defaultLocation}?page=1`,
       });
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       // Fill in the form with new values.
       const name = 'A new name';
@@ -1762,10 +1783,10 @@ describe(__filename, () => {
       );
     });
 
-    it('renders an error', () => {
+    it('renders an error', async () => {
       renderWithCollectionForSignedInUser();
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       const message = 'Some error message';
       createFailedErrorHandler({
@@ -1774,13 +1795,13 @@ describe(__filename, () => {
         store,
       });
 
-      expect(screen.getByText(message)).toBeInTheDocument();
+      expect(await screen.findByText(message)).toBeInTheDocument();
     });
 
-    it('disables submit button when the name is blank', () => {
+    it('disables submit button when the name is blank', async () => {
       renderWithCollectionForSignedInUser();
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       userEvent.type(
         screen.getByRole('textbox', { name: 'Collection name' }),
@@ -1788,17 +1809,17 @@ describe(__filename, () => {
       );
 
       expect(
-        expectButtonDisabledStatus({
+        await expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
       ).toBeTruthy();
     });
 
-    it('disables submit button when the name is spaces', () => {
+    it('disables submit button when the name is spaces', async () => {
       renderWithCollectionForSignedInUser();
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       userEvent.type(
         screen.getByRole('textbox', { name: 'Collection name' }),
@@ -1806,17 +1827,17 @@ describe(__filename, () => {
       );
 
       expect(
-        expectButtonDisabledStatus({
+        await expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
       ).toBeTruthy();
     });
 
-    it('disables submit button when the slug is blank', () => {
+    it('disables submit button when the slug is blank', async () => {
       renderWithCollectionForSignedInUser();
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       userEvent.type(
         screen.getByRole('textbox', { name: 'Custom URL' }),
@@ -1824,17 +1845,17 @@ describe(__filename, () => {
       );
 
       expect(
-        expectButtonDisabledStatus({
+        await expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
       ).toBeTruthy();
     });
 
-    it('disables submit button when the slug is spaces', () => {
+    it('disables submit button when the slug is spaces', async () => {
       renderWithCollectionForSignedInUser();
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       userEvent.type(
         screen.getByRole('textbox', { name: 'Custom URL' }),
@@ -1842,21 +1863,21 @@ describe(__filename, () => {
       );
 
       expect(
-        expectButtonDisabledStatus({
+        await expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
       ).toBeTruthy();
     });
 
-    it('disables and enables form buttons when modification status changes', () => {
+    it('disables and enables form buttons when modification status changes', async () => {
       renderWithCollectionForSignedInUser();
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       // Cancel should default to enabled, and Save to disabled.
       expect(
-        expectButtonDisabledStatus({
+        await expectButtonDisabledStatus({
           cancelIsDisabled: false,
           saveIsDisabled: true,
         }),
@@ -1869,7 +1890,7 @@ describe(__filename, () => {
       );
 
       // Buttons should be enabled now.
-      expectButtonDisabledStatus({
+      await expectButtonDisabledStatus({
         cancelIsDisabled: false,
         saveIsDisabled: false,
       });
@@ -1880,40 +1901,40 @@ describe(__filename, () => {
       store.dispatch(beginCollectionModification());
 
       // Buttons should be disabled now.
-      expectButtonDisabledStatus({
+      await expectButtonDisabledStatus({
         cancelIsDisabled: true,
         saveIsDisabled: true,
       });
     });
 
-    it('enables and disables the submit button when form data is modified', () => {
+    it('enables and disables the submit button when form data is modified', async () => {
       renderWithCollectionForSignedInUser();
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       // Save should be disabled by default.
-      expect(expectSaveButtonToBeDisabled(true)).toBeTruthy();
+      expect(await expectSaveButtonToBeDisabled(true)).toBeTruthy();
 
       typeName(`${defaultCollectionName}-changed`);
-      expectSaveButtonToBeDisabled(false);
+      await expectSaveButtonToBeDisabled(false);
 
       typeName(defaultCollectionName);
-      expectSaveButtonToBeDisabled(true);
+      await expectSaveButtonToBeDisabled(true);
 
       typeDescription(`${defaultCollectionDescription}-changed`);
-      expectSaveButtonToBeDisabled(false);
+      await expectSaveButtonToBeDisabled(false);
 
       typeDescription(defaultCollectionDescription);
-      expectSaveButtonToBeDisabled(true);
+      await expectSaveButtonToBeDisabled(true);
 
       typeSlug(`${defaultSlug}-changed`);
-      expectSaveButtonToBeDisabled(false);
+      await expectSaveButtonToBeDisabled(false);
 
       typeSlug(defaultSlug);
-      expectSaveButtonToBeDisabled(true);
+      await expectSaveButtonToBeDisabled(true);
     });
 
-    it('trims leading and trailing spaces from slug and name before submitting', () => {
+    it('trims leading and trailing spaces from slug and name before submitting', async () => {
       const name = 'trishul';
       const slug = 'trishul';
       renderWithCollectionForSignedInUser({
@@ -1922,7 +1943,7 @@ describe(__filename, () => {
       });
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       // Enter in collection name and slug with trailing and leading spaces.
       typeName(`  ${name}   `);
@@ -2035,11 +2056,11 @@ describe(__filename, () => {
       );
     });
 
-    it('dispatches finishEditingCollectionDetails on cancel when editing', () => {
+    it('dispatches finishEditingCollectionDetails on cancel when editing', async () => {
       renderWithCollectionForSignedInUser();
       const dispatch = jest.spyOn(store, 'dispatch');
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       const button = screen.getByRole('button', {
         name: 'Cancel',
@@ -2056,10 +2077,7 @@ describe(__filename, () => {
     });
 
     it('calls history.push() when creating', () => {
-      const history = createHistory({
-        initialEntries: [`/${lang}/${clientApp}/collections/add/`],
-      });
-      renderInAddMode({ history });
+      renderInAddMode();
       const pushSpy = jest.spyOn(history, 'push');
 
       userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
@@ -2069,18 +2087,17 @@ describe(__filename, () => {
       );
     });
 
-    it('populates form state when updating to a new collection', () => {
+    it('populates form state when updating to a new collection', async () => {
       renderInAddMode();
 
       _loadCurrentCollection();
 
-      store.dispatch(
-        onLocationChanged({
-          pathname: defaultLocation,
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: defaultLocation,
+      });
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       expect(
         screen.getByRole('textbox', { name: 'Collection name' }),
@@ -2090,17 +2107,20 @@ describe(__filename, () => {
       );
     });
 
-    it('populates form state when switching collections', () => {
+    it('populates form state when switching collections', async () => {
       const secondDescription = 'second description';
       const secondName = 'second name';
       const slug = 'secondSlug';
       renderWithCollectionForSignedInUser();
 
-      accessEditDetailsScreen();
+      await accessEditDetailsScreen();
 
       // This simulates when a user moves from editing one collection to
       // editing another collection.
-      store.dispatch(onLocationChanged({ pathname: getLocation({ slug }) }));
+      await changeLocation({
+        history,
+        pathname: getLocation({ slug }),
+      });
       _loadCurrentCollection({
         detail: createFakeCollectionDetail({
           authorId: defaultUserId,
@@ -2110,9 +2130,11 @@ describe(__filename, () => {
         }),
       });
 
-      expect(
-        screen.getByRole('textbox', { name: 'Collection name' }),
-      ).toHaveValue(secondName);
+      await waitFor(() =>
+        expect(
+          screen.getByRole('textbox', { name: 'Collection name' }),
+        ).toHaveValue(secondName),
+      );
       expect(screen.getByRole('textbox', { name: 'Description' })).toHaveValue(
         secondDescription,
       );
@@ -2137,6 +2159,7 @@ describe(__filename, () => {
       });
     });
   });
+
   describe('Tests for CollectionDetails', () => {
     it('renders collection details', () => {
       const authorName = 'Collection author';
@@ -2206,14 +2229,16 @@ describe(__filename, () => {
       ).not.toBeInTheDocument();
     });
 
-    it('switches into collection edit mode when the edit button is clicked', () => {
+    it('switches into collection edit mode when the edit button is clicked', async () => {
       renderWithCollectionForSignedInUser();
 
       clickEditButton();
 
-      expect(
-        screen.queryByRole('link', { name: 'Edit this collection' }),
-      ).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(
+          screen.queryByRole('link', { name: 'Edit this collection' }),
+        ).not.toBeInTheDocument(),
+      );
       expect(
         screen.getByRole('link', { name: 'Edit collection details' }),
       ).toBeInTheDocument();
@@ -2225,12 +2250,12 @@ describe(__filename, () => {
       );
     });
 
-    it('switches into collection details edit mode when the edit details button is clicked', () => {
+    it('switches into collection details edit mode when the edit details button is clicked', async () => {
       renderWithCollectionForSignedInUser();
 
       clickEditButton();
 
-      const link = screen.getByRole('link', {
+      const link = await screen.findByRole('link', {
         name: 'Edit collection details',
       });
       const clickEvent = createEvent.click(link);
