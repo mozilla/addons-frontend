@@ -34,7 +34,6 @@ import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   createCapturedErrorHandler,
   createFakeAutocompleteResult,
-  createHistory,
   dispatchAutocompleteResults,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -66,6 +65,7 @@ jest.mock('amo/api', () => ({
 }));
 
 describe(__filename, () => {
+  let history;
   let store;
   let userEvent;
 
@@ -88,23 +88,23 @@ describe(__filename, () => {
     Object.defineProperty(window, 'matchMedia', mockMatchMedia);
   });
 
-  const render = ({ history, location = '/', children, ...props } = {}) => {
+  const render = ({ location = '/', children, ...props } = {}) => {
     const renderOptions = {
-      history:
-        history ||
-        createHistory({
-          initialEntries: [location],
-        }),
+      initialEntries: [location],
       store,
     };
     window.location = Object.assign(new URL(`https://example.org${location}`), {
+      assign: jest.fn(),
       reload: jest.fn(),
+      replace: jest.fn(),
     });
 
-    return defaultRender(
+    const renderResults = defaultRender(
       <Page {...props}>{children || <div>Some content</div>}</Page>,
       renderOptions,
     );
+    history = renderResults.history;
+    return renderResults;
   };
 
   const _dispatchSignInActions = (props = {}) => {
@@ -713,8 +713,7 @@ describe(__filename, () => {
       it('changes clientApp when different site link clicked', () => {
         _dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
         const dispatch = jest.spyOn(store, 'dispatch');
-        const history = createHistory();
-        render({ history });
+        render();
 
         const pushSpy = jest.spyOn(history, 'push');
         const link = screen.getByText('Add-ons for Android');
@@ -943,9 +942,8 @@ describe(__filename, () => {
         lang: 'en-GB',
         store,
       });
-      const history = createHistory();
       const query = 'panda themes';
-      render({ history });
+      render();
 
       const pushSpy = jest.spyOn(history, 'push');
 
@@ -969,19 +967,42 @@ describe(__filename, () => {
       'pushes a new route to %s when a suggestion is selected',
       async (url, expected) => {
         const fakeResult = createFakeAutocompleteResult({ url });
-        const history = createHistory();
-        render({ history });
+        render();
 
         const pushSpy = jest.spyOn(history, 'push');
 
+        console.log(
+          '----- store.autocomplete before typing: ',
+          store.getState().autocomplete,
+        );
         await userEvent.type(screen.getByRole('searchbox'), 'test');
+        screen.debug(screen.getByClassName('SearchForm'), Infinity);
+
+        console.log(
+          '----- store.autocomplete before dispatch results: ',
+          store.getState().autocomplete,
+        );
         await dispatchAutocompleteResults({ results: [fakeResult], store });
+
+        console.log(
+          '----- store.autocomplete after dispatch results: ',
+          store.getState().autocomplete,
+        );
+
+        console.log('--- about to click on the link...');
         await userEvent.click(
           screen.getByRole('option', {
             // This is the accessible name for the suggestion.
             name: 'suggestion-result suggestion-result Go to the add-on page',
           }),
         );
+        console.log('--- await from clicking on the link returned!');
+        console.log(
+          '----- store.autocomplete after clicking a result: ',
+          store.getState().autocomplete,
+        );
+
+        screen.debug(screen.getByClassName('SearchForm'), Infinity);
 
         expect(pushSpy).toHaveBeenCalledWith(expected);
       },
@@ -989,8 +1010,7 @@ describe(__filename, () => {
 
     it('does not push anything if the URL is empty', async () => {
       const fakeResult = createFakeAutocompleteResult({ url: '' });
-      const history = createHistory();
-      render({ history });
+      render();
 
       const pushSpy = jest.spyOn(history, 'push');
 

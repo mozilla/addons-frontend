@@ -247,6 +247,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     event: ElementEvent,
     { suggestion }: {| suggestion: SuggestionType |},
   ) => {
+    console.log('----- in handleSuggestionSelected, this.props: ', this.props);
     event.preventDefault();
 
     if (this.props.loadingSuggestions) {
@@ -255,6 +256,9 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
     }
 
     this.setState({ autocompleteIsOpen: false, searchValue: '' });
+    console.log(
+      '----- in handleSuggestionSelected, calling this.props.onSuggestionSelected...',
+    );
     this.props.onSuggestionSelected(suggestion);
   };
 
@@ -358,6 +362,10 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 }
 
 const mapStateToProps = (state: AppState): PropsFromState => {
+  console.log(
+    '--- in mapStateToProps, state.autocomplete: ',
+    state.autocomplete,
+  );
   return {
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
