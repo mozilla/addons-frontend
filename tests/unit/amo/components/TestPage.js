@@ -962,7 +962,7 @@ describe(__filename, () => {
       ],
     ])(
       'pushes a new route to %s when a suggestion is selected',
-      (url, expected) => {
+      async (url, expected) => {
         const fakeResult = createFakeAutocompleteResult({ url });
         const history = createHistory();
         render({ history });
@@ -970,7 +970,7 @@ describe(__filename, () => {
         const pushSpy = jest.spyOn(history, 'push');
 
         userEvent.type(screen.getByRole('searchbox'), 'test');
-        dispatchAutocompleteResults({ results: [fakeResult], store });
+        await dispatchAutocompleteResults({ results: [fakeResult], store });
         userEvent.click(
           screen.getByRole('option', {
             // This is the accessible name for the suggestion.
@@ -982,7 +982,7 @@ describe(__filename, () => {
       },
     );
 
-    it('does not push anything if the URL is empty', () => {
+    it('does not push anything if the URL is empty', async () => {
       const fakeResult = createFakeAutocompleteResult({ url: '' });
       const history = createHistory();
       render({ history });
@@ -990,7 +990,7 @@ describe(__filename, () => {
       const pushSpy = jest.spyOn(history, 'push');
 
       userEvent.type(screen.getByRole('searchbox'), 'test');
-      dispatchAutocompleteResults({ results: [fakeResult], store });
+      await dispatchAutocompleteResults({ results: [fakeResult], store });
       userEvent.click(
         screen.getByRole('option', {
           name: 'suggestion-result suggestion-result Go to the add-on page',

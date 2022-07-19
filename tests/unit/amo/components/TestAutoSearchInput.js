@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import AutoSearchInput, {
@@ -17,6 +18,7 @@ import {
   autocompleteStart,
 } from 'amo/reducers/autocomplete';
 import {
+  changeLocation,
   createFailedErrorHandler,
   createFakeAutocompleteResult,
   createFakeDebounce,
@@ -24,7 +26,6 @@ import {
   dispatchAutocompleteResults,
   createHistory,
   dispatchClientMetadata,
-  onLocationChanged,
   render as defaultRender,
   screen,
 } from 'tests/unit/helpers';
@@ -85,10 +86,12 @@ describe(__filename, () => {
       expect(screen.getByRole('searchbox')).toHaveValue('');
     });
 
-    it('does not update the query on location changes', () => {
+    it('does not update the query on location changes', async () => {
       const query = 'adblocker';
       const typedQuery = 'panda themes';
-      render({ location: `/?${defaultInputName}=${query}` });
+      const { history } = render({
+        location: `/?${defaultInputName}=${query}`,
+      });
 
       typeInSearch(typedQuery);
 
@@ -96,12 +99,10 @@ describe(__filename, () => {
 
       // Update the component with the same initial query. This should be
       // ignored.
-      store.dispatch(
-        onLocationChanged({
-          pathname: '/',
-          search: `?${query}`,
-        }),
-      );
+      await changeLocation({
+        history,
+        pathname: `/?${query}`,
+      });
 
       expect(screen.getByRole('searchbox')).toHaveValue(typedQuery);
     });
@@ -280,8 +281,8 @@ describe(__filename, () => {
       );
     });
 
-    it('keeps the search results menu open while searching', () => {
-      dispatchAutocompleteResults({
+    it('keeps the search results menu open while searching', async () => {
+      await dispatchAutocompleteResults({
         results: [createFakeAutocompleteResult()],
         store,
       });
@@ -294,8 +295,8 @@ describe(__filename, () => {
       );
     });
 
-    it('keeps the search results menu open when focused', () => {
-      dispatchAutocompleteResults({
+    it('keeps the search results menu open when focused', async () => {
+      await dispatchAutocompleteResults({
         results: [createFakeAutocompleteResult()],
         store,
       });
@@ -315,8 +316,8 @@ describe(__filename, () => {
   });
 
   describe('clearing search suggestions', () => {
-    it('closes suggestion menu on escape', () => {
-      dispatchAutocompleteResults({
+    it('closes suggestion menu on escape', async () => {
+      await dispatchAutocompleteResults({
         results: [createFakeAutocompleteResult()],
         store,
       });
@@ -348,14 +349,14 @@ describe(__filename, () => {
   });
 
   describe('selecting search suggestions', () => {
-    it('executes a callback when selecting a suggestion', () => {
+    it('executes a callback when selecting a suggestion', async () => {
       const fakeResult = createFakeAutocompleteResult();
       const onSuggestionSelected = jest.fn();
       render({ onSuggestionSelected });
 
       typeInSearch('test');
 
-      dispatchAutocompleteResults({ results: [fakeResult], store });
+      await dispatchAutocompleteResults({ results: [fakeResult], store });
 
       userEvent.click(screen.getByRole('option'));
 
@@ -381,42 +382,46 @@ describe(__filename, () => {
       expect(onSuggestionSelected).not.toHaveBeenCalled();
     });
 
-    it('closes suggestion menu when selecting a suggestion', () => {
+    it('closes suggestion menu when selecting a suggestion', async () => {
       render();
 
       typeInSearch('test');
 
-      dispatchAutocompleteResults({
+      await dispatchAutocompleteResults({
         results: [createFakeAutocompleteResult()],
         store,
       });
 
       userEvent.click(screen.getByRole('option'));
 
-      expect(screen.getByClassName('AutoSearchInput')).not.toHaveClass(
-        'AutoSearchInput--autocompleteIsOpen',
+      await waitFor(() =>
+        expect(screen.getByClassName('AutoSearchInput')).not.toHaveClass(
+          'AutoSearchInput--autocompleteIsOpen',
+        ),
       );
     });
 
-    it('resets the search query when selecting a suggestion', () => {
+    it('resets the search query when selecting a suggestion', async () => {
       const query = 'test';
       render();
 
       typeInSearch(query);
       expect(screen.getByRole('searchbox')).toHaveValue(query);
 
-      dispatchAutocompleteResults({
+      await dispatchAutocompleteResults({
         results: [createFakeAutocompleteResult()],
         store,
       });
 
       userEvent.click(screen.getByRole('option'));
 
-      expect(screen.getByRole('searchbox')).toHaveValue('');
+      await waitFor(() =>
+        expect(screen.getByRole('searchbox')).toHaveValue(''),
+      );
     });
   });
 
-  it('renders a suggestion', () => {
+  it('renders a suggestion', async () => {
     const iconUrl = `https://addons.mozilla.org/user-media/some-icon.png`;
     const name = 'suggestion name';
     const selectSuggestionText = 'Visit extension detail page';
@@ -429,7 +434,7 @@ describe(__filename, () => {
 
     typeInSearch('test');
 
-    dispatchAutocompleteResults({ results: [fakeResult], store });
+    await dispatchAutocompleteResults({ results: [fakeResult], store });
 
     expect(screen.getByAltText(name)).toHaveAttribute('src', iconUrl);
     expect(screen.getByText(name)).toBeInTheDocument();
@@ -448,7 +453,7 @@ describe(__filename, () => {
   });
 
   describe('getting suggestion data', () => {
-    it('returns suggestion results', () => {
+    it('returns suggestion results', async () => {
       const firstName = 'Addon One';
       const secondName = 'Addon Two';
       const firstResult = createFakeAutocompleteResult({ name: firstName });
@@ -457,7 +462,7 @@ describe(__filename, () => {
 
       typeInSearch('test');
 
-      dispatchAutocompleteResults({
+      await dispatchAutocompleteResults({
         results: [firstResult, secondResult],
         store,
       });
@@ -508,7 +513,7 @@ describe(__filename, () => {
   });
 
   describe('Tests for SearchSuggestion', () => {
-    it('displays a promoted icon when the add-on is promoted', () => {
+    it('displays a promoted icon when the add-on is promoted', async () => {
       const result = createFakeAutocompleteResult({
         promoted: { category: RECOMMENDED, apps: [CLIENT_APP_ANDROID] },
       });
@@ -516,18 +521,18 @@ describe(__filename, () => {
 
       typeInSearch('test');
 
-      dispatchAutocompleteResults({ results: [result], store });
+      await dispatchAutocompleteResults({ results: [result], store });
 
       expect(screen.getByText('Recommended')).toHaveClass('visually-hidden');
     });
 
-    it('does not display a promoted icon when the add-on is not promoted', () => {
+    it('does not display a promoted icon when the add-on is not promoted', async () => {
       const result = createFakeAutocompleteResult({ promoted: null });
       render();
 
       typeInSearch('test');
 
-      dispatchAutocompleteResults({ results: [result], store });
+      await dispatchAutocompleteResults({ results: [result], store });
 
       expect(screen.queryByText('Recommended')).not.toBeInTheDocument();
     });
