@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-12 16:12+0000\n"
+"POT-Creation-Date: 2022-07-19 19:19+0000\n"
 "PO-Revision-Date: 2022-06-17 11:15+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -1422,19 +1422,19 @@ msgstr ""
 "Tiện ích này đã được xem xét để đáp ứng các tiêu chuẩn của chúng tôi về bảo "
 "mật và hiệu suất."
 
-#: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
+#: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
 msgstr "Xếp hạng %(rating)s trong số 5"
 
-#: src/amo/components/Rating/index.js:111
+#: src/amo/components/Rating/index.js:109
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Cập nhật xếp hạng của bạn lên %(starRating)s sao"
 
-#: src/amo/components/Rating/index.js:117
+#: src/amo/components/Rating/index.js:115
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Xếp hạng tiện ích này %(starRating)s sao"
 
-#: src/amo/components/Rating/index.js:98
+#: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
 msgstr "Chưa có xếp hạng nào"
 

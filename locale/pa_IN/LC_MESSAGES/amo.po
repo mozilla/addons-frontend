@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-12 16:12+0000\n"
+"POT-Creation-Date: 2022-07-19 19:19+0000\n"
 "PO-Revision-Date: 2022-07-03 14:47+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1428,19 +1428,19 @@ msgstr ""
 "ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ "
 "ਹਨ।"
 
-#: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
+#: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
 msgstr "5 ਵਿੱਚੋਂ %(rating)s ਦਰਜਾ ਦਿੱਤਾ"
 
-#: src/amo/components/Rating/index.js:111
+#: src/amo/components/Rating/index.js:109
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "ਆਪਣੀ ਰੇਟਿੰਗ ਨੂੰ 5 ਤੋਂ ਬਾਹਰ %(starRating)s ਦੇ ਅਨੁਸਾਰ ਅਪਡੇਟ ਕਰੋ"
 
-#: src/amo/components/Rating/index.js:117
+#: src/amo/components/Rating/index.js:115
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "ਇਸ ਐਡ-ਆਨ %(starRating)s ਨੂੰ 5 ਵਿਚੋਂ ਰੇਟ ਕਰੋ"
 
-#: src/amo/components/Rating/index.js:98
+#: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
 msgstr "ਹਾਲੇ ਤੱਕ ਕੋਈ ਰੇਟਿੰਗ ਨਹੀਂ ਹਨ"
 

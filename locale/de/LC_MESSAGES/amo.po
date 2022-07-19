@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-12 16:12+0000\n"
+"POT-Creation-Date: 2022-07-19 19:19+0000\n"
 "PO-Revision-Date: 2022-06-14 19:36+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -1447,19 +1447,19 @@ msgstr ""
 "Dieses Add-on wurde überprüft, um unsere Standards für Sicherheit und "
 "Leistung zu erfüllen."
 
-#: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
+#: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
 msgstr "Bewertet mit %(rating)s von 5 Sternen"
 
-#: src/amo/components/Rating/index.js:111
+#: src/amo/components/Rating/index.js:109
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Aktualisieren Sie Ihre Bewertung auf %(starRating)s von 5 Sternen"
 
-#: src/amo/components/Rating/index.js:117
+#: src/amo/components/Rating/index.js:115
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Bewerten Sie dieses Add-on mit %(starRating)s von 5 Sternen"
 
-#: src/amo/components/Rating/index.js:98
+#: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
 msgstr "Es liegen noch keine Bewertungen vor"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-12 16:12+0000\n"
+"POT-Creation-Date: 2022-07-19 19:19+0000\n"
 "PO-Revision-Date: 2021-03-26 23:11+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1473,22 +1473,22 @@ msgstr ""
 "Re tz'aqat re' xnik'öx richin nib'anatäj ri rub'eyal qajikomal chuqa' "
 "rub'eyal samaj."
 
-#: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
+#: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Rejqalem %(rating)s richin 5"
 
-#: src/amo/components/Rating/index.js:111
+#: src/amo/components/Rating/index.js:109
 #, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Rejqalem %(rating)s richin 5"
 
-#: src/amo/components/Rating/index.js:117
+#: src/amo/components/Rating/index.js:115
 #, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Rejqalem %(rating)s richin 5"
 
-#: src/amo/components/Rating/index.js:98
+#: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
 msgstr ""
 
