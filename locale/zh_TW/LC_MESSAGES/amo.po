@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-12 16:12+0000\n"
+"POT-Creation-Date: 2022-07-19 19:19+0000\n"
 "PO-Revision-Date: 2022-06-15 02:58+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -1380,19 +1380,19 @@ msgid ""
 "performance."
 msgstr "我們檢查過此附加元件，確認符合我們的安全性與運作效能標準。"
 
-#: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
+#: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
 msgstr "評價 %(rating)s 分，滿分 5 分"
 
-#: src/amo/components/Rating/index.js:111
+#: src/amo/components/Rating/index.js:109
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "更新您的評分為 %(starRating)s 分，滿分 5 分"
 
-#: src/amo/components/Rating/index.js:117
+#: src/amo/components/Rating/index.js:115
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "為這套附加元件評價 %(starRating)s 分，滿分 5 分"
 
-#: src/amo/components/Rating/index.js:98
+#: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
 msgstr "目前沒有評分"
 

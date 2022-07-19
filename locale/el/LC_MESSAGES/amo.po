@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-07-12 16:12+0000\n"
+"POT-Creation-Date: 2022-07-19 19:19+0000\n"
 "PO-Revision-Date: 2022-06-15 09:35+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -1439,19 +1439,19 @@ msgstr ""
 "Αυτό το πρόσθετο έχει ελεγχθεί και πληροί τα πρότυπα ασφαλείας και επιδόσεών "
 "μας."
 
-#: src/amo/components/Rating/index.js:105 src/amo/components/Rating/index.js:94
+#: src/amo/components/Rating/index.js:103 src/amo/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
 msgstr "Βαθμολογία %(rating)s από 5"
 
-#: src/amo/components/Rating/index.js:111
+#: src/amo/components/Rating/index.js:109
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Ενημερώστε τη βαθμολογία σας σε %(starRating)s από 5"
 
-#: src/amo/components/Rating/index.js:117
+#: src/amo/components/Rating/index.js:115
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Βαθμολόγηση προσθέτου με %(starRating)s από 5"
 
-#: src/amo/components/Rating/index.js:98
+#: src/amo/components/Rating/index.js:96
 msgid "There are no ratings yet"
 msgstr "Δεν υπάρχουν ακόμη βαθμολογίες"
 
