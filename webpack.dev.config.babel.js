@@ -59,6 +59,10 @@ export default {
     // messages, because they use
     // [Invariant](https://github.com/zertosh/invariant) which hides error
     // messages in the production build.
+    //
+    // We can no longer load the React versions from /umd/ as it no longer
+    // exists.
+    // See https://github.com/mozilla/addons-frontend/issues/11737
     // new webpack.NormalModuleReplacementPlugin(
     //   /^react$/,
     //   'react/umd/react.development.js',
