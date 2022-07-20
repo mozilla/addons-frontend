@@ -910,9 +910,11 @@ describe(__filename, () => {
       store,
     });
 
-    expect(
-      screen.getByRole('button', { name: 'Publish reply' }),
-    ).not.toHaveClass('Button--disabled');
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Publish reply' }),
+      ).not.toHaveClass('Button--disabled'),
+    );
     expect(
       screen.queryByRole('button', { name: 'Publishing reply' }),
     ).not.toBeInTheDocument();
